@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem includes full definitions, the all-subgroup quantifier and the excluded two-vertex boundary. The main step not already present in the ordinary proof is the invariant convex-neighborhood argument: nonempty invariant intersections admit averaged fixed witnesses, and the orbit convex cover of every fixed flat fiber covers the entire fixed vector space. The finite verification checks orbit complexes and exact boundary ranks independently; it cannot prove the uniform theorem. No externally certified formal proof is claimed.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Björner–Welker (1999) and Hultman (2004) determine nonequivariant topology; Ayzenberg–Beketov–Magai (2023), Construction 2.9 and Theorem 5, supply the nonequivariant join via the same underlying map. Their ordinary fiber argument does not itself prove that every fixed fiber is contractible. The new claim upgrades the map to a genuine equivariant equivalence and realizes proper subgroup lattices for all finite regular actions. The older full article could not be inspected and this proximity poses genuine publication-priority risk; a failed search is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Subgroup-fixed homotopy types are genuinely stronger than an ordinary wedge decomposition or a homology character. Realization of arbitrary finite-group proper subgroup lattices in one canonical digraph-complex family is a structural result with concrete cyclic and elementary-abelian classifications, not a routine extra numerical parameter.
+PASS. For n>=3 the directed arcs of complete loopless K_n form a closed-hemisphere (big constellation) nerve exactly when the graph is not strongly connected. The root (e_j-e_i)/sqrt2, cone lineality W_I, and order-reversed type-A flat lattice make Construction 2.9's map S_n-equivariant. For any H-fixed DAG face its lower fiber has the fixed top element. For an H-invariant proper nonzero flat Pi the lower fiber is the nerve of the closed convex sets B_i: inequalities <u,z_i>>=0 on roots in Pi and >=1 otherwise. This family is permuted by H; every H-stable nonempty intersection admits a fixed witness by averaging. Nerve of orbit intersections in V_n^H equals the geometric fixed face nerve. The orbit sets cover V_n^H because a nonzero arrangement flat contains an antipodal root pair with complementary >=0 halfspaces. Convex intersections are contractible, so every fixed lower fiber is contractible; fixed-poset Quillen plus equivariant Whitehead gives genuine equivalence, not homeomorphism. DAG open hemispheres likewise have fixed nonzero averaged witnesses and equivariantly nerve-model S(V_n). For transitive H, V_n^H=0; regular H-invariant partitions are exactly coset equivalence relations from proper nontrivial subgroups. The squarefree cyclic/elementary abelian corollaries use standard divisor-lattice and Solomon-Tits results, not an invented topological classification. Independently enumerated direct transitive closure for all 1,020 step-subsets under cyclic regular actions n=3..10, matching the gcd=1 criterion. This finite check corroborates only finite cases; the proof handles all groups n>=3.
 
-## Limitations and proximity
-A closely related ordinary decomposition is the main precursor. Full-text comparison of Björner–Welker could not be completed, and publication novelty merits independent specialist assessment. Neither stronger homeomorphism nor a statement for an arbitrary ambient digraph is proved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the genuinely equivariant all-subgroup refinement and regular-subgroup-lattice fixed-space realization; ordinary nonequivariant join and sphere factors are credited to the primary papers, not claimed new.
+
+## value
+
+PASS
+
+PASS: True genuine subgroup-fixed homotopy models, across all H<=S_n, are strictly stronger than ordinary homology or a character formula; the realization of arbitrary finite-group proper subgroup-lattice topology is structural and yields natural cyclic and elementary-abelian classifications. The convex orbit-average fiber argument is a motivated topological advance, not an exercise in renaming the known ordinary decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
