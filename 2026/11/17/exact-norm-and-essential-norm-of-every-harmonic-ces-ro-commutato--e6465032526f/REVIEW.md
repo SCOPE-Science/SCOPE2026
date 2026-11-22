@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact matrix kernel follows by repeated diagonal commutation on the finitely supported core. The nonnegative coefficient inequality \(K_r\le r!C^{r+1}\) follows by sorting tuples and counting permutation preimages, including repeated indices; Hardy's sharp \(\ell^p\) inequality yields the upper bound. For each fixed tail, truncated power-law inputs and a dominated logarithmic Riemann-sum limit yield the matching norm. Compactness of adjoints and dual tail projections then gives the essential norm. The power-series radius follows directly from the coefficient norms. Exact-rational finite checks verify the coefficient inequality, but the analytical argument — not finite numerics — establishes the infinite assertions. A bounded extension is shown without incorrectly assuming that harmonic-number multiplication is bounded.
+## correctness
 
-## Originality — PASS, qualified
-The strongest directly matching published claim found in accessible historical and research-record searches concerned Hardy commutator boundedness and symbol conditions, not an all-order exact norm and essential norm for the integer-harmonic diagonal of discrete Cesàro averaging. The full accessible 2018 Hardy-norm study proves the base-operator norm only. The accessible 2012 higher-order Hardy discussion uses continuous-space and dyadic-scale formulations, and does not explicitly give the present integer-harmonic infinite-matrix constants in the readable text. Two closely related published generalized-Cesàro studies were inspected in full and concern compact power diagonals or periodic bounded diagonals, rather than the unbounded harmonic symbol and all-\(p\) factorial equality. The original 2002 Long–Wang paper and some rendered 2012 equations were not fully accessible; they remain historical-priority risks. No universal novelty certificate is claimed.
+PASS
 
-## Value — PASS
-The harmonic-number multiplier is the canonical discrete version of logarithmic dilation, and its commutator with prefix averaging is natural but not covered by the bounded-multiplier estimate. Exact constants simultaneously in the order and exponent, plus equality of essential and full norm on every tail, give a complete stability and noncompactness classification. The factorial growth fixes the exact operator-valued Taylor radius, a quantitative consequence not supplied by qualitative commutator boundedness. This is a structural all-parameter theorem, not a table recomputation or unmotivated finite slice.
+On finitely supported sequences the r-fold commutator of M_H with C has matrix k_r(i,j)=(H_i-H_j)^r/i for i>=j (r=0 convention). Sorting the r ordered harmonic increments bounds it coefficientwise by r! C^(r+1); Hardy’s sharp ℓ^p norm yields ≤r! (p/(p-1))^(r+1). For fixed lower-tail cutoff m, truncated vectors j^(-1/p) on [m,N] yield asymptotic pointwise ratio by a logarithmic Riemann-sum gamma integral r!/(1-1/p)^(r+1), and harmonic sums yield sharp tail operator norm. For compact B, BQ_m->0 via uniform convergence of Q_m* on compact B* unit-ball image, so essential norm equals this sharp norm. Coefficient norms imply Taylor radius (p-1)/p. Independent Fraction computations verified 7x7 matrices and coefficient domination through r=4; finite tests do not imply infinite-dimensional norm.
 
-## Closest literature and limitations
-Zhao (2012) and Fu–Lu–Yuan (2012) address Hardy commutators; Nie–Yan (2018) gives the sharp norm of the base Hardy average. Published power-diagonal and periodic-diagonal generalized Cesàro studies have genuinely different symbols and different norm questions. The older Long–Wang work was not fully inspected. The claim is confined to \(1<p<\infty\), the integer-harmonic diagonal, and fixed nonnegative integer orders; no assertion of independent certification or all-history priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after actual mathematical implication comparisons with primary literature and published Resultary corpus; no located stronger theorem implies the entire exact final claim. Distinct known antecedents and historical risks are documented.
+
+## value
+
+PASS
+
+A simultaneous exact full and essential ℓ^p norm for all orders of a natural unbounded harmonic multiplier provides a sharp Hardy-type commutator invariant, including noncompactness at the exact norm and an operator series radius. These constants are not routine boundedness statements or parameter relabeling and may be used as benchmarks in operator and approximation theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
