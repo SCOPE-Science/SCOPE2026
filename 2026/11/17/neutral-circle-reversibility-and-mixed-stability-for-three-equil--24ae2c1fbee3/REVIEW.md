@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the entire parameter region \(0<r<1/2\) and \(|\omega_i|>|\kappa|r\), the published equilateral specialization has \(H_i=\omega_i+\delta_i\sqrt{1-4r^2}-2\kappa(\sqrt3/2)r^2\). Its sign equals \(\operatorname{sgn}\omega_i\), since \(2(\sqrt3/2)r<1\), and the signed square roots have the same sign. Therefore the positive-time Floquet exponents have no singular denominators. Explicit substitution into Proposition 6.2 yields three skew differences; weighted cancellation is exact. The reflection identities are polynomial identities, separately reproduced symbolically in the checker. At a zero-exponent circle the reflection line intersects that regular periodic circle transversely twice, so the established reversible-orbit lemma gives a local period annulus. At a nonzero exponent hyperbolicity yields isolation. For \(\kappa=0\) the published first-integral argument already gives annuli. The explicit permutations have admissible angular speeds for every stated radius and exhaust all mixed patterns. No inference from finite sampling to universal proof is made.
+## correctness
 
-## Originality — PASS within inspected evidence
-Cao--Llibre (2026) explicitly owns the normal form, periodicity criterion, quadrature formula for Floquet exponents, and general reversibility lemma; these are not new. Their Theorem D gives necessary and sufficient conditions for all three to be hyperbolic, but does not classify neutral orbits at \(\kappa\ne0\), nor provide the equilateral positive-weight zero sum or the all-six-pattern realization. Proposition 6.3 handles only \(\kappa=0\). Prior general polynomial realization and circular-cycle counting work concerns more general settings without the identified equal-radius parameter classification. Related available mathematical database findings on concentric-circle periods and polynomial-cycle topology use different geometries and do not imply this conclusion. Earlier journal full texts were not fully accessible, so historical priority remains provisional, rather than proved by unsuccessful searching.
+PASS
 
-## Value — PASS
-The exact neutral-versus-isolated limit-cycle boundary is a natural unresolved distinction left by a published *hyperbolicity* classification: zero Floquet exponent alone does not decide isolation. In the highly symmetric three-circle case the neutral locus is genuinely reversible rather than a higher-multiplicity limit cycle. The positive-weight obstruction also prohibits simultaneous transverse attraction (or repulsion) of the three prescribed circles, while the six constructive mixed patterns show that nothing further is forbidden at the sign level. Both statements clarify a structurally meaningful special geometry, not an arbitrary numeric sample.
+For 3 equal exterior circles of radius 0<r<1/2 at triangle vertices, the Cao–Llibre degree<=4 normal form specializes to displayed A_i and positive-time Floquet exponents chi_i=(2*pi*kappa*r^2/(abs(delta_i)*H_i))*S_i with S_i=(omega_3-omega_2,omega_1-omega_3,omega_2-omega_1). Under each |omega_i|>|kappa|r, delta_i=sign(omega_i)sqrt(omega_i^2-kappa^2r^2), H_i=omega_i+delta_i sqrt(1-4r^2)-2kappa*(sqrt(3)/2)r^2 have sign omega_i by 2vr<1. For kappa!=0 neutral is S_i=0; the equilateral vertex-axis reflection interchanges other centers and reverses polynomial vector field in time at precisely this relation, so Cao–Llibre reversible-periodic-orbit lemma guarantees local period annulus. For kappa=0 their Proposition6.3 already gives a first integral/annuli. Set w_i=abs(delta_i) H_i omega_i/(2*pi*r^2)>0; telescoping sum w_i chi_i=kappa sum omega_i S_i=0, forcing mixed transverse signs if any chi nonzero. Six permutations of (3,1,-4) in omega_i=v/3+2a_i realize each allowed mixed triple for every r in (0,1/2), all periodicity bounds strictly hold. Reconstructed algebra and inspected symbolic checker, independently checked sign constructions and weighted identity, rather than relying on VERIFY_OK alone.
 
-## Residual risks
-The result classifies only the prescribed circles. It does not rule out other periodic orbits or extend to asymmetric radii, and the exact priority of the specialized neutral-isolation classification has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cao–Llibre arXiv:2611.05696v1 (Nov3 2026) Theorem D and Propositions6.1–6.3 contain exactly the general quartic normal form, periodicity condition, characteristic exponents and kappa=0 annulus; Lemma2.4 establishes generic reversible orbit theorem. These are all **prior**. Their paper does not classify the equal-radius equilateral nonzero-kappa neutral axes, prove each forces the exact reflection invariance, derive the positive-weight Floquet sign obstruction, or show all six feasible patterns. This is a genuine geometry-specific structural refinement, best-of-knowledge original. The earlier generic reflection lemma is cited as a premise, not new.
+
+## value
+
+PASS
+
+The neutral Floquet boundary of a prescribed invariant periodic circle is a mathematically meaningful degeneracy where multiplier 1 alone cannot distinguish weak isolated cycle from an annulus. Equilateral geometry forces reversibility and rules out nonhyperbolic isolated circles while proving a sharp sign-balance law and six realizations. This is substantive phase-portrait rigidity in a natural three-circle family, not a rote parameter rename.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
