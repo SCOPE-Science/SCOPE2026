@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The positive biological domain is invariant for \(0<c\le1/2\) and \(0<\theta c<1\). Predator monotonicity, a logistic lower comparison and an exact extinction-tangency identity give convergence to \((1,0)\) for every interior starting state in that domain. A contracting error recurrence rigorously derives \(1-u_n=a v_n+bv_n^2+O(v_n^3)\) before deriving the cubic/quartic predator recurrence; summation of exact reciprocal-square increments yields both displayed two-term limits with \(O(\log n/n^{3/2})\) remainders. Exact rational symbolic checks and finite diagnostics are reproducible in `check.py`. Infinite conclusions are analytical, not extrapolations from experiments.
+## correctness
 
-## Originality — PASS within the inspected evidence
-Shoyimardonov (2022, arXiv:2207.01961v1) establishes model equilibria and bifurcation analysis, not this two-term decay law. Shoyimardonov–Rozikov (2024, arXiv:2408.13804v1) studies the exact same Holling-II map and relevant invariant sets, but its accessible full text does not give the quadratically tangent threshold's sharp predator and prey asymptotic coefficients. A previously published same-map criterion for the existence of positive prime-two cycles excludes its ratio endpoint \(q=\theta/\beta=(1+c)^{-2}\), where the present theorem is located, but does not imply these two-term rates. Related slow-decay results for other nonlinear maps do not specialize to this model. No matching equivalent statement was found in the accessible published mathematical records searched. This is evidence-limited originality, not proof of worldwide priority; a partly indexed or differently phrased result could exist.
+PASS
 
-## Value — PASS
-The tangency of the predator invasion multiplier at the prey-only equilibrium is a nonhyperbolic boundary where eigenvalue stability tests cannot distinguish algebraic extinction scales. The global positive-basin result computes the rate and a nonobvious first correction for both interacting populations. The saturation-independence of the prey correction gives an interpretable structural distinction between first- and second-order critical response, rather than a trivial fixed-point or rounding calculation. Exact threshold tuning and the biological invariant region delimit the result.
+At c∈(0,1/2], θ>0, θc<1 and r=cθ, β=θ(1+c)², exact w=1−u identities give w_next=w²+(1−w)v/(1+c−cw) and v_next=v[1−θ c w²/(1+c−cw)]. For prescribed positive u,v wedge B(u)=(2−u)(1+cu) nonincreasing, forward region invariant; v decreases and contradiction forces v→0, logistic lower comparison then u→1. Contracting difference estimates produce w=a v+b v²+O(v³) with a=(1+c)^−1 and b=c/(1+c)^3, so v_next=v−Kv³−Lv⁴+O(v⁵), K=θc/(1+c)^3, L=3θc²/(1+c)^5. Summation of Δ(v^−2)=2K+2Lv+O(v²) gives full two-term n^−1/2 and n^−1 expansions with O(log n/n^3/2) remainders; exact cancellation gives u second coefficient 1/θ. Independent SymPy rational-coefficient check corroborates algebra, not global asymptotics.
 
-## Residual limits
-The model is deterministic and two-dimensional; the proof does not cover arbitrary parameters, initial states outside the invariant region, stochastic dynamics or general critical normal forms. The 2024 source and 2022 first source were compared at the level of the original equations, parameter restrictions and asymptotic implications, and related newer formulations were checked. Additional inaccessible or unindexed literature could affect priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level novelty after actual Resultary semantic search, frozen source-package comparison and identified relevant primary mathematics. No inspected stronger claim was shown to imply this final theorem; acknowledged access/priority risks remain, not a claim of global uniqueness.
+
+## value
+
+PASS
+
+Quadratic tangency at neutral predator invasion creates a genuine nonhyperbolic ecological boundary where linear stability tests give no rates. The precise global invariant-basin profile, sharp subleading terms and saturation-independent prey correction are motivated asymptotic invariants, useful for parameter interpretations and distinguishing normal forms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

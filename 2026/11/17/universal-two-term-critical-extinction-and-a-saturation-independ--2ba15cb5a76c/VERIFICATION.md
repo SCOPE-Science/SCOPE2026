@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-From the directory containing `RESULT.md` and `check.py`, run `python3 check.py`. It uses Python standard-library exact fractions to verify three rational instances of the critical parameter equalities, the exact coordinate update identities, the stationary-defect coefficients \(a,b\), the effective cubic and quartic map coefficients \(K,L\), and the algebraic cancellation yielding \(+1/\theta\). It then performs finite numerical orbit diagnostics from three interior initial states, with strict positivity assertions and printed convergence comparisons. These are actual reproducible checks, not an infinite-time proof.
+## correctness
 
-The theorem's global positivity is proved by monotonicity of \(B(u)=(2-u)(1+cu)\), critical extinction by a reciprocal multiplier and logistic comparison, coefficient control by contracting difference equations, and the remainder estimate by summing \(v_n^{-2}\) increments. The proof is contained in `RESULT.md` and does not depend on printed diagnostic values. No independent audit or independently certified computation is claimed.
+PASS
+
+At c∈(0,1/2], θ>0, θc<1 and r=cθ, β=θ(1+c)², exact w=1−u identities give w_next=w²+(1−w)v/(1+c−cw) and v_next=v[1−θ c w²/(1+c−cw)]. For prescribed positive u,v wedge B(u)=(2−u)(1+cu) nonincreasing, forward region invariant; v decreases and contradiction forces v→0, logistic lower comparison then u→1. Contracting difference estimates produce w=a v+b v²+O(v³) with a=(1+c)^−1 and b=c/(1+c)^3, so v_next=v−Kv³−Lv⁴+O(v⁵), K=θc/(1+c)^3, L=3θc²/(1+c)^5. Summation of Δ(v^−2)=2K+2Lv+O(v²) gives full two-term n^−1/2 and n^−1 expansions with O(log n/n^3/2) remainders; exact cancellation gives u second coefficient 1/θ. Independent SymPy rational-coefficient check corroborates algebra, not global asymptotics.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level novelty after actual Resultary semantic search, frozen source-package comparison and identified relevant primary mathematics. No inspected stronger claim was shown to imply this final theorem; acknowledged access/priority risks remain, not a claim of global uniqueness.
+
+## value
+
+PASS
+
+Quadratic tangency at neutral predator invasion creates a genuine nonhyperbolic ecological boundary where linear stability tests give no rates. The precise global invariant-basin profile, sharp subleading terms and saturation-independent prey correction are motivated asymptotic invariants, useful for parameter interpretations and distinguishing normal forms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
