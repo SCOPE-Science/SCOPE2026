@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "The mask upper bound is immediate. For n<=2t+1, two identical symbols are at cyclic distance d<=t; deleting the intervening d−1 positions and exchanging which equal endpoint is removed yields two distinct t-deletion masks after t−d common exterior deletions (possible since n>=t+1). Thus short full shadows require pairwise distinct symbols, and the converse follows from surviving symbol sets. At any n, t unique markers plus period-(t+1) data with separate letters recover the deleted-marker set and anchor the circular output; retained index lists for r<=t deletions differ by <=r positionwise, so cannot match two equal data letters whose spacing is >=t+1. The critical n=2t+1 forces q>=2t+1, and n=2t+2 repeats the first data letter. The bundled verifier tests 60 construction parameter pairs/27113 masks, 4461 exhaustive critical words/44358 masks and three quaternary diagnostics; enumerations corroborate rather than prove all t,n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Wang–Fu [arXiv:2601.06493, Sections I, IV-V] study linear q-ary deletion spheres; their outputs retain a designated linear origin.",
+        "Circular trace work [arXiv:2512.02412, Definitions 5-6] is a stochastic reconstruction/sample-complexity statement, not a deterministic all-mask fiber theorem.",
+        "The published linear run-collision criterion https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be concerns two deletion patterns in linear words, not output necklaces."
+      ],
+      "reasoning": "The cyclic quotient can identify distinct linear deletion outputs, so a larger linear sphere count is not stronger coverage of full necklace shadows. The marker construction and sharp circle-arc obstruction are not implied by the linear extremum or stochastic reconstruction results.",
+      "searches": [
+        "sharp alphabet 2t+1 full binomial n choose t necklace circular deletion sphere all deletion masks injective marker construction",
+        "t deletion descendants of circular word all binomial n t rotation classes distinct minimal alphabet size",
+        "arXiv:2601.06493 Sections I, IV–V",
+        "arXiv:2512.02412 Definitions 5-6",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2412.03289v2",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.30/LIPIcs.ITCS.2026.30.html",
+      "https://arxiv.org/html/2601.06493v2",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be",
+      "https://arxiv.org/abs/2412.03289",
+      "https://arxiv.org/abs/2512.02412",
+      "https://arxiv.org/abs/2601.06493"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] bounds identifying *binary sources* from their cyclic subsequence sets; this does not distinguish separate masks on a fixed source.",
+        "[2] identifies distributions of circular random traces, not a deterministic support cardinality or mask injectivity criterion.",
+        "[3] proves linear subsequence bounds, which can be lost after quotient by cyclic rotations.",
+        "Permutation-power result [4] explicitly treats noninjectivity from periodic mask orbits."
+      ],
+      "reasoning": "The new implication is that exactly 2t+1 labels suffice at every admissible length to preserve all binomial(n,t) mask histories after rotation, and that at lengths n<=2t+1 any repeated symbol forces a collision. A linear extremal statement or short special-source orbit count cannot imply the cyclic threshold without the new marker and shortest-arc arguments.",
+      "searches": [
+        "circular q-ary two-deletion masks fully distinct rotation classes all n minimum alphabet 2t+1 markers",
+        "sharp alphabet 2t+1 full binomial n choose t necklace circular deletion sphere all deletion masks injective marker construction",
+        "t deletion descendants of circular word all binomial n t rotation classes distinct minimal alphabet size",
+        "arXiv:2412.03289 Theorem 1.1",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Luchinin–Puzynina–Rao [arXiv:2412.03289, Sections 1–2] define cyclic scattered subwords and study source reconstruction from their sets, not injectivity of all indexed mask outputs.",
+        "Permutation-power published result https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda computes distinct masks modulo the period group, not all indexed masks."
+      ],
+      "reasoning": "Full output count ≡ injectivity of the map from t-position deletion masks to oriented output necklaces. This is stronger than injectivity modulo source periods and distinct from reconstructing the source from its entire subword set. Neither available equivalent representation subsumes the exact all-length alphabet threshold.",
+      "searches": [
+        "circular q-ary two-deletion masks fully distinct rotation classes all n minimum alphabet 2t+1 markers",
+        "sharp alphabet 2t+1 full binomial n choose t necklace circular deletion sphere all deletion masks injective marker construction",
+        "t deletion descendants of circular word all binomial n t rotation classes distinct minimal alphabet size",
+        "cyclic deletion position distinguishing sequences t deletions 2t+1 symbols sharp threshold",
+        "arXiv:2412.03289 Sections 1-2",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest specialized published necklace calculation https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda covers repetition of a permutation with t<=q, but counts mask orbits and includes a first periodic-phase collision.",
+        "The published binary one-deletion degree result https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11 determines a smaller maximum in binary, without an all-t full mask-size theorem."
+      ],
+      "reasoning": "No checked table establishes the simultaneous assertions: complete short-length iff, all-length q=2t+1 construction, and least uniform alphabet threshold. The claim is not a numerical table recomputation; the finite script verifies only bounded cases.",
+      "searches": [
+        "four-letter circular word length seven deleting two positions maximum distinct necklaces 20",
+        "circular words two deletions all pairwise deletion masks distinct q five alphabet two sentinel markers",
+        "short-deletion necklaces indexed deletion mask quotient rotation published-finding corpus",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11"
+      ]
+    },
+    "rationale": "Full-text comparisons distinguish (a) source reconstruction from the set of cyclic subsequences, (b) stochastic trace complexity, (c) linear deletion-ball counting, and (d) rotation-orbit enumeration of special periodic sources. The new claim is indexed-mask injectivity modulo output rotation with a sharp all-length alphabet and first-repeat onset; inspected results do not entail it. Remaining risk: unindexed equivalent constructions.",
+    "residual_risks": [
+      "An unindexed marker-based full necklace shadow result or a stronger collision-free cyclic deletion embedding theorem could imply the present construction.",
+      "Only relevant visible published science and primary full texts were inspected; no absolute mathematical novelty certification is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover all-mask injectivity or alphabet threshold.",
+        "evidence": [
+          "Defines a cyclic scattered subword as a rotation class of selected positions and proves binary source reconstruction from their full sets; output membership vs mask-fiber injectivity are different."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.03289v2",
+        "material_read": "Full HTML Sections 1 Introduction, 2 Definitions and notation, and main Theorem 1.1; matched cyclic subword definition against indexed-mask version.",
+        "method": "Read arXiv rendered primary HTML and check theorem quantifiers/output equivalence.",
+        "title": "Recovery of cyclic words by their subwords",
+        "trigger": "Closest primary cyclic-scattered-subword reconstruction study and MSC2020 68R15 ownership."
+      },
+      {
+        "assessment": "Random-channel trace sample complexity, no exact deterministic full-indexed-mask count.",
+        "evidence": [
+          "Definition 5 independently deletes bits with probability p then applies uniform random shift; objective is source reconstruction sample complexity, not mask injectivity."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.30/LIPIcs.ITCS.2026.30.html",
+        "material_read": "Full proceedings HTML Introduction and Sections 2 Definitions (especially Definitions 5 and 6), claims and lower/upper results in Sections 4-5.",
+        "method": "Read open HTML source with section-level statement comparisons.",
+        "title": "New Bounds for Circular Trace Reconstruction",
+        "trigger": "Circular deletion plus random cyclic shift is the closest physical channel model."
+      },
+      {
+        "assessment": "Provides linear counts and periodic extremal inputs but does not imply cyclic mask identification.",
+        "evidence": [
+          "Linear D_t(X) is set of ordinary strings; periodic data can be rotated and collide without unique source markers."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.06493v2",
+        "material_read": "Full arXiv HTML Sections I Introduction, IV Balanced strings, V Upper bound; inspected linear deletion ball definitions and statements.",
+        "method": "Read HTML rendered full primary text and compare exact domain/quotient.",
+        "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+        "trigger": "General linear q-ary sphere maximization and cyclic-periodic data construction antecedent."
+      },
+      {
+        "assessment": "Special periodic sources: counts quotient mask orbits, not every indexed mask; proves noncollision only modulo period.",
+        "evidence": [
+          "At t<q result explicitly says one necklace per orbit of masks under source period-q shifts. For k>=2, each typical orbit contains k>1 indexed masks and hence cannot have full binomial(qk,t) output count."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+        "material_read": "Complete RESULT.md Finding, Assumptions and scope, Proof, Relationship to prior work, Limitations, References.",
+        "method": "Read published repository RESULT.md via read-only GitHub connector.",
+        "title": "Short-deletion necklaces of permutation powers: exact orbit counts and the first phase-wrap collision",
+        "trigger": "Published closely matching circular exact t-deletion count with rotation-equivalent outputs."
+      },
+      {
+        "assessment": "Linear run-count source; not circular output necklaces, so no stronger implication.",
+        "evidence": [
+          "Collision criterion for linear words is expressed by intervening run lengths; no cyclic mask orbit equivalence or distinct rotational descendants appears in its theorem."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be",
+        "material_read": "Complete published RESULT.md including threshold theorem, proof steps, and relationship to literature.",
+        "method": "Read published repository RESULT.md via read-only GitHub connector.",
+        "title": "Exact run-pattern collision thresholds and short-deletion extremal counts",
+        "trigger": "Prior general q-ary result on deletion-pattern injectivity at short t."
+      },
+      {
+        "assessment": "Binary t=1 only, with strict deficit, rather than t>=2 and sufficient large alphabet.",
+        "evidence": [
+          "Theorem gives n-2 or n-3 maximum for long binary necklaces, excluding full n output count in that alphabet."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11",
+        "material_read": "Complete published RESULT.md Finding, Assumptions, Proof and Limitations.",
+        "method": "Read published repository RESULT.md via read-only GitHub connector.",
+        "title": "Sharp one-deletion outdegree of binary necklaces",
+        "trigger": "Closest same output equivalence in fixed binary alphabet, one-deletion special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f0f036e5-0847-4540-9983-a1591ac26fda",
+  "value": {
+    "rationale": "The number of deletion histories preserved by an origin-free circular readout is a natural channel ambiguity invariant. The theorem determines an all-deletion-count uniform alphabet threshold and a sharp change from forced pairwise-distinct sources to repeated-symbol full-shadow sources. It supplies a constructive all-length cyclic anchoring mechanism and a general short-arc obstruction not present in ordinary linear deletion balls, with potential use in testing combinatorial limits of circular storage traces; no unproved coding-capacity corollary is claimed.",
+    "status": "PASS"
+  }
+}
