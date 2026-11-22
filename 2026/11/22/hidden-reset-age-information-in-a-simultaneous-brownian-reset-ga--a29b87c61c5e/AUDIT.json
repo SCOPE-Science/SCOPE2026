@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For each positive D,r and integer N, the radial sufficient statistic is S=UB with U~Exp(1), B~Gamma(N/2,1) independently; the Mellin product yields the displayed exact Bessel-K density and entropy formula. Chain-rule conditional information is strictly positive, as the posterior variance-mixture is nondegenerate. An exact Laplace marginal gives I_1. The first correction is reconstructed from log-Gamma variance, Fisher translation information one for log-Exp, a tail-controlled chi-square/relative-entropy bound and Stirling/digamma expansion; coefficient 2/(3N). The standalone checker passed 78 finite normalization, quadrature, posterior, monotonicity and asymptotic assertions; these are corroboration and not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Clarke and Barron 1990 proves general leading Bayesian mutual-information growth of half the logarithm of sample size for a one-dimensional regular parameter.",
+        "Biroli et al. exact joint probability density implies the age-variance mixture from which the present observable is obtained, but their studied observables are density, ordered extrema, spacings and counts, not entropy correction."
+      ],
+      "reasoning": "The half-log-N term and prior Gaussian-mixture representation are covered. Neither implies the explicit positive 2/(3N) correction without evaluating the higher-order entropy contribution of this prior and conditional sample; general uninspected second-order Bayesian results may implicitly cover it.",
+      "searches": [
+        "Bayesian mutual information normal scale exponential prior exact second order 1/n expansion gamma",
+        "Clarke and Barron information-theoretic asymptotics Bayes methods 1990",
+        "arXiv:2211.00563 main and supplementary HTML"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.01613, HTML full text (first public 2022-05-03)",
+      "arXiv:2211.00563, HTML full text (first public 2022-11-01)",
+      "Clarke and Barron (1990), abstract/bibliography (not full text)",
+      "public indexed summary of Information sharing and the weak-contrast threshold in a switching harmonic gas",
+      "pertinent published summaries of stationary Gaussian reset ensembles; full text not uniformly accessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Biroli et al. (2022) Eq. (4) supplies the exact same underlying N-particle law, hence has stronger *distributional* scope but not the explicitly analyzed nonlinear information functional.",
+        "Masó-Puigdellosas et al. (2022) condition on a scalar position, not a growing Gaussian vector and do not supply first finite-N correction.",
+        "Clarke–Barron establishes the leading logarithmic information term, which this work credits and does not re-label as new."
+      ],
+      "reasoning": "The first two papers cover the stochastic model, posterior components and mixture distributions, and the third covers leading regular-parametric growth. The added nonlinear functional calculation plus positive first correction is not logically an immediate corollary of a printed moment law or leading-order statement. Its novelty status remains at risk from broader second-order Bayesian expansions.",
+      "searches": [
+        "mutual information between stationary time since last reset and Brownian displacement dimension logarithmic growth half log dimension",
+        "Poisson simultaneous resetting N Brownian gas time since reset mutual information I(age; positions) logarithmic number of particles entropy",
+        "Brownian resetting hidden reset age mutual information positions entropy simultaneous particles",
+        "arXiv:2211.00563 Eq.4 full HTML",
+        "arXiv:2205.01613 conditional backward time HTML",
+        "Clarke Barron 1990 Bayes mutual information asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stationary elapsed reset time conditioned on position is analyzed for a single particle in Masó-Puigdellosas et al., arXiv:2205.01613, but not the many-body age-snapshot MI asymptotic.",
+        "Biroli et al. arXiv:2211.00563 Eqs (4)-(5) provide an equivalent Gaussian scale-mixture starting distribution; its hidden variable is exactly the age U used here.",
+        "Exact normal variance prior/Gamma product laws supply transformations, but MI requires entropy of product and correction."
+      ],
+      "reasoning": "The broadest natural equivalent is Bayesian information about a Gaussian variance parameter with exponential prior, or entropy growth of log of a Gamma–Exponential product. The formulas presented are derived from those known distributions; the 2/(3N) coefficient is not stated in the inspected specific source results. General equivalent parameterization does not by itself prove publication novelty.",
+      "searches": [
+        "mutual information between stationary time since last reset and Brownian displacement dimension logarithmic growth half log dimension",
+        "Gaussian scale mixture exponential age random reset mutual information age position dimension digamma entropy",
+        "mutual information normal variance parameter exponential prior sufficient statistic log gamma noise",
+        "arXiv:2205.01613 full HTML",
+        "arXiv:2211.00563 full HTML"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned Gamma/Bessel-K and information-theoretic background but no observed table giving I_N or the coefficient for the exponential mixing prior.",
+        "The published Gaussian-mixture joint law is an exact table-equivalent input, not a tabulation of age-snapshot MI."
+      ],
+      "reasoning": "No inspected exact published MI table matches the new N-dependent statement. Absence from search is not proof of uniqueness; broad mathematical databases were not exhaustively inspected.",
+      "searches": [
+        "Gaussian scale mixture exponential age random reset mutual information age position dimension digamma entropy",
+        "exponential variance Gaussian scale mixture log Gamma K distribution entropy mutual information 1/(3k) asymptotic",
+        "mutual information normal variance parameter exponential prior sufficient statistic log gamma noise",
+        "normal-exponential-gamma K distribution entropy mutual information"
+      ]
+    },
+    "rationale": "The specific target of comparison is the exact mutual information I(reset age; one complete N-vector stationary snapshot), strict finite-N growth and positive coefficient 2/(3N). The common Poisson age, multivariate stationary Gaussian mixture and Bessel-K law are explicit in Biroli et al. (2022), and scalar conditional backward age is explicit in Masó-Puigdellosas et al. (2022); those premises are not novel. General asymptotic half-log-N information is prior Bayesian asymptotic theory (Clarke and Barron 1990). Neither primary paper computes the hidden-age information correction, and available closely relevant public mathematical summaries concern other hidden environments and observables. Residual broad second-order Bayes-information coverage remains possible and is explicitly not excluded.",
+    "residual_risks": [
+      "General unpublished or uninspected higher-order Bayesian mutual-information asymptotics might already give the same 2/(3N) term in equivalent notation.",
+      "A relevant public hidden-environment result was accessible only as a scientific summary; a whole-document absence claim is not made.",
+      "The original 2022 stationary joint density implies the underlying product representation, and its implicit consequences could limit independent publication priority.",
+      "The small-noise entropy expansion relies on tail-controlled relative-entropy estimates; these are shown analytically but no independent formal verification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the exact renewal mixture, Bessel-K stationary joint density, density and squared-position correlation. Its analyzed observable family does not include mutual information between elapsed reset age and an N-particle snapshot or the positive 2/(3N) information correction. It remains a strong underlying antecedent.",
+        "evidence": [
+          "arXiv:2211.00563 v1 submitted 2022-11-01; Eq (4) stationary common-age integral and Eq (5) Bessel-K distribution",
+          "main text after Eq (6) identifies density, k-th extreme, and spacing as objectives; supplementary sections cover extremes, gaps, simulations and counting"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.00563v3",
+        "material_read": "main manuscript equations (1)-(12), especially stationary JPDF Eqs. (3)-(6), and supplementary contents including order statistics, spacings, simulation and counting",
+        "method": "inspected accessible HTML full text and its topical structure",
+        "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+        "trigger": "Exact same N-particle process and possible stronger distributional coverage"
+      },
+      {
+        "assessment": "Establishes scalar conditional backward ages and one-dimensional Brownian resetting. Does not present multi-particle latent-age mutual-information expansion or the first 1/N coefficient.",
+        "evidence": [
+          "arXiv:2205.01613, first submitted 2022-05-03",
+          "conditional backward time under observed position, Markovian resetting section"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2205.01613v1",
+        "material_read": "accessible paper including renewal-theory setup, Markovian Brownian conditional backward and forward times, their exact densities, and non-Markovian reset extensions",
+        "method": "read HTML full text and compared conditioning variables and target functionals",
+        "title": "Conditioned backward and forward times of diffusion with stochastic resetting: a renewal theory approach",
+        "trigger": "Conditional elapsed reset age under observed Brownian position could subsume information claim"
+      },
+      {
+        "assessment": "General leading one-half logarithmic growth explicitly credited as prior; exact reset-age 2/(3N) coefficient was not verified within full source.",
+        "evidence": [
+          "Clarke and Barron, IEEE Trans. Inf. Theory 36 (1990), 453-471",
+          "leading parametric Bayesian information growth"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/18.54897",
+        "material_read": "bibliographic information and available summary, not full text",
+        "method": "publication metadata and abstract-level information",
+        "title": "Information-theoretic asymptotics of Bayes methods",
+        "trigger": "General Bayesian information asymptotics may dominate the leading-order claim"
+      },
+      {
+        "assessment": "Reports logarithmic information between two groups in a switching harmonic trap, not the elapsed exponential reset age of free Brownian motion. Exact first-size coefficient comparison remains inaccessible and is a residual risk.",
+        "evidence": [
+          "public result summary states two Brownian groups, shared randomly switching harmonic trap, 1/2 log n and beta-type mixing variable"
+        ],
+        "identifier_or_url": "Public indexed research record by full title, 2026 (full text not accessible)",
+        "material_read": "public indexed title and detailed abstract summary only; full text inaccessible",
+        "method": "semantic scientific record lookup with statement-level comparison",
+        "title": "Information sharing and the weak-contrast threshold in a switching harmonic gas",
+        "trigger": "Related published hidden common environment with one-half logarithmic information divergence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a29b87c6-1c5e-46a7-84a0-b309810083db",
+  "value": {
+    "rationale": "The hidden reset age is a physically defined common environmental clock whose recoverability from a single simultaneous many-particle snapshot is not quantified by ordinary squared-position covariance. The dimensionless MI is a natural invariant. The finite-N formula and positive first correction provide a substantive model-specific precision benchmark rather than an arbitrary slice or a numerical table lookup. The statement makes no unwarranted empirical or downstream theorem claim.",
+    "status": "PASS"
+  }
+}
