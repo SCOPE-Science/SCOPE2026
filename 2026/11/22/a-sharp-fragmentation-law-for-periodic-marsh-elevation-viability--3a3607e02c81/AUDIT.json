@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For every p,q,L,T>0 and integer n>=1, exact favorable/adverse Riccati flow maps compose to F(z)=(Az+B)/(Cz+D), C>0, D>0, with fixed-point polynomial Cz^2+uv(p^2+q^2)z/q-p(pu-qv). The unique positive fixed point exists iff tan(qT/n)<(p/q)tanh(pL/n). At equality positive iterates converge to the boundary; above it all finite initial states cross zero in finite time. Strict concavity of atan((p/q)tanh x) gives T_n strict monotonicity; the third-order Taylor coefficient proves the n^-2 penalty and O(n^-4) remainder. 802 supplementary checker assertions passed, including direct ODE integration; no finite numerical checks are used as a global proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gökçek 2004 gives general sufficient fast-switching behavior from stable averaged systems, not an all-frequency strict ordering.",
+        "Shayman 1985 classifies periodic Riccati phase portraits abstractly, including finite escape, but the full paper is a residual access risk.",
+        "The proof here constructs a parameter-specific Möbius map and proves f(x)=atan((p/q)tanh(x)) strictly concave, yielding an explicit global n-family not contained in the cited abstract generalities."
+      ],
+      "reasoning": "Fast-switching averaging supports only the limiting direction and does not logically force strict monotonic benefit at each n or the n^-2 coefficient. Broad existence theory could yield the one-cycle existence test through specialization, which is treated as background, not the claimed independent novelty.",
+      "searches": [
+        "switching frequency monotone positive periodic solution concave Riccati equation fast switching persistence slow switching threshold",
+        "stability analysis periodically switched linear systems 2004 Floquet necessary sufficient fast switching average",
+        "doi:10.1155/S1024123X04401069",
+        "doi:10.1137/0323045",
+        "doi:10.1155/2018/2805161"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1029/2009JF001566",
+      "https://doi.org/10.1029/2011JF002093",
+      "https://doi.org/10.1155/2018/2805161",
+      "https://doi.org/10.1137/0323045",
+      "https://doi.org/10.1155/S1024123X04401069"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mudd et al. 2010 models elevation-dependent capture/settling and vegetation; it does not apply the stated square-wave quadratic dynamical law.",
+        "D'Alpaos et al. 2011 uses linearly decreasing deposition with elevation and studies step, sinusoidal and accelerated forcing; no exact arctan-tanh fragmentation threshold or strict n inequality was located.",
+        "Shayman general periodic Riccati result may imply fixed-point classification for one specified calendar but its abstract does not state the closed-form monotonic comparison between different calendars."
+      ],
+      "reasoning": "Different physical equations and forcing protocols in the marsh primary papers do not imply the statement. General Riccati results include foundational existence mechanisms and thus limit any claim of novelty for fixed-point classification alone, but not the explicit global fragmentation comparison and sharp finite-frequency correction without further work.",
+      "searches": [
+        "doi:10.1029/2009JF001566",
+        "doi:10.1029/2011JF002093",
+        "coastal wetland alternation sediment rich and sea-level-rise episodes period splitting persistence area",
+        "time varying sea-level rise sediment supply marsh resilience nonlinear ecology biogeomorphology threshold",
+        "doi:10.1137/0323045"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ni 2018 discusses general existence/stability for periodic Riccati equations, in the accessible abstract and §3, not the all-n marsh forcing threshold.",
+        "Shayman 1985 accessible abstract describes a broad periodic matrix-Riccati phase portrait, but full article was unavailable; possible unexamined equivalence.",
+        "Direct seasonal quadratic viability map is a positive Möbius composition; the additional strict subdivision inequality compares distinct forcing periods rather than just classifying one periodic map."
+      ],
+      "reasoning": "The scalar equation is a Riccati specialization, so general monodromy/fixed-point theory overlaps basic existence. The final scientific claim is the explicit threshold family T_n, global all-n strict monotonicity, positive-mean finite-loss gap and exact n^-2 deficit. Those comparisons are not stated in the accessible general-theory text. A historical formulation beyond inspected material remains possible.",
+      "searches": [
+        "periodic Riccati equation x'=a(t)-x^2 alternating positive negative square wave critical duration tangent tanh persistence",
+        "periodic Riccati switched constant forcing positive negative tanh arctan viability threshold positive periodic solution alternating",
+        "square-wave periodically forced Riccati equation positive solution threshold arctan tanh n cycles averaging O(n^-2) deficit",
+        "doi:10.1155/2018/2805161",
+        "doi:10.1137/0323045"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available analytical marsh paper contains step-change, sinusoidal-forcing and accelerated-rise responses, not a parameter table of positive periodic square-wave survival thresholds.",
+        "The model here is continuous, with exact formulas for every positive p,q,L and integer n, rather than a finite enumeration."
+      ],
+      "reasoning": "No matching exact duration table or identical closed-form all-n classification was found in searches or the inspected complete primary marsh articles; this negative search is risk evidence, not proof of uniqueness.",
+      "searches": [
+        "tidal marsh elevation accretion sea level rise feedback exact pulse timing optimal sediment restoration hysteresis inundation",
+        "marsh sea level rise quadratic elevation accretion alternating pulses persistence threshold storm",
+        "arctan tanh switching frequency critical extinction threshold Riccati periodic adverse favorable",
+        "doi:10.1029/2011JF002093"
+      ]
+    },
+    "rationale": "The claim is not just Riccati existence: the full threshold family T_n is strictly increasing for all integer n, its gap from the averaged survival limit is exactly inverse-square with specified coefficient, and all finite n exhibit a positive-mean finite-loss window. Two full-text marsh sources motivate accretion feedback and changing sea-level conditions but do not imply this comparison. General periodic Riccati theory overlaps qualitative mechanisms and remains an acknowledged historical-priority risk, especially inaccessible Shayman 1985; inspected sources contain no same all-n theorem.",
+    "residual_risks": [
+      "Historical priority is provisional: the full 1985 periodic Riccati phase-portrait article was not accessible, and the 2004 switched-system article was evaluated only at abstract level.",
+      "The result is an exact theorem for a specified idealized quadratic forcing model and is not a theorem for the different linear-deposition marsh model of D'Alpaos et al.",
+      "A broad specialized theorem on the strictly monotone effect of square-wave frequency could exist outside the retrieved literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PHYSICAL_MOTIVATION_NOT_SAME_THEOREM",
+        "evidence": "The model explicitly distinguishes settling and particle capture; no repeated favorable/adverse quadratic ODE with an n-dependent exact survival threshold is stated.",
+        "identifier_or_url": "https://doi.org/10.1029/2009JF001566",
+        "material_read": "Full accessible HTML article: abstract, model/mechanism sections 1–4, marsh vegetation and particle-settling analysis, sections 5–7 and conclusions, including sensitivity to elevation.",
+        "method": "Read accessible publisher full text and inspected sedimentation/elevation assumptions.",
+        "title": "How does vegetation affect sedimentation on tidal marshes? Investigating particle capture and hydrodynamic controls on biologically mediated sedimentation",
+        "trigger": "Direct source for elevation-dependent marsh accretion and nonlinear biological sedimentation feedback."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_EQUATION_NO_FINITE_N_LAW",
+        "evidence": "The paper assumes linearly decreasing deposition versus elevation and reports thresholds for imposed rise and dynamic lags, without this alternating quadratic boundary or all-n subdivision comparison.",
+        "identifier_or_url": "https://doi.org/10.1029/2011JF002093",
+        "material_read": "Full accessible HTML: §2 equations/assumptions, §3.1 step response, §3.2 sediment perturbation, §3.3 sinusoidal response, drowning analyses and §4 discussion.",
+        "method": "Read publisher full-text scientific sections and compared equation structure, forcing type and stated threshold implications.",
+        "title": "Dynamic response of marshes to perturbations in suspended sediment concentrations and rates of relative sea level rise",
+        "trigger": "Closest analytical marsh elevation paper; examines time-varying relative sea-level rise."
+      },
+      {
+        "assessment": "GENERAL_EXISTENCE_MAY_COVER_BASE_MECHANISM_NOT_THE_SPECIFIC_SUBDIVISION_LAW",
+        "evidence": "Qualitative existence and stability for periodic coefficients is established; no explicit arctan-tanh n-family or strictly monotone fragmentation law is stated in inspected text.",
+        "identifier_or_url": "https://doi.org/10.1155/2018/2805161",
+        "material_read": "Accessible full HTML abstract, introduction, theorem statements, proof discussion in §3 and references; some formulas appear as equation images.",
+        "method": "Read publisher HTML and compared general existence statements to the exact n-dependent threshold and strict monotonicity.",
+        "title": "The Existence and Stability of Two Periodic Solutions on a Class of Riccati’s Equation",
+        "trigger": "Potential mathematically broader periodic-Riccati coverage."
+      },
+      {
+        "assessment": "UNRESOLVED_GENERAL_THEORY_PRIORITY_RISK",
+        "evidence": "Abstract states necessary/sufficient escape and periodic equilibrium classification but does not identify our exact finite-frequency fragmentation comparison; full-text exclusion is not asserted.",
+        "identifier_or_url": "https://doi.org/10.1137/0323045",
+        "material_read": "Accessible abstract and bibliography only; no full primary scientific arguments accessible.",
+        "method": "Tried OA/preprint search and authorized institutional full-text retrieval; full text remained inaccessible.",
+        "title": "On the Phase Portrait of the Matrix Riccati Equation Arising from the Periodic Control Problem",
+        "trigger": "Highly relevant broad periodic Riccati classification, possible dominating result."
+      },
+      {
+        "assessment": "BROAD_FAST_SWITCHING_INSUFFICIENT_FOR_ALL_N_CLAIM",
+        "evidence": "An averaging criterion for sufficiently fast switching does not assert a strict threshold improvement under each subdivision or the exact inverse-square deficit.",
+        "identifier_or_url": "https://doi.org/10.1155/S1024123X04401069",
+        "material_read": "Accessible publisher abstract and bibliographic metadata; full article not read.",
+        "method": "Compared stated fast-switching implication with exact finite-count monotonicity.",
+        "title": "Stability analysis of periodically switched linear systems using Floquet theory",
+        "trigger": "Potential high-frequency general stability implication."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a3607e0-2c81-4178-aa97-bbc72b488c6b",
+  "value": {
+    "rationale": "The exact T_n family quantifies a distinct ecological-model question: how alternating adverse/favorable exposure duration, at equal cumulative durations and rates, changes eventual loss of a positive viability margin. It proves a sharp mean-forcing false-security window for every finite alternation count, the universal benefit of subdividing forcing, and a dimensionally explicit O(n^-2) finite-frequency penalty. This supplies a meaningful mathematical benchmark not reducible to a single parameter substitution or a routine numerical exercise. Scope is explicitly an uncalibrated quadratic approximation with no switching costs or spatial/stochastic feedback.",
+    "status": "PASS"
+  }
+}
