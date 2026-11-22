@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For each integer n=3..12, C++17 BFS and independent Python Floyd-Warshall construct 4n vertices and 6n distinct edges, exhaust every 2-,3-,4-element vertex subset, and apply exact edge-signature injectivity. Every output coefficient agrees; all quadruple counts positive, all pair counts zero, triple count 160 only at n=10. A third independent n=10 automorphism enumeration yields six disjoint orbits covering those 160 triples. Exhaustive bounded loops prove the finite claim; the all-n corollary cites precisely Theorem 1 of Iqbal et al. with published n>=13 scope. No finite trial was extended to an infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2022 DOI 10.1155/2022/6490698, full-text Theorem 1 states n >= 13; Lemma 4 requires n >= 14 in the 2 mod 4 class.",
+        "2022 article abstract states a broad parity law but does not establish the omitted n=3..12 theorem range.",
+        "2023 DOI 10.1016/j.jksus.2023.102680, Theorems 2.1-2.3 concern distance sums rather than edge resolving bases."
+      ],
+      "reasoning": "The original theorem covers the complementary infinite range and is expressly credited and used; it does not imply the finite excluded cases, and extrapolating its congruence rule to n=6 would be false. A Wiener-index formula does not determine injections of vectors of landmark-to-edge distances or count resolving landmark subsets. No broader family theorem covering these exact finite counts was encountered.",
+      "searches": [
+        "On the Edge Resolvability of Double Generalized Petersen Graphs theorem one n at least 13 exceptional n 6 n 10",
+        "Edge-metric dimension of double generalized Petersen graphs DP(n,1) small orders n=3,4,...,12 with n=6 exception and n=10 triple bases 160",
+        "\"double generalized Petersen\" \"edge metric dimension\" \"small values\"",
+        "2022 DOI 10.1155/2022/6490698 Section 4 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "2022 primary Journal of Mathematics article DOI 10.1155/2022/6490698, Sections 3-4 and Theorem 1",
+      "2023 primary Journal of King Saud University - Science DOI 10.1016/j.jksus.2023.102680, Sections 1-2",
+      "Targeted searches for DP/DGP aliases, n=6 and n=10 boundary and exact tables",
+      "Related edge-metric records for the Pappus graph and crown graphs, and ordinary generalized Petersen graph records, checked for nonimplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The proven hypothesis n>=13 in [1] excludes every new enumerated graph n=3..12.",
+        "The 2023 Wiener-index paper operates on the same graph but calculates scalar distance sums, not vertex landmark resolution.",
+        "Research findings on Pappus, crown, generalized Petersen GP(n,2) and GP(n,3) concern different graphs or invariants."
+      ],
+      "reasoning": "Prior [1] combined with new finite counts gives the global piecewise formula; prior [1] alone cannot determine n=6 or n=10 from its stated theorem. The stronger new claims also include multiplicities and symmetry partitions, none of which is entailed by knowing a minimum dimension. Related edge-metric records for other graph types have no graph-identification/reduction proving the same statement. The 160 bases for a twenty-vertex Desargues graph are a distinct object and do not imply 160 three-sensor bases on this forty-vertex graph.",
+      "searches": [
+        "Counting edge metric bases in generalized double Petersen graphs, boundary n=10 and residual small indices",
+        "Complete small-parameter cutoff for edge resolvability of double generalized Petersen DP(n,1)",
+        "\"double generalized Petersen\" \"edge resolving\" \"n = 6\"",
+        "2022 Iqbal Rafiq Azhar Salman Khalid Theorem 1 n>=13 edge metric dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2022 DOI 10.1155/2022/6490698, Section 3 uses DGP(n,1); the same family is also denoted DP(n,1).",
+        "2023 DOI 10.1016/j.jksus.2023.102680 uses DP(n,k) nomenclature, though its graph description has internal inconsistencies, and studies Wiener and Wiener-polarity indices."
+      ],
+      "reasoning": "DP(n,1) is an alias often used for the intended four-layer family, but one inspected later source has inconsistencies in its displayed graph definition. The new graph is unambiguously fixed by the six edge families of [1]. Vertex-to-edge metric bases are synonymous with edge metric generators. Checking those aliases found no exact small-order base counts or symmetry classification. Invariants of other generalized Petersen GP(n,k) graphs are not equivalent: the graph orders and edge sets differ.",
+      "searches": [
+        "DGP(10,1) 40 vertices six orbits of 160 edge metric resolving triples",
+        "\"DGP(10,1)\" \"edge metric dimension\"",
+        "\"double generalized Petersen\" \"edge metric\" \"small\" \"10\" \"6\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2022 original article contains edge signatures for parametric constructions starting at n>=13, not an initial-index table of all bases.",
+        "The 2023 distance-index paper lists small-index Wiener-polarity values for n=3..6, a different quantity."
+      ],
+      "reasoning": "The closest inspected numerical tables are edge-distance constructions for n>=13 and distance-sum values for the same graph; neither tabulates resolving sets of size 3/4 for n=3..12. Database searches did not locate the 160 optimum bases or six orbit multiplicities. Absence in search results is evidence of limited discovery, not proof of priority.",
+      "searches": [
+        "double generalized Petersen graph DGP(n,1) edge metric bases counts n=10 160, n=6 no triple, finite cutoff from n=3 to 12",
+        "DGP(10,1) 40 vertices six orbits of 160 edge metric resolving triples",
+        "Exact database or table metric dimension n=10 double generalized Petersen graph",
+        "\"DGP(10,1)\" \"edge metric dimension\"",
+        "double generalized Petersen graph edge metric 160 bases table"
+      ]
+    },
+    "rationale": "The nearest primary work defines precisely the same graph but expressly proves the dimension formula only for n>=13; the new n=3..12 exact basis census and six symmetry orbits are not logical consequences of that restricted theorem. Other same-family literature addresses Wiener indices, and the closest mathematical research records concern distinct graph families or invariants. The principal residual risk is an overlooked prior exact small-order table; no such covering result was found in the performed targeted searches.",
+    "residual_risks": [
+      "Unindexed prior computational tables, thesis appendices, or repositories could contain exact small-n counts.",
+      "The all-n part relies on the previously published theorem at n>=13 and is not an independently new proof for that range.",
+      "The natural subgroup orbit census does not assert classification by all graph automorphisms.",
+      "The 2023 related paper contains an internally inconsistent graph description; it is used only as a same-topic literature comparison, not to establish the graph under study."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_INITIAL_ORDERS: Theorem 1 requires n>=13; explicit upper-bound lemmas start at 13/14/15/16, whereas the new counts are n<=12. Abstract wording is broader than the proved theorem and does not establish the excluded cases.",
+        "evidence": [
+          "DOI 10.1155/2022/6490698",
+          "Theorem 1: For n>=13",
+          "Lemma 4: For n>=14 and n equiv 2 mod 4",
+          "First published 22 April 2022"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1155/2022/6490698",
+        "material_read": "Full-text graph definition in Section 3, all four upper-bound lemma scopes and relevant edge-code tables, lower-bound lemma scope, Theorem 1 and abstract/conclusion",
+        "method": "Read accessible publisher HTML full text and compared precise theorem hypotheses to new finite parameters",
+        "title": "On the Edge Resolvability of Double Generalized Petersen Graphs",
+        "trigger": "Exact same graph family and invariant; an apparent abstract-level parity law could subsume the candidate"
+      },
+      {
+        "assessment": "NOT_COVERING: The listed initial-index quantities are Wiener polarity and Wiener index, not edge resolving dimension or counts of edge-metric bases.",
+        "evidence": [
+          "DOI 10.1016/j.jksus.2023.102680",
+          "Theorem 2.1 and Theorem 2.3 compute distance indices"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jksus.2023.102680",
+        "material_read": "Accessible full-text title, abstract, Section 2 and Theorems 2.1-2.3; compared mathematical definitions and the small-n values",
+        "method": "Read publicly indexed publisher full-text excerpt/sections and checked the stated index formulas",
+        "title": "Wiener polarity and Wiener index of double generalized Petersen graph",
+        "trigger": "Plausible later same-graph full-text result using alias DP(n,k)"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "41c380eb-fefc-4f5a-a424-1b912c6b0abc",
+  "value": {
+    "rationale": "The paper-defined graph has a naturally excluded finite range n=3..12 and a deceptive parity-extrapolation failure at the first n equiv 2 mod4, n=6. The exact first possible three-sensor order is n=10, which is a sharp boundary of a literature-proven stable formula. The full four-set multiplicities and six symmetry orbits of the exceptional 160 triples provide meaningful structural and reproducibility details rather than a routine isolated small invariant.",
+    "status": "PASS"
+  }
+}
