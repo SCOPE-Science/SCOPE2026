@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T10:40:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substituting cubic B-spline values gives exact four-tap sampled stencil with a=(4-6delta²+3delta³)/6, e=delta³/6, b=(4-6(1-delta)²+3(1-delta)³)/6, c=(1-delta)³/6, summing to one. Cyclic two-cell DFT exactly diagonalizes the N-by-N collocation operator into blocks [[a+e z,b+c/z],[b+c z,a+e/z]]. This conjugate-symmetric block has singular values |a+ez|±|b+cz|. For delta<1/2, bc-ae=(1-2delta)(3delta^4-6delta³+delta²+2delta+1)/36>0, and a+e-b-c=gamma>0, forcing |a+ez|>|b+cz|. Differentiating U(t)-V(t) against t=cos θ shows it strictly decreases and the unique minimum is gamma at t=1; U+V has unique maximum 1 there. The r=0 Fourier modes are constant/checkerboard, extremizers simple. At delta=1/2 the two moduli coincide and one singular value per block vanishes, while a>e keeps the other positive, hence rank N/2. Delta-to-boundary expansion gives kappa~1/(1/2-delta). Independently constructed periodized full matrices at N=4,6,8,10 and δ=0,.25,.4,.5 and matched SVD, including collision. The infinite all-even-N theorem rests on the algebraic Fourier proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2010 full text proves/estimates conditioning for fixed Greville cardinal splines but lacks two-periodic perturbation and exact full cyclic singular spectrum.",
+          "2022 Yu–Townsend uses trigonometric polynomial sampling; 2026 linear-spline projector uses a different norm and spline degree."
+        ],
+        "reasoning": "A general interpolation stability context does not imply exact all-size δ-dependent singular values without identifying this specific cubic point-collocation matrix.",
+        "searches": [
+          "periodic cubic B spline collocation alternating jittered sampling two-periodic Fourier block exact condition number singular values",
+          "https://arxiv.org/abs/1004.4014",
+          "https://arxiv.org/abs/2202.04722",
+          "Resultary:2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git source tree bbfe17be01f4a40fba520dc710f27413586320ae and RESULT.md, AUDIT.json, VERIFICATION.md, check_spectrum.py",
+        "https://arxiv.org/abs/1004.4014 (full 342-line arXiv rendered long article)",
+        "https://arxiv.org/abs/2202.04722",
+        "Resultary:2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b",
+        "Resultary semantic search: periodic cubic B spline collocation alternating jittered sampling two-periodic Fourier block exact condition number singular values"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2010 paper §2–3 fixes collocation nodes at knot averages and obtains symmetric Toeplitz matrix; it discusses the unshifted degree-three condition number asymptotic to 3.",
+          "New point set t_(2k)=2k+delta,t_(2k+1)=2k+1-delta is not that Toeplitz matrix for δ>0; block 2-periodic symbol gives a new exact two-band factorization."
+        ],
+        "reasoning": "The previous Greville eigenvalue bounds do not supply precise shifted-node singular values or exact half-rank collision; neither can be obtained by relabeling knots in the original operator.",
+        "searches": [
+          "https://arxiv.org/abs/1004.4014",
+          "periodic cubic B spline collocation alternating jittered sampling two-periodic Fourier block exact condition number singular values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Novaković–Singer–Singer full 2010 primary long version studies cardinal B-spline matrices at Greville knot averages, producing symmetric Toeplitz matrices, not alternating displaced nodes.",
+          "Resultary two-periodic linear-spline L∞ projection and cubic Gabor Zak work use different operators."
+        ],
+        "reasoning": "An equivalent Bloch-symbol or polyphase two-band description would cover the exact claim if already known; bounded full-text comparison to the closest classical collocation paper did not show it.",
+        "searches": [
+          "periodic cubic B spline collocation alternating jittered sampling two-periodic Fourier block exact condition number singular values",
+          "cardinal cubic spline collocation two periodic alternating jitter singular value Floquet symbol",
+          "https://arxiv.org/abs/1004.4014"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2010 Tables report conditioning estimates for standard finite Toeplitz collocation and approach 3 at degree3, which is consistent with δ=0 but do not tabulate δ>0 shifted periodic singular bands.",
+          "Resultary two-periodic linear-spline projector tables concern L∞ amplification, not this spectral norm."
+        ],
+        "reasoning": "Known δ=0 table recomputation is not the submitted value claim; the continuous δ dependent sharp threshold and N-independent two bands are additional.",
+        "searches": [
+          "periodic cubic B spline collocation alternating jittered sampling two-periodic Fourier block exact condition number singular values",
+          "cubic spline cardinal collocation knot average eigenvalue condition number table",
+          "Resultary:2026/11/8/SCOPE-exact-two-periodic-spline-projection-norms-and-a-quadratic-mesh--5a407f379fb4"
+        ]
+      },
+      "rationale": "Prior cardinal cubic B-spline collocation conditioning is highly relevant: Novaković–Singer–Singer (2010) full arXiv long version was read, not merely its publisher abstract. It treats symmetric Toeplitz collocation at the knot averages with no alternating point jitter and derives estimates/large-N behavior; not this periodic two-cell exact singular spectrum, though the δ=0 condition-3 limit overlaps. Yu–Townsend addresses trigonometric interpolation, and earlier Resultary two-periodic linear-spline projections use L∞ projection rather than cubic coefficient-to-point ℓ2 singular values. A classical Bloch/Floquet cubic spline analysis might yet yield the full specialization; this is the residual priority risk.",
+      "residual_risks": [
+        "Historical equivalent statement may exist in classical polyphase/Floquet spline-filter literature beyond indexed search.",
+        "Finite direct-matrix SVD checks do not establish all even sizes; proof hinges on block factorization and global polynomial inequalities.",
+        "The theorem does not cover arbitrary independent jitter or noncubic splines."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS unjittered cardinal cubic conditioning, but the studied uniform Greville Toeplitz operator is not two-periodic point jitter; no δ-dependent exact two-band singular spectrum in read text",
+          "evidence": "§2 says the interpolation nodes are the knot averages, §3 equation (7) uses symmetric banded Toeplitz matrices; degree3 table tends to kappa≈3 rather than varying with alternating shift.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.4014",
+          "material_read": "Full accessible 2010 arXiv long HTML, introduction, §§2–5: cardinal B-spline normalization, Greville knot-average collocation, Toeplitz eigenvalue bounds, tables and conclusions",
+          "method": "Read full rendered primary arXiv paper and compare sampling site and matrix model",
+          "title": "Estimates for the Spectral Condition Number of Cardinal B-Spline Collocation Matrices (Long version)",
+          "trigger": "closest primary paper explicitly naming cardinal spline condition numbers"
+        },
+        {
+          "assessment": "Trigonometric polynomial interpolation rather than cardinal cubic B-spline collocation; no full-document noncoverage claim",
+          "evidence": "The sample space in the earlier article differs from compactly supported translated cubic splines.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.04722",
+          "material_read": "Accessible abstract and specified sampling-space descriptions; no complete text reread this run",
+          "method": "Compare polynomial basis and norm",
+          "title": "On the stability of unevenly spaced samples for interpolation and quadrature",
+          "trigger": "perturbed sampling and stability generality"
+        },
+        {
+          "assessment": "Different exact operator and bound; summary does not cover cubic coefficient-to-sample singular values",
+          "evidence": "Resultary claim is L∞ orthogonal/discrete projection on continuous linear splines, whereas this is cubic coefficient collocation ℓ2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b",
+          "material_read": "Published Resultary mathematical summary only",
+          "method": "Compare degree, collocation vs projection and ℓ2 vs L∞ norms",
+          "title": "Sharp parity law for two-point discrete projection onto periodic linear splines",
+          "trigger": "same alternating sample geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Alternating sample jitter is a natural structured perturbation in periodic spline collocation. A dimension-independent sharp stability constant, exact full bands, unique checkerboard weakest mode and precisely half-rank node collision describe a meaningful practical stability boundary for all even sample counts. This is more than merely reporting a few small matrices, despite the elementary 2x2 Fourier calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git source tree bbfe17be01f4a40fba520dc710f27413586320ae and RESULT.md, AUDIT.json, VERIFICATION.md, check_spectrum.py",
+    "https://arxiv.org/abs/1004.4014 (full 342-line arXiv rendered long article)",
+    "https://arxiv.org/abs/2202.04722",
+    "Resultary:2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b",
+    "Resultary semantic search: periodic cubic B spline collocation alternating jittered sampling two-periodic Fourier block exact condition number singular values"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any even N>=4 and 0<=delta<1/2, sampling the periodized centered cubic cardinal B-spline basis at alternating nodes j+(-1)^j delta yields a two-band exact singular spectrum; sigma_max=1, unique sigma_min=(1-2delta)(1+2delta-2delta^2)/3 and Euclidean kappa2 its reciprocal, independent of N. At delta=1/2 rank=N/2 and lower band collapses.",
+  "limitations": [
+    "Historical equivalent statement may exist in classical polyphase/Floquet spline-filter literature beyond indexed search.",
+    "Finite direct-matrix SVD checks do not establish all even sizes; proof hinges on block factorization and global polynomial inequalities.",
+    "The theorem does not cover arbitrary independent jitter or noncubic splines.",
+    "Actual immutable Git source tree bbfe17be01f4a40fba520dc710f27413586320ae contains source METADATA.json and AUDIT.json with scope_run_id internal provenance. No complete guarded, semantically sanitized replacements for these public files have been prepared, so automated public document materialization and certificate generation must be withheld. This is a publication/transport blocker, not a scientific failure.",
+    "No GitHub write, dispatcher scientific closeout, public verification attestation or publication was performed; publication plan is explicitly not importable as provided."
+  ],
+  "residual_risks": [
+    "Historical equivalent statement may exist in classical polyphase/Floquet spline-filter literature beyond indexed search.",
+    "Finite direct-matrix SVD checks do not establish all even sizes; proof hinges on block factorization and global polynomial inequalities.",
+    "The theorem does not cover arbitrary independent jitter or noncubic splines."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS unjittered cardinal cubic conditioning, but the studied uniform Greville Toeplitz operator is not two-periodic point jitter; no δ-dependent exact two-band singular spectrum in read text",
+      "evidence": "§2 says the interpolation nodes are the knot averages, §3 equation (7) uses symmetric banded Toeplitz matrices; degree3 table tends to kappa≈3 rather than varying with alternating shift.",
+      "identifier_or_url": "https://arxiv.org/abs/1004.4014",
+      "material_read": "Full accessible 2010 arXiv long HTML, introduction, §§2–5: cardinal B-spline normalization, Greville knot-average collocation, Toeplitz eigenvalue bounds, tables and conclusions",
+      "method": "Read full rendered primary arXiv paper and compare sampling site and matrix model",
+      "title": "Estimates for the Spectral Condition Number of Cardinal B-Spline Collocation Matrices (Long version)",
+      "trigger": "closest primary paper explicitly naming cardinal spline condition numbers"
+    },
+    {
+      "assessment": "Trigonometric polynomial interpolation rather than cardinal cubic B-spline collocation; no full-document noncoverage claim",
+      "evidence": "The sample space in the earlier article differs from compactly supported translated cubic splines.",
+      "identifier_or_url": "https://arxiv.org/abs/2202.04722",
+      "material_read": "Accessible abstract and specified sampling-space descriptions; no complete text reread this run",
+      "method": "Compare polynomial basis and norm",
+      "title": "On the stability of unevenly spaced samples for interpolation and quadrature",
+      "trigger": "perturbed sampling and stability generality"
+    },
+    {
+      "assessment": "Different exact operator and bound; summary does not cover cubic coefficient-to-sample singular values",
+      "evidence": "Resultary claim is L∞ orthogonal/discrete projection on continuous linear splines, whereas this is cubic coefficient collocation ℓ2.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b",
+      "material_read": "Published Resultary mathematical summary only",
+      "method": "Compare degree, collocation vs projection and ℓ2 vs L∞ norms",
+      "title": "Sharp parity law for two-point discrete projection onto periodic linear splines",
+      "trigger": "same alternating sample geometry"
+    }
+  ]
+}
