@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For all positive w,L,v_i,D_i,mu_i with Var(X_i(t))=2D_it and independent survival, the terminal lateral Gaussian tail is exactly (1/2)exp(-alpha_i L)erfc(beta_i/sqrt(L)). In a strict tradeoff beta1<beta2, delta=alpha1-alpha2>0, the Mills inequality erfc(z)<exp(-z*z)/(sqrt(pi)*z) implies Q(z)=z exp(-z*z)/erfc(z) is strictly increasing; therefore d/dL log(P1/P2)=-delta+[Q(beta1/sqrt(L))-Q(beta2/sqrt(L))]/(sqrt(pi)*L)<-delta. The ratio tends to +infinity at small L and zero at large L, proving one transversal crossing and its unique comparative statics. Integration-by-parts normal-tail asymptotics give Lstar~[2(beta2-beta1)/(sqrt(pi)delta)]^(2/3) as delta tends to zero and ~sqrt[(beta2^2-beta1^2)/delta] as delta tends to infinity, with rigorous endpoint limits. Exact boundary classifications are explicit. The extracted standalone source checker passed 38,011 supplementary tests, which do not replace these analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1029/2023WR036827 is a two-dimensional larval numerical model with nonuniform hydraulics and larval nursery trajectories.",
+        "https://doi.org/10.1007/s12080-021-00512-y is a heterogeneous space-dependent mortality/diffusion settlement model.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-arrival-order-crossover-and-vanishing-drift-scaling-for-ad--620a5e737e4d proves a different first-passage CDF order at common time."
+      ],
+      "reasoning": "The detailed biological models are structurally broader but their stated results do not entail an all-parameter sign classification for this specific terminal-gate lateral-side-and-independent-survival observable. The published first-passage theorem is not a stronger special-case parent because terminal position differs from absorbed passage; constant speed and fixed reach are also used differently. Neither implies both crossover asymptotic exponents.",
+      "searches": [
+        "Brownian first-passage larval drift lateral diffusion versus mortality two scenarios single downstream-distance reversal: e^{-a L} erfc(b/sqrt L), sharp crossover and 2/3 and 1/2 asymptotics",
+        "brownian diffusive transport larval settlement mortality current velocity optimization cross-over habitat downstream length"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1029/2023WR036827",
+      "https://doi.org/10.1007/s12080-021-00512-y",
+      "https://doi.org/10.2307/2005632",
+      "https://dlmf.nist.gov/7.12",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-arrival-order-crossover-and-vanishing-drift-scaling-for-ad--620a5e737e4d",
+      "https://doi.org/10.2307/2005632"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full public statement of https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-arrival-order-crossover-and-vanishing-drift-scaling-for-ad--620a5e737e4d compares F_i(t)=Pr(T_i<=t) for absorbed 1D drift-diffusion; it has no mortality clock and no Gaussian terminal-position condition.",
+        "https://doi.org/10.1029/2023WR036827 measures successful larval nursery entrainment and geometry under 2D hydraulics, not the exact two-parameter exponential-erfc ratio theorem.",
+        "https://doi.org/10.1007/s12080-021-00512-y studies nonlinear ecological responses to heterogeneous mortality/diffusion, not the asserted exact tradeoff-distance theorem."
+      ],
+      "reasoning": "An instance of a broader inverse-Gaussian first-passage theorem does not transfer to terminal-side Gaussian probability times exp(-mu L/v) because first crossing does not require remaining on the target side at the downstream gate. The new theorem proves strict monotonicity of the exact terminal success ratio, establishes one crossing, and locates two distinct asymptotic exponents. The shared erfc symbol is not an implication.",
+      "searches": [
+        "e^{-a L} erfc(b/sqrt(L)) versus e^{-c L} erfc(d/sqrt(L)): unique crossing habitat transport mortality mixing opposite tradeoff",
+        "terminal Gaussian lateral-position probability exp(-mortality per distance times L) erfc(beta/sqrt(L))/2 for river larval drift two scenarios crossover exactly once weak gap two-thirds strong gap one-half",
+        "Brownian first-passage larval drift lateral diffusion versus mortality two scenarios single downstream-distance reversal: e^{-a L} erfc(b/sqrt L), sharp crossover and 2/3 and 1/2 asymptotics",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-arrival-order-crossover-and-vanishing-drift-scaling-for-ad--620a5e737e4d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Directly identical equivalent kernel would compare exp(-delta L)erfc(beta1/sqrt(L))/erfc(beta2/sqrt(L)) for every L>0.",
+        "D. E. Amos (1973) gives bounds on iterated coerror functions and their ratios; the checked opening material does not contain the joint survival-times-crossover classification."
+      ],
+      "reasoning": "Normal-tail, complementary error function and Gaussian terminal-side probability are mathematically equivalent formulations of the same observable; they were searched. Mills ratio monotonicity is used as a known tool and is not itself claimed. None of the inspected material gives the exact combined dominance/tradeoff classification plus both sharp delta regimes.",
+      "searches": [
+        "e^{-a L} erfc(b/sqrt(L)) versus e^{-c L} erfc(d/sqrt(L)): unique crossing habitat transport mortality mixing opposite tradeoff",
+        "terminal Gaussian lateral-position probability exp(-mortality per distance times L) erfc(beta/sqrt(L))/2 for river larval drift two scenarios crossover exactly once weak gap two-thirds strong gap one-half",
+        "ratio erfc(a/sqrt(t)) / erfc(b/sqrt(t)) monotonic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The standard normal tail is tabulated in NIST DLMF §7.12 and has classical asymptotics, but the ecological two-design crossover is not a tabulated unknown numeric constant.",
+        "No matching exact-value table or existing solved parameter-boundary statement was surfaced by the recorded mathematical searches."
+      ],
+      "reasoning": "The claim is an all-positive-parameter theorem with strict comparative statics and two regimes, not a repeated special-function table entry. A standard integral table would yield the formula, not by itself the exact crossing count and the two sharp scaling laws; failures to find an exact table do not establish priority.",
+      "searches": [
+        "terminal Gaussian lateral-position probability exp(-mortality per distance times L) erfc(beta/sqrt(L))/2 for river larval drift two scenarios crossover exactly once weak gap two-thirds strong gap one-half",
+        "e^{-a L} erfc(b/sqrt(L)) versus e^{-c L} erfc(d/sqrt(L)): unique crossing habitat transport mortality mixing opposite tradeoff"
+      ]
+    },
+    "rationale": "Farò and Wolter (2024) study spatial river larval-drift scenarios using numerical particle tracking; Meyer, Hastings and Largier (2021) analyze heterogeneous mortality and dispersal in marine larval delivery. Both motivate but do not establish this terminal-threshold survival ranking as a function of downstream reach. An inspected published mathematical full RESULT.md compares drifted Brownian absorbing FIRST-ARRIVAL CDFs at a common time; this has a different event, no independent mortality multiplier and no two penalty exponents for a terminal lateral position. The Gaussian tail, Mills inequality and asymptotics are explicitly classical ingredients. Actual searches targeted the exact erfc product, aliases, models and crossover scales. No inspected direct or stronger theorem was found; incomplete historical indexing and general special-function product inequalities remain risks.",
+    "residual_risks": [
+      "The first sections only of the Amos (1973) paper were read; a different general theorem about error-function products could cover the strict crossover.",
+      "Mathematical historical indexing and inaccessible manuscripts mean no absolute novelty guarantee.",
+      "Physical channels are bounded, turbulent and spatially heterogeneous; extrapolation of Gaussian terminal-side probabilities to actual settlement or management outcomes is unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the two-design universal crossover theorem; reports numerical drift-trajectory scenarios with actual channel geometry.",
+        "evidence": "First published 2024-09-16; section 2.5 uses Lagrangian two-dimensional particle drift with Gaussian random steps; section 3.3 reports lateral nursery access constraints.",
+        "identifier_or_url": "https://doi.org/10.1029/2023WR036827",
+        "material_read": "Full HTML article including abstract, introduction, section 2.5 larval drift, section 2.6 functional connectivity, results 3.3, implications 4.2, limitations 4.3 and conclusion.",
+        "method": "Full-text online HTML reading and direct model/outcome comparison.",
+        "title": "Integrating Habitat Suitability and Larval Drift Modeling for Spawning-To-Nursery Functional Habitat Connectivity Analysis in Rivers",
+        "trigger": "Matching larval drift, bank access, downstream nursery destination and first public date."
+      },
+      {
+        "assessment": "NOT_COVERING this fixed homogeneous terminal threshold ratio and downstream-distance monotonicity; studies spatially varying marine field models.",
+        "evidence": "The 2021 paper studies mortality/diffusivity heterogeneity and settlement flux, including nonmonotone effects of mixing, rather than a two-design theorem for P(L).",
+        "identifier_or_url": "https://doi.org/10.1007/s12080-021-00512-y",
+        "material_read": "Accessible full HTML manuscript sections on assumptions, spatial heterogeneity, calculations, results and discussion.",
+        "method": "Full-text HTML and mathematical model comparison.",
+        "title": "Spatial heterogeneity of mortality and diffusion rates determines larval delivery to adult habitats for coastal marine populations",
+        "trigger": "Joint diffusion, mortality, larval delivery modeling could subsume exact comparison."
+      },
+      {
+        "assessment": "NOT_COVERING: absorbs at first hit with positive along-channel drift, compares CDFs at common time; no mortality and no terminal lateral side event.",
+        "evidence": "The statement uses F_i(t)=Pr(T_i<=t) and an inverse-Gaussian first-passage density. The present theorem uses terminal Gaussian tail * exponential survival at t=L/v_i.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-arrival-order-crossover-and-vanishing-drift-scaling-for-ad--620a5e737e4d",
+        "material_read": "Full RESULT.md including precise theorem, hypotheses, proof, verification, relationship and limitations (retrieved via public repository file).",
+        "method": "Public full-text statement-and-implication comparison.",
+        "title": "Sharp arrival-order crossover and vanishing-drift scaling for advective tracer passage",
+        "trigger": "Same use of Gaussian transport and exact single-crossing comparative laws."
+      },
+      {
+        "assessment": "Provides relevant classical ratio bounds, but no evidence from the read sections of a complete two-parameter ecology-style survival comparison; not treated as a whole-document negative finding.",
+        "evidence": "D. E. Amos, Mathematics of Computation 27 (1973), 413–427; doi:10.2307/2005632. The early section establishes decreasing ratios of iterated coerror functions.",
+        "identifier_or_url": "https://doi.org/10.2307/2005632",
+        "material_read": "Abstract and the opening Simple Bounds section, equations (1)–(5), as parsed text; neither appendix nor full main proof systematically read.",
+        "method": "Partial PDF parsed text and bibliographic verification; screenshot retrieval unsuccessful.",
+        "title": "Bounds on Iterated Coerror Functions and Their Ratios",
+        "trigger": "Mills-ratio monotonicity and possible stronger error-function ratio inequalities."
+      },
+      {
+        "assessment": "Known analytic tools, not an original claim to error-function identities.",
+        "evidence": "Standard erfc asymptotic expansion at positive infinity; elementary expansion at zero is verified directly.",
+        "identifier_or_url": "https://dlmf.nist.gov/7.12",
+        "material_read": "Relevant tabulated asymptotic formulas and context.",
+        "method": "Web reference reading.",
+        "title": "NIST Digital Library of Mathematical Functions, §7.12",
+        "trigger": "Classical Gaussian erfc tail asymptotics used in proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fcdca54b-a6c0-49ab-bf76-2aaf9c291cf5",
+  "value": {
+    "rationale": "Lateral mobility and mortality per downstream distance are competing mechanisms in observed nursery access. For designs with opposite parameter advantages, the unique all-distance ranking switch gives an interpretable no-multiple-reversal benchmark and strict parameter sensitivity, not merely a numerical optimum. The two distinct sharp power exponents quantify how reach length depends on weak versus strong mortality disadvantage and allow structural checks of richer simulations. Its relevance is the precisely motivated two-parameter tradeoff and rigorous complete classification; no empirical calibration or downstream population consequence is asserted.",
+    "status": "PASS"
+  }
+}
