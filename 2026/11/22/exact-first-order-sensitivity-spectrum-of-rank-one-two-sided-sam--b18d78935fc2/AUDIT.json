@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "With nonzero overlaps, the two sampled projectors are differentiable. Differentiating P_(Bv) B P_(B^T u) yields the explicit three-term formula (1), and orthogonal tangent/normal coordinates yield the exact block map (2). The adjoint LL* has eigenvalues alpha^2+beta^2, alpha^2 (n-2), beta^2 (m-2), and 0; including the scalar tangent dimension and normal kernel gives all singular values with the stated multiplicities. Rank-one normal inputs attain the largest eigenvalue. A 1,563-check deterministic independent Jacobian/difference-quotient script completed successfully; no finite sample is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang Theorem 2.2: global finite-error relaxed-exactness coefficient sqrt(max(1,||QL||_2^2+||QR||_2^2)), becoming sqrt(2+alpha^2+beta^2) for rank one",
+        "Nobile--Riffaud arXiv:2502.07040 Theorems 1-2 concern global and local time-integration accuracy and projection/truncation defects",
+        "Hauck--Kusch--Schotthöfer arXiv:2608.27749 Theorem 3.1 addresses time-integration errors"
+      ],
+      "reasoning": "The earlier stronger-in-quantifiers finite-error inequality is not an exact local constant and cannot imply the full singular spectrum. Earlier high-order BUG convergence bounds concern distinct composed maps and do not cover this differential statement.",
+      "searches": [
+        "basis-update Galerkin BUG rank one fixed increment local first order derivative perturbation amplification exact Frobenius condition number tangent normal perturbation two-sided old basis alignment cosines singular vectors 2026 Shiheng Zhang",
+        "\"basis-update\" \"Galerkin\" \"Fréchet\" perturbation",
+        "\"two-sided projection\" \"sampling\" sharp perturbation amplification Frobenius norm basis approximation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.15175v1, November 11 2026",
+      "Epperly 2025 thesis Section 10.1",
+      "arxiv:2502.07040",
+      "arxiv:2608.27749",
+      "Published mathematical record IDs: published-finding corpus record: Exact Gaussian mean-square risk of two-sided oblique tangent projection; published-finding corpus record: Exact angular risk law for a fixed one-column rangefinder; published-finding corpus record: Exact frequency-misalignment amplification in minimal tensor interpolation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang Eq. (2.1) defines the map, Theorem 2.2 bounds global error, and Section 2.2 proof uses orthogonal decomposition rather than differentiation",
+        "Epperly Section 10.1 proves optimality of P_Y B P_Z for sampled spaces, not sensitivity to B-dependent sampling spaces",
+        "Nobile--Riffaud Theorems 1-2 and Hauck et al. Theorem 3.1 bound evolving integrator errors, not the local Jacobian spectrum"
+      ],
+      "reasoning": "A preexisting formula for a map does not itself state its derivative singular spectrum, though derivation uses established projector calculus. Earlier finite-error upper bounds strictly exceed the sharp local coefficient, even with perfect alignment; their implications do not determine this equality.",
+      "searches": [
+        "basis-update Galerkin BUG rank one fixed increment local first order derivative perturbation amplification exact Frobenius condition number tangent normal perturbation two-sided old basis alignment cosines singular vectors 2026 Shiheng Zhang",
+        "rank-one two-sided sampled projector A -> P_(A v) A P_(A^T u), exact perturbation derivative singular values, amplification squared secant principal angles minus one, BUG relaxed exactness",
+        "\"basis-update\" \"Galerkin\" \"Fréchet\" perturbation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhang arXiv:2611.15175 Eq. (2.1) gives the identical two-sided sampled projector",
+        "Epperly 2025 Section 10.1 identifies P_(B Ω) B P_(B^T Ψ) as a two-sided projection; algebraic map and CUR aliases therefore expressly compared",
+        "Published-record semantically related IDs: published-finding corpus record: Exact Gaussian mean-square risk of two-sided oblique tangent projection and published-finding corpus record: Exact angular risk law for a fixed one-column rangefinder"
+      ],
+      "reasoning": "The sampled projector formula is known and not claimed. Source and alias searches did not reveal a published full Frechet singular spectrum at a rank-one reference. A derivative is not furnished by the earlier projector identity alone as a stated result; equivalent unindexed work could exist.",
+      "searches": [
+        "basis-update Galerkin BUG rank one fixed increment local first order derivative perturbation amplification exact Frobenius condition number tangent normal perturbation two-sided old basis alignment cosines singular vectors 2026 Shiheng Zhang",
+        "rank-one two-sided sampled projector A -> P_(A v) A P_(A^T u), exact perturbation derivative singular values, amplification squared secant principal angles minus one, BUG relaxed exactness",
+        "\"BUG integrator\" \"Fréchet derivative\" \"condition number\" low rank",
+        "\"basis update Galerkin\" \"perturbation\" \"angle\" error rank one"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic closest: published-finding corpus record: Exact Gaussian mean-square risk of two-sided oblique tangent projection (two-sided Gaussian oblique tangent projection, randomized sketches; only indexed abstract available)",
+        "published-finding corpus semantic closest: published-finding corpus record: Exact frequency-misalignment amplification in minimal tensor interpolation (tensor interpolation frequency misalignment, not the same deterministic sample-dependent map)",
+        "No exact Jacobian singular-value census identified in the searched indexed records"
+      ],
+      "reasoning": "None of the closest named records claims the exact singular spectrum of the fixed-u,v two-sided BUG map. The full text of the first indexed record could not be fetched, and this is retained as a residual priority risk rather than silently marked inspected.",
+      "searches": [
+        "basis-update Galerkin BUG rank one fixed increment local first order derivative perturbation amplification exact Frobenius condition number tangent normal perturbation two-sided old basis alignment cosines singular vectors 2026 Shiheng Zhang",
+        "rank-one two-sided sampled projector A -> P_(A v) A P_(A^T u), exact perturbation derivative singular values, amplification squared secant principal angles minus one, BUG relaxed exactness",
+        "rank-one two-sided sampled projector A -> P_(A v) A P_(A^T u), exact perturbation derivative singular values, amplification squared secant principal angles minus one, BUG relaxed exactness"
+      ]
+    },
+    "rationale": "The two-sided sampled projector and rank-one BUG update are old objects, and the motivating source gives a general finite-error relaxed-exactness estimate. Neither that statement nor the inspected two-sided projection optimality and BUG convergence theorems states the full Frechet singular spectrum or its sharp local coefficient. These are different quantifiers: the earlier coefficient sqrt(2+alpha^2+beta^2) bounds all increment defects, whereas this result determines the true infinitesimal operator norm sqrt(1+alpha^2+beta^2). The exact derivative can be derived from existing formulas, so unindexed prior equivalent derivations remain a specific priority risk.",
+    "residual_risks": [
+      "An older oblique projector or low-rank perturbation result could contain this derivative spectrum under another notation; historical priority is not certified.",
+      "A semantically related published two-sided oblique tangent Gaussian-sketch record was retrieved by abstract but its repository full text was not accessible during this run; its objects are visibly stochastic sampled tangent maps, but exhaustive noncoverage is not claimed.",
+      "No higher-rank or nonlinear dynamic extension is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Method exactly matches sampled two-sided update, but states general relaxed-exactness inequality, not rank-one differential singular spectrum",
+        "evidence": "Equation (2.1), Theorem 2.2 bound (2.4) and proof (2.5)-(2.6)",
+        "identifier_or_url": "https://arxiv.org/pdf/2611.15175",
+        "material_read": "pp. 1-6: definitions (2.1)-(2.3), Theorem 2.2 and proof, local bound Theorem 3.2; contents and references context",
+        "method": "PDF text and visual inspection of p. 4",
+        "title": "Robust High-Order BUG Integrators without Basis Augmentation",
+        "trigger": "Same-increment method definition and closest possible covering theorem"
+      },
+      {
+        "assessment": "General two-sided sample-dependent projector already known; section proves fixed sampled-space best approximation and standard error inequalities, not derivative spectrum at a rank-one reference",
+        "evidence": "Section 10.1 Proposition 10.1, Definition 10.2, Proposition 10.4",
+        "identifier_or_url": "https://tropp.caltech.edu/dissertations/Epp25-Making-Most.pdf",
+        "material_read": "Section 10.1, pp. 163-164, Proposition 10.1 and Definition 10.2, with PDF visual inspection",
+        "method": "Full-text PDF text and page image",
+        "title": "Make the Most of What You Have: Resource-Efficient Randomized Algorithms for Matrix Computations",
+        "trigger": "Algebraically identical two-sided sampled projection may contain older coverage"
+      },
+      {
+        "assessment": "Local/global integration error estimates with normal and truncation defects; does not state the exact differential rank-one spectrum",
+        "evidence": "Theorem 1 (26), Theorem 2 (31)",
+        "identifier_or_url": "https://arxiv.org/abs/2502.07040",
+        "material_read": "Accessible full text Introduction, Sections 4.1 and 4.2 with Theorems 1 and 2",
+        "method": "Full-text HTML inspection and exact-term search",
+        "title": "Robust high-order low-rank BUG integrators based on explicit Runge-Kutta methods",
+        "trigger": "Earlier high-order BUG estimates might dominate local claim"
+      },
+      {
+        "assessment": "Augmented and parallel high-order integrators with global robust bounds rather than sampled fixed-increment local condition numbers",
+        "evidence": "Theorem 3.1 and its discussion of rank truncation and normal components",
+        "identifier_or_url": "https://arxiv.org/abs/2608.27749",
+        "material_read": "Accessible full text method and robustness sections 1, 3-5, Theorem 3.1",
+        "method": "Full-text HTML inspection and searches for perturbation theorem",
+        "title": "High-order robust basis-update & Galerkin integrators for dynamical low-rank approximation",
+        "trigger": "More general BUG scheme could imply same sensitivity result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b18d7893-5fc2-47d0-81a3-1a2f1fc76032",
+  "value": {
+    "rationale": "The complete dimension-independent derivative singular spectrum is a structural error-channel classification of a numerically important same-increment BUG update: the tangent block is copied, normal residuals enter two different tangent components, and some tangent-normal combinations cancel to first order. Sharp singular values yield a basis-angle tolerance for local increment errors and a matching worst-case perturbation. This directly clarifies the gap between unconditional finite-error robustness estimates and small-defect sensitivity; it is more informative than a trivial special-case restatement of a bound, while not claiming a new algorithm or global improvement.",
+    "status": "PASS"
+  }
+}
