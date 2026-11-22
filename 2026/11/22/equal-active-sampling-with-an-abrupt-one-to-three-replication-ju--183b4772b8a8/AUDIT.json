@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exactly computed conditional success probability for both taxa is (1-exp(-lambda S))^2. For any two positive unequal efforts, conditioning on other bottles makes split dependence a strictly convex quadratic in s=exp(-lambda x)+exp(-lambda y), so at least one endpoint strictly improves the objective and all optimizers have equal positive entries. Exact polynomial factorization proves a unique one-versus-three crossing; exact rational bounds prove k=2 strictly worse there, with continuity yielding nearby skip of two. Standalone check.py reproduces the critical identities with rational arithmetic; finite spot checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moore and McCarthy (2016) optimize detection/survey effort using variable detection rates and cost across sites, with a one-species detection objective; do not state the shared-failure two-species theorem in inspected sections.",
+        "Courtaillac et al. (2024) measure biological replication and pre-PCR pooling, rather than prove allocation under fixed Bernoulli bottle failure."
+      ],
+      "reasoning": "General stochastic survey optimization, independent Hill allocation and classical identical-sigmoid knapsack results do not by themselves supply a stronger theorem that implies the explicit nonseparable objective and its discontinuous support threshold. A broader unknown stochastic-programming theorem remains a residual priority risk.",
+      "searches": [
+        "randomly varying detection rate optimizing ecological survey effort Moore McCarthy 2016",
+        "independent Bernoulli sample viability Poisson co-detection two species optimal number active samples equal effort exactly k out of n",
+        "two target common Bernoulli mixture Poisson detection three replications optimal allocation skips two"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/edn3.70023",
+      "https://doi.org/10.1111/2041-210X.12564",
+      "https://www.egr.msu.edu/~vaibhav/papers/2012d-sb.pdf",
+      "https://doi.org/10.1038/s41598-017-14978-6",
+      "Research-record abstracts: independent Hill inhibition activation staircase; two-visit occupancy D-optimal design; biodiversity sample-budget nonnesting; incidence-based co-detection covariance; careless collector two-loss allocation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 Corollary 5 proves a structurally analogous additive equal-active result; it does not contain joint-target Poisson terms and does not imply the skip-two result.",
+        "The empirical eDNA paper concerns detected OTUs in biological replicates and laboratory pre-PCR pools, not this model of unioned binary outcomes.",
+        "The available research-record summary describing independent-Hill mechanisms asserts successive activation through all support counts, not the present skipped support count."
+      ],
+      "reasoning": "The new proof uses strict convexity after a two-coordinate exponential-sum transformation, a mechanism not obtained just by substituting a sigmoid into a separable additive theorem. Its global optimizer characterization and exact one-to-three crossing require distinct analysis. No inspected source was shown to imply both conclusions.",
+      "searches": [
+        "joint probability of detecting two species from randomly failing spatial samples best allocate survey effort and skipped replication",
+        "split sampling versus pooling for multiple taxa co-detection under sampling zero inflation sample failure all or nothing",
+        "Moore McCarthy 2016 optimizing ecological survey effort full text",
+        "Srivastava Bullo 2013 Corollary 5 identical sigmoid resources full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Srivastava and Bullo (2013), Corollary 5, proves equal positive allocations for sums of identical separable sigmoid utilities; its mathematical objective is additive, not the joint detection probability (1).",
+        "A research record on independent Hill inhibition has an activation staircase, in contrast to the present direct one-to-three switch for a different objective."
+      ],
+      "reasoning": "Shared per-bottle failure couples target detections across samples; the exact two-taxon success objective is 1 minus twice a product plus another product. It is not the sum of per-bottle sigmoid functions. Generic existence of equal-active optima for a separable knapsack therefore does not imply that every optimum here is equal-active, nor the explicit skipped-count tie.",
+      "searches": [
+        "two target jointly detected independent bottle dropout viability optimize volume equal active support discontinuous jump one to three assays Poisson",
+        "nonseparable two species probability both detected with random sample loss equal active samples optimal allocation",
+        "Srivastava and Bullo 2013 identical sigmoid functions Corollary 5 full-text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact algebraic expansion of the three candidate scores gives a factorization and a positive gap at the crossing; these parameter-specific identities are proved and reproduced in check.py, not taken from a known table.",
+        "No matching exact three-sample parameter table was identified among inspected studies and research records."
+      ],
+      "reasoning": "The finite exact parameter p=4/5 and B=3 log(3)/(2 lambda) is a witness for a structural discontinuity; neither a benchmark from an existing database nor a recomputation of an external table. Negative search does not establish historical uniqueness.",
+      "searches": [
+        "exact Poisson Bernoulli bottle viability two target detection optimal allocation table",
+        "two target jointly detected independent bottle dropout viability optimize volume equal active support discontinuous jump one to three assays Poisson"
+      ]
+    },
+    "rationale": "Verified relevant empirical and mathematical literature contains separate-replicate studies, single-taxon ecological surveys and a separable identical-sigmoid equal-active corollary, none shown to imply the nonseparable two-target all-global-optima and skipped-count theorem. Search in mathematical records for aliases and broader allocation comparisons did not reveal a directly covering statement. Historical priority provisional.",
+    "residual_risks": [
+      "A broad nonseparable probability-maximization result or older identical-component resource-allocation literature could imply a special case not captured by the inspected sources.",
+      "Only short abstracts, not full primary texts, were available for some research-record comparisons; no negative coverage claim is based on their full texts.",
+      "Empirical eDNA source involves laboratory pre-PCR pools, whereas the theorem joins detection records from separately assayed samples."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Empirical, noncovering: sample-dependent OTU counts and physical pooling are not this probability-optimization theorem",
+        "evidence": "First published 14 October 2024; species detected in nine biological replicates and pre-PCR pools are compared, with individual samples detecting 76 OTUs versus 65 across the studied pools.",
+        "identifier_or_url": "https://doi.org/10.1002/edn3.70023",
+        "material_read": "Public article abstract; methods and results on replicate effort and pre-PCR pooling; discussion and sampling implications",
+        "method": "Read public full-text HTML and compared experimental estimand and laboratory workflow with joint detection probability",
+        "title": "The Effect of Spatio-Temporal Sampling and Biological Replication on the Detection of Kelp Forest Fish Communities Using eDNA Metabarcoding",
+        "trigger": "Primary ecological sample replication, eDNA species-detection motivation"
+      },
+      {
+        "assessment": "Different one-target detection objective with stochastic temporal encounter rates and visit costs; does not furnish two-target shared-failure formula or skipped k=2 switch",
+        "evidence": "Models per-survey non-detection as a negative exponential under uncertain encounter rates, and optimizes effort over sites and time.",
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12564",
+        "material_read": "Public full-text article formulation of single-site detection and results on space-time effort allocation",
+        "method": "Read public HTML sections with model assumptions and optimization results",
+        "title": "Optimizing ecological survey effort over space and time",
+        "trigger": "Closest ecological mathematical survey-effort allocation"
+      },
+      {
+        "assessment": "Directly covers a simpler additive identical-sigmoid equal-active result; not the new nonseparable joint-detection event or exact jump",
+        "evidence": "Corollary 5: for identical additive sigmoid utilities an optimal policy has m equal nonzero entries and the rest zero, with m selected by maximizing m f(T/m).",
+        "identifier_or_url": "https://www.egr.msu.edu/~vaibhav/papers/2012d-sb.pdf",
+        "material_read": "Public PDF abstract, Sections 1-3 and Corollary 5 on page 6; page image inspected",
+        "method": "Read mathematical objective and exact Corollary 5 statement and proof context in the lawful author-hosted PDF",
+        "title": "Knapsack Problems with Sigmoid Utilities: Approximation Algorithms via Hybrid Optimization",
+        "trigger": "Potential dominating exact equal-active theorem"
+      },
+      {
+        "assessment": "Sample processing and empirical detectability; no relevant all-global-optima or skipped-support proof identified",
+        "evidence": "Study investigates detection differences among individual and pooled environmental-DNA samples.",
+        "identifier_or_url": "https://doi.org/10.1038/s41598-017-14978-6",
+        "material_read": "Public full-text study portions on sample detection and pooling",
+        "method": "Compared biological experiment and pooled-sample procedure with modeled independent assay union",
+        "title": "Comparison of individual and pooled environmental-DNA samples",
+        "trigger": "Historical eDNA sampling and pooling precedent"
+      },
+      {
+        "assessment": "Independent Hill inhibition is additive/separable; stated sequential support staircase does not imply the nonseparable skipped-count theorem",
+        "evidence": "The available record summary states active targets occur in counts 1 through n successively in its own model.",
+        "identifier_or_url": "2026 research-record title (abstract summary)",
+        "material_read": "Returned published-record short abstract only; primary full text was not inspected",
+        "method": "Compared declared exact objective and conclusion in summary to new formula",
+        "title": "A complete active-target staircase for independent Hill inhibition under a shared dose budget",
+        "trigger": "Research record closest to integer support-size allocation structure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "183b4772-b8a8-4d62-ad83-9325c30570c1",
+  "value": {
+    "rationale": "For jointly detecting two taxa, sample-level viability is a motivated failure mechanism and joint co-detection is a natural target that cannot be reduced to maximizing expected richness. The theorem replaces a high-dimensional, nonconcave continuous effort optimization by n explicit values and exhibits an abrupt optimal replication jump from one to three that skips the intermediate sample count despite zero fixed sample costs; it identifies a substantive design boundary rather than an arbitrary finite parameter tally.",
+    "status": "PASS"
+  }
+}
