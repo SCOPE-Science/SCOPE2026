@@ -1,0 +1,19 @@
+# Scientific review of the three-impulse Nash crest theorem
+
+## Correctness — PASS
+
+The domain is every positive dimensionless gap \(\delta>0\) for three identical instantaneous impulses, using the normalized three-reservoir Nash response. The model normalizes discharge by a positive factor, leaving strict local maxima unaffected. The analytical proof counts all stationary sign changes on the three impulse-activity intervals: the derivative becomes a strictly concave quadratic after multiplication by \(e^t\), and the sign at the third impulse equals the sign of a strictly decreasing threshold function on \((0,2)\). The negative-slope bound \(2M<e^{-1}\) guarantees a later positive derivative, so no missing crests hide behind a tangency. Exact equality cases at the two thresholds are treated separately. The supplementary standard-library checker passed 2,297 assertions. It cannot prove continuous parameter completeness and is not used to do so.
+
+## Originality — PASS relative to inspected evidence
+
+The Nash kernel itself and linear convolution of effective rainfall impulses are classical. The closest earlier online results classify **two** equal or unequal runoff impulses through three or four serial reservoirs. They do not imply the present result for **three** equally spaced impulses, because the third input creates a new activity interval and permits a two-crest signal strictly below the two-impulse modal-delay barrier. The accessible texts of Boufadel (1998), Muneepeerakul et al. (2010), and Gnecco et al. (2018) supply hydrologic models, empirical hydrographs or one-rectangle peak studies, but do not contain the stated one–two–three crest cutoff. Ahmed et al. (2008) and Došlá (2009) treat two-component gamma mixtures with common starting support, not this three-component translated pulse train. General variation-diminishing statements can bound the number of peaks without implying these exact thresholds. Some earlier relevant articles and mathematical records were accessible only in summary form; originality is a documented, provisional best-evidence assessment, not an assertion of exhaustive historical priority.
+
+## Value — PASS
+
+The explicit first cutoff \(\delta_0\approx1.53780549\) resolves a physically motivated question: can *three* closely spaced rainfall-excess bursts generate two outlet discharge crests when a pair of bursts cannot? The sharp answer changes the interpretation of multi-crest hydrographs and supplies an exact benchmark for numerical flood-routing and pulse-separation algorithms. It is structurally distinct from a merely numerical example, a slight parameter gain, or a general convexity exercise. Value is limited to idealized linear time-invariant, equal-volume point-impulse routing and does not establish empirical flood risk or resolution under finite sampling.
+
+## Sources and residual limits
+
+Key inspected sources: Nash (1957; original accessible scan, pp. 114 and 116); Boufadel (1998; accessible article body on unit-hydrograph reconstruction and 12-pulse numerical storms); Muneepeerakul et al. (2010; full text, gamma pulse sum and statistical moments); Gnecco et al. (2018; full text, one rectangular hyetograph); Došlá (2009; accessible complete article text on two-mixture criteria); Ahmed et al. (2008; accessible article text on two-component gamma mixtures). The 2004 Singh article supplies a verified exact first-online date, but its full text was unavailable at the publisher; it is used only as methodological background, not as negative coverage evidence. The most pertinent earlier two-pulse mathematical notes were searchable by public summaries but their full texts were not retrievable. These remaining sources may contain relevant stronger general modal-geometry results, though none of the available statements subsumes the present theorem.
+
+Self-review: passed. Independent audit: not yet performed.
