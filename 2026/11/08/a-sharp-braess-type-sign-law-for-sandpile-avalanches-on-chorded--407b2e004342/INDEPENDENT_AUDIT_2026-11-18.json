@@ -1,0 +1,192 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T23:55:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git tree 29f6adc2cc5a35a5cb990995d6a22e1cb47c9b70; RESULT.md blob bb806ed9ceaa7bcc35e869ee5f09b102119a2d67",
+        "Frozen Git verify_chord_sandpile.py blob c2aa47ba51a0eb080797f7e50ac01d360c5d17c5",
+        "Independent fresh exact rational solution and burning enumeration /mnt/data/scope_worker04_independent_chord_check.py (165 matrix cases; 20 burning cases)",
+        "Járai arXiv:1106.5358 finite stationary recurrent and burning foundation"
+      ],
+      "rationale": "The model uses uniform recurrent states of each graph separately; stationary grain addition is a recurrent-group permutation, so E T=L^{-1}e_1 and total E M=1^TL^{-1}e_1. On C_n with sink 0, the Dirichlet path Green G_ab=min(a,b)(n-max(a,b))/n solves the difference equations with zero boundary; u_a=a(n-a)/2, so M(C_n)=(n-1)/2. A nonsink chord changes L to L+bb^T, b=e_i-e_j; Sherman–Morrison gives ΔM= -(L^{-1}b)_1 (b^Tu)/(1+b^TL^{-1}b). Verified (L^{-1}b)_1=d/n, b^Tu=-d(n-i-j)/2, and b^TL^{-1}b=d(n-d)/n, proving exactly ΔM=d²(n-i-j)/(2[n+d(n-d)]). All denominators positive and d≥2. The n=4 only chord {1,3} is neutral; n=5 {1,3} gives +2/11. For incident chord k=1+d, 2≤d≤n-3, 0<d²(n-d-2)/((n-1)(n+d(n-d)))<1 (both factors strictly smaller than their denominator bounds), proving 1<Mnew/Mold<2; taking k=n-floor(sqrt n) yields d/n→1 and (n-d)/sqrt n→1 so ratio→2. Independently written exact rational grounded-Laplacian solver tested every 165 valid chord through n=12, and independent burning/recurrent-state stabilizations for all 20 chords through n=7 reproduced the exact means and counts. Four n up to 10^6 show ratio convergence, not an infinite proof. Original repository checker was separately source-inspected; its claimed 120/20 cases are consistent with independent checks. This is an exact first-moment proof, not avalanche area/distribution stochastic dominance.",
+      "residual_risks": [
+        "All-n proof invokes standard finite recurrent group permutation and invertibility; independent finite tests alone cannot prove it.",
+        "No claim is established for sink-touching chords, other grain injection positions, nonrecurrent input, total distinct affected vertices or stochastic domination.",
+        "Factor-two limit applies only to source-incident chord family; no global amplification bound for other graph families."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published tree edge-addition extremum considers ORIGINAL TREES with sink-adjacent source leaf. A cycle is not in its hypothesis; its optimizing factor diverges rather than approaching two.",
+          "Matter–Nagnibeda Proposition 2.3.4 governs separable graphs and block paths, whereas chorded cycles are theta graphs with no cut vertex, outside this decomposition.",
+          "Eldan–Rácz–Schramm Theorem 1 describes normalized-Laplacian spectral-gap change in random graphs, not finite recurrent-sandpile toppling expectations.",
+          "A general matrix Sherman–Morrison identity applies to all graphs but does not itself state the precise cycle-chord location sign threshold or sharp incident-chord factor-two phenomenon."
+        ],
+        "reasoning": "Tested broader contexts by their quantifiers and observables. General stationary toppling/Green formula and edge rank-one inversion provide tools, not a published stronger theorem with an already evaluated sign for every nonsink chord; the tree extremum and cacti results have different structural hypotheses and do not subsume the cycle theorem. Residual risk remains that general graph perturbation literature already packages the same computation.",
+        "searches": [
+          "Resultary: Sandpile Abelian avalanche expected number of topplings edge addition chord cycle Braess sign formula",
+          "Resultary/2026:2026/11/8/SCOPE-sharp-amplification-of-stationary-sandpile-topplings-by-one-edge--b2bf94d710a5",
+          "arXiv:1105.4036 (Matter–Nagnibeda, Proposition 2.3.4 and Section 2.4)",
+          "arXiv:1504.07669 (Eldan–Rácz–Schramm, Theorem 1)",
+          "web: sandpile mean avalanche size edge addition Braess resistance chord graph cycles"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search queries (three, distinct phrasings); subject-record hit correctly identified as self",
+        "Resultary public tree-edge amplification RESULT.md b2bf94d710a5 (full read)",
+        "Austin et al. arXiv:1605.02713 Section 4 and Corollary 29 (full relevant section)",
+        "Járai arXiv:1106.5358 Sections 2–3",
+        "Matter–Nagnibeda arXiv:1105.4036 Sections 2.3–2.4",
+        "Cori–Micheli–Rossin arXiv:0905.2823 Sections 2–3",
+        "Eldan–Rácz–Schramm arXiv:1504.07669 Introduction and Theorem 1",
+        "Web targeted chord cycle / theta graph and edge addition searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationarity plus Sherman–Morrison yields ΔM= -(L^{-1}b)_1(b^TL^{-1}1)/(1+b^TL^{-1}b), where b=e_i-e_j. This general identity indeed implies the submitted rational formula after explicit use of the cycle Green kernel.",
+          "The on-cycle evaluations are (L^{-1}b)_1=d/n, b^TL^{-1}1= -d(n-i-j)/2, b^TL^{-1}b=d(n-d)/n, leading to d²(n-i-j)/(2[n+d(n-d)]).",
+          "The tree theorem already works with the same stationary Sherman–Morrison identity, but its assertion optimizes over tree sources and thus does not contain the full sign classification over cyclic chords."
+        ],
+        "reasoning": "The identity-level mathematical implication of standard ingredients is explicit: the result is not novel for its algebraic technique. The assessed final claim, however, is a quantitatively complete sign and amplification classification over a motivated infinite chorded-cycle family, not a mere restatement of a previously evaluated general theorem. There is no identified pre-existing source with the identical classified conclusion, and this is a best-of-knowledge judgment rather than priority certification.",
+        "searches": [
+          "arXiv:1605.02713 Section 4, Lemma 22/Theorem 25/Corollary 29",
+          "arXiv:1106.5358 Sections 2–3",
+          "arXiv:1105.4036 Proposition 2.3.4",
+          "Resultary published tree-edge-addition theorem b2bf94d710a5",
+          "web: chip firing expected avalanche total topplings one sink cycle added edge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary addition acts as a permutation of the finite recurrent group, so E[toppling at v] equals the grounded-Laplacian Green entry (L^{-1})_{v1}; summing over v gives the total-toppling mean. This well-known identity is not new.",
+          "The cycle with one sink is the Dirichlet path, Green G_ab=min(a,b)(n-max(a,b))/n. Austin et al. Corollary 29 classifies principal avalanche polynomials for the UNCHORDED cycle.",
+          "The similarly named Resultary entry with the same record suffix 407b2e004342 is publication of the very subject record, not independent historical prior art."
+        ],
+        "reasoning": "A Green/occupation-time reformulation of mean avalanche count and a rank-one update of an edge are genuine equivalent routes. A published equivalent full two-parameter chorded-cycle sign boundary and near-two asymptotic was not found among inspected distinct works. Existing mathematical tools make the specialization short, which is acknowledged as a priority and value risk; the same-item Resultary mirror is not counted as separate earlier literature.",
+        "searches": [
+          "Resultary semantic: Sandpile Abelian avalanche expected number of topplings edge addition chord cycle Braess sign formula",
+          "Resultary semantic: Stationary chip-firing cycle graph insert chord mean toppling count Green function",
+          "web: abelian sandpile avalanche edge addition mean topplings chord cycle graph Braess paradox",
+          "arXiv:1106.5358 (Járai, finite recurrent law)",
+          "arXiv:1605.02713 (Austin et al., Section 4)",
+          "Resultary/2026:2026/11/8/SCOPE-a-sharp-braess-type-sign-law-for-sandpile-avalanches-on-chorded--407b2e004342"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Austin et al. enumerate the base cycle principal-avalanche polynomial, with Corollary 29 and no chord perturbation parameter; a complete polynomial for C_n does not determine C_n+{i,j}.",
+          "Cori–Micheli–Rossin treat average and variance of avalanche statistics on trees, not arbitrary chorded-cycle spectra or sign tables.",
+          "The exact computed 165 small-n chords in this audit are novel diagnostics, not a previously published universal table."
+        ],
+        "reasoning": "A finite indexed cycle table or polynomial for the original graph cannot yield a same-parameter chorded-cycle value without new evaluation. Searches found no separate existing table of the two-endpoint parameters (n,i,j), but incompleteness of indexes is a residual risk.",
+        "searches": [
+          "arXiv:1605.02713 Corollary 29 complete unchorded cycle avalanche polynomial",
+          "web: sandpile avalanche polynomial chorded cycle theta graph added chord expected number of topplings",
+          "Resultary: Sandpile chorded cycle one sink inverse Laplacian expected avalanche size",
+          "arXiv:0905.2823 (Cori–Micheli–Rossin, Sections 2–3)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the evaluated all-chord sign boundary n-i-j and the sharp incident-chord near-doubling phenomenon on a natural infinite cycle family, NOT for stationarity, Dhar Green identity, cycle Dirichlet inverse, Sherman–Morrison or generic edge-update formulas. Compared full corresponding public tree-edge-addition result, primary cycle avalanche polynomials and cactus/separable graph literature, and a normalized-spectral-gap Braess paper; hypotheses and observables do not dominate the submitted conclusion. Resultary indexes a publication of the same record 407b2e004342, which is the research subject/mirror and is not independent earlier coverage. Strong residual risk: the formula follows with elementary algebra from classic tools, so unindexed earlier chorded-cycle specialization may exist; semantic searches and literature reading do not certify priority.",
+      "residual_risks": [
+        "General edge-update Green identities plus known cycle Green imply the formula through a brief specialization, making novelty restricted to the evaluated classification and near-two asymptotic.",
+        "No global exhaustive historical search is possible; an unindexed specialized chorded-cycle avalanche derivation or a broader graph response theorem could cover it.",
+        "The similarly titled Resultary entry with identical suffix is the same record and cannot constitute independent novelty evidence or an independent conflicting prior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers principal-avalanche polynomials for C_n itself, not edge insertion or arbitrary chorded-cycle comparative mean.",
+          "evidence": [
+            "Corollary 29 is a formula for A(C_{n+1}) and contains no arbitrary i,j chord parameter (PDF p.13); p.11 Theorem 25 gives maximal cycle recurrent toppling monomials.",
+            "PDF search for chord found no match; scoped to substantive Section 4, not assumed proof of absence across all prior literature."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.02713",
+          "material_read": "Introduction and definitions; entire cycle-specific Section 4.1–4.2 (pp.9–13), particularly Lemma 22, Theorem 25, Theorem 28 and Corollary 29; reviewed page 11 original image.",
+          "method": "Lawful arXiv full-text PDF reading, text search for chord, page-image inspection.",
+          "title": "The Avalanche Polynomial of a Graph",
+          "trigger": "Strongest same-base-object source; could already compute full stationary avalanche statistics for cycles."
+        },
+        {
+          "assessment": "Supports recurrent-stationarity/burning tools but no evaluated one-chord mean change or two-sided sign cutoff.",
+          "evidence": [
+            "Section 3.1 identifies recurrent/allowed configurations and |R_G|=det Δ_G; Section 3.2 gives the burning algorithm (PDF p.6)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.5358",
+          "material_read": "Introduction, Sections 2–3 finite model, allowed recurrent configurations, Dhar burning algorithm, recurrent group/spanning trees; inspected original PDF p.6.",
+          "method": "Lawful arXiv full-text PDF and original page image, focused theorem comparison.",
+          "title": "Abelian sandpiles: an overview and results on certain transitive graphs",
+          "trigger": "Standard recurrent group, burning, and spanning-tree premises underpinning the stationarity argument."
+        },
+        {
+          "assessment": "Describes separable graph block-path dependence and unmodified cycle mass laws; chorded cycle (theta graph) not covered as cactus/separable family.",
+          "evidence": [
+            "Proposition 2.3.4 explicitly assumes a separable graph and determines avalanche dependence on the block path (PDF p.8)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1105.4036",
+          "material_read": "Introduction and Sections 2.3–2.4, particularly Proposition 2.3.4, Proposition 2.4.2 and the cacti discussion; original PDF p.10 image.",
+          "method": "Lawful arXiv PDF full text, theorem text and page image.",
+          "title": "Abelian Sandpile Model on Randomly Rooted Graphs and Self-Similar Groups",
+          "trigger": "Cycle avalanche and separable graph/cactus theorems can dominate naive cycle specializations."
+        },
+        {
+          "assessment": "Tree-polynomial average/statistics, not the two-parameter single-chord cycle difference.",
+          "evidence": [
+            "Section 3.4 Proposition 1 gives an asymptotic average avalanche size for plane trees, not on chorded cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0905.2823",
+          "material_read": "Abstract, introduction, Section 2 plane-tree avalanche polynomial and Section 3.4 average tree avalanche distribution; title-page original image.",
+          "method": "Lawful arXiv PDF full text and original page image.",
+          "title": "Avalanche polynomials",
+          "trigger": "Earlier exact avalanche averages might include a dominating invariant."
+        },
+        {
+          "assessment": "Different random-graph normalized spectral-gap observable; not a stationary sandpile total-toppling mean.",
+          "evidence": [
+            "Theorem 1 and definitions explicitly concern λ₂ of the normalized Laplacian in Erdős–Rényi graphs (PDF pp.1–3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1504.07669",
+          "material_read": "Abstract, Introduction and Theorem 1 normalized spectral-gap statement; original title page.",
+          "method": "Lawful arXiv PDF full text and original page image.",
+          "title": "Braess's paradox for the spectral gap in random graphs and delocalization of eigenvectors",
+          "trigger": "Potential general theorem that a new edge can have a counterintuitive effect."
+        },
+        {
+          "assessment": "Assumes original graph a tree and source a leaf adjacent to sink, and studies all-tree extremum; does not imply chord perturbation in an original cycle.",
+          "evidence": [
+            "The stated theorem optimizes one edge on a sink-adjacent source-leaf tree, with linear-in-N amplification; the chorded-cycle class has no tree baseline and a factor-two incident-chord limit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-amplification-of-stationary-sandpile-topplings-by-one-edge--b2bf94d710a5/RESULT.md",
+          "material_read": "Entire published RESULT.md including theorem, conditions, rank-one proof, optimization, limitations and references.",
+          "method": "Read full public GitHub RESULT.md through authorized GitHub file retrieval.",
+          "title": "Sharp amplification of stationary sandpile topplings by one edge on a tree",
+          "trigger": "Closest published finding shares the same stationary toppling mean and edge-augmentation mechanism."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual full frozen RESULT.md theorem and proof, Git blob bb806ed9ceaa7bcc35e869ee5f09b102119a2d67",
+        "Published distinct tree edge amplification theorem b2bf94d710a5 (comparison of meaningful scale)",
+        "Independent rational checks for 165 chord placements and 20 direct recurrent enumerations"
+      ],
+      "rationale": "A structurally natural dynamical observable (stationary total toppling work after a fixed source addition) responds unexpectedly to an added edge. The exact two-endpoint criterion i+j<n,=n,>n partitions all permissible nonsink chords into increased, neutral and decreased mean and identifies the sharp threshold using actual graph positions, not an arbitrary computational slice. The smallest strict example at n=5 and an incident-chord family with finite ratio below two but asymptotic limit two reveal a motivated sharp magnitude boundary. This nontrivial infinite family classification may be used to check intuitions about avalanche activity and link augmentation despite relying on familiar linear-algebra tools. It neither claims novelty for Sherman–Morrison nor general stochastic dominance.",
+      "residual_risks": [
+        "The proof is short because of standard Green rank-one identities, so its independent mathematical value rests on a useful sign-complete and sharp factor-two interpretation rather than new techniques.",
+        "Only expected total topplings are covered; extensions to arbitrary graphs and distributional ordering are open in this package."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n≥4, sink 0 and addition at 1 in uniformly recurrent Abelian sandpiles, inserting any previously absent nonsink chord {i,j} (1≤i<j≤n−1,j−i≥2) changes expected total individual topplings by (j−i)^2(n−i−j)/(2[n+(j−i)(n−j+i)]). Thus the sign is exactly the sign of n−i−j; source-incident chords can approach but never attain a factor-two amplification within the stated family.",
+  "limitations": [
+    "Exact stationary mean on fixed sink/injection and nonsink simple chords only, no full distribution or random-source theorem.",
+    "Best-of-knowledge originality, historical noncoverage not certified; short standard-matrix derivability is explicit.",
+    "Underlying same-model review and VERIFY_OK are not substitutes for the independent C/O/V reasoning.",
+    "Finite enumeration verifies finite cases only; all-n follows from proved algebra."
+  ],
+  "schema_version": 1
+}
