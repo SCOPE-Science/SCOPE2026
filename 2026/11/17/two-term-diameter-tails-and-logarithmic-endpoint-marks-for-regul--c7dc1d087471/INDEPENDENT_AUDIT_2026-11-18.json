@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T19:03:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md; exact Git tree 1669df853dbe7dc3c74bd29cfdf9949401b2acc3",
+        "verify_reuleaux.py inspected",
+        "independent algebraic expansion of local chart and integral split"
+      ],
+      "rationale": "PASS: For each fixed odd n>=5 the unique smooth diameter contacts localize on 2n ordered mutually centered arc pairs; all other corner intersections have O(epsilon^2) unnormalized mass. The exact arclength chart x(s)=(1-cos s,sin s), y(t)=(cos t,sin t) gives distance squared 1-4sin(s/2)[sin(s/2+t)-sin(s/2)], so the local deficit behaves like st and is t sin s+O_s(t^2) along the t=0 axis. With delta=epsilon^(1/3), inner-square st area plus two outer strips yields epsilon[log(1/epsilon)+1+2log(2tan(pi/(2n)))]+o(epsilon), and summing ordered sectors and dividing by perimeter squared pi^2 produces the displayed coefficient. On compact 0<u,w<1 the logarithmic-coordinate Jacobian is epsilon log(1/epsilon)(1+o(1)), and Scheffe gives total-variation marked convergence. Fixed n and width-1 arclength model essential; finite quadrature cannot establish limit.",
+      "residual_risks": [
+        "No full independent numerical checker replay is claimed; rare-event asymptotic relies on proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-odd-n November 1 Reuleaux result samples points uniform in area and has order epsilon^3 log(1/epsilon), rather than boundary epsilon log(1/epsilon); geometry references give construction but not stochastic boundary chord tails."
+        ],
+        "reasoning": "An all-odd Reuleaux theorem at the same diameter does not dominate when its probability measure differs. The area-uniform result does not imply arclength conditional marks.",
+        "searches": [
+          "regular Reuleaux odd-gon boundary-uniform random point pair near diameter logarithmic tails 2 term endpoint marks",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-logarithmic-near-diameter-distance-tails-for-every-regular-reule--f7a617353911",
+          "arxiv:1406.3205",
+          "arxiv:2608.05125"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify_reuleaux.py",
+        "Resultary indexed records for Reuleaux triangle, all-odd area-sampling and invariant-line law",
+        "arxiv:1406.3205",
+        "arxiv:1204.2707"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "n=3 boundary result matches formal specialization 1+log(4/3); area-sampling all n has a different asymptotic exponent."
+        ],
+        "reasoning": "Older results imply the intentionally excluded n=3 case, not the variable n>=5 boundary theorem or its marked total variation limit.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-two-term-boundary-chord-law-and-logarithmic-endpoint-marks-for--5e3a10e10baf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-logarithmic-near-diameter-distance-tails-for-every-regular-reule--f7a617353911",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-logarithmic-terminal-chord-law-for-the-reuleaux-triangle--bbcd3963fc69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known n=3 boundary-arclength two-term law has (6/pi^2)epsilon[log(1/epsilon)+1+log(4/3)] and uniform logarithmic marks; the invariant-line chord law has a different sampling measure."
+        ],
+        "reasoning": "Extending n=3 is not just changing a label: the number of mutually centered arc sectors is 2n and their lengths alpha=pi/n give a nonconstant second coefficient; prior one-triangle identity does not imply the n>=5 geometry.",
+        "searches": [
+          "regular Reuleaux odd-gon boundary-uniform random point pair near diameter logarithmic tails 2 term endpoint marks",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-two-term-boundary-chord-law-and-logarithmic-endpoint-marks-for--5e3a10e10baf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-logarithmic-terminal-chord-law-for-the-reuleaux-triangle--bbcd3963fc69"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n=3 exact boundary constant is known; no independently indexed exact all-n>=5 arclength boundary table was found."
+        ],
+        "reasoning": "The count 2n, sector integral and second constant depend on the exact arcs, and are not a lookup of a tabulated polygon invariant.",
+        "searches": [
+          "Reuleaux odd n boundary two term epsilon log endpoint tags Resultary",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-two-term-boundary-chord-law-and-logarithmic-endpoint-marks-for--5e3a10e10baf"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: existing Reuleaux triangle boundary model gives n=3 only, while prior all-odd-order Reuleaux distance tails use volume-uniform interior points (different epsilon^3 log power); invariant-line chords and straight-edged polygon distances are different experiments. The variable-n two-term boundary-uniform scalar law with joint logarithmic/deficit marks was not implied by the compared findings.",
+      "residual_risks": [
+        "Prior primary Reuleaux geometry articles not materially read in full; unindexed old boundary-chord calculations may subsume the n>=5 case.",
+        "Asymptotics fixed n only; circle limit n->infinity non-uniform."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS n=3 only; broader odd n not shown",
+          "evidence": "n=3 coefficient 1+log(4/3) agrees exactly",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-two-term-boundary-chord-law-and-logarithmic-endpoint-marks-for--5e3a10e10baf",
+          "material_read": "Entire prior published RESULT.md: complete exact finite threshold formula, Sections 1-3 arc-pair proof and Scheffe total variation limit, verification and limitations",
+          "method": "direct full-text mathematical reading and comparison to exact n=3 formula",
+          "title": "A two-term boundary-chord law and logarithmic endpoint marks for the Reuleaux triangle",
+          "trigger": "same model nearest n=3"
+        },
+        {
+          "assessment": "DIFFERENT INTERIOR AREA SAMPLING; no whole-paper not-covering assertion",
+          "evidence": "epsilon^3 log(1/epsilon) area-uniform versus epsilon log boundary-uniform",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-logarithmic-near-diameter-distance-tails-for-every-regular-reule--f7a617353911",
+          "material_read": "published Resultary statement and model description, not full document",
+          "method": "semantic search",
+          "title": "Logarithmic near-diameter distance tails for every regular Reuleaux odd-gon",
+          "trigger": "all n potential dominating theorem"
+        },
+        {
+          "assessment": "geometric context, no priority conclusion from unread full text",
+          "evidence": "constant-width polygon construction, no inspected stochastic tail theorem",
+          "identifier_or_url": "https://arxiv.org/abs/1406.3205",
+          "material_read": "reference identity and summary in assigned proof; full manuscript not read",
+          "method": "bibliographic comparison",
+          "title": "Involutes of polygons of constant width in Minkowski planes",
+          "trigger": "primary Reuleaux geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "near-diameter probability and sharp geometric distinction"
+      ],
+      "rationale": "PASS: Despite identical width and perimeter across all regular odd Reuleaux bodies, the leading rare-chord coefficient identifies the number of corners; the next coefficient measures the arc-angle geometry and the independent marks give a nontrivial local contact law for a natural entire family, rather than a triangle-only exercise.",
+      "residual_risks": [
+        "Reuleaux triangle special case already known; no uniform large-n claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Sharp two-term diameter tail and marked product-uniform logarithmic endpoint law for independent arclength-uniform boundary points of any fixed regular Reuleaux odd-gon n>=5.",
+  "limitations": [
+    "Best-of-knowledge historical coverage; full old Reuleaux geometry literature remains uninspected."
+  ],
+  "schema_version": 1
+}

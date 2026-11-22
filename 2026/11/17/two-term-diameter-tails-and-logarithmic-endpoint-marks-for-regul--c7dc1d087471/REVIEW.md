@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The arc-pair classification identifies exactly \(2n\) mutual-center sectors, with all others contributing only lower-order area. Their exact trigonometric distance formula leads to an elementary two-scale integral and the sharp second coefficient. The marked total-variation limit is obtained from the explicit rescaled Jacobian and Scheffé's lemma. The included deterministic quadrature tests the complete second coefficient for four odd orders; finite tests are not a proof.
+PASS
 
-## Originality
+PASS: For each fixed odd n>=5 the unique smooth diameter contacts localize on 2n ordered mutually centered arc pairs; all other corner intersections have O(epsilon^2) unnormalized mass. The exact arclength chart x(s)=(1-cos s,sin s), y(t)=(cos t,sin t) gives distance squared 1-4sin(s/2)[sin(s/2+t)-sin(s/2)], so the local deficit behaves like st and is t sin s+O_s(t^2) along the t=0 axis. With delta=epsilon^(1/3), inner-square st area plus two outer strips yields epsilon[log(1/epsilon)+1+2log(2tan(pi/(2n)))]+o(epsilon), and summing ordered sectors and dividing by perimeter squared pi^2 produces the displayed coefficient. On compact 0<u,w<1 the logarithmic-coordinate Jacobian is epsilon log(1/epsilon)(1+o(1)), and Scheffe gives total-variation marked convergence. Fixed n and width-1 arclength model essential; finite quadrature cannot establish limit.
 
-PASS, provisionally. The previously known \(n=3\) boundary-arclength law is excluded. The strongest closely related all-odd-order Reuleaux result samples points **uniformly in area**, changing the power of the tail. Invariant random lines and straight-edged polygon chords are different random geometries. No inspected source states the all-odd-order **boundary-arclength** two-term law or its marked limit. Inaccessible historical literature remains a priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. The leading rare-event coefficient recovers the number of Reuleaux corners from a pair-distance statistic even though width and perimeter are fixed across the family, while the second coefficient and product limiting marks reveal how contact geometry depends on the arc angle. This is a structural extension to all odd orders rather than a new calculation of the already known triangle case.
+PASS best-of-knowledge: existing Reuleaux triangle boundary model gives n=3 only, while prior all-odd-order Reuleaux distance tails use volume-uniform interior points (different epsilon^3 log power); invariant-line chords and straight-edged polygon distances are different experiments. The variable-n two-term boundary-uniform scalar law with joint logarithmic/deficit marks was not implied by the compared findings.
 
-## Limitations
+## value
 
-Only regular fixed odd orders \(n\ge5\), width one, independent arclength samples, and the diameter endpoint regime are covered. No uniform large-\(n\) statement or independent verification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Despite identical width and perimeter across all regular odd Reuleaux bodies, the leading rare-chord coefficient identifies the number of corners; the next coefficient measures the arc-angle geometry and the independent marks give a nontrivial local contact law for a natural entire family, rather than a triangle-only exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
