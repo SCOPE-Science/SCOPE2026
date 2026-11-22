@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies arbitrary fixed interior atoms, positive masses, all real data, every fixed evaluation point, normal windows, and the weighted \(L^2\) operator. Likelihood-line ordering, posterior concentration, binomial CLT, the two-binomial overlap estimate, and a reversible Gram representation prove all components. The independent finite checker validates algebraic cases but is not treated as a substitute for the infinite proof. No constant-level norm asymptotic is asserted.
+## correctness
 
-## Originality — PASS, qualified
-The 2012 general-measure article gives a full-support convergence criterion. Berdysheva's 2014 pointwise paper proves at-support convergence, a component explicitly attributed rather than claimed original. Berdysheva–Li 2014 obtains general \(K\)-functional convergence estimates, not the \(\Theta(n^{-1/2}e^{-nC_*})\) finite-atomic error. The earlier general-weight spectral article imposes a polynomial-positivity condition excluding finite atomic measures. Searches for the equivalent Bernoulli posterior, KL quantizer, Chernoff overlap and Gaussian interface located no equivalent complete statement. The uninspected full text of the 2014 pointwise paper and unindexed literature remain priority risks.
+PASS
 
-## Mathematical value — PASS
-The atomic subclass is a natural severe-incomplete-support case of the arbitrary-measure approximation theory. The theorem gives both the full off-support limit profile, including universal normal interfaces, and the sharp information-theoretic exponential spectral recovery rate on the support. The classification contrasts substantively with general polynomial-scale bounds.
+For finite interior atoms, ℓ_i(t)=t log a_i+(1−t)log(1−a_i) has increasing slopes and only consecutive upper-envelope crossings c_i. The Bayesian binomial posterior therefore concentrates on the unique maximizing atom; near a crossing the triangular-array binomial CLT yields the Gaussian Φ interface, with weights contributing only O(1) trial shift. Reversible positive semidefinite finite-site Markov matrix has off-diagonals controlled above by pairwise binomial-overlap sums, and at a minimizing adjacent crossing has a matching lower term. Stirling + two geometric tails yield Θ(n^(−1/2)exp(−nC_*)); trace and Rayleigh bounds yield the operator norm. Fixed atoms, weights, and site count are crucial; no exact constant is asserted.
 
-## Limits and comparison
-The result does not address continuously supported or accumulating-atom measures, endpoint atoms, higher dimensions, parameter-varying supports or a single constant multiplying the sharp norm order. Published claims and primary source comparisons are recorded in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary query for Bernstein–Durrmeyer finite discrete supports and Chernoff interfaces returned the subject record and continuous Jacobi-weight results, not the same atom-support operator rate. Berdysheva 2012, 2014 and 2014 with Li prove general convergence types but their available statements do not imply the full finite atomic KL–Gaussian profile and sharp exponent. 2014 full text inaccessible; record priority risk.
+
+## value
+
+PASS
+
+This classifies the full off-support quantization interfaces of a natural approximation operator on finite atomic measures, and computes sharp exponential-plus-polynomial recovery on its support, meaningful beyond qualitative convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
