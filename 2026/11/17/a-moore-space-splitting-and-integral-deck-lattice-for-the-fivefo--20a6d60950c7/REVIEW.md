@@ -1,12 +1,21 @@
-# Scientific assessment: fivefold chessboard quotient
+# Independent mathematical audit
 
-## Correctness — PASS
-The quotient has precisely three vertex orbits, twelve edge orbits, and twelve triangle orbits; freeness follows because a nontrivial column rotation cannot preserve a nonempty matching with distinct row labels. After collapsing two spanning-tree edges, the twelve triangle words have the explicit form \(a_i c_{j-i}b_j^{-1}\). Nine generator eliminations, each witnessed by a relation containing the corresponding generator exactly once, leave two opposite degree-five relators and one trivial relator. One 2-cell slide yields the standard Moore-space-plus-two-spheres homotopy type. The universal-cover cellular complex then yields \(I_{C_5}\oplus\mathbb Z[C_5]^2\). The embedded dependency-free verifier enumerates and checks each finite combinatorial and free-group step. Risk: this is a CW homotopy classification, not a homeomorphism or canonical chain-level equivariant basis.
+## correctness
 
-## Originality — PASS relative to checked evidence
-The 1994 chessboard-complex introduction and connectivity paper, the 2000 Reiner–Roberts rational representation calculation, and the 2026 generalized-chessboard homotopy classification concern the unquotiented complex and/or rational characters, not the degree-five CW attaching map in this ordinary geometric cyclic orbit. The published three-row two-matching cyclic quotient studies capacity two per row/column rather than capacity one; inclusion or substitution does not imply the present quotient homotopy type. Searches for the same quotient under rook/matching, Moore, augmentation-lattice, and column-permutation formulations returned no identical theorem. Risk: search incompleteness and an unindexed equivalent result; no independent publication-priority certification is asserted.
+PASS
 
-## Value — PASS
-Three rows and five columns are the smallest member of the usual stable shellable three-row range, giving a natural finite test of how a cyclic column action changes topology. The result simultaneously identifies nontrivial five-torsion in the orbit space, determines the entire homotopy type rather than Betti numbers, and fixes the integral deck lattice on the fourteen-dimensional second homology of the covering complex. Rational symmetric-group characters cannot alone distinguish that lattice. The conclusion is exact and natural, without needing a general theorem for all board widths.
+For capacity-one 3x5 nonattacking rook placements, rotation by one of five columns acts freely on every nonempty face: each row contains at most one rook and no nontrivial column rotation fixes a cell. Source has 15/60/60 cells and quotient has 3/12/12 vertex/edge/triangle orbits. With maximal tree edges a1,b1 collapsed, each of 12 triangle attaching words equals a_i c_{j-i} b_j^{-1}. Nine elementary free-group generator/two-cell cancellations leave attaching words t^5, t^{-5}, and empty, and a standard two-cell slide changes these to degree-five and two null 2-cells, giving M(Z/5,1) wedge S2 wedge S2. The quotient has fundamental group Z/5 and H2=Z². As it is the universal regular C5-cover, the standard chain R -N-> R -(g-1)-> R of degree-five Moore space has ker N=augmentation ideal I_C5; the two lifted 2-spheres supply R², giving rank4+10=14. Independently enumerated all quotient simplex orbits and computed abelianized quotient boundary Smith factor 5 plus H2 rank 2; inspected exact nonabelian reduction and source verification code for nine free-group eliminations.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known three-row chessboard wedge/connecting results concern unquotiented complexes, rational symmetric-group representations do not fix the integral C5 deck lattice, and previously published cyclic quotient theorems cover 5x5 ordinary or three-row capacity-two rook complexes, not the 3x5 capacity-one orbit space. A generic fundamental-group formula gives only pi1=C5, not the Moore attaching map and two sphere summands. No found stronger published result implies both claimed precise quotient and integral module. Best-of-knowledge; unindexed equivariant homotopy calculations remain possible.
+
+## value
+
+PASS
+
+This is a small but natural minimal simply connected chessboard complex under a canonical free fivefold symmetry. Unlike routine additive homology, the degree-five attaching map and the integral augmentation-ideal deck module distinguish integral orbit topology from rational representations and supply a reusable worked equivariant example. The exact finite quotient presentation is a motivated complete classification, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
