@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The proof uses the exact three-segment determinant formula, the genuinely uniform Dirichlet\((1,1,1)\) cyclic gaps **rooted at the first labelled direction**, and a complete fixed-gap superlevel integral. The maximum, two endpoint asymptotics, marked total-variation limits and three-edge interior cusp follow from exact local Taylor expansions with disjoint neighborhoods and smooth regular-level complements. In particular the sign of the interior cusp is negative because truncating the inward half-space removes, rather than adds, the artificial continuation strip. The standalone checker corroborates the normalizations at seven CDF levels and both threshold types. No computation is used as a substitute for proof.
+
+## Originality — PASS, provisional historical priority
+A key alias, twice the zonogon area equals the perimeter of a random unit-circle cyclic triangle, was used in the actual literature and previous-record comparisons. Finch's accessible unit-circumradius chapter gives the cyclic triangle angle density, side density and moments and a triangle-area density; it does not explicitly determine the perimeter survival law or its \(2\)-threshold cusp. The earliest chosen source anchor, Alonso-Gutiérrez–Prochno (arXiv:1608.00830v1, public 2016-07-31, first MSC 52A22), studies mean width/support functions of a related family. Schneider's inspected random-zonotope theorem gives expectations/large-\(n\) limits. Joós–Lángi's deterministic results include classical area and extremal ingredients but no random CDF. Three relevant published research findings were read in full for overlap; they state mean/variance, infinite-generator spectral laws, or radial-noise crossover and do not imply these finite-three-generator probabilities. The inaccessible original Finch 2011 survey, and older unindexed triangle-perimeter distributions, remain a specified priority risk.
+
+## Mathematical value — PASS
+Three segments make the first genuinely hexagonal zonogon; with two segments only a parallelogram is possible. Its exact area distribution is a natural finite invariant of Minkowski addition (equivalently a classical circular triangle's perimeter), and it separates small-area triple alignment, an interior boundary-contact transition, and near-regular maximizing directions. The \(3/2\) cusp at a fixed geometric area is not a routine normalization or tiny numerical refinement. The exact quadrature and contrasting sharp endpoint shape laws supply reproducible geometric-probability benchmarks distinct from the prior mean and many-generator laws.
+
+## Residual limitations
+The probability law is model-specific and the one-dimensional quadrature is not claimed to admit an elementary antiderivative. Originality is not independently certified; inaccessible specialized earlier perimeter-density literature is a live risk. No claims about different angular distributions or varying generator count are made.
+
+Self-review: passed. Independent audit: not yet performed.
