@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness — PASS.** The universal distance recurrence for the incidence graph of an equal-order generalized hexagon implies the binary adjacency polynomials \(X^5(X+1)^2\) at even order and \(X^2(X+1)^4\) at odd order. The sharp degrees follow from geodesic distances six and five, respectively. The wave-block calculation independently establishes the exact periods \(48\) and \(12\); the kernel and Möbius formulas count every primitive temporal orbit. Both packaged checkers completed successfully on the exact files, including a direct 12-cycle adjacency test. The proof is all-family; finite tests are supporting diagnostics only.
+
+**Originality — PASS, qualified.** The full-text geometric sources describe the distance-regular parameters, code properties and reversible construction separately, not this combination's exact characteristic-two temporal period and fixed-space formula. The closest accessible records about projective planes, generalized quadrangles and partial geometries have incidence graphs with smaller diameter or different distance recurrences, so their formulas do not imply the hexagon statement. Semantic searches for generalized-hexagon characteristic-two wave periods and aliases revealed no covering statement. Source-index incompleteness and unindexed older equivalences remain risks, not evidence of uniqueness.
+
+**Value — PASS.** This is a sharp all-realized-geometry parity classification for a canonical infinite geometric graph family: the global clock jumps from \(12\) to \(48\) with the order parity, and all possible primitive periods and their multiplicities are determined by finite incidence-kernel data. The diameter-six geodesic obstruction makes the classification structurally distinct from known diameter-three and four incidence-wave examples. This is a motivated invariant, not a selected graph sample.
+
+**Closest literature.** Exoo and Jajcay, *Dynamic Cage Survey* (2008 initial; 2013 revision), §2.2.3, supplies the geometry; Vlasov (arXiv:1311.4297, 2013), §3, supplies the general second-order reversible mechanism; Jazaeri (arXiv:2301.06593, 2023), §4.2, studies perfect codes on line graphs and states the generalized-hexagon intersection array. The accessible published related records concern projective-plane and strongly-regular-graph wave periods, not generalized-hexagon dynamics.
+
+**Limitations.** No assertion of a unique isomorphism type, realizability at every integer order, universal Jordan block multiplicities, or independent third-party validation. Previously unindexed equivalent temporal results may exist.
+
+Self-review: passed. Independent audit: not yet performed.
