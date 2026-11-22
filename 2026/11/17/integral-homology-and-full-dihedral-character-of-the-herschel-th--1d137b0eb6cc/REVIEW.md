@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, ordinary three-cut convention and integral boundary orientations are explicit. Its Alexander dual has exactly 11 vertices, 55 edges, 42 path triangles and 9 square tetrahedra, and no higher faces. Complete unimodular unit-pivot reductions of all three signed boundary matrices give ranks 10, 32, 9 and all nonzero invariant factors equal to 1, proving both integral homology ranks and freedom from torsion. Equivariant Alexander duality supplies the ambient orientation sign. The explicit 18-triangle integral cycle is nonzero mod 3; testing its transforms recovers the rank-one dual character, while signed Lefschetz yields the rank-13 character. All twelve original-complex Lefschetz checks match the derived character differences. No homotopy equivalence is claimed.
+## correctness
 
-## Originality — PASS with limitations
-The original and sequel cut-complex papers do not contain this finite Herschel calculation. The closest published square-correction theorem requires **edge-disjoint** four-cycles, whereas all 18 Herschel edges belong to two of its nine four-cycles. The no-short-cycles representation formula likewise does not apply, while a published Herschel independence-complex classification concerns a different object. Primary full-text mathematical statements and the main published full papers were inspected. Unindexed or unpublished equivalent computations remain a residual risk, not a proof of uniqueness.
+PASS
 
-## Value — PASS
-The Herschel graph is a canonical smallest non-Hamiltonian polyhedral graph. This calculates a natural full integral and equivariant invariant in the first geometric regime missed by the private-edge collapse hypothesis: interacting squares create persistent non-top-dimensional homology. The complete six-class rational character, with both invariant subspaces vanishing, is not implied by ranks and supplies meaningful symmetry information. The result does not assert a broader graph-family theorem or claim an unproved homotopy decomposition.
+For explicit eleven-vertex eighteen-edge Herschel graph, the Alexander dual K has full edge skeleton, 42 connected triples and nine square tetrahedra; no five-face exists. Independently constructed those 11,55,42,9 cells and exact signed boundary matrices with rational ranks (10,32,9), giving dual H1 rank13 and H2 rank1. Ranks over F2,F3,F5,F7 all match; an explicit 18-triangle two-cycle has integral boundary zero, and adjoining it to d3 raises rank mod3 from9 to10. Enumerated all 12 graph automorphisms and calculated signed Lefschetz traces and the induced dual H2 action modulo3. With Alexander duality orientation twist, independently recovered all six stated (H6,H7) traces: (1,13),(1,-5),(-1,-1),(-1,1),(1,1),(-1,-1). Integral homology and nonshellability are additionally implied by older published stronger wedge-homotopy theorem, not just modular tests. No equivariant homotopy classification is asserted.
 
-## Limits and references
-References: Bayer et al., arXiv:2304.13675 and arXiv:2407.08158; published full mathematical statements on triangle-free edge-disjoint-square cut complexes, four-cycle-free cut complexes and Herschel independence complexes; the SageMath Herschel generator. Full source identifiers and direct proof comparisons are in RESULT.md and AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full integral homology, ranks (1,13), and nonshellability were ALREADY established by the October 25 Herschel three-cut sphere-wedge theorem; these are not novel. The surviving new fact is the exact six-class full Aut(H)=S3xC2 rational homology character, its irreducible decomposition and both invariant-space vanishings. The earlier full proof gives no action computation; other results concern Herschel matching/independence rather than ordinary three-cut complex.
+
+## value
+
+PASS
+
+The complete symmetry representation on two distinct homology degrees of the canonical Herschel three-cut complex is a natural classification. It decides equivariant and quotient rational invariants invisible to the already-known sphere wedge; an exact finite 12-element character with motivated natural group is independently useful rather than an arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
