@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Chow–Slattery Theorem 1.1 gives a valid Zeckendorf-gap formula; substitution produces the stated even/odd two-coordinate updates and terminal expression. Every noncapped update increases A, while an A>k state has a uniquely summable even-gap-2 tail if q=k. The resulting polynomial recursion gives rational cutoff counts and an affine law; an initial gap of 2k proves the positive leading coefficient. A separate descending-index knapsack program checked all 121393 integers and 25 levels through index L=24, independently of the symbolic recursion. The computations corroborate, rather than prove, the infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sanna (2023), Theorems 1.1–1.2 cover positive moments of R(n) and spectral growth, not cardinalities of {n:R(n)=k}.",
+        "Zhou (2023), abstract concerns growth and moments of general representation functions and their Dirichlet series.",
+        "Kempton (2023), Theorem 4.1 treats A(H)=sum R(n), not fibers at an individual fixed R-value."
+      ],
+      "reasoning": "Moment asymptotics and average-value laws do not determine the exact finite-cutoff distribution at a single target value; the stated broader numerical objects do not subsume the fixed-fiber theorem.",
+      "searches": [
+        "\"Fibonacci partition\" \"fixed value\" distribution logarithmic",
+        "https://arxiv.org/abs/2309.12724 (Theorems 1.1–1.2)",
+        "https://arxiv.org/abs/2305.00792 (representation moments and zeta functions)",
+        "https://arxiv.org/html/2311.06006v1 (Theorem 4.1)"
+      ]
+    },
+    "checked_sources": [
+      "Chow and Slattery, On Fibonacci Partitions, J. Number Theory 225 (2021), Theorem 1.1 and Sections 1–2",
+      "Sanna, A Note on the Power Sums of the Number of Fibonacci Partitions, arXiv:2309.12724v1 (2023); full accessible 2025 text reviewed",
+      "Kempton, The Dynamics of the Fibonacci Partition Function, arXiv:2311.06006v1 (2023), complete HTML",
+      "Zhou, On the Representation Functions of Certain Numeration Systems, arXiv:2305.00792v1 (2023), abstract",
+      "OEIS A000119, pointwise Fibonacci partitions reference"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chow–Slattery, pointwise R(n) and total A(H): supplies the starting recursion, but does not assert rational fixed-fiber generating functions.",
+        "Sanna, powers of R(n): provides all-moment growth not fixed-level cardinalities.",
+        "Kempton, projective matrices and cut-and-project local patches: his fixed local ratio sets differ from global events R(n)=k."
+      ],
+      "reasoning": "The present result requires proving that all paths with R(n)=k enter an explicitly classified eventual two-step tail, producing a positive finite numerator and linear frequency. The pointwise formula permits this new deduction but does not directly imply the theorem without the truncation argument; aggregation of moments does not recover it.",
+      "searches": [
+        "https://wrap.warwick.ac.uk/id/eprint/150069/1/WRAP-on-Fibonacci-partitions-Chow-2021.pdf (Theorem 1.1, Sections 2–3)",
+        "https://arxiv.org/pdf/2309.12724 (Sections 1–4)",
+        "https://arxiv.org/html/2311.06006v1 (Proposition 2.2 and Theorems 1.1, 1.2, 4.1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kempton (2023), Proposition 2.2, has a matrix representation of pointwise R(n), while his Theorems 1.1–1.2 govern cocycles and local ratio patches; Section 4 treats aggregate sums.",
+        "Chow–Slattery (2021), Theorem 1.1 gives pointwise evaluations from Zeckendorf gaps, with different quantifiers from fixed-fiber counts."
+      ],
+      "reasoning": "A pointwise matrix or gap formula is an ingredient and could be transformed into a fixed-fiber recognizer, but the inspected statements contain neither a target-k finite-state truncation nor the asserted denominator (1-z)^2 and positive affine coefficient.",
+      "searches": [
+        "\"Fibonacci partition function\" \"exactly k\" \"numbers\" counting",
+        "\"Fibonacci partitions\" \"fixed\" \"multiplicity\" \"count\"",
+        "\"Fibonacci partition\" \"level sets\"",
+        "\"Fibonacci partition function\" \"level sets\" \"linear\"",
+        "https://arxiv.org/html/2311.06006v1 (Proposition 2.2 and Sections 1, 3, 4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000119 identifies pointwise Fibonacci-partition counts, not the all-k cutoff generating series.",
+        "Sanna (2023), Table 1 tabulates growth constants for moment orders, not a table of fixed-R level-set frequencies.",
+        "The exact 12-fiber polynomial has coefficients in degrees 11,12,13,14,15,23,24 and slope 44, independently reproduced from the polynomial recursion."
+      ],
+      "reasoning": "Neither a pointwise sequence nor the moment spectral table constitutes the stated exact fixed-value cutoff enumeration. Search coverage is not exhaustive; older tables or unpublished computations remain a risk.",
+      "searches": [
+        "\"Fibonacci partitions\" \"exactly\" \"representations\" generating function",
+        "\"Fibonacci partition representation count twelve exactly 12; 44 new indices per Fibonacci interval\"",
+        "https://oeis.org/A000119 (the underlying pointwise sequence)",
+        "https://arxiv.org/pdf/2309.12724 (Table 1)"
+      ]
+    },
+    "rationale": "The nearest original literature establishes pointwise Zeckendorf evaluation, aggregate moments, local multiplicative patches and global sum growth, not the exact distribution of single fixed values over Fibonacci cutoffs. A direct finite polynomial recursion for every positive target k and its bounded-error logarithmic law is a distinct theorem; searches found no stronger published statement implying it. This is best-knowledge priority, not a guarantee against overlooked older automata results.",
+    "residual_risks": [
+      "A 2001 Berstel-style automaton or related older Fibonacci-representation study may contain an equivalent but differently formulated fixed-value enumeration; exhaustive priority certification is not claimed.",
+      "Zhou manuscript and older work by Carlitz, Robbins, and Shallit were not inspected in full.",
+      "The finite computational tests do not replace the proof or a later external validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Pointwise gap formula and aggregate sums are established; no fixed-value Fibonacci-cutoff fiber enumeration among inspected claims",
+        "evidence": "Theorem 1.1 supplies recurrence t_i, epsilon_i, a_i and exact R(n), while Theorem 1.2 gives A(H); the paper explicitly distinguishes pointwise and mean counts.",
+        "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/150069/1/WRAP-on-Fibonacci-partitions-Chow-2021.pdf",
+        "material_read": "Title/abstract, Theorems 1.1–1.3, Sections 1–2 including Robbins recursion, closing discussion of sums and references",
+        "method": "Read searchable full-text PDF and inspected rendered first page",
+        "title": "On Fibonacci Partitions",
+        "trigger": "Foundational same-object formula and possible broader coverage"
+      },
+      {
+        "assessment": "Theorems concern positive moments and spectral radii, not exact counts of fixed representation numbers",
+        "evidence": "Theorem 1.1 gives S_F^(p)(N) comparable to a power and Theorem 1.2 studies the p-th spectral root limit; Table 1 lists moment eigenvalues.",
+        "identifier_or_url": "https://arxiv.org/pdf/2309.12724",
+        "material_read": "Full PDF, abstract, Theorems 1.1–1.2, Section 2 automata, Sections 3–4 spectral arguments, references; first-submission date checked separately",
+        "method": "Read indexed text across 13 PDF pages and rendered page 2; searched terms for level sets/frequency",
+        "title": "A Note on the Power Sums of the Number of Fibonacci Partitions",
+        "trigger": "2023 motivating same-object automata and possible stronger all-moment theorem"
+      },
+      {
+        "assessment": "Pointwise matrix formulas and local ratio patches plus aggregate-limit work are related, but no exact fixed-k cutoff census is stated",
+        "evidence": "Proposition 2.2 expresses R(n) as a matrix product; Theorem 1.2 characterizes local ratio patches, and Theorem 4.1 studies A(H).",
+        "identifier_or_url": "https://arxiv.org/html/2311.06006v1",
+        "material_read": "Complete HTML sections 1–4 including all principal theorem statements, Proposition 2.2, proof of main results, growth section and references",
+        "method": "Read freely accessible complete arXiv HTML manuscript",
+        "title": "The Dynamics of the Fibonacci Partition Function",
+        "trigger": "Potential equivalent fixed-fiber result via matrix and rotation dynamics"
+      },
+      {
+        "assessment": "General moments, representation upper bounds, and Dirichlet-series results; full-text priority comparison remains limited",
+        "evidence": "The abstract specifies bounds, moment asymptotics and Dirichlet-series continuation for representation functions, not individual fixed-value fibers.",
+        "identifier_or_url": "https://arxiv.org/abs/2305.00792",
+        "material_read": "Version history, abstract and advertised theorem scope; complete manuscript was not examined",
+        "method": "Read arXiv metadata/abstract and cross-references in Sanna and Kempton",
+        "title": "On the Representation Functions of Certain Numeration Systems",
+        "trigger": "General representation-function work potentially dominating Fibonacci case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "480a482a-72b6-43eb-8c4c-e3956a267e72",
+  "value": {
+    "rationale": "Classifying the countably infinite thin fibers of the erratic Fibonacci partition function is mathematically motivated by the contrast with its large moment growth. The theorem gives an exact rational series uniformly in every fixed positive target value, eventual affine cutoff counts, and a bounded-error logarithmic counting constant; it is not a table recomputation or one-off small cutoff. The k=12 example supplies an exact nontrivial instance, while the general transfer mechanism is the principal value.",
+    "status": "PASS"
+  }
+}
