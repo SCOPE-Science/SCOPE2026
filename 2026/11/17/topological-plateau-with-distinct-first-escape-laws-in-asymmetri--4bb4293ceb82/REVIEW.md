@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Fair Bernoulli branch coding is exact for the affine negative-doubling map; the two forbidden words are \(00\) and one alternating-prefix cylinder. Renewal overlap equations, whose nontrivial overlaps are explicitly enumerated, yield both rational PGFs for all integers \(k\ge1\). Their derivatives give the means and their suffix extension gives symbolic plateau equality. The Perron factor from the avoidance automaton gives common entropy and escape exponents. Exact rational direct-orbit checks through five parameter values independently stress-test the finite formulas. Risk: uniform all-parameter claims depend on the renewal derivation, not finite tests; literal hole-boundary survivors can differ.
+## correctness
 
-**Originality (PASS, provisional historical priority).** The closest fully inspected published RESULT is the symmetric dyadic family, which explicitly excludes asymmetric holes and does not imply two unequal-length competing-pattern PGFs or the statistical mean gap for this fixed-left-edge plateau. The motivating paper establishes survivor-space plateaux and entropy, not the stated transient statistical identities in the accessible abstract/initial HTML; the remainder of its 47 pages was not accessible. Classical forbidden-pattern overlap and renewal machinery is fully credited. No exact equivalent all-parameter formula was identified in targeted searches, but incomplete primary full-text access remains a significant priority risk.
+PASS
 
-**Mathematical value (PASS).** The result distinguishes eventual topological survival from first-entry statistics within a natural nested dyadic family; its strict positive closed-form mean gap persists although the entire symbolic survivor subshift agrees. This is a quantitative, motivated statistical refinement of a known plateau, rather than an arbitrary finite table or rephrased entropy formula. The conclusion is specific to these holes, with no claim of general nonlinearity or stability under perturbation.
+The negative doubling two affine branches have equal-length inverse cylinders, hence Lebesgue branch codes are IID fair bits. The left hole (1/4,1/2) is forbidden 00; the right dyadic cylinder is B_l=11 0 1 0... of length l=2k+1 or 2k+2. Since B_l contains no 00, first forbidden start is determined by first completion of either unequal-length word. Proper suffix-prefix overlaps yield two renewal equations, with an odd B-to-00 one-symbol overlap and an even B-to-B one-symbol overlap; elimination gives both displayed rational PGFs with denominator 1-t-t²+t^(2k+1). Differentiation at z=1 gives means (4^(k+1)-1-6k)/(4^k+2) and (4^(k+1)-1-3k)/(4^k+2). Because B_(2k+2)=B_(2k+1)1 and avoiding 00 forces a 1 after B_(2k+1), the infinite survivor languages agree; the Perron root comes from 1-sum_{j=0}^{k-1} t^(2j+1). Independent exhaustive enumeration of 2^(h+l+1) fair-bit words for k=1,2,3, both hole parities and h=0..5 reproduced the coefficients of each rational PGF exactly, using Fraction arithmetic. These finite cases corroborate; renewal and symbolic inclusion prove every k and horizon.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality: the exact claim is not mechanically implied by inspected primary or published related theorems. Equal survivor language entails equal entropy/dimension and exponential escape exponent but does NOT imply equal first-hit probabilities: the direct hole masses already differ at time zero, P(tau_w=0)=1/4+2^-(2k+1) versus P(tau_n=0)=1/4+2^-(2k+2). Prior symmetric formula cannot be transformed into these with a single parameter m, and generic prefix automata do not supply the compact explicit mean gap without further calculation. See explicit access and indexing risks; unsuccessful search is not proof of priority.
+
+## value
+
+PASS
+
+Finite-time Lebesgue escape statistics inside a rigorously identical topological survivor plateau are a natural dynamical invariant not determined by entropy. The two close geometric hole widths have the same infinite symbolic trajectories yet explicit unequal all-time PGFs and a strictly positive k-dependent mean gap, isolating transient sensitivity that a topological invariant cannot detect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
