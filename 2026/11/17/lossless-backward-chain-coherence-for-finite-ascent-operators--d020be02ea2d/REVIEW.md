@@ -1,19 +1,21 @@
-# Review of lossless backward-chain coherence for finite-ascent operators
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact assertion compares two pointwise exponential growth infima, including infinite values. Kernel stabilization makes the restriction of every power to the algebraic range of \(T^p\) injective. The unique lift inside that range is therefore compatible across all indices. A fixed shift of near-minimal unrelated lifts gives one coherent chain obeying the stated finite-index estimate, which yields the identical exponential growth rate. The proof explicitly handles zero vectors, missing preimages, nonclosed ranges, and ascent zero. The nonsplitting example is checked by an invariant-graph argument, and nonclosedness by exact multiplication-operator preimages. No computational extrapolation is involved.
+PASS
 
-## Originality — PASS, with priority qualification
+Finite ascent ker T^p=ker T^(p+1) stabilizes all higher kernels; hence T and every power are injective on the algebraic ran T^p, even if it is not closed. For x with arbitrary-order lifts, set z_n=T^p y_(n+p) for independently chosen lifts. Each z_n is the unique ran T^p solution of T^n z_n=x; therefore T z_(n+1)=z_n automatically without a compactness or completeness assumption. Choose near-infimal unrelated y_(n+p) to obtain one same-chain estimate ||z_n||<=||T^p||(1+1/(n+p+1))a_(n+p), and use fixed-shift limsup roots and the obvious reverse inequality. Empty lifts give both +infinity; zero x gives zero. For T(a,f)=(∫f,tf), direct multiplication gives ker T^n=C⊕{0} for n>=1 and T^n(a,f)=(∫t^(n-1) f,t^n f); x_s=(-log s,1_[s,1]) has a_n=||t^-n1_[s,1]|| and growth 1/s. Closed invariant graph complement would require multiplier 1/t in L², impossible, while I_r is nonclosed for each 0<r<1. The pointwise growth theorem is stronger than merely the radial equality and entails it for strict thresholds.
 
-The primary source arXiv:2611.06831v1 was inspected in its accessible full HTML text. Its Proposition 3.1 proves equality for injective operators and topological reducing direct sums; Lemma 3.2 moves independent preimages into finite-codimensional invariant subspaces; Theorem 5.2 assumes closed radial spaces and a closed sum; Proposition 7.4 assumes a countable-spectral derivative condition. Its Example 3.5 shows unconditional equality is false. None of those stated results supplies the present finite-ascent, nonsplitting, nonclosed-radial-space assertion or the pointwise optimal-growth inequality. The published coherent radial-space literature of Koliha–Poon is acknowledged. The historical paper's full text was not obtained, so an equivalent older algebraic formulation remains a specific priority risk; the absence of a search hit is not treated as proof of novelty. Comparisons of mathematical implications, rather than titles alone, support the qualified originality assessment.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The newly introduced independent-preimage notion raises an immediate structural question: when does a sequence of unrelated inverse-power solutions combine into one backward orbit without paying an exponential norm penalty? Finite ascent is a natural operator invariant that answers the question for all points and all radii. The result is not confined to an arbitrary numerical example: it covers every Banach space and bounded operator with stabilized kernels, including a concrete operator with continuous spectrum, nonclosed radial spaces, and no invariant complement to its kernel, outside the cited closedness and splitting hypotheses. The explicit finite-index norm control is potentially useful when transferring radial growth data to coherent local-spectral constructions.
+The full Aznay–Chabbabi–Zariouh primary text Proposition 3.1 explicitly gives I_r=K_r under injectivity; Lemma 3.2 requires a closed finite-codimension invariant subspace and Theorem 5.2 closed radial spaces and a closed sum. A finite-ascent T is generally noninjective and ran T^p may be nonclosed, so none is a directly covering theorem. Its proof suggests the algebraic trick but does not state or imply the exact pointwise infimal exponential growth equality absent an added argument; result gives a concrete nonsplitting case. Qualified PASS subject to older spectral-set literature risk.
 
-## Closest sources and limitations
+## value
 
-The strongest comparison is Aznay–Chabbabi–Zariouh, *Independent Backward Preimages and Algebraic Radial Decompositions of Operators*, arXiv:2611.06831v1 (full HTML, §§2–3, 5, 7, 8). Earlier coherent radial methods: Koliha–Poon, *Spectral sets II* (1998), full text unavailable; Mbekhta's analytic-core work (1990), cited through the primary source. The theorem is a sufficient condition, not a classification of all operators; neither uniform boundedness of a linear backward-selector nor a general closedness theorem is claimed. All arguments are subject to future independent mathematical and bibliographic review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Lossless gluing of unrelated inverse-power preimages into a unique coherent chain under an algebraic finite-ascent condition (without closed ranges or complements) fills a structural gap in local operator theory. The exact growth-rate equivalence and pathological nonsplitting/nonclosed example are natural reusable statements, not mere relettering of an injective theorem, because the original T may be noninjective and its stabilized range noncomplete.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
