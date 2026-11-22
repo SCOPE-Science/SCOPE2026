@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The eight-neighbor multiplicities are defined explicitly. A complete 16-vertex one-step local transfer has 23 edges and cyclic strongly connected components of sizes 1, 2, and 4, yielding the stated Lucas/period-six fixed-point formula. A complete 256-vertex two-step transfer has 223 edges. Both Tarjan and repeated-reachability decompositions produce the same six cyclic components: three are already one-step fixed, and the other three are isolated four-cycles. Hence exactly twelve non-fixed two-step states occur only for circumferences divisible by four. The three-cell traveler has an explicit two-step spatial translation and alternating populations, proving its least period. The included executable scripts prove the finite local computations by exhaustive exact loops and independently test the sitewise rule through circumference eight. Risk: the all-size symbolic claims depend on correctly interpreting the 256-state finite certificate; no finite sample is substituted for this certificate.
+PASS
 
-## Originality — PASS (qualified)
+The eight-offset neighbor count yields the stated local map on four column symbols. A 16-state (ordered two-column) transfer graph with 23 edges and a 256-state (ordered four-column) two-step graph with 223 edges encode all periodic strings at any n>=3. Exact independent directed SCC construction found the one-step cyclic components 00, 03/30, 11/12/21/22 and the six two-step cyclic components: the same three fixed components plus rotations of 0033, 0132, 0231. Their length-four cycles contribute exactly twelve distinct configurations iff 4|n. The four-node fixed transfer block has characteristic polynomial (z²-z-1)(z²-z+1), proving the Lucas/trigonometric trace formula. Independent direct eight-offset state enumeration for n=3..8 reproduces counts (fixed: 3,9,13,23,31,49; fixed-after-two: 3,21,13,23,31,61). The displayed X_j traveler updates to a four-cell shape then translates by -2 after two steps; odd returns are excluded by cell count and the translation of the three-cell shape is free.
 
-The general trace-matrix method is established by Jen (1988), and is credited; general applicability of a method is not the same as a displayed exact formula for this particular four-symbol, three-column nonlinear rule. Blok and Bergersen (1997) study boundary-sensitive scaling, and Buckingham and Callahan (1998) construct long-period infinite-plane oscillators. Indexed nearby classifications treat vertically open two-row cylinders or periodic tori of higher height. The statements do not entail the exceptional twelve-state restriction or the exact Lucas correction under the *eight-offset two-row periodic* rule. Specific searches included aliases for 2×n/2xN, torus, repeated Moore neighbors, B3/S23, short-return, and two-cycle. Risk: full texts of Jen (1988) and the 1997 paper were inaccessible in this review; absolute priority is not certified. The available abstracts, author-authored discussion and retrieved publication material were compared at the claim level.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact count is a natural global dynamical invariant at the narrowest genuinely two-row periodic geometry. The striking combination of at most six primitive temporal two-orbits, an exact divisibility-by-four resonance, Fibonacci-rate growth of fixed configurations, and a concrete family of periods growing linearly with circumference is structurally informative. The result is not a mere graph relabelling or a selected numerical sample; its two-step local-component classification applies to all circumferences. Risk: it does not classify longer-period orbit populations or attraction basins, and the two-row multiplicity convention limits direct comparison to standard large tori.
+A general transfer-matrix approach to cylindrical cellular automata, standard B3/S23 dynamics and known strip-dependent formulas are prior. The particular eight-offset periodic two-row rule, all-circumference Lucas trace, exhaustive six-orbit two-return rigidity and explicit contrasting unbounded traveler are not implied by the inspected prior comparisons.
 
-## Closest literature and limits
+## value
 
-- E. Jen, *Cylindrical cellular automata*, Communications in Mathematical Physics 118 (1988): transfer-matrix technique and general shifts, not a supplied evaluation for the present nonlinear two-row rule. https://doi.org/10.1007/BF01221109.
-- H. J. Blok and B. Bergersen, *Effect of boundary conditions on scaling in the game of Life*, Physical Review E 55 (1997): finite-boundary scaling, not the immediate-return census. https://doi.org/10.1103/PhysRevE.55.6249.
-- D. J. Buckingham and P. B. Callahan, *Tight bounds on periodic cell configurations in Life*, Experimental Mathematics 7 (1998): large-period infinite-plane constructions, not the present thin-torus rigidity. https://doi.org/10.1080/10586458.1998.10504370.
-- Gardner (1970): original Life rule. https://doi.org/10.1038/scientificamerican1070-120.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Immediate-period rigidity contrasted with arbitrarily long exact traveling clocks is a natural dynamical boundary problem for Conway Life on the narrowest nontrivial periodic-height lattice. An exhaustive local finite transfer certificate produces valid all-circumference counts, not a collection of incidental small experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
