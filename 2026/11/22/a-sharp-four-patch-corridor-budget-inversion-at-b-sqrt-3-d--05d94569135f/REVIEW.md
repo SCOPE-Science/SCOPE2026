@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The main claim concerns two explicitly labeled four-node undirected graphs with a common total edge-conductance budget. The congruence reduction to \(-I+uww^\top\) is an exact inertia classification of the linearized invasion exponent; exact symbolic inversions yield the stated rational threshold difference and its one positive zero. Positivity of every denominator proves the sharp strict regimes. An exhaustive three-node graph classification proves minimality. Exact fractions on both sides demonstrate genuine opposite stability outcomes. For the logistic extension, cooperative comparison, a positive eigenvector, and a scaling contradiction establish global extinction or a unique attracting positive state, with no finite-enumeration extrapolation.
+
+## Originality — PASS (on inspected evidence)
+The graph Laplacian, rank-one resolvent reduction and principal-eigenvalue persistence criterion are established tools. The closest primary literature concerns four-patch drought experiments (Li et al. 2023), graph-resolvent metapopulation kernels (Nicoletti et al. 2023), and degree-normalized dispersal models (Karnatak and Wollrab 2020), none of whose inspected results states the budget-normalized path/diamond threshold or minimality. Publicly available related research records concerning stochastic corridor-placement reversals or directed degree-matched invasion are different models and do not logically imply this exact classification. Older continuous source-sink spectral comparisons remain a historical-priority risk, and full text of Cosner (1991) was not inspected.
+
+## Value — PASS
+The result distinguishes two plausible restoration network architectures at a fixed total movement budget. The sharp \(B/d\) cutoff identifies when adding redundant links under budget dilution improves or worsens the *invasion feasibility* of one favorable refuge in a hostile matrix. The effect yields strict opposite deterministic persistence regimes, and the four-patch minimality shows this is not an arbitrary high-dimensional curiosity. It is a self-contained benchmark, not a management recommendation: the lossless equal-patch logistic model and fixed-budget normalization are strong assumptions, and practical effect sizes may be small.
+
+## Closest literature and limitations
+Li et al., doi:10.1002/ece3.10166, report a four-patch drought-and-corridor experiment with a square layout, not this proposed counterfactual. Nicoletti et al., doi:10.1073/pnas.2311548120, establish a general dispersal-network resolvent in a distinct microscopic model. Karnatak and Wollrab, doi:10.1038/s41598-020-79162-9, use another dispersal normalization. Cosner (1991), doi:10.1007/BF00167155, is a potentially relevant older broad treatment whose accessible abstract does not settle the exact finite-graph statement. These references do not certify historical novelty beyond the inspected evidence. The result has no finite-population stochastic-extinction or empirical calibration claim.
+
+Self-review: passed. Independent audit: not yet performed.
