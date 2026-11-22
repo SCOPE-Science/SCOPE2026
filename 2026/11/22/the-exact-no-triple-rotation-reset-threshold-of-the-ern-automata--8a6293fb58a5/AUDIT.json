@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The all-parameter argument normalizes every shortest admissible reset word, reduces to two weighted transformations on n-1 states, proves closure of inverse cyclic intervals and exact inverse cases, verifies a parity-sensitive Bellman potential for all allowed transitions, constructs a path attaining the potential, and algebraically simplifies its cost. The included original-power-automaton BFS, reverse-interval Dijkstra, all-edge potential tests and concrete witnesses were actually run; finite checks support rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoffmann (2021) proves tractability for certain regular constraints on binary automata with simple idempotents, including the Černý family, rather than a closed exact constrained reset length.",
+        "Fernau et al. (2019) classify decision complexity for classes of regular-language constraints.",
+        "The complete inverse-extension distribution supplies a minimum to enlarge a single given inverse subset but not a weighted path minimizing the no-aaa constrained reset length."
+      ],
+      "reasoning": "Decision algorithms and unrestricted or individual extension costs lack an all-n optimization under the precise no-triple-rotation word constraint. A possible unindexed stronger statement remains a priority risk.",
+      "searches": [
+        "bounded run Černý reset word no three consecutive a constrained reset threshold quadratic (3n^2 - 8n)/2",
+        "Hoffmann arXiv:2109.02743v1, sections 1 and 4 and appendix",
+        "Fernau et al DOI 10.4230/LIPIcs.MFCS.2019.63, theorem/classification sections",
+        "published-finding corpus: 2026/11/8/SCOPE-exact-inverse-extension-lengths-and-their-distribution-in-the-er--784204d15f86"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4230/LIPIcs.MFCS.2019.63",
+      "arXiv:2109.02743v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-inverse-extension-lengths-and-their-distribution-in-the-er--784204d15f86"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An existential tractability result does not supply exact optimal length.",
+        "The unrestricted scattered-subsequence and weighted-reset theorems do not impose or solve the no-aaa factor condition; at n>=4 their unique unrestricted optimum is inadmissible.",
+        "The earlier two-run feasibility classification, does not determine the sharp 3n^2/2 length or its parity correction."
+      ],
+      "reasoning": "The new exact length neither restates known unrestricted reset length (n-1)^2 nor merely establishes existence. It closes a distinct and mathematically motivated constraint-dependent optimization problem.",
+      "searches": [
+        "arXiv:2109.02743v1",
+        "doi:10.4230/LIPIcs.MFCS.2019.63",
+        "published-finding corpus: 2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c",
+        "published-finding corpus: 2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4",
+        "exact minimum length reset word for n state Černý automaton avoiding three successive cyclic rotation letters aaa: floor((3 n^2 - 8 n + 6)/2), reverse cyclic-interval shortest-path proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The regular constraint is the binary regular language excluding contiguous aaa; it is not the same as a bound on the total number of rotations or avoiding a state subset.",
+        "The inspected weighted optimum has unrestricted unique word b(a^(n-1)b)^(n-2), which violates the new constraint for n>=4.",
+        "The mandatory scattered-subsequence theorem is necessary, not sufficient, for longer word reset behavior and does not determine the minimum word length under the no-aaa restriction."
+      ],
+      "reasoning": "A fixed two-rotation-run feasibility assertion or an unrestricted optimum cannot imply the precise constrained minimum length. Compare the allowable language, objective and implication, not words in the titles.",
+      "searches": [
+        "Černý automata synchronization forbidden aaa at most two consecutive rotation letters exact reset threshold",
+        "constrained reset threshold Černý aab ab no aaa floor (3n^2-8n+6)/2",
+        "exact minimum length reset word for n state Černý automaton avoiding three successive cyclic rotation letters aaa: floor((3 n^2 - 8 n + 6)/2), reverse cyclic-interval shortest-path proof",
+        "published-finding corpus: 2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4",
+        "published-finding corpus: 2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct published-index queries did not identify a table of exact no-aaa shortest lengths across this family.",
+        "The inspected early-deficiency theorem proves 3s-2 only for s up to ceil(n/2); it does not compute the complete constrained reset objective."
+      ],
+      "reasoning": "No matching exact table or general formula was located; lack of matches alone is not taken as proof of uniqueness. The present result is supported by a symbolic all-n proof and separately tested values.",
+      "searches": [
+        "exact shortest forbidden triple rotation aaa Černý automata 4 11 20 33 48 67 n states",
+        "exact minimum length reset word for n state Černý automaton avoiding three successive cyclic rotation letters aaa: floor((3 n^2 - 8 n + 6)/2), reverse cyclic-interval shortest-path proof",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3"
+      ]
+    },
+    "rationale": "The exact shortest no-aaa reset length for every n>=3 is not entailed by either regular-constraint existence/complexity results or known unrestricted reset bounds. The closest indexed exact Černý results optimize unrestricted costs, extension of a single inverse set, early rank deficiency, or one-symbol excess; their claims and underlying assumptions do not give the new forbidden-factor length. A separate earlier exact rotation-run feasibility threshold lacks a sharp length. Repeated indexed searches and inspections of primary full text yielded no covering equivalence, with residual unindexed-history risk acknowledged.",
+    "residual_risks": [
+      "Search indexes and accessible records are not an exhaustive historical priority proof; unindexed notes or another equivalent optimization theorem might exist.",
+      "The published record is evidence of reported results, not an independent validation of the present proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: complexity of existence and broad constraints, not the shortest exact no-aaa word for the fixed Černý family",
+        "evidence": [
+          "2019 abstract and Theorems 24–26 classify decision complexity; no all-n exact cost formula for the specified constraint appears in inspected portions."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2019.63",
+        "material_read": "Open-access paper abstract, introduction, two-state constraint classification and later theorem sections",
+        "method": "Read available publisher OA PDF, including page image",
+        "title": "Computational Complexity of Synchronization under Regular Constraints",
+        "trigger": "Primary introduction of regular-constraint synchronization and complexity classification"
+      },
+      {
+        "assessment": "NOT_COVERING: polynomial constrained decision for the class, not exact constrained shortest length",
+        "evidence": [
+          "arXiv:2109.02743v1 abstract and section 4 discuss existence and structural conditions for constrained synchronization."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.02743",
+        "material_read": "ArXiv full-paper abstract/introduction, sections on idempotents and constraints, and appendix proof portion",
+        "method": "Read lawful arXiv full-text PDF, including page image",
+        "title": "Constrained Synchronization for Commutative Automata and Automata with Simple Idempotents",
+        "trigger": "Explicitly discusses the Černý family and constraints on binary automata with simple idempotents"
+      },
+      {
+        "assessment": "NOT_COVERING: unrestricted positive letter costs; its sole optimizer violates aaa avoidance for n>=4",
+        "evidence": [
+          "Exact coordinatewise lower bounds and unique unrestricted word b(a^(n-1)b)^(n-2), with no run restriction."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4",
+        "material_read": "Complete published RESULT.md including statement, proof, prior-work comparison and limitations",
+        "method": "Read the complete publicly available research text",
+        "title": "Uniform weighted-reset optimality in the Černý automata",
+        "trigger": "Same two-letter automaton and word cost objective"
+      },
+      {
+        "assessment": "NOT_COVERING: scattered subsequence and unconstrained first-excess count do not determine exact long constrained words",
+        "evidence": [
+          "The published result expressly identifies subsequence inclusion as necessary but not sufficient, and counts only one symbol beyond the unrestricted optimum."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c",
+        "material_read": "Complete published RESULT.md with proof, insertion classification, relationship and limitations",
+        "method": "Read the complete publicly available research text",
+        "title": "A mandatory reset subsequence and exact one-step multiplicity for the Černý automata",
+        "trigger": "Strongest existing necessary structural property for all reset words of the same family"
+      },
+      {
+        "assessment": "NOT_COVERING: proves early deficiency at most ceil(n/2), not full reset length under aaa avoidance",
+        "evidence": [
+          "The exact rank-reduction formula 3s-2 is restricted to the first half of deficiencies."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+        "material_read": "The published RESULT.md statement, assumptions, construction, and core proof",
+        "method": "Read the complete publicly available research text",
+        "title": "Exact early deficiency profile of the Černý automata",
+        "trigger": "Short two-rotation-block reset schedules for initial loss of rank"
+      },
+      {
+        "assessment": "NOT_COVERING: minimum to expand a single inverse subset, not total constraint-weighted inverse path",
+        "evidence": [
+          "Source limitations explicitly distinguish one-step inverse-extension from full synchronization."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-inverse-extension-lengths-and-their-distribution-in-the-er--784204d15f86",
+        "material_read": "Complete published RESULT.md including theorem, proof and limitation statement",
+        "method": "Read the complete publicly available research text",
+        "title": "Exact inverse-extension lengths and their distribution in the Černý automata",
+        "trigger": "Strongest apparent inverse-image predecessor and shortest-extension lemma for same automaton"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8a6293fb-58a5-4da2-a2f9-095dff285d7c",
+  "value": {
+    "rationale": "The exact n-dependent reset length under a natural regular safety restriction is a nontrivial complete optimization theorem, not a substitute for prior feasibility, a tiny parametric improvement, or numerical extrapolation. The proof connects forbidden runs to an inverse cyclic-interval shortest-path geometry with a sharp parity potential and a constructive optimal word for every state order.",
+    "status": "PASS"
+  }
+}
