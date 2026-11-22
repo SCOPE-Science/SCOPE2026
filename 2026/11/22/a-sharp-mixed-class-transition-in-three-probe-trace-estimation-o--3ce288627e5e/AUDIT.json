@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For all integers \\(n\\ge3\\) and all positive real \\(\\mu\\), direct block multiplication gives the exact same-shore Green entry \\(\\kappa=n/[\\mu(\\mu+n)(\\mu+2n)]\\) and cross-shore entry \\(\\chi=1/[\\mu(\\mu+2n)]\\). The independent class-Rademacher variance is \\(4\\kappa^2\\) times the weighted within-class unordered-pair count. A strict same-size opposite-shore vertex exchange proves at most one mixed class; a second strict purification excludes two pure classes on the same shore. The exact reduced gain is \\(D(a,b)=ns-s^2+(2-\\theta)ab\\), where \\(s=a+b\\) and \\(\\theta=(1+\\mu/n)^2\\). This yields the three exact regimes, all optimizer ties and the sharp threshold \\(\\mu=n(\\sqrt2-1)\\). For \\(\\theta<2\\), maximizing \\(ab\\) and the strictly decreasing integer first differences gives the stated one-dimensional formula; for \\(\\theta\\ge2\\), a sharp quadratic bound completes the classification. The supplied Python standard-library checker passed 35,610 exact assertions, including complete \\(3\\le n\\le6\\) partition census and direct rational inverses. The finite tests supplement rather than replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Frommer–Rinelli–Schweitzer (2023) Theorem 3.3 and Lemma 3.5 prove variance formulas for supplied partitions, not the optimizing partition of a specific balanced biclique.",
+        "Stathopoulos–Laeuchli–Orginos (2013) construct hierarchical distance colorings mainly for toroidal lattices; their specific construction and reuse questions are not a three-class global optimum on K(n,n).",
+        "The published two-color biclique theorem covers arbitrary two shore sizes but fixes precisely two probe colors, not three."
+      ],
+      "reasoning": "Greater generality in matrix class or graph family is insufficient to imply the claimed complete optimum unless the theorem also solves arbitrary three-support partition design. Neither of the inspected general frameworks does that. The closest biclique theorem is broader in shore sizes but narrower in probe count, and no direct corollary applies.",
+      "searches": [
+        "published-finding corpus: three color three-probe variance-optimal partition of screened complete bipartite Laplacian inverse, balanced biclique, sharp sqrt 2 threshold",
+        "published-finding corpus: unrestricted three-part partition weighted correlation clustering two equal groups cross-pair penalty exact phase transition",
+        "Web: \"complete bipartite\" \"max 3-cut\" \"uniform\" intra inter weights",
+        "Web: \"two cliques\" \"3-partition\" \"balanced\" \"max k cut\" weighted",
+        "arxiv:2308.07722v1 Sections 2–3.2; arxiv:1302.4018v1 Sections 1–2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1302.4018v1, first public 2013-02-17, relevant full-text sections 1–2",
+      "arxiv:2308.07722v1, first public 2023-08-15, relevant full-text Theorem 3.3 and Lemma 3.5",
+      "Published published-finding corpus two-color biclique RESULT.md, complete text, record 2026/11/8/...1edc2b42b895",
+      "published-finding corpus semantic searches for three-probe complete-bipartite screening, mixed/pure partitions, equivalent three-way partition/weighted-cut",
+      "Public search queries for weighted max-3-cut, biclique probing and finite-size three-support partitions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For K(n,n), the two-color theorem conditions ((n/(mu+n))^2)(n-1)<=n hold automatically; therefore the proper bipartition is optimal with exactly two colors for every mu>0.",
+        "The three-color result proves that all optimums are improper for mu<n(sqrt(2)-1) and proper for mu>n(sqrt(2)-1), with coexistence at equality. This differs in both budget and exact optimizer content.",
+        "The 2023 theorem supplies the correct normalization V=4 times within-class unordered squared Green entries, but permits no conclusion about which partition minimizes it."
+      ],
+      "reasoning": "Two-color optimality neither implies nor subsumes three-color optimality, because the extra class changes the competing weighted collisions and allows one mixed class. An exact new uncrossing argument and a genuinely two-variable gain maximization establish the phase change. The source statements were compared at the level of quantifiers (two versus three supports), parameters (all real shifts), and optimizer completeness, not just titles.",
+      "searches": [
+        "Published published-finding corpus record 2026/11/8/SCOPE-sharp-two-color-stochastic-probing-transition-on-complete-bipart--1edc2b42b895/RESULT.md",
+        "arxiv:2308.07722v1 Theorem 3.3 and Lemma 3.5",
+        "arxiv:1302.4018v1 Sections 1–2",
+        "published-finding corpus search: three-probe stochastic trace coloring complete bipartite resolvent mixed class pure classes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "General three-class class-supported Rademacher variance is a weighted minimum monochromatic-pair objective; equivalently it is weighted Max-3-Cut on a complete graph with within-shore weight one and cross-shore weight theta, rather than ordinary proper graph coloring.",
+        "Published two-color biclique formula uses a rectangular weighted-MaxCut and maximizes over exactly two classes (published-finding corpus record 1edc2b42b895, full RESULT.md); no third-class optimizer is given.",
+        "Web searches for weighted three-way cut, 3-probe Rademacher biclique optimization and equivalent clusterings did not yield the precise all-shift family in inspected results."
+      ],
+      "reasoning": "Transforming the new objective into a weighted three-way graph partition is a genuine equivalence, not itself a novelty result. We sought claims with the same two weight levels, three nonempty classes, exact sharp threshold and complete minimizer set. The retrieved two-color result cannot be reinterpreted as three colors without a new optimization; neither generic spectral trace identities nor heuristic coloring imply the uncrossing and integer staircase.",
+      "searches": [
+        "three color three-probe variance-optimal partition of screened complete bipartite Laplacian inverse, balanced biclique, sharp sqrt 2 threshold",
+        "three-probe stochastic trace coloring complete bipartite resolvent mixed class pure classes",
+        "unrestricted three-part partition weighted correlation clustering two equal groups cross-pair penalty exact phase transition",
+        "\"K_{n,n}\" \"three\" \"probing\" \"Hutchinson\" optimal",
+        "\"complete bipartite\" \"max 3-cut\" \"uniform\" intra inter weights",
+        "\"two cliques\" \"3-partition\" \"balanced\" \"max k cut\" weighted",
+        "\"trace\" \"complete bipartite\" \"three probes\" Rademacher",
+        "published-finding corpus search: For balanced complete bipartite K(n,n), exactly three independent Rademacher class-supported trace probes of inverse (mu I+L) choose one mixed class below mu=n(sqrt(2)-1), only pure above",
+        "published-finding corpus search: Weighted Max-3-Cut of a complete graph with two equal communities and squared cross-kernel correlation; exact three-class optimizer and sharp coupling 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic results primarily returned the exact two-color biclique theorem, two-color hypercube and cycle probing and other unrelated coloring results; no indexed exact three-color balanced-biclique numerical table or formula appeared among retrieved hits.",
+        "Relevant indexed exact classification results are for different graph families or different probe budgets, including binary-color multipartite probing and three-color hypercube probing."
+      ],
+      "reasoning": "This is not an assertion that no unindexed table exists; it records actual scoped searches of likely indexed sources and past claims. A numerical table with only finite screening samples would not imply the full all-real-screening uniqueness and threshold statement without an additional proof.",
+      "searches": [
+        "published-finding corpus search: three color three-probe variance-optimal partition of screened complete bipartite Laplacian inverse, balanced biclique, sharp sqrt 2 threshold",
+        "published-finding corpus search: three-probe stochastic trace coloring complete bipartite resolvent mixed class pure classes",
+        "Web: \"K_{n,n}\" \"three\" \"probing\" \"Hutchinson\" optimal",
+        "Web: \"trace\" \"complete bipartite\" \"three probes\" Rademacher",
+        "published-finding corpus search: For balanced complete bipartite K(n,n), exactly three independent Rademacher class-supported trace probes of inverse (mu I+L) choose one mixed class below mu=n(sqrt(2)-1), only pure above"
+      ]
+    },
+    "rationale": "The closest retrieved and fully inspected published biclique probing theorem explicitly optimizes exactly two classes. The new theorem optimizes exactly three classes and detects a sharp all-finite-size improper/proper transition that cannot be inferred from its two-color formula; in fact the two-color balanced-biclique optimum is proper for all shifts. The 2013 hierarchical-probing source and the 2023 stochastic-probing analysis provide construction and variance identities but no all-partition, three-color biclique optimizer. The listed literature and indexed searches provide positive distinction evidence, not a guarantee against unindexed equivalences.",
+    "residual_risks": [
+      "An unindexed or unpublished weighted three-way partition theorem for two homogeneous communities might imply the same mathematical conclusion.",
+      "Repository and web search results are not an exhaustive survey of journals, dissertations and textbook chapters; formal external publication-priority checking remains open.",
+      "General-purpose weighted Max-3-Cut results may give an equivalent formula indirectly without using trace-estimation vocabulary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Methods, variance motivation and reuse of coloring work; no explicit K(n,n) three-supported-probe global optimal partition theorem in inspected portions.",
+        "evidence": "arXiv:1302.4018v1, pp.1–8, particularly pages 3,6,8 and Sections 1.1–2.",
+        "identifier_or_url": "https://arxiv.org/pdf/1302.4018",
+        "material_read": "PDF abstract, introduction and Sections 1–2 relevant discussion of distance colorings, randomized and hierarchical probing; screenshot-confirmed pages 1, 3, 6, 8.",
+        "method": "Direct arXiv v1 PDF mathematical text and rendered-page inspection.",
+        "title": "Hierarchical probing for estimating the trace of the matrix inverse on toroidal lattices",
+        "trigger": "Verified 17 February 2013 foundational source for probing, nearest archival motivation."
+      },
+      {
+        "assessment": "Establishes the general variance formula and sample-allocation discussion for given partitions; does not classify all minimizing three-partitions of K(n,n).",
+        "evidence": "arXiv:2308.07722v1, Theorem 3.3 (p.7), Lemma 3.5 (p.8).",
+        "identifier_or_url": "https://arxiv.org/pdf/2308.07722",
+        "material_read": "Full relevant Sections 2 and 3.2 including Theorem 2.7, Theorem 3.3, Lemma 3.5 and their surrounding discussion, PDF pages 1–8.",
+        "method": "Direct arXiv v1 PDF text plus screenshot-confirmed pages 1, 5, 7–8.",
+        "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+        "trigger": "Plausible stronger general proof of the same estimator and partition variance."
+      },
+      {
+        "assessment": "Exact two-color result; it does not cover three classes and its balanced-case proper-color conclusion is contrasted with the new three-probe mixed phase.",
+        "evidence": "Published full RESULT.md, two-color theorem and sharp proper-coloring inequality.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-two-color-stochastic-probing-transition-on-complete-bipart--1edc2b42b895/RESULT.md",
+        "material_read": "Entire published RESULT.md: finding, assumptions, full derivation, source comparisons, limitations and references.",
+        "method": "Read repository source file content in full.",
+        "title": "Sharp two-color stochastic-probing transition on complete bipartite resolvents",
+        "trigger": "Highest-matching indexed same-resolvent, same-biclique family and optimization objective."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3ce28862-7e5e-4aa7-85cf-2dab9beae811",
+  "value": {
+    "rationale": "For a fixed budget of three matrix-vector actions, conventional proper biclique coloring ceases to minimize trace-estimator variance below the sharp threshold \\(\\mu=n(\\sqrt2-1)\\); in contrast, for exactly two actions the proper balanced-biclique partition is optimal for every positive screening strength. The result is a complete, all-real-parameter classification for a natural sparse-inverse benchmark; it gives exact minimum variance, every optimizer, a discrete finite-size staircase, and optimizer counts without exponential search. This is a motivated structural warning against automatically reusing proper graph coloring when the probe budget changes.",
+    "status": "PASS"
+  }
+}
