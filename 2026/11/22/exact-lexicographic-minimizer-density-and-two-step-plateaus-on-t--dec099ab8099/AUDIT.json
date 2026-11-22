@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For every k>=1, a five-prefix partition gives a complete disjoint charge indicator: 00* always charges; 100 never; 010 charges only for an alternating prefix through k+2 positions; 101 charges unless the suffix alternates. Exact Fibonacci endpoint counts are checked independently by direct comparison of all four k-mers for 196405 legal contexts, k=1..20. Normalized symmetric Perron eigenvectors (phi,1) give exact stationary cylinder probabilities. The proof uses the exact Fibonacci identity phi^3 F_{k+2}+F_{k-1}=2 phi^{k+2} to establish the theorem for all k. The finite test is not used as infinite certification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 survey discusses iid/random orders, universality and generic sketch density; its charged-context lemma is general but unevaluated for the golden-mean source.",
+        "Hoang et al. 2023 addresses masked-minimizer optimization and genome-specific density rather than an analytic Parry source calculation."
+      ],
+      "reasoning": "A general finite-state matrix method can in principle calculate fixed-k probabilities but supplies neither these exact all-k Fibonacci counts nor the plateau identity without a nontrivial evaluation. Generic source-independent bounds and optimized-order densities do not dominate an exact density for the fixed lexicographic rule.",
+      "searches": [
+        "golden mean no adjacent ones Fibonacci shift width 3 minimizer lexicographic expected sampling density Parry measure alternating plateau",
+        "source-aware minimizers exact density Parry golden mean forbidden 11",
+        "minimizer sampling expected density on binary Markov chain nearest-neighbor constrained source",
+        "minimizer Markov density lexicographic genomic",
+        "minimizer Markov density k-mer word restricted source",
+        "https://doi.org/10.1089/cmb.2023.0094",
+        "https://doi.org/10.1089/cmb.2023.0212"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1089/cmb.2023.0094",
+      "https://doi.org/10.1089/cmb.2023.0212",
+      "Exact two-width Pareto frontier for binary three-mer minimizer orders (public published-finding corpus summary)",
+      "Two-switch optimality for biased binary two-mer minimizers at the first exceptional window (public published-finding corpus summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zheng et al. 2023, definition of minimizer and charged context: leftmost tie-breaking and context-to-density identity.",
+        "Hoang et al. 2023, formal minimizer/masked minimizer selector and optimization objectives.",
+        "The two nearby published minimizer results concern iid uniform/biased distribution and order optimization, not the claim here."
+      ],
+      "reasoning": "The known density=charge equivalence is one premise of the new proof, but the new prefix classification and weighted Fibonacci evaluation are absent from the cited implications. The measured law is not a corollary of iid optimization results because the Parry source has nontrivial correlations and endpoint cylinder weights.",
+      "searches": [
+        "lexicographic k-mer minimizer width 3 stationary golden mean Markov chain charged context endpoint Fibonacci numbers",
+        "exact density lexicographic minimizers window size three forbidden consecutive ones Fibonacci source Parry measure",
+        "https://doi.org/10.1089/cmb.2023.0094",
+        "https://doi.org/10.1089/cmb.2023.0212",
+        "Exact two-width Pareto frontier for binary three-mer minimizer orders (public published-finding corpus summary)",
+        "Two-switch optimality for biased binary two-mer minimizers at the first exceptional window (public published-finding corpus summary)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zheng et al., 2023, Lemmas 5-6: density equals charged-context probability; this generic equivalence is acknowledged and used.",
+        "No inspected statement evaluates that probability for stationary golden-mean lexicographic width-three k-mers at every k."
+      ],
+      "reasoning": "Rephrasing the claim as a charged-context Parry cylinder probability, an endpoint-refined Fibonacci count, or a stationary sliding-window selection probability leads to the same theorem. The survey provides the equivalence but not the explicit evaluated quantities or parity rigidity.",
+      "searches": [
+        "lexicographic k-mer minimizer width 3 stationary golden mean Markov chain charged context endpoint Fibonacci numbers",
+        "exact density lexicographic minimizers window size three forbidden consecutive ones Fibonacci source Parry measure",
+        "exact expected density lexicographic minimizer golden mean no adjacent ones constrained Markov source",
+        "lexicographic minimizer density forbidden 11 Parry measure",
+        "https://doi.org/10.1089/cmb.2023.0094"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest public small-k order census studies strict orders of binary three-mers and uniform-source densities for four- and nine-mer windows (published-finding corpus Exact two-width Pareto frontier for binary three-mer minimizer orders (public published-finding corpus summary)).",
+        "The biased binary two-mer phase diagram studies iid input and a fixed k-mer size (published-finding corpus Two-switch optimality for biased binary two-mer minimizers at the first exceptional window (public published-finding corpus summary))."
+      ],
+      "reasoning": "Those tables involve different source laws, k-mer lengths and windows; they cannot contain or force the endpoint counts and stationary all-k plateau. No exact table with the same source/parameters was identified.",
+      "searches": [
+        "minimizer two step plateau k-mer length even odd constrained no consecutive ones",
+        "three adjacent k-mer lex order minimizer density golden mean Fibonacci source",
+        "Exact two-width Pareto frontier for binary three-mer minimizer orders (public published-finding corpus summary)",
+        "Two-switch optimality for biased binary two-mer minimizers at the first exceptional window (public published-finding corpus summary)"
+      ]
+    },
+    "rationale": "The source-specific all-length Parry density, endpoint-resolved charge counts, and exact two-step k-parity plateaus were not found in the checked literature or published-finding corpus search. Generic charged-context identities are known and explicitly credited. Closest studies optimize fixed small k-mer orderings or masked minimizer families on different source models; no statement among those inspected directly yields the exact formula. Unindexed equivalent derivations remain a residual priority risk.",
+    "residual_risks": [
+      "An equivalent specialization may be hidden in unindexed literature or unpublished appendices; a negative search is not a proof of priority.",
+      "For two closely related public records, title and semantic summaries were accessible but direct GitHub full text could not be opened; their stated source and parameter regimes are distinct, but this is a bounded access limitation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_METHOD_NOT_CLAIM",
+        "evidence": "First online 2023-08-30; the charged-context equivalence is explicit in section 3.1.3; no golden-mean stationary all-k parity plateau formula is stated in the examined sections.",
+        "identifier_or_url": "https://doi.org/10.1089/cmb.2023.0094",
+        "material_read": "Full accessible open-access HTML article, especially sections 2.1, 3.1.2, 3.1.3, Lemmas 5-6 and the ensuing theory discussion.",
+        "method": "Publisher HTML inspection including definitions, lemmas and formal density claims; text search for Markov.",
+        "title": "Creating and Using Minimizer Sketches in Computational Genomics",
+        "trigger": "Foundational minimizer definitions, charged-context equivalence, and expected density theory directly overlap the central method."
+      },
+      {
+        "assessment": "DISTINCT_OPTIMIZATION_OBJECTIVE",
+        "evidence": "First online 2023-11-17; defines masked minimizer and conservation/density metrics, but the examined results do not derive Parry-measure lexicographic width-three density.",
+        "identifier_or_url": "https://doi.org/10.1089/cmb.2023.0212",
+        "material_read": "Open-access publisher HTML, title/abstract, introduction and formal section 2 definitions and related passages.",
+        "method": "Publisher HTML inspection of formal selector and density methodology; text search for Markov.",
+        "title": "Density and Conservation Optimization of the Generalized Masked-Minimizer Sketching Scheme",
+        "trigger": "Contemporary primary minimizer density work with broad scheme definitions and optimization goals."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dec099ab-8099-4f33-9d4d-f0ae0924549f",
+  "value": {
+    "rationale": "Golden-mean (no-11) sources are a canonical constrained-language model and fixed three-k-mer minimizers are a natural nontrivial sequence sketch. A closed all-k density under non-iid stationary input is directly a sketch-memory/selected-position invariant. Exact even/odd plateau rigidity and the distinction between finite uniform contexts and stationary Parry input are substantive structural information not obtained from a bare implementation or trivial renaming. The theorem makes no ungrounded claims of optimality or downstream genome improvements.",
+    "status": "PASS"
+  }
+}
