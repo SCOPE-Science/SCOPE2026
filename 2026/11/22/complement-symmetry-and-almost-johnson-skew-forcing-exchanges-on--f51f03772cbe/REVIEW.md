@@ -1,0 +1,12 @@
+# Scientific review: complement symmetry and skew-forcing exchange on the folded five-cube
+
+## Correctness — PASS
+The claim fixes the five-regular Clebsch graph by explicit adjacency, and the skew rule permits a forcing vertex of either color. The mask closure algorithm is an exhaustive monotone process, so examining all \(65536\) initial masks proves the entire forcing polynomial and sharp minimum. The affine group action has exactly \(1920\) automorphisms because its vertex image and the permutation of its five neighbors determine an automorphism uniquely. BFS from nine orbit representatives certifies all \(6490\) eccentricities and the exact number of pairs violating Johnson-distance equality. Two independent constructions, one four-bit and one even-parity five-bit, gave identical results. Risk: the calculation proves only the explicitly named finite graph; extending to larger folded cubes would require new arguments.
+
+## Originality — PASS
+The checked foundational 2014 skew-forcing paper concerns extreme parameters and particular multipartite, bipartite and unicyclic families; it does not state the Clebsch census. The inspected 2020 reconfiguration paper uses ordinary zero forcing, not the skew rule. The nearest indexed work on Clebsch graph matchings or determining sets counts different configurations; the nearest skew-forcing work on odd prisms uses another graph family. The current mathematical-result search and accessible previous scientific claims did not contain an equivalent or dominating statement. Risk: indexed summaries of some related mathematical records were accessible without their full papers, and an unindexed exact census cannot be ruled out.
+
+## Value — PASS
+The five-regular Clebsch graph is a small, canonical, highly symmetric nonbipartite benchmark; skew forcing is tied to minimum skew rank. The complete polynomial and nine-orbit classification enable exact sampling and comparison, while complement closure contrasts sharply with failure of the matroid basis-exchange axiom. The reconfiguration graph is connected and self-centered despite four distinct degrees and exactly \(9120\) exceptional Johnson-distance pairs. These combined phenomena establish nontrivial structure, not a mere numerical gain in a pre-existing bound. Risk: no all-order generalization or application to a new external problem is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
