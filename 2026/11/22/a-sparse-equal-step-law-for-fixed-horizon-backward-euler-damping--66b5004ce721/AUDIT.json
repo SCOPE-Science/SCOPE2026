@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Exact matrix norm identity for a planar normal oscillator reduces the objective to product of positive q. An exact strictly convex pair-product polynomial excludes any unequal positive steps. The log curvature gives global Jensen optimality when b<=a. For b>a, U(t)=t g'(t)-g(t) has exactly one positive root; f=g/t is strictly unimodal; the adjacent-step comparison has exactly one positive crossing, proving every phase and tie case. Three critical identities were symbolically checked in check.py; 37,500 random schedules supplement but do not prove globality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Song et al. arXiv:2206.04183, §5.5 and §7: parameter-dependent numerical dissipation and step-size guidance for mixed-order Padé integrators, not all allocations of N backward-Euler steps.",
+        "Layton–Pei–Trenchea abstract discusses refactorized variable-step DLN rather than a general theorem on optimal product of backward-Euler resolvents; full text was not available for definitive exclusion.",
+        "Published two-periodic variable-step BDF2 result concerns Floquet multipliers of a multistep recurrence, rather than scalar commuting resolvent products."
+      ],
+      "reasoning": "The current statement is not implied by the inspected Padé-design or explicit-RK stability papers; the BDF2 and DLN methods have distinct maps, so coverage would require an unobserved general theorem encompassing the stated objective, which remains a priority risk rather than a verified exclusion.",
+      "searches": [
+        "implicit Euler fixed total time n variable nonnegative substeps optimal damping equal positive steps zeros oscillatory complex eigenvalues sparse equal",
+        "optimal equal splitting vs sparse splitting implicit Euler logarithmic stability function for oscillatory systems",
+        "\"implicit Euler\" \"optimal\" \"time step distribution\" \"fixed\" number",
+        "https://arxiv.org/abs/2108.09339",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-fixed-budget-floquet-optimizer-for-two-periodic-variable--0f63ee987045"
+      ]
+    },
+    "checked_sources": [
+      "https://www.unige.ch/~gander/Preprints/gander_contrib.pdf",
+      "https://arxiv.org/pdf/2206.04183",
+      "https://arxiv.org/pdf/1912.11596",
+      "https://arxiv.org/abs/2108.09339",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-fixed-budget-floquet-optimizer-for-two-periodic-variable--0f63ee987045",
+      "https://arxiv.org/abs/2206.04183",
+      "https://arxiv.org/abs/1912.11596"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gander Theorem 1 implies exactly the b=0 uniform branch; it cannot entail sparse optimizers at b>a from its stated real scalar assumptions.",
+        "Sun–Shu focus on explicit RK stabilization by superviscosity, a different method and control variable.",
+        "Previously accessible fixed-horizon two-step Cayley result uses a rational function with numerator 1-(a-ib)h/2, whereas the new proof uses backward-Euler resolvents (1+(a-ib)h)^{-1} for arbitrary N."
+      ],
+      "reasoning": "There is a true covered limit b=0, stated explicitly. The genuinely asserted addition is the all-N sparse-equal law, sharp b=a boundary, ordered thresholds and large-budget count scaling for complex decay modes. A general preexisting theorem could still imply these through reduction and would overturn novelty; no such stronger coverage emerged from inspected materials.",
+      "searches": [
+        "implicit Euler fixed total time n variable nonnegative substeps optimal damping equal positive steps zeros oscillatory complex eigenvalues sparse equal",
+        "optimal step allocation backward Euler scalar damped oscillator fixed sum of time steps support count zero steps",
+        "optimal equal splitting vs sparse splitting implicit Euler logarithmic stability function for oscillatory systems",
+        "https://www.unige.ch/~gander/Preprints/gander_contrib.pdf",
+        "https://arxiv.org/pdf/2206.04183",
+        "https://arxiv.org/pdf/1912.11596",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-fixed-budget-floquet-optimizer-for-two-periodic-variable--0f63ee987045"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gander et al., Theorem 1, pages 2-3: unique equidistant backward-Euler step partition minimizes error for real scalar decay u'= -a u.",
+        "The present q(t)=|1+(a-ib)t|^2 objective specializes to Gander at b=0 but admits nonconcave log q for b>a."
+      ],
+      "reasoning": "Optimizing the product of |1+(a-ib)h_i| over nonnegative allocations is exactly the new squared-amplification problem; optimizing the pure real product of 1+a h_i is only its b=0 special case. No located equivalent general complex-mode all-count classification was found; the real case is already covered and not asserted to be novel.",
+      "searches": [
+        "implicit Euler fixed total time n variable nonnegative substeps optimal damping equal positive steps zeros oscillatory complex eigenvalues sparse equal",
+        "optimal step allocation backward Euler scalar damped oscillator fixed sum of time steps support count zero steps",
+        "optimal equal splitting vs sparse splitting implicit Euler logarithmic stability function for oscillatory systems",
+        "stability function implicit Euler product complex conjugate variable step optimization",
+        "https://www.unige.ch/~gander/Preprints/gander_contrib.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public indexed search surfaced the fixed-budget two-periodic variable-step BDF2 Floquet optimizer and variable-step implicit-midpoint findings, but no exact n-step backward-Euler damping staircase in the inspected ranked hits.",
+        "An accessible earlier finding claim describes a two-step Cayley duration-allocation claim and a random-one-step backward-Euler mean-budget claim, neither an all-N fixed-total-duration backward-Euler product classification."
+      ],
+      "reasoning": "Searches are evidence of no matched entry in the inspected results, not proof of global uniqueness. No exact table for the new n-step complex-mode support thresholds was identified.",
+      "searches": [
+        "implicit Euler fixed total time n variable nonnegative substeps optimal damping equal positive steps zeros oscillatory complex eigenvalues sparse equal",
+        "optimal step allocation backward Euler scalar damped oscillator fixed sum of time steps support count zero steps",
+        "optimal equal splitting vs sparse splitting implicit Euler logarithmic stability function for oscillatory systems",
+        "\"sparse equal\" \"implicit Euler\" \"complex eigenvalues\" time steps optimal",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-fixed-budget-floquet-optimizer-for-two-periodic-variable--0f63ee987045"
+      ]
+    },
+    "rationale": "The full-text scalar theorem of Gander et al. covers b=0, deliberately excluded from novelty. The complex oscillatory sparse-equal law, sharp b=a transition, all-N active-count staircase, and asymptotic active-step density are not implied by the inspected Padé or RK results or by the nearest indexed BDF2 and two-step midpoint statements; full text and historical-equivalence risk remain as documented.",
+    "residual_risks": [
+      "The Layton–Pei–Trenchea full text was not available; the abstract is insufficient to rule out a general auxiliary result.",
+      "A mathematically equivalent classical fixed-sum product maximization theorem could predate searched works.",
+      "Semantic search and limited source inspection cannot prove publication priority; human literature verification remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS real-decay b=0 subcase; does not state any complex oscillator or sparse active-count result",
+        "evidence": [
+          "Theorem 1 minimizes product (1+a h_i)^(-1) on the real positive scalar ODE and obtains uniform steps by a convexity argument."
+        ],
+        "identifier_or_url": "https://www.unige.ch/~gander/Preprints/gander_contrib.pdf",
+        "material_read": "Section 2, equation (6), Theorem 1 and proof through page 3; screenshot page 3",
+        "method": "Read accessible PDF text and visual page 3",
+        "title": "A direct solver for time parallelization",
+        "trigger": "Exact real-decay backward-Euler time-partition optimality is a plausible dominating theorem"
+      },
+      {
+        "assessment": "NOT_COVERING the stated backward-Euler fixed-duration N-step product optimization, based on inspected method, objectives, and conclusions",
+        "evidence": [
+          "Their scheme mixes Padé expansions; selection uses a high-frequency spectral-radius parameter and CFL guidance, with simultaneous control of low-frequency period error, not sparse backward-Euler step allocation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.04183",
+        "material_read": "Abstract and introduction, section 5.5 time-step guidance (pages 15-17), section 7 conclusions (pages 34-35), original first-page visual",
+        "method": "Read full accessible PDF in relevant sections and first-page screenshot",
+        "title": "High-order implicit time integration scheme with controllable numerical dissipation based on mixed-order Padé expansions",
+        "trigger": "Primary 2022 public source on implicit numerical dissipation and time step selection"
+      },
+      {
+        "assessment": "NOT_COVERING: stabilization through modified explicit RK and postprocessing, rather than fixed total backward-Euler allocation",
+        "evidence": [
+          "Conclusions report numerical viscosity bounds and correction methods for RK schemes, not product optimization for implicit Euler."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.11596",
+        "material_read": "Abstract, section 1 strong-stability setup, section 7 conclusions, visual first page",
+        "method": "Read accessible 40-page PDF relevant sections and first-page screenshot",
+        "title": "Enforcing strong stability of explicit Runge–Kutta methods with superviscosity",
+        "trigger": "2019 primary source on norm contractivity and sharp stabilization of oscillatory numerical methods"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; abstract describes a different DLN scheme but cannot exclude broader full-text discussion",
+        "evidence": [
+          "Abstract says variable-step DLN is equivalent to backward Euler with pre/post arithmetic steps, which is structurally different from a product of unmodified Euler resolvents; no full-text negative inference."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.09339",
+        "material_read": "Abstract and metadata only; the arXiv PDF retrieval failed",
+        "method": "Read arXiv abstract page; attempted arXiv PDF and alternate HTML retrieval",
+        "title": "Refactorization of a variable step, unconditionally stable method of Dahlquist, Liniger and Nevanlinna",
+        "trigger": "Variable-step method directly mentioning backward-Euler refactorization"
+      },
+      {
+        "assessment": "INDEXED_DIFFERENT_OBJECT, not a complete-document exclusion",
+        "evidence": [
+          "Indexed statement concerns a two-periodic BDF2 Floquet rate and split-ratio threshold; the current theorem concerns an arbitrary-length product of one-step BE resolvents."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-fixed-budget-floquet-optimizer-for-two-periodic-variable--0f63ee987045",
+        "material_read": "published-finding corpus indexed title and summary; complete repository document could not be retrieved",
+        "method": "Semantic search entry and attempted public repository page",
+        "title": "A sharp fixed-budget Floquet optimizer for two-periodic variable-step BDF2",
+        "trigger": "Closest indexed fixed-time-budget implicit multistep optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "66b5004c-e721-4897-85b0-f0f4fd93119d",
+  "value": {
+    "rationale": "The natural fixed-duration, finite-solve-budget numerical-damping question is completely classified, rather than optimized only over one arbitrary parameter slice. A structural pair-replacement theorem forces equal active steps; exact adjacent active-count thresholds and a sharp b=a bifurcation give an efficient global prescription for any N. The rational four-step example reduces squared numerical amplification by 19.64% against equal use of all four steps. This is damping, not a demonstrated accuracy or runtime improvement.",
+    "status": "PASS"
+  }
+}
