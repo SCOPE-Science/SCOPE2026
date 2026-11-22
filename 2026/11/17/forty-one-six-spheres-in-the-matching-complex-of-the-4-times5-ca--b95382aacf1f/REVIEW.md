@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns the full ordinary matching complex of the Cartesian grid with 20 vertices and 31 edges. Complete increasing-edge enumeration returns 120,465 faces including the empty face; an independent deletion-contraction matching-polynomial recursion reproduces every cardinality coefficient. The fully directed Hasse graph is exhaustively topologically sorted, establishing acyclicity rather than inferring it from a local greedy heuristic. The resulting nonempty critical-cell profile is \((c_0,c_5,c_6,c_7)=(1,5,47,1)\). Exact signed gradient-path recursions give a split-surjective 5-by-47 boundary (explicit unit minor determinant \(-1\)) and a primitive 47-entry boundary vector, whose composition is zero. The elementary CW cancellation step follows because \(\pi_5(\bigvee S^5)\) and \(\pi_6(\bigvee S^6)\) are their free degree groups. No larger-grid conclusion is inferred from finite tests.
+## correctness
 
-## Originality — PASS, with residual bibliographic uncertainty
-The published and accessible primary-source comparisons concern two- or three-row Cartesian grids, not \(P_4\square P_5\). The full accessible 2021 three-row preprint's introduction, grid definition and Theorem 4.1/Table 1 were checked; its results do not entail this homotopy type. The September 2026 three-row paper's accessible abstract gives connectivity and homology results restricted to that family; its full text was unavailable, including through the attempted institutional route. published-finding corpus semantic searches for the object, cardinalities and equivalent six-sphere formulation returned the adjacent \(4\times4\) grid or distinct three-row/periodic/categorical products; no equivalent four-by-five statement was identified. The previous \(4\times4\) theorem does not imply the next width. These searches are not a proof of global priority, and the inaccessible full text remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The first rectangular four-row grid directly beyond the previously classified square \(4\times4\) is a canonical finite test of whether mixed-dimensional homotopy persists. The exact homotopy classification is stronger than a matching-number or Euler-character computation: it rules out hidden integral torsion and unstable attaching maps, showing a sharp transition to a pure degree-six wedge of forty-one spheres. The complete 120,465-face certificate is independently reproducible from the small graph, providing a meaningful natural exact invariant rather than an arbitrary subinstance.
+Independently rebuilt P4 square P5 as a 20-vertex 31-edge graph and all 120,465 matching faces, matching every cardinality coefficient [1,31,395,2696,10769,25835,36771,29580,12181,2111,95]. Independently followed the declared stagewise element matching (60,205 pairs), topologically checked all 120,465 augmented Hasse vertices, and recomputed oriented integral Morse boundaries: critical 1 zero-cell,5 five-cells,47 six-cells,1 seven-cell; the 5x47 D6 has 197 zero,23 negative-unit,15 positive-unit entries and determinant -1 on columns 0,1,2,15,19, while D7 has five stated ±1 entries, gcd1, and D6D7=0. In dimensions 5 and 6 homotopy classes of attaching maps to same-dimensional sphere wedges are determined by integer degrees; unimodular and primitive cancellations yield one point and 41 six-spheres. No claim extrapolates to all grids.
 
-## Limits
-Not a general width recurrence, symmetry classification or independently audited theorem. A related recent three-row paper could not be inspected in full; priority is assessed to the extent of genuinely accessible literature and completed exact searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Matched distinction between 4x5 Cartesian grid, 4x4 Cartesian graph, 3x7 grid, graph with row-reversing seam, complete bipartite K4,5 chessboard complex, and nonmatching complexes. Primary small-grid results read in full address width-two strips/generalized Δ grids rather than this 4-by-5 ordinary grid. The explicit primitive integral Morse cancellation is additional to enumerating matching numbers.
+
+## value
+
+PASS
+
+The 4-by-5 path product is a canonical next larger two-dimensional grid, not an arbitrary induced graph, and its exact integral homotopy wedge detects more than matching-polynomial or Euler data. Complete primitive integer attaching information is a useful benchmark for grid matching-complex recurrences and torsion questions even absent a closed family formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
