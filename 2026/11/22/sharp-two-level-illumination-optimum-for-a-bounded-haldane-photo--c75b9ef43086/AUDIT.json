@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "A complete derivative proof shows a single Haldane inflection, then constructs a tangent quadratic contact and an exact nonnegative factorization with only two contact points. The piecewise response is a concave majorant, and Jensen inequality plus contact-set equality prove existence, global optimality, uniqueness, and boundary cases for every Borel law. Exact cleared-denominator rational identity and 11,188 deterministic standard-library checks passed. Tests are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General concave-envelope/Jensen method solves compact one-moment optimization in principle but does not supply this coefficient-dependent Haldane formula.",
+        "2012 Grognard–Akhmetzhanov–Bernard work optimizes dilution rate under day/night natural light, not arbitrary irradiance under a mean cap.",
+        "2022 Bernard–Lu theorem 3.1 optimizes biomass optical depth for Beer-attenuated light."
+      ],
+      "reasoning": "Any broad theorem of upper concave envelopes implies existence of a two-point optimizer, but not automatically a unique lower setpoint, its closed radical, the exact cap/mean phase boundary, or the all-law deficit. No inspected primary result specializing these parameters was found. General method is not claimed as novel.",
+      "searches": [
+        "bang-bang optimal photobioreactor light intensity average constraint Haldane",
+        "optimal static light intensity allocation under photoinhibition mean irradiance constraint two point distribution critical threshold",
+        "photosynthesis light photoinhibition Jensen gap irradiance heterogeneity support at saturation and maximum light"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s00285-023-01871-2",
+      "https://liudi-lu.github.io/publication/jmb-flashlight/JMB-FlashLight.pdf",
+      "https://liudi-lu.github.io/publication/jpc-optical/JPC-Optical.pdf",
+      "https://pubs.acs.org/doi/10.1021/acs.iecr.3c00850",
+      "https://arxiv.org/abs/1204.2906"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fierro Ulloa–Lu–Bernard Theorem 3 maximizes eta*mu(H)+(1-eta)*mu(L)-mu(eta H+(1-eta)L) for fixed H and L both above their inflection; the theorem here fixes the mean and optimizes H,L and all distributions, with low q strictly below inflection.",
+        "Their Lemma 3 supplies the curvature sign but does not supply the supporting line and all-law equality.",
+        "Bernard–Lu 2022 constrains light to a Beer-attenuation profile; unrestricted moment measures are not covered by that domain."
+      ],
+      "reasoning": "The earlier fixed-level duty-cycle result cannot imply the new optimizer by merely substituting parameters: its low-level hypothesis excludes the strict optimal q, and its objective differs by a variable constant-light term. The complete unique-optimum and loss statements need the new factorization/Jensen proof. Conversely, the new statement does not supersede their finite-frequency or depth-coupled results.",
+      "searches": [
+        "Theoretical growth rate of microalgae under high/low-flashing light Fierro 2023",
+        "optimal optical conditions Microalgal production photobioreactors Bernard Lu",
+        "optimal two light intensities fixed average irradiance global maximum photosynthesis Haldane flashing optimal duty cycle concave envelope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2023 Fierro Ulloa–Lu–Bernard full text, equation (4), Lemma 3 and Theorem 3: known stationary response, inflection, and a fixed-pair duty-cycle enhancement problem.",
+        "2022 Bernard–Lu full text, equation (1), integrates a Haldane-type response over Beer–Lambert optical depth."
+      ],
+      "reasoning": "Change of variables from Han steady state to u/(1+u+cu²) is an exact equivalence; no originality is attributed to the response. The new claim is an optimization over all fixed-first-moment laws. It differs from fixed light levels/duty cycle and from Beer–Lambert spatial attenuation. No inspected statement gives the unique two-contact upper envelope with its explicit q and loss certificate.",
+      "searches": [
+        "Haldane growth concavification optimal irradiance mixture fixed average constraint light regime optimal high low",
+        "concave envelope Haldane inhibitory photosynthetic light response maximizing time averaged growth under bounded irradiance and fixed mean optimal binary illumination tangent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published related mathematics includes an optical-depth optimum for Steele photoinhibition and a biomass-shadowing equilibrium, neither using the present Haldane fixed-mean moment problem.",
+        "No exact Haldane cap-and-tangency formula appeared in inspected full texts or returned relevant record summaries."
+      ],
+      "reasoning": "A scientific literature search and scientific record search were performed on exact formula, equivalent concavification, and optimal two-level terminology. An unsuccessful search is not a proof of uniqueness or historical priority; independent historical comparison remains a risk.",
+      "searches": [
+        "Exact upper concave envelope of Haldane photoinhibition growth curve f(I)=I/(1+I+c I^2) under bounded intensity and fixed average light. Unique two-point distribution at cap and tangent light level, explicit quadratic tangency threshold.",
+        "rational photosynthesis rate I/(a+bI+cI2) concave envelope tangent fixed photon budget illumination"
+      ]
+    },
+    "rationale": "Primary full text gives the Haldane response and its inflection and fixes two levels when optimizing duty-cycle enhancement; it does not solve a fixed-mean, bounded arbitrary-law productivity maximum. An explicit globally supporting line, its radical lower contact, and a sharp loss identity classify all laws with unique equality. Related Beer–Lambert optical-depth work uses a constrained light distribution, not the present moment class. Generic concave-envelope principles are recognized as prior mathematics; risk of uninspected exact specialization remains.",
+    "residual_risks": [
+      "General moment-problem concavification is established; uninspected specialized studies might already contain the exact radical and deficit.",
+      "Abstract-only 2023 ACS flashing-light article cannot support a full-text noncoverage conclusion.",
+      "No independent literature-priority assessment has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE OF MODEL AND INFLECTION, DOES NOT STATE GLOBAL FIXED-MEAN ALL-DISTRIBUTIONS OPTIMUM",
+        "evidence": "Equation (4) stationary Haldane response; Lemma 3 unique inflection; Theorem 1 slow-switching mean; Theorem 3 fixed levels above the inflection and relative-enhancement duty cycle.",
+        "identifier_or_url": "https://liudi-lu.github.io/publication/jmb-flashlight/JMB-FlashLight.pdf",
+        "material_read": "Full text equations (1)–(28), Sections 2–5 and proof of Theorems 1–3, including formula (4), Lemma 3 and the fixed-pair duty-cycle comparison",
+        "method": "Author-accessible full PDF text and visual page inspection",
+        "title": "Theoretical growth rate of microalgae under high/low-flashing light",
+        "trigger": "Identical steady-state Haldane response; same high/low intervention type"
+      },
+      {
+        "assessment": "DIFFERENT CONSTRAINED OPTIMIZATION DOMAIN; does not give the arbitrary irradiance-law fixed mean bound",
+        "evidence": "Equations (1)–(8) define Haldane-type rate, exponential depth illumination and optical-depth productivity; Theorem 3.1 gives compensation condition for biomass-optimal optical depth.",
+        "identifier_or_url": "https://liudi-lu.github.io/publication/jpc-optical/JPC-Optical.pdf",
+        "material_read": "Author full preprint introduction, Sections 2 and 3.1, including the Beer–Lambert light family and optical-depth objective",
+        "method": "Full-text PDF and page image inspection",
+        "title": "Optimal optical conditions for Microalgal production in photobioreactors",
+        "trigger": "Same photoinhibition growth response and global photobioreactor optimization language"
+      },
+      {
+        "assessment": "INACCESSIBLE FULL TEXT; no whole-document exclusion; distinct photosynthetic kinetic flash constraints in abstract",
+        "evidence": "Abstract describes flash length, recovery, charge carriers and intensity, rather than an exact stationary Haldane measure concavification.",
+        "identifier_or_url": "https://pubs.acs.org/doi/10.1021/acs.iecr.3c00850",
+        "material_read": "Abstract and publication metadata only, not full article",
+        "method": "Publisher abstract inspection",
+        "title": "Identifying Opportunities for Improving the Light Utilization Efficiency of Microalgae in a Flashing Light Regime",
+        "trigger": "Closely related pulsed light photosynthesis optimization"
+      },
+      {
+        "assessment": "DILUTION-RATE CONTROL OF DIURNAL BIOMASS, not same mean/cap control variable; absence not certified for whole text",
+        "evidence": "The stated control is reactor dilution rate under natural-light and periodic biomass constraints.",
+        "identifier_or_url": "https://arxiv.org/abs/1204.2906",
+        "material_read": "Abstract and public preprint description, not full derivation",
+        "method": "Open abstract and metadata inspection",
+        "title": "Periodic optimal control for biomass productivity maximization in a photobioreactor using natural light",
+        "trigger": "General optimal-control and bang–bang results for photobioreactors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c75b9ef4-3086-4783-9b6d-b2641934c2dc",
+  "value": {
+    "rationale": "The photoinhibitory Han/Haldane model motivates a natural finite-photon-budget and capped-illumination problem. The complete closed-form phase classification, constant lower setpoint above threshold, unique mixing weights and nonnegative performance-loss identity are operationally interpretable and do not follow from the cited fixed-pair duty-cycle theorem alone. The result is limited to equilibrium exposure mixtures; no unproved experimental benefits are claimed.",
+    "status": "PASS"
+  }
+}
