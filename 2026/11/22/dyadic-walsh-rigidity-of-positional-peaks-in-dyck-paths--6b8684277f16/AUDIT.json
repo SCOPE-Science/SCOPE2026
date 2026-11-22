@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For any compatible set J of forced UD step positions, deletion/insertion of all prescribed peaks is bijective with Dyck paths of semilength n-|J|. Character expansion gives a sum over independent subsets J weighted (-2)^|J| C_{n-|J|}. Legendre yields v2(C_m)=s2(m+1)-1. The binary digit-sum inequality is strict for nonempty J at odd n, proving each Walsh multiplier congruent to C_n modulo 2^{s2(n+1)}, so none vanishes. Lagrange inversion derives symmetric Narayana numbers, whose alternating sum is zero when n is even. All boundary cases n>=1 are covered. Independent integer enumeration and FWT check n<=10; all formula identities n<=8 and contraction counts at n=6 are verified by verify.py. No finite check is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mansour, Journal of Integer Sequences 5 (2002) 02.1.1, Main Theorem 1.1, counts peaks indexed by *height* using Chebyshev functions.",
+        "Eu, Liu and Yeh (2003), DOI:10.1111/1467-9590.t01-1-00042, publisher abstract: peak-height avoidance/restriction sets.",
+        "Adin and Roichman (2004), Theorem 2.1 gives a multivariate inverse-descent recurrence; it does not establish the claimed uniform 2-adic noncancellation for complete positional peak profiles."
+      ],
+      "reasoning": "Height-restricted generating functions sum over absolute positions and do not determine arbitrary independent signs at those positions. The closest positional-descent result is specialized to one-sided descent information and auxiliary statistics, not a strictly stronger theorem implying uniform signed valuations at all peak positions.",
+      "searches": [
+        "Web: Dyck path specified peak positions subset exact enumeration deletion C_{n-k} Walsh Fourier signs all subsets",
+        "Web: Dyck path multivariate peak positions polynomial each location 2n-1",
+        "published-finding corpus: Dyck path Narayana peak-set signed generating polynomial evaluate individual peak variables plus minus one coefficient Catalan 2-adic congruence"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0203222 (first public 2002-03-21)",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL5/Mansour/mansour6.pdf (main results and definitions)",
+      "https://www.mat.univie.ac.at/~slc/s/s51adin.pdf (Sections 1, 2, 5, 6)",
+      "https://doi.org/10.1111/1467-9590.t01-1-00042 (abstract only)",
+      "https://oeis.org/A167639 and https://oeis.org/A005557 (different peak-height statistics)",
+      "published-finding corpus ID 2026/11/16/SCOPE-a-binary-digit-parity-law-and-the-mod-four-walsh-spectrum-of-cat--84ddf083bb47 (up-step instead of peak incidence)",
+      "published-finding corpus ID 2026/11/16/SCOPE-fourier-recovery-and-a-cubic-minimum-zero-threshold-for-height-t--51de04f7e6b4 (height-three up-step incidence)",
+      "Related existing Dyck up-step, ground-return and Motzkin peak claim digests checked for statement-level implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Narayana coefficients N(n,r)=binom(n,r)binom(n,r-1)/n yield the known all-selected zero at even n; this special case is acknowledged as covered.",
+        "The exact positional contraction formula requires all selected peak start-pairs nonoverlapping; the new binary valuation inequality applies simultaneously to all independent subsets of positions, not only the all-selected character.",
+        "The 2004 positional bijection identifies step-index peaks but tracks only partial descents in the multivariate recurrence, without the general valuation conclusion."
+      ],
+      "reasoning": "The full theorem distinguishes the odd semilength cases with even Catalan total from the ordinary parity argument: its proof shows every Fourier multiplier has the same exact 2-adic valuation as that total. Neither ordinary Narayana symmetry nor the inspected height-peak and one-sided descent formulas directly supplies this all-S assertion. Independent-set contraction and valuation comparison are the additional critical steps.",
+      "searches": [
+        "Full primary text: https://www.mat.univie.ac.at/~slc/s/s51adin.pdf Sections 1, 2, 5",
+        "Full primary text: https://cs.uwaterloo.ca/journals/JIS/VOL5/Mansour/mansour6.pdf main theorem and peak definitions",
+        "published-finding corpus: standard Young tableaux rectangular two row descent set signed Fourier sum odd width valuation Catalan involution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adin and Roichman (2004), SLC 51 B51d, Section 5: peaks strictly before/after midpoint correspond to descent and inverse-descent statistics. Section 2 tracks inverse descents, inversion number and last descent, not independent full positional signs.",
+        "published-finding corpus closest ID 2026/11/16/SCOPE-fourier-recovery-and-a-cubic-minimum-zero-threshold-for-height-t--51de04f7e6b4: height-three Dyck *up-step* incidence, restricted to bounded height; distinct incidence and different invertibility law.",
+        "No exact full-position signed-peak spectrum equivalent surfaced in these actual queries."
+      ],
+      "reasoning": "The nonlinear map from a Dyck up-step vector to its local UD-peak-position vector changes the Fourier characters: characters of the second are not generally characters of the first. Bounded-height results cannot dominate all unrestricted Dyck paths. The full joint peak-set signs are not the one-sided inverse-descent specialization in the inspected 2004 generating function. Absence in search is not a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: Dyck path all consecutive UD peak starting positions Walsh spectrum modulo highest power two Catalan odd semilength no zeros",
+        "published-finding corpus: binary Fourier peaks of Dyck paths q=-1 at selected step positions Narayana peak set Catalan odd n",
+        "Web: \"Dyck\" \"peak\" \"Walsh\" \"invertible\"",
+        "Web: Dyck paths signed peak positions even odd semilength no zeros Fourier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A167639 concerns peaks at even height in restricted Dyck paths, not full positional Fourier characters.",
+        "OEIS A005557 concerns first-peak height, not positional Walsh cancellation.",
+        "Recorded Catalan matroid up-step spectrum ID 2026/11/16/SCOPE-a-binary-digit-parity-law-and-the-mod-four-walsh-spectrum-of-cat--84ddf083bb47 concerns up-step incidence, not peak positions."
+      ],
+      "reasoning": "No table or database result found that determines the exact valuation of every signed positional-peak character. Existing Catalan/Narayana tables determine the total and peak-count marginal, which gives one signed character but not the full transform. This is bounded negative evidence only.",
+      "searches": [
+        "Web: OEIS Dyck paths positional peak Walsh transform n even odd",
+        "Web: \"Dyck paths\" \"peak positions\" \"Fourier\" convolution",
+        "published-finding corpus: Dyck peak occurrence inclusion exclusion nonadjacent selected positions Catalan counts spectral rank"
+      ]
+    },
+    "rationale": "The novel assessed statement is uniform exact 2-adic valuation of all Fourier characters for odd Dyck semilength, and complete odd/even invertibility of the peak-position counting convolution. Classical Narayana symmetry already covers only the even-order all-selected zero. Peak-height enumeration, one-half positional-descent refinements, and up-step incidence Fourier transforms do not state or imply the all-position peak-character congruence. Searches and literature comparison are bounded and do not certify historical uniqueness.",
+    "residual_risks": [
+      "An unindexed published signed peak-set or two-row tableau descent-set specialization could contain an equivalent all-position 2-adic congruence; search cannot prove uniqueness.",
+      "The Eu–Liu–Yeh (2003) primary article was accessible as an abstract only; its advertised height-indexed problem differs, but full-text comparison was unavailable.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Full relevant theorem concerns fixed peak height, not independent signed peak step indices; no dominating statement located",
+        "evidence": [
+          "Main Theorem 1.1 and Theorem 1.2 mark height k; JIS Article 02.1.1; arXiv:math/0203222 first posted 2002-03-21"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL5/Mansour/mansour6.pdf",
+        "material_read": "Theorems and definitions on journal PDF pages 1-4 and 7-8; peak height indexed, continued fraction/generating-function statements",
+        "method": "Lawful open full-PDF text read and page 3 visually inspected",
+        "title": "Counting Peaks at Height k in a Dyck Path",
+        "trigger": "Archival primary Dyck peak enumeration and first-public-date anchor"
+      },
+      {
+        "assessment": "Positional Dyck peaks explicitly identified, but the multivariate theorem tracks inverse descents and auxiliary statistics rather than all positional peak signs; no all-character 2-adic theorem located",
+        "evidence": [
+          "Theorem 2.1 on PDF page 4; Lemma 5.1 on page 9 identifies two halves of peak positions"
+        ],
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/s/s51adin.pdf",
+        "material_read": "Section 1 statements, Section 2 multivariate theorem, Section 5 peak/descent bijection and Section 6 context",
+        "method": "Lawful open full-PDF text read; pages 2 and 5 visually inspected",
+        "title": "Equidistribution and Sign-Balance on 321-Avoiding Permutations",
+        "trigger": "Joint position-of-peak and descent-set correspondence, plausible dominating positional refinement"
+      },
+      {
+        "assessment": "Published abstract specifies arbitrary sets of peak heights, rather than step positions. This source is not marked whole-document noncovering; residual risk remains",
+        "evidence": [
+          "Publisher first publication 2003-09-23; abstract identifies height-indexed restrictions and continued fractions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1467-9590.t01-1-00042",
+        "material_read": "Publisher bibliographic record and abstract only; full primary text not inspected",
+        "method": "Searched for lawful open copy and checked publisher abstract; no accessible open copy located",
+        "title": "Dyck Paths with Peaks Avoiding or Restricted to a Given Set",
+        "trigger": "Publisher title suggests arbitrary peak subsets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6b868427-7f16-4d36-8d69-4387dd1639dd",
+  "value": {
+    "rationale": "A complete infinite-family convolution invertibility classification and exact full-spectrum 2-adic rigidity on a canonical Catalan statistic are mathematically motivated. It distinguishes even Catalan totals that nevertheless yield a zero-free Fourier transform, and quantifies determinant divisibility and reversible peak-profile counting. The essential uniform arithmetic law is not a single finite-table entry or a routine restatement of Narayana symmetry; no universal sharp gap or even nullity is overclaimed.",
+    "status": "PASS"
+  }
+}
