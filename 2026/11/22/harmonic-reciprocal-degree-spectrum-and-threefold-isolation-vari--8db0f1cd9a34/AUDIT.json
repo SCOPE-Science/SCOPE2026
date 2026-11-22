@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each fixed vertex, the reciprocal-neighbor condition is a rectangle of exact area \\(XY\\); independent third vertices give a binomial mixture with product-uniform density \\(-\\log t\\), and beta differentiation gives \\((H_n-H_k)/n\\). For two tagged reciprocal isolates, the exact probability is \\(\\mathbb E[\\mathbf 1_{E_{12}^{\\mathrm c}}q^{n-2}]\\) with \\(q=1-z_1-z_2+\\min(x_1,x_2)\\min(y_1,y_2)\\). Direct mutual edges contribute \\(o(n^{-2})\\). After \\(t_i=n x_i y_i\\) and \\(u_i=-\\log x_i\\), the logarithmic u-overlap gives an extra \\(2\\log n\\) of covariance: the limiting kernel expectation at aspect-ratio separation delta is \\(e^{-|\\delta|}\\), integrable to two; explicit exponential domination and an \\(O((\\log n)^2/n)\\) remainder justify the exchange of limit and integral. The diagonal contribution is \\(H_n+o(1)\\), yielding variance \\(3\\log n+o(\\log n)\\) and a Chebyshev law of large numbers. The included actual checker separately returned 4246 exact and seeded assertions; simulation is not used to establish the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hladký–Viswanathan, Connectivity of Inhomogeneous Random Graphs II (https://doi.org/10.1002/rsa.70098), develops general connectivity/isolation criteria.",
+        "The general criterion concerns connectivity and the existence of isolated vertices, not a 3 log(n) variance for the particular reciprocal threshold connection rule."
+      ],
+      "reasoning": "The AND rule defines a deterministic geometric graphon on the two-dimensional weight space. A sufficiently strong general graphon covariance theorem could cover it, but no inspected statement supplied the exact finite reciprocal-degree law or variance asymptotics; this unresolved generality remains in residual risks.",
+      "searches": [
+        "random threshold digraph mutual reciprocal undirected graph isolated vertices asymptotic variance three log n harmonic expectation",
+        "random geometric graph directed reciprocal neighborhood sum of independent beta uniform degrees harmonic",
+        "Connectivity of Inhomogeneous Random Graphs II general graphon isolated vertices"
+      ]
+    },
+    "checked_sources": [
+      "E. Reilly, E. Scheinerman, Y. Zhang, Random Threshold Digraphs, Electron. J. Combin. 21(2) P2.48, DOI:10.37236/4050, full PDF.",
+      "N. Durak, T. Kolda, A. Pinar, C. Seshadhri, A Scalable Null Model for Directed Graphs Matching All Degree Distributions, arXiv:1210.5288, primary HTML text.",
+      "J. Hladký and S. Viswanathan, Connectivity of Inhomogeneous Random Graphs II, DOI:10.1002/rsa.70098, available general connectivity statements.",
+      "Published finding, reciprocal cycles repel every longer directed cycle in fixed out (model comparison; no direct coverage found).",
+      "Published finding, a loop controlled sign transition for mutual dyad and directed t (model comparison; no direct coverage found).",
+      "Published finding, host graph reconstruction from degree covariance in vertex thres (model comparison; no direct coverage found)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Reilly–Scheinerman–Zhang 2014, Section 4, works out directed in/out-degree zero and connectivity, and Section 4.3 treats OR-symmetrization, not this AND-symmetrization.",
+        "Durak–Kolda–Pinar–Seshadhri (arXiv:1210.5288), sections I–III, constructs a Chung–Lu-like null model from prescribed reciprocal degree data rather than computing the degree law in the independent-coordinate threshold model."
+      ],
+      "reasoning": "Known binomial-mixture and graphon facts can recover the first finite law after choosing the AND rule, but they do not by themselves supply the dependence calculation leading to the coefficient three. No inspected stronger source establishes the specific complete claim; potential coverage by as-yet-uninspected general covariance results is acknowledged.",
+      "searches": [
+        "Reilly Scheinerman Zhang Random Threshold Digraphs reciprocal symmetrization undirected mutual arcs degree distribution isolated vertex harmonic H_n variance three log n",
+        "uniform random directed threshold graph bidirectional mutual degree harmonic numbers exact law",
+        "A Scalable Null Model for Directed Graphs Matching All Degree Distributions: In, Out, and Reciprocal arXiv 1210.5288",
+        "Reilly Scheinerman Zhang 2014 threshold digraph mutual arcs vs underlying graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reilly–Scheinerman–Zhang 2014 defines the same arcs using independent per-vertex uniform source and target weights (https://doi.org/10.37236/4050).",
+        "The original paper defines the underlying simple graph via OR of arcs, whereas this theorem explicitly uses AND, so a directed in/out-degree or weak-undirected result does not determine the joint mutual-degree spectrum."
+      ],
+      "reasoning": "The mutual graph is a distinct (AND-symmetrized) undirected graph. Its reciprocal-neighbor probability at a vertex is XY rather than the marginal X or Y used for one-way degrees. Neither a relabeling nor the published OR symmetrization identifies the mutual degree distribution or the shared-isolate covariance.",
+      "searches": [
+        "Reilly Scheinerman Zhang Random Threshold Digraphs reciprocal symmetrization undirected mutual arcs degree distribution isolated vertex harmonic H_n variance three log n",
+        "mutual threshold digraph reciprocal graph isolated vertex count harmonic mean variance log n",
+        "random threshold digraph symmetrization mutual connection xy independent uniforms bivariate vertex weights",
+        "Random Threshold Digraphs DOI 10.37236/4050 original full PDF section 3 and section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published finding on reciprocal-cycle covariance in fixed-outdegree digraphs uses uniform k-out sampling, not the two-independent-coordinate threshold model.",
+        "The defining journal article does not tabulate reciprocal degrees; the arXiv:1210.5288 null-model construction takes reciprocal degrees as inputs."
+      ],
+      "reasoning": "The closest inspected tables and titles describe different distributions or regard the reciprocal degree as an input parameter. No inspected exact table lists these harmonic reciprocal-degree counts or the variance constant, but an unsuccessful database search is not proof of uniqueness.",
+      "searches": [
+        "Reilly Scheinerman Zhang Random Threshold Digraphs reciprocal symmetrization undirected mutual arcs degree distribution isolated vertex harmonic H_n variance three log n",
+        "mutual threshold digraph reciprocal graph isolated vertex count harmonic mean variance log n",
+        "random threshold digraph reciprocal edge degree distribution harmonic numbers H_n",
+        "random threshold digraph mutual reciprocal undirected graph isolated vertices asymptotic variance three log n harmonic expectation"
+      ]
+    },
+    "rationale": "The defining 2014 random threshold digraph paper is inspected in full PDF to compare the exact same vertex weights and arcs: its undirected symmetrization uses OR, and its degree/isolated-vertex statements are for the directed arcs or OR graph, not for mutual arcs. The evaluated harmonic mutual-degree law and variance coefficient are not stated in inspected sections, and the relevant full-text reciprocal-degree null-model source uses a different prescribed-degree construction. General graphon-connectivity statements provide neither the exact full degree spectrum nor the logarithmic covariance constant for this rule. Relevant published finding entries concern fixed-outdegree reciprocal arcs, random geometric isolation or other threshold models. This supports provisional originality subject to possible unlocated stronger general results.",
+    "residual_risks": [
+      "No historical-priority search can exclude every unindexed journal article, dissertation, or result expressed through a general graphon covariance formula.",
+      "The precise marginal harmonic law follows from standard beta-mixture calculus once the reciprocal graph is defined; the substantive non-implied portion is the joint isolation covariance and variance coefficient.",
+      "Only relevant sections and statements of the broad 2026 graphon connectivity article were compared; it is not represented as fully read or logically excluded in all generality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING SOURCE, NOT DIRECT COVERAGE FOUND",
+        "evidence": [
+          "Publication dated 2014-06-09; the source defines i->j iff X_i+Y_j>=1 with independent uniform coordinate pairs.",
+          "Its simp(D) connects when either direction is present, and its reported zero-degree theorem is about directed zero indegree/outdegree, not mutual-edge isolation."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/4050",
+        "material_read": "Full public PDF inspected: abstract, setup, order representation, random model, section 4 properties and concluding comparison of directed and underlying simple graph; the index was checked for reciprocal-edge results.",
+        "method": "Full text accessed from the journal PDF and relevant pages examined with page rendering and extracted text.",
+        "title": "Random Threshold Digraphs",
+        "trigger": "Exact same random two-coordinate directed model; potential dominating primary paper"
+      },
+      {
+        "assessment": "NOT DIRECT COVERAGE FOUND FOR THIS DIFFERENT SAMPLING LAW",
+        "evidence": [
+          "Section III constructs a reciprocal directed graph with prescribed in, out and reciprocal degree distributions, not with independent uniform threshold coordinates.",
+          "The reciprocal degree is a specified target variable in the model."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1210.5288",
+        "material_read": "Accessible arXiv full HTML text, especially abstract, sections I–III defining the reciprocal degree and the fast reciprocal directed model.",
+        "method": "Read the original arXiv full-text representation rather than search snippets alone.",
+        "title": "A Scalable Null Model for Directed Graphs Matching All Degree Distributions: In, Out, and Reciprocal",
+        "trigger": "Same reciprocal-degree terminology might hide equivalent theorem"
+      },
+      {
+        "assessment": "POSSIBLE BROADER CONTEXT; NO INSPECTED DIRECT IMPLICATION",
+        "evidence": [
+          "General graphon connectivity and isolated-vertex criteria were identified; no inspected statement supplied the finite harmonic reciprocal-degree spectrum or a logarithmic variance coefficient."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.70098",
+        "material_read": "Accessible abstract/introduction and connectivity/theorem statements, not a claimed complete review of every appendix.",
+        "method": "Examined public article statements and compared graphon isolation criteria to the requested distributional and variance claim.",
+        "title": "Connectivity of Inhomogeneous Random Graphs II",
+        "trigger": "A broad inhomogeneous graphon theorem might subsume isolation asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8db0f1cd-9a34-49c4-8930-9fd52e38b804",
+  "value": {
+    "rationale": "Reciprocal confirmation is a standard natural network statistic distinct from both directed degree and weak undirected adjacency. The theorem gives an interpretable complete expected reciprocal-degree spectrum and a nontrivial sharp variance inflation factor for its most important rare class (mutual-edge isolates). This requires analysis of dependence through overlapping two-dimensional rectangles and logarithmic aspect ratios; it is not just a textbook binomial mixture identity. It supports uncertainty calculations in mutual-confirmation networks even where ordinary directed isolation nearly disappears. The work makes no unsupported CLT or applications claim.",
+    "status": "PASS"
+  }
+}
