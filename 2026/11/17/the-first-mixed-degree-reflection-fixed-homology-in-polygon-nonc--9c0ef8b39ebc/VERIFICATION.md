@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-21.md",
+      "INDEPENDENT_AUDIT_2026-11-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact finite verification
 
-The standalone file `noncrossing_reflection_verify.py` constructs all chord orbits under \(\tau_k(i)=k-i\pmod n\), excludes internally incompatible orbits, and constructs the complete orbit-conflict graph. It enumerates each nonempty independent set once, builds signed integer simplicial boundary matrices, checks all adjacent boundary compositions equal zero, and computes integral Smith normal forms using SymPy. Every nonzero invariant factor is 1 in all 15 tested conjugacy-class cases at \(3\le n\le12\). The chord-conflict predicate is cross-checked using a separate cyclic interleaving implementation on 6,006 pairs of chords.
+# Independent mathematical audit
 
-For \(n=12\) and the side-axis reflection \(k=1\), the exact face counts are \(21,85,100,48,11,1\) and boundary ranks are \(20,61,38,10,1\). The homology is \(\widetilde H_1\cong\mathbb Z^4\), \(\widetilde H_2\cong\mathbb Z\), and zero otherwise. The other axis has only \(\widetilde H_1\cong\mathbb Z^3\). The table for all smaller polygon sizes is in `RESULT.md` and in the checked program output.
+## correctness
 
-Run `python noncrossing_reflection_verify.py` with `sympy>=1.12,<2` and compare the output with `noncrossing_reflection_verification.txt`. The final output marker is `NONCROSSING_REFLECTION_INTEGRAL_CERTIFICATE_PASS`. The calculation uses exact integers, no numerical approximations. The all-case finite-exhaustiveness argument is contained in `RESULT.md`; a finite computation is not used to claim an infinite family theorem.
+PASS
 
-Limitations: finite polygon sizes at most 12; geometric fixed loci only of reflections; no homotopy wedge decomposition or additional independent validation is asserted.
+A reflection orbits the chord vertices; fixed simplex barycentric coordinates must be equal within each orbit. Discarding orbits with internal conflicts, with edges between incompatible orbits, gives a PL inverse between the geometric fixed locus and an orbit-compatibility independence complex. The assigned source reconstructs all n(n-1)/2 chords, tests shared endpoints or interleaving, both even reflection types and all odd classes n3..12, enumerates all independent orbit sets, builds signed integer boundaries, checks boundary compositions and Smith forms. For (n,k)=(12,1), the 21 admissible orbit vertices and 125 incompatibilities produce f=(21,85,100,48,11,1) and ranks (20,61,38,10,1), all nonzero Smith factors 1, so Htilde1=Z4, Htilde2=Z. Independent exact model reproduction, mod2 full n<=12 conjugacy-class checks and independent integer Smith at n12 k1 confirmed these numbers. This finite exhaustive proof covers precisely n3..12 and all reflection conjugacy classes, not n>12 or homotopy type.
+
+## originality
+
+PASS
+
+Best-of-knowledge original after comparing exact statements and implications, excluding the mirror of this very submission as independent prior; primary-source limitations and exact residual risks below.
+
+## value
+
+PASS
+
+Geometric fixed spaces of polygon noncrossing-matching complexes are natural equivariant topological invariants, not ordinary invariant simplices. The first mixed-degree transition at the edge-axis dodecagon and the contrast with vertex-axis fixed homology provide a sharp meaningful finite boundary that distinguishes equivariant topology from ambient homology. A complete exact integral classification through this first transition is independently useful without a general all-n theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
