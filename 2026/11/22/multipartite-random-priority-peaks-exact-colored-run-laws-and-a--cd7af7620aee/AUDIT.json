@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The first-run identity follows by inspecting the decreasing-priority vertices of one color and checking cross-part adjacency. Independent colorwise relative rankings give conditional product laws. The binomial beta integral proves the exact expectation. Under k_n log n=o(n), simultaneous Chernoff concentration makes all per-color part fractions uniformly close to their limiting values and yields uniformly geometric-tailed independent run variables; conditional Berry–Esseen gives the Gaussian. A Hamming-Lipschitz extension of the conditional mean plus Efron–Stein bounds its fluctuations by O(k^2/n)=o(k), and total variance yields the variance limit. Actual package checker exhaustively confirms 1254 conditional finite laws and further exact identities, without claiming to prove the infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full 2026 paper Section 2 proves a general graph peak equivalence; its bounded-degree CLT in Corollary 2 does not apply to the dense multipartite graphs where Delta is proportional to n.",
+        "The 1989 NeurIPS paper states a regular-graph Gaussian approximation in terms of the variance for iid continuous vertex labels; our vertex peaks are on a random color-filtered graph with many components, random counts and a different triangular parameter k."
+      ],
+      "reasoning": "General random-graph reduction or normal approximation with distinct hypotheses does not by itself imply the claimed explicit variance, superpolynomial color-count concentration or uniform conditional CLT. The examined regular-graph result does not directly cover the nonregular random color-filtered components.",
+      "searches": [
+        "The Exact Stabilization Time of Self-Stabilizing Coloring Mean Variance and Distribution de Panafieu Mathieu Potop-Butucaru Tixeuil 2611.17989 complete multipartite k growing palette",
+        "Gaussian central limit theorem random local maxima peaks complete tripartite graph uniform k_n colors when k_n log n o(n) conditional color counts independent geometric prefix runs",
+        "random local-maximum count complete multipartite graph random k-color initial configuration rising k central limit theorem",
+        "Baldi Rinott Stein 1989 normal approximation number of local maxima random function on a graph journal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.17989v1, primary PDF (Section 2; 5.4; Appendix F)",
+      "Baldi–Rinott–Stein (1989) NeurIPS primary paper, Sections 2–3",
+      "Baldi–Rinott (1989) Journal of Applied Probability abstract/metadata",
+      "Public first-run complete-multipartite Cholesky finding, title/summary only",
+      "Public complete-multipartite random-greedy MIS variance finding, title/summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Section 5.4 of the 2026 paper: fixed k gives a sum of k independent limiting variables for bipartite models; no joint n,k triangular CLT is stated.",
+        "1989 NeurIPS Sections 2–3: normal approximation for local minima of iid ranks on regular graphs, with cited examples, not the explicit randomly color-decomposed r>=3 regime.",
+        "A published 2026 random greedy MIS variance theorem on complete multipartite graphs concerns a different random greedy selection process."
+      ],
+      "reasoning": "Taking a fixed-k weak limit and then k to infinity is a noncommuting double-limit operation without uniform bounds. The present concentration-plus-conditional-Berry-Esseen proof supplies those missing uniform estimates. The prior results therefore do not logically give the simultaneous k_n log n=o(n) theorem on the examined material.",
+      "searches": [
+        "mean variance asymptotics random-priority recoloring on dense complete multipartite graphs k increasing",
+        "Gaussian central limit theorem random local maxima peaks complete tripartite graph uniform k_n colors when k_n log n o(n) conditional color counts independent geometric prefix runs",
+        "complete bipartite Erdos Renyi peak count p=1 k=k_n growing independent geometric normal distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 primary paper Lemma 1 identifies recoloring count as n minus priority peaks on initially monochrome edges; it supplies the general reduction but not the r>=3 color-count factorization.",
+        "2026 paper Proposition 9 treats bipartite Erdos–Renyi and fixed k, including p=1 as a special case; bipartite is excluded from the final r>=3 theorem."
+      ],
+      "reasoning": "The sole geometric initial-run principle overlaps a known two-part setting, but no inspected source gives the full r-part color-count product or the rising-k triangular central limit. Reparameterization alone of a two-part theorem does not cover r>=3 because the first run has r possible graph-part types.",
+      "searches": [
+        "random priority local maxima peaks complete multipartite graph exact distribution initial colored runs monochrome coloring stabilization",
+        "random permutations initial monochromatic run colors fixed counts complete multipartite number of peaks",
+        "random local maxima count complete multipartite graph colors conditional independent geometric distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 main paper Proposition 9 gives a bipartite random graph generating-function expectation; there is no inspected complete multipartite r>=3 full law or k_n growth table.",
+        "A public 2026 first-run result for complete multipartite Cholesky fill concerns fill-in under elimination order, not colored priority maxima."
+      ],
+      "reasoning": "No matching formula or exact enumeration identified. A similar initial-run combinatorial encoding is not the same statistic; the multipartite Cholesky result does not encode an independently color-split random peak count.",
+      "searches": [
+        "random permutations initial monochromatic run colors fixed counts complete multipartite number of peaks",
+        "random priority local peaks complete multipartite multitype exact composition generating function count",
+        "exact generating function first same-part run in uniformly randomly ordered complete multipartite graph independently colored vertices"
+      ]
+    },
+    "rationale": "The exact finite colored-run formula for r>=3 and the triangular growing-palette Gaussian limit with explicit variance were not implied by the examined primary statements. The 2026 motivating paper supplies the peak equivalence and a two-part fixed-palette limit (credited); the 1989 full-text example addresses unlabeled local maxima on a regular graph without iid color splitting. A published multipartite random-greedy MIS law concerns a different sequential selection. The searches are evidence of no located equivalent, not mathematical proof of absolute priority.",
+    "residual_risks": [
+      "There may be historical priority from unlocated exact run-count or general random-priority graph literature; novelty search cannot prove uniqueness.",
+      "The accessible 1989 Journal of Applied Probability article was not read in full, so implicit broader results remain possible.",
+      "The public Cholesky first-run result was available only as a summary; no full-document not-covering conclusion is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the peak equivalence and a bipartite fixed-k limit, not the final r>=3 and simultaneous growing-k statement",
+        "evidence": "Section 2 Lemma 1; Section 5.4 Proposition 9 and discussion; Appendix F proof. Earliest public date 2026-11-13 from arXiv v1.",
+        "identifier_or_url": "https://arxiv.org/pdf/2611.17989",
+        "material_read": "Introduction; Section 2 priority-peak reduction; Sections 4–5, especially Section 5.4 Proposition 9; Appendix F proof of Proposition 9",
+        "method": "Primary open-access 38-page PDF, numbered result and full-text comparison",
+        "title": "The Exact Stabilization Time of Self-Stabilizing Coloring: Mean, Variance, and Distribution",
+        "trigger": "Same peak/recoloring process and initial random colors; decisive overlap source"
+      },
+      {
+        "assessment": "The displayed regular-graph normal approximation for iid continuous vertex values does not contain random colors, multipartite finite conditional run law or triangular growing-k variance calculation",
+        "evidence": "Section 2 theorem requires a regular d-graph with iid continuous vertex labels and gives a normal distance bound in terms of the variance.",
+        "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+        "material_read": "Full primary text, especially Sections 2–3 and examples; bibliography",
+        "method": "Read accessible primary paper text and its stated graph hypotheses",
+        "title": "On the Distribution of the Number of Local Minima of a Random Function on a Graph",
+        "trigger": "Classical broad normal approximation for random local peaks"
+      },
+      {
+        "assessment": "Broad normal approximation background; possibility of an implicit generalization remains a residual risk",
+        "evidence": "The abstract concerns the number of local maxima on certain graphs and same-color edge counts as separate examples.",
+        "identifier_or_url": "https://doi.org/10.2307/3214327",
+        "material_read": "Publisher abstract and bibliographic entry only; full text not accessible through inspected source",
+        "method": "Publisher metadata/abstract, no asserted full-text coverage",
+        "title": "Asymptotic Normality of Some Graph-Related Statistics",
+        "trigger": "1989 related paper on graph-local maxima and color statistics"
+      },
+      {
+        "assessment": "Random sequential greedy MIS selects the part of the earliest vertex, not all same-color local peaks; no implication of this theorem found",
+        "evidence": "Summary states size-biased selected part and a maximal variance over graph partitions.",
+        "identifier_or_url": "Public 2026-09-19 research summary: Sharp variance of random greedy maximal independent sets on complete multipartite graphs",
+        "material_read": "Public search title and summary only; full text not asserted",
+        "method": "Statement-level abstract comparison, no full-document NOT_COVERING assertion",
+        "title": "Sharp variance of random greedy maximal independent sets on complete multipartite graphs",
+        "trigger": "Closest same graph family in published semantic search"
+      },
+      {
+        "assessment": "First consecutive part run determines elimination fill, not color-specific independent runs or a growing-color Gaussian peak sum",
+        "evidence": "Published summary describes a geometric distribution for near-maximal fill under uniform vertex ordering.",
+        "identifier_or_url": "Public research result, 2026-11-02, \"A first-run law and geometric near-maximal fill for complete multipartite Cholesky\"",
+        "material_read": "Public result title and summary only, full text unavailable in bounded inspection",
+        "method": "Statement-level summary comparison; no full-document negative coverage claimed",
+        "title": "A first-run law and geometric near-maximal fill for complete multipartite Cholesky",
+        "trigger": "Most similar first-run encoding on complete multipartite graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cd7af762-0aee-4975-b0f2-c526959e4085",
+  "value": {
+    "rationale": "Dense complete multipartite community graphs are natural graphs for randomized one-at-a-time correction. The finite law factorizes into hypergeometric initial runs, and the color count forces a real change from fixed-k non-Gaussian geometric-mixture totals to a triangular Gaussian limit with explicit variance. This is a distributional regime difference not supplied by a simple computation of a textbook mean. The result does not claim optimal growth thresholds or generic graph universality.",
+    "status": "PASS"
+  }
+}
