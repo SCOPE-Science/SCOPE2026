@@ -1,9 +1,21 @@
-# Mathematical review: Singer-seven perfect-matching quotient
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact domain is the extendible-matching complex of the Fano incidence graph and the simultaneous point-line cyclic translation. The computational proof regenerates all 24 perfect matching facets, 2201 simplices, 4511 nerve simplices, the complete acyclic Morse matching for the cover, and the integral orientation-aware orbit-cell chain complex. Every differential squares to zero; 321 unimodular cancellations leave exactly one zero-dimensional cell and four two-dimensional cells. The equivariant nerve lemma and Armstrong's orbit-space theorem supply the noncomputational equivalence and simple connectivity. Hurewicz and homological Whitehead then give the precise homotopy conclusion. Risk: the nerve-equivalence and quotient fundamental-group hypotheses must be applied to the geometric, rather than naive poset, quotient; they are explicitly checked using invariant simplex intersections and fixed barycenters.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Record 0994476b8c0d proves only the unquotiented \(\bigvee^{16}S^2\). Records 87b7b3a5140f and 170613b1af40 give rational characters of the symmetry group, including the Singer trace and its four rational quotient classes, but not an integral homotopy classification of the cyclic orbit space. The honeycomb paper arXiv:2209.02803 concerns distinct graph families. The exact quotient was searched under Singer, cyclic-seven, Heawood perfect matching, nerve, and equivariant-matching aliases without identifying an equivalent theorem. Risk: an unindexed or indirectly formulated existing exact orbit classification cannot be ruled out.
+PASS
 
-**Value — PASS.** The subgroup action is canonical, the quotient is a natural complete homotopy object and the invariant rank four was already motivated by published rational representation data. The computation resolves nonautomatic torsion and higher homotopy ambiguities for that specific quotient, not a gratuitous choice of parameters. The result does not claim a general family theorem or identify a homeomorphism type.
+Regenerated 21 Heawood incidence edges and all 24 perfect matchings; the 2201-face extendible-matching complex has independently verified acyclic 1092-pair complete Hasse matching, leaving a 0-cell and 16 two-cells and proving simply connectivity. Its good equivariant simplex cover has a 4511-face nerve; only three isolated matching vertices are nontrivially Singer-fixed. The orientation-aware quotient boundaries square to zero; an independent integer unit-pivot chain reduction of 321 cancellations leaves chain ranks (1,0,4,0,0,0,0,0), no nonzero boundary, proving integral H2=Z^4 without torsion. A global fixed barycenter and Armstrong yield pi1 quotient zero; Hurewicz/Whitehead give wedge of four S2. No confusion with ordinary matching complex or merely rational invariants.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge novelty after comparing exact claims and implications, not title matches; the identified structural prior inputs are explicitly credited and all material access limits retained. No inspected earlier theorem implies this complete final claim.
+
+## value
+
+PASS
+
+The Fano/Heawood graph is a canonical finite incidence graph; its perfect-matching extendibility complex and natural Singer order-seven symmetry are intrinsic objects. Exact integral quotient homotopy distinguishes torsion-free wedge structure from rational character data, a motivated previously-undetermined invariant that can inform equivariant topology and comparisons with ordinary matching complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
