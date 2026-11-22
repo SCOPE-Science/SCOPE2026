@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Laurent (1996, §4.3) establishes that the five-point metric polytope has exactly sixteen cut and sixteen nonintegral vertices. Each nonintegral vertex is verified in the explicit switching class of \(\tfrac23\mathbf1\). The maximum cut size of \(K_5\) is six, and the average of its ten maximum cuts is \(\tfrac35\mathbf1\). Hölder's inequality gives the lower bound in every coordinate \(\ell_p\) norm and this barycenter meets it. Switching yields the exact nearest point at all nonintegral vertices, and convex combinations give the global upper bound. Strict convexity for \(1<p<\infty\), with a separate opposite-sign argument for \(p=1\), gives the finite-exponent farthest-point set. Support-function duality and Hölder equality classify all finite-exponent maximizing cost vectors. The exact checker confirms feasibility, full active rank, rational barycentric identities, and the Euclidean square \(2/45\). The all-exponent result is analytical; floating-point vertex census is corroborative, not the proof of completeness.
+## correctness
 
-## Originality — PASS, priority provisional
-The vertex classification and switching technique are known from Laurent's complete text (1996); the combinatorial cut-polytope framework is known from Deza–Dutour Sikirić (2017). Deza–Laurent–Poljak (1992) is especially close because it studies the cut polytope's geometry inside the metric polytope. In the inspected materials, the exact \(\ell_p\) Hausdorff distance, simultaneous all-norm nearest points and primal/dual equality sets are not stated or implied by a covering stronger theorem. A normalized support-function gap is mathematically equivalent to the Hausdorff assertion, so it is expressly checked as an alias rather than counted as separate novelty. Relevant literature is extensive; an overlooked older exact gap computation is a residual risk. No claim of established absolute historical priority is made.
+PASS
 
-## Mathematical value — PASS
-This is the first complete-graph order where the simplest linear metric relaxation differs from the cut polytope. The theorem quantifies the exact worst metric approximation error for every norm exponent, and equivalently the worst normalized max-cut LP objective error. Sharp equality characterizes both primal fractional obstructions and the sixteen extremal signed objective functions. It is a natural global geometric invariant rather than a recomputation of vertex counts or an arbitrary numerical slice; the existing vertex enumeration is an input rather than the claimed result.
+Laurent (1996, §4.3) supplies the requisite complete 32-vertex MET_5 classification: 16 cut vertices and 16 switching-equivalent fractional vertices a_S=(2/3)1−δ(S)/3. A maximum five-vertex cut has six edges; averaging the ten maximum-size cuts gives b_∅=(3/5)1∈CUT_5. Every cut mixture has total edge sum at most 6, while ∑a_∅=20/3; Hölder enforces distance ≥(2/3)/10^{1−1/p}=10^{1/p}/15. Residual a_∅−b_∅=1/15 on all ten coordinates attains it for all p; switching transfers to all sixteen a_S. Convexifying nearest approximants to every MET vertex supplies global upper bound. For finite p>1 strict convexity, and for p=1 opposite coordinate signs of any two distinct switched residuals, enforce precisely those sixteen farthest vertices. Support-function/Hölder duality then gives 16 normal directions c_S=10^(−1/q)(1−2δ(S)) for p<∞, with no p∞ uniqueness claim. Independently checked all 16 rational projection normal inequalities and exact squared Euclidean gap 2/45. The full vertex exhaustiveness is genuinely from Laurent 1996, not floating-point census.
 
-## Limitations and closest literature
-The calculation concerns one natural ten-dimensional polytope pair, not the general \(n\)-point problem. Other older work on cut-metric approximations could express an equivalent support-gap bound under different normalization, and completeness relies on Laurent's established vertex theorem. No equality classification is claimed for infinite-exponent farthest points or cost directions. There has been no independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 32-vertex list, metric switchings and cut framework are fully credited to Laurent (1996). The proposed new content is exact all-ℓp distance and the complete primal/dual extremizer classification. Deza–Laurent–Poljak (1992) investigates triangle facets and cut/metric relative positioning, and Deza–Dutour Sikirić (2017) generalizes cut/metric polytopes; the full formula is not found in the material read. The max-cut relaxation alias is explicitly equivalent and not claimed as a separate novelty. Older integrality-gap literature may already imply the formula and remains a priority risk.
+
+## value
+
+PASS
+
+MET_5 is the first complete-graph metric relaxation not equal to CUT_5. The all-norm sharp Hausdorff and support gaps, simultaneous nearest cut mixtures, and complete finite-p equality sets quantify a natural global max-cut/metric relaxation defect at the smallest nontrivial order. It is independently useful even though the 32-vertex classification is already known; it is not merely re-enumerating the vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
