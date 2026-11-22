@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The exact multiplier E_T(y)=T h(T(lambda+a(y)-iy)) has a regular zero expansion and residue-one poles at the nonzero imaginary 2pi lattice. Rescaling xi=Ty and epsilon=T^(1-alpha) yields uniform complex Lorentzian profiles for every fixed alias. A compactness argument excludes off-alias frequencies; the inequality |1-e^(-u+i xi)| >=1-e^(-u) and positive two-sided high-frequency damping give a uniformly vanishing high-alias tail. The limiting heights are maximized only at first aliases with minimal directional damping, which proves sharp full-step norm and near-maximizer localization. The standalone tests passed 168 finite diagnostics but do not establish generality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2611.15563v1 Theorem 5.9: O(T^alpha) only",
+        "arxiv:2410.19387: Crandall--Pazy characterizations and Crank--Nicolson decay"
+      ],
+      "reasoning": "A general rate bound does not imply the limiting coefficient, complex lobe profile or localization. The Hilbert-space characterization deals with semigroup regularity and a different numerical scheme, not this sampling symbol.",
+      "searches": [
+        "Crandall Pazy semigroup trapezoid corrected sampled resolvent normal multiplication spectrum asymmetric fractional damping precise leading error constant first alias 2pi",
+        "Wakaiki Crandall Pazy semigroup resolvent decay vertical line Crank Nicolson 2024 arxiv"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.15563v1",
+      "https://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf",
+      "https://arxiv.org/abs/2410.19387"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Castillo Proposition 5.10(b) yields lower bound c T^alpha only for dyadic steps on a discrete spectrum; his numerical discussion highlights first aliases",
+        "Castillo Theorem 5.9 gives a nonsharp C T^alpha upper bound",
+        "Trefethen--Weideman Theorem 18.1 studies geometric convergence of contour quadrature for analytic operator functions"
+      ],
+      "reasoning": "Combining the available O(T^alpha) estimate with a single-mode dyadic lower bound does not determine the exact full-step norm or show that all near-maximizers are confined to the first alias with asymmetric side-selection. The older contour theorem addresses a distinct discretization and does not dominate this claim.",
+      "searches": [
+        "arxiv 2611.15563 Proposition 5.10 sampled resolvent sharpness",
+        "Trefethen Weideman 2014 exponentially convergent trapezoidal rule Section 18 operator functions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2611.15563v1 §§4-5 and §7, including alias-resolvent and coth formulas",
+        "No exact two-sided damping/Lorentzian norm statement found with these searches"
+      ],
+      "reasoning": "The periodic scalar function h is classical; originality is not claimed for its identity. No located equivalent theorem controls its uniform supremum on a continuous fractional spectral curve with different positive- and negative-frequency damping.",
+      "searches": [
+        "impulse-invariant sampled Laplace resolvent first alias peak localisation asymptotic Lorentzian pointwise c_+ c_- damping",
+        "2611.15563 Castillo sampled resolvents Crandall Pazy exact normal multiplier c times |y|^alpha first aliases",
+        "\"sampled resolvent\" \"first alias\" norm asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact-value record among the inspected ranked mathematical records; nearest hits concern discrete quadrature/other normal-power diagnostics",
+        "Trefethen--Weideman 2014 Section 18 describes Dunford contour quadrature rather than time-sampled resolvent constants"
+      ],
+      "reasoning": "The present formula is an infinite-dimensional supremum asymptotic, not an entry in a finite spectral table. Absence from searches is evidence of noncoverage among results inspected but not an absolute uniqueness certificate.",
+      "searches": [
+        "2611.15563 Castillo sampled resolvents Crandall Pazy exact normal multiplier c times |y|^alpha first aliases",
+        "sampled resolvent Q_T - T/2 exact norm c (2 pi)^alpha fractional damping first alias"
+      ]
+    },
+    "rationale": "Castillo arXiv:2611.15563v1 gives order O(T^alpha), the alias formula and a dyadic discrete example, but not an all-step sharp continuous-spectrum constant or the unequal-sided localization theorem. The separate full survey on trapezoidal quadrature is about contour integration; Wakaiki treats different discrete evolution schemes. Searches of mathematical literature and accessible records yielded no source whose theorem implies the new full statement. Residual older-unindexed-priority uncertainty is disclosed.",
+    "residual_risks": [
+      "Older, unindexed impulse-invariant or scalar aliasing asymptotic work might contain an equivalent exact norm limit; mathematical registry and keyword searches do not prove global priority.",
+      "The first-alias approximation itself is already discussed numerically in Castillo; novelty is restricted to the uniform all-step exact norm and two-sided stability/localization theorem.",
+      "Wakaiki full text was not read, but its distinct Crank--Nicolson problem does not present a decisive unresolved same-operator comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Order O(T^alpha), alias formula and dyadic discrete-spectrum sharpness precede the new claim; no stated full-step continuum two-sided exact constant or near-maximizer classification in inspected material",
+        "evidence": [
+          "§2 Definition 2.1 and scalar resolvent",
+          "§4 Theorem 4.1",
+          "§5 Theorem 5.9 and Proposition 5.10(b)",
+          "§7.6 first-alias numerical explanation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.15563v1",
+        "material_read": "Full HTML introduction, definitions and scalar formulas, aliasing Section 4, rates Section 5 including Theorem 5.9, full proof of Proposition 5.10, relevant numerical Section 7.6 and Discussion",
+        "method": "Open-access primary full-text HTML inspected by sections and theorem/claim search",
+        "title": "Sampled resolvents of C0-semigroups: aliasing and sharp rates on the Crandall--Pazy scale",
+        "trigger": "Identical sampled resolvent and Crandall--Pazy regularity; decisive comparison"
+      },
+      {
+        "assessment": "Operator function contour quadrature and analytic geometric-convergence theorems, not the directly time-sampled semigroup resolvent or its fractional continuous-spectrum alias constant",
+        "evidence": [
+          "Introduction pp.385-388",
+          "§18 pp.446-447, (18.1)--(18.5) and Theorem 18.1"
+        ],
+        "identifier_or_url": "https://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf",
+        "material_read": "Full table of contents, introduction, Section 18 opening pages 446-447 and Theorem 18.1; relevant section summaries in the PDF",
+        "method": "Lawful open PDF textual examination with visual verification of pages 385 and 446",
+        "title": "The Exponentially Convergent Trapezoidal Rule",
+        "trigger": "General quadrature aliasing and resolvent applications potentially dominating a new sampling error"
+      },
+      {
+        "assessment": "Addresses characterization and Crank--Nicolson decay rather than the directly sampled resolvent; treated as contextual, not a whole-document noncoverage certificate",
+        "evidence": [
+          "arXiv abstract, first posted 2024-10-25"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.19387",
+        "material_read": "Abstract and arXiv metadata; full text not inspected",
+        "method": "Public arXiv abstract inspection",
+        "title": "Characterizations of the Crandall--Pazy Class of C0-semigroups on Hilbert Spaces and Their Application to Decay Estimates",
+        "trigger": "Background on precisely the same Crandall--Pazy operator class"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "33b30d8d-e2cf-4076-9c5b-d197e2eb804d",
+  "value": {
+    "rationale": "Sampling error in the intermediate Crandall--Pazy class was known only to sharp power order for general semigroups. For the natural spectral-curve normal model, the coefficient is a meaningful previously undetermined quantity, and the theorem identifies exactly which alias and frequency sign dominates, including all lower-order perturbations and complex lobe profiles. This yields a robust sharp calibration and structural localization for time-grid resolvent approximation.",
+    "status": "PASS"
+  }
+}
