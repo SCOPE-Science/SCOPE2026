@@ -1,15 +1,21 @@
-# Review: four-site onset of Gini instability in convex least-squares regression
+# Independent mathematical audit
 
-## Correctness — PASS
-For each active curvature set, second-difference rows are independent; KKT strict complementarity realizes every corresponding orthogonal projector as a local Jacobian. Piecewise affine continuity turns the maximal local seminorm into the global two-input modulus. The Gini unit ball modulo constants has binary level-set extremizers. These two exact reductions yield a finite formula covering all possible nonlinear projection regions and all Gini inputs, without sampling assumptions. The included standard-library exact-rational checker exhausts every region and cut at observation counts two through eight and proves the listed rational constants. At four observations a finite input pair obeys exact primal/dual projection conditions and attains \(10/9\). A fixed one-curvature face yields the stated strictly expansive lower bound for all larger counts. Residual limitation: the checker by itself cannot prove the all-dimensional face decomposition; that part is furnished analytically.
+## correctness
 
-## Originality — PASS (historical-priority qualification)
-Guntuboyina–Sen (2013) and Bellec (2015) examine statistical risk of convex regression rather than deterministic Gini two-input Lipschitz constants. Two especially close published finite-dimensional results compute \(\ell^\infty\)-sensitivity of the identical Euclidean convex-sequence projection, including the same active-set algebra, but neither states nor implies the sharp complete-pair Gini values: the Gini extreme directions are binary cuts, unlike coordinate sign vectors. The sharp Gini onset at four observations differs from the \(\ell^\infty\) onset at three. Targeted mathematical record and phrase searches found no covering exact Gini table or stronger general theorem, but search cannot prove global uniqueness. Complete source/result and implication comparisons are documented in AUDIT.json. Residual risk: older unindexed work on pairwise-variation stability of shape-constrained regression could contain equivalent statements.
+PASS
 
-## Mathematical value — PASS
-Gini mean difference measures collective dispersion of observation perturbations; Euclidean nonexpansivity alone does not control it. Establishing the first sharp failure, seven exact natural finite-dimensional constants, and an all-dimensional strict obstruction quantifies a real stability gap rather than a change of notation. The complete exact finite formula makes further classification possible without a general asymptotic claim, and the first-instability threshold is a natural invariant.
+For Euclidean projection onto the same convex-sequence cone, strict KKT construction realizes all second-difference active-face projectors P_A and polyhedral integration reduces its global Gini modulus to the largest local one. Since P_A fixes constants and Gini variation is additive on sorted-level binary-cut decompositions, the exact formula is max_A max_nontrivial_S G(P_A1_S)/(|S|(n-|S|)). Fresh exact rational enumeration of all active faces and complementary cuts independently reproduced n=2..8 values 1,1,10/9,41/35,213/175,191/153,463/357; the last size separately rechecked. The first-active-curvature projector sends e_1 to (5/6,1/3,-1/6,0,...) and gives the exact all-n lower bound (4n-6)/(3(n-1))>1 for n>=4. Explicit four-site strictly complementary KKT inputs realize 10/9. Does not prove sharp larger-size constants.
 
-## Scope and independent checking
-All data are real, sites equally spaced, least-squares weights uniform, and differences are measured using complete-pair Gini variation. The exact coefficients beyond eight observations remain unresolved. The novel numerical values are finite exact certificates, not evidence for an unproved all-dimensional optimum. Source dates refer to first public preprints, not journal revisions. Historical priority remains provisional. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: compared the exact mathematical claim and implications against same-object primary literature and published result records. Previously known model definitions, finite-face methods, cone inequalities, or alternate-parameter/loss theorems are credited. The cited prior statements do not imply the submitted exact additional invariant. This is not a certification of comprehensive historical priority.
+
+## value
+
+PASS
+
+The pairwise Gini seminorm is a natural global dispersion measure distinct from Euclidean risk, adjacent variation and coordinate maximum norm. An exact all-face/all-cut characterization, first instability dimension and nontrivial exact finite table resolve reproducible natural sensitivity questions; they are not mechanically implied by standard projection nonexpansivity and the unproved larger-n optimum is expressly excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
