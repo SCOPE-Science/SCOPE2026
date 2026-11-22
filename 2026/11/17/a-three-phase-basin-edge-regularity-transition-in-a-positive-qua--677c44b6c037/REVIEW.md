@@ -1,19 +1,21 @@
-# Scientific review: sharp quadratic-map basin-edge regularity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The new quantitative claim follows from a direct mass/composition reduction of the stated quadratic map and the exact discounted-logarithm identity for the previously known radial boundary. At each pure-axis endpoint, the projective map has derivative \(\lambda=2b/a\) (or \(2a/b\)) and the log-radial factor has the same first derivative. A first-exit decomposition gives a dominated linear derivative when \(1<\lambda<2\), an exact \(s\log(1/s)/\log 2\) resonance coefficient when \(\lambda=2\), and matching positive finite bounds at the exponent \(\log2/\log\lambda\) when \(2<\lambda<4\). Each regime has a separate written proof and sharp quantifier. High-precision finite tests and exact rational decompositions corroborate but do not establish the asymptotics. No exact leading constant is asserted in the superresonant case.
+PASS
 
-## Originality — PASS within inspected material
+The exact homogeneous decomposition t'=h(s)t² and s'=f(s) is algebraically valid on the positive quadrant, with h bounded positive and projective f increasing toward a unique interior s*. Weighted log-radius series converges uniformly and its cocycle gives a sharp extinction/fixed-point/escape trichotomy, with the critical orbit converging to E in the coexistence chamber. For the new edge theorem g(s)=log(h(s)/h(0))=λs+O(s²) and f(s)=λs(1+O(s)), λ=2b/a. Exit-time comparison and dominated convergence prove λ/(2-λ) for 1<λ<2; summing ≈s over N≈log₂(1/s) terms proves the 1/log2 coefficient at λ=2; positivity of g for λ>2, pre-exit geometric control and one post-exit term give 0<c s^α<=Δ<=C s^α, α=log2/logλ, without claiming a normalized limit. Swap species at other endpoint. Code was read and rational mass identities checked; finite trends do not prove asymptotics.
 
-The 2024 full-text Shoyimardonov–Rozikov article establishes the qualitative stable curve and its tangent at the interior saddle, not the edge exponents or resonant coefficient. The earlier published *An exact global separatrix and water-filling convergence for a positive quadratic map* covers a **stronger global radial product** and all-dimensional convergence, and *A computable global extinction–escape separatrix for a homogeneous quadratic population map* additionally gives balanced-interior curvature. The radial product and basin classification are therefore clearly prior, and are not presented as original. The new final claim is exclusively the three-regime asymptotic regularity at the two boundary vertices: the prior mathematical statements do not derive those limits or the sharp exponent. A literature and published-results search found no exact counterpart, but unindexed general invariant-manifold asymptotics remain a priority risk. The accompanying structured checks record the closest sources and comparisons, including partial journal metadata access.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The boundary endpoints are not arbitrary parameter slices: they are the pure-species equilibria on an ecologically natural extinction/escape threshold. The theorem identifies a sharp change from finite-slope sensitivity to logarithmic and fractional singularity, tied to the eigenvalue crossing \(\lambda=2\); the universal critical coefficient and the exact subcritical slope provide quantitative information absent from qualitative stable-manifold existence or a numerically evaluable graph. This is a parameter-wide structural regularity classification, not a recomputation of a known finite table. Its scope is the two-dimensional coexistence chamber, and the non-Lipschitz branch is intentionally only two-sided sharp order, not a claimed convergent coefficient.
+PASS best of knowledge for the **edge regularity** only. Shoyimardonov–Rozikov and a previous all-dimensional exact-separatrix theorem already cover the operator, global critical surface and convergence, which are properly credited. Reading the previous theorem's complete result shows exact radial series and water-filling projective dynamics, but no endpoint three-phase derivative/logarithmic/fractional-exponent classification. A later higher-dimensional interior curvature study is distinct from pure-axis limits. No exact equivalent law surfaced in Resultary search; unindexed nonlinear boundary asymptotics remain a risk.
 
-## Closest literature and limitations
+## value
 
-Shoyimardonov and Rozikov, arXiv:2409.13450v1 (2024-09-20), §§2–4; published mathematical notes *An exact global separatrix and water-filling convergence for a positive quadratic map* (2026), and *A computable global extinction–escape separatrix for a homogeneous quadratic population map* (2026). The 2025 journal page and abstract were checked, not claimed to be a full-text inspection. Global formula, interior convergence and symmetric balanced-interior curvature are prior; only the endpoint three-phase laws are new here. The theorem excludes the coexistence-chamber boundary and does not decide log-periodic amplitudes or independence from all unindexed equivalents.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the natural pure-species axial endpoints have a sharp 3-regime geometric response governed by competition between transverse invasion multiplier λ and radial multiplier 2. The exact one-sided slope, resonant s log(1/s) coefficient and rigorous Hölder exponent quantify loss of Lipschitz regularity of a meaningful basin boundary; no general theorem is demanded, and the exact existing separatrix alone does not supply these delicate local laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
