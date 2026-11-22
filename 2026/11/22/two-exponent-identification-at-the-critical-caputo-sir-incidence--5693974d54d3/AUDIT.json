@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For \\(e_k(t)=t^{k\\alpha}/\\Gamma(1+k\\alpha)\\), the Caputo–Volterra identity \\(\\mathcal I^\\alpha e_k=e_{k+1}\\) gives \\(x_1=x_0[\\beta(N-2I_0)/N-\\gamma]\\). On \\(x_1=0\\), \\(i_1=(\\beta/N)I_0^2>0\\), \\(x_2=-(\\beta/N)i_1[\\gamma(N-I_0)+H_2x_0]<0\\), and \\(x_3=(\\beta/N)\\gamma i_1x_0(H_3-H_2)>0\\), since \\(H_3/H_2=\\Gamma(1+3\\alpha)\\Gamma(1+\\alpha)/\\Gamma(1+2\\alpha)^2>1\\) by strict Gamma log-convexity. Each admissible incidence has first exponent \\(\\alpha\\) (generic) or \\(2\\alpha\\) (critical). Distinct generic/critical orders could match it only with \\(\\alpha_{generic}=2\\alpha_{critical}\\); the nonzero critical \\(t^{3\\alpha_{critical}}\\) term contradicts generic powers in multiples of \\(2\\alpha_{critical}\\). Same-class equality gives equal orders. The proof includes \\(\\alpha=1\\). A standalone finite checker passed 500 critical cases and the exact half-order example; these tests are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Yamamoto arXiv:2206.02108 recovers orders in linear fractional diffusion via asymptotics, with no bilinear incidence observable",
+        "Zinihi arXiv:2509.22760 studies numerical recovery in SEIRD, not analytic all-parameter Caputo SIR exceptional output"
+      ],
+      "reasoning": "General short-time fractional-order inference does not establish the necessary nonvanishing \\(t^{3\\alpha}\\) term after a nonlinear output cancellation. The closest same-model proposition assumes \\(x_1\\ne0\\) and thus has no coverage of the critical class.",
+      "searches": [
+        "fractional differential equations parameter fractional order identifiable short time analytic output Puiseux asymptotics",
+        "arxiv:2206.02108 inverse diffusion order",
+        "arxiv:2509.22760 SEIRD PINN order identification",
+        "Caputo SIR order recoverable from incidence when first Taylor coefficient zero Gaussian gamma ratios"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.13590 §3-5",
+      "https://arxiv.org/html/2611.25440v1 §4",
+      "https://arxiv.org/html/2509.22760v1 §2-5",
+      "https://arxiv.org/abs/2206.02108 abstract",
+      "https://www.nature.com/articles/s41598-025-01400-9 abstract and journal metadata",
+      "https://www.aimspress.com/article/id/69a6b3b1ba35de31c6aa4086 abstract",
+      "published-finding corpus record a35eac546ce0",
+      "published-finding corpus record d6215f03403d",
+      "published-finding corpus record a7133ccbb70c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nov19 Proposition 4.1: assumes \\(x_1\\ne0\\) and explicitly identifies failure at \\(\\beta(N-2I_0)=\\gamma N\\)",
+        "Nov10 Theorem 5.1: initial-condition error forgetting, not structural identifiability",
+        "The new proof requires the strict positive difference \\(H_3-H_2\\) to exclude an alternative order"
+      ],
+      "reasoning": "Generic order identifiability does not logically imply identification on the excluded \\(x_1=0\\) set. Numerical PINN accuracy has no matching structural claim. The exact pair \\(x_2<0<x_3\\) and its exponent-mismatch argument provide the additional implication.",
+      "searches": [
+        "arxiv:2611.25440v1 §4 Proposition 4.1",
+        "arxiv:2611.13590v1 §3, §5",
+        "arxiv:2509.22760v1 §4",
+        "exceptional stationary incidence critical startup Caputo SIR generalized expansion coefficient 2 alpha 3 alpha gamma strict logconvexity",
+        "fractional SIR incidence first vanishing coefficient restored from next two Puiseux exponents"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.25440v1 Eq. (4.1): x1 proportional to beta(N-2I0)/N-gamma; Proposition 4.1 requires x1 nonzero",
+        "published-finding corpus closest record a35eac546ce0 concerns a reproduction-number threshold rather than vanishing early incidence"
+      ],
+      "reasoning": "The exceptional class is exactly vanishing first normalized Caputo-Puiseux incidence coefficient \\(x_1=0\\), equivalently \\(\\beta(N-2I_0)=\\gamma N\\). Changing to initial prevalence or effective reproduction does not make the third-coefficient result follow from the generic theorem, which explicitly assumes \\(x_1\\ne0\\).",
+      "searches": [
+        "fractional Caputo SIR incidence initial flat coefficient beta(N-2I0)=gamma N second and third fractional Taylor coefficients order identifiability exceptional hypersurface",
+        "exceptional stationary incidence critical startup Caputo SIR generalized expansion coefficient 2 alpha 3 alpha gamma strict logconvexity",
+        "fractional SIR \"initial\" \"Taylor\" \"identifiability\" order",
+        "arxiv:2611.25440v1 §4 Proposition 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic published-finding corpus searches returned fractional SEIR stability a35eac546ce0, SEIATR clearance d6215f03403d, and SIS late-time conditioning a7133ccbb70c, none recording these coefficients",
+        "No exact critical flat-incidence coefficient table appears in the inspected source paper arXiv:2611.13590v1"
+      ],
+      "reasoning": "No matching tabulation or equivalent exact critical two/three-power formula was found. Missing database hits are not a uniqueness proof; actual nearest objects and implications were checked.",
+      "searches": [
+        "fractional Caputo SIR incidence initial flat coefficient beta(N-2I0)=gamma N second and third fractional Taylor coefficients order identifiability exceptional hypersurface",
+        "Caputo SIR order recoverable from incidence when first Taylor coefficient zero Gaussian gamma ratios",
+        "fractional SIR incidence first vanishing coefficient restored from next two Puiseux exponents",
+        "arxiv:2611.13590v1 §3 and §5"
+      ]
+    },
+    "rationale": "The Nov 10 source develops fractional SIR forecasts, and the highly relevant Nov 19 follow-on proves exact-data order recovery only for nonvanishing first coefficients while explicitly excluding precisely the critical hypersurface. The new second/third coefficient pair and nonaliasing argument resolve that natural exception. Earlier SEIRD inverse studies and fractional diffusion order theory do not cover the concrete nonlinear incidence statement. published-finding corpus and accessible own-claim searches yielded no equivalent or stronger covering claim. Historical priority remains open to unindexed work.",
+    "residual_risks": [
+      "Older or unindexed analytic fractional-identification literature may contain an equivalent cancellation-resolving formula.",
+      "General nonlinear fractional-order inverse theorems beyond inspected full texts could imply this result; no exhaustive bibliography or human priority judgment is claimed.",
+      "A newer primary study dated 19 November 2026 was assessed as a priority comparison, not as the initiating source dated 10 November 2026."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model and positivity/source motivations present; no critical flat-incidence Puiseux second/third coefficients and no exact structural order recovery on the flat hypersurface",
+        "evidence": [
+          "arXiv:2611.13590v1 PDF pp. 1,4-8, §3 model, §5 Theorem 5.1; first public 2026-11-10"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.13590 (arXiv:2611.13590v1, 2026-11-10)",
+        "material_read": "Full primary PDF text sections 1-5, including precise model in §3, fixed-rate remark, reconstructed incidence in §4, and Theorem 5.1 in §5; title page screenshot",
+        "method": "Compare theorems and model variables, not keywords alone",
+        "title": "Fractional-Order Hybrid SIR Forecasting of COVID-19 in Bangladesh and the United States: Memory Effects and Out-of-Sample Evaluation",
+        "trigger": "Same Caputo SIR equations and constant-transmission forecasting benchmark"
+      },
+      {
+        "assessment": "Section 4 derives the first coefficient and Proposition 4.1 assumes \\(x_1\\ne0\\), explicitly citing failure when \\(\\beta(N-2I_0)=\\gamma N\\). It does not compute the critical higher coefficients or exclude an alternative generic order on this surface.",
+        "evidence": [
+          "arXiv:2611.25440v1, §4 Eq. (4.1), Proposition 4.1 and following paragraph; first public 2026-11-19"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.25440v1 (arXiv:2611.25440v1, 2026-11-19; later comparison only)",
+        "material_read": "Complete introduction and model, §3 and entire §4 including Proposition 4.1 and its proof, neighboring §5 statements",
+        "method": "Inspect theorem hypotheses and exact missing exceptional set",
+        "title": "Fractional Order or False Memory: Identifiability of Caputo SIR Models from Incidence Data",
+        "trigger": "Directly analogous exact-data identifiability in the same constant-rate model"
+      },
+      {
+        "assessment": "A five-compartment fractional SEIRD PINN inference method; numerical learning does not establish two nonzero critical SIR incidence coefficients, nor alternative-order exclusion",
+        "evidence": [
+          "arXiv:2509.22760v1 abstract, §2-5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.22760v1 (arXiv:2509.22760v1, 2025-09-26)",
+        "material_read": "HTML introduction, full §2 preliminaries, §3 model outline, methodology §4 and conclusions",
+        "method": "Compare data/model hypotheses and nature of identification claim",
+        "title": "Identifying Memory Effects in Epidemics via a Fractional SEIRD Model and Physics-Informed Neural Networks",
+        "trigger": "Numerical fractional-order identification in an epidemic system"
+      },
+      {
+        "assessment": "General inverse philosophy shared; abstract concerns linear diffusion and recovery from a spatial measurement. Could not establish same SIR critical nonlinear cubic coefficient from this abstract; historical equivalence risk remains",
+        "evidence": [
+          "arXiv:2206.02108 abstract, statements about PDE inverse order"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.02108 (2022-06-05)",
+        "material_read": "Abstract and publicly indexed summary; full text not inspected",
+        "method": "Compare linear fractional diffusion PDE against nonlinear epidemic bilinear output",
+        "title": "Uniqueness of orders and parameters in multi-term time-fractional diffusion equations by short-time behavior",
+        "trigger": "Potential more general short-time fractional-order identifiability theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5693974d-54d3-457e-b398-560667e27285",
+  "value": {
+    "rationale": "The exceptional hypersurface arises exactly when the leading fractional incidence coefficient vanishes and is identified as a missing natural case of a directly relevant identifiability proposition. A first exponent \\(t^{2\\alpha}\\) can masquerade as the generic order \\(2\\alpha\\); the nonzero next exponent \\(t^{3\\alpha}\\) supplies a definitive mathematical discriminator. This includes a concrete \\(\\alpha=1/2\\) example where the first observed change is linear, but the next term has a fractional power. The opposite signs of early incidence and prevalence changes add epidemiological interpretation. The result is an exact-data structural benchmark, not an empirical performance claim.",
+    "status": "PASS"
+  }
+}
