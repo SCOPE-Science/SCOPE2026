@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The face condition is exactly \(\min(|\sigma\cap A|,|\sigma\cap B|)\le t\); the two contractible subcomplexes and their intersection give a suspension of a join of simplex skeletons. The integral augmentation-wedge module follows via the natural augmented boundary and Mayer–Vietoris isomorphism. Exchanging covers and join factors contributes the distinct signs needed for \((-1)^{t+1}\). The fixed-space triangulation and projective-suspension quotient follow from literal orbit simplices and the orthogonal eigenspace decomposition. The standalone checker confirms 46 finite mod-two chain cases and 10 signed Lefschetz cases, without being mistaken for an all-order proof.
+
+**Originality: PASS (best-knowledge, residual risk).** Kim–Lew 2023 already supplies the equal-minimal-size boundary-sphere example and the Leray motivation; it is not claimed as new. Prior one-tolerance two-block computations already cover \(t=1\). The present claim begins at \(t\ge2\) and determines the full natural integral symmetry representation and geometric fixed/quotient behavior, none of which follows as a statement of the cited Leray-bound results. Selvaraja 2026-11-10 provides the recent research direction but its complete preprint was inaccessible; the accessible abstract does not assert this representation theorem. Relevant indexed claims were compared by implication and did not cover all sizes and full symmetry. Equivalent formulations may remain unindexed.
+
+**Mathematical value: PASS.** A natural test family for the sharp tolerance Leray bound acquires a complete topological and integral symmetry classification for every size and tolerance. In particular, fixed-point dimensions and geometric quotient two-torsion differ sharply from the original torsion-free sphere topology; the coefficient-field distinction matters for symmetry-aware tolerance constructions. This is not an arbitrary finite slice or a mere rank recomputation, although the classical suspension and projective-space arguments make the proof short.
+
+The result is restricted to two disjoint full blocks; larger balanced integral quotients are not classified. Publication-priority confirmation and independent mathematical validation remain open.
+
+Self-review: passed. Independent audit: not yet performed.
