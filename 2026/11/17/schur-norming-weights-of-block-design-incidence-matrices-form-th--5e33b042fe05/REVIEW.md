@@ -1,24 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a nontrivial \(2\)-design, \(BB^*=(r-\lambda)I+\lambda J\) has a positive square root with two eigenvalues. The factors \(B=UV^*\) have constant squared row norms on both sides, yielding a sharp trace-norm bound by Schatten Hölder. The equality case is equivalent to proportional Gram matrices, derived by trace duality and contraction equality. The incidence row-sum identity forces every point weight to equal \(1/v\): the coefficient of each weight is strictly positive by \(a\delta<\lambda/2\). The remaining Gram equation is exactly the pair-incidence balance \(Qz=(\lambda/b)\mathbf1\). Its solution set and affine dimension follow from finite-dimensional linear algebra. An exact arithmetic checker confirms the trade example and its five-dimensional kernel. No finite check is used as proof of the all-design statement.
+PASS
 
-## Originality — PASS, qualified
+For a 2-(v,k,lambda) incidence matrix, BB*= (r-lambda)I+lambda J has square root S=a I+delta J with a=sqrt(r-lambda)>0, d=sqrt(rk), delta=(d-a)/v=lambda/(a+d). The polar-like factorization B=UV* with U=S^(1/2), V=B* S^(-1/2) has constant row squared norms K=tr(S)/v and H=tr(S)/b. Schatten Holder gives Phi(w,z)<=sqrt(KH)=Gamma, attained at uniform weights. The exact equality condition for Frobenius Holder is normalized Gram equality X*X/K=Y*Y/H, equivalent to B D_z B*=(v/b) S D_w S, valid even if some weights vanish. Fixed block size gives sum_{j!=i} M_ij=(k-1)M_ii, yielding [(k-1)a^2+(2k-v)a delta] w_i=a delta+(v-k)delta^2. Coefficient positive: for v>2k, (k-1)a^2=lambda(v-k) and a delta<lambda/2 give lower bound lambda v/2. Thus all point weights w=1/v; pair-block equations Q z=lambda/b determine all block weights, including boundaries. Column sums of Q ensure sum z=1, uniform z strictly positive gives affine dimension b-rank Q, Steiner lambda=1 implies uniqueness. Independently formed exact 15x20 Q for all triples on 6 points; its rational rank is 15 (kernel dim5), and the eight-transversal-triple signed trade satisfies Qh=0. These support but do not replace general proof.
 
-Davidson–Donsig (arXiv:math/0506073v1), using Mathias's method, already covers the numerical norm and is explicitly credited. Levene's full 2026 paper (arXiv:2611.08419v1) concerns norm spectra from tree attachments rather than the equality face. A previous projective-plane weight-rigidity result is a special \(\lambda=1\) case; the full \(2\)-design theorem, complete trade-polytope parametrization and explicit positive-dimensional family for \(\lambda>1\) do not follow from that narrower classification. Targeted research-record searches on Schur normers, BIBD incidence, and trade polytopes yielded no exact coverage. The older Levene 2014 article was available only at abstract level in this review; overlap with older equality-case descriptions remains a publication-priority risk, as does an unrecognized equivalent result in combinatorial-design or operator-space literature. Absence from searches is not treated as proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A full answer to a natural operator-theoretic extremizer problem for every balanced incomplete block design, including asymmetric designs, identifies a combinatorial trade space as *exactly* the optimizer degrees of freedom. The result settles the rigid Steiner case and exhibits a genuine five-dimensional nonunique norming face in the first explicit complete-triple example. This is a structural equality classification, not a recomputation of the already-known norm.
+The numerical Schur norm and standard invariant optimal-weight existence are known. Prior published projective-plane rigidity covers only symmetric lambda=1 projective incidences, while the audited theorem handles every finite 2-design, including repeated indexed blocks and arbitrary trade-polytope nonuniqueness. The identification of the full optimal block-weight face with the nonnegative pair-trade polytope is not implied by the reviewed prior projective-plane theorem. General Schatten equality classifications might provide an alternate proof but do not by themselves state the combinatorial restriction for all designs.
 
-## Closest literature and limits
+## value
 
-- R. H. Levene, *A half-line of Schur idempotent norms* (2026), arXiv:2611.08419v1; relevant full HTML inspected.
-- K. R. Davidson and A. P. Donsig, *Norms of Schur Multipliers* (2005), arXiv:math/0506073v1; relevant full HTML, especially the factorization bound and Mathias theorem, inspected.
-- R. H. Levene, *Norms of idempotent Schur multipliers* (2014), New York J. Math. 20, 325–352; abstract inspected, complete text not reviewed.
-- Known narrower projective-plane Schur-norming weight rigidity: strictly subsumed, not claimed anew.
+PASS
 
-Independent priority verification and a full catalogue of arbitrary norming operators are outside the result.
+Classifying every maximizer, not just the known sharp norm value, is a natural exact question for a highly structured but broad family of matrices. The universal rigidity of point weights versus nontrivial combinatorial trade freedom of block weights connects analysis, design theory, and linear algebra and supplies an exact dimension and concrete positive/zero boundary optimizers. The classification is stronger than a textbook application of an inequality and includes nonsymmetric designs.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T09:41:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 016f24adb07619ca851d81bed7de06cf1a7f9039",
+        "Pinned check_design.py Git blob e2e1d9b4556f5a5eda8e8d77f6b815beca64e113",
+        "https://hub.valency.io/works/W_t3e64jzw",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rigidity-of-schur-multiplier-norming-weights-for-projective-plan--a4484d807d12/RESULT.md"
+      ],
+      "rationale": "For a 2-(v,k,lambda) incidence matrix, BB*= (r-lambda)I+lambda J has square root S=a I+delta J with a=sqrt(r-lambda)>0, d=sqrt(rk), delta=(d-a)/v=lambda/(a+d). The polar-like factorization B=UV* with U=S^(1/2), V=B* S^(-1/2) has constant row squared norms K=tr(S)/v and H=tr(S)/b. Schatten Holder gives Phi(w,z)<=sqrt(KH)=Gamma, attained at uniform weights. The exact equality condition for Frobenius Holder is normalized Gram equality X*X/K=Y*Y/H, equivalent to B D_z B*=(v/b) S D_w S, valid even if some weights vanish. Fixed block size gives sum_{j!=i} M_ij=(k-1)M_ii, yielding [(k-1)a^2+(2k-v)a delta] w_i=a delta+(v-k)delta^2. Coefficient positive: for v>2k, (k-1)a^2=lambda(v-k) and a delta<lambda/2 give lower bound lambda v/2. Thus all point weights w=1/v; pair-block equations Q z=lambda/b determine all block weights, including boundaries. Column sums of Q ensure sum z=1, uniform z strictly positive gives affine dimension b-rank Q, Steiner lambda=1 implies uniqueness. Independently formed exact 15x20 Q for all triples on 6 points; its rational rank is 15 (kernel dim5), and the eight-transversal-triple signed trade satisfies Qh=0. These support but do not replace general proof.",
+      "residual_risks": [
+        "Matrix-factorization equality is justified by polar/partial isometry argument, not an external full operator norm-attainer classification.",
+        "Only rank-one trace-dual tests are classified, not arbitrary norming inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levene 2026 Section 2 gives a general variational formula and existence of invariant optimizers under symmetries.",
+          "Averaging gives existence, not uniqueness; even the full 2-design axioms do not guarantee transitive automorphism action."
+        ],
+        "reasoning": "General Schur theory does not determine all equality cases without the Q compatibility equations. The audited result treats nonsymmetric and repeated-block designs, not just projective planes.",
+        "searches": [
+          "block design incidence Schur multiplier norm maximizing weights rank one nuclear norm pair trades unique",
+          "https://hub.valency.io/works/W_t3e64jzw",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rigidity-of-schur-multiplier-norming-weights-for-projective-plan--a4484d807d12/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "block design incidence Schur multiplier norm maximizing weights rank one nuclear norm pair trades unique",
+        "https://hub.valency.io/works/W_t3e64jzw",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rigidity-of-schur-multiplier-norming-weights-for-projective-plan--a4484d807d12/RESULT.md",
+        "https://arxiv.org/abs/math/0506073"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Projective-plane published full RESULT: if and only if uniform weights for 2-(q²+q+1,q+1,1) planes.",
+          "Levene 2026 general Schur norm formulas bound the objective but do not characterize equality on arbitrary 2-designs."
+        ],
+        "reasoning": "The prior special theorem is a consequence of the audited result, not a dominating theorem. General Holder equality plus the new block-design identity supplies the all-2-design rigidity/trade characterization.",
+        "searches": [
+          "block design incidence Schur multiplier norm maximizing weights rank one nuclear norm pair trades unique",
+          "https://hub.valency.io/works/W_t3e64jzw",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rigidity-of-schur-multiplier-norming-weights-for-projective-plan--a4484d807d12/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The norming problem is max_{w,z probability} nuclear norm(Dsqrt(w) B Dsqrt(z)); phases of rank-one trace-dual test vectors are invisible.",
+          "Published projective-plane special case has uniform point and line weights uniquely."
+        ],
+        "reasoning": "Projective-plane case corresponds to lambda=1 and special r=k plus high symmetry; general 2-designs with lambda>1 may admit nonuniform z, so the full trade-polytope equality face cannot be obtained by simply relabeling prior uniqueness.",
+        "searches": [
+          "block design incidence Schur multiplier norm maximizing weights rank one nuclear norm pair trades unique",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rigidity-of-schur-multiplier-norming-weights-for-projective-plan--a4484d807d12/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For complete 2-(6,3,4), exact pair-triple incidence matrix has rank 15 and trade nullity 5, independently computed over rationals.",
+          "Classical 2-design incidence and signed-trade tables may contain this rank and h vector but not the Schur variational equality identification."
+        ],
+        "reasoning": "Known trade kernels alone cannot establish they are precisely the optimizer face; the main claim is a universal equivalence, not a new entry for v=6.",
+        "searches": [
+          "block design incidence Schur multiplier norm maximizing weights rank one nuclear norm pair trades unique",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rigidity-of-schur-multiplier-norming-weights-for-projective-plan--a4484d807d12/RESULT.md"
+        ]
+      },
+      "rationale": "The numerical Schur norm and standard invariant optimal-weight existence are known. Prior published projective-plane rigidity covers only symmetric lambda=1 projective incidences, while the audited theorem handles every finite 2-design, including repeated indexed blocks and arbitrary trade-polytope nonuniqueness. The identification of the full optimal block-weight face with the nonnegative pair-trade polytope is not implied by the reviewed prior projective-plane theorem. General Schatten equality classifications might provide an alternate proof but do not by themselves state the combinatorial restriction for all designs.",
+      "residual_risks": [
+        "Older structured Schur norm equality classifications may directly specialize to finite 2-designs; Davidson--Donsig full equality treatment was not read in this run.",
+        "Classical block-trade theory knows Q kernels, but its implication for rank-one Schur trace-dual normers requires the independently checked factorization/equality argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Special case lambda=1, not general pair-trade optimizer polytope.",
+          "evidence": "Projective-plane proof derives unique uniform weights using unique line through pairs and q+1>=3; no lambda>1 trade families.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rigidity-of-schur-multiplier-norming-weights-for-projective-plan--a4484d807d12/RESULT.md",
+          "material_read": "Complete published RESULT.md proof, assumptions, boundary cases and equality argument.",
+          "method": "Read-only GitHub published source.",
+          "title": "Rigidity of Schur-multiplier norming weights for projective-plane incidence masks",
+          "trigger": "Closest same Schur variational problem; potential stronger earlier classification."
+        },
+        {
+          "assessment": "Covers norm formula but does not explicitly classify 2-design optimizer trade polytopes.",
+          "evidence": "Levene introduces weighted nuclear norm maximum and invariant-optimum existence, distinct from all-optimizer equality face.",
+          "identifier_or_url": "https://hub.valency.io/works/W_t3e64jzw",
+          "material_read": "Full HTML material in Introduction and Section 2 including rank-one trace-dual characterization; relevant equality discussion.",
+          "method": "Lawful open HTML full-text reading.",
+          "title": "A half-line of Schur idempotent norms",
+          "trigger": "General Schur norm variational premise and averaging theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://hub.valency.io/works/W_t3e64jzw",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rigidity-of-schur-multiplier-norming-weights-for-projective-plan--a4484d807d12/RESULT.md"
+      ],
+      "rationale": "Classifying every maximizer, not just the known sharp norm value, is a natural exact question for a highly structured but broad family of matrices. The universal rigidity of point weights versus nontrivial combinatorial trade freedom of block weights connects analysis, design theory, and linear algebra and supplies an exact dimension and concrete positive/zero boundary optimizers. The classification is stronger than a textbook application of an inequality and includes nonsymmetric designs.",
+      "residual_risks": [
+        "No arbitrary higher-rank norming operator classification; λ>1 can still have unique weights if Q has full column rank."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No complete original Davidson--Donsig comparison of equality faces in this run.",
+    "All public-record and published audit metadata require privacy review before publication."
+  ],
+  "schema_version": 1
+}
