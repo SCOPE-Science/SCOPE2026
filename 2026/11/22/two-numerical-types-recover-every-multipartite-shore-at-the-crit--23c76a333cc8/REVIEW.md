@@ -1,0 +1,22 @@
+# Scientific review: multipartite Henson pair-type recovery
+
+## Correctness — PASS
+The parameter graph has at most \(m-2\) independent parts, so its clique number is below \(m-1\). Consequently every named neighborhood of one fresh vertex is legal, giving \(t_1=2^n\). For ordered fresh pairs, no new forbidden clique can involve both coordinates unless they are adjacent. Then the forbidden clique needs precisely \(m-2\) named common neighbors that form a clique. A complete \(\ell\)-partite parameter graph has this clique if and only if \(\ell=m-2\) and the common neighborhood meets every part. Independent four-label choices per named vertex count those obstructions by \(\prod_i(4^{a_i}-3^{a_i})\). The inverse result follows from the classical Bang–Zsigmondy theorem applied to coprime bases 4 and 3: all exponents at least two have a primitive prime divisor. Cancel matching part sizes; the largest unmatched exponent cannot occur in a product of strictly smaller ones. Singletons are recovered from the total named size. This is an infinite proof, not an inference from the tests. Explicit distinct positive partitions prove unary sharpness at \(n=k+2\) and thereafter, with a twelve-type gap for the first pair. No unproved computation is needed for these arguments.
+
+An independent checker compares the formula with 64 explicitly constructed finite graph diagrams, tests 74,481 critical partition fingerprints through total size 36, and checks the first critical collision and a subcritical example. The standalone script and its output are included.
+
+## Originality — PASS, subject to historical-priority risk
+Henson (1971, Section 2, Theorem 2.3) and Conant (arXiv:1401.1570v1, Section 3) give homogeneity and the realizability criterion, not an inverse type-counting theorem. A public result on maximal \((m-1)\)-partite parameter bases addresses a different clique rank: there every one-point neighborhood must omit a part and the pair correction is a sum indexed by a uniquely missing part, not a product over the \((m-2)\) parts. An earlier two-shore type-spectrum result gives the \(K_4\)-free bipartite specialization; this statement restricts to \(m\ge5\) and establishes arbitrary-part reconstruction using a primitive-divisor argument, not inferred from that two-variable balance monotonicity. Bang–Zsigmondy is used as a classical input, not asserted new. Actual searches found no statement subsuming the joint critical-rank and all-shore inverse conclusion. Exhaustive historical coverage is not guaranteed, and related general enumeration frameworks may yield the formula by specialization.
+
+## Mathematical value — PASS
+The motivating question is whether numerical low-arity orbit/type counts forget multipartite part sizes. The answer is exactly yes below the critical clique rank, but unexpectedly no at the critical rank: a *single* pair-count correction uniquely encodes an arbitrarily long integer partition, unlike the unary spectrum. This combines a natural Fraïssé type-count question with primitive-divisor rigidity. The precise clique-rank boundary, effective finite reconstruction, and sharp minimum unary collision at \(k+2\) named vertices provide structural content beyond a routine finite table or a renaming of the two-part case. No efficient reconstruction algorithm or arbitrary-base result is claimed.
+
+## Closest literature and limitations
+- C. W. Henson, *A family of countable homogeneous graphs*, Pacific Journal of Mathematics 38 (1971), Section 2, Theorem 2.3, https://doi.org/10.2140/pjm.1971.38.69
+- G. Conant, *Forking and dividing in Henson graphs*, arXiv:1401.1570v1, posted 2014-01-08, Section 3, https://arxiv.org/html/1401.1570v1
+- K. Zsigmondy, *Zur Theorie der Potenzreste* (1892); classical theorem and explicit exceptions at https://proofwiki.org/wiki/Zsigmondy's_Theorem
+- *A collision law for two-types over maximal multipartite parameter graphs in Henson structures*, full published technical result, https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-a-collision-law-for-two-types-over-maximal-multipartite-paramete--8c8e5c9b100b/RESULT.md
+
+The class is restricted to complete multipartite named bases with at most \(m-2\) parts. Finite tests do not verify the general number-theoretic theorem. Historical priority and independent verification remain open.
+
+Self-review: passed. Independent audit: not yet performed.
