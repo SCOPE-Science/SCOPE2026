@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-21",
+  "audited_at_utc": "2026-11-21T14:37:39.629518Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every active spectral mask occurs on an open set of DCT coefficient space; the continuous piecewise-affine map has global seminorm Lipschitz constant equal to maximum mask projection seminorm. Step decomposition h=h_0*1+sum differences*H_a reduces the seminorm to single-step images. The product of DCT step coefficient and its first difference is (2/n) sin(pi*k*a/n) sin(pi*k*b/n), exactly the DST-I projection kernel. Orthogonality yields the sqrt(n-1) column bound. Independent fair-mask signs and the fourth-moment inequality E|X|>=sqrt(E X²)/sqrt(3), together with the sine squared-product sum >=n/4, establish the explicit lower bound. Local open-cell pairs attain the maximum. Independent exhaustive masks n=2..8 and DST orthogonality tests passed; finite checks are not a substitute for the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://epubs.siam.org/doi/full/10.1137/S0036144598336745",
+          "https://doi.org/10.1137/S1064827501397792",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-nine-state-computation-and-logarithmic-path-variation-inst--8271a7c110ab"
+        ],
+        "reasoning": "The classical DCT and signal-processing works neither prove nor bound the exact two-input BV amplification of this nonlinear DCT-II map. Other Haar/Walsh basis results are not supersets of the DCT parameter family. Unindexed general unconditionality results remain possible.",
+        "searches": [
+          "Gilbert Strang 1999 The Discrete Cosine Transform full article",
+          "Durand Froment 2003 Reconstruction of Wavelet Coefficients Using Total Variation Minimization",
+          "Resultary: Walsh Haar soft thresholding BV variation"
+        ]
+      },
+      "checked_sources": [
+        "https://epubs.siam.org/doi/full/10.1137/S0036144598336745",
+        "https://doi.org/10.1137/S1064827501397792",
+        "https://en.wikipedia.org/wiki/Discrete_sine_transform"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://epubs.siam.org/doi/full/10.1137/S0036144598336745",
+          "https://doi.org/10.1137/S1064827501397792",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-nine-state-computation-and-logarithmic-path-variation-inst--8271a7c110ab"
+        ],
+        "reasoning": "Knowing DCT diagonalizes a second difference matrix does not imply the BV induced norm of arbitrary frequency projections. Wavelet-TV optimization differs from thresholding fixed DCT coefficients. Haar logarithmic amplification cannot imply DCT square-root amplification.",
+        "searches": [
+          "Strang DCT eigenbasis and boundary condition analysis",
+          "Durand Froment wavelet TV minimization",
+          "Resultary: exact Haar soft-threshold variation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://en.wikipedia.org/wiki/Discrete_sine_transform",
+          "https://epubs.siam.org/doi/full/10.1137/S0036144598336745"
+        ],
+        "reasoning": "First differences conjugate a cosine projection on vertex values to a sine frequency projection on path edges. The exact all-mask operator l1 column norm is the right equivalent problem; it is not merely the Euclidean projection norm one.",
+        "searches": [
+          "Resultary semantic: DCT II soft threshold path total variation Lipschitz DST I mask coordinate projections square root n",
+          "Web: discrete sine transform unconditional basis projection norm l1 max coordinate projection sqrt N"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-square-root-variation-instability-of-discrete-cosine-soft-thresh--5000fe7c11db",
+          "https://epubs.siam.org/doi/full/10.1137/S0036144598336745"
+        ],
+        "reasoning": "Apart from the target record itself, no exact constants/table for all finite n or the same DCT mask maximum was identified. The claim is an all-n formula with asymptotic growth, not a repeated small tabulation.",
+        "searches": [
+          "Resultary: sharp DCT-II projection total variation finite mask spectral radius",
+          "Web: discrete cosine soft thresholding exact total variation gain table"
+        ]
+      },
+      "rationale": "The exact nonlinear two-input DCT-II BV coefficient is mathematically equivalent to the unconditional DST-I spectral-mask column-norm problem. Full Strang DCT analysis supplies the transform but not nonlinear shrinkage in path variation; Durand–Froment wavelet-TV reconstruction concerns another transform and optimization. The indexed prior Haar/Walsh BV thresholds have different bases and growth rates; no exact DCT-II law or dominating bound was identified. A general unconditional basis theorem could cover the Theta(sqrt n) rate and is a material residual priority caveat.",
+      "residual_risks": [
+        "Classical unconditional trigonometric-basis estimates or more general projection theorems may imply some rate bounds; a complete survey was not available.",
+        "The optimal leading constant of L_n/sqrt(n) remains unknown and is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes classical orthogonal transform facts but no nonlinear shrinkage BV modulus",
+          "evidence": [
+            "Strang 1999 SIAM Rev 41, 135–147; DCT eigenvector construction"
+          ],
+          "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/S0036144598336745",
+          "material_read": "Full accessible SIAM HTML article on DCT-I–IV, orthogonality and difference matrices",
+          "method": "Read body sections on cosine bases, discrete second differences and boundary conditions",
+          "title": "The Discrete Cosine Transform",
+          "trigger": "same DCT-II basis"
+        },
+        {
+          "assessment": "Wavelet TV restoration is a different nonlinear optimization and basis, so its stated result does not imply DCT-II mask identity",
+          "evidence": [
+            "Durand–Froment 2003 SIAM J Sci Comput 24,1754–1767"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S1064827501397792",
+          "material_read": "Accessible abstract and mathematical description of wavelet coefficient recovery; no independent full text inspection this run",
+          "method": "Article metadata and contextual comparison; not a whole-document negative claim",
+          "title": "Reconstruction of Wavelet Coefficients Using Total Variation Minimization",
+          "trigger": "thresholding and total variation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The operator is Euclidean nonexpansive but amplifies the natural ordered signal graph variation by Theta(sqrt n). A sharp *attained* finite mask formula and all-dimensional rate characterize a substantive stability boundary for classical coefficient denoisers; this is more than a computational toy or generic norm equivalence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://epubs.siam.org/doi/full/10.1137/S0036144598336745",
+    "https://doi.org/10.1137/S1064827501397792",
+    "https://en.wikipedia.org/wiki/Discrete_sine_transform"
+  ],
+  "disposition": "passed",
+  "final_claim": "For real orthonormal DCT-II soft-thresholding of all nonconstant coefficients at lambda>0, the attained two-input path-variation Lipschitz coefficient is max over DST-I spectral masks of the largest absolute column sum, independent of lambda; 1/2+(n-2)/(2 sqrt(3n))<=L_n<=sqrt(n-1), so L_n=Theta(sqrt(n)), n>=2.",
+  "limitations": [
+    "Real orthonormal DCT-II, positive scalar threshold, finite unweighted nonperiodic path total variation only.",
+    "Independent exact masks n<=8 are bounded diagnostics; the universal rate follows analytically."
+  ],
+  "residual_risks": [
+    "Classical unconditional trigonometric-basis estimates or more general projection theorems may imply some rate bounds; a complete survey was not available.",
+    "The optimal leading constant of L_n/sqrt(n) remains unknown and is not asserted."
+  ],
+  "schema_version": 1
+}
