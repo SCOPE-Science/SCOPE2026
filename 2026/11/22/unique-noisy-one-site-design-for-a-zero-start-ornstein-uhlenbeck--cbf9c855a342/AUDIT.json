@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Stochastic Fubini and Itô isometry reconstruct v,c,V0; the exact reduction derivative is -2QF/D², F is strictly convex with endpoint sign crossing, yielding exactly one global interior maximizer including η=0. Algebraic root comparisons prove t*>1/2, strict noise monotonicity and uniform large-λ bounds, while uniform Brownian covariance convergence proves the small-λ limit. Independently evaluated deterministic grids and Simpson covariance integrations pass in standalone verify.py; finite checks only supplement the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai–Lam–Scarlett 2022 concerns noisy Bayesian quadrature error-rate bounds for kernel families, not exact 1-site nonstationary OU optimal placement.",
+        "Pronzato–Zhigljavsky 2018 studies general energy design and does not explicitly classify this one-site noisy nonstationary OU problem.",
+        "Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature concerns stationary OU and noiseless integration nodes."
+      ],
+      "reasoning": "A broad error bound or generic posterior reduction formula does not algebraically determine the unique finite-noise optimizer for zero-initialized OU. The stationary OU prior has different covariance and cannot subsume this claim by parameter substitution.",
+      "searches": [
+        "Nonstationary Ornstein-Uhlenbeck integral kriging single observation posterior variance optimal sensor placement noise monotonic right of midpoint",
+        "Gaussian Volterra exponential covariance one observation optimal integrated OU nonstationary sensor design cubic",
+        "arxiv:2202.10615 on average-case error bounds",
+        "arxiv:1808.10722 Bayesian quadrature energy minimization"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1808.10722",
+      "arxiv:2202.10615",
+      "DOI:10.1081/STA-120022249 (abstract only)",
+      "Purdue dissertation AAI3043760 (abstract only)",
+      "Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature",
+      "Unique optimal iid two-node design for Brownian-bridge kernel quadrature",
+      "Quadrature rank collapse and a stiff-noise blind spot in probabilistic exponential ODE filtering"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published general Gaussian conditioning implies H=c²/(v+η) as a calculational starting point; the new claim adds a global root and all-noise monotonicity.",
+        "The closest stored published stationary OU quadrature record Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature has covariance exp(-λ|s-t|); this claim has covariance [exp(-λ|s-t|)-exp(-λ(s+t))]/(2λ)."
+      ],
+      "reasoning": "The prior stationary result cannot be specialized to the nonstationary zero-start kernel; general conditional-variance formulas do not by themselves furnish the unique optimizing cubic and strict parameter law. Historical full-text unavailability is an explicit residual risk, not a negative full-text comparison.",
+      "searches": [
+        "Exactly optimal noisy one-site integrated zero-start Ornstein Uhlenbeck Bayesian quadrature cubic in exponential observation time",
+        "Nonstationary Ornstein-Uhlenbeck integral kriging single observation posterior variance optimal sensor placement noise monotonic right of midpoint",
+        "Two point design and integrated covariance quadrature for nonstationary Gaussian process with noisy observations",
+        "arxiv:1808.10722 Bayesian quadrature posterior variance eq (2.13)",
+        "arxiv:2202.10615 Gaussian-noise error bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pronzato–Zhigljavsky gives general kernel-energy/conditional-variance identity, which determines an objective but not its unique minimizing zero-start OU observation time.",
+        "Mukherjee 2003 abstract treats covariance-integral design and is a plausible earlier alias; full source could not be checked.",
+        "No query returned the explicit all-noise one-site zero-start OU cubic with strict sensor-time monotonicity."
+      ],
+      "reasoning": "An exact conditional-variance objective is not an explicit global minimizer; the cubic root, strict monotonicity and uniform damping limit require additional analysis. The inaccessible historical paper limits confidence in priority but available abstract does not decisively imply this noisy claim.",
+      "searches": [
+        "Exactly optimal noisy one-site integrated zero-start Ornstein Uhlenbeck Bayesian quadrature cubic in exponential observation time",
+        "Nonstationary Ornstein-Uhlenbeck integral kriging single observation posterior variance optimal sensor placement noise monotonic right of midpoint",
+        "One noisy sample optimal observation time for integral of Ornstein Uhlenbeck started at zero cubic root",
+        "arxiv:1808.10722 §§2-4; DOI:10.1081/STA-120022249 abstract"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest related record Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature solves stationary noiseless OU node placement and stratification, not the zero-start noisy one-site design.",
+        "Own accessible previous ledger records include two-node stationary OU quadrature and one-site power-law Gaussian Volterra, neither identical to the zero-start OU exponential Volterra kernel."
+      ],
+      "reasoning": "The exact cubic, noise-dependent optimum and uniform stiff law were not observed in searched result tables or accessible own claims. Database nonmatches are not a proof of novelty.",
+      "searches": [
+        "Exactly optimal noisy one-site integrated zero-start Ornstein Uhlenbeck Bayesian quadrature cubic in exponential observation time",
+        "One noisy sample optimal observation time for integral of Ornstein Uhlenbeck started at zero cubic root",
+        "Brownian motion single point integral observation optimal location 2/3 noisy variance",
+        "Source and alias searches in accessible mathematical-result records and previous own ledger claim text"
+      ]
+    },
+    "rationale": "Full-text Pronzato–Zhigljavsky and inspected Cai–Lam–Scarlett give generic BQ variance and error-rate theory, not the explicit zero-start OU cubic and all-noise placement classification. Relevant prior stationary OU results are not logically sufficient due to different covariance, and accessible own claims do not match. Historical Mukherjee 2003 primary text remains inaccessible and is disclosed as a substantial priority risk; conclusions are best-knowledge, not independent certification.",
+    "residual_risks": [
+      "Mukherjee 2003 and related dissertation full text inaccessible: equivalence or prior noisy-design special cases cannot be conclusively ruled out.",
+      "A database search is not proof of unique priority.",
+      "Independent full mathematical and publication-priority audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes objective and general principles; does not explicitly give the zero-start OU noisy one-site cubic and uniqueness law.",
+        "evidence": [
+          "arxiv:1808.10722 §§2–4, especially equation (2.13) and Section 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1808.10722",
+        "material_read": "Full arXiv HTML: introduction, Section 2 Gaussian-process quadrature and posterior variance (2.13), energy and design sections including examples/appendices.",
+        "method": "Read publicly accessible complete arXiv HTML (not only a search-result snippet).",
+        "title": "Bayesian quadrature and energy minimization for space-filling design",
+        "trigger": "Closest generic theory for scalar integral Gaussian posterior variance and experimental designs"
+      },
+      {
+        "assessment": "Works with general RKHS kernel families and error bounds rather than exact zero-start OU one-sensor optimum.",
+        "evidence": [
+          "arxiv:2202.10615 submitted 2022-02-22, introduction and main average-case rate theorems."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+        "material_read": "Accessible arXiv full-text material on problem setup, Gaussian observations and principal noisy BQ bounds; the current retrieval of HTML subsequently returned a temporary error.",
+        "method": "Inspected primary arXiv article in public HTML in this scientific work; compared problem hypotheses and statements.",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Closest noisy Bayesian quadrature motivation and prior bound"
+      },
+      {
+        "assessment": "Cannot certify noncoverage; retains residual priority risk. Available abstracts do not explicitly include noisy one-site OU cubic.",
+        "evidence": [
+          "DOI:10.1081/STA-120022249; Purdue dissertation catalog https://docs.lib.purdue.edu/dissertations/AAI3043760/."
+        ],
+        "identifier_or_url": "https://doi.org/10.1081/STA-120022249",
+        "material_read": "Only public abstract and related dissertation abstract; primary full text not obtained via arXiv, OA or permitted institutional route.",
+        "method": "Searched public copies and institutional access; institutional access reported VPN disconnected, without bypass.",
+        "title": "On Sampling Designs for Integral Estimation of a Random Process",
+        "trigger": "Highly relevant 2003 historical exact process-integral design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cbf9c855-a342-487d-8753-9dd66fb799d8",
+  "value": {
+    "rationale": "One-observation integration is a natural finite-budget design problem. The theorem completely classifies the globally unique placement for any damping and finite sensor-noise variance, exposes a strict late-of-midpoint law and noise-driven movement, and gives a noise-uniform stiff-limit time. These are scientifically motivated exact design facts, not a renamed known bound or numerical fit.",
+    "status": "PASS"
+  }
+}
