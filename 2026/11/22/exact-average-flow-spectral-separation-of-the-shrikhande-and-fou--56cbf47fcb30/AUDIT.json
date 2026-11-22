@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Finite 16-vertex exhaustive subset recurrence proves all rooted self-avoiding path totals, checked independently by C++ direct path DFS. Graph adjacency rules imply vertex transitivity, degree six and common-neighbor count two; local induced six-cycle versus two triangles distinguishes types. A^2=4I+2J implies distance spectrum (24, -4^6, 0^9), and distinct exact flow means imply different F traces; no asymptotic extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2611.18344v1, Sec. 7 expressly proposes analyzing symmetric and distance-regular graph classes, without a covering family theorem.",
+        "No PAIN no Gain (2023), page 8: path-multiset discrimination, not spectral discrimination by its normalized all-length weighted average."
+      ],
+      "reasoning": "The motivating paper supplies a general shift identity, not the missing mean for either graph; the established GNN path discriminator is stronger input data but does not numerically establish the particular mean separation. No inspected stronger theorem implies these exact mean values.",
+      "searches": [
+        "\"average flow matrix\" distance regular strongly regular spectra",
+        "\"Shrikhande\" \"rook\" \"simple paths\" seven length counts",
+        "\"Shrikhande\" \"rook\" \"path lengths\" \"average\" graph"
+      ]
+    },
+    "checked_sources": [
+      "Waheed and Azam (2026), arxiv:2611.18344v1",
+      "Graziani, Drucks et al. (2023), No PAIN no Gain",
+      "P. J. Cameron (2001), Strongly regular graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.18344v1: definition, vertex-transitive shift formula, enumeration only <=10; no Shrikhande comparison.",
+        "No PAIN no Gain (2023): already detects the pair using path multisets up to length 7.",
+        "Cameron: exactly two graph types, a known classification."
+      ],
+      "reasoning": "New finite claim is not the shift theorem, the fact of distance cospectrality, the known pair classification, or the known ability of some path-based method to distinguish the graphs. Its numerical all-length average-flow inequality and exact spectral consequence require the new exhaustive path census.",
+      "searches": [
+        "arxiv:2611.18344v1 Section 4 Section 7 average flow stable strongly regular",
+        "No PAIN no Gain More Expressive GNNs with Paths Rook Shrikhande length seven"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Waheed--Azam, arXiv:2611.18344v1, Sec. 4: F=diag(fl)-D, Prop. 1 and Cor. 1 give F=cI-D for vertex-transitive graphs.",
+        "Drucks--Graziani et al. (2023), Sec. 4/Fig. 5: path multisets length seven distinguish the pair, with no exact all-path weighted average."
+      ],
+      "reasoning": "The equivalent spectral formulation for the vertex-transitive distance-cospectral pair is inequality of their common all-simple-path mean lengths. Previously published length-seven path-count separation alone cannot imply unequal weighted means because changes at subsequent lengths might cancel. The exact rational means are strictly different.",
+      "searches": [
+        "\"average flow matrix\" Shrikhande rook graph cospectral",
+        "\"average flow matrix\" \"Shrikhande\" \"rook\"",
+        "strongly regular graphs average simple path length vertex flow Shrikhande rook different spectra distance cospectral"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cameron, Strongly regular graphs, Section 4: exactly two (16,6,2,2) graph types, but no rooted simple-path count table.",
+        "Full 15-length integer path vector established by the standalone exact recurrence and independently matched by DFS."
+      ],
+      "reasoning": "The classical parameter table and GNN discrimination benchmark do not supply the weighted totals 177310488 and 177724236; these totals and the derived average-flow spectral shifts were evaluated from explicit graphs, not copied from a known table.",
+      "searches": [
+        "4x4 rook Shrikhande Hamiltonian path length total count 13991682 14029326",
+        "\"Shrikhande\" \"rook\" \"self-avoiding walks\" count"
+      ]
+    },
+    "rationale": "Full motivating paper defines average-flow matrix and its flow-stable shift but treats connected graphs only through order ten. The strongest overlapping older source proves seven-edge path multisets distinguish the same pair; this does NOT imply that the complete weighted average of all simple paths differs (later-length terms can cancel it). Exact all-length totals, nonzero average-flow difference, and spectra are new relative to inspected sources. A natural finite complete parameter-class test; historical priority uncertain.",
+    "residual_risks": [
+      "A pre-2026 unindexed enumeration of all simple paths on the two graphs might imply the same exact average if both totals were recorded.",
+      "The result treats one fixed strongly regular parameter class only; no claim that all distance-cospectral pairs separate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the specific 16-vertex mean comparison; foundational flow-shift theorem is already in source",
+        "evidence": "First public 2026-11-13; Section 4 Propositions and 7 directions; spectral census ends at order ten",
+        "identifier_or_url": "https://arxiv.org/html/2611.18344v1",
+        "material_read": "Full HTML paper: introduction, definitions, Section 4, enumeration, conclusion, references",
+        "method": "Read primary article text and checked for strongly regular / Shrikhande comparisons",
+        "title": "Enumeration of Cospectral Graphs with Respect to the Average Flow Matrix",
+        "trigger": "Definition and possible already covering symmetric-graph results"
+      },
+      {
+        "assessment": "COVERS existence of path-length-7 distinguishing information; does not compute all-length average flow or its new spectrum",
+        "evidence": "Figure 5 and page eight explicitly state path multisets through length seven distinguish Shrikhande from rook",
+        "identifier_or_url": "https://repositum.tuwien.at/bitstream/20.500.12708/193616/1/2023-No%20PAIN%20no%20Gain%20More%20Expressive%20GNNs%20with%20Paths-vor.pdf",
+        "material_read": "Full text, especially Definitions 3.2, Figure 5 and page 8, Appendix context",
+        "method": "Read indexed paper and inspected page image",
+        "title": "No PAIN no Gain: More Expressive GNNs with Paths",
+        "trigger": "Plausible prior path-profile collision results for exactly the same graph pair"
+      },
+      {
+        "assessment": "COVERS classical classification of the two parameter-equal graphs; NOT_COVERING newly defined average-flow invariant",
+        "evidence": "Section 4: exactly two strongly regular graphs with parameters (16,6,2,2)",
+        "identifier_or_url": "https://maths.qmul.ac.uk/~lsoicher/designtheory.org/library/preprints/srg.pdf",
+        "material_read": "Definitions, Section 3 eigenvalue formula, Section 4 dual transversal designs (page 9)",
+        "method": "Read full relevant sections and page image",
+        "title": "Strongly regular graphs",
+        "trigger": "Isomorphism-class completeness and spectral parameter formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "56cbf47f-cb30-4e42-82f6-73202d764d50",
+  "value": {
+    "rationale": "The new average-flow matrix explicitly calls for evaluation on distance-regular graph classes; the canonical two graphs with identical (16,6,2,2) parameters provide a natural comprehensive first benchmark. Their exact all-path averages show that compression into one rational diagonal scalar preserves a real nonisomorphism signal which adjacency/distance spectra lose; the full natural pair classification, exact coefficients and independent certificate make it reusable beyond a numerical example.",
+    "status": "PASS"
+  }
+}
