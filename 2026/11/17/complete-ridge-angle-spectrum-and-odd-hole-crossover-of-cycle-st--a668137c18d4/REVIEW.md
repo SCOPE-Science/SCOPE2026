@@ -1,15 +1,21 @@
-# Review: cycle stable-set ridge-angle spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the exact irredundant facets using a self-contained argument for the unique half-integral vertex of the odd-cycle edge relaxation and its simple-vertex neighbors. It separately proves that the odd-hole facet is a simplex (circulant eigenvalue nonvanishing), classifies every facet-pair intersection by explicit relative-interior witnesses or forced extra equalities, and computes the three angles from outward normals. The pentagonal disjoint-edge obstruction is treated separately. Exact arithmetic, not floating-point thresholds, checks all facet-pair dimensions at cycle orders 4 through 13. No inference from the finite tests is needed for the infinite conclusion.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The 2018 1-skeleton paper (arXiv:1804.00360) classifies primal edges and does not give the metric facet-pair spectrum. The 2019 online 1-wheel formulation (DOI:10.1002/net.21906) develops odd-cycle inequalities and their optimization, not dihedral angles. The 2024 cycle graph-polytope face-polynomial article studies an edge relaxation, not the clipped odd-cycle stable-set polytope; the complete text was unavailable, so no exhaustive negative claim is made about it. The distinct published results on clique-joined odd-cycle inballs and odd-cycle integrality caps concern other invariants. Scientific novelty means the complete odd-cycle ridge-angle census, sharp \(n=5\) deficit, and angle-order crossover; not defining inequalities or an even-cycle face count. An equivalent earlier description remains a residual bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The claim describes a complete, coordinate-normalized Euclidean invariant of an established infinite polytope family. The extremal angle switches between structurally different ridge orbits at a sharp order threshold; the exceptional smallest odd cycle loses exactly five ridge adjacencies; and conditioning on the rare obtuse ridges yields a nontrivial two-atom limit, one atom approaching a right angle from above. This is a motivated metric classification tied to the odd-hole facet, not a selected unmotivated numeric slice.
+For each odd n≥5, the exact irredundant facet normals are Z_i=−e_i, E_i=e_i+e_{i+1} and H=(1,…,1) with odd-hole sum bound (n−1)/2. The odd edge relaxation has unique fractional all-half vertex, clipped by H; maximum stable sets on H form an (n−1)-simplex since their circulant incidence eigenvalues do not vanish. Every facet pair is explicitly classified: Z-Z and nonincident Z-E form right ridges; E-E neighboring and H-E form two obtuse families; disjoint E-E form right ridges for odd n≥7 but not n5; H-Z and incident Z-E do not form ridges. Outward Gram cosines 0,1/2,sqrt(2/n) yield angles pi/2,2pi/3,pi-acos(sqrt(2/n)). Multiplicities n5 (25,5,5), odd n≥7 (2n(n−2),n,n), and maximum changes n7/n9. Independent exact rational rank checks of every facet-pair intersection on n5,7,9 from all stable-set vertices reproduce counts 35,84,144; finite checks only corroborate all-n proof.
 
-## Limitations
-The theorem is specific to standard Euclidean coordinates and odd cycle orders at least five. The numerical checks are finite; independent mathematical verification has not been performed. Prior literature with another terminology may imply aspects of the result; the 2024 full text was not available for comprehensive comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Odd cycle stable-set inequalities and 1-skeleton combinatorics are known, but the complete canonical Euclidean ridge-dihedral multiset, pentagonal disjoint-edge obstruction, sharp n7/n9 angle crossover and conditional rare-obtuse distribution were not implied by the compared source statements. The 2024 cycle graph polytope is an edge relaxation with an extra half-vector vertex for odd n, not the clipped odd-cycle stable-set polytope. Full text of that 2024 article was not obtained (authorized institutional access reported disconnected VPN); this is a named residual originality risk, not an automatic FAIL.
+
+## value
+
+PASS
+
+A natural infinite family of fundamental integer polytopes has a complete coordinate-dependent metric ridge invariant with three explicit angles and sharp obstruction/crossover at small odd n. The rarity and conditional two-atom limit of obtuse angles add a meaningful asymptotic structural observation; this is more than a copied facet inequality or an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
