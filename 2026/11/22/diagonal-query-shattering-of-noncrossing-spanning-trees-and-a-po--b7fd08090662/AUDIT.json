@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For exactly the true-diagonal query universe, the all-positive pattern forces the support to be a noncrossing forest. For every positive subset A of a noncrossing forest S, the boundary cycle plus A is connected and planar and has a spanning tree containing A and no negative query diagonal, proving every binary trace. Noncrossing diagonal forests are exactly polygon dissections in which every face touches an original boundary side: all-diagonal faces form cycles and an interior cycle encloses a face without boundary. Decomposing by a root side yields the two formal equations with a unique x-adically determined solution. Maximal supports are the dual-path triangulations, counted by the valid ear insertion recurrence. Reproducible verify.py checks forest histograms and generating function n=3..12, actual noncrossing-tree traces on all 549 diagonal supports n=3..6, and the top coefficient. The all-order argument is independent of these finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy 1999 Theorem 1 explicitly counts forests with unrestricted straight-line edges, including polygon sides; it supplies a different parameterization.",
+        "Hurtado–Noy, Ears of triangulations and Catalan numbers, Discrete Math. 149 (1996), Theorem 1, implies the count of two-ear triangulations \\(n2^{n-5}\\), a previously established top coefficient. https://core.ac.uk/download/pdf/82091698.pdf"
+      ],
+      "reasoning": "The top-face enumeration is subsumed by a known theorem about two-ear triangulations, and is credited; this is not the claimed new content. Neither source inspected gives the entire coefficient-by-coefficient diagonal-only forest/shattering profile. A hidden coefficient-extraction reduction could exist; it remains a priority risk.",
+      "searches": [
+        "algebraic generating function enumeration of noncrossing polygon dissections where every region touches a boundary edge, noncrossing diagonal forests",
+        "\"dissections\" \"each region contains a boundary edge\" generating function",
+        "\"noncrossing forest\" \"no boundary edges\" polygon"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2206.03879",
+      "https://arxiv.org/abs/1201.4782",
+      "https://igor-kortchemski.perso.math.cnrs.fr/lecon/Analytic%20combinatorics%20of%20non-crossing%20configurations.pdf",
+      "https://core.ac.uk/download/pdf/82091698.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-half-turn-fixed-noncrossing-forest-complexes-through-twelve-vert--720207ff1c37",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-exact-fourier-nullity-and-endpoint-stability-for-seven-vertex-no--e72f53947dae"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aichholzer et al. 2022 arXiv:2206.03879: flip reconfiguration and small-point flip computations rather than all subsets of diagonal queries.",
+        "Keller et al. 2012 arXiv:1201.4782: edge blocker theorems ensure hitting every noncrossing tree, not all Boolean patterns on specified diagonals.",
+        "Hurtado–Noy 1996: two-ear triangulations counted; this covers only the maximum-degree coefficient after identifying the two-ear interpretation."
+      ],
+      "reasoning": "Prior exact top-face enumeration is openly subsumed, but the criterion that every acyclic noncrossing diagonal support realizes every binary pattern—and the complete algebraic series of all such supports—are not implications of the cited statements without an additional diagonal-restricted refinement. The new proof provides such a refinement explicitly.",
+      "searches": [
+        "VC shattering of noncrossing spanning trees on convex polygons under individual chord edge-membership queries. Exact shattered supports and VC dimension.",
+        "\"noncrossing diagonal forest\" enumeration",
+        "\"triangulations with two ears\" \"2^\" count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flajolet–Noy (1999), Theorem 1(iii), Section 1.2, counts noncrossing forests where boundary edges are eligible: https://igor-kortchemski.perso.math.cnrs.fr/lecon/Analytic%20combinatorics%20of%20non-crossing%20configurations.pdf",
+        "Aichholzer et al., arXiv:2206.03879, sections 1–5, study tree flips rather than query shattering.",
+        "Public geometric fixed-locus result https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-half-turn-fixed-noncrossing-forest-complexes-through-twelve-vert--720207ff1c37, RESULT.md: all chords and half-turn topology, not diagonal-only query profiles."
+      ],
+      "reasoning": "A shattered diagonal support is exactly an acyclic noncrossing diagonal set. Counting this restricted complex is not the unrestricted noncrossing-forest component enumerator. Potential aliases include polygon dissections all of whose regions touch the boundary; the exact equivalent formulation was searched, but could exist unindexed.",
+      "searches": [
+        "noncrossing spanning trees restricted to polygon diagonals, binary edge-membership VC shattering. Shattered supports are noncrossing acyclic diagonal sets; algebraic generating function and zigzag triangulations count \\(n2^{n-5}\\) top faces",
+        "\"noncrossing diagonal forest\" enumeration",
+        "\"diagonal forests\" \"generating function\" convex polygon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest public heptagon Walsh theorem id 2026/11/16/SCOPE-exact-fourier-nullity-and-endpoint-stability-for-seven-vertex-no--e72f53947dae: its full RESULT.md treats all 21 edges for n=7, not a diagonal-only all-n shattering polynomial.",
+        "published-finding corpus closest public fixed-locus theorem id 2026/11/17/SCOPE-half-turn-fixed-noncrossing-forest-complexes-through-twelve-vert--720207ff1c37: its full RESULT.md treats half-turn-fixed topology for n=4,6,8,10,12 and includes sides.",
+        "Hurtado–Noy 1996 table and Theorem 1 determine the known extremal two-ear enumeration; no full profile was identified in that paper."
+      ],
+      "reasoning": "Inspected accessible database matches use different query sets, invariants, or finite symmetry constraints, and do not imply the all-order face polynomial stated here. Query failures are not uniqueness proofs.",
+      "searches": [
+        "VC shattering of noncrossing spanning trees on convex polygons under individual chord edge-membership queries. Exact shattered supports and VC dimension.",
+        "VC dimension of edge incidence of convex noncrossing spanning trees and full shattering polynomial restricted to non-boundary chords",
+        "\"1, 3, 11, 43, 176, 745, 3235\" \"forests\" polygon"
+      ]
+    },
+    "rationale": "The full diagonal-only Boolean shattering criterion and coupled algebraic all-coefficient enumerator were not implied by the closest inspected unrestricted forest enumeration, geometric reconfiguration, blockers, heptagon all-edge Fourier, or finite half-turn fixed-locus results. Hurtado–Noy 1996 ALREADY determines the numerical \\(n2^{n-5}\\) two-ear triangulation count; novelty is NOT claimed for this count in isolation, only its interpretation within the new complete shattering theorem. Inaccessible or unindexed equivalents remain an explicit priority risk.",
+    "residual_risks": [
+      "A prior result about polygon dissections with every face incident to a boundary side might encode the same algebraic series under different terminology.",
+      "A general weighted noncrossing-forest enumeration that distinguishes boundary edges could imply the complete diagonal-only coefficients; no such dominating statement was identified in the inspected texts.",
+      "The top-degree coefficient is covered by Hurtado–Noy two-ear enumeration and must not be interpreted as an independently new count.",
+      "Scientific novelty remains a best-knowledge historical assessment, not a proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts all straight-line noncrossing forest edges including polygon boundary; no explicit restriction to all-interior-diagonal supports in the material read",
+        "evidence": "Theorem 1(iii) and section 1.2: forest counts by components and F=1+T(zF)",
+        "identifier_or_url": "https://igor-kortchemski.perso.math.cnrs.fr/lecon/Analytic%20combinatorics%20of%20non-crossing%20configurations.pdf",
+        "material_read": "PDF Theorem 1, pp. 206–210, including the forest construction and generating equations (9)–(11)",
+        "method": "Read original PDF text and inspected page image at PDF page index 3",
+        "title": "Analytic Combinatorics of Non-crossing Configurations",
+        "trigger": "Closest classical noncrossing-forest enumeration"
+      },
+      {
+        "assessment": "Focuses flip graph, flip distance, happy edges and finite convex point-set experiments; no diagonal-query shattering or restricted-forest generating function",
+        "evidence": "arXiv first version dated 2022-06-08; introduction and Sections 2–5",
+        "identifier_or_url": "https://arxiv.org/abs/2206.03879",
+        "material_read": "Full accessible paper HTML, Sections 1–5 and its main results",
+        "method": "Read primary public arXiv HTML, 2022-06-08 first version",
+        "title": "Reconfiguration of Non-crossing Spanning Trees",
+        "trigger": "Same object class and earliest middle-cohort first-public anchor"
+      },
+      {
+        "assessment": "Gives number of triangulations by number of ears; implies \\(n2^{n-5}\\) for two ears, so the pure counting identity has established prior coverage",
+        "evidence": "Theorem 1 formula e(n,k) and table 1; maximum-degree coefficient is not presented as a shattering count",
+        "identifier_or_url": "https://core.ac.uk/download/pdf/82091698.pdf",
+        "material_read": "Full six-page text, especially Theorem 1, pp. 319–321 and examples",
+        "method": "Read primary PDF and its published formulas",
+        "title": "Ears of triangulations and Catalan numbers",
+        "trigger": "Exact top face count plausibly dominated by known two-ear triangulations"
+      },
+      {
+        "assessment": "Studies hitting sets of tree edge sets, distinct from full trace realizability on restricted queries",
+        "evidence": "arXiv:1201.4782, blocker definition and main results",
+        "identifier_or_url": "https://arxiv.org/abs/1201.4782",
+        "material_read": "Accessible full HTML article and blocker definition and main classification",
+        "method": "Read primary open HTML text",
+        "title": "Blockers for non-crossing spanning trees in complete geometric graphs",
+        "trigger": "Negative edge constraints and coverage on the same noncrossing tree class"
+      },
+      {
+        "assessment": "Full chord universe including boundary sides, half-turn fixed-point topology finite orders n≤12, not unrestricted diagonal-only shattering polynomial",
+        "evidence": "RESULT.md definition of complex and fixed-point triangulation, no all-n diagonal-only Boolean trace claim",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-half-turn-fixed-noncrossing-forest-complexes-through-twelve-vert--720207ff1c37",
+        "material_read": "Entire RESULT.md including definitions, proof, limitations and references",
+        "method": "Retrieved public source file using GitHub read action",
+        "title": "Half-turn-fixed noncrossing forest complexes through twelve vertices",
+        "trigger": "Nearest indexed noncrossing-forest complex"
+      },
+      {
+        "assessment": "All-edge Walsh spectrum at n=7; cannot imply all-n support-shattering algebraic enumerator",
+        "evidence": "RESULT.md defines 21 all-edge coordinates and computes Fourier nullity and endpoint stability",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-exact-fourier-nullity-and-endpoint-stability-for-seven-vertex-no--e72f53947dae",
+        "material_read": "Entire RESULT.md including all-edge query domain, full proof and limitations",
+        "method": "Retrieved public source file using GitHub read action",
+        "title": "Exact Fourier nullity and endpoint stability for seven-vertex noncrossing trees",
+        "trigger": "Nearest indexed noncrossing-spanning-tree edge-incidence work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7fd0809-0662-4530-8bbd-ce987d58a4a7",
+  "value": {
+    "rationale": "Genuine polygon diagonals are natural observable queries while polygon sides serve as internal witness edges. The theorem gives a complete exact support criterion with an elementary polynomial-time test, a new all-parameter algebraic face-count series (all coefficients, not just a dimension), and an exact characterization of the top-dimensional supports. The result is substantive even after crediting the already-known two-ear triangulation count.",
+    "status": "PASS"
+  }
+}
