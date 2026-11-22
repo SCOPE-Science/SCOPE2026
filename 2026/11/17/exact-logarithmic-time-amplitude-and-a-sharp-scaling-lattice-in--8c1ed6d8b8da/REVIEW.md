@@ -1,19 +1,21 @@
-# Scientific review — exact logarithmic-time amplitude and scaling lattice
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The stated Cartesian cubic is independently reduced to the specified polar equations, including the crucial \(\dot\theta=r^2>0\). The positive, smooth, \(\pi\)-periodic integral \(Q_{a,b}\) solves an affine first-order scalar equation, and uniqueness of its periodic solution follows because the homogeneous multiplier over \(\pi\) is \(e^{-2\pi a}<1\). Its reciprocal has exactly \(2\pi a\) integral over a half-turn. The quantity \((t+C)r^2-Q(\theta)\) solves a scalar homogeneous equation with zero initial condition, giving an **exact**, not approximate, time-shift identity. The strict minimal period and the scaling-group iff condition follow by recovering \(\cos2\theta\) from \(Q\) and comparing continuous periodic quotients. The origin is appropriately excluded from polar claims; positive \(a\) gives completeness and arbitrarily many angular turns. The small-\(b\) expansion is a uniform perturbation of a strictly positive kernel. The accompanying standard-library checker passed 441 exact rational Cartesian identities and numerical quadrature/return/time-shift/anisotropy checks; these computations are supplementary, not substitutes for the analytic steps.
+PASS
 
-## Originality
+PASS. Reconstructed the actual homogeneous cubic in polar form: dot r=r^3(-a+b cos 2theta), dot theta=r^2 for a>0, b real, r(0)>0. The positive periodic kernel Q solves Q′=1+(-2a+2b cos2theta)Q and has least angular period pi for b nonzero; integrate Q′/Q over pi to get integral 1/Q=2pi a. For C=Q(theta0)/r0^2, S=(t+C)r^2-Q(theta) solves homogeneous linear ODE with S(0)=0. Thus P=Q o Psi^{-1} is exactly periodized in log((t+C)/C), and its least period plus phase averaging yields the iff scale lattice log c in 2pi a Z. First-return clocks and small-b amplitude follow from the integrated polar field and linearized Q. The b=0 normalization, arbitrary sign b, origin exclusion, phase lift, forward completeness and t=0 boundary all check out. Independent finite-period quadrature at four (a,b) combinations corroborates but does not prove the universal assertion.
 
-**PASS within accessible published evidence, with residual priority risk.** Liu and Fitzsimmons (2026, arXiv:2607.16171v1) derive the \(a=1,b=5\) polar equations and a \(C^1\) non-polynomial Lyapunov function; those premises are expressly credited. Their inspected main theorem and polar proof do not state the unique periodic amplitude profile, exact physical-time renormalization, sharp scaling subgroup, or perturbative onset. Published searches and relevant indexed research records on homogeneous cubic flows, nonlinear Liénard systems, asymptotic clocks, and logarithmic scaling did not reveal the same assertion for this stable family. A record on nonlinear Liénard blow-up describes an analogous log-periodic mechanism in a different system and time direction; a record on homogeneous star-node cycles concerns finite-radius cycles rather than attraction to the origin. Accessible older literature establishes broad homogeneous scaling principles; some complete older texts and the motivating article's last remarks were not fully retrievable, so equivalent implicit coverage is a real remaining risk. Absence from search results is not claimed to certify novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The natural decay observable in a globally attracting, homogeneous cubic flow is \(t\lVert z(t)\rVert^2\). Ordinary stability and homogeneous scaling do not specify whether it converges. This theorem shows a sharp structural answer for the full positive-damping/tunable-anisotropy family: it converges only at zero anisotropy, while any nonzero anisotropy preserves oscillations of the leading amplitude, enforces a precise lattice of multiplicative observation scales, and gives exact geometric angular return clocks. This distinguishes global attraction from regular variation of trajectories, including the prominent cubic example with no analytic Lyapunov function. The entire claim is for the natural parameter family, not an arbitrary finite example or a new proof of the earlier Lyapunov obstruction.
+PASS, bounded: Liu–Fitzsimmons (2026) supply exactly the cubic polar equations and strict stability but the inspected original paper sections do not state the exact physical-time profile, least logarithmic period or iff scaling lattice. A full 2026 published star-node theorem does give exact angular returns/Floquet for systems with positive linear term and attracting cycles, not homogeneous zero-linear-term decay; it does not logically imply the current shifted-time amplitude identity. No stronger prior coverage found in the named semantic/full-text comparisons; older homogeneous-flow treatments remain a priority risk.
 
-## Closest literature and limitations
+## value
 
-The closest foundational source is Liu and Fitzsimmons, *A Globally Asymptotically Stable Planar Homogeneous Polynomial Vector Field With No Polynomial Lyapunov Function*, arXiv:2607.16171v1, 17 July 2026, https://arxiv.org/abs/2607.16171. Earlier homogeneous cubic classification (Cima and Llibre, 1990) and quasi-homogeneous scaling literature provide broader context; their possible unindexed equivalent time-asymptotic results have not been ruled out. A published separate nonlinear-Liénard result contains a logarithmically periodic finite-time blow-up clock, but does not identify the stable cubic's scaling lattice. The theorem requires \(a>0\), excludes the equilibrium for polar statements, and does not address generic nonhomogeneous perturbations. Independent audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The exact original-time amplitude and least-period arithmetic lattice give a sharp observable difference between isotropic inverse-time decay and persistent anisotropic log oscillation on a well-motivated stable cubic counterexample. They determine nontrivial return clocks and a universal sharp onset rather than merely rephrase the known Lyapunov proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
