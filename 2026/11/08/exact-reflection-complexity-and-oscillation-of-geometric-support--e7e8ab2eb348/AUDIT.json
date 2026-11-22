@@ -1,116 +1,196 @@
 {
   "correctness": {
-    "rationale": "Complete symbolic proof identifies each factor with >=2 ones by its first consecutive power gap; unique starting positions are counted by two explicit intervals and reversal collisions only by exact two-one padding. Short cases including B=2,n=3 are separated. A limit calculation proves sharp liminf/limsup and all intermediate subsequential limits. Standalone verifier returned VERIFY_OK with 101365 finite diagnostic cases; not used as infinite proof.",
+    "rationale": "For n≥1, zero-only and all possible one-marker offsets contribute 1+ceil(n/2) reversal classes. The first two marked powers in any multi-marker factor determine their gap (B−1)B^j and the unique occurrence. A factor with three or more marked powers has increasing internal gaps, so its reversal cannot be another factor. In the general range, windows containing at least two marks have starting positions in [0,h] union [max(0,s−M),s], giving U. Non-palindromic reversed pairs can occur only with two marks at the final eligible gap, with leading-zero padding l and M−l both ≤A, giving P; the special (B,n)=(2,3) reversal pair is separately subtracted. Short lengths and B=2 simplification are checked. With t=M/s, the normalized formula tends uniformly to the explicitly displayed two-piece F_B(t); its endpoints give 1/2+1/[B(B−1)] and peak 1/2+B/[(B−1)(B+2)], equal only for B=2. Every intermediate t is approached by admissible integer windows. Independent finite enumeration matched R_B(n) for B=2..10,n=0..150 (1359 cases), and B=2 simplification through n=30000 (29997 checks), plus 54 high-scale endpoint/peak samples; these are finite corroborations, not infinite proofs.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Allouche et al. Theorem 55 proves computable regularity for all automatic sequences, but does not give this explicit automaton/output or all-base formula",
-        "Dvořáková and Pelantová (2026) prove general minimum two-step growth and classify +1 increments, whereas the binary result here has +2 increments and the larger-base ratio oscillates"
+        "Allouche et al. Theorem 55 makes R(n) effectively B-regular for B-automatic words, a general algorithmic representation statement without the claimed closed numerical evaluation.",
+        "Gheorghiciuc supplies general ordinary subword-complexity formulas for increasing-gap binary words, not reversal orbit sizes.",
+        "Same-word published 2-binomial rigidity counts distinct factors through marked-start intervals; the same-word palindrome classification counts palindromic factors. Neither counts the distinct nonpalindromic reversal collisions needed for R(n).",
+        "Dvořáková–Pelantová classify minimum-growth reflection patterns and the 2026 generalized paper studies more general antimorphism actions, not the explicit all-base geometric support formula."
       ],
-      "reasoning": "Both stronger-sounding general papers establish structural or algorithmic existence, not a closed numeric formula for this word family or sharp accumulation endpoints. Neither statement implies the explicit claim without additional factor enumeration.",
+      "reasoning": "A general computability/regularity theorem for R or ordinary factor and palindromic complexities allows, but does not mechanically provide, the exact B-dependent collision term P, or the limit interval and its sharp endpoints. The proposed claim is a specific further calculation, not a corollary in the inspected source statements.",
       "searches": [
-        "published-finding corpus: reflection complexity sequences over finite alphabets Allouche Campbell Li Shallit Stipulanti 2024",
-        "web: \"reflection complexity\" lacunary word geometric powers factors",
-        "arXiv:2406.09302 Section 8 automatic-sequence theorem",
-        "DOI:10.1007/s00224-026-10278-7 Sections 3–5"
+        "arXiv:2406.09302, Definition 3 and Theorem 55, automatic k-regularity of reflection complexity",
+        "DOI:10.1007/s00224-026-10278-7, Dvořáková–Pelantová 2026, growth and minimum two-step difference",
+        "arXiv:2610.14637, generalized reflection complexity, sections on symmetry groups and automatic examples",
+        "arXiv:math/0512256, Gheorghiciuc Theorem 1.2 for gap-increasing binary words",
+        "Resultary: Two-binomial rigidity of geometric-marker automatic words, full RESULT.md",
+        "Resultary: Complete palindromic language of geometric-marker automatic words, full RESULT.md"
       ]
     },
     "checked_sources": [
-      "arXiv:2406.09302, original manuscript dated 2024-06-13, relevant full PDF sections",
-      "DOI:10.1007/s00224-026-10278-7, full open-access HTML sections",
-      "arXiv:2610.14637, abstract only, direct full-text retrieval unavailable",
-      "published-finding corpus targeted same-invariant and same-support semantic queries; closest IDs named above"
+      "https://arxiv.org/pdf/2406.09302",
+      "https://doi.org/10.1007/s00224-026-10278-7",
+      "https://arxiv.org/abs/2610.14637",
+      "https://arxiv.org/pdf/math/0512256",
+      "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-binomial-rigidity-of-geometric-marker-automatic-words--95feb376854e/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-complete-palindromic-language-and-maximal-factors-of-geometr--2271744c5ba8/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-minimal-absent-factors-of-power-support-binary-words--6b81bf3b008e/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-minimal-absent-factor-basis-of-the-binary-powers-of-two--e4d7d7cd5521/RESULT.md",
+      "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348 (same work/mirror, excluded as independent predecessor)",
+      "Resultary semantic searches for reflection complexity, geometric marker support, characteristic powers of two, reversal classes, exact tables and comparable gap words",
+      "Web exact-phrase searches for powers-of-two indicator reversal complexity and numerical all-length R2 formula"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The 2024 theorem implies B-regularity, not the explicit U-P cancellation, sharp limit interval or exceptional B=2 result",
-        "The 2026 article addresses minimum-growth sequences with two-step increment +1, not the present complexity values"
+        "From p_B(n) and palindrome P_B(n) alone one cannot recover the number of nonpalindromic factors whose reversed word also occurs; this is a separate pair-count statistic.",
+        "The submitted Step 5 computes such a statistic only from two-marked windows with balanced left/right padding, including the B=2,n=3 exception.",
+        "The prior universal k-regularity theorem has no displayed U-P formula or normalized oscillation constants for this word; ordinary gap complexity and palindromic counts have distinct equivalence relations."
       ],
-      "reasoning": "The new theorem includes exact counts for all n and a sharp distinction in normalized limits. Neither an algorithm to compute those counts, a minimum-growth classification implies those numerical evaluations on this family.",
+      "reasoning": "The new contribution is the nonpalindromic reflected-pair classification, a piecewise exact count and its sharp scaling consequences. The highly relevant existing stronger/same-object statements do not logically imply those evaluated constants without this additional analysis.",
       "searches": [
-        "arXiv:2406.09302 Definition 3, Theorem 55 and pp. 26–30 examples",
-        "DOI:10.1007/s00224-026-10278-7 Introduction, Sections 3 and 5",
-        "published-finding corpus: exact factorisation minimum palindromic length of automatic sequences for powers of two indicator and valuation sequences"
+        "arXiv:2406.09302 Theorem 55 vs closed formula R_B(n)",
+        "arXiv:math/0512256 Theorem 1.2 vs reflected factor pairing",
+        "Resultary: Two-binomial rigidity of geometric-marker automatic words, exact factor formula vs reversal R_B",
+        "Resultary: The complete palindromic language and maximal factors of geometric-marker automatic words",
+        "arXiv:2610.14637 generalized antimorphism complexity vs ordinary reversal"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Allouche et al. arXiv:2406.09302, Definition 3, Section 8, actual reflection classes by reversal; no geometric-support factor-count formula in the inspected material",
-        "published-finding corpus semantic results led to other invariants or other objects rather than this exact all-base reversal count"
+        "Resultary returned only the identical current result for the geometric-support reflection formula; its other reflection-complexity hits concerned square-support, triangular-support, period-doubling, de Bruijn and other distinct words.",
+        "Allouche et al., arXiv:2406.09302, Definition 3, treats length-n factors under reversal; its automatic-sequence section treats different explicit families.",
+        "The geometric-marker palindrome classification determines symmetric factors but not nonpalindromic reverse-pair counts."
       ],
-      "reasoning": "Reversal equivalence, reflected/unreflected factor decomposition, and even-odd sequence forms are the immediate aliases. The proposed all-base exact formula and normalized oscillation could have appeared under any of them; no equivalent claim was found in inspected material.",
+      "reasoning": "The characteristic sequence of positive B-powers, geometric-gap indicator, binary lacunary marker word, and reversal orbit count are equivalent descriptions. The known general reflection definition and same-word palindrome language do not themselves state the required all-length pair census or normalized oscillation; an uncatalogued equivalent presentation remains possible.",
       "searches": [
-        "published-finding corpus: reflection complexity reversal equivalence of factors characteristic word powers of two 1 at positions 1,2,4,8,... exact r(n)=n+2 for even n and n+3 for odd n",
-        "published-finding corpus: binary word 01101000100000010000000000000001 reflection complexity",
-        "web: \"reflection complexity\" \"powers of two\" sequence factors",
-        "web: \"reflection complexity\" \"characteristic sequence\" \"powers of two\" factor"
+        "Resultary: reflection complexity reversal factor classes characteristic sequence powers of two or powers of b geometric lacunary supports exact expression oscillation liminf limsup",
+        "Resultary: reflection complexity of powers of two characteristic word 0110100010001 reversal R(n) 2ceil(n/2)+2",
+        "Resultary: geometric-support automatic word reflection classes all base B^j exact formula",
+        "Web: reflection complexity of powers of two characteristic word, reflected factors and lacunary marker word"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The indexed result titled “Sharp logarithmic support envelope for Abelian pattern Sturmian words” concerns sparse-letter support bounds, not reversal-class enumeration.",
-        "The indexed result titled “Exact greedy string attractor of the period-doubling word” concerns factor attractors for a different word and invariant."
+        "Resultary includes the same exact formula under the assigned result mirror, which is the same work, and adjacent complete tables of minimal absent factors and palindromic factors for the same word.",
+        "The actual same-word palindromic spectrum does not tabulate all nonpalindromic factors up to reverse occurrence; the same-word minimal-absent-factor tables concern a different language invariant.",
+        "No earlier independent exact table of reversal orbit counts for all n/B was located among these tested databases and papers."
       ],
-      "reasoning": "Exact values and all-length classifications were searched, rather than only titles. The near results are neither reversal-factor counts nor exact same-object tables. There is no database-table implication in the inspected records.",
+      "reasoning": "The self-mirror is not distinct prior coverage. A factor-complexity or palindrome table could help derive the new answer but does not in isolation imply it. Negative database searches alone are not novelty proof.",
       "searches": [
-        "published-finding corpus: sparse powers support indicator 1 at integer powers b factor classes under reversal",
-        "published-finding corpus: lacunary powers of two indicator automatic sequence factor reversal complexity palindrome factor languages",
-        "web: \"reflection complexity\" \"powers of 2\" indicator word",
-        "web: \"reverse complexity\" powers of two indicator sequence"
+        "Resultary: indicator powers of b word 1 at b^k otherwise zero contiguous factors complexity exact linear oscillation",
+        "Resultary: binary characteristic sequence powers of two factor complexity p(n), palindromic complexity reversal",
+        "Resultary: palindromic factor complexity lacunary powers binary characteristic sequence",
+        "Web: powers of two indicator reflection/reversal complexity exact R2(n) values and OEIS numerical sequence"
       ]
     },
-    "rationale": "The new claim is an explicit factor-by-factor all-base reversal-class count with sharp normalized accumulation laws, not a restatement of the generic automatic regularity theorem. Primary texts and semantic mathematical records were checked for stronger covering implications. No such implication was identified; residual bibliographic risk is stated.",
+    "rationale": "Independent search and material full-text comparison of the same B-power marker family, primary reflection-complexity theorems, generalized invariants and gap-increasing words found no prior theorem that directly gives the submitted U-P expression and all-base sharp oscillation interval. The assigned published Resultary mirror is the same work, not a predecessor. The residual bibliographic risks are stated explicitly.",
     "residual_risks": [
-      "A formula may be known under an unindexed synonym or in literature not retrieved; absence of search hits is not a proof of novelty.",
-      "The October 2026 group-generalized reflection-complexity preprint could only be inspected at abstract level; its full text was not accessible in this run."
+      "An unindexed or differently named exact reversal-class census for the B-power indicator may exist; searches are not a proof of historical priority.",
+      "The exact ordinary factor language and palindrome spectrum can in principle be combined with further nonpalindromic reversal calculations; they do not themselves state the new explicit R_B(n).",
+      "General k-regularity algorithms could computationally generate an equivalent output; no matching explicit closed evaluation was found."
     ],
     "source_inspections": [
       {
-        "assessment": "Defines invariant and proves general automatic regularity; no geometric-support closed formula in inspected sections",
+        "assessment": "Definitions and general B-regularity cover the framework, not the explicit geometric-support census.",
         "evidence": [
-          "arXiv:2406.09302, pp. 2–9 and pp. 24–30, Theorem 55 and examples for Thue–Morse, period-doubling, paperfolding, Baum–Sweet"
+          "Definition 3 and automatic-sequence Theorem 55; the worked examples are Thue–Morse, paperfolding, period-doubling, Golay–Shapiro and Baum–Sweet, not this characteristic word."
         ],
         "identifier_or_url": "https://arxiv.org/pdf/2406.09302",
-        "material_read": "Definition 3, Sections 2–3, automatic-sequence Theorem 55, detailed classical examples in the automatic section, discussion of further directions; PDF pages 1–9 and 24–30 partly inspected in text and page images",
-        "method": "Primary open-access arXiv PDF text inspected, relevant page images checked; searched for sparse, lacunary, powers of",
+        "material_read": "Primary PDF definitions, factor/reversal orbit framework, Theorem 55 for automatic sequences, named automatic-sequence examples; inspected text and page images in relevant sections",
+        "method": "Open-access arXiv full PDF text and selected original-page screenshots",
         "title": "The reflection complexity of sequences over finite alphabets",
-        "trigger": "Foundational same-invariant primary paper, first public 2024-06-13"
+        "trigger": "Foundational primary work on exactly the invariant R(n) and automatic words"
       },
       {
-        "assessment": "General growth and minimum +1 two-step increment classification; no direct evaluated geometric-support family",
+        "assessment": "Treats general lower growth and a minimum-growth classification, with no matching all-base power support count.",
         "evidence": [
-          "Dvořáková–Pelantová (2026), Sections 3–5: general reflection complexity, eventual periodicity, minimum growth"
+          "Sections 3–6 growth/minimality statements differ from the B-dependent oscillatory exact factor orbit enumeration."
         ],
         "identifier_or_url": "https://doi.org/10.1007/s00224-026-10278-7",
-        "material_read": "Open-access HTML Introduction, Sections 3 and 5, and Sections 6 summary and related displayed statements",
-        "method": "Read original full-text HTML, not merely search snippet",
+        "material_read": "Open-access HTML Introduction, growth results and minimum two-step-increment characterization in the central sections",
+        "method": "Full-text publisher HTML, theorem and examples inspection",
         "title": "Reflection on the Reflection Complexity",
-        "trigger": "Later paper on general reflection-complexity growth, potential broader coverage"
+        "trigger": "2026 general reflection-complexity growth follow-up, potentially stronger"
       },
       {
-        "assessment": "Abstract treats antimorphism groups and generalized Thue–Morse/Rote words, not this support family; residual full-text uncertainty retained",
+        "assessment": "Its group-generalized reflection theorems concern other word families and symmetry actions; no explicit powers-of-B support orbit formula.",
         "evidence": [
-          "ArXiv listing for arXiv:2610.14637, first public October 2026; no full text accessed"
+          "Results involving generalized Thue–Morse, Rote/Sturmian and related classes; no statement covering this exact B^j-support sequence."
         ],
         "identifier_or_url": "https://arxiv.org/abs/2610.14637",
-        "material_read": "Abstract and bibliographic record only; direct arXiv full-text fetch returned unavailable",
-        "method": "Checked scholarly search abstract and attempted arXiv abs/PDF endpoints",
+        "material_read": "ArXiv full HTML text including introduction, group-action definitions, results and conclusion; PDF route did not return readable bytes",
+        "method": "Primary arXiv HTML full-text reading and theorem search, not merely abstract",
         "title": "Generalized reflection complexity",
-        "trigger": "Potentially relevant 2026 broader variant of reversal equivalence"
+        "trigger": "2026 broader title on reversal group actions and automatic families"
+      },
+      {
+        "assessment": "Ordinary factor-complexity formulas do not supply the reversal orbit count or B-dependent liminf/limsup.",
+        "evidence": [
+          "Theorem 1.2 counts subwords for gap-increasing words without quotienting by reversal."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0512256",
+        "material_read": "Full open-access PDF, definitions, Theorem 1.2 and gap-growth formula; original first pages screened",
+        "method": "ArXiv full PDF text reading and original-page screenshots",
+        "title": "The subword complexity of a class of infinite binary words",
+        "trigger": "Direct prior study of binary words with increasing gaps between successive ones"
+      },
+      {
+        "assessment": "Same object but binomial-equivalence reconstruction, not reverse-pair enumeration.",
+        "evidence": [
+          "Its exact p_B(n)=n+1+sum_{r>=2,a>=0}H_{a,r}(n), no formula for nonpalindromic reflected pairs."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-binomial-rigidity-of-geometric-marker-automatic-words--95feb376854e/RESULT.md",
+        "material_read": "Complete RESULT.md theorem, interval double-sum, all proof steps and limitations",
+        "method": "Read GitHub full original result source",
+        "title": "Two-binomial rigidity of geometric-marker automatic words",
+        "trigger": "Exact same B-power marker family with complete ordinary factor counts"
+      },
+      {
+        "assessment": "Only counts self-reversed factors; lacks the number of non-palindromic reversed pairs.",
+        "evidence": [
+          "Every palindrome has at most two markers; P_B(n)≤3, but no quotient count R_B(n)."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-complete-palindromic-language-and-maximal-factors-of-geometr--2271744c5ba8/RESULT.md",
+        "material_read": "Full RESULT.md including palindrome classification, length counts and proof",
+        "method": "Read GitHub full original result source",
+        "title": "The complete palindromic language and maximal factors of geometric-marker automatic words",
+        "trigger": "Same word and reversal-fixed factors, possible exact-quotient implication"
+      },
+      {
+        "assessment": "Forbidden-language classification, not an explicit enumeration of reversal classes or sharp oscillatory slopes.",
+        "evidence": [
+          "Four families A0..A3 of minimal absent factors and M_b(N), different invariant."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-minimal-absent-factors-of-power-support-binary-words--6b81bf3b008e/RESULT.md",
+        "material_read": "Full RESULT.md including four-class minimal forbidden factor formula and proof",
+        "method": "Read original full result text via GitHub",
+        "title": "Complete minimal absent factors of power-support binary words",
+        "trigger": "Same all-base geometric marker word; possible hidden full-language coverage"
+      },
+      {
+        "assessment": "No formula for R2(n); its classification can aid a new calculation but does not state or directly imply the reversed orbit numbers.",
+        "evidence": [
+          "Its theorem classifies minimal absent binary factors and m(n), not quotient by reversal."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-minimal-absent-factor-basis-of-the-binary-powers-of-two--e4d7d7cd5521/RESULT.md",
+        "material_read": "Complete RESULT.md binary forbidden factors and length counts",
+        "method": "Original GitHub result full text reading",
+        "title": "Complete minimal-absent-factor basis of the binary powers-of-two indicator",
+        "trigger": "Earlier B=2 language study, potential covered specialization"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "e7e8ab2e-b348-4a19-a9b0-d4d2e768c03f",
+  "scientific_limitations": [
+    "Finite numerical checks corroborate the proof but cannot prove all B or n.",
+    "Literature coverage is best of knowledge and leaves the named possible equivalent formulations."
+  ],
   "value": {
-    "rationale": "Reflection complexity is a motivated invariant introduced in 2024. An exact all-base census for geometric-support automatic words is a natural infinite-family classification; the base-two formula is exceptionally simple, while bases >=3 display quantified nonconvergent normalized complexity with a full accumulation interval. No arbitrary parameter slice or mere literature reformulation is involved.",
+    "rationale": "Reflection complexity is a motivated reversal-quotient language invariant. The indicator word of integer powers is a canonical lacunary B-automatic example. Its all-length closed formula for every B≥2, explicit nonpalindromic reversal-pair correction, and sharp B-dependent nonconvergent normalized complexity for B≥3 form a natural complete infinite-family classification beyond ordinary factor counts and palindrome counts. B=2 has a simple exact linear formula and is the sharp boundary of convergence. These structural values are not an arbitrary finite slice, mere renaming or a known table recomputation.",
     "status": "PASS"
-  }
+  },
+  "verification_methods": [
+    "Exact combinatorial proof reconstruction",
+    "Finite independent enumeration of 1359 B-n cases",
+    "Separate B=2 simplification check to 30000",
+    "Exact original frozen seven-blob Git tree verification"
+  ]
 }
