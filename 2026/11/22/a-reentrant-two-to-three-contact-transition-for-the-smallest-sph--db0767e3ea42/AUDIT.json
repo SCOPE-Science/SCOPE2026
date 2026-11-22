@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every L in (0,pi] and eta>0, unique center is forced onto x axis by reflection and strict convexity. The continuous farthest-point identity is proved by monotonicity of sin t/t, not an enumeration. Minimizing the exact maximum of two quadratics yields all centers, radii and contacts. Strict concavity of log q on (pi/2,pi) proves one maximum and the two-root reentrance for eta in (2/pi,eta_star). One-sided derivatives prove C1 and non-C2 at positive contact boundary. Actual standalone VERIFY.py rerun gave HELIX_ENCLOSING_BALL_REENTRANT_CHECKS_OK on 96 parameter cases and checks all advertised numerical approximations. Finite tests are only corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jahn arxiv:1410.4725 introduction and Sections 2–3 give finite-site plane contact and algorithm theory, not finite helical arcs in 3D.",
+        "Martín–Martini–Spirova 2014 J. Convex Analysis abstract presents structural Chebyshev set properties in normed spaces without helix-specific closed forms.",
+        "Chan–Pathak 2014 introduction deals with streaming/dynamic approximate minimum-enclosing balls for finite data."
+      ],
+      "reasoning": "Generic existence, support-size or approximation theorems do not determine which points of a continuous helix support the ball nor provide the exact two-root, reentrant pitch window. No identified stronger same-object formula implied the theorem.",
+      "searches": [
+        "web: \"minimum enclosing ball\" \"helix\" formula contact",
+        "web: chebyshev center of a helical segment smallest ball circumsphere",
+        "arxiv:1410.4725 full text and Theorem 2.7",
+        "JCA 21 (2014) Chebyshev Sets and Ball Operators abstract",
+        "helix segment circumball endpoint midpoint pitch threshold cos L 1-cos L",
+        "smallest sphere containing trigonometric helix finite arc center x axis radius exact threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1410.4725 (Jahn, first public 2014-10-17, Introduction, Theorem 2.7 and algorithms)",
+      "https://sma.epfl.ch/lcvmwww/publications/data/articles/65/paper.pdf (González–Maddocks–Smutny, introduction, Sections 6 and 7.2)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-and-three-contact-points-for-minimum-enclosing-spheres-of-sy--6a878f319c33 (full RESULT.md)",
+      "https://doi.org/10.1016/j.comgeo.2013.05.007 (Chan–Pathak, abstract and accessible opening exposition)",
+      "https://journalofconvexanalysis.com/articles/jca21032/ (Martín–Martini–Spirova, abstract and bibliography)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moment-curve exact contact result has equations in polynomial parameter t and a threshold a=1 for even dimension; no isometric identification with Γ_{L,eta} or reentrant L behavior.",
+        "Jahn theorem 2.7 classifies finite planar support configurations, not the continuously parametrized 3D helix.",
+        "Helix thickness article describes infima of multipoint osculating-circle/sphere radii, whereas containment requires a global maximum over points followed by minimum over centers."
+      ],
+      "reasoning": "There is no statement-level implication from these inspected results to the simultaneous exact center/radius formula and reentrant two/three/two-contact classification. The proof depends on the helix-specific t sinc monotonicity, absent in the prior generic results.",
+      "searches": [
+        "inspect full RESULT.md of published-finding corpus 2026/11/8/...--6a878f319c33",
+        "inspect open text of arxiv:1410.4725 Theorem 2.7",
+        "inspect Gonzalez–Maddocks–Smutny 2002 Sections 1,6,7.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus record 2026/11/8/...--6a878f319c33 (full theorem inspected): symmetric polynomial moment curves, not a curve with trigonometric and linear coordinates.",
+        "González–Maddocks–Smutny 2002 Section 7.2: pitch transitions for minima of thickness radii of infinite helices, not the largest distance to a center of a finite arc."
+      ],
+      "reasoning": "The exact equivalent is the ambient Euclidean Chebyshev center/minimum containing ball of the entire continuum Γ_{L,eta}; the same objects and both parameters were searched. The polynomial moment-curve result has a different embedding and cannot imply the nonmonotone q(L) contact boundary. The helix-thickness result extremizes contact-sphere radii instead of global covering radius.",
+      "searches": [
+        "minimum enclosing sphere of circular helix arcs exact center radius pitch transition endpoint two-contact three-contact",
+        "smallest enclosing ball of helical curve semicircle segment radius pitch phase transition",
+        "Chebyshev center of finite circular helix arc H(t)=(cos t,sin t,pt) minimum Euclidean enclosing ball reentrant two versus three contacts",
+        "web: \"minimum enclosing sphere\" \"helix\" radius",
+        "web: \"helix\" \"Chebyshev center\" circular arc"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus 2026/11/8/SCOPE-two-and-three-contact-points-for-minimum-enclosing-spheres-of-sy--6a878f319c33 has distinct polynomial moment-curve contacts.",
+        "Related published-finding corpus 2026/11/1/SCOPE-intrinsic-minimax-and-least-squares-centers-of-a-finite-circular--6a43f31f95ed treats intrinsic geodesic distances on a cone, not extrinsic helix balls."
+      ],
+      "reasoning": "No exact table of smallest Euclidean enclosing radii, centers or pitch thresholds for the named continuous helix arc was found in the queried indexed records. Database searches are positive overlap screens, not completeness certificates.",
+      "searches": [
+        "published-finding corpus full-text semantic searches: smallest enclosing Euclidean ball trigonometric moment curve cos t sin t t continuous symmetric parameter arc",
+        "published-finding corpus full-text semantic searches: minimum covering sphere cylindrical spiral segment reentrant support contacts",
+        "published-finding corpus full-text semantic searches: minimum enclosing circumscribed ball of circular helix and Chebyshev center"
+      ]
+    },
+    "rationale": "Meaning-level searches found no equivalent or dominating closed-form Chebyshev center of a continuous circular helix arc. The closest published published-finding corpus result is about polynomial moment curves; the closest older helix paper minimizes thickness rather than bounding-sphere radius. Generic enclosing-ball papers give algorithmic and finite point principles, not the special reentrant transition. Full text inspected for the closest exact record and relevant geometric primary results. Priority provisional; unindexed specialized claims remain possible.",
+    "residual_risks": [
+      "An unindexed earlier computational-geometry or filament-geometry calculation could contain these same helix arc formulas; global novelty cannot be certified by search.",
+      "The publisher full text of the general Chebyshev Sets and Ball Operators article was not inspected; only abstract and references. It is less plausible because it does not mention the helix.",
+      "The helix thickness source was materially read in extracted text, but its attempted page screenshot timed out; comparison is based on relevant extracted sections."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General finite planar minimal-disk contact and algorithms; does not give the continuous 3D circular helix phase law",
+        "evidence": "Theorem 2.7 explicitly states finite sets in strictly convex normed planes; its corollary gives two- or three-support points but no helix-specific center formula.",
+        "identifier_or_url": "https://arxiv.org/abs/1410.4725",
+        "material_read": "full web-extracted Introduction, Sections 2–3 including Theorem 2.7 and its proof",
+        "method": "Open arXiv full HTML and compare object/dimension/parameter statements",
+        "title": "Geometric Algorithms for Minimal Enclosing Discs in Strictly Convex Normed Planes",
+        "trigger": "Minimal-enclosing-contact theorems might dominate the proposed result"
+      },
+      {
+        "assessment": "Concerning the minimum of contact sphere radii (thickness) on infinite helix; does not supply minimum enclosing ball for a bounded helix arc",
+        "evidence": "Section 7.2 characterizes helix thickness by minima of pt and tt as pitch varies; document does not use an enclosing/covering sphere objective.",
+        "identifier_or_url": "https://sma.epfl.ch/lcvmwww/publications/data/articles/65/paper.pdf",
+        "material_read": "PDF extracted introduction and text of Sections 6 and 7.2, including helix discussion and curves of multi-point radius; page screenshot was attempted but unavailable",
+        "method": "Inspect web-extracted PDF passages and locate relevant helix and covering terminology",
+        "title": "Curves, circles, and spheres",
+        "trigger": "Exact same circular helix and critical pitches; possible same-object priority"
+      },
+      {
+        "assessment": "Different polynomial moment curve; cannot imply formula for circular helix",
+        "evidence": "The published result explicitly treats gamma_d(t)=(t,t^2,...,t^d) in fixed Euclidean coordinates and excludes arbitrary trigonometric realizations.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-and-three-contact-points-for-minimum-enclosing-spheres-of-sy--6a878f319c33",
+        "material_read": "entire published RESULT.md including theorem assumptions, proof and limitations",
+        "method": "Read repository result through GitHub public read action and check if geometry or parameters reduce to the helix",
+        "title": "Two and three contact points for minimum enclosing spheres of symmetric moment-curve hulls",
+        "trigger": "Closest published-finding corpus statement for support change in an enclosing sphere"
+      },
+      {
+        "assessment": "General approximate finite point algorithms; no specific helix arc parameters established in inspected material",
+        "evidence": "Opening states focus on streaming/dynamic approximation of finite P, not exact continuum 3D curves.",
+        "identifier_or_url": "https://doi.org/10.1016/j.comgeo.2013.05.007",
+        "material_read": "publisher abstract and opening introduction, plus part of approximation derivation",
+        "method": "Read accessible article text",
+        "title": "Streaming and dynamic algorithms for minimum enclosing balls in high dimensions",
+        "trigger": "Algorithms for minimum enclosing balls could contain a stronger generic formula"
+      },
+      {
+        "assessment": "Only general structural abstract checked; full article not inspected, so no whole-paper noncoverage assertion",
+        "evidence": "Abstract discusses Chebyshev sets and ball operators generally; publication does not name circular helices.",
+        "identifier_or_url": "https://journalofconvexanalysis.com/articles/jca21032/",
+        "material_read": "article abstract and bibliographic listings only",
+        "method": "Open publisher article landing page",
+        "title": "Chebyshev Sets and Ball Operators",
+        "trigger": "2014 exact Chebyshev centers and critical sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db0767e3-ea42-4d83-a6f4-766ca83e117a",
+  "value": {
+    "rationale": "The bounded one-turn circular helix is a natural nonplanar filament for a smallest containing sphere. The exact center/radius and full contact phase diagram are a complete classification rather than a narrow computation. For fixed 2/pi<eta<0.687437..., adding arc length changes contacts two to three and back to two, a substantive reentrant phenomenon not predicted by general existence theorems; the exact phase peak and C1/non-C2 boundary are useful geometric invariants and test cases.",
+    "status": "PASS"
+  }
+}
