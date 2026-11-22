@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:08:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/parity-extinction-and-a-logarithmic-branch-cutoff-for-random-wal--c5ce79ad9331/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/parity-extinction-and-a-logarithmic-branch-cutoff-for-random-wal--c5ce79ad9331/check.py"
+      ],
+      "rationale": "Every rooted-tree function modulo constants decomposes uniquely as a sum of oriented edge-cut indicators; the edge variation is the l1 norm of cut coefficients, so the constant-preserving Markov-power operator norm equals the maximum J(P^m 1_A) over tree edge cuts. Balanced double-star automorphisms reduce this to bridge cut and leaf cut. The three difference coordinates for symmetry classes obey the explicitly given 3x3 linear matrix, with eigenmodes q=k/(k+1), -q and -1. The bridge gives exactly 1 at even m, and 1+2/(2k+1)*max(0,2k*q^m-1) at odd m, while all leaf-cut columns have TV exactly one. The strict amplification condition m<log(2k)/log(1+1/k) follows algebraically, and the scaled profile follows q^(m-tau)->e^-s for m-tau~ks. Independent rational vertex simulation of all edge-cut columns for k=1..8 and m=0..10 (880 parameter/cut-family computations) agreed with the sharp formula.",
+      "residual_risks": [
+        "The precise formula is for non-lazy, unweighted, balanced double stars. Bipartite -1 mode is essential; changing laziness or branch balance changes the result. Finite checks are corroboration, not the all-size proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ollivier treats general metric-space Markov kernels with curvature/Lipschitz contraction; Kolmogorov et al. handle general tree total-variation energy minimization."
+        ],
+        "reasoning": "Generality of graph family does not mean stronger coverage: neither gives a sharp every-discrete-power edge-sum seminorm for the non-lazy balanced double-star chain.",
+        "searches": [
+          "balanced double star nonlazy walk variation operator norm even odd cutoff logarithmic",
+          "balanced double star simple random walk edge total variation norm powers",
+          "https://arxiv.org/abs/math/0701886",
+          "https://arxiv.org/abs/1502.07770"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0701886",
+        "https://arxiv.org/abs/1502.07770",
+        "https://arxiv.org/abs/1307.0468"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-step bridge cut can amplify edge-l1 variation even though the stochastic operator preserves constants and graph-Lipschitz statements concern another seminorm."
+        ],
+        "reasoning": "Neither curvature-based l-infinity gradient estimates nor graph-shift functional ||f-Af||_1 determine this l1 edge gradient norm, its parity oscillation, or the sharp tau~k log k cutoff.",
+        "searches": [
+          "https://arxiv.org/abs/math/0701886",
+          "https://arxiv.org/abs/1307.0468",
+          "balanced double star nonlazy walk variation operator norm even odd cutoff logarithmic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The variation is J(f)=sum_edges |gradient|, equal to the l1 coefficient norm in the tree cut basis; Ollivier’s Proposition 28 controls graph Lipschitz constants (max gradient) via coarse Ricci, not this l1 sum."
+        ],
+        "reasoning": "These norms are inequivalent on a growing double star, and a Lipschitz contraction theorem does not imply an exact edge-l1 amplification window.",
+        "searches": [
+          "balanced double star nonlazy walk variation operator norm even odd cutoff logarithmic",
+          "balanced double star simple random walk edge total variation norm powers",
+          "https://arxiv.org/abs/math/0701886"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The precise edge-cut norm 1+2/(2k+1) max(0,2kq^m-1) for every odd integer m and the logarithmic cutoff are absent from read primary statements."
+        ],
+        "reasoning": "No matched exact table of this operator, graph and parameter family was found; the classification derives from two explicit cut orbits rather than recomputing a known table.",
+        "searches": [
+          "balanced double star nonlazy walk variation operator norm even odd cutoff logarithmic",
+          "balanced double star simple random walk edge total variation norm powers",
+          "https://arxiv.org/abs/math/0701886"
+        ]
+      },
+      "rationale": "The exact k-dependent odd-time amplification window and finite-time extinction of the edge-l1 operator norm are distinct from standard graph-Lipschitz/Wasserstein contraction, stationary mixing and heat-flow graph-TV theory. Checked broader searches did not identify a theorem whose hypotheses and conclusion imply the bridge/leaf norm law.",
+      "residual_risks": [
+        "An earlier unpublished exact TV-on-double-star calculation remains possible; no claim for unbalanced trees, continuous time or lazy policies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Lipschitz/Wasserstein rather than sum-of-edge-gradients TV, so exact double-star expression not implied"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701886",
+          "material_read": "Full-text PDF with Proposition 28 on Lipschitz contraction, Proposition 29 and surrounding definitions/claims; relevant rendered PDF page inspected",
+          "method": "Lawful arXiv PDF text and page screenshot",
+          "title": "Ricci curvature of Markov chains on metric spaces",
+          "trigger": "Closest general Markov contraction theorem"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "TV regularization algorithms, not powers of simple-random-walk averaging"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.07770",
+          "material_read": "Abstract, introduction and the optimization problem in open-access full text",
+          "method": "Lawful arXiv/open-access text",
+          "title": "Total Variation on a Tree",
+          "trigger": "Same graph-TV functional"
+        },
+        {
+          "assessment": "NOT_DECISIVE",
+          "evidence": [
+            "Uses ||f-A_norm f||_1, not sum of edge absolute differences"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.0468",
+          "material_read": "Only abstract and usage of graph-shift variation checked; full paper not asserted read",
+          "method": "Open abstract/contextual source",
+          "title": "Discrete Signal Processing on Graphs: Frequency Analysis",
+          "trigger": "Graph variation alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/parity-extinction-and-a-logarithmic-branch-cutoff-for-random-wal--c5ce79ad9331/RESULT.md",
+        "https://arxiv.org/pdf/math/0701886"
+      ],
+      "rationale": "The balanced double star is the canonical two-community tree with a bottleneck bridge. The exact norm demonstrates a counterintuitive strict short-time increase of edge variation, parity-forced equality on every even horizon, and a sharp logarithmic-in-branch-size cutoff with a transition profile. These are precise and motivated stability phenomena for a natural Markov smoothing operator.",
+      "residual_risks": [
+        "The theorem is graph-family-specific and does not imply general nonexpansivity for arbitrary trees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The precise formula is for non-lazy, unweighted, balanced double stars. Bipartite -1 mode is essential; changing laziness or branch balance changes the result. Finite checks are corroboration, not the all-size proof.",
+    "An earlier unpublished exact TV-on-double-star calculation remains possible; no claim for unbalanced trees, continuous time or lazy policies.",
+    "The theorem is graph-family-specific and does not imply general nonexpansivity for arbitrary trees."
+  ],
+  "schema_version": 1
+}

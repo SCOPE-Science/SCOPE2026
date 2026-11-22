@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement quantifies over all integers \(k\ge1\), nonnegative integer powers \(m\), and real signals modulo constants, with the non-lazy random-walk normalization explicitly fixed. On every tree, the edge-cut coordinate decomposition makes the global seminorm the maximum of single-cut output variations. Balanced double stars have precisely a bridge-cut and a leaf-cut orbit. The three-gradient recurrence is obtained directly from neighbor averages and diagonalizes into eigenvalues \(q\), \(-q\), and \(-1\). Its displayed closed forms give the bridge and leaf norms, and binary cut indicators attain the maximum. The threshold and limiting profile follow by elementary logarithmic asymptotics. The exact-fraction checker independently tests the recurrence and 910 small graph/power combinations. Finite tests are not substituted for the all-parameter proof.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+Every rooted-tree function modulo constants decomposes uniquely as a sum of oriented edge-cut indicators; the edge variation is the l1 norm of cut coefficients, so the constant-preserving Markov-power operator norm equals the maximum J(P^m 1_A) over tree edge cuts. Balanced double-star automorphisms reduce this to bridge cut and leaf cut. The three difference coordinates for symmetry classes obey the explicitly given 3x3 linear matrix, with eigenmodes q=k/(k+1), -q and -1. The bridge gives exactly 1 at even m, and 1+2/(2k+1)*max(0,2k*q^m-1) at odd m, while all leaf-cut columns have TV exactly one. The strict amplification condition m<log(2k)/log(1+1/k) follows algebraically, and the scaled profile follows q^(m-tau)->e^-s for m-tau~ks. Independent rational vertex simulation of all edge-cut columns for k=1..8 and m=0..10 (880 parameter/cut-family computations) agreed with the sharp formula.
 
-Ollivier (2007), Propositions 28–29, bounds graph-Lipschitz averaging and a Hilbert spectral radius, not the edge-sum variation norm. Sandryhaila–Moura (2013) defines graph-shift variation differently. Feneuil (2014) treats graph Littlewood–Paley functions, without an exact double-star \(P^m\) edge variation calculation. Two closely related published tree results respectively concern continuous-time weighted heat flow in edge total variation and a continuous-time balanced double-star graph-Lipschitz norm; neither implies the exact discrete-time non-lazy variation formula, finite odd-power extinction or sharp cutoff. Multiple source-title, parameter, equivalent-norm and implication searches revealed no equivalent claim. Database silence does not prove uniqueness; unindexed antecedents remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The result is an exact all-parameter stability law for a canonical neighbor-averaging operator on the smallest nontrivial two-hub branching family. It isolates a non-obvious parity phenomenon: every even power is nonexpansive although some odd powers amplify. It proves an exact finite cutoff at \(k\log k\) steps and an asymptotic transition profile rather than a one-off small-graph constant. This distinguishes stability of graph-total-variation from ordinary Markov spectral and Lipschitz norms.
+The exact k-dependent odd-time amplification window and finite-time extinction of the edge-l1 operator norm are distinct from standard graph-Lipschitz/Wasserstein contraction, stationary mixing and heat-flow graph-TV theory. Checked broader searches did not identify a theorem whose hypotheses and conclusion imply the bridge/leaf norm law.
 
-## Scope and limitations
+## value
 
-The result is specialized to balanced unweighted double stars and discrete non-lazy neighbor averaging. An equivalent earlier unindexed result cannot be ruled out. The self-review has not been supplemented by an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The balanced double star is the canonical two-community tree with a bottleneck bridge. The exact norm demonstrates a counterintuitive strict short-time increase of edge variation, parity-forced equality on every even horizon, and a sharp logarithmic-in-branch-size cutoff with a transition profile. These are precise and motivated stability phenomena for a natural Markov smoothing operator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
