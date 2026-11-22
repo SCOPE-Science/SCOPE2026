@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The projective gradient equations establish that the specialized cubic discriminant and the cubic-surface dual have the same irreducible support. The cubic discriminant's \(\mathrm{GL}_5\) covariance yields exact degree \(24\) in the four linear-form coefficients, while the dual's degree is \(12\); unique factorization forces the *exact* square, including multiplicities. Smooth-dual tangency gives one ordinary plane-section node, which lifts to precisely two Hessian-nondegenerate cubic-threefold nodes interchanged by the involution. A transverse conic therefore gives \(24\) such fibers; the whole incidence space is the smooth blow-up of the cubic fourfold along the fixed cubic surface. The independent exact symbolic example checks a squarefree degree-\(24\) conic restriction. No finite computation is used as the proof of the general identity.
+
+## Originality
+PASS with a historical-priority caveat. Li Bassi, arXiv:2611.14747v1, Lemma 2.1 and equation (2.3), identifies the *support* of bad Eckardt parameters; §2.1 expressly does not retain multiplicities. It neither states the universal dual-square polynomial identity nor a generic \(24\)-parameter, \(48\)-node singular-fiber census. Marquand, arXiv:2202.13213, Lemma 4.7, proves a paired-node assertion for a different hyperplane system, with a fixed-line conic-bundle degeneracy; it does not imply this polynomial identity or generic Eckardt count. Indexed statement-and-implication searches found no equivalent theorem. Generic dual-degree and discriminant-covariance facts are acknowledged as classical. An unindexed calculation could still take priority.
+
+## Value
+PASS. The initiating work studies anti-invariant Prym factors and their compactification, but the set-based smooth-parameter description loses exactly the scheme multiplicity needed to understand the boundary. Here the boundary is forced to be nonreduced of multiplicity two, and its \(24\) generic points each represent *two* simultaneous ordinary nodes, not a one-node Lefschetz fiber. This distinguishes the boundary from the one-node locus underlying standard Jacobian compactifications and supplies a concrete degeneration profile for further Prym and monodromy work. It is a natural complete boundary count and structural square identity, not an arbitrary numerical specialization.
+
+## Closest literature and limits
+The original Lemma 2.1 already supplies the set-theoretic equivalence, so that equivalence is not a new claim. The new assertions require the discriminant transformation weight, dual-degree comparison, and local tangency analysis. The paired-node literature on another hyperplane system is analogous rather than identical. The result is over \(\mathbb C\) and assumes generic transversality for the \(24\)-fiber count; special conics can have colliding fibers and more degenerate singularities. No formula for the compactified Prym fibers is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
