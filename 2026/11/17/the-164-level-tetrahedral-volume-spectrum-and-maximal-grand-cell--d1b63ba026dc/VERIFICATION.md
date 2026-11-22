@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verification/check_600cell.py` with `verification/SPECTRUM.csv` present. The checker uses exact arithmetic in the quadratic integer ring and no nonstandard Python libraries. It verifies the 120-vertex normalization, every one of 273,819 anchored tetrahedral Gram determinants, an independent Cauchy--Binet calculation for every one, all 164 rows of the frequency table, the two largest values and all 600 maximum four-cliques, their edges and face incidences. Output from the completed local replay:
+# Independent mathematical audit
 
-`600CELL_TETRA_EXACT_PASS vertices=120 anchored_triples=273819 levels=164 total_subsets=8214570 maxima=600 golden_K4=600 max_det=(160,256) next_det=(160,240) all_Cauchy_Binet=PASS`
+## correctness
 
-The analytical reduction from arbitrary contained tetrahedra to vertex-supported ones is established in the proof. Finite exact enumeration is sufficient to determine this finite vertex-set spectrum, not a numerical extrapolation.
+PASS
+
+Unit-radius 600-cell vertices are 8 coordinate, 16 half-sign, and 96 even-permutation golden coordinates. Writing doubled coordinates in Z[phi], 36 V^2=det(X^tX), and the cubic Gram determinant is (A+B phi)/64, so V^2=(A+B phi)/2304. Independent full anchored enumeration of all C(119,3)=273819 triples found 164 distinct exact pairs, zero count 2419, maximum (160,256) with 20 anchored and next (160,240) with 120; transitivity times 30 yields 600 and 3600, and 72570 degenerate tetrahedra. Actual SPECTRUM.csv has exactly 164 rows, sum 8214570 and matching extrema/zeros; verifier independently checks Cauchy–Binet and all rows. The maximum regular golden-edge tetrahedra have 600 cliques with 720 edges and 1200 triangles. Coordinatewise convexity of the exterior-product norm puts some maximum of any four contained points at vertices. No assertion of exclusive nonvertex equality.
+
+## originality
+
+PASS
+
+A 600-cell four-simplex (five vertices, four-dimensional content) uses a different determinant and is not a dominating bound on a three-dimensional four-vertex tetrahedron. Classical grand-600-cell tetrahedra and their incidence are prior, but their maximum among all 8214570 vertex quadruples, next volume and complete 164-level multiplicity distribution require the new exact census. No stronger primary statement found in material inspected; regular-polytope books remain a real priority risk.
+
+## value
+
+PASS
+
+The 600-cell is a canonical H4 polytope. Its complete intrinsic 3-volume spectrum, extremal inscribed 3-simplex, exact multiplicities and sharp next level are natural finite invariants useful for metric/polytope combinatorics; they are neither a mere rescaling nor the previously known 600 star-cell incidence count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

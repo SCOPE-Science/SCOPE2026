@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The arbitrary-position upper bound follows from separate convexity of the exterior-product norm. The 120-vertex set and transitivity are documented in Denney et al. Every one of the 273,819 symmetry-reduced four-vertex combinations is checked twice using independent exact quadratic-field Gram and Cauchy--Binet computations; the companion table records all 164 squared-volume values and their 8,214,570 total multiplicities. This is exhaustive for a finite domain, not a random experiment. The maximum, next level, counts, regularity, and star-cell incidence are confirmed exactly. Nonvertex equality cases are not classified.
+## correctness
 
-**Originality (PASS, priority provisional).** The 600 tetrahedral cells of the classical grand 600-cell are known and are *not* claimed as original. The checked H4 primary paper concerns 24-cell decomposition, groups and embeddings, not tetrahedron-volume order statistics. Known five-vertex four-simplex spectra involve four-dimensional rather than intrinsic three-dimensional volumes. The verified novel-claim candidate is the *maximality* of the grand 600-cell tetrahedra among all tetrahedra contained in the convex 600-cell, the entire 164-level four-vertex spectrum and the sharp second level. Historical books not read in full remain a specific priority risk.
+PASS
 
-**Mathematical value (PASS).** This answers a natural exact extremal problem for one of the six regular convex four-polytopes and reconciles its convex and classical star-polytope geometry; the full finite spectrum is independently useful in classifying 3-simplex configurations and separating them from 4-simplex spectra. The second spectral gap is an exact rigidity bound among vertex-supported tetrahedra. The result is not merely a re-enumeration of the 600 short boundary cells.
+Unit-radius 600-cell vertices are 8 coordinate, 16 half-sign, and 96 even-permutation golden coordinates. Writing doubled coordinates in Z[phi], 36 V^2=det(X^tX), and the cubic Gram determinant is (A+B phi)/64, so V^2=(A+B phi)/2304. Independent full anchored enumeration of all C(119,3)=273819 triples found 164 distinct exact pairs, zero count 2419, maximum (160,256) with 20 anchored and next (160,240) with 120; transitivity times 30 yields 600 and 3600, and 72570 degenerate tetrahedra. Actual SPECTRUM.csv has exactly 164 rows, sum 8214570 and matching extrema/zeros; verifier independently checks Cauchy–Binet and all rows. The maximum regular golden-edge tetrahedra have 600 cliques with 720 edges and 1200 triangles. Coordinatewise convexity of the exterior-product norm puts some maximum of any four contained points at vertices. No assertion of exclusive nonvertex equality.
 
-**Limitations.** No independent reviewer has examined this result. The full classical books on regular star polytopes remain a historical-priority uncertainty. The checker certifies the finite reduction only; the general-body bound uses the separately proved convexity lemma.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A 600-cell four-simplex (five vertices, four-dimensional content) uses a different determinant and is not a dominating bound on a three-dimensional four-vertex tetrahedron. Classical grand-600-cell tetrahedra and their incidence are prior, but their maximum among all 8214570 vertex quadruples, next volume and complete 164-level multiplicity distribution require the new exact census. No stronger primary statement found in material inspected; regular-polytope books remain a real priority risk.
+
+## value
+
+PASS
+
+The 600-cell is a canonical H4 polytope. Its complete intrinsic 3-volume spectrum, extremal inscribed 3-simplex, exact multiplicities and sharp next level are natural finite invariants useful for metric/polytope combinatorics; they are neither a mere rescaling nor the previously known 600 star-cell incidence count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
