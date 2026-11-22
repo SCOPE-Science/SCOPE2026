@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact Fourier eigenvalues \\(0,-4\\kappa,-2\\kappa\\pm2i\\) yield all four circulant resolvent coefficients. Two offdiagonals are strictly positive; the last has the sign of a single-positive-root quadratic. The theta update subtracts only a diagonal multiple, and the resolvent diagonal strictly decreases from 1 to 1/4, proving every timestep branch. The Crank–Nicolson critical comparison reduces to \\(\\kappa^2+2\\kappa-1\\ge0\\). The embedded verifier passed symbolic identities and 320 direct rational matrix inversions; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fekete et al., Section 6, separates centered convection and heat semidiscretizations and uses explicit Runge–Kutta methods.",
+        "Hadjimichael et al., theorem 1(i), assumes pure advection.",
+        "published-finding corpus theta cycles use rate matrices with nonnegative offdiagonals; symmetric heat tori omit the skew convection component."
+      ],
+      "reasoning": "The potentially broader numerical positivity schemes either change the spatial operator, require nonnegative offdiagonal rates, or fix physical diffusion to zero. None of those hypotheses contains the present signed four-point A; hence no proved implication transfers the exact \\(\\sqrt2-1\\) Crank–Nicolson frontier.",
+      "searches": [
+        "finite difference centered advection diffusion theta method M-matrix periodic four nodes positivity small diffusion",
+        "positivity preserving implicit discretization pure advection even grid diffusion regularization",
+        "implicit time stepping centered advection diffusion threshold diffusion-to-convection ratio positive one step even grid",
+        "published-finding corpus:2026/10/12/SCOPE-a-stationary-mass-threshold-for-positivity-of-the-theta-method-o--eb886aea6d4c",
+        "published-finding corpus:2026/11/8/SCOPE-sharp-positivity-thresholds-for-crank-nicolson-heat-steps-on-per--1102c3b3899f",
+        "https://arxiv.org/pdf/1610.00228"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2105.07403",
+      "https://arxiv.org/pdf/1610.00228",
+      "https://www.global-sci.com/aamm/article/view/5191",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=65Mxx",
+      "2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32",
+      "2026/10/12/SCOPE-a-stationary-mass-threshold-for-positivity-of-the-theta-method-o--eb886aea6d4c",
+      "2026/11/8/SCOPE-sharp-positivity-thresholds-for-crank-nicolson-heat-steps-on-per--1102c3b3899f",
+      "2026/10/25/SCOPE-exact-positivity-threshold-on-a-four-node-alternating-periodic-f--3d15bb4add6b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published even-grid obstruction is \\(d=0\\); our result requires \\(d>0\\) and supplies an exact diffusion ratio frontier.",
+        "Positive-generator theorems require a Metzler generator; \\(d-a<0\\) in every admitted case.",
+        "Li–Fu (2022) employs characteristic interpolation/limiting to obtain a positive method, not the unmodified centered theta update."
+      ],
+      "reasoning": "Statement-level implication was tested against objects, parameter domains and strengthened positivity conclusions, not title matches. The first two comparators have incompatible positivity-generating assumptions. A method changed by characteristics or limiting cannot supply this matrix-specific iff theorem by specialization. Unseen older work remains the primary uncertainty.",
+      "searches": [
+        "centered periodic advection diffusion backward Euler even grid exact positivity threshold four grid points",
+        "finite difference centered advection diffusion theta method M-matrix periodic four nodes positivity small diffusion",
+        "four node periodic centered convection diffusion Crank Nicolson positive matrix critical Peclet sqrt two minus one",
+        "four cycle drift diffusion circulant resolvent inverse entrywise nonnegative theta method phase diagram",
+        "implicit time stepping centered advection diffusion threshold diffusion-to-convection ratio positive one step even grid",
+        "implicit θ centered convection diffusion discrete positivity small diffusion periodic mesh nonmonotone",
+        "published-finding corpus:2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32",
+        "published-finding corpus:2026/10/12/SCOPE-a-stationary-mass-threshold-for-positivity-of-the-theta-method-o--eb886aea6d4c",
+        "https://arxiv.org/pdf/2105.07403",
+        "https://arxiv.org/pdf/1610.00228",
+        "https://www.global-sci.com/aamm/article/view/5191"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Our theta update is a circulant four-point resolvent plus a diagonal adjustment; Hadjimichael et al. derive the same theta functional form but only for zero physical diffusion (Section 2, theorem 1(i)).",
+        "The first-return result treats generators of irreducible Markov chains, not this signed off-diagonal convection-dominated stencil."
+      ],
+      "reasoning": "Four-cycle circulant inverse positivity, centered periodic convection-diffusion, and stochasticized theta-resolvent formulations were compared. Under \\(0<d<a\\) the spatial A has coefficient \\(d-a<0\\), so existing Markov-chain generator criteria cannot be specialized to produce our cutoff. The pure-advection limit \\(d=0\\) gives the opposite result and does not imply positivity at \\(d>0\\).",
+      "searches": [
+        "centered periodic advection diffusion backward Euler even grid exact positivity threshold four grid points",
+        "four cycle drift diffusion circulant resolvent inverse entrywise nonnegative theta method phase diagram",
+        "published-finding corpus:2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32",
+        "https://arxiv.org/pdf/2105.07403"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessed primary paper gives pure-advection Fourier tables and even-grid impossibility rather than a finite-diffusion four-node cutoff.",
+        "The four-node alternating finite-element published-finding corpus record concerns a consistent mass matrix for diffusion, not centered convective skew coupling."
+      ],
+      "reasoning": "No exact tabulation of the same four-site centered convection-diffusion theta matrix and its phase region was located in the accessible indexed records or inspected relevant primary texts. Absence from search is evidence of nonoverlap checked, not proof of worldwide novelty.",
+      "searches": [
+        "four node periodic centered convection diffusion Crank Nicolson positive matrix critical Peclet sqrt two minus one",
+        "2021 convection diffusion centered theta method positivity with diffusion period four nodes",
+        "published-finding corpus:2026/10/25/SCOPE-exact-positivity-threshold-on-a-four-node-alternating-periodic-f--3d15bb4add6b",
+        "arxiv:2105.07403v1 Section 2 Theorem 1"
+      ]
+    },
+    "rationale": "The sharp four-site \\(0<\\(d/a<1\\)\\) phase diagram and Crank–Nicolson diffusion threshold are not implied by the inspected pure-advection even-grid obstruction, by explicit RK centered-stencil results, by positive-generator theta-step results, or by modified positivity-preserving convection-diffusion schemes. Searches of the accessible own claim history and published published-finding corpus records found no implication-covering claim. Priority remains provisional because unindexed or differently named literature might cover it.",
+    "residual_risks": [
+      "Unindexed or unavailable prior analyses of four-point circulant convection-diffusion resolvents may establish equivalent inequalities under different terminology.",
+      "The Li–Fu characteristic-method full text was not inspected; its accessible abstract describes a different modified discretization.",
+      "No independent audit or priority certification was conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for positive physical diffusion; theorem 1(i) is only \\(d=0\\)",
+        "evidence": "Theorem 1(i) states the m-even nonnegativity impossibility for centered discretizations of the advection equation. No \\(d>0\\) advection-diffusion parameter appears in its model.",
+        "identifier_or_url": "https://arxiv.org/pdf/2105.07403",
+        "material_read": "Full-text pages 1, 2, 4 and 6 as displayed, including equations (1), (5), (6), Section 2 theta spectral representation, Theorem 1(i); searchable full document checked for physical diffusion",
+        "method": "arXiv v1 preprint, rendered page screenshots and selected source text",
+        "title": "Positivity preservation of implicit discretizations of the advection equation",
+        "trigger": "same centered periodic theta discretization and even-grid positivity obstruction"
+      },
+      {
+        "assessment": "NOT_COVERING: explicit RK methods and separate centered advection/heat settings",
+        "evidence": "Section 6.1 is centered hyperbolic semidiscretization; 6.2 is heat equation under explicit Runge–Kutta.",
+        "identifier_or_url": "https://arxiv.org/pdf/1610.00228",
+        "material_read": "Full-text abstract, introductory model, Section 6.1 and 6.2 (displayed pages 1, 16, 17)",
+        "method": "arXiv open-access PDF, source text plus rendered title page",
+        "title": "Positivity for convective semi-discretizations",
+        "trigger": "centered convection and heat stencil with positivity conditions"
+      },
+      {
+        "assessment": "Distinct modified characteristic method indicated by abstract; full text not inspected, low residual comparison risk",
+        "evidence": "The abstract describes conservative piecewise parabolic interpolation with positive constraints and a mass-conservative limiter.",
+        "identifier_or_url": "https://www.global-sci.com/aamm/article/view/5191",
+        "material_read": "Accessible abstract and bibliographic description only; not full text",
+        "method": "publisher abstract HTML",
+        "title": "Positive and Conservative Characteristic Block-Centered Finite Difference Methods for Convection Dominated Diffusion Equations",
+        "trigger": "same convection-diffusion positivity area"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7da35e1c-5cf6-4664-bcd5-5d1780dcc43a",
+  "value": {
+    "rationale": "A complete natural positivity phase diagram on the smallest even grid with a nontrivial centered convective derivative quantifies when diffusion rescues the pure-advection obstruction. In particular the exact second-order Crank–Nicolson frontier \\(d/a=\\sqrt2-1\\) lies strictly inside the non-Metzler centered spatial regime \\(d/a<1\\); its isolated boundary step and bounded positivity window are significant qualitative effects. No high-accuracy or arbitrary-grid conclusion is claimed.",
+    "status": "PASS"
+  }
+}
