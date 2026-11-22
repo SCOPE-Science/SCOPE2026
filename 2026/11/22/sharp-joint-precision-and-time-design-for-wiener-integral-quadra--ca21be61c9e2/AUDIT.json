@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "Ito isometry gives an exact joint objective over step weights and sensor precisions. Weighted Cauchy–Schwarz eliminates precision variables. Strict monotone rearrangement and clipping reduce global minimization to positive nondecreasing step functions. An initial-zero-interval perturbation and refinement show each of n jumps is active. Midpoint jump locations, centroid equations and a strictly decreasing scalar equation yield the unique global stationary design, and all degeneracies are excluded. Exact symbolic covariance identities, n=2 rational case and 16,800 random supplementary designs passed the standalone verifier; these numerical cases are not substitutes for the global proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai–Lam–Scarlett arXiv:2202.10615 gives general noisy-kernel quadrature error bounds, with different sampling/noise constraints.",
+        "Pathiraja–Schillings–Wacker 2026 treats budgeted sensor placement for filtering covariance rather than Wiener path integral error.",
+        "The OU optimal n-point result concerns noiseless stationary exponential covariance."
+      ],
+      "reasoning": "Generality of a framework or qualitative rate is not the exact optimizing law. Inspecting hypotheses and theorems found no dominating result fixing all sites, allocations and Bayes risks for this prior and budget.",
+      "searches": [
+        "arXiv 2202.10615 Order-Optimal Error Bounds for Noisy Kernel-Based Bayesian Quadrature Brownian Wiener kernel exact design",
+        "https://doi.org/10.1007/s11222-026-10855-3",
+        "Optimal quadrature nodes for integrated Ornstein Uhlenbeck covariance exponential kernels under independent measurement noise and asymmetric Gaussian process"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1812.08509 original HTML",
+      "arXiv:2202.10615 original HTML",
+      "doi:10.1007/s11222-026-10855-3 open publisher HTML",
+      "published-finding corpus/2026/11/8/f119d713d36c original RESULT.md",
+      "published-finding corpus/2026/11/8/971795799fba original RESULT.md",
+      "published-finding corpus/2026/11/2/1c7b05ec88c4 original RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior f119... demonstrates fixed-n Wiener noiseless design and residual variance but has no independent noise or selectable precision variables.",
+        "Primary 1812.08509 Brownian-kernel weights do not prescribe globally optimal joint finite-budget nodes.",
+        "Primary 2202.10615 rates do not imply exact finite constant or placement uniqueness."
+      ],
+      "reasoning": "The new claim reduces to the previous noiseless grid only as P tends to infinity. Finite P requires a new TV-penalized step projection; it predicts strict nonzero ignored initial interval in the infinite-sensor limit, which cannot be deduced by substituting P into the prior zero-noise formula.",
+      "searches": [
+        "For Brownian motion Wiener covariance min(s,t) estimate its integral with n arbitrary noisy point samples and optimally allocated independent Gaussian precision under fixed total precision budget, globally optimal quadrature nodes and allocations",
+        "Optimal fixed-cost Gaussian process quadrature and experimental design for integrated Brownian bridge with derivative observations, noiseless, noisy stochastic area and occupation times",
+        "arXiv 2202.10615 Order-Optimal Error Bounds for Noisy Kernel-Based Bayesian Quadrature Brownian Wiener kernel exact design",
+        "2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c/RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ito isometry transforms Gaussian Wiener integral recovery to penalized piecewise-constant approximation of the ramp 1-u; alternatively this is kernel quadrature for K(s,t)=min(s,t) with heteroscedastic noise.",
+        "Noiseless Wiener integral grid and variance are explicitly established at https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c"
+      ],
+      "reasoning": "Checked both the conditional Gaussian formulation, Wiener kernel quadrature terminology, and ramp/optimal step approximation equivalents. Published noiseless exact gap-cubic optimization is the limiting case, not a finite-noise converse.",
+      "searches": [
+        "For Brownian motion Wiener covariance min(s,t) estimate its integral with n arbitrary noisy point samples and optimally allocated independent Gaussian precision under fixed total precision budget, globally optimal quadrature nodes and allocations",
+        "unique all n Bayesian optimum integrated Wiener process min(s,t) sensor times t_i=1-(n+1/2-i)d with fixed total precision p_i=P/n and terminal-window boundary",
+        "published-finding corpus 2026/11/8/f119d713d36c; arXiv:1812.08509"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved published-finding corpus record 2026/11/8/f119d713d36c gives only zero-measurement-noise Wiener optimum.",
+        "Other accessible related records concern Brownian-bridge iid quadrature, OU noiseless sampling and scalar Kalman long-run averages."
+      ],
+      "reasoning": "No exact table or recorded finite-P design matching the candidate was identified in the actual database searches; absence is limited to accessible indexing and cannot prove absolute priority.",
+      "searches": [
+        "For Brownian motion Wiener covariance min(s,t) estimate its integral with n arbitrary noisy point samples and optimally allocated independent Gaussian precision under fixed total precision budget, globally optimal quadrature nodes and allocations",
+        "arXiv 1812.08509 Brownian motion kernel Bayesian quadrature positive weights optimal nodes with noisy observation total precision allocation",
+        "unique all n Bayesian optimum integrated Wiener process min(s,t) sensor times t_i=1-(n+1/2-i)d with fixed total precision p_i=P/n and terminal-window boundary",
+        "published-finding corpus semantic search: Wiener Brownian bridge budget and optimization"
+      ]
+    },
+    "rationale": "Actual published-result searches, direct comparison to the closest indexed all-n noiseless Wiener integral theorem and three relevant primary papers found no displayed theorem or dominating result implying the finite-total-precision, jointly optimized Wiener-path design. The closest noiseless limiting result is credited. A historically equivalent treatment outside indexed literature cannot be ruled out.",
+    "residual_risks": [
+      "Older optimal Wiener-process experimental-design literature might express the theorem under free-knot L2 step approximation or heteroscedastic Bayesian quadrature rather than present terminology.",
+      "Database semantic retrieval and scoped primary full-text inspection cannot prove priority globally.",
+      "The Brownian-bridge finite-budget problem already has a different published analytic solution; it is not claimed as part of this result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The Wiener covariance and deterministic quadrature weights occur, but no all-budget optimal noisy-node-and-precision classification is given in the material examined. This source alone cannot exclude all equivalent formulations elsewhere.",
+        "evidence": [
+          "arXiv:1812.08509 section 3.7 discusses Brownian-motion kernel quadrature and positivity of weights, rather than optimizing independent observation precisions with a shared budget."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.08509v2",
+        "material_read": "Full-text introduction, theory and Brownian-kernel section 3.7; examined setting and assumptions of the results",
+        "method": "Read original open arXiv HTML and compared covariance, Gaussian noise model, and design objective",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Brownian-motion kernel and Bayesian-quadrature weight theory, source of the middle-cohort direction"
+      },
+      {
+        "assessment": "Handles noisy kernel-based Bayesian quadrature bounds and rates, not an exact globally optimal joint time and variable precision budget with Wiener covariance. Broader family but the presented results do not imply this exact finite theorem.",
+        "evidence": [
+          "General order-optimal bounds for noisy kernel quadrature under different noise and sampling constraints; no displayed Brownian all-n fixed-total-precision formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+        "material_read": "Original arXiv HTML full text, including statement and proofs of broad noisy quadrature bounds and sampling/noise assumptions",
+        "method": "Read arXiv article and compare exact all-n Bayesian fixed-total-precision claim with error-rate bounds",
+        "title": "Order-Optimal Error Bounds for Noisy Kernel-Based Bayesian Quadrature",
+        "trigger": "Strongly plausible broader coverage from a noisy-kernel quadrature result"
+      },
+      {
+        "assessment": "General OED framework and Brownian simulation, but the criterion is filtering covariance rather than one integrated path functional. No closed-form exact Wiener-integral placement-and-precision result was located.",
+        "evidence": [
+          "Published 9 March 2026; continuous-time filtering objectives, numerical examples, and no explicit finite-n integral design theorem in inspected sections."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11222-026-10855-3",
+        "material_read": "Open-access article sections on optimal design criteria, precision-constrained observations and two-dimensional Brownian filtering example",
+        "method": "Read primary publisher HTML and compare targets, admissible designs and output theorems",
+        "title": "An optimal experimental design approach to sensor placement in continuous stochastic filtering",
+        "trigger": "Precision allocation and Brownian sensor placement is potentially a dominating theory"
+      },
+      {
+        "assessment": "Explicitly covers the P=infinity (noiseless) endpoint and unique grid. The new theorem adds independent noise, optimization of a fixed total precision budget and finite-P terminal-only support, none implied by the noiseless statement.",
+        "evidence": [
+          "Published exact noiseless t_i=2i/(2n+1), R=1/[3(2n+1)^2]; random-stratification loss and CLT, no measurement noise."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c",
+        "material_read": "Original public RESULT.md theorem, assumptions, complete conditional-variance gap formula, deterministic noiseless optimum, and CLT proof",
+        "method": "Read primary full statement and proof via the published repository",
+        "title": "Exact design loss and Gaussian fluctuations for stratified Brownian kernel quadrature",
+        "trigger": "Identical Brownian covariance and target integral; strongest exact prior result"
+      },
+      {
+        "assessment": "Stationary exponential covariance, noiseless observations; does not cover Wiener nonstationary covariance with joint variable precision budget.",
+        "evidence": [
+          "Stationary OU exponential covariance and hyperbolic gap equation with no observation noise."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+        "material_read": "Public RESULT.md full finding, assumptions, convex gap proof and main stochastic design derivation",
+        "method": "Read primary published result and compare process, noise cost and conditioned target",
+        "title": "Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature",
+        "trigger": "Nearby Markov covariance and all-n optimal node theorem"
+      },
+      {
+        "assessment": "IID randomized two-node law for noiseless bridge kernel; not an all-n deterministic Wiener sensor-and-precision optimum.",
+        "evidence": [
+          "Brownian-bridge covariance min(s,t)-st, iid draws and no sensor noise."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+        "material_read": "Public RESULT.md full finding, assumptions and global iid sampling-distribution proof",
+        "method": "Read exact theorem and proof, compared random law, prior covariance and budget model",
+        "title": "Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature",
+        "trigger": "Random-node general kernel quadrature with Brownian bridge"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ca21be61-c9e2-4ba7-a406-3d1eaa727f1d",
+  "value": {
+    "rationale": "The theorem resolves a natural end-to-end numerical-information allocation question—where to observe and how precisely—at every finite sensor count and budget, with a unique estimator and exact Bayes risk. The non-obvious finite-budget terminal concentration, the fixed-total-precision continuum limit with a strictly excluded initial interval, and strict improvement with sensor count are structural and not small perturbations of the prior noiseless grid. The result does not purport to optimize other kernels, nonlinear/adaptive sensing or arbitrary path-linear information.",
+    "status": "PASS"
+  }
+}
