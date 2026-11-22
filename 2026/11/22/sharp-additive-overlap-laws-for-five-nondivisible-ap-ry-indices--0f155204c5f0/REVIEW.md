@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The already published Lucas congruence and the explicitly verified five digit residues reduce the assertion to addition of digits from \(\{0,2,4\}\). The proof derives a deterministic two-carry-state transition with all ten weights enumerated. It establishes the exact count for every fixed shift and every depth at least the shift's digit length. Its extremal argument classifies the only weight-one and weight-two transitions and proves the first and second global overlap maxima. The standalone checker independently confirms the digit recurrence, counts and extremal families over bounded ranges. No finite experiment is used to infer the unrestricted result.
+
+**Originality — PASS with residual priority risk.** The closest published results are Adamczewski–Bell's modulo-five Apéry automaton (explicit one-point support), Malik–Straub's Lucas-congruence and prime-divisibility analysis, and Kumar–Rani–Chugh's five-adic Cantor-set description. A claim-level comparison finds no fixed-shift Apéry pair count, sharp \(2/3\) extremal theorem or \(4/9\) equality classification in the materially inspected sections. Searches of indexed mathematical findings found no claim with the same objects and conclusions. General automatic-sequence machinery could compute overlaps, but computability is not the evaluated sharp law. Historical coverage remains incomplete, and an older Apéry arithmetic paper was not accessible beyond its abstract.
+
+**Mathematical value — PASS.** One-point residue density is zero and cannot distinguish the dependence between prime-to-five Apéry indices. The exact all-shift two-point law gives a natural scale-normalized intersection statistic of a classical arithmetic sequence's divisibility support. The sharp first and second overlap levels and equality families identify precisely the most strongly correlated displacements. This is a complete invariant with structurally motivated extremizers, rather than a routine extra modular example or a bare digit-count observation.
+
+The result has not undergone independent mathematical audit. No assertion is made concerning higher prime powers or the novelty of the classical Lucas congruence.
+
+Self-review: passed. Independent audit: not yet performed.
