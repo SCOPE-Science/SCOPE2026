@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The one-step transition probabilities and replacement reset convention are fixed precisely. Uniform regeneration gives existence, uniqueness and symmetry of the stationary law. The reversible Green-function relation and strong Markov decomposition yield the exact first two positive-site ratios. Recurrence of the weakly outward Gillis walk follows from divergent one-dimensional electrical resistance. The discounted hitting transforms therefore range continuously and strictly from zero to one, giving two unique rates. At the first equality, the stationary balance equation at site one forces the next mass ratio strictly above one, proving the strictly ordered thresholds. The summability of the invariant law provides the off-origin maxima; the strict adjacent-ratio monotonicity gives the countable-exception qualification. The relative size of outer and central masses near the lower threshold follows by continuity. These are infinite-chain proofs; finite diagnostics are supplementary.
+
+## Originality — PASS (qualified)
+Radice's exact first-passage transforms for the same reset Gillis walk are a close algebraic precursor, and the present stationary ratios can be constructed with reversible-resolvent identities. Nevertheless, his Sections 3, 7, 8, and Appendix A address first-passage moments and optimization, not spatial mode comparison or the strictly ordered pair of geometric-reset thresholds. Artuso and coauthors obtain an invariant profile only without resetting and in the positive-recurrent inward regime. Ray and Reuveni show a continuum mode shift for a different logarithmic-potential boundary/reset protocol, not simultaneous coexistence of a local peak at the reset origin and distinct outer modes of the discrete Gillis chain. Published similarity searches and a full-text comparison found no statement whose hypotheses and conclusion cover this specific two-threshold coexistence theorem. The close first-passage formulas and possible unindexed equivalents remain priority risks; this review does not certify publication priority independently.
+
+## Mathematical value — PASS
+The same reset point may be a strict local peak while two distant peaks survive and even have higher probability. The proof identifies a nonempty exact parameter interval for all weak outward biases, not one arbitrarily selected numerical example. The two natural adjacent probabilities are direct observables and the structural ordering mechanism comes from local stationarity, giving a reusable method for studying spatial morphology under renewal interventions. The result does not require a global census of all outer extrema.
+
+## Limits
+Only complete geometric reset-to-origin, discrete nearest-neighbor Gillis motion and the strictly weak-outward range are proved. The exact boundary rates are implicit via first-hitting transforms. At isolated rates an outer peak can be a plateau. Finite diagnostic sampling and forward finite-window propagation do not prove the infinite result.
+
+Self-review: passed. Independent audit: not yet performed.
