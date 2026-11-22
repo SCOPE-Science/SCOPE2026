@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the stated Riccati pulse result
+# Independent mathematical audit
 
-1. Algebraic derivation: derive each constant adverse pulse transfer by setting \(x=z'/z\), \(z''=-a^2z\). Multiply two symbolic matrices and verify their commutator is exactly diagonal with opposite entries. The threshold covector \((1,1)\) kills this diagonal term on the starting vector \((1,1)^{\mathsf T}\).
-2. For any two schedules finite during the entire forcing interval, verify that \(z(0)=1\) and no zero of \(z\) implies the terminal transfer denominator is strictly positive, so the numerator sign classifies recovery/criticality/escape.
-3. Append a third transfer and multiply the commutator; its terminal threshold difference equals the analytic product in RESULT.md. For the three chosen pulses check rational terminal values \(0,-1/4,-6/7\) and \(3/8,-4/7,-3/2\).
-4. Run the bundled checker using `python3 check_riccati_pulses.py`. Its exact arithmetic checks 144 two-phase samples, 729 three-phase identities, and the witness. The output must be `RICCATI_PULSE_EXACT_OK two_phase=144 triple_identity=729 three_phase_witness=1`.
-5. This computational test is supplemental only: universal claims depend on the full matrix calculation in the proof, not on finite enumeration. The finiteness hypothesis is essential for comparing signs; the theorem deliberately excludes comparisons when one trajectory has a pole during exposure.
+## correctness
 
-Independent audit has not been performed.
+PASS
+
+With x=z′/z, z″=qz and initial (z′,z)=(1,1), each adverse q=−a² phase has transfer M_a=[[cos(aτ),−a sin(aτ)],[sin(aτ)/a,cos(aτ)]]. For two pulses A,B direct symbolic multiplication gives BA−AB=((a²−b²)/(ab))sin(aτ_a)sin(bτ_b) diag(1,−1), annihilated by (1,1)·diag(1,−1)·(1,1)^T. When both histories remain finite throughout exposure, terminal z>0, so the equal threshold numerators force the same x+1 sign and terminal basin. Appending a third C yields signed difference ((a²−b²)/(ab))sin angles (c+c^{-1})sin(cτ_c), generically nonzero; independently reproduced via symbolic sympy. At a=2,b=1/2,c=1 with each tangent angle 1/2, exact finite histories give terminal −6/7 (recovery to +1) vs −3/2 (post-exposure escape), with all one-pulse outcomes >−1 and no forcing-window poles. Exact post-pulse x′=1−x² basin threshold is x=−1. No claim is made about reorderings with a pole during forcing.
+
+## originality
+
+PASS
+
+Riccati/projective transfer matrices, nonautonomous saddle-node thresholds and tipping contexts are classical. Longo–Núñez–Obaya–Rasmussen and Wieczorek–Xie–Ashwin concern general thresholds/rates and connecting orbits, but available main statements/abstracts do not imply the specifically sharp two-phase commutator cancellation under finite constant adverse forcing plus an exact third-phase outcome reversal. Resultary semantic searches for this phase-order basin question returned no stronger covering claim beyond the current record. Inaccessible or unindexed SL(2) identity literature remains a genuine priority risk.
+
+## value
+
+PASS
+
+The invariant being classified is a dynamical basin decision rather than just the terminal numerical state. The exact universal impossibility for two arbitrary adverse phases, sharp three-pulse construction with individually harmless episodes and strict robustness, resolve a motivated minimal-complexity question about chronology-dependent irreversible tipping. The distinction between state noncommutativity and basin-threshold commutativity is a structural lemma, not an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
