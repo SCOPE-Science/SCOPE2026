@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The exact domain \\(h>0\\), \\(r\\ge0\\) and one-dimensional Hausdorff normalization are explicit. For each feasible continuum meeting three disks, its length is no smaller than a three-terminal Steiner tree, itself bounded by \\(\\min_p\\sum_i\\operatorname{dist}(p,D_i)\\); projection spokes supply the matching upper bound. Convexity and axis reflection reduce to a one-dimensional piecewise distance function, whose derivative has a unique free zero at \\(y=1/\\sqrt3\\) and whose active interval is \\( [\\sqrt{\\max\\{r^2-1,0\\}},\\max\\{h-r,0\\}] \\). A sharp minimal-enclosing-disk calculation handles zero length. Substituting the endpoints proves every branch and limiting boundary. The standalone checker passed 644 formula/projection cases and 20 finite 2D grid cases; a separate 200-case global optimizer stress test agreed to \\(8\\times10^{-11}\\). Finite tests are supporting only; no all-optimizer uniqueness is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2212.01903 (Proposition 2.14 supplies the trimmed full Steiner tree only while r is smaller than every incident terminal-branch length)",
+        "https://arxiv.org/abs/2611.03403 (Section 3 poses explicit-set maximization-minimizer geometry problems without this formula)",
+        "https://arxiv.org/abs/2207.13745 (global regularity and tangent-angle bounds, not an explicit all-radius network profile)"
+      ],
+      "reasoning": "The trimmed-tripod length \\(h+\\sqrt3-3r\\) is already implied by prior Proposition 2.14 and is not presented as new in isolation. The prior paper does not give the successive two-arm/horizontal/vertical segment phases or the sharp height-dependent order of their onset. General local-regularity theorems restrict shape but do not determine the exact global value at all radii.",
+      "searches": [
+        "\"maximal distance minimizer\" three points triangle explicit radius",
+        "\"maximal distance minimizers\" \"finite\" \"three\" points",
+        "all radii three-point isosceles maximal distance minimizer Y-shape V-shape segment transition sqrt 3",
+        "maximal distance minimizer equilateral isosceles triangle three point r-neighborhood shortest connected network exact phase transitions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.03403",
+      "https://arxiv.org/abs/2212.01903",
+      "https://www.benasque.org/2022pde/talks_contr/3110_Teplitskaya.pdf",
+      "https://arxiv.org/abs/2207.13745",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-branched-to-segment-transition-for-square-four-point-maxim--579b10bab782",
+      "https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=51Mxx"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2212.01903 (Observations 2.11, Proposition 2.14 and 1.2 Steiner background explicitly read)",
+        "https://www.benasque.org/2022pde/talks_contr/3110_Teplitskaya.pdf (known three-point examples)",
+        "https://arxiv.org/abs/2611.03403 (2026 Section 3 explicit target problems)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-branched-to-segment-transition-for-square-four-point-maxim--579b10bab782 (distinct four-site fixed-square statement in indexed summary)"
+      ],
+      "reasoning": "The finite-terminal Steiner structural theorem together with projection is used in the proof and is not claimed as original. Proposition 2.14 implies the small-r tripod branch, but not the remaining radius intervals, the distinct topology sequences on the two sides of \\(h=\\sqrt3\\), or the exact collapse threshold for all h. The three-site sketches exhibit shapes but not the all-parameter transition theorem. The four-square result does not, by its published stated square-only claim, imply the three-site height classification; its uninspected proof could contain additional related techniques.",
+      "searches": [
+        "\"maximal distance minimizer\" \"three points\" triangle formula",
+        "Maximum-distance minimizer of three isosceles points with common coverage radius exact formula Steiner",
+        "triple-point maximal-distance minimizers length formula Fermat radius critical aspect ratio 1 over square root three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2212.01903 (Observation 2.11: an optimum for a finite target set is a Steiner tree through points of the respective disks)",
+        "https://www.benasque.org/2022pde/talks_contr/3110_Teplitskaya.pdf (2022 slides 8-10 show examples of three-site tripods and segments)"
+      ],
+      "reasoning": "The disk-transversal Steiner formulation and qualitative tripod/segment shapes are known, and both are explicitly cited. The asserted new content is the exact two-parameter minimum length and all phase boundaries; these examples and structural reductions alone do not give the full profile.",
+      "searches": [
+        "\"three disks\" \"Steiner\" \"isosceles\" shortest tree intersection",
+        "Steiner tree neighborhoods equal disks isosceles triangle critical radii Y V segment finite set",
+        "symmetric equal disk Steiner tree intersection three centers triangle exact minimum network length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://www.benasque.org/2022pde/talks_contr/3110_Teplitskaya.pdf (2022 figures display two sample topologies but no full height/radius numerical table)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-branched-to-segment-transition-for-square-four-point-maxim--579b10bab782 (publicly indexed abstract concerns four square sites and a three-piece length profile, not three isosceles sites)"
+      ],
+      "reasoning": "The actual text and indexed-title searches found no exact all-height/all-radius table for this three-site family. This is negative search evidence only, not a comprehensive proof that no historical table exists. The four-square record was available as abstract metadata, not readable full text.",
+      "searches": [
+        "exact network length all tolerances for three isosceles planar sites ((-1,0),(1,0),(0,h)) branch threshold h=1/sqrt3 h=1 h=sqrt3",
+        "Optimal connected planar network meeting three vertex-neighborhood disks isosceles triangle sharp three-arm to two-arm to segment transition",
+        "shortest connected network meeting three congruent circular neighborhoods isosceles triangle full radius phase portrait tripod V horizontal vertical",
+        "\"three-point\" \"maximum distance minimizer\" Steiner disk"
+      ]
+    },
+    "rationale": "Best-knowledge original exact all-radius, all-isosceles-height phase classification, excluding the classical zero-radius Steiner tree, previously known trimmed-tripod regime, and earlier three-site diagrams. Searches under distance-minimizer/Steiner-disk/neighborhood aliases and comparison to public mathematical results disclosed no statement that implies the complete pair of later-phase orderings. Full historical priority remains provisional.",
+    "residual_risks": [
+      "Unindexed classical Steiner-tree-with-neighborhood literature may contain the exact two-parameter formula under another name.",
+      "The related four-site square paper was compared by its public indexed summary only; its full text was inaccessible.",
+      "No independent historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the optimization problem and poses requests for explicit compact targets; no three-isosceles-site all-radius length theorem",
+        "evidence": [
+          "2026-11-02 first submission on arXiv abstract page",
+          "HTML §3 (Question 3.3) explicitly asks for any explicit target set"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.03403",
+        "material_read": "HTML of the complete §3, including Questions 3.1-3.3, reference entries, and arXiv v1 submission history",
+        "method": "Primary arXiv HTML and abstract inspection",
+        "title": "Open problems from the Length Optimization event at MDS 2026",
+        "trigger": "Recent motivating question asks for explicit maximal-distance minimizers"
+      },
+      {
+        "assessment": "Contains the finite-terminal disk-to-Steiner reduction and sharp small-radius tripod statement, explicitly treated as prior art here; no complete later height-radius phase formula found",
+        "evidence": [
+          "§2.3 Observation 2.11",
+          "§2.3 Proposition 2.14",
+          "§1.2 three-terminal Steiner facts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.01903",
+        "material_read": "The full accessible arXiv textual presentation was searched and principal parts inspected, especially Introduction, §1.2, §2.3 (Observation 2.11, Proposition 2.14), and surrounding proofs",
+        "method": "Read primary arXiv text at specific sections and searched entire accessible text for relevant triangular/three-terminal terminology",
+        "title": "Inverse maximal and average distance minimizer problems",
+        "trigger": "Likely strong finite-site predecessor and potential dominating formula"
+      },
+      {
+        "assessment": "Tripod and segment for some three-site inputs are explicitly prior art; no continuum of h-r transition formulas present in inspected example pages",
+        "evidence": [
+          "Slide headed “The simplest examples” (10th page) shows a 3-point segment",
+          "Neighboring slides exhibit a 3-point tripod"
+        ],
+        "identifier_or_url": "https://www.benasque.org/2022pde/talks_contr/3110_Teplitskaya.pdf",
+        "material_read": "Presentation pages containing the definition and examples (PDF pages 5, 8–10); inspected image of page 10 showing a three-site segment, and textual extraction of three-site tripod captions",
+        "method": "Read PDF text and page screenshot",
+        "title": "Maximal distance minimizers (2022 conference presentation)",
+        "trigger": "Known visual examples might cover claimed topology novelty"
+      },
+      {
+        "assessment": "Gives regularity and finite plane branch structure but not the exact isosceles all-radius length profile",
+        "evidence": [
+          "Abstract: at most three tangent rays and at least 120 degree pairwise angle"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.13745",
+        "material_read": "Primary abstract and associated summary of tangent-ray/branching-angle results",
+        "method": "Read accessible primary abstract and source contextual text",
+        "title": "On regularity of maximal distance minimizers in Euclidean Space",
+        "trigger": "General regularity may constrain all minimizers"
+      },
+      {
+        "assessment": "Published claim concerns four corners of a square, distinct from three isosceles sites; hidden generalizations in the inaccessible text remain a residual risk",
+        "evidence": [
+          "Indexed statement: four square corners and exact three-piece length profile",
+          "Full text access attempt did not succeed"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-branched-to-segment-transition-for-square-four-point-maxim--579b10bab782",
+        "material_read": "Public title and short indexed summary; full text fetch unavailable",
+        "method": "Indexed public record comparison and attempted full-text URL read",
+        "title": "Sharp branched-to-segment transition for square four-point maximal-distance minimizers",
+        "trigger": "Closest indexed contemporary length-transition result in the same variational problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d67420fc-bced-4bbe-b541-408f38a20a19",
+  "value": {
+    "rationale": "For the smallest noncollinear finite maximal-distance-minimizer family, the tolerance changes the actual optimal network topology. A complete all-radius two-continuous-parameter classification determines the exact length, constructs canonical minimizers, and finds the sharp height transitions \\(1/\\sqrt3\\), \\(1\\), \\(\\sqrt3\\), including the exceptional direct tripod-to-point collapse. The individual classical shapes and initial trimmed-tripod branch are explicitly credited; the genuinely valued fact is the full regime ordering and transition boundaries, beyond an isolated computation or cosmetic variant.",
+    "status": "PASS"
+  }
+}
