@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The general no-paradox statement follows from comparison of nonsingular \(M\)-matrix susceptible resolvents while total population and all transmission denominators remain fixed. In the state-dependent two-patch witness, every mobility and transmission coefficient is strictly positive; exact DFE inversion yields the four-by-four next-generation system. The small-contact matrix has infinity norm at most \(3/41\); rank-one perturbation and an exactly verified cubic determinant prove the complete threshold classification, including equality and strict uniqueness. The accompanying source checker reconstructs every matrix and identity. Numerical approximations are not used as proof.
+
+**Originality — PASS, with specified priority risk.** The initiating article provides the model and spectral reproduction number; it does not state this status-dependent-travel exception or the all-positive unique cubic threshold. Existing results on mobility optimization, behavioral relaxation, and vaccination mixing cover related ideas but differ in outcome or model assumptions. The earlier mover–stayer vaccination paper by Lachiany and Stone (2012) is plausible older literature whose complete text could not be obtained; its abstract alone cannot exclude equivalent claims. Thus this review establishes no historical priority beyond checked materials, and the result warrants external literature scrutiny.
+
+**Value — PASS.** This is a structural identifiability-of-policy-effect boundary, not an arbitrary numerical optimization. It proves an impossibility theorem for adverse vaccination threshold shifts when vaccine status does not change movement, then exhibits a fully admissible nondegenerate counterexample and an exact unique onset threshold when status changes movement. It separates the vaccine's direct protective effect from the distinct effect of altered exposure geography. The result may inform model auditing and policy sensitivity analysis, but makes no empirical causal claim about vaccination.
+
+**Limits.** Deterministic SVIRS threshold mathematics only, no empirical calibration or finite-outbreak estimates. Earlier non-OA mover–stayer paper not fully inspected. Not independently validated.
+
+Self-review: passed. Independent audit: not yet performed.
