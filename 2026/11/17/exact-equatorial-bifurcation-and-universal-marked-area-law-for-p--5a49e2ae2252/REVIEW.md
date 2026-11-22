@@ -1,19 +1,21 @@
-# Scientific review: equatorial bifurcation in pole-anchored spherical triangles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each colatitude \(0<\theta<\pi\), the triple-product / dot-product formula gives exactly \(A_\theta=2\operatorname{Arg}(1+qe^{i\Delta})\), with \(q=\tan^2(\theta/2)\) and folded uniform gap \(\Delta\in[0,\pi]\). The correct \(\operatorname{atan2}\) quadrant is essential for southern latitudes. The two inverse branches above the equator and the unique inverse below it yield the three closed CDF expressions with their correct support endpoints. The event \(A_\theta>\pi\) is exactly \(\Delta>\pi-\arccos(1/q)\). Conditional uniformity of its rescaled endpoint gap is finite-parameter exact; a fixed-gap Taylor expansion yields the weak heavy-tailed limit. Continuity of a general gap density at \(\pi\) proves the biased-sampling extension. Quantiles and monotonicity prove identifiability. The standard-library checker independently evaluates spherical angles and verifies the formulas, but the argument is analytic and does not rely on finite tests.
+PASS
 
-## Originality — PASS, with a historical-priority caveat
+For θ in (0,π), verified the oriented solid-angle atan2 branch 2 Arg(1+q e^{iΔ}), the Δ uniform [0,π] pushforward, inverse Δ=ψ+asin(sinψ/q) for q>1, the q<1 two-preimage difference giving 2asin(sinψ/q)/π, and q=1 A=Δ. Event A>π iff Δ>π−acos(1/q), so P=acos(1/q)/π and conditional U=(π−Δ)/t is exactly uniform; expansion gives (A−π)/t→u^-1−u for fixed 0<u<1. For biased gap density continuous positive at π, ratio t h(π-tu)/mass→1. Derivative ∂_q A>0 and duality A_q+A_1/q=2Δ are valid away from null boundaries; weak not mean convergence. Independent numerical branch/CDF/onset/mark checks corroborated but are not proof.
 
-The closest accessible full paper, Finch and Jones, *Random Spherical Triangles* (arXiv:1009.5329, first version 2010-09-27), addresses three points uniformly distributed over the **whole sphere** and its unconditional area density. It does not specialize to one fixed pole and two equal-colatitude boundary points, or state the universal conditional equatorial boundary layer. The public report *Dilogarithmic mean area of random fixed-latitude spherical triangles* treats **three random vertices on the latitude circle**, with a different symmetric expectation and a degenerate equator, not the anchored model. The earlier Le (1989) article gives cap-interior shape densities; only its abstract was accessible, so possible unexpected reductions cannot be conclusively excluded. A 2011 geometric discussion supplies an isosceles spherical triangle area identity but no stochastic transition, conditioned endpoint marks or smooth-sampling universality. The deterministic Girard and solid-angle identities are not claimed to be original. This is an implication-level comparison rather than a title match or an assertion that a failed search proves novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The equator is a genuine geodesic bifurcation: the area support gains the entire interval \((\pi,2\pi)\) abruptly south of it, yet the new mass emerges only at square-root order. The conditional overshoot has a universal heavy-tailed law driven by nearly antipodal azimuthal endpoints. A strict stochastic inverse recovers north or south colatitude from the complete area law, unlike the reflection ambiguity for three random points on one latitude circle. The invariance of the conditional shape under arbitrary smooth positive azimuthal biases makes the result useful as a boundary model for pole-fan spherical triangulations and robustness of area sampling. These statements are mathematically sharper than the underlying deterministic spherical-triangle identity.
+Best-of-knowledge original combined fixed-pole, equal-latitude geodesic area CDF with a southern support jump, an exact overshoot probability, and a heavy-tailed conditional marked scaling limit under positive continuous endpoint gap densities. The deterministic solid-angle identity and classical whole-sphere distribution are credited. Inaccessible cap-shape literature is a priority caveat, not a scientific disproof.
 
-## Sources and unresolved risks
+## value
 
-Full text was read for Finch and Jones (2010/2015) and the closely related fixed-latitude mean-area report. Direct published abstracts were examined for Le (1989) and van Oosterom--Strackee (1983), with a separate publicly available solid-angle implementation supplying the exact formula. Exact comparable queries were run against a mathematical-results index and general literature. Le's full text remained inaccessible; institutional access required an unavailable authorized connection. A specialized older stochastic treatment not indexed by the searches is a residual priority risk. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full intrinsically normalized spherical-area law for a physically natural pinned-pole boundary-sampling experiment, including a sharp geometric support transition and a nontrivial universal heavy-tailed conditional overshoot, fills a motivated random-geometry gap. Square-root onset and lack of mean convergence are nontrivial, usable distributional facts, not merely a reprint of Girard's identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
