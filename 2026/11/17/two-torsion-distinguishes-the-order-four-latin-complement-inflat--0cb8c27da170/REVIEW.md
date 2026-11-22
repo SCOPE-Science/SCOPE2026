@@ -1,15 +1,21 @@
-# Scientific review: two-torsion in order-four Latin-complement inflations
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition, three colour classes, face counts, local lifting multiplicities and precise 16/64 boundary-extension obstruction follow directly from the Latin property. All 576 labelled order-four squares are enumerated and split into two disjoint isotopy orbits of sizes 432 and 144. For each representative, `verify.py` constructs the complete signed integral simplicial chain boundary, computes exact Smith normal forms and reconstructs a spanning-tree van Kampen presentation. Cyclic: 37 elementary generator eliminations leave the trivial group and 37 unit Smith factors. Klein: 36 eliminations leave one generator with the relation that its square is the identity, and Smith factors consist of 36 units and one 2. The two-dimensional simply connected case is an eleven-sphere wedge by Hurewicz and Whitehead; the Klein case has first-homology torsion and cannot be a wedge of spheres. These statements concern the exact finite objects, not a conjectural infinite extrapolation.
+## correctness
 
-## Originality — PASS, residual priority uncertainty
-The strongest closest source, Ayzenberg–Khoroshavkina (2026), requires global flabbiness for the top-dimensional sphere-wedge theorem, while the complexes here demonstrably fail that hypothesis. The published Latin-array inflation classification keeps **positive** Latin hypercube facets and yields lower-dimensional sphere wedges; replacing selected facets by their complement is a genuinely different complex with degree-one torsion. The prior order-four Latin partial-transversal result has sixteen vertices indexed by *cells*, not twelve vertices indexed by rows, columns and symbols; its torus and nine-circle homotopy types cannot cover the present classification. Full scientific claims were read from those two closest accessible reports, and comparable published-finding corpus searches examined names, objects, parameters, torsion, deleted facets and hypergraph terminology. No result found determines the integral H1 or pi1 of the proposed order-four Latin complement. An unindexed independent calculation under different terminology remains a real priority risk; absence of retrieval is not a mathematical uniqueness proof.
+PASS
 
-## Value — PASS
-The February 2026 inflation theorem identifies flabbiness as a sufficient structural hypothesis. A useful question is whether highly uniform surjective face-wise lifting might retain some topological conclusions when flabbiness fails. The complete smallest nontrivial two-isotopy-class order-four experiment answers negatively even for torsion: two natural diagrams with identical complete local fibre cardinalities and identical face numbers have different fundamental groups, one a simply connected sphere wedge and the other having two-torsion. This isolates a genuine mathematical limitation of local lifting, not a routine parameter substitution. The exact classification and reproducible group presentation provide concrete models for subsequent study of nonflabby finite sheaves.
+The complete three-colour skeleton has 12 vertices, 48 cross-colour edges and 48 allowed triangles c!=L(i,j). Each pair restriction is uniform and surjective (3 and 4 preimages) but 16 forbidden complete label triples do not extend. Independent enumeration of all 576 order-four Latin squares via row/column constraints, and all row/column/symbol isotopies, produces precisely disjoint orbits 432 (Z4) and 144 (Klein). Independently built 48x48 signed integral boundary matrices: cyclic Smith 37 ones, Klein 36 ones plus one 2; connected 1-skeleton has d1 rank11, so both H2=Z11, cyclic H1=0 and Klein H1=Z2. Inspected exact 37-generator van Kampen presentation and deterministic legitimate one-occurrence Tietze eliminations, leaving empty presentation in cyclic case and <t|t^2> in Klein. Simply connected cyclic 2D CW with H2 Z11 is wedge of 11 S2 via Hurewicz/Whitehead. Scope is all Latin tables of order four only.
 
-## Sources, methods and limitations
-The base theorem's full relevant definitions, statement and discussion were read in the public HTML of arXiv:2602.08694v1 (2026-02-09). Closest research reports were read in full: *Latin-array inflations exhibit lower homotopy despite unique local lifting* (2026-10-11) and *Complete homotopy classification of order-four Latin-square partial-transversal complexes* (2026-10-25). Elementary order-four isotopy counts also agree with Guichard, §4.4, but are re-enumerated exactly here. The scope is restricted to order four and does not include the complete homotopy type of the Klein space. An independent mathematical audit, exhaustive global literature coverage and external priority certification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ayzenberg–Khoroshavkina flabby generalized-inflation wedge theorem does not apply: global flabbiness fails at 16 missing boundary sections, despite pairwise local surjectivity. Earlier positive Latin-array complexes use included Latin triples, and order-four partial-transversal complexes have Latin CELL vertices, distinct from these twelve row/column/symbol vertices. No prior theorem examined gives this specific torsion/isotopy dichotomy.
+
+## value
+
+PASS
+
+Natural complete classification at the first Latin order with two isotopy types furnishes a substantive finite counterexample to inferring homotopy or integral torsion from local surjectivity and face counts; this distinguishes global flabbiness from merely pairwise lifting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

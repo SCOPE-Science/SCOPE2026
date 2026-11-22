@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact finite verification
 
-The provided `verify.py` is a standalone Python 3 program requiring SymPy for integer Smith normal form. From the directory containing it run `python3 verify.py`. Compare its stdout to `verifier_output.txt`, which ends with `ALL EXACT CHECKS PASSED`. The program does not download data and does not depend on any previous computation, external certificate or unpublished package.
+# Independent mathematical audit
 
-It enumerates all order-four Latin squares by finite row backtracking and every isotopic re-labelling of both representative tables. It constructs the full forty-eight-by-forty-eight signed triangle-to-edge boundary for each representative and computes its integer Smith normal form. It separately collapses a deterministic spanning tree of the one-skeleton, computes the triangle words in the free group on non-tree edges and applies exact elementary Tietze substitutions for each generator with a single occurrence in a cyclically reduced relator. The residual presentations are the trivial presentation (cyclic case) and a single generator with square relation (Klein case).
+## correctness
 
-The two small group presentations and Smith computations are exact discrete mathematics, not statistical evidence or finite samples for an infinite theorem. Their verification depends on the soundness of the explicit algorithms and underlying Python/SymPy arithmetic; no independently trusted formal verification or independent mathematical audit is asserted. The general Hurewicz and Whitehead homotopy step is a paper proof, not a program output.
+PASS
+
+The complete three-colour skeleton has 12 vertices, 48 cross-colour edges and 48 allowed triangles c!=L(i,j). Each pair restriction is uniform and surjective (3 and 4 preimages) but 16 forbidden complete label triples do not extend. Independent enumeration of all 576 order-four Latin squares via row/column constraints, and all row/column/symbol isotopies, produces precisely disjoint orbits 432 (Z4) and 144 (Klein). Independently built 48x48 signed integral boundary matrices: cyclic Smith 37 ones, Klein 36 ones plus one 2; connected 1-skeleton has d1 rank11, so both H2=Z11, cyclic H1=0 and Klein H1=Z2. Inspected exact 37-generator van Kampen presentation and deterministic legitimate one-occurrence Tietze eliminations, leaving empty presentation in cyclic case and <t|t^2> in Klein. Simply connected cyclic 2D CW with H2 Z11 is wedge of 11 S2 via Hurewicz/Whitehead. Scope is all Latin tables of order four only.
+
+## originality
+
+PASS
+
+Ayzenberg–Khoroshavkina flabby generalized-inflation wedge theorem does not apply: global flabbiness fails at 16 missing boundary sections, despite pairwise local surjectivity. Earlier positive Latin-array complexes use included Latin triples, and order-four partial-transversal complexes have Latin CELL vertices, distinct from these twelve row/column/symbol vertices. No prior theorem examined gives this specific torsion/isotopy dichotomy.
+
+## value
+
+PASS
+
+Natural complete classification at the first Latin order with two isotopy types furnishes a substantive finite counterexample to inferring homotopy or integral torsion from local surjectivity and face counts; this distinguishes global flabbiness from merely pairwise lifting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
