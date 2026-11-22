@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For every m=1,...,5 the exact sparse rational primal and dual vectors in certificates.json satisfy every incidence inequality and attain the same objective; integral code witnesses attain the floor. At m=5 the verified 19/2 upper bound forces at most nine codewords and the nine-word code attains nine. A separately implemented exhaustive Bron–Kerbosch compatibility-clique search on all 42 words enumerates exactly eleven nine-word maximal cliques and nine fixed classes under reversed complement; exact-arithmetic and graph checks are executable in the embedded paths. No claim is extended beyond m=5. The verifier also checks the 77/88 symmetric-difference comparison to the distinct deletion channel.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buzaglo–Etzion, arXiv:1408.4963, concerns the full permutation group, rather than Dyck-restricted binary words.",
+        "Gabrys–Yaakobi–Milenkovic, arXiv:1601.06885, concerns binary codes for deletion/transposition combinations without the Dyck optimum/census.",
+        "Mütze 2023, Section 4.4, concerns adjacent-transposition Gray codes on Dyck words; a Gray traversal imposes adjacency rather than pairwise separation."
+      ],
+      "reasoning": "An upper bound or feasible code on a larger unrestricted source space does not imply the optimum on a smaller Catalan source. A Gray code does not give a packing result. None of the examined broader statements fixes all eleven maximizers or the exact rational linear-programming value.",
+      "searches": [
+        "\"balanced parentheses\" \"adjacent swap\" error-correcting code",
+        "adjacent transposition error correcting codes Dyck words balanced parentheses",
+        "Dyck words one adjacent transposition correcting code size"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1408.4963",
+      "https://arxiv.org/abs/1601.06885",
+      "https://arxiv.org/abs/1711.03682",
+      "https://oeis.org/A085680/a085680.pdf",
+      "https://doi.org/10.37236/11023"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1601.06885 Section II defines the adjacent-transposition ball on general binary words; Sections III and onward build codes for error correction rather than the complete Dyck subset census.",
+        "Mütze, DOI 10.37236/11023, Section 4.4 establishes Gray-code existence properties on Dyck words, which do not imply radius-one code capacity.",
+        "The explicit new claim is (A_m)=(1,1,2,4,9), (P_m)=(1,1,2,4,19/2), and eleven labeled length-ten maximizers."
+      ],
+      "reasoning": "Neither general construction nor traversal covers exact source-restricted fractional dual values and exhaustive equality classes. A separate Dyck deletion census, while sharing the source class, does not imply either the new objective or the new confusability matrix. Direct enumeration verifies 77 swap-only and 88 deletion-only conflicts at semilength five, so neither confusability graph contains the other and the previous deletion packing cannot certify the new swap claim.",
+      "searches": [
+        "single adjacent transposition correcting code Dyck sequences packing linear programming",
+        "\"balanced parentheses\" \"adjacent swap\" error-correcting code",
+        "Catalan balanced parentheses single adjacent swap confusability graph fractional packing LP ten bit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1408.4963 discusses distance-three packings for permutations under Kendall transpositions; arXiv:1601.06885 uses single adjacent-swap error balls for binary words.",
+        "The present problem is an exact radius-one packing on the length-ten Catalan-induced vertex set, with non-Dyck intermediate outputs explicitly retained.",
+        "For the 42 semilength-five Dyck words, the direct one-swap and one-deletion conflict graphs have 252 and 263 edges, respectively, including 77 swap-only and 88 deletion-only edges; neither graph contains the other."
+      ],
+      "reasoning": "The analogous constant-weight or Kendall metric description requires the same Dyck prefix filter and the same output balls. The general unrestricted permutation and binary results do not determine this induced 42-source instance, its dual value 19/2, or eleven equality codebooks.",
+      "searches": [
+        "Among 42 Dyck words of length ten, codes correcting at most one adjacent transposition have size nine; exactly eleven maximum codes and fractional packing 19/2",
+        "Catalan balanced parentheses single adjacent swap confusability graph fractional packing LP ten bit",
+        "\"Dyck words\" \"Kendall\" codes",
+        "\"Catalan words\" \"transposition\" \"error correcting\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gómez Soto–Leaños–Ríos-Castro–Rivera, arXiv:1711.03682, treats the binary constant-weight-two layer, not Dyck words of five ones.",
+        "An indexed balanced binary single-deletion record and an earlier Dyck one-deletion result have different output alphabets and incidence constraints: deletion reduces blocklength, adjacent swap preserves it.",
+        "Targeted indexed mathematical-record searches returned transposition, deletion and Catalan reconfiguration results, but none providing this precise 42-word Catalan swap packing and eleven-codebook census."
+      ],
+      "reasoning": "Existing deletion and constant-weight-two tables cannot be copied to this prefix-constrained, weight-five adjacent-swap problem. Search-index nonappearance alone is not used as proof of novelty; the comparison is based on the differing feasible domains, error balls and theorem implications.",
+      "searches": [
+        "Among 42 Dyck words of length ten, codes correcting at most one adjacent transposition have size nine; exactly eleven maximum codes and fractional packing 19/2",
+        "Dyck constrained one transposition code sizes n=1 2 3 4 5 maximum 1 1 2 4 9 and 11 optimizers",
+        "\"Dyck\" \"adjacent transposition\" \"codes\" error",
+        "\"Dyck words\" \"Kendall\" codes"
+      ]
+    },
+    "rationale": "Literature and indexed-record comparisons found general permutation and binary transposition codes, constant-weight-two token-graph packings, Dyck Gray traversals, and distinct deletion-shadow results, but no statement implying the exact Dyck weight-five adjacent-swap capacities, rational fractional packing gap or complete eleven-codebook enumeration. Relevant primary material was read; unindexed finite results remain a limitation.",
+    "residual_risks": [
+      "Unindexed finite Catalan-code computations may contain this ten-bit census or related dual value.",
+      "The 2017 token-graph manuscript was read in open-access extracted text; its page image could not be retrieved.",
+      "Only specified source sections and searchable claim comparisons have been examined; literature cannot be shown exhaustively absent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not give a Catalan-restricted binary radius-one packing result or exact 42-word equality classification",
+        "evidence": [
+          "Full permutation group S_n; code-anticode bounds and nonexistence of some perfect permutation codes",
+          "No occurrence of Dyck found in searchable text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1408.4963",
+        "material_read": "Abstract, introduction, source-domain formulation, theorem overview, and keyword search within accessible full-text PDF",
+        "method": "Primary PDF text inspection and page-image confirmation",
+        "title": "Bounds on the Size of Permutation Codes with the Kendall tau-Metric",
+        "trigger": "Adjacent transposition and unrestricted permutation code capacity"
+      },
+      {
+        "assessment": "Provides general binary transposition/deletion constructions, not exact Dyck source-space packing values or eleven maximum codebooks",
+        "evidence": [
+          "Section II defines BT(x), the radius-one adjacent swap ball",
+          "No occurrence of Dyck in searchable full-text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1601.06885",
+        "material_read": "Abstract, introduction, Section II definitions, and Section III construction description in accessible full-text PDF",
+        "method": "Primary PDF text inspection and page-image confirmation",
+        "title": "Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction",
+        "trigger": "Same binary adjacent-transposition error channel in coding theory"
+      },
+      {
+        "assessment": "Its exact results concern constant weight two and do not imply Catalan-restricted weight five packing values",
+        "evidence": [
+          "Theorem 3 is a formula for A085680(n+1), the constant-weight-two case",
+          "The searched text contains no Dyck-specific result"
+        ],
+        "identifier_or_url": "https://oeis.org/A085680/a085680.pdf",
+        "material_read": "Abstract, introductory formulation, weight-two token-graph equivalence, and statement of Theorem 3 in accessible full-text text extraction",
+        "method": "Open-access manuscript text inspection; page-image retrieval was unavailable",
+        "title": "The packing number of the double vertex graph of the path graph",
+        "trigger": "Exact adjacent-transposition code packings in a constant-weight layer"
+      },
+      {
+        "assessment": "Dyck adjacent-transposition Hamiltonian generation properties are distinct from code packing and fractional shadow optimization",
+        "evidence": [
+          "Section 4.4 discusses the Proskurowski–Ruskey adjacent-transposition Gray code existence condition",
+          "No shadow packing theorem in the relevant discussion"
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/11023",
+        "material_read": "Full text Section 4.4, especially Dyck adjacency/Gray code paragraph, neighboring context and bibliography description",
+        "method": "Open-access full-text PDF text and page-image inspection",
+        "title": "Combinatorial Gray codes—an updated survey",
+        "trigger": "Same Catalan language and adjacent transpositions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7abdf29f-158b-4b76-ae2c-c0e464c78c87",
+  "value": {
+    "rationale": "The first failure of an exact natural fractional output-shadow packing relaxation within a Catalan-restricted, constant-weight synchronization/edit channel is a mathematically motivated threshold. Exact 19/2 dual value, nine-word capacity, and full eleven-codebook equality classification form a reproducible structural benchmark, rather than an arbitrary numerical slice or routine codebook witness.",
+    "status": "PASS"
+  }
+}
