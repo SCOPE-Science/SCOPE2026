@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The basis {1,x,x²,x³,(x-s)_+²,(x-s)_+³} is exact. Single-sided power moments force a node and weight; residual polynomial moments uniquely determine the other two via an explicit orthogonal quadratic. Its discriminant and interval/weight inequalities hold on the continuum by displayed rational factorizations; reflection handles the other half. A positive two-node rule violates constant exactness; the reversed three-node occupancy violates residual variance or root location. The midpoint derivative jump follows by symbolic differentiation. The standalone checker replayed 1,130 exact and 40-digit assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/1505.04391 (Sections 4–6 describe generic numerical homotopy, and Figure 10 shows nodal-pattern changes)",
+        "https://arxiv.org/pdf/1410.7196 (abstract and Theorem 2.1 require symmetric stretching)"
+      ],
+      "reasoning": "The homotopy framework applies to more knot vectors computationally and may in principle generate this rule numerically. It does not imply the stated explicit rational/radical coefficients, uniqueness by positive node occupancy, exact crossing location, or the second-derivative jump as stated results.",
+      "searches": [
+        "Gaussian quadrature C1 cubic splines nonuniform moving knot node crossing smooth differentiability homotopy continuation",
+        "\"Gaussian quadrature\" splines \"node crosses\" knot"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1410.7196v1",
+      "arxiv:1505.04391v1",
+      "Indexed result summaries for one-interior-knot exact quadrature and knot-crossing searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/pdf/1410.7196 (symmetric theorem explicitly contains the central rule)",
+        "https://arxiv.org/pdf/1505.04391 (general continuation and discussion of nodal-pattern shifts)"
+      ],
+      "reasoning": "The present proof recovers the known midpoint rule but extends it to arbitrary asymmetric two-cell meshes with a global positive exact formula and uniqueness; its regularity statement requires differentiation and one-sided branch identification not provided by prior continuity or numerical path-tracking claims.",
+      "searches": [
+        "\"two elements\" \"C1\" \"cubic\" \"Gaussian quadrature\" nonuniform",
+        "\"Gaussian spline quadrature\" \"nondifferentiable\" nodes knot"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/pdf/1410.7196 (Section 2.2 supplies symmetric-knot rules, not an arbitrary-one-knot formula)",
+        "https://arxiv.org/pdf/1505.04391 (Section 4 treats polynomial homotopy)"
+      ],
+      "reasoning": "Equivalent formulations include degree-three exact quadrature with two truncated-power moments, one-knot generalized Gaussian rules, and node-knot incidence. Symmetric formulas are only the s=1/2 case, while numerical knot continuation does not state the explicit all-s parameterization and C1/not-C2 law.",
+      "searches": [
+        "three-node cubic spline quadrature one interior knot exact node locations weights unique all interval lengths",
+        "C1 cubic splines two elements single knot Gaussian quadrature knot node iff symmetric equal length 3 nodes 8/27 11/27"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/pdf/1410.7196 (Table 1 lists symmetric, multi-knot examples)",
+        "https://arxiv.org/pdf/1505.04391 (Tables 1–2 give numerical continuation examples rather than an arbitrary-one-knot exact table)"
+      ],
+      "reasoning": "Inspected tables and indexed records do not record the full variable-one-knot quadratic or derivative kink. The absence of an indexed table is not a proof that no unindexed historical table exists.",
+      "searches": [
+        "\"one interior knot\" \"Gaussian quadrature\" cubic spline",
+        "\"nonuniform\" \"C1 cubic\" \"Gaussian\" \"quadrature\" \"three nodes\""
+      ]
+    },
+    "rationale": "The closest 2014 primary paper explicitly treats symmetric/stretched C1 knot configurations, and the closest 2015 continuation paper offers general numerical deformation but no explicit all-nonsymmetric two-element positive rule, uniqueness, or second derivative jump. Searches for the one-knot formula and knot-crossing equivalences found no decisive covering statement. Historical low-continuity Gaussian spline literature may still contain an equivalent formula.",
+    "residual_risks": [
+      "Older low-continuity spline Gaussian quadrature manuscripts or non-indexed tables might already derive the same special-case formula",
+      "A general constructive quadrature theorem could implicitly subsume parts of the formula; published statements examined did not provide the claimed explicit classification",
+      "External expert independent audit has not been performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers symmetric baseline but not arbitrary nonsymmetric single knot or central-node C1-not-C2 variation",
+        "evidence": [
+          "arXiv:1410.7196v1, Sections 2.1–2.2, Table 1, Section 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1410.7196",
+        "material_read": "Abstract, Introduction, Section 2 definitions, Section 2.2 theorem and proof, numerical tables in Section 4, Section 5 conclusion",
+        "method": "Opened full arXiv preprint with text and page-image inspection; compared symmetric hypotheses and constructions",
+        "title": "Explicit Gaussian quadrature rules for cubic splines with non-uniform knot sequences",
+        "trigger": "same cubic C1 spline object and explicit quadrature"
+      },
+      {
+        "assessment": "Numerical homotopy broadly allows nonsymmetric knots and notes node-pattern changes, but lacks the all-s explicit three-node formula and exact crossing differentiability result",
+        "evidence": [
+          "arXiv:1505.04391v1, Section 4, Figure 10, Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1505.04391",
+        "material_read": "Abstract, Introduction, Sections 3–4 methodology, nonuniform example and Figure 10, Section 6 conclusion",
+        "method": "Opened lawful arXiv full text and inspected page image; traced node-occupancy, continuity, and explicit-solution claims",
+        "title": "Gaussian quadrature for splines via homotopy continuation: rules for C2 cubic splines",
+        "trigger": "generic knot deformations, possible dominant coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d9e8713e-9f1a-40d5-84b6-35ab565e1079",
+  "value": {
+    "rationale": "A natural two-cell nonsymmetric C1 cubic spline is the first unsolved-by-symmetry optimal rule. The exact rule replaces numerical homotopy by one polynomial square root and classifies all positive minimal-node choices, while an exact C1-not-C2 node-knot crossing supplies concrete regularity guidance for continuation. The contribution is restricted but structurally useful.",
+    "status": "PASS"
+  }
+}
