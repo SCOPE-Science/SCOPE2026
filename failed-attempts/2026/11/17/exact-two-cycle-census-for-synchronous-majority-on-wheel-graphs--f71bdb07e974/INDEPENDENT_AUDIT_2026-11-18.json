@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T03:17:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For every n>=3, the open-neighbor rim update is neighbor AND with zero hub and neighbor OR with one hub. A two-cycle with hub reversal is equivalent to two strict hub flip inequalities 2j>n and 2e<n together with absence of an isolated one in the skip-two cyclic rim ordering. Fixed-hub two-step returns imply each skip-two component uniform, leaving exactly two extra primitive cycles at even n, and the two monochromatic fixed configurations. Composition counting of cyclic one-runs of length at least two gives exactly R_m coefficients m/k*binom(j-k-1,k-1)*binom(m-j-1,k-1), and the product R_{n/2}^2 for even n. Thus the coefficient filter gives the all-n count; no higher period via symmetric-threshold energy. Direct independently coded wheel majority brute force for rim n=3..8 agrees with fixed=2 and cycles 3,2,5,11,21,34; scripts inspected define additional finite tests through n=17. These are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Oct26 theorem applies n>=4, Nov2 theorem n>=3; both include fixed states, same hub-flip vs hub-static decomposition and complete primitive-two orbit count."
+        ],
+        "reasoning": "The Nov2 formula covers the entire assigned n>=3 domain. No unproved exceptional n=3 case remains outside its scope.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-primitive-two-cycle-census-for-majority-dynamics-on--e1ecad5150c3/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-oscillation-census-for-synchronous-majority-dynamics-on-wh--4d7650f4183c/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-primitive-two-cycle-census-for-majority-dynamics-on--e1ecad5150c3/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-oscillation-census-for-synchronous-majority-dynamics-on-wh--4d7650f4183c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-two-cycle-census-for-synchronous-majority-on-wheel-graphs--f71bdb07e974/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-two-cycle-census-for-synchronous-majority-on-wheel-graphs--f71bdb07e974/code/wheel_majority_brute.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-two-cycle-census-for-synchronous-majority-on-wheel-graphs--f71bdb07e974/code/wheel_run_census.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute the published cyclic-run coefficients in Nov2 half-plane extraction to obtain C_n(2)=2*1_even+sum_{2j>n,2e<n}[z^j w^e]R_n or R_{n/2}^2."
+        ],
+        "reasoning": "The entire central theorem is identical. Further rarity follows from restricting to words avoiding 010, a straightforward consequence of the known polynomial; selected words deliver exponential subsequence counts. No separately substantial uncovered final claim is offered.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-primitive-two-cycle-census-for-majority-dynamics-on--e1ecad5150c3/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-oscillation-census-for-synchronous-majority-dynamics-on-wh--4d7650f4183c/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nov 2 published F_m(u,v)=tr([[1,u,0],[0,0,uv],[1,0,uv]]^m); its exact coefficient m/q*binom(a-q-1,q-1)*binom(m-a-1,q-1) is assigned R_m with a=j,q=k."
+        ],
+        "reasoning": "Set u=z,v=w, F_m=R_m. Its half-plane filter and two-even correction yield the same formula for every n>=3. Algebraic equivalence is exact, not title matching.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-primitive-two-cycle-census-for-majority-dynamics-on--e1ecad5150c3/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-oscillation-census-for-synchronous-majority-dynamics-on-wh--4d7650f4183c/RESULT.md",
+          "Resultary semantic query: binary synchronous majority on wheels exact two cycle counts hub alternating generating functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published tables list n4..16 cycles 2,5,11,21,34,66,77,220,227,715,835,2318,2978 and Nov2 includes n3=3; assigned identical values."
+        ],
+        "reasoning": "The published exact coefficient formula, not just finite tables, completely determines all n and thus is stronger evidence of coverage than numerical coincidence.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-primitive-two-cycle-census-for-majority-dynamics-on--e1ecad5150c3/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-oscillation-census-for-synchronous-majority-dynamics-on-wh--4d7650f4183c/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: two actually read published full primary scientific records decisively cover the claim. The October 26 2026 Exact oscillation census for synchronous majority dynamics on wheel networks gives the IDENTICAL no-isolated-one binomial generating polynomial G_m=R_m and exact number B_n+2*1_even for every n>=4, along with hub decomposition, two unanimous fixed states and exponential growth. The November 2 2026 Parity-split primitive two-cycle census for majority dynamics on wheels extends to ALL n>=3 and gives F_m=tr(M^m) with exact coefficient formula identical to R_m, and precisely the same odd/even half-plane extraction and hub decomposition. Hence assigned claim is a direct equivalent specialization, including its n=3 boundary. Additional upper rarity bounds follow from counting a forbidden length-three word in the already explicit polynomial; the explicit binomial lower subsequences are elementary selected word families and do not make the principal repeated census independently original. No chronological authorship inference is made beyond coverage.",
+      "residual_risks": [
+        "Scientific originality decisively fails because exact mathematical coverage exists; no independent new claim survives in the assigned package.",
+        "Direct brute force only checked small labelled wheels; general proof remains mathematical, not empirical.",
+        "Coverage finding makes no authorship, independence or historical priority accusation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_FULL_COVERAGE",
+          "evidence": [
+            "Nov2 equality F_m=R_m and identical strict half-plane extraction and 2-even correction for every n>=3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-primitive-two-cycle-census-for-majority-dynamics-on--e1ecad5150c3/RESULT.md",
+          "material_read": "Full RESULT.md Finding, mathematical proof, polynomial transfer M, coefficient expansion, n=3 boundary, hub classification, lower-growth and limitations",
+          "method": "read entire published primary-result markdown from GitHub repository, actual blob SHA 3cb07cba99f04ddefb91cc1a1403f4c84a3a2af3",
+          "title": "Parity-split primitive two-cycle census for majority dynamics on wheels",
+          "trigger": "same graph, update rule, counted period-two quantity and all-n range"
+        },
+        {
+          "assessment": "EXACT_COVERAGE_N_AT_LEAST_4",
+          "evidence": [
+            "Oct26 G_m coefficient is assigned R_m and theorem classifies same wheel primitive 2-cycles for n>=4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-oscillation-census-for-synchronous-majority-dynamics-on-wh--4d7650f4183c/RESULT.md",
+          "material_read": "Full RESULT.md definition of G_m, proof of hub-flip and constant hub, exact B_n+2even and explicit orbit tables",
+          "method": "read entire published primary-result markdown from GitHub repository, actual blob SHA 03053e698222e493f96b4e4778ea13049c3fcbfa",
+          "title": "Exact oscillation census for synchronous majority dynamics on wheel networks",
+          "trigger": "same majority wheel orbit census with n>=4"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "PASS: A complete sharp census of recurrent oscillatory attractors of a natural hub-and-ring majority network, including parity-dependent constant-hub cycles and recurrence rarity, is a meaningful natural graph-dynamics invariant. Its scientific value does not undo decisive prior mathematical coverage.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-primitive-two-cycle-census-for-majority-dynamics-on--e1ecad5150c3/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-oscillation-census-for-synchronous-majority-dynamics-on-wh--4d7650f4183c/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-two-cycle-census-for-synchronous-majority-on-wheel-graphs--f71bdb07e974/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-two-cycle-census-for-synchronous-majority-on-wheel-graphs--f71bdb07e974/code/wheel_majority_brute.py",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-two-cycle-census-for-synchronous-majority-on-wheel-graphs--f71bdb07e974/code/wheel_run_census.py"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No claim of independent originality for known exact wheel census or its direct corollaries.",
+    "Rejected scientific claim remains preserved; no disclaimer or extra verification can convert covered original into PASS."
+  ],
+  "residual_risks": [
+    "Scientific originality decisively fails because exact mathematical coverage exists; no independent new claim survives in the assigned package.",
+    "Direct brute force only checked small labelled wheels; general proof remains mathematical, not empirical.",
+    "Coverage finding makes no authorship, independence or historical priority accusation."
+  ],
+  "schema_version": 1
+}
