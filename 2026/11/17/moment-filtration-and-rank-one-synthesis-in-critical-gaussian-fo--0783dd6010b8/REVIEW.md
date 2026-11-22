@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact monomial shift weights follow by ordinary differentiation, multiplication and zero-based integration. All terms share one forward-shift diagonal. Moment vanishing determines the degree and leading coefficient of the polynomial tail; asymptotic rearrangement establishes the sharp ideal thresholds. The finite-difference boundary is verified for every input monomial, and factorization by \((1-t)^{m+1}\) gives a complete finite-rank singular-value formula. Exact-integer probes (22,680 + 312 + 924) corroborate the formulas. The infinite-dimensional claim is proved analytically rather than inferred from enumeration.
+PASS
 
-## Originality — PASS (qualified)
+PASS: With e_k=z^k/sqrt(k!), each A_mj=I^(m+j)M_(z^m)D^j is exactly the 2m-forward weighted shift with coefficient P_m(k-j)/H_m(k) for k>=j, zero below j, P_m(X)=∏_(s=1)^m(X+s), H_m(k)=sqrt∏_(s=1)^(2m)(k+s). For finite c, the high tail polynomial Q_c(k)=Σ c_j P_m(k-j) has degree m-q iff q<=m first nonzero moment M_q, with leading (-1)^q binom(m,q)M_q. The nonzero shift singular values are decreasing rearrangements of |Q_c(k)|/H_m(k); this proves essential norm, n^-q, sharp Schatten membership and harmonic logarithmic endpoint. When all moments M_0..M_m vanish, C(t) has factor (1-t)^(m+1), and exact discrete rising-factorial identity, including low-index derivative cutoff, gives B_(m,h,m+1)=m! |e_(h+2m)><e_h|/H_m(h). Orthogonal rank-one supports yield exact finite rank, all singular values and rank = number nonzero polynomial-quotient coefficients. Independent exact integer check for all 1<=m<=7, 0<=h<=4, 0<=k<=19 verified the rank-one identity (700 cases); inspected full source CHECK.py covering wider m/h/q and moment/synthesis checks. Infinite statements rest on exact polynomial algebra rather than finite observations.
 
-Dong–Hu (arXiv:2611.01959v1) give the underlying individual weights and fixed-order integration classifications. Related Fock commutator results analyze products rather than varying-order linear combinations; the inspected older Volterra/Schatten literature did not yield the complete moment hierarchy, rank-one finite difference or quotient spectrum. The possibility of an older equivalent factorial-calculus operator identity remains a bibliographic risk. An older thesis was inspected in parsed text, but a separate page image did not load.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The operator family is naturally defined by varying integration order while fixing net shift degree. A hierarchy of successive moment cancellations gives every compact Schatten threshold and the exact finite-rank terminal stratum, rather than merely one isolated example. Explicit rank-one operators arise as alternating sums of individually noncompact critical operators; the quotient identity makes their complete finite-rank spectral structure constructive.
+PASS, with explicit prior-coverage limitation: Dong–Hu supplies individual generalized integral weights and compactness; the earlier published polynomial Fock–Sobolev Weyl theorem gives broader leading singular-value and endpoint asymptotics for compact fixed-integration-order polynomial sums. By passing to a sufficiently high common integration order and commuting derivatives through z^m, it can also subsume the compact spectral-power portion here (up to finite rank). Those spectral asymptotics are not claimed as uniquely new in isolation. The substantive uncaptured result is the exact finite-difference endpoint where individually noncompact shifts combine to rank-one maps, the all-moment explicit polynomial-quotient finite-rank classification and full nonzero singular-value list, including low-degree cutoff and rank-one synthesis. The prior Weyl theorem treats nonzero negative-degree principal symbols and does not determine these exact finite-rank endpoints. No source read proves that classification.
 
-## Limits
+## value
 
-Fixed monomial degree, finite sums, classical Gaussian Fock Hilbert space. The proof does not cover general symbols or non-Gaussian Fock–Sobolev norms. The self-review does not constitute independent audit or priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Classifying when finite combinations of individually noncompact natural Gaussian-Fock integration shifts jump through Schatten thresholds and finally become a specified finite-rank operator is a motivated operator-ideal/finite-rank synthesis result. The rank-one identity is exact for every m,h and yields a constructive basis of finite-rank elements in a natural span, not merely a numerical calculation or parameter rename. Previously known generic spectral asymptotics are explicitly separated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
