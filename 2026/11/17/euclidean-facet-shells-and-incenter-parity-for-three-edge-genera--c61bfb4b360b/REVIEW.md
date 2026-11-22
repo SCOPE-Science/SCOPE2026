@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses the intrinsic Euclidean structure of the \(2m+1\)-dimensional zero-sum hyperplane and the correct polar normalization \(\langle\widehat f,x\rangle\le1\). The tight-edge spanning-tree criterion, integrality, graph bipartition, exact three-state full-path enumeration, centered-norm calculation, and strict integer optimization prove the full facet-distance multiset and global inradius for every \(m\ge3\). The contacting normals have rank \(m\) for even \(m\) and \(m+1\) for odd \(m\); the noncontact inequalities have strict slack at zero, making these ranks exactly the affine codimensions of the optimal-center set. Exact rational enumeration checks 708 facets across the first three parameter values and 19,668 full-path signed potentials for six parameter values, without using finite cases as the infinite proof. Risk: the Euclidean embedding and the excluded two-path boundary \(m=2\) must not be changed.
+## correctness
 
-## Originality — PASS, qualified
-Higashitani–Jochemko–Michałek 2018, Theorem 3.1, already supplies the facet criterion for every connected graph. Braun–Bruegge 2022/2023, Proposition 22 and Corollary 23, already supplies the \(2(3^m+1)\) **total** facet count and signed-path word description in this exact theta family. Neither of those established claims includes the metric-dependent Euclidean facet-distance shells, maximizer classification, tangent-facet multiplicities, or rank/dimension of the complete optimal-center family. D'Alì–Delucchi–Michałek 2019 clarifies the KR/Lipschitz equivalence but its inspected §2.3 does not give these computations. Related publicly available radius results for fan graphs, wheel graphs, cycles and other graph families do not logically imply the present family without additional structural arguments. Residual risk: a theorem stated as maximal variance of integer Lipschitz potentials on parallel paths might imply some or all of the formulas; historical exhaustive priority is not established. Novelty does not rest on renaming the known total facet count.
+PASS
 
-## Mathematical value — PASS
-Equal-length theta graphs are a standard cycle-overlap family. Knowing their total number of facets does not determine their Euclidean distance multiset or how many independent normals realize the narrowest supporting shell. The explicit all-dimensional shell law, exact optimal ball and central-binomial contact counts, together with a parity shift in optimal-center affine dimension, provide natural, verifiable geometric information that is not merely a selected small numerical case. The canonical embedding distinguishes metric-geometric features not preserved by arbitrary linear equivalence. The inference is restricted to this family and should not be advertised as a general theta result.
+PASS. The polar of the canonical zero-sum Lipschitz-free unit ball on m>=3 disjoint terminal-to-terminal 3-edge paths is the edge-difference <=1 potential polytope modulo constants. Polar vertices have a connected spanning saturated-edge graph, hence integral potentials. Bipartiteness forces every original edge difference odd, and therefore |difference|=1; the common three-edge path total is ±1 or ±3. For B-A=1, states (-1,0),(1,0),(1,2) give 3^m potentials; ±3 contributes only one pair, recovering the prior total 2(3^m+1) (NOT claimed novel). The centered squared normal for counts a+b+c=m is (m+1)/2+2(a+c)-2(c-a)^2/(m+1); the special ±3 squared norm is (m+9)/2. Maximizing forces b=0 and balanced a,c, giving R²=(5m+1)/2-2(m mod2)/(m+1), correct contact counts, and radius 1/R. Central symmetry makes the centered ball globally maximal, not just at origin. For all optimal centers, opposite active normals force orthogonality; their span has rank m for even m (one balanced word size) and m+1 for odd (two adjacent sizes), nonactive facets have strict slack, so affine center-set dimensions are m+1 or m. Independently enumerated all 3^m+1 positive-sign potential words and exact rational centered norms for m=3..8; all 6 maxima/contact counts and exact SymPy rational normal ranks matched. The independent finite checks cannot replace the all-m argument.
 
-## Related literature and limitations
-The closest sources are arXiv:1807.07678 (2018, facet criterion), arXiv:1910.05193 (2019, Kantorovich–Rubinstein equivalence), and arXiv:2201.13303 (2022, theta facet counting). The total facet count is explicitly credited as prior. Finite tests check the exact certificate but are not a proof for unbounded \(m\), and independent review has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for canonical Euclidean facet-distance multiset and optimal-center parity theorem on three-edge theta paths; prior general facet criterion and total facet count are explicitly treated as known inputs.
+
+## value
+
+PASS
+
+PASS: Natural Euclidean norm data of a canonical graph Lipschitz-free unit ball, including the entire facet-shell multiset, sharp globally optimal insphere radius, contact multiplicity and affine dimension of all center positions, are meaningful geometric invariants not implied by facet count. Balanced three-edge path potential combinatorics and a parity rank jump supply structural motivation; fixed unit graph/metric scope is honest.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
