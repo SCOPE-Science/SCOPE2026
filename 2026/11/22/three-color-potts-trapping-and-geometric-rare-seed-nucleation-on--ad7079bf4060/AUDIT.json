@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Each enabled ordered recoloring strictly increases the integer agreement score (at most 15), so trajectories reach an absorbing coloring and exact rational backward recurrence is a terminating proof. Two separately written scripts using distinct Petersen graph constructions exhaust all 59049 states, independently agree on the 579 terminal counts, four full uniform-initial absorption fractions, and all 360 geometric 7:2:1 placements. Rates per allowed recoloring and tie rejection are explicitly normalized.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Derrida–Hakim–Pasquier (arxiv:hep-th/9505066) calculate q-state one-dimensional persistence exponent using domain-wall coagulation, not a finite non-1D strict-descent 10-spin absorption matrix.",
+        "Godrèche–Luck (arxiv:cond-mat/0412077) explicitly focus on ferromagnetic Ising single-spin flips, chains and regular planar lattices.",
+        "Bet–Gallo–Nardi (doi:10.1007/s10955-021-02814-1) work with low-temperature Metropolis tunneling on 2D tori; energy-neutral transitions and topology differ."
+      ],
+      "reasoning": "General potential-game convergence and absorbing Markov-chain recurrences explain existence/computability, but do not entail the evaluated Petersen-specific fractions or sharp geometric support.",
+      "searches": [
+        "\"Petersen\" \"coordination game\" \"absorbing\" three strategies",
+        "Derrida Hakim Pasquier 1995 exact first-passage exponents Potts finite one dimensional",
+        "Goderche Luck 2004 metastability zero temperature dynamics attractors",
+        "Bet Gallo Nardi 2021 Potts Ising low temperature torus tunneling"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:hep-th/9505066",
+      "arxiv:cond-mat/0412077",
+      "arxiv:1112.5927",
+      "doi:10.1088/0305-4470/27/11/002",
+      "doi:10.1007/s10955-021-02814-1",
+      "doi:10.1515/nanoph-2020-0256",
+      "https://oeis.org/A296913"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier exact binary-spin Petersen result counts 12 nonconsensus caps and computes two-color rate-one absorption; this smaller state space has no 7:2:1 color population.",
+        "Honari-Latifpour–Miri doi:10.1515/nanoph-2020-0256 address an antiferromagnetic Petersen MAX-3-CUT optical oscillator experiment, with a different objective and nonequivalent kinetics.",
+        "Three-state excitation dynamics changes colors cyclically by contact, rather than selecting energy-improving Potts recolorings."
+      ],
+      "reasoning": "The new three-color state space has 579 terminal colorings, including 540 with all three colors. Neither binary Glauber nor the equilibrium/optical antiferromagnetic Potts statistics specifies its Markov absorption kernel, so none of the examined stronger-appearing statements logically covers the claim.",
+      "searches": [
+        "Petersen Ising zero temperature Glauber exact freezing 12 caps q2",
+        "three-state Potts Petersen graph local minima strict zero temperature consensus probabilities",
+        "Optical Potts machine Petersen 2020 MAX 3 CUT local minima",
+        "Petersen graph three-state Greenberg Hastings cyclic excitation recurrence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The model is also a three-strategy coordination potential game with strictly improving asynchronous best-response *options*; the relevant equivalence is acknowledged. No searched source supplied the 579-state Markov-chain law."
+      ],
+      "reasoning": "Rephrasing the spin rule as strictly improving local color choices preserves the rate-one ordered-recoloring dynamics. The indexed comparisons concern Potts equilibrium or other stochastic rules, not this explicit finite-state absorption computation.",
+      "searches": [
+        "\"Petersen graph\" \"best response dynamics\" three colors potential game",
+        "\"Petersen graph\" three-color local optima monochromatic edges majority",
+        "Petersen graph ferromagnetic three-state Potts strict zero-temperature energy-lowering single-spin updates 579 absorbing states probability of consensus"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A296913 tabulates proper Petersen vertex colorings, including 120 with three colors; these are configurations with zero agreeing edges, whereas this ferromagnetic model favors *more* agreements.",
+        "Exact-number search identified no published 579 local-minima table or 11/270 asymmetric nucleation law in this context."
+      ],
+      "reasoning": "Proper vertex coloring is an antiferromagnetic zero-agreement problem, not the strict ferromagnetic local-minimum or absorption distribution. No exact matching table was found; searches have finite coverage.",
+      "searches": [
+        "\"Petersen\" \"579\" \"Potts\" absorbing",
+        "\"11/270\" \"Petersen\" Potts",
+        "site:oeis.org Petersen 579 three-colour stable spin configurations",
+        "OEIS A296913 Petersen number proper colorings"
+      ]
+    },
+    "rationale": "The exact 579-state classification, four uniform-initial absorption fractions, and sharp tricolor 7:2:1 nucleation law are absent from examined primary statements. One-dimensional q-Potts persistence and general metastability do not imply a strict zero-energy-tie-rejecting Petersen chain; existing Petersen binary dynamics cannot encode tricolor configurations. Searches do not establish absolute uniqueness.",
+    "residual_risks": [
+      "An unindexed prior exact enumeration of the same Petersen strict-descent Markov chain may exist.",
+      "Only web-extracted text, not the rendered PDF screenshot, was accessible for the 1994 paper (screenshot timed out).",
+      "This model excludes energy-neutral recolorings; results cannot be transferred to conventional tie-accepting zero-temperature Glauber dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the specified finite Petersen strict-descent problem",
+        "evidence": "Paper uses nearest-neighbor 1D ring updates that may copy either neighbor, measuring persistence exponents, not trapping probabilities on Petersen.",
+        "identifier_or_url": "https://www.lps.ens.fr/~derrida/PAPIERS/1994/jpa-94-persistence.pdf",
+        "material_read": "Full five-page PDF text through web extraction; updating rule, observables, and conclusions, especially pages L357-L360",
+        "method": "Web PDF extraction; screenshot requests timed out",
+        "title": "Non-trivial exponents in the zero temperature dynamics of the 1D Ising and Potts models",
+        "trigger": "Closest classical q-state zero-temperature stochastic Potts dynamics"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "States an exact formula for one-dimensional q-state persistence exponent and coalescence mapping, not energy descent on a cubic graph.",
+        "identifier_or_url": "https://arxiv.org/abs/hep-th/9505066",
+        "material_read": "Arxiv full HTML text: introduction, finite-size/coagulation mapping and exact exponent theorem",
+        "method": "Read accessible full arXiv HTML",
+        "title": "Exact first-passage exponents of 1D domain growth: relation to a reaction diffusion model",
+        "trigger": "General q-state Potts persistence and finite-ring domain wall methods"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The stated scope is Ising spin flips and regular chain/square/honeycomb landscapes, not the three-state Petersen absorbing kernel.",
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0412077",
+        "material_read": "Arxiv HTML full text: introduction and dynamics/attractor sections",
+        "method": "Read accessible full arXiv HTML and searched graph terms",
+        "title": "Metastability in zero-temperature dynamics: Statistics of attractors",
+        "trigger": "General metastable attractors and finite state kinetic physics"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Describes binary Ising-like spin models on random networks, distributions of active links, and no exact q3 Petersen law.",
+        "identifier_or_url": "https://arxiv.org/abs/1112.5927",
+        "material_read": "Arxiv HTML text: abstract, Introduction and model setup; searchable Petersen comparison",
+        "method": "Read accessible arXiv HTML and checked Petersen occurrence",
+        "title": "Absorbing states of zero-temperature Glauber dynamics in random networks",
+        "trigger": "Closest finite-network zero-temperature dynamical trapping comparison"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Finite-temperature asymptotic Metropolis transitions on 2D tori differ from strict cooling rate-one recolorings on Petersen.",
+        "identifier_or_url": "https://doi.org/10.1007/s10955-021-02814-1",
+        "material_read": "Open-access full HTML article, abstract, introduction and model distinctions",
+        "method": "Read accessible primary HTML",
+        "title": "Critical Configurations and Tube of Typical Trajectories for the Potts and Ising Models with Zero External Field",
+        "trigger": "Plausibly broader finite q-state ferromagnetic Potts metastability results"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Implements optical antiferromagnetic 3-cut optimization with noise and different dynamics, not the claimed exact ferromagnetic hitting probabilities.",
+        "identifier_or_url": "https://doi.org/10.1515/nanoph-2020-0256",
+        "material_read": "Open-access HTML article, Hamiltonian, application and Petersen figure discussion",
+        "method": "Read primary open HTML",
+        "title": "Optical Potts machine through networks of three-photon down-conversion oscillators",
+        "trigger": "Explicit Petersen graph and three-color Potts in one paper"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Proper vertex-coloring polynomial counts zero-agreement states, not local maxima of agreeing edges.",
+        "identifier_or_url": "https://oeis.org/A296913",
+        "material_read": "OEIS sequence description and formula, including three-color value 120",
+        "method": "Read public sequence entry",
+        "title": "OEIS A296913: Number of ways to properly color the Petersen graph using n colors",
+        "trigger": "Plausible known three-color Petersen count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad7079bf-4060-4df4-ab9e-f0e9256e6513",
+  "value": {
+    "rationale": "The complete q=3 dynamic trapping law on the canonical cubic girth-five cage is a natural exact finite-size statistical-physics benchmark. The sharp five-class geometric support for three minority seeds and the rare 11/270 nucleation probability reveal a concrete color-assist mechanism not inferred from static Potts ground states or the prior binary-spin study. The finite nature is stated without an ungrounded large-network generalization.",
+    "status": "PASS"
+  }
+}
