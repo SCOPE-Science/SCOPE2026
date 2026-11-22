@@ -1,0 +1,11 @@
+# Review of the sharp salvage boundary for Weibull-risk power-yield forest rotations
+
+**Correctness — PASS.** The assumptions define i.i.d. renewal cycles with Weibull survival and harvested value at the first of planned cutting or catastrophe. Direct differentiation gives \(N'_s=Sg_s\), \(I'=S\), \(H_s'=Ig'_s\). The single-peaked derivative \(g_s\), strict endpoint signs, and implicit comparative-statics calculation prove the unique finite optimum for every \(s<1\), the exceptional complete-salvage policy, and the asymptotic. The packaged checker passed 10795 finite diagnostics; its computation is not an infinite proof.
+
+**Originality — PASS relative to material inspected.** Routledge (1980) and Reed (1984) are foundational catastrophe-rotation studies, while Amacher, Malik and Haight (2005) explicitly model age-varying hazard and salvage in a broader economic program and Loisel (2013 public preprint) studies thinning and catastrophic risk. The classic renewal quotient is not new. The narrower target is the *complete global classification and sharp singular salvage correction for a Weibull age hazard and superlinear power value under long-run mean physical yield*, not their general Faustmann setup. The 2005 and 2013 accessible full texts did not state or imply this explicit all-shape classification without additional analysis. Older primary full texts remain a priority risk, not proof of novelty.
+
+**Value — PASS.** Fire risk, imperfect salvage and stand age are motivated forestry variables. The exact salvage boundary isolates an important model sensitivity: making disaster recovery arbitrarily close to complete produces arbitrarily late planned cutting under the stated idealized power-value model. The theorem gives an analytical benchmark and an explicit warning about extrapolating juvenile power-law value; it is not an empirically justified management recommendation.
+
+The 1980 Routledge and 1984 Reed full texts were not available for direct theorem-level comparison; the Routledge full text was not accessible for a direct theorem-level comparison. This residual risk limits historical priority. Realistic bounded-age yield, carbon benefits, discounting and management interventions fall outside the theorem.
+
+Self-review: passed. Independent audit: not yet performed.
