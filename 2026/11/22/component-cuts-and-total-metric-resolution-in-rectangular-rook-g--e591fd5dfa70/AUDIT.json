@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The explicit coordinate distance identity yields the same-row and same-column local obstructions and the diagonal two-row/two-column component-cut obstruction, proving the criterion in both directions for all m,n>=2. For 4x4 the degree/component argument excludes <=5 edges and a path-plus-edge selected set attains six. The complete 65,536-subset direct-distance check and an independently implemented incidence-component check agree; a separate orbit computation under seven generating permutations yields sizes 96, 192, 576, 576, 576. The weak-two contingency uses the published weighted-distance definition.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fernández et al. (arXiv:2505.19642), Theorem 1.1, concerns the weighted weak k-metric dimension; its definition permits queried endpoints: https://arxiv.org/abs/2505.19642",
+        "Hedetniemi et al. (2020), §4.4, studies Cartesian products of paths, not complete graphs: https://repub.eur.nl/pub/126872/Repub_126872_O-A.pdf",
+        "The published minimum total resolving bases on Q4 (a different Hamming graph) do not imply the rook family: https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-total-metric-bases-and-optimum-exchanges-in-the-binary-four-cube--57e484926093"
+      ],
+      "reasoning": "Equal numerical minimum size six in the 4x4 rook graph for total and weak two resolution does not imply equivalence of their families. Among the 8008 six-sets, 1152 are total-only and 1168 are weak-two-only; these are exact countercomparisons. Prior path-grid or cube results do not contain this family.",
+      "searches": [
+        "total metric dimension Hamming graph K_m square K_n",
+        "third-party resolving rook graph component condition",
+        "minimum total metric bases K4 Cartesian K4 2016 sets 5 orbits"
+      ]
+    },
+    "checked_sources": [
+      "https://repub.eur.nl/pub/126872/Repub_126872_O-A.pdf",
+      "https://arxiv.org/abs/2505.19642",
+      "https://doi.org/10.1137/050641867",
+      "https://www.iam.fmph.uniba.sk/amuc/ojs/index.php/amuc/article/view/1660",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-extremal-forests-and-enumeration-of-weak-two-metric-bases-in-nea--e1f0aa1a062c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-total-metric-bases-and-optimum-exchanges-in-the-binary-four-cube--57e484926093",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-minimal-total-domination-of-rook-graphs-a-component-census-and-a--9e5d921c2b2c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hedetniemi–Laskar–Mulder 2020 defines the exact target but proves results for other graph families (especially path-grid products), not this theorem",
+        "Fernández–Klavžar–Kuziak–Muñoz-Márquez–Yero 2025 proves weak-k formulas for square rook graphs. It uses a sum of differences that includes endpoint contributions, demonstrably not covering total-set membership",
+        "The 2007 ordinary Cartesian-product metric work uses endpoint-permitted resolution: https://doi.org/10.1137/050641867"
+      ],
+      "reasoning": "Neither a dimension identity for ordinary resolution nor one for weighted weak two-resolution implies the endpoint-excluding all-set characterization. The 4x4 explicit non-inclusions establish that the closest stronger-looking weighted property is neither necessary nor sufficient for the claimed total property.",
+      "searches": [
+        "total metric dimension rook graphs Hamming graph complete Cartesian product",
+        "total metric dimension Cartesian product complete graphs",
+        "total resolving set square rook graph K4 K4 Cartesian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2020 third-party-witness definition excludes both endpoints; its path-product grid section treats different graphs: https://repub.eur.nl/pub/126872/Repub_126872_O-A.pdf",
+        "Published records concerning the same underlying rook graphs concern weak two-metric resolution, total domination, or different invariants: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-extremal-forests-and-enumeration-of-weak-two-metric-bases-in-nea--e1f0aa1a062c"
+      ],
+      "reasoning": "A total resolving subset here is an ordinary set of rook cells with all queries witnessed by a distinct third cell. It is not a total dominating set, a path-grid resolving set, or a two-landmark guarantee; all three conditions in the theorem refer to third-party witnesses. The incidence graph is exactly the root-edge graph of the selected cells. No searched equivalent title or alternate formulation supplied the same iff conditions.",
+      "searches": [
+        "total metric dimension rook graphs Hamming graph complete Cartesian product",
+        "all total resolving subsets of rook graphs K_m square K_n characterized by row and column deficits and component separations",
+        "total resolving family connected component obstruction two rows two columns rook graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct complete enumeration of 65,536 subsets, reproducible in check_distance.py, gives 2,016 bases and the complete 45,605-set enumerator",
+        "Component-based check_components.py obtains the same counts independently; five orbit sizes under natural row/column symmetries are 96,192,576,576,576",
+        "The weak-k paper reports a different invariant and a dimension formula but not these total-resolving counts: https://arxiv.org/abs/2505.19642"
+      ],
+      "reasoning": "The reported exact 4x4 table concerns endpoint-excluding total resolving sets, not ordinary metric bases or weak two-metric generators. No exact database/table found in the inspected sources matches this object and its full polynomial or orbit census; search absence alone is not presented as a proof of historical novelty.",
+      "searches": [
+        "total metric dimension third party 4 by 4 Hamming graph weak two resolving distinct family",
+        "total resolving set square rook graph K4 K4 Cartesian",
+        "total metric dimension rook graph 2016 bases"
+      ]
+    },
+    "rationale": "Relevant primary full text defines total metric resolution but studies path grids; the directly relevant nonbinary Hamming paper treats weak weighted k-resolution, not endpoint-excluding witnesses. The exact six-set contingency shows the distinction in both directions. Searches of records for the component criterion, full four-by-four polynomial, alternate resolving terminology, and prior total metric papers revealed no covering stronger statement. Historical-priority incompleteness remains explicit.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier results may contain equivalent component-cut formulations or the same four-by-four census.",
+      "A 2007 ordinary-product paper and a 2022 non-isolated-resolving paper were available only through public abstracts/metadata; no whole-document negative claim is drawn from them.",
+      "Finite enumerations and orbit results are independently implemented in two supplied programs but not externally audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces third-party witness requirement and handles P_m Cartesian P_n, but not K_m Cartesian K_n or their selected-cell incidence graphs",
+        "evidence": [
+          "Published online May 4, 2020; Definition 4; section 4.4 treats path factors."
+        ],
+        "identifier_or_url": "https://repub.eur.nl/pub/126872/Repub_126872_O-A.pdf",
+        "material_read": "Full text definitions and the sections on the three-cube, Petersen graph and path-grid products; in particular §4.4 and Theorem 27",
+        "method": "Read open-access primary PDF text and inspected page images of product sections",
+        "title": "New resolvability parameters of graphs",
+        "trigger": "Origin of total resolving sets and closest 2020 Cartesian-product section"
+      },
+      {
+        "assessment": "Different weighted predicate permits endpoints; minimum size agreement does not imply the all-set classification. Exact six-set enumeration gives 1152 total-only and 1168 weak-two-only cases",
+        "evidence": [
+          "First arXiv public version May 26, 2025; Theorem 1.1 is a weak-k scalar formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.19642",
+        "material_read": "Introduction, precise weak-k distance-sum definition and Theorem 1.1; relevant square-product dimension statements",
+        "method": "Read arXiv full-text rendering and inspected PDF page image of the definition and theorem",
+        "title": "On the weak k-metric dimension of Hamming graphs",
+        "trigger": "Same square rook graphs and apparently stronger multi-witness resolution"
+      },
+      {
+        "assessment": "Ordinary metric witnesses may be endpoints; insufficient source access for a full-paper absence assertion, but the stated main theorem concerns a different predicate",
+        "evidence": [
+          "SIAM J. Discrete Math. 21 (2007), 423–441, ordinary resolving-set abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/050641867",
+        "material_read": "Abstract and bibliographic record only",
+        "method": "Inspected publicly available abstract; full primary text not accessible during this comparison",
+        "title": "On the metric dimension of Cartesian products of graphs",
+        "trigger": "Prior ordinary metric work on the same rook family"
+      },
+      {
+        "assessment": "Requires the selected induced subgraph have no isolated vertices, a different condition from third-party distance witnesses; not a substantive implication",
+        "evidence": [
+          "Published September 7, 2022; explicitly defines non-isolated resolving sets."
+        ],
+        "identifier_or_url": "https://www.iam.fmph.uniba.sk/amuc/ojs/index.php/amuc/article/view/1660",
+        "material_read": "Abstract and publication record only",
+        "method": "Read public abstract; full page retrieval unavailable",
+        "title": "The non-isolated resolving number of a graph Cartesian product with a complete graph",
+        "trigger": "Superficially related total or induced no-isolate resolution"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e591fd5d-fa70-4b4d-963b-1594b4e6af80",
+  "value": {
+    "rationale": "A genuinely all-parameter structural classification translates the no-endpoint metric-witness condition into local leaf constraints and one global component-cut obstruction in the natural bipartite incidence graph. It permits exact testing for every rectangular size and has a meaningful 4x4 finite census, full optimizer symmetry classification, and sharp demonstration that total and weak-two resolving sets are not nested despite matching minimum cost.",
+    "status": "PASS"
+  }
+}
