@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T09:52:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md exact spline/Jensen/De Moivre/Stirling proof; verify_jitter.py examined",
+        "independent_checks.py exact rational W1 and parity checks"
+      ],
+      "rationale": "For each index j the original Bernstein node j/n lies in the separate interval [j/(n+1),(j+1)/(n+1)]. Constructing one continuous piecewise-linear function with slope +1 up to this node and -1 afterwards makes the signed Lipschitz bound equal the sum of all cell displacements, so the exact norm is (n+1)^(-1) E|J/n-U| even for arbitrary cell mixing laws. The centered mean condition E U=x and Jensen give minimizer U=x; equality for all positive binomial weights forces U supported on the two grid neighbors of x, degenerating to a point at integral nx and endpoints. The continuous Dirac selection attains the global infimum. De Moivre binomial MAD on cell k has value 2*C(n-1,k)*x^(k+1)*(1-x)^(n-k), unique within-cell peak (k+1)/(n+1); discrete strict log-concavity of h(s)=s^(s+1)/s! yields the unique odd-degree and double even-degree maxima. Stirling gives D_n/(n+1)~1/(sqrt(2*pi)*n^(3/2)). Independent rational W1 integration over 195 (n,x,nu) configurations and the all-cell exact parity maximization in n=1..13 agree. This finite evidence does not prove the infinite claims.",
+      "residual_risks": [
+        "The De Moivre identity is classical, and the prior successive-degree Bernstein result supplies a special Bernoulli-jitter case, not the constrained minimax."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altomare et al. define a broader class of positive operators, with fixed auxiliary measures and approximation/Lipschitz preservation estimates; no constrained minimax.",
+          "Acu–Raşa–Şteopoaie 2024 §§1-2 defines j-centered symmetric cell averages, affine preservation and approximation, not the x-dependent cell-jitter minimax."
+        ],
+        "reasoning": "A wider operator family alone does not imply the optimal constrained difference nor classify mean-x mixing laws; its objectives and admissible measures are different.",
+        "searches": [
+          "Bernstein polynomial one-cell centered refinement optimal measure Lipschitz operator difference Wasserstein binomial mean absolute deviation parity",
+          "arxiv:1605.06768v1 §5",
+          "doi:10.1007/s13398-024-01605-z §§1-2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1605.06768v1",
+        "https://link.springer.com/article/10.1007/s13398-024-01605-z",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-successive-degree-bernstein-stability-and-the-rigid-interl--09e10c069fb9",
+        "doi:10.1016/j.spl.2013.01.023",
+        "Resultary semantic search: Bernstein polynomial one-cell centered refinement optimal measure Lipschitz operator difference Wasserstein binomial mean absolute deviation parity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior adjacent-degree result: exact Lipschitz difference 2x(1-x)/(n+1), obtained by U~Bernoulli(x).",
+          "New optimum uses U=x, yielding order n^(-3/2) in the global norm vs the Bernoulli jitter order n^(-1)."
+        ],
+        "reasoning": "Known adjacent-degree and MAD results logically supply special cases/ingredients, but neither implies the optimization over every centered auxiliary law or all equality measures.",
+        "searches": [
+          "Bernstein polynomial one-cell centered refinement optimal measure Lipschitz operator difference Wasserstein binomial mean absolute deviation parity",
+          "Resultary 2026/11/17/SCOPE-sharp-successive-degree-bernstein-stability-and-the-rigid-interl--09e10c069fb9",
+          "doi:10.1016/j.spl.2013.01.023"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:1605.06768v1 Eq (2.8) uses a fixed degree-indexed auxiliary measure; 2013 Berend–Kontorovich gives classical MAD but no centered cell optimization.",
+          "The same universal piecewise-linear signed spline yields exact W1, not a mere transport upper bound."
+        ],
+        "reasoning": "Stochastic Bernstein–Kantorovich and 1-Wasserstein are equivalent formulations. They contain common components, but neither an exact bounded Lipschitz difference for all centered x-dependent laws nor the equality classification was found.",
+        "searches": [
+          "Bernstein polynomial one-cell centered refinement optimal measure Lipschitz operator difference Wasserstein binomial mean absolute deviation parity",
+          "Wasserstein-1 transport between Bernstein lattice law and one-cell jittered binomial law",
+          "arxiv:1605.06768v1 §2 Eq (2.8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Berend–Kontorovich 2013 presents the binomial MAD which is a prior ingredient; searched Resultary returns the same current result and adjacent-degree Bernstein stability, rather than an earlier exact minimax table."
+        ],
+        "reasoning": "The odd/even MAD maximization is classical algebra here. No prior table giving all centered-kernel equality measures was located; absence is only bounded-search evidence.",
+        "searches": [
+          "Bernstein polynomial one-cell centered refinement optimal measure Lipschitz operator difference Wasserstein binomial mean absolute deviation parity",
+          "binomial mean absolute deviation maximum odd even probability",
+          "Resultary semantic search for centered cell Bernstein minimax"
+        ]
+      },
+      "rationale": "The novel assertion is the attained constrained minimax over x-dependent centered laws, its universal signed Lipschitz extremizer and all equality distributions, not the classical binomial MAD or the previously proved Bernoulli mixing case. The 2016 generalized Kantorovich operator treats a fixed auxiliary measure for each degree and gives rates/preservation; the 2024 affine-preserving construction averages about each j/n and studies shape preserving, not this optimal cell-insertion law. The known exact B_(n+1)-B_n norm corresponds to U~Bernoulli(x), which is generally not optimal.",
+      "residual_risks": [
+        "Older or unindexed interpolation papers could formulate the same optimized x-dependent cell law.",
+        "The full Berend–Kontorovich PDF and earlier Acu–Raşa 2016 paper were not newly inspected in full; classical MAD and adjacent-degree portions expressly excluded from novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generalizes operators through fixed μ_n and proves convergence/preservation; no exact x-dependent centered-jitter minimax or W1 optimizer classification",
+          "evidence": [
+            "§2 Eq (2.8): fixed μ_n over [0,1] independent of evaluation x",
+            "§5: Lipschitz and convexity preservation"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1605.06768v1",
+          "material_read": "Complete accessible HTML, §§1-5, especially §2 Eq (2.1), Examples 2.1(1) Eq (2.8), §5 preservation",
+          "method": "Full accessible primary arXiv HTML with targeted equations and theorem sections",
+          "title": "A generalization of Kantorovich operators for convex compact subsets",
+          "trigger": "Same Bernstein cell-refinement kernel family, potentially dominating theorem"
+        },
+        {
+          "assessment": "Defines grid-index-centered uniform integrals and studies approximation/shape properties; no all-ν_x Lipschitz minimax or Dirac optimality",
+          "evidence": [
+            "§1 Eq (1.2) integrates about j/n for index-dependent intervals",
+            "Theorem 2.1 is a Voronovskaja approximation result"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s13398-024-01605-z",
+          "material_read": "Complete open-access HTML, §§1-8; §1 equations (1.1)-(1.4), §2 Theorem 2.1 and §§4-6 comparison/convexity",
+          "method": "Full public open-access primary HTML reading",
+          "title": "Bernstein–Kantorovich operators, approximation and shape preserving properties",
+          "trigger": "Recent affine-preserving near-neighbor averaging, potential same-object coverage"
+        },
+        {
+          "assessment": "MAD identity is credited as prior; no full-document noncoverage assertion is made",
+          "evidence": [
+            "doi:10.1016/j.spl.2013.01.023; known de Moivre identity"
+          ],
+          "identifier_or_url": "https://www.cs.bgu.ac.il/~karyeh/sharp-mad.pdf",
+          "material_read": "Classical MAD identity and citation metadata in audited primary RESULT.md and accessible bibliographic reference; original PDF not independently opened in this run",
+          "method": "Cross-reference original paper DOI and source mathematical identity; explicit limitation",
+          "title": "A sharp estimate of the binomial mean absolute deviation with applications",
+          "trigger": "Exact MAD closed-form and its historical attribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§1–4, classical MAD and comparison of deterministic vs Bernoulli cell insertion"
+      ],
+      "rationale": "An exact, attained all-kernel minimax for a natural affine-preserving positive-approximation family: the common optimal transport witness, all optimal Borel mixing laws and parity-sensitive worst-case points identify a reusable sharp stability benchmark. The n^(-3/2) optimum gives a genuine rate separation from conventional uniform/Bernoulli jitter. This is more than the textbook MAD identity or relabelling an operator; the global all-law selection and equality geometry are substantive.",
+      "residual_risks": [
+        "Applications outside this tightly specified real univariate binomial scheme are not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The De Moivre identity is classical, and the prior successive-degree Bernstein result supplies a special Bernoulli-jitter case, not the constrained minimax.",
+    "Older or unindexed interpolation papers could formulate the same optimized x-dependent cell law.",
+    "The full Berend–Kontorovich PDF and earlier Acu–Raşa 2016 paper were not newly inspected in full; classical MAD and adjacent-degree portions expressly excluded from novelty.",
+    "Applications outside this tightly specified real univariate binomial scheme are not claimed."
+  ],
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Scientific review — centered-cell Bernstein comparison
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes the pointwise Lipschitz norm using a single continuous interlacing spline with slopes of absolute value one. This supplies an exact common dual witness, rather than inferring equality from a transport upper bound. Jensen's inequality is applied separately at every binomial atom; positivity at interior arguments and the equality criterion for absolute value give the full pointwise minimizer classification. The globally admissible kernel \(\nu_x=\delta_x\) is weakly continuous. The De Moivre binomial mean absolute deviation formula yields finitely many beta-monomial peaks, whose symmetric products have a strictly log-concave factor, proving the parity-sensitive global maximum. Stirling's formula gives the asymptotic coefficient. Boundary cases \(n=1\), \(x=0\), and \(x=1\) are included.
+PASS
 
-The independent rational CDF calculation, exact common-spline evaluation and all-cell peak comparisons in `verify_jitter.py` passed. Finite tests corroborate but are not relied upon for the universal quantifiers. The theorem is limited to common cell-jitter distributions independent of the binomial index.
+For each index j the original Bernstein node j/n lies in the separate interval [j/(n+1),(j+1)/(n+1)]. Constructing one continuous piecewise-linear function with slope +1 up to this node and -1 afterwards makes the signed Lipschitz bound equal the sum of all cell displacements, so the exact norm is (n+1)^(-1) E|J/n-U| even for arbitrary cell mixing laws. The centered mean condition E U=x and Jensen give minimizer U=x; equality for all positive binomial weights forces U supported on the two grid neighbors of x, degenerating to a point at integral nx and endpoints. The continuous Dirac selection attains the global infimum. De Moivre binomial MAD on cell k has value 2*C(n-1,k)*x^(k+1)*(1-x)^(n-k), unique within-cell peak (k+1)/(n+1); discrete strict log-concavity of h(s)=s^(s+1)/s! yields the unique odd-degree and double even-degree maxima. Stirling gives D_n/(n+1)~1/(sqrt(2*pi)*n^(3/2)). Independent rational W1 integration over 195 (n,x,nu) configurations and the all-cell exact parity maximization in n=1..13 agree. This finite evidence does not prove the infinite claims.
 
-## Originality — PASS, qualified
+## originality
 
-The binomial mean absolute deviation identity itself is classical (explicitly credited to De Moivre by Berend–Kontorovich, 2013). The already known neighboring-degree Bernstein bound is also acknowledged as the Bernoulli-mixing special case, not presented as new. The comparison targeted is the precise *minimax over all weakly continuous mean-preserving cell jitter kernels*, with simultaneous global extremizing function, all pointwise minimizers and the parity-dependent optimal rate. Full-text inspection of Altomare et al. (2016) revealed the generalized Kantorovich construction and approximation and preservation estimates, not the stated minimax. Gonska–Piţul–Raşa (2006) and the Acu–Hodiş–Raşa survey (2018) cover operator-difference modulus bounds rather than this sharp constrained optimization. Relevant searchable research records likewise did not reveal a stronger claim. This is evidence for provisional originality, not a proof of absolute historical priority. Acu–Raşa (2016) was only accessible in publisher preview and surveyed forms; this remains a specific priority risk.
+PASS
 
-## Mathematical value — PASS
+The novel assertion is the attained constrained minimax over x-dependent centered laws, its universal signed Lipschitz extremizer and all equality distributions, not the classical binomial MAD or the previously proved Bernoulli mixing case. The 2016 generalized Kantorovich operator treats a fixed auxiliary measure for each degree and gives rates/preservation; the 2024 affine-preserving construction averages about each j/n and studies shape preserving, not this optimal cell-insertion law. The known exact B_(n+1)-B_n norm corresponds to U~Bernoulli(x), which is generally not optimal.
 
-Affine-preserving positive refinements of Bernstein approximation are a standard, motivated class. The exact best perturbation of a fixed binomial sampling law is a complete natural optimization, not an arbitrary finite parameter value. The common extremizer shows that an apparently naive cellwise transport coupling is globally sharp for every admissible law. The full equality classification identifies *every* optimal mixing measure pointwise; the odd/even maximizer change is mathematically forced by strict log-concavity. The optimal \(n^{-3/2}\) Lipschitz discrepancy improves the \(n^{-1}\) scale of common Bernstein–Kantorovich and neighboring-degree perturbations. No conjecture about operators outside the specified class is inferred.
+## value
 
-## Closest sources and remaining limits
+PASS
 
-Berend–Kontorovich, *Statistics & Probability Letters* 83 (2013), 1254–1259, DOI 10.1016/j.spl.2013.01.023; Altomare–Cappelletti Montano–Leonessa–Raşa, arXiv:1605.06768 (2016); Gonska–Piţul–Raşa, *Carpathian J. Math.* 22 (2006), 65–78; Acu–Hodiş–Raşa, *Constructive Mathematical Analysis* 1 (2018), 113–127, DOI 10.33205/cma.478408. An incomplete comparison with Acu–Raşa, *Numerical Algorithms* 73 (2016), DOI 10.1007/s11075-016-0117-8 remains disclosed. The binomial MAD formula is prior work, and an equivalent optimization could exist in older approximation theory under different terminology. Independent mathematical validation has not been performed.
+An exact, attained all-kernel minimax for a natural affine-preserving positive-approximation family: the common optimal transport witness, all optimal Borel mixing laws and parity-sensitive worst-case points identify a reusable sharp stability benchmark. The n^(-3/2) optimum gives a genuine rate separation from conventional uniform/Bernoulli jitter. This is more than the textbook MAD identity or relabelling an operator; the global all-law selection and equality geometry are substantive.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
