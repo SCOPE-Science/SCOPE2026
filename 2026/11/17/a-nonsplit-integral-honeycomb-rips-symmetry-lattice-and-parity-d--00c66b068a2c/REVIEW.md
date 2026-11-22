@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The relative chain complex of the Rips space modulo the centered tetrahedral subcomplex has precisely the \(2L^2\) alternating face triangles. The connecting boundary sends both colors to the same oriented facial cycle. Since the only integral relation on all facial cycles is their total sum, its kernel has exactly the claimed basis \(T,s_f\). Every symmetry acts on this basis with the stated sign and color-swap rules; the translation-and-rotation argument proves integral nonsplitting, while the reflection-and-rotation presentation yields the parity-sensitive Smith factors without extrapolating finite computations. Two independent finite checks test all local simplices and the full oriented relative cellular action, and exact Smith reductions corroborate the parity result. The listed finite examples are not used as a proof for infinitely many periods.
+PASS
 
-## Originality — PASS (qualified)
+For every L>=5, the relative Y formed from centered tetrahedra retracts to the honeycomb graph H_L; only the 2L² alternating color triangles lie outside. Each pair of black/white relative 2-cells has the same facial boundary c_f; the unique integral facial relation is sum_f c_f=0 (fundamental class of torus). Thus H2 is exactly the kernel whose per-face coefficient sums are a single integer, with basis T=sum_f e_f^W and s_f=e_f^B-e_f^W, rank L²+1. The group action follows from orientation and color-exchange signs: g(s_f)=delta*epsilon*s_(gf), g(T)=delta(T+((1-epsilon)/2)S). Translations force a potential equivariant integral section T+aS with a integral; a color-flipping orientation-preserving 60-degree rotation requires 2a=1, impossible, while a=1/2 splits rationally. Coinvariants reduce to 2T=0, 2s=0, L²s=0, giving Z/2 for odd L and (Z/2)^2 for even L; rational invariants in H1,H2 vanish, so the finite quotient is rationally acyclic in positive degrees. The proof explicitly distinguishes algebraic coinvariants from integral homology of the orbit space. The checker sources reconstruct orientations and Smith forms for L=5..8, which are finite corroboration only.
 
-The closest published source is *Scale-two Vietoris–Rips complexes of periodic honeycomb graphs* (8 November 2026), fully read: it proves \(T^2\) wedged with one two-sphere per face and expressly does not determine the integral equivariant action. Its underlying homotopy computation does not imply the **nontrivial integral extension class**, the parity-dependent algebraic coinvariants, or the rational quotient statement. Decker–Zaremsky's 28 October 2026 paper concerns affine Coxeter groups and eventual or alternate-generator contractibility, not this low-scale finite torus symmetry action. Published honeycomb perfect-matching character results and square-grid Rips representations use different complexes and do not cover this one. Actual database and literature searches for aliases, symmetry modules and coinvariants found no dominating result. Unindexed or inaccessible work remains a nonzero priority risk, and search results cannot prove novelty absolutely.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The pre-existing homotopy description has \(L^2+1\) free second-homology generators but does not determine their integral symmetry action. The exact failure of integral splitting is a structural arithmetic invariant, and the odd/even transition in full-symmetry coinvariants is a natural qualitative phenomenon that rational Betti numbers cannot detect. This answers a specifically identified equivariant gap for every valid period, not an arbitrary finite enumeration.
+PASS best-of-knowledge: exact earlier full-text honeycomb theorem establishes the same nonequivariant T² wedge L² spheres and relative two-color face model, but expressly leaves integral symmetry action undetermined. A homology rank does not specify a nonsplit Z[Gamma]-extension, parity coinvariants or rational full quotient. Related square torus grids and affine Coxeter Rips complexes treat other graph metrics/scales; neither mathematically dominates this lattice result.
 
-## Verification and limits
+## value
 
-Reproduce with `python3 verify.py` and `python3 verify_modules.py` (SymPy required for the latter). Integral actions are tested via all relative chain basis elements for periods five through eight; the theorem for all periods follows from the accompanying proof. The algebraic coinvariants are not asserted to equal integral homology of the geometric quotient. The literature comparison is subject to unindexed prior work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete integral symmetry extension is a natural next invariant after the known underlying topological type. It distinguishes an integral nonsplitting invisible to rational representations, with a sharp parity jump in algebraic coinvariants and a striking rational quotient consequence. This is structural equivariant topology, not arbitrary finite enumeration or a rephrasing of the Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
