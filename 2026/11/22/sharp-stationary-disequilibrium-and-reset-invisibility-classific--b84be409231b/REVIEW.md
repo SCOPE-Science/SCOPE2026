@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact renewal-reward occupation formula telescopes to \(\mu p(I-P)=e_v-\nu\). The total-variation contraction inequality gives the sharp lower bound. Zero bias is equivalent to zero pre-reset mismatch, and finite irreducible periodic-chain convergence proves the singleton cyclic-class criterion, including graph specialization. Star occupation counts establish equality even when pre-reset mismatch is nonzero. The stdlib exact-rational checker passed 19,556 checks. The periodic-clock claim explicitly concerns equilibrium-renewal occupation rather than pointwise time convergence.
+
+**Originality — PASS (qualified).** The 2019 Riascos et al. and 2022 Chen–Ye papers establish general network-reset occupation formulas; those formulas and the underlying renewal principle are excluded from novelty. Material reading of their stationary-distribution sections, network applications and appendices did not identify the stated sharp TV bound and the iff structural reset-invisibility classification. The 2021 related network-reset source was also reviewed. Relevant published mathematical findings about entropy-optimal resets and quantum-reset cycle structure were compared at the statement/implication level and do not imply the combined theorem without further arguments. Residual risk: a general Markov-chain restart note or literature outside the inspected sources may have derived the inequality or classification implicitly.
+
+**Mathematical value — PASS.** This supplies a topology-independent quantitative obstruction to disguising state-changing reset events in static occupancy data, including an optimal universal constant, and completely identifies exceptional topology/clock pairs where occupancy truly matches unreset equilibrium. The graph classification requires a nontrivial periodicity and invariant-class argument, not just evaluation of known stationary densities.
+
+**Limitations.** Only finite irreducible Markov chains, independent positive integer clocks of finite mean, and equilibrium-renewal observation are addressed. No rate-of-convergence assertion or independent audit is supplied; publication priority remains open to human assessment.
+
+Self-review: passed. Independent audit: not yet performed.
