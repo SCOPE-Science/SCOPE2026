@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact definition and subset-monotonicity reduce maximality to all one-vertex extensions; every hypercube geodesic is a unique permutation of differing coordinate flips. XOR translation normalizes any nonempty set to contain zero. The exhaustive C++17 checker examines each of the 67,945,521 normalized seven-sets plus every smaller normalized cardinality, finding zero maximal below seven and exactly seven seven-sets, all closed neighborhoods. A separate Boolean interval dynamic-programming checker agrees on the 7,666,239 normalized sets of sizes two through six and verifies all 64 neighborhoods.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus Q7/Q8 total lower records do not assert ordinary Q6 minimality",
+        "published-finding corpus odd three-row torus lower ordinary theorem concerns a different graph",
+        "arXiv:2405.05650 Theorem 3.6 concerns largest ordinary sets"
+      ],
+      "reasoning": "The stronger-looking generic neighborhood lemma supplies only upper bound 7. A proof for all dimensions of lower ordinary Qn would subsume the claim, but none was found in the inspected sources. Q7/Q8 total-visibility results are not implication-superclasses of ordinary lower visibility because the maximality predicates differ.",
+      "searches": [
+        "lower mutual visibility hypercube Q_n minimum cardinality maximal mutual visibility set",
+        "Brešar Yero 2023 lower mutual-visibility Q6 Korže Vesel 2024 all minimal maximal geodesic visibility",
+        "lower mutual-visibility number connectivity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2307.02951",
+      "arxiv:2405.05650",
+      "2026/10/18/SCOPE-minimum-maximal-total-visibility-sets-of-q-7--c26905427b79",
+      "2026/10/26/SCOPE-the-exact-minimum-maximal-total-visibility-census-in-the-eight-c--6d8ff5a22a90",
+      "2026/9/30/SCOPE-exact-low-distance-mutual-visibility-in-hypercubes--205d6ab586a0",
+      "2026/11/2/SCOPE-lower-mutual-visibility-number-of-odd-three-row-tori--543189f5b94a",
+      "2026/11/8/SCOPE-maximal-mutual-visibility-census-and-unbounded-cardinality-gaps--3396b1c25ce6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brešar–Yero Neighborhood Lemma (2023): N[v] yields mu^- <= degree+1",
+        "Brešar–Yero Problem 1: determine lower numbers of hypercubes",
+        "Korže–Vesel Theorem 3.6 and Table 2: mu(Q6)=32",
+        "published-finding corpus closest lower *total* visibility Q7/Q8 and low-distance upper visibility records"
+      ],
+      "reasoning": "The known neighborhood condition proves an upper bound 7 and exhibits examples, but cannot rule out maximal sets of sizes 2 through 6 or other seven-sets. The direct exhaustive proof supplies both missing implications. The other published values use distinct quantifiers or visibility variants.",
+      "searches": [
+        "lower mutual visibility hypercube Q_n minimum cardinality maximal mutual visibility set",
+        "Brešar Yero 2023 lower mutual-visibility Q6 Korže Vesel 2024 all minimal maximal geodesic visibility",
+        "lower mutual-visibility number hypercube Qn 2025 2026",
+        "lower mutual-visibility number connectivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.02951, lower ordinary definition and Problem 1",
+        "arXiv:2405.05650, ordinary largest-set ILP and maximum-value Table 2"
+      ],
+      "reasoning": "The natural aliases are smallest maximal ordinary geodesic-visible sets, greedy maximal mutual-visible sets, and lower ordinary mutual-visibility number. Searches did not identify an equivalent Q6 theorem. Ordinary maximal under inclusion is distinct from maximum cardinality, and from total/outer/dual visibility.",
+      "searches": [
+        "lower ordinary mutual visibility hypercube Q4 Q5 minimum maximal cardinality 5",
+        "hypercube Q6 lower mutual visibility number exactly seven closed neighborhoods unique smallest inclusion-maximal subsets",
+        "smallest maximal ordinary mutual visibility sets Boolean 6 cube exact count neighborhood of vertex",
+        "lower mutual-visibility number hypercube Qn 2025 2026",
+        "lower mutual visibility hypercube n+1 maximal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2405.05650 Table 2 lists mu(Q6)=32, not lower mu^-(Q6)",
+        "No exact published-finding corpus indexed table for ordinary lower Q6 located"
+      ],
+      "reasoning": "An entry for ordinary maximum size 32 cannot imply the claimed minimum inclusion-maximal size 7 or enumerate its 64 extremizers. The published-finding corpus search index returned nearby but non-covering results, so the absence is not asserted as mathematical proof of novelty.",
+      "searches": [
+        "lower mutual visibility number hypercube n+1 proof star",
+        "hypercube Q6 lower mutual visibility number exactly seven closed neighborhoods unique smallest inclusion-maximal subsets",
+        "smallest maximal ordinary mutual visibility sets Boolean 6 cube exact count neighborhood of vertex",
+        "\"lower mutual visibility\" \"Q_6\" \"seven\""
+      ]
+    },
+    "rationale": "The 2023 initial paper explicitly leaves lower hypercube values open and obtains only a general closed-neighborhood upper bound. The 2024 same-graph manuscript tabulates maxima, not inclusion-minimal cardinality. Relevant published-finding corpus hits solve different graph families, total variants, or upper/distance-limited variants, not this six-cube lower ordinary classification. No equal or stronger implication found from accessible records; unindexed literature remains a priority risk.",
+    "residual_risks": [
+      "Unindexed or independently published enumerations of small cube lower mutual visibility might exist",
+      "Some related publisher pages and search-indexed records were only accessible as abstracts; they were not treated as proof of noncoverage",
+      "Computer-assisted finite enumeration has not been independently replicated by a separate organization"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINITION_AND_UPPER_BOUND_ONLY",
+        "evidence": [
+          "Neighborhood Lemma: N[x] maximal under a local common-neighbor criterion",
+          "Problem 1 asks for lower (total) mutual-visibility numbers of hypercubes",
+          "Theorem 13 covers lower number two iff a cut edge, not Q6 lower seven"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+        "material_read": "Full article text in the publisher open HTML presentation, including Introduction, Section 2.1 Neighborhood Lemma, Section 4 Theorem 13, and Section 6 concluding Problem 1",
+        "method": "Reviewed article text and claims for lower mu^- and hypercube-specific statements",
+        "title": "Lower (total) mutual-visibility number in graphs",
+        "trigger": "Origin of lower ordinary parameter and explicit hypercube open problem"
+      },
+      {
+        "assessment": "NOT_COVERING_LOWER_ORDINARY_Q6",
+        "evidence": [
+          "Theorem 3.6 gives maximum ordinary mu(Q6)=32",
+          "Table 2 lists maximum ordinary, total, dual and outer values, not minimum inclusion-maximal ordinary sets",
+          "ILP maximizes selected-set cardinality"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.05650",
+        "material_read": "Original 17-page arXiv preprint; introduction, Sections 2 and 3 (especially Theorem 3.6 and Table 2), concluding tables; visual spot-check of pages 1 and 7",
+        "method": "Read PDF text and page images; compared optimization target and table column definitions",
+        "title": "Variety of mutual-visibility problems in hypercubes",
+        "trigger": "Same objects and possible tabulation of Q6"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "88a51a80-d188-4d17-96b3-2fa6d4b008e3",
+  "value": {
+    "rationale": "The initial lower-visibility paper explicitly asks for values on hypercubes. This result establishes both the six-cube lower number and *all* optimizer placements at a natural 64-vertex finite dimension, separating worst-case maximal greedy termination from the already-known optimum largest-set size. The rigidity statement is an exact natural combinatorial classification, useful as a benchmark for proposed all-dimensional bounds.",
+    "status": "PASS"
+  }
+}
