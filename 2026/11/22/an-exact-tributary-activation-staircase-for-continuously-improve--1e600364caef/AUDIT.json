@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "On the positive-payoff domain, log F is strictly concave and hence any KKT optimizer is globally unique. Equalizing logarithmic marginals gives w_i exp(-x_i)=tau for active branches and w_i<=tau for inactive ones; the common-trunk condition gives exp(x_0)=W_k/tau-(k-1). The budget yields one strictly monotone root, whose tau decreases with B, creating exact nonreversing B_j activation boundaries. For k>=2, exp(x_0)-exp(x_1)=sum_{i=2}^k(w_i/tau-1)>0. For infinitely many geometric weights the finite-support KKT candidate globally dominates finite-support allocations by concavity, and approximation plus finite total weight extends this to all summable allocations. The B_j logarithmic expansion yields k(B)~sqrt(2B/(-log q)). Supplemental standard-library checker.py passed 39,710 finite tests; proof rather than tests establishes universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "King and O'Hanley (2014) optimizes a more general river network but restricted discrete interventions; King et al. (2017) uses candidate mitigation projects and models habitat richness.",
+        "Kettelle 1962 full text considers all-series reliability cost optimization and a proxy bound, not expected weighted habitat served by a shared downstream barrier."
+      ],
+      "reasoning": "Generality in river graph topology does not imply the particular continuous-effort theorem when the feasible management decisions are discrete; conversely generic continuous reliability allocation does not itself provide the exact shared-root activation and infinite geometric asymptotic. A broader unpublished continuous network-resource theorem could still imply this case, so priority remains provisional.",
+      "searches": [
+        "fish passage barrier optimization continuous investment passage probability exponential budget tributaries",
+        "reliability allocation optimization series parallel systems exponential reliability resource allocation common component branches thresholds water filling",
+        "rooted Y-shaped river fish barrier remediation trunk two tributaries exponential passability allocate budget branches exact activation threshold"
+      ]
+    },
+    "checked_sources": [
+      "Virbickas and Kesminas (2024), DOI 10.3390/fishes9040113, open-access PDF read",
+      "King and O'Hanley (2014), DOI 10.1002/rra.2859, accepted manuscript sections 1–2 read",
+      "King et al. (2017), DOI 10.1111/1365-2664.12706, full HTML methods read",
+      "Ioannidou et al. (2023), DOI 10.1111/cobi.14093, full HTML methods read",
+      "Burch et al. (2024), DOI 10.1111/csp2.13102, accessible original article read",
+      "Kettelle (1962), DOI 10.1287/opre.10.2.249, primary full PDF pp. 249–265 inspected"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "King and O'Hanley (2014) gives probability-chain reformulations of fixed candidate barrier actions.",
+        "Kettelle (1962) pp. 261–262 proves explicit minimum sum of exponential stage-unavailabilities and a reliability approximation bound; it does not supply the product-sum restoration objective.",
+        "Standard resource-allocation optimality gives marginal equalization in this model once strict log-concavity is established."
+      ],
+      "reasoning": "The current theorem shares generic KKT marginal conditions with ordinary allocation literature, but claims more: universal unique support in descending habitat order, exact branch entry budgets and zero-effort convention, strict trunk dominance, and an asymptotic root law for infinitely many geometric branches. The inspected discrete fish-barrier results and serial-system approximations do not logically imply those precise statements without substantial additional analysis. Novelty assessed only relative to read material.",
+      "searches": [
+        "probability chain continuous exp diminishing returns tree branch downstream barrier optimal budget water filling activation",
+        "tree branching network serial fish passage expected accessible habitat budget continuous passability water filling",
+        "Kettelle least cost allocations reliability investment 1962 exponential resource continuous parallel series"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "King and O'Hanley 2014 sections 1–2: cumulative product of barrier passabilities and integer project choices, DOI 10.1002/rra.2859.",
+        "Kettelle 1962 pp. 261–262: minimum sum of exponential unavailabilities for serial reliability stages, rather than a shared passability factor times weighted sum of independent branches."
+      ],
+      "reasoning": "One can rewrite the objective as a common-trunk reliability factor multiplying expected habitat access, but replacing its sum of branch probabilities by the probability of any branch is not an equivalence. The Kettelle serial-stage sum minimization is also not an equivalent transformation. The KKT step is standard but no inspected source reports the full threshold formulas and geometric support law.",
+      "searches": [
+        "An exact tributary activation staircase in a rooted fish-passage tree with continuously divisible budget and exponential barrier passability, trunk barrier dominates every tributary",
+        "Kettelle least cost allocations reliability investment 1962 exponential resource continuous parallel series"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ioannidou et al. (2023) concerns planning with unrecorded barriers, DOI 10.1111/cobi.14093.",
+        "Burch et al. (2024) compares applied fish-passage prioritization strategies, DOI 10.1111/csp2.13102."
+      ],
+      "reasoning": "No exact published priority table for the continuously divisible rooted-tributary problem was located in inspected primary methods and statement sections. This is a bounded literature check, not a proof that no table exists.",
+      "searches": [
+        "fish barrier restoration Y network connectivity invest trunk downstream two upstream habitat marginal threshold",
+        "geometric habitat quality weights infinitely many tributaries number of activated branch barriers grows square root of restoration budget"
+      ]
+    },
+    "rationale": "The closest detailed fish-passage source, King and O'Hanley (2014), handles priced discrete barrier projects through mixed-integer programming with nonzero partial passability; our exact statement is for a continuously divisible improvement curve with an arbitrary ordered terminal-habitat vector and a multiplicative shared downstream bottleneck. The 2017 and 2023 primary ecological formulations likewise do not state the strict sequential branch activation thresholds, downstream effort dominance or the infinite geometric square-root growth law. Kettelle (1962), read directly at pp. 261–262, instead optimizes a sum of exponential series-stage unavailabilities and bounds the difference from system unreliability. Generic convex optimization/water-filling is prior technique; the new contribution is the exact rooted-tributary geometry and asymptotic. These are best-knowledge comparisons, not an exhaustive historical-priority certification.",
+    "residual_risks": [
+      "Continuous nonlinear resource-allocation monographs or an older series–parallel reliability theorem might contain an equivalent normal form not found in bounded searches.",
+      "A scientific model with unrestricted costs and passability curves need not inherit these exact thresholds; no such broader claim is made.",
+      "Ecological application requires empirical calibration; the model is an idealized benchmark, not a field prescription."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATION_NOT_COVERING: prioritization and passability evidence, without continuously divisible optimization or analytic threshold sequence",
+        "evidence": "Virbickas and Kesminas (2024), Fishes 9, 113, public date 2024-03-22.",
+        "identifier_or_url": "https://doi.org/10.3390/fishes9040113",
+        "material_read": "full open-access article PDF, introduction, barrier assessment methods and discussion, including field-prioritization context",
+        "method": "Read article text and inspected relevant PDF page images",
+        "title": "Prioritisation of Barriers According to Their Impact on Migratory Fish in the Lowland River Basin District",
+        "trigger": "Dated motivating empirical river-barrier literature on downstream passage and habitat quality"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: discrete intervention mixed-integer project selection, not divisible exponential effort and global thresholds",
+        "evidence": "King and O'Hanley (2014), DOI 10.1002/rra.2859.",
+        "identifier_or_url": "https://kar.kent.ac.uk/46452/1/FPBRP%20Revisited%20R1.pdf",
+        "material_read": "accepted manuscript sections 1–2, probability-chain passability and budget formulation; relevant page images",
+        "method": "Read lawful open-access full-text sections and viewed original PDF pages",
+        "title": "Optimal Fish Passage Barrier Removal—Revisited",
+        "trigger": "Highly relevant network passability model and potentially dominating optimization formulation"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: supports passability/habitat objectives but relies on candidate project changes, no proposed exact continuous staircase",
+        "evidence": "King et al. (2017), Journal of Applied Ecology 54, 599–611.",
+        "identifier_or_url": "https://doi.org/10.1111/1365-2664.12706",
+        "material_read": "full accessible HTML introduction, mathematical formulation and optimization-model results",
+        "method": "Read primary article text including the mitigation-project formalization",
+        "title": "A toolkit for optimizing fish passage barrier mitigation actions",
+        "trigger": "General multi-barrier connectivity objective with passability and budgets"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: unrecorded-barrier uncertainty and discrete remediation plans, not explicit continuous shared-trunk allocation",
+        "evidence": "Ioannidou et al. (2023), Conservation Biology 37, e14093.",
+        "identifier_or_url": "https://doi.org/10.1111/cobi.14093",
+        "material_read": "accessible original HTML introduction and relevant methods",
+        "method": "Read primary methods and stated decision variables",
+        "title": "Boosting large-scale river connectivity restoration by planning for the presence of unrecorded barriers",
+        "trigger": "Recent generalization of river restoration budget planning with imperfect barrier inventories"
+      },
+      {
+        "assessment": "MOTIVATION_NOT_COVERING: comparative applied prioritization without the mathematical continuous-allocation theorem",
+        "evidence": "Burch et al. (2024), Conservation Science and Practice 6, e13102.",
+        "identifier_or_url": "https://doi.org/10.1111/csp2.13102",
+        "material_read": "full accessible article HTML on priority methods and applied comparisons",
+        "method": "Read original methods and discussion",
+        "title": "Who prioritizes what? A cross-jurisdictional comparative analysis of salmon fish passage strategies in Western Washington",
+        "trigger": "Contemporary practice on fish passage prioritization and different benefits metrics"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: minimum sum of exponential series-stage unavailabilities and an approximation of series-system unreliability, not exact shared-trunk weighted accessible habitat with arbitrary tributaries",
+        "evidence": "Kettelle (1962), Operations Research 10, 249–265, DOI 10.1287/opre.10.2.249; theorem on p. 261 and proof on p. 262.",
+        "identifier_or_url": "https://www.cl.cam.ac.uk/~lc525/supervision/sol6_23_dynprog.pdf",
+        "material_read": "full historical primary article pages 249–265, particularly exact maximum-availability formula and proof on pp. 261–262",
+        "method": "Inspected PDF text and original page images, comparing displayed objective and theorem hypotheses",
+        "title": "Least-Cost Allocations of Reliability Investment",
+        "trigger": "The strongest old exponential reliability-investment analogy and potential dominating continuous theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1e600364-caef-4763-9f75-687cdfa8b91f",
+  "value": {
+    "rationale": "A natural habitat-connectivity payoff with a common downstream bottleneck and arbitrarily many terminal branches is not separable across barriers. The result turns its nontrivial coupled optimization into an exact single-root global design, with strict support-threshold ordering, downstream effort dominance, all tie conventions, and a square-root count of activated branches for geometric habitat-weight tails. It supplies a quantitative benchmark for restoration-planning algorithms and clarifies bottleneck versus diversification resource use. It is substantially more than computing a single ad hoc numerical optimum.",
+    "status": "PASS"
+  }
+}
