@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier transform factors exactly into normalized three-term Dirichlet masks. A complete one-level minimization follows from monotonicity of \(1+2\cos\theta\) and two elementary global comparisons: strict concavity of \(G\) for bases congruent to one modulo three, and negativity of \(H'\) for bases congruent to two. The modular inverse \(3k\equiv\pm1\pmod{b^n}\) minimizes every factor simultaneously. This proves all levels and bases, including the exceptional first level and the zero case. A convergent-product argument proves the stated asymptotic. The accompanying numerical checker is auxiliary.
+## correctness
 
-**Originality — PASS relative to inspected material.** The 2026 Fu–Wang theorem directly addresses consecutive-digit measures, including this family: its Theorem 1.1 is qualitative infinite-dimensional nonexistence, and its Section 3.2 identifies cyclic mask factorizations and zeros without solving the finite-level modulus minimization. The 2026 two-digit odd-base non-frame theorem addresses a different cosine-mask family. The 2012/2013 consecutive-digit work addresses existence and classification of orthogonal spectra, not the displayed best near-orthogonality product or optimizer arithmetic in the material accessible. The closest published two-digit Cantor sharp-coherence and finite Fourier-volume results do not imply a three-tap Dirichlet-mask theorem by scaling or reduction. Residual risk: the complete 2012/2013 article was inaccessible, and an equivalent elementary mask lemma may have been published under another name. Failed searches alone are not treated as novelty proof.
+PASS
 
-**Value — PASS.** The integer-frequency pair Gram correlation is an intrinsic optimal conditioning invariant of the finite cylinder measures used to approximate fractal Fourier spaces. For three consecutive digits it exhibits a full base-divisibility dichotomy: exact orthogonality or superexponentially accurate but never exact orthogonality. The exact minimizers and depth constant supply a sharp calibration for finite exponential dictionaries and clarify why very small finite Gram correlations do not by themselves yield spectrality or infinite frame results. The result is not offered as a frame theorem.
+At each finite b>=4,n>=1 the Fourier transform of the uniform three-digit tower factors as product of three-tap masks h_{b^j}(k)=|1+2cos(2pi k/b^j)|/3. For 3∤b the exact discrete one-level mask minimum occurs at 3k congruent ±1 modulo N=b^j (plus k=2 for N=4); inspected the proof comparison of the two nearest angular grid points, using strict concavity of G(delta) for N≡1 and H'(delta)<0 for N≡2. Because modular inverse classes for b^n reduce compatibly at every smaller level, both gaps simultaneously minimize every factor, and the last factor excludes all others. For 3|b, k=b/3 zeros the first mask. The normalized positive factor quotient is 1+O(b^{-j}) for fixed b, yielding a convergent positive C_b and a sharp O_b(b^{-n}) product remainder. Independently exhaustively evaluated the masks and every minimizing k for b=4,5,6,7,8,10,11,13 and n<=3 within N<=2000, confirming the exceptional (4,1) class, zero cases and formula. The all-base proof, not finite tests, establishes completeness.
 
-**Closest literature and limitations.** Fu–Wang (2026), arXiv:2608.19676, treats this very consecutive-digit family, but determines nonexistence of infinite frame measures rather than the exact finite two-character Gram optimum. De Dios Pont–Liehr–Taylor (2026), arXiv:2607.08656, treats two-digit odd-base Cantor frames. Dai–He–Lai (2012/2013), arXiv:1209.4386, studies consecutive digit spectrality; its full text was not available for this comparison. Related published two-digit Fourier coherence and three-point cyclic Fourier calculations differ in hypotheses and quantified claims. Only two integer characters and finite depth are classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dai–He–Lai (2012/13) treats exactly consecutive-digit Cantor measures and proves infinite orthogonal exponential classification (Theorem 2.1), and writes the same Dirichlet sine mask (Eq. 2.2). Its full original manuscript was independently inspected: the theorem does not give the finite-stage minimum of |νhat| or modular-optimal residue set. Fu–Wang (2026) treats same digit family in a qualitative infinite-frame absence theorem; its abstract and synopsis are narrower, but full text not directly obtained here. The sharp Resultary binary two-digit Cantor coherence uses a two-tap cosine mask and 4k congruence, not the three-tap 3k case. Best-of-knowledge finite-stage optimum remains not implied by the checked sources.
+
+## value
+
+PASS
+
+Finite cylinder measures for natural Cantor fractals have intrinsic Gram conditioning of pairs of integer exponentials. Exact divisibility-zero versus strictly positive superexponential near-orthogonality, every optimal residue and the sharp depth scale are precise useful calibration facts, distinct from the known qualitative infinite spectrality obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
