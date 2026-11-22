@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof covers every integer \(a,b\ge1\), fixes the exact query model, establishes the universal induced-four-path obstruction, and gives explicit fixed colour targets and hub-colour witnesses for every allowed support and every Boolean pattern. The face polynomial follows from disjoint cases of hub membership. A good cover by four facet simplices has nerve exactly \(\partial\Delta^3\), yielding the integral homotopy conclusion. The two attached independently structured Python enumerators replay from the actual package and agree through \((3,3)\) for Boolean traces and across 25 parameter pairs for facets and nerve.
+
+**Originality — PASS, with historical risk.** The closest earlier tree-colouring shattering note already proves the induced-path *necessity* and resolves only trees through seven vertices. The unrestricted double-star converse, four-facet formula and universal \(S^2\) statement do not follow from that finite theorem alone. The closest path result concerns degree-two paths, not large double stars. Articles on general proper-colouring structure learning and higher independence complexes study different hypothesis/query classes. Actual semantic searches and full-text comparisons are detailed in the structured audit; no search is claimed to establish absolute priority.
+
+**Value — PASS.** Double stars are the first infinite branching-tree family after the general four-path obstruction, and their projected shattering complexes yield an exact all-parameter positive classification. The homotopy remains a single two-sphere while the complex becomes highly nonpure with arbitrarily large facet-size separation, a structural phenomenon not captured by just the VC dimension. The invariant is natural to the fixed-colour-query model and its first branching obstruction.
+
+**Scope and residual risk.** The statement concerns vertex-projected VC supports and does not classify all target-specific shattered query sets, arbitrary trees, or online dimension. Literature priority is not externally certified. The finite software checks corroborate, but do not replace, the proof.
+
+Self-review: passed. Independent audit: not yet performed.
