@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The statements fix the alphabet and reversal operator and handle lengths one, two, three through nine, and all higher lengths separately. Pair completeness is proved by the boundary map \((a,b)\mapsto(a+1,b)\). The complete length-nine factor language follows from the exact length-nine substitution block and all pairs occurring. The integer-potential congruence test is necessary and sufficient for every modulus; the exact symbolic enumeration gives only cycle discrepancies \(0,1,2\), and every universally soluble case yields one normalized pattern. The two programs replay correctly. A finite concrete-prefix check is explicitly not used as an infinite proof.
+
+**Originality — PASS against searched evidence.** The original 2019 Rowland–Yassawi article contains the ternary member but is about cellular automata and invariant measures, not reversal factor counts. The 2026 Allouche–Rampersad–Rigo–Shallit–Stipulanti paper raises adjacent morphic-complexity questions but addresses a different repeated-letter substitution and abelian complexity. A 2020 general theorem about finite palindromic languages supplies no specific spectra, and the closest published reversal barrier concerns the different substitution \(0\mapsto01,1\mapsto21,2\mapsto0\). Statement-level comparisons with indexed related findings and the accessible historical claims found no stronger covering statement. Residual risk: unindexed results for exactly the present cyclic substitution may exist.
+
+**Value — PASS.** A complete all-length, all-alphabet sharp boundary for reversal occurrence is a natural structural question about an automatic family already used in the literature, not an arbitrary finite slice. The result separates a primitive substitution with a nonperiodic fixed point from reversal-rich morphic families; its finite palindrome language immediately supplies linear lower bounds on prefix palindromic length. Its exact residue-pattern classification is reusable for finer questions on reversal equivalence and palindromic defect.
+
+The mathematical work has only self-review, not external validation. Scientific caveats are recorded in `RESULT.md` and `VERIFICATION.md`.
+
+Self-review: passed. Independent audit: not yet performed.
