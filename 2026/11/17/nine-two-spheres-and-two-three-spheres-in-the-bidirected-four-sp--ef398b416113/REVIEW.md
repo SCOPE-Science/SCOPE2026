@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The arc-set definition is exhaustive and its 160 nonempty faces reproduce the prescribed face vector. All 74 proposed pairs are genuine codimension-one incidences and the complete 402-incidence directed Hasse graph is acyclic. There is one critical vertex, nine critical two-cells and two critical three-cells; no critical one-cells. Exact integer signed elimination produces a zero two-column top Morse boundary, which makes both three-cell attaching maps nullhomotopic because the two-skeleton is a wedge of two-spheres. This proves the integral wedge. An independent mod-two boundary-rank computation gives ranks 13, 43 and 18. The reflection action is reconstructed as a signed chain permutation, and an exact rational kernel computation plus the reduced Lefschetz identity gives trace 1 on degree-two homology and 0 on degree-three homology.
+PASS
 
-## Originality — PASS (with stated risk)
+Reconstructed the exact definition: 14 directed-arc vertices from seven fully bidirected fan edges; a face is an arc set with indegrees/outdegrees <=1 and no directed cycles, including 2-cycles. Independent direct enumeration returned 160 nonempty faces, f=(14,56,70,20). Regenerated the specified 14-index staged matching: 74 pairs, 402 directed Hasse incidences, complete acyclic topological sort, critical cells (one vertex,nine triangles,two tetrahedra). Exact integral reduction gives zero 9x2 Morse boundary, so three-cell attaching maps vanish in pi_2 of the nine-S2 wedge and the integral homotopy wedge follows. Independent rational rank-18 top boundary/trace on its 2D kernel gave rho trace H3=0, reduced H2=1, so rational eigenspace multiplicities H2=(5,4), H3=(1,1). No integral equivariant splitting is asserted.
 
-The most pertinent published full texts were inspected at theorem, hypothesis and proof scope: Caputi–Collari–Smith, arXiv:2601.05670v1 (bidirected paths and cycles; no hub); Caputi–Collari–Di Trani–Smith, arXiv:2208.04656v1 (directed-graph families and a decomposition theorem, not this fan computation); and Caputi–Collari–Ramos, arXiv:2401.01248v1 (acyclic-digraph matching comparison and categorical finiteness, not an exact bidirected fan computation). The separate February 16, 2026 primary paper Deshpande–Sawant, arXiv:2602.14936v1, was also inspected: its alternative *directed linear forest* terminology is exactly equivalent, but its general conflict-hypergraph representation and its forest/cycle or acyclic vertex-decomposability results do not determine a bidirected fan homotopy or reflection module. These hypotheses do not subsume the claim. The related bidirected double-star result covers trees, whereas this graph has three triangles; a known fan **matching complex** is not the arc-set multipath complex. Exact-parameter and alias searches returned no stronger covering result. Index and source searches cannot exclude unpublished or unindexed equivalent calculations, and no independence is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fan is the canonical cone on a four-vertex path and a one-edge-open counterpart to a five-vertex wheel. It is a small but structurally nontrivial test for a research programme centered on bidirected paths, cycles and cones containing directed two-cycles, beyond the acyclic case where general matching reductions apply. The result gives the full integral homotopy type of a mixed-dimensional sphere wedge and its complete rational reflection representation, rather than a face count or isolated field-valued homology. It provides a reproducible exact boundary case for extensions to larger fans and cones without claiming such a generalization.
+Best-of-knowledge: full Caputi–Collari–Smith text classifies bidirected path and cycle multipath complexes, not the hub-added fan, and its source/sink T-operations do not apply to this fully bidirected graph. Nearby published five-vertex wheel and four-vertex complete bidirected complexes concern different graphs/homotopy groups. An unindexed same-fan census remains possible.
 
-## Closest literature and limitations
+## value
 
-The four primary preprints cited in RESULT.md and the public result on bidirected double-star multipath complexes are closest; no checked statement implies this fan's homotopy and reflection modules. No all-fan recurrence or integral equivariant splitting is proved. Independent validation remains unperformed; overlap with unindexed literature remains a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first exact mixed-dimensional integral homotopy calculation and reflection representation on a nontrivial triangular bidirected fan is a natural small boundary class between path/cycle and wheel families; the nine S2, two S3, and character are nontrivial, independent data not mechanically implied by those examples. Exact finite classification is appropriate to this explicitly natural object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
