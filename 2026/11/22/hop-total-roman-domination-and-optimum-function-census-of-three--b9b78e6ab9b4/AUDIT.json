@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For n>=8, graph distance exactly two between distinct triples iff they intersect (a common disjoint third triple exists). If m defender triples cover u points, all C(n-u,3) unused-ground triples must be labelled one, proving weight >=2m+C(n-u,3). Comparing m<=r-2, m=r-1, m=r, m>=r+1 yields the sharp three-residue lower bound. Equality forces disjoint triple blocks except one allowable overlap at residue one. The positive ordinary-adjacency constraint holds in every classified case. Labelled matching and one-overlap double-counting factors checked separately. Independent graph-BFS and support-enumeration, factorial, and construction programs reproduce exact finite cases 8<=n<=20 as described; the infinite theorem is by proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published Kneser total-Roman theorem fixes the adjacency-defender minimum at 2(k+1) in its large-n range.",
+        "Hop-total Roman foundational abstract states path/cycle evaluations and structural/complexity assertions, not a rank-three Kneser classification."
+      ],
+      "reasoning": "Neither a general parameter bound nor the exact adjacency-based Kneser invariant gives a full hop-total optimum function classification or factorial count. No stronger directly covering theorem was identified.",
+      "searches": [
+        "hop total Roman domination Kneser graph KG(n,3) exact number optimum configurations 3-subsets disjoint covering",
+        "Hop-total Roman domination KG(n,3) three-subset Kneser minimum weights 2 floor(n/3) minus 1 at multiples of 3",
+        "2026/11/2/SCOPE-a-sharp-token-sliding-mobility-transition-for-optimal-total-roma--a3f3d09e0ceb",
+        "https://doi.org/10.1080/09728600.2023.2184288"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1080/09728600.2023.2184288",
+      "https://arxiv.org/abs/2204.05664",
+      "https://dmtcs.episciences.org/en/articles/10506",
+      "2026/10/13/SCOPE-roman-domination-polynomial-of-triangular-graphs-with-minimum-fu--66092f59608f",
+      "2026/11/2/SCOPE-a-sharp-token-sliding-mobility-transition-for-optimal-total-roma--a3f3d09e0ceb",
+      "2026/11/8/SCOPE-affine-hop-total-roman-weight-polynomials-under-matching-deletio--c53bd47d7c27"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current theorem has gamma_htR(KG(n,3))=2floor(n/3)-1_{3|n}; at n=12 this is 7, while adjacency-based total Roman gives 8 for n>=12.",
+        "The published Kneser token-sliding theorem classifies pairwise-disjoint optimal 2-defender sets for adjacency-based total Roman, whereas current residue-one minima include two intersecting defenders."
+      ],
+      "reasoning": "The values and allowable configurations differ in overlapping parameter ranges. The prior claims cannot imply the new classification via corollary, stronger bound, parameter relabeling, or disjointness-complement duality, because the totality condition does not dualize.",
+      "searches": [
+        "hop total Roman domination number and minimum functions on Kneser KG(n,2) graphs edge-intersection rooted graphs",
+        "minimum Roman domination and minimum functions of Johnson graphs rank 3 intersection Kneser complement",
+        "2026/10/13/SCOPE-roman-domination-polynomial-of-triangular-graphs-with-minimum-fu--66092f59608f",
+        "2026/11/2/SCOPE-a-sharp-token-sliding-mobility-transition-for-optimal-total-roma--a3f3d09e0ceb"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In KG(n,3), distance exactly two is intersection of distinct triples; ordinary Kneser adjacency is disjointness. Equivalent formulation is intersection-covering by chosen defender triples with an ordinary-disjointness positive-totality constraint.",
+        "The earlier full-text KG(n,k) study uses adjacency rather than distance-two defense."
+      ],
+      "reasoning": "The complement of the Kneser graph is the 3-uniform intersection graph, but only the zero-defense condition transfers to it; the positive-totality condition still uses the original disjointness graph. Hence neither ordinary Roman domination on the complement nor total Roman domination on the Kneser graph is equivalent.",
+      "searches": [
+        "Roman domination complement of Kneser graphs intersection graph of 3-subsets minimum Roman domination",
+        "Roman domination all uniform subset intersection graphs Kneser complements edge domination hypergraph",
+        "Minimum hop Roman functions on Kneser graphs with 3-subsets disjoint packing with one repeated ground element",
+        "https://arxiv.org/abs/2204.05664"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly inspected published triangular-graph result is for ordinary Roman functions on 2-subset intersection graphs.",
+        "Relevant summaries of published hop-total polynomials are for bicliques and matching deletion; no table on KG(n,3) was found."
+      ],
+      "reasoning": "Exact optimizer counts were independently reconstructed rather than taken from known graph tables. Searches do not establish global absence of undiscovered finite or algorithm-generated tables.",
+      "searches": [
+        "hop total Roman domination of triangular graphs line graphs of complete graphs distance two Roman functions enumeration",
+        "hop total Roman domination Kneser graph KG(n,3) exact number optimum configurations 3-subsets disjoint covering",
+        "Roman domination of intersection graphs of 3-subsets of [n] exact optimum census hypergraph near perfect matchings",
+        "2026/10/13/SCOPE-roman-domination-polynomial-of-triangular-graphs-with-minimum-fu--66092f59608f",
+        "2026/11/8/SCOPE-affine-hop-total-roman-weight-polynomials-under-matching-deletio--c53bd47d7c27"
+      ]
+    },
+    "rationale": "Compared the exact three-subset hop-total minimum and all-optimum counts with original 2023 hop-total Roman paper, 2022-23 Roman Kneser main theorem (full text), public intersection/total-Roman Kneser claims, own accessible ledger claims, and relevant equivalent formulations. No source inspected gives or logically implies the residue law and one-overlap optimum census. Full original hop-total article was not completely accessible; unidentified hypergraph intersection formulations remain possible.",
+    "residual_risks": [
+      "Full publisher article text of the 2023 hop-total Roman introduction was not accessible page by page; assessment relies on official abstract and indexed material.",
+      "Unindexed or unpublished equivalent intersection-covering hypergraph enumerations may exist.",
+      "Independently validated historical priority is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces exact hop distance-two defense and positive-totality; describes path/cycle, structural and complexity results, with no Kneser formula found in accessible material",
+        "evidence": [
+          "Published online 2023-03-30; official abstract specifies both constraints and stated topics."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/09728600.2023.2184288",
+        "material_read": "Abstract, introduction, searchable indexed article sections and stated principal results; complete full-text page inspection not available",
+        "method": "Official publisher indexed HTML and authoritative metadata, no claim to inspected unavailable portions",
+        "title": "Hop total Roman domination in graphs",
+        "trigger": "Definition and nearest possible primary result"
+      },
+      {
+        "assessment": "Ordinary/total Roman uses adjacency-based defense; does not cover hop-total, whose distance-two defenders have the opposite intersection geometry",
+        "evidence": [
+          "For n>=k(k+1), both adjacency-based Roman minimum invariants equal 2(k+1), not our residue-dependent formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.05664",
+        "material_read": "Full open-access PDF including definitions, main Kneser Roman and total-Roman theorems, signed-Roman section, and conclusion",
+        "method": "Read authorised journal/open-access PDF and inspected page images and mathematical statements",
+        "title": "Several Roman domination graph invariants on Kneser graphs",
+        "trigger": "Direct same-graph Roman invariant and possible stronger coverage"
+      },
+      {
+        "assessment": "Counts ordinary Roman functions on intersection graph of two-subsets, not hop-total Roman functions on disjointness graph of three-subsets",
+        "evidence": [
+          "Its forced-one structure concerns edges outside a defender endpoint support, but the 3-uniform distance-two and positive-totality constraints are not consequences."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-roman-domination-polynomial-of-triangular-graphs-with-minimum-fu--66092f59608f",
+        "material_read": "Entire publicly available RESULT.md, including proof and limitations",
+        "method": "Fetched and read public primary scientific result",
+        "title": "Roman-domination polynomial of triangular graphs, with minimum-function census",
+        "trigger": "Potential equivalent line-graph intersection support counting"
+      },
+      {
+        "assessment": "Total Roman minimum uses adjacency-based zero defense; its configuration and reconfiguration assertions do not imply hop-total minimum or census",
+        "evidence": [
+          "Its minimum weight is 2(k+1) for n>=k(k+1); its positive triples are pairwise disjoint, unlike the additional one-overlap hop-total configurations."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-token-sliding-mobility-transition-for-optimal-total-roma--a3f3d09e0ceb",
+        "material_read": "Entire publicly available RESULT.md, including finding, proof, and prior-work comparison",
+        "method": "Fetched and read public primary scientific result",
+        "title": "A sharp token-sliding mobility transition for optimal total Roman functions on Kneser graphs",
+        "trigger": "Identical Kneser object and related Roman optimum configurations"
+      },
+      {
+        "assessment": "Its graph family is matching-deleted bicliques, not Kneser three-subset graphs; no general theorem implying our result is stated in retrieved summary",
+        "evidence": [
+          "Published abstract gives the affine effect of deleting matching edges on complete-bipartite hop-total Roman polynomials."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-affine-hop-total-roman-weight-polynomials-under-matching-deletio--c53bd47d7c27",
+        "material_read": "Published result title and structured scientific summary; full text not read",
+        "method": "Record-search abstract comparison only",
+        "title": "Affine hop-total-Roman weight polynomials under matching deletion from complete bipartite graphs",
+        "trigger": "Same invariant in another graph family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b9b78e6a-b9b4-48c1-99a3-17c7ec813ab8",
+  "value": {
+    "rationale": "The problem is a natural intermediate invariant blending intersection-based hop defense and disjointness-based totality on a classical infinite Kneser family. A sharp mod-3 minimum law, complete and nontrivial optimizer rigidity, and exact factorial counts distinguish three disjoint-packing regimes; residue one uniquely admits an intersecting pair, unlike common trivial matching constructions. Not implied by a simple substitution from existing adjacency-based Roman minimum. The same support method can serve as a baseline for higher-rank and all-weight enumerations without claiming those results.",
+    "status": "PASS"
+  }
+}
