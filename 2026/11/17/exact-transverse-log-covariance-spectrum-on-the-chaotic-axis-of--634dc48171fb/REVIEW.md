@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full nonlinear polynomial map restricts to the parameter-four logistic map on the zero-predator axis. Its upper-triangular Jacobian gives the normal quotient multiplier exactly. The sine-square conjugacy, square-integrable log-sine Fourier series, frequency matching under angle doubling, and the Bernoulli Fourier identity establish the entire lag covariance for every parameter and integer lag stated. Stationarity yields the exact finite-horizon variance, without a limit interchange. Exact-rational, independent Fourier-sum and finite-product checks support (but do not replace) the proof. The observable has logarithmic singularities, but they are square integrable and affect only null sets of exact zeros.
+## correctness
 
-**Originality — PASS within inspected literature, with explicit methodological ancestry.** The originating Lee–Chan–Im–Chan–Cheang paper introduces the Type-2 model and displays bifurcations but does not give the stationary transverse-log covariance spectrum. Anteneodo's 2003 Ulam-map paper proves a general Fourier correlation identity and the standard-derivative special case: the present turning-point-zero example coincides with that established derivative covariance and is not itself new. The reviewed finding is instead the parameterized displaced-zero covariance formula for this distinct transverse cocycle, including its Bernoulli evaluation and exact linear variance at the *repelling fixed point* zero. Indexed comparisons yielded no equivalent specific full-family theorem, while the general 2003 Fourier identity is a close broader tool that could be specialized to derive the result. An equivalent specialization in unindexed work remains possible.
+PASS
 
-**Mathematical value — PASS.** The original model investigates chaos and population suppression through numerical Lyapunov diagnostics. An entire interval of mortality parameters has the same normal Lyapunov exponent, making that statistic blind to the dynamics of finite-horizon infinitesimal response. The exact autocovariance law resolves this blind spot for all interior ratios, and it separates the dynamically intrinsic precritical turning-point zero from the fixed-point zero: the former has bounded log-amplitude variance, the latter variance increasing linearly with an exact coefficient. This is a natural invariant of the source map rather than an arbitrary finite enumeration.
+PASS: For mu1,nu1>0 and 0<nu0<nu1 the y=0 Jacobian is upper triangular with normal QUOTIENT multiplier nu1*x-nu0; this is not a stable vertical eigenspace or nonlinear predator persistence statement. Doubling-angle parametrization of x_j=sin^2(2^j*pi*theta) is measure preserving and ergodic. The centered log observable is the sum of two L2 log-sines shifted by +/-phi; its cosine Fourier coefficients are -2cos(2*pi*k*phi)/k. Matching frequencies k=2^m*l under doubling and applying the Bernoulli B2 Fourier identity yields Gamma_m exactly for all m>=0. Stationary covariance summation proves Var(log|D_n|)=nGamma0+2sum(n-m)Gamma_m for every n>=1, and Birkhoff gives almost-everywhere exponent log(nu1/4), excluding zero-multiplier exceptional seeds. Rational B2 evaluations independently confirm eta=1/2 gives finite variance pi^2(2-2^{1-n})/12 and eta=3/4 gives pi^2(3n-4+2^{2-n})/9. Direct independent checks covered 62 rational covariance/variance identities. A finite test is not an infinite proof.
 
-**Closest literature and scientific limits.** The source's positive-population interpretations are not carried over to the signed linearization: the multiplier can change sign. The theorem does not imply nonlinear basin attraction, physical positive predator invasion, almost-sure central limit behavior, or uniform-in-seed Lyapunov rates. Prior derivative autocorrelations and general Fourier techniques are expressly credited. Independent comparison against all unindexed work and the full scope of generic chaotic-skew-product literature is not possible from the inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the published Anteneodo (2003) eqs (7)-(11) contain a general Fourier autocorrelation framework, and eqs (13)-(15) explicitly solve the logistic DERIVATIVE observable at its turning point, which exactly covers eta=1/2. Lee et al. (2023) introduce the same coupled map and study mean Lyapunov/bifurcations, but not the displaced normal log observable or its full Bernoulli parameter family. The new content is the complete displaced-zero covariance spectrum, in particular the positive fixed-point-zero lag covariance and linear variance growth, not the previously solved turning-point case. Classical arbitrary-observable Fourier machinery is strong antecedent and does not by itself state this model-specific parameterized evaluation; equivalence in unindexed literature remains possible.
+
+## value
+
+PASS
+
+PASS: The transverse quotient of a natural published two-population map has a neutral band with identical almost-everywhere mean exponent but sharply different finite-horizon fluctuations depending on the intrinsic multiplier zero; the exact Bernoulli spectral profile and bounded-versus-linear variance distinction are substantive finite-time dynamical invariants and useful for interpreting numerical transverse stability, with explicit cautions against nonlinear population claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
