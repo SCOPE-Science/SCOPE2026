@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The original graph has an exhaustive orthogonal projector decomposition with eigenvalues 0, N, N-n_r. Fractional powers yield exactly the new within-part conductances beta N^(alpha-1)(a_r^alpha-a_r)/(1-a_r). For the scaled graph, projector eigenvalues are 0,N,N e_r. The quadratic Heun polynomial is strictly positive on nonnegative real arguments; all diagonal matrix entries are positive. Cross-part entries equal t(1-t/2)/N, and same-part entries equal t[(e_r-a_r)-t(e_r^2-a_r)/2]/[N(1-a_r)]. These affine sign tests prove the exact interval and no recovery. Strict increase of c_alpha via weighted AM-GM proves the beta threshold. The largest internal eigenmode proves strict positivity-versus-spectral separation when beta exceeds the threshold. Exact-rational matrix replay: 2162 cases; fractional spectral reconstruction: 24 cases; universal conclusions rest on the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 published weighted block-homogeneous Gauss result covers cross conductance b>0, internal a_i, and fourth-order implicit Gauss filter (z²-6z+12)/(z²+6z+12).",
+        "The 2026 unweighted general-filter result assumes only unit-weight original complete multipartite Laplacians, with no within-part links.",
+        "The 2026 fractional exponential semigroup result uses exp(-tL^alpha), not the scaled regularized operator or Heun."
+      ],
+      "reasoning": "Broader graph class in the Gauss result does not dominate a Heun result because the one-step filters are different; its all-step condition a_i/b<=2+n_i/(N-n_i) differs from the sharp Heun amplitude threshold 1. The other results restrict to unweighted L or use exponential time propagation. They do not imply this weighted method-specific phase diagram.",
+      "searches": [
+        "published-finding corpus semantic search: weighted multipartite graph Heun positivity threshold at within cluster edge weights equal between cluster weights",
+        "published-finding corpus semantic search: weighted complete block graphs pairwise cross weights 1 within block weights c_i sharp Taylor degree two positivity",
+        "GitHub public RESULT.md: independent sharp positivity thresholds for fourth-order diffusion on block-homogeneous complete networks"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.10480v1 / 10.1515/jnma-2026-0007 (full accessible article)",
+      "published-finding corpus record 2026-11-02 exact Taylor complete multipartite (full RESULT.md)",
+      "published-finding corpus record 2026-11-08 weighted implicit Gauss (full RESULT.md)",
+      "published-finding corpus record 2026-10-13 universal unweighted filter (full RESULT.md)",
+      "published-finding corpus record 2026-10-26 fractional exponential heat (full RESULT.md)",
+      "arXiv:2102.08242 (abstract only)",
+      "Own accessible current-week ledger 68 recoverable prior claims; distinct filtered-Heun path result id 3cefa0ab-ac93-4745-a7c5-8802f2fb0ba3",
+      "arXiv:2101.00425 / JMAA 511 (2022) 126020 (journal full HTML relevant sections inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previous Heun theorem: only original unweighted K_(n_r), all within-part missing-edge weights zero, h<=2/N.",
+        "Weighted implicit Gauss theorem: different rational scalar transfer function with unconditional all-step weight threshold 2+n_r/(N-n_r).",
+        "Universal filter theorem: for every unweighted K_(n_r) and every scale, not weighted amplified matrices.",
+        "Fractional exact-heat theorem: exponential of L^alpha on original unweighted graphs, not Heun of the scaled regularized graph.",
+        "Filippo–Mazza paper explicitly defines beta>=1 amplification but supplies spectral/graph computational analysis rather than an explicit two-stage positivity theorem."
+      ],
+      "reasoning": "The existing unweighted boundary is a special case of the broader block-homogeneous calculation when internal weights vanish, not a proof of the beta-dependent transition. Shared projectors are standard machinery, but they must be applied to the new operator and second-order transfer function; no prior listed result implies all beta, alpha and part profiles. The numerical method, graph weights, and quantified claims distinguish the primary candidate.",
+      "searches": [
+        "GitHub published published-finding corpus 2026-11-02 exact positivity radii and order-three reversal full RESULT.md",
+        "GitHub published published-finding corpus 2026-11-08 independent sharp positivity thresholds for fourth-order diffusion full RESULT.md",
+        "GitHub published published-finding corpus 2026-10-13 exact positivity criterion full RESULT.md",
+        "GitHub published published-finding corpus 2026-10-26 sharp positivity transition for fractional graph heat full RESULT.md",
+        "Full 2026 Filippo–Mazza OA PDF, Section 4.1 Definition 4.1 and surrounding spectral construction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Explicit trapezoidal, Heun, SSPRK(2,2), and second-order Taylor all have the same polynomial I-hL+(hL)^2/2 on this linear autonomous equation.",
+        "Filippo–Mazza Definition 4.1 in doi:10.1515/jnma-2026-0007 defines beta times spectral fractional nonedge conductances while retaining original edge weights.",
+        "Full published unweighted Taylor positivity finding states h<=2/N but explicitly assumes zero internal edge conductance."
+      ],
+      "reasoning": "Equivalence of names/methods was applied before comparison. Replacing the input L with the scaled regularized L introduces independently weighted within-part links; unweighted formulas cannot be substituted without redoing signs. No retrieved equivalent formulation of the exact two-parameter boundary was found.",
+      "searches": [
+        "published-finding corpus semantic search: scaled regularized fractional Laplacian complete multipartite graphs Heun Taylor two positivity beta threshold first unit within-class conductance w=1, exact stability gap",
+        "published-finding corpus semantic search: regularized fractional diffusion on complete multipartite graphs positivity of second order explicit RK at beta N^(1-alpha) graph Laplacian",
+        "Public web: scaled regularized fractional graph Laplacian second order Runge Kutta positivity preservation beta numerical time step"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned the unweighted exact p=2 threshold, related p=4 and Padé classifications, and general graph positivity constraints, but no beta-dependent table for scaled regularized fractional multipartite Heun.",
+        "Accessible own current-week claim ledger had 68 recoverable finding IDs and one Heun keyword match for a different 3-node path SSP-EIN2 filtered method; no match on the present class and source."
+      ],
+      "reasoning": "No exact table or full recorded result from the checked pool covers the displayed fractional beta amplification formulas. Negative search results are not alone proof of novelty; the inspected strongest close full texts support the implication distinction.",
+      "searches": [
+        "published-finding corpus semantic search: fractional graph Laplacian power L^s complete multipartite Heun RK2 positivity exactly h N^s <=2 independent part sizes",
+        "published-finding corpus semantic search: Heun second order Runge Kutta positivity radius on complete multipartite with within-part added weights, phase transition at within > cross",
+        "published-finding corpus semantic search: weighted graph second-order Taylor heat positivity radius edge local formula"
+      ]
+    },
+    "rationale": "The source full text establishes a scaled fractional regularized Laplacian but no Heun maximum-principle cutoff; the closest 2026 published exact Taylor result treats only unweighted complete multipartite graphs, and the close weighted network theorem treats an implicit fourth-order Gauss map rather than Heun. Other inspected records analyze unweighted universal filters or exact fractional exponential semigroups. No inspected result gives the weighted fractional beta-dependent Heun phase boundary or the strict spectral gap. Residual historical priority remains unverified beyond checked texts.",
+    "residual_risks": [
+      "Historical priority remains unverified outside the searches and full texts listed; a general weighted Heun positivity theorem might imply this calculation without mentioning the fractional construction.",
+      "General numerical integrator sources beyond the accessible selected primary papers were mostly compared at abstract/search level.",
+      "Independent mathematical review has not occurred.",
+      "The 2021 original regularization article predates the motivating 2026 source; the latter is used for its accessible Definition 4.1 and numerical-analysis exposition, not for first-ever invention of graph regularization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_OBJECT_NOT_COVERING_STEP_THEOREM",
+        "evidence": "Definition 4.1 preserves original edges, scales fractional nonedges by beta>=1. Its analysis addresses spectral and diffusion behavior, not the explicit Heun maximum-principle boundary.",
+        "identifier_or_url": "https://doi.org/10.1515/jnma-2026-0007",
+        "material_read": "Open-access full PDF: Section 4.1 Definition 4.1, adjacent construction and spectral analysis; PDF first-page visual inspected",
+        "method": "Full PDF extracted text and page screenshot",
+        "title": "Spectral and computational aspects of a regularized fractional Laplacian for non-local diffusion on graphs",
+        "trigger": "Motivating scaled fractional regularization, source-specific coupling beta"
+      },
+      {
+        "assessment": "COVERS_UNWEIGHTED_SPECIAL_CASE_ONLY",
+        "evidence": "Theorem exactly proves p=2 cutoff 2/N on unweighted original graphs; assumptions exclude nonzero within-part weights or scaled regularized fractional operators.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79",
+        "material_read": "Full RESULT.md, theorem, projector proof, relationships and limitations",
+        "method": "Fetched full public GitHub result source",
+        "title": "Exact positivity radii and an order-three reversal for Taylor Runge–Kutta diffusion on complete multipartite graphs",
+        "trigger": "Same second-order Taylor polynomial on related multipartite graphs"
+      },
+      {
+        "assessment": "DIFFERENT_SCALAR_METHOD_NOT_COVERING",
+        "evidence": "Its propagator is implicit fourth-order Gauss rational function and all-step cutoff a_i/b<=2+n_i/(N-n_i); no Heun phase/timestep law.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-independent-sharp-positivity-thresholds-for-fourth-order-diffusi--c547ef29de73",
+        "material_read": "Full RESULT.md including exact method, theorem, and proof",
+        "method": "Fetched full public GitHub result source",
+        "title": "Independent sharp positivity thresholds for fourth-order diffusion on block-homogeneous complete networks",
+        "trigger": "Identical broad weighted block-homogeneous graph structure"
+      },
+      {
+        "assessment": "UNWEIGHTED_ONLY_NOT_COVERING",
+        "evidence": "Every graph in its hypothesis is an unweighted original multipartite Laplacian; criterion does not classify weighted fractional regularization.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b",
+        "material_read": "Full RESULT.md including theorem and spectral projection proof",
+        "method": "Fetched full public GitHub result source",
+        "title": "An exact positivity criterion on complete multipartite diffusion graphs",
+        "trigger": "Universal continuous scalar-filter positivity criterion"
+      },
+      {
+        "assessment": "DIFFERENT_OPERATOR_AND_TIME_MAP_NOT_COVERING",
+        "evidence": "The statement concerns exp(-t L^alpha) of original unweighted Laplacian and critical alpha=1, not Heun of the scaled regularized nonlocal graph.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1",
+        "material_read": "Full RESULT.md with theorem, proof, references",
+        "method": "Fetched full public GitHub result source",
+        "title": "A sharp positivity transition for fractional graph heat on complete multipartite networks",
+        "trigger": "Same fractional spectral power and multipartite class"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY_INCOMPLETE_INSPECTION",
+        "evidence": "Abstract discusses positive integrators for graph Laplacian structures, not a claimed exact scaled fractional multipartite Heun threshold; full text not compared.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+        "material_read": "Public abstract and bibliographic metadata",
+        "method": "Web abstract search",
+        "title": "Positivity-preserving methods for population models",
+        "trigger": "General method-level positivity context"
+      },
+      {
+        "assessment": "ORIGINAL_REGULARIZATION_NOT_HEUN_BOUNDARY",
+        "evidence": "The 2021 preprint/2022 journal article develops graph compatibility, embedding and regularization; its inspected sections concern random-walk networks, not the complete sharp Heun endpoint amplification boundary.",
+        "identifier_or_url": "https://arxiv.org/abs/2101.00425",
+        "material_read": "Accessible full journal-hosted HTML: introduction and sections on compatibility and regularization, plus abstract of the 2021 arXiv preprint",
+        "method": "Web full-text article read",
+        "title": "Compatibility, embedding and regularization of non-local random walks on graphs",
+        "trigger": "Original regularization method cited by the 2026 source as its source [12]"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1bac0d84-d1ed-439f-a424-c9831dddcbb3",
+  "value": {
+    "rationale": "The 2026 source explicitly motivates scaling missing-edge fractional conductances to recover nonlocal transport; determining when that same scaling destroys second-order numerical mass positivity is a natural, consequential parameter-design problem. The exact beta_* governed by smallest nonsingleton part and sharp h_* for all alpha, beta and multipartite partitions are a complete classification, not an arbitrary finite slice. Strict separation between scalar spectral stability and positivity supplies a useful caution and a concrete negative transition witness for every forbidden timestep; no broader PDE claim is needed to justify the precise numerical fact.",
+    "status": "PASS"
+  }
+}
