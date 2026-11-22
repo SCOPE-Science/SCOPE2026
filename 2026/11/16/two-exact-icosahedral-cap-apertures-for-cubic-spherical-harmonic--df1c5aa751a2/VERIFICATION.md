@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python check_icosahedral_cubic.py` in the extracted package with Python 3, NumPy and SymPy. The script asserts symbolic conference-matrix squaring and the associated eigenvalue multiplicities; checks the exact Funk--Hecke integral \(a_6(c)\), its two nontrivial roots, and the degree-two/four icosahedral design moments. It independently forms and compares the full seven-by-seven cap Gram matrices at seven thresholds using deterministic rotated spherical quadrature.
+## correctness
 
-In the completed replay the largest recorded seven-threshold spectral discrepancy was below \(5\times10^{-15}\); the checker ended with `ICOSAHEDRAL_CUBIC_CAP_PASS point_conference=6x6 moment_degrees=2,4 cap_tests=7 tight_radii=2`.
+PASS
 
-The theorem covers every \(0<c<1\) by proof, not by finite testing. Limits: no independent audit or formal theorem prover; no classification for other center sets, non-mixture unions, or other harmonic degrees. The point-vanishing subspace is an established result credited to Hitchin.
+Products of degree-3 spherical harmonics have only degrees 0,2,4,6. The icosahedron is a spherical 5-design, suppressing degree 2,4 center sums, so cap averaging gives G_c=I+a6(c)(G_pt-I). The six antipodal representatives yield the exact Seidel/conference S^2=5I and G_pt spectrum {0×4,7/3×3}, using 7P3 reproducing kernel. Funk–Hecke integration gives a6(c)=c(1+c)(429c^4-390c²+65)/208; the two positive nontrivial roots are c±=sqrt((195±26sqrt15)/429). Signs yield 4/3/4 least sectors; strict positivity from real analyticity over open caps; P6 prime at 1=21 implies A~(21/2)(1-c) and kappa~2/[9(1-c)]. Independently rederived polynomial integral/symbolic roots and conference identity; numerical 7-cap checks inspected in packaged script, not used for all c proof.
+
+## originality
+
+PASS
+
+The four-dimensional cubic point-nullspace was already established by Hitchin, and general spherical-design Funk–Hecke filtering is standard. No inspected primary result provides the complete positive-area twelve-cap cubic Gram spectrum or two nontrivial Parseval thresholds.
+
+## value
+
+PASS
+
+The existence and exact algebraic classification of two nonhemispherical cap aperture values yielding an isometry for a natural cubic harmonic representation is a sharp design theorem. The eigenspace switch and near-point conditioning are concrete quantitative stability information beyond the already known point nullspace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
