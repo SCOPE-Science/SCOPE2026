@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Published Type-A lemma yields uniquely an even alternating interval for adjacent equal-weight words. Position-sum change is ±t with 1≤t≤min(k,n-k), so the indicated modulus separates every edge. Explicit r+1 pairwise alternating-core words form a matching clique. Five checked 8-bit words induce C5, with common-prefix/suffix padding preserving difference intervals. Two independent finite checkers complete through n=10 and 14 (and C5 padding through n=16); infinity is proved by the interval argument, not by these computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 unrestricted clique theorem gives floor(n/2)+1 for all alphabet sizes, without a fixed-weight chromatic statement",
+        "Cai et al. impose an alternating-run restriction for their specific inversion-syndrome code and prove no all-layer optimal chromaticity",
+        "Published unrestricted edge counts are different graph invariants"
+      ],
+      "reasoning": "A stronger clique bound for the unrestricted graph does not imply the fixed-weight chromatic optimum: restricting vertices can reduce both invariants, while a chromatic upper bound must supply a proper partition of the entire layer. Type-A alone is a pairwise criterion; this claim adds a sharp constrained global partition.",
+      "searches": [
+        "2026/11/8/SCOPE-sharp-clique-bound-and-two-pencil-structure-in-the-two-read-sing--b19c2f7e6141",
+        "arxiv:2001.01376 Theorem 17",
+        "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1507.06175",
+      "arxiv:2001.01376",
+      "doi:10.1109/TIT.2022.3184868",
+      "github:published-finding corpus/2026/2026/11/8/SCOPE-sharp-clique-bound-and-two-pencil-structure-in-the-two-read-sing--b19c2f7e6141",
+      "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+      "2026/10/26/SCOPE-exact-two-read-single-deletion-capacity-in-the-binary-weight-two--7d25cc21af64",
+      "2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2015 work recalls Varshamov–Tenengolts position sum modulo n+1 for single-read deletion correction",
+        "2020 paper directly implies alternating-interval differences and suggests inversion residues; it does not state the new layer-coloring optimum",
+        "2022 paper studies unrestricted multiple-read clique covers and constructions",
+        "2026 published result proves omega of unrestricted graph, not chi on each fixed-weight layer"
+      ],
+      "reasoning": "The coloring follows by combining the known alternating-interval criterion and known syndrome with the weight-derived maximum even-flip size; it is a new sharp application rather than a new checksum. The matching clique and induced odd hole are explicitly proved here, so the full coupled result is not a corollary stated or implied by any cited individual result. Risk: a short derivation could have occurred in unindexed prior writing.",
+      "searches": [
+        "arxiv:1507.06175 Section 1",
+        "arxiv:2001.01376 Proposition 9 and Theorem 17",
+        "doi:10.1109/TIT.2022.3184868 Section IV",
+        "2026/11/8/SCOPE-sharp-clique-bound-and-two-pencil-structure-in-the-two-read-sing--b19c2f7e6141"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2001.01376, sections III–IV: inversion code with bounded alternating runs; not an exact coloring of all fixed-weight words",
+        "published-finding corpus closest result 2026/11/8/SCOPE-sharp-clique-bound-and-two-pencil-structure-in-the-two-read-sing--b19c2f7e6141: unrestricted clique",
+        "Searches for two-read fixed-composition chromatic and induced C5 did not return an equivalent statement"
+      ],
+      "reasoning": "Treating a color class as a two-read-reconstructible code is exactly equivalent to proper coloring, so the novelty comparison includes code partitions. The classical inversion checksum is a key ingredient, not identical to a proved minimum number of codebooks for every Hamming weight. The five-cycle family is additional structure.",
+      "searches": [
+        "exact chromatic number of constant weight induced subgraph of two-read single deletion confusability graph",
+        "binary reconstruction graph fixed Hamming composition minimum number of codebooks partition into independent sets weighted position residue",
+        "two-read deletion graph non-perfect induced five-cycle chromatic equal clique number",
+        "inversion syndrome modulo min(k,n-k)+1 for two deletion reads constant weight"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed degree census determines vertex degrees, not chromatic number",
+        "Weight-two independence formula determines maximum size of one compatible code, not how many colors partition every weight layer",
+        "No retrieved indexed table asserts the full-layer chromatic formula or interior nonperfectness"
+      ],
+      "reasoning": "Neither edge tables nor fixed-weight independent-set values furnish chromatic numbers in general. Search absence is not priority proof; closest actual record identifiers were compared at implication level.",
+      "searches": [
+        "exact chromatic number of constant weight induced subgraph of two-read single deletion confusability graph",
+        "fixed composition two-read deletion graph chromatic clique equal minimum weight plus one",
+        "2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1",
+        "2026/10/26/SCOPE-exact-two-read-single-deletion-capacity-in-the-binary-weight-two--7d25cc21af64"
+      ]
+    },
+    "rationale": "The 2015 source established earlier deletion-coding/inversion-syndrome context; the 2020 Type-A criterion and its run-restricted inversion coloring explicitly predate this proof. The independently proved layerwise sharp chromatic equality with no extra run constraint plus uniform induced C5 family was not established by the inspected close sources. An unrestricted optimal clique theorem neither supplies exact weight-layer chromatic numbers nor induced odd holes. No novelty is claimed for the old checksum or pairwise Type-A criterion.",
+    "residual_risks": [
+      "The position-sum coloring is a short adaptation of the 2020 bounded-run inversion code; unstated folklore or unindexed prior writeups may already have the exact fixed-weight application.",
+      "A full human historical priority review, including offline literature, is not completed.",
+      "The chromatic equality is not a theorem about maximum individual codebook size or chromaticity of every induced subgraph."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; treats different, classical single-read and multiple-deletion code constructions, no two-read fixed-weight coloring",
+        "evidence": [
+          "arxiv:1507.06175 lines 0–37, first posted 2015-07-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.06175",
+        "material_read": "Abstract and full Introduction including the single-deletion VT checksum and main theorem",
+        "method": "Full-text arXiv HTML inspected, not just snippets",
+        "title": "Efficient Low-Redundancy Codes for Correcting Multiple Deletions",
+        "trigger": "Archive baseline for deletion coding and positional checksums"
+      },
+      {
+        "assessment": "PARTIAL_INGREDIENT; supplies Type-A characterization and run-restricted inversion scheme, but does not give sharp global chromaticity per weight or C5",
+        "evidence": [
+          "arxiv:2001.01376 v2, Sections III–IV, Proposition 9 and Theorem 17"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2001.01376v2",
+        "material_read": "Problem setup, full relevant Section III on ball intersections and Section IV including Theorem 17; whole-document term checks for fixed-weight/chromatic coverage",
+        "method": "Read relevant full-text HTML sections and searched text",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Direct foundational Type-A overlap and inversion-syndrome scheme"
+      },
+      {
+        "assessment": "NOT_COVERING; unrestricted clique-cover/independent-set bounds, no exact optimal colors across each weight layer",
+        "evidence": [
+          "IEEE Trans. IT 68 (2022), Section IV, DOI:10.1109/TIT.2022.3184868"
+        ],
+        "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2024/02/75_Multiple_Reads_Deletions_IT22.pdf",
+        "material_read": "Title/abstract and Section IV including clique-cover propositions and constructions, plus text-search for chromatic and weight",
+        "method": "Full PDF text investigated; visual inspection of first page and relevant Section IV page",
+        "title": "Correcting Deletions With Multiple Reads",
+        "trigger": "Closest published unrestricted clique-based coding bounds"
+      },
+      {
+        "assessment": "NOT_COVERING: unrestricted omega and clique pencils; no fixed-composition optimal chi, no induced five-cycle boundary",
+        "evidence": [
+          "2026/11/8/SCOPE-sharp-clique-bound-and-two-pencil-structure-in-the-two-read-sing--b19c2f7e6141; RESULT.md, Finding/Proof/Limitations"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-clique-bound-and-two-pencil-structure-in-the-two-read-sing--b19c2f7e6141",
+        "material_read": "Complete publicly posted RESULT.md including all theorem statements and proof, verification, limitations and bibliography",
+        "method": "Fetched and read complete GitHub file contents",
+        "title": "Sharp clique bound and two-pencil structure in the two-read single-deletion graph",
+        "trigger": "High relevance: stronger unrestricted maximum clique and local classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1e0b06ff-dce5-48b9-9e1d-2e08691f71c3",
+  "value": {
+    "rationale": "Exact minimum partition of the entire constant-composition binary source into two-distinct-deletion-read reconstructible codebooks is a motivated coding resource invariant with all lengths and weights and an explicit algorithm. An induced odd hole throughout deep layers demonstrates this global chromatic–clique coincidence occurs even in nonperfect graphs; it provides a real structural boundary, not a numerical novelty alone.",
+    "status": "PASS"
+  }
+}
