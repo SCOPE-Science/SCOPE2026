@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The cap-size argument proves three-colour minimality. Exact inclusion-exclusion over 4,096 subsets gives all polynomial coefficients. Independent line constructions and full finite-state enumerations by Python and C++ reproduce 3,762 states, 16,848 edges, five full affine/palette orbits, and all 3,762 BFS distance profiles. The exceptional 144+162 orbit classes have eccentricity ten and exactly two antipodes per state; no non-finite generalization is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kozik–Shabanov arXiv:1409.6921 section 1 proves general sufficient degree bounds for proper colourability, not exhaustive classification of AG(2,3).",
+        "Bonsma–Paulusma arXiv:1509.06357 sections 1–2 formulate reconfiguration on ordinary graphs, not this 3-uniform hypergraph metric."
+      ],
+      "reasoning": "Neither a sufficient condition for existence of some colouring nor a graph-only recolouring algorithm implies all-pairs distances or the full polynomial for the 12-line hypergraph.",
+      "searches": [
+        "recoloring optimal 3-colorings affine plane order three 306 diameter pairs radius 9 diameter 10",
+        "proper three colouring finite affine plane reconfiguration",
+        "simple hypergraph colouring edge degree recolouring connectivity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1409.6921",
+      "https://arxiv.org/abs/1509.06357",
+      "https://arxiv.org/abs/1506.06444",
+      "https://doi.org/10.1002/jcd.21773",
+      "2026/10/18/SCOPE-parallel-class-rigidity-and-full-lean-colouring-spectrum-of-fini--d7d2f7c0a1ae",
+      "2026/11/2/SCOPE-exact-lean-number-spectrum-of-cyclic-three-configurations-genera--da53b080e406",
+      "2026/11/2/SCOPE-fano-flags-and-the-unique-mobile-sector-of-heawood-3-colourings--78dac1ccb780",
+      "2026/10/26/SCOPE-exact-six-cycle-switch-distances-between-labeled-steiner-triple--82ef28f50cd7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ArXiv primary texts 1409.6921 and 1506.06444 use proper hypergraph colouring to derive degree or hardness bounds, with no implied finite-state enumeration.",
+        "2021 article gives weak colouring of a specific eight-point deletion of AG(2,3), which does not determine our full nine-point state graph.",
+        "The indexed affine lean-colouring record has a different stated validity condition; its full text was inaccessible and no whole-document noncoverage is inferred from the summary."
+      ],
+      "reasoning": "Our theorem includes precise distance ten pairs and an intrinsic periphery condition. None of the checked stronger/exact premises imply those values; one inaccessible related indexed record leaves residual priority risk rather than a fabricated exclusion.",
+      "searches": [
+        "AG(2,3) 3-colourings one-point reconfiguration five affine orbits 144 162 864 1296",
+        "recoloring optimal 3-colorings affine plane order three 306 diameter pairs radius 9 diameter 10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The nine-point affine plane is the unique Steiner triple system of order nine; inspected 2014 and 2015 texts discuss proper uniform-hypergraph colouring but do not give its exact recolouring graph.",
+        "2021 symmetric-configuration article explicitly identifies its eight-point system as AG(2,3) with a point and incident lines deleted, hence a different constraint set."
+      ],
+      "reasoning": "We searched both AG(2,3), Steiner triple system of order nine, weak colouring, and one-point recolouring. Deleting a point and four lines changes the admissible colourings; the 8-point result does not imply this 9-point metric.",
+      "searches": [
+        "Steiner triple system 9 weak coloring 3762 chromatic polynomial q^9 - 12q^7 +66q^5",
+        "AG(2,3) 3-colourings one-point reconfiguration five affine orbits 144 162 864 1296",
+        "affine plane order three hypergraph proper three-coloring recoloring connected 3762"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused indexed mathematical-record queries returned related but different objects: lean colourings of affine planes, recolouring of the Heawood graph, and switches between labelled Steiner triple systems of order nine.",
+        "Full 2021 symmetric-configuration article tables concern regular 3-incidence systems with the same number of points and lines; the full affine plane has nine points and twelve lines."
+      ],
+      "reasoning": "No checked table gives the full 12-line weak chromatic polynomial or the five orbit distances. The searched index and literature are not exhaustive and do not prove absence of an unpublished table.",
+      "searches": [
+        "Steiner triple system 9 weak coloring 3762 chromatic polynomial q^9 - 12q^7 +66q^5",
+        "AG(2,3) weak chromatic polynomial 12 lines 9 points three coloring 3762",
+        "3 colorings AG(2,3) no monochromatic line 3762"
+      ]
+    },
+    "rationale": "Source definitions, actual content of three earlier arXiv primary texts, the full 2021 symmetric-configuration article, multiple focused published-result queries, and accessible prior claims were compared by implication. No checked result determines the nine-point twelve-line proper weak-colouring space, five affine-orbit profiles, or diameter criterion. Finite originality remains provisional because inaccessible indexed full texts and unindexed work could imply coverage.",
+    "residual_risks": [
+      "An inaccessible related indexed affine-plane lean-colouring full text could contain stronger supplementary results.",
+      "Unindexed historical combinatorial colour-polynomial tables or exact recolouring censuses might overlap; negative search is not a novelty proof.",
+      "Independent expert review has not yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact hypergraph recolouring theorem",
+        "evidence": "Section 1 defines proper as nonmonochromatic; main claims are edge-degree bounds for colourability.",
+        "identifier_or_url": "arxiv:1409.6921",
+        "material_read": "Accessible HTML: introduction, definitions, Theorems 1–2, colouring-algorithm proof outline, and Section 6 corollaries",
+        "method": "Full-text HTML inspection, including source-specific search for affine plane",
+        "title": "Improved algorithms for colorings of simple hypergraphs and applications",
+        "trigger": "Same proper-colouring definition and linear hypergraph setting"
+      },
+      {
+        "assessment": "NOT_COVERING; graph instances rather than the ternary affine hypergraph",
+        "evidence": "Sections 1–2 define one-vertex moves for proper colourings of ordinary graphs; no hypergraph instance is studied.",
+        "identifier_or_url": "arxiv:1509.06357",
+        "material_read": "Accessible HTML: introduction, solution-graph definitions, and Section 2 ordinary graph preliminaries",
+        "method": "Full-text HTML inspection and hypergraph term search",
+        "title": "Using Contracted Solution Graphs for Solving Reconfiguration Problems",
+        "trigger": "Closest historic one-vertex colouring reconfiguration framework"
+      },
+      {
+        "assessment": "NOT_COVERING the exact small geometry/metric",
+        "evidence": "Defines proper hypergraph colouring, then addresses approximation and hardness rather than classifying the twelve-line affine plane.",
+        "identifier_or_url": "arxiv:1506.06444",
+        "material_read": "Accessible HTML: introduction, Theorems 1.1–1.6 on approximation and hardness, and stated main results",
+        "method": "Full-text HTML inspection, affine-plane term search",
+        "title": "Approximate Hypergraph Coloring under Low-discrepancy and Related Promises",
+        "trigger": "Strong theoretical proper hypergraph colouring and possible coverage"
+      },
+      {
+        "assessment": "NOT_COVERING; the full affine plane has twelve lines, whereas this paper treats symmetric point-block incidences",
+        "evidence": "Section 1 identifies the eight-point configuration as AG(2,3) with a point and all blocks through it deleted; Section 2 studies weak colouring of symmetric configurations.",
+        "identifier_or_url": "https://doi.org/10.1002/jcd.21773",
+        "material_read": "Open-access full-text HTML sections 1 and 2 with explicit identification of the eight-point affine-plane deletion",
+        "method": "Full-text HTML review; geometric and definition comparison",
+        "title": "Colouring problems for symmetric configurations with block size 3",
+        "trigger": "Literature on weak colourings of finite three-uniform incidence structures"
+      },
+      {
+        "assessment": "The stated lean-colouring condition differs from proper weak colouring, but whole-document NOT_COVERING is not asserted",
+        "evidence": "Index summary describes noninjective lean colourings and collapses of parallel lines, not exclusion of monochromatic lines or one-point distances.",
+        "identifier_or_url": "2026/10/18/SCOPE-parallel-class-rigidity-and-full-lean-colouring-spectrum-of-fini--d7d2f7c0a1ae",
+        "material_read": "Published-result title and indexed abstract only; full text could not be accessed",
+        "method": "Indexed record comparison and unsuccessful full-text retrieval",
+        "title": "Parallel-class rigidity and full lean-colouring spectrum of finite affine planes",
+        "trigger": "Same geometric object family and a labelled-colouring polynomial"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "01f5dae5-fbed-449d-b974-b54a825a570f",
+  "value": {
+    "rationale": "The smallest ternary affine-plane line system gives a natural, canonical optimum hypergraph-colouring reconfiguration test. The 306 peripheral states are exactly two intrinsic geometry types (singleton class or parallel rainbow lines); all other 3,456 states are central with eccentricity nine. This classification is stronger than routine colourability, enumeration or relabeling and supplies a sharp metric boundary at the palette minimum.",
+    "status": "PASS"
+  }
+}
