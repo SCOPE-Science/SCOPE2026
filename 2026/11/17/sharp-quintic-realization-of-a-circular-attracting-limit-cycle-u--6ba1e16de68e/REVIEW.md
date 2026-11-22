@@ -1,19 +1,21 @@
-# Scientific review — quintic Kolmogorov circular-cycle threshold
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The field is polynomial of exact degree five and retains both invariant circles by explicit polynomial cofactor identities, with coordinate axes invariant. On the off-axis circle the angular velocity is strictly positive, giving a regular closed orbit. The normal cofactor integral is reduced to an explicitly negative integral by subtracting the total derivative of the positive invariant-circle factor and pairing opposite angles. This gives a transverse Floquet multiplier strictly between zero and one for every parameter satisfying the stated strict inequalities. Independent symbolic identities and a rational-parameter quadrature check pass; the written proof, rather than numerics, proves the all-parameter result. Lower-degree exclusion is exactly the cubic/quartic theorem of Jana–Sarkar and the classical low-degree result cited by Gasull–Santana.
+PASS
 
-## Originality (O) — PASS within examined material
+Reconstructed f=(x-a)^2+(y-b)^2-r^2 and g=x^2+y^2-1 and X=(1+kappa*x)*xy*(g J grad f - f J grad g)+epsilon*f*g*(x,0). Exact symbolic polynomial expansions for arbitrary parameters independently give df(X)=f[(1+kappa*x)4xy(bx-ay)+2epsilon*x(x-a)g] and dg(X)=g[(1+kappa*x)4xy(bx-ay)+2epsilon*x^2 f]; both coordinate axes are invariant and the second component has a nonzero degree-five term. On f=0 the angular speed 2xyg(1+kappa*x) is strictly positive by a,b>r and sqrt(a^2+b^2)-r>1; hence a regular finite-time periodic orbit exists. The cofactor contribution from g is a closed-orbit total derivative; pairing theta with pi-theta makes the remaining log multiplier -2epsilon*kappa*r^2 times a strictly positive integral, without sign ambiguity or numerical inference. Three independently selected admissible parameter tuples passed direct original-vs-paired quadrature. Degree <5 lower bound relies on the specific published Jana-Sarkar degree 3/4 exclusion and classical low-degree Kolmogorov facts; the code alone does not prove impossibility.
 
-The closest motivating paper [Jana–Sarkar, arXiv:2610.33226] establishes the lower-degree obstruction but stops at quartic order and does not derive the quintic Kolmogorov witness or its negative Floquet integral. Gasull–Santana [arXiv:2510.11705] establishes more general existence results for Kolmogorov limit cycles without simultaneously prescribing the invariant unit circle. Earlier prescribed-circle algebraic-cycle theory provides broad context, but no inspected statement implies the exact constrained degree-five realization. Published work on prescribed concentric cycles and a quintic circle-and-ellipse annulus involves different constraints. The 2016 Llibre–Ramírez–Ramírez–Sadovskaia paper was only partly accessible through descriptions and a later paper's formula; this remains the leading historical-priority risk, not evidence that the particular threshold is known.
+## originality
 
-## Mathematical value (V) — PASS
+PASS
 
-The construction closes the first degree not excluded by the recent cubic/quartic theorem. It identifies a sharp minimal polynomial complexity for two biologically natural and geometrically competing requirements (Kolmogorov-invariant axes and unit circle, plus a genuine positive circular attractor). The exact negative Floquet integral is a structural certificate over an open family of parameters, rather than an isolated numerical limit cycle. It separates invariance of the singular unit circle from the hyperbolic periodic nature of the off-axis circle. Claims about global dynamics, uniqueness, other cycles or physical realizability are explicitly not made.
+PASS within inspected primary and published mathematical sources. Jana-Sarkar establishes precisely the no-go up to degree four, not the all-parameter quintic attracting construction. The 2025 Gasull-Santana lower-bound/prescribed-curve framework has general Kolmogorov constructions, but its inspected published statements do not enforce simultaneous invariant singular unit circle, invariant axes, and a separate positive circular attractor at degree five. Broad inverse algebraic-cycle constructions have uninspected historical specializations; priority risk is explicitly retained and is not asserted absent merely from a negative query.
 
-## Limitations and closest literature
+## value
 
-The construction specifies one attracting circle, not a global census. The unit circle contains stationary points on the coordinate axes and is not itself a periodic orbit. Older circular-limit-cycle construction literature, especially Llibre et al. (2016), may contain relevant specializations beyond the accessible material. No independent audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the natural threshold immediately above a strong cubic/quartic impossibility theorem is attained by an explicit constrained and biologically interpretable construction. The sign-definite transverse exponent certifies an open parameter family of actual isolated attracting cycles rather than relying on invariant curve membership or numerical evidence. No global basin, uniqueness or other-cycle claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
