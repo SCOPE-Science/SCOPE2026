@@ -1,0 +1,4 @@
+#include <stdint.h>
+#include <stdio.h>
+int rank5(uint32_t a){uint32_t basis[5]={0};int k=0;for(int i=0;i<5;i++){uint32_t x=(a>>(5*i))&31u;for(int j=4;j>=0&&x;j--){if((x>>j)&1u){if(basis[j])x^=basis[j];else{basis[j]=x;k++;break;}}}}return k;}
+int main(void){unsigned counts[32]={0};unsigned long long all=0;for(uint32_t a=0;a<(1u<<25);a++){if(rank5(a)!=5)continue;all++;uint32_t rows[5],s[5]={0};for(int i=0;i<5;i++)rows[i]=(a>>(5*i))&31u;for(int i=0;i<5;i++)for(int j=i+1;j<5;j++){if(((rows[i]>>j)^(rows[j]>>i))&1u){s[i]|=1u<<j;s[j]|=1u<<i;}}int e=0;for(unsigned p=1;p<32;p++){int rad=1;for(int i=0;i<5;i++){if(__builtin_parity(s[i]&p)){rad=0;break;}}if(!rad)continue;int q=0;for(int i=0;i<5;i++)if((p>>i)&1u)q^=__builtin_parity(rows[i]&p);if(!q)e++;}counts[e]++;}printf("n=%llu\n",all);for(int e=0;e<32;e++)if(counts[e])printf("E=%d count=%u\n",e,counts[e]);return 0;}

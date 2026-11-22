@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The tangent-cone criterion follows directly from the characteristic-two Taylor expansion and nondegeneracy of the underlying Frobenius bilinear form. Normalized Hermitian points satisfy a five-variable semilinear equation over an explicitly bounded splitting field. The 165-point count is both theoretical and an executable invariant. The source code enumerates the full solution kernel and every Frobenius orbit, while an independent C orbit census proves all thirteen congruence representatives exhaust the smooth binary coefficient space; a different direct tangent-condition calculation verifies extension degrees one, two and three. The result does not infer completeness from small experiments.
+
+**Originality (PASS, with residual risk).** Cheng's geometric Hermitian/point-cone framework and the earlier 13-class binary rational Fano-line census were examined in detail. Both provide necessary premises, but neither provides the all-extension Frobenius permutations on the 165 geometric Eckardt centers. The prior 13-class result is explicitly credited and independently re-enumerated, not claimed as new. The closest other geometric records concern surfaces, complex Eckardt points or Gauss fixed points of different varieties. A classical finite-unitary calculation or unindexed equivalent census remains a bibliographic risk.
+
+**Mathematical value (PASS).** The exact splitting-degree data solve a natural descent question for a finite geometric locus that controls tangent-cone constructions on the Fano surface. They distinguish degree-five first appearance from degree-24 complete splitting and give exact rational Eckardt counts over every finite extension, not only the ground field. These invariants are not supplied by the existing rational line-incidence census. The ten cycle strata are complete and intrinsically determined on the smooth Frobenius-cubic locus.
+
+**Limitations.** The claim is limited to \(\mathbb F_2\)-models of nondegenerate five-variable Frobenius cubics and their finite geometric Eckardt loci. No general cubic-threefold census or Fano-surface zeta function is asserted. An independent mathematical audit remains to be performed.
+
+Self-review: passed. Independent audit: not yet performed.
