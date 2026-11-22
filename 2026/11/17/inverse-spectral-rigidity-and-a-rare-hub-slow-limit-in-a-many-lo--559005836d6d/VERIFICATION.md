@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python check_star_inverse.py` from the folder containing this document and the checker. It uses Python 3, NumPy, SymPy and SciPy. The recorded reproducibility marker `RARE_HUB_INVERSE_AND_SLOW_LIMIT_OK` was obtained using the script packaged alongside this proof.
+## correctness
 
-The checker performs exact rational symbolic verification of the Schur-complement determinant formula for four spokes and numerical recovery of two-, three-, and four-spoke interaction rates, including repeated values. It also checks numerical strict interlacing and convergence to the analytic effective semigroup at a sequence of hub masses. The results do not prove the statements for infinitely many parameters; the mathematical proof in RESULT.md supplies those arguments.
+PASS
 
-The inverse formula assumes the full noiseless nonzero spectrum, a known positive central mass and equal known peripheral masses. Numerical root extraction at repeated coefficients can lose precision. The slow limiting formula fixes the interaction rates before taking the mass to zero. No independent audit has been performed.
+For r>=2 with 0<epsilon<1 and 0<alpha_i<=1, c=(epsilon,(1-epsilon)/r,...), the Volterra quadratic update is exactly the reversible row-stochastic star chain P: x_{i,-}x_{j,+}-x_{i,+}x_{j,-}=c_ic_j(q_j-q_i). Positivity and irreducibility give a simple zero eigenvalue and r positive relaxation eigenvalues. Schur complement of epsilon*z I-L yields epsilon^r*z*[U(z)-(1-epsilon)z U'(z)/r]; the leading factor epsilon and coefficient multipliers 1-(1-epsilon)k/r>=epsilon prove unique recovery of the unordered alpha_i including repetitions. This identity was independently checked in exact SymPy arithmetic for alpha=(1/5,1/2,3/4), epsilon=2/7 and all four polynomial coefficients. For slow time, exact u_{n+1}=u_n+epsilon Q u_n+epsilon alpha e_n and |e_n|<=(1-A/2)^n+2epsilon/A make the forcing summable up to n<=T/epsilon. Markov-semigroup Euler convergence gives the stated uniform O(epsilon) bound and fast hub layer. Q has positive off-diagonals, zero row sums; the secular equation yields strict roots between pairwise distinct alpha_i, while trace gives the fast eigenvalue A+O(epsilon). Repeated couplings have no claimed strict interlacing.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality after searches for identical and stronger implications, exact records, primary material, and same-object aliases; relevant previous methods are acknowledged. Neither theorem implies both the all-multiplicity weighted-star inverse coefficient formula and the O(epsilon) slow-limit Markov dynamics. The elementary-symmetric inverse idea has a strong antecedent; do not characterize it as wholly unprecedented.
+
+## value
+
+PASS
+
+The physically natural observable, the entire noiseless fiber relaxation spectrum, determines the original interaction coefficients without labels or extra eigenvectors; the zero-hub regime reveals induced complete-graph communication and quantitative slow/fast spectral separation among originally uncoupled leaves. This is a nontrivial identifiability and dynamical singular-limit result, not just rewriting a stochastic matrix. The original star-mass symmetry must be preserved, and no stable inverse numerical estimation is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
