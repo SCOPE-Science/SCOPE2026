@@ -1,12 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Summing every translation diagonalizes the affine frame operator; its Fourier multiplier is the two-tap power spectrum. Inverting the finite Fourier transform establishes that equality of all nonzero-frequency frame eigenvalues is equivalent to a constant lag coefficient. The two antipodal lag equations give the complete weighted phase classification, and requiring equality at zero frequency gives the full-space criterion. The zero-one cases, minimum number and count of antipodal transversals, subgroup congruence, and attained erasure endpoints follow without numerical assumptions. The included checker independently tests the frame matrix and representative parameter grids. The only excluded degeneracy is that the tap coefficients are required nonzero and at least one dilation weight positive.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Rahimi and Seddighi's two primary 2017 papers provide subgroup wavelet-frame energy criteria and Parseval constructions, but the inspected statements do not assert a classification over arbitrary nonnegative weights or the precise phase-by-antipodal cases with exact scale-packet erasure bounds. Iosevich–Lai–Mayeli concerns Fourier-indicator generators and tiling hypotheses. Closest semantically searched research records concerned cyclic STFT support and two-character Fourier-frame erasures: they have different measurement objects and cannot imply the stated all-prime affine wavelet classification. A possible prior equivalent in finite filter-bank/Calderón terminology, and Farashahi's partially accessible 2017 subgroup paper, remain risks. No result is declared historically unique merely because an electronic search missed it.
+PASS
 
-## Mathematical value — PASS
-A two-point difference is the most localized zero-mean filter; the problem of obtaining tight reconstruction from a restricted set of prime-field dilations is natural and practically interpretable. The theorem gives all allowable complex phases and positive-weight patterns, the exact minimum number and number of minimal real zero-mean designs, an arithmetic obstruction to subgroup-only constructions, and sharp robustness to erasing an entire scale packet. These are complete exact properties of a motivated wavelet family, not an arbitrary parameter table.
+All translations diagonalize the scale-weighted frame operator with multiplier WQ+∑_{t≠0}h(t)ζ^(tξ). Constancy on the nonzero characters iff h(t)=β for every t≠0 follows by inverse Fourier transform, giving three necessary and sufficient u/v pair-balance regimes, with strictly positive bounds. The full-space condition forces h=0, and zero-one transversals and subgroup criterion follow algebraically. For normalized difference wavelets deleting one scale subtracts (2−2cos(2πk/p))/p; actual minimum/maximum cosines yield both sharp extrema, p=3 zero and p≥5 positive. Bounded independent p checks supplement the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical finite-prime wavelet and subgroup-frame papers give relevant Fourier or subgroup criteria but not this necessary-and-sufficient classification across arbitrary nonnegative dilation weights for a fixed complex two-tap generator, nor exact scale-packet-erasure bounds. Best-of-knowledge; finite filter-bank aliases are a risk.
+
+## value
+
+PASS
+
+Arbitrary nonnegative dilation-weight phase classification and loss-of-one-scale sharp recoverability answer motivated finite-frame design and robustness problems for the canonical two-tap generator, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

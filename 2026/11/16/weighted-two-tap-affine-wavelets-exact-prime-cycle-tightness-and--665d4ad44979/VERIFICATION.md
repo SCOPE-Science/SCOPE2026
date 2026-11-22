@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
-Execute `python3 verify_wavelet_two_tap.py` with Python 3 and its standard library only. The script builds Fourier multipliers from two-tap vectors, exhausts unweighted and small integer-weighted scale assignments, independently checks one actual time-coordinate frame matrix, and checks exact scale-erasure extrema for six primes.
+# Independent mathematical audit
 
-Completed program checks: 6,624 unweighted cases at primes \(3,5,7,11\), 4,896 weighted cases at primes \(3,5,7\), time-coordinate matrix for \(p=7\), and erasure boundaries at primes \(3,5,7,11,13,17\). The final program assertion prints `TWO_TAP_AFFINE_PASS unweighted_cases=6624 weighted_cases=4896`.
+## correctness
 
-The proof does not depend on finite computation: it is the finite Fourier inversion argument plus the exact antipodal equations. Numerical floating-point tests have rounding tolerance and do not independently certify results for all primes or weights. No independent mathematical audit has been performed.
+PASS
+
+All translations diagonalize the scale-weighted frame operator with multiplier WQ+∑_{t≠0}h(t)ζ^(tξ). Constancy on the nonzero characters iff h(t)=β for every t≠0 follows by inverse Fourier transform, giving three necessary and sufficient u/v pair-balance regimes, with strictly positive bounds. The full-space condition forces h=0, and zero-one transversals and subgroup criterion follow algebraically. For normalized difference wavelets deleting one scale subtracts (2−2cos(2πk/p))/p; actual minimum/maximum cosines yield both sharp extrema, p=3 zero and p≥5 positive. Bounded independent p checks supplement the proof.
+
+## originality
+
+PASS
+
+Classical finite-prime wavelet and subgroup-frame papers give relevant Fourier or subgroup criteria but not this necessary-and-sufficient classification across arbitrary nonnegative dilation weights for a fixed complex two-tap generator, nor exact scale-packet-erasure bounds. Best-of-knowledge; finite filter-bank aliases are a risk.
+
+## value
+
+PASS
+
+Arbitrary nonnegative dilation-weight phase classification and loss-of-one-scale sharp recoverability answer motivated finite-frame design and robustness problems for the canonical two-tap generator, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
