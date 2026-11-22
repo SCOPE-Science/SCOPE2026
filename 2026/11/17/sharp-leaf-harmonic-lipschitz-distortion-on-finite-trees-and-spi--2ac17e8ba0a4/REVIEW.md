@@ -1,19 +1,21 @@
-# Scientific assessment: leaf-harmonic Lipschitz extension
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A rooted-edge summation-by-parts identity proves the finite tree cut formula without relying on a formal transport black box: all bounded edge increments can be realized simultaneously because the domain graph is a tree. Strong discrete maximum principle applied to the distance-to-a-leaf function gives strict expansion at a leaf edge whenever any branch exists. On spiders, central harmonicity determines the exact weighted mean, and equality in the positive-weight inequalities classifies all norming boundary data. A reciprocal convexity argument proves the fixed-order optimal arm balancing, and two-sided elementary estimates prove the sharp asymptotic constant. `check_harmonic_extension.py` independently checks these calculations on finite instances with exact rational arithmetic. The tests are corroborative, not infinite proofs.
+PASS
 
-## Originality — PASS, with historical-priority risk
+For each output edge, harmonic-measure difference nu is a zero-mass leaf signed measure; telescoping along root-to-leaf paths gives its exact dual edge-Lipschitz norm as sum over cuts |nu(C_e)|. The sign of each cut is realizable by a tree potential (acyclicity), hence not merely an upper bound. For non-path trees, leaf-distance witness g=d(a,.) gives Lg=2-deg<=0; w=H(g|leaves)-g solves Lw=deg-2>=0 with positive source at a branch and zero on boundary, so strict maximum principle yields w>0 inside, forcing an edge slope >1. On paths affine interpolation is norm one. On spiders, center is conductance-weighted by inverse arm lengths; directly bound output slope by 1+(m-2)/(L_i sum 1/L_j), exact with distance-from-shortest-leaf boundary data; simultaneous triangle-equality saturation gives all norming data. Shortening a minimum arm to one reduces denominator, and reciprocal convexity balances others for fixed n,m. AM/HM lower bound and balanced witnesses give (1/2+o(1))sqrt(n) and strict 1+sqrt(n-2)/2 upper bound. Exact rational verification source read and bounded independent reasoning; previous code tests are finite only.
 
-The closest directly relevant public works study **different extension operators or norms**. Naor--Sheffield (arXiv:1005.2535, Theorems 1–3) give norm-preserving infinity-harmonic/absolutely minimal extensions, not the energy-minimizing linear mean-value operator. Espínola--Nicolae (arXiv:1502.06842, introduction and §5) give continuous or nonexpansive selections, not the fixed operator norm. Fefferman--Klartag (arXiv:2301.13792, Theorems 1.1–1.2 and §2) study weighted \(W^{1,p}\) traces for \(1<p<\infty\) on radially symmetric binary trees, not the graph-distance Lipschitz trace on nonuniform spiders. The potential-theoretic Dirichlet existence and Green formulas of Abodayeh--Anandam (2005) are acknowledged as background; the full paper was not materially inspected and could conceal a closely related calculation. Searches of indexed published findings and other literature did not reveal a stronger assertion implying the complete spider norm, the exact finite-order balance classification and the \(\sqrt n/2\) law. Search absence alone is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Energy-minimizing harmonic extension is a canonical *linear* extension procedure. The sharp distinction between path nonexpansivity and strict distortion on every branching tree, together with a precise unbounded worst-spider rate as the size increases, measures an intrinsic stability cost not explained by existence of optimal nonlinear extensions. A complete finite-size optimizer classification and explicit exact norm formula make the result directly reproducible. This is a sharp structural invariant, not a single low-order example or a routine statement of the maximum principle.
+IMPORTANT partial prior coverage: the October 26 2026 weighted-metric-star theorem explicitly gives ||E_w||=max_i sum_{j≠i}w_j(L_i+L_j)/L_i; substituting physical unweighted-tree effective conductances w_i=(1/L_i)/sum_h(1/L_h) already implies the standalone spider norm formula. That formula alone is NOT credited as original. What survives includes general finite-tree cut/hitting-measure identity, iff-path nonexpansivity, complete norming leaf-boundary extremizers, fixed-vertex and leaf-count balanced-arm optimization, and sharp worst-spider sqrt(n)/2 growth. Naor-Sheffield proves existence of nonlinear infinity-harmonic nonexpansive extension rather than stability of the particular mean-value harmonic linear operator. Abodayeh-Anandam gives tree Green identities and Dirichlet solutions, not sharp Lipschitz operator norms. Best-of-knowledge PASS based on surviving compound theorem.
 
-## Limitations and further verification
+## value
 
-The general-tree cut formula is finite but depends on the harmonic measure matrix; no closed degree-only formula for arbitrary trees is asserted. The \(\sqrt n/2\) extremal law concerns spiders only. Weights, partial boundary sets and other exponents are outside scope. Historical priority remains uncertain because older potential theory literature was not exhaustively read, including the complete 2005 tree-Dirichlet article. Independent review and validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining when a canonical energy-minimizing extension is Lipschitz nonexpansive and how badly it can expand on trees is a natural metric-potential problem. The general tree computable cut norm, path-only obstruction, extremizer geometry and worst-spider sqrt(n) growth remain useful even with the fixed-star norm antecedent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
