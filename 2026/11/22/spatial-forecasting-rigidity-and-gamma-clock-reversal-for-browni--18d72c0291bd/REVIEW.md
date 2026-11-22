@@ -1,0 +1,15 @@
+# Review of spatial forecasting rigidity and Gamma-clock reversal
+
+## Correctness
+**PASS.** The renewal-inspection joint distribution gives the exact conditional survival ratio. Fourier transformation in the spatial variable reduces position-independence to vanishing of a Laplace transform; uniqueness and continuous survival establish the multiplicative Cauchy equation, forcing an exponential clock. For the Gamma family, Gaussian age-posterior monotone likelihood ratios and the strictly increasing/decreasing Gamma hazard prove the all-horizon stochastic ordering. The incomplete-Gamma expansion and inverse-Gaussian/Bessel saddle estimates yield the explicit inverse-distance forecast correction. The Erlang formulas follow from separately differentiated heat-kernel resolvent integrals. The embedded checker independently evaluates stationary-age integrals and passes 264 assertions. The analytic proof, rather than sampling or numerical checks, establishes the infinite-domain quantifiers.
+
+## Originality
+**PASS, with residual priority risk.** The general conditioned forward-time density and Poisson-case independence are already derived by Masó-Puigdellosas, Campos and Méndez (2022); the result does not reclaim them. Radice (2022) establishes Gamma hazard monotonicity and the Gamma return model, while Losidis, Politis and Psarrakos (2024) discuss forward/backward renewal age dependence. Closest publicly accessible Brownian-reset results concern extreme-position hidden phases or temporal-spectrum renewal identification. The new assessed comparison is a Brownian *spatial observation* identifying a memoryless clock, together with strict all-horizon Gamma forecast ordering and sharp inverse-distance corrections. The analogous age/residual independence criterion is not equivalent without injectivity of the Brownian observation kernel. General renewal-order literature not exhaustively inspected may imply the statement through a broader theorem.
+
+## Mathematical value
+**PASS.** The distinction concerns a measurable prediction problem: whether a particle's current displacement contains information about its next reset and, for Gamma clocks, in which direction it changes the probability of imminent resetting. The Poisson-only characterization is a structural identification theorem for the entire reset-time law, not another low-order stationary moment. The quantitative correction distinguishes the asymptotic hazard from mean reset frequency and supplies a reproducible benchmark for experimental forecast estimation. The result gives a complete sign classification for all positive Gamma shapes, not an arbitrary finite slice.
+
+## Limitations
+Only instantaneous, position-complete, independent renewal resets of Brownian motion are treated, in equilibrium; generalization to drift, delayed return, interacting baths or nonequilibrium starts is not established. Results do not certify publication priority against unindexed or more abstract stochastic-order results.
+
+Self-review: passed. Independent audit: not yet performed.
