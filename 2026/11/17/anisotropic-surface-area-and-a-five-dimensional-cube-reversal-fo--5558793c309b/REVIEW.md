@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof gives a complete irredundant facet description, a direct two-sector Euclidean volume normalization, exact parametric facet-area integrals, and the cofactor formula for arbitrary positive diagonal transformations. Two applications of arithmetic–geometric mean establish the unique fixed-volume minimizer. Exact fourth- and fifth-power comparisons locate the strict dimension-five threshold. The standalone convex-hull checker independently corroborates the area formula for dimensions \(2\) through \(5\) at two scale profiles; these finite tests are expressly not the proof of the infinite statement.
+## correctness
 
-**Originality — PASS on targeted best-knowledge comparison, not an independent priority certification.** The equality \(P_n=\mathbf1-2\operatorname{FRAC}(K_n)\) identifies an older equivalent formulation, and an indexed published finding on two-layer signed-order covariance already uses the identical base polytope and proves the volume \(2\). Neither the full-text signed-poset source, the inspected fractional-stable-set source, nor the complete inspected covariance result gives Euclidean facet-area profiles or the fixed-determinant diagonal minimizer. The full-text signed-poset inradius work concerns a distinct metric functional. The published-finding corpus and own-ledger overlap queries found related geometry but no dominating exact surface formula. The absence of a hit is not proof of historical novelty; an unindexed surface calculation remains a priority risk. The lead middle-window paper is the 2023 signed-order framework; the exact equivalent fractional-stable-set object predates it, explicitly disclosed, and its 2016 origin is a source-classification risk.
+PASS
 
-**Value — PASS.** Ordinary face counting increasingly overweights the pair facets, while a constant fraction of Euclidean boundary area stays on only \(n\) coordinate facets. This is an intrinsic metric distinction for a natural familiar rational polytope, and the equal-volume cube comparison has an exact nontrivial threshold at dimension \(5\). The diagonal formula gives a global rigidity statement at every fixed volume. This is not a claim to a new polytope family, its already-known volume, or a universal isoperimetric minimizer.
+The actual RESULT.md at frozen Git blob e44a409d... was reconstructed: at most one coordinate can be negative, so the positive cube contributes 1 and n disjoint negative sectors each integrate to 1/n; the coordinate facets are P_(n-1) of volume 2 and a pair facet parametrization (t,-t), |t|<=1 has Jacobian sqrt(2), integrating 2sqrt(2)/(n-1). The cofactor area transform is det(D)||D^{-T}u||; two exact AM-GM steps minimize the determinant-normalized diagonal law, with equality only when all inverse scales agree. Exact c^4>8 and c^5<16 with c=1+1/sqrt(2) and monotonic 2^{1-1/n} prove n<=4 versus n>=5 without equality. The standalone checker uses scipy/Qhull n=2..5 only; additional independent symbolic/numeric n=2..15 tests agree and are not substituted for the proof.
 
-**Scientific limitations and risks.** Potential earlier equivalent results under the fractional-stable-set or signed-order aliases; the lead-source cohort classification is potentially ambiguous because the same underlying object was studied in 2016. Only diagonal volume-preserving deformations are optimized. Numerical checks are finite. Historical priority and proof have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority for exact geometry after object aliases and broader published findings are compared.
+
+## value
+
+PASS
+
+A complete Euclidean boundary invariant of the natural complete-graph fractional stable-set polytope distinguishes the increasingly numerous pair facets from the fixed fraction of area borne by coordinate facets. The nontrivial diagonal-rigidity inequality and exact dimension-five isoperimetric reversal against an equal-volume cube are meaningful geometric consequences; not merely a known face count or volume calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
