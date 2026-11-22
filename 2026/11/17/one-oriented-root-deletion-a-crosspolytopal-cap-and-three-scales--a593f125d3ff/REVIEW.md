@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The truncation equality is proved by an exhaustive four-case segment-crossing calculation; it does not assume a combinatorial neighbor list. The exact metric projection, crosspolytope Gram determinant, pyramid volume and classical simplex difference-body volume formula prove the finite-dimensional geometric assertions for every integer \(n\ge3\). The uniform-direction width-loss identity follows from the unique maximizing ordered root and the two extreme spacings. The distributional limit uses standard two-sided Gaussian extreme-order convergence and a separate proof of independence of extreme labels. The extracted checker directly verifies volumes and certificates through \(n=7\). Risk: the Gaussian point-process theorem is invoked as a classical external probability result, not reproved; numerical convex-hull checks alone would not justify arbitrary dimensions.
+## correctness
 
-## Originality — PASS, with priority reservations
-Searches of type-A oriented root deletion, vertex deletion Hausdorff geometry, symmetric-edge-polytope volume and random width loss identified two especially close published records. The positive-root *highest-root* deletion has a crosspolytopal cap of similar size, but its body has only positive roots, while the present body includes all orientations; it does not assert the present complete-graph symmetric-root width law. The crown-graph result concerns deleting an entire matching-diagonal family from a product of simplices, which neither equals nor contains this one-vertex deletion problem. The primary arXiv papers inspected cover symmetric-edge setup, triangulations, Ehrhart/matching polynomials and graph constructions, not the exact present truncation plus Gaussian width law. Risk: the published short records' full proofs were not accessible for an exhaustive historical comparison; the result's historical priority therefore remains provisional, and any stronger unpublished equivalence is unexcluded.
+PASS
 
-## Mathematical value — PASS
-The one-vertex loss is a natural geometric robustness problem for a canonical highly symmetric family and exhibits a quantified separation between a dimension-independent Hausdorff distance, exponentially small fractional lost volume, and only polynomially rare directional width loss. Exact finite-dimensional cap geometry and a conditional limit distribution are structurally useful beyond a numerical invariant and allow direct comparison of Euclidean, volumetric and directional robustness. The result neither renames a standard statement nor merely evaluates a finite table. Risk: the constants are particular to the complete-root model and extensions to graph families are not established.
+Let P=conv(e_i−e_j, i≠j) and Q delete v=e1−e2; φ=x1−x2 singles out φ(v)=2, all other roots φ≤1. Segment intersections show P∩{φ≤1}=Q, and the section F at φ=1 is the 2(n−2)-vertex crosspolytope centered v/2. Its opposite directions w_j have Gram I+J/2, determinant n/2. The pyramid height is 1/√2; facet-volume and difference-body simplex formula yield the lost Euclidean volume 2^{n−3}√n/(n−1)! and relative 2^{n−3}/binom(2n−2,n−1), with correct n=3 boundary. Projection v/2 proves directed Hausdorff gap. A root is exposed precisely by ordered max/min coordinates, so for deleting v width changes iff the two Gaussian extreme labels equal {1,2} in either orientation, probability 2/[n(n−1)], with loss min(top gap,bottom gap)/||g−mean g||. Independent Gaussian extreme-order exponential spacings and s_g/√n→1 give conditional √(2n log n) loss⇒Exp(rate 2). Fresh Qhull calculations n=3..6 and deterministic support tests support these calculations but are not general proofs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Comparisons made against specific mathematical statements, with natural aliases, stronger/other model hypotheses and integral versus finite-field distinctions; same-finding indexed hit not counted as independent earlier coverage.  Restricted bibliographic coverage remains as residual risk.
+
+## value
+
+PASS
+
+A canonical highly symmetric polytope exhibits three sharply separated sensitivity scales after a single natural vertex fault: constant Euclidean Hausdorff loss, exponentially small relative volume, and polynomially rare width loss with universal conditional exponential law. The exact formulas quantify a structural robustness comparison, beyond merely evaluating an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

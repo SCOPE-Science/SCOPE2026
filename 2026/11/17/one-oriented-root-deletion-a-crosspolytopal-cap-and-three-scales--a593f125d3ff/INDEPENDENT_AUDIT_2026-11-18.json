@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:52:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let P=conv(e_i−e_j, i≠j) and Q delete v=e1−e2; φ=x1−x2 singles out φ(v)=2, all other roots φ≤1. Segment intersections show P∩{φ≤1}=Q, and the section F at φ=1 is the 2(n−2)-vertex crosspolytope centered v/2. Its opposite directions w_j have Gram I+J/2, determinant n/2. The pyramid height is 1/√2; facet-volume and difference-body simplex formula yield the lost Euclidean volume 2^{n−3}√n/(n−1)! and relative 2^{n−3}/binom(2n−2,n−1), with correct n=3 boundary. Projection v/2 proves directed Hausdorff gap. A root is exposed precisely by ordered max/min coordinates, so for deleting v width changes iff the two Gaussian extreme labels equal {1,2} in either orientation, probability 2/[n(n−1)], with loss min(top gap,bottom gap)/||g−mean g||. Independent Gaussian extreme-order exponential spacings and s_g/√n→1 give conditional √(2n log n) loss⇒Exp(rate 2). Fresh Qhull calculations n=3..6 and deterministic support tests support these calculations but are not general proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "EJC Theorem 6 links symmetric-edge and KR polytopes and §§3–4 emphasize faces, Ehrhart and graph constructions, not the one-oriented-vertex deletion law.",
+          "Crown-graph deletion removes many matching-diagonal vertices of a product of simplices and has a different event probability 2/n−1/[n(n−1)]."
+        ],
+        "reasoning": "Neither general graph-polytope framework nor crown-family loss entails the exact single-deletion geometry and distribution for complete type-A root polytope; classical Rogers–Shephard covers denominator only.",
+        "searches": [
+          "D'Alì–Delucchi–Michałek EJC 2022 §§2–4",
+          "type A symmetric root polytope delete one oriented root crosspolytope cap volume width loss Gaussian extreme",
+          "Resultary 771379f5fcb8"
+        ]
+      },
+      "checked_sources": [
+        "D'Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 2022, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+        "Resultary type A symmetric root polytope delete one oriented root crosspolytope cap volume width loss Gaussian extreme",
+        "Resultary 2026/10/18 highest positive-root deletion 95c090fe6926 full RESULT.md",
+        "Resultary 2026/10/25 crown-graph width loss 771379f5fcb8",
+        "Rogers–Shephard, Difference Body of a Convex Body (classical simplex equality)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "EJC explicitly distinguishes positive from full root polytopes, and focuses on graph-family triangulation/h*-volume and metric cut constructions.",
+          "Positive-root crosspolytopal cap is analogous, but not a reduction because full P contains negative roots and has different exposed vertices and normal fan."
+        ],
+        "reasoning": "The prior equalities do not dominate the claimed one-sided deletion metrics or Gaussian extreme-spacing conditional limit. They are correctly cited as inputs/analogues rather than rediscoveries.",
+        "searches": [
+          "EJC 2022 Example 3, Theorem 6, §§4.1–4.4",
+          "Resultary 95c090fe6926 full proof",
+          "type A symmetric root polytope delete one oriented root crosspolytope cap volume width loss Gaussian extreme"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full type-A root polytope contains both orientations and n(n−1) vertices; positive-root polytope deletes from a transitive positive orientation and has n(n−1)/2 vertices.",
+          "Positive-root result's hyperplane and normalized cap look similar but the underlying bodies are not affinely equivalent in their ambient vertex structures."
+        ],
+        "reasoning": "Distinguishes full symmetric root/Kantorovich–Rubinstein polytope from the related positive-root highest-root construction; same crosspolytope shape alone does not imply same total volume, Hausdorff or random-width law.",
+        "searches": [
+          "type A symmetric root polytope delete one oriented root crosspolytope cap volume width loss Gaussian extreme",
+          "D'Alì et al. 2022 §2 Example 3",
+          "Resultary 95c090fe6926 full RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matching Resultary 2026/11/17 item is this same final claim, not an independent older proof.",
+          "Positive-root predecessor states deleted normalized volume 2^{m−2}; crown-family predecessor states multi-vertex deletion probability of a different scale."
+        ],
+        "reasoning": "No preexisting independent table gives the full simultaneous distance, relative volume and one-oriented-root width law with 2/[n(n−1)] in all dimensions; possible unindexed equivalents are a residual risk.",
+        "searches": [
+          "Resultary type A symmetric root polytope delete one oriented root crosspolytope cap volume width loss Gaussian extreme",
+          "Resultary 95c090fe6926; 771379f5fcb8"
+        ]
+      },
+      "rationale": "Comparisons made against specific mathematical statements, with natural aliases, stronger/other model hypotheses and integral versus finite-field distinctions; same-finding indexed hit not counted as independent earlier coverage.  Restricted bibliographic coverage remains as residual risk.",
+      "residual_risks": [
+        "Full original detailed proof of the closest crown-graph width-loss result was not inspected; equivalence by a hidden reduction remains a bibliographic risk.",
+        "Full root-polytope normal fan and directional loss are special to the uniform Euclidean metric and single oriented vertex.",
+        "Gaussian extreme-point-process independence is a classical theorem invoked, not separately reproven."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines full root polytope and distinguishes positive roots; inspected volume and graph-family theorems do not furnish the one-oriented-root deletion / width-loss distribution",
+          "evidence": "Example 3 makes positive-vs-full distinction explicit; main results are graph constructions/facets/triangulations.",
+          "identifier_or_url": "https://doi.org/10.37236/10387",
+          "material_read": "Accessible full publisher PDF: §1 description, §2 Definition 1 and Example 3, Theorem 6 overview, §§3–4 structure, graph-family volume/specific wheel sections, text search for deletion/volume",
+          "method": "full open-access publisher PDF text and screenshot of page 3",
+          "title": "Many Faces of Symmetric Edge Polytopes",
+          "trigger": "Direct full-root polytope framework; possible broader facet/volume theorem"
+        },
+        {
+          "assessment": "Positive-root/transitive tournament deletion only; no full symmetric root or random-width theorem",
+          "evidence": "Uses nonempty interval vectors and convex hull of positive roots; normalized loss 2^{m−2}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-crosspolytopal-highest-root-deletion-and-a-power-of-two-volume-l--95c090fe6926",
+          "material_read": "Entire accessible RESULT.md, including definitions, proof, verification and limitations",
+          "method": "published full scientific result text via repository connector",
+          "title": "Crosspolytopal highest-root deletion and a power-of-two volume loss",
+          "trigger": "Same crosspolytopal cap mechanism"
+        },
+        {
+          "assessment": "Plausibly similar distribution but different body/multiple deletions; entire text uninspected, recorded as residual comparison risk",
+          "evidence": "Event probability 2/n−1/[n(n−1)] in a product-of-simplices model versus 2/[n(n−1)] here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-rare-exponential-directional-loss-despite-constant-hausdorff-dis--771379f5fcb8",
+          "material_read": "Published title and detailed semantic indexed theorem summary, not full original text",
+          "method": "Resultary mathematical record summary",
+          "title": "Rare exponential directional loss despite constant Hausdorff distance in crown-graph root polytopes",
+          "trigger": "Similar loss scale and conditional exponential limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical highly symmetric polytope exhibits three sharply separated sensitivity scales after a single natural vertex fault: constant Euclidean Hausdorff loss, exponentially small relative volume, and polynomially rare width loss with universal conditional exponential law. The exact formulas quantify a structural robustness comparison, beyond merely evaluating an arbitrary finite table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "D'Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 2022, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+    "Resultary type A symmetric root polytope delete one oriented root crosspolytope cap volume width loss Gaussian extreme",
+    "Resultary 2026/10/18 highest positive-root deletion 95c090fe6926 full RESULT.md",
+    "Resultary 2026/10/25 crown-graph width loss 771379f5fcb8",
+    "Rogers–Shephard, Difference Body of a Convex Body (classical simplex equality)"
+  ],
+  "disposition": "passed",
+  "final_claim": "One oriented root deletion geometry and conditional directional loss",
+  "limitations": [
+    "n≥3; only deletion of e1−e2 while keeping its antipode; intrinsic Euclidean H_n; limit is conditional weak convergence, not a finite-n exponential law."
+  ],
+  "residual_risks": [
+    "Full original detailed proof of the closest crown-graph width-loss result was not inspected; equivalence by a hidden reduction remains a bibliographic risk.",
+    "Full root-polytope normal fan and directional loss are special to the uniform Euclidean metric and single oriented vertex.",
+    "Gaussian extreme-point-process independence is a classical theorem invoked, not separately reproven."
+  ],
+  "schema_version": 1
+}
