@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The full allowed class is parameterized exactly by b=1/(24d²) and d in [1/sqrt(12),1/2]. A Jordan-decomposition argument proves the BV operator norm equals the maximum one-sided distribution discrepancy (including chosen atom point values); direct atom evaluation yields max{b+d−1/2,1/2−b}. The inequality b>2(1/2−d) follows from a global cubic bound; two strictly opposite-monotonicity branches meet once at 12d²(1−d)=1, and both indicator witnesses attain the resulting d/2. Actual standalone code has executed and verified exact rational root brackets, moment normalizations, independent discrepancy jumps and concrete extremizers. Finite tests support rather than prove the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dragomir–Momoniat (2011 RGMIA full text), https://rgmia.org/papers/v14/v14a33.pdf, gives three-point variation inequalities with the outer evaluation nodes fixed at the integration endpoints.",
+        "Klaričić Bakula et al. (2015), doi:10.1186/s13660-015-0603-x, analyzes corrected three-point Euler/Grüss quadrature with derivative controls."
+      ],
+      "reasoning": "Neither inspected source contains a dominating optimization over movable symmetric outer nodes, nonnegative masses and cubic moments under pointwise Jordan variation. General BV error bounds with fixed endpoints, or higher-derivative error identities, do not imply the stated unique optimum.",
+      "searches": [
+        "minimax Kolmogorov discrepancy symmetric three point quadrature exact second moment unit interval 1/4 weights",
+        "quadrature bounded variation degree three exact symmetric three nodes minimax discrepancy optimal",
+        "optimal positive three point cubature bounded variation quadrature polynomial exactness",
+        "Dragomir Momoniat A three point quadrature rule for functions of bounded variation and applications 2011 2013"
+      ]
+    },
+    "checked_sources": [
+      "https://rgmia.org/papers/v14/v14a33.pdf",
+      "https://doi.org/10.1186/s13660-015-0603-x",
+      "https://doi.org/10.1007/s00010-022-00868-4",
+      "https://doi.org/10.1093/comjnl/9.4.396",
+      "Sharp curvature-range envelopes and a minimax weight for symmetric three-point rules (public mathematical result record)",
+      "Sharp moment-sensitivity tails for positive three-node quadratic quadrature (public mathematical result record)",
+      "Unique globally variation-optimal four-node cubic interpolation (public mathematical result record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Komisarski–Wąsowicz (2022) treats the identical admissible symmetric cubic-exact class but not its Jordan-BV discrepancy minimum.",
+        "Sharp curvature-range envelopes and a minimax weight for symmetric three-point rules concern fixed endpoints/midpoint and curvature-oscillation, not this objective.",
+        "Sharp moment-sensitivity tails for positive three-node quadratic quadrature analyzes random-node moment inversion, not BV error.",
+        "Unique globally variation-optimal four-node cubic interpolation minimizes interpolation output variation, not quadrature error."
+      ],
+      "reasoning": "Prior parameterization of the admissible family and the generic BV-discrepancy norm identity are used openly. Their conjunction leaves a nontrivial constrained minimax of two algebraic discrepancy branches. The cited claims do not assert or logically entail the optimizer or its sharp jump witnesses without the proof given here.",
+      "searches": [
+        "quadrature bounded variation degree three exact symmetric three nodes minimax discrepancy optimal",
+        "exact optimal symmetric positive three-node degree-three polynomial-exact quadrature rule minimax worst-case Jordan bounded variation integrands Kolmogorov discrepancy 12 d squared (1-d)=1",
+        "three point symmetric positive cubically exact rule minimum BV quadrature error uniform integral"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Komisarski–Wąsowicz (2022), doi:10.1007/s00010-022-00868-4: parameterizes the same symmetric exact cubic quadrature rules, but studies 3-convex inequality ordering rather than the supremum over unit-Jordan-variation functions.",
+        "Standard signed-CDF discrepancy identity transforms a BV quadrature error to a Kolmogorov discrepancy, but does not by itself minimize under the exact moment constraints."
+      ],
+      "reasoning": "Same nodes/moment constraints are not identical theorems: inequality ordering on 3-convex functions cannot imply a sharp BV norm, and the optimum must be found by comparing the two distinct jump discrepancy branches. The claim is equivalent to an explicit constrained Kolmogorov-discrepancy minimax problem; indexed variants of that equivalent formulation were searched.",
+      "searches": [
+        "quadrature bounded variation degree three exact symmetric three nodes minimax discrepancy optimal",
+        "exact optimal symmetric positive three-node degree-three polynomial-exact quadrature rule minimax worst-case Jordan bounded variation integrands Kolmogorov discrepancy 12 d squared (1-d)=1",
+        "Komisarski Wasowicz On optimal inequalities between three point quadratures 2022"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed closest three-point records concern random-node positive quadratic-exact feasibility and weight sensitivity, rather than a table of optimal deterministic cubic-exact BV errors.",
+        "The mathematical value is an algebraic root and an explicit sharp error profile, not a recomputation of a tabulated quadrature formula."
+      ],
+      "reasoning": "Searches included both the polynomial-moment and step-discrepancy formulations. No indexed exact tabulation of this minimax rule or result was located; a negative search is not proof of global novelty.",
+      "searches": [
+        "exact optimal symmetric positive three-node degree-three polynomial-exact quadrature rule minimax worst-case Jordan bounded variation integrands Kolmogorov discrepancy 12 d squared (1-d)=1",
+        "three point symmetric positive cubically exact rule minimum BV quadrature error uniform integral",
+        "quadrature bounded variation degree three exact symmetric three nodes minimax discrepancy optimal"
+      ]
+    },
+    "rationale": "The sharp Jordan-BV minimax objective is not obtained from earlier published BV bounds for endpoint-fixed three-node formulas, derivative-controlled corrected Euler rules, or 3-convex ordering of the same symmetric cubic-exact family. The standard discrepancy duality is explicitly credited; the global constrained minimax, unique cubic root and two extremizing jump locations are independently established. Indexed search has no direct equivalent; an older unindexed priority remains a residual risk.",
+    "residual_risks": [
+      "A historical minimax quadrature text may contain the equivalent optimization without matching modern keywords; a plausible 1967 article was accessible only by abstract.",
+      "The 2011 RGMIA report has an internal received date rather than a verified public upload day; structured date is taken from a separate online publication 2015-03-03 and does not claim earliest historical publication of this area.",
+      "A negative indexed search does not establish absolute priority or uniqueness outside the specified symmetric class."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for movable symmetric outer nodes with cubic exactness and constrained BV-optimal design; endpoint-fixed geometry is different",
+        "evidence": [
+          "Theorem 1 states a quadrature combining f(a), f(x), f(b) with outer nodes equal to the interval endpoints, unlike movable nodes 1/2±d."
+        ],
+        "identifier_or_url": "https://rgmia.org/papers/v14/v14a33.pdf",
+        "material_read": "Title, abstract, complete first theorem and its fixed-endpoint formula and hypotheses in primary full-text PDF; relevant preceding introduction",
+        "method": "Full text retrieved; visual PDF pages inspected for the precise evaluation-node structure and variation theorem",
+        "title": "A Three Point Quadrature Rule for Functions of Bounded Variation and Applications",
+        "trigger": "Direct closest BV three-point formula source"
+      },
+      {
+        "assessment": "NOT_COVERING the pointwise Jordan-BV worst-case quadrature minimax problem",
+        "evidence": [
+          "Publication dated 3 March 2015; derivative/Grüss remainder estimates have a different function class and cost objective."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13660-015-0603-x",
+        "material_read": "Full available HTML article, introduction and its corrected Euler three-point derivative controlled estimates",
+        "method": "Primary open-access full-text reading and comparison of objective/hypotheses",
+        "title": "Some Grüss type inequalities and corrected three-point quadrature formulae of Euler type",
+        "trigger": "Archival symmetric three-point rule primary paper and exact dated anchor"
+      },
+      {
+        "assessment": "SHARED_FAMILY_NOT_COVERING_BV_OBJECTIVE; strong closest source credited",
+        "evidence": [
+          "Analyzes symmetric cubic-exact three-point rules ordered for 3-convex test functions, not Kolmogorov/Jordan-BV discrepancy or a root 12d²(1−d)=1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00010-022-00868-4",
+        "material_read": "Full available HTML article, relevant classification and theorem concerning 3-convex function inequalities",
+        "method": "Primary full-text comparison of the admitted parameter family versus optimality criteria and conclusions",
+        "title": "On optimal inequalities between three-point quadratures",
+        "trigger": "Exactly matching symmetric three-point cubic-exact admissible family"
+      },
+      {
+        "assessment": "UNRESOLVED_ABSTRACT_ONLY; derivative-based minimax suggested, no negative full-document assertion",
+        "evidence": [
+          "Available abstract emphasizes optimization under derivative constraints rather than pointwise Jordan variation; exact full-text implications remain unverified."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/comjnl/9.4.396",
+        "material_read": "Bibliographic abstract only; no full text available in this inspection",
+        "method": "Abstract-level scientific scope comparison, without asserting whole-document noncoverage",
+        "title": "Optimal Quadrature Formulae",
+        "trigger": "Plausible historical minimax quadrature title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5de2c30b-174f-41b7-aca0-37cee0460509",
+  "value": {
+    "rationale": "Positive cubic-exact three-node symmetric quadrature is a classical naturally defined design problem. A sharp worst-case integration guarantee for nonsmooth pointwise BV data is a meaningful robustness criterion different from the conventional maximal polynomial-exactness criterion. The unique rule and sharp two-jump extremizer classification improve the exact Gauss sharp error 2/9 to d*/2, approximately 18.7%, while making explicit the necessary loss of fifth-degree exactness. No unmotivated parameter slice or purely computational value is claimed.",
+    "status": "PASS"
+  }
+}
