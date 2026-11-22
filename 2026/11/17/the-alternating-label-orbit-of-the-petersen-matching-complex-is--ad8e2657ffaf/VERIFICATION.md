@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_petersen_a5.py` in a Python 3 environment using the standard library. It enumerates all graph edges and all matching faces from the defining two-subset graph, constructs all barycentric chains, computes all \(60\) even-label automorphisms, and forms orbit representatives and signed boundaries.
+## correctness
 
-The exact reproduction checks are: original face counts \((15,75,145,90,6)\) and \(331\) nonempty faces; barycentric chain counts \((331,2460,5010,3600,720)\); orbit cell counts \((14,58,94,60,12)\); every consecutive boundary composition zero; \(118\) exact integral \(\pm1\) cancellations leaving one degree-zero and one degree-two generator and no residual differentials; original presentation consisting of \(61\) non-tree generators and \(145\) triangle relators with all \(61\) generators eliminated; and one explicit three-cycle stabilizing a matching two-simplex.
+PASS
 
-As an extra consistency check, the program computes modulo \(2,3,5,7,1009\) the differential rank vector \((0,13,45,48,12,0)\), giving Betti numbers \((1,0,1,0,0)\). Modular ranks alone would not establish integral torsion-freeness and are not used in place of the integral cancellation.
+Build the 15 edges of Petersen KG(5,2) as matching-complex vertices. Independent enumeration gives 331 faces (15,75,145,90,6). Barycentric rank-ordered strict chains modulo even labels yield exactly 14,58,94,60,12 regular orbit cells, and integral alternating-deletion boundaries square to zero. An independent sparse integral ±1 cancellation, using a different high-degree pivot order, eliminates 118 pairs and leaves one degree-0 and one degree-2 generator with zero residual differentials, proving integral homology of S2 without torsion. Separately 61 exact fundamental-group Tietze eliminations show original matching complex simply connected. A 3-cycle fixes the barycenter of a matching 2-simplex; since A5 is simple, Armstrong gives trivial quotient pi1. Hurewicz and homological Whitehead make the S2 homotopy equivalence. No Borel quotient or general graph claim.
 
-The finite verification establishes the particular graph's exact chain and presentation calculations. The implications to orbit-space fundamental group and complete homotopy type use the stated classical topological theorems. Neither an infinite family nor independent mathematical validation is asserted.
+## originality
+
+PASS
+
+Known S5-module computations imply only rational H2 of A5 quotient, not its integral homology or fundamental group, and full S5 quotient is contractible but its index-two quotient need not be. Integral quotient orbit-chain cancellation and Armstrong argument are additional exact findings for a natural action. Classical Petersen matching orbit types and complete-graph matching complex are not substitute complexes/topological quotients.
+
+## value
+
+PASS
+
+The Petersen matching complex and alternating five-label subgroup are canonical finite combinatorial topology objects. Resolving integral quotient torsion and fundamental group to an actual S2 homotopy equivalence is a worthwhile precise upgrade over previously known rational quotient cohomology, not a cosmetic numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
