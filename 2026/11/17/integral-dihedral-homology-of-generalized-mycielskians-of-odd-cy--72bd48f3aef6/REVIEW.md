@@ -1,19 +1,21 @@
-# Mathematical review: integral dihedral homology of odd-cycle Mycielskians
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the graph convention, the natural layerwise dihedral action, all integer parameter ranges and the reduced-homology normalization. The proof establishes the two rank-one cycle homology representations by the signed fixed-orbit Lefschetz formula and the exact path independence recurrence. It establishes the natural module maps from complete-layer fold inclusions and uses the integral Mayer–Vietoris sequence to determine the modules in each congruence class of the depth. The zero-depth case is handled separately. Critical numerical checks are independently executable and agree in 482 group-element comparisons, seven mod-two homology calculations, and six canonical double-cover checks. Infinite claims follow from the proof, not finite enumeration.
+PASS
 
-## Originality — PASS, with stated uncertainty
+For odd n>=5, 3 does not divide n, the independence complex of C_n and that of its connected Kronecker double cover C_2n each have rank-one integral sphere homology in dimensions d and e. Rotations act trivially by odd order. For reflections, alternating independent-set orbits give -I(P_(n-1)/2;-1) and -I(P_(n+1);-1), whose six-periodic recurrence yields the alpha_n and beta_n sign table. Complete layer folds are inclusions of D_n-invariant induced complexes, so they induce integral D_n-module isomorphisms even when a sequential pointwise fold order is not equivariant. In X=A union (w*B), reduced Mayer-Vietoris shifts B by one; the distinct-degree gap at l=3k and contractibility in other residue cases give displayed modules. Checked the n=5,7,11,13 table against recurrence; at l=1 n=5 reflection trace -1 agrees with published ordinary Mycielski theorem. Acyclicity of n=5 quotient at l=1,2 modulo 6 follows from the signs. No finite check substitutes for arbitrary depth proof.
 
-The closest source is Carnero Bravo, arXiv:2601.13432, which gives nonequivariant homotopy types of generalized Mycielskian independence complexes and is examined through the primary full-text HTML of its proof. Its stated results do not determine the action of reflections on integral homology or the dihedral quotient homology. Goyal, Shukla and Singh's earlier result concerns complete-graph bases. A related published homology-module calculation for complete-graph generalized Mycielskians does not imply the new odd-cycle formula. Searches for the same graph family, the dihedral action and synonymous descriptions did not locate an equivalent formula; this is not a guarantee of absolute novelty. The fold proof in the primary paper suggests that an equivariant refinement could be developed, and this implicit-derivability risk is explicitly acknowledged.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph family generalizes the Grötzsch/Mycielski construction on odd cycles and naturally carries dihedral symmetry. The exact integral characters distinguish four residue classes of cycle length and all depth classes, determining invariant orientations and the rational homology of every corresponding symmetry quotient. These results are not recoverable from the nonequivariant sphere counts. The graph-orbit path calculation and the invariant-inclusion argument supply a reusable structural method rather than a single finite table.
+Known Carnero Bravo 2026 all-depth nonequivariant homotopy is credited. The November 2026 complete dihedral *ordinary* Mycielski theorem covers l=1 reflection rational character, but not the all-depth l>=2 integral rank-one D_n-lattices. The family-wide reflection signs and corresponding dihedral orbit-space rational homology are the surviving mathematical contribution.
 
-## Scientific limits
+## value
 
-Only odd \(n\ge5\) with \(3\nmid n\) and the natural layer-preserving dihedral action are covered. No torsion or equivariant-homotopy claim is made outside this family. Literature indexing is incomplete and unpublished equivalent work may exist. The code provides bounded corroboration rather than an infinite certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The homotopy sphere classification alone loses the reflection orientation information; the explicit mod-12 sign lattice for all generalized depths answers natural symmetry quotient Betti questions and is an integral equivariant refinement across an infinite family, beyond a small one-case trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
