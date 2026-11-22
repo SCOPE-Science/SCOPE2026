@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in this directory. The script uses only the Python standard library, reads no external inputs, and terminates with `CIRCULAR_LADDER_EQUIVARIANT_CHECKS_PASS` if all assertions succeed. Its stdout is included in `verify_output.txt`.
+## correctness
 
-The cycle-orbit calculation evaluates all rotation and reflection traces of the cycle independence-complex homology for \(n=6,12,18,24,30,36,42\), testing 336 group elements against the six-periodic character formula. For widths \(4,6,8,10\), complete enumeration of perfect matchings and simplicial faces independently checks the decomposition into the invariant base and two exceptional simplices and verifies the intersection complexes. At width six, full and base signed-Lefschetz numbers differ by the predicted relative character for every group element. At width twelve, a separate computation of the alternating relative simplicial traces on the exceptional faces gives the predicted character for all 48 group elements without using the orbit-graph independence-polynomial calculation.
+PASS
 
-The finite checks test particular widths and cannot independently prove an unrestricted classification. The all-width proof is contained in `RESULT.md` and uses the explicitly cited published graph-folding and matching-extension lemmas; the verification does not establish any integral equivariant lattice decomposition or external independent audit.
+The claimed lower rational degree is 2k for n=6k>=12, whereas the cited Agarwal–Basak nonequivariant base B_n has homology only at 3k-1>2k; hence the long exact relative sequence gives a natural G-equivariant identification H_{2k}(X_n)=H_{2k}(X_n,B_n). The exact matching-extension decomposition X_n=B_n∪P_0∪P_1 with two exceptional alternating rim simplices and each B_n∩P_i=Ind(C_n) identifies the relative module as induction from the index-two stabilizer H=<rs,ts> of W=H_{2k-1}(Ind(C_n);Q). For n=6k the cycle independence polynomial at -1 gives rotation traces 2cos(pi a/3) and both reflection-axis traces zero in odd degree; induction and central layer swap split as rho_{n/6}⊠1 plus rho_{n/3}⊠epsilon, giving the displayed casewise G-character and vanishing invariants. Independent signed invariant-orbit enumeration on cycle lengths 6,12,18 reproduced all 72 rotation/reflection traces, and the package test source checks width-12 relative action. The exact all-width matching-extension and B_n homotopy lemmas are nonstandard published inputs; their full v2 article was not accessible this run (Oxford VPN disconnected), so citation-to-input reliance is explicitly retained, not falsely called independently re-proved. No inference from finite checks to all n.
+
+## originality
+
+PASS
+
+The source Agarwal–Basak v2 gives nonequivariant circular-ladder wedge sphere counts and an exceptional-simplex decomposition. Published adjacent equivariant results concern circular-ladder INDEPENDENCE complexes, odd Möbius-ladder perfect-matching complexes, three-cut complexes, or just primitive-screw alternating Lefschetz traces, none of which determines the four-dimensional LOWER rational homology module under D_n×C2 for all 6k>=12. Best-of-knowledge with a real full-text access priority risk for the direct primary source.
+
+## value
+
+PASS
+
+A genuine equivariant strengthening for an infinite natural perfect-matching complex family: two distinct dihedral rotation frequencies with opposite layer-swap parities determine lower-degree rational quotient invariants and trace every reflection, invisible to the known wedge counts and to primitive-screw Lefschetz data. A motivated structural representation calculation, not mere renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

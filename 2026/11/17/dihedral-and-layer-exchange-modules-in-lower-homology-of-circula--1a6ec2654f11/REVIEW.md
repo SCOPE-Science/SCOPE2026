@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument is a natural equivariant relative-homology calculation, not an inference from finitely many experiments. Agarwal--Basak's published Lemmas 22--24 and Theorem 25 give the exact invariant subcomplex decomposition of the perfect-matching complex into the cross-pair-avoiding base and two exceptional alternating simplices, whose intersections with the base are cycle independence complexes. Their Lemma 20 gives the base homotopy type as a wedge of two spheres in degree \(3k-1\), which is greater than the desired degree \(2k\) for \(k\ge2\). Thus the long exact sequence identifies the lower homology naturally with the relative group. The stabilizer of either alternating simplex is identified explicitly with the ordinary dihedral group on its \(6k\) alternating edges. Signed fixed-face traces on that cycle give rotation character \(2\cos(\pi a/3)\) and vanishing reflection trace. Induction from the index-two stabilizer gives the displayed character and irreducible splitting. Exact finite checks independently test the orbit-character and the relative chain action; they are corroboration, not a proof of the unbounded statement.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The September 14, 2026 circular-ladder primary theorem gives nonequivariant homotopy types and the combinatorial decomposition, not the action on homology. The closest published circular-ladder equivariant calculation studies the graph's *independence* complex, not its perfect-matching complex. The closest perfect-matching equivariant result studies odd Möbius ladders, with a contractible base; it cannot directly imply the circular-ladder lower-degree representation with a noncontractible base. The exact two irreducible dihedral frequencies and opposite layer parities are not fixed by the known ranks. The same-object statement was not identified in the checked primary and indexed records. Relevant unindexed work may exist; this review is not an absolute novelty guarantee.
+PASS
 
-## Mathematical value — PASS
-The four-dimensional lower homology of every \(6k\)-rung circular ladder with \(k\ge2\) acquires an explicit, stable two-irreducible structure under a natural symmetry group. Rotation has distinct nontrivial eigenvalue orders on the two pieces and layer exchange distinguishes them. This yields vanishing of the lower-degree rational quotient homology and provides a nontrivial equivariant refinement of a natural infinite family whose nonequivariant homotopy type was recently determined. It is not merely a renamed homotopy-rank computation. The other nonzero degree, integral lattice, and equivariant homotopy type are outside scope.
+The claimed lower rational degree is 2k for n=6k>=12, whereas the cited Agarwal–Basak nonequivariant base B_n has homology only at 3k-1>2k; hence the long exact relative sequence gives a natural G-equivariant identification H_{2k}(X_n)=H_{2k}(X_n,B_n). The exact matching-extension decomposition X_n=B_n∪P_0∪P_1 with two exceptional alternating rim simplices and each B_n∩P_i=Ind(C_n) identifies the relative module as induction from the index-two stabilizer H=<rs,ts> of W=H_{2k-1}(Ind(C_n);Q). For n=6k the cycle independence polynomial at -1 gives rotation traces 2cos(pi a/3) and both reflection-axis traces zero in odd degree; induction and central layer swap split as rho_{n/6}⊠1 plus rho_{n/3}⊠epsilon, giving the displayed casewise G-character and vanishing invariants. Independent signed invariant-orbit enumeration on cycle lengths 6,12,18 reproduced all 72 rotation/reflection traces, and the package test source checks width-12 relative action. The exact all-width matching-extension and B_n homotopy lemmas are nonstandard published inputs; their full v2 article was not accessible this run (Oxford VPN disconnected), so citation-to-input reliance is explicitly retained, not falsely called independently re-proved. No inference from finite checks to all n.
 
-## Scientific limits and closest sources
-The proof draws on the fully inspected matching-extension argument in Agarwal--Basak, arXiv:2608.30601v2, especially pages 14--17, and the standard cycle independence-polynomial recurrence. The prior independence-complex circular-ladder representation and odd Möbius-ladder perfect-matching representation were compared at the level of objects, statements and induced group modules. The finite checker does not independently establish the cited general graph-folding theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source Agarwal–Basak v2 gives nonequivariant circular-ladder wedge sphere counts and an exceptional-simplex decomposition. Published adjacent equivariant results concern circular-ladder INDEPENDENCE complexes, odd Möbius-ladder perfect-matching complexes, three-cut complexes, or just primitive-screw alternating Lefschetz traces, none of which determines the four-dimensional LOWER rational homology module under D_n×C2 for all 6k>=12. Best-of-knowledge with a real full-text access priority risk for the direct primary source.
+
+## value
+
+PASS
+
+A genuine equivariant strengthening for an infinite natural perfect-matching complex family: two distinct dihedral rotation frequencies with opposite layer-swap parities determine lower-degree rational quotient invariants and trace every reflection, invisible to the known wedge counts and to primitive-screw Lefschetz data. A motivated structural representation calculation, not mere renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
