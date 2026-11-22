@@ -1,19 +1,21 @@
-# Scientific review: microscopic radial deficits of random cyclic polygons
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact chord-intersection identity fixes Euclidean normalization; a multinomial-to-Poisson limit gives joint nearest-neighbor gaps at every fixed finite tuple; an exponential spacing tail yields uniform integrability of second moments. The renewal split at the first point to the right supplies the exact covariance, including the correct zero-lag variance. The product-of-exponentials integral gives the Bessel marginal. `verify_cyclic_radial.py` passed direct Euclidean polygon and independent renewal checks. The proof does not infer asymptotics from simulations.
+PASS
 
-## Originality
+Angular samples rescaled by n converge as a point process to stationary rate λ=1/(2π) Poisson by multinomial rare-event convergence. Between nearest angular neighbors α=A/n and β=B/n, exact chord radius sin(α+β)/(sin α+sin β) gives n² radial deficit AB/2+O(n−2) on bounded gap sets. Uniform exponential empty-arc bounds and exponentially rare semicircle exclusion imply uniform integrability and convergence of first/second moments for any fixed site collection. Conditioning on the first right Poisson arrival yields a same-gap term e^(−u)(u+2)²/(4λ⁴) and a regenerated process integral [1−e^(−u)(1+u+u²/2)]/(4λ⁴); subtract product of means gives e^(−u)(3+3u+u²/2)/(4λ⁴), i.e. 4π⁴ times that polynomial, zero-lag variance 12π⁴. Exponential-product survival integral identifies the Bessel K1 inclusion law. Independent numerical integration for u=0,0.4,1,2.5,5 agrees; the asymptotic assertions rest on the Poisson/renewal proof.
 
-**PASS, provisional best-knowledge comparison.** The motivating 2026 paper treats exactly three sampled circle points at fixed interior radius and recovers a dilogarithm, but not a growing-sample two-point radial-error covariance. Wendel's central semicircle formula, Sonnleitner's maximum-error Gumbel theorem, and prior fixed-sample logarithmic boundary-absorption/rare center-clearance results concern different regimes. The closest coverage/inclusion literature (Jewell–Romano 1982) may imply a one-point formula but no matching two-point covariance was identified from accessible material. Its full text was unavailable; this is a named priority risk, not evidence of noncoverage. No unconditional claim of historical novelty is made.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A fixed angular query becomes highly correlated with a second query separated by order \(1/n\), and the exact positive covariance \(4\pi^4e^{-u}(3+3u+u^2/2)\) quantifies that dependence, including its decay length and variance. The natural boundary inclusion transition at radial depth \(1/n^2\) receives an explicit Bessel law. These are interpretable, nontrivial local invariants of random geometric approximation; the covariance also warns that a purely local integration misses fixed-count global fluctuations.
+The one-point modified-Bessel boundary window is ALREADY COVERED by a November 17 published theorem for arbitrary C³ positive-curvature curves and densities; it must not be attributed as original. That general theorem explicitly treats fixed distinct boundary sites and independence and excludes sites coalescing at n−1 angular scale. The surviving central finding is the exact covariance of the *same* coalescing Poisson-gap process at separation s/n and finite-dimensional joint radial law; no matched published exact two-point covariance was identified. This is a substantial mathematically different joint statement, not rescued merely by a certificate.
 
-## Closest literature and limits
+## value
 
-The primary paper was read in its full arXiv text; the 2025 Hausdorff work was read directly; the two named published boundary-absorption/clearance results were read in their research result statements and proofs. Jewell–Romano's 1982 full text was not accessible after open-access searching and an institutional-access attempt. The result assumes uniform circle-boundary sampling, finitely many microscopic query locations, and no independent mathematical validation. The numerical tests were extracted and executed from the actual standalone checker.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nontrivial explicit microscopic covariance distinguishes overlapping from separated local Poisson-chord neighborhoods and quantifies correlation range on the natural n−1 angular scale. It is independently useful for local random-polygon fluctuation analysis even though the one-point Bessel corollary is already published.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
