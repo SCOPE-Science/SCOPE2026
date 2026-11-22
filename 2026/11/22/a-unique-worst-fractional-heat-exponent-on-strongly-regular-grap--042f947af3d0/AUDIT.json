@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Two nonzero Laplacian spectral projections give exact uniform nonedge and edge kernels. The ratio (1-e^{-b^alpha t})/(1-e^{-a^alpha t}) strictly decreases from (b/a)^alpha to 1; hence the positive-time threshold exists uniquely iff alpha>1. All edge and diagonal entries remain positive. Counting row sums yield the exact ℓ^∞/ℓ^1 norms and a unique transient peak. With h(z)=-log(qe^{-z}-q+1), h′>0 and log(h′) strictly convex, which proves monotonic increase of z h′/h and therefore the unique global maximizing exponent, without relying on sampling. Fixed-graph expansions and limit equations prove the claimed rates. The attached checker passed 568 independent matrix-time comparisons, 32 scale checks and 800 global optimization samples; finite samples are not used to infer global uniqueness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published 2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1 gives exact positivity/norm formulas for arbitrary complete multipartite graphs; its scope includes imprimitive equal-part strongly regular graphs but excludes the primitive Petersen, pentagon, triangular and rook families.",
+        "Daners–Glück–Kennedy (arXiv:1511.05294, full HTML revised version, Sections 1 and 5–6) provides qualitative eventual-positivity criteria, with no quantitative optimizing spectral exponent."
+      ],
+      "reasoning": "The known complete-multipartite family dominates the imprimitive intersection of the present operator-norm claim. We do not assert that overlap is new. Its published proof and claim do not determine a unique optimal fractional exponent even in the equal-part case. The new claim adds exact global exponent optimization and covers all primitive strongly regular graphs; general spectral-criterion theory does not imply an optimum value.",
+      "searches": [
+        "fractional graph Laplacian exponent larger than one strongly regular graph exact positivity recovery threshold fractional heat semigroup",
+        "complete multipartite fractional graph heat sharp positivity alpha greater one recovery time norm",
+        "\"strongly regular\" \"fractional graph heat\" \"positivity\""
+      ]
+    },
+    "checked_sources": [
+      "Riascos and Mateos, Physical Review E 90 (2014), DOI:10.1103/PhysRevE.90.032809, full accessible arXiv:1506.06167",
+      "Riascos and Mateos, J. Stat. Mech. P07015 (2015), DOI:10.1088/1742-5468/2015/07/P07015, author HTML text sections and abstract",
+      "Daners, Glück, Kennedy, arXiv:1511.05294, inspected full HTML later revision",
+      "published-finding corpus published 2026/10/26 complete multipartite fractional-heat result, full RESULT.md",
+      "Published published-finding corpus semantic searches for fractional graph heat, strongly regular graph spectral filters, exact tables and positivity delays",
+      "Accessible historical own claims and identifiers in the latest ledger, including quadratic mixed heat on strongly regular graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full published RESULT.md of 2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1 gives block projector formulas, a unique time cutoff within each part, and a maximum over parts, but no monotonic elasticity lemma or globally unique alpha optimizing the time.",
+        "Accessible archived own claim 3c42bf2d-e9e9-4c7f-a7c7-518e6b48b70e optimizes eta for exp[-t(L+eta L^2)], a different functional relation from L^alpha.",
+        "Riascos–Mateos (2014) restricts to fractional exponents 0<gamma<1 for Markovian random walks."
+      ],
+      "reasoning": "Substituting a new spectral response into a two-eigenvalue entry formula does reproduce portions of the sign classification. The present central optimizer is NOT a numerical reparametrization of the quadratic-mixing optimum: the fractional eigenvalue ratio is (b/a)^alpha and the time scale a^(-alpha); its unique maximizer follows from a separate strict log-convex elasticity argument. The complete-multipartite result also cannot imply the statement over primitive strongly regular graphs.",
+      "searches": [
+        "unique maximizer fractional graph heat positivity delay spectral exponent strongly regular graphs",
+        "complete multipartite fractional graph heat sharp positivity alpha greater one recovery time norm",
+        "three spectral value barrier gaps positivity times self-adjoint semigroups no multiple positivity intervals"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Riascos–Mateos (2014), arXiv:1506.06167 Sections III–V develops fractional Laplacian random walks for 0<gamma<1, not the alpha>1 optimization",
+        "Results of semantic published searches included 2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1 (complete multipartite rather than primitive strongly regular) and 2026/11/2/SCOPE-exact-positivity-intervals-for-fourth-order-pad-diffusion-on-str--4defdf9c32e5 (Padé rational filter, not spectral power)."
+      ],
+      "reasoning": "Spectral powers, graph heat, fractional diffusion and eventual positive semigroups are aliases for relevant comparisons. The candidate derives a unique optimizer of the exponent itself; existence of fractional diffusion and qualitative eventual positivity are not equivalent statements. The nearest specialized fractional published result lacks this global exponent optimization in its inspected full RESULT.md.",
+      "searches": [
+        "strongly regular graphs spectral fractional power heat kernel positivity nonedge entry sign crossing unique alpha parameter",
+        "\"strongly regular graph\" \"fractional Laplacian\" \"heat kernel\" positivity",
+        "\"fractional Laplacian\" \"strongly regular\" \"nonedge\" \"positivity\"",
+        "\"fractional heat\" \"strongly regular graphs\" entrywise positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus identified ID is 2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1; it has a complete-multipartite threshold and near-critical norms but no unique optimizing exponent.",
+        "No published exact table for alpha_G^* was returned for Petersen, triangular or rook primitive strongly regular graphs; the independently computed Petersen optimizer 1.636435234508... is reproducible by checker.py."
+      ],
+      "reasoning": "A searched finite table or existing result for the same parameters would cover an isolated numeric example but not necessarily the complete unique-exponent theorem. No exact database/table for the present natural invariant was identified in the actual searches; this absence is not proof of priority.",
+      "searches": [
+        "unique maximizer fractional graph heat positivity delay spectral exponent strongly regular graphs",
+        "peak infinity norm transient negativity fractional power Laplacian strongly regular graph near exponent one",
+        "\"fractional powers\" \"strongly regular graphs\" Laplacian heat"
+      ]
+    },
+    "rationale": "The decisive novel component is the proof that the sharp positivity-recovery delay as a function of fractional power alpha>1 has one and only one global optimizer on every connected noncomplete strongly regular graph, including primitive examples, with an explicit scalar characterization. Direct full-document comparisons found the published complete-multipartite fractional graph result covers imprimitive equal-part subfamilies but does not assert unique-order optimization. Earlier qualitative semigroup criteria and the fractional random walk studies do not imply this optimizer. Other graph-heat source families use different rational or polynomial filters. Thus the narrow complete-multipartite positivity/peak formulas are acknowledged as covered, not claimed as newly discovered. Residual unindexed-priority risks remain.",
+    "residual_risks": [
+      "The complete-multipartite fractional-heat prior covers part of the displayed non-optimizer statements; only the non-implied global exponent optimizer and extension to primitive strongly regular graphs are offered as novel.",
+      "A wider unindexed spectral-filter or graph semigroup optimization theorem could imply this result despite no such source appearing in the actual searches.",
+      "The initial 2015 version of the eventual-positivity source was not separately checked against its later full-text revision; only the revised full text was read.",
+      "No independent external expert mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines graph fractional powers and random walks in 0<gamma<1 and computes ring quantities; does not treat upper-order nonpositive heat kernels or unique worst alpha over strongly regular graphs.",
+        "evidence": [
+          "Equations (3)–(6) explicitly specify 0<gamma<1 and a stochastic fractional transition matrix",
+          "Sections III–V present ring transition matrices and stationary/return probability, not alpha>1 recovery horizons"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1506.06167",
+        "material_read": "Full accessible HTML Sections II–V, including spectral definition, gamma range, ring formulas, return probability and conclusions.",
+        "method": "Section-by-section HTML inspection and exact-term searches for strong regularity and positivity.",
+        "title": "Fractional dynamics on networks: Emergence of anomalous diffusion and Lévy flights",
+        "trigger": "Foundational source for the spectral fractional Laplacian; earliest verified 2014 public paper."
+      },
+      {
+        "assessment": "Deals with circulant fractional random walks and return probabilities. No located claim about the alpha>1 delay maximizer on general strongly regular graphs.",
+        "evidence": [
+          "2015 abstract explicitly focuses on circulant networks, fractional transition probabilities, fractional degrees and Kemeny constant"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1742-5468/2015/07/P07015",
+        "material_read": "Open HTML rendering of abstract, opening definitions, ring/regular circulant calculations, return-probability formulas and concluding discussion; some math layout text fragmented.",
+        "method": "Read publisher metadata and lawfully accessible author-uploaded HTML article text; searched for strongly regular and higher exponent.",
+        "title": "Fractional diffusion on circulant networks: emergence of a dynamical small world",
+        "trigger": "A plausible related exact spectral fractional graph-family result."
+      },
+      {
+        "assessment": "Gives spectral necessary/sufficient criteria for qualitative eventually positive semigroups but not exact fractional positivity-cutoff times or optimizing alpha on strongly regular graphs.",
+        "evidence": [
+          "Theorems 1.1–1.2 classify eventual/asymptotic positivity via dominant eigenvalues and projections, not parametric delay optimization"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1511.05294v2",
+        "material_read": "Full HTML document headings, introduction, Theorems 1.1/1.2 and relevant criteria in Sections 5–6; this is the 2018 revised text of an initial 2015 submission.",
+        "method": "HTML primary-text inspection with theorem and application comparison.",
+        "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+        "trigger": "Potential broader qualitative eventual-positivity coverage."
+      },
+      {
+        "assessment": "Fully covers complete multipartite special cases of the positivity/norm formulas; does not state unique global α maximizing recovery delay and does not cover primitive strongly regular graphs. The overlapping subcase is acknowledged and not represented as new.",
+        "evidence": [
+          "Its result is confined to connected noncomplete complete multipartite graphs",
+          "The manuscript maximizes over vertex parts for fixed alpha, and provides near-alpha-one expansion, not max over alpha"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1/RESULT.md",
+        "material_read": "Entire RESULT.md retrieved through read-only GitHub file fetch, including statement, assumptions, proof, relationship and limits.",
+        "method": "Compared operator, graph family, cutoff equation, exponent range and claimed optimization directly, rather than titles only.",
+        "title": "A sharp positivity transition for fractional graph heat on complete multipartite networks",
+        "trigger": "Closest published matching operator and α positivity transition; essential subsumption check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "042f947a-f3d0-479e-b30d-1a7e559eca00",
+  "value": {
+    "rationale": "The graph family is a natural complete spectral class containing primitive Petersen, pentagonal, triangular, and rook examples. The distinctive invariant is the globally unique fractional exponent at which positivity is delayed the most, not a routine special-case arithmetic result. The theorem also shows a nonzero limiting maximum operator-norm amplification even as the recovery window collapses at large fractional order. These facts quantitatively refine qualitative eventual positivity and inform stability of high-order graph diffusion.",
+    "status": "PASS"
+  }
+}
