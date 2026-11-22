@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:19:36.984513Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md Hermite–Fejer angular kernel and variation proof; checker.py, Git tree 98485b4f4e2e7460f2cac26ebed521bba9fb96c9"
+      ],
+      "rationale": "The nonnegative fundamental Hermite–Fejer basis h_k=T_n(x)^2(1-xx_k)/(n^2(x-x_k)^2) partitions unity, making every BV output a linear combination of step responses F_m. BV seminorm is exactly the maximum Var(F_m), attained by a one-jump input. All n nodal derivative zeros plus one interior extremum in each of the n-2 equal-label gaps exhaust deg F_m<=2n-2 derivative, proving the exact variation accounting. The angular kernel splits into direct and reflected csc^2 terms; reflected double sums stay uniformly bounded and direct tails give <=(2/pi^2)(log m+log(n-m))+O(1). Evaluating central-step gaps at angles j*pi/n yields both harmonic lower tails and 4/pi^2 log n+O(1). Independent numerical optimization for n=8,16,32,64 produced 1.8685,2.1509,2.4323,2.7134 respectively, consistent with the logarithmic slope (the additive constant persists).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader Jacobi-node assumptions in the earlier rate theorem do not supply an output variation bound; no stronger theorem implying 4/pi^2 log n was found."
+        ],
+        "reasoning": "Al-Jarrah Rababah 1990 Jacobi families; Bojanic Cheng 1983; Xiang He 2020: The broader Jacobi-node assumptions in the earlier rate theorem do not supply an output variation bound; no stronger theorem implying 4/pi^2 log n was found.",
+        "searches": [
+          "Resultary query: Chebyshev zeros Hermite Fejer bounded variation operator norm 4 pi squared",
+          "Al-Jarrah Rababah 1990 journal primary PDF",
+          "Rababah 2020 journal abstract"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Hermite–Fejer angular kernel and variation proof; checker.py, Git tree 98485b4f4e2e7460f2cac26ebed521bba9fb96c9",
+        "Al-Jarrah–Rababah 1990 primary journal PDF pp.51–64 and theorem statement",
+        "Rababah 2020 journal abstract / second-kind nodes",
+        "Resultary semantic query Hermite Fejer interpolation bounded variation operator norm sharp logarithmic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pointwise error estimates cannot imply growth of total output variation, and positive-unitality only controls sup norm, leaving the sharp BV ratio open."
+        ],
+        "reasoning": "Al-Jarrah Rababah 1990 Theorem 1, Theorem 2; Chebyshev Hermite-Fejer classical positivity: Pointwise error estimates cannot imply growth of total output variation, and positive-unitality only controls sup norm, leaving the sharp BV ratio open.",
+        "searches": [
+          "Resultary query: Chebyshev zeros Hermite Fejer bounded variation operator norm 4 pi squared",
+          "Al-Jarrah Rababah 1990 journal primary PDF",
+          "Rababah 2020 journal abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BV pointwise approximation and L-infinity Lebesgue norms are different quantities; the norm in question is Var(H_nf)/Var(f), not uniform error."
+        ],
+        "reasoning": "Hermite-Fejer first-kind Chebyshev zeros, output total variation operator seminorm, step responses: BV pointwise approximation and L-infinity Lebesgue norms are different quantities; the norm in question is Var(H_nf)/Var(f), not uniform error.",
+        "searches": [
+          "Resultary query: Chebyshev zeros Hermite Fejer bounded variation operator norm 4 pi squared",
+          "Al-Jarrah Rababah 1990 journal primary PDF",
+          "Rababah 2020 journal abstract"
+        ]
+      },
+      "evidence": [
+        "BV pointwise approximation and L-infinity Lebesgue norms are different quantities; the norm in question is Var(H_nf)/Var(f), not uniform error.",
+        "The broader Jacobi-node assumptions in the earlier rate theorem do not supply an output variation bound; no stronger theorem implying 4/pi^2 log n was found.",
+        "Resultary returned assigned finding and related different cubic Chebyshev/Legendre projectors; none supplies this n-dependent Hermite-Fejer BV norm.",
+        "Pointwise error estimates cannot imply growth of total output variation, and positive-unitality only controls sup norm, leaving the sharp BV ratio open."
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned assigned finding and related different cubic Chebyshev/Legendre projectors; none supplies this n-dependent Hermite-Fejer BV norm."
+        ],
+        "reasoning": "Resultary Hermite Fejer BV variation norm sharp logarithmic coefficient and spectral projections: Resultary returned assigned finding and related different cubic Chebyshev/Legendre projectors; none supplies this n-dependent Hermite-Fejer BV norm.",
+        "searches": [
+          "Resultary query: Chebyshev zeros Hermite Fejer bounded variation operator norm 4 pi squared"
+        ]
+      },
+      "rationale": "Classical Hermite–Fejer positivity and BV input pointwise approximation-rate estimates do not determine the output BV seminorm. The 1990 Al-Jarrah–Rababah article Theorems 1–2 address pointwise |H_nf(x)-f(x)| for f continuous at x, not variation over the output interval; its Jacobi parameter family does not dominate this new operator norm. Best-of-knowledge original with older-source priority risk.",
+      "residual_risks": [
+        "Unindexed older output-variation papers may exist; 1983 Bojanic–Cheng full article not obtained.",
+        "No exact finite-degree K_n or uniform additive constant claimed; central step asymptotic only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: establishes pointwise approximation of BV inputs at continuity points, not output variation seminorm",
+          "evidence": [
+            "Theorem 1 p.53 bound on |H_n(f,x)-f(x)| via local variation of f; Theorem 2 Legendre refinement."
+          ],
+          "identifier_or_url": "https://revistas.unal.edu.co/index.php/recolma/article/download/33206/33203/123112",
+          "material_read": "Full PDF accessible; introduction and main Theorems 1–2 pages 1–5 inspected with page 3 screenshot, plus overview of later preliminary estimates",
+          "method": "Primary journal PDF text and screenshot",
+          "title": "On the rate of convergence of Hermite–Fejér polynomials to functions of bounded variation on the zeros of certain Jacobi polynomials",
+          "trigger": "same first-kind Chebyshev zero operator and BV input"
+        },
+        {
+          "assessment": "MATERIAL_INCOMPLETE but distinct object: uses second-kind Chebyshev nodes and derivative BV inputs for approximation rate",
+          "evidence": [
+            "2020 abstract explicitly gives second-kind zeros and pointwise convergence rate."
+          ],
+          "identifier_or_url": "https://info-center.math.tku.edu.tw/index.php/TKJM/article/view/2939",
+          "material_read": "Abstract and cited bibliography read, not complete PDF",
+          "method": "Journal source landing page",
+          "title": "Rate of Convergence of Hermite–Fejer Polynomials for Functions with Derivatives of Bounded Variation",
+          "trigger": "later paper with BV in title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "RESULT.md Hermite–Fejer angular kernel and variation proof; checker.py, Git tree 98485b4f4e2e7460f2cac26ebed521bba9fb96c9",
+        "Classical Hermite–Fejer positivity and BV input pointwise approximation-rate estimates do not determine the output BV seminorm. The 1990 Al-Jarrah–Rababah article Theorems 1–2 address pointwise |H_nf(x)-f(x)| for f continuous at x, not variation over the output interval; its Jacobi parameter family does not dominate this new operator norm. Best-of-knowledge original with older-source priority risk."
+      ],
+      "rationale": "This establishes that a positive L-infinity-contractive polynomial interpolation operator can nonetheless amplify bounded variation without bound, and quantifies the exact sharp leading constant. It isolates central single-jump extremizers and a natural BV stability invariant needed in oscillation-aware approximation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md Hermite–Fejer angular kernel and variation proof; checker.py, Git tree 98485b4f4e2e7460f2cac26ebed521bba9fb96c9",
+    "Al-Jarrah–Rababah 1990 primary journal PDF pp.51–64 and theorem statement",
+    "Rababah 2020 journal abstract / second-kind nodes",
+    "Resultary semantic query Hermite Fejer interpolation bounded variation operator norm sharp logarithmic"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge literature comparison; inaccessible plausible sources explicitly listed",
+    "Finite checks are corroborative and do not prove infinite quantified theorems",
+    "No GitHub write, dispatcher closeout, publication or outside certification"
+  ],
+  "residual_risks": [
+    "Unindexed older output-variation papers may exist; 1983 Bojanic–Cheng full article not obtained.",
+    "No exact finite-degree K_n or uniform additive constant claimed; central step asymptotic only."
+  ],
+  "schema_version": 1
+}

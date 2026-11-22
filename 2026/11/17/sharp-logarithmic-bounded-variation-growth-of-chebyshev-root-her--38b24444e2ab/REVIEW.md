@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cardinal polynomial follows from the Chebyshev derivative identities, and positivity plus unitality is exact. The norm is exactly the maximum variation of the \(n-1\) individual step responses: the discrete jump decomposition provides the bound, and each step is realizable by unit-variation input. Counting \(n\) stationary knots and at least one interior stationary point in each of the \(n-2\) same-label gaps exhausts the derivative's degree \(2n-2\), so the interval-by-interval variation formula is exact. The angle-difference squared-cosecant component yields \(\pi^{-2}\log n\) from each half and the reflected component contributes a uniformly bounded sum. Independent central-step midpoint estimates yield the matching coefficient. The numerical checker replays successfully. Risk: the result is only accurate up to \(O(1)\), not an exact finite-degree norm.
+PASS
 
-## Originality — PASS, qualified
+The nonnegative fundamental Hermite–Fejer basis h_k=T_n(x)^2(1-xx_k)/(n^2(x-x_k)^2) partitions unity, making every BV output a linear combination of step responses F_m. BV seminorm is exactly the maximum Var(F_m), attained by a one-jump input. All n nodal derivative zeros plus one interior extremum in each of the n-2 equal-label gaps exhaust deg F_m<=2n-2 derivative, proving the exact variation accounting. The angular kernel splits into direct and reflected csc^2 terms; reflected double sums stay uniformly bounded and direct tails give <=(2/pi^2)(log m+log(n-m))+O(1). Evaluating central-step gaps at angles j*pi/n yields both harmonic lower tails and 4/pi^2 log n+O(1). Independent numerical optimization for n=8,16,32,64 produced 1.8685,2.1509,2.4323,2.7134 respectively, consistent with the logarithmic slope (the additive constant persists).
 
-Direct statement/implication comparisons were made with Fejér's classical positivity and uniform convergence, Al-Jarrah–Rababah (1990) full-text pointwise BV approximation estimates, Xiang–He (2020) full-text smooth-function convergence bounds, Gautschi's interpolation survey, Smith's extended-node Lebesgue-function results, and semantically nearest research records. None of the inspected materials asserts the \(BV\to BV\) seminorm asymptotic with coefficient \(4/\pi^2\), nor implies that coefficient from the reported uniform-error or \(L^\infty\) bounds. The Bojanic–Cheng (1983) conference paper and Smith (2002) full text were not accessible for direct inspection, leaving nonzero historical-priority risk. Search absence alone is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This determines a sharp asymptotic stability constant for a canonical positive interpolation scheme over all bounded-variation inputs and gives an explicit attaining family at leading order. The unexpected functional-space separation is intrinsic: \(\|H_n\|_{\infty\to\infty}=1\) for every degree while the variation seminorm grows logarithmically. Such stability distinguishes preservation of signal range from control of oscillatory edges and can inform the use of positive high-degree interpolation on discontinuous data. The result does not rely on an arbitrary sample size or a known-table recomputation.
+Classical Hermite–Fejer positivity and BV input pointwise approximation-rate estimates do not determine the output BV seminorm. The 1990 Al-Jarrah–Rababah article Theorems 1–2 address pointwise |H_nf(x)-f(x)| for f continuous at x, not variation over the output interval; its Jacobi parameter family does not dominate this new operator norm. Best-of-knowledge original with older-source priority risk.
 
-## Literature and limitations
+## value
 
-The 1983 paper is a genuine unresolved literature inspection; the scanned 1990 article records its pointwise result but does not substitute for reading the 1983 text. The 2002 Smith result concerns the endpoint-extended Chebyshev system. The theorem does not treat arbitrary Jacobi nodes, endpoint-extended nodes, exact fixed-degree constants, or complex input. It is a self-review, not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This establishes that a positive L-infinity-contractive polynomial interpolation operator can nonetheless amplify bounded variation without bound, and quantifies the exact sharp leading constant. It isolates central single-jump extremizers and a natural BV stability invariant needed in oscillation-aware approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
