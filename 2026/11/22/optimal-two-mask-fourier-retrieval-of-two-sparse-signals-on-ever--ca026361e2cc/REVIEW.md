@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The pair-product code is proved injective by a quotient–remainder argument together with uniqueness of unordered sums of a quadratic integer sequence. Inverse DFT of the intensities gives exact cyclic correlations. The proof partitions zero, one-point, nonantipodal two-point, and antipodal two-point signals, resolves magnitudes through two distinct zero-lag coefficients, and resolves antipodal imaginary cross-phase through the second mask. One-mask impossibility follows already from indistinguishable masked impulses. The standalone numerical diagnostic is not used as an infinite certificate.
+
+**Originality — PASS relative to inspected sources.** The closest published odd-cycle two-mask theorem proves a statement at odd orders and a negative result only for real masks at even orders, not the even-order two-complex-mask construction. The closest general masked Fourier papers establish random-mask full-signal bounds or generic recovery in an oversampled acquisition model, which does not imply this uniform two-sparse unoversampled statement. A previous three-mask even-cycle result does not imply a two-mask result. Searches and the available source inspections identified no equivalent or stronger claim, but unindexed specialized constructions and inaccessible full papers remain risks.
+
+**Mathematical value — PASS.** Optimal mask count is a natural discrete Fourier phase-retrieval invariant; this settles it at two for every even order under full two-sparse adversarial support, with nonvanishing bounded-amplitude masks and an exact constructive decoder. It closes the specific parity gap left by the real-mask obstruction. No general full-signal or noise-uniform claim is made.
+
+Closest literature: Huang–Li (arXiv:2608.02450); Bandeira–Chen–Mixon (arXiv:1303.4458); Jaganathan–Eldar–Hassibi (IEEE ISIT 2015); Li–Li (Inverse Problems and Imaging 2021); the published odd-cycle two-mask theorem (published-finding corpus, 2026-11-08). The present classification is restricted to at most two occupied coordinates; full-text access to two potentially relevant papers was incomplete.
+
+Self-review: passed. Independent audit: not yet performed.
