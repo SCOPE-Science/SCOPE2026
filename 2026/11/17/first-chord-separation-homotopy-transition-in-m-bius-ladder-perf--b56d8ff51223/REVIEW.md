@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The five asserted homotopy types follow from exact, exhaustively checked elementary simplicial collapse sequences. Both recursive and combination-based perfect-matching enumerators produce the same facets. Every certificate deletion has precisely one strict coface, and each resulting graph has the recorded number of components and independent cycles. This is a complete finite proof for the stated parameter set, not an inference from sampled Betti numbers.
+## correctness
 
-## Originality — PASS with residual risk
-The motivating primary preprint by Agarwal and Basak (arXiv:2608.30601v1, section 4) treats intact Möbius ladders. Closely related existing studies treat one chord deletion, graph independence complexes, homology symmetry, or ordinary matching complexes; none of their retrieved statements covers the exact two-chord separation comparison. Published research-record and literature searches for two deleted antipodal chords did not identify an implication. The v2 manuscript and potentially unindexed calculations leave residual bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The five cases exhaust the first three possible Möbius-ladder orders with two distinguishable deleted chords. They show a natural, sharp edge-separation topological effect in a previously studied perfect-matching construction: two graph deletions of the same kind yield either a rank-two free fundamental group or a contractible complex. The complete finite cut-off and explicit certificates are useful starting points for edge-defect stability and multi-deletion classifications, without asserting broader results.
+Independently generated all perfect matchings of each two-antipodal-chord deleted M_{2n} with n=3,4,5 by recursive pairing of the smallest unmatched vertex, then all downward-closed faces. From independent lexicographic free-face searches, exact elementary collapses count 3,12,8,64,55, respectively, leaving graphs (v,e,c)=(7,6,1),(10,8,2),(8,6,2),(13,14,1),(13,12,1). Thus terminal ranks e-v+c are 0,0,0,2,0 with two components at n=4, precisely *, S0, S0, S1 vee S1, *. Entire small domain and both chord distances are exhausted. The original certificate was also inspected, but the independent reduction does not rely on its saved pairs.
 
-## Closest literature and limitations
-A. Agarwal and B. Basak, *The Homotopy Types of the Independence and Perfect Matching Complex of Möbius Ladder Graph*, arXiv:2608.30601v1 (2026-08-31); intact graph, not two deleted chords. The result covers only \(3\le n\le5\), with integral nonequivariant homotopy types. The code relies only on exact finite combinatorics; independent mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Read the 19-page original Agarwal–Basak preprint through authorized paper extraction, including the complete intact Möbius/circular ladder main theorem and relevant Section 5 lemmas. It treats original undeleted ladders, not two-chord defects and their separation-dependent homotopy. Also read the published one-antipodal-rung deletion theorem; its contractibility for even n does not entail deleting a second rung, particularly the d=1 vs d=2 difference at n=5. Relevant Resultary rim-edge deletion changes a different edge class. Best-of-knowledge novel exact first separation-sensitive case.
+
+## value
+
+PASS
+
+Two identical antipodal-edge deletions with different relative separations yield drastically different topology at the smallest possible ladder size: the natural 10-vertex instance changes from a wedge of two circles to contractible. The exact exhaustive finite homotopy threshold and explicit collapses are useful defect-sensitivity data, despite not giving a general n recursion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
