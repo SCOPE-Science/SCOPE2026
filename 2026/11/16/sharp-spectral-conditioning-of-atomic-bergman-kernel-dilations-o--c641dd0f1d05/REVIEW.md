@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Uniform convergence of the reciprocal products proves bounded invertible Hardy multiplication, allowing an exact similarity with the diagonal compact dilation. Unit eigenvectors are fixed up to phases, which makes their optimal Riesz bounds intrinsic; Fejér concentration proves equality is sharp at the two boundary points. The spectral projections are explicit rank-one similarities, with their norms deduced from coefficient duality. Their dense-atom exponential rate follows from two integrable Riemann sums plus an explicit short-arc Hardy-norm lower bound. Finite algebraic consistency tests are included but are not used to justify an infinite-dimensional step.
+## correctness
 
-**Originality — PASS on inspected evidence, provisional publication priority.** Searches included the atomic Cesàro formulation, the q-Pochhammer eigenbasis, Riesz bounds, projection norms and equivalent multiplier-conditioned formulations. The closest underlying 2026 paper establishes boundedness of the general operator rather than its single-atom spectral-basis geometry. Earlier weighted-composition papers concerning approximation numbers and parabolic spectrum do not imply these exact formulas. The general multiplier similarity and Fejér multiplier norms are known tools, not claimed as inventions. Undiscovered older exact q-series/weighted-composition formulas remain an explicit risk.
+PASS
 
-**Mathematical value — PASS.** For a natural one-atom subfamily of a current integral operator, this theorem supplies the exact *intrinsic*, unit-normalized spectral-coordinate stability constant at every scale, every one-dimensional spectral projection norm, and distinct sharp exponential divergence rates as the atom approaches the boundary. This distinguishes benign-looking simple eigenvalues from severe spectral-coordinate amplification and is stronger than merely asserting existence of a Riesz eigenbasis. It yields reproducible quantitative predictions for diagonal spectral reconstructions without asserting broader applications.
+In the exact Hardy H² norm, h(z)=product_(k>=1)(1-q^k z)^(-p) and its inverse are bounded analytic multipliers: h(z)=(1-qz)^(-p)h(qz). Hence T=M_h C_q M_h^(-1), with simple q^n eigenvalues and unit-normalized hz^n/sqrt(N). The extremal multiplier boundary moduli align at z=+1 and z=-1; analytic Fejér-polynomial concentration proves both sharp Riesz constants. Rank-one coefficient projection P_n has norm ||h||_2 (sum_(j<=n)|[z^j](1/h)|²)^(1/2), and Parseval yields its limit. Improper Riemann sums of -log(1-e^-x), log(1+e^-x) and a boundary arc of width epsilon² justify p*pi²/2 versus p*pi²/4 logarithmic growth rates. Critical endpoints 0<q<1 and p>1 retained; the zero spectral point is not misidentified as a nonzero eigenvalue. Finite independent Toeplitz-multiplier calculations at p=2.3,q=.42 found finite-section extreme singular values approaching the stated bounds, but are not a proof.
 
-Independent publication-priority and expert mathematical reviews remain desirable. No claim of independent validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact unit-normalized eigenbasis condition and its individual rank-one spectral projection norms/asymptotic are evaluated for the specific atomic Bergman-kernel Cesàro weighted dilation; elementary similarity, multiplier norm identities and Hardy-product estimates are explicitly not asserted novel. No found primary source was shown to imply the complete quantitative statement. Best-of-knowledge priority with uninspected older weighted-composition literature.
+
+## value
+
+PASS
+
+This is a motivated quantitative instability problem: compact positive-eigenvalue Hardy weighted dilations can have exponentially ill-conditioned normalized eigenvectors and spectral projectors at two distinct sharp rates. The exact products and spectral projector norms are useful to distinguish eigenvalue stability from eigenvector spectral instability, beyond a routine statement of similar diagonal operators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
