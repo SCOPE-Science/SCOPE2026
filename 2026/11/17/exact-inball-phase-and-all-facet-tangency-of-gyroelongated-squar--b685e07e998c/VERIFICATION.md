@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The claim follows analytically from explicit supporting facet equations, symmetry averaging of the feasible-center set, a factored branch-comparison polynomial, and strict branch monotonicity. The accompanying `verify.py` is an optional standalone finite consistency checker requiring only Python's standard library. It enumerates supporting triangular facets directly from ten coordinates for more than two hundred heights, independently calculates volume by the divergence theorem, and compares the result with the two analytic radii. A successful local run reported `PASS 620 geometric consistency checks`. These numerical tests are not exhaustive over real heights and do not establish historical priority or global optimality for arbitrary ten-point spherical coverings. No independent audit has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+At h in (3-2sqrt(2),1), explicit ten unit vertices generate the two caps and eight belt facets, sixteen total via convexity and Euler saturation. Averaging a feasible insphere center over the full symmetry group puts it at 0, proving unrestricted inradius min(C(h),L(h)). Factoring the branch difference, then strict monotonicity, shows a unique switch and maximum at sqrt(2)-1 with radius sqrt((1+2sqrt(2))/7); the sixteen tight facet normals span R^3 and force center uniqueness. A separate volume derivative gives a larger h_V. Independently formed convex hulls at eight heights, verifying all sixteen facets, exact profile and volume against numerical hulls.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: the 1994 covering table already lists the 10-point numerical covering radius matching the extremum, and Hoehner 2026 determines the ten-vertex volume optimizer and type. These antecedents are explicitly excluded. The surviving full exact inradius as a function of every symmetric-family height, unique phase crossing and all-sixteen facet tangency are not supplied by the numerical covering table or by maximizing volume.
+
+## value
+
+PASS
+
+Two competing optimization objectives on a natural ten-vertex sphere-inscribed polytope family have rigorously different maximizers. Exact two-branch inradius and simultaneous facet-contact rigidity explain a classical covering-table configuration and yield a meaningful within-family classification rather than a numerical re-report.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
