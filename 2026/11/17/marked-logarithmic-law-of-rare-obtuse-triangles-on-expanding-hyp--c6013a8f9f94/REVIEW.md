@@ -1,19 +1,21 @@
-# Review of the marked hyperbolic obtuseness law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hyperbolic cosine law, exact gap-domain equivalence, Jacobian, conditional normalizer, Scheffé argument and geodesic chord scaling were independently reconstructed in the mathematical derivation. The supplied standard-library checker corroborated the finite-radius event probabilities, density normalization and asymptotic side formulas. Numerical tests alone do not prove the limit.
+PASS
 
-## Originality — PASS (provisional priority)
+Reviewed entire frozen RESULT.md blob 5c2a529... and exact criterion: the only obtuse angle corresponds to the angular gap c>pi, and after x=tan(a/2),y=tan(b/2) the hyperbolic law of cosines yields xy<q=sech²R. The Jacobian of x=q^u,y=q^(1-u)w is q log(1/q); J(q)=int_0^q -log(t)/(1-t²) dt normalizes the density, with J(q)=q(log(1/q)+1)+O(q³log(1/q)). Almost-everywhere density convergence, unit total mass and Scheffe give TV. Hyperbolic sinh(d/2)=sinh R sin(a/2) yields two complementary positive-part limiting side-length ratios; max |1-2U| is Unif(0,1). Independently checked density normalization and mark split numerically for q=.01 and .0001; tests corroborate, not prove continuum result.
 
-The closest published scalar acuteness formula for exactly the same sampling measure is explicitly **not** new. Its complete proof was read and compared to the present conditioned two-mark density, total-variation limit, and weak length-vector limit; none is stated there. Lv–Guo uses another measure (uniform triangle-angle coordinates), while Horváth provides deterministic hyperbolic geometry. Own accessible findings concerned distinct geometric invariants. A historical survey may still uncover an unindexed marked version; originality is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The conditional theorem distinguishes the mechanism of a rare obtuse triangle: two incident angular gaps occupy complementary logarithmic scales with independent product mark, and one of their geodesic lengths remains a uniformly distributed macroscopic fraction of the circle diameter while the other vanishes at that scale. This qualitative geometry is absent from the known scalar event probability.
+Best-of-knowledge originality after direct source comparisons: the previously covered scalar/elementary precursors were credited, and no inspected stronger claim gives the specified complete marks or section classification. The new density disintegrates the rare event into two uniform marks, which no scalar total probability alone fixes.
 
-## Scientific limits
+## value
 
-Constant curvature \(-1\), arclength-uniform sampling, three vertices, a fixed orientation convention, and the large-circle limit only. The marked law is total-variation convergent; the induced length distribution is only weakly convergent. No finite-radius error rate, general-surface theorem, independent validation or certified priority is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Conditioning on exponentially rare obtuseness reveals an exact two-coordinate marked law and a macroscopic geodesic side-shape transition not available from already-known scalar acute probability. Structural rare-event geometry is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
