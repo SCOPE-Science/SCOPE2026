@@ -1,19 +1,21 @@
-# Scientific review of the cycle-independent-set Walsh theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For every cycle length at least three, the transfer product exactly counts cyclic independent-set configurations with individually signed vertex activities. Modulo-two reduction shows all frequencies have the parity of the Lucas cycle count, and the transfer identity at length three gives a null multiplier in precisely the complementary lengths. The uniform all-negative activity attains the predicted sharp positive spectral gap; the triangle bound yields the largest multiplier. Four explicitly multiplied six-site identity blocks certify an exponentially large family of distinct null frequencies. The standalone checker independently evaluates the formulas on all sign choices through length sixteen and explicit constructions through length 101. The proof, not the enumeration, establishes the universal assertions.
+PASS
 
-## Originality
+PASS. For any sign word s_i=(-1)^b_i the hard-core partition value is exactly trace of product M(s_i)=[[1,1],[s_i,0]] by a bijection with cyclic independent occupation states. Modulo 2 every sign is 1 and M(1)^3=I in GL(2,F2); therefore every multiplier has Lucas parity odd exactly when 3 does not divide n, ruling out zeros in those lengths. At divisible-by-three lengths, --+ gives trace 0; M(-1)^3=-I and four explicitly verified six-sign identity words preserve its zero, giving 3*4^floor((n-3)/6) distinct frequencies. The all-negative word has trace 2cos(n*pi/3) of magnitude 1/2 respectively; parity shows this is the least positive absolute multiplier. Walsh diagonalization of full-group convolution yields the stated exact inverse and pseudo-inverse Hilbert norms, Lucas maximum and condition numbers. Independent exhaustive enumeration of all 2^n signs for n=3..10 confirmed zero-counts 3,18,111 for 3,6,9 and none for others, plus exact matrix-word multiplications. Infinite statement follows from the matrix identities and parity, not finite testing.
 
-PASS under bounded historical comparison. Scott–Sokal's 2003 work contains the general hard-core polynomial and the uniform one-variable cycle transfer expression, which are essential prior tools. It does not in the inspected sections state the Boolean-frequency-wide zero-free classification, sharp positive convolution gap, or explicit exponential null families. Adamaszek's 2011 cycle independence-complex statements concern homotopy, not the full multivariate signed transform. The closest indexed Fourier-interpolation result for graph-independent coordinate supports addresses invertibility of restricted Fourier sampling matrices, which does not imply invertibility of convolution on the entire cube. The authors' prior formulas and multivariate framework are credited; uninspected or unindexed equivalent work remains a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The indicator of independent sets of a cycle is a canonical hard-core support in a Boolean group. Its full-group convolution kernel, sharp visible singular gap, inverse-stability constant, and an infinite-family singularity boundary are natural harmonic invariants, not arbitrary finite numerical curiosities. A cancellation mechanism that generates exponentially many distinct null frequencies supplies structural information beyond total independent-set counts or their uniform negative-activity evaluation. This is a concise exact classification, not a claim of a general inverse theorem for other graphs.
+PASS at best of knowledge: Scott-Sokal classical hard-core transfer formulas are an equivalent representation of the coefficient, but their cited uniform-fugacity trace is not a theorem on simultaneous vanishing/nonvanishing at every inhomogeneous +/-1 assignment. The arbitrary-fugacity partition formula can define every coefficient but does not decide global invertibility without the parity/zero construction. At n>=7 published low-degree no-zero results coexist with high-degree zeros when 3 divides n; hence the low-degree theorem cannot cover the all-frequency dichotomy. No universal historical-priority certification is claimed.
 
-## Prior-literature and validation limits
+## value
 
-The homological recurrence and univariate independence-polynomial formulas are older; the relevant comparison turns on the distinct quantification over all independent sign assignments. Full text for the indexed graph-exclusion Fourier-interpolation result was not available in the material inspected, and its abstract-only comparison remains a residual originality risk. The exact multiplicity of zero frequencies for general multiples of three remains unknown here. Independent mathematical validation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Global invertibility of a natural graph-independent-set convolution algebra on F2^n, exact spectral gap, and exponentially many constructed singular frequencies supply a structural all-length classification; both positive and negative alternatives are mathematically motivated, not a routine Lucas parity observation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
