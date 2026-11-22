@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Gaussian completion of squares gives determinants A,B,C, and canonical U-statistic degeneracy gives the exact finite-n covariance factor. For d-dependent bandwidths, the factored H_d expansion proves all three regimes with exact leading log in the subcritical case; a Gaussian representation guarantees the critical limit is strictly nonunit for unequal scales. Code on the actual package path checks finite computations and limiting examples (91 checks).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yan–Zhang, DOI 10.1093/biomet/asac049, Introduction and §2, studies two-sample MMD and bandwidth-based linearization, not one-sample known-Gaussian joint null correlations.",
+        "Ramdas et al., arXiv:1508.00655, treat power under mean differences with bandwidth lower bounds, not exact covariance of distinct null bandwidth statistics."
+      ],
+      "reasoning": "General high-dimensional linearization and kernel-power results suggest redundancy for sufficiently broad kernels but do not by themselves give the exact finite-n cross kernel, the subcritical stretched-exponential rate, and the nondegenerate critical surface; no dominating statement was identified.",
+      "searches": [
+        "Kernel two-sample tests in high dimensions interplay between moment discrepancy and dimension-and-sample orders",
+        "On the high-dimensional power of linear-time kernel two-sample testing bandwidth invariance 2015 arxiv",
+        "High-dimensional Gaussian MMD U-statistics bandwidth exponent one-half sharp phase transition null correlations of multiple kernel bandwidths"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1909.03302 (Section 2, Appendix A)",
+      "arXiv:2306.08777 (Sections 3–5)",
+      "arXiv:2110.15073 (Sections 2–3)",
+      "doi:10.1093/biomet/asac049 (accessible publisher HTML sections)",
+      "arXiv:1508.00655 (abstract only)",
+      "Public mathematical-record search results for exact formula, multibandwidth aliases and phase boundary",
+      "Previously documented mathematical claims (recoverable statements only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li–Yuan (2019), Eq. (1), is exactly the a=b variance special case, so that ingredient is subsumed.",
+        "Biggs–Schrab–Gretton (2023), Definition 1, combines two-sample MMD values via soft maxima and permutation normalizers; no corresponding Gaussian-null one-sample correlation formula.",
+        "Schrab et al. (2021/2023), §3, aggregates two-sample kernels with permutation/bootstrap control; its scope is distinct."
+      ],
+      "reasoning": "The novelty claim is only the exact a≠b covariance and its sharp joint bandwidth/dimension classification. The standard one-bandwidth variance and centered-U formalism are explicitly conceded as prior work. Two-sample power and calibration do not logically entail the precise Gaussian one-sample null formula.",
+      "searches": [
+        "arXiv:1909.03302 PDF Sections 2, 8, Appendix A",
+        "arXiv:2306.08777 PDF Sections 3-5, Appendix",
+        "arXiv:2110.15073 PDF Sections 2-3",
+        "MMD different bandwidths correlation high dimensional"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Yuan (2019), arXiv:1909.03302, Section 2, Eq. (1) has a same-bandwidth variance under a prescribed null; covariance across distinct bandwidths is not stated.",
+        "The centered kernel is the population-centered Gaussian RBF kernel, and its cross inner product has distinct determinants with 12ab and 16ab."
+      ],
+      "reasoning": "The candidate would be covered by an explicit two-bandwidth variance polarization identity combined with a high-dimensional limit at varying inverse-square bandwidth; the accessible same-bandwidth results do not assert or imply the sharp trichotomy without additional evaluation and asymptotic analysis.",
+      "searches": [
+        "Exact finite-sample covariance of BHEP normality test statistics across Gaussian weight bandwidth parameters",
+        "Gaussian MMD multibandwidth null correlations critical scale inverse square-root dimension",
+        "Gaussian MMD joint covariance bandwidth tests high dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical-record formula and statistical alias searches returned no same-Gaussian-MMD exact two-bandwidth formula; closest unrelated results concern finite-sample covariances of other goodness-of-fit statistics.",
+        "The nearest previously documented mathematical results concern circular and spherical statistics rather than Gaussian-kernel MMD."
+      ],
+      "reasoning": "No indexed exact table or previously filed matching claim was located; failed retrieval is not proof of global novelty.",
+      "searches": [
+        "Covariance kernel formula (1+4(a+b))^-d/2 -2(1+4(a+b)+12ab)^-d/2 +(1+4(a+b)+16ab)^-d/2 for centered RBF Gaussian kernels",
+        "MMD multibandwidth covariance null",
+        "Exact finite-sample joint distribution and covariance of Euler characteristic curve for circular uniform spacings and Vietoris Rips or Čech topology-based goodness-of-fit"
+      ]
+    },
+    "rationale": "Explicitly excludes from novelty the preexisting centered U-statistic and same-bandwidth variance of Li–Yuan (2019); none of the inspected multikernel or high-dimensional literature directly states the exact distinct-bandwidth Gaussian one-sample covariance and sharp d^{-1/2} dependence trichotomy. Search limits and incomplete Yan–Zhang access are acknowledged.",
+    "residual_risks": [
+      "An unstated one-sample multi-bandwidth polarization formula or broader Gaussian-kernel fluctuation theorem may imply part of the classification.",
+      "Publisher access to parts of Yan–Zhang (2022/2023) was incomplete; the accessible sections and statements were compared.",
+      "No global novelty guarantee follows from database or web search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same-bandwidth formula covered; two-bandwidth correlation phase diagram not stated",
+        "evidence": [
+          "pp. 7–10: centered kernel and explicit same-bandwidth null variance, Eq. (1)",
+          "Appendix A: Gaussian-kernel Fourier properties"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1909.03302",
+        "material_read": "Pages 5–11 (definition, variance Eq. (1), one-sample null test); Appendix A Gaussian kernel identities; inspected title/abstract and section scope",
+        "method": "Full-text PDF section and appendix reading, equation comparison",
+        "title": "On the Optimality of Gaussian Kernel Based Nonparametric Tests against Smooth Alternatives",
+        "trigger": "Exact same one-sample centered kernel and Gaussian-bandwidth U-statistic"
+      },
+      {
+        "assessment": "Two-sample aggregation/power; not covering the known-Gaussian one-sample null cross covariance",
+        "evidence": [
+          "p. 6 Definition 1: normalized soft maximum of two-sample MMD statistics",
+          "p. 8 and p. 17: varying bandwidths for multiscale tests"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.08777",
+        "material_read": "Pages 1–9 and page 17, Definition 1, aggregation and bandwidth design; searched document for covariance/bandwidth",
+        "method": "Full-text PDF sections and targeted term search",
+        "title": "MMD-FUSE: Learning and Combining Kernels for Two-Sample Testing Without Data Splitting",
+        "trigger": "Adaptive combining of multiple Gaussian bandwidths"
+      },
+      {
+        "assessment": "Two-sample finite-level and minimax aggregation, not exact one-sample Gaussian covariance",
+        "evidence": [
+          "pp. 10–12: two-sample MMD estimator and permutation/bootstrap null calibration"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2110.15073",
+        "material_read": "Pages 1–12, Sections 2–3 and permutation/wild-bootstrap calibration; checked for covariance terminology",
+        "method": "Full-text PDF section reading and search",
+        "title": "MMD Aggregated Two-Sample Test",
+        "trigger": "Foundational multibandwidth kernel aggregation"
+      },
+      {
+        "assessment": "Relevant high-dimensional two-sample moment-linearization result, but no identified exact one-sample null two-bandwidth covariance; partial access is a priority risk",
+        "evidence": [
+          "Biometrika 110 (2023), Introduction: dimension- and sample-order asymptotics and bandwidth sensitivity",
+          "article premise: two-sample discrepancy and power, not one-sample fixed-null joint correlations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/biomet/asac049",
+        "material_read": "Accessible article Introduction, §2 preliminary definitions and scope, §6 bandwidth discussion summary; full article access was incomplete",
+        "method": "Publisher HTML accessible excerpts and scientific statement comparison",
+        "title": "Kernel two-sample tests in high dimensions: interplay between moment discrepancy and dimension-and-sample orders",
+        "trigger": "Possible stronger high-dimensional bandwidth equivalence"
+      },
+      {
+        "assessment": "Power under mean shift, not directly same null covariance claim; limited source inspection",
+        "evidence": [
+          "Abstract: power independent of Gaussian bandwidth above median-heuristic scale under mean-difference alternatives"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.00655",
+        "material_read": "Abstract and search-described main conclusions on mean-difference alternatives; not full text",
+        "method": "Primary arXiv abstract and related results",
+        "title": "Adaptivity and Computation-Statistics Tradeoffs for Kernel and Distance based High Dimensional Two Sample Testing",
+        "trigger": "Previously established bandwidth-independent high-dimensional power"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e79a24ae-f730-4edb-9c28-fb1ed382a6ab",
+  "value": {
+    "rationale": "Multiscale kernel test calibration depends on genuine null bandwidth dependence. A sharp threshold separates near-perfect redundancy, nontrivial critical correlation, and decorrelation; the explicit finite-n covariance computes effective redundancy without null resampling. The result concerns correlation, not power or validity of an adaptive test.",
+    "status": "PASS"
+  }
+}
