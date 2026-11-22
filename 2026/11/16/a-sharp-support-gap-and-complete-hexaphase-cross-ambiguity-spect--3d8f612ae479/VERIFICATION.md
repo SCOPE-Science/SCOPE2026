@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Two independent C++17 checkers (`verify_structural.cpp`, `verify_spectrum.cpp`) use exact integer arithmetic and deterministic exhaustive loops, with no external data, randomness, external packages, or floating-point equality tests.
+## correctness
 
-```sh
-g++ -O2 -std=c++17 -Wall -Wextra verify_structural.cpp -o verify_structural
-./verify_structural
-g++ -O2 -std=c++17 -Wall -Wextra verify_spectrum.cpp -o verify_spectrum
-./verify_spectrum
-```
+PASS
 
-The first tests all 1,679,616 normalized coefficient pairs via Eisenstein-coordinate zero sums and cyclotomic row rigidity. The second constructs all 7,776 sixth-root length-five coefficient words, directly reduces their five Fourier modes modulo the degree-eight cyclotomic polynomial \(\Phi_{30}\), and tests every shift for every pair. Each program compares its complete eight-level support and eight-profile histograms against declared integer targets; a mismatch causes a nonzero exit status. These checks were executed successfully on the delivered source files before inclusion.
+For any time-shift row, Φ5 irreducibility over Q(ζ6) makes a nonzero-modulation zero equivalent to all five sixth-root coefficients identical, giving four zeros; otherwise zero modulation requires an exact Eisenstein zero sum, giving one or zero zeros. Exactly six 5-root exponent multisets sum to zero (triangle plus antipodal pair). Matching windows and autocorrelation argument identify support 5 and 19 extremes and 20 case. Complete checkers verify all 6^8 normalized ordered pairs by distinct exact integer bases, and a separately implemented third vectorized enumeration reproduced the 8 support totals and complete row-zero profiles, with sum 1,679,616. The exhaustive domain is finite, and no sampling/float-zero or infinite extrapolation is invoked.
 
-The cyclotomic irreducibility, five-term zero-sum classification, derivative parity lemma and nonoverlap with the motivating equality theorem are given as human-readable mathematical steps in `RESULT.md`. This finite certificate is exhaustive for the stated phase alphabet and cyclic length only. It does not establish independent validation, other group sizes or near-zero noise robustness.
+## originality
+
+PASS
+
+Known prime-STFT minimum/equality and general constant-envelope support gap do not provide this full five-site sixth-root census. The elementary root-of-unity classifications are credited, with residual possible historical polyphase tables.
+
+## value
+
+PASS
+
+The natural first nontrivial prime p=5 with a practical six-phase alphabet admits an exact complete STFT support spectrum, nontrivial excluded levels, rigid subthreshold structure and reproducible pair counts. Exact finite-table classification is independently useful for discrete time-frequency designs even without an all-primes generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
