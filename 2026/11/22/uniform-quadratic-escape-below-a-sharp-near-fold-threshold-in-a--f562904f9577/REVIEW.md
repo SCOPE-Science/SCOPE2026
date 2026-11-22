@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The real-plane formula for the continuous map is used without smoothing at the absolute-value corner. Direct symbolic substitution confirms the precise identity for \(W=y+(1+b)x^2/2\), and completion of squares proves a uniform strict one-step drift below the boundary. At equality the zero set of the drift is exactly two points, neither mapping into the zero set, so a continuous coercive two-step drift has positive global minimum. This proves escape of every orbit at a uniform square-root lower rate, not just failure to detect a periodic orbit. Stationarity would contradict dominated convergence on bounded balls. The period-two midpoint and discriminant comparison are established independently in the proof and checked symbolically. The equality argument is needed and included.
+
+## Originality — PASS within inspected evidence
+The primary full 2019 paper reports numerical bifurcations, not a global escape theorem. The 2018 antecedent full article describes related quadratic systems and numerical attractors but no positive-\(a\) all-trajectory escape bound. The closest published same-map research record, *Two disjoint attracting two-cycle bands in a fixed-point-free quadratic map* (2026), derives a period-two census and stability bands on a fixed one-parameter slice. This does not imply absence of all compact nonperiodic or higher-period recurrent dynamics in the current positive four-parameter escape chamber. The source's generic quadratic two-cycle reduction is credited; neither that identity nor the same numerical parameters is claimed as novel. Searches for drift, aliases, stationarity, invariant probability and global recurrence in the original map found no dominating same-map claim. The abstract-only 2022 review and unindexed broader recurrence results remain priority risks.
+
+## Mathematical value — PASS
+The original map is promoted as exhibiting hidden periodic and chaotic attractors without equilibria, but the scope of initial states and parameters admitting **any** bounded recurrence is not settled by numerical bifurcation diagrams or a low-period census. This theorem gives an entire open parameter chamber and its nontrivial closed boundary where every initial state is forced to infinity, at a definite polynomial rate. For the original parameter slice the exact gap to the first possible two-cycle is \(1/5210\), so the sufficient region approaches the natural first periodic-orbit boundary closely without claiming sharpness. This is a global recurrence-versus-escape statement, not a routine reparameterization of a published cycle formula.
+
+## Limitations and priority risks
+The narrow region between the escape threshold and the two-cycle fold remains unresolved, and the bound need not be optimal. The threshold at equality requires global two-step coercivity; a one-step positivity claim would be false at two points. Comparisons do not exhaust unindexed literature or the unavailable full 2022 overview. The symbolic checker verifies algebraic claims; no finite test substitutes for the infinite-orbit proof.
+
+Self-review: passed. Independent audit: not yet performed.
