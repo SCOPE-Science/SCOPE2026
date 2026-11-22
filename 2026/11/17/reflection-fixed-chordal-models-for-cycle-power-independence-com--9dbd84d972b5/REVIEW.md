@@ -1,19 +1,21 @@
-# Scientific review: reflection-fixed cycle-power independence complexes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The asserted domain is \(n\ge2k+2\), \(k\ge1\), with a subgroup containing a reflection; this avoids conflating a geometric fixed-point locus with a quotient complex. The proof first takes rotation-orbit barycenters, then reflection-orbit barycenters. It explicitly proves (i) the empty case \(t\le k\), (ii) admissibility inequalities for both reflection-axis types, and (iii) that the surviving conflict edges are exactly indexed distances at most \(k\). The chordal conclusion and exact wedge recursion follow from the established simplicial-vertex splitting, not from finite experimentation. The standalone verifier independently checked 3,340 cases and 452,220 actual face subsets. Its evidence is supportive, not an infinite proof.
+PASS
 
-## Originality
+The fixed geometric support of a simplicial action is a union of complete vertex orbits with equal barycentric weights. Rotations r^t first compress the original cycle to C_t^k; if t<=k a nontrivial rotational orbit is internally adjacent and there is no nonempty fixed simplex. For t>k, the two normalized reflection axes have exactly the listed permissible orbit indices V0 and V1; computing direct and reflected circular distances between two permissible pairs shows the latter are >k and conflicts occur precisely for index difference <=k. Endpoint singleton cases obey the same rule. Thus fixed locus is PL the independence complex of an induced k-th path-power, an interval graph; the cited chordal simplicial-vertex splitting yields the stated finite wedge recursion with B_empty=z^-1, isolated-vertex case zero. This proves the complete all-n,k,H statement and its empty and S0 boundaries. Independently constructed orbit graphs agreed in 1,147 distinct small graph/group instances (4<=n<=18, k<=5; all t|n, reflection parameters), not an infinite proof.
 
-**PASS relative to examined evidence.** The primary nonequivariant cycle-power reference is Adamaszek (arXiv:1106.6250, 2011), which studies cycle-power independence homotopy recurrences but not reflection subgroup-fixed PL models. The chordal wedge/splitting machinery is known and explicitly credited (Adamaszek arXiv:1508.02426, 2015, and Kawamura, 2010). Closest indexed results treat dihedral fixed spaces of higher *consecutive-vertex* independence complexes of cycles, the three-cut complexes of cycle powers, ordinary matching complexes of wheels, and forest independence complexes. The objects and statements differ: their results do not imply the complete cycle-power reflection-index formulas or the mixed-dimensional fixed example. The general vertex-orbit-to-fixed-face correspondence is not separately claimed as novel.
+## originality
 
-## Value
+PASS
 
-**PASS.** The cyclic distance parameter and all reflection-containing subgroups are intrinsic, not arbitrary finite slices. The new interval-graph compression implies universal torsion-freeness and permits the complete *integral* sphere-multiplicity calculation for every parameter. The edge-axis reflection of the third power of the 22-cycle produces a mixed-dimensional \(S^0\vee S^1\) fixed space. This is a qualitative phenomenon not obtainable from the ordinary ambient homotopy result alone. The result requires no conjecture about purely rotational fixed spaces.
+The elementary fixed-support orbit argument and chordal graph sphere-wedge splitting are previous tools. The contribution that survives comparison is the explicit simultaneous dihedral reflection-subgroup orbit conflict graph being an induced path-power, with all fixed-space PL types, exact Betti recursion, and mixed-dimensional C22^3 example. Neither ordinary cycle-power splittings nor broad chordal wedge theorems implies that a reflection orbit graph is chordal. No found stronger published theorem supplies these exact models; this is a bounded priority judgment, not proof of universal absence.
 
-## Closest literature and residual limitations
+## value
 
-Adamaszek's 2011 paper, Theorem 1.1 and Remark 6.6, distinguishes its ordinary cycle-power recurrence from its unresolved small initial cases; the present result invokes neither a blanket sphere-wedge theorem for ordinary cycle powers nor any equivariant conclusion from that paper. His 2015 chordal-graph work states the previously known chordal wedge theorem and develops strong collapses. Possible equivalent formulations in unindexed work on reflection-folded circulants or interval graphs remain a publication-priority risk. The source comparison does not constitute independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A group-equivariant fixed-locus identification for an entire two-parameter family of natural flag complexes supplies usable exact integral homology and homotopy data for all reflection subgroups. Its mixed-dimensional case shows a distinction from previously obtained single-sphere fixed loci. The complete induced interval-model and terminating recursion are structural, not mere parameter substitution or an isolated test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

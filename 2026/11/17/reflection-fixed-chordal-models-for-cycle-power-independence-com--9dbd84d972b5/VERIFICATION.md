@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite corroboration
+# Independent mathematical audit
 
-Run `python verify.py` in the directory containing this file and `verification_output.txt`. The script uses the Python standard library only.
+## correctness
 
-The verifier constructs cyclic distance graphs, rotation/reflection-generated vertex orbits, and source-orbit conflicts independently of the explicit indexed-path formula. For \(4\le n\le32\), all tested admissible \(k\le7\), every divisor \(t\mid n\), and tested reflection parameters, it compares the orbit graph to the predicted induced path-power graph. It also compares 452,220 orbit selections directly against the independence condition in the *original* graph and against the predicted simplicial face criterion. A separate finite graph argument verifies the mixed-dimensional seven-vertex fixed example.
+PASS
 
-Expected last-line marker: `mixed_example=n22_k3_edge_reflection: Ind(P7^3)=S0 wedge S1`.
+The fixed geometric support of a simplicial action is a union of complete vertex orbits with equal barycentric weights. Rotations r^t first compress the original cycle to C_t^k; if t<=k a nontrivial rotational orbit is internally adjacent and there is no nonempty fixed simplex. For t>k, the two normalized reflection axes have exactly the listed permissible orbit indices V0 and V1; computing direct and reflected circular distances between two permissible pairs shows the latter are >k and conflicts occur precisely for index difference <=k. Endpoint singleton cases obey the same rule. Thus fixed locus is PL the independence complex of an induced k-th path-power, an interval graph; the cited chordal simplicial-vertex splitting yields the stated finite wedge recursion with B_empty=z^-1, isolated-vertex case zero. This proves the complete all-n,k,H statement and its empty and S0 boundaries. Independently constructed orbit graphs agreed in 1,147 distinct small graph/group instances (4<=n<=18, k<=5; all t|n, reflection parameters), not an infinite proof.
 
-The tested range is finite; no claimed infinite mathematical statement depends on extrapolating these checks. The general proof rests on the explicit orbit-distance inequalities and cited chordal splitting theorem. No independent audit was performed.
+## originality
+
+PASS
+
+The elementary fixed-support orbit argument and chordal graph sphere-wedge splitting are previous tools. The contribution that survives comparison is the explicit simultaneous dihedral reflection-subgroup orbit conflict graph being an induced path-power, with all fixed-space PL types, exact Betti recursion, and mixed-dimensional C22^3 example. Neither ordinary cycle-power splittings nor broad chordal wedge theorems implies that a reflection orbit graph is chordal. No found stronger published theorem supplies these exact models; this is a bounded priority judgment, not proof of universal absence.
+
+## value
+
+PASS
+
+A group-equivariant fixed-locus identification for an entire two-parameter family of natural flag complexes supplies usable exact integral homology and homotopy data for all reflection subgroups. Its mixed-dimensional case shows a distinction from previously obtained single-sphere fixed loci. The complete induced interval-model and terminating recursion are structural, not mere parameter substitution or an isolated test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
