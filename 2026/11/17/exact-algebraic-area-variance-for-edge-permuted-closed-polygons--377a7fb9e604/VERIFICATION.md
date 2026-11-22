@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The mathematical argument is self-contained in `RESULT.md`: exact pair-order correlations, a closure-based cancellation identity, Cauchy–Binet and two-dimensional spectral extremality, Haar–Stiefel row-sphere conditional moments, and an explicit order-ratio sign calculation. There is no reliance on finite experiments to deduce the all-size theorem.
+# Independent mathematical audit
 
-The attached `check_area_variance.py` was executed with Python and NumPy. It exhaustively enumerated every edge permutation for 18 exact integer closed lists with 3–7 edges. The exact rational values agreed with both the sum of squared determinants and the determinant of the edge second-moment matrix. A separate Haar sampler with Gaussian QR produced 180,000 independent frames for each of 3, 4, 5, 10 and 25 edges. Empirical signed-area variances were 0.009513687, 0.011124909, 0.010620600, 0.005747868 and 0.001515837; the respective exact predictions were 0.009523810, 0.011111111, 0.010582011, 0.005772006 and 0.001506369. All five comparisons satisfied the specified 4% relative tolerance. The checker printed `EXCHANGEABLE_SIGNED_AREA_VARIANCE_OK`.
+## correctness
 
-Numerical tests are corroborative and do not independently prove infinitely many cases. Independent mathematical and historical validation was not performed.
+PASS
+
+For a fixed zero-sum planar edge list, oriented shoelace gives 2Aσ=Σ_{i<j}εij det(ei,ej). For disjoint pairs permutation-sign covariances vanish; for each i<j<k shared-index covariances are (+1/3,−1/3,+1/3). Closure Σ_{j≠i}det(ei,ej)=0 yields triple sum T=−B for B=Σdet(ei,ej)^2, so Var(A)=B/12=det Q/12 by Cauchy–Binet. If eigenvalues Q are λ1,λ2, detQ<=S²/4 with isotropic equality, zero iff collinear. Haar V2(R^n) closed planar edges (u_j+iv_j)^2 are exchangeable, and the conditional second-row spherical moment E[u2²v2²|a]=(1−a)/((n−1)(n+1)) and a~Beta(1,(n−2)/2) with E[a²(1−a)]=8(n−2)/[n(n+2)(n+4)] imply Var(A_n)=4(n−2)/[3(n+1)(n+2)(n+4)] for n>=3. Ratio V_{n+1}/V_n transitions from >1 at n3 to <1 for n>=4, hence unique n4 maximum 1/90. Independently exact shoelace permutation checks returned variances 9, 41/3,1/3 for three closed input lists. Signed algebraic area, not hull area.
+
+## originality
+
+PASS
+
+Cantarella, Deguchi and Shonkwiler (arXiv:1206.3161), §6 Proposition 15, already analyze edge-set ensembles for *squared chords* and expected radius of gyration, not second moment of oriented signed polygonal area. Cantarella et al. arXiv:1702.01027 already imply n=3 special 1/105 via spherical product formula; that case is expressly not claimed new. The fixed-edge signed-area variance detQ/12 and all n>=4 Haar–Stiefel law are distinct from chord and unsigned convex hull statistics. Published Resultary Nov8 equilateral edge-rearrangement chord-variance theorem likewise treats chord moments, not algebraic signed area.
+
+## value
+
+PASS
+
+A permutation-exact oriented area variance determined by just the second-moment matrix is a natural sharp identity for any closed edge set. Pushing it through canonical Haar–Stiefel polygon sampling produces a nontrivial exact all-size law and a unique four-edge variance maximizer, relevant to random polygon geometry beyond the known triangle moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
