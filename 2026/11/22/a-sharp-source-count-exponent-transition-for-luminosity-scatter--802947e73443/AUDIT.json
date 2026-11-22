@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "The inverse-square visibility radius gives the capped power expectation exactly. Completing the Gaussian square yields the closed form and derivative S_prime=(alpha/2)[(alpha-1)M-p_t(0)]. For alpha>1, the integral ratio H=M/p_t(0) solves the first-order identity 2t^2 H_prime=(t+b^2t^2-d^2)H+t(d-bt). Subtracting 1/c and applying a positive integrating factor produces a derivative with the sign of a quadratic Q(t) with exactly one positive root; endpoint signs force precisely one crossing when d<0. For d>=0, H<1/b<1/c. The subcritical alpha<=1 branch is immediate. Expanding H at t=2log(1/x)+O(1) and evaluating the Gaussian boundary density proves the asymptotic. All hypotheses, boundaries and finite-versus-infinite verification limits appear in RESULT.md. Independently programmed normal-CDF and radial quadrature diagnostics plus derivative checks passed 628 assertions in verify.py; they supplement rather than constitute the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sylos Labini et al., arxiv:astro-ph/9605135, equations relating N(>f) to f^(-D/2) and finite-volume luminosity-selection integrals, already imply the general expectation before specifying the lognormal family.",
+        "Butkevich et al., doi:10.1111/j.1365-2966.2005.09306.x, develop magnitude-/distance-conditioned Malmquist bias integrals for normal absolute magnitudes.",
+        "Nord et al., arxiv:0706.2189, construct lognormal X-ray luminosity scatter and flux-selection windows for galaxy clusters, with scatter parameters fixed while studying bias and scaling relations."
+      ],
+      "reasoning": "The generic selection expectation is fully conceded as pre-existing. None of the examined broader theories compares all nonnegative scatter variances under an invariant arithmetic mean with finite-volume capping, or proves one sign change using a Gaussian-ratio ODE. The 2007 lognormal centering differs from fixed arithmetic mean in the present theorem; generic analytic integration is not a dominating global optimum classification.",
+      "searches": [
+        "lognormal luminosity scatter Malmquist bias finite volume flux limited survey unique optimal scatter detection fraction geometric Brownian truncation",
+        "optimal dispersion lognormal brightness source counts finite survey horizon detection maximization",
+        "flux limited Euclidean volume lognormal luminosity selection nonmonotone scatter maximizer",
+        "finite-radius flux-limited Euclidean astronomical survey lognormal luminosity fixed arithmetic mean unique variance maximize detected counts boundary source-count dimension two",
+        "finite size effects galaxy number counts luminosity function finite volume 1996 Sylos Labini",
+        "Effects of Selection and Covariance on X-ray Scaling Relations of Galaxy Clusters 0706.2189"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/astro-ph/9605135",
+      "https://doi.org/10.1111/j.1365-2966.2005.09306.x",
+      "https://arxiv.org/abs/0706.2189",
+      "https://ned.ipac.caltech.edu/level5/March03/Teerikorpi/Teerikorpi2_2.html",
+      "https://www.javatips.net/api/OG-Platform-master/projects/OG-Analytics/src/main/java/com/opengamma/analytics/financial/model/option/definition/CappedPowerOptionDefinition.java",
+      "Published mathematical-result links named in four comparisons",
+      "Accessible prior mathematical claim texts searched for topic/aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:astro-ph/9605135 supplies radial power-count and selection expectations; it does not directly state behavior when lognormal variance varies at a fixed mean.",
+        "arxiv:0706.2189 studies luminosity-temperature covariance, cluster counts and selection bias, not the globally optimal nonzero scatter and its unique limiting law.",
+        "No exact indexed record match was found; the relevant queried results concern optical source imaging, sampling and statistical estimation with different objects and parameter constraints."
+      ],
+      "reasoning": "A formula for expected detection under an arbitrary luminosity function subsumes the numerical value of this detection fraction, but does not automatically imply global unimodality, existence iff q>2 and x<1, or t_*=2log(1/x)-2/(q/2-1)+O(1/log(1/x)). These are separate quantified inequalities and asymptotic conclusions established by the newly supplied ratio equation. Jensen/convex order explains only the q<=2 branch, not the strict count-slope upper branch and uniqueness.",
+      "searches": [
+        "lognormal luminosity scatter Malmquist bias finite volume flux limited survey unique optimal scatter detection fraction geometric Brownian truncation",
+        "geometric Brownian clipped power payoff volatility optimal unique maximum",
+        "finite-radius flux-limited Euclidean astronomical survey lognormal luminosity fixed arithmetic mean unique variance maximize detected counts boundary source-count dimension two",
+        "truncated power lognormal expectation sharp unimodality in variance Brownian heat flow",
+        "flux limited Euclidean volume lognormal luminosity selection nonmonotone scatter maximizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The core expectation is exactly a lognormal capped-power payoff, with exponent q/2; truncated Gaussian moment formulas are classical and explicitly not claimed.",
+        "OpenGamma capped-power option documentation, https://www.javatips.net/api/OG-Platform-master/projects/OG-Analytics/src/main/java/com/opengamma/analytics/financial/model/option/definition/CappedPowerOptionDefinition.java, discusses a related capped call-power payoff, not this zero-strike min(1,z^alpha) all-volatility classification.",
+        "Closest published Gaussian-plume optimization record A strict separation between joint-parameter and location-only optimal Gaussian-plume transects (2026) concerns Poisson instrument placement, not fixed-mean luminosity selection."
+      ],
+      "reasoning": "The lognormal expected capped power is a legitimate equivalent representation; a change of financial interpretation does not by itself supply the all-logvariance uniqueness or count-exponent transition. The inspected capped option definition differs in payoff by a positive-strike threshold and offers no global volatility result. Possible uninspected specialized option-pricing coverage remains an explicit residual risk, not treated as disproven.",
+      "searches": [
+        "lognormal luminosity scatter Malmquist bias finite volume flux limited survey unique optimal scatter detection fraction geometric Brownian truncation",
+        "flux limited Euclidean volume lognormal luminosity selection nonmonotone scatter maximizer",
+        "geometric Brownian clipped power payoff volatility optimal unique maximum",
+        "statistical astronomy luminosity Malmquist intrinsic lognormal scatter capped detection volume visibility nonmonotone logvariance",
+        "truncated power lognormal expectation sharp unimodality in variance Brownian heat flow",
+        "capped power option volatility monotonicity maximum payoff",
+        "min(1 lognormal volatility optimal monotonic expected truncated power"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed semantic searches did not return a record with this detection fraction, q=2 all-variance cutoff, or the integral optimum equation.",
+        "Closest published record Sharp two-shell radial sampling laws for affine least-squares extrapolation (2026) is a radial optimal sampling theorem for affine least squares, not luminosity scatter.",
+        "Available historical claim texts were compared using search variants luminosity, lognormal, Malmquist, flux-limit, survey volume and capped-power, without finding the proposed theorem."
+      ],
+      "reasoning": "The integral and the unique optimum are not alleged to be absent from every possible database; accessible exact and semantic comparisons identified no matching table or certificate. Related numerical studies of survey completeness are not by themselves a theorem holding for every q and x.",
+      "searches": [
+        "optimal dispersion lognormal brightness source counts finite survey horizon detection maximization",
+        "finite-radius flux-limited Euclidean astronomical survey lognormal luminosity fixed arithmetic mean unique variance maximize detected counts boundary source-count dimension two",
+        "statistical astronomy luminosity Malmquist intrinsic lognormal scatter capped detection volume visibility nonmonotone logvariance",
+        "source count fractal radial exponent critical dimension two luminosity scatter survey yield",
+        "Malmquist luminosity scatter detection fraction fixed mean count slope two threshold scatter flux limited"
+      ]
+    },
+    "rationale": "The closest primary source already gives the luminosity-function selection integral and power-law flux-count exponent, but neither that paper nor the inspected 2005 bias theory or 2007 lognormal survey-selection analysis states or proves the fixed-arithmetic-mean global scatter optimization, its sharp count-exponent-two boundary, uniqueness at every subthreshold mean, or the asymptotic optimal log-variance. Multiple semantic record searches and recoverable historical-claim comparisons found no dominating equivalent. Novelty is therefore best-knowledge and not an independent priority certification.",
+    "residual_risks": [
+      "Option-pricing or actuarial literature on truncated lognormal power payoffs may include a stronger all-volatility unimodality theorem; no exhaustive full-text coverage of that specialized literature.",
+      "The power-law source population is an ideal model. Underlying 1990s empirical claims of a universal fractal galaxy exponent are debated; no empirical fractality claim is made.",
+      "Novelty is a best-knowledge scientific assessment; no independent originality certification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General expectation/selection formulation covered; no quantified lognormal fixed-mean variance optimizer or unique q=2 threshold in inspected text.",
+        "evidence": [
+          "Counts N(>f) proportional to f^(-D/2), finite-volume luminosity-function integration and source-number selection formulas; no relevant optimum variance equation found."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/astro-ph/9605135",
+        "material_read": "Accessible full-text material in introduction and early quantitative number-count and luminosity-function equations, including equations (1), (4), (5) and (9)-(15); subsequent sections reviewed for lognormal-scatter optimization terms.",
+        "method": "Lawful arXiv open-access full text and within-document searches for selection, luminosity, finite volume, variance and optimization",
+        "title": "Finite size effects on the galaxy number counts: evidence for fractal behavior up to the deepest scale",
+        "trigger": "Power-law radial counts and finite selection integrals may dominate the theorem"
+      },
+      {
+        "assessment": "Establishes relevant Malmquist and Gaussian-magnitude selection formulas, not strict all-variance detection-yield classification.",
+        "evidence": [
+          "Magnitude-limited bias integrals and distance-conditioned Gaussian magnitude bias; no source-count exponent-two global maximizer theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1365-2966.2005.09306.x",
+        "material_read": "Accessible article text including definitions and sections 2, 3.2, 3.3 and 6 describing magnitude and distance-dependent bias and selection integrals.",
+        "method": "Full-text article sections on the publisher-accessible HTML research copy and examination of their stated results",
+        "title": "Statistical biases in stellar astronomy: the Malmquist bias revisited",
+        "trigger": "Classical Gaussian-magnitude selection theory may cover lognormal luminosity fixed-scatter optimization"
+      },
+      {
+        "assessment": "Develops fixed-scatter lognormal selection windows and bias, but no fixed-arithmetic-mean global optimum or unique scatter threshold.",
+        "evidence": [
+          "Flux-limited window W(mu,z) and lognormal luminosity-temperature covariance are studied as selection corrections, not a scalar all-t global maximization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0706.2189",
+        "material_read": "Accessible article HTML sections on scaling assumptions, lognormal covariance, flux-limited window functions and conclusions.",
+        "method": "Full-text open-access source sections and targeted checks for variance optimization",
+        "title": "Effects of Selection and Covariance on X-ray Scaling Relations of Galaxy Clusters",
+        "trigger": "Lognormal flux-limited scatter in a primary application might already yield same optimizer"
+      },
+      {
+        "assessment": "Background selection-bias explanation; no exact optimizer of mean-preserving lognormal scatter.",
+        "evidence": [
+          "General statistical preference toward bright sources in a flux-limited catalog."
+        ],
+        "identifier_or_url": "https://ned.ipac.caltech.edu/level5/March03/Teerikorpi/Teerikorpi2_2.html",
+        "material_read": "Open accessible review subsection 2.2 on magnitude and volume selection, with surrounding discussion.",
+        "method": "Open full review subsection",
+        "title": "Observational selection bias affecting the determination of the extragalactic distance scale",
+        "trigger": "Classical Malmquist treatment and derivative identities"
+      },
+      {
+        "assessment": "Related but distinct capped call-power payoff, with no proven global volatility uniqueness in material read. This limited inspection is not evidence about all option-theory literature.",
+        "evidence": [
+          "Payoff is min(max(S^i-K,0),C), not immediately the zero-strike min(1,S^alpha) payoff; all-volatility assertion absent from snippet."
+        ],
+        "identifier_or_url": "https://www.javatips.net/api/OG-Platform-master/projects/OG-Analytics/src/main/java/com/opengamma/analytics/financial/model/option/definition/CappedPowerOptionDefinition.java",
+        "material_read": "Available definition and stated payoff in documentation; not a complete analytic financial research paper.",
+        "method": "Public code documentation page and explicit payoff comparison",
+        "title": "CappedPowerOptionDefinition.java",
+        "trigger": "Financial derivative with an equivalent capped nonlinear payoff may have pre-existing volatility theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "802947e7-3443-4472-9af8-88ca50a0ca43",
+  "value": {
+    "rationale": "A finite flux-limited catalog is a motivated nonlinear selection system where increasing variance at fixed arithmetic mean may improve or worsen detection. The result supplies the sharp radial-count exponent q=2 dividing universal decline from a uniquely optimum nonzero intrinsic scatter when the mean is below the edge sensitivity, plus an exact optimizer equation and faint-source asymptotic. It distinguishes a global optimum from a qualitative Jensen-effect claim and provides a reproducible analytic baseline for selection simulation. These mathematical structural conclusions are meaningful but not field-calibrated, and no practical adjustment of real population scatter is proposed.",
+    "status": "PASS"
+  }
+}
