@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs exact domain and density, strict finite-n KL optimizer uniqueness, differentiable incomplete-gamma hazard expansion, whole-line KL tail truncation, score projection and explicit positive zeta-value residual. Included checker independently evaluates Gram and two finite-n exact integral examples; those finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gasull–López-Salcedo–Utzet provide gamma quantile/scale formulas and CDF comparison, not KL fitting.",
+        "The indexed normal-extreme rate paper concerns Gaussian rather than Gamma tails; this is not a claim of its noncoverage after only reading the abstract."
+      ],
+      "reasoning": "General Gumbel domain-of-attraction and gamma CDF error theorems are not themselves an exact optimally fitted forward-entropy coefficient; the latter requires integrating and removing both nuisance score components. Known exponential case is the exceptional alpha=1 slice and cannot dominate alpha different from one.",
+      "searches": [
+        "normalized gamma chi-square extremes second order Gumbel density expansion",
+        "Maxima of Gamma random variables and other Weibull like distributions and the Lambert W function",
+        "arXiv:2507.09496 normal extremes KL rate"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2007.03569",
+      "https://arxiv.org/pdf/2007.03569",
+      "https://doi.org/10.1017/jpr.2023.37",
+      "https://files01.core.ac.uk/download/pdf/78533779.pdf",
+      "https://doi.org/10.1007/s11749-015-0431-9",
+      "https://arxiv.org/abs/2507.09496"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Johnson establishes D->0 and discusses rate as an open direction.",
+        "Gasull et al. establish the hazard normalization and CDF convergence in Gamma extrema.",
+        "The earlier exponential-maxima KL result is specific to alpha=1; the present theorem excludes that endpoint and has a different asymptotic order."
+      ],
+      "reasoning": "The new claim states a positive exact sharp constant for the globally minimized forward KL and unique affine optimizer for every fixed nonexponential Gamma shape. Neither convergence without rates, CDF-only improvements, nor the exponential special case logically implies the stated projection identity and zeta constant without new analysis.",
+      "searches": [
+        "sharp asymptotic relative entropy Kullback-Leibler Gamma maxima Gumbel hazard normalization log^4 n",
+        "optimal Gumbel location scale approximation to Gamma sample maximum KL divergence shape phase transition",
+        "normalized gamma chi-square extremes second order Gumbel density expansion",
+        "doi:10.1007/s11749-015-0431-9",
+        "arXiv:2007.03569"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Johnson proves Gamma maximum convergence to Gumbel in forward KL, with Gamma reciprocal-hazard scaling.",
+        "Affine optimization of the unnormalized maximum and normalized maximum are equivalent; neither provides the new optimized asymptotic coefficient in the inspected primary source."
+      ],
+      "reasoning": "The mathematical equivalent is an optimal forward-KL affine Gumbel approximation to the maximum. The inspected relative-entropy source has convergence, not sharp logarithmic-fourth-order optimization; its proposed optimal-rate problem remains distinct.",
+      "searches": [
+        "sharp asymptotic relative entropy Kullback-Leibler Gamma maxima Gumbel hazard normalization log^4 n",
+        "optimal Gumbel location scale approximation to Gamma sample maximum KL divergence shape phase transition",
+        "arXiv:2007.03569; gamma relative-entropy convergence",
+        "doi:10.1017/jpr.2023.37"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed mathematical record on optimal exponential-maxima Gumbel fit: order n^{-2} and coefficient 1/2-3/pi^2.",
+        "Gamma normalization tables in the 2015 TEST paper tabulate centering/scale accuracy, not KL constants."
+      ],
+      "reasoning": "No identified exact table contains the universal nonexponential constant C*, the optimizing correction pair, or the fitted Gamma KL limit. Index and literature coverage remain incomplete, so the absence of a hit is not proof of uniqueness.",
+      "searches": [
+        "Apéry zeta(3) constant minimal Kullback Leibler gamma maxima extreme value",
+        "sharp asymptotic relative entropy Kullback-Leibler Gamma maxima Gumbel hazard normalization log^4 n",
+        "Gamma sample maximum Gumbel Kullback-Leibler exact rate tables"
+      ]
+    },
+    "rationale": "Johnson (arXiv:2007.03569) proves information-theoretic convergence and names optimal-rate questions; Gasull et al. (TEST 2015) have the Gamma max and norming constants but compare CDFs; prior KL optimum for exponential maxima is excluded (alpha=1). No published source inspected implies this positive universal fitted-KL coefficient for fixed nonexponential Gamma shapes. Historical priority is qualified.",
+    "residual_risks": [
+      "An unidentified specialized paper may derive the same optimized Gamma KL coefficient from a broader KL expansion.",
+      "Some original-source figures could not be rendered although relevant extracted text was read.",
+      "The 2025 Gaussian relative-entropy paper was only available as an abstract and is not used for an exact whole-document negative coverage claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves convergence to zero; does not provide the fitted-Gumbel minimum, fixed-Gamma fourth-logarithm coefficient or zeta residual.",
+        "evidence": [
+          "arXiv:2007.03569; Gamma example in section 4; last section states interest in optimal rate of convergence in relative entropy."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.03569",
+        "material_read": "Introduction; definitions and KL identity; Gamma example in section 4; proof and concluding remarks including open optimal-rate question",
+        "method": "Primary arXiv full-text PDF text extraction and rendered page",
+        "title": "Information-theoretic convergence of extreme values to the Gumbel distribution",
+        "trigger": "Same parent Gamma maximum, same forward relative entropy, potential dominating rate theorem"
+      },
+      {
+        "assessment": "Supplies Gamma maximum norming and CDF convergence but not forward-KL optimization or the projection constant. May allow partial perturbative ingredients; not direct coverage.",
+        "evidence": [
+          "TEST 24 (2015), 714–733; DOI 10.1007/s11749-015-0431-9; section 5 studies Gamma norming and section 3 CDF approximation."
+        ],
+        "identifier_or_url": "https://files01.core.ac.uk/download/pdf/78533779.pdf",
+        "material_read": "Abstract, introduction, sections 2-3 including convergence and norming comparison, sections 5-5.2 for Gamma tail and norming constants, section 7 conclusions; document search for information divergence terms",
+        "method": "Open-access preprint PDF extracted text; image render attempt was rejected by host with HTTP 403",
+        "title": "Maxima of Gamma random variables and other Weibull-like distributions and the Lambert W function",
+        "trigger": "Exactly matching Gamma sample maximum and hazard normalization, potentially stronger CDF and density corrections"
+      },
+      {
+        "assessment": "Different Gaussian parent law and different normalizations; no claim about Gamma KL extrapolated from an unread paper.",
+        "evidence": [
+          "arXiv:2507.09496 abstract specifies normal maxima."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.09496",
+        "material_read": "Indexed abstract only",
+        "method": "Public abstract; not a complete comparison",
+        "title": "Revisit on the convergence rate of normal extremes",
+        "trigger": "Search for relative-entropy rates and normal-extreme analogues"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "461e7c58-350c-4276-a381-6567bcb8ba0e",
+  "value": {
+    "rationale": "Exact sharp residual information after optimizing both Gumbel location and scale for every fixed nonexponential Gamma shape is a natural refinement of published entropy convergence; it provides the nontrivial universal zeta(3) constant and a unique calibration, distinct from the faster exponential endpoint. Relevant for chi-square/Gamma maximum false-alarm calibration.",
+    "status": "PASS"
+  }
+}
