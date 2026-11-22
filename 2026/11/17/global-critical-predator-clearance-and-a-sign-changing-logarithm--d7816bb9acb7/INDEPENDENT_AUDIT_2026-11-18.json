@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T05:15:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a<=alpha*d, f(z)=(d+a z)e^{-alpha z} has f'(z)=e^{-alpha z}(a-alpha*d-alpha*a z)<0 when z>0. Positive u is protected by bounded z exp(-alpha z); v remains positive nonincreasing, u is logistic-upper-bounded and its positive overshoot above one has finite time integral. The compensated ratio z exp(-integral(u-1)_+) decreases, forcing z=v/u->0; lower logistic comparison then forces u->1. The exact reciprocal drift d(1-e^{-alpha z})/v->d alpha gives tv->1/(d alpha); the stable scalar ratio w/v=(1-u)/v->a. Exact H=(1-u)-a v equation gives H=O(v²), and independently expanded derivative of 1/v equals d alpha+d alpha(a-alpha/2)v+O(v²). Consequently v=1/(d alpha t)+O(log t/t²), allowing integration of the residual to finite C and the sign-changing logarithmic correction. SymPy exactly confirmed the displayed first two reciprocal-series terms. Global and infinite-time arguments are analytic, not evidence from the finite integration script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A published Lambert-fold theorem for the same model is not dominating because its required positive-ratio boundary equality is incompatible",
+          "Frontiers 2022 and https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-lambert-fold-extinction-with-a-noninteger-power-correction--4341070d577c"
+        ],
+        "reasoning": "The original Lambert-W equilibrium/exceptional branch coverage cannot imply the zero-ratio global attractor with logarithmic predator clock.",
+        "searches": [
+          "Resultary actual query: ratio dependent exponential Holling III predator prey critical b=d log t reciprocal predator rate a-alpha/2 global attractor",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-critical-predator-clearance-and-a-sign-changing-logarithm--d7816bb9acb7/RESULT.md",
+          "https://doi.org/10.3389/fams.2022.1083815"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-critical-predator-clearance-and-a-sign-changing-logarithm--d7816bb9acb7/RESULT.md",
+        "https://doi.org/10.3389/fams.2022.1083815",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-lambert-fold-extinction-with-a-noninteger-power-correction--4341070d577c",
+        "Blyuss et al 2021 Chaos 31 073141 studies delays/stochastic effects, not critical deterministic clock"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "b=d neutral invasion threshold alone does not imply global clearance or a finite logarithmically renormalized inverse-density limit",
+          "Assigned exact f decreasing, H=O(v²), reciprocal drift versus Frontiers fold conditions"
+        ],
+        "reasoning": "The global comparison and second-order stable response constitute the nonstandard implication missing from known equilibrium analysis.",
+        "searches": [
+          "Resultary actual query: ratio dependent exponential Holling III predator prey critical b=d log t reciprocal predator rate a-alpha/2 global attractor",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-critical-predator-clearance-and-a-sign-changing-logarithm--d7816bb9acb7/RESULT.md",
+          "https://doi.org/10.3389/fams.2022.1083815"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same nondelayed ratio-dependent Holling-type-III equations with b=d and unrescaled physical time",
+          "Frontiers 2022 model and its z=v/u blow-up; explicit monotonic f(z) comparison"
+        ],
+        "reasoning": "Same physical model, not a transformation of distinct ecological equations. Prior variable formulations are covered; novel quantitative critical b=d theorem remains.",
+        "searches": [
+          "Resultary actual query: ratio dependent exponential Holling III predator prey critical b=d log t reciprocal predator rate a-alpha/2 global attractor",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-critical-predator-clearance-and-a-sign-changing-logarithm--d7816bb9acb7/RESULT.md",
+          "https://doi.org/10.3389/fams.2022.1083815"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact model-wide asymptotic table at b=d,a<=alpha d found; existing Lambert-W root tables concern directional equilibria",
+          "Frontiers 2022 Lambert-W equilibrium tables; Resultary actual query above"
+        ],
+        "reasoning": "The claimed C and a-alpha/2 depend on asymptotic dynamics, not algebraic equilibrium tabulation.",
+        "searches": [
+          "Resultary actual query: ratio dependent exponential Holling III predator prey critical b=d log t reciprocal predator rate a-alpha/2 global attractor",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-critical-predator-clearance-and-a-sign-changing-logarithm--d7816bb9acb7/RESULT.md",
+          "https://doi.org/10.3389/fams.2022.1083815"
+        ]
+      },
+      "rationale": "The primary Blyuss–Kyrychko publications establish this exponential response and Lambert-W directional equilibria, but do not assert all-positive-seed global attraction at b=d under a<=alpha d or the exact reciprocal predator logarithmic clock. The published Lambert-fold result studies a fold with positive extinction ratio where (b+a z)e^{-alpha z}=d+1; for b=d and a<=alpha d, (d+a z)e^{-alpha z}<=d so that fold is algebraically impossible. Other critical predator-prey models have different response functions and are not equivalent.",
+      "residual_risks": [
+        "Broad unindexed global stability proofs for ratio-dependent flow might overlap; full 2021 Chaos article not re-read here.",
+        "Finite ODE integration in check.py was inspected rather than repeated at all three long horizons; the actual proof does not depend on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The Lambert equilibrium and fold calculations do not give the global b=d zero-ratio attraction nor model-dependent logarithmic correction",
+          "evidence": "Boundary equilibrium conditions and Lambert-W analysis, with distinct positive-ratio extinction regimes",
+          "identifier_or_url": "https://doi.org/10.3389/fams.2022.1083815",
+          "material_read": "Full accessible Frontiers article, model equations, blow-up and Lambert-W extinction equilibria, proof/dynamics and conclusions",
+          "method": "Open primary full-text HTML at https://www.frontiersin.org/journals/applied-mathematics-and-statistics/articles/10.3389/fams.2022.1083815/full",
+          "title": "Complex dynamics near extinction in a predator-prey model with ratio dependence and Holling type III functional response",
+          "trigger": "Exact exponential response and potential critical b=d theorem"
+        },
+        {
+          "assessment": "Opposite extinction-ratio fold and noninteger exponential decay, parametrically incompatible with b=d and a<=alpha d",
+          "evidence": "At assigned conditions (d+a z)e^{-alpha z}<=d < d+1, so fold equation cannot hold",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-lambert-fold-extinction-with-a-noninteger-power-correction--4341070d577c",
+          "material_read": "Full RESULT Finding, assumptions, proof and limitations including fold surface a=alpha(d+1)exp(1-q)",
+          "method": "GitHub full-result read-only retrieval",
+          "title": "Lambert-fold extinction with a noninteger power correction",
+          "trigger": "Potential stronger published theorem for the same response"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full physical-time second asymptotic at a nonhyperbolic invasion boundary gives a finite renormalized clock with an explicit ecological sign crossover. The structural condition a<=alpha d also yields a motivated, global all-seed extinction domain instead of a local center-manifold heuristic. Such a signed log correction is a natural, nontrivial exact invariant of the same named ecological response.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-critical-predator-clearance-and-a-sign-changing-logarithm--d7816bb9acb7/RESULT.md",
+    "https://doi.org/10.3389/fams.2022.1083815",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-lambert-fold-extinction-with-a-noninteger-power-correction--4341070d577c",
+    "Blyuss et al 2021 Chaos 31 073141 studies delays/stochastic effects, not critical deterministic clock"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Broad unindexed global stability proofs for ratio-dependent flow might overlap; full 2021 Chaos article not re-read here.",
+    "Finite ODE integration in check.py was inspected rather than repeated at all three long horizons; the actual proof does not depend on it.",
+    "Originality is a bounded best-of-knowledge judgment. Finite symbolic/numerical tests are not universal proofs.",
+    "Confidentiality transport hold on all public packages."
+  ],
+  "residual_risks": [
+    "Broad unindexed global stability proofs for ratio-dependent flow might overlap; full 2021 Chaos article not re-read here.",
+    "Finite ODE integration in check.py was inspected rather than repeated at all three long horizons; the actual proof does not depend on it."
+  ],
+  "schema_version": 1
+}
