@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact source queue equation (4.6), atom/continuous spatial transport difference, feasible threshold interval and strict scalar monotonicity yield unique PNE. Direct exact moment integration gives U0(-5)=25/2 and V0*=14375/36. Summed queue capacity gaps shrink to zero, and bounded cost gap forces slack fractions 23/48 and 25/48. Analytic desingularization near λ=24 proves first threshold correction −5/192. Independently packaged exact arithmetic and root checks pass; finite simulations are not used for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bodas–Ganesh–Manjunath (2021) full text §1–4 explicitly excludes heterogeneity in workload distribution; its general sorting theorem therefore does not imply energy-squared capacity slack formula.",
+        "Dupont–Petit–Séguret prove the general equilibrium existence/uniqueness (Theorem 2.1) but do not solve the numerical case asymptotically."
+      ],
+      "reasoning": "A general existence or sorting theorem does not dominate the model-specific heavy-traffic expansion. Existing broadly formulated queue and routing results were tested for assumptions permitting direct specialization; no such implication was established.",
+      "searches": [
+        "Non-Potential Congestion Games with a Continuum of Players Dupont Petit Seguret arxiv 2610.18035 high load exact asymptotic pure Nash market shares",
+        "heavy traffic Wardrop equilibrium two parallel queues heterogeneous job sizes congestion game asymptotic capacity slack waiting",
+        "web find: https://link.springer.com/article/10.1007/s41745-021-00258-w ; pattern: Theorem 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.18035v1 §4.3, §5 (full text)",
+      "Bodas, Ganesh, Manjunath (2021), DOI:10.1007/s41745-021-00258-w (open full text)",
+      "Liu et al., arXiv:2102.05851 (arXiv and detailed public version)",
+      "Published indexed result: Opposite quadratic mass and demand shifts under low-noise congestion choice (2026-10-25)",
+      "Published indexed result: Exponential bias selection from a continuum of two-resource equilibria (2026-11-08)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source numerically asserts energy shares approach 50%, explicitly credited as covered.",
+        "Original claim additionally contains exact EV counts 13/24, spare-capacity fraction 23/48, queue coefficient 1000, first correction −5/192.",
+        "Liu et al. study a different M/D/C formula with deterministic service times; Bodas et al. explicitly disallow service-size heterogeneity."
+      ],
+      "reasoning": "The source covers the qualitative energy-share limit and nonpotential-game setting; those are not proposed as original. The new statement requires the exact weighted threshold integrals and first/second-moment pole balancing, not a direct substitution into any identified stronger theorem.",
+      "searches": [
+        "heterogeneous energy demand M/G/2 queue heavy traffic congestion equilibrium inverse slack waiting cost differences equal first second moment allocation exact",
+        "Non-Potential Congestion Games with a Continuum of Players Dupont Petit Seguret arxiv 2610.18035 high load exact asymptotic pure Nash market shares",
+        "\"An electric vehicle charging station access equilibrium model with M/D/c queueing\" full text pdf",
+        "queueing Wardrop near saturation square energy moment spare capacity ratios parallel stations 23/48"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Main full text arXiv:2610.18035 §4.3, equations (4.4)-(4.7), formulas for normalized first and second EV energy moments; section §5.",
+        "2021 parallel-server model treats queue delays by station load and customer delay-sensitivity rather than endogenously assigned service-workload second moment."
+      ],
+      "reasoning": "Equivalent scalar equilibrium formulations were compared using the actual threshold τ=h0−h1 and energy-moment queue law. No equivalent exact critical-loading slack and queue pole law was found; search omission is not proof of universal novelty.",
+      "searches": [
+        "two charging stations nonatomic Wardrop electric vehicles heavy traffic arrival rate 24 300 kW 150 0.5 0.35 equilibrium 13/24 mass 23/48 unused capacity",
+        "heterogeneous energy demand M/G/2 queue heavy traffic congestion equilibrium inverse slack waiting cost differences equal first second moment allocation exact",
+        "web: \"Non-Potential Congestion Games with a Continuum of Players\" \"heavy-traffic\"",
+        "web arXiv:2610.18035 find \"asymptotic\", \"13/24\", \"heavy traffic\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source Figures 2–4 are numerical and show λ=10–20, not the limiting rational constants at λ=24.",
+        "The published result \"Opposite quadratic mass and demand shifts under low-noise congestion choice\" (2026-10-25) concerns σ→0 selection shift, not λ↑24."
+      ],
+      "reasoning": "No exact table for the specified rational moments/slack split was found in the inspected public records, source figures or primary text; indices are incomplete and cannot certify uniqueness.",
+      "searches": [
+        "two charging stations nonatomic Wardrop electric vehicles heavy traffic arrival rate 24 300 kW 150 0.5 0.35 equilibrium 13/24 mass 23/48 unused capacity",
+        "queueing Wardrop near saturation square energy moment spare capacity ratios parallel stations 23/48",
+        "web find: https://arxiv.org/abs/2610.18035 ; patterns: 24, 13/24"
+      ]
+    },
+    "rationale": "Full source §4.3 describes only numerical comparative statics through arrivals 10–20 and the qualitative energy-share convergence; the quantified critical intensity, exact EV count share, second-moment slack partition, universal queue divergence, and first correction are not stated or implied by the published equilibrium existence/uniqueness alone. The 2021 parallel-server full text assumes common job-size distributions; the 2021 EV queue paper uses M/D/C, not the energy-square moment congestion functional. Actual published-finding corpus semantic searches returned only distinct noise or unrelated load regimes. Residual global-priority risks explicitly remain.",
+    "residual_risks": [
+      "Historical-priority search is not exhaustive; earlier generic heavy-traffic Wardrop allocation analyses may contain a more general principle under different cost parametrizations.",
+      "The source M/G/2 queue function is itself a model approximation; the theorem does not validate actual multi-server queue wait times.",
+      "published-finding corpus semantic retrieval is incomplete and cannot prove nonexistence of equivalent statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original existence/uniqueness and qualitative half-energy-share observations are prior; no exact critical-load pole or rationals stated.",
+        "evidence": [
+          "arXiv:2610.18035v1 §§4.3–5; posted 2026-10-13",
+          "Source Fig. 3 narrative at λ=10–20 observes EV-count versus energy market share difference"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.18035",
+        "material_read": "Full accessible HTML: abstract, §§1–3 main results and §3.4 uniqueness; §4.3 equations (4.4)–(4.7), numerical experiments, §5 conclusions, references and appendix index.",
+        "method": "Read source full-text HTML sections and searched within the document for asymptotic, heavy traffic, 13/24 and critical loading.",
+        "title": "Non-Potential Congestion Games with a Continuum of Players",
+        "trigger": "Same EV equilibrium and waiting cost formula"
+      },
+      {
+        "assessment": "Their classes have heterogeneous delay sensitivities but common job size distribution, precluding direct energy second-moment composition specialization.",
+        "evidence": [
+          "Open-access source §4 explicitly says customers do not differ in workload distribution"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s41745-021-00258-w",
+        "material_read": "Accessible full text: abstract, §§1–2 model, Theorem 3/Corollary 2, §3 proof of sorting, §4 discussion of exclusions.",
+        "method": "Read Springer open-access HTML and compared service-size assumptions against the exact source moment functional.",
+        "title": "Pigouvian Tolls and Welfare Optimality with Parallel Servers and Heterogeneous Customers",
+        "trigger": "Plausible stronger heterogeneous parallel-server Wardrop characterization"
+      },
+      {
+        "assessment": "Deterministic charging times and queue penalty differ from the source energy-demand second-moment M/G/2 approximation; no matching high-capacity split formula found.",
+        "evidence": [
+          "arXiv:2102.05851, first posted 2021-02-11; §3 queueing based on deterministic service times"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.05851",
+        "material_read": "ArXiv original abstract and detailed publicly displayed article text covering background and §3 queueing model with M/D/C approximation, §3.1.3 equilibrium and conclusions.",
+        "method": "Read arXiv record, detailed public copy of equations/model and open published abstract.",
+        "title": "An electric vehicle charging station access equilibrium model with M/D/C queueing",
+        "trigger": "Earlier EV queue assignment model cited by the source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d07cd607-0c36-41a8-a99d-56f48d7fd782",
+  "value": {
+    "rationale": "The primary work explicitly motivates the discrepancy between number of EV customers and energy workload and the rapid rise of congestion. At its physically forced exact capacity boundary, the finding resolves previously unspecified customer-count fractions, second-moment-driven slack shares, and monetary queue pole. These natural operational quantities provide a quantitative and reproducible heavy-load planning sensitivity, not an arbitrary parameter slice or routine restatement of 50/50 energy workload.",
+    "status": "PASS"
+  }
+}
