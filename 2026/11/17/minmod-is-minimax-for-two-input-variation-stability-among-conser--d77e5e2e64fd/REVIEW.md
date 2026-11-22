@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns all bi-infinite real data with finite discrete variation and the precisely defined conservative affine-exact two-secant slope class. The Hermite derivative is a Bernstein-nonnegative quadratic (with its sign reversed for decreasing cells), hence each output has variation equal to sampled variation. A finite one-secant decrement forces both neighboring knot slopes to change by at least the decrement for every admissible limiter; each neighboring cubic bump has variation \(8/27\), while the central cell has at least one decrement of variation. This proves the universal lower bound. For minmod, differentiating along a data segment produces a selector with local coefficients in \([0,1]\); the central perturbation kernel is a convex combination of four nonnegative unit-integral kernels, while each side contributes at most \(8/27\). The explicit finite-support witness attains \(43/27\). The standalone exact-identity and random-rational checker passed.
+PASS
 
-## Originality — PASS (qualified)
+The exact minmod theorem is recovered from the cubic Hermite basis H=3t^2-2t^3, A=t(1-t)^2, B=t^2(t-1). For a single secant perturbation, minmod partial derivatives are 0 or 1; the central spatial derivative H’+pA’+qB’ is nonnegative for p,q in [0,1] because all four vertices are nonnegative, and has total integral 1. Each adjacent bump has variation 8/27, giving the global two-input upper bound 43/27 by integration and absolute summability. For every conservative affine-exact limiter a 1-to-(1-epsilon) central slope change forces both knot derivatives to decrease by at least epsilon and each neighbour bump to contribute at least 8epsilon/27, while the middle cell contributes at least epsilon; minmod attains equality. Independent exact rational bump and kernel checks corroborate. The classification does not extend to selectors exceeding the smaller secant, other grids or higher degrees.
 
-Hyman's 1982 report, Williamson–Rasch's 1987 full text and Edelman–Micchelli's 1987 scanned article were inspected for the relevant slope constraints, interpolation representations and competing stronger statements. They address construction, slope admissibility, qualitative data sensitivity and approximation accuracy, not the exact global two-input variation minimax optimization stated here. The closest previously recorded harmonic-mean cubic Hermite result has coefficient \(59/27\) for a selector outside this unit-capped class and does not imply the present universal optimum. Targeted published-record and scholarly searches for the formula, minmod aliases and norm equivalents found no covering record. An unindexed equivalent remains a real historical risk; negative retrieval is not itself a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This proves an operator-class **impossibility-and-attainability** statement, not merely another constant for a fixed cubic. It identifies a sharp quantitative cost of combining exact affine reproduction with conservative shape constraints: every method in the class preserves variation of each signal yet must amplify some two-data perturbation by at least \(43/27\); the simple minmod rule is provably minimax. Such perturbation stability is relevant when sampling data are noisy or updated. The one-input vs two-input distinction cannot be read from ordinary monotonicity tests and the class theorem does not follow from the harmonic-mean case.
+Qualified PASS: Hyman and classical monotone-Hermite work prove individual-curve monotonicity/admissible slopes and qualitative sensitivity, not a minimax two-input variation norm over the precise unit-capped affine-exact selector class. The published harmonic-mean and Steffen sharp 59/27 results are for other selectors; the harmonic selector equals 8/5 at (1,4), violating the unit cap, and the Steffen selector can use 2 times the smaller secant. Neither implies the universal 43/27 lower bound, attainment for minmod or its restricted minimax property. Indexing may miss an earlier equivalent theorem.
 
-## Limits and closest literature
+## value
 
-The conservative unit cap is essential; the result does not claim global minimax among all monotone cubic schemes, minmod uniqueness, or mesh-independent extension to nonuniform knots. The archival Hyman document's exact original day of public circulation is not independently known; the recorded source date refers to its explicitly day-verified online publication. Primary paper material inspected was not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact minimax 43/27 gives a precise robustness benchmark for conservative local shape-preserving interpolation, distinguishing one-signal variation from two-signal perturbation sensitivity and furnishing a universal extremal witness; this is a motivated method-level stability fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:16:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact minmod theorem is recovered from the cubic Hermite basis H=3t^2-2t^3, A=t(1-t)^2, B=t^2(t-1). For a single secant perturbation, minmod partial derivatives are 0 or 1; the central spatial derivative H’+pA’+qB’ is nonnegative for p,q in [0,1] because all four vertices are nonnegative, and has total integral 1. Each adjacent bump has variation 8/27, giving the global two-input upper bound 43/27 by integration and absolute summability. For every conservative affine-exact limiter a 1-to-(1-epsilon) central slope change forces both knot derivatives to decrease by at least epsilon and each neighbour bump to contribute at least 8epsilon/27, while the middle cell contributes at least epsilon; minmod attains equality. Independent exact rational bump and kernel checks corroborate. The classification does not extend to selectors exceeding the smaller secant, other grids or higher degrees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Resultary harmonic-mean 59/27 and nonuniform Steffen result."
+        ],
+        "reasoning": "Wider monotone slope classes can allow derivatives up to 2 or 3 times the smaller secant; an exact 59/27 bound for a fixed wider-class selector does not imply 43/27 minimax among unit-capped selectors.",
+        "searches": [
+          "minmod minimax two-signal bounded variation stability conservative Hermite cubic interpolation 43/27",
+          "minmod minimax two-signal bounded variation stability conservative Hermite cubic interpolation 43/27",
+          "Hyman, Accurate Monotonicity-Preserving Cubic Interpolation (1982), LA-8796-MS"
+        ]
+      },
+      "checked_sources": [
+        "Hyman, Accurate Monotonicity-Preserving Cubic Interpolation (1982), LA-8796-MS",
+        "Williamson and Rasch, Shape Preserving Interpolators for Semi-Lagrangian Transport (1987)",
+        "Resultary/2026: Sharp two-input bounded-variation stability of harmonic-mean cubic Hermite interpolation, 2026/11/17/SCOPE-sharp-two-input-bounded-variation-stability-of-harmonic-mean-cub--479993d5519d",
+        "Resultary/2026: Sharp mesh-ratio control of two-input variation for nonuniform Steffen cubic Hermite interpolation, 2026/11/17/SCOPE-sharp-mesh-ratio-control-of-two-input-variation-for-nonuniform-s--c024605d3664"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct selector evaluations and minmod witness step 2 in assigned proof."
+        ],
+        "reasoning": "Harmonic mean H(1,4)=8/5 violates the cap min(1,4)=1. Steffen may choose 2s_i; neither prior exact fixed-rule Lipschitz theorem can entail the universal minimax lower bound for the stricter class.",
+        "searches": [
+          "minmod minimax two-signal bounded variation stability conservative Hermite cubic interpolation 43/27",
+          "minmod minimax two-signal bounded variation stability conservative Hermite cubic interpolation 43/27",
+          "Hyman, Accurate Monotonicity-Preserving Cubic Interpolation (1982), LA-8796-MS"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hyman and Fritsch–Butland monotone cubic work focus individual curve shape."
+        ],
+        "reasoning": "One-input TVD or a selector satisfying monotonicity is not equivalent to a two-input Lipschitz seminorm of differences of interpolants.",
+        "searches": [
+          "minmod minimax two-signal bounded variation stability conservative Hermite cubic interpolation 43/27",
+          "minmod minimax two-signal bounded variation stability conservative Hermite cubic interpolation 43/27",
+          "Hyman, Accurate Monotonicity-Preserving Cubic Interpolation (1982), LA-8796-MS"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hyman finite examples do not tabulate this universal minimax constant; Resultary indexed distinct 59/27."
+        ],
+        "reasoning": "43/27 is an operator extremum over a continuous function class, not a finite parameter table; the matching adjacent bump contribution 2*(8/27) is proved analytically.",
+        "searches": [
+          "minmod minimax two-signal bounded variation stability conservative Hermite cubic interpolation 43/27",
+          "minmod minimax two-signal bounded variation stability conservative Hermite cubic interpolation 43/27",
+          "Hyman, Accurate Monotonicity-Preserving Cubic Interpolation (1982), LA-8796-MS"
+        ]
+      },
+      "rationale": "Qualified PASS: Hyman and classical monotone-Hermite work prove individual-curve monotonicity/admissible slopes and qualitative sensitivity, not a minimax two-input variation norm over the precise unit-capped affine-exact selector class. The published harmonic-mean and Steffen sharp 59/27 results are for other selectors; the harmonic selector equals 8/5 at (1,4), violating the unit cap, and the Steffen selector can use 2 times the smaller secant. Neither implies the universal 43/27 lower bound, attainment for minmod or its restricted minimax property. Indexing may miss an earlier equivalent theorem.",
+      "residual_risks": [
+        "Unindexed earlier two-input BV minimax norm and admissible-slope work could cover exact cap class",
+        "No universality claim for all monotone cubic interpolation or nonuniform grids"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Monotonicity cap and method comparisons, not inspected sharp minmod two-signal BV minimax norm",
+          "evidence": "Hyman allowable slopes reach factor three relative to smaller secant, unlike required unit cap",
+          "identifier_or_url": "https://digital.library.unt.edu/ark:/67531/metadc1070768/",
+          "material_read": "Archive report PDF introductory definitions and monotonicity-slope conditions; relevant sections only",
+          "method": "full PDF retrieved/opened, relevant text and page images inspected",
+          "title": "Accurate Monotonicity-Preserving Cubic Interpolation",
+          "trigger": "Canonical shape-preserving Hermite limiter and slope restrictions"
+        },
+        {
+          "assessment": "Distinct selector with sharp factor 59/27; harmonic-mean rule lies outside unit-capped class",
+          "evidence": "H(1,4)=8/5>1 and reported gain 59/27 vs minmod 43/27",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-two-input-bounded-variation-stability-of-harmonic-mean-cub--479993d5519d/RESULT.md",
+          "material_read": "Complete RESULT.md theorem, selector definitions, proof and examples",
+          "method": "read actual GitHub source blob 18921ebcc380adda049bc5953bf2ecfeece57227",
+          "title": "Sharp two-input bounded-variation stability of harmonic-mean cubic Hermite interpolation",
+          "trigger": "Same two-input variation norm but different limiter"
+        },
+        {
+          "assessment": "Distinct Steffen limiter allowing slopes 2 times the smaller neighbor; not a universal minimax for capped class",
+          "evidence": "The Steffen formula m=min(2|s_left|,2|s_right|,weighted average) gives 59/27 uniform-grid sharp factor",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-mesh-ratio-control-of-two-input-variation-for-nonuniform-s--c024605d3664/RESULT.md",
+          "material_read": "Complete RESULT.md statement, Steffen rule and proof",
+          "method": "read actual GitHub blob 8a2c175d17c52b338507752e68973d847c4c9087",
+          "title": "Sharp mesh-ratio control of two-input variation for nonuniform Steffen cubic Hermite interpolation",
+          "trigger": "Potential stronger sharp two-input theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact minimax 43/27 gives a precise robustness benchmark for conservative local shape-preserving interpolation, distinguishing one-signal variation from two-signal perturbation sensitivity and furnishing a universal extremal witness; this is a motivated method-level stability fact.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Hyman, Accurate Monotonicity-Preserving Cubic Interpolation (1982), LA-8796-MS",
+    "Williamson and Rasch, Shape Preserving Interpolators for Semi-Lagrangian Transport (1987)",
+    "Resultary/2026: Sharp two-input bounded-variation stability of harmonic-mean cubic Hermite interpolation, 2026/11/17/SCOPE-sharp-two-input-bounded-variation-stability-of-harmonic-mean-cub--479993d5519d",
+    "Resultary/2026: Sharp mesh-ratio control of two-input variation for nonuniform Steffen cubic Hermite interpolation, 2026/11/17/SCOPE-sharp-mesh-ratio-control-of-two-input-variation-for-nonuniform-s--c024605d3664"
+  ],
+  "disposition": "passed",
+  "limitations": "Conservative unit-capped affine-exact local selectors on bi-infinite uniform grids; not all monotone cubic methods or different grids. Some original papers only partially read.",
+  "residual_risks": [
+    "Unindexed earlier two-input BV minimax norm and admissible-slope work could cover exact cap class",
+    "No universality claim for all monotone cubic interpolation or nonuniform grids"
+  ],
+  "schema_version": 1
+}
