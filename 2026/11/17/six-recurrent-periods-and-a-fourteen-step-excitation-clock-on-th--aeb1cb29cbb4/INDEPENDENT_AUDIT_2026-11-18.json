@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T15:52:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact labelled Heawood graph is the Fano incidence j-i in {0,1,3} mod 7; the four-state threshold-one update is deterministic and refractory nonzero states advance unconditionally. Both supplied C++ programs construct this Fano graph and classify all 2^28 states by independent functional-graph algorithms: forward path and indegree pruning, with CSV of 64 nonzero (entry,period) bins. An independently coded C++ exhaustive indegree-pruning implementation was compiled and run locally in 15.72 s using 2.1 GB peak RSS, and found precisely 268435456 total, 3753 periodic states, 531 cycles, maximum transient 14 and 64 nonempty bins; its period-0 table is {1:1,4:896,5:420,6:252,10:840,14:1344}, and its sole time-14 bin is (14,5):2688. The code detects degree and period/depth overflows; graph incidence and update were inspected. This is exhaustive for this finite labelled four-state map, not a general graph theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff 2016 studies limiting 3-color behavior on arbitrary graphs",
+          "Earlier 1993 work treats excitable cellular automata on large lattices"
+        ],
+        "reasoning": "General synchronization or activity criteria do not produce a labelled complete four-color Heawood joint entry/period table.",
+        "searches": [
+          "arxiv:1610.07320",
+          "Resultary query four-state Heawood exact census",
+          "Durrett–Griffeath patt-sol/9303002"
+        ]
+      },
+      "checked_sources": [
+        "Resultary four-state Heawood semantic search",
+        "Complete published three-state Heawood RESULT",
+        "Gravner–Lyu–Sivakoff arxiv:1610.07320 abstract",
+        "Durrett–Griffeath 1993 bibliographic result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three-state Heawood periods include {1,3,4,5,6,8,10,14}; four-state excludes 3 and 8",
+          "General finite functional-graph theory guarantees eventual periodicity but not exact counts"
+        ],
+        "reasoning": "The four-state claim is not a corollary of three-state state-space enumeration or generic eventual periodicity; exhaustive new enumeration is needed.",
+        "searches": [
+          "Resultary 3-state Heawood complete RESULT.md",
+          "arxiv:1610.07320",
+          "arxiv:patt-sol/9303002"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Heawood census uses three state labels, 3^14 domain and eight periods; present four-state map uses 4^14 and six periods"
+        ],
+        "reasoning": "A change of local alphabet is not a relabeling of functional graphs. The 3-state transition maps and counts cannot be substituted for four-state dynamics.",
+        "searches": [
+          "Resultary semantic search four state Greenberg Hastings Heawood recurrent cycles transient 14 exact census",
+          "Resultary 2026/11/8 three-state Heawood exact census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full prior 3-state result: 55 positive rows, 4,782,969 states, sharp time 10",
+          "Here: 64 rows, 268,435,456 states, sharp time 14"
+        ],
+        "reasoning": "Closest indexed table differs in state alphabet and numerically cannot cover the new exact counts; searches cannot exclude an unindexed four-state census.",
+        "searches": [
+          "Resultary 2026/11/8 SCOPE-exact-heawood-excitation-census",
+          "Resultary current topic query: four state Greenberg Hastings Heawood"
+        ]
+      },
+      "rationale": "Four-state threshold-one Heawood exhaustive census not implied by classical three-state theory or previous labelled three-state Heawood table; no broader same-parameter complete census identified.",
+      "residual_risks": [
+        "Earlier excitable automata full primary manuscripts not entirely read; hidden four-state exact Heawood table remains possible",
+        "Large exhaustive census was independently checked by a distinct algorithm but not formalized; limited to exact finite rule"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different three-color alphabet and recurrence: does not assert four-color count",
+          "evidence": [
+            "Finding states 3^14=4782969, 55 bins, max entry 10"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-heawood-excitation-census-eight-primitive-periods-and-a-te--29120402709f/RESULT.md",
+          "material_read": "Entire RESULT.md including exact all-bin scope, proof and state encoding",
+          "method": "Connected GitHub file read",
+          "title": "Exact Heawood excitation census: eight primitive periods and a ten-step maximal transient",
+          "trigger": "Direct same graph and update class"
+        },
+        {
+          "assessment": "Abstract explicitly describes 3-color state space and asymptotic activity, not four-state finite census",
+          "evidence": [
+            "Abstract fixes 3-color CCA and GH models and general graph comparison"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "ArXiv abstract and bibliographic metadata, not complete manuscript",
+          "method": "Web arXiv search",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "High-priority arbitrary graph theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural four-state refractory extension on the uniquely smallest cubic girth-six graph changes the exact recurrent period spectrum and sharp entrance delay relative to the already published three-state Heawood census. A complete 268-million-state deterministic benchmark with 64 entry/period classes is a meaningful exact classification, not a generic restatement of finiteness or a handful of discovered cycles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Memory-heavy finite census is a computational proof for this specific function only",
+    "Early general primary articles not inspected in full; residual priority risk"
+  ],
+  "schema_version": 1
+}
