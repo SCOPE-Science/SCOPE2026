@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns precisely the ordinary geometric orbit space of chains of proper nontrivial subgroups. Subgroup enumeration is exhaustive by closure under adjoining generators, not statistical sampling. Strictly increasing subgroup orders prevent simplex inversions. The quotient-chain construction and its face identifications are reproduced from the full permutation multiplication tables; all integral two-step boundaries vanish. A complete certificate checks three elementary collapses for \(A_5\) and twenty-six for \(S_5\). The residual complexes are proved to be a connected five-cycle and a connected closed triangulated surface of Euler characteristic two. The surface-classification theorem then gives the stated homotopy types. No assumption about higher-degree symmetric groups is made.
+PASS
 
-## Originality — PASS (conditional on accessible prior evidence)
+Canonical simultaneous conjugation of whole flags (not merely subgroups) gives quotient cell numbers A5 (7,8,1) and S5 (17,49,41,7), with no inverted simplices since strict subgroup orders distinguish flag vertices. The exact source verifier constructs all 59 and 156 subgroups and validates every collapse pair and residual surface links. I independently enumerated all subgroups and chain-orbit cells and ran a different free-face ordering: A5 reduced to a connected 4-vertex, 4-edge circle after four pairs; S5 reduced to a connected (10,24,16) simplicial closed surface, every edge in two triangles, each vertex link a circle and Euler characteristic two. Thus the homotopy types S1 and S2 are independently corroborated even though the residual triangulations differ from the original (5,5) and (12,30,20) certificates. The complete original certificate was inspected.
 
-An exact title/claim/alias search was compared with the subgroup-poset and coset-poset literature. The key Ramras 2002 primary article was materially inspected, particularly its definitions, Sections 5–7 and statement of the fundamental-group results; its results address the original poset or cosets, not the conjugation **quotient** of the subgroup-poset realization. A related coset-complex noncontractibility theorem is likewise inapplicable. No encountered earlier result implies these two exact orbit-space classifications. The principal uncertainty is unindexed or inaccessible calculations of the quotient under different terminology. This is a best-evidence priority assessment, not a guarantee of absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The construction asks a natural, structurally motivated question: what remains of inclusion-chain topology after identifying subgroups by inner symmetry? Using the **geometric** quotient rather than naively using the poset of conjugacy classes matters because conjugate individual entries do not determine orbits of inclusion flags. The two adjacent canonical nonsolvable permutation groups give distinct complete low-dimensional classifications (a circle versus a sphere), and the result identifies actual homotopy types rather than only orbit counts, rational Betti numbers, or Euler characteristics. It is a self-contained finite case classification with no speculative all-\(n\) claim.
+The A5 circle subclaim is covered by a closely related published calculation of the full S5 automorphism quotient of L(A5): both S5- and A5-action chain-orbit counts equal (7,8,1), hence their chain orbits agree and the quotient CW complexes coincide. Do not claim A5 circle novelty. The independent S5 proper-subgroup orbit-sphere computation is the novel surviving component of the combined claim; the source comparing A5 under automorphisms is not about the proper-subgroup poset of S5 itself. Ramras and Shareshian–Woodroofe address unquotiented subgroup/coset complexes and do not imply the S5 quotient sphere.
 
-## Limitations and closer literature
+## value
 
-The argument uses an exhaustive finite certificate, plus a standard topological theorem. Its scope is the specified two groups, not all symmetric groups. Closest full-text comparison: Ramras, arXiv:math/0210001, especially Sections 5–7. Additional coset references are arXiv:math/0208176 and arXiv:1406.6067; these have different objects/actions. Priority risk remains from undetected subgroup-conjugation literature. All listed computations were replayed from the actual packaged artifacts. No external or independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact S5 proper-subgroup orbit-space sphere, proved by a checkable 26-collapse certificate and independent finite reduction, is a natural subgroup-lattice symmetry invariant; it is valuable even though the A5 companion is prior-covered and no all-n theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

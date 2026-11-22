@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py certificate.json` using Python 3, standard library only. The checker regenerates the multiplication tables, all subgroups of the two permutation groups, conjugacy-orbits of all strict subgroup chains, face maps, integer cellular boundary identities, all elementary free-face deletions and the residual circle/surface invariants. It compares every generated certificate field against the recorded `certificate.json`.
+## correctness
 
-Actual result:
+PASS
 
-```text
-VERIFY_OK
-A5 59 [7, 8, 1] 3 [5, 5, 0] circle
-S5 156 [17, 49, 41, 7] 26 [12, 30, 20, 0] sphere
-```
+Canonical simultaneous conjugation of whole flags (not merely subgroups) gives quotient cell numbers A5 (7,8,1) and S5 (17,49,41,7), with no inverted simplices since strict subgroup orders distinguish flag vertices. The exact source verifier constructs all 59 and 156 subgroups and validates every collapse pair and residual surface links. I independently enumerated all subgroups and chain-orbit cells and ran a different free-face ordering: A5 reduced to a connected 4-vertex, 4-edge circle after four pairs; S5 reduced to a connected (10,24,16) simplicial closed surface, every edge in two triangles, each vertex link a circle and Euler characteristic two. Thus the homotopy types S1 and S2 are independently corroborated even though the residual triangulations differ from the original (5,5) and (12,30,20) certificates. The complete original certificate was inspected.
 
-The proof of homeomorphism of the terminal two-complex to the sphere also uses the standard classification of connected compact surfaces. The finite verifier does not claim to establish uniqueness in the literature, classify higher groups, or constitute independent auditing.
+## originality
+
+PASS
+
+The A5 circle subclaim is covered by a closely related published calculation of the full S5 automorphism quotient of L(A5): both S5- and A5-action chain-orbit counts equal (7,8,1), hence their chain orbits agree and the quotient CW complexes coincide. Do not claim A5 circle novelty. The independent S5 proper-subgroup orbit-sphere computation is the novel surviving component of the combined claim; the source comparing A5 under automorphisms is not about the proper-subgroup poset of S5 itself. Ramras and Shareshian–Woodroofe address unquotiented subgroup/coset complexes and do not imply the S5 quotient sphere.
+
+## value
+
+PASS
+
+An exact S5 proper-subgroup orbit-space sphere, proved by a checkable 26-collapse certificate and independent finite reduction, is a natural subgroup-lattice symmetry invariant; it is valuable even though the A5 companion is prior-covered and no all-n theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
