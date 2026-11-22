@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-21.md",
+      "INDEPENDENT_AUDIT_2026-11-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite cycle-moment certificate
+# Independent mathematical audit
 
-Run `python3 verify.py`. Two independent integer-arithmetic methods enumerate, respectively, the exact multivariate generating-product coefficients and the full descending-part integer partitions for each fixed cardinality \(1\le M\le14\). The resulting signature dictionaries match in every entry. The first repeat is unique at \(M=14\), with the two cycle partitions \((7,4,3)\) and \((6,6,1,1)\) and the pair of power sums \((74,434)\).
+## correctness
 
-The checker also confirms the raw mean \(37/7\) and variance \(150/49\) with rational arithmetic and tests the explicit family through \(1000\) points. The infinite statement rests on the algebraic singleton-extension proof in `RESULT.md`; finite tests are not substituted for that proof. No independent audit is asserted.
+PASS
+
+For cycle partition λ of M, sampling a uniformly random point weights a part of size j by j/M, hence μ=S2/M and E[P²]=S3/M; at fixed M equality of μ and variance is equivalent to matching integer (S2,S3). A partition-generating recurrence C_k(m,s,t)=C_(k-1)(m,s,t)+C_k(m-k,s-k²,t-k³) is exhaustive by the include/exclude-one-k argument. Independently generated every integer partition at M=1..14 and recomputed power-sum fibers without using source recurrence: none collide below 14, and at 14 the unique double-fiber (74,434) consists exactly of (7,4,3) and (6,6,1,1). Explicit sums verify μ=37/7 and v=150/49. Adding M-14 1-cycles increases both power sums by M-14, producing an algebraically proved witness for every larger M. The cutoff is exhaustive for a finite interval, not a claimed exhaustive classification above 14.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the exact mathematical statement/implications with named primary sources and published research; no independently earlier equivalent or dominating theorem found among inspected material. Same-day matching Resultary entries were excluded as independent prior evidence. Specific inaccessible texts and older alias risks are retained; negative searches are not treated as proof of uniqueness.
+
+## value
+
+PASS
+
+Identifiability of cycle structure from low-order orbit statistics is a natural inverse-dynamical question. The first failure threshold at 14, uniqueness of the offending pair, and disjoint least-period supports give an exact obstruction that future inverse problems can cite; the finite cutoff is motivated by distinguishability, not an arbitrary sample of partitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
