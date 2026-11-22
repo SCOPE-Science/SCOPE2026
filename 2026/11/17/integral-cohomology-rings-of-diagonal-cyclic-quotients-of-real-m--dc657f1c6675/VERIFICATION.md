@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python verify_diagonal.py` with Python 3 and SymPy installed. The code independently constructs all geometric orbit cells, checks their counts, evaluates the rank predictions, and calculates integral Smith forms after a spanning-tree reduction for widths three and four. Its expected final line is `DIAGONAL_MOMENT_ANGLE_QUOTIENT_EXACT_PASS`; the included `CHECKS.txt` gives the output of the packaged verifier.
+## correctness
 
-The infinite-family proof is mathematical rather than computational. Critical deductions are the fixed-vertex path-lifting surjection on fundamental groups, the two coordinate-axis maps and their retraction in first homology, the trivial stabilizers of positive-dimensional cells, and the split surjection onto second homology of the product of necklace quotient graphs. The latter proves a primitive integral cup-product sublattice, not only a rational rank.
+PASS
 
-The exact Smith checks cover widths three and four. Widths five and six are checked for orbit counts and Euler arithmetic only. This is not a finite certification of infinitely many cases; no claim is made for an uncomputed fundamental group or a homotopy decomposition. Independent mathematical validation has not been performed.
+Reconstructed R_n=A_n x A_n from join of two discrete n-point complexes. The simultaneous rotation acts freely on all positive-dimensional cubical cells: any such cell has a variable coordinate that must be fixed. Quotient cells are (N_n(4),4^n,n*4^(n-1)). Basepoint at an all-minus cube vertex makes the cube graph-to-necklace graph quotient pi_1-surjective by edge-by-edge lifting; using axes and product projection gives H_1(Q)=Z^(2r_n). Since Q is a 2D CW complex, H_2 is a free subgroup of C_2 and Euler characteristic gives rank s_n. Projection to B_n x B_n is surjective on integral H_2 by surjective graph H_1 and Kunneth, so the cross-degree-one cup-product lattice is primitive. Independently recalculated for n=3,4,5,6: N2=(4,6,8,14), N4=(24,70,208,700), (2r,s)=(2,9),(6,75),(18,481),(38,2785), extra cup-indecomposables=(8,66,400,2424). Computations are calibration; the all-n proof uses the exact cell and homology maps.
+
+## originality
+
+PASS
+
+Best-of-knowledge new integral cohomology *ring* for ordinary geometric diagonal cyclic action on equal-width A_n x A_n. Polyhedral-product stable splittings and the polygon real-moment-angle branched quotient do not assert this same action and primitive cross-cup lattice. Thesis full text was inaccessible; retain explicit risk.
+
+## value
+
+PASS
+
+The quotient has fixed vertices yet torsion-free integral homology and a primitive rank-r_n^2 product lattice with many indecomposable H^2 generators. This is a natural orbit-space ring invariant beyond additive necklace counts, needed to distinguish quotient topology and cup generation; it is not merely renaming the independent-rotation product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
