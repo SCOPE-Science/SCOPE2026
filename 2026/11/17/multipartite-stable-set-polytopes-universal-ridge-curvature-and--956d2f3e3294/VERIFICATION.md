@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact-rational checker `check_multipartite_ridges.py` was executed on ten multipartite profiles, including three five-part profiles with two or more nonsingleton blocks. It enumerates each vertex and every pair of proposed facets, computes the affine intersection rank, and checks the normal Gram values; it reports `MULTIPARTITE_RIDGE_CLASSIFICATION_PASS profiles=10`.
+# Independent mathematical audit
 
-The independent numerical area checker `numeric_area_check.py` was executed on four small profiles, including two five-part profiles. It projects every detected ridge to an orthonormal affine span and uses `scipy.spatial.ConvexHull` to compute Euclidean ridge measure. It checks individual analytic formulas with absolute error below `2e-7` and reports `NUMERIC_RIDGE_MEASURES_PASS`.
+## correctness
 
-The all-parameter proof is in `RESULT.md` and uses explicit witnesses, dimension bounds, induced Euclidean Jacobians, finite-dimensional Dirichlet integrals, and the identity \(\sin(2\arctan(1/2))=4/5\). The finite enumerations are cross-checks, not exhaustive coverage of the infinite parameter family. External independent audit was not performed.
+PASS
+
+For complete multipartite G=K_{n1,...,nk}, k>=3 with >=2 nonsingleton blocks and coordinate Euclidean stable-set polytope, a facet is coordinate x_ia=0 or maximal-clique sum selected x<=1. Facet-pair ridge criterion follows by block-maximum saturation: all LL; LU unless lower selected in nonsingleton; UU iff one block differs. Their normal inner products yield right, acute arccos(1/sqrt(k)), and obtuse pi-arccos((k-1)/k) classes. With C=prod(n_i!)/(N-2)!, Dirichlet block maxima and induced Jacobians 1,sqrt(k),sqrt(k-1),sqrt(2k-1) yield exact totals C((k*k-s)/2+(k-s)sqrt(k)), Cs sqrt(k-1), C(k-s)sqrt(2k-1)/2. For k=5,s=3, right=(11+2sqrt5)C, acute=6C, obtuse=3C; angles pi/2-arctan(1/2) and pi/2+2arctan(1/2) give cancellation exactly and V_(N-2)=(5+sqrt5/2)C under Euclidean Steiner convention. Independently enumerated every ridge and used affine Euclidean hull volumes for profiles (1,1,1,2,2), (1,1,2,2), (1,2,2), agreeing by class to numerical tolerance; all-size proof is analytic Dirichlet identity.
+
+## originality
+
+PASS
+
+Classical perfect-graph clique inequalities, full volume and two-part bipartite angle/ridge counts are prior facts. An earlier published bipartite result covers k=2 combinatorial angles (including complete Kp,q); a split-graph special case has only one nonsingleton class. Neither contains the k>=3, >=2 nonsingleton **metric ridge-measure** formulas or K1,1,1,p,q area cancellation. The prior paper on stable-set 1-skeleta contains facets, not these codim-two measures. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+The discovery that normalized Euclidean ridge measures of a variable-size multipartite polytope depend only on k and the singleton count is a natural geometric structural invariant, with nontrivial exact sharp five-partite cancellation and an intrinsic-volume corollary. Metric ridge areas cannot be inferred from a combinatorial f-vector/angle census alone, and no unmotivated graph slice is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

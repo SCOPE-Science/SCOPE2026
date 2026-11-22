@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the canonical stable-set polytope of a complete multipartite graph with at least three parts and at least two nonsingleton parts. The proof specifies all facets and verifies which facet pairs meet in codimension two. In particular, upper-facet pairs differing in more than one part impose independent equalities and cannot be ridges. The Euclidean normals yield the exact three angle classes. Dirichlet integration over block maxima and explicit induced Jacobians give the complete ridge Hausdorff measures. The five-partite cancellation follows from the exact double-angle identity for \(\arctan(1/2)\); no limiting or finite-enumeration argument substitutes for this proof. An exact-rank standalone checker and an independent numerical intrinsic-area checker corroborate the nonstandard pair-incidence and measure formulas on specified finite profiles.
+PASS
 
-## Originality — PASS, historical priority provisional
+For complete multipartite G=K_{n1,...,nk}, k>=3 with >=2 nonsingleton blocks and coordinate Euclidean stable-set polytope, a facet is coordinate x_ia=0 or maximal-clique sum selected x<=1. Facet-pair ridge criterion follows by block-maximum saturation: all LL; LU unless lower selected in nonsingleton; UU iff one block differs. Their normal inner products yield right, acute arccos(1/sqrt(k)), and obtuse pi-arccos((k-1)/k) classes. With C=prod(n_i!)/(N-2)!, Dirichlet block maxima and induced Jacobians 1,sqrt(k),sqrt(k-1),sqrt(2k-1) yield exact totals C((k*k-s)/2+(k-s)sqrt(k)), Cs sqrt(k-1), C(k-s)sqrt(2k-1)/2. For k=5,s=3, right=(11+2sqrt5)C, acute=6C, obtuse=3C; angles pi/2-arctan(1/2) and pi/2+2arctan(1/2) give cancellation exactly and V_(N-2)=(5+sqrt5/2)C under Euclidean Steiner convention. Independently enumerated every ridge and used affine Euclidean hull volumes for profiles (1,1,1,2,2), (1,1,2,2), (1,2,2), agreeing by class to numerical tolerance; all-size proof is analytic Dirichlet identity.
 
-The arXiv full text of Aliniaeifard et al., *Stable set polytopes and their 1-skeleta* (arXiv:1804.00360, 2018-04-02), gives the stable-set framework and known perfect-graph facet description, not the derived ridge-angle area totals. Previously known two-part ridge-angle results and one-nonsingleton-part clique–independent curvature results cover restricted boundary profiles, explicitly excluded from the novelty claim. Known multipartite first-moment, covariance, inball, and John-ellipsoid results do not imply the codimension-two measure formulas. The two-nonsingleton-part case, including the exact five-partite zero-bias identity, is a strictly broader metric statement. The possibility of an unindexed equivalent full classification is a remaining risk; this review is not independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete natural family of perfect-graph \(0/1\) polytopes receives exact (not merely enumerative) codimension-two Euclidean metric data for every block-size profile. The ridge-measure universality eliminates all dependence on the sizes of nonsingleton blocks after a single factorial scale. The concrete family \(K_{1,1,1,p,q}\) has positive-area acute and obtuse ridge strata but exactly right-angle area-weighted mean in every dimension, yielding an exact intrinsic-volume ratio. Neither a routine facet restatement nor an isolated computational sample suffices to obtain this metric cancellation.
+Classical perfect-graph clique inequalities, full volume and two-part bipartite angle/ridge counts are prior facts. An earlier published bipartite result covers k=2 combinatorial angles (including complete Kp,q); a split-graph special case has only one nonsingleton class. Neither contains the k>=3, >=2 nonsingleton **metric ridge-measure** formulas or K1,1,1,p,q area cancellation. The prior paper on stable-set 1-skeleta contains facets, not these codim-two measures. Best-of-knowledge PASS.
 
-## Scope and residual risks
+## value
 
-Only the standard Euclidean coordinate realization is considered. Published stable-set facet and edge theory is credited. One generalized metric identity across all possible graph classes is not asserted. Independent mathematical audit and universal historical-priority verification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The discovery that normalized Euclidean ridge measures of a variable-size multipartite polytope depend only on k and the singleton count is a natural geometric structural invariant, with nontrivial exact sharp five-partite cancellation and an intrinsic-volume corollary. Metric ridge areas cannot be inferred from a combinatorial f-vector/angle census alone, and no unmotivated graph slice is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
