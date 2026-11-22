@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Exact integer certificate: `proof_transfer.py` reconstructs a 26-state deterministic labelled transition system using Rule 110's truth table, verifies its agreement with `transfer_table.json`, computes 31 successive integer transfer coefficients and checks 26 consecutive zeros of the degree-five recurrence residual. Cayley--Hamilton proves the residuals vanish at every subsequent index. The rational numerator follows by direct coefficient multiplication.
+# Independent mathematical audit
 
-Independent simulation: `independent_forward.py` exhaustively enumerates every original configuration for ring lengths 3 through 16 using a separate direct Boolean implementation of Rule 110; it independently evaluates every candidate output through length 13 with a predecessor feasibility algorithm. Both scripts were executed and passed; exact outputs are stored in `proof_transfer_output.txt` and `independent_forward_output.txt`.
+## correctness
 
-Limitations: finite simulation alone is not an infinite proof; the all-length step relies on the explicitly constructed transfer and finite Cayley--Hamilton certificate. No long-time dynamics, changing update orders, or independent external verification is covered.
+PASS
+
+PASS: precisely distinguish first y0=f(x[n-1],x0,x1), internal yi=f(y[i-1],xi,x[i+1]) and final y[n-1]=f(y[n-2],x[n-1],y0). Track first output, preceding output and four-bit mask of (old last, next old bit). Existential transitions are logically equivalent to the internal equations and terminal diagonal mask (a,a) enforces the scan seam; each target prefix has one deterministic state so terminal v=number distinct permitted final bits, not number of predecessors. Exact table closure has 26 states, yielding I_n=uT^(n-2)v. Independently reconstructed 26 states from truth table and checked 26 consecutive exact integer residual zeros for Q(z)=1-2z-z²+2z³+z⁴-z⁵ at k=5..30; Cayley-Hamilton for the 26x26 matrix forces all later residues zero. Initial coefficients give boxed series. Principal positive zero of 1-z-2z²+z⁴ (~0.524888) is unique least modulus, with positive nonvanishing residue; asymptotic base 1.905166..., entropy correct. No claim about later sweeps.
+
+## originality
+
+PASS
+
+PASS (qualified): exact scan-order-specific image automaton and generating function are distinct from simultaneous Rule 110 image enumeration and from earlier sequential order-independence/attractor classifications, despite using standard subset construction. Published same-day copy is not independent antecedent; previous exact all-length enumerators of synchronous rule have differing counts and characteristic polynomials.
+
+## value
+
+PASS
+
+PASS: a natural discrete invariant of a canonical sequential cellular automaton is the size and language of one-sweep reachable states. The exact all-length 26-state recognizer, constructive inverse and entropy quantify information loss due to scan order and contrast precisely with simultaneous Rule 110. This is a meaningful infinite-length classification and not the mechanical recitation of known synchronous tables; no universality/long-term dynamics claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

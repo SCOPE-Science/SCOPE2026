@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T01:53:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: precisely distinguish first y0=f(x[n-1],x0,x1), internal yi=f(y[i-1],xi,x[i+1]) and final y[n-1]=f(y[n-2],x[n-1],y0). Track first output, preceding output and four-bit mask of (old last, next old bit). Existential transitions are logically equivalent to the internal equations and terminal diagonal mask (a,a) enforces the scan seam; each target prefix has one deterministic state so terminal v=number distinct permitted final bits, not number of predecessors. Exact table closure has 26 states, yielding I_n=uT^(n-2)v. Independently reconstructed 26 states from truth table and checked 26 consecutive exact integer residual zeros for Q(z)=1-2z-z²+2z³+z⁴-z⁵ at k=5..30; Cayley-Hamilton for the 26x26 matrix forces all later residues zero. Initial coefficients give boxed series. Principal positive zero of 1-z-2z²+z⁴ (~0.524888) is unique least modulus, with positive nonvanishing residue; asymptotic base 1.905166..., entropy correct. No claim about later sweeps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published synchronous Rule110 rational series has I4=10 (sequential I4=11), I5=22 (sequential I5=20) and different growth rate. General sequentializability concerns an implementation by reversible permutations, not this in-place local rule image."
+        ],
+        "reasoning": "A general transfer-matrix formalism permits constructing this result but does not give its exact boundary-dependent language, 26-state table or closed coefficients.",
+        "searches": [
+          "Resultary published synchronous Rule110 record 2026-11-02",
+          "Resultary Search Rule110 + sequential entropy",
+          "Sequentializing cellular automata 2019 abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0707.2360",
+        "https://arxiv.org/html/2509.07797v1",
+        "https://doi.org/10.1103/RevModPhys.55.601",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3",
+        "Resultary_Search Rule110 one-sweep query",
+        "Git blobs RESULT.md 98de9daff8ee0af4a10ab442ea71dbf6634580b1; proof_transfer.py 110ce2438f764ef13a7497805071dd8b4d31ff72"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Periodicity/fixed-point theorems do not determine the image size or exact finite-language membership at one sweep. Sequential counts 5,11,20,... are not corollaries of synchronous 5,10,22,... ."
+        ],
+        "reasoning": "The proposed generating function is neither equivalent to nor dominated by located earlier statements; it requires its own finite-state certificate.",
+        "searches": [
+          "Macauley et al. arXiv:0707.2360",
+          "Donoso-Leiva et al. arXiv:2509.07797 Theorem16",
+          "synchronous Rule110 Resultary 2026-11-02"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Macauley et al. classify periodic-state order independence; Donoso-Leiva et al. Theorem 16 proves the all-zero fixed point is isolated under sequential Rule 110; neither counts all one-sweep outputs."
+        ],
+        "reasoning": "Different dynamical observables are not equivalent to image-language enumeration, even when the same Wolfram rule and sequential word appear.",
+        "searches": [
+          "Resultary_Search: sequential Rule 110 one-sweep image entropy generating function distinct reachable words automaton",
+          "arXiv:0707.2360 sequential order independence",
+          "arXiv:2509.07797 Theorem 16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Synchronous 2026-11-02 tabulation 1,2,5,10,22,... differs at n=4; current 2026-11-17 Resultary same-claim record corresponds to this audited item."
+        ],
+        "reasoning": "No prior accessible exact table for the specified left-to-right one-sweep map was located; this is a natural infinite enumerator, not simply recalculation of a known table.",
+        "searches": [
+          "Resultary_Search: sequential Rule 110 one-sweep image entropy generating function distinct reachable words automaton",
+          "Resultary records of cyclic Rule110 predecessor enumeration"
+        ]
+      },
+      "rationale": "PASS (qualified): exact scan-order-specific image automaton and generating function are distinct from simultaneous Rule 110 image enumeration and from earlier sequential order-independence/attractor classifications, despite using standard subset construction. Published same-day copy is not independent antecedent; previous exact all-length enumerators of synchronous rule have differing counts and characteristic polynomials.",
+      "residual_risks": [
+        "No claim the 26-state automaton is minimal, nor that all possible scan permutations share this entropy.",
+        "Historical unindexed results with a sequential-specific equivalent rational enumerator may have escaped search; same-day related records require chronology attention.",
+        "Independently checked transfer recurrence is finite certificate combined with Cayley-Hamilton, not an external formal proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different target: periodic points independent of update order, not number of distinct images of one sweep.",
+          "evidence": [
+            "arXiv:0707.2360, classification of update-order-independent periodic sets"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0707.2360",
+          "material_read": "Full PDF relevant definitions, order independence statements and Rule 110 periodic-point discussion",
+          "method": "arXiv full PDF, text and page inspection",
+          "title": "Order Independence in Asynchronous Cellular Automata (Macauley, McCammond, Mortveit)",
+          "trigger": "sequential Rule 110 may be fully classified"
+        },
+        {
+          "assessment": "Theorem 16 says zero fixed point isolated under sequential Rule110 and analyses convergence, not all-length one-sweep entropy.",
+          "evidence": [
+            "Theorem 16 and ECA classification table"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.07797v1",
+          "material_read": "Full arXiv HTML introduction, classification and Theorem 16",
+          "method": "full-text HTML relevant theorem reading",
+          "title": "On the Convergence of Elementary Cellular Automata under Sequential Update Modes (Donoso-Leiva et al., 2025)",
+          "trigger": "exact sequential Rule 110"
+        },
+        {
+          "assessment": "Synchronous global map is not sequential scan; n4 and n5 counts differ, so it cannot identify the current image language.",
+          "evidence": [
+            "synchronous counts n4=10 and n5=22 versus sequential n4=11 and n5=20"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3",
+          "material_read": "Published primary Resultary summary and exact synchronous count comparison; no assertion of line-by-line full text",
+          "method": "published record comparison",
+          "title": "Exact one-step image counts for cyclic elementary cellular automaton Rule 110 (2026-11-02)",
+          "trigger": "all-length exact Rule110 image count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: a natural discrete invariant of a canonical sequential cellular automaton is the size and language of one-sweep reachable states. The exact all-length 26-state recognizer, constructive inverse and entropy quantify information loss due to scan order and contrast precisely with simultaneous Rule 110. This is a meaningful infinite-length classification and not the mechanical recitation of known synchronous tables; no universality/long-term dynamics claim is needed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/0707.2360",
+    "https://arxiv.org/html/2509.07797v1",
+    "https://doi.org/10.1103/RevModPhys.55.601",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3",
+    "Resultary_Search Rule110 one-sweep query",
+    "Git blobs RESULT.md 98de9daff8ee0af4a10ab442ea71dbf6634580b1; proof_transfer.py 110ce2438f764ef13a7497805071dd8b4d31ff72"
+  ],
+  "disposition": "passed",
+  "final_claim": "For left-to-right in-place Rule 110 on a labelled n-bit cycle (n>=3), exact 26-state predecessor-automaton reachability and distinct one-sweep image rational generating series z^3(5+z-7z^2-2z^3+4z^4)/((1-z)(1-z-2z^2+z^4)), yielding entropy 0.929916834432 bits/site.",
+  "limitations": [
+    "No formal Lean or expert certification asserted.",
+    "Scientific review is complete; provenance-clean publication transport is not ready."
+  ],
+  "residual_risks": [
+    "No claim the 26-state automaton is minimal, nor that all possible scan permutations share this entropy.",
+    "Historical unindexed results with a sequential-specific equivalent rational enumerator may have escaped search; same-day related records require chronology attention.",
+    "Independently checked transfer recurrence is finite certificate combined with Cayley-Hamilton, not an external formal proof."
+  ],
+  "schema_version": 1
+}
