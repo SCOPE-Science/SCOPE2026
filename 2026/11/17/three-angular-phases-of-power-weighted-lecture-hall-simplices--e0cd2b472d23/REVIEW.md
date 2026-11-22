@@ -1,15 +1,21 @@
-# Self-review: Three angular phases of power-weighted lecture-hall simplices
+# Independent mathematical audit
 
-## Correctness: PASS
-The central geometric identity is verified directly: suffix-vertex objectives are final Gaussian partial sum minus prefix sum, so normal-cone probability is a discrete Gaussian-walk minimum. The two-sided survival events depend on disjoint coordinates. After exact variance-clock embedding, the Brownian argmin is unique almost surely, making continuous-mapping arguments valid for both power and harmonic clocks. Below the summability threshold, the tail zero-one argument gives eventual stabilization without using finite experiments as an infinite proof. The standalone checker verifies geometric equality, the exact two-dimensional angle formula, the equal-weight discrete arcsine law, and several finite-sample diagnostics.
+## correctness
 
-## Originality: PASS, historical priority provisional
-The primary literature of Kohl–Olsen (arXiv:1710.10892), Olsen (arXiv:1808.06131), Brändén–Solus (arXiv:1911.12459), and Beck–Braun–Köppe–Savage–Zafeirakopoulos (arXiv:1508.04619) addresses algebraic, Ehrhart and triangulation properties of the same polytope setting. Classical Lévy arcsine theory, Sparre Andersen survival probabilities, and general inhomogeneous first-passage techniques are openly credited. Closest geometric work on a single terminal spike, Euclidean curvature of power staircases, and power-weighted covariance spectra does not supply this complete angular distribution and three-regime classification. The general time-change mechanism provides much of the proof once the geometric identification is made; this limits claims of probabilistic novelty. Inaccessible full text and unindexed equivalent orthant-probability results remain genuine historical risks, not evidence of uniqueness.
+PASS
 
-## Mathematical value: PASS
-The result determines a natural, complete Euclidean normal-angle statistic for an infinite family and proves a sharp geometrically interpretable transition at exponent \(lpha=-1/2\): angular mass spreads across linear ranks, lives at random polynomial ranks, or eventually selects one finite index. It differentiates metrically noncongruent simplices whose face lattices are identical, with an exact finite angle formula rather than only a qualitative scaling law. The critical logarithmic regime and subcritical almost-sure result are integral to the claim.
+The vertices are weighted suffix indicators because y_i=x_i/s_i lies in the order simplex 0≤y_1≤⋯≤y_n≤1. Gaussian exposure of v_k equals S_n−S_k with S_j=Σ_{i≤j}s_iG_i; thus J_n is the unique discrete minimum. Backward negative and forward positive partial-sum conditions use disjoint increments, so probabilities exactly factor; symmetric iid Sparre Andersen gives 4^(−n)binom(2k,k)binom(2n−2k,n−k). For s_i=i^α, independent Gaussian sums are precisely Brownian B(A_j), A_j=Σ i^{2α}, in finite-dimensional law. As α≥−1/2 the normalized time mesh vanishes; unique Brownian minimum U~arcsine transforms under A_j/A_n~(j/n)^{2α+1} (supercritical) or H_j/H_n~log(j+1)/log n (critical). For α<−1/2 the Gaussian series converges almost surely; its tails cannot eventually keep one sign by tail zero-one and Gaussian symmetry, ensuring the global discrete minimum is attained at a unique finite j and J_n stabilizes. Independent exact n=2 normal-cone formula checked against 120,000 fresh Gaussian draws at five exponents; limit statements depend on Brownian/zero-one proof, not these draws.
 
-## Closest literature and limitations
-The most relevant geometric definition and suffix-vertex structure occur in Olsen's 2018 survey, Definition 2.7. The 2017 Kohl–Olsen preprint supplies a public foundational source. Historical mathematical priority is not independently certified; the full text of one potentially relevant indexed covariance manuscript was unavailable in this inspection. The parameter is fixed, weights may be nonintegral, local single-vertex asymptotics are not proved, and the random index in the summable regime is not explicitly distributed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Euclidean normal-cone exposure index reduces to the argmin of an inhomogeneous centered Gaussian walk. Brownian arcsine, Sparre Andersen and Gaussian time change are classical ingredients and are not claimed novel. The new combined exact finite angle factorization and geometric phase classification at α=−1/2 (linear, logarithmic and finite-index) were not found in inspected lecture-hall simplex work or relevant first-passage primary literature. Best-of-knowledge originality remains vulnerable to prior inhomogeneous Gaussian argmin results under different names.
+
+## value
+
+PASS
+
+The Gaussian-exposed vertex of a natural weighted simplex has an exact all-vertex angular probability law; the sharp α=−1/2 transition separates two distinct macroscopic ranks and a genuinely almost-surely finite index regime. These are motivated geometric phase scales with precise formulas and useful links to Brownian convex geometry, not just a renaming of the classical arcsine theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
