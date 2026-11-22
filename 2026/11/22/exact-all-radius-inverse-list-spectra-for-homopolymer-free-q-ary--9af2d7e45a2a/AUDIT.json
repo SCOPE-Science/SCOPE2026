@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A unique leftmost embedding gives a bijection between distinct admissible source words and uniquely decomposed skipped blocks. Prefix, unequal-gap, equal-gap and suffix factors are independently proved as (1+z)/(1-(q-2)z), 1/(1-(q-2)z), (q-1)z/(1-(q-2)z), and 1/(1-(q-1)z). Their product establishes every coefficient for all q>=3,m>=1,d>=0. A positive coefficient recurrence proves exact strict ordering and absence of singleton parents at positive deletion count. Binomial transition counting and the binomial CLT prove multiplicity and asymptotic claims. Executable exhaustive and independent DP checks pass; finite checks are auxiliary, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Atashpendar et al. enumerate unrestricted binary supersequences and embeddings, Section IV, without a homopolymer-free source restriction.",
+        "Takemoto–Nozaki construct binary single-error RLL codes, Section IV, not all-radius q-ary inverse counts.",
+        "Indexed descendant result counts different outputs from each unrestricted source, not constrained inputs for a given receiver."
+      ],
+      "reasoning": "Unrestricted source-to-output formulas, especially the classical count of q-ary unconstrained supersequences, do not imply the exact intersection with the adjacency-distinct language. Single-deletion code constructions do not imply arbitrary deletion inverse-list profiles.",
+      "searches": [
+        "q-ary homopolymer-free words single deletion inverse list size complete spectrum",
+        "insertion supersequences proper colorings no identical adjacent q-ary single deletion inverse count",
+        "binary constrained insertion deletion channel inverse spectrum run-length-limited",
+        "https://arxiv.org/html/1802.00703v2",
+        "https://arxiv.org/html/2012.13536v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1802.00703v2 (primary full text)",
+      "https://arxiv.org/html/2012.13536v1 (primary full text)",
+      "https://arxiv.org/abs/2305.10741 (primary rendered full text)",
+      "Indexed summaries of one-deleted-overlapping-read and unrestricted forward-deletion-sphere results",
+      "Indexed summary of subsequence universality for adjacency-distinct words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Atashpendar Theorem IV.3 establishes initial-mask counting in the unconstrained binary setting, a methodological ingredient rather than the present enumerator.",
+        "Benerjee–Banerjee Definition II.1 identifies the source language but their sphere metric is Hamming.",
+        "Indexed overlapping-read result deletes a read, not source letters."
+      ],
+      "reasoning": "The intersection of two conditions—receiver is a subsequence and source avoids every equal adjacency—requires a separate exact enumeration. No checked prior statement has premises and conclusion implying the all-deletion receiver-fiber formula. The main novelty is restricted to q>=3 and all d, avoiding a previously observed binary one-deletion special case.",
+      "searches": [
+        "https://arxiv.org/html/1802.00703v2",
+        "https://arxiv.org/html/2012.13536v1",
+        "https://arxiv.org/abs/2305.10741"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Retrieved universality record counts subsequence-universality indices of adjacency-distinct words, not inverse lists after deletions.",
+        "Direct published-language searches about proper-word supersequences did not yield an equivalent formula."
+      ],
+      "reasoning": "The exact object here is a q-ary, adjacency-distinct inverse fiber conditioned on a received subsequence. Replacing an adjacent-equality defect by a run statistic is an alias included in searches. None of the inspected results states the all-d closed coefficient, strict spectrum, or feasibility law.",
+      "searches": [
+        "homopolymer free single run length one all deletion counts exact inverse list coefficient (1+z)(q-1)^r z^r / ((1-(q-2)z)^m(1-(q-1)z))",
+        "proper q-ary words subsequence supersequence count depends only repeated adjacent symbols of received word",
+        "reconstruction homopolymer-free qary sequence arbitrary deletions output support binomial tail and ambiguity spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Benerjee–Banerjee tables are for Hamming spheres of homopolymer-free words; this theorem counts subsequence supersequences.",
+        "Indexed deletion descendant summaries cover unrestricted source forward balls, not these receiver fibers."
+      ],
+      "reasoning": "The exact numbers in the worked example are independently recomputed from the formula and source enumeration. No inspected table listed the entire q,m,d,r constrained inverse spectrum; table absence is not used as novelty proof.",
+      "searches": [
+        "homopolymer free sequence deletion supersequence count exact qary insertion ball word adjacent equal runs",
+        "https://arxiv.org/abs/2305.10741"
+      ]
+    },
+    "rationale": "The checked primary texts supply unrestricted supersequence enumeration, binary run-limited one-error code constructions, and q-ary homopolymer-free Hamming bounds, but no statement covering all deletion radii and the complete inverse-list distribution for q-ary adjacency-distinct sources. Semantic literature searches surfaced different objects (deleted overlapping reads, unconstrained source-to-output deletion spheres, scattered-subsequence universality); these do not imply the restricted receiver-to-source formula. Canonical embedding is known and openly credited. Residual priority risk remains, but no decisive stronger coverage was found.",
+    "residual_risks": [
+      "A general regular-language subsequence transfer theorem could implicitly specialize to the stated formula without using its terminology; targeted source checks did not locate a stronger explicit covering claim.",
+      "The 2018 paper already uses unique greedy/initial embeddings in unrestricted supersequence counting; the novelty is the exact constrained q-ary spectrum and consequences, not the embedding device itself.",
+      "The accessible indexed results are ranked summaries rather than an exhaustive proof of absence, and unindexed earlier constrained-supersequence results may exist.",
+      "A 2024 DNA reconstruction article was accessible in excerpted form but its publisher full text could not be opened through the checked path; it concerns general reconstruction algorithms, not an evidenced exact restricted inverse spectrum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "unrestricted binary supersequence enumeration/embedding multiplicity, but no q-ary homopolymer-free all-deletion inverse-list spectrum; its canonical embedding idea is acknowledged and reused",
+        "evidence": [
+          "Theorem IV.3 counts maximal initial embeddings for unrestricted binary sources; Theorem IV.6 counts supersequences having a single embedding and depends on runs; Section V concerns entropy for one and two deletions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1802.00703v2",
+        "material_read": "Sections III–V, in particular the canonical initial-embedding construction, Theorems IV.3–IV.6, and the double-deletion analysis",
+        "method": "full-text HTML, inspecting definitions and theorems, and comparing source restrictions",
+        "title": "From Clustering Supersequences to Entropy Minimizing Subsequences for Single and Double Deletions",
+        "trigger": "same supersequence and inverse-image objects; plausible general count"
+      },
+      {
+        "assessment": "binary construction for a single insertion/deletion with redundancy bounds; does not give arbitrary-d q-ary receiver-fiber counts",
+        "evidence": [
+          "Section IV constructs congruence-based RLL-SIDC codes; Theorem 4 bounds redundancy gap, not source multiplicities of receivers."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2012.13536v1",
+        "material_read": "Sections I–IV and conclusion, including code construction, encoder/decoder and redundancy theorem",
+        "method": "full-text HTML comparison of channel definition, alphabet, number of errors and counted statistic",
+        "title": "Construction and Encoding Algorithm for Maximum Run-Length Limited Single Insertion/Deletion Correcting Code",
+        "trigger": "run-limited source and insertion/deletion correction, possibly dominating channel result"
+      },
+      {
+        "assessment": "studies Hamming-distance code bounds and Hamming spheres, not deletion-subsequence inverse-list spectra",
+        "evidence": [
+          "Definition II.1 defines adjacency-distinct q-ary words; Proposition II.1 and Tables II–III concern Hamming spheres."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.10741",
+        "material_read": "Full open text sections I–V, Definition II.1, Proposition II.1, Hamming spheres and numerical tables",
+        "method": "full-text reading of accessible HTML representation and comparison of error metric and bound types",
+        "title": "Bounds on Size of Homopolymer Free Codes",
+        "trigger": "exact same homopolymer-free q-ary source language"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9af2d7e4-5a2a-4674-87b7-6c66c00f8590",
+  "value": {
+    "rationale": "Homopolymer-free strings are an established DNA/storage source constraint, and deletions produce synchronization ambiguity. The result identifies a complete all-radius inverse-list spectrum from one local statistic, distinguishes feasible from impossible receiver words, proves a strict ambiguity hierarchy and the absence of any uniquely decodable observation for positive deletions when q>=3, and gives an exact binomial/Gaussian threshold for attainable observations. These are motivated global and asymptotic channel invariants, not a one-radius enumeration or a code-capacity assertion.",
+    "status": "PASS"
+  }
+}
