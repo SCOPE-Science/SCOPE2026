@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Each labelled token must switch the edge endpoints, giving a baseline 2s moves. A crossing external excursion uses an alternate path of length at least g-1, costing at least g-2 beyond baseline. With no crossing, initial saturation forces a return excursion, after which the initially moved token remains on its wrong starting endpoint and both endpoints are full, so a second return excursion is necessary: at least four extra moves. A 2-token buffer construction gives exactly 2s+4; a shortest cycle bypass construction gives exactly 2s+g-2. Both enforce capacity at every move for every s>=2. Exact BFS on 46 finite host/edge/capacity instances independently confirms both cases; finite tests do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai et al., arXiv:2611.06275, Theorem 4.2: complete-host distance; Theorem 4.3: star-host diameter; Proposition 4.4: odd-cycle diameter bound",
+        "Song et al., arXiv:2604.04845, sections 2 and 7: graph definitions, order, size and connectivity"
+      ],
+      "reasoning": "Complete-host metric gives the g=3 subcase and is credited, while star diameters and cycle diameters do not supply precise distances of prescribed saturated stacks on general hosts. Neither is a dominating all-graph pairwise formula.",
+      "searches": [
+        "generalized token graphs full-stack exchange across edge detours 4 moves nearest cycle",
+        "distinguishable token reconfiguration capacity two full sites neighboring graph shortest swap"
+      ]
+    },
+    "checked_sources": [
+      {
+        "date": "2026-04-06",
+        "id": "arXiv:2604.04845",
+        "url": "https://arxiv.org/html/2604.04845v1"
+      },
+      {
+        "date": "2026-11-04",
+        "id": "arXiv:2611.06275",
+        "url": "https://arxiv.org/abs/2611.06275"
+      },
+      {
+        "id": "arXiv:2611.08186",
+        "url": "https://arxiv.org/abs/2611.08186"
+      },
+      {
+        "url": "https://combinatorialpress.com/um-articles/vol-123/on-some-metric-properties-of-supertoken-graphs/"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cai et al., arXiv:2611.06275, Theorem 4.2 entails the g=3 special case; §4.4 leaves broader odd-cycle diameter open",
+        "Song et al., arXiv:2604.04845, supplies the configuration model but not the all-graph local distance law"
+      ],
+      "reasoning": "The new result strictly extends the covered triangle case in a direction not obtained by substituting parameters: it uses shortest-cycle-through-an-edge for arbitrary graphs. It does not claim the special case as novel or imply a complete odd-cycle diameter solution.",
+      "searches": [
+        "generalized token graph odd cycles shortest path capacity two tokens 2s diameter",
+        "generalized token graphs full-stack exchange across edge detours 4 moves nearest cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cai et al., arXiv:2611.06275, definition of F^s_{k×1}(G), §1; global metric results in §4",
+        "Song et al., arXiv:2604.04845, §7, definition of distinguishable bounded-capacity configurations"
+      ],
+      "reasoning": "The exact object is an ordered labelled-token graph with a capacity per vertex. An equivalent statement would express the cost of exchanging two full adjacent stacks in terms of the shortest alternate u-v path. The inspected sources do not state this formula for arbitrary host edges.",
+      "searches": [
+        "capacity s distinguishable tokens swap two fully occupied adjacent vertices exact distance 2s + min(4, girth edge cycle length minus two)",
+        "generalized token graphs full-stack exchange across edge detours 4 moves nearest cycle",
+        "supertoken graphs edge swap distance saturated piles edge girth shortest cycle",
+        "distinguishable token reconfiguration capacity two full sites neighboring graph shortest swap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cai et al., arXiv:2611.06275, Table 1 reports selected odd-cycle diameters, not the claimed all-graph local edge metric",
+        "No accessible indexed matching exact metric record was returned by the actual targeted semantic searches"
+      ],
+      "reasoning": "Published diameter values can bound but cannot establish the claimed exact labelled-stack distance for each edge. No checked table records the all-graph girth-law parameters.",
+      "searches": [
+        "supertoken graphs edge swap distance saturated piles edge girth shortest cycle",
+        "capacity s distinguishable tokens swap two fully occupied adjacent vertices exact distance 2s + min(4, girth edge cycle length minus two)"
+      ]
+    },
+    "rationale": "An all-graph, edge-specific exact distance formula based on the shortest cycle containing the saturated edge was not found in accessible full primary sources or actual semantic database searches. The triangular complete-host case follows already from Cai et al. The general four-, five-, six-plus-cycle/bridge edge-girth law is not implied by their diameter theorems. Novelty is best-knowledge only, subject to unindexed priority.",
+    "residual_risks": [
+      "The full breadth of unindexed textbook and preprint history cannot be exhausted.",
+      "A triangle edge is a known special case of the complete-host theorem and must not be represented as independently new.",
+      "No independent mathematical review yet."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_PRECEDENT_NOT_COVERING_LOCAL_DISTANCE",
+        "evidence": "Sections 1,2,7 address graph families, graph size and connectivity rather than exact saturated adjacent-stack shortest paths.",
+        "identifier_or_url": "https://arxiv.org/html/2604.04845v1",
+        "material_read": "Full HTML definition, properties and relevant labelled-capacity family §7",
+        "method": "Read open-access full HTML and compare objects and stated structural conclusions",
+        "title": "On Generalized Token Graphs",
+        "trigger": "Original definition and earliest public date for labelled bounded-capacity token graphs"
+      },
+      {
+        "assessment": "TRIANGLE_CASE_COVERED_GENERAL_GIRTH_LAW_NOT_FOUND",
+        "evidence": "Theorem 4.2 covers complete graphs; Theorem 4.3 treats star diameters; Proposition 4.4 treats odd-cycle diameter bounds and Conjecture 4.5 concerns whole diameters.",
+        "identifier_or_url": "https://arxiv.org/abs/2611.06275",
+        "material_read": "Full arXiv HTML, sections 1,4.1,4.2,4.3,4.4 and metric table",
+        "method": "Read open-access HTML text and compare every relevant theorem with the precise edge-local claim",
+        "title": "On generalized k-token graphs with distinguishable tokens and a maximum capacity of s tokens per vertex",
+        "trigger": "Closest primary paper, same labelled-capacity token model with metric theorems"
+      },
+      {
+        "assessment": "INAPPLICABLE_UNIT_CAPACITY",
+        "evidence": "The model restricts to one token per site, whereas two tokens must temporarily share a site for the universal construction.",
+        "identifier_or_url": "https://arxiv.org/abs/2611.08186",
+        "material_read": "Abstract and relevant full HTML sections on s=1",
+        "method": "Compare token capacity hypotheses and graph definition",
+        "title": "On generalized token graphs with tokens of different colors",
+        "trigger": "Related labelled-token model with unit-capacity restriction"
+      },
+      {
+        "assessment": "DIFFERENT_UNLABELLED_TOKEN_MODEL",
+        "evidence": "This article concerns supertoken metrics without individually labelled prescribed destinations.",
+        "identifier_or_url": "https://combinatorialpress.com/um-articles/vol-123/on-some-metric-properties-of-supertoken-graphs/",
+        "material_read": "Accessible online text and definitions concerning indistinguishable supertokens",
+        "method": "Compare token identities and occupancy assumptions",
+        "title": "On Some Metric Properties of Supertoken Graphs",
+        "trigger": "Title suggests possible prior general shortest-path coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd933114-b8d1-43b8-9506-618b87a9bb60",
+  "value": {
+    "rationale": "Identifies the exact unavoidable congestion overhead for a basic two-full-site exchange in the current labelled-token graph family, uniformly over all finite connected hosts. The local cycle threshold g=3,4,5,>=6 or bridge supplies an interpretable structural classification and complements the open odd-cycle diameter problem without claiming its resolution. Infinite domain and precise edge dependence make it more than a single numerical or routine small case.",
+    "status": "PASS"
+  }
+}
