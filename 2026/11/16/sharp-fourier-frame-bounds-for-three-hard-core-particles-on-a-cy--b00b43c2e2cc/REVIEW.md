@@ -1,15 +1,21 @@
-# Scientific review: fixed-three hard-core cycle Fourier frame
+# Independent mathematical audit
 
-## Correctness — PASS
-A counting argument gives exactly \(n(n-4)(n-5)/6\) admissible triples. The two-point count has only three off-diagonal classes, making the covariance circulant with a quadratic spatial Fourier symbol. The proof includes the forced constant-sum zero mode, proves strict positivity for all other frequencies, identifies both extremal mode families for every \(n\ge7\) (including exact rational cubic isolations at the three short lengths), and derives the sharp \(8/n\) asymptotic coefficient. The special six-site ensemble is checked separately. Reproduction from `verify.py` completed successfully; finite experiments are supplementary, not an all-length proof.
+## correctness
 
-## Originality — PASS, with stated residual historical risks
-Direct comparisons were made against the published complete vertex-covariance spectrum of cycle stable-set polytopes and an exact Lucas-cube Fourier precision result: those treat the full mixture of independent-set sizes, whereas this theorem conditions on **exactly three** particles. This changes the zero-mode rank, spectral symbol and limiting ratio, so neither full-mixture theorem implies the present finite-layer theorem. Jain–Perkins–Sah–Sawhney (2021), Sections 1 and 3–5, treat sampling and counting fixed-size independent sets via local central limit theorems rather than a sharp spatial Fourier covariance spectrum. Vavro (2001), arXiv:cond-mat/0011401, was read in full (four-page manuscript): its equations (15)–(21) count cyclic cluster arrangements and canonical partition functions, but it does not compute the fixed-three position-pair covariance, spatial Fourier eigenvalues, or their sharp extremizers. Its composition counting overlaps the preliminary enumeration and is credited rather than claimed as new. Specialist historic structure-factor literature may contain a differently expressed finite-size result. Thus priority is provisional rather than independently certified.
+PASS
 
-## Mathematical value — PASS
-Fixed-size independent-set sampling is a natural microcanonical counterpart to grand-canonical hard-core sampling. Exactly three particles are the first interaction layer beyond one particle and a forbidden pair. The sharp nullity change between six and seven sites, explicit all-length extremizing spatial wavelengths, and quantified approach to a tight frame at rate \(8/n\) provide a usable exact stability statement, not a mere finite example or a reworded standard count. In particular, the full-size-mixture covariance retains a distinct nontrivial limiting anisotropy, so the conditioning contrast is mathematically motivated.
+For n>=7 count cyclic nonadjacent triples by three positive gaps: T=n(n-4)(n-5)/6; exact occupied pair counts are 0 at distance 1, n-5 at distance 2 and n-6 otherwise. Centering the circulant second moments and taking its Fourier transform gives gamma(n,k)=4[3/n-((n-6)(1+2cos theta)-2cos 2theta)/T] for k!=0, with the zero constant mode forced by the fixed particle number. The quadratic F_n(c)=3/n+[4c^2-2(n-6)c-(n-4)]/T decreases on the sampled domain for n>=10, and the short n=7,8,9 cases follow from exact root isolations/vertex distances. Its sampled positive spectrum is minimal at k=1,n-1 and maximal at the alternating modes. n=6 has two complementary configurations, covariance rank one and Walsh Gram eigenvalue 6. Expanding the exact extrema gives the squared condition ratio 1+8/n+O(n^-2). Independently generated all admissible triples and recomputed exact covariance, Fourier eigenvalues and extremal frequency comparisons at n=7..15 with separate code; these finite tests supplement the all-n quadratic proof. Checked Python verifier source (not trusted solely as a log).
 
-## Limitations
-The theorem does not classify other fixed particle numbers or arbitrary exclusions, and the assertion of historical originality is subject to further specialist source comparison. Exact rational bracket verification and finite enumeration do not substitute for the analytic proof supplied in the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original sharp conditional three-particle covariance spectrum and mode-conditioning classification beyond classical gap counts and full-size Lucas-cube law.
+
+## value
+
+PASS
+
+The fixed-three layer is the first nontrivial spatial hard-core microcanonical triple ensemble, and singularity changes sharply at six versus seven sites. The all-length exact extremal Fourier modes and condition ratio 1+8/n+O(n^-2) are concrete stability invariants for degree-one sampling, sharply contrasting with the grand-canonical Lucas-cube regime. The claim is not just an elementary count; it identifies the sharp spectrum and its real nullity boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

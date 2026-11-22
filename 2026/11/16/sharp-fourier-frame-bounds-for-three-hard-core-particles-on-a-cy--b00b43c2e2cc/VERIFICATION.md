@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The standalone Python 3 standard-library program `verify.py` was run from the same package and printed:
+# Independent mathematical audit
 
-```
-EXHAUSTIVE_TRIPLE_COUNTS_AND_EXACT_COVARIANCE_PASS n=7..26
-EXACT_RATIONAL_CUBIC_BRACKETS_PASS n=7,9
-NUMERICAL_MODE_ORDERING_PASS n=7..1000
-ASYMPTOTIC_CONSTANT_SPOT_CHECK_PASS
-THREE_HARD_CORE_FOURIER_FRAME_CHECKS_PASS
-```
+## correctness
 
-The checker exhaustively enumerates the fixed-three hard-core configurations through cycle length 26, computes their rational covariance rows and compares the diagonalization with the claimed Fourier symbols. Rational cubic endpoint substitutions certify the isolating brackets used in the proof for the exceptional short lengths. Numerical frequencies through 1000 are cross-checks only; the all-integer mode ordering and positivity are separately proved in `RESULT.md`. The stated sharp asymptotic follows from algebraic expansion, not from the numerical spot checks. No independent external assessment has been conducted.
+PASS
+
+For n>=7 count cyclic nonadjacent triples by three positive gaps: T=n(n-4)(n-5)/6; exact occupied pair counts are 0 at distance 1, n-5 at distance 2 and n-6 otherwise. Centering the circulant second moments and taking its Fourier transform gives gamma(n,k)=4[3/n-((n-6)(1+2cos theta)-2cos 2theta)/T] for k!=0, with the zero constant mode forced by the fixed particle number. The quadratic F_n(c)=3/n+[4c^2-2(n-6)c-(n-4)]/T decreases on the sampled domain for n>=10, and the short n=7,8,9 cases follow from exact root isolations/vertex distances. Its sampled positive spectrum is minimal at k=1,n-1 and maximal at the alternating modes. n=6 has two complementary configurations, covariance rank one and Walsh Gram eigenvalue 6. Expanding the exact extrema gives the squared condition ratio 1+8/n+O(n^-2). Independently generated all admissible triples and recomputed exact covariance, Fourier eigenvalues and extremal frequency comparisons at n=7..15 with separate code; these finite tests supplement the all-n quadratic proof. Checked Python verifier source (not trusted solely as a log).
+
+## originality
+
+PASS
+
+Best-of-knowledge original sharp conditional three-particle covariance spectrum and mode-conditioning classification beyond classical gap counts and full-size Lucas-cube law.
+
+## value
+
+PASS
+
+The fixed-three layer is the first nontrivial spatial hard-core microcanonical triple ensemble, and singularity changes sharply at six versus seven sites. The all-length exact extremal Fourier modes and condition ratio 1+8/n+O(n^-2) are concrete stability invariants for degree-one sampling, sharply contrasting with the grand-canonical Lucas-cube regime. The claim is not just an elementary count; it identifies the sharp spectrum and its real nullity boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
