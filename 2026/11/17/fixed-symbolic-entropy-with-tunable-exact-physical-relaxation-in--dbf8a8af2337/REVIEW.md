@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact affine transfer is reconstructed from the branch images. Its active step-density matrix is \(T=\left(\begin{smallmatrix}1-q&d\\E&0\end{smallmatrix}\right)\), with characteristic roots \(1,-q\). The positive normalized invariant density and all-n signed transient follow by diagonalization and the mass identity. Expansion and primitivity justify unique absolute continuity and the Markov entropy. The entropy-gap statement is a direct finite-state KL calculation. The bundled checker independently repeats all matrix calculations using exact fractions; it is a finite corroboration, not a proof of infinite scope.
+PASS
 
-## Originality — PASS within inspected evidence
+For every five positive lengths satisfying c4>1/2 and l3<c3, even maps have height c4, odd maps c3 and all slopes >1. Their five-by-five Perron operator collapses step densities after one iterate to (A,A,A,D,0), where T=[[1-q,d],[E,0]] and E=(l0+l2)/c4, d=l3/c3, q=Ed. Algebra yields eigenvalues 1,-q, normalized A*=1/(c3+E*l3), D*=EA*, hence exact alternating TV c3|A1-A*|q^(n-1), not an arbitrary BV mixing assertion. Primitive four-state adjacency M has Perron root (3+sqrt17)/2 and the step Markov invariant density proves physical ergodicity. KL divergence from the Parry transition gives strict metric entropy gap except on the four-active-branch equal-slope locus. Exact Fraction source CHECK.py inspected (91 geometries and 1001 step comparisons in its design). Separate rational geometry (1/10,1/5,1/5,1/10,2/5) yielded q=1/10, A*=20/11,D*=10/11, with eight-step recurrence verified exactly.
 
-The 2026 motivating article gives the five-branch example's adjacency matrix and symbolic entropy, but does not state the four-parameter invariant-density or alternating physical relaxation law. A search of relevant published mathematical records for invariant density, transfer rates, equivalent parameterizations and stronger coverage did not identify this theorem. Byers, Góra and Boyarsky (1990) and Parry's general theory supply the maximum-entropy slope principle; the entropy equality-locus subresult is not claimed as a general discovery. The older full text could not be accessed, so historical priority remains provisional. No relevant record or accessible primary statement implies the all-geometry physical relaxation law merely from the source's adjacency matrix.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result demonstrates that one constant entropy value is compatible with every physical step-density decay factor in \((0,1/2)\), while also specifying the exact physical measure and every-time Lebesgue transient. This answers a natural discrepancy between symbolic and statistical descriptions of the motivating expanding map, rather than recomputing its known topological entropy. It supplies a parameterized transfer benchmark and delineates when the physical entropy matches symbolic entropy.
+Oliveira 2026 Section 9.4 provides the equal-cut five-branch Markov partition and Perron entropy but neither variable-cut stationary density nor exact signed Lebesgue transfer transient. Parry and Lasota–Yorke establish general entropy/invariant measure theory; this claim is the explicit fixed-symbolic-entropy continuum of independently variable physical relaxation factors. Full 1990 maximal-ACIM criteria not accessible, so the slope-equality locus is not itself presented as a general novelty.
 
-## Limitations
+## value
 
-The exact geometric convergence is for the Lebesgue ensemble and the explicit step-function subspace, not arbitrary initial densities or the full transfer-operator spectrum. The initial transient amplitude can vanish. Only the physical measure is classified for metric entropy. Complete priority assessment of older general transfer-operator literature and independent scientific validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The constructive decoupling of symbolic entropy, physical entropy and exact finite-dimensional physical relaxation is a motivated dynamical phenomenon, with a continuous parameter range rather than a single curiosity. Exact TV law and equality locus are usable calibration examples for expanding Markov systems, with clear no-general-BV limitation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
