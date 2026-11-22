@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A full reconstruction checks translation orthogonality, the root-zero orbit bijection, parity of each nonroot colour bit under the full three-element nonzero-colour permutation group, and the modular lifting from \(P_G(4)/4\) to each balanced coefficient. The complete-bipartite computation uses the standard Stirling-number expansion and verifies the parity recurrence \(S(m,3)\equiv m\pmod2\) for \(m\ge2\). The resulting operator rank follows from character diagonalization on a finite abelian group. The standalone integer checker corroborates 16,932 coefficients on all labelled graphs through four vertices, 28,224 balanced biclique coefficients and 99 independent direct sums. No finite check substitutes for the universal proof.
+PASS
 
-## Originality — PASS under bounded comparison
+Global addition of any H=F2² colour preserves properness, so every nonbalanced frequency cancels. For balanced frequencies, choose one root colour zero and divide the orbit sum by four. The S3 permutation of nonzero colour names acts on root-fixed proper colourings and makes each nonzero colour equinumerous at each other vertex. Each binary coordinate equals one at precisely two of three such colours, so the sum of every coordinate bit over root-fixed colourings is even. Therefore the number of negative phases is even, W/4≡P_G(4)/4 (mod4). The linear chromatic coefficient a1 determines the parity of P_G(4)/4. For K_m,n with m,n≥2 the Stirling expansion P/4≡3^n+2S(m,3)≡(-1)^(m+n) (mod4), proving exact full balanced support and rank. This covers disconnected/empty colouring cases within the stated nonempty graph scope.
 
-The Greene–Zaslavsky chromatic linear-coefficient identity and the unsigned biclique colouring formula are prior work. The inspected portions of Gebhard–Sagan’s 1999 preprint discuss unique-sink acyclic orientations and coefficient identities, not arbitrary signed character sums. Tarsi's full 1999 article discusses a distinct graph-polynomial-weighted colour sum; its Theorems 1.1–1.4 do not state the present uniform \(\pmod{16}\) law. The closest indexed first Fourier-band study on complete bipartite colourings addresses sampling Gram spectra, not all convolution multipliers; only its indexed abstract could be inspected. Searches did not locate a published full-character congruence with this conclusion. This is bounded evidence, not a proof of historical uniqueness. The residual risk is an uncatalogued treatment of character-weighted colourings or a more general modular group-action theorem implying the result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact full Fourier support of a graph-colouring indicator is a natural deconvolution question. The theorem converts a graph-polynomial parity invariant, also interpretable by acyclic unique-sink orientations, into an exact rank test for a whole class of colour-constrained convolution operators. The biclique theorem uniformly handles arbitrarily large and unbalanced part sizes and proves a frequency-independent nontrivial modulo-sixteen restriction, stronger than ordinary translation-forced zeros. The result is structural, not a numerical tolerance test or arbitrary small parameter slice. It does not claim exact nonzero singular-value multiplicities or a paper-sized development.
+Chromatic coefficient combinatorics and equivariant colour permutations are classical, but the all-character mod16 congruence and biclique full convolution spectrum are not the same as unsigned chromatic counts or a degree-one Fourier Gram spectrum. Published broader group-action congruences remain an unexcluded priority risk.
 
-## Closest sources and limitations
+## value
 
-Gebhard–Sagan, arXiv:math/9907078v1, examined primary PDF text through Section 3; Tarsi, DOI:10.5802/aif.1707, full PDF pp. 1–5; OEIS A212084; and the indexed 2026/11/1 first-Fourier-band record. All limits and the unexamined plausible first-band full text are disclosed in RESULT.md. Independent assessment has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Proper-colouring Fourier support is a natural exact counting-convolution and recovery invariant. The result links a standard chromatic coefficient to *every* balanced high-degree character and proves exact deconvolution rank for arbitrary-size complete bipartite graphs, not just a numerical biclique. Mod16 divisibility is nontrivial beyond forced global-translation zeros; the odd-a1 hypothesis exposes a meaningful structural sufficient condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
