@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Exact probit conjugacy and strictly decreasing Gaussian average prove the sharp fixed-point threshold and exhaust all primitive two-cycles. The return multiplier is strictly below one. An integral identity makes the superattracting gain unique; Taylor/Cesaro and Mills prove both critical and Gaussian-gain asymptotics. Finite-time fixed-point captures are explicitly excluded from the critical nonzero rate. Reproducible checker runs pass but are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2603.20685",
+        "https://arxiv.org/abs/2412.16379",
+        "https://www.scholarpedia.org/article/Period_doubling",
+        "https://arxiv.org/abs/1908.01753"
+      ],
+      "reasoning": "The 2026 shift-map theorem covers the invariant mean and general family, not the periodic-orbit diagram for the Gaussian anti-quantile. The 2024 result covers the logit special case, not Gaussian derivative scales. Generic flip/gradient-descent references give general mechanisms but do not imply this equation-specific global uniqueness, superattracting gain, or Gaussian tail constant.",
+      "searches": [
+        "probit shift map Gaussian tails stability multiplier e^{-a^2/32} high selection intensity",
+        "quantile maps shift functions h inverse standard normal CDF positive feedback 2-cycle mean 1/2",
+        "gradient descent Gaussian error function potential 2 cycle step size unique superstable threshold",
+        "probit quantile dynamics period doubling Gaussian CDF iterative feedback 2-cycle"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2603.20685",
+      "https://arxiv.org/abs/2412.16379",
+      "https://www.scholarpedia.org/article/Period_doubling",
+      "https://arxiv.org/abs/1908.01753",
+      "https://en.wikipedia.org/wiki/Gauss_iterated_map"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.20685, Section 4, Proposition 4.2 and Remark 4.3; inspected full text lines 215-263.",
+        "arXiv:2412.16379, Section 3.1, inspected full text lines 133-155.",
+        "2026/10/11/SCOPE-singular-symmetry-breaking-threshold-for-the-period-two-orbit-of--fdee730ba349",
+        "2026/11/8/SCOPE-exact-exponentially-small-flip-gap-constant-in-a-near-symmetric--82f66c5f7ab5"
+      ],
+      "reasoning": "The general family definition and periodic mean were already proven and are expressly credited. The known logit cycle has threshold \\(a=8\\) and endpoint \\(e^{-a/4+o(a)}\\), whereas this Gaussian map has \\(a_c=2\\sqrt{2\\pi}\\), a unique interior superattracting gain, and endpoint \\((4/(a\\sqrt{2\\pi}))e^{-a^2/32}\\); these are not parameter substitutions or corollaries of the logit result. The new proof supplies strict Gaussian integral monotonicity to establish nonimplied all-gain and multiplier properties.",
+      "searches": [
+        "Gaussian normal probit map F_a(x)=Phi(Phi^{-1}(x)-a(x-1/2)) superattracting unique period two cycle gain",
+        "probit shift map Gaussian tails stability multiplier e^{-a^2/32} high selection intensity",
+        "normal quantile replicator map discrete time globally stable two-cycle at Gaussian threshold",
+        "Gaussian CDF inverse quantile shift map f_h(x)=h^{-1}(h(x)+a(x-1/2)) symmetric stable two-cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Conjugate Gaussian-CDF model: G_a(z)=z-a(Phi(z)-1/2); this is not the logit force z-a/(1+e^{-z})+a/2.",
+        "https://arxiv.org/abs/2603.20685",
+        "https://arxiv.org/abs/2412.16379",
+        "2026/10/11/SCOPE-singular-symmetry-breaking-threshold-for-the-period-two-orbit-of--fdee730ba349"
+      ],
+      "reasoning": "Replacing a quantile only defines a different map; neither conjugacy to logit with the same gain nor preservation of derivative/multiplier is supplied by the source. The generic error-function feedback aliases were searched explicitly; none of the returned records states the same exact quantitative result.",
+      "searches": [
+        "Gaussian normal probit map F_a(x)=Phi(Phi^{-1}(x)-a(x-1/2)) superattracting unique period two cycle gain",
+        "error function gradient descent z_{n+1}=z_n-a erf(z_n/sqrt(2)) stable symmetric 2-cycle all gain",
+        "Gaussian CDF inverse quantile shift map f_h(x)=h^{-1}(h(x)+a(x-1/2)) symmetric stable two-cycle",
+        "erf feedback map y next y - a erf(y) globally attracting period two symmetric flip",
+        "probit quantile dynamics period doubling Gaussian CDF iterative feedback 2-cycle",
+        "discrete dynamical system z minus alpha erf z unique stable period-two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/11/SCOPE-singular-symmetry-breaking-threshold-for-the-period-two-orbit-of--fdee730ba349",
+        "2026/11/8/SCOPE-a-sharp-universal-entrainment-threshold-for-periodically-driven--57ada2ec36b3",
+        "2026/11/8/SCOPE-exact-exponentially-small-flip-gap-constant-in-a-near-symmetric--82f66c5f7ab5",
+        "2026/10/11/SCOPE-singular-half-grid-selection-and-exponentially-weak-attraction-i--b03eb35b1a55",
+        "https://arxiv.org/abs/2603.20685"
+      ],
+      "reasoning": "Actual published-finding corpus semantic queries for Gaussian CDF, probit quantiles, error-function gradient steps, superattraction and exponential-square high-gain scales returned closest results concerning logit replicators, unrelated Gaussian distributions or other maps, rather than a table of these probit constants or cycle parameters. Search absence is not treated as global novelty proof.",
+      "searches": [
+        "Gaussian normal probit map F_a(x)=Phi(Phi^{-1}(x)-a(x-1/2)) superattracting unique period two cycle gain",
+        "error function gradient descent z_{n+1}=z_n-a erf(z_n/sqrt(2)) stable symmetric 2-cycle all gain",
+        "probit shift map Gaussian tails stability multiplier e^{-a^2/32} high selection intensity",
+        "quantile maps shift functions h inverse standard normal CDF positive feedback 2-cycle mean 1/2",
+        "Gaussian CDF inverse quantile shift map f_h(x)=h^{-1}(h(x)+a(x-1/2)) symmetric stable two-cycle",
+        "erf feedback map y next y - a erf(y) globally attracting period two symmetric flip",
+        "normal quantile replicator map discrete time globally stable two-cycle at Gaussian threshold",
+        "cumulative distribution quantile transformation f_h attracting period 2 all parameter gaussian"
+      ]
+    },
+    "rationale": "The 2026 source gives the quantile-shift *family* and notes normal quantiles, but does not provide the all-gain Gaussian-quantile period-two existence, multiplier, optimal superattraction, critical coefficient or \\(e^{-a^2/32}\\) scale. The closest 2024 paper establishes parallel theorems for the distinct logit force, including \\(e^{-a/4}\\) endpoints. Exact formula and implication comparisons plus actual published-finding corpus and web queries did not yield a dominating previously recorded probit theorem; historical priority remains an evidence-bounded judgment.",
+    "residual_risks": [
+      "Older or unindexed studies of error-function gradient descent may prove equivalent exact statements under a different normalization.",
+      "The 2019 Gauss-map paper was checked at abstract/model level, not its full text, and its named map differs.",
+      "Semantic database search is not a mathematical guarantee of unique priority; independent specialist verification remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the broad construction and mean-invariant feature; does not state the specific probit all-gain two-cycle, superattracting constant, or Gaussian-scale multiplier asymptotics.",
+        "evidence": [
+          "https://arxiv.org/abs/2603.20685",
+          "Section 4 lines 215-263; Section 5 lines 264 onward"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.20685",
+        "material_read": "Full accessible arXiv HTML, Sections 1-6 and appendix; detailed Section 4 and later Section 5, original map definitions, statements, numerical/qualitative discussion.",
+        "method": "Full-text web retrieval; compared Proposition 4.2 and Remark 4.3 with Section 5 replicator statements and equations.",
+        "title": "Shift maps and statistical invariants for some dynamical systems",
+        "trigger": "2026 motivating source explicitly mentions normal quantile shift maps in Remark 4.3."
+      },
+      {
+        "assessment": "Known logit result is not a covering probit theorem; standard qualitative similarities are attributed.",
+        "evidence": [
+          "https://arxiv.org/abs/2412.16379",
+          "Section 3.1 lines 133-155"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.16379",
+        "material_read": "Accessible full arXiv HTML with focus on Section 2 symmetry and Section 3.1 period-two classification and large-a endpoint law.",
+        "method": "Compared exact logit formula and stated global 2-cycle/\\(e^{-a/4}\\) asymptotic against Gaussian probit conjugate and \\(e^{-a^2/32}\\) theorem.",
+        "title": "Bifurcations and invariant sets for a family of replicator maps from evolutionary games",
+        "trigger": "Closest specific pre-existing bifurcation analysis for the symmetric logit member of the shift-map construction."
+      },
+      {
+        "assessment": "Covers the generic square-root mechanism, but not the equation-specific constants or exact global phase diagram.",
+        "evidence": [
+          "https://www.scholarpedia.org/article/Period_doubling"
+        ],
+        "identifier_or_url": "https://www.scholarpedia.org/article/Period_doubling",
+        "material_read": "Accessible summary and local flip normal-form discussion.",
+        "method": "Compared normal-form exponent with exact gain, global 2-cycle count, multiplier and tails.",
+        "title": "Period doubling",
+        "trigger": "Generic local normal form potentially covering square-root onset."
+      },
+      {
+        "assessment": "Different model and no evidence of covering specific constants; full-text incompleteness remains a disclosure, not asserted whole-document absence.",
+        "evidence": [
+          "https://en.wikipedia.org/wiki/Gauss_iterated_map"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/336623852_Critical_Slowing_Down_at_a_Fold_and_a_Period_Doubling_Bifurcations_for_a_Gauss_Map",
+        "material_read": "Abstract and publication description only; not full text.",
+        "method": "Compared named Gauss iterated map x↦exp(-αx²)+β against the present CDF-quantile feedback G_a(z)=z-a g(z).",
+        "title": "Critical Slowing Down at a Fold and a Period Doubling Bifurcations for a Gauss Map",
+        "trigger": "Plausible term Gauss map, slowing near a flip."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cea6544d-74de-4705-92ff-917083e31914",
+  "value": {
+    "rationale": "The recent quantile-shift family explicitly motivates normal quantiles but gives no precise dynamic behavior there. The all-gain 2-cycle diagram, unique optimal superattracting gain, and \\(e^{-a^2/32}\\) near-neutral high-gain limit quantify a substantial distinction from the known logit member; they are meaningful structural and dynamical invariants rather than a numerical sample or routine renaming.",
+    "status": "PASS"
+  }
+}
