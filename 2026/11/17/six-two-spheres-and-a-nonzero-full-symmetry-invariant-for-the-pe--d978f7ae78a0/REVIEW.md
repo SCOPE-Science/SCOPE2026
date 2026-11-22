@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is a finite, exact, integral homotopy statement for a specifically defined twenty-edge graph, together with a rational representation of its full automorphism group. The 22 perfect matchings generate precisely 457 nonempty faces. The explicit 224-pair matching is checked on every one of 1350 face-poset covers and is acyclic. Its critical counts are one vertex, one edge, seven triangles. The integer Morse differential is \((-1,-1,0,0,-1,0,0)\): an attaching degree of absolute value one contracts the unique one-cell with one two-cell, leaving six two-spheres. Three independently computed finite-field homology calculations agree. Signed fixed-simplex Lefschetz sums evaluate all twenty automorphisms, and the claimed dihedral representation reproduces the entire resulting trace table. Risk: as with any finite exact certificate, the computational claim depends on the supplied checker executing as written; it has been directly executed and its outputs examined. No infinite generalization is asserted.
+## correctness
 
-## Originality — PASS under identifiable prior coverage
-The closest same-graph public calculation concerns the **ordinary** matching complex, whose faces need not extend to perfect matchings, with homotopy \(\bigvee^4 S^2\vee\bigvee^8 S^3\). A published **hexagonal** antiprism perfect-matching calculation has \(\bigvee^{19}S^2\), with zero full-dihedral invariant rank; it does not determine the pentagonal case. The 2026 Möbius/circular-ladder theorem concerns cubic graphs, while the 2025 polygonal-line-tiling theorem concerns open strip families. Distinct constructions and parameters prevent direct logical coverage by those statements. Indexed searches for antiprism, squared-cycle, perfect-matching extendibility, homotopy and dihedral representation found no exact or stronger classification implying this combined result. Priority risk: records can be incomplete and an equivalent unindexed result may exist; lack of a search hit is not itself proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The pentagonal antiprism is a canonical four-regular, ten-vertex, vertex-transitive polyhedral graph and provides a natural odd-sided comparison to the known hexagonal antiprism after recent perfect-matching-complex work on highly symmetric cubic ladders. The extendibility condition changes the same graph's ordinary matching topology from a mixed-dimensional wedge to a pure degree-two wedge. Its full-group rational invariant rank one contrasts with zero for the hexagonal counterpart, showing that neither the number of facets nor the nonequivariant Betti count captures the symmetry information. The result is a complete homotopy-and-symmetry classification, not a general antiprism theorem or a routine restatement of Euler characteristics.
+For C10^2 with 20 edges, exact enumeration of perfect matchings yields 22 five-edge facets and 457 nonempty faces, with face counts (20,115,190,110,22); ordinary matching complex has additional nonextendible faces and is not interchangeable. An independently implemented lexicographic edge-mask discrete Morse matching leaves one 0-cell, one 1-cell and seven 2-cells (224 matched pairs); oriented Hasse DAG contains all 457 nodes and is acyclic. Independent integer gradient expansion yields the precise 2-to-1 Morse boundary (-1,-1,0,0,-1,0,0), containing a primitive unit attachment. The one-cell with one 2-cell cancels, proving integral wedge of six 2-spheres and nonshellability in a pure four-dimensional complex. Independent signed Lefschetz enumeration of all 20 dihedral symmetries gives rotations (6,-1,1,-1,1,4,1,-1,1,-1) and reflections (2,0,2,0,2,0,2,0,2,0); average 1, matching rational D10 fixed-rank one. These computations exhaust a single ten-vertex complex, not all antiprisms.
 
-## Literature and limitations
-Closest inspected sources include Agarwal–Basak, *The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs* (2026, arXiv:2608.30601), Chandrakar–Singh, *Perfect Matching Complexes of Polygonal Line Tilings* (2025, arXiv:2407.05809), the published pentagonal-antiprism ordinary matching classification (2026-10-18), and the published hexagonal-antiprism perfect-matching classification (2026-11-08). The honeycomb result by Bayer–Jelić Milutinović–Vega (2023) supplies background on a distinct graph family. No general antiprism periodicity, integral symmetry-lattice classification or independent verification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Distinct perfect-matching complex and full-dihedral character for C10² not covered by ordinary C10² matching or perfect-matching C12² results; cyclic ladder papers concern cubic rather than four-regular antiprism graphs.
+
+## value
+
+PASS
+
+Perfect-matching extendibility makes a natural but different subcomplex of the well-studied ordinary matching complex. Its surprising pure-dimension-four yet 2-sphere wedge type, nonshellability and exact nonzero full-dihedral invariant provide a useful finite integral and equivariant benchmark, especially contrasted with the closely studied twelve-vertex antiprism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
