@@ -1,0 +1,167 @@
+{
+  "correctness": {
+    "rationale": "For a,b,c,C,k,T>0 with E=exp(-kT), u=min(C,a), x=exp(-kt), the three exact clipped storage steps give R=(a-C)_+ +(ux+b-C)_+ +((E/x)min(C,ux+b)+c-C)_+. Splitting on w=ux+b <= C or >=C proves the four-branch max identity with B=Eu+Eb/x+c-C and D=ux+b+EC/x+c-2C; D-B=(w-C)(1-E/x). Each branch is convex for x>0. Its strict positive minimizer can occur only at E,1, the second-stage saturation switch (C-b)/u, the third-stage overflow switches EC/(C-c) or Eb/(C-c-Eu) when denominators are positive, or the D stationary point sqrt(EC/u). Positive-spill minimizers are unique because a positive constant plateau is impossible for a finite maximum of the four nonconstant analytic branches plus zero. The no-extra-spill set is exactly [E,1] intersected with [Eb/(C-c-Eu),(C-b)/u] if b<C and C-c-Eu>0, otherwise empty. If u>EC and b,c>C-sqrt(uEC), the unique global optimum x=sqrt(EC/u) has positive second and third overflows and R=(a-C)_+ +b+c-2C+2sqrt(uEC). The E=1/n^2 counterfamily with a=1/2,b=1/4,c=1-E/2,C=1 gives R=E/(4x), so equal-gap spill / optimal spill = n for all integers n>=2. The actual embedded verify.py was executed and reported PASS 88156 assertions; controlled-tolerance float comparisons are not substituted for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McGrath et al. 2007, pp. 923-938, §2, §5 and Appendix A: Poisson rainfall, saturation-threshold stochastic storage, distributions of first-passage and inter-event times.",
+        "Bartlett et al. 2015 §1-3 and mathematical formulas: random instantaneous rainfall jumps, linear moisture depletion and stationary rainfall-runoff densities.",
+        "2020 Xu et al. full-text §3-4.2: optimization of active prestorm releases rather than fixed incoming event times."
+      ],
+      "reasoning": "The known stochastic master-equation and runoff-law frameworks generalize source processes but do not assert global minimization over fixed event timing with predetermined positive depths. A still-broader generic convex finite-buffer scheduling theorem could subsume portions, so priority is provisional.",
+      "searches": [
+        "fixed total rain events timing optimize spill capacity exponential decay storage rainfall pulses minimize overflow scheduling",
+        "fluid queue deterministic impulse arrival times finite buffer leakage minimize overflow time intervals optimal",
+        "rainwater harvesting storm sequencing timing three rainfall events exponential recession storage overflow optimal gaps",
+        "canopy interception rainfall multiple storm pulses evaporation exponential drying fixed dry time split optimization prevent throughfall storage capacity allocation dry intervals minimax",
+        "doi:10.5194/hess-11-923-2007",
+        "doi:10.1098/rspa.2015.0389"
+      ]
+    },
+    "checked_sources": [
+      "McGrath et al. 2007 HESS pdf https://hess.copernicus.org/articles/11/923/2007/hess-11-923-2007.pdf",
+      "Bartlett et al. 2015 DOI 10.1098/rspa.2015.0389",
+      "Miralles et al. 2010 DOI 10.1029/2009JD013530",
+      "Xu et al. 2020 DOI 10.1029/2020WR027856",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-cyclic-gap-law-for-saturation-excess-runoff-from-two-perio--e537d5c1eb7c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Periodic three-storm ordering: the forcing is repeated forever with fixed equal inter-event gaps and only depth order varies; no initial empty state or timing choice.",
+        "Periodic two-pulse gap law: two equal pulses, fixed period N, free integer cyclic separation, runoffs in unique periodic state; no third event and not a movable middle time within fixed endpoints.",
+        "Stochastic primary articles: optimize neither chronological position of an event nor finite-horizon deterministic excess."
+      ],
+      "reasoning": "A recurrence identity common to two models does not make their optimization results equivalent. Fixed-gap permutation optimality does not yield a derivative sign for gap allocation, and a two-pulse periodic gap result cannot imply the possibility of a square-root interior both-spill regime or an unbounded equal-gap penalty for an initially empty three-event finite horizon.",
+      "searches": [
+        "published-finding corpus:2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3",
+        "published-finding corpus:2026/11/2/SCOPE-exact-cyclic-gap-law-for-saturation-excess-runoff-from-two-perio--e537d5c1eb7c",
+        "doi:10.5194/hess-11-923-2007",
+        "doi:10.1098/rspa.2015.0389",
+        "three rainfall pulses finite-capacity exponentially draining storage fixed total time optimize split interstorm intervals minimize total overflow convex time variable square-root rule"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The finite-event model can be described equivalently as a lossy deterministic finite buffer, impulsive hydrologic store, or first-order leaking bucket.",
+        "The public three-event periodic result compares cycle order only with equally spaced pulses; the public two-event result compares integer cyclic gap lengths in an attracting periodic store."
+      ],
+      "reasoning": "Changing nouns from rainfall to a finite buffer does not change the recurrence; these equivalent models were explicitly searched. However, periodic-state stationary order comparisons and two-pulse cyclic-gap formulas do not imply a transient three-pulse continuous-time optimizer: different quantifiers, initial state, number of events and decision variables. No exact equivalent statement was identified.",
+      "searches": [
+        "three rainfall pulses finite-capacity exponentially draining storage fixed total time optimize split interstorm intervals minimize total overflow convex time variable square-root rule",
+        "three-event capped linear reservoir with exponential loss and two variable waiting times minimum spillage minimizer",
+        "fluid queue deterministic impulse arrival times finite buffer leakage minimize overflow time intervals optimal",
+        "published-finding corpus:2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3",
+        "published-finding corpus:2026/11/2/SCOPE-exact-cyclic-gap-law-for-saturation-excess-runoff-from-two-perio--e537d5c1eb7c"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus results had closest exact public deterministic theorems about cyclic order of 3 equally spaced events and cyclic gap of 2 equal events; their full RESULT.md texts were read."
+      ],
+      "reasoning": "No exact table covering the present 3-event variable-gap optimizer was identified in the actual database . Absence of a hit is not evidence of novelty alone, so explicit object, hypothesis and implication comparisons were made against the closest full texts.",
+      "searches": [
+        "three rainfall pulses finite-capacity exponentially draining storage fixed total time optimize split interstorm intervals minimize total overflow convex time variable square-root rule",
+        "rainfall interception Gash Rutter fixed total dry time between three rainstorms optimal scheduling saturation and throughfall",
+        "three-event capped linear reservoir with exponential loss and two variable waiting times minimum spillage minimizer",
+        "published-finding corpus:2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3",
+        "published-finding corpus:2026/11/2/SCOPE-exact-cyclic-gap-law-for-saturation-excess-runoff-from-two-perio--e537d5c1eb7c"
+      ]
+    },
+    "rationale": "The exact finite-horizon three-event continuous gap-allocation problem was compared at the statement/implication level with stochastic threshold-runoff primary literature, the closest full public periodic finite-store findings, and other closely related published formulations. These sources share elementary clipping dynamics but do not supply the four-branch retention-coordinate envelope, the complete candidate and zero-interval classification, or unbounded equal-gap penalty for the empty-initial-store fixed-horizon problem. Residual risk of general finite-buffer rearrangement or scheduling coverage remains explicitly acknowledged; no historical uniqueness is claimed.",
+    "residual_risks": [
+      "A general deterministic finite-buffer loss/scheduling or rearrangement theorem might subsume the convex-envelope specialization without matching title or physical vocabulary.",
+      "The indexed publisher full text of Bartlett et al. was inspected in relevant material rather than a separately downloaded PDF; omissions in other parts cannot be excluded.",
+      "Search and explicit implication comparisons do not establish an exhaustive historical novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: derives Poisson-driven time-to-threshold and runoff statistics, does not optimize chosen three-event timings with fixed total time or give the four-branch envelope.",
+        "evidence": [
+          "Original public discussion date on title page: 2006-09-01",
+          "Section 2 treats storms as a Poisson process and exponential random interstorm times",
+          "Section 5 presents stochastic runoff formulas and first-passage statistics"
+        ],
+        "identifier_or_url": "https://hess.copernicus.org/articles/11/923/2007/hess-11-923-2007.pdf",
+        "material_read": "Primary full 16-page PDF: title and publication chronology, §§1-2, §5 including stochastic threshold/runoff expressions, and appendix/boundary discussion; page images 1 and 5 of PDF checked.",
+        "method": "Public publisher full-text PDF, text plus screenshot inspection",
+        "title": "Temporal dynamics of hydrological threshold events",
+        "trigger": "Same hydrological saturation-excess mechanism, instantaneous storms and inter-event time variable."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected relevant material: distributions under random event forcing rather than finite-horizon arrival-time optimization.",
+        "evidence": [
+          "Published online 2015-11-08",
+          "Section 3 concerns runoff partitioning and joint stochastic distributions",
+          "Linear loss appears in a sample soil-moisture trajectory"
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rspa.2015.0389",
+        "material_read": "Publisher full-text indexed HTML: article history, introduction, §2-3 equations for rainfall-runoff transformations and stochastic PDFs, including linear between-event drainage example.",
+        "method": "Public publisher indexed full text and relevant equations; standalone PDF was not replayed",
+        "title": "Stochastic rainfall-runoff model with explicit soil moisture dynamics",
+        "trigger": "Threshold runoff, instantaneous rainfall jumps, state-dependent moisture losses."
+      },
+      {
+        "assessment": "NOT_COVERING: canopy interception climate-data method assumes complete drying between events, unlike variable partial retained storage and three-event gap minimization.",
+        "evidence": [
+          "Section 2.1 says the canopy is assumed completely dry between events",
+          "First published 2010-08-31"
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2009JD013530",
+        "material_read": "Full public HTML §1 and §2.1, including Gash-model event phases and complete drying assumption.",
+        "method": "Public publisher full-text HTML",
+        "title": "Global canopy interception from satellite observations",
+        "trigger": "Possible event-based interception and dry-period scheduling equivalence."
+      },
+      {
+        "assessment": "NOT_COVERING: optimizes active control of releases before storms, not exogenous pulse timing in an uncontrollable passive store.",
+        "evidence": [
+          "Section 4.2 explains controlled prestorm release and forecast uncertainty",
+          "The optimization compares 1- and 7-day forecast control strategies"
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2020WR027856",
+        "material_read": "Public full-text HTML §§3.2 and 4.2, with modeled interventions and their forecast/release decision variables.",
+        "method": "Public publisher full-text HTML",
+        "title": "Real time control of rainwater harvesting systems: The benefits of increasing rainfall forecast window",
+        "trigger": "Potentially stronger general optimization of storage overflows over timing."
+      },
+      {
+        "assessment": "NOT_COVERING: periodic fixed-gap **order permutation** and stationarity, not fixed-order continuous gap allocation from empty state.",
+        "evidence": [
+          "Proposition compares W_abc and W_acb for three equally spaced repeated pulses",
+          "Unique attracting periodic state required"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3",
+        "material_read": "Entire published RESULT.md: proposition, hypotheses, anchoring lemma, strict capacity interval, limitations and references.",
+        "method": "Public repository primary RESULT.md fetched as UTF-8",
+        "title": "A sharp storm-ordering window for saturation runoff in a periodic linear store",
+        "trigger": "Same scalar capped exponential storage recurrence with three rainfall depths."
+      },
+      {
+        "assessment": "NOT_COVERING: two equal pulses with an integer gap in a stationary repeating cycle, not three ordered finite-horizon pulses with two continuous dry intervals.",
+        "evidence": [
+          "Its cycle has exactly two equal positive inputs and a unique periodic state",
+          "Explicit result is monotone in the shorter integer cyclic gap"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-cyclic-gap-law-for-saturation-excess-runoff-from-two-perio--e537d5c1eb7c",
+        "material_read": "Entire published RESULT.md: N-step fixed point, two-pulse formula, exact thresholds and spacing comparison.",
+        "method": "Public repository primary RESULT.md fetched as UTF-8",
+        "title": "Exact cyclic-gap law for saturation-excess runoff from two periodic storms",
+        "trigger": "Strongest identified explicit gap optimization in same storage dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68301455-89ea-42cf-9686-9f4b2cf241af",
+  "value": {
+    "rationale": "Threshold storm overflow depends on spacing even for a fixed multiset of three prescribed pulses and fixed total horizon. Unlike a superficial single-case differentiation, the four-branch envelope globally classifies every positive parameter choice, including boundary cases, a full zero-overflow-optimal interval, a unique positive-overflow minimizer and a sharp strictly both-saturated interior regime. The mathematical obstruction to equal-spacing heuristics is quantitative and unbounded over a natural family with positive finite depths, and the finite-candidate formula provides a reusable exact test bed for passive hydrologic storage and finite-buffer models. This is a mathematical benchmark rather than a recommendation to manipulate real storms.",
+    "status": "PASS"
+  }
+}
