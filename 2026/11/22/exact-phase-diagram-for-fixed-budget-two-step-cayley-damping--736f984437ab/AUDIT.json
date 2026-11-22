@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every a>0, b>=0, H>0, the normal two-dimensional flow reduces to two complex Cayley factors. Exact expansion yields F=(U-2c sqrt(R))/(U+2c sqrt(R)), monotone in U=w+(R+4 sigma^2)/w-4 sigma^2. Its strictly positive second derivative gives a unique clipped minimizer and all boundary/equality cases. The asymptotic limit follows from q~R^(-1/2); b=0 has exact midpoint zero. Actual verifier.py checks symbolic identities and performs 97,200 supplementary direct-complex tests; finite comparisons do not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang–Zhang–Xing–Masarati (2020) doi:10.1007/s11071-020-06020-8, full HTML §2 equation (3), last substep uses a general multilevel formula, with §3 objectives order/low-frequency preservation and §6 conclusions.",
+        "Dharmaraja–Wang–Strang (2009), https://dspace.mit.edu/entities/publication/2469bf38-ce9a-4cb3-a510-f9d3edf0cfcf, abstract specifies trapezoidal plus BDF2 rather than two midpoint steps."
+      ],
+      "reasoning": "Although both are parameter-optimization studies of composite implicit time integrators, the general-method wording does not imply the exact mathematical statement: the schemes, constraints, objective, and sharp oscillation phase boundaries differ. The 2009 work cannot dominate the claim solely because its title says optimal stability.",
+      "searches": [
+        "\"On the optimization of n-sub-step composite time integration methods\" full text",
+        "\"optimal split two implicit midpoint steps fixed total time complex damped oscillator contraction unequal versus equal stages\"",
+        "\"optimal stability for trapezoidal-backward difference split-steps\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2001.08640",
+      "doi:10.1007/s11071-020-06020-8",
+      "doi:10.1007/s00466-020-01933-y",
+      "https://dspace.mit.edu/entities/publication/2469bf38-ce9a-4cb3-a510-f9d3edf0cfcf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Layton–Pei–Qin–Trenchea arXiv:2001.08640 analyzes unconditional stability and errors for variable-step DLN on fluid equations, not maximization of damping from composing two midpoint factors.",
+        "Zhang–Zhang–Masarati doi:10.1007/s00466-020-01933-y, full HTML §§1,4, studies optimized multistep and single-step families, including trapezoidal limit; no fixed-total two-trapezoidal split phase classification appears."
+      ],
+      "reasoning": "General A-stability gives |G|<=1, not the maximizing split. The BDF and DLN propagators have different recurrences, so their stability/parameter formulas cannot be substituted for the exact two-factor Cayley product. Both mathematical objects and their requested comparisons were checked.",
+      "searches": [
+        "\"Analysis of the variable step method of Dahlquist Liniger and Nevanlinna for fluid flow\" 2020 arxiv",
+        "\"Improved second-order unconditionally stable schemes of linear multi-step and equivalent single-step integration methods\" 2020 full text",
+        "\"two substep implicit midpoint optimized damping stability function Cayley oscillator\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Scalar equivalence of trapezoidal and implicit-midpoint stability functions R(z)=(1+z/2)/(1-z/2) is standard; two consecutive factors with fixed total length yield (1+z+qz²)/(1-z+qz²). Zhang et al. 2020 (doi:10.1007/s11071-020-06020-8), full HTML §§2–4, uses an n-substep composite family, but does not specify this exact complex-mode fixed-budget optimum."
+      ],
+      "reasoning": "Equivalent names (Cayley, Crank–Nicolson, trapezoidal, implicit midpoint, two nonuniform substeps) were tested. The claimed result is a fixed-duration global optimal split with a clipped square-root solution; stability of each factor alone does not determine the optimal allocation.",
+      "searches": [
+        "\"implicit midpoint unequal timestep distribution minimizes modulus two stages complex eigenvalue\"",
+        "\"trapezoidal Crank Nicolson two step uneven split stiff decay optimal damping\"",
+        "\"Cayley implicit midpoint two stages fixed total step optimal contraction w=sqrt(R+4sin^2theta) stiff oscillator\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The tables and parameters in Zhang et al. 2020 concern generalized n-stage composite schemes, spectral dissipation controls and accuracy, not the fixed-H minimax t for two identical Cayley factors. No exact tabulation of the three thresholds 1-4σ², 4±8σ or the clipped square-root rule was located in the inspected material."
+      ],
+      "reasoning": "The exact threshold formula is continuously parameterized by decay/frequency and total duration; a table of spectral radii for different numerical schemes does not automatically imply a globally optimal duration split for the identical two-factor product.",
+      "searches": [
+        "\"trapezoidal rule variable time steps stiff damping optimal steps complex eigenvalues 2020\"",
+        "\"implicit midpoint two-step time allocation optimal damping fixed budget complex eigenvalue phase transition b/a square root 3\"",
+        "\"On the optimization of n-sub-step composite time integration methods\" tables"
+      ]
+    },
+    "rationale": "The closest primary literature develops related numerical time integrators but optimizes different schemes/objectives. Zhang et al. 2020 general composite integrators use trapezoidal first stages and a general final stage, choosing parameters for accuracy/stability or low-frequency conservation. Their all-trapezoidal limiting case is not this fixed-budget complex-mode argmin over two identical Cayley factors. Zhang et al. 2020/21 examine equivalent multistep/single-step schemes. Layton et al. 2020 study variable-step DLN. Dharmaraja et al. 2009 use a trapezoidal-BDF split rather than two trapezoidal factors. A classical equivalent may be unindexed and one relevant old manuscript was not available for full reading.",
+    "residual_risks": [
+      "Historical equivalent two-identical-trapezoidal-substep optimization may exist outside the inspected corpus or under different notation.",
+      "The closest pre-2016 MIT manuscript was available by abstract only; the author manuscript download returned HTTP 405. Its stated integrator is different, but a supplementary comparison of the full paper was not possible.",
+      "Not independently audited; searching a finite literature index does not certify priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different final substep and objectives; all-trapezoidal limit mentioned but no same fixed-budget optimal split classification identified",
+        "evidence": [
+          "Section 2 defines trapezoidal first n-1 substeps plus generalized final substep; sections 3-4 tune accuracy and algorithmic damping, not global fixed-H two-Cayley decay"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11071-020-06020-8",
+        "material_read": "Full HTML: abstract, introduction, section 2 equations (2)-(3), scalar amplification equations (8)-(11), section 3 optimization objectives, section 4 comparison, section 6 conclusions",
+        "method": "Open-access publisher HTML",
+        "title": "On the optimization of n-sub-step composite time integration methods",
+        "trigger": "Closest title and possible general composite integrator dominance"
+      },
+      {
+        "assessment": "Different optimized multistep/single-step schemes and objectives; no direct two-variable Cayley composition duration minimizer in reviewed text",
+        "evidence": [
+          "Section 4.1 identifies trapezoidal principal factor (2+Δtλ)/(2-Δtλ) in a special limit"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00466-020-01933-y",
+        "material_read": "Full HTML abstract, introduction, methods overview, section 4.1 principal amplification, and discussion of trapezoidal limit",
+        "method": "Open-access publisher HTML",
+        "title": "Improved second-order unconditionally stable schemes of linear multi-step and equivalent single-step integration methods",
+        "trigger": "Potential broader second-order implicit and trapezoidal coverage"
+      },
+      {
+        "assessment": "DLN variable-step method, stability and error results; not an optimization of two successive identical midpoint factors for a normal oscillator",
+        "evidence": [
+          "Introduction contrasts ordinary trapezoidal method with variable-step DLN stability and convergence goals"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.08640",
+        "material_read": "arXiv page rendered text: abstract and introduction lines discussing variable timestep stability, trapezoidal and DLN approaches",
+        "method": "arXiv HTML textual view",
+        "title": "Analysis of the variable step method of Dahlquist, Liniger and Nevanlinna for fluid flow",
+        "trigger": "Foundational published source on unequal implicit timesteps"
+      },
+      {
+        "assessment": "Abstract explicitly studies trapezoidal–BDF2 composition rather than trapezoidal–trapezoidal composition; incomplete full-text inspection remains risk",
+        "evidence": [
+          "Abstract describes an αΔt trapezoidal plus (1-α)Δt BDF2 split and optimum α=2-√2 for linearized stability"
+        ],
+        "identifier_or_url": "https://dspace.mit.edu/entities/publication/2469bf38-ce9a-4cb3-a510-f9d3edf0cfcf",
+        "material_read": "Repository metadata, abstract, stated scheme and result; full author manuscript unavailable at linked download",
+        "method": "MIT repository HTML; PDF download attempt returned HTTP 405",
+        "title": "Optimal stability for trapezoidal–backward difference split-steps",
+        "trigger": "Potentially very close older split-step optimal stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "736f9844-37ab-4275-8e2b-bcbae94bd74c",
+  "value": {
+    "rationale": "Non-L-stable implicit midpoint/trapezoidal stepping has a recognized stiff-damping limitation. A constrained two-solve fixed-time allocation is a natural design problem. The theorem provides exact global optimizer with sharp zero/unequal/equal/unequal transitions for b<a/sqrt(3), a distinct equal/unequal transition above this angle, and a surviving nontrivial stiff-limit damping obtained by holding one substep near 2/sqrt(a²+b²). Not just a numerical tuning or known stability-region check; structural boundaries explain when equal subdivision can be suboptimal. No claims for accuracy, nonnormality or overall numerical efficiency.",
+    "status": "PASS"
+  }
+}
