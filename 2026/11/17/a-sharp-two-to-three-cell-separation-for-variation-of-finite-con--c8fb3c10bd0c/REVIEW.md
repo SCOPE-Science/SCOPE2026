@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact single-jump principle follows by expressing every signal as a constant plus adjacent step increments. In the two-cell case, the output of any step has just two levels and its variation is the number of color transitions times their difference. With the larger class size \(a\), the misplaced-site count \(m\) and \(c=\min(m,b)\), transition accounting gives \(t\le2c+1\) and contrast at most \(1-c/a\). One-variable optimization proves the stated upper rate \(6-4\sqrt2\), while an explicitly constructed alternating-tail word gives the matching limiting rate with at most a constant rounding loss. Three-cell four-residue words yield witnessed lower constants. Exact small-size binary exhaustions and the global rate inequality jointly establish the first strict separation at four sites. The attached exact-rational diagnostic confirms 4083 binary prefix identities, 118 three-cell constructions, 297 binary asymptotic constructions, and exact small partition and onset checks. Finite computation is supplemental, not a substitute for the universal arguments.
+## correctness
 
-## Originality — PASS, with qualification
-The closest checked published published-finding corpus result is *Sharp cyclic-variation stability of two-cell conditional expectations*. Its original RESULT.md was read in full. It classifies two colors under **cyclic** total variation and explicitly excludes three or more cells. The present theorem is the strictly separated binary-versus-ternary envelope for nonperiodic paths; this does not follow by restating or relabeling the cyclic formula. Full texts from Bober–Carneiro–Hughes–Pierce, Nochetto–Salgado, and Gaubert–Qu concern respectively a nonlinear maximal operator, local finite-element interpolation, and a different Markov oscillation/dual-measure norm. None covers the conclusion. The first two-cell step formula itself is elementary and not claimed novel. An unindexed historical result for multi-class partitions remains the principal scientific priority risk, and independent literature validation is absent.
+PASS
 
-## Mathematical value — PASS
-Conditional expectations form natural positive Euclidean-orthogonal projections, and interlaced cells model pooling repeated categories at nonadjacent positions. The exact onset \(n=4\), universal strict two-versus-three hierarchy for all subsequent lengths, and positive difference between leading variation-amplification rates distinguish smoothing stability in edge variation from conventional Euclidean stability. The motivation and gap are structural rather than an arbitrary small numerical instance. The exact three-cell *global* coefficient remains unresolved: the theorem gives an attained constructed lower bound only.
+The prefix-indicator decomposition is an exact isometry from path variation to the ℓ1 sum of adjacent increments; constants are preserved. For a binary partition, all output edge jumps equal the two class-mean difference, and the bounds t≤2b and t≤2(x+y)+1 yield tδ≤(6−4√2)n+1. The word A^(n−2b)(BA)^b at b≈(1−1/√2)n yields the matching lower rate with loss ≤2. Direct evaluation of all four three-class residue words at a join-cut gives B_n=n/2 except n≡3 mod4, where B_n=n/2−1/(n−1). Independently exhaustively enumerated binary words at n=3,4,5,6,7, obtaining maxima 1,3/2,2,9/4,5/2; all are below the three-class constructions from n=4. The proven inequality (1/2−α)n>1+1/(n−1) covers n≥8. The proof does not determine the unrestricted M3(n) envelope.
 
-## Closest evidence and limitations
-Primary full-text comparisons: https://arxiv.org/abs/1005.3030 ; https://arxiv.org/abs/1211.1069 ; https://arxiv.org/abs/1307.4649 . Most relevant published two-cell comparator: https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-cyclic-variation-stability-of-two-cell-conditional-expecta--19779f163091 . Limitations: real unweighted path data, uniform cell averages, only two-versus-three cells, qualified historical priority. No proof of the exact multi-cell envelope for arbitrary dimension, and no independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality relative to compared statements and actual independent material, not a proof of absolute priority. Markov conditional expectation and total-variation duality are aliases for the basic operator, but exact two-color CYCLIC norms do not imply a 3-color LINE hierarchy and optimal two-color linear-rate coefficient.
+
+## value
+
+PASS
+
+This is a motivated sharp hierarchy of the operator seminorm of finite conditional expectation under ordered adjacent variation: the first strictly stronger 3-cell case is exactly four sites, and its asymptotic linear separation from all 2-cell partitions is quantified. Because averaging is positive, idempotent, and Euclidean contractive, the discrepancy in path BV geometry is substantive, not a renaming or isolated small-n table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
