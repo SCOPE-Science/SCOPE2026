@@ -1,0 +1,15 @@
+# Scientific review: high-girth ordered length-nerve splitting
+
+## Correctness — PASS
+The quantifiers specify finite connected simple graphs containing a cycle, unit edge metric, integer \(L\ge3\), and the strict boundary \(g(G)>2L\). The proof separately verifies the complete integral tree calculation from the published exact-length magnitude theorem, including the primitive rank-one first spectral differential and all vanishing later differentials. It then proves the simplicial lifting identity under the strict girth inequality, identifies the actual simply connected covering space, and constructs a map from the graph-and-spheres wedge that induces a fundamental-group isomorphism and an integral universal-cover homology isomorphism. Whitehead's theorem applies; the edge-cycle basis and its parity sign follow integrally. The finite two-prime computations and integer chain identities are independently replayable but are not the infinite proof.
+
+## Originality — PASS with residual priority risk
+Compared statements rather than titles: the known all-cutoff tree result does not cover graphs with cycles, and the known cutoff-two quadrilateral-free graph result does not cover \(L\ge3\). The exact-length magnitude quotient of a tree in Tajima's thesis is a different space from the cumulative ordered nerve of a cyclic graph. Livernet–Roff–Whitehouse supplies a general magnitude-path spectral-sequence framework but no identified universal-cover high-girth wedge classification in the inspected primary material. The related Melodia manuscript was available by abstract only and remains an explicitly recorded priority risk; no whole-document noncoverage claim is made for it. Broader searches found high-girth statements about unordered graph Rips or robust-clique complexes, whose simplex definitions do not imply this theorem. Search nonhits cannot guarantee novelty; no independently exhaustive publication-priority determination has been claimed.
+
+## Mathematical value — PASS
+The theorem supplies a natural, unbounded parameter window across **all cyclic graphs with sufficiently large girth**, not a one-off numerical profile. It upgrades ordinary Betti calculations to a complete integral homotopy classification, determines the free fundamental group and a full signed integral automorphism module, and supplies a usable covering criterion converting local tree geometry into global topology. Concrete exact computations show that cycles at the forbidden equality \(g(G)=2L\) have additional intermediate homology, so the restriction is mathematically meaningful.
+
+## Limitations
+The theorem does not extend without further work to the girth boundary, shorter cycles, arbitrary edge weights, or filtration stages beyond half the girth. Finite-field computations cannot alone certify the integer theorem; the proof addresses integrality separately. An inaccessible plausible full manuscript and possible unindexed equivalent results leave residual publication-priority uncertainty.
+
+Self-review: passed. Independent audit: not yet performed.
