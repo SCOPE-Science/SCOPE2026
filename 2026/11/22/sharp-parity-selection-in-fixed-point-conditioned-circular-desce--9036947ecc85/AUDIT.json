@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Complete forced-fixed-subset average computes every circular comparison, including wrap. Exact factorial mixed moments and inclusion-exclusion give conditional E[C|F=k]. Derangement bound D_m>=m-1 proves all-n unique odd/even maximizers. Boundaries n=3,k=n-1 impossible,k=n identity checked. Python exhaustive enumeration n=3..8 passed 117 exact assertions; no infinite assertion relies only on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eriksen–Freij–Wästlund arXiv:0811.1925, introduction and sections 1–3 formulate descents only at positions 1,...,n-1.",
+        "Foata–Han arXiv:math/0703454, Theorem 1.1 gives the multivariate (exc,des,maj,fix) enumerator but defines des over positions 1,...,n-1."
+      ],
+      "reasoning": "These general enumerators may permit calculations of ordinary descent/fixed-point statistics. They do not directly specify the comparison pi(n)>pi(1), so they do not directly imply the circular regression without additional endpoint-sensitive work. Residual indirect-derivability risk remains.",
+      "searches": [
+        " Enumeration of Derangements with Descents in Prescribed Positions arxiv:0811.1925 (full PDF sections 0-3 and search for cyclic)",
+        " Fix-Mahonian Calculus III; A Quadruple Distribution arxiv:math/0703454 (full PDF abstract, definitions and Theorem 1.1 and search for cyclic)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0811.1925 (2008-11-12 first public)",
+      "arxiv:math/0703454 (2007-03-15 first public)",
+      "record:6e228e1e9495",
+      "record:5455c3336f55",
+      "record:5ddb21b162c3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior ordinary covariance Cov(F,C)=0 permits nonlinear conditional regression and does not determine Cov((F)_2,C).",
+        "Prior fixed-point versus linear descent generating functions omit the wrap-around comparator.",
+        "The new proof uses an r-subset forced-fixed coupling and inclusion-exclusion to derive a closed k-regression and a derangement-parity maximizer."
+      ],
+      "reasoning": "The strict parity maximum and negative higher factorial covariances are not consequences of mere first-order orthogonality or marginal Eulerian counts. Broader enumeration frameworks may be specialized, but the requisite nontrivial circular-endpoint implication is not contained in inspected statements.",
+      "searches": [
+        " fixed point count mean independence of cyclic descent statistic in uniformly random permutations every function of cyclic descents",
+        " uniform permutation cyclic descents conditioned count expected fixed points exactly one",
+        " joint cyclic Eulerian numbers rencontres fixed points mean independent",
+        " falling factorial moments of fixed points with cyclic descent count uniform permutation covariance exact binomial r choose 2",
+        " Enumeration of Derangements with Descents in Prescribed Positions arxiv:0811.1925 (full PDF sections 0-3 and search for cyclic)",
+        " Fix-Mahonian Calculus III; A Quadruple Distribution arxiv:math/0703454 (full PDF abstract, definitions and Theorem 1.1 and search for cyclic)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The conditional regression is equivalent to every mixed factorial moment E[C(F)_r]; the computed covariance is -binom(r,2)/(n-1) for 2<=r<n, not zero.",
+        "research-record record:6e228e1e9495 only treats first-order fixed-point covariance."
+      ],
+      "reasoning": "Position-rotation invariance implies first-order mean-independence E[F|C]=1, but not the converse regression E[C|F=k]; the latter has an exact nonconstant quadratic/parity profile. The two formulations are not equivalent to the prior zero-covariance result.",
+      "searches": [
+        " fixed point count mean independence of cyclic descent statistic in uniformly random permutations every function of cyclic descents",
+        " uniform permutation cyclic descents conditioned count expected fixed points exactly one",
+        " falling factorial moments of fixed points with cyclic descent count uniform permutation covariance exact binomial r choose 2",
+        " permutation cyclic descents rencontres Eulerian factorial moment fixed points covariance second order"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest research-record entries are exact first-order circular covariance/orthogonality results, not all-r mixed factorial moments or k-parity conditional argmax.",
+        "Exact-rational enumeration n=3,...,8 matches the proposed regression and all mixed factorial moments."
+      ],
+      "reasoning": "No exact table or record located that states the all-n conditional law or unique parity maximizer. This absence is not a proof of publication novelty.",
+      "searches": [
+        " fixed point count mean independence of cyclic descent statistic in uniformly random permutations every function of cyclic descents",
+        " falling factorial moments of fixed points with cyclic descent count uniform permutation covariance exact binomial r choose 2",
+        " permutation cyclic descents rencontres Eulerian factorial moment fixed points covariance second order",
+        " joint fixed point and cyclic descents generating function linear response fixed point t"
+      ]
+    },
+    "rationale": "Closest records determine first-order circular covariance zero, not nonlinear conditional regression or mixed factorial covariances. Two primary full texts define ordinary descents but not cyclic-endpoint descent statistics; no exact equivalent of the parity maximizer was located. Residual indirect consequence of a more general generating function is openly noted.",
+    "residual_risks": [
+      "A general fixed-point/descent multivariate generating function may admit an unrecorded endpoint refinement yielding the same conditional mean.",
+      "Historical priority needs further independent verification; absence of a research-record match is not an originality proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains powerful linear-descent/derangement formulas, but cyclic wrap edge not defined; no explicit conditional circular-descent mean or parity maximum found in inspected material",
+        "evidence": [
+          "arXiv v1 date 2008-11-12",
+          "pp.1–3 define descents as pi_i>pi_(i+1) for i<n; paper section 7 treats derangement correlations for prescribed linear descents"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0811.1925",
+        "material_read": "First three pages, definitions and introduction, theorem setup, text search for cyclic comparisons",
+        "method": "Open PDF, inspect text, screenshot first page, search within 17-page text",
+        "title": "Enumeration of derangements with descents in prescribed positions",
+        "trigger": "Close joint fixed-point/descents literature, possible stronger general enumeration"
+      },
+      {
+        "assessment": "The general four-variable enumerator covers fixed points and ordinary descents; it does not directly cover pi(n)>pi(1), so exact circular conditional claim remains unasserted",
+        "evidence": [
+          "arXiv v1 date 2007-03-15",
+          "Theorem 1.1 p.3: joint statistics (exc,des,maj,fix); des defined at 1<=i<=n-1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0703454",
+        "material_read": "Abstract, pp.1–3 main Theorem 1.1 and definitions, text search for cyclic",
+        "method": "Open PDF, inspect text and first-page screenshot, find cyclic occurrences",
+        "title": "Fix-Mahonian Calculus III; A Quadruple Distribution",
+        "trigger": "Potentially dominating joint (fix,des) enumerator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9036947e-cc85-47d2-82ea-90674ac05d34",
+  "value": {
+    "rationale": "All sample sizes and all feasible fixed-point classes have a sharp conditional expectation law, with a unique parity-switching optimal class (one fixed point for odd n, two for even n). It distinguishes first-order orthogonality Cov(F,C)=0 from strictly negative higher factorial covariances and quantifies a natural exact conditioning phenomenon. No arbitrary parameter slice or numerical-only result.",
+    "status": "PASS"
+  }
+}
