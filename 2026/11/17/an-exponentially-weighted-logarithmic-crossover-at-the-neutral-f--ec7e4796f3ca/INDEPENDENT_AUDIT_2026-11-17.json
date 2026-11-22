@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T20:13:08.235132Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On |x|<=0.1 for a near 8, F reverses sign, absolute magnitude w_{k+1}=T_a(w_k)=(a/4-1)w-(a³/48)w³+(a⁵/480)w⁵+O(w^7), strictly maps positive neighborhood into itself. v=w^-2 satisfies exact uniform asymptotic recurrence v_next=q_N v+A_N+B_N/v+O(v^-2), q_N=(a/4-1)^-2=1-theta/(2N)+O(N^-2), A_8=64/3, B_8=1024/5. Positive bounded additive drift and discrete comparison show v_{k,N} asymptotic to k+1 for 0<=k<=N. Summing gives v_k=(64/3)k+O(1+log(k+1)+k²/N) and reciprocal harmonic sum sum1/v_k=(3/64)log N+O(1). Weighted factors q_N^{N-1-k}=exp(-theta/2)+O((k+1)/N) lead to exponentially reweighted log term B/A=(48/5), and remaining O(v^-2) sum bounded. Leading geometric sum yields Phi(theta). Uniform bounds hold on compact theta, x0 away from zero; fixed a within each run, not time-varying a_k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full earlier neutral-flip RESULT proves fixed a=8 log term but not N-dependent near-critical a.",
+          "Full quadratic-map susceptibility RESULT proves an N^-1 detuned leading response for a different polynomial observable; APS 2025 paper develops leading finite-time scaling, not EOS log term."
+        ],
+        "reasoning": "Generic leading normal-form and susceptibility results do not determine a second-order EOS-specific harmonic coefficient for every fixed theta. A nonuniform fixed-parameter asymptotic may not be substituted at a_N without proof.",
+        "searches": [
+          "EOS entropic congestion interval sigmoid neutral flip a=8+theta/n inverse square log n crossover",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-global-neutral-flip-attraction-and-signed-critical-relaxation-in--54b59b4edf7d",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-finite-time-susceptibility-crossover-at-a-quadratic-flip-t--acec857a2ec3",
+          "Martin Tang Chialvo finite time scaling low-dimensional map bifurcations"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-global-neutral-flip-attraction-and-signed-critical-relaxation-in--54b59b4edf7d",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-finite-time-susceptibility-crossover-at-a-quadratic-flip-t--acec857a2ec3",
+        "https://doi.org/10.1103/73cc-j6mx",
+        "https://arxiv.org/abs/2411.01495",
+        "https://arxiv.org/abs/2505.24673",
+        "Resultary semantic query: EOS entropic congestion interval sigmoid neutral flip a=8+theta/n inverse square log n crossover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original interval-map source studies sigmoid rotation/period dynamics; its complete primary full text could not be accessed this run and remains a qualified risk.",
+          "Martin–Tang–Chialvo full primary PDF treats leading finite-size scaling at low-dimensional map bifurcations, not this specific second order EOS asymptotic.",
+          "Published neutral-flip theorem proves only exact a=8 and related cycle birth, not theta ≠ 0."
+        ],
+        "reasoning": "The new log term arises from B_N/v and survival weighting q_N^(N-k), which do not appear in stronger generic leading-state statements. Unavailable plausible original full text means confidence is bounded, not fabricated certainty.",
+        "searches": [
+          "EOS entropic congestion interval sigmoid neutral flip a=8+theta/n inverse square log n crossover",
+          "arxiv 2411.01495 interval maps mimicking circle rotations EOS sigmoid",
+          "arxiv 2505.24673 finite time scaling period doubling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full earlier published entropic congestion finding establishes same symmetric critical map and theta=0 logarithmic relaxation.",
+          "Generic cubic flip normal form explains leading crossover but not the exact parameter-weighted fifth-order correction for fixed experiment-wide a_N."
+        ],
+        "reasoning": "Equivalent logit conjugacy and known theta=0 are credited; nonzero theta with exactly exp(-theta/2) factor is an additional two-term N-scaling statement.",
+        "searches": [
+          "EOS entropic congestion interval sigmoid neutral flip a=8+theta/n inverse square log n crossover",
+          "EOS interval maps mimicking circle rotations near neutral flip 8 theta/N log n",
+          "parabolic map normal form detuning finite time logarithmic correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known theta=0 coefficient 48/5 is a published exact special case; independent rational expansion recovers it.",
+          "No indexed exact all-theta coefficient found in relevant Resultary searches besides current self-hit; no finite database/table object applies to this asymptotic."
+        ],
+        "reasoning": "The novelty is not the critical coefficient alone but its quantitative exponential reweighting at N^-1 detuning, derived by weighted harmonic summation.",
+        "searches": [
+          "EOS entropic congestion interval sigmoid neutral flip a=8+theta/n inverse square log n crossover",
+          "48/5 exp(-theta/2) logarithmic correction sigmoid EOS neutral flip",
+          "EOS log correction finite time crossovers known at theta=0"
+        ]
+      },
+      "rationale": "On the stated bounded primary literature and Resultary comparisons, the exact final claim is neither stated nor directly implied by the identified relevant antecedents; known special cases and methodology were credited. This is best-of-knowledge, not proof of global novelty. See four explicit implication checks, actual source inspections, and residual risks.",
+      "residual_risks": [
+        "Primary full text Interval maps mimicking circle rotations not accessible: authorized institutional access returned VPN disconnected; original sections/appendices must be read by authorized human later before strong novelty assertion.",
+        "Existing theta=0 coefficient and generic leading parabolic crossover are explicitly prior.",
+        "Second-order uniformity requires fixed real theta and nonzero x0 bounded away from zero; no growing-theta theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "THETA=0 EXACT SPECIAL CASE IS PRIOR; NONE of theta≠0 stated",
+          "evidence": "u_{2m}^-2=(2/3)m+(3/20)log m+O(1), exactly matches x-coordinate theta=0 after scaling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-global-neutral-flip-attraction-and-signed-critical-relaxation-in--54b59b4edf7d",
+          "material_read": "Complete RESULT.md including critical inverse-square expansion and O(log n) corrections",
+          "method": "Read primary published full record through GitHub connector",
+          "title": "Global neutral-flip attraction and signed critical relaxation in an entropic congestion map",
+          "trigger": "Exact same neutral flip critical EOS after u=8x"
+        },
+        {
+          "assessment": "DIFFERENT quadratic map, parameter response/susceptibility rather than EOS log amplitude",
+          "evidence": "Leading crossover and finite-size susceptibility known, but no sigmoid B/A weighted harmonic coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-finite-time-susceptibility-crossover-at-a-quadratic-flip-t--acec857a2ec3",
+          "material_read": "Complete RESULT.md including state/susceptibility scaling proof and limitations",
+          "method": "Read primary published record through GitHub connector",
+          "title": "Exact finite-time susceptibility crossover at a quadratic flip threshold",
+          "trigger": "Potential broader near-flip N^-1 parameter scaling"
+        },
+        {
+          "assessment": "COVERS leading generic flip scaling but no exact EOS-specific second-order log across theta",
+          "evidence": "Leading order/parabolic dynamics; no explicit (48/5)exp(-theta/2) log N term.",
+          "identifier_or_url": "https://doi.org/10.1103/73cc-j6mx",
+          "material_read": "Full publisher PDF inspected including methods, critical scaling, figures and appendices",
+          "method": "Accessible APS PDF and page screenshot",
+          "title": "Finite-time scaling on low-dimensional map bifurcations",
+          "trigger": "Primary current generic flip finite-size scaling literature"
+        },
+        {
+          "assessment": "NOT FULLY INSPECTED; priority risk explicitly retained, not deemed NOT_COVERING from snippet",
+          "evidence": "Model and parameter context match, no claim that its unavailable pages lack log corrections",
+          "identifier_or_url": "https://arxiv.org/abs/2411.01495",
+          "material_read": "Abstract and indexed metadata only; arXiv full text and lawful OA attempt unsuccessful; authorized Oxford download returned VPN disconnected job ee9d00cda3889df1226ba04057cef308",
+          "method": "arXiv and lawful OA checked; Oxford authorization left intact; no bypass",
+          "title": "Interval maps mimicking circle rotations",
+          "trigger": "Exact sigmoid EOS family model origin and plausible hidden equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural finite-horizon critical detuning a-8=theta/N probes a neutral flip at its observable time scale. A sharp parameter-dependent logarithmic correction distinguishes model-specific second-order behavior beyond generic leading parabolic scaling and previously known fixed-critical logarithm, a meaningful quantitative asymptotic for this sigmoid map.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific acceptance is bounded to the exact claim and hypotheses above, not an unrestricted stronger theorem. Numerical tests are supporting diagnostics, not formal proof or exhaustive infinite computations.",
+    "Primary full text Interval maps mimicking circle rotations not accessible: authorized institutional access returned VPN disconnected; original sections/appendices must be read by authorized human later before strong novelty assertion.",
+    "Existing theta=0 coefficient and generic leading parabolic crossover are explicitly prior.",
+    "Second-order uniformity requires fixed real theta and nonzero x0 bounded away from zero; no growing-theta theorem."
+  ],
+  "schema_version": 1
+}

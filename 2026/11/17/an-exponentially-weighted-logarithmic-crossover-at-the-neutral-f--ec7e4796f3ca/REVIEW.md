@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The positive magnitude reduction and invariant interval are proved for every sufficiently large experiment horizon. The exact analytic fifth-order jet gives \(A=64/3\), \(B=1024/5\); a positive drift bound proves \(v_{k,N}\asymp k+1\) uniformly to time \(N\). The weighted harmonic-sum calculation gives \(\frac{48}{5}e^{-\theta/2}\log N\) with a bounded residual. Finite symbolic and numerical tests corroborate the proof but are not substituted for it.
+## correctness
 
-## Originality: PASS within inspected sources
-The exact fixed-critical case is NOT new: the prior entropic congestion result for the same map under logit conjugacy already contains its critical logarithm, and the new claim excludes that slice from priority. The new assertion varies the constant gain **between experiments** as \(8+\theta/N\), determines the complete \(\theta\)-dependent leading profile, and fixes the second-order logarithmic coefficient. Full original EOS and nearest published same-map and quadratic-normal-form results were compared by implication. Generic crossover mechanisms are credited. The complete 2025 Martin–Tang–Chialvo finite-time-scaling paper was also examined; its leading-order crossover does not state the second-order sigmoid logarithm. Unindexed equivalent expansions remain a genuine priority risk.
+PASS
 
-## Value: PASS
-An observation-horizon-dependent gain is the natural finite-time window at a neutral flip. The result determines a quantitative, logarithmic correction that changes exponentially in the rescaled gain; the previously established critical rate alone does not quantify this adjustment. It provides an exact second-order transient benchmark for a specific nonlinear interval family, without claiming a general normal-form theorem or a global attractor classification.
+On |x|<=0.1 for a near 8, F reverses sign, absolute magnitude w_{k+1}=T_a(w_k)=(a/4-1)w-(a³/48)w³+(a⁵/480)w⁵+O(w^7), strictly maps positive neighborhood into itself. v=w^-2 satisfies exact uniform asymptotic recurrence v_next=q_N v+A_N+B_N/v+O(v^-2), q_N=(a/4-1)^-2=1-theta/(2N)+O(N^-2), A_8=64/3, B_8=1024/5. Positive bounded additive drift and discrete comparison show v_{k,N} asymptotic to k+1 for 0<=k<=N. Summing gives v_k=(64/3)k+O(1+log(k+1)+k²/N) and reciprocal harmonic sum sum1/v_k=(3/64)log N+O(1). Weighted factors q_N^{N-1-k}=exp(-theta/2)+O((k+1)/N) lead to exponentially reweighted log term B/A=(48/5), and remaining O(v^-2) sum bounded. Leading geometric sum yields Phi(theta). Uniform bounds hold on compact theta, x0 away from zero; fixed a within each run, not time-varying a_k.
 
-## Limitations and closest literature
-The initial amplitude is in \((0,1/10]\), \(\theta\) is fixed, and each horizon uses its own constant gain. Prior critical logarithms are fully excluded from novelty. See references and source comparisons in RESULT.md and AUDIT.json. No independent scientific verification has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the stated bounded primary literature and Resultary comparisons, the exact final claim is neither stated nor directly implied by the identified relevant antecedents; known special cases and methodology were credited. This is best-of-knowledge, not proof of global novelty. See four explicit implication checks, actual source inspections, and residual risks.
+
+## value
+
+PASS
+
+The natural finite-horizon critical detuning a-8=theta/N probes a neutral flip at its observable time scale. A sharp parameter-dependent logarithmic correction distinguishes model-specific second-order behavior beyond generic leading parabolic scaling and previously known fixed-critical logarithm, a meaningful quantitative asymptotic for this sigmoid map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
