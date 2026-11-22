@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the centered equilateral length to a sum of coordinate squared norms on a hexagon. Strict convexity characterizes exactly the six equality columns. An explicit nearest-vertex rounding lemma proves both squared-distance and row-energy L1 bounds, from which integer balancing yields the 4/5 and 4/7 deficits and near-equality 6/5 threshold; block concatenations prove all claimed feasible bounds. Exact symbolic identities and 30,000 rational column tests were replayed. The finite test suite does not replace the all-dimensional inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ionin (2015) gives unrestricted squared side (8/3)d in the side-two cube when 3 divides d, versus centered 2d here.",
+        "Wenzel (2002) requires full-dimensional cube-vertex simplices; Ambrus–Gárgyán (2023) optimize slice volumes."
+      ],
+      "reasoning": "A stronger unrestricted-domain maximum cannot imply the smaller centered-domain optimum, much less its full equality orbit, cardinality, residue gaps and distance stability, without a missing hypothesis-specific theorem. The full-dimensional/volume theorems concern different invariants. Their general mathematical techniques may transfer, but their statements do not dominate this claim.",
+      "searches": [
+        "Yury J. Ionin Problem 11693 American Mathematical Monthly 2015 full solution",
+        "Wenzel Regular Simplices Inscribed into the Cube 2002 full preprint",
+        "Ambrus Gárgyán Non-diagonal critical central sections cube 2023 primary full text"
+      ]
+    },
+    "checked_sources": [
+      "Ambrus–Gárgyán, arXiv:2307.03792 and the lawful full-text PDF",
+      "Ionin, American Mathematical Monthly 122(2) (2015), pp. 178–181, accessed full PDF",
+      "Wenzel, TU Chemnitz Preprint 2002-11, all seven pages",
+      "Cantarella–Denne–McCleary, arXiv:2106.12063, introduction/theorem in publisher HTML",
+      "OEIS A344854 search-result description/formula only; full page unavailable"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present universal bound follows from maximizing squared Euclidean norm over the centered-coordinate hexagon, not the unconstrained coordinate-difference extremum in Ionin.",
+        "The integer row-energy distribution, explicit residue gap, and metric rounding estimate use the equal-row-norm and fixed-center constraints absent from those prior claims."
+      ],
+      "reasoning": "Ionin supplies a crucial methodological antecedent and therefore narrows originality to the fixed-centroid rigidity, enumeration, uniform dimension-free residue obstruction, and quantitative near-equality theorem. The literature reviewed does not logically imply those conclusions solely from its theorems. This is best-knowledge originality, not an exhaustive priority proof.",
+      "searches": [
+        "\"Inscribe an Equilateral Triangle in a Hypercube\" 11693 2015 pdf",
+        "\"Non-diagonal critical central sections of the cube\" arXiv:2307.03792 pdf",
+        "\"Regular Simplices Inscribed into the Cube and Exhibiting a Group Structure\" PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same optimization is the maximal regular 2-simplex with barycenter fixed at the center of [-1,1]^d; equivalently maximizing the trace of the three-point Gram matrix under centered, equal-norm constraints.",
+        "The 2015 unrestricted theorem concerns a larger feasible set and has a different maximum when 3 divides d."
+      ],
+      "reasoning": "A translation of the unrestricted maximizer cannot generally preserve cube containment and force center at zero. Coordinate maxima in the planar hexagon H are different from the unrestricted cube-coordinate difference maxima. No inspected equivalent central-constraint formulation supplies the matrix classification or stability.",
+      "searches": [
+        "\"hypercube\" \"equilateral triangle\" \"centroid\" \"centered\"",
+        "\"cube\" \"equilateral triangle\" \"centroid\" \"center\"",
+        "\"Largest regular k-simplex inscribed in a d-cube\" MathOverflow 203554",
+        "arXiv:2307.03792 and arXiv:2106.12063"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly indexed OEIS A344854 table counts triangles drawn exclusively from binary cube vertices and begins d=3: 8, d=6: 2240.",
+        "The present equality triangles include zero coordinates in every ambient dimension and number 8 in d=3, 960 in d=6."
+      ],
+      "reasoning": "The count at dimension 3 happens to coincide, but the geometric objects differ (cube-vertex triangles versus triangles with each coordinate triple containing zero); at dimension 6 the numbers differ. OEIS full-page access was denied, so only its indexed formula/description were used; no exhaustive-table negative inference is made.",
+      "searches": [
+        "OEIS A344854 number of equilateral triangles with hypercube vertices",
+        "\"hypercube\" \"equilateral triangle\" \"centroid\" \"centered\"",
+        "Yury Ionin d=3m extremal equilateral triangle coordinate examples"
+      ]
+    },
+    "rationale": "Closest accessible direct prior work is Ionin 2015 on the same geometric containment but without fixed centroid; it yields a strictly larger unrestricted maximum and not the fixed-center equality count, residue-gap lower bounds or metric stability. Wenzel concerns full-dimensional cube-vertex simplices, Ambrus–Gárgyán central-section volumes, and the indexed OEIS counts vertex triangles. Those exact comparisons and residual risks are detailed below.",
+    "residual_risks": [
+      "Older or non-indexed fixed-centroid cube containment research may provide an equivalent inequality, orbit classification or near-equality theorem.",
+      "The 2015 unrestricted solution uses similar coordinate extremal techniques; the genuinely new element is the fixed-center quantitative rigidity and residue obstruction, not the idea of coordinatewise maximization.",
+      "The exact optimum in the two nonsaturated residue classes is open here; only a gap interval is established.",
+      "OEIS full page could not be inspected due to access denial, so exact table comparison uses only retrieved descriptive information."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper optimizes hyperplane-section volume as a function of the normal, and establishes existence of non-diagonal stationary sections. Its stated theorems and surveyed central-section results do not optimize a centered regular triangle or classify its equality coordinate matrices.",
+        "evidence": [
+          "Theorems 1.1–1.2 are explicitly about central section volume and critical normal vectors (pp. 2–3).",
+          "The 2020 MSC 52A40 appears on p. 1; arXiv:2307.03792 was first posted July 7, 2023."
+        ],
+        "identifier_or_url": "arXiv:2307.03792; https://real.mtak.hu/191901/1/2307.03792v4.pdf",
+        "material_read": "Abstract, definitions and theorems in PDF pages 1–3, reference list and index/search over the full 22-page text for triangle, simplex and centroid",
+        "method": "Primary open-access full-text PDF, parsed searchable text and visual verification of first two pages and reference page",
+        "title": "Non-diagonal critical central sections of the cube",
+        "trigger": "2023 geometric optimization of central cube sections, first public version July 7, 2023; primary MSC2020 52A40"
+      },
+      {
+        "assessment": "Its unrestricted cube-maximum theorem is strictly a different optimization. For cube [-1,1]^d and d a multiple of three it gives squared side 8d/3, above 2d. It does not impose centroid origin or state the balanced-coordinate equality class, its count, or its stability and residue gaps. Closest methodological precedent; its coordinate inequalities must not be portrayed as novel.",
+        "evidence": [
+          "The theorem q(d)^2=(2d/3) on the unit cube for d divisible by three is stated on p. 178.",
+          "The proof on pp. 178–181 uses unrestricted points and shows an unrestricted maximizer can be chosen with a cube vertex, whereas the centered equality patterns in the present statement have one zero in each coordinate triple."
+        ],
+        "identifier_or_url": "Yury J. Ionin, American Mathematical Monthly 122(2) (2015), pp. 178–181; https://lupucezar.wordpress.com/wp-content/uploads/2011/02/amer-math-monthly-122-02-175.pdf",
+        "material_read": "Entire four-page solution, pp. 178–181, including formulas (1)–(2), constructions, induction and final optimality classification",
+        "method": "Parsed full primary PDF text; mathematical comparison of cube scaling and center restrictions",
+        "title": "Inscribe an Equilateral Triangle in a Hypercube (solution to Problem 11693)",
+        "trigger": "Direct same-object extremal triangle-in-cube theorem; potentially stronger coverage"
+      },
+      {
+        "assessment": "Studies full-dimensional regular n-simplices whose vertices are cube vertices and form F_2-subgroups, characterized using Hamming codes. It does not cover three arbitrary boundary/interior points constrained to have centroid at the cube center.",
+        "evidence": [
+          "Preprint abstract and p. 1 explicitly require full-dimensional n-simplices with vertices in {0,1}^n.",
+          "Theorem 2.2 and Theorem 3.1 concern n+1 a power of two and group/Hamming-code structure."
+        ],
+        "identifier_or_url": "W. Wenzel, 2002 TU Chemnitz preprint 11; https://www.tu-chemnitz.de/mathematik/preprint/2002/PREPRINT_11.pdf",
+        "material_read": "All seven PDF pages, including introduction, Theorem 2.2, Theorem 3.1 and references",
+        "method": "Page-wise visual inspection of primary preprint",
+        "title": "Regular Simplices Inscribed into the Cube and Exhibiting a Group Structure",
+        "trigger": "Potential cube-simplex classification/stronger result"
+      },
+      {
+        "assessment": "Topological existence/pose results for smooth embedded spheres, not a fixed-center metric maximum in the nonsmooth hypercube. Primary MSC is 55R80, so it is contextual literature, not a geometrical priority claim.",
+        "evidence": [
+          "Abstract states an existence family for each pose of an inscribed k-simplex in a dense class of smooth embeddings.",
+          "No numerical cube length maximum or centroid-equality classification is stated in the inspected sections."
+        ],
+        "identifier_or_url": "J. Cantarella, E. Denne and J. McCleary, arXiv:2106.12063 (first posted June 22, 2021), https://arxiv.org/abs/2106.12063",
+        "material_read": "Abstract, Introduction and stated configuration-space theorem, plus historical comparisons in the published open HTML full text",
+        "method": "ArXiv text and publisher open HTML",
+        "title": "Families of similar simplices inscribed in most smoothly embedded spheres",
+        "trigger": "Existence of inscribed similar simplices on convex/smooth boundaries"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "89cfa023-65fc-43b2-8675-519b0c28c425",
+  "value": {
+    "rationale": "The fixed-center restriction is geometrically natural for central cube sections and changes the optimal scale and equality set relative to unconstrained inscribed triangles. The result completely characterizes saturation and its exponentially many equality configurations, proves uniform positive losses exactly in the other two residue classes, and controls Euclidean distance of every sufficiently near-saturating triangle to the discrete extremal orbit. This yields nontrivial structural and quantitative conclusions in every dimension without pretending to solve the remaining exact residue optima.",
+    "status": "PASS"
+  }
+}
