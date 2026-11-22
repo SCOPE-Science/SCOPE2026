@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` using Python 3.8 or newer; only the Python standard library is used. The script generates four de Bruijn subgraphs (4, 16, 64, and 256 states), verifies that their only cyclic strongly connected components are primitive, checks the 50-step positive-vector Collatz–Wielandt inequalities exactly in integers, and compares transfer traces with direct bitwise fixed-point enumeration for sixteen finite ring cases. Recorded output: `verification_output.txt`.
+# Independent mathematical audit
 
-The integer inequalities certify exponential growth rates, not exact polynomial minimal equations, transient basin distributions, or behavior for radii beyond four. The direct finite enumerations alone are not a proof of the infinite-ring statement; the transfer-matrix bijection and Perron argument provide that proof. No independent audit has been conducted.
+## correctness
+
+PASS
+
+From the exact de Bruijn local inequality reconstructed all four transition digraphs (4,16,64,256 vertices, 6,22,84,326 edges), their strongly connected cores (4,14,50,184) and independently verified every strict 50-step rational Collatz-Wielandt bound. The centered window transfer trace counts all labelled fixed points for n>2r. Primitivity and simple Perron eigenvalue yield leading coefficient 1; no claim beyond r=4.
+
+## originality
+
+PASS
+
+The squared-cycle source contains only radius-two root rho_2. Search on equivalent fixed-point subshifts and cellular automaton transfers found no dominating four-radius result; abstract-only Nakar/Ron leaves historical risk.
+
+## value
+
+PASS
+
+A natural fixed-state entropy comparison of successive radii, with certified two nonmonotone reversals; a structural answer not known from a single-radius spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

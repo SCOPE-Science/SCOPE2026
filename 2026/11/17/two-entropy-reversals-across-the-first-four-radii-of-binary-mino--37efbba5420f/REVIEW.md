@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A fixed site is exactly one with at least half its open neighbors in the opposite state. The rolling-window bijection gives exact trace counts for all ring lengths \(n>2r\). The primitive strongly connected component for each of the four graphs and the strict Collatz–Wielandt integer inequalities are exhaustively checked by `verify.py`. The disjoint rational bounds imply the claimed changes in ordering. The supplementary direct binary enumerations agree with the trace counts.
+## correctness
 
-**Originality — PASS, with historical qualification.** Prior work establishes a radius-two minority growth constant and general structural results for a different, self-inclusive neighborhood model. No accessible source or indexed mathematical record found the two reversals across radii one through four. The published radius-two result alone does not imply the two new comparisons with radii three and four. Indexed access did not expose every potentially relevant complete source, leaving residual priority risk.
+PASS
 
-**Value — PASS.** The question is whether enlarging a symmetric local opposition neighborhood has a monotone effect on the exponential diversity of spatially stable states. The first four natural radii already exhibit two sign reversals. This is a nontrivial structural boundary to monotonicity, demonstrated by exact graph certificates rather than close numerical estimates, and the trace formula independently determines every finite-ring fixed-state count in the specified range.
+From the exact de Bruijn local inequality reconstructed all four transition digraphs (4,16,64,256 vertices, 6,22,84,326 edges), their strongly connected cores (4,14,50,184) and independently verified every strict 50-step rational Collatz-Wielandt bound. The centered window transfer trace counts all labelled fixed points for n>2r. Primitivity and simple Perron eigenvalue yield leading coefficient 1; no claim beyond r=4.
 
-**Limitations.** No claim concerns temporal attraction basins or radius five and higher. No external mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The squared-cycle source contains only radius-two root rho_2. Search on equivalent fixed-point subshifts and cellular automaton transfers found no dominating four-radius result; abstract-only Nakar/Ron leaves historical risk.
+
+## value
+
+PASS
+
+A natural fixed-state entropy comparison of successive radii, with certified two nonmonotone reversals; a structural answer not known from a single-radius spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
