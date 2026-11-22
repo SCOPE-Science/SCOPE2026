@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Derive exact 3-step Lanczos matrix and polynomial, use tree path uniqueness for each entry, and obtain necessary and sufficient neighbor signs. Positivity follows for root and distance-two vertices from SPD compression and unique length-two paths. Broom has exact P/Q, Q>0 by positive projected determinant and Lanczos norm, Sturm variations prove unique P positive root and no other neighbor sign changes. Independent exact-rational CG and symbolic tests replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Axelsson 2010 doi:10.1155/2010/972794 Sections 2-3 gives energy optimality for SPD CG, without sign guarantee",
+        "Livne and Brandt arXiv:1108.0123 Sections 1-2 focuses on graph Laplacian solver convergence and complexity"
+      ],
+      "reasoning": "General energy-norm convergence of CG and inverse positivity of an M-matrix do not imply nonnegative intermediate iterates; indeed the explicit negative coordinate refutes such a proposed implication. The inspected general frameworks do not provide the tree-local criterion.",
+      "searches": [
+        "published-finding corpus: exact third conjugate gradient iterate on weighted graph Laplacian delta source edge sign Lanczos Jacobi trace",
+        "web: graph Laplacian conjugate gradient vertex impulse negative iterate positivity failure"
+      ]
+    },
+    "checked_sources": [
+      "Axelsson 2010 full-text HTML CG algorithm and Theorem 5",
+      "Livne-Brandt arXiv:1108.0123 full-text HTML graph and solver sections",
+      "published-finding corpus search-index records for general CG Stieltjes positivity loss and Poisson-path mixed-source CG signs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published indexed 2026 Stieltjes CG note: dimension-three failure is stated for some b>=0, not b=e_r or tree-screened Laplacian",
+        "Published indexed 2026 Poisson paths note: second-iterate mixed sources, not point-source third-iterate tree criterion"
+      ],
+      "reasoning": "The published facts do not logically entail the new universal local formula or the exact if-and-only-if broom phase. The new result does not claim generic CG positivity failure as novel.",
+      "searches": [
+        "published-finding corpus: nonnegative iterates conjugate gradient symmetric M-matrix graph Laplacian point source weighted tree minimal negative entry",
+        "published-finding corpus: point-source conjugate gradients positivity first three iterates weighted trees five vertices sign reversal",
+        "web: CG iterates positivity M-matrix nonnegative right hand side theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus id 2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5 is an arbitrary-right-hand-side counterexample, not a point-source weighted-tree classification",
+        "Axelsson 2010 CG Galerkin theory yields the polynomial framework but no local sign inequality"
+      ],
+      "reasoning": "The sign criterion concerns b=e_r and A=mu I+L_w on a tree; a failure for some arbitrary positive b in a general Stieltjes system is logically weaker for this restricted input. Distinct second-source Poisson phenomena do not cover this input.",
+      "searches": [
+        "published-finding corpus: nonnegative iterates conjugate gradient symmetric M-matrix graph Laplacian point source weighted tree minimal negative entry",
+        "published-finding corpus: point-source conjugate gradients positivity first three iterates weighted trees five vertices sign reversal",
+        "web: conjugate gradient method iterates nonnegative Stieltjes matrix nonnegative rhs positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No corresponding listed exact broom sign polynomial or threshold in the inspected indexed hit summaries or primary papers",
+        "Dedicated symbolic derivation produces P(t) and positive Q(t), with Sturm count one"
+      ],
+      "reasoning": "No exact table for the polynomial or this weighted broom family was found among inspected results; failure to find one is not proof of publication priority.",
+      "searches": [
+        "published-finding corpus: point excitation CG inverse M-matrix weighted broom five vertices negative solution component",
+        "web: conjugate gradient iterates positivity M-matrix nonnegative right hand side theorem"
+      ]
+    },
+    "rationale": "Primary CG review covers Galerkin optimality, not coordinate signs. A publicly indexed 2026 Stieltjes example allows arbitrary nonnegative right-hand sides; it neither proves nor implies a point-source local criterion for all weighted trees or the complete sharp five-node family threshold. A separate Poisson path analysis uses mixed sources at step two. Full texts of the two indexed notes could not be fetched; priority remains qualified.",
+    "residual_risks": [
+      "The exact local sign criterion might appear in unindexed numerical-analysis material or unpublished notes",
+      "Two relevant public research records were inspected only through indexed summaries because full-text retrieval was unavailable",
+      "No independent audit or external reproduction was performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes CG Galerkin energy properties and M-matrix splitting properties; no tree point-source third-step sign statement located",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/10.1155/2010/972794",
+          "web turn426338view0, turn451712view0, turn636805view1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2010/972794",
+        "material_read": "Full-text HTML sections 2 and 3, CG algorithm and Theorem 5, introduction and reference cross-check",
+        "method": "Read publicly accessible HTML sections and searched terms nonnegative / positive cone",
+        "title": "Milestones in the Development of Iterative Solution Methods",
+        "trigger": "Foundational CG positivity-versus-energy comparison"
+      },
+      {
+        "assessment": "Discusses graph Laplacian solvers, preconditioners and energy error; does not state exact point-source CG sign criterion",
+        "evidence": [
+          "https://arxiv.org/abs/1108.0123",
+          "web turn426338view2, lines 14-58"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1108.0123",
+        "material_read": "Full-text HTML introduction, definition of weighted Laplacian, related work and iterative preconditioned-CG discussion",
+        "method": "Read arXiv full-text HTML rendered by text retrieval",
+        "title": "Lean Algebraic Multigrid (LAMG): Fast Graph Laplacian Linear Solver",
+        "trigger": "Same weighted graph Laplacian linear-system object and Krylov-solver context"
+      },
+      {
+        "assessment": "Strong background occurrence of CG sign loss for arbitrary nonnegative right-hand sides; not a point-source tree criterion, but full-text priority uncertainty persists",
+        "evidence": [
+          "published-finding corpus id 2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5",
+        "material_read": "Search-index title and claim summary only; repository full text not accessible",
+        "method": "published-finding corpus published result semantic search; attempted repository web open failed",
+        "title": "Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems",
+        "trigger": "Directly plausible prior CG nonnegativity research"
+      },
+      {
+        "assessment": "Multiple-source second-iterate boundary rather than point-source third-iterate local law",
+        "evidence": [
+          "published-finding corpus id 2026/10/13/SCOPE-a-parity-law-for-the-second-conjugate-gradient-iterate-on-discre--43379a17501b"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-parity-law-for-the-second-conjugate-gradient-iterate-on-discre--43379a17501b",
+        "material_read": "Search-index title and claim summary only; full record not accessible",
+        "method": "published-finding corpus published semantic search",
+        "title": "A parity law for the second conjugate-gradient iterate on discrete Poisson paths",
+        "trigger": "Potentially relevant discrete-tree CG sign loss"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad15fe4b-80b2-4cd8-a5a6-1cd617480d61",
+  "value": {
+    "rationale": "A reusable local sign test for any positive weighted tree explains which third-step CG responses can violate the positivity of a screened graph Green function. The fully classified weighted broom gives a sharp algorithmic counterexample and diagnostic benchmark, not a trivial parameter rename or numerical-only observation.",
+    "status": "PASS"
+  }
+}
