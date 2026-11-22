@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The proof classifies cross-shore independent color classes as matched pairs, derives equivalent neighborhood/distance distinction criteria, proves the sharp lower bound by counting indices in repeated right classes, forces the unique equality normal form, and applies an exact binomial sum. Finite independent C++ exhaustive and Python normal-form checks reproduce all tested cases; no finite check is substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1806.11465 Proposition 6 gives only the twin-free upper bound chi_NL<=v-alpha+1; it specializes to n+1 for crown graphs.",
+        "arxiv:2301.13557 proves general complexity/sparse-family bounds, not a crown-family optimum census.",
+        "doi:10.61091/jcmcc122-06 investigates Cartesian, lexicographic and corona products, not deleted matchings in complete bipartite graphs."
+      ],
+      "reasoning": "The 2018 theorem implies the upper bound n+1, and that portion is not claimed as new. It does not imply a matching lower bound or the exact normal-form census. Product theorems and general upper bounds do not classify all color partitions of crown graphs.",
+      "searches": [
+        "'crown graph' 'neighbor locating' chromatic",
+        "'locating chromatic number' 'crown graph'",
+        "Neighbor Locating Coloring on Graphs Three Products DOI:10.61091/jcmcc122-06",
+        "neighbor-locating chromatic number crown graphs complete bipartite minus matching"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1806.11465",
+      "https://arxiv.org/abs/2301.13557",
+      "https://doi.org/10.61091/jcmcc122-06"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 prior upper bound provides a construction but cannot prove that fewer colors are impossible.",
+        "Other exact star-coloring and proper-distinguishing-coloring enumerators impose different graph coloring predicates, so do not imply this exact neighbor-color or distance-code classification.",
+        "The present proof identifies a one-repeated-block-per-shore obstruction that is absent from the cited prior statements."
+      ],
+      "reasoning": "The exact old-to-new implication is restricted to existence of an (n+1)-color neighbor-locating partition via the twin-free bound. The lower bound, universal equivalence, optimizer classification and exact multiplicity are not corollaries of that upper bound or of other inspected, differently constrained coloring enumerators.",
+      "searches": [
+        "neighbor locating coloring K_n,n-M exact k number",
+        "adjacency locating coloring L2 chromatic number of crown graphs matching deleted bipartite and all optimal colorings",
+        "'locating coloring' 'crown graph' complete bipartite minus matching",
+        "arxiv:1806.11465 Section 3 Proposition 6",
+        "arxiv:2301.13557 Sections 1-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1806.11465, Section 2 defines neighbor-locating and metric locating separately.",
+        "arxiv:2301.13557, Sections 1-2 discuss adjacency-locating terminology and the relation chi_L<=chi_NL.",
+        "The crown-specific proof shows the two tests are equivalent on every proper vertex partition, a stronger claim than their general inequality."
+      ],
+      "reasoning": "The alternate name adjacency locating is searched explicitly; the inspected general definition and inequality do not imply equality of the two predicates for this particular family. No result with the same family and matching-index normal form was found.",
+      "searches": [
+        "neighbor-locating chromatic number crown graphs complete bipartite minus matching",
+        "neighbor locating coloring K_n,n-M exact k number",
+        "'adjacency locating coloring' 'crown graph'",
+        "\"locating chromatic\" \"bipartite Kneser\" H(n,1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct computationally derived sequence for n=3..8 is 17,74,307,1200,4461,15958.",
+        "Closest related crown-graph statements concern signed domination, anti-forcing, star colorings, proper distinguishing colorings, conflict-free colorings and parity; none state this locating enumerator."
+      ],
+      "reasoning": "No precise stored or public table matching the proposed invariant and counts was identified. Failure to retrieve a match is not by itself proof of historical novelty.",
+      "searches": [
+        "'17, 74, 307, 1200, 4461' chromatic graph",
+        "'n*3^(n-1)' '2^n' colorings partition crown",
+        "Neighbor-locating chromatic number of crown graph Cr_n K_{n,n} minus perfect matching equals n+1, count n 3^{n-1} minus (n-2) 2^n minus 2 optimal partitions"
+      ]
+    },
+    "rationale": "The closest directly read 2018 primary theorem implies only the upper bound n+1; the lower bound, all-proper-coloring equivalence, optimizer rigidity and exact count do not follow. Relevant published papers and actual semantic record searches found no stronger covering statement. Priority risk from unindexed adjacency-locating literature is explicitly retained.",
+    "residual_risks": [
+      "Older literature under adjacency-locating or metric-locating terminology may contain an unindexed equivalent crown-graph result.",
+      "The 2014 original adjacency-locating treatment was not inspected in full; available broader works cite it principally for definitions.",
+      "The literature search is not exhaustive, so historical priority is provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_ONLY: upper bound n+1 from v-alpha+1; no crown exact optimizer classification located",
+        "evidence": [
+          "2018 arXiv first public date 2018-06-29",
+          "Proposition 6: chi_NL(G)<=|V(G)|-alpha(G)+1 for twin-free graphs",
+          "Main graph families in Sections 4-6 are extremal-order graphs, joins, splits and Mycielski graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.11465",
+        "material_read": "Abstract, introduction, definition section, bound Proposition 6 and proof, extremal-graph section and sections on join, disjoint union and split/Mycielski graphs",
+        "method": "Accessible primary PDF searchable text, section-level inspection and first-page visual check",
+        "title": "Neighbor-Locating Colorings in Graphs",
+        "trigger": "Foundational definition, general twin-free bound and potential stronger coverage"
+      },
+      {
+        "assessment": "NOT_COVERING_IN_INSPECTED_MATERIAL: focus on sparse order bounds, NP-completeness and parameter separations; no crown-specific classification found",
+        "evidence": [
+          "arXiv record first public 2023-01-31",
+          "Abstract lists general upper bounds and complexity",
+          "PDF search for crown found no occurrence; bipartite references do not state missing-matching optimum census"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.13557",
+        "material_read": "Title/abstract, introduction and notation, Section 2 theorem summaries, searchable PDF search for crown and bipartite",
+        "method": "Primary open-access arXiv PDF text and first-page visual inspection; earliest public version date confirmed from abstract record",
+        "title": "On locating and neighbor-locating colorings of sparse graphs",
+        "trigger": "2023 middle-cohort motivating paper, definitions and possible general stronger theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: study concerns three graph-product operations; no matching-deleted biclique formula or optimal partitions",
+        "evidence": [
+          "Published 2024-09-30",
+          "Sections 3-5 treat Cartesian, lexicographic and corona graph products",
+          "No crown or matching terms in article text search"
+        ],
+        "identifier_or_url": "https://doi.org/10.61091/jcmcc122-06",
+        "material_read": "Accessible full-text HTML: definition, general bounds, Cartesian/lexicographic/corona product theorem statements and concluding material; searches for crown, bipartite and matching",
+        "method": "Publisher primary full HTML with section navigation and text search",
+        "title": "Neighbor Locating Coloring on Graphs: Three Products",
+        "trigger": "Possible broad graph-product theorem covering crown graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b495bd2c-f253-4ca1-8cbe-92c8a19749cc",
+  "value": {
+    "rationale": "A perfect-matching deletion from the twin-rich K_{n,n} is a canonical smallest structural change that sharply reduces neighbor-locating requirements from 2n to n+1. The new complete infinite-family classification explains every permissible optimum merge, proves the stronger equivalence of all locating and neighbor-locating proper colorings, and provides a natural exact optimizer census with distinct exponential terms.",
+    "status": "PASS"
+  }
+}
