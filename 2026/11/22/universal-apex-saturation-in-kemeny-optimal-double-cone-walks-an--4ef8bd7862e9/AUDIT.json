@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For all connected vertex- and edge-transitive regular bases on n>=3 vertices, strict convexity of inverse trace on the zero-sum subspace proves unrestricted uniqueness. Unique optimizer must respect the automorphisms. Its exact Laplacian has eigenvalues na, (n+2)a and 2a+b*eta_i. Every base weight b strictly improves Kemeny for fixed apex weight a, so b=(1-2a)/d. With s_i=eta_i/d in (0,2], the reduced derivative is uniformly at most -4/(n+2)<0; hence a=1/n and b=(n-2)/(nd). For cycles the resolvent identity yields the exact finite sum and asymptotic coefficients; for the feasible maximum-degree walk it yields n²/(2sqrt(3)) versus n^(3/2)/2. Finite code diagnostics are nonexhaustive and not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patel–Agharkar–Bullo establish a general convex/semidefinite optimization formulation but do not provide the candidate allocation on this family.",
+        "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "Boyd et al. develop symmetry reduction and fastest-mixing solutions, including wheel graphs, for a SLEM objective.",
+        "https://arxiv.org/abs/0709.0955"
+      ],
+      "reasoning": "A general optimization algorithm contains the graph as an admissible input but does not imply an explicit unique optimizer or its dimension-dependent performance. Prior SLEM formulas have broader graph family coverage under a distinct objective; their weight assignments can differ, including the three-regime apex allocation, so they neither subsume the Kemeny theorem nor its asymptotic comparison.",
+      "searches": [
+        "Kemeny minimization optimal transition probabilities double cone two hubs",
+        "Kemeny optimal versus fastest mixing double cone over transitive regular graph",
+        "Robotic surveillance Markov chains minimal weighted Kemeny constant graph optimized transitions Patel Agharkar Bullo 2015"
+      ]
+    },
+    "checked_sources": [
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-three-phase-fastest-mixing-law-for-double-cones-over-transitiv--7fd543281a6a",
+      "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+      "https://arxiv.org/abs/0709.0955",
+      "https://arxiv.org/abs/1211.4295",
+      "https://doi.org/10.1109/TAC.2015.2426317"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-three-phase-fastest-mixing-law-for-double-cones-over-transitiv--7fd543281a6a",
+        "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "https://arxiv.org/abs/0709.0955",
+        "https://arxiv.org/abs/1211.4295",
+        "The prior double-cone statement proves a three-phase SLEM law using the same graph spectra, while the new proof optimizes an inverse sum and establishes an objective-specific universal negative derivative bound.",
+        "The simple-walk Kemeny study holds transition weights fixed rather than optimizing each supported edge."
+      ],
+      "reasoning": "The exact spectral decomposition for the double cone appears in existing spectral design work and is treated here as a known reduction. The previous bound is \\(\\max |\\lambda|\\) and gives no implication determining the minimizer of \\(\\sum(1-\\lambda)^{-1}\\); one needs the new global strict-convexity and monotonicity argument. The cycle resolvent and comparison to the feasible maximum-degree baseline are not corollaries of a SLEM optimum. Nothing in the inspected Kemeny-convexity methods specifies this graph-dependent answer without the derivation.",
+      "searches": [
+        "Kemeny optimal symmetric stochastic walks on double-cone graphs two universal nonadjacent hubs regular transitive core",
+        "uniform-stationary Kemeny constant optimization trace pseudoinverse symmetric stochastic chain on double cones",
+        "optimal spectral inverse moment for continuous-time graph consensus on complete bipartite graph with within-side clique",
+        "Markov Kemeny double cone inverse trace stationary random walk cycle bipyramid maximum degree logarithmic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected convex Kemeny framework optimizes a sum of inverse nonzero Laplacian eigenvalues; the exact double-cone publication instead minimizes a maximum absolute transition eigenvalue.",
+        "The adjacent stationary-target hitting-time interpretation is the Kemeny sum up to convention-dependent unit constant; no equivalent exact two-apex optimum appeared in inspected sources.",
+        "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-three-phase-fastest-mixing-law-for-double-cones-over-transitiv--7fd543281a6a"
+      ],
+      "reasoning": "Equivalent ways of writing the objective include a pseudoinverse trace, reciprocal nonzero Laplacian eigenvalue sum, stationary-target mean hitting time and reversible-chain Kemeny index. The closest all-graph method permits numerical convex optimization but does not state the universal apex weight or cyclic closed form. Maximizing a different spectral norm is not equivalent to minimizing the sum of spectral reciprocals.",
+      "searches": [
+        "Double cone over regular transitive graph Kemeny inverse trace optimum all apex transitions probability one over n hold zero",
+        "Universal apex-row saturation Kemeny-optimal symmetric Markov walk two nonadjacent hubs joined to graph",
+        "optimal two-apex stochastic Markov chain inverse trace expected stationary-target hitting time",
+        "Kemeny optimal symmetric stochastic walks on double-cone graphs two universal nonadjacent hubs regular transitive core"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published table and explicit formula for fastest mixing cover some finite double cones but report SLEM values, not Kemeny-optimal weights or cycle Kemeny constants.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-three-phase-fastest-mixing-law-for-double-cones-over-transitiv--7fd543281a6a",
+        "Patel et al. provide general worked numerical optimization but no double-cone all-size table.",
+        "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf"
+      ],
+      "reasoning": "The output is not merely a tabulated small graph: it determines an infinite family exactly, including all individual optimal probabilities and a divergent baseline ratio. The inspected finite tables are for a different objective; no exact record covering the claimed Kemeny quantities was found.",
+      "searches": [
+        "Kemeny optimal symmetric stochastic walks on double-cone graphs two universal nonadjacent hubs regular transitive core",
+        "Double cone over regular transitive graph Kemeny inverse trace optimum all apex transitions probability one over n hold zero",
+        "cycle bipyramid overline K2 join Cn optimal Kemeny expected hitting time"
+      ]
+    },
+    "rationale": "Specific full-text comparison found an explicit three-phase optimization on the same double-cone family, but for SLEM rather than the inverse-trace Kemeny sum. The generic Kemeny-SDP and automorphism references provide methods, not this universal optimum, and simple-walk Kemeny results fix edge weights. Search of equivalent names, broader coverage, tables and implications did not locate an equivalent closed formula; unpublished or unindexed prior work remains possible.",
+    "residual_risks": [
+      "Unindexed or inaccessible publications could independently cover the same inverse-trace double-cone optimizer.",
+      "A general convex optimization framework by itself is broader algorithmically but does not state a closed-form optimal allocation.",
+      "The published same-graph SLEM theorem supplies an essential spectral reduction, which is not claimed new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same spectral-mode reduction; distinct SLEM objective. No inverse-trace optimizer or cyclic Kemeny performance ratio is asserted.",
+        "evidence": [
+          "SLEM depends on a base-graph spectral balance and has three apex-weight phases; in this result Kemeny optimum always uses \\(a=1/n\\)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-three-phase-fastest-mixing-law-for-double-cones-over-transitiv--7fd543281a6a",
+        "material_read": "Complete public RESULT.md including finding, spectral splitting, three-phase minimax proof, prior-work comparison, limitations and references",
+        "method": "Full-text reading of the published result",
+        "title": "A three-phase fastest-mixing law for double cones over transitive graphs",
+        "trigger": "Exact same graph family and individual transition-weight parameters"
+      },
+      {
+        "assessment": "Proves general convexity and semidefinite formulations, not the stated double-cone closed-form allocation or cyclic asymptotics.",
+        "evidence": [
+          "Reversible stationary-distribution constrained Kemeny objective is convex and admits a matrix-inverse representation.",
+          "IEEE TAC 60(12), 2015, DOI 10.1109/TAC.2015.2426317."
+        ],
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "Full lawful PDF, opening through concluding sections, including inverse-trace formulation, convexity theorem and examples",
+        "method": "PDF text inspection with page-image verification of relevant formula and theorem pages",
+        "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+        "trigger": "Closest general Kemeny optimization framework"
+      },
+      {
+        "assessment": "Establishes SLEM-based fastest mixing, not Kemeny optimality. First public version dated 2007-09-06.",
+        "evidence": [
+          "The stated objective is second-largest eigenvalue modulus, equation (1), and symmetry methods; explicit wheel-type cases do not give the two-apex Kemeny formula.",
+          "arXiv:0709.0955v1 (2007-09-06)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "arXiv text including objective, automorphism reduction and explicit example-family discussion; original PDF with relevant pages checked visually",
+        "method": "Primary arXiv/preprint and corresponding full PDF reading",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Symmetry reduction and spectral comparison for vertex-/edge-transitive graphs"
+      },
+      {
+        "assessment": "Optimizes topology/compares fixed simple walks, not free symmetric stochastic edge weights on double cones.",
+        "evidence": [
+          "arXiv:1211.4295v1 (2012-11-19); network topology and ordinary random-walk Kemeny indices."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.4295",
+        "material_read": "Original arXiv PDF introduction, principal spectral calculations and graph-network conclusion, with page images inspected",
+        "method": "Open full PDF and review relevant results",
+        "title": "Optimal and suboptimal networks for efficient navigation measured by mean-first passage time of random walks",
+        "trigger": "Possible Kemeny closed-form formulas for graph families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4ef8bd78-62e9-4b15-9a46-f8f0b22a700d",
+  "value": {
+    "rationale": "A full, unique optimal weighted Markov chain is determined for an infinite natural two-apex network family rather than only a symmetric subproblem. The dimension-only saturation law contrasts with base-spectrum-sensitive three-phase SLEM design. The exact cyclic Kemeny formula and a sharp maximum-degree baseline ratio growing as sqrt(n/3) quantify a provably unbounded practical design penalty.",
+    "status": "PASS"
+  }
+}
