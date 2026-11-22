@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "The exact ODE yields N_i∞=N_i0(1-q_i z_i) and h=KΦ_q(1-s exp(-h)). Positive intercept and strict concavity give a unique positive fixed point; the Jacobian satisfies Jh<h, so rho(J)<1. Differentiation gives dz_i/dq_j=(1-z_i)w_j[(I-J)^(-1)K]_ij. The Neumann series has positive terms exactly on directed positive-length transmission paths. Finite numerical tests are supplementary and do not replace the general analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Magal, Seydi, Webb (2018) study multigroup SIR final-size computations with fixed-population transmission normalization.",
+        "Brauer and Watmough (2009) study age-of-infection mortality final-size inequalities; available summary does not state a fixed-exit active-population source-normalized resolvent sensitivity.",
+        "Brauer (2008) addresses heterogeneous treatment and death rates, but only its abstract was accessible."
+      ],
+      "reasoning": "The directed graph-support derivative follows from a source-specific living-population denominator. In a fixed-denominator multigroup SIR model, changing the fatal-versus-recovered destination at fixed total exit leaves the entire (S,I) dynamics unchanged; hence classical constant-population final-size statements cannot imply the asserted strict response. The incompletely inspected 2008 treatment study is a residual originality risk, not treated as proven noncoverage.",
+      "searches": [
+        "multi-type SIR epidemic herd contact population mortality case fatality fraction affects final size Perron eigenvector constant R0",
+        "epidemic active population normalization increasing case fatality with fixed infectious period increases final epidemic size multi-group",
+        "https://doi.org/10.1080/17513750802415822",
+        "https://pubmed.ncbi.nlm.nih.gov/29604303/",
+        "https://pubmed.ncbi.nlm.nih.gov/18663538/"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2601.15388",
+      "https://doi.org/10.1016/j.cnsns.2026.110430",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-parameter-unrestricted-final-size-uniqueness-and-certified-geome--86fd5f29697c",
+      "https://doi.org/10.23943/princeton/9780691155395.001.0001",
+      "https://doi.org/10.1080/17513750802415822",
+      "https://doi.org/10.1007/s11538-008-9326-1",
+      "https://pubmed.ncbi.nlm.nih.gov/29604303/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Diekmann–Heesterbeek–Britton, Mathematical Tools, Chapter 1 Exercise 1.26(iv), already demonstrates the scalar monotonic response of final susceptibles to the probability of surviving infection.",
+        "Melo–Santos (2026) Proposition 3.1 establishes monotonicity with respect to transmission β; its plotted changes in mortality hold γ fixed and therefore alter the total infectious exit rate.",
+        "The full indexed multigroup result proves uniqueness/iteration, not this parameter comparative-statics identity."
+      ],
+      "reasoning": "The old one-group sign is explicitly excluded from novelty, as is the known positive-concave fixed-point theorem. The claimed statement is the exact derivative for arbitrary groups with fixed infectious duration, strict response iff there exists a directed transmission path, and exact absence of the effect with fixed population denominators. Prior inspected statements do not mathematically imply that assertion without the additional parameter differentiation and positivity argument.",
+      "searches": [
+        "multigroup case fatality redistribution fixed infectious removal active-population SIRD all groups final infection strictly increases resolvent sensitivity",
+        "source dependent epidemic population mortality severity increases infection in other populations fixed reproduction number",
+        "https://doi.org/10.23943/princeton/9780691155395.001.0001",
+        "https://arxiv.org/abs/2601.15388",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-parameter-unrestricted-final-size-uniqueness-and-certified-geome--86fd5f29697c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original 2026 model has the same source-dependent living-population denominators and final-size power-law identity.",
+        "Indexed prior full RESULT.md proves unrestricted multigroup fixed-point uniqueness via positive concavity but states no fatality-split derivative or directed-path iff classification."
+      ],
+      "reasoning": "The integral fatality-split representation is algebraically equivalent to the model final-size identity, which is prior work. The new comparison concerns differentiating this identity while holding infectious exit and next-generation matrices fixed; neither the existing final-size equation nor a uniqueness statement asserts its strict graph reachability iff result.",
+      "searches": [
+        "multigroup case fatality redistribution fixed infectious removal active-population SIRD all groups final infection strictly increases resolvent sensitivity",
+        "death recovery split fixed exit rates source normalized incidence epidemic multigroup monotone cumulative incidence",
+        "https://arxiv.org/abs/2601.15388",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-parameter-unrestricted-final-size-uniqueness-and-certified-geome--86fd5f29697c"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed same-model result is parameter-unrestricted final-size uniqueness and certified geometric bracketing for active-population SIRD networks, inspected in full; it establishes a unique fixed point and error bounds, not the proposed mortality-split sensitivity or graph iff support.",
+        "Other retrieved indexed epidemic findings address different parameter responses, reproduction thresholds, or outbreak variation."
+      ],
+      "reasoning": "The new theorem is not a finite lookup or tabulated invariant. A targeted semantic search for the full fixed-exit, final-size gradient and path condition did not locate an exact duplicate; this negative result is supporting evidence only and does not establish uniqueness.",
+      "searches": [
+        "multigroup case fatality redistribution fixed infectious removal active-population SIRD all groups final infection strictly increases resolvent sensitivity",
+        "death recovery split fixed exit rates source normalized incidence epidemic multigroup monotone cumulative incidence",
+        "source dependent epidemic population mortality severity increases infection in other populations fixed reproduction number",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-parameter-unrestricted-final-size-uniqueness-and-certified-geome--86fd5f29697c"
+      ]
+    },
+    "rationale": "The source two-group paper supplies final-size equations, while the older textbook already supplies the scalar mortality effect and a published follow-up supplies unrestricted multigroup uniqueness. The exact all-pairs fatality-split derivative, directed-path iff criterion, and comparison to fixed-population denominators are not asserted by the fully inspected closest works. Relevant older heterogeneity papers were identified; inaccessible full texts leave a bounded priority risk.",
+    "residual_risks": [
+      "The complete 2008 heterogeneous mixing and treatment article was not accessible, so an older equivalent fixed-exit graph-sensitivity formula remains possible.",
+      "Only an article abstract/introduction was available for the 2009 age-of-infection death model, which might have stronger related implications.",
+      "The generic positivity of inverse M-matrices and one-population mortality dependence are established prior mathematical facts; originality is restricted to the model-specific exact cross-group classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Final-size formula and transmission monotonicity are prior; a fixed-total-removal fatality split with graph support and resolvent derivative is not stated.",
+        "evidence": [
+          "Equation (1) has N_j=S_j+I_j+R_j in source denominators.",
+          "Proposition 3.1 compares β; mortality figures vary μ with γ fixed.",
+          "Preprint arXiv:2601.15388 v1 dated 2026-01-21."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cnsns.2026.110430",
+        "material_read": "Main article equations (1)–(4), final-size identity and discussion, Proposition 3.1, Section 4 and numerical mortality comparison, conclusions",
+        "method": "Accessible primary full-text article in HTML; original preprint public date cross-checked against arXiv version 1",
+        "title": "Final size of a structured SIRD model with active-population force of infection",
+        "trigger": "Exact originating source-specific normalization and mortality mechanism"
+      },
+      {
+        "assessment": "Covers positive-concave-map uniqueness, which is explicitly not novel here; does not compare recovery-versus-death splitting at fixed total exit, calculate fatality sensitivities, or identify directed support.",
+        "evidence": [
+          "Its main theorem is unrestricted fixed-point uniqueness and geometric error bracketing.",
+          "The proof uses negative-logarithmic susceptible variables.",
+          "The literature discussion itself credits general positive concave fixed-point theorems."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-parameter-unrestricted-final-size-uniqueness-and-certified-geome--86fd5f29697c",
+        "material_read": "Full primary RESULT.md including theorem, definitions, proof, verification, relationship to prior work and limitations",
+        "method": "Published public research directory and RESULT.md text",
+        "title": "Parameter-unrestricted final-size uniqueness and certified geometric bracketing in active-population SIRD networks",
+        "trigger": "Same living-population SIRD model; stronger coverage of uniqueness across multiple groups"
+      },
+      {
+        "assessment": "Establishes scalar monotonicity with fixed reproduction number; no group transmission network or directed graph sensitivity classification in inspected material.",
+        "evidence": [
+          "Exercise 1.26(iv) asks for monotonicity in survival fraction.",
+          "Equations (1.20)–(1.22) express scalar final size as function of survival probability and R0."
+        ],
+        "identifier_or_url": "https://doi.org/10.23943/princeton/9780691155395.001.0001",
+        "material_read": "Chapter 1 Exercise 1.26 and associated Chapter 16 solution discussion, including survival-dependent final-size equation",
+        "method": "Accessible text of book chapter and publisher bibliographic record",
+        "title": "Mathematical Tools for Understanding Infectious Disease Dynamics",
+        "trigger": "Historical priority of the one-population mortality and survival fraction effect"
+      },
+      {
+        "assessment": "Discusses multigroup age-of-infection death inequalities; cannot certify absence of more specialized identities in uninspected full text.",
+        "evidence": [
+          "Abstract says no-death final-size equations become inequalities/bounds with disease deaths."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/17513750802415822",
+        "material_read": "Search-indexed article abstract and introduction only; direct full HTML fetch was denied",
+        "method": "Publication page indexed abstract/introduction; full-text link inaccessible",
+        "title": "Age of infection epidemic models with heterogeneous mixing",
+        "trigger": "Potential broader coverage of groupwise mortality final-size relations"
+      },
+      {
+        "assessment": "Cannot determine if a related parameter derivative or graph implication appears in full text; explicit residual priority risk.",
+        "evidence": [
+          "Abstract studies two-group treatment, heterogeneous mixing and epidemic final size; includes simulations comparing with and without disease deaths."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11538-008-9326-1",
+        "material_read": "Abstract and publication details only; full primary text not accessible",
+        "method": "PubMed and bibliographic OA searches; institutional full-text access unavailable",
+        "title": "Epidemic models with heterogeneous mixing and treatment",
+        "trigger": "Closest older treatment-plus-mortality multigroup reference"
+      },
+      {
+        "assessment": "Analyzes multigroup SIR epidemic and final sizes, but not the fatality partition of active living population in its accessible description.",
+        "evidence": [
+          "Abstract describes multigroup SIR final size, irreducibility and SARS outbreak calculations."
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/29604303/",
+        "material_read": "Publication abstract and publicly indexed introductory text, not the entire primary article",
+        "method": "PubMed and indexed publicly visible textual excerpt",
+        "title": "Final size of a multi-group SIR epidemic model: Irreducible and non-irreducible modes of transmission",
+        "trigger": "Possible graph reachability and mixed-group final-size antecedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3aa70195-b2e9-4a77-bca8-f827a19b7805",
+  "value": {
+    "rationale": "The theorem gives a complete, structurally motivated dichotomy for whether a fatal-outcome change in one subpopulation affects infection in another at unchanged infectious duration and next-generation threshold. Directed reachability determines exact zero versus strictly positive effects; the sensitivity resolvent quantifies indirect transmission-walk amplification. This enables mathematically precise comparison of two epidemiological model normalizations without implying a clinical intervention.",
+    "status": "PASS"
+  }
+}
