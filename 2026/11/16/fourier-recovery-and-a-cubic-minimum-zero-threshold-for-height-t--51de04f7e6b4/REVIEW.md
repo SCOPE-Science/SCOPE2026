@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The intermediate-height affine bijection is explicitly inverted. Odd Fibonacci cardinality rules out zeros outside the residue class; all-negative signed independence recurrence has a period-six zero precisely in the exceptional class, and changing the final sign attains absolute value two. Full exact FHT agrees with a separately written signed-height DP for every frequency through semilength eight. Operator norms follow by Fourier diagonalization.
+PASS
 
-The proof covers all integer semilengths; the exhaustive degree-three classification is expressly restricted to semilength eight. The independent height DP, direct Walsh transform, Fibonacci recurrence and exact finite certificate replay without floating-point assumptions.
+For n≥2, height≤3 Dyck paths have intermediate binary v_t=(h_t−t mod2)/2, with alternate even-time complement giving an affine bijection to no-consecutive-ones strings y_2..y_{2n−2} of length m=2n−3. This preserves Walsh magnitudes with eight ambient-character copies. Signed Fibonacci independence sums obey z_j=z_{j−1}+ε_jz_{j−2}; all-negative signs give period6 sequence and zeros exactly n≡2 mod3, with sign switch achieving sharp gap2 there and gap1 elsewhere by path-count parity. Independent complete integer Walsh–Hadamard spectra n≤8 give path count n8=610, zero count7032, rank58504 and exactly ten weight-three zeros (none of smaller weight), matching frozen certificate list. This does NOT assert any all-length low-degree threshold beyond n8.
 
-## Originality — PASS under bounded comparison
+## originality
 
-The bounded excursion transfer framework and the Fibonacci cube are classical. The inspected primary papers do not state the binary step-coordinate spectral zero criterion, sharp inverse law, or exact ten first cubic cancellations. A known fence-poset/Fibonacci interpretation and earlier XOR-difference results are substantial overlap risks; the explicit affine step map and original-coordinate cancellation census were compared separately, and no directly dominating statement was identified in the bounded searches.
+PASS
 
-The closest inspected primary texts are Mollard's 2012 Fibonacci-cube work and Bacher's 2013 bounded-height Dyck excursion paper. The classical fence-ideal equivalence raises a real risk of unlocated implicit or explicit earlier treatment; it is not treated as a proof of uniqueness. The related published height-three Dyck universality-index record concerns subsequence statistics and was accessible only at summary level. Earlier Fibonacci-cube representation-profile statements do not by themselves identify the original up-step coordinate character weights.
+Best-of-knowledge comparison of mathematical statements, not title matches; bounded queries and directly inspected relevant sources found no dominating prior result for this precise support/invariant. Remaining risks explicitly retained.
 
-## Mathematical value — PASS
+## value
 
-This is a natural complete infinite classification of whether height-constrained Catalan step-incidence convolution can be inverted, including its sharp nonzero Hilbert stability. The semilength-eight degree-three onset detects the first cancellation requiring three original step observables; the explicit coordinate-sensitive certificate is not determined by path counts or the qualitative Fibonacci enumeration alone.
+PASS
 
-## Limitations
+The height-three constraint is a natural bounded-height Dyck class; under its specific step-coordinate measurement, the exact first cubic character cancellation at n8 is a reusable finite cutoff, while all-n Fourier gap law answers a separate inversion question. This is a meaningful finite classification, not an arbitrary computed slice.
 
-No external audit, general n-th nullity formula, or beyond-eight minimal frequency degree is asserted. General all-order statements are verified by exact proof, whereas finite cancellations are certified by exhaustive computation.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

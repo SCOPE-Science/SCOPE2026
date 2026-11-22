@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:56:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md d15884133d6103e75ce5af46b69ffd17f02e4833",
+        "Git code/height3_verify.py 92b6adc98e909658763b25dade34e8d40f912a37",
+        "Git certificates/height3_n8_cubic_zeros.json 8c7bf19231d30c6405f9504af0978dc2d3f1ec1b",
+        "Independent exhaustive Walsh FWHT n=1..8"
+      ],
+      "rationale": "For n≥2, height≤3 Dyck paths have intermediate binary v_t=(h_t−t mod2)/2, with alternate even-time complement giving an affine bijection to no-consecutive-ones strings y_2..y_{2n−2} of length m=2n−3. This preserves Walsh magnitudes with eight ambient-character copies. Signed Fibonacci independence sums obey z_j=z_{j−1}+ε_jz_{j−2}; all-negative signs give period6 sequence and zeros exactly n≡2 mod3, with sign switch achieving sharp gap2 there and gap1 elsewhere by path-count parity. Independent complete integer Walsh–Hadamard spectra n≤8 give path count n8=610, zero count7032, rank58504 and exactly ten weight-three zeros (none of smaller weight), matching frozen certificate list. This does NOT assert any all-length low-degree threshold beyond n8.",
+      "residual_risks": [
+        "Zero counts and minimal-degree classification are exhaustive only n≤8; all-length gap separately proved.",
+        "Original up-step coordinate Hamming weight is not invariant under general affine change; this is correctly stated as coordinate-specific."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published complete mod-four Catalan matroid Walsh result covers unrestricted Dyck paths and residues mod4, not height≤3 exact cancellations.",
+          "Published cycle, squared-path and maximal-path independent-set spectra use different graph supports and independent-set notion."
+        ],
+        "reasoning": "None of those general-looking works imply exact height3 Fourier gaps or n8 minimal support three in original coordinates.",
+        "searches": [
+          "Resultary: Fourier convolution Dyck paths bounded height three Fibonacci cube Walsh spectrum nullity low degree n=8",
+          "Resultary: Fibonacci cube independent set path graph P_n Walsh Fourier zeros sharp nonzero gap mod 3 spectral invertibility",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-binary-digit-parity-law-and-the-mod-four-walsh-spectrum-of-cat--84ddf083bb47"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: Fourier convolution Dyck paths bounded height three Fibonacci cube Walsh spectrum nullity low degree n=8",
+        "Resultary: Fibonacci cube independent set path graph P_n Walsh Fourier zeros sharp nonzero gap mod 3 spectral invertibility",
+        "Resultary: weighted independent sets path signed Fibonacci polynomial coefficient zero Walsh spectrum classification",
+        "https://arxiv.org/abs/1303.2724",
+        "https://arxiv.org/abs/1201.1494",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-binary-digit-parity-law-and-the-mod-four-walsh-spectrum-of-cat--84ddf083bb47"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bacher transfer recurrence counts bounded-height paths but does not state original-coordinate all-character Walsh minimum zero degree.",
+          "Mollard studies maximal cubes in Fibonacci/Lucas cubes, not Fourier zero hypersurfaces."
+        ],
+        "reasoning": "The affine coding plus full Walsh n8 census is an additional statement not supplied by inspected enumeration or hypercube structure theorems.",
+        "searches": [
+          "Resultary: Fourier convolution Dyck paths bounded height three Fibonacci cube Walsh spectrum nullity low degree n=8",
+          "Resultary: Fibonacci cube independent set path graph P_n Walsh Fourier zeros sharp nonzero gap mod 3 spectral invertibility",
+          "https://arxiv.org/abs/1303.2724",
+          "https://arxiv.org/abs/1201.1494"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Height-three Dyck paths are affinely identified with Fibonacci-cube independent sets of a path P_{2n−3}, and characters transfer through the affine map.",
+          "The published cycle-independent-set result uses a C_m rather than P_m, so does not give the signed path recurrence or original up-step degree."
+        ],
+        "reasoning": "Alias with signed Fibonacci-path independence polynomial is checked; published cycle law differs mathematically.",
+        "searches": [
+          "Resultary: Fourier convolution Dyck paths bounded height three Fibonacci cube Walsh spectrum nullity low degree n=8",
+          "Resultary: Fibonacci cube independent set path graph P_n Walsh Fourier zeros sharp nonzero gap mod 3 spectral invertibility",
+          "Resultary: weighted independent sets path signed Fibonacci polynomial coefficient zero Walsh spectrum classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual frozen `certificates/height3_n8_cubic_zeros.json` contains ten weight-three zero supports and n8 zero count 7032.",
+          "Independent exhaustive Walsh–Hadamard transform n1..8 reconstructed path counts, all zero counts and ten weight-three sets.",
+          "Internal certificate and its verification are not external prior database coverage; no earlier covering low-degree table identified."
+        ],
+        "reasoning": "No earlier covering low-degree table identified; private certificate is not a prior publication.",
+        "searches": [
+          "Resultary: Fourier convolution Dyck paths bounded height three Fibonacci cube Walsh spectrum nullity low degree n=8",
+          "Resultary: weighted independent sets path signed Fibonacci polynomial coefficient zero Walsh spectrum classification"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of mathematical statements, not title matches; bounded queries and directly inspected relevant sources found no dominating prior result for this precise support/invariant. Remaining risks explicitly retained.",
+      "residual_risks": [
+        "A classical signed Fibonacci-path recurrence may imply part of the all-width gap law; the original up-step finite cutoffs are the substantive additional fact.",
+        "n8 finite census is exhaustive only at n8, not for arbitrary later singular lengths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts paths, no inspected all-character Walsh classification",
+          "evidence": "Enumeration by heights does not give cancellation at arbitrary signed step-coordinate subsets.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.2724",
+          "material_read": "Opening definitions, generating-function and transfer-matrix sections",
+          "method": "Inspected accessible original source material and the specific sections named in material_read; passages or sections not read are not claimed reviewed",
+          "title": "Generalized Dyck paths of bounded height",
+          "trigger": "Exact height-restricted path object"
+        },
+        {
+          "assessment": "Structural Fibonacci-cube work, not signed independent-set Fourier spectrum",
+          "evidence": "Maximal induced subcubes are a different invariant.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.1494",
+          "material_read": "Definitions, theorems on maximal hypercubes and proof framework",
+          "method": "Inspected accessible original source material and the specific sections named in material_read; passages or sections not read are not claimed reviewed",
+          "title": "Maximal hypercubes in Fibonacci and Lucas cubes",
+          "trigger": "Fibonacci cube alias"
+        },
+        {
+          "assessment": "Different path family and modulo-four invariant",
+          "evidence": "Unrestricted Dyck-path incidence is not height≤3 support; residue data do not determine cancellations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-binary-digit-parity-law-and-the-mod-four-walsh-spectrum-of-cat--84ddf083bb47",
+          "material_read": "Entire RESULT.md, definitions, all-position parity proof and limits",
+          "method": "Inspected accessible original source material and the specific sections named in material_read; passages or sections not read are not claimed reviewed",
+          "title": "A binary-digit parity law and the mod-four Walsh spectrum of Catalan matroid bases",
+          "trigger": "Dyck Walsh exact object but unrestricted height"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/fourier-recovery-and-a-cubic-minimum-zero-threshold-for-height-t--51de04f7e6b4/RESULT.md",
+        "Resultary: Fourier convolution Dyck paths bounded height three Fibonacci cube Walsh spectrum nullity low degree n=8",
+        "Resultary: Fibonacci cube independent set path graph P_n Walsh Fourier zeros sharp nonzero gap mod 3 spectral invertibility"
+      ],
+      "rationale": "The height-three constraint is a natural bounded-height Dyck class; under its specific step-coordinate measurement, the exact first cubic character cancellation at n8 is a reusable finite cutoff, while all-n Fourier gap law answers a separate inversion question. This is a meaningful finite classification, not an arbitrary computed slice.",
+      "residual_risks": [
+        "n8 certificate has no implications for minimum zero weight at all larger lengths; interpret as its own exact fact."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Zero counts and minimal-degree classification are exhaustive only n≤8; all-length gap separately proved.",
+    "Original up-step coordinate Hamming weight is not invariant under general affine change; this is correctly stated as coordinate-specific.",
+    "A classical signed Fibonacci-path recurrence may imply part of the all-width gap law; the original up-step finite cutoffs are the substantive additional fact.",
+    "n8 finite census is exhaustive only at n8, not for arbitrary later singular lengths.",
+    "n8 certificate has no implications for minimum zero weight at all larger lengths; interpret as its own exact fact.",
+    "Scientific results remain logically separate from publication transport and public-file sanitization."
+  ],
+  "schema_version": 1
+}
