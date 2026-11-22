@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The edge-path argument presents triangle moves with generators for nonzero rank-one increments and shows that the triangle group is exactly the additive matrix group. The key four-factor identity is valid for every pair of rank-one matrices with independent left and right directions, while pairs sharing one factor commute by a single triangle. The coordinate expansion gives the inverse to evaluation. Therefore every closed edge path contracts using graph triangles and backtracks, even in characteristic two. Counting vertices, edges, and triangles gives the displayed Euler characteristic; because the two-skeleton is connected and simply connected, its integral second homology is free and the Hurewicz–Whitehead argument gives precisely the stated sphere wedge. The finite verifier independently reconstructs rank adjacency and complete mod-two boundary ranks but does not replace the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Burkey–Martin–Oulon, arXiv:2610.33869v1 (October 24, 2026), classify the second girth for Johnson, Hamming, folded Johnson and folded cube graph families. The inspected full paper does not give the bilinear-forms classification or its two-skeleton sphere multiplicity. Cioabă–Mim, arXiv:2606.27328, study first clique homology over coefficient fields for strongly regular graphs; their inspected introduction, theorem scope, and conclusion do not establish simple connectivity of this matrix graph family or its full integral two-skeleton homotopy type. Cioabă–Guo–Ji–Mim, arXiv:2508.05871, study higher Laplacians and selected families, including Hamming and triangular graphs; only public abstract material was available in the inspected representation, so the absence of an unindexed matrix example cannot be certified. A general triangle-path presentation or equivalent result under a different name is a residual possible overlap.
+PASS
 
-## Mathematical value — PASS
-This result supplies a structural all-parameter answer for a major distance-regular graph family in Lewis's local-to-global graph homotopy framework, where the recent motivating paper distinguishes Johnson graphs with second girth three from Hamming graphs with second girth four. The rank-one commutation identity is the substantive step, and the integral wedge formula gives exact homotopy information stronger than first-homology vanishing over fields. It is not a routine renaming of either previously treated family.
+For each finite field F_q (including extensions) and a,b>=2, the edge-path group of the triangle-filled rank-one Cayley graph is ker(P→H), where H=(F_q^(a*b),+) and P has generators x_R and precisely backtrack/triangle relations. Rank-one generators sharing a row/column factor commute. For independent left and right factors write C=uy^T, D=xv^T, A=uv^T, B=xy^T and W=(u+x)(v+y)^T; two valid triangle decompositions of W give x_A x_C x_D x_B=x_A x_D x_C x_B, so x_C and x_D commute without assuming characteristic or ordering. Expanding each rank-one generator by coordinate units along shared-factor rank-one partial sums gives a surjective additive map H→P that splits the evaluation P→H. Therefore P≅H and pi1(T)=1. Each graph vertex has d=(q^a-1)(q^b-1)/(q-1) neighbors and each edge λ=q^a+q^b-q-2 common neighbors, so V=q^(ab), E=Vd/2, F=Vdλ/6. Connectedness, free H2 and the Hurewicz/Whitehead homology equivalence give T≃∨^(V-E+F-1) S^2 integrally. Its triangles exist and no nontrivial reduced cycle shorter than 3, yielding Lewis second girth 3. Independently authored exact checker verified mod-two boundary ranks for (q,a,b)=(2,2,2),(2,2,3),(3,2,2), plus rank-one face and commutation-identity tests for extension field q=4,a=b=2. The proof, not these finite cases, establishes the universal claim. All eight actual Git blob identities were read and the eight-entry Git tree was independently reconstructed, matching frozen SHA c57d62baa234f5c4643ed5896a100a8f4eb1ef49.
 
-## Limitations
-The theorem does not classify the full clique complex, higher skeleta, automorphism representations, or interactions with other graph metrics. The finite checker tests selected prime fields only. Equivalent older constructions may exist under terminology from rank-one geometry or abstract incidence complexes. This review is not independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the all-prime-power, all-matrix-shape simple-connectivity and integral two-sphere-wedge statement. The exact published Resultary hit is the very same submitted record, not an independent earlier theorem. Lewis (1996) supplies only a general essential-length-six bound for relevant Q-polynomial distance-regular graphs, and the 2026 Burkey–Martin–Oulon abstract identifies Johnson, Hamming, folded Johnson/cube and halved cube cases, not the bilinear-forms rank-distance family. Cioabă–Mim concerns first clique homology over fields, which cannot imply trivial nonabelian pi_1, and only its strongly regular part could cover a=b=2. The known bilinear-forms intersection parameters determine E and F but not pi_1. No predecessor with a matching all-parameter implication was located; inaccessible potentially relevant full texts and unindexed finite geometry remain explicit risks.
+
+## value
+
+PASS
+
+The rank-one-difference bilinear-forms graphs are a canonical q-analogue of Hamming graphs and a standard distance-regular family. The exact all-size, all-prime-power integral homotopy type of their triangle-filled two-skeleton is a natural structural invariant. The matrix-factor commutation identity resolves a nonabelian edge-path gap that standard eigenvalue/intersection arrays and field H1 vanishing cannot settle. The result distinguishes the second girth 3 from Hamming graph second girth 4 and supplies explicit two-sphere multiplicities relevant to finite geometry and low-dimensional graph topology. It is not just a numerical face count, arbitrary finite slice or routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
