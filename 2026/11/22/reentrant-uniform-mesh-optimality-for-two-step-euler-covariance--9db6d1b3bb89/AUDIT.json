@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Conditional Itô/Euler variance propagation gives f_d(h)=1-dh+h². With z=h1 h2 in [0,T²/4], the exact objective equals f_d(T)+(d²-dT-2)z+z². Strict convexity proves global optimal projection and uniqueness. Boundary thresholds follow from z0=0 and z0=T²/4. The inequality 0<Tc<T- for sqrt(2)<d<2 is proved by (d²-2)²>0; the large-T asymptotic uses roots of x²-Tx+z0. Exact rational checker passed 10,060 assertions. Infinite parameter claim is algebraic, not experimental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pilipovsky arXiv:2603.14868 pp./sections III–IV uses augmented controls, time dilation, integrating-factor-based stochastic discretization, and semidefinite covariance steering; the full accessible text has no corresponding Euler two-step phase theorem.",
+        "Hoel–Häppölä–Tempone arXiv:1411.5515 treats asymptotic MSE discretization accuracy and finds uniform steps for a geometric Brownian example.",
+        "published-finding corpus 0f63ee987045 (fixed-budget BDF2 Floquet) and 55d8ab7b4ccd (random-step midpoint) are different propagator/objective classes."
+      ],
+      "reasoning": "General time-dilation and adaptive Euler techniques do not imply the four sharp regimes under the specified exact quadratic covariance product. Published broader numerical accuracy bounds do not bound or optimize the surrogate covariance in the required direction. The older strong-error example is not a counterexample because it measures a different loss.",
+      "searches": [
+        "adaptive timesteps mean square stability Euler Maruyama stochastic linear differential equation optimal product quadratic factor grid",
+        "adaptive time dilation covariance exact two step variance optimum equal unequal collapsed mesh",
+        "web: \"Euler-Maruyama\" \"optimal\" \"variable step\" geometric Brownian mean square amplification time mesh",
+        "arxiv:2603.14868",
+        "arxiv:1411.5515"
+      ]
+    },
+    "checked_sources": [
+      "Pilipovsky (2026), arXiv:2603.14868, full text accessible at https://www.researchgate.net/publication/402482064_Free_Final_Time_Adaptive_Mesh_Covariance_Steering_via_Sequential_Convex_Programming ; Sec. III time dilation and Sec. IV discretization lines 445–940, contribution summary lines 260–292.",
+      "Hoel, Häppölä, Tempone (2014), arXiv:1411.5515, full text at https://www.researchgate.net/publication/268525726_Construction_of_a_Mean_Square_Error_Adaptive_Euler--Maruyama_Method_with_Applications_in_Multilevel_Monte_Carlo ; Theorem 2.1 and Example 2.1 in Sec. 2 (lines 650–710, 1158–1206).",
+      "Fang and Giles (2020), doi:10.1214/19-AAP1507, accessible abstract/introduction only from https://www.imstat.org/publications/aap/aap_30_2/aap_30_2.pdf (PDF not downloaded/read; no whole-document exclusion inferred).",
+      "published-finding corpus published mathematical record summaries under source IDs stated separately, retrieved with actual semantic queries; summaries do not substitute for complete primary documents.",
+      "2026/11/2/SCOPE-a-sharp-fixed-budget-floquet-optimizer-for-two-periodic-variable--0f63ee987045 A sharp fixed-budget Floquet optimizer for two-periodic variable-step BDF2",
+      "2026/11/2/SCOPE-a-sharp-two-scale-bifurcation-in-random-step-implicit-midpoint-d--55d8ab7b4ccd A sharp two-scale bifurcation in random-step implicit-midpoint damping",
+      "2026/11/8/SCOPE-sharp-euler-mean-square-stability-and-covariance-bias-for-revers--494cc24da1b8 Sharp Euler mean-square stability and covariance bias for reversible-noise Gaussian Langevin sampling",
+      "2026/11/8/SCOPE-exact-fourth-moment-stability-window-of-a-covariance-exact-stoch--e64cf0a74dd5 Exact fourth-moment stability window of a covariance-exact stochastic midpoint scheme",
+      "2026/11/8/SCOPE-markov-correlation-endpoints-are-the-only-stable-schedules-for-t--e2103dec6457 Markov-correlation endpoints are the only stable schedules for two symplectic-Euler steps"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact candidate has a globally minimized *numerical covariance*, a specified finite two-step constraint, and explicit transitions at T_c and T_±.",
+        "Hoel et al. prove a leading-order strong-MSE optimal-mesh criterion as maximum step tends to zero; their Example 2.1 concludes uniform time steps for this *error* objective.",
+        "Pilipovsky formulates adaptive covariance steering but does not assert or derive sharp two-step Euler product minima.",
+        "Related published-finding corpus 0f63ee987045 optimizes a periodic BDF2 spectral radius, not a finite-horizon multiplicative Euler second moment."
+      ],
+      "reasoning": "A corollary of the adaptive strong-error framework would require a theorem equating error-optimal grids with covariance-minimizing grids; these quantities demonstrably can choose different grids. Neither the integrating-factor adaptive control scheme nor BDF2/midpoint summaries dominate this exact Euler finite-horizon theorem. Remaining risk: an unindexed scalar SDE calculation or an overlooked special case of a general allocation theorem may cover the formula.",
+      "searches": [
+        "two interval Euler Maruyama multiplicative Ornstein Uhlenbeck geometric Brownian variance minimization nonuniform step mesh reentrant equal-step region",
+        "adaptive time dilation covariance exact two step variance optimum equal unequal collapsed mesh",
+        "web: \"Construction of a Mean Square Error Adaptive Euler--Maruyama Method\" arxiv 2014 Hoel",
+        "web: arxiv 2603.14868 free final time adaptive mesh covariance steering pdf section linear noise time dilation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For centered scalar Euler–Maruyama the exact covariance condition is a product of two factors; a potential equivalent is minimizing second moment of a scalar geometric Itô diffusion on fixed total time.",
+        "Hoel et al. (2014) Theorem 2.1 and Example 2.1 optimize mean square *solution error*, not minimum computed terminal second moment.",
+        "No searched exact equal/unequal/collapse classification found in the retrieved result titles and available texts."
+      ],
+      "reasoning": "The same algebra applies to the centered second moment, the covariance and the squared-norm expectation; those aliases were considered. The inspected closest adaptive-Euler result uses squared error relative to a true process, which is a different functional and need not imply a covariance-minimizing split. Search absence is not proof of priority.",
+      "searches": [
+        "multiplicative noise Euler Maruyama variable time mesh fixed horizon optimal mean square amplification two steps symmetry breaking equal grid scalar geometric Brownian motion",
+        "two interval Euler Maruyama multiplicative Ornstein Uhlenbeck geometric Brownian variance minimization nonuniform step mesh reentrant equal-step region",
+        "web: \"two-step\" \"Euler-Maruyama\" \"optimal\" \"mean-square\" \"time allocation\"",
+        "web: \"variable step\" \"multiplicative noise\" \"mean-square\" \"optimization\" finite horizon mesh"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned relevant records 0f63ee987045, 55d8ab7b4ccd, 494cc24da1b8 but no exact matching parameterized two-step SDE mesh classification in retrieved summaries.",
+        "Other inspected published covariance-matrix integration results concern differential Lyapunov generators rather than scalar multiplicative-noise Euler stepping."
+      ],
+      "reasoning": "No accessed table or database entry covering the exact regime thresholds or all optimal splits was found. The search partition and finite set of records cannot establish global uniqueness, so unseen tabulations or formulas remain a residual priority risk.",
+      "searches": [
+        "multiplicative noise Euler Maruyama variable time mesh fixed horizon optimal mean square amplification two steps symmetry breaking equal grid scalar geometric Brownian motion",
+        "two interval Euler Maruyama multiplicative Ornstein Uhlenbeck geometric Brownian variance minimization nonuniform step mesh reentrant equal-step region",
+        "quadratic mean square amplification product constrained step sum optimal split Euler stochastic drift diffusion",
+        "prior mathematical results collection: claim/alias search Euler, mesh, covariance, stochastic",
+        "web: \"reentrant\" \"uniform mesh\" \"Euler-Maruyama\" multiplicative noise"
+      ]
+    },
+    "rationale": "The examined literature does not state or imply the exact reentrant four-regime covariance-optimal mesh theorem for centered two-step Euler–Maruyama, and the retrieved published mathematical records describe different algorithms or objectives. Search incompleteness and unindexed equivalent calculations remain explicit risks.",
+    "residual_risks": [
+      "Unindexed mathematical literature might already derive the same elementary polynomial projection, even without the four-regime naming.",
+      "The Fang–Giles 2020 PDF and full texts of indexed published-finding corpus comparisons were not read; their abstracts/summaries cannot support whole-document exclusions.",
+      "The source motivation is adaptive multiplicative-noise covariance, but its numerical propagator differs from standard Euler–Maruyama; no methodological performance claim about that source follows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General adaptive stochastic covariance-control methodology with integrating-factor-like local update; does not present the claimed standard Euler–Maruyama two-step variance-allocation classification",
+        "evidence": [
+          "https://arxiv.org/abs/2603.14868",
+          "https://www.researchgate.net/publication/402482064_Free_Final_Time_Adaptive_Mesh_Covariance_Steering_via_Sequential_Convex_Programming"
+        ],
+        "identifier_or_url": "arxiv:2603.14868 ; https://www.researchgate.net/publication/402482064_Free_Final_Time_Adaptive_Mesh_Covariance_Steering_via_Sequential_Convex_Programming",
+        "material_read": "Author-uploaded full-text version, introduction, Sec. III time dilation, Sec. IV linearization/discretization and relevant theorem/appendix cross-terms, conclusion; web-rendered text lines 57–940 and 2417–2431",
+        "method": "Read lawful author-uploaded full text on ResearchGate after arXiv direct HTML fetch was unavailable; searched two-step, phase transition, geometric and scalar terms",
+        "title": "Free Final Time Adaptive Mesh Covariance Steering via Sequential Convex Programming",
+        "trigger": "First-public motivating source; variable physical step and multiplicative diffusion covariance propagation"
+      },
+      {
+        "assessment": "Uniform-grid result concerns leading-order actual solution error in a different scalar SDE, not the finite-two-step computed covariance objective; no implication of the candidate phase classification",
+        "evidence": [
+          "https://arxiv.org/abs/1411.5515",
+          "https://www.researchgate.net/publication/268525726_Construction_of_a_Mean_Square_Error_Adaptive_Euler--Maruyama_Method_with_Applications_in_Multilevel_Monte_Carlo"
+        ],
+        "identifier_or_url": "arxiv:1411.5515 ; https://www.researchgate.net/publication/268525726_Construction_of_a_Mean_Square_Error_Adaptive_Euler--Maruyama_Method_with_Applications_in_Multilevel_Monte_Carlo",
+        "material_read": "Accessible full-text article, definition of optimized strong MSE, Theorem 2.1, derivation and Example 2.1 on geometric Brownian motion, web text lines 650–710 and 1158–1206",
+        "method": "Read full-text numerical-error expansion and example; compare target functionals and quantifiers",
+        "title": "Construction of a Mean Square Error Adaptive Euler--Maruyama Method with Applications in Multilevel Monte Carlo",
+        "trigger": "Directly competing optimal mesh question for Euler–Maruyama and a multiplicative scalar SDE"
+      },
+      {
+        "assessment": "General adaptive strong-convergence/stability theory, plausibly related; inaccessible remainder leaves limited priority risk",
+        "evidence": [
+          "https://doi.org/10.1214/19-AAP1507"
+        ],
+        "identifier_or_url": "doi:10.1214/19-AAP1507",
+        "material_read": "Accessible search abstract and introduction summary only; the PDF itself was not inspected",
+        "method": "Read indexed abstract and cited scope; no whole-document exclusion inferred",
+        "title": "Adaptive Euler–Maruyama Method for SDEs with Nonglobally Lipschitz Drift",
+        "trigger": "Broader adaptive SDE numerical-methodology and stability source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9db6d1b3-bb89-4c2f-8faa-ddc7b69a8266",
+  "value": {
+    "rationale": "The exact terminal covariance is a natural quantity in mesh-dependent SDE uncertainty propagation, yet optimizing it need not improve true solution accuracy. This is a complete classification in the smallest nontrivial adaptive-mesh family; the 4-regime reentrant uniform-mesh window, sharp sqrt(2) noise threshold, and open-simplex nonattainment identify a precise failure mode of unregularized surrogate optimization. It is a motivated, checkable benchmark rather than a general practical mesh recommendation.",
+    "status": "PASS"
+  }
+}
