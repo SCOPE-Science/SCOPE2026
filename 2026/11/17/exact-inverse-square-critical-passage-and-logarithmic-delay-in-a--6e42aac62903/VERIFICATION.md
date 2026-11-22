@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits of verification
+# Independent mathematical audit
 
-The accompanying standalone `check.py` ran successfully against the stated ODE. SymPy verifies, by differentiation and algebraic simplification, (i) the reciprocal integrating-factor derivative, (ii) the logarithmic coordinate derivative, and (iii) the squared-coupling balance. Three parameter combinations with positive, zero and negative initial coupling were integrated using SciPy's DOP853 solver and an upward-threshold event. For each combination, five shrinking starting displacements were tested; removing both asymptotic terms left bounded, converging-looking residuals. These diagnostics check numerical implementation and identities but do not prove the infinite-time claim.
+## correctness
 
-The infinite-time argument is the exact integration in RESULT.md; importantly, the \(\int\kappa^2\,dt\) identity bounds the Taylor error uniformly even though the passage time tends to infinity. The literature comparison includes the originating full open-access paper and accessible abstracts of two related adaptive-coupling articles, without claiming to have read the inaccessible related full texts. No independent audit has been performed.
+PASS
 
-Reproduce the diagnostics with `python check.py`, with Python packages `sympy`, `numpy`, and `scipy` installed.
+The transformed ODE v’=kappa v(2-v), kappa’=epsilon(v-kappa) is exact on 0<v<2. Variation of constants bounds kappa and provides finite first upward crossing to fixed c. Independently simplified d[e^(-2kappa/epsilon)/v]/dt=-(2-kappa)e^(-2kappa/epsilon) in SymPy. Integrating logit gives int kappa=(1/2)log(c(2-v0)/(v0(2-c))); the quadratic-coupling balance gives int kappa^2=log((2-v0)/(2-c))+(kappa0^2-kappa(T)^2)/(2epsilon), uniformly bounded. Thus the Taylor remainder is integrable even as T grows, proving exactly the inverse-v0 and logarithmic coefficients; the angular rho^(-2) conversion follows from 1-cos rho=rho^2/2+O(rho^4). No uniformity in epsilon,c,kappa0 or global network assertion.
+
+## originality
+
+PASS
+
+The 2023 open-access paper contains exactly the adaptive pair model and bifurcation diagrams but not an identified fixed-threshold critical first-passage asymptotic with exponentially weighted initial coupling and explicit finite-rate logarithmic correction.
+
+## value
+
+PASS
+
+The natural degenerate antipodal boundary creates a long synchronization delay invisible to local linearization. A precise two-term capture clock separates phase-defect scaling, initial stored coupling and adaptation-speed effects and is useful in interpreting near-threshold adaptive synchronization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

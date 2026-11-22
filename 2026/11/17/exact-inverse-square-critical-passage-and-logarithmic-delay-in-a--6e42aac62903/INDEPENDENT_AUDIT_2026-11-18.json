@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:15:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The transformed ODE v’=kappa v(2-v), kappa’=epsilon(v-kappa) is exact on 0<v<2. Variation of constants bounds kappa and provides finite first upward crossing to fixed c. Independently simplified d[e^(-2kappa/epsilon)/v]/dt=-(2-kappa)e^(-2kappa/epsilon) in SymPy. Integrating logit gives int kappa=(1/2)log(c(2-v0)/(v0(2-c))); the quadratic-coupling balance gives int kappa^2=log((2-v0)/(2-c))+(kappa0^2-kappa(T)^2)/(2epsilon), uniformly bounded. Thus the Taylor remainder is integrable even as T grows, proving exactly the inverse-v0 and logarithmic coefficients; the angular rho^(-2) conversion follows from 1-cos rho=rho^2/2+O(rho^4). No uniformity in epsilon,c,kappa0 or global network assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jüttner–Martens Sec. III B stability/bifurcation equations (20)-(27); current exact H and integrals"
+        ],
+        "reasoning": "Generic saddle-node or parabolic slowing may predict inverse-power behavior but does not give an initial-coupling factor e^(-2kappa0/epsilon) and the coefficient 1/4+1/epsilon without exploiting this exact coupled ODE.",
+        "searches": [
+          "Resultary semantic search: adaptive Kuramoto two oscillator critical passage inverse square logarithm bottleneck",
+          "https://doi.org/10.1063/5.0133190",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-phase-basins-and-logarithmic-barrier-delay-in-a-quadrature--1071f046b36a"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1063/5.0133190",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-phase-basins-and-logarithmic-barrier-delay-in-a-quadrature--1071f046b36a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jüttner–Martens full text Sec. III B Eq. (15)-(25), current exact integrating factor identity"
+        ],
+        "reasoning": "Jüttner–Martens classifies equilibria, saddles and bifurcation curves; those data do not determine first hitting-time growth for fixed v0->0. The new passage identity integrates whole trajectories; a Jacobian alone leaves its coefficients undetermined.",
+        "searches": [
+          "Resultary semantic search: adaptive Kuramoto two oscillator critical passage inverse square logarithm bottleneck",
+          "https://doi.org/10.1063/5.0133190",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-phase-basins-and-logarithmic-barrier-delay-in-a-quadrature--1071f046b36a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jüttner–Martens Eq. (15a,b) https://doi.org/10.1063/5.0133190"
+        ],
+        "reasoning": "The same equations are a symmetric two-oscillator adaptive Kuramoto reduction; the originator’s Eq. (15a,b) coincides at a=1, omega=0, phase lag zero. Its equilibrium and bifurcation result does not state a v0->0 hitting-time clock in inspected portions.",
+        "searches": [
+          "Resultary semantic search: adaptive Kuramoto two oscillator critical passage inverse square logarithm bottleneck",
+          "https://doi.org/10.1063/5.0133190",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-phase-basins-and-logarithmic-barrier-delay-in-a-quadrature--1071f046b36a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search adaptive Kuramoto two oscillator critical passage inverse square logarithm bottleneck",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-phase-basins-and-logarithmic-barrier-delay-in-a-quadrature--1071f046b36a"
+        ],
+        "reasoning": "Published phase-basin and barrier-delay findings in a quadrature adaptive pair use different phase lags and logarithmic barriers, not this identical-frequency anti-phase ODE clock. No checked exact first-passage table for this special coupling slice.",
+        "searches": [
+          "Resultary semantic search: adaptive Kuramoto two oscillator critical passage inverse square logarithm bottleneck",
+          "https://doi.org/10.1063/5.0133190",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-phase-basins-and-logarithmic-barrier-delay-in-a-quadrature--1071f046b36a"
+        ]
+      },
+      "rationale": "The 2023 open-access paper contains exactly the adaptive pair model and bifurcation diagrams but not an identified fixed-threshold critical first-passage asymptotic with exponentially weighted initial coupling and explicit finite-rate logarithmic correction.",
+      "residual_risks": [
+        "Related Ha–Noh–Park 2016 and Ha–Lee–Li–Park 2018 journal full texts not inspected, so hidden equivalent special-slice asymptotics remain possible.",
+        "No result for jointly varying epsilon, capture threshold or coupling, or for larger oscillator networks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_KNOWN_PASSAGE_COEFFICIENTS_NOT_STATED_IN_RELEVANT_ANALYSIS",
+          "evidence": "The paper treats bifurcation curves and stable locked states; not the v0-dependent two-term threshold first-passage law",
+          "identifier_or_url": "https://doi.org/10.1063/5.0133190",
+          "material_read": "Open access primary full text, Sections II and III B, Eqs. (13)-(15), equilibrium conditions, Jacobian, saddle-node, Hopf and stability diagrams",
+          "method": "Read full accessible journal HTML relevant equations and main bifurcation analysis",
+          "title": "Complex dynamics in adaptive phase oscillator networks",
+          "trigger": "Exact originator and same normalized two-dimensional vector field"
+        },
+        {
+          "assessment": "DIFFERENT_PHASE_SLICE",
+          "evidence": "Quadrature interaction/adaptation lags and log barrier differ from the present antipodal inverse-square clock",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-phase-basins-and-logarithmic-barrier-delay-in-a-quadrature--1071f046b36a",
+          "material_read": "Semantic hit and scientific summary of quadrature-lag setting",
+          "method": "Resultary published indexed finding; no claim of whole-document inspection",
+          "title": "Exact phase basins and logarithmic barrier delay in a quadrature adaptive oscillator pair",
+          "trigger": "Nearby Resultary adaptive oscillator delay"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural degenerate antipodal boundary creates a long synchronization delay invisible to local linearization. A precise two-term capture clock separates phase-defect scaling, initial stored coupling and adaptation-speed effects and is useful in interpreting near-threshold adaptive synchronization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Related Ha–Noh–Park 2016 and Ha–Lee–Li–Park 2018 journal full texts not inspected, so hidden equivalent special-slice asymptotics remain possible.",
+    "No result for jointly varying epsilon, capture threshold or coupling, or for larger oscillator networks."
+  ],
+  "schema_version": 1
+}
