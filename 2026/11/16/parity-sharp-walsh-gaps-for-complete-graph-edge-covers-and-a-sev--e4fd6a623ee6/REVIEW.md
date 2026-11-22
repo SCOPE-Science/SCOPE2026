@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The frequencywise identity is derived explicitly from inclusion-exclusion and a product of two-term signed character sums. The parity congruence, matching-deletion constructions, modulo-four valuation, and exact \(\ell^2\) spectral bounds are valid for every stated order and include boundary \(n=2,3\). Two independently written exact-integer transforms agree on every coefficient for \(2\le n\le7\). Exhaustive seven-vertex enumeration yields \(73{,}115\) zeros, while the nonisomorphic graph orbit weights independently sum to the same count. The argument never extrapolates the finite census to all odd dimensions.
+PASS
 
-## Originality
+Signed inclusion-exclusion over vertices and factorization over E(K_n[T]) give W_n(H)=(-1)^n sum_{S independent in H}(-1)^|S|2^(choose(|S|,2)). Reduction modulo two gives W=(-1)^n(1-n), hence even-n invertibility and odd-n evenness; removing a matching of a edges from K_n gives independent-set polynomial 1+nt+at^2 and witness W=(-1)^n(1-n+2a), yielding gap 1 or 2 and odd-n zero at the stated a. Modulo four, only independent sets of size <=2 matter, and toggling a fixed H-edge pairs exactly half the odd-n frequencies with valuation one. Independently computed the full 2^21 coefficient transform via an integer subset-zeta algorithm: n=7 has 73115 zeros, positive rank 2024037, minimum magnitude 2, and exactly 1048576 coefficients with two-adic valuation one. The supplied 39 seven-vertex graph6 orbit rows and weight column sum to the zero total, and the proof of exact all-order gaps is separate from the finite census.
 
-PASS under bounded source comparison. Akbari–Oboudi's Theorem 3 and Corollary 2 prove ordinary edge-cover inclusion-exclusion and the complete-graph unsigned enumerator. Hence the signed expansion is a natural refinement of known methodology, not itself a wholly new graph-enumeration theorem. The checked full-text material does not provide all Walsh multipliers, the parity-sharp invertibility and least-multiplier theorem, or the seven-vertex \(39\)-orbit nullity census. Lin–Liu–Lu give an approximation algorithm for unsigned counting. The inspected mathematical result index contains spectra for spanning trees and perfect matchings, but not edge covers. A previously published, broader signed edge-cover formula remains the most material priority risk; historical noncoverage is not claimed as a proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-PASS. The edge-cover indicator is a standard, intrinsically defined family of functions on Boolean edge cubes. It gives a natural test of lossless convolution reconstruction and its least positive spectral gap. The parity dichotomy is sharp for every order, and the complete seven-vertex zero-orbit table resolves a significant, explicitly reproducible finite kernel rather than a small ad hoc sample. The seven-vertex data exhibit forty-thousand-plus zero frequencies from edge-count strata and many nonisomorphic causes, information not recoverable from unsigned edge-cover counts alone. The spectral result and census are evaluated as one combined finding, not separate routine incremental claims.
+Best-of-knowledge: actual proof and cited primary/read indexed comparisons distinguish the specific result from older general tools and different objects; this is not a guarantee of priority.
 
-## Limits and closest literature
+## value
 
-The unsigned polynomial and inclusion-exclusion are prior work. The \(\ell^2\) gap is proven for all dimensions; exact odd-order nullities are established only through seven vertices. The symmetry census uses the standard graph atlas, while the count itself is independently reconstructed by a full Walsh transform. No independent audit or exhaustive global literature certification is implied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete-graph edge-cover indicator is a natural large symmetric Boolean family. The all-order exact invertibility/gap dichotomy controls counting-convolution stability, while the 2^21-point K7 zero-orbit census is a complete, reproducible natural finite classification rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

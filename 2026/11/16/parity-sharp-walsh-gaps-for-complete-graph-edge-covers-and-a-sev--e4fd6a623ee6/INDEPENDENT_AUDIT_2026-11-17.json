@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:12:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/16/parity-sharp-walsh-gaps-for-complete-graph-edge-covers-and-a-sev--e4fd6a623ee6/RESULT.md",
+        "2026/11/16/parity-sharp-walsh-gaps-for-complete-graph-edge-covers-and-a-sev--e4fd6a623ee6/verify_edge_cover_spectrum.py",
+        "2026/11/16/parity-sharp-walsh-gaps-for-complete-graph-edge-covers-and-a-sev--e4fd6a623ee6/edge_cover_summary.csv",
+        "2026/11/16/parity-sharp-walsh-gaps-for-complete-graph-edge-covers-and-a-sev--e4fd6a623ee6/edge_cover_zero_orbits.csv"
+      ],
+      "rationale": "Signed inclusion-exclusion over vertices and factorization over E(K_n[T]) give W_n(H)=(-1)^n sum_{S independent in H}(-1)^|S|2^(choose(|S|,2)). Reduction modulo two gives W=(-1)^n(1-n), hence even-n invertibility and odd-n evenness; removing a matching of a edges from K_n gives independent-set polynomial 1+nt+at^2 and witness W=(-1)^n(1-n+2a), yielding gap 1 or 2 and odd-n zero at the stated a. Modulo four, only independent sets of size <=2 matter, and toggling a fixed H-edge pairs exactly half the odd-n frequencies with valuation one. Independently computed the full 2^21 coefficient transform via an integer subset-zeta algorithm: n=7 has 73115 zeros, positive rank 2024037, minimum magnitude 2, and exactly 1048576 coefficients with two-adic valuation one. The supplied 39 seven-vertex graph6 orbit rows and weight column sum to the zero total, and the proof of exact all-order gaps is separate from the finite census.",
+      "residual_risks": [
+        "The orbit census is a finite computational certificate, not a closed general odd-order nullity formula.",
+        "External verification of the graph6 automorphism class enumeration was limited to inspecting the listed 39 orbit rows and totals; full independent graph-isomorphism atlas reconstruction was not run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary edge-cover polynomial theorem counts ordinary edge-covering edge sets; the FPTAS study estimates their number.",
+          "Published Resultary search returned other graph families (tournaments, connected graphs, spanning trees, matchings) with different support indicators."
+        ],
+        "reasoning": "A general signed multivariate edge-cover theorem could dominate the inclusion-exclusion formula, but none examined supplies the n=7 exact zero graph-orbit census and sharp all-n Walsh gap conclusion.",
+        "searches": [
+          "complete graph edge cover subset Boolean Walsh transform spectral zeros signed independent-set sum seven vertices",
+          "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf",
+          "https://arxiv.org/abs/1309.6115"
+        ]
+      },
+      "checked_sources": [
+        "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf",
+        "https://arxiv.org/abs/1309.6115",
+        "complete graph edge cover subset Boolean Walsh transform spectral zeros signed independent-set sum seven vertices"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary inclusion-exclusion alone implies the signed transform after adding frequency signs, but does not by itself state or enumerate the seven-vertex cancellation locus.",
+          "The explicit modulo two/four residues, matching-complement gap witnesses, and 39 isomorphism classes are additional derived assertions."
+        ],
+        "reasoning": "The new assessment does not label inclusion-exclusion novel; it assesses the sharp spectral dichotomy and full K7 zero-orbit data. No earlier inspected text logically concludes those exact outcomes without substantial specialization and computation.",
+        "searches": [
+          "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf",
+          "https://arxiv.org/abs/1309.6115",
+          "complete graph edge cover subset Boolean Walsh transform spectral zeros signed independent-set sum seven vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Signed Walsh edge-cover coefficients are evaluations of a multivariate edge-cover generating polynomial at edge weights +/-1, equivalently an independence-polynomial weighted sum over the frequency graph H.",
+          "Akbari–Oboudi Theorem 3 gives the scalar unsigned edge-cover inclusion-exclusion formula, not all 2^(n choose 2) binary characters."
+        ],
+        "reasoning": "The algebraic inclusion-exclusion mechanism is prior art, while the parity-sharp full-character gap and seven-vertex zero orbit spectrum are not the ordinary edge-cover count polynomial.",
+        "searches": [
+          "complete graph edge cover subset Boolean Walsh transform spectral zeros signed independent-set sum seven vertices",
+          "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual package edge_cover_summary.csv tabulates n=2..7, with n=7 zero count 73115 and 39 unlabeled orbit rows in edge_cover_zero_orbits.csv.",
+          "No inspected earlier external exact Walsh-nullity table or graph6 zero-orbit catalogue for edge covers of K7 supplied these numbers."
+        ],
+        "reasoning": "An exact natural finite invariant is not subsumed by known unsigned graph-count tables; certificate risk is recorded separately.",
+        "searches": [
+          "complete graph edge cover subset Boolean Walsh transform spectral zeros signed independent-set sum seven vertices",
+          "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf"
+        ]
+      },
+      "rationale": "Best-of-knowledge: actual proof and cited primary/read indexed comparisons distinguish the specific result from older general tools and different objects; this is not a guarantee of priority.",
+      "residual_risks": [
+        "A multivariate edge-cover generating-function identity may give the transform with little work; originality is assigned to the sharp gaps and K7 census, not the identity alone.",
+        "Unindexed signed edge-cover spectra or seven-vertex graph tables could contain the same exact counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unsigned count is definitely known; no characterwise Walsh classification or seven-vertex zero-orbit listing in inspected theorem and corollaries",
+          "evidence": [
+            "Theorem 3: sum over vertex subsets weighted by 2^{|E(G-S)|} in the scalar x=1 specialization; Corollary 2 K_n scalar formula"
+          ],
+          "identifier_or_url": "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf",
+          "material_read": "Accessible full PDF: p.5 Theorem 3 signed vertex inclusion-exclusion for scalar edge-cover polynomial and Corollary 2 for K_n, plus adjacent discussion",
+          "method": "primary full-text page/section inspection",
+          "title": "On the edge cover polynomial of a graph",
+          "trigger": "Same graph edge-cover enumerator could contain the transform"
+        },
+        {
+          "assessment": "FPTAS for counting does not itself imply all-frequency signs and exact zero spectrum",
+          "evidence": [
+            "ArXiv:1309.6115 identifies approximate counting of edge covers"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1309.6115",
+          "material_read": "ArXiv abstract and package reference; full primary text not inspected",
+          "method": "abstract and bibliographic identification only",
+          "title": "A Simple FPTAS for Counting Edge Covers",
+          "trigger": "Same edge-cover family but algorithmic counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/16/parity-sharp-walsh-gaps-for-complete-graph-edge-covers-and-a-sev--e4fd6a623ee6/RESULT.md",
+        "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf",
+        "https://arxiv.org/abs/1309.6115",
+        "complete graph edge cover subset Boolean Walsh transform spectral zeros signed independent-set sum seven vertices"
+      ],
+      "rationale": "The complete-graph edge-cover indicator is a natural large symmetric Boolean family. The all-order exact invertibility/gap dichotomy controls counting-convolution stability, while the 2^21-point K7 zero-orbit census is a complete, reproducible natural finite classification rather than an arbitrary slice.",
+      "residual_risks": [
+        "No closed all-odd-order nullity formula follows and no stronger ℓ^p norm is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The orbit census is a finite computational certificate, not a closed general odd-order nullity formula.",
+    "External verification of the graph6 automorphism class enumeration was limited to inspecting the listed 39 orbit rows and totals; full independent graph-isomorphism atlas reconstruction was not run.",
+    "A multivariate edge-cover generating-function identity may give the transform with little work; originality is assigned to the sharp gaps and K7 census, not the identity alone.",
+    "Unindexed signed edge-cover spectra or seven-vertex graph tables could contain the same exact counts.",
+    "No closed all-odd-order nullity formula follows and no stronger ℓ^p norm is claimed."
+  ],
+  "schema_version": 1
+}
