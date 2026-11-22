@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is exactly a 14-facet Euclidean Cauchy brightness calculation followed by sharp minimization and maximization of two homogeneous linear forms over complementary spherical chambers. The proof computes the six square and eight hexagonal facet areas from the displayed halfspaces, handles every orientation via signed permutations, proves all equality conditions, and solves both threshold equations with their correct ordering. It separately establishes that the uniquely equal-area member yields an equal-weight spherical \(3\)-design. An independent projected-vertex convex-hull verifier passed 3344 checks, including both transitions and the published regular special case. Numerical testing is auxiliary, not a proof for uncountably many directions.
+## correctness
 
-## Originality — PASS (provisional priority)
-The closest published full claim, *Sharp shadow-area extrema and projection-body volume of the regular truncated octahedron* (identifier `ef8f8ba8bf3f`), is precisely the \(t=1/2\) specialization, recovered here with matching maxima and minima. Its published proof treats only one parameter and does not imply the two thresholds or the constant-anisotropy interval without new case analysis. An's arXiv:2608.11570v1 addresses arbitrary equal-area spherical designs, moment isotropy and nonsharp universal brightness estimates, not this one-parameter endpoint classification. The full *Exact random-silhouette law along the cube–octahedron interpolation* (identifier `23b7c8205147`) counts projected polygon vertices, not their areas. Targeted published-finding corpus and literature searches identified no broader exact brightness theorem. The long Abas arXiv manuscript could not be fully inspected because the available full-text access route failed, so hidden prior coverage is a residual priority risk. No database negative result alone is treated as proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The known regular truncated-octahedron extremizers undergo an algebraic *loss of maximality*, and the least-bright orbit switches later. Their separation creates a nontrivial entire interval of exactly constant projection-body circumradius/inradius ratio despite changing face areas and changing polytope geometry. The interval contains the canonical equal-area spherical-design Minkowski realization, showing that low-order isotropy does not determine a unique most-bright orbit. The result is a complete classification for a natural polytope family rather than a numerical improvement at one chosen parameter.
+PASS. Direct halfspace geometry gives 6 axial square areas p=2t² and 8 diagonal hexagonal areas sqrt(3)q with q=(1+2t-2t²)/2, all nondegenerate for 0<t<1. Cauchy projection formula reduces the 14-face normal sum to b_t=pΣ|u_i|+(q/2)Σ_{ε∈{±1}³}|ε·u|. In absolute-coordinate chamber x≥y≥z≥0, the sign sum is 8x for x≥y+z and 4(x+y+z) otherwise, giving two continuous linear forms. Cauchy–Schwarz on the two chambers yields exact max candidates sqrt((p+4q)^2+2p²) and sqrt3(p+2q); squared difference 4q(q-p) switches at q=p, t=α=(1+sqrt7)/6. For minima, second chamber imposes x+y+z≥sqrt2; first chamber reduces to a one-variable ratio whose minimum is at axis or face-diagonal endpoint, giving min{p+4q,sqrt2(p+2q)}, equality switch q/p=sqrt2/4 at β. Strict ray/equality analysis gives all orientations. Between α and β ratio is sqrt(3/2). Axial and diagonal face areas coincide uniquely at p=sqrt3q and 14 normals form a spherical 3-design (odd moments vanish, second moment I/3). Independent actual 24-vertex orthogonal projection hull tests at six t values verified directional areas/bounds but not the continuum proof.
 
-## Limits and closest literature
-The claim concerns ordinary planar orthogonal projections in \(\mathbb R^3\) for \(0<t<1\). It neither computes the brightness distribution nor extends to the second truncation chamber. Priority is provisional pending human review and any inaccessible earlier literature. This is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge after reading high-relevance 92-page Abas preprint (sections 1 and 8.7), full An 22-page design paper, and exact published regular truncated-octahedron RESULT. Abas gives a regular-member brightness normal formula and first two moments, not a varying t extremal classification. Resultary 2026-11-08 gives t=1/2 exact extrema and equality orbits; the present full family adds two sharp t transitions and an exact flat anisotropy interval, not implied by one-point data. An gives equal-area spherical-design Minkowski existence and general shape bounds, not explicit two-threshold brightness. No stronger coverage found in identified sources; priority not absolutely certified.
+
+## value
+
+PASS
+
+PASS. The cube–octahedron intersection with fourteen facet normals is a canonical continuous convex family; different max/min orientation orbit-switch parameters force a substantial exact constant-anisotropy interval even as facet areas change. The equality classification and special equal-area spherical 3-design member supply geometric explanations, not arbitrary slices or routine restatement of a fixed regular truncated octahedron.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
