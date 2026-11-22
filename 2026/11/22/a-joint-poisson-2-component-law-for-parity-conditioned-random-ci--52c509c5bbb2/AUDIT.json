@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The crossing-degree parity identity reduces the conditioned matching exactly to n! odd-even bijections. Enumerating r disjoint cycle edges gives exact binomial factorial moments. A globally uniform product inequality and binomial inversion bound the simple-chord Poisson(2) total variation by 30 exp(4)/n for n>=4. A noncrossing-component closed-interval witness gives an O(1/n) bound on all non-simple off-giant components, explicitly retaining the 2/n! all-simple exception; coupling proves the joint (K,n-L) limit. Every stated boundary case and the finite n=2 exception are included. The standalone executable verify.py passed 75,108 exact finite checks, including exhaustive unrestricted n<=6 and conditioned n<=8, independently corroborating the crucial finite identities and obstruction but not claiming an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Noy 1999 §2 treats uniform unrestricted pairings and obtains 1+Pois(1) components and n-L~Pois(1); https://algo.inria.fr/seminars/sem99-00/noy1.html",
+        "Acan (2015), arXiv:1501.01489, discusses unrestricted monolithic diagrams and simple chords; its pairings need not reverse parity.",
+        "Published sharp simple-chord Poisson(1) total-variation law under unrestricted pairings, (public scientific comparison read in full)"
+      ],
+      "reasoning": "All unrestricted results use (2n-1)!! equally likely pairings rather than n! alternating odd-even pairings. Gauss parity conditioning has probability asymptotic sqrt(pi*n)/2^n and is not preserved by asymptotic estimates under the unconditioned measure. Blitvic gives exact connected enumeration and generating functions of the same ensemble; it is the closest relevant broader formulation, but no joint giant-component/total-variation estimate is present in the inspected theorem statements and refinements.",
+      "searches": [
+        "Uniform random chord diagram conditioned every chord crosses even number of others (Gauss parity condition): connected components converge to 1+Poisson(2) and connectivity e^{-2}",
+        "Random Gauss diagram prime connected probability one plus Poisson 2, exact binomial moments of simple chords",
+        "\"Gauss diagrams\" \"even degree\" \"connected\" random matching isolated chords",
+        "\"parity reversing pairings\" simple chords Poisson"
+      ]
+    },
+    "checked_sources": [
+      "https://dmtcs.episciences.org/2443/pdf",
+      "https://algo.inria.fr/seminars/sem99-00/noy1.html",
+      "https://arxiv.org/abs/1501.01489",
+      "https://oeis.org/A390400",
+      "https://arxiv.org/abs/2104.01134",
+      "Sharp total-variation constant for simple chords in a uniform chord diagram (public 2026 scientific result)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blitvic, Theorems 1-3, provides univariate exact c_n enumeration via SIF and noncrossing partitions, not a theorem on joint K_n and n-L_n distribution.",
+        "Noy 1999 Theorems 1-2 provide the analogue for the unrestricted matching sample with Poisson parameter 1; this cannot be directly conditioned on a probability-exp(-Theta(n)) event.",
+        "Paguyo 2021 provides Poisson approximation of simple chords only for the unrestricted ensemble; https://arxiv.org/abs/2104.01134"
+      ],
+      "reasoning": "At fixed n the exact prior c_n determines P(K_n=1); the connectivity marginal alone is not identified as original. A c_n recurrence or noncrossing partition transform might allow an additional derivation, but it does not itself state nor directly dominate the new explicit joint distributional error, which is proved by a distinct conditioned moment and closed-block coupling. This possibility is retained as a priority risk, not excluded by failed text search.",
+      "searches": [
+        "Random parity-reversing chord pairing uniform n! with connected intersection graph and isolated adjacent chords total variation Poisson(2)",
+        "Uniform permutation matching n odd sites to n even sites on a circle: count isolated adjacent chords Poisson(2), unique giant intersection component with O(1/n) error",
+        "\"SIF Permutations and Chord-Connected Permutations\" exact generating function and asymptotics",
+        "random \"permutation chord\" \"components\" \"Poisson\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blitvic (2014), Definitions 2-3, pp. 803-804, identifies exactly the same uniform parity-reversing matching and chord-connected permutation model; https://dmtcs.episciences.org/2443/pdf",
+        "OEIS A390400 identifies the same connected permutation counts 1,0,1,2,13,74,...; https://oeis.org/A390400"
+      ],
+      "reasoning": "All-even crossing degrees is equivalent to odd-even endpoint matching and hence the previously studied PRP permutation encoding; this is acknowledged, not a novelty claim. The joint random (component count, largest size) distribution with total-variation rate was compared under that exact model, rather than searching only its alternate titles. The exact connected counts alone do not state the joint component-size law.",
+      "searches": [
+        "Natasha Blitvic chord-connected permutations parity-reversing pairings random number of connected components giant component Poisson 2",
+        "Random parity-reversing chord pairing uniform n! with connected intersection graph and isolated adjacent chords total variation Poisson(2)",
+        "\"1, 2, 13, 74, 544, 4458\" circle graph",
+        "\"chord-connected permutations\" asymptotic probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A390400 is the exact connected count table for parity-reversing diagrams (e.g. n=3 to 8 counts 1,2,13,74,544,4458); https://oeis.org/A390400",
+        "Blitvic 2014 gave the counts and noncrossing-partition generating-function identities earlier; https://dmtcs.episciences.org/2443/pdf"
+      ],
+      "reasoning": "The exact connected-count enumeration is covered by these sources; it is explicitly excluded from novelty. The new theorem is not a table re-computation: it controls, jointly and in total variation with finite-size rate, every possible count of components and deficit of the largest crossing component.",
+      "searches": [
+        "\"1, 2, 13, 74, 544, 4458\" circle graph",
+        "\"13,74,544,4458\" connected Gauss",
+        "OEIS A390400 https://oeis.org/A390400",
+        "Blitvic (2014) Definitions 2-3 and Theorem 3, https://dmtcs.episciences.org/2443/pdf"
+      ]
+    },
+    "rationale": "The condition is the already known parity-reversing pairing model, and the sequence of exactly connected diagrams and noncrossing-partition generating function already belong to Blitvic 2014 (also OEIS A390400); those are not new. The particular joint total-variation convergence of the full component count and largest-component deficit to the coupled (1+Poisson(2),Poisson(2)) law with an O(n^-1) rate, plus its explicit high-probability one-giant/simple-isolates certificate, was not stated in the inspected primary sources. Unrestricted Poisson(1) results do not transfer through exponentially rare parity conditioning. Prior exact connected enumerations do determine the connectivity marginal at fixed n, so novelty excludes that finite sequence and does not rest solely on e^-2. Residual risk remains for a hidden stronger asymptotic implied by earlier exact enumerative theory.",
+    "residual_risks": [
+      "Exact c_n count and partition generating functions might yield implicit derivations of the connectivity marginal, which is explicitly excluded from novelty; stronger unlocated exact refinements could also imply the joint TV theorem.",
+      "Other historical work on parity-reversing pairings, chord-connected permutations, and monolithic diagrams may contain equivalent component-profile asymptotics under different names.",
+      "Only indexed excerpts of the Acan full article were accessible; an equivalent stronger result in an uninspected section cannot be completely ruled out.",
+      "This is same-model checking; no independent external historical-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_MODEL_AND_CONNECTED_COUNTS_KNOWN; no identified joint large-component Poisson(2) TV theorem",
+        "evidence": [
+          "Definitions 2-3 on parity-reversing matching; connected-count list 1,0,1,2,13,74,544,4458",
+          "Theorem 3 SIF noncrossing partition relation; §2.3 weights, not component limit"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/2443/pdf",
+        "material_read": "Primary text of abstract, definitions, Theorems 1-3, relevant Sections 2.1-2.3 and associated numbered formulae; scanned entire document for asymptotic, isolated and simple terms; page images 804-805 viewed. Not a claim of cover-to-cover verification of every section.",
+        "method": "Open-access publisher PDF parsed lines and required page screenshots",
+        "title": "Stabilized-Interval-Free Permutations and Chord-Connected Permutations",
+        "trigger": "Same parity-reversing matching model and connected permutation enumeration"
+      },
+      {
+        "assessment": "PRIOR_UNCONDITIONED_ANALOGUE_ONLY",
+        "evidence": [
+          "Section 2.2: 1+Pois(1) components and n-L~Pois(1), not parity-reversing matchings",
+          "Document explicitly dated December 16, 1999"
+        ],
+        "identifier_or_url": "https://algo.inria.fr/seminars/sem99-00/noy1.html",
+        "material_read": "Full web text; emphasis on Section 2, Theorems 1-3 and monolithic decomposition",
+        "method": "Open-access HTML primary seminar text",
+        "title": "Enumeration of Geometric Configurations on a Convex Polygon",
+        "trigger": "Classical Poisson component-count law and largest component law"
+      },
+      {
+        "assessment": "UNRESTRICTED_MODEL_NOT_COVERING; full article remains a limited-access risk",
+        "evidence": [
+          "Explicitly uniform over all (2n-1)!! chord diagrams, not parity-reversing n! sample"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+        "material_read": "Publisher-indexed passages of Definition 3.1 and adjoining monolithic statements; direct article fetch not accessible. No claim of whole-paper coverage.",
+        "method": "Indexed scholarly primary-text excerpts, arXiv bibliographic first-version information",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Monolithic-diagram structural reduction and simple-chord definition"
+      },
+      {
+        "assessment": "UNCONDITIONED_POISSON_1_NOT_CONDITIONED_POISSON_2",
+        "evidence": [
+          "Counts cycle submatchings under (2n-1)!! uniform pairings, yielding Pois(1), unlike present 1/(n)_r parity-conditioned probability"
+        ],
+        "identifier_or_url": "Sharp total-variation constant for simple chords in a uniform chord diagram (public 2026 scientific result)",
+        "material_read": "Entire accessible RESULT.md scientific proof and limitations read",
+        "method": "Public full-result text via scientific repository read",
+        "title": "Sharp total-variation constant for simple chords in a uniform chord diagram",
+        "trigger": "Closest database result mentioning exact Poisson approximation and simple-chord binomial moments"
+      },
+      {
+        "assessment": "KNOWN_FINITE_CONNECTED_COUNTS_CREDITED",
+        "evidence": [
+          "Sequence 1,0,1,2,13,74,544,4458, attributed to Blitvic 2014"
+        ],
+        "identifier_or_url": "https://oeis.org/A390400",
+        "material_read": "Sequence metadata, terms, generating functions and attribution checked",
+        "method": "Public OEIS sequence page text",
+        "title": "OEIS A390400: Number of chord-connected permutations",
+        "trigger": "Exact small-size connected counts and synonym for the model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "52c509c5-bbb2-41bd-b2a8-bcc2426af7e8",
+  "value": {
+    "rationale": "The conditioning is an exponentially rare, mathematically canonical Gauss parity constraint in circle graphs. A natural exact object (component count and largest size) exhibits a parameter-doubling change from known unrestricted laws. The result supplies a structural one-giant component certificate, a quantitative joint distribution bound, and a precise comparison with known connected-permutation enumeration. It is not a narrow arbitrary table entry, a relabeled exercise, or an observation of the small-size enumeration alone.",
+    "status": "PASS"
+  }
+}
