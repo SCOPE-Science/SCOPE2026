@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The statement covers every connected closed nonorientable manifold of dimension at least two with a finite regular CW structure, and distinguishes odd/zero from characteristic two. In the former regime, the top cohomology vanishes, so the chain quotient \(\Omega/(R+L)\) vanishes exactly; the return-arrow ideal is square-zero; the one-return factorization is valid independently of Poincaré duality; and the long exact sequence gives each claimed Hilbert coefficient. The characteristic-two case follows from field-valued duality and the nonzero first Stiefel–Whitney class. An independent low-degree modular computation on a six-vertex projective plane matches the theorem. Finite tests alone are not the infinite proof.
+
+**Originality — PASS, subject to priority risk.** The full relevant arXiv manuscript by Ivanov and Zhang (2611.19813v1) was examined: its completed theorem covers Poincaré-duality-pair/field-orientable cases. It does not state the odd-characteristic nonorientable algebra, which requires analyzing the vanishing top quotient instead of using its orientation isomorphism. Existing GLMY cohomology establishes definitions, not this coefficient transition. Semantic searches of related published records and web literature found no dominating equivalent. The module in characteristic two is recovered from the source's own theorem and is explicitly credited; the overall **odd/characteristic-two dichotomy** and odd algebra formula supply the extension. Unindexed equivalent work cannot be excluded.
+
+**Value — PASS.** For the same finite digraph, the choice of coefficient characteristic switches from finite square-zero cohomology to an infinite ring with nonnilpotent positive-degree classes. This gives a complete result across all nonorientable manifolds rather than an ad hoc finite graph, and precise crosscap-surface Hilbert functions.
+
+The two key residual limitations are that the full original/priority landscape cannot be exhaustively verified, and no independent mathematical audit has been performed. The proof does not assert results for integral coefficients, manifolds with boundary or arbitrary return-arrow subsets.
+
+Self-review: passed. Independent audit: not yet performed.
