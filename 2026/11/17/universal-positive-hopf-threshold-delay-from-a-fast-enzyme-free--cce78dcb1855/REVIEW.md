@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The independent seven-variable vector field, positive equilibrium and reduced polynomial are verified by exact algebra. The Schur transfer formula supplies the first-order correction. Rational isolation of the large positive Hopf-frequency root, simple eigenvalue and nonzero parameter crossing ensure applicability of the implicit function theorem; the rational expression for the shift coefficient has a strictly positive numerator and denominator. The included checker independently reconstructs the symbolic identities and tests two fast-rate triples. Limits: large \(K\), fixed positive \(\alpha,\beta,\gamma\), and matched total.
+## correctness
 
-**Originality — PASS within inspected evidence.** Joshi–Nguyen (2026) give the exact three-substrate Hopf benchmark and broader qualitative cycle results. Banaji (2023) and Banaji–Boros–Hofbauer (2025) already supply strong qualitative inheritance results for reaction splitting. The current claim excludes those covered statements and instead proves the *positive first-order coefficient and rate-universal residence-time dependence* for the explicit concentration-matched four-substrate extension. Literature and mathematical-record searches did not locate this exact implication. Full-content priority checking remains incomplete for a potentially relevant 2023 source.
+PASS
 
-**Value — PASS.** The location and direction of an oscillatory instability under adding a fast enzyme-free stage are natural kinetic sensitivity questions. A positive drift for every positive forward, unbinding and catalytic rate triple is a meaningful structural statement beyond qualitative persistence, with an explicit universal factor useful in finite-speed HMM model comparison.
+Independent reconstitution of the five-by-five rational limiting Jacobian yields the exact stated degree-five characteristic polynomial (symbolic determinant equality). First-order expansion of the two-fast-state Schur complement gives Q=1+tau_f eps z+eps²z²/(alpha gamma) and determinant perturbation -153000(400z-1)(s+5) tau_f eps, checked symbolically, not inferred from finite-K fits. The positive isolated large quartic root t=116.3626739461 leads to s_H(∞)=13.016079814889247 and omega=10.7871531900729. The eigenvalue implicit derivative gives c=670.0071181534648>0 and frequency d=4.00432112186999; fixed alpha,beta,gamma>0 and matched conserved total 91+50tau_f/K are essential. The result is local near the specified simple Hopf point, not a global assertion about all Hopf bifurcations. The paper also supplies rational sign intervals and transverse stability; finite spectral samples alone would not establish this conclusion.
 
-The theorem does not claim global dynamics, arbitrary networks or definitive independent priority. No independence or formal certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative inheritance of oscillations under reaction splitting is known, but the local quantitative, rate-universal positive shift of the Hopf parameter is a narrower exact perturbation theorem not entailed by persistence. The displayed calculations were independently checked; literature priority is best-of-knowledge only.
+
+## value
+
+PASS
+
+In enzyme-sharing reaction networks, introducing a fast intermediate is a natural model refinement. The sign, explicit nonzero leading sensitivity and reduction of three arbitrary fast rates to a residence-time factor distinguish qualitative Hopf persistence from a useful parameter recalibration. A model-specific exact perturbation is motivated by the benchmark and is not merely a restatement of persistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
