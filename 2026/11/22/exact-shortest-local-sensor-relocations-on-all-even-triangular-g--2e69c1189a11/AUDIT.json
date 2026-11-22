@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "All-order proof: sensor optima are exactly k-edge matchings with two holes; every source admits 4k adjacent slides. For arbitrary targets, r missing N edges must be inserted. Each initially fully M-matched nontrivial symmetric-difference component (all alternating cycles and, if delta=1, one M-ended alternating path) requires an independent first nontarget disturbance, giving d>=r+c+delta. Explicit sequences eliminate cycles for q+1 slides each, mixed-hole paths for one slide per desired edge, and the delta=1 pair of exceptional paths with one temporary cross-path edge; hence equality. Cycle packing and explicit parity-based examples give exact diameter ceil(3k/2); S_n transitivity gives radius. Two standalone independent programs passed; full-graph BFS matches all-pairs formula for k=1..5, while independent graph forcing verifies all candidate optima up to k=4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full RESULT at https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4 proves all-pairs distance and diameter for near-perfect matchings of K_(k+1,k+1), with no within-part matching edges.",
+        "https://arxiv.org/html/1812.05419v1 gives a general TJ optimization algorithm when one matching is not maximal, but does not supply the local TS metric on nonmaximum matchings.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-component-profiles-for-power-domination-reconfiguration-of--69bbf2c2096e studies TAR with temporary changes of matching cardinality; its minimum-budget graph has no edges."
+      ],
+      "reasoning": "The closest exact numerical formula comes from a strictly smaller bipartite configuration graph. An isometric embedding of each endpoint pair into this smaller graph is not automatic: additional complete-graph slides could lower the shortest distance. The present theorem independently proves that they cannot and obtains the full complete-graph diameter, an implication not stated or derived in the compared texts.",
+      "searches": [
+        "shortest token sliding distance matchings complete graphs same unmatched vertices one extra move per alternating cycle",
+        "triangular graphs power dominating minimum matching slide same uncovered vertices 4-cycle metric",
+        "triangular graph L(Kn) power domination minimum token jumping slide graph all orders",
+        "two vacancy matchings complete graph fixed unmatched pair alternating cycle metric k plus cycles",
+        "2026/11/8/SCOPE-an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1812.05419v1",
+      "https://arxiv.org/html/2201.01798v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-component-profiles-for-power-domination-reconfiguration-of--69bbf2c2096e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4",
+      "https://doi.org/10.4230/LIPIcs.ESA.2019.61"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/1812.05419v1, Lemma 5, gives TJ distance r or r+1 when a matching is not inclusion-wise maximal; our TS metric can be r+c+delta, with c unbounded.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4 supplies an exact balanced-bipartite TS metric and matching upper-bound paths; it does not establish that the complete graph has identical distances despite additional allowed moves.",
+        "https://arxiv.org/html/2201.01798v1 Sections 3–5 develop power-domination TAR/TJ, and do not analyze TS for this family.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e proves optimum states, not their slide distances."
+      ],
+      "reasoning": "A target-pair embedding into a complete bipartite subgraph gives at most the bipartite distance in the complete graph, but no matching lower bound. The new universal lower bound charges each initially M-saturated alternating cycle and target-hole-ended path for an unavoidable nontarget first disturbance. That closes the nonbipartite shortcut loophole, proves the exact all-pairs formula and fixes the complete graph diameter. Consequently the result is not a direct restatement of the restricted bipartite theorem or the optimum state census.",
+      "searches": [
+        "shortest token sliding distance matchings complete graphs same unmatched vertices one extra move per alternating cycle",
+        "matching reconfiguration local edge adjacent one endpoint cycle surcharge two exposed vertices K2k+2",
+        "matching reconfiguration complete graphs two unmatched vertices sliding alternating cycle shortest distance",
+        "arxiv:1812.05419v1",
+        "arxiv:2201.01798v1",
+        "2026/11/8/SCOPE-an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4",
+        "2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e",
+        "2026/11/8/SCOPE-exact-component-profiles-for-power-domination-reconfiguration-of--69bbf2c2096e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/1812.05419v1 establishes TJ matching distance and only equates TS in maximum-cardinality matching cases; here configurations are one below maximum.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4 concerns TS for balanced complete bipartite graphs, whose matchings can be embedded for each endpoint pair but which omit nonbipartite shortcut edges."
+      ],
+      "reasoning": "Equivalences were evaluated via the matching-edge/line-graph correspondence, alternate token-jump vs token-slide definitions, and a possible balanced bipartition of both endpoint matchings. The bipartite result proves an upper bound, not the required full-graph equality. A first-disturbance lower bound on every path in the larger graph is essential.",
+      "searches": [
+        "shortest token sliding distance matchings complete graphs same unmatched vertices one extra move per alternating cycle",
+        "matching reconfiguration local edge adjacent one endpoint cycle surcharge two exposed vertices K2k+2",
+        "reconfiguration of all k matchings in complete graph token sliding adjacent matching edges distance formula",
+        "complete graph matching reconfiguration same unmatched vertices sliding distance alternating cycles",
+        "arxiv:1812.05419v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Triangular power-domination full enumerator at https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e establishes all optimum state counts, not TS distances.",
+        "Triangular TAR component theorem at https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-component-profiles-for-power-domination-reconfiguration-of--69bbf2c2096e establishes a different addition/removal reconfiguration model.",
+        "Existing TS bipartite metric at https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4 is on a different underlying root graph and has a distinct state count."
+      ],
+      "reasoning": "The exact all-pairs distance formula for matching slides in K_(2k+2), local kC4 neighborhood structure, and full-graph radius and diameter are not among the inspected exact family tables/results. Previously recorded optimum counts are treated as known.",
+      "searches": [
+        "triangular graphs power dominating minimum matching slide same uncovered vertices 4-cycle metric",
+        "reconfiguration of all k matchings in complete graph token sliding adjacent matching edges distance formula",
+        "minimum power domination triangular graph same exposed labels shortest token sliding alternating cycles plus number of components",
+        "matching slide graph K_{2k+2} same two holes distance cycles",
+        "2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e",
+        "2026/11/8/SCOPE-exact-component-profiles-for-power-domination-reconfiguration-of--69bbf2c2096e"
+      ]
+    },
+    "rationale": "The exact complete-graph nonbipartite TS lower bound, full all-pairs shortest-path formula with both alternating-cycle and two-hole-path surcharges, and sharp diameter were not found in inspected primary texts or closest publicly indexed results. A very close balanced complete-bipartite result already provides a specialized upper-bound route; this is acknowledged, not concealed. Its graph is a proper subgraph of the present complete graph and does not prove no nonbipartite shortcut. The new first-disturbance lower bound proves precisely that missing implication; a pairwise bipartite isometry and complete-graph diameter follow. The original power-domination criterion and state census are explicitly excluded from novelty.",
+    "residual_risks": [
+      "An unindexed exact-distance theorem for edge-token sliding on complete nonbipartite graphs may imply the new no-shortcut lower bound.",
+      "The complete-bipartite metric is very close and may permit a short reduction; priority depends on whether the extra unrestricted-shortcut lower bound was already established elsewhere.",
+      "The 2019 alternating-cycle-flip source was inspected at abstract/record level only; its distinct move rule is established, but complete paper priority was not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General TJ theory is relevant; TS equivalence is confined to maximum matchings; present k-size matches in K_(2k+2) are not maximum. No covering complete-graph TS formula identified.",
+        "evidence": [
+          "arXiv first public 2018-12-13; Introduction specifies TJ as default",
+          "Lemma 5 states TJ distance r or r+1 for nonmaximal endpoints",
+          "No exact TS formula for nonmaximum complete graph matchings in inspected text"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.05419v1",
+        "material_read": "Public arXiv v1 HTML: abstract, Introduction and operation definitions, Lemma 5 and its stated distance alternatives, Section 4 exact-distance statements, relevant appendices and search for complete graph",
+        "method": "Read and compare target definitions, move adjacency, maximum/nonmaximum hypotheses and implication",
+        "title": "Shortest Reconfiguration of Matchings",
+        "trigger": "Exact shortest matching reconfiguration and possible TS/TJ equivalence"
+      },
+      {
+        "assessment": "Framework and MSC 68R10 apply but do not give the present TS theorem.",
+        "evidence": [
+          "arXiv first public 2022-01-05; AMS subject includes 68R10",
+          "Introduction explicitly says paper develops TAR and TJ; no triangular-graph result identified"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.01798v1",
+        "material_read": "Full arXiv HTML structure, abstract, Introduction, Sections 3–5 relevant definitions and graph families, searched triangular, Johnson and Token Sliding",
+        "method": "Checked TAR/TJ definitions and TS mention, compared with fixed-cardinality local rule",
+        "title": "Power domination reconfiguration",
+        "trigger": "Foundational power-domination reconfiguration operations and graph-family results"
+      },
+      {
+        "assessment": "Covers power-domination criterion and minimum matching counts, which are attributed, but not TS geometry or distance.",
+        "evidence": [
+          "Power-dominating edge sets leave at most two isolates; even-order minimum sets are matchings"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e",
+        "material_read": "Complete accessible public RESULT.md including Finding, Proof, Verification, Relationship and Limitations",
+        "method": "Read complete claim and supporting graph reduction; compare each theorem clause",
+        "title": "Power domination of triangular graphs: star-forest rigidity and full enumerators",
+        "trigger": "Exact family-specific optimum state classification"
+      },
+      {
+        "assessment": "TAR at minimum budget is discrete, while TS keeps cardinality constant and admits adjacent exchanges; no implication for shortest TS paths.",
+        "evidence": [
+          "At minimum budget TAR graph has only singleton components; additional sensors are permitted at larger budgets"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-component-profiles-for-power-domination-reconfiguration-of--69bbf2c2096e",
+        "material_read": "Complete accessible public RESULT.md including TAR definitions, proof of component count and limitations",
+        "method": "Compared graph vertex sets, budget and move adjacency",
+        "title": "Exact component profiles for power-domination reconfiguration of triangular graphs",
+        "trigger": "Potential family-specific reconfiguration dominance"
+      },
+      {
+        "assessment": "Genuinely stronger within a balanced complete bipartite graph and supplies a matching upper bound; complete-graph extra slides demand a new lower bound. Closest priority risk explicitly retained.",
+        "evidence": [
+          "Exact K_(m,m) TS formula in permutation cycles and diameter floor(3m/2)-1",
+          "No within-part edges exist in the studied root graph"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4",
+        "material_read": "Complete accessible public RESULT.md including exact potential, proof, diameter and prior work",
+        "method": "Reduced two endpoint matchings to a suitable bipartition and compared possible distances, state space and shortcut issue",
+        "title": "An exact cycle-potential metric for sliding near-perfect bipartite matchings",
+        "trigger": "Strongest close all-pairs TS matching-distance theorem"
+      },
+      {
+        "assessment": "Whole alternating-cycle flips of perfect matchings differ from single-edge incident slides of nonmaximum matchings. No whole-document noncoverage assertion is drawn from abstract.",
+        "evidence": [
+          "Abstract explicitly defines moves by a single full alternating-cycle flip"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2019.61",
+        "material_read": "Public ESA 2019 record and abstract specifying the allowed alternating-cycle flip",
+        "method": "Compared the operation and maximum matching assumptions",
+        "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "trigger": "Possible alternating-cycle formula dominance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2e69c118-9a11-4bd1-a910-6813a0fafed0",
+  "value": {
+    "rationale": "The natural optimum sensor relocation question demands the shortest sequence of physically adjacent moves. The all-pairs formula identifies an unbounded per-cycle surcharge and a separate two-hole path obstruction beyond target-edge differences, gives a constructive optimal route and exact global diameter, and shows pairs are isometric to suitable balanced bipartite subproblems despite extra nonbipartite edges. These extend the known optimum sensor census by a nontrivial complete-graph lower bound, rather than changing labels or recomputing a table.",
+    "status": "PASS"
+  }
+}
