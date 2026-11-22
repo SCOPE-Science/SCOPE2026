@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The finite-dimensional collocation block is a symmetric tridiagonal matrix, with first/last diagonal entries \(5/8\), middle entries \(3/4\) and first off-diagonals \(1/8\). This is obtained directly from normalized clamped quadratic B-splines. The half-grid sine basis satisfies the two anti-reflecting ghost conditions, gives distinct eigenvalues and a complete orthogonal interior eigenbasis. The affine fixed space and infinite-dimensional nullspace complete the operator spectrum. An explicit finite coefficient expansion proves both the sharp iteration-norm root limit and the precise \(\pi^2/8\) mesh-gap constant. The standalone program checks exact rational collocation in 47 dimensions, 1,175 eigenmodes and 1,316 iteration expansion cases. The proof, not the numerical cases, establishes all dimensions.
+
+## Originality — PASS, with residual priority risk
+The 2014 Nagler–Cerejeiras–Forster paper explicitly poses Conjecture 1 and says the Schoenberg eigenvalues/eigenfunctions are unknown, while proving general spectral containment and convergence. The earlier 2013 Nagler–Kähler work gives qualitative iteration bounds. The later Moldovan articles inspect different knot-location, approximation and multidimensional shape questions. Targeted published-record searches of `Schoenberg spline operator Greville eigenvalues spectral gap quadratic`, `tridiagonal collocation matrix B-spline Greville quadratic sine eigenvalues`, and `quadratic Schoenberg variation diminishing spline iterates spectral eigenbasis and sharp convergence` returned no identical exact full-spectrum or \(n^{-2}\) statement. The elementary discrete sine diagonalization is acknowledged as standard, and no claim is made about general degrees or all possible historical priority. Full-text comparisons to the principal older papers are decisive for the explicit claims made there, but obscure or unindexed historical equivalents remain possible.
+
+## Value — PASS
+An explicit spectral formula for a standard positive quadratic spline approximation operator supplies the quantitative convergence rate of every iterate and an exact sharp asymptotic spectral-gap constant. It directly resolves the fixed-quadratic-degree fine-mesh half of a publicly posed spectral conjecture, without pretending to resolve the full conjecture. The exact formula is useful in choosing iteration counts for a fixed grid and in studying approximation as the knot mesh is refined; it is not an arbitrary isolated finite calculation.
+
+## Scope and limitations
+Uniform clamped quadratic knots and classical Greville sampling only. The statement does not imply any result for nonuniform knots, higher degrees, or simultaneous grid/iteration error estimates beyond the given finite expansion. Priority risk remains for an older exact formula not indexed by the searched sources. Numerical verification is finite and no independent mathematical validation is supplied.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Normalized quadratic clamped B-spline recurrence yields exactly T with diagonal 5/8 at ends and 3/4 internally, offdiagonal 1/8. Ghost values v0=−v1 and v_{n+1}=−vn produce complete half-grid sine eigenbasis and λ_j=(3+cos(jπ/n))/4. Affine reproduction supplies exactly two fixed vectors; finite-rank representation supplies infinite-dimensional zero kernel. The exact finite iteration identity yields an operator-norm rank-one leading limit and n² gap coefficient π²/8. Replayed standard-library checker verifies exact-rational matrices for n=2..48, 1175 eigenmodes and 1316 power expansions, as finite corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1312.5546v1: general convergence/approximation inequalities with no displayed exact cosine spectrum",
+        "Moldovan–Păltănea 2020 DOI:10.3390/sym12081364: two-dimensional Schoenberg-type approximation",
+        "Moldovan–Păltănea 2021 DOI:10.3390/sym13061016: shape preservation"
+      ],
+      "reasoning": "General abstract convergence and spectral inclusion imply existence of a contraction factor but do not determine its value or the full spline eigenfunctions. A 2019 paper on Chebyshev-root knots treats different knots and approximation order. No identified broader theorem establishes this uniform quadratic exact cosine coefficient.",
+      "searches": [
+        "web: quadratic Schoenberg operator eigenvalues eigenfunctions equidistant knots",
+        "web: 2019 Second degree Schoenberg operators with knots at roots of Chebyshev polynomials",
+        "Schoenberg spline operator Greville eigenvalues spectral gap quadratic n knots 2014 conjecture"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1402.2403v1 full primary preprint",
+      "arXiv:1312.5546v1 primary preprint",
+      "Moldovan 2017 accessible article text",
+      "Moldovan–Păltănea 2020 OA full text",
+      "Moldovan–Păltănea 2021 OA full text",
+      "published-finding corpus semantic searches for eigenvalues, aliases and tridiagonal reductions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1402.2403v1 p.11 Conjecture 1 states fixed-degree gamma tending to 1, pp.4-8 establish qualitative spectral properties and convergence",
+        "arXiv:1312.5546v1 bounds iteration and approximation without an exact eigenvalue enumeration"
+      ],
+      "reasoning": "Neither compactness/geometric convergence nor the conjectural fine-mesh limit implies λ_j=(3+cos(jπ/n))/4 or n²(1−γ_n)→π²/8. Our result proves only the k=2 uniform-knot special case; no general fixed-degree statement is asserted. The proof supplies the missing operator-to-tridiagonal reduction and exact eigenbasis.",
+      "searches": [
+        "arXiv:1402.2403v1 Theorem 3 Theorem 4 Conjecture 1",
+        "arXiv:1312.5546v1 iteration spectral Schoenberg",
+        "eigenfunctions and eigenvalues of quadratic Schoenberg operator equidistant knots Chebyshev spectral cosine",
+        "second largest eigenvalue of uniform Schoenberg quadratic k=2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1402.2403v1 pp. 4-11: general spectrum inclusion, spectral convergence; explicit eigenvalues said unknown",
+        "published-finding corpus search closest 2026/11/16/SCOPE-exact-all-size-stability-of-alternately-jittered-periodic-cubic--3a9a11c2c3e2 concerns a different periodic cubic collocation singular-value problem"
+      ],
+      "reasoning": "The half-grid discrete sine eigenvectors and formula could be disguised as an anti-Neumann tridiagonal spectrum; that generic linear algebra is classical. Searches did not find their identification as the complete nonzero spectrum of the uniform quadratic Schoenberg–Greville operator, nor its operator-norm sharp iteration rate. The 2014 source explicitly left this operator spectral data undetermined.",
+      "searches": [
+        "Schoenberg spline operator quadratic uniform Greville collocation exact cosine eigenvalues (3+cos(pi j/n))/4 spectral gap convergence iterates",
+        "eigenfunctions and eigenvalues of quadratic Schoenberg operator equidistant knots Chebyshev spectral cosine",
+        "second largest eigenvalue of uniform Schoenberg quadratic k=2",
+        "web: quadratic Schoenberg spline operator equidistant knots eigenvalues 3+cos tridiagonal spectrum Greville"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hits 2026/11/17/SCOPE-sharp-variation-reproduction-tradeoff-for-quadratic-cardinal-b-s--8d80fc7ae2c3 treat total-variation amplification of a different spline quasi-interpolant",
+        "published-finding corpus 2026/11/16/SCOPE-exact-all-size-stability-of-alternately-jittered-periodic-cubic--3a9a11c2c3e2 treats periodic cubic matrix conditioning"
+      ],
+      "reasoning": "No inspected table/record explicitly reports the complete operator spectrum λ_j or the sharp sup-norm iteration asymptotics. The identification is not inferred from the absence of a matching title alone; the returned closest statements have different splines/operators and measured quantities.",
+      "searches": [
+        "quadratic Schoenberg variation diminishing spline iterates spectral eigenbasis and sharp convergence",
+        "tridiagonal collocation matrix B-spline Greville quadratic sine eigenvalues",
+        "published-finding corpus: Schoenberg spline operator Greville eigenvalues",
+        "web: Schoenberg spectrum quadratic tridiagonal cosine"
+      ]
+    },
+    "rationale": "Nagler–Cerejeiras–Forster 2014 explicitly pose the second-eigenvalue fine-mesh conjecture and say eigenvalues/eigenfunctions unknown. Their spectral containment and convergence do not determine the exact quadratic cosine spectrum or sharp n⁻² coefficient. The 2013 uniform-operator treatment, later modified-knot/multidimensional literature and targeted database results do not state a covering theorem. Classical half-grid sine diagonalization is a tool and not separately claimed new; the priority of any hidden exact formula remains uncertain.",
+    "residual_risks": [
+      "Possible older exact spectral computations in a monograph, unpublished thesis or unindexed paper; indexed searches cannot establish absolute priority.",
+      "The 2019 Chebyshev-root knot paper concerns a related but distinct operator; its complete material was not obtained, and no implication to the uniform operator was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General spectral inclusion and geometric convergence, no exact quadratic eigenvalue list; conjectures fixed-degree eigenvalue limit",
+        "evidence": [
+          "arXiv:1402.2403v1 pp.4-6 Theorem 3, pp.7-8 iterations, p.11 Conjecture 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1402.2403",
+        "material_read": "Full public preprint, Sections 1–3, pp. 4–11, including exact Conjecture 1 on p.11",
+        "method": "ArXiv PDF text and page image",
+        "title": "Lower bounds for the approximation with variation-diminishing splines",
+        "trigger": "Main spectral question and Conjecture 1"
+      },
+      {
+        "assessment": "Addresses quantitative approximation/iterates, not the identified exact cosine spectrum",
+        "evidence": [
+          "arXiv:1312.5546v1 title, operator/iteration theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1312.5546",
+        "material_read": "Full preprint on the operator definition, approximation and iteration results",
+        "method": "Lawful public arXiv full text",
+        "title": "A lower bound for the uniform Schoenberg operator",
+        "trigger": "Earlier treatment of the same uniform operator and its iterates"
+      },
+      {
+        "assessment": "Different knot choice and order of approximation; no inspected exact uniform cos-spectrum theorem",
+        "evidence": [
+          "Moldovan 2017 abstract and main statement: modified knots improve Voronovskaya approximation order"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/323238390_A_choice_of_the_knots_in_Schoenberg_spline_operator_with_an_improvement_of_the_order_of_approximation",
+        "material_read": "Accessible article text including abstract, introduction and main knot-improvement construction",
+        "method": "Publicly accessible article text",
+        "title": "A choice of the knots in Schoenberg spline operator with an improvement of the order of approximation",
+        "trigger": "Directly analyzes quadratic Schoenberg with modified knots"
+      },
+      {
+        "assessment": "Two-dimensional approximation and Voronovskaya laws, not an exact spectrum of the one-dimensional quadratic Greville operator",
+        "evidence": [
+          "Moldovan and Păltănea 2020, Sections 1 and 3"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2073-8994/12/8/1364",
+        "material_read": "Open full HTML article introduction and equidistant tensor construction",
+        "method": "OA full text",
+        "title": "A Definition of Two-Dimensional Schoenberg Type Operators",
+        "trigger": "Later general Schoenberg approximation literature"
+      },
+      {
+        "assessment": "Monotonicity/convexity and multidimensional estimates; not the claimed spectrum",
+        "evidence": [
+          "Moldovan and Păltănea 2021, Section 3 and its theorems"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2073-8994/13/6/1016",
+        "material_read": "Open HTML on operator formulas and approximation/shape theorems",
+        "method": "OA full text",
+        "title": "Preserving the Shape of Functions by Applying Multidimensional Schoenberg-Type Operators",
+        "trigger": "Later shape-preserving Schoenberg results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f178bad0-bccb-44ae-b89e-03ebb2768445",
+  "value": {
+    "rationale": "This is an exact spectrum and precise n⁻² spectral-gap limit for the natural degree-two Greville positive spline operator, addressing the stated fixed-degree spectral conjecture in a substantive nontrivial case and providing a sharp asymptotic for iterate-error decay. It is not merely an unrelated finite tridiagonal example; the operator-to-Jacobi reduction, eigenfunction basis and norm limit connect approximation and spectral theory.",
+    "status": "PASS"
+  }
+}
