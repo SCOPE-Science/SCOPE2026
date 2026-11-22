@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite definition is unambiguous: proper noncrossing partitions of six cyclic labels form 130 vertices of the rank-selected chain complex. Rank preservation prevents inversions, so orbits of increasing chains form the genuine geometric quotient cells. The standalone standard-library verifier enumerates 130/1035/2160/1296 original faces and 26/177/360/216 orbit cells; verifies both signed cellular boundary compositions vanish; and performs exactly 25, 152 and 207 integral unit cancellations, leaving ranks (1,0,1,9) with one boundary coefficient 3. The resulting integral homology is \(H_2=\mathbb Z/3\mathbb Z\), \(H_3=\mathbb Z^8\). Known EL-shellability supplies simple connectivity of the covering complex; two explicit fixed-point generators \(\rho^2,\rho^3\), together with Armstrong's theorem, show the quotient is simply connected. The simply connected 3-CW classification converts the Smith form into \(M(\mathbb Z/3\mathbb Z,2)\) wedge eight 3-spheres. Exact finite enumeration proves the specified finite theorem, without extrapolation.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Athanasiadis--Brady--Watt establishes shellability of the original noncrossing partition proper part, not its ordinary cyclic orbit-space integral homology. Callan--Smiley classify rotations of *individual* partitions, not chains or their quotient CW attaching degrees. Hersh studies Boolean-algebra quotient complexes under wreath products and explains why an orbit chain complex is not generally the order complex of an orbit poset. Donau's work studies ordinary partition lattices, including prime-order cyclic behavior, not the six-point *noncrossing* \(C_6\) quotient. Reading's chain enumerations do not give an orbit-space integral differential. Searches of aliases, coarser/stronger statements and exact torsion data located no implication that forces the specific Moore summand. Closest independently indexed Moore-type and rotational-quotient results concern different base spaces; resemblance of groups, primes or homology is not coverage. An equivalent unindexed specialized computation cannot be excluded.
+PASS
 
-## Value — PASS
-The smallest natural composite cyclic noncrossing partition quotient with two coprime stabilizer generators is a motivated equivariant-topology test case: the cover is torsion-free and simply connected, yet its ordinary quotient develops an exact \(\mathbb Z/3\mathbb Z\) class without acquiring a fundamental group. Determining the full homotopy type, not merely a cell count or rational Euler characteristic, clarifies what the rotation enumeration of individual noncrossing partitions does not detect. The six-point restriction is intrinsic to a distinguished small composite-order boundary, not an arbitrary coordinate slice; no infinite-family consequence is claimed.
+The proper NC6 order complex K has 130 vertices with rank multiplicities (15,50,50,15), exactly (130,1035,2160,1296) chains in dimensions 0..3, and covering homotopy ∨^{42}S³ by type-A EL-shellability. Rank-preserving rotation fixes every vertex of a stabilized chain, hence the geometric quotient admits genuine oriented orbit cells (26,177,360,216), not the orbit-poset order complex. Exhaustive signed boundaries satisfy ∂²=0. Integral ±1-pivot cancellations count (25,152,207), leaving chain modules (1,0,1,9) and a 1×9 degree-three-to-two matrix whose entries have gcd 3; a different independent greedy basis leaves ±3 entries rather than the source's single 3, but identical Smith diagonal 3. Therefore H2=Z/3,H3=Z^8,H1=0. Rotation by 2 and by 3 each fixes a proper partition, and together generate C6; Armstrong's orbit-space theorem on simply connected K gives π1=1. The simply connected 3-complex's 2-skeleton is a wedge of S², and integral SNF changes the 3-cell attaching maps to one degree-three map and eight null maps, yielding M(Z/3,2)∨∨⁸S³. Full finite enumeration is exhaustive for this specific six-point object, not extrapolated to all n.
 
-## Closest literature and limitations
-Athanasiadis--Brady--Watt, arXiv:math/0503007; Callan--Smiley, arXiv:math/0510447; Hersh, arXiv:math/0311266; Donau, arXiv:1202.4368; Reading, doi:10.1137/07069777X. The first three sources were inspected in accessible full-text HTML, with relevant material as distinguished in the audit. The latter two were compared at abstract/metadata level only, not treated as fully inspected. The exact finite calculation and proof are reproducible, but independent validation has not occurred. Novelty assessment is evidence-limited rather than a proof of global uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparisons made against specific mathematical statements, with natural aliases, stronger/other model hypotheses and integral versus finite-field distinctions; same-finding indexed hit not counted as independent earlier coverage.  Restricted bibliographic coverage remains as residual risk.
+
+## value
+
+PASS
+
+This natural six-point exact torsion classification answers a nontrivial invariant for a canonical lattice under its natural sixfold symmetry. It identifies torsion created by a nonfree quotient of a torsion-free sphere wedge and distinguishes it from the larger dihedral and ordinary-partition quotients. Finite exact classifications can be valuable even without a general n result; this one is structurally motivated and not a database recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
