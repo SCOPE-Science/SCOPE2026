@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the clique relaxation, not the edge-only relaxation, of the complement of an odd cycle. The proof uses the explicitly acknowledged Koster–Wagler/Padberg minimally-imperfect theorem to identify the only fractional vertex and the unique rank cut. It then proves that exactly \(n\) nonsingular maximum-clique supporting planes meet there, identifies all adjacent stable-pair vertices, and converts the truncation to an explicit full-dimensional simplex. The determinant lemma gives its exact volume. Dirichlet second moments give the finite radius expectation. The one-dependent exponential CLT and an explicit covariance matrix with limiting variance \(20\) prove the fluctuation theorem, without relying on finite simulation. The included standard-library verifier passed 122 exact assertions in five dimensions; independent halfspace enumeration also matched the predicted vertices for three dimensions. Risk: the major classical polyhedral theorem is invoked, not reproved here; numerical checks do not certify an all-rank probabilistic limit.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-Koster and Wagler's full relevant section and the public full RESULT.md of the most similar odd-cycle cap study were read. The former supplies the unique fractional vertex but not volume or stochastic cap geometry. The latter concerns odd *holes*, where the radius has a nondegenerate Brownian-functional limit, and does not contain a result for odd *antiholes* or a rescaled Gaussian limit. The current 2026 preprint introduces a different structural inquiry into \(0/1\) polytopes. Semantic research-record queries for odd antiholes, volume gaps, cap simplexes, and Gaussian laws, together with accessible historical claim headings, revealed no covering statement. Risk: an unindexed result in older near-perfect-polytope literature could calculate the exact cap, though the Gaussian fluctuation law was not identified in inspected material. Searches do not establish absolute historical priority.
+PASS
 
-## Mathematical value — PASS
-The clique-relaxation-versus-integral-polytope volume defect is a natural quantitative measure for minimal obstructions to perfectness. The result gives the **exact missing geometry** in every odd-antihole rank, not merely a bound. Its probabilistic conclusion establishes a genuine complementary-family dichotomy: despite both caps being single simplexes, the odd-antihole radius concentrates at the shrinking scale \(n^{-1/2}\) and satisfies a sharp Gaussian CLT, unlike the previously obtained odd-hole Brownian law at scale one. This quantitative distinction would not be obtained by changing a symbol or directly applying graph complementation, which does not preserve the relevant Euclidean structure. Scope limitation: no unconditional sampling statement or generalization to all imperfect graphs is proved.
+The classical minimally imperfect graph theorem fixes exactly one fractional QSTAB vertex a=(1/m)1 and the rank cut sum(x)<=2; these are credited assumptions, not derived by experiment. The n maximal cliques of the complement of C_(2m+1) form a nonsingular circulant tight system; their n opposite edge-indicator neighbors bound the entire removed simplex. For B=I+cyclic shift, det(B-a1^T)=-1/m, hence Euclidean volume 1/(m n!). Dirichlet barycentric second moments yield n(2-2/m+2/m^2)/((n+1)(n+2)); iid Exp construction and a one-dependent CLT yield covariance [[1,12],[12,164]] and delta-method variance (-12,1) Cov (-12,1)^T=20. Independently computed maximal cliques, determinants and exact means for n=5,7,9,11, plus rechecked CLT moment algebra. The finite cases are diagnostics; the cited theorem and analytic CLT support every odd n>=5.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge novelty after comparing exact claims and implications, not title matches; the identified structural prior inputs are explicitly credited and all material access limits retained. No inspected earlier theorem implies this complete final claim.
+
+## value
+
+PASS
+
+The explicit missing Euclidean volume and conditional Gaussian radial law quantify a natural integrality gap of the minimally imperfect odd-antihole family, demonstrating a sharp probabilistic distinction from the complementary odd-cycle cap. This is substantive geometry beyond the already-known single fractional vertex, and the exact conditional variance 20 can be used as a benchmark in fractional stable-set sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

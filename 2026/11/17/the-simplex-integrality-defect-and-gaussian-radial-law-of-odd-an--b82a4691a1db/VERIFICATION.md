@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 antihole_verify.py` from the same directory as these files; no external Python packages are required. The verifier computes exact integers and rational fractions and prints an explicit `PASS 122 exact checks` line. It checks the independent maximum-clique matrix for \(n=5,7,9,11,13\), the cyclic-edge determinant, the cap determinant, the exact volume and exact squared-radius mean, together with the analytic covariance and delta-method variance.
+## correctness
 
-A separate finite check used halfspace intersection on the full maximal-clique system of \(\overline{C_n}\), for \(n=5,7,9\). It found respectively 12, 16 and 20 vertices, matching precisely the predicted integer stable-set vertices plus the single fractional apex. This independently corroborates the polyhedral premise in these dimensions only.
+PASS
 
-The infinite-dimensional-in-parameter conclusion (every odd finite dimension) is established by the explicit determinant proof and the cited Koster–Wagler/Padberg theorem. The central limit theorem follows by one-dependent sums and the delta method. Finite checks or numerical simulations are not treated as proofs of those unrestricted statements. No external mathematical audit has been performed.
+The classical minimally imperfect graph theorem fixes exactly one fractional QSTAB vertex a=(1/m)1 and the rank cut sum(x)<=2; these are credited assumptions, not derived by experiment. The n maximal cliques of the complement of C_(2m+1) form a nonsingular circulant tight system; their n opposite edge-indicator neighbors bound the entire removed simplex. For B=I+cyclic shift, det(B-a1^T)=-1/m, hence Euclidean volume 1/(m n!). Dirichlet barycentric second moments yield n(2-2/m+2/m^2)/((n+1)(n+2)); iid Exp construction and a one-dependent CLT yield covariance [[1,12],[12,164]] and delta-method variance (-12,1) Cov (-12,1)^T=20. Independently computed maximal cliques, determinants and exact means for n=5,7,9,11, plus rechecked CLT moment algebra. The finite cases are diagnostics; the cited theorem and analytic CLT support every odd n>=5.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty after comparing exact claims and implications, not title matches; the identified structural prior inputs are explicitly credited and all material access limits retained. No inspected earlier theorem implies this complete final claim.
+
+## value
+
+PASS
+
+The explicit missing Euclidean volume and conditional Gaussian radial law quantify a natural integrality gap of the minimally imperfect odd-antihole family, demonstrating a sharp probabilistic distinction from the complementary odd-cycle cap. This is substantive geometry beyond the already-known single fractional vertex, and the exact conditional variance 20 can be used as a benchmark in fractional stable-set sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
