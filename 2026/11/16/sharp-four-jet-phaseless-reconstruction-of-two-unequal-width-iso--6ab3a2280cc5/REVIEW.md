@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized Gaussian Fourier formula yields \(I(\xi)=2e^{-s|\xi|^2}(\cosh(q|\xi|^2)+\cos(h\cdot\xi))\) and the exact quadratic/quartic coefficients. Since \(d\ge2\), the positive semidefinite displacement matrix has rank at most one and a nonzero kernel, so its minimum-eigenvalue shift identifies \(s\) without extra assumptions. Restricting the quartic to the kernel extracts \(q^2\). The converse explicitly constructs a strictly positive-variance mixture from every allowed jet. Rational one-dimensional collision and varying \(q\) prove both sharp boundaries. The supplementary checker uses exact rational arithmetic.
+PASS
 
-## Originality — PASS, provisional against the inspected corpus
+Expanding the exact Gaussian intensity I=2 exp(−s|ξ|²)(cosh(q|ξ|²)+cos(h·ξ)) gives quadratic Q=4sId+hhᵀ and quartic P4=(2s²+q²)|ξ|⁴+s|ξ|²(h·ξ)²+(h·ξ)⁴/12. For d≥2 the rank-one displacement part has a kernel, making 4s the smallest Q eigenvalue even when h=0. T=Q−4sId must be PSD rank≤1 and equals hhᵀ; its kernel recovers q²=z from P4(e)−2s². Conversely selecting h with hhᵀ=T, q=√z, and a,b=s±q>0 constructs every feasible pair. Swapping q sign and h sign corresponds to component interchange/reflection. The fourth-order necessity holds by varying q with fixed s,h while lower even jets are unchanged. The exact d=1 examples (2,1/4,1) and (41/20,47/200,4/5) both give Q=9 and P4=31/3 but distinct widths and center displacement, verified with rational arithmetic. Inspected the complete packaged rational checker and independently checked the symbolic expansions; neither finite check replaces the all-parameter algebra.
 
-The full Kalavasis–Kothari–Li–Zampetakis Fourier-mixture manuscript studies unphased mixture learning and expressly excludes Gaussians from its main algorithm; its appendix is not an intensity-jet inverse theorem. Xia–Xu uses one-dimensional interval indicators rather than varying-scale Gaussians. Fukunaga–Flick and Agostini–Améndola–Ranestad consider moments of the mixture itself, not the even moment tensors of its autocorrelation. Closest database searches for phaseless Gaussian mixture fourth jets returned results about distinct models (intervals, finite discrete intensity samples, Gaussian-window spectrograms). The exact rank-one feasibility criterion, fourth-order threshold in dimension at least two, and rational one-dimensional alias pair were not covered by the source statements actually inspected. The 1983 manuscript and the Xia–Xu full text were not available in the inspected evidence; equivalence risks remain.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Low-frequency intensity jets are natural observables in phaseless inverse scattering and structured deconvolution. For equal-mass two-scale Gaussians, it is not evident a priori that the unobserved Fourier phase and the two individual variances are determined by only a fourth-order jet. The result classifies the entire realizable data region, handles coincident positions without separation, gives a constructive inversion, proves minimal derivative order, and exhibits a sharp ambient-dimensional failure. These form a natural complete finite-jet classification, not a single unmotivated numerical instance. No noise robustness or arbitrary-mixture claim is made.
+The most relevant same-day broader anisotropic theorem does subsume strictly unequal-isotropic widths in d≥3, but its d≥3 hypothesis cannot recover the natural d=2 isotropic result, equal-width case or complete feasibility characterization; this substantive surviving portion supports best-of-knowledge originality, with explicit priority risk.
 
-## Sources and risks
+## value
 
-See the references and limitations in `RESULT.md` and the four implication-based comparisons in `AUDIT.json`. Older phaseless Gaussian autocorrelation literature remains a genuine potential source of an equivalent result, so publication priority is not certified. The primary full-text inspection concerned the 2026 Fourier-mixture paper; the Xia–Xu and Fukunaga–Flick sources were abstract-only. No independent audit has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A low-order phaseless spectral characterization for two positive isotropic Gaussian components is a natural identifiability problem, and exact d=2 recovery with a complete positivity/rank-one feasible-jet test, plus a sharp d1 obstruction, gives useful structure even though the d≥3 unequal-width case overlaps another theorem. Exact reconstructability does not assert stability or a new theorem for arbitrary anisotropic Gaussian mixtures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
