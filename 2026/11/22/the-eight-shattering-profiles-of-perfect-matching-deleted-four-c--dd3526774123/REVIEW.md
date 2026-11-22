@@ -1,0 +1,11 @@
+# Scientific review: matching-deleted four-cube shattering
+
+**Correctness (PASS).** The finite domain is all 272 one-factor deletions of a sixteen-vertex cube. A group-orbit certificate explicitly covers all matchings using all 384 cube automorphisms. Each of two independently implemented complete Boolean-trace checkers validates all 65,536 possible support masks for the eight representatives; maximal-independent-set generation is performed by two distinct algorithms (independence and domination predicates versus maximal-clique enumeration in the complement). Both check every face coefficient and maximal face count, as well as the global 40 and 16 outcomes. The C++ program also checks the explicit isomorphism for the Möbius–Kantor class. This finite proof is not extrapolated to larger cubes.
+
+**Originality (PASS within inspected evidence).** The closest known prior anti-forcing record establishes the 272 perfect matchings and their eight matching orbits, which are credited here. It reports forcing invariants rather than the vertex-membership trace complex; its synopsis does not imply the eight polynomial profiles. The inspected independent-domination source counts *concepts by size*, not *shattered query supports*. The inspected neighborhood-VC work has a different hypothesis class, and the hypercube inducibility study has a different objective. An inaccessible full anti-forcing text and unindexed priority claims remain residual risks; a failed search is not a uniqueness proof.
+
+**Value (PASS).** Deleting a perfect matching is a canonical, highly symmetric edge perturbation. The exact eight-class census exhibits two nontrivial phase transitions that scalar graph invariants do not predict: only 40/272 classes attain depth-five static shattering, and only 16/272 become pure shattering complexes. The Möbius–Kantor graph is identified at the high-face boundary. The exact face/facet table is natural comparison data for stability of shattering under structured graph modifications, not an arbitrary subset choice.
+
+**Scope and priority limits.** Dimension four only; published orbit enumerations are not novel; the closest anti-forcing full text was not available, so independent source checking is still desirable. No independent mathematical validation was performed.
+
+Self-review: passed. Independent audit: not yet performed.
