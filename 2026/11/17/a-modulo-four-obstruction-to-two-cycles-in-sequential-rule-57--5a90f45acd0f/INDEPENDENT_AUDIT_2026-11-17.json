@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T13:12:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 9c26009071d10cea1709efa625a1a4151d4aa39a, Proof 1-4",
+        "Frozen checks/exhaustive.py adae5bdc53fcc747354af2919b55b66150b513d2",
+        "Independent direct sweep enumerate all 2^n states n=3..15"
+      ],
+      "rationale": "For every n>=3 a Rule-57 site update holds the center exactly for neighbors (0,1), otherwise it complements; hence each update is involutive and a complete sweep is bijective. If F(x)=y and F(y)=x, any unchanged bit would require its adjacent bits unchanged in both sweeps; cyclic connectivity would make all bits unchanged, contradicting impossibility of a fixed point. Thus y=1-x. Interior toggles give x_{i+2}=1-x_i for 0<=i<=n-3, while the two scan-seam constraints give x_{n-1}=x_1 and x_{n-2}=x_0. The four-term recurrence and both boundary equations have four solutions precisely for n=2 mod4, none otherwise; these make two 2-orbits under complement. Independently written truth-table exhaustive search reproduced exact second-iterate fixed sets for every n=3..15; finite enumeration is corroboration, the boundary argument proves all n.",
+      "residual_risks": [
+        "No classification of temporal periods >=3 or other sweep permutations; n=1,2 outside domain",
+        "The passage from unchanged site to unchanged neighbors must use both sweeps with the special seam sites; it is explicitly checked in the proof and direct enumeration"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vielhaber 2012 supplies permutivity and varying-order group-generation, not a length-uniform two-cycle census",
+          "Donoso-Leiva et al. 2025 classify Rule57 as no-fixed-points; Fix(F)=empty does not force Fix(F^2)=empty or count four"
+        ],
+        "reasoning": "No inspected broader theorem specializes simultaneously to the exact truth table, fixed n-dependent scan map, and period-two population.",
+        "searches": [
+          "arxiv:1208.2762 Rule 57 temporal order permutation",
+          "arxiv:2509.07797 Rule 57 fixed points and convergence",
+          "Resultary 2026/11/2 scan-order phase diagram Rule150"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: sequential rule 57 fixed scan two cycles congruence modulo four",
+        "https://arxiv.org/abs/1208.2762",
+        "https://arxiv.org/abs/2509.07797",
+        "https://arxiv.org/abs/2004.07128"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Center-permutive local maps and changing-order permutations do not identify temporal two-cycles for one chosen product of involutions",
+          "Absence of fixed points alone is logically independent of existence and multiplicity of primitive two-cycles"
+        ],
+        "reasoning": "The new recurrence with two scan-boundary conditions is an additional derived invariant not supplied by the compared results.",
+        "searches": [
+          "Vielhaber Computing by Temporal Order Rule57 sections on temporal order",
+          "arxiv:2509.07797 classification fixed points",
+          "arxiv:2004.07128 update schedule sensitivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/17 target is same claim; other hits involve Rule 150 and other Boolean rules",
+          "Vielhaber arXiv:1208.2762 distinguishes changing temporal schedules from iterating a fixed order"
+        ],
+        "reasoning": "Rule-number equivalences were checked by the actual center hold rule (0,1); matching general asynchronous-CA terminology does not give the exact Fix(F_n^2).",
+        "searches": [
+          "Resultary: sequential rule 57 fixed scan two cycles congruence modulo four",
+          "\"Rule 57\" two-cycle fixed left-to-right sequential"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier indexed exact table matching the four-word n=2 mod4 law in returned related findings",
+          "Source checker counts 4 or 0 configurations by complete 2^n enumeration for n<=15, but this is not a prior database"
+        ],
+        "reasoning": "A published finite table even if found would not imply an unrestricted all-n characterization absent a theorem; an unindexed finite-state catalogue remains possible.",
+        "searches": [
+          "Resultary: sequential rule 57 fixed scan two cycles congruence modulo four",
+          "Rule 57 cycle length 2 sequential binary ring enumeration"
+        ]
+      },
+      "rationale": "The fixed-sweep modulo-four two-cycle classification is not an implication of center-permutivity, known absence of Rule-57 fixed points, or permutation-group generation while varying scan orders. Searches of published findings returned the same target record and distinct Rule-150, Rule-60 or unrelated cyclic-rule results, rather than an earlier theorem asserting this exact Rule-57 two-iterate fixed set. Source coverage is best-of-knowledge, especially for possible unindexed all-period classifications.",
+      "residual_risks": [
+        "Possible unindexed exhaustive fixed-sweep Rule57 orbit classifications",
+        "Not all potentially relevant 2025 CA articles inspected in full"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial topic overlap; exact repeated fixed-sweep n mod4 period-two law not in passages examined",
+          "evidence": "Local Rule57 permutivity and changing scan orders are distinct from a fixed sequential orbit census.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.2762",
+          "material_read": "Accessible primary article text; Rule57 discussion and deterministic temporal-order/permutation-generation sections",
+          "method": "web full-text reading",
+          "title": "Computing by Temporal Order: Asynchronous Cellular Automata",
+          "trigger": "Rule57 and temporal-order permutation results"
+        },
+        {
+          "assessment": "Establishes at most a weaker no-fixed-points context in material inspected",
+          "evidence": "Neither abstract nor returned section summary provides length-indexed Fix(F^2) formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.07797",
+          "material_read": "Abstract and available Rule57 convergence description; no full-text exclusion claim",
+          "method": "web research",
+          "title": "On the Convergence of Elementary Cellular Automata under Sequential Update Modes",
+          "trigger": "Rule57 absence-of-fixed-point classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact all-n constraints in frozen RESULT.md",
+        "Independent complete n=3..15 enumeration"
+      ],
+      "rationale": "Fixed sequential local rules are standard model maps, but the theorem gives a sharp uniform period-two obstruction with an actual length congruence and a complete list of low-period configurations. It exposes a non-obvious scan-seam constraint and determines a natural minimal temporal statistic for every ring size; this is more than a fixed-point existence check or a single toy instance. The bounded low-period sector is intrinsically meaningful even without an all-period classification.",
+      "residual_risks": [
+        "Does not quantify long cycles or general update-order dependence"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No classification of temporal periods >=3 or other sweep permutations; n=1,2 outside domain",
+    "The passage from unchanged site to unchanged neighbors must use both sweeps with the special seam sites; it is explicitly checked in the proof and direct enumeration",
+    "Possible unindexed exhaustive fixed-sweep Rule57 orbit classifications",
+    "Not all potentially relevant 2025 CA articles inspected in full",
+    "Does not quantify long cycles or general update-order dependence"
+  ],
+  "schema_version": 1
+}

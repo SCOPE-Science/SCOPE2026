@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is analytic, based on Rule 57's sitewise hold condition and an exhaustive logical classification of both scan-boundary cases. The programs `checks/exhaustive.py` and `checks/symbolic.py` are standalone and require only Python 3's standard library. Run them from the package root. The corresponding output files record successful checks of every initial word for lengths 3 through 17, and independent boundary-equation checks through length 256.
+## correctness
 
-These finite ranges do not establish the theorem for arbitrary length. Infinite validity follows from the hold-propagation lemma and the length-four word recurrence in `RESULT.md`. The arbitrary-length boundary congruence argument was checked separately against the explicit case split, including small lengths 3, 4 and 5. The initial source date is grounded in the preprint submission record, not a later journal revision. No independent external audit has occurred.
+PASS
+
+For every n>=3 a Rule-57 site update holds the center exactly for neighbors (0,1), otherwise it complements; hence each update is involutive and a complete sweep is bijective. If F(x)=y and F(y)=x, any unchanged bit would require its adjacent bits unchanged in both sweeps; cyclic connectivity would make all bits unchanged, contradicting impossibility of a fixed point. Thus y=1-x. Interior toggles give x_{i+2}=1-x_i for 0<=i<=n-3, while the two scan-seam constraints give x_{n-1}=x_1 and x_{n-2}=x_0. The four-term recurrence and both boundary equations have four solutions precisely for n=2 mod4, none otherwise; these make two 2-orbits under complement. Independently written truth-table exhaustive search reproduced exact second-iterate fixed sets for every n=3..15; finite enumeration is corroboration, the boundary argument proves all n.
+
+## originality
+
+PASS
+
+The fixed-sweep modulo-four two-cycle classification is not an implication of center-permutivity, known absence of Rule-57 fixed points, or permutation-group generation while varying scan orders. Searches of published findings returned the same target record and distinct Rule-150, Rule-60 or unrelated cyclic-rule results, rather than an earlier theorem asserting this exact Rule-57 two-iterate fixed set. Source coverage is best-of-knowledge, especially for possible unindexed all-period classifications.
+
+## value
+
+PASS
+
+Fixed sequential local rules are standard model maps, but the theorem gives a sharp uniform period-two obstruction with an actual length congruence and a complete list of low-period configurations. It exposes a non-obvious scan-seam constraint and determines a natural minimal temporal statistic for every ring size; this is more than a fixed-point existence check or a single toy instance. The bounded low-period sector is intrinsically meaningful even without an all-period classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

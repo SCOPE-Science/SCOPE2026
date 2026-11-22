@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The binary Rule-57 truth table makes an unchanged bit during a two-sweep return force both neighboring bits unchanged. On a connected ring, this would force a prohibited fixed point; hence all bits toggle. Checking the precise old/new neighbor order at each interior and boundary site gives a four-step spatial recurrence together with two boundary equalities. Their solutions exist only for ring lengths congruent to two modulo four and number exactly four. The proof covers every integer length at least three. Independent exhaustive and symbolic programs support, but do not replace, the proof.
+PASS
 
-## Originality
+For every n>=3 a Rule-57 site update holds the center exactly for neighbors (0,1), otherwise it complements; hence each update is involutive and a complete sweep is bijective. If F(x)=y and F(y)=x, any unchanged bit would require its adjacent bits unchanged in both sweeps; cyclic connectivity would make all bits unchanged, contradicting impossibility of a fixed point. Thus y=1-x. Interior toggles give x_{i+2}=1-x_i for 0<=i<=n-3, while the two scan-seam constraints give x_{n-1}=x_1 and x_{n-2}=x_0. The four-term recurrence and both boundary equations have four solutions precisely for n=2 mod4, none otherwise; these make two 2-orbits under complement. Independently written truth-table exhaustive search reproduced exact second-iterate fixed sets for every n=3..15; finite enumeration is corroboration, the boundary argument proves all n.
 
-PASS, with an unindexed-literature residual risk. The closest inspected original paper, Vielhaber (2012), describes Rule 57 under varying temporal schedules, not the fixed-order temporal two-cycle census. Donoso-Leiva et al. (2025, sequential convergence) explicitly address absence of fixed points, but do not derive the nontrivial two-cycle classification. The schedule-sensitivity study of de Oliveira et al. (2020) addresses how updates differ rather than period-two states. A more recent 2025 study of maximum cycle periods was available at abstract level only. Searches for Rule-57 two-cycles, complements and ring-size congruences did not expose equivalent or stronger coverage; this is evidence of noncoverage among inspected materials, not absolute priority proof.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Rule 57 is a canonical center-permutive nonlinear elementary automaton with highly expressive schedule-dependent permutations. The theorem reveals a rigid and surprising arithmetic obstruction in its smallest possible nontrivial recurrent period: despite every state being recurrent under the fixed scan, exactly four states have period two when the circumference is two modulo four, and none otherwise. The sitewise unchanged-or-everywhere-changed dichotomy is a structural mechanism, not a numerical list. The claim is a natural complete classification for the first nontrivial temporal period, without asserting a wider cycle-spectrum result.
+The fixed-sweep modulo-four two-cycle classification is not an implication of center-permutivity, known absence of Rule-57 fixed points, or permutation-group generation while varying scan orders. Searches of published findings returned the same target record and distinct Rule-150, Rule-60 or unrelated cyclic-rule results, rather than an earlier theorem asserting this exact Rule-57 two-iterate fixed set. Source coverage is best-of-knowledge, especially for possible unindexed all-period classifications.
 
-## Risks and limits
+## value
 
-The classification concerns one fixed site order and temporal periods at most two. Unindexed priority or a stronger all-period theorem elsewhere could change the novelty assessment. External independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed sequential local rules are standard model maps, but the theorem gives a sharp uniform period-two obstruction with an actual length congruence and a complete list of low-period configurations. It exposes a non-obvious scan-seam constraint and determines a natural minimal temporal statistic for every ring size; this is more than a fixed-point existence check or a single toy instance. The bounded low-period sector is intrinsically meaningful even without an all-period classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
