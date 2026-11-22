@@ -1,0 +1,11 @@
+# Scientific review of the nonunit cubic Dickson image classification
+
+**Correctness (PASS).** The decomposition follows from exact polynomial expansions and local inverse functions with unit derivatives, including the two distinct branches at parameter valuation one. For parameters divisible by nine the identity \(F_{9c}(3t)=27F_c(t)\) gives the complete recursive zero branch; explicit unit-parameter terminal formulas close it. The disjoint cylinder counts give the exact modulus-by-modulus results, and their measures give the density phase law. The embedded direct-enumeration checker passed 1,464 value-count tests and 488 full-image equalities. Its finite checks alone are not asserted to prove the result.
+
+**Originality (PASS on accessible evidence).** Shang (arXiv:2310.20226v1, first public 2023-10-31) proves upper bounds for nonpermutation polynomial value sets, not this exact nonunit cubic Dickson classification. Existing fixed-unit cubic results determine only a unit-parameter specialization. The main nonunit feature is the bifurcation at \(a=3b\), where the zero-image cylinder changes from \(81\mathbb Z_3\) to \(27\mathbb Z_3\), and its propagation through all higher-valuation strata. The 1991 paper of Bremser and Gomez-Calderon directly treats Dickson polynomials over Galois rings, and its abstract was checked; its full text was unavailable, so possible exact prior coverage remains a material priority risk. Lack of a matching search result is not treated as novelty proof.
+
+**Mathematical value (PASS).** The natural invariant is the complete image of a low-degree Dickson polynomial over a complete discrete valuation ring and all of its finite quotients. The theorem gives an infinite-parameter exact phase diagram, including explicit local cylinders, every finite-depth count, the zero-parameter limit, and a sharp valuation-one discontinuity that general value-set bounds do not quantify. No general theorem beyond this motivated family is claimed.
+
+**Scope and unresolved priority.** The result excludes unit parameters as new claims, and no fiber multiplicity or higher-degree classification is asserted. Full-text comparison with the 1991 article, and independent priority verification, remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For each a divisible by three, normalized unit-input branches have unit derivative and fill exactly \\(\\pm1+9\\mathbb Z_3\\). For \\(a=3b\\) the zero branch is \\(27(t^3-bt)\\), whose derivative is always a unit and whose image is \\(3\\mathbb Z_3\\) or \\(\\mathbb Z_3\\) according to b modulo 3. For a divisible by nine, \\(27F_{a/9}\\) gives an exact recursive zero branch. Unit terminal cases are proved by another derivative computation and square scaling, yielding complete formulas. Disjoint cylinders establish every precision count and Haar density. A standalone checker independently enumerates 1464 parameter/precision cases and 488 complete sets; no finite sample is used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shang (2023), inspected entire nine-page preprint, Theorem 1.1 gives a general extremal upper bound rather than a formula for \\(F_a(X)=X^3-3aX\\).",
+        "Bremser–Gomez-Calderon (1991) abstract says it estimates general Dickson value-set size and determines some preimage cardinalities; article full text not accessible."
+      ],
+      "reasoning": "Bounds and finite-field coverage do not imply the exact three-way disjoint cylinder structure, full finite-depth recurrence and Haar-density phase law. The general Galois-ring paper is a potential stronger prior and is explicitly retained as a risk.",
+      "searches": [
+        "value sets Dickson polynomials over Galois rings x^3-3ax prime p=3 normalized density critical points",
+        "Dickson polynomial third degree value sets modulo 3^k all parameters a divisible by 3",
+        "Shang 2023 Value sets of non-permutation polynomials residue class rings of integers arxiv 2310.20226"
+      ]
+    },
+    "checked_sources": [
+      "Shang, arXiv:2310.20226v1, full preprint",
+      "Bremser and Gomez-Calderon, JNT 38 (1991), abstract only",
+      "Public fixed-parameter Frobenius-minus-linear value-set result (2026), full text",
+      "Public fixed cubic Dickson first-hit-depth result (2026), full text",
+      "Brazelton et al., finite-field Dickson residue-sum abstract",
+      "Earlier fixed-parameter published cubic calculations (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known fixed-unit \\(a=1\\) cubic results give the recursion terminal \\(N_u(k)\\) for u square modulo 3; scaling by 9 gives the higher-even-valuation case only after separately proving the outer unit-input cylinders.",
+        "The new valuation-one case \\(a=3b\\) has zero-output cylinder \\(81\\mathbb Z_3\\) when \\(b\\equiv1\\pmod3\\) and \\(27\\mathbb Z_3\\) when \\(b\\equiv-1\\pmod3\\); it cannot follow solely from \\(a=1\\) by an integral unit change of variable, as the valuation of a is odd.",
+        "Shang provides an upper bound, not equalities for the two branches."
+      ],
+      "reasoning": "The decisive new content is the odd-valuation bifurcation, the resulting complete parameter classification and the geometric Haar-density law. Terminal fixed-unit calculations and straightforward rescaling are acknowledged as inherited tools, not treated as separate original claims. Exact historical comparison against the 1991 full text remains unavailable.",
+      "searches": [
+        "all 3-adic parameter valuations for cubic Dickson x^3-3a x, exact image density recurrence depending v_3(a), nested 3^3 scale",
+        "Dickson cubic x^3-3a x exact 3-adic value set Z/3^k, images two phases a square nonsquare 13/81 1/3",
+        "image 3-adic cubic x^3-9x, x^3-27x, parameter valuation a divisible three image density rational",
+        "https://arxiv.org/pdf/2310.20226",
+        "https://doi.org/10.1016/0022-314X(91)90087-R"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shang 2023 arXiv:2310.20226v1 discusses maximum image sizes of generic nonpermutation polynomials, not the cubic Dickson image decomposition.",
+        "A previously published fixed-unit cubic value-set calculation gives the 13 residue classes of X^3−3X modulo 81."
+      ],
+      "reasoning": "The unit fixed-parameter formula can act as a terminal base when the parameter valuation is even, but it does not determine the odd-valuation case \\(a=3b\\), where b modulo 3 changes the zero branch. No equivalent nonunit-parameter statement was found in the inspected accessible sources. The 1991 full text is uninspected; no claim of full-document noncoverage is made.",
+      "searches": [
+        "Dickson cubic x^3-3a x exact 3-adic value set Z/3^k, images two phases a square nonsquare 13/81 1/3",
+        "Dickson polynomial third degree value sets modulo 3^k all parameters a divisible by 3",
+        "3-adic cubic Chebyshev x^3-3x image 13 81 residues",
+        "https://arxiv.org/pdf/2310.20226",
+        "Bremser Gomez Calderon 1991 Value sets of Dickson polynomials over Galois rings pdf parameter a divisible p full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ranked mathematical-record results include a dynamical first-hit theorem for \\(X^3-3X\\) (fixed \\(a=1\\)) and a value-set theorem for \\(X^p-pX\\) (\\(p=3\\) member \\(a=1\\)), both primary full texts inspected.",
+        "Another earlier mathematical result covers the cubic at \\(p=3\\) for the fixed unit parameter \\(a=1\\); an earlier separate result covers unit parameters at primes \\(p\\ge5\\); neither states the nonunit ternary family."
+      ],
+      "reasoning": "Checking titles alone would be insufficient, so the highly relevant fixed-parameter mathematical records were read and their hypotheses/claims compared. None of those record statements provide the image law for all a divisible by 3. The result index and finite searches do not prove global uniqueness.",
+      "searches": [
+        "Dickson polynomial third degree value sets modulo 3^k all parameters a divisible by 3",
+        "all 3-adic parameter valuations for cubic Dickson x^3-3a x, exact image density recurrence depending v_3(a), nested 3^3 scale",
+        "image 3-adic cubic x^3-9x, x^3-27x, parameter valuation a divisible three image density rational",
+        "3-adic cubic Chebyshev x^3-3x image 13 81 residues",
+        "Dickson cubic x^3-3a x exact 3-adic value set Z/3^k, images two phases a square nonsquare 13/81 1/3"
+      ]
+    },
+    "rationale": "The accessible 2023 primary article proves general upper bounds for polynomial value sets, not an exact cubic nonunit-parameter phase diagram. The closest inspected published computations concern the fixed unit cubic (or different polynomials), and their statements do not imply the valuation-one split between \\(81\\mathbb Z_3\\) and \\(27\\mathbb Z_3\\). The historical 1991 general Dickson-over-Galois-rings paper could only be compared by abstract; an explicit equivalent there remains a material priority risk and independent assessment has not occurred.",
+    "residual_risks": [
+      "The 1991 Dickson-over-Galois-rings paper directly addresses the same family and full text was inaccessible; it may contain a specialization already implying some or all of this claim.",
+      "Historical own-file access is limited to the locally accessible current ledger and does not constitute a complete published-priority search.",
+      "No independent mathematical audit or human priority verification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General extremal upper bound, not the specialized nonunit ternary cubic phase classification",
+        "evidence": [
+          "Preprint first published 2023-10-31; main theorem bounds value sets of generic nonpermutation functions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.20226",
+        "material_read": "Entire nine-page PDF including main theorem and references",
+        "method": "Public arXiv full-text PDF reading including page image",
+        "title": "Value sets of non-permutation polynomials over the residue class rings of integers",
+        "trigger": "Primary 2023 starting point and exact general bound"
+      },
+      {
+        "assessment": "Potential equivalent or stronger coverage remains unresolved; cannot classify whole paper as noncovering",
+        "evidence": [
+          "1991 JNT 38:240–250 abstract reports estimates for value-set sizes and preimage cardinalities in certain cases."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0022-314X(91)90087-R",
+        "material_read": "Publisher abstract only; full text was not available from arXiv or lawful open-access search; institutional full-text retrieval required interaction unavailable during review",
+        "method": "Publisher abstract and bibliographic search, not full-document inspection",
+        "title": "Value sets of Dickson polynomials over Galois rings",
+        "trigger": "Exactly matching Dickson family and prime-power rings, strongest historical priority concern"
+      },
+      {
+        "assessment": "Covers fixed \\(a=1\\); does not state nonunit \\(a\\in3\\mathbb Z_3\\) parameter phases",
+        "evidence": [
+          "At \\(p=3\\) the 13 classes modulo 81 give the \\(a=1\\) terminal case, but no variable a appears."
+        ],
+        "identifier_or_url": "Published mathematical record, 2026-11-02, fixed Frobenius-minus-linear family",
+        "material_read": "Complete public result and proof text",
+        "method": "Read complete public mathematical result and compared exact parameter hypotheses and image law",
+        "title": "Exact prime-power value sets of a Frobenius-minus-linear polynomial",
+        "trigger": "For \\(p=3\\) the family specializes exactly to the unit-parameter cubic"
+      },
+      {
+        "assessment": "Studies iterates of \\(X^3-3X\\) only, not value sets of nonunit-parameter F_a",
+        "evidence": [
+          "Statement gives first-hit distributions for fixed \\(a=1\\); no nonunit parameters."
+        ],
+        "identifier_or_url": "Published mathematical record, 2026-10-25, fixed cubic dynamical system",
+        "material_read": "Complete public result and proof text",
+        "method": "Read full main proof and hypotheses",
+        "title": "Exact first-hit depth distribution for the cubic Dickson map modulo powers of three",
+        "trigger": "Same cubic, same prime, but dynamical rather than value-set invariant"
+      },
+      {
+        "assessment": "Finite-field residues, not prime-power Galois-ring image cylinders",
+        "evidence": [
+          "Abstract explicitly restricts its exact residue-sum/value-set results to finite fields."
+        ],
+        "identifier_or_url": "https://tbrazel.github.io/assets/papers/dickson.pdf",
+        "material_read": "Abstract and literature description",
+        "method": "Open abstract-level indexed description; ring-level full text not needed for finite-field-only claim",
+        "title": "Residue sums of Dickson polynomials over finite fields",
+        "trigger": "Background on Dickson value sets, possible finite-field domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a5c1df55-7fdd-44a6-8f50-c74733b2e01e",
+  "value": {
+    "rationale": "The object is the complete value set of a canonical low-degree Dickson polynomial over the rings \\(\\mathbb Z/3^k\\mathbb Z\\), not an arbitrary coefficient slice. Its natural invariants (finite-depth image size and 3-adic Haar measure) have two sharply different valuation-one phases, an exact all-parameter recurrence, and a geometric limit at \\(a=0\\). This is a complete structural classification over an infinite nonunit family, with precise local cylinders useful for lifting, image-density and congruence questions; elementary proof tools alone do not trivialize the new phase classification.",
+    "status": "PASS"
+  }
+}
