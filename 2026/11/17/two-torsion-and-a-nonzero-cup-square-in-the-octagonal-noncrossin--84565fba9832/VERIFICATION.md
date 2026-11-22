@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-`VERIFY.py` is self-contained Python 3 standard library code, reading no external scientific data and regenerating all noncrossing partial matchings for \(4\le n\le8\), their chain orbit complexes under rotations, and both cyclic and dihedral actions at eight vertices. `CHECK_OUTPUT.txt` contains its deterministic exact output and terminates with `VERIFY_OK`.
+## correctness
 
-For the octagon, original nonempty simplex counts are \((28,140,140,14)\). Cyclic barycentric orbit cell ranks are \((45,169,168,42)\) and signed unit cancellations are \((44,124,42)\), leaving residual chain ranks \((1,1,2,0)\) and one degree-two boundary coefficient \(2\). Dihedral ranks are \((35,112,105,27)\), with \((34,78,27)\) cancellations leaving a single zero-cell. Every boundary composition is checked as zero before contraction.
+PASS
 
-The independent quotient two-skeleton computation uses a spanning tree and oriented triangle relators. The cyclic presentation has \(125\) initial generators, \(124\) verified Tietze eliminations, and only \(g^2=1\); the dihedral presentation has \(78\) initial generators eliminated completely. The nonzero cup square follows from the integral Bockstein sequence and universal coefficient theorem, not computational cup-product conjecture. No infinite generalization or independent audit is asserted.
+Rebuilt all convex octagon disjoint-endpoint noncrossing matchings: 28/140/140/14 faces. First barycentric flags give C8 quotient cells [45,169,168,42] and D8 [35,112,105,27], with rank-increasing chains ensuring no inversions. Independently implemented signed integer differential and unit-pivot contractions, obtaining C8 cancellations (44,124,42), residual [1,1,2,0] and surviving degree-2 row entries 4 and 2 with gcd2; hence H1=Z2, H2=Z. D8 cancellations (34,78,27) leave a point. The inspected independent edge-presentation Tietze procedure reduces C8 to one generator with g^2 relators and D8 to empty group; simple connectivity and acyclicity imply D8 contractible. UCT gives H1(Z)=0 and H2(Z)=Z+Z2; integral Bockstein on nonzero H1(F2) injects into the order-2 class, reduction is nonzero, so Sq1(alpha)=alpha^2 !=0. Finite n4..7 census is exhaustive only for stated lower cutoff.
+
+## originality
+
+PASS
+
+The noncrossing matching complex on chord vertices with no shared endpoints is not the noncrossing diagonal associahedral complex (shared endpoints permitted) or the compatibility graph on perfect matchings. No retrieved result computes these integral ordinary orbit quotients or their cohomology operation. Jonsson noncrossing graphs chapter is a genuine unresolved literature-access priority risk, but insufficient access alone is not automatic failure.
+
+## value
+
+PASS
+
+First small-n torsion threshold, integral pi1 and mod-two cohomological square give precise obstructions invisible in rational Betti counts. Adding reflections collapses the same finite natural matching object, a striking symmetry dependence valuable for equivariant combinatorial topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
