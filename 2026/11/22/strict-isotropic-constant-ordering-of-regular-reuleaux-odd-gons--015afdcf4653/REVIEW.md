@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The geometric boundary-arc normalization independently reconstructs the previously published area and polar-moment formulas for all odd orders including the classical triangle case. Exact differentiation reduces the new comparison to positivity of one polynomial expression along the tangent curve. A complete uniform rational certificate, rechecked using only standard-library integer fractions, bounds its normalized derivative numerator below by \(12701/9000\). The tangent coefficient bound controls every omitted term; finite quadrature and sample-order tests are supplementary rather than substitutes for the real-interval proof. Scale invariance, endpoint \(n=3\), disk limit, and normalization are explicit.
+
+## Originality
+**PASS, subject to historical priority limits.** The closest public prior result, *Polar moment and isotropic constant of regular Reuleaux odd-gons* (2026-10-11), explicitly gives the individual invariant formulas and their quartic disk defect, and expressly leaves monotonicity across odd orders unclaimed. The present strict cross-order theorem needs a separate nontrivial all-interval derivative sign proof. Chen, Chen and Jin (2023) compare circumradii at fixed order, not the cross-order isotropic invariant. Other geometric isotropic-constant monotonicity results concern different bodies. Searches for the continuous tangent derivative formulation, an order-parameter comparison, and an equivalent area-normalized moment ordering did not identify a covering theorem. The 2023 publisher full text could not be accessed; its abstract and visible introduction were inspected, and a previously unindexed result remains possible.
+
+## Mathematical value
+**PASS.** The exact invariant was previously known, but its behavior under increasing odd polygon order was not: raw area and polar inertia both change at order \(n^{-2}\), whereas the affine invariant cancels those terms. Proving its *strict* ordering gives an inverse geometric fingerprint of the number of arcs and an exact adjacent-order separation scale. The key global positivity is not an isolated computed value or a routine restatement of the formula: the proof requires a uniform analytic remainder bound and a finite rational positivity certificate. It answers a natural shape-to-disk hierarchy question without claiming an unrestricted constant-width extremal theorem.
+
+## Closest literature and remaining limits
+The 2026 prior formula and the 2014 order-three engineering moment are fully credited, not rebranded as discoveries. The 2023 circumradius paper is only partially accessible and may contain additional geometric comparisons not visible in its preview. Unindexed mechanical or convex-geometric monographs could contain an equivalent monotonic ordering. The result is specific to regular Euclidean Reuleaux odd-gons and does not establish a theorem for arbitrary constant-width curves.
+
+Self-review: passed. Independent audit: not yet performed.
