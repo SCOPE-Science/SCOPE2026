@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Every state is generated exactly from all \\(2^{16}\\) horizontal assignments and exact vertical recursion; no possible configuration is omitted. For every move, the toggled state passes all ice constraints exactly iff the given simple cycle is coherently directed. A union–find census of all 2970 states and all 256 specified move repertoires proves 19/11/1 component counts and 225 connected cases. A separately formulated Gray-coded \\(Q_4\\) edge-orientation enumeration with independent adjacency calculation reproduces every classification. Flux invariance proves necessity; finite connectivity and monotonicity establish sufficiency. The result does not extrapolate past the 4-by-4 graph.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang–Qian arxiv:2011.07481 gives homology-related surface orientation connectivity results, which do not assert the designated-loop minimality.",
+        "Borodin–Bufetov arxiv:1509.05070 evolves a different set of moves; 2023 physical work permits nonlocal loop crossings in general."
+      ],
+      "reasoning": "The potentially dominating literature permits all directed loops, or limits flips to homologous/facial sectors. The former uses more update types; the latter cannot cross both flux directions. Neither inspected statement supplies the exact two fixed transverse length-four loop sufficiency, which is a stronger operational constraint.",
+      "searches": [
+        "four-by-four periodic six-vertex configuration Markov chain minimal two distinguished noncontractible row column loop updates ergodic 225",
+        "arxiv:2011.07481",
+        "arxiv:1509.05070",
+        "site:arxiv.org square ice toroidal loop Monte Carlo irreducibility"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/9706190",
+      "https://arxiv.org/html/2011.07481v2",
+      "https://doi.org/10.1103/PhysRevResearch.5.043172",
+      "https://arxiv.org/abs/1509.05070",
+      "Published research record, 2026-11-08"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Face-only flux components are known and imply *necessity* of a winding move in each direction, but do not prove that two fixed loops suffice.",
+        "General directed-loop Monte Carlo irreducibility allows configuration-dependent loop selection and hence does not imply the fixed-support result.",
+        "Finite full-state exact connectivity computations establish the new missing sufficiency condition."
+      ],
+      "reasoning": "The specific implication at issue is whether from unrestricted directed-loop flip ergodicity or same-homology facial-flip connectivity one can infer reachability using only 16 faces plus one pre-selected row plus one pre-selected column. Neither theorem supplies that reduction. The new finite proof checks every reachable state and proves minimality separately via conserved flux.",
+      "searches": [
+        "C4 times C4 square ice arbitrary two fixed perpendicular winding cycle reversals 16 face flips irreducible 2970 Eulerian orientations",
+        "six-vertex toroidal ice face flips plus one horizontal and vertical loop globally connect all flux sectors",
+        "arxiv:2305.08571 Section C Flux sectors",
+        "arxiv:2011.07481 Theorem 3.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barkema–Newman arxiv:cond-mat/9706190 uses adaptive loop updates, not a fixed two-support set.",
+        "Kondákor–Penc arxiv:2305.08571 establishes qualitative flux changes under boundary-crossing loops, not a quantitative fixed-loop generator criterion."
+      ],
+      "reasoning": "Recasting as minimal irreducible generating loop types, minimal support for six-vertex Monte Carlo, or fixed transverse directed-cycle reversals gives the same claim. Known general loop ergodicity is not itself the fixed-position sufficiency statement; the tested repertoire must be fixed independently of the configuration.",
+      "searches": [
+        "C4 times C4 square ice arbitrary two fixed perpendicular winding cycle reversals 16 face flips irreducible 2970 Eulerian orientations",
+        "six-vertex toroidal ice face flips plus one horizontal and vertical loop globally connect all flux sectors",
+        "\"square ice\" \"winding loop\" irreducible",
+        "arxiv:2305.08571"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published complete 4-by-4 face-only census already tabulates 2970 ice states and 69 face-only components.",
+        "The published 16-site quantum-ice flux table records 990 states in the central sector, not 225 selected move repertoires or 19/11/1 augmented component counts."
+      ],
+      "reasoning": "The base configuration count and component census are expressly prior and excluded from the novel claim. Exact database search found no enumerated minimum two designated loops, 16 optimal pairs, or all-256-subsets connectivity law. Missing indexed records cannot prove absence.",
+      "searches": [
+        "C4 times C4 square ice arbitrary two fixed perpendicular winding cycle reversals 16 face flips irreducible 2970 Eulerian orientations",
+        "four-by-four periodic six-vertex configuration Markov chain minimal two distinguished noncontractible row column loop updates ergodic 225",
+        "four by four square ice torus noncontractible loops flips restore ergodicity all sectors horizontal vertical winding",
+        "minimum additional row and column reversals to connect face flip sectors square ice torus"
+      ]
+    },
+    "rationale": "A statement-level comparison with original loop-Monte Carlo work, toroidal flux-sector physics, surface alpha-orientation homology theorems and the published exact face-only 4-by-4 census found the latter two background counts known but did not find the sharp minimum fixed-loop generator selection law. General all-loop updates and face-only within-flux connectivity do not imply the restricted fixed two-loop sufficiency. Historical priority is not conclusively certified; older unpublished or unindexed tables remain a genuine residual risk.",
+    "residual_risks": [
+      "An unindexed earlier finite-state enumeration or a general theorem on fixed-loop generators might already imply the result.",
+      "A broader ergodic algorithm with all directed loops should not be confused with the present restricted designated-cycle result; scholarly comparison may find a stronger unstated corollary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General adaptive loop algorithms are different from selecting exactly one specified row and one specified column length-four loop; the sharp fixed-generator criterion and 256 possibilities are not stated.",
+        "evidence": [
+          "arxiv:cond-mat/9706190",
+          "The proposed loop algorithm permits broader loop choices than the designated move support."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/9706190",
+        "material_read": "Full open preprint, including sections describing loop/cluster simulation and periodic configurations.",
+        "method": "Open-access arXiv full text and section-level comparison.",
+        "title": "Monte Carlo simulation of ice models",
+        "trigger": "Foundational directed-loop and square-ice Monte Carlo ergodicity literature."
+      },
+      {
+        "assessment": "Describes connectivity within homology classes and general circuit flips; does not entail fixed two labelled short winding loops sufficient to connect all labelled finite states.",
+        "evidence": [
+          "arxiv:2011.07481",
+          "Theorem 3.4 and Corollary 3.5 address homology and facial connectivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2011.07481v2",
+        "material_read": "Introduction, connectivity theorem and corollary for homologous alpha orientations, and surface-face flip restrictions.",
+        "method": "Full-text HTML primary-preprint examination and statement comparison.",
+        "title": "Flips on homologous orientations of surface graphs with prescribed forbidden facial circuits",
+        "trigger": "Broad homology and reachability theorems could subsume local facial-flip component arguments."
+      },
+      {
+        "assessment": "It explicitly recognizes boundary-crossing directed loop flips between flux sectors and the 990 central sector, but does not state a minimal *fixed pair* of row and column loops, or the 256-subset classification.",
+        "evidence": [
+          "arxiv:2305.08571",
+          "Section C: local moves conserve flux; boundary-crossing directed loops change flux; 16-site sector degeneracy 990."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.5.043172",
+        "material_read": "The full published web article, particularly Section C on flux sectors, the 16-site sector count and Appendix A.",
+        "method": "Publisher article full-text passage and tabulated 16-site flux-sector statements.",
+        "title": "Crystalline phases and devil's staircase in qubit spin ice",
+        "trigger": "Highly relevant 16-site periodic quantum ice and winding sector treatment."
+      },
+      {
+        "assessment": "Its irreversible particle-move Markov dynamics is not the undirected strict directed-face and designated length-four winding-loop reversal graph.",
+        "evidence": [
+          "arxiv:1509.05070",
+          "Different transition rule and objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.05070",
+        "material_read": "Full publicly accessible preprint, its definition of updates and invariant measures.",
+        "method": "arXiv full-text literature comparison.",
+        "title": "An irreversible local Markov chain that preserves the six vertex model on a torus",
+        "trigger": "Another toroidal six-vertex transition system possibly implying minimal updates."
+      },
+      {
+        "assessment": "Proves face-only graph has 69 components and flux-sector distances while explicitly excluding winding-cycle reversal. The 2970 and 69 facts are credited, not claimed new. It does not cover any fixed winding-loop generator selection.",
+        "evidence": [
+          "Published 2026-11-08 exact face-reversal record",
+          "Its assumptions explicitly disallow winding-cycle reversals."
+        ],
+        "identifier_or_url": "Published research record, 2026-11-08",
+        "material_read": "Complete available finding, definitions, exhaustive proof, verification discussion, relation to prior work and limitations.",
+        "method": "Published full research document comparison by mathematical claim and allowed move support.",
+        "title": "Exact face-reversal sectors and metric centers of the four-by-four square-ice torus",
+        "trigger": "Exact same 2970-state ice space and facial move set could dominate the proposed finding."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "126a5c31-2e2e-446e-bf41-19ad55ffcdc6",
+  "value": {
+    "rationale": "The physical square-ice torus has topologically protected winding sectors, creating a direct obstacle to local Markov-chain sampling. The precise minimal predetermined nonlocal update repertoire is a natural operational invariant: just one fixed row and one fixed column cycle, together with all plaquettes, make the entire 2970-state system irreducible, while either kind alone provably fails. The sharp 16 minimal pairs and complete 225/256 classification provide a reproducible finite benchmarking fact not furnished by the known face-only census. No general-size or mixing-speed contribution is asserted.",
+    "status": "PASS"
+  }
+}
