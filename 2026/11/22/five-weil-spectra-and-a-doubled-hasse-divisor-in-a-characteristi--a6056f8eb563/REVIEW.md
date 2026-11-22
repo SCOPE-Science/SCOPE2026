@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The smoothness condition and genus follow by a derivative calculation. The dihedral cohomology representation gives the square Weil numerator, not merely coincidental finite counts. All exact arithmetic values were recomputed in two inequivalent finite-field coordinate representations and agree with direct genus-four counts. The diagonal Cartier–Manin formula is derived from explicit multinomial coefficients; its two coprime factors yield six geometrically reduced rank-drop points. The independent-check status is unperformed.
+
+**Originality — PASS, qualified.** The normal form and dihedral automorphisms are covered by Ohashi–Kudo (arXiv:2312.16858); the general decomposition of hyperelliptic genus-four Jacobians into a genus-two square is discussed by Bruin–Kulkarni (arXiv:2309.01959). Neither cited item supplies the characteristic-eleven table of five Weil numerators or the complete characteristic-eleven Hasse roots, or the unique elliptic-fourth-power type. Relevant arithmetic classifications at other primes and for other genus-four pencils do not imply these field-specific findings. Searches and historical comparisons cannot rule out an unindexed earlier identical calculation.
+
+**Mathematical value — PASS.** This is a natural first split characteristic for the order-five dihedral action, where the finite marked family has a complete isogeny spectrum. The explicit distinction between an ordinary fourth-power elliptic Jacobian, a rank-two Hasse stratum, and three other ordinary isogeny types refines the coarse automorphism and Newton-polygon information. The exact length-six reduced support and doubled determinant divisor give complementary geometric information beyond point-count examples.
+
+**Closest literature and limitations.** Ohashi–Kudo supply the group normal form and broader superspecial setting; Bruin–Kulkarni supply related isogeny-square geometry; the cyclic-six genus-four literature concerns another symmetry type. This statement classifies coefficient-marked curves and their Jacobians up to isogeny, not polarized Jacobians or abstract isomorphism classes. Historical priority is a residual risk, and no independent mathematical audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
