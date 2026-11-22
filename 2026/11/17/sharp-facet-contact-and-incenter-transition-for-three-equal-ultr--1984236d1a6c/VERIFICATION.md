@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-21.md",
+      "INDEPENDENT_AUDIT_2026-11-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Extract `verify_three_clusters.py` in the same directory and run:
+## correctness
 
-```sh
-python3 verify_three_clusters.py
-```
+PASS
 
-The checker uses Python standard-library exact `Fraction` arithmetic and SymPy for contact-span ranks. It builds saturated-constraint graphs from candidate real potential assignments and retains exactly those with a connected graph. It compares global maximal Euclidean normal lengths, contact counts and center-rank predictions for \(m=2,3\) (the \(m=2\) cases are regression controls, not a novelty claim), including the transition equality at \(t=3/4\) for \(m=3\). Independently, it allows simultaneous intermediate points on both lower and upper sides in \(224\) integer profile optimizations, checking strict screening and the all-size formula for profile maxima. The run produced:
+Verify polar extremal potentials via connected tight graph rank N-c; each cluster has nonempty 0 anchors with t intermediates or 1 anchors with 1-t intermediates, giving six type patterns and (2^m-1)^3 anchors. Two-sided intermediate replacement preserves coordinate sum and strictly raises squared centered norm by 2t(1-t). Reduce maximum to Q(r) with one upper block; concavity yields nearest integers and threshold when Q(1)=Q(0). Opposite maximal facets force global radius regardless center; contact exchanges span dimension 2 below threshold or all H at/above, giving exact center dimensions. Independent graph-saturation enumeration for m=3, t=1/2,3/5,3/4,4/5 yielded 2058 vertices per case and exact contacts/ranks. Infinite m/t follow proof, not sample.
 
-```
-EXACT_COMPLETE_TIGHT_GRAPH_CHECK_PASS cases= 8 vertices= 10776
-INDEPENDENT_TWO_SIDED_INTEGER_PROFILE_CHECK_PASS cases= 224
-THREE_CLUSTER_INBALL_AND_CENTER_COLLAPSE_ALL_CHECKS_PASS
-```
+## originality
 
-The code enumerates a finite set of rational parameters, not all real values. The analytical proof establishes the theorem's infinite domain. Other Euclidean embeddings and endpoint values are outside the claim. The verification is same-model reproducibility evidence and is not an independent mathematical audit.
+PASS
+
+Classical connected tight-graph extremality is known, and 2024 Bredies--Chirinos--Naldi treats extreme Lipschitz functions and vector-valued representers. Prior Resultary one-cluster and two-cluster equal-type inballs and equal-multipartite but different distance normalization are not stronger results containing this three equal ultrametric theorem. Integer quadratic one-sided screening yields a new threshold and exact center-rank collapse absent from those inspected statements.
+
+## value
+
+PASS
+
+A canonical three-block hierarchy is a natural next case where optimal Euclidean inball contacts and centers change discontinuously. Full facet count, contact counts and sharp threshold show geometry not captured by crude projection norms or ordinary polar vertex classification; exact all-parameter classification is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

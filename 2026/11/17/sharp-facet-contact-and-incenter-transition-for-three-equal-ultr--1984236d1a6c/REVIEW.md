@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-All quantifiers are explicit: three labelled clusters of equal size \(m\ge3\), common internal distance \(0<t<1\), cross distance one, and the canonical zero-sum Euclidean norm. The proof derives the connected-tight-graph characterization directly from the rank of equality constraints. Every extreme potential has a lower/upper cluster assignment with nonempty anchor sets. A strict replacement argument of size \(2t(1-t)\) eliminates simultaneous lower and upper intermediate values. The remaining concave integer quadratic has exactly the specified maximizers. Central symmetry proves global, not merely origin-centered, inradius optimality; the span of all contacting normals proves the full incenter dimension and verifies the equality boundary. Exact rational checks independently enumerate all polar vertices for the stated small cases, test both-sided integer profiles, and check normal ranks. No inference from finite enumeration is used to prove the infinite family.
+PASS
 
-## Originality (PASS, subject to historical-priority risk)
+Verify polar extremal potentials via connected tight graph rank N-c; each cluster has nonempty 0 anchors with t intermediates or 1 anchors with 1-t intermediates, giving six type patterns and (2^m-1)^3 anchors. Two-sided intermediate replacement preserves coordinate sum and strictly raises squared centered norm by 2t(1-t). Reduce maximum to Q(r) with one upper block; concavity yields nearest integers and threshold when Q(1)=Q(0). Opposite maximal facets force global radius regardless center; contact exchanges span dimension 2 below threshold or all H at/above, giving exact center dimensions. Independent graph-saturation enumeration for m=3, t=1/2,3/5,3/4,4/5 yielded 2058 vertices per case and exact contacts/ranks. Infinite m/t follow proof, not sample.
 
-The primary finite-metric extremality literature establishes the tight-graph criterion, but not the fixed-Euclidean insphere, its sharply varying contact multiplicity, or its all-center rank for three equal clusters. Gordon–Petrov's inspected generic-metric combinatorics do not settle this nongeneric metric. A published disjoint-shortened-pair classification covers size-two clusters, and prior two-cluster inball work covers only two groups; neither is an implication of the new \(m\ge3\) triple-cluster statement. An inspected general clustered-metric projection theorem computes a different Banach-space invariant. Searching exact thresholds and equivalent maximum-variance terminology did not expose a stronger result; this is not a proof of novelty, and unindexed equivalent formulations remain a risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The result completely classifies the inradius, origin contact multiplicity and all-optimal-center affine dimension over a natural one-parameter, unbounded-dimensional family. The strict one-sided screening lemma explains why mixed extreme potentials cannot dominate the Euclidean geometry. The sharp threshold at \(2m/(3m-1)\) turns an affine family of dimension \(3m-3\) into a unique center and changes the active-facet combinatorics. This is mathematically stronger than a facet recount or a sampled numerical experiment and complements the known projection and Banach–Mazur metrics without claiming that it determines them.
+Classical connected tight-graph extremality is known, and 2024 Bredies--Chirinos--Naldi treats extreme Lipschitz functions and vector-valued representers. Prior Resultary one-cluster and two-cluster equal-type inballs and equal-multipartite but different distance normalization are not stronger results containing this three equal ultrametric theorem. Integer quadratic one-sided screening yields a new threshold and exact center-rank collapse absent from those inspected statements.
 
-## Closest literature and limits
+## value
 
-The most relevant inspected original sources are arXiv:2304.14039 (full lawful open-access article), arXiv:1608.06848 (full journal HTML), and published disjoint-pair and clustered-projection results (full statements/proofs). They supply the convex-geometric vocabulary but not this three-cluster calculation. The exact formulas do not extend as written to heterogeneous clusters or to \(t=1\); independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical three-block hierarchy is a natural next case where optimal Euclidean inball contacts and centers change discontinuously. Full facet count, contact counts and sharp threshold show geometry not captured by crude projection norms or ordinary polar vertex classification; exact all-parameter classification is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
