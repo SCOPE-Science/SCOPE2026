@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T21:09:53.614429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Restrict the ellipsoid support function to viewing plane: shadow squared semiaxes are eigenvalues of Q=diag(B+η,B,B−Δ) compressed to N⊥. Its 2×2 discriminant is exactly G²=(η−(η+Δ)x²−Δ y²)²+4ηΔ y². We independently assembled the 2×2 compression at six nonpolar normals/two parameter sets and matched this formula to numerical precision. G<tη implies transverse x,y=O(sqrt(η/Δ)); scaled u,v satisfy |1−(u+iv)²|²<t² in the limit. A bounded local chart and algebraic zero-area boundary permit dominated convergence even at t=1; the two hemisphere charts give factor 1/(2π). The branched map w=z² has Jacobian area conversion |C_t|=(1/2)∫_{|w−1|<t}|w|^(−1)dA; polar integration yields the stated E,K formulas, Φ(1)=1/π and Φ small/large limits. Differentiating K as k↑1 yields logarithmic slope coefficient 1/(2π). The open two lobes meet only at boundary at t=1, so the statement correctly distinguishes open from closed connectivity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary earlier finding computes quartic small-eccentricity probability for fixed triaxial CENTRAL SECTIONS; Binney plots projected-ratio contours for fixed semiaxes."
+        ],
+        "reasoning": "Central sections of an ellipsoid are polar-dual to shadows of its reciprocal ellipsoid, but a fixed-anisotropy eccentricity expansion cannot be substituted in nonuniform η→0 regime to get the crossover and conditional Cassini law.",
+        "searches": [
+          "Cassini oval near oblate ellipsoid projected shadow nearly circular axis ratio double scaling elliptic integrals",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quartic-near-circular-section-tails-and-a-sharp-two-statistic-am--a318f23c4103",
+          "https://articles.adsabs.harvard.edu/pdf/1985MNRAS.212..767B"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and five public metadata/review files; check_projection.py",
+        "https://articles.adsabs.harvard.edu/pdf/1985MNRAS.212..767B",
+        "https://arxiv.org/abs/astro-ph/0101106",
+        "Resultary quartic triaxial central section RESULT.md",
+        "Resultary semantic query: Cassini oval near oblate ellipsoid projected shadow nearly circular axis ratio double scaling elliptic integrals"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binney Eq. (10)–(12) orientation formula determines projected semiaxes in principle, but does not analyze uniform coalescence near an axisymmetric degeneration."
+        ],
+        "reasoning": "The explicit double-scaling asymptotic can be derived from known formulas by additional singular analysis; existence of a base formula does not make the new uniform limit an asserted corollary.",
+        "searches": [
+          "Cassini oval near oblate ellipsoid projected shadow nearly circular axis ratio double scaling elliptic integrals",
+          "https://articles.adsabs.harvard.edu/pdf/1985MNRAS.212..767B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binney 1985 general orientation-to-projected-ratio relation; Jones–Basu–Dubinski fixed triaxial model."
+        ],
+        "reasoning": "Axis ratio q≈1−G/(2B) on near-round events provides an equivalent normalized observable but the earlier fixed-shape formulas do not directly state this joint η/tolerance limit.",
+        "searches": [
+          "Cassini oval near oblate ellipsoid projected shadow nearly circular axis ratio double scaling elliptic integrals",
+          "https://arxiv.org/abs/astro-ph/0101106"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical tables of Cassini oval areas/complete elliptic integrals furnish the area once the limiting region is identified; no inspected table relates that region to near-oblate projected axis-gap probabilities."
+        ],
+        "reasoning": "The area integral by itself is standard; the identification of the stochastic scaling and conditional law is not a known database lookup.",
+        "searches": [
+          "Cassini oval near oblate ellipsoid projected shadow nearly circular axis ratio double scaling elliptic integrals",
+          "Resultary ellipsoid and shadow query"
+        ]
+      },
+      "rationale": "Older triaxial projection formulas and fixed-anisotropy near-round tails include the compression geometry, but do not give the singular simultaneous η-varying tolerance, normalized conditional Cassini law, or elliptic crossover singularity. The prior fixed-section quartic eccentricity result is a different sampling object and limit. The classical Cassini curve is not asserted new.",
+      "residual_risks": [
+        "Full molecular-cloud fixed-shape distribution text not inspected; could contain a limiting construction.",
+        "Neither finite-η uniform error bound nor simultaneous collapse of Δ is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GEOMETRY / no observed crossover theorem",
+          "evidence": "Projection formula for fixed shapes, with small nearly round contours, but not a two-parameter limit.",
+          "identifier_or_url": "https://articles.adsabs.harvard.edu/pdf/1985MNRAS.212..767B",
+          "material_read": "Viewed PDF text and page 4 screenshot showing Eq. (10)–(12) projected ratios and orientation contours",
+          "method": "web PDF open and screenshot (turn425577view0, turn951215view0)",
+          "title": "Testing for triaxiality with kinematic data",
+          "trigger": "Same triaxial projection geometry"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "Fixed-triaxial observed ratios may be close; conditional Cassini claim not confirmed covered or not-covered by full text.",
+          "identifier_or_url": "https://arxiv.org/abs/astro-ph/0101106",
+          "material_read": "Available abstract and citation/overview; the old-style arXiv full version was not completely inspected",
+          "method": "bibliographic web and assigned citation, not full paper",
+          "title": "Intrinsic Shapes of Molecular Cloud Cores",
+          "trigger": "Same apparent axis-ratio distribution"
+        },
+        {
+          "assessment": "NOT_COVERING joint near-oblate shadow crossover",
+          "evidence": "Fixed-shape central-section eccentricity quartic tail with inverse-problem formulas; t,η joint limit absent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quartic-near-circular-section-tails-and-a-sharp-two-statistic-am--a318f23c4103",
+          "material_read": "Read full published RESULT.md at GitHub frozen public record",
+          "method": "read GitHub full result",
+          "title": "Quartic near-circular section tails and a sharp two-statistic ambiguity for triaxial ellipsoids",
+          "trigger": "Potential polar-duality stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A small non-axisymmetric perturbation changes near-round shadow probability from a quadratic to linear window law. The explicit interpolation across its singular topological transition and conditional viewing-direction law are independently motivated geometric-probability results for shape inference, rather than a bare elliptic-integral table entry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full molecular-cloud fixed-shape distribution text not inspected; could contain a limiting construction.",
+    "Neither finite-η uniform error bound nor simultaneous collapse of Δ is proved."
+  ],
+  "schema_version": 1
+}

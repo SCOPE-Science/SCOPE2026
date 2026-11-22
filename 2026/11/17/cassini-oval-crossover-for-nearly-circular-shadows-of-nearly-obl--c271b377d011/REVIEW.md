@@ -1,21 +1,21 @@
-# Scientific review: Cassini-oval crossover in ellipsoid shadows
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to \(B>\Delta>0\), fixed \(t>0\), and \(\eta\downarrow0\). The compression of the positive definite squared-semiaxis matrix to the viewing plane gives the projected squared semiaxes. Computing the trace and determinant after removal of the scalar matrix \(BI\) gives the exact discriminant identity (1) in RESULT.md. The near-round event forces transverse squared coordinates to be at most \((1+t)\eta/\Delta\); therefore the rescaled domain is uniformly bounded. The sphere chart has its exact Jacobian, and the limiting algebraic boundary has zero area even at \(t=1\), justifying dominated convergence and conditional uniformity. The two-to-one square map gives the precise factor in Cassini area; radial integration produces the stated elliptic-integral expressions. Differentiation and standard singular asymptotics of the complete elliptic integral establish the logarithmic slope. The checker independently confirms the discriminant and sample integrals. A numerical fit alone would not prove the result.
+PASS
 
-## Originality — PASS, with explicit coverage boundaries
+Restrict the ellipsoid support function to viewing plane: shadow squared semiaxes are eigenvalues of Q=diag(B+η,B,B−Δ) compressed to N⊥. Its 2×2 discriminant is exactly G²=(η−(η+Δ)x²−Δ y²)²+4ηΔ y². We independently assembled the 2×2 compression at six nonpolar normals/two parameter sets and matched this formula to numerical precision. G<tη implies transverse x,y=O(sqrt(η/Δ)); scaled u,v satisfy |1−(u+iv)²|²<t² in the limit. A bounded local chart and algebraic zero-area boundary permit dominated convergence even at t=1; the two hemisphere charts give factor 1/(2π). The branched map w=z² has Jacobian area conversion |C_t|=(1/2)∫_{|w−1|<t}|w|^(−1)dA; polar integration yields the stated E,K formulas, Φ(1)=1/π and Φ small/large limits. Differentiating K as k↑1 yields logarithmic slope coefficient 1/(2π). The open two lobes meet only at boundary at t=1, so the statement correctly distinguishes open from closed connectivity.
 
-Binney (1985) and Jones–Basu–Dubinski (2001) already give the general line-of-sight formula for the apparent axis ratio, including the fact that the density of nearly circular projections of a fixed triaxial ellipsoid tends to zero. A previously recorded central-section theorem supplies the fixed-triaxial near-circular coefficient, which by polar duality also covers the fixed-shape shadow coefficient. **Neither this coefficient nor classical circular viewing directions are claimed new.**
+## originality
 
-The assessed result instead takes both anisotropy and roundness tolerance to zero at the same rate. Fixed-anisotropy asymptotics are nonuniform on that scale. The new statement is the complete elliptic-integral crossover \(\Phi(t)\), the Cassini-region conditional viewing-direction law, and the infinite-slope topology threshold at \(t=1\). Relevant searches of mathematical finding records and scholarly literature did not identify this two-parameter limit. Binney's general formula makes the theorem approachable but does not state the rescaling or perform the singular limit. Stark's original 1977 paper was not inspected in full, and hidden overlap in specialized optics or astrophysics literature remains a priority risk.
+PASS
 
-## Mathematical value — PASS
+Older triaxial projection formulas and fixed-anisotropy near-round tails include the compression geometry, but do not give the singular simultaneous η-varying tolerance, normalized conditional Cassini law, or elliptic crossover singularity. The prior fixed-section quartic eccentricity result is a different sampling object and limit. The classical Cassini curve is not asserted new.
 
-Nearly round shadows are a natural shape-inference statistic: a vanishing fixed-triaxial density and a nonvanishing axisymmetric endpoint density are well-known qualitatively, yet provide contradictory extrapolations if both shape anisotropy and observational tolerance are small. The crossover resolves their noncommutation, gives a universal Cassini-oval conditional geometry, and identifies a specific logarithmic nonanalyticity at the merger of the two almost-circular viewing-direction neighborhoods. Its object and invariant are intrinsically motivated by orthographic shadow geometry; the result is not a free-standing unmotivated integral evaluation.
+## value
 
-## Limits and closest literature
+PASS
 
-The theorem is first-order in the simultaneous near-oblate limit, not a uniform finite-anisotropy distribution. Jones–Basu–Dubinski, *Intrinsic Shapes of Molecular Cloud Cores* (2001), Sections 2 and 5; Binney, *Testing for triaxiality with kinematic data* (1985), Section 2 and Figure 1; the prior fixed-ellipsoid central-section asymptotic; classical Cassini ovals. Specialized earlier treatments of the near-axisymmetric optical-axis merger remain possible. No independent audit or mathematical certification has been conducted.
+A small non-axisymmetric perturbation changes near-round shadow probability from a quadratic to linear window law. The explicit interpolation across its singular topological transition and conditional viewing-direction law are independently motivated geometric-probability results for shape inference, rather than a bare elliptic-integral table entry.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
