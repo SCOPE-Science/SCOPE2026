@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Positive-definite star plus positive baseline; unrestricted leaf-symmetrization is strictly improving by common nonzero-leaf smallest eigenvector. Quotient spectral extremal roots straddle every leaf mode. Differentiation gives exactly one minimizer; the budget crossover is the sole positive root of the stated quadratic. Standalone 8962 exact and independent full-matrix assertions passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Greif and Varah 2006 author PDF, sections 1–3, studies free low-rank modifications without fixed coordinate-diagonal budget constraints.",
+        "Lu and Pong 2011, Section 3, general positive-semidefinite convex feasible sets with SDP characterization, no closed star formula."
+      ],
+      "reasoning": "A general algorithm over convex spectra covers the present feasible set computationally, but does not state or imply a closed analytic leaf/hub allocation formula from its listed conclusions without solving this new exact instance. The Greif–Varah unrestricted low-rank objective permits perturbations outside the diagonal budget simplex; its optimizer need not be admissible here.",
+      "searches": [
+        "published-finding corpus: Exact spectral condition number optimal vertex grounding of star Laplacian aI + L(K1,m) under fixed sum diagonal shunts",
+        "Web: Lu Pong minimizing condition number via convex programming pdf full text 2011",
+        "Web: convex diagonal perturbation fixed trace minimize condition number positive definite Laplacian"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1137/050647554",
+      "https://www.cs.ubc.ca/~greif/Publications/gv2006.pdf",
+      "https://doi.org/10.1137/100795097",
+      "https://www.researchgate.net/publication/220656493_Minimizing_Condition_Number_via_Convex_Programming",
+      "https://proceedings.mlr.press/v32/kurras14.pdf",
+      "published-finding corpus 2026/10/18/SCOPE-a-quadratic-conditioning-penalty-from-frobenius-optimal-diagonal--18e1415f2a68",
+      "published-finding corpus 2026/11/2/SCOPE-exact-priced-star-spectral-gap-allocation-and-the-polygon-thresh--d350c417a5ce",
+      "Own accessible ledger generation g000120 (prior claims only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own previous finding f35e91a6-b553-47eb-9452-16233b2caa08 studies hard grounded leader-set trace of squared inverse of a principal Laplacian block, a distinct feasible family and objective.",
+        "published-finding corpus 2026/11/2/SCOPE-exact-priced-star-spectral-gap-allocation-and-the-polygon-thresh--d350c417a5ce optimizes edge conductance under prices, not diagonal vertex loads.",
+        "Lu–Pong 2011 Section 5 concerns positive diagonal congruences as preconditioners, not fixed trace additive augmentation."
+      ],
+      "reasoning": "Neither a discrete hard-grounding trace objective, edge-conductance spectral-gap allocation, nor an unrestricted low-rank or multiplicative preconditioner result yields the stated exact additive-diagonal condition-number optimizer by direct parameter substitution or corollary. The explicit strict uniqueness and quadratic hub activation require the quotient spectral analysis given in the new proof.",
+      "searches": [
+        "Own accessible ledger 2026-11_week3__private research ledger__p0001_g000120.jsonl, claim scan: star grounding, trace-inverse leader choice, Crank–Nicolson positivity, rank consensus",
+        "published-finding corpus: Greif Varah 2006 diagonal perturbation trace budget star condition number Lu Pong 2011",
+        "published-finding corpus: Sharp threshold for hub vertex diagonal regularization budget on unweighted star with anchored Laplacian spectral condition number, all leaves equal unique optimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lu and Pong 2011, full author-provided text, introductory formulation (1) and Section 3: arbitrary convex sets give a generic SDP characterization; Section 5 treats multiplicative diagonal preconditioning.",
+        "published-finding corpus 2026/10/18/SCOPE-a-quadratic-conditioning-penalty-from-frobenius-optimal-diagonal--18e1415f2a68 addresses diagonal congruence, not additive constrained loading."
+      ],
+      "reasoning": "The equivalent optimization can be written as condition-number minimization over a convex affine image of a simplex, falling under Lu–Pong; however generic SDP solvability is not an explicit formula for the star, not an exact active-set budget threshold and not a strict solution-uniqueness theorem. Diagonal similarity/congruence is not equal to adding diagonal matrices.",
+      "searches": [
+        "published-finding corpus: On a star graph Laplacian with positive scalar shift, distributing nonnegative diagonal loading under a total budget uniquely minimizes the spectral condition number; sharp leaf-only to mixed center-leaf phase transition",
+        "published-finding corpus: Grounded Laplacian star regularization distribute diagonal shunts condition number additive uniform leaves versus hub phase boundary",
+        "Web: optimal diagonal loading fixed budget condition number grounded graph star Laplacian spectral condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned indexed findings include star edge spectral-gap cost allocation, perfect grounding placement and positive-definite star diagonal congruence; none presented the continuous additive vertex-budget condition-number optimizer.",
+        "Greif–Varah full PDF and Lu–Pong full author text inspected; neither states a star-loading threshold or corresponding tabulation."
+      ],
+      "reasoning": "No exact star-loading formula/table was encountered in the actual indexed searches and the inspected closest primary materials. This is limited coverage evidence, not proof that no such result exists in a less searchable database.",
+      "searches": [
+        "published-finding corpus: Sharp threshold for hub vertex diagonal regularization budget on unweighted star with anchored Laplacian spectral condition number, all leaves equal unique optimal",
+        "published-finding corpus: Minimizing Condition Number via Convex Programming Lu Pong diagonal perturbations star graph Laplacian fixed trace vertex loading optimal active set",
+        "published-finding corpus: Diagonal loading fixed trace star symmetric positive definite matrix condition number optimizer central and leaf diagonal regularization"
+      ]
+    },
+    "rationale": "Primary close texts Greif–Varah 2006 and Lu–Pong 2011, both inspected materially, address unconstrained low-rank perturbations or generic convex condition-number programs, not the explicit additive simplex-budget star solution or support threshold. Kurras–von Luxburg–Blanchard 2014 addresses another graph Laplacian adjustment. Accessible own ledger and published-finding corpus compared by implications. Unindexed equivalents remain an explicit publication-priority risk.",
+    "residual_risks": [
+      "Unindexed earlier star-specific diagonal-loading active-set formulas or historical technical reports could give equivalent result.",
+      "The Lu–Pong general convex-SDP characterization subsumes solvability of this problem but not the new closed analytical specialization. Independent priority review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state bounded nonnegative coordinate-diagonal budget star optimum",
+        "evidence": "Problem (1.1) permits unconstrained U,V rank-k modifications; paper explores eigenvector-aligned updates, not simplex-budget diagonal vertex loading.",
+        "identifier_or_url": "https://www.cs.ubc.ca/~greif/Publications/gv2006.pdf",
+        "material_read": "Full 16-page paper, especially introduction, symmetric low-rank theorems and examples",
+        "method": "Open-access author PDF, text sections and page-image inspection",
+        "title": "Minimizing the Condition Number for Small Rank Modifications",
+        "trigger": "Nearest primary analysis of condition number under matrix updates"
+      },
+      {
+        "assessment": "Includes the problem as a generic convex set, but not the exact star support threshold or allocation",
+        "evidence": "Section 3, Corollaries 3.6–3.8 give solvable SDPs; Section 5, Theorem 5.2 concerns multiplicative matrices X^T C^T C X.",
+        "identifier_or_url": "https://www.researchgate.net/publication/220656493_Minimizing_Condition_Number_via_Convex_Programming",
+        "material_read": "Author-provided full text, introduction, Section 3 theorem/SDP formulations, Section 4 numerical cases and Section 5 diagonal preconditioners",
+        "method": "Open-access author-provided paper text in HTML page, headings and formula scrutiny",
+        "title": "Minimizing Condition Number via Convex Programming",
+        "trigger": "General convex feasible condition-number minimization is a stronger framework"
+      },
+      {
+        "assessment": "The operator, geometric interpretation and objective differ from additive shifted Laplacian conditioning with total budget",
+        "evidence": "The construction modifies a normalized graph Laplacian to encode vertex reweightings; no condition number budget star threshold is proved.",
+        "identifier_or_url": "https://proceedings.mlr.press/v32/kurras14.pdf",
+        "material_read": "Primary paper sections 3–4 and its key normalized graph Laplacian theorem",
+        "method": "Open proceedings PDF, extracted relevant paragraphs and inspected a page image",
+        "title": "The f-Adjusted Graph Laplacian: a Diagonal Modification with a Geometric Interpretation",
+        "trigger": "Directly concerned with vertex-dependent diagonal graph Laplacian changes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7eae57d4-d0a9-46b4-834e-7bfb8926d531",
+  "value": {
+    "rationale": "Determining an exact optimal vertex-wise diagonal stabilizer for an SPD Laplacian under finite budget is a natural numerical linear algebra benchmark, and the theorem gives complete all-m closed-form allocations and a nontrivial sharp hub activation/support transition with unique global optimality against arbitrary leaf asymmetry. It is not a routine restatement of general SDP solvers.",
+    "status": "PASS"
+  }
+}
