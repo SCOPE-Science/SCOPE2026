@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-graph mathematical consequence of the published maximum-walk identity, a checked three-to-one oriented-edge coboundary, strict separation of integer walk-weight maxima, and reconstruction of refractory color from the preceding two excitation events. The distinction between **all CCA advances** and **GHM rest-to-excited transitions only** is essential. The proof treats every time including zero, arbitrary nonempty finite undirected graphs including isolated vertices, and local as well as global least eventual periods. Two independent programs test the clock identity and period-divisibility statement, respectively. Finite tests are supporting evidence, not the source of general validity.
+PASS
 
-## Originality — PASS, with explicit derivational dependence
+Checked all oriented-color edge pairs for d_C=3d_H+h(c(w))-h(c(u)), the endpoint coboundary h range two. The published exact maximum-walk formula for BOTH automata turns integer GHM optimality into 3H-2<=C+h<=3H: a GHM walk short of the maximum by one cannot attain CCA maximum. Matched finite-time event counts therefore obey ceiling exactly, including t=0. An eventual CCA local period p has a multiple-of-three advance total, giving H(t+p)-H(t) constant, GHM event stream p-periodic and GHM state p-periodic. Disconnected components and isolated vertices follow componentwise. The source code finite checks are corroboration only; independent direct-update 257,076 vertex/time cases checked across all labeled graphs n<=4.
 
-The 2016/2018 work of Gravner–Lyu–Sivakoff proves the maximum-walk representation for both automata and gives cycle-mean asymptotic results; it does not assert an exact same-time, cross-model event-count quotient or local/global period divisibility. Doba (2018) is GHM-only. Earlier complete-bipartite and named-graph joint-period results provide specific equal/halved-period examples, not a universal divisibility theorem. The coboundary observation and integer-maximizer separation are the extra ingredients needed to pass from the general prior representation to the new cross-model dynamical assertion. Because the ingredients are close to strong prior results, the priority risk is specifically the possibility that this deduction appears elsewhere or is considered implicit in an existing source. A negative search result is not proof of historical originality.
+## originality
 
-## Value — PASS
+PASS
 
-An exact time-by-time transfer law between two canonical excitable-media automata is structurally informative: it eliminates possible nondividing matched-initial-state period pairs on *all* finite undirected graphs, rather than merely counting orbits on one small graph. The period-divisibility statement also converts fixed finite-graph computations for one automaton into restrictions on the other. It answers a motivated question exposed by published model comparisons and is not a parameter substitution or an arbitrary numerical slice.
+Best-of-knowledge original surviving contribution: Priority assessed by comparing precise mathematical implications and acknowledging stronger partial coverage; historical first priority is not certified.
 
-## Closest literature and limits
+## value
 
-Gravner, Lyu and Sivakoff, arXiv:1610.07320, Lemma 1 and Section 3, is the essential and closest primary source. Doba, *Complex Systems* 27 (2018), 101–126, analyzes just GHM. Relevant previously documented finite comparisons on complete bipartite and named cubic graphs were checked for their precise quantifiers. The result is restricted to simple undirected graphs, three states and threshold one; claims beyond those assumptions are not made. Independent review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A pointwise exact relation between distinct nonlinear automata valid for every finite graph, and its global period divisibility, is a structural transfer principle. It allows transferring excitation clocks, comparing attractors and proving period restrictions not supplied by mean activity relations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

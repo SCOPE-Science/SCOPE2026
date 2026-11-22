@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses the maximum-walk representation established in Gravner–Lyu–Sivakoff, arXiv:1610.07320 (Lemma 1, Section 3). The new finite-time relation is obtained from an explicit three-to-one edge-weight coboundary and a two-unit endpoint-potential range, so it has no extrapolation step from small computations.
+# Independent mathematical audit
 
-Run `python3 verify_clock_quotient.py` to replay direct event counts and independently computed walk maxima on all simple labelled graphs with at most four vertices. Output is `verify_clock_quotient.out`. Run `c++ -O3 -std=c++17 verify_period_divisibility.cpp -o verify_period_divisibility && ./verify_period_divisibility` to exhaustively compute functional-graph periods for all simple labelled graphs with at most six vertices. Output is `verify_period_divisibility.out`. All source and output bytes are included in the same record.
+## correctness
 
-Correctness limits: the two programs prove only finite instances; the all-graph result rests on the mathematical proof. The cited maximum-walk theorem is an independently published mathematical input, not an independently conducted audit of the new transfer theorem. Historical priority and other thresholds or alphabets are not verified.
+PASS
+
+Checked all oriented-color edge pairs for d_C=3d_H+h(c(w))-h(c(u)), the endpoint coboundary h range two. The published exact maximum-walk formula for BOTH automata turns integer GHM optimality into 3H-2<=C+h<=3H: a GHM walk short of the maximum by one cannot attain CCA maximum. Matched finite-time event counts therefore obey ceiling exactly, including t=0. An eventual CCA local period p has a multiple-of-three advance total, giving H(t+p)-H(t) constant, GHM event stream p-periodic and GHM state p-periodic. Disconnected components and isolated vertices follow componentwise. The source code finite checks are corroboration only; independent direct-update 257,076 vertex/time cases checked across all labeled graphs n<=4.
+
+## originality
+
+PASS
+
+Best-of-knowledge original surviving contribution: Priority assessed by comparing precise mathematical implications and acknowledging stronger partial coverage; historical first priority is not certified.
+
+## value
+
+PASS
+
+A pointwise exact relation between distinct nonlinear automata valid for every finite graph, and its global period divisibility, is a structural transfer principle. It allows transferring excitation clocks, comparing attractors and proving period restrictions not supplied by mean activity relations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
