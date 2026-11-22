@@ -1,0 +1,194 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T23:46:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rebuilt the invariant-plane disintegration: s=|u_z| is uniform before conditioning; hit interval length 2b h(s) makes p(s)=h/H and normalized signed offset v independent uniform [-1,1]. For Q=b^{-2}diag(1,1,r^{-2}), det(Q|u⊥)=h²/(b⁴r²), and slice reduction 1-v² gives X=r(1-v²)/h. Thus P(X>x)=H^{-1}∫h√(1-xh/r)_+ and E[X]=2r/(3H). Differentiating the survival (integrable endpoint) and substituting h=√(1+(r²-1)s²) yields exact density (1). At x=1 the upper endpoint weight W(r)=r²/[2H(r²-1)]; replacing y=r-h shows Δf=-2rW(r)√ε+O(ε) from below; moving-upper-limit sin² reparameterization from above gives analytic behavior; away from x=1 changes are analytic. Support [0,r], b=√(A_cusp/π), r=A_max/A_cusp. Independent SciPy quadratures at r=1.3,2,4,12 recovered left coefficients to within 0.0051 relative at ε=10^-5, with finite right slopes; independent 80,000-plane simulations for r=1.3,2,4 matched means and survival. Finite checks corroborate, not prove, exact asymptotics. Boundary ball r=1 explicitly excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cruz-Orive 1976 abstract: generalized joint size-shape distribution for spheroids, possibly broader than fixed-body area marginal; full text inaccessible due authorized VPN disconnected.",
+          "Baaske et al., §3.1 Eq.(4), derives vertical section ellipse joint distribution G(C,S,α), not arbitrary normal isotropic Crofton area law.",
+          "Published one-bit Crofton theorem has same invariant plane measure but counts 1 or 2 connected section components of paired spheroids, not single-body area."
+        ],
+        "reasoning": "A fully explicit joint distribution for section semiaxes under the same measure would dominate any pure-area CDF by integration, but would not obviously contain a sharp local cusp coefficient without further analysis. Full 1976 formula could make the present proof a special-case corollary; no whole-document NOT_COVERING is claimed. Other checked stronger-looking results have different sampling, object or observable.",
+        "searches": [
+          "Cruz-Orive 1976 doi:10.1111/j.1365-2818.1976.tb02446.x and 1978 sequel mathematical joint elliptical section laws",
+          "DeHoff 1962 ellipsoidal particles random plane section inverse distributions",
+          "Baaske Ballani Illgen arXiv 1609.06697 §3.1 Eq.(4)",
+          "Resultary published one-bit Crofton spheroids; exact one-spike central radius and random-capsule-section laws"
+        ]
+      },
+      "checked_sources": [
+        "https://www.ias-iss.org/acta/ActaStereologica_pdf/Vol.1.2.5.7.8/VOL%205/NO1/AS_5_n1_15_NAU.pdf",
+        "https://doi.org/10.1111/j.1365-2818.1976.tb02446.x",
+        "https://onetunnel.org/documents/institute-of-metals-division-the-determination-of-the-size-distribution-of-ellipsoidal-particles-from-measurements-made-on-random-plane-sections",
+        "https://doi.org/10.1093/mnrasl/slu169",
+        "https://arxiv.org/pdf/1609.06697",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-bit-crofton-recovery-of-coaxial-spheroids-from-random-planar--8ce12b9f1e09/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-cap-contact-singularity-in-random-central-sections-of-ca--c05ab623ea0b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Makarenko Eq.(1) defines dimensionless F from perimeter and area; neither F-density cusp nor shape recovery from F implies a raw area density without an additional scale variable.",
+          "Naumovich Fig.2a includes simulated area laws, so distributional interest and some qualitative shape signatures are already covered.",
+          "Baaske Eq.(4) is an integral equation on joint observables for a vertical section, not the claimed invariant affine section experiment.",
+          "Cruz-Orive 1976 full joint theory could mathematically imply the area law; without full text its exact cusp implications cannot be verified."
+        ],
+        "reasoning": "The claim is not novelty of section ellipse geometry, random spheroid stereology, or general inverse identifiability. The narrow possible original mathematical step is a rigorous one-sided fractional density expansion with coefficient r³/[H(r²−1)] and its area-only scale/aspect identification from cusp + support endpoint. This explicit local theorem is absent from accessible inspected full sources. The 1976 joint transform remains a genuine priority risk and could ultimately force rejection if shown to imply precisely this result.",
+        "searches": [
+          "Makarenko Fletcher Shukurov 2015 Sections 1-4 full HTML",
+          "Baaske Ballani Illgen 2018 arXiv PDF §3.1",
+          "Naumovich Kriskovets 1986 complete primary PDF p.17 histograms",
+          "Cruz-Orive 1976 full-text OA and institutional retrieval",
+          "Resultary one-bit Crofton spheroids published full RESULT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Naumovich & Kriskovets 1986, Fig.2a plots area-section distributions for 1:0.05:0.05, 1:0.2:0.2, 1:0.5:0.5 and 1:0.8:0.8 prolate ellipsoids, from simulation; original analytic cusp expansion not stated.",
+          "Cruz-Orive 1976 publisher abstract says complete theoretical spheroid stereological shape-size solution; section area is a product of section semiaxes, so a marginal may be derivable. Full text not obtained.",
+          "Makarenko 2014/15 uses F=(P²-4πA)/(P²+4πA), not A alone."
+        ],
+        "reasoning": "The mathematically equivalent observable is π times the product of the two ellipse semiaxes, or the pushforward of their joint distribution. Such a pushforward could cover the CDF but an exact unique non-C1 cusp and its coefficient require endpoint analysis; these are not established in the inspected area histogram or full accessible papers. Classical 1976 exact implications remain a material unresolved priority risk.",
+        "searches": [
+          "\"ellipsoid\" \"section area\" probability density isotropic plane distribution",
+          "\"spheroid\" \"planar section area\" cusp singularity",
+          "Naumovich Kriskovets 1986 Geometric characteristic distributions of ellipsoid plane sections full PDF",
+          "Cruz-Orive 1976 general spheroid problem stereological joint semiaxes mathematical model",
+          "Resultary semantic query: prolate spheroid affine Crofton section area exact cusp"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Naumovich & Kriskovets 1986 exact plotted distributions based on computer simulation for several fixed ratios; not an exact symbolic coefficient or universal r>1 density table.",
+          "Resultary semantic top direct hit is the assigned published claim; other close hits are central capsule, central ellipsoid radius, and paired-body topology; no independent exact coefficient table found."
+        ],
+        "reasoning": "The natural area histogram itself is known in numerical form; novelty cannot be claimed for proposing that observable. A symbolic all-r density cusp and coefficient were not identified in compared primary material, subject to unresolved older literature.",
+        "searches": [
+          "Resultary exact-area prolate spheroid affine Crofton cusp area-only shape signature queries",
+          "Naumovich Kriskovets 1986 area distributions numerical Fig.2a/2b",
+          "\"prolate spheroid\" \"cross-sectional area distribution\" random plane",
+          "\"ellipsoid\" \"section area\" table density"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: a 1986 primary paper already numerically plotted section-area distributions for prolate ellipsoids, and 1976 general stereological joint-size/shape theory is a serious potential predecessor. Neither accessible primary full result establishes the exact Crofton-invariant density cusp, unique singular point, sharp nonzero one-sided coefficient and area-only endpoint/cusp inversion. This judgment credits all known special/implicit laws and does not mistake a failed search for proof of worldwide priority.",
+      "residual_risks": [
+        "The full 1976 Cruz-Orive joint ellipse distribution might imply the exact area law/cusp as a corollary; publisher summary only, institutional access vpn_disconnected.",
+        "DeHoff 1962 and earlier Wicksell spheroid section inversion are not fully read; an exact older formula under alternate terms may exist.",
+        "1986 Naumovich-Kriskovets already supplies numerical distributions of the same area observable; no novelty is claimed for numerical area histograms or generic shape-dependent distributions.",
+        "A general integral-geometric pushforward theorem could yield the full density from a joint-axes law; coefficient novelty remains best of knowledge, not historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Naumovich and Kriskovets numerically simulated and graphed area distributions for ellipsoids including prolates (1:0.05:0.05 through 1:0.8:0.8). This is concrete prior coverage of the observable and approximate area distribution. It does not give a derived Crofton survival integral, prove a unique interior square-root density cusp, calculate its exact one-sided coefficient, or give the cusp-plus-endpoint reconstruction theorem.",
+          "evidence": [
+            "Acta Stereologica 1986;5(1):15-19, abstract, pp.16-18 and Fig.2a (area distributions); section Results and Discussion p.19 gives mean relationships and empirical shape dependence."
+          ],
+          "identifier_or_url": "https://www.ias-iss.org/acta/ActaStereologica_pdf/Vol.1.2.5.7.8/VOL%205/NO1/AS_5_n1_15_NAU.pdf",
+          "material_read": "Complete five-page Acta Stereologica 1986 5(1):15-19 primary article, including pp.16-19 experiment, area histogram Figure 2a/2b and discussion. Page images examined.",
+          "method": "Open full primary PDF; inspect mathematical text and visual density graphs with screenshots, not merely abstract.",
+          "title": "Geometric characteristic distributions of ellipsoid plane sections",
+          "trigger": "Same spheroids of revolution and same observable: section area distributions; most direct accessible early comparison."
+        },
+        {
+          "assessment": "The 1976 theoretical solution gives broad spheroid-to-section ellipse information and may imply a fixed-spheroid area marginal by pushforward. Whether its actual formulas contain the exact cusp and coefficient is UNDETERMINED. Do not claim whole-document exclusion or absolute originality.",
+          "evidence": [
+            "Journal of Microscopy 107 (1976), 235-253, publisher summary states complete theoretical spheroid size-shape solution and relationships involving section ellipse major/minor dimensions; arxiv/OA full text not obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2818.1976.tb02446.x",
+          "material_read": "Wiley publisher abstract, bibliographic metadata and 1976 scope statement, NOT the complete 235-253 text.",
+          "method": "Open PDF/DOI search and lawful open-access alternatives for same article; after no full open article, authorized institutional retrieval returned vpn_disconnected. Did not bypass approval.",
+          "title": "Particle size-shape distributions: The general spheroid problem. I. Mathematical model",
+          "trigger": "A general stereological joint-ellipse size-shape distribution is a plausible dominating theorem: area is pi times the product of two observed semiaxes."
+        },
+        {
+          "assessment": "Potential broad inversion coverage, but the available primary description does not establish the exact density cusp or coefficient for a fixed prolate Crofton section; unresolved historical risk.",
+          "evidence": [
+            "R. T. DeHoff, AIME 224 (1962), 474-477, original four-page title and bibliographic listing."
+          ],
+          "identifier_or_url": "https://onetunnel.org/documents/institute-of-metals-division-the-determination-of-the-size-distribution-of-ellipsoidal-particles-from-measurements-made-on-random-plane-sections",
+          "material_read": "1962 original bibliographic page, four-page count and indexed description; no full scanned article text.",
+          "method": "Search article title and open bibliographic listing, contrast source claim only; no asserted text-level exclusion.",
+          "title": "The determination of the size distribution of ellipsoidal particles from measurements made on random plane sections",
+          "trigger": "Foundational 1962 inverse stereology for random sections, relevant to shape/size inference."
+        },
+        {
+          "assessment": "Filamentarity F=(P^2-4πA)/(P^2+4πA) depends on both perimeter and area and is scale invariant. Its sharp modal/truncation features are not the density of raw section area; no exact claimed one-sided area-cusp coefficient.",
+          "evidence": [
+            "Makarenko, Fletcher, Shukurov, MNRAS Letters 447 (2015), L55-L59, §§1-4, esp. Eq.(1) and Section 4."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/mnrasl/slu169",
+          "material_read": "Full publisher HTML, including abstract and Sections 1-5 and Figs. 1-4 defining statistic and prolate behavior.",
+          "method": "Read primary open HTML equations (1)-(3) and spheroid subsection, mathematically compare random observables.",
+          "title": "3D morphology of a random field from its 2D cross-section",
+          "trigger": "Isotropic ellipsoid cuts and a reported cuspy density could be an alias of the proposed area cusp."
+        },
+        {
+          "assessment": "The cited kernel uses a vertical uniformly random section plane and joint ellipse semiaxis/shape/orientation statistics for a random spheroid population. Unlike this result it does not isolate the full Crofton-invariant fixed-body area marginal or a sharp singularity coefficient.",
+          "evidence": [
+            "Baaske, Ballani, Illgen, arXiv:1609.06697v2, §3.1 Eq.(4): vertical plane normal perpendicular to fixed axis, distribution G(C,S,α)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.06697",
+          "material_read": "Complete accessible open-access arXiv paper in HTML and PDF, including Section 3.1 and figures; PDF pp.4-5 visually examined.",
+          "method": "Read primary full text and inspect the mathematical model and plane-normal design.",
+          "title": "On the estimation of parameters of a spheroid distribution from planar sections",
+          "trigger": "A 20-page primary preprint presenting general inversion from section ellipse parameters."
+        },
+        {
+          "assessment": "Studies two separated spheroids, event N=2 components, and one-bit recovery of transverse semiaxis with fixed axial semiaxis and separation. It does not give the area random variable for a single spheroid or density cusp.",
+          "evidence": [
+            "Finding and proof: P(N=2)=I/(4J-I), normal half-width h_b(s), exact two-component topology law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-bit-crofton-recovery-of-coaxial-spheroids-from-random-planar--8ce12b9f1e09/RESULT.md",
+          "material_read": "Published full RESULT mathematical claim, assumptions, derivation and inverse theorem.",
+          "method": "Read published theorem/proof and compare events and conditioning mathematically.",
+          "title": "One-bit Crofton recovery of coaxial spheroids from random planar sections",
+          "trigger": "Very close invariant hitting-plane measure and a shape reconstruction law for spheroids."
+        },
+        {
+          "assessment": "Centered Haar section of capsule has a (z-z*)^(5/2) CDF contact singularity, not a square-root density cusp for affine Crofton cuts of prolate spheroids.",
+          "evidence": [
+            "Published RESULT Finding and Assumptions: central planes and capsule object; explicitly excludes affine-plane offsets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-cap-contact-singularity-in-random-central-sections-of-ca--c05ab623ea0b/RESULT.md",
+          "material_read": "Published full RESULT statement, proof, assumptions and literature comparison.",
+          "method": "Compare object, sampling measure and singularity exponent.",
+          "title": "A sharp cap-contact singularity in random central sections of capsules",
+          "trigger": "Explicit cusp and full planar section area distribution; possible generic implication."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural Crofton invariant-plane sampling of a fixed spheroid induces a sharp, analytically nontrivial change in the range of allowed normal angles when raw area crosses the minor-axis disk area. The resulting universal fractional density coefficient and two-feature area-only reconstruction are structural and usable exact population invariants, distinct from classical section-ellipse size/shape inference. The 1986 numerical area histograms are credited, and no finite-observation/noise guarantee is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.ias-iss.org/acta/ActaStereologica_pdf/Vol.1.2.5.7.8/VOL%205/NO1/AS_5_n1_15_NAU.pdf",
+    "https://doi.org/10.1111/j.1365-2818.1976.tb02446.x",
+    "https://onetunnel.org/documents/institute-of-metals-division-the-determination-of-the-size-distribution-of-ellipsoidal-particles-from-measurements-made-on-random-plane-sections",
+    "https://doi.org/10.1093/mnrasl/slu169",
+    "https://arxiv.org/pdf/1609.06697",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-bit-crofton-recovery-of-coaxial-spheroids-from-random-planar--8ce12b9f1e09/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-cap-contact-singularity-in-random-central-sections-of-ca--c05ab623ea0b/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a fixed solid prolate spheroid with transverse semiaxis b>0 and aspect ratio r>1, a Euclidean-motion-invariant random affine plane conditioned to hit the spheroid gives normalized section area X=A/(πb²) with survival H^{-1}∫_0^1 h(s)√(1-xh(s)/r)_+ ds and continuous density analytic on (0,1) and (1,r), with unique interior one-sided square-root cusp at x=1: f_r(1-ε)=f_r(1)-r³/[H(r²-1)]√ε+O_r(ε), f_r(1+ε)=f_r(1)+O_r(ε). Its area cusp and upper support endpoint identify b and r; E[X]=2r/(3H).",
+  "limitations": [
+    "A fixed prolate body and exact motion-invariant hitting-plane conditioning only; not a finite-sample inference guarantee or general ellipsoid/mixture result.",
+    "Cruz-Orive 1976 full text inaccessible because authorized Oxford VPN disconnected after arXiv/OA attempts; review makes no assertion about its unread full contents.",
+    "Older already-known numerical area histograms and broad ellipse size/shape transforms credited.",
+    "Publication and external verification are not implied by this private C/O/V finding."
+  ],
+  "residual_risks": [
+    "The full 1976 Cruz-Orive joint ellipse distribution might imply the exact area law/cusp as a corollary; publisher summary only, institutional access vpn_disconnected.",
+    "DeHoff 1962 and earlier Wicksell spheroid section inversion are not fully read; an exact older formula under alternate terms may exist.",
+    "1986 Naumovich-Kriskovets already supplies numerical distributions of the same area observable; no novelty is claimed for numerical area histograms or generic shape-dependent distributions.",
+    "A general integral-geometric pushforward theorem could yield the full density from a joint-axes law; coefficient novelty remains best of knowledge, not historical certification."
+  ],
+  "schema_version": 1
+}
