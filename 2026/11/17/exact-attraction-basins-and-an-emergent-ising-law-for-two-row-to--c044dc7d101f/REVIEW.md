@@ -1,19 +1,21 @@
-# Scientific review: two-row Toom attraction basins
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three-input majority identity gives a two-case exact column update, and every initial agreeing column is invariant. Distances to the next initially agreeing column determine first-entry time; the input-to-output characterization forces seeds at exactly the target's cyclic interfaces. This proves the complete basin formula for every \(n\ge3\). The exact Ising transfer matrix has eigenvalues \(4,2\), and its insertion trace gives the finite-ring two-point formula. The Perron eigenvalue is simple, so the local Markov limit follows rigorously. Direct simulation and independent exact matrix checking agree across their stated finite ranges.
+PASS
 
-## Originality — PASS, with historical qualification
+For a column (a,b), the two NEC majorities return (a,b) when a=b, otherwise copy both bits from the next eastern column; this is an exact two-case identity, not a heuristic. First original equal-bit seed to the east fixes each site, and a seedless word translates without a fixed row-equal destination. Cyclic y-interfaces force original seed columns and every remaining column has exactly three possible states, yielding 3^(n-k), with the all-unequal exception 2^n for homogeneous y. The 2×2 transfer matrix T=[[3,1],[1,3]] has eigenvalues 4,2; trace(T^n)−2^(n+1)=4^n−2^n. Sign insertions give all r-spin correlation numerators 4^(n−r)2^r+4^r2^(n−r)−2^(n+1). Perron eigenvalue dominance gives limiting transition T/4 and zero-field coupling J=(log3)/2, with correlation 2^-r and length 1/log2. Independently enumerated all 4^n states, output basins and entry times for n=3,4,5,6 by the original synchronous site-majority; this finite check complements the all-n seed proof.
 
-Relevant published prior work establishes the deterministic NEC majority rule, general Toom erosion, stochastic stationary-state Ising comparisons and anchored-interface dynamics. None of the inspected accessible full texts supplies the pointwise two-row absorption-basin weights or the associated initial-data-induced zero-field Ising limit. A published three-row Toom fixed-point count does not imply these basin statements. Explicit equivalence, broader-coverage, exact-table and implication comparisons are recorded in AUDIT.json. The 1997 ground-state article had no accessible full text, and additional unindexed precedent remains a risk; this is not a claim of exhaustive historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The observed finite-size equilibrium-looking law is not postulated but produced by a deterministic out-of-equilibrium dynamical rule from unbiased initial data. The complete basin census identifies the mechanism, includes both rare periodic exceptions and the two exceptional constant-state masses, and yields exact correlations and a nontrivial thermodynamic limit. This connects natural questions about basin weighting and stationary-state selection to an explicit Ising interaction, rather than merely counting fixed states.
+Best-of-knowledge original finite-strip attraction-fiber census and deterministic sampling-induced Ising measure. General Toom erosion and noisy thermodynamic analogies are not equivalent to counting each deterministic initial-state preimage basin. The 1997 Toom ground-state text remains a plausible unavailable source and priority risk.
 
-## Limitations
+## value
 
-Only exactly two rows and deterministic zero-noise north-east-center majority are covered. The conditional fixed-point law is distinct from a stationary distribution of stochastic Toom dynamics. Historical priority is not independently established, and external mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact attraction basins of deterministic majority automata are natural finite-state invariants, and identifying a precise stochastic Ising law emerging from uniform initial conditions is a meaningful bridge between dynamics and statistical mechanics. The all-n output-by-output census and correlation law quantify selection rather than merely stationary configurations; no general two-dimensional noisy-Gibbs claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

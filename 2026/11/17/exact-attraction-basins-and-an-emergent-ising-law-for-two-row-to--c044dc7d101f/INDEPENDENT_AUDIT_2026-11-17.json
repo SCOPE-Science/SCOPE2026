@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T23:45:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-attraction-basins-and-an-emergent-ising-law-for-two-row-to--c044dc7d101f/RESULT.md",
+        "Git blob 4c6b7b5b711d1f626496fc9e08d43ab1a65ddd86",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-attraction-basins-and-an-emergent-ising-law-for-two-row-to--c044dc7d101f/verify_exhaustive.py"
+      ],
+      "rationale": "For a column (a,b), the two NEC majorities return (a,b) when a=b, otherwise copy both bits from the next eastern column; this is an exact two-case identity, not a heuristic. First original equal-bit seed to the east fixes each site, and a seedless word translates without a fixed row-equal destination. Cyclic y-interfaces force original seed columns and every remaining column has exactly three possible states, yielding 3^(n-k), with the all-unequal exception 2^n for homogeneous y. The 2×2 transfer matrix T=[[3,1],[1,3]] has eigenvalues 4,2; trace(T^n)−2^(n+1)=4^n−2^n. Sign insertions give all r-spin correlation numerators 4^(n−r)2^r+4^r2^(n−r)−2^(n+1). Perron eigenvalue dominance gives limiting transition T/4 and zero-field coupling J=(log3)/2, with correlation 2^-r and length 1/log2. Independently enumerated all 4^n states, output basins and entry times for n=3,4,5,6 by the original synchronous site-majority; this finite check complements the all-n seed proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gács treats broader planar erosion/thickness but does not give exact labeled two-row initial-state basin sizes.",
+          "Makowiec studies noisy two-dimensional Toom thermodynamic behaviour rather than the deterministic width-two absorption pushforward.",
+          "The indexed three-row fixed-point population result counts different width and stationary configurations, not basin measures."
+        ],
+        "reasoning": "None of the broader dynamics results supplies the exact two-row transfer weights as a corollary. Three-row fixed-point enumeration cannot specialize to a two-row torus with a different neighbour identification.",
+        "searches": [
+          "P. Gács arXiv:math-ph/0102009 Toom rule increases thickness of sets",
+          "Makowiec arXiv:cond-mat/9808247 Critical properties of Toom cellular automata",
+          "Resultary: three row Toom stationary populations 2026-11-17"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math-ph/0102009",
+        "https://arxiv.org/abs/cond-mat/9808247",
+        "https://doi.org/10.1103/PhysRevE.56.5195",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-two-coexisting-fixed-state-phases-in-the-three-row-toom-automato--ba0ec0595c40"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eroder properties and noisy Ising analogies do not specify preimage cardinalities under the zero-noise 2-row map.",
+          "The exactly 2^n seedless shifting states and conditional Ising transition 3/4 follow from a special equal-column preservation rule absent in those theorem statements."
+        ],
+        "reasoning": "The prior literature explains the local rule and related phase questions, but does not entail the exact fiber law or fixed-window limit on this degenerate two-row domain. The 1997 full text might potentially contain overlapping narrow-strip calculations.",
+        "searches": [
+          "Gács 2001 arXiv:math-ph/0102009",
+          "Makowiec 1998 arXiv:cond-mat/9808247",
+          "Makowiec 1997 DOI 10.1103/PhysRevE.56.5195"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-row NEC majority reduces exactly to a column copying/seed automaton, so a row-equal final word is specified by first seeded columns to the east.",
+          "A two-state 3/1 transfer matrix represents the output weights, but that representation requires a concrete preimage census first."
+        ],
+        "reasoning": "The theorem is equivalently an exact fiber-count statement for the eventual-absorption map and a Markov/Ising limiting law. Standard Ising transfer matrices alone do not imply which deterministic cellular automaton generates their weights.",
+        "searches": [
+          "Resultary: two row Toom cellular automaton attraction basin sizes Ising zero field transfer matrix majority",
+          "Toom rule width two cylinder north east majority exact basin size stationary measure Ising"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source with the full exact n-dependent 2-row basin table or a dominating row-independent formula was located in indexed findings.",
+          "The 1997 publication abstract describes experimental ground states, not exact two-row basin numbers; full text unavailable."
+        ],
+        "reasoning": "This is an infinite n-parameter census, not a known static sequence lookup. Search failure is not proof of novelty, especially for the unread 1997 paper.",
+        "searches": [
+          "Resultary: Toom rule width two cylinder north east majority exact basin size stationary measure Ising",
+          "Ground-state configurations for Toom cellular automata Experimental hints 1997"
+        ]
+      },
+      "rationale": "Best-of-knowledge original finite-strip attraction-fiber census and deterministic sampling-induced Ising measure. General Toom erosion and noisy thermodynamic analogies are not equivalent to counting each deterministic initial-state preimage basin. The 1997 Toom ground-state text remains a plausible unavailable source and priority risk.",
+      "residual_risks": [
+        "1997 ground-state primary paper not read; Oxford institutional VPN disconnected.",
+        "Nonstandard width-two neighbour identification is essential; no noisy or higher-width implication is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NO_BASIN_COUNTS",
+          "evidence": "General Toom rule/erosion theorem does not count individual 2-row basins.",
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0102009",
+          "material_read": "Public full preprint including local rule and erosion discussion",
+          "method": "Read public arXiv PDF, inspecting page image",
+          "title": "A Toom rule that increases the thickness of sets",
+          "trigger": "Named NEC deterministic majority, potential erosion domination"
+        },
+        {
+          "assessment": "DIFFERENT_NOISY_MODEL",
+          "evidence": "No deterministic two-row first-seed pushforward theorem is stated in inspected work.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9808247",
+          "material_read": "Public full preprint of noisy dynamics study",
+          "method": "Read arXiv PDF and page screenshot",
+          "title": "Critical properties of Toom cellular automata",
+          "trigger": "Potentially Ising-style output law in Toom models"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIORITY",
+          "evidence": "Insufficient material to rule out earlier finite-strip basin computations; risk explicitly retained.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.56.5195",
+          "material_read": "Bibliographic abstract only; full text unavailable",
+          "method": "Searched preprint/OA; Oxford authorized retrieval reported vpn_disconnected",
+          "title": "Ground-state configurations for Toom cellular automata: Experimental hints",
+          "trigger": "Plausible same-rule historical source"
+        },
+        {
+          "assessment": "DIFFERENT_WIDTH_AND_INVARIANT",
+          "evidence": "Counts three-row fixed configurations, not initial-state basins or width-two Ising pushforward.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-two-coexisting-fixed-state-phases-in-the-three-row-toom-automato--ba0ec0595c40",
+          "material_read": "Indexed full statement/summary",
+          "method": "Resultary semantic search",
+          "title": "Two coexisting fixed-state phases in the three-row Toom automaton",
+          "trigger": "Same cellular automaton at nearby strip width"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-attraction-basins-and-an-emergent-ising-law-for-two-row-to--c044dc7d101f/RESULT.md"
+      ],
+      "rationale": "Exact attraction basins of deterministic majority automata are natural finite-state invariants, and identifying a precise stochastic Ising law emerging from uniform initial conditions is a meaningful bridge between dynamics and statistical mechanics. The all-n output-by-output census and correlation law quantify selection rather than merely stationary configurations; no general two-dimensional noisy-Gibbs claim is made.",
+      "residual_risks": [
+        "Specific to vertical circumference exactly two, horizontal n≥3, synchronous zero-noise NEC majority, labelled columns, and uniform starting measure.",
+        "1997 same-subject full text inaccessible; literature novelty remains qualified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specific to vertical circumference exactly two, horizontal n≥3, synchronous zero-noise NEC majority, labelled columns, and uniform starting measure.",
+    "1997 same-subject full text inaccessible; literature novelty remains qualified."
+  ],
+  "schema_version": 1
+}

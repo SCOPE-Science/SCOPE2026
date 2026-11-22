@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Direct program `verify_exhaustive.py` iterates all four-column-type inputs for \(3\le n\le8\). It does not use the transfer matrix to obtain outcomes: each update is computed by independent majority-of-three operations on the two physical rows. It checks every attractor basin, the exceptional shifting family, and the maximum transient. Output: `exhaustive_output.txt`.
+## correctness
 
-Exact matrix program `verify_transfer.py` verifies \(\operatorname{tr}(T^n)-2^{n+1}=4^n-2^n\) for \(3\le n\le21\), evaluates all pair-correlation numerators by separate exact matrix products, and compares them against word-by-word enumeration for \(3\le n\le9\). Output: `transfer_output.txt`.
+PASS
 
-Commands from the directory containing the scripts:
+For a column (a,b), the two NEC majorities return (a,b) when a=b, otherwise copy both bits from the next eastern column; this is an exact two-case identity, not a heuristic. First original equal-bit seed to the east fixes each site, and a seedless word translates without a fixed row-equal destination. Cyclic y-interfaces force original seed columns and every remaining column has exactly three possible states, yielding 3^(n-k), with the all-unequal exception 2^n for homogeneous y. The 2×2 transfer matrix T=[[3,1],[1,3]] has eigenvalues 4,2; trace(T^n)−2^(n+1)=4^n−2^n. Sign insertions give all r-spin correlation numerators 4^(n−r)2^r+4^r2^(n−r)−2^(n+1). Perron eigenvalue dominance gives limiting transition T/4 and zero-field coupling J=(log3)/2, with correlation 2^-r and length 1/log2. Independently enumerated all 4^n states, output basins and entry times for n=3,4,5,6 by the original synchronous site-majority; this finite check complements the all-n seed proof.
 
-```
-python3 verify_exhaustive.py
-python3 verify_transfer.py
-```
+## originality
 
-Both recorded program outputs end in `ALL_DIRECT_CHECKS_PASS` and `ALL_TRANSFER_CHECKS_PASS`, respectively. The proof in RESULT.md establishes the infinite family without extrapolation from these bounded tests. There is no independent external audit.
+PASS
+
+Best-of-knowledge original finite-strip attraction-fiber census and deterministic sampling-induced Ising measure. General Toom erosion and noisy thermodynamic analogies are not equivalent to counting each deterministic initial-state preimage basin. The 1997 Toom ground-state text remains a plausible unavailable source and priority risk.
+
+## value
+
+PASS
+
+Exact attraction basins of deterministic majority automata are natural finite-state invariants, and identifying a precise stochastic Ising law emerging from uniform initial conditions is a meaningful bridge between dynamics and statistical mechanics. The all-n output-by-output census and correlation law quantify selection rather than merely stationary configurations; no general two-dimensional noisy-Gibbs claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
