@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Under nλ_n^r→c and λ_n→0, the exact Poisson variance gives λhat/λ→1; binomial Chebyshev handles cells below r; N_{n,r}⇒Pois(c/r!) by an explicit pgf; n Pr(X≥r+1)→0 eliminates every upper cell. The exact infinite weighted tail plus Slutsky proves all finite and supremum limits; small data-adaptive masses and the same decomposition prove their collapse. Plateau limits use nq_{n,r}→∞ instead. The standalone checker passed 367 supplementary checks but is not a substitute for this proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aleksandrov, Weiß and Jentsch, doi:10.1111/stan.12252, develops Stein–Chen identity-based test statistics, not ratios of empirical to fitted Poisson cell probabilities.",
+        "Mijburgh and Visagie, doi:10.37920/sasj.2020.54.2.6, surveys Poisson goodness-of-fit performance rather than this shrinking-mean weighted-ratio limit."
+      ],
+      "reasoning": "Known binomial rare-event limits and broader Poisson testing theory provide proof tools but do not dominate the infinite-cell weighted-ratio theorem or its three-versus-six weight distinction. The closest related sparse Stein–Chen calibration concerns a different process and does not imply these formulas.",
+      "searches": [
+        "Poisson goodness-of-fit sparse expected count cells rare bin occupancy asymptotic Poisson mixture test",
+        "Poisson goodness-of-fit tests empirical weighted Lp shrinking lambda asymptotic",
+        "Weiß Aleksandrov Jentsch Stein Chen goodness-of-fit count time series doi:10.1111/stan.12252"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2402.12866v1, first publicly posted 2024-02-20",
+      "Kirui (2023) MSc dissertation, North-West University repository",
+      "doi:10.37920/sasj.2025.59.1.2",
+      "doi:10.1111/stan.12252",
+      "doi:10.37920/sasj.2020.54.2.6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original paper §2 gives the finite-sample statistic but §3–4 only fixed-mean Monte Carlo and recommendations.",
+        "Thesis Chapters 3 and 5 show formulas and a fixed-mean simulation study; the new statement requires a separate triangular-array argument.",
+        "Classical Poisson approximation of a rare binomial cell supplies N_{n,r}⇒Pois(c/r!), but does not identify the infinite missing-cell contribution or the adaptive-weight collapse."
+      ],
+      "reasoning": "A prior theorem that merely states the binomial Poisson limit is not equivalent to the new full-distance statement. The nearest previous sparse-Poisson Stein–Chen result is on a centered exponential Stein process, not the empirical cell-weight ratio. The finding does not claim new invention of the weight test or the binomial Poisson limit.",
+      "searches": [
+        "arxiv 2402.12866 empirical weight function all nine test statistics formulas and conclusions",
+        "Kirui 2023 On a new class of tests for the Poisson distribution empirical weight functions thesis Chapter 5",
+        "Poisson Stein Chen shrink mean lambda n lambda squared critical limit goodness of fit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kirui et al., arXiv:2402.12866v1, §2.1–2.2, defines the empirical ratio and three weighted distance types.",
+        "Kirui (2023) thesis, Chapter 3 and Chapter 5, formulates nine distance statistics and a fixed-mean numerical study."
+      ],
+      "reasoning": "An equivalent statement would have to describe the ratio-to-fitted-Poisson empirical histogram under λ_n→0 and nλ_n^r→c, including the infinite unseen-cell tail. The inspected defining sources contain the statistics but no critical Poisson staircase or fixed-versus-adaptive limiting split. The ordinary binomial Poisson law alone does not state the resulting weighted-distance limit.",
+      "searches": [
+        "\"empirical weight functions\" Poisson sparse low intensity asymptotic sample maximum Laplace test",
+        "Poisson histogram empirical weight functions triangular array rare regime weighted Lp goodness of fit",
+        "On new tests for the Poisson distribution based on empirical weight functions arXiv 2402.12866 §2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original paper arXiv:2402.12866v1, §3 and Appendix B, tabulates finite-sample simulation power for fixed mean parameters, with no critical rare-cell null law.",
+        "The MSc thesis Appendix numerical tables cover n=30, 100, 200 at ordinary Poisson means; these are not exact limiting tables for nλ_n^r→c."
+      ],
+      "reasoning": "The exact limiting Poisson-coordinate distribution, deterministic plateau constants, and fixed/adaptive contrast were not found in the inspected tables or relevant research records. No exhaustive database uniqueness assertion is made.",
+      "searches": [
+        "Poisson weighted histogram empirical ratio n lambda^r rare-cell critical law",
+        "Kirui weighted Poisson Lp distances sample maximum asymptotic rare cell",
+        "Poisson goodness-of-fit tests empirical weighted Lp shrinking lambda asymptotic"
+      ]
+    },
+    "rationale": "Direct scientific comparison of the original formulas, earlier dissertation, relevant Poisson test literature, exact finite-sample tables, and rare-event primitives reveals no stated equivalent or stronger weighted-distance staircase theorem. Historical-priority uncertainty remains because the underlying binomial limit is classical and sparse occupancy literature is extensive.",
+    "residual_risks": [
+      "A theorem in a general sparse multinomial or occupancy reference may imply a close limiting form without mentioning empirical weight-function tests.",
+      "The earlier dissertation was inspected in its relevant chapters and conclusions, not independently re-read cover to cover for all possible cross-references.",
+      "Bootstrap rejection probabilities are deliberately not claimed; weak convergence to discrete laws alone cannot establish them."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the object and finite-sample test formulas; does not state shrinking-mean Poisson staircase or weight separation",
+        "evidence": [
+          "§2.1 empirical ratio and §2.2 weighted distances",
+          "§3.3 Monte Carlo sizes and fixed Poisson nulls",
+          "§4 conclusions and appendices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.12866",
+        "material_read": "Full HTML-text sections 1–4 and appendices A–B, including §2 formulas (2.2)–(2.7), §3 numerical design, §4 conclusions",
+        "method": "Open-access arXiv article full-text inspection",
+        "title": "On new tests for the Poisson distribution based on empirical weight functions",
+        "trigger": "Same empirical weight ratio and all nine distance statistics"
+      },
+      {
+        "assessment": "Same statistic and fixed-mean numerical evaluations, but no critical nλ_n^r distribution in inspected relevant sections",
+        "evidence": [
+          "Table of contents Chapters 3–6",
+          "Chapter 3 weighted L1 and L2 construction",
+          "Chapter 5 explicit methodological scope and future work"
+        ],
+        "identifier_or_url": "https://repository.nwu.ac.za/bitstreams/6bc2adcb-3dbb-4312-b440-4d92cc48d5f6/download",
+        "material_read": "Abstract, table of contents, relevant Chapter 3 formula pages, Chapter 5 conclusion, numerical Appendix summaries; visually inspected cover and mathematical pages",
+        "method": "Open university repository PDF parsed-text and page-image inspection",
+        "title": "On a new class of tests for the Poisson distribution based on empirical weight functions",
+        "trigger": "Original author’s earlier MSc dissertation with same test object"
+      },
+      {
+        "assessment": "Different scalar characterization statistics; none of the inspected material implies these empirical ratio limits",
+        "evidence": [
+          "Abstract and introduction describing expectation identity",
+          "Stein–Chen statistic distinction"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/stan.12252",
+        "material_read": "Abstract, introduction and descriptions of Stein–Chen statistics",
+        "method": "Open access journal HTML inspection",
+        "title": "Goodness-of-fit tests for Poisson count time series based on the Stein–Chen identity",
+        "trigger": "Related Poisson goodness-of-fit asymptotics"
+      },
+      {
+        "assessment": "Contextual review; full-text not inspected for direct priority, a residual limitation",
+        "evidence": [
+          "Abstract describing comparisons of ten fixed-distribution tests"
+        ],
+        "identifier_or_url": "https://doi.org/10.37920/sasj.2020.54.2.6",
+        "material_read": "Journal landing page and abstract",
+        "method": "Publisher abstract inspection",
+        "title": "An overview of goodness-of-fit tests for the Poisson distribution",
+        "trigger": "Broad prior Poisson testing review"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a28d134e-a06c-4399-898e-e611d4b15fb0",
+  "value": {
+    "rationale": "For the published family of nine Poisson goodness-of-fit distances, a true sparse null produces a nonzero, atomic limiting score under fixed exponential weights while both data-adaptive weighting families vanish. Every rare count cell creates a distinct exact null phase, quantitatively locating a calibration boundary not addressed by fixed-mean power simulations. The result is about diagnostic behavior, not an unsupported assertion of false test size.",
+    "status": "PASS"
+  }
+}
