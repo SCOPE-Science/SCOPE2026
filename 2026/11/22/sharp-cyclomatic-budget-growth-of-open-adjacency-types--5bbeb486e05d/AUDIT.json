@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For H=G[A], p marked vertices with marked degree>=2 satisfy p<=e. Let Q be unmarked vertices with at least two marked neighbors. The induced J on A union Q has >=e+2q edges and m+q vertices; beta(J)<=beta(G) and >=1 component imply q<=m-1+beta(G)-e. Thus p+q<=m-1+beta(G), accounting for all >=2 traces, with <=m singleton and <=1 empty. Sharp connected triangular cacti have exactly 3c+(m-2c-1)+m+1=2m+c distinct traces, and beta=c. Direct checker executed 2,097,151 exhaustive small graph/mark cases and 81 cactus witnesses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.16889v1, full Sections 3–5: exact treewidth/pathwidth, but *closed* N[v] traces",
+        "arXiv:2607.10941v1, almost-linear *open* traces on monadically dependent graph classes",
+        "arXiv:2501.08895v4, bounded-treewidth profile bounds and *closed* radius-one neighborhood conventions"
+      ],
+      "reasoning": "Graphs with fixed cycle rank lie within bounded-treewidth and monadically dependent families, but published general bounds are weaker or count closed traces. An upper bound of a larger size does not imply sharp 2m+c, nor does a closed-neighborhood sharpness construction imply an open-neighborhood sharpness result.",
+      "searches": [
+        "graph feedback edge set neighborhood complexity cyclomatic 2m+c sharp cactus",
+        "open neighborhood complexity bounded cyclomatic number graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.10941v1 — 2026-07-12 initial submission; abstract and general theorem of almost-linear open-neighborhood complexity",
+      "arXiv:2607.16889v1 — 2026-07-18 initial submission; full reflowed HTML including Sections 1-7 and bibliography compared",
+      "arXiv:1603.09532 — 2016 first submission; bounded-expansion characterization abstract and theorem",
+      "arXiv:2501.08895v4 — initial 2025-01-15, as revised Oct 2026; inspected primary PDF definition, abstract, exact theorem outlines and bounded-treewidth profile bounds",
+      "Accessible prior forest trace claim e0393b89-ea9b-418c-ac2a-4fa74c3dd5f4; forest only",
+      "Accessible previous-week cograph and interval graph adjacency-trace claims; different graph classes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior accessible forest statement bounds tau by 2m minus a marked-component correction for beta=0",
+        "Berthe et al. Sections 3-5 concern closed traces; Dreier et al. gives near-linear open traces"
+      ],
+      "reasoning": "The forest statement is contained in the c=0 slice and is not new here. Positive c is not a corollary of a claim restricted to forests; adding c edges can alter both marked-induced structure and external witnesses, and the tight coefficient per edge is established separately by the cycle-space argument and cactus examples.",
+      "searches": [
+        "cactus graphs adjacency shatter function neighborhood traces exact",
+        "graph feedback edge set neighborhood complexity cyclomatic 2m+c sharp cactus"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.10941v1, open-neighborhood trace functions over parameter sets",
+        "Reidl et al., arXiv:1603.09532, neighborhood complexity and bounded expansion"
+      ],
+      "reasoning": "Trace families are exactly the realized quantifier-free one-variable adjacency types when equality is excluded. Cyclomatic number equals feedback-edge-set size and cycle-space dimension; searches covered these aliases. Existing broad statements are asymptotic and do not entail a coefficient of 2 with one unit per independent cycle.",
+      "searches": [
+        "open neighborhood trace count graph cyclomatic rank beta 2m plus c exact cactus marked vertices",
+        "adjacency types cyclomatic number feedback edge 2|A|+cycle rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-finding corpus fixed-cyclomatic open-trace formula in four queried published-finding corpus searches",
+        "Accessible earlier forest case and unrelated cograph/interval adjacency trace ledgers"
+      ],
+      "reasoning": "No matching complete table or exact formula for arbitrary c and m>=max(1,3c) was located; this is a bounded negative search result, not a proof of novelty.",
+      "searches": [
+        "cactus graphs adjacency shatter function neighborhood traces exact",
+        "cycle rank graph adjacency types marked vertices exact table"
+      ]
+    },
+    "rationale": "2026 open-neighborhood literature establishes general almost-linear growth but no fixed additive cycle-rank coefficient; the 2026 sharp bounded-treewidth work treats closed neighborhoods; the earlier forest benchmark is the special c=0 case and does not imply the sharp behavior for arbitrary positive cycle rank. Searches across prior claims and published-finding corpus did not find a dominating theorem. A residual possibility of older uncatalogued graph identification work is acknowledged.",
+    "residual_risks": [
+      "Some relevant preprints and historical records beyond accessible ledgers were not fully available; independent historical priority is not certified.",
+      "The full manuscript of arXiv:2607.10941 was inaccessible; its abstract supports only a qualitative comparison, not a document-wide exclusion.",
+      "The result is a sharp specific cycle-budget refinement, not a claim about general first-order types."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: explicitly closed N[v] count, not open N(v), and no additive cyclomatic bound",
+        "evidence": "Sections 1-7; lines 42-49,74-95,109-128,203-250 on accessible reflowed version",
+        "identifier_or_url": "https://www.paperpeel.com/paper/2607.16889",
+        "material_read": "Full reflowed HTML, introduction, definitions (open/closed), forest proof, treewidth/pathwidth theorem statements and proofs, construction and application sections, conclusions and bibliography; no cyclomatic-number occurrence",
+        "method": "HTML section-by-section inspection and term searches for cyclomatic and open neighborhoods",
+        "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+        "trigger": "Sharp exact neighborhood counts for sparse graph classes; plausible near dominance"
+      },
+      {
+        "assessment": "No exact 2m+cycle-rank statement seen in accessible material; uninspected full text remains a residual priority risk",
+        "evidence": "First public arXiv v1 2026-07-12, abstract specifies almost-linear |A|^{1+o(1)} open-neighborhood traces",
+        "identifier_or_url": "https://arxiv.org/abs/2607.10941",
+        "material_read": "Public abstract and detailed available summary of its two principal theorems; full primary manuscript could not be fetched in this session",
+        "method": "arXiv record and available contextual summary; explicit scope of open neighborhood complexity verified",
+        "title": "Neighborhood Complexity and Radius-1 Merge-Width in Monadically Dependent Graph Classes",
+        "trigger": "Exact same open N(v) trace invariant in 2026"
+      },
+      {
+        "assessment": "NOT_COVERING at theorem level: the bounds are asymptotic in the treewidth parameter and count closed radius neighborhoods or distance profiles; no 2m+c open-trace coefficient or cactus sharpness found",
+        "evidence": "Definition 1 and Theorem 6; arXiv:2501.08895v4, initial v1 2025-01-15",
+        "identifier_or_url": "https://arxiv.org/abs/2501.08895",
+        "material_read": "PDF pages 1–5 and relevant bounded-treewidth main theorem, definition, conclusion and bibliography portions; searched complete indexed PDF for cyclomatic, feedback and cactus (none found)",
+        "method": "PDF text inspection with visual page cross-check and term search",
+        "title": "Profile and neighbourhood complexity of graphs excluding a minor and tree-structured graphs",
+        "trigger": "Potentially broader minor/treewidth parameter bounds and 2026 revised primary manuscript"
+      },
+      {
+        "assessment": "No explicit 2m+c or cactus extremizers in inspected statement; full text priority risk acknowledged",
+        "evidence": "Bounded-expansion iff all r-neighborhood complexities have some linear bound, with class-dependent constants",
+        "identifier_or_url": "https://arxiv.org/abs/1603.09532",
+        "material_read": "Abstract, qualitative characterization and first sections available through published journal preview",
+        "method": "Direct theorem/abstract statement comparison",
+        "title": "Characterising Bounded Expansion by Neighbourhood Complexity",
+        "trigger": "Potential broad coverage of linear exact trace bounds on sparse graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5bbeb486-e05d-4af3-8100-932059bf6663",
+  "value": {
+    "rationale": "Independent cycle number is a structural distance-to-forest parameter. The result identifies an exact cost of one additional open-adjacency type for each permitted cycle, and supplies equality witnesses simultaneously for all stable sizes, strengthening asymptotic neighborhood-complexity statements into a sharp finite-model-theoretic type bound. In contrast to a routine unmotivated single-value computation, it gives a uniform theorem plus extremal constructions for an entire natural graph hierarchy.",
+    "status": "PASS"
+  }
+}
