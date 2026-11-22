@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Using Straub 2023 Theorem 1.3 (odd prime 29, Franel sporadic recurrence), the finite residue table shows exactly three zero digits d=12,14,16, with c=(7,2,5), derivative b=(3,4,18), whose unique higher-neighbor roots are 17,14,11. The d=14 root forces two zero digits and is thus excluded in the unique-zero case. Two or more zero digits force 29² divisibility. The word-count formula follows from 3*26-2=76 adjacent pairs. All 29 base residues and derivative residues are recomputed by exact recurrence and independently checked for indices 0..57 using the defining binomial sum; an additional 2600 exact index tests pass. Finite tests support but do not prove the all-index assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 Gessel–Lucas theorem supplies the all-prime mod-p² recurrence from which the new result can be deduced using the explicit finite 29-table.",
+        "The older Franel theorems establish the first valuations at 5, 7 and 13, but 29 is only a type-III example.",
+        "Malik–Straub gives Lucas mod p rather than the valuation-one first-shell mod 841 criterion."
+      ],
+      "reasoning": "The published general recurrence covers the method but does not itself give the exact digit roots or shell spectrum. The new claim is a specialized computed classification, explicitly credited as a consequence of that recurrence with newly evaluated finite data. Existing 5-,7-,13-prime formulas do not imply the case 29 by a prime substitution.",
+      "searches": [
+        "published-finding corpus: Franel numbers Gessel Lucas congruence modulo 841 coefficient three zero digits consecutive digit forbidden pattern",
+        "published-finding corpus: Franel number divisibility 29 and 841 automatic sequence zero sets",
+        "arXiv:2301.12248, Section 5",
+        "MSRI-UP 2014, Theorems 2.39, 2.44, 2.48, 2.50",
+        "arXiv:1508.00297"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.12248 (Theorems 1.2,1.3 and Section 5)",
+      "2014 MSRI-UP Franel report (relevant Sections 2.2 and 2.3)",
+      "arXiv:1508.00297 (bibliographic and theorem attribution)",
+      "published-finding corpus IDs 2026/10/18/SCOPE-binary-adjacency-criterion-for-minimal-2-adic-valuations-of-fran--b8d076e12405; 2026/11/8/SCOPE-prime-power-franel-residues-and-the-wolstenholme-prime-criterion--6ea940ca2aa7; 2026/11/2/SCOPE-an-exact-ternary-language-criterion-for-nine-dividing-central-tr--f302476becb1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 theorem implies F_{29m+d} ≡ F_d F_m +29m F’_d F_m (mod 841), but it is not the target-specific digit enumeration.",
+        "The 2014 example says only 29 is type III because F_12 has valuation 1 and no digit 14.",
+        "The published-finding corpus exact 3-adic central-trinomial digit language concerns a different number sequence, so it does not imply the Franel result."
+      ],
+      "reasoning": "The entire statement follows by combining prior general Gessel–Lucas machinery, the explicitly computed 29-specific digit and derivative data, a cancellation case split, and an exact all-length count. The general theorem is properly credited; the instance-specific classification is not stated or directly implied without those additional calculations. Existing prime-5 results are not extended by renaming parameters.",
+      "searches": [
+        "published-finding corpus: 29-adic valuations Franel numbers exactly one powers 29 base-29 digits 12 14 16 11 17",
+        "published-finding corpus: Schulte VanSchalkwyk Yang Type III 29 Franel digit classification 2014",
+        "arXiv:2301.12248, Theorems 1.2,1.3",
+        "MSRI-UP 2014, Example 2.57 and Theorem 2.39",
+        "published-finding corpus ID 2026/11/2/SCOPE-an-exact-ternary-language-criterion-for-nine-dividing-central-tr--f302476becb1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Straub gives a general digit-step mod-p² congruence for sporadic sequences, without a displayed 29-adic Franel exceptional-pair language.",
+        "Schulte et al. exhibit v_29(F_12)=1 and identify prime 29 as type III, without listing all valuation-one indices."
+      ],
+      "reasoning": "An automaton for F_n modulo 841 could encode the same digit language, so automaton aliases were searched. The 2014 report asserts general automaton existence and supplies several automata for other primes, but not the 29-adic classification. Equivalent unseen automata remain possible.",
+      "searches": [
+        "published-finding corpus: 29-adic valuations Franel numbers exactly one powers 29 base-29 digits 12 14 16 11 17",
+        "published-finding corpus: Franel digit language base 29 first valuation shell zeros mod 29 squared 154 out of 841",
+        "published-finding corpus: Exact digit language for p-adic valuation one of Franel binomial cube sums at prime 29 with forbidden adjacent digits 12 17 and 16 11",
+        "arXiv:2301.12248, Theorem 1.3",
+        "MSRI-UP 2014, Section 2.3.3, Example 2.57"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact Franel digit residues for d=0..28 and derivative residues at d=12,14,16 are computed in verify.py from integer recurrence and independently checked against direct binomial sums.",
+        "Among retrieved published research titles and summaries, no exact 29-adic Franel table or first-shell count appears."
+      ],
+      "reasoning": "No exact prior table was located; neither a failed search nor database partition is a proof of priority. The direct calculations and executable finite table are included for independent checking.",
+      "searches": [
+        "published-finding corpus: Franel digit language base 29 first valuation shell zeros mod 29 squared 154 out of 841",
+        "published-finding corpus: Franel numbers modulo 29 squared complete first valuation shell 29-adic root digits 12 14 16 count 26^L",
+        "published-finding corpus search: Franel numbers p-adic valuations digit roots derivative Gessel Lucas first valuation shell p=29",
+        "Web: Franel numbers modulo 29 squared Gessel Lucas digit pattern 12 14 16"
+      ]
+    },
+    "rationale": "No inspected source states or directly dominates the exact base-29 valuation-one language, the two off-diagonal neighboring-digit exclusions, and the finite-depth count. The closest 2014 Franel result gives a single 29-adic witness and results for other primes; the 2023 theorem supplies the essential general congruence but no 29-specific table, classification, or count. The mathematical combination of the existing theorem with newly supplied finite data produces the specialized statement. Non-indexed equivalent work is a residual priority risk.",
+    "residual_risks": [
+      "Instance-specific 29-adic automata or equivalent two-digit restrictions may exist in unindexed or non-OA sources.",
+      "The strongest prior Gessel–Lucas theorem entails the classification after the finite 29-specific calculation, so mathematical priority is only for the explicit specialized table, word language, and enumeration, not for the underlying congruence.",
+      "No independent scientific audit or bibliographic priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General congruence used as premise; does not display the 29-specialized digit-root table or first-shell counts",
+        "evidence": [
+          "Theorem 1.3, PDF p.3, gives Gessel–Lucas mod p² for all 15 sporadic sequences",
+          "Original arXiv submission 2023-01-28"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.12248",
+        "material_read": "ArXiv abstract and submission record; complete statement of Theorems 1.1–1.3 and surrounding discussion; Section 5 Theorem 5.1 and comments on p-schemes",
+        "method": "Read lawful open-access author PDF text, visual inspection of theorem page, compared congruence hypotheses and implications",
+        "title": "Gessel–Lucas congruences for sporadic sequences",
+        "trigger": "Direct general theorem potentially subsumes specialized Franel modulo 841 classifications"
+      },
+      {
+        "assessment": "2014 report provides first type-III witness at 29 but not the all-index 29-adic first-shell language or counts",
+        "evidence": [
+          "Example 2.57 states ν_29(F_12)=1 and the absence of the digit 14",
+          "Theorems 2.44,2.48,2.50 concern primes 5,7,13"
+        ],
+        "identifier_or_url": "https://slmath-production-assets.sfo3.digitaloceanspaces.com/system/cms/files/81/files/original/Research_Reports_2014_MSRI-UP_(Single_File).pdf",
+        "material_read": "Relevant Franel report sections 2.2–2.3, Theorems 2.25, 2.28, 2.39, 2.44, 2.48, 2.50, and Example 2.57, checked with original PDF page images",
+        "method": "Read open-access PDF text, targeted page inspection and search for 29 and valuation-classifying theorems",
+        "title": "On the divisibility and valuations of the Franel numbers",
+        "trigger": "The first named 29-adic Franel type-III exception and possibility of prior complete valuation classification"
+      },
+      {
+        "assessment": "Supports mod-p Lucas premise; not a verified instance-specific valuation-one coverage source",
+        "evidence": [
+          "Straub 2023 Theorem 1.2 explicitly attributes Lucas congruences to Malik–Straub"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.00297",
+        "material_read": "ArXiv title, abstract, and the 2023 source’s attribution of the mod-p Lucas theorem",
+        "method": "Open-access bibliographic and theorem cross-reference comparison; no claim of exhaustive full-text inspection",
+        "title": "Divisibility properties of sporadic Apéry-like numbers",
+        "trigger": "Existing Lucas congruences may cover divisibility-zero portion of target"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dbdfec82-82c7-45b5-8815-9dd75eb141bc",
+  "value": {
+    "rationale": "The smallest odd type-III Franel prime 29 is explicitly motivated by the 2014 report. The full valuation-one index language exhibits two genuinely nonlocal forbidden digit pairs, contrasting with the digit-count criterion known at primes 5,7,13; exact counts for every base-29 depth resolve a natural distribution invariant not just a sporadic small example. The precise 29 case and first layer are mathematically motivated by the first type-III boundary and remain meaningful without a full valuation census.",
+    "status": "PASS"
+  }
+}
