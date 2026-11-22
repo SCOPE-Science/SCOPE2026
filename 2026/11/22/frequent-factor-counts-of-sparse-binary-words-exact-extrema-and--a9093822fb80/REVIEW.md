@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The characterization of qualifying factors is exhaustive because at most two occurrences of any factor can include a one. The zero-power count yields the exact formula. Convexity/occupancy bounds and balanced-gap witnesses give both sharp extrema. Normalized uniform weak compositions approach uniform simplex area, and a uniformly controlled monotone root gives the limiting statistic. The one-, two-, and three-active-gap area calculations yield an atomic–continuous distribution with rational moments. Literal enumeration and rational-moment checks support, but are not used in place of, the analytic proof.
+
+**Originality — PASS relative to inspected evidence.** Bals et al. (2026) establish an unrestricted frequency-versus-length upper bound, not a sparse fixed-content law. The known fixed-binary asymptotic result is about worst-case dense constructions. A same-weight result on minimal absent factors counts a different predicate. The exact weight-two frequency law, density, atom, and moments were not identified in the inspected primary texts or query results. Unindexed equivalent work remains possible; the search is not a proof of uniqueness.
+
+**Value — PASS.** The frequency-above-length factor statistic determines which pattern counts a general text index needs to precompute. On a natural fixed-content source, this result resolves the exact feasible endpoints and the full nondegenerate first-order sampling law. Its positive mass at the sharp minimum and the discontinuity of the density at \(1/3\) reveal structure invisible to the general \(n\)-factor bound; the precise asymptotic mean and variance quantify typical rather than extremal precomputation burden.
+
+**Closest sources and limitations.** Bals et al., *Text Indexing: From Reporting to Counting*, arXiv:2607.24043 and DOI 10.4230/LIPIcs.ESA.2026.68; *Fixed-binary asymptotic sharpness of the frequent-factor bound* (public 2026 proof); and *Minimal absent factors of two-marker binary words* (different invariant). The result is restricted to exactly two ones and does not provide the full finite-length distribution. An unindexed equivalent law is a residual priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
