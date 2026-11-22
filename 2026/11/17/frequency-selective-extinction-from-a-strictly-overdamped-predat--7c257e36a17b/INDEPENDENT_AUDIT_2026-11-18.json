@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T04:54:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At rho=10 the coexistence Jacobian J=[[-5,-1],[5,0]] has distinct negative real eigenvalues (-5±sqrt5)/2. The smooth perturbation admits uniform-in-time z=A z1+O(A²) by a Hurwitz Duhamel/bootstrap estimate valid for bounded input. Frozen impulse primitive I(t) reaches prey drop 0.07623851566 A<0.09 A; exact sqrt5 sinusoid u1(t)=[sin(sqrt5 t)-e^(-mu1 t)+e^(-mu2 t)]/10 takes value -0.10336010535 at t=2, below moving N_a=1-0.09A. The low/high uniform convolution estimates stay below threshold with O(A²) margin, while P=5+O(A)>1 throughout. Once crossing into N<N_a<1, prey decays, followed by predator. The gain squared w²/[4(w^4+15w²+25)] has unique maximum at sqrt5. Direct independent SymPy rational/symbolic checks corroborated eigenvalues and gain and explicit time value; proof handles the all-small-A quantifier. Filippov result is existence only, not uniqueness at grazing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov8 frozen-safe proof has strict focus condition α²<4d; no real-node case.",
+          "Nov8 three-regime accessibility holds for arbitrary Hurwitz node/focus but explicitly disclaims Filippov crossing and extinction."
+        ],
+        "reasoning": "A broad gain formula alone does not entail the nonlinear same-initial extinction contrast. Source Gao Appendix A remains a specific full-text gap; risk retained.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-frozen-safe-extinction-under-arbitrarily-weak-resonant-forcing-a--d15a1d3f02d5/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-regime-joint-threshold-accessibility-under-weak-periodic-p--667a5fa1b111/RESULT.md",
+          "https://arxiv.org/abs/2610.39113"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-frozen-safe-extinction-under-arbitrarily-weak-resonant-forcing-a--d15a1d3f02d5/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-regime-joint-threshold-accessibility-under-weak-periodic-p--667a5fa1b111/RESULT.md",
+        "https://arxiv.org/abs/2610.39113"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous focus result requires imaginary eigenpair and only treats resonant focus forcing; the node is outside its domain.",
+          "The previous joint-threshold-accessibility result explicitly excludes switching and actual tipping."
+        ],
+        "reasoning": "Neither prior inspected theorem implies a stable-node extinction continuation with two safe forcing frequencies from the same state; a full Gao Appendix A comparison remains unavailable.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-frozen-safe-extinction-under-arbitrarily-weak-resonant-forcing-a--d15a1d3f02d5/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-regime-joint-threshold-accessibility-under-weak-periodic-p--667a5fa1b111/RESULT.md",
+          "https://arxiv.org/abs/2610.39113"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Current J eigenvalues (-5±sqrt5)/2 are strictly real, whereas Nov8 focus theorem assumes q=sqrt(d−α²/4)>0.",
+          "Gao 2026 source title and summary concern resonant tipping; its appendix A reportedly examines stable node regime, but detailed full appendix not read."
+        ],
+        "reasoning": "A real-node band-pass transfer can be called nonoscillatory resonant tipping; compare actual spectral/threshold implications rather than matching “resonance” terminology. The checked Resultary focus theorem does not specialize to real eigenvalues because q>0 is a hard assumption.",
+        "searches": [
+          "Resultary semantic search: frequency induced tipping strictly stable node overdamped predator prey Allee threshold forcing extinction Gao Poloni",
+          "https://arxiv.org/abs/2610.39113",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-frozen-safe-extinction-under-arbitrarily-weak-resonant-forcing-a--d15a1d3f02d5/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Analytic example has exact chosen rho=10, N_a=1−9A/100, P_a=1, omega=(.01,sqrt5,100), no empirical parameter table.",
+          "Independent exact eigenvalues and gain derivative plus high-precision u1(2) and frozen maximum."
+        ],
+        "reasoning": "No known precomputed table deciding this complete frozen/periodic Filippov model at these parameters was located. The finite numerics corroborate, but derivation uses uniform bounds.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-regime-joint-threshold-accessibility-under-weak-periodic-p--667a5fa1b111/RESULT.md",
+          "https://arxiv.org/abs/2610.39113"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: earlier Gao et al introduce frequency-induced tipping and focus examples; the inspected prior Resultary frozen-safe extinction proof explicitly assumes a complex stable focus q>0, and the joint accessibility theorem is about a smooth periodic orbit, not admissible switched extinction. The strictly real-node example exhibiting all-frozen-safe and two-frequency-safe versus middle-frequency extinction from one seed adds a distinct nonoscillatory boundary case. Full Gao primary appendix could not be obtained through OA or authorized institutional connection; this remains a named risk and does not alone defeat the specific non-coverage comparison.",
+      "residual_risks": [
+        "Full Gao et al arXiv:2610.39113 supplementary/Appendix A not inspected because OA full retrieval failed and authorized access returned VPN disconnected; do not claim whole-article noncoverage.",
+        "Threshold crossing in a discontinuous Filippov model gives existence of an extinction continuation, not uniqueness or robustness under smoothing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER_NODE",
+          "evidence": "Strict alpha²<4d complex focus; current rho=10 gives real node.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-frozen-safe-extinction-under-arbitrarily-weak-resonant-forcing-a--d15a1d3f02d5/RESULT.md",
+          "material_read": "Full RESULT.md finding, full assumptions, full analytic proof including complex-focus q and uniform bootstrap",
+          "method": "Connected repository full-file read",
+          "title": "Frozen-safe extinction under arbitrarily weak resonant forcing: a universal step-to-sine gap",
+          "trigger": "closest same Filippov model and frozen-safe vs forced extinction"
+        },
+        {
+          "assessment": "NO_FILIPPOV_TIPPING",
+          "evidence": "Proves amplitude minimax for two extrema of unswitched positive orbit, expressly no switching assertion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-regime-joint-threshold-accessibility-under-weak-periodic-p--667a5fa1b111/RESULT.md",
+          "material_read": "Full RESULT.md including cases, proof, limitations",
+          "method": "Connected repository full-file read",
+          "title": "Three-regime joint threshold accessibility under weak periodic predator–prey forcing",
+          "trigger": "same smooth transfer model in node regime"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_INSPECTED",
+          "evidence": "Known foundational focus-driven mechanism; possible node-appendix overlap is an explicit residual priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.39113",
+          "material_read": "Abstract/title/bibliography and publicly available search summary; NOT full article or Appendix A",
+          "method": "arXiv/OA attempts followed by authorized institutional download, which returned VPN disconnected",
+          "title": "Frequency-induced Tipping: Resonance-Driven Tipping in a Threshold Predator-Prey System",
+          "trigger": "original primary paper same model, potential stronger appendix"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Motivated counterexample to interpreting frequency-induced tipping as requiring an oscillatory linear eigenpair: distinct real-negative node eigenvalues still yield narrow-band forcing extinction while all comparable frozen rates and both extreme frequencies are safe. The exact moving threshold and transfer peak furnish a reusable spectral-versus-nonlinear-boundary distinction; not just a generic gain calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-frozen-safe-extinction-under-arbitrarily-weak-resonant-forcing-a--d15a1d3f02d5/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-regime-joint-threshold-accessibility-under-weak-periodic-p--667a5fa1b111/RESULT.md",
+    "https://arxiv.org/abs/2610.39113"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the stated threshold predator-prey dynamics initialized at (1,5), every frozen growth-rate parameter in 10±A converges safely to a real stable coexistence node and periodic forcing at frequency 0.01 or 100 also remains coexistent, but sine forcing at frequency sqrt(5) admits an extinction continuation, for all sufficiently small A>0; the smooth node prey gain peaks at sqrt(5).",
+  "limitations": [
+    "Sufficiently small A exists but optimum amplitude not given; N_a itself depends on A and approaches 1.",
+    "Primary full-text availability risk is bibliographic, not proof of falsehood."
+  ],
+  "residual_risks": [
+    "Full Gao et al arXiv:2610.39113 supplementary/Appendix A not inspected because OA full retrieval failed and authorized access returned VPN disconnected; do not claim whole-article noncoverage.",
+    "Threshold crossing in a discontinuous Filippov model gives existence of an extinction continuation, not uniqueness or robustness under smoothing."
+  ],
+  "schema_version": 1
+}

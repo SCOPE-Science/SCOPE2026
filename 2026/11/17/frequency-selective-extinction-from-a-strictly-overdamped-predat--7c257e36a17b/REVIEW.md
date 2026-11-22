@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The closed-form real-node Jacobian, kernel, frozen excursion and resonance-time identity have been reconstructed from the specified differential equations, including the switching laws. A matrix-exponential bootstrap proves uniform-in-time nonlinear \(O(A^2)\) error for all bounded inputs, making the strict gaps in the frozen/low/high and resonant comparisons decisive for all sufficiently small \(A\). The extinction continuation uses the strictly negative prey drift below its threshold, and the predator decay law on both sides of its threshold. The accompanying standalone checker reproduces the required symbolic identities and selected finite tests. Risk: the theorem asserts existence, not uniqueness, of a Filippov extinction continuation at an exceptional tangency; it does not cover arbitrary amplitudes.
+## correctness
 
-## Originality — PASS within checked evidence
-The motivating full-text source proves frequency-induced tipping in a focus regime and discusses stable nodes only as an equilibrium classification, without the real-node tipping construction. A related earlier focus-only result assumes a strictly positive imaginary-eigenvalue frequency and does not imply the present robust node example with discriminant bounded strictly above zero, its distinguished real-node gain peak, or its explicit low/high comparison. Searches for overdamped, nonoscillatory, real-node frequency tipping and equivalent threshold predator–prey statements did not identify stronger coverage in the inspected records. General forced-system transfer calculations are standard and expressly not claimed as new. Risk: uninspected literature on nonoscillatory frequency-selective tipping may contain an equivalent construction; priority is not externally certified.
+PASS
 
-## Value — PASS
-The source interpretation ties resonance to damped intrinsic predator–prey oscillations. The example supplies a mathematically decisive counter-boundary: an entirely nonoscillatory, strictly stable node can nonetheless exhibit a finite-frequency bandpass response strong enough for irreversible ecological tipping while all static and two contrasting periodic controls remain safe. The threshold scale is selected from strict analytic response bounds rather than from an arbitrary numerical slice. It clarifies the dynamical mechanism and yields a reproducible worked counterexample, not merely a restatement of the textbook transfer function.
+At rho=10 the coexistence Jacobian J=[[-5,-1],[5,0]] has distinct negative real eigenvalues (-5±sqrt5)/2. The smooth perturbation admits uniform-in-time z=A z1+O(A²) by a Hurwitz Duhamel/bootstrap estimate valid for bounded input. Frozen impulse primitive I(t) reaches prey drop 0.07623851566 A<0.09 A; exact sqrt5 sinusoid u1(t)=[sin(sqrt5 t)-e^(-mu1 t)+e^(-mu2 t)]/10 takes value -0.10336010535 at t=2, below moving N_a=1-0.09A. The low/high uniform convolution estimates stay below threshold with O(A²) margin, while P=5+O(A)>1 throughout. Once crossing into N<N_a<1, prey decays, followed by predator. The gain squared w²/[4(w^4+15w²+25)] has unique maximum at sqrt5. Direct independent SymPy rational/symbolic checks corroborated eigenvalues and gain and explicit time value; proof handles the all-small-A quantifier. Filippov result is existence only, not uniqueness at grazing.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge: earlier Gao et al introduce frequency-induced tipping and focus examples; the inspected prior Resultary frozen-safe extinction proof explicitly assumes a complex stable focus q>0, and the joint accessibility theorem is about a smooth periodic orbit, not admissible switched extinction. The strictly real-node example exhibiting all-frozen-safe and two-frequency-safe versus middle-frequency extinction from one seed adds a distinct nonoscillatory boundary case. Full Gao primary appendix could not be obtained through OA or authorized institutional connection; this remains a named risk and does not alone defeat the specific non-coverage comparison.
+
+## value
+
+PASS
+
+Motivated counterexample to interpreting frequency-induced tipping as requiring an oscillatory linear eigenpair: distinct real-negative node eigenvalues still yield narrow-band forcing extinction while all comparable frozen rates and both extreme frequencies are safe. The exact moving threshold and transfer peak furnish a reusable spectral-versus-nonlinear-boundary distinction; not just a generic gain calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
