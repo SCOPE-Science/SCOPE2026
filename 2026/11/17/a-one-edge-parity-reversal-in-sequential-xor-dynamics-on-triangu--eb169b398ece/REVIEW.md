@@ -1,19 +1,21 @@
-# Scientific review of the edge-completion theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact scan equations are derived from individual updates and hold even when either leaf segment is empty. The four parity cases imply full-map orders of three, two, or four. For odd page count, the rank-one second iterate and fixed-space rank two imply precisely one size-three Jordan block. For even count, the order-two and order-three cases and their fixed-space ranks uniquely force the stated rational normal forms. The same reduction, with the missing hub edge, proves the stated cross-graph comparison. The cyclic-gap schedule multiplicity is exactly \((k+2)k!\). Direct exhaustive and matrix tests agree. No finite experiment is substituted for the general proof.
+PASS
 
-## Originality — PASS, with limited historical certainty
+The final claim quantifies over every k>=1 and every labelled one-visit scan, for current-neighbor self-inclusive XOR on B_k and Q_k. Each local update is an involution; cyclic rotation conjugates products and leaves commute, reducing scans to the t-gap order. The two hub/parity equations yield four parity cases; the nonzero rank-one second-power differences for odd k, k-dimensional fixed space and T^2/T^3/T^4 identities uniquely determine the stated GF(2) rational/Jordan forms and primitive periods. The schedule argument counts each t in (k+2)k! ways; at k=1,2 boundary groups are treated vacuously, not divided by zero. Independently rebuilt adjacency-mask updates exhaustively for both graphs every labelled scan and all 2^(k+2) initial states, k=1..4, checking predicted least periods, conjugacy-relevant orbit counts and schedule frequencies. Also read verification/verify_exhaustive.py and verification/verify_linear.py and inspected frozen tree; finite tests corroborate but do not establish all k. No general scan-with-repetitions claim is made.
 
-The closest exact source, the complete-bipartite sequential parity theorem, covers only the spine-deleted graph. The new content is the nonbipartite book normal forms, the all-scan edge-addition parity inversion, and exact reversal of scan-class frequencies. The prior general cycle-equivalence results preserve their base graph, and the cycle-graph Rule 150 theorem has a different base graph. Published results on majority dynamics of triangular books use a different update predicate. Earlier general Boolean-network algebra could give an alternative derivation, and unindexed exact statements remain a historical-priority risk. No independent originality certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem provides a natural, all-size example of a one-edge edit changing the connectivity from bipartite to a family with arbitrarily many triangles yet leaving all temporal dynamics linearly conjugate on one parity, while reversing the dominant schedule-dependent orbit regime on the other. The complete Jordan decomposition, primitive period census and labelled scheduling frequencies quantify this structural boundary, not just an arbitrary small graph instance.
+The exact single-edge editing theorem on the triangular book has a new non-bipartite half: for odd k adding ab preserves similarity for all cyclic scan gaps; for even k it interchanges the pure order-two and irreducible order-three sectors at every gap. The earlier full complete-bipartite schedule theorem covers the Q_k comparison baseline, not the B_k update with a spine. Macauley et al analyze asynchronous cycle rules and general rotation/commutation principles, not this pair or its every-order Jordan response. Search did not show an implication deriving the added-edge spectrum from a broader earlier theorem; historical priority is best-of-knowledge, not proven.
 
-## Limits
+## value
 
-Only self-inclusive binary parity, fixed single-visit scans and the triangular-book/complete-bipartite pair are covered. Scientific priority and expert-independent validation are unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A one-edge perturbation that reverses scan-cycle regimes in an entire natural graph family is structurally motivated: unlike raw finite census, it exactly answers how a single hub-edge edit changes linear conjugacy classes and frequency distribution for unbounded k. The odd/even threshold is non-obvious, not a renaming of the Q_k theorem, and may be useful for robustness of sequential graph dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
