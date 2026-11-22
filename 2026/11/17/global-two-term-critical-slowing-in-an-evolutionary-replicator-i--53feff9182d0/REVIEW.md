@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every \(0<b<1\), the exact log-odds identity and strict convexity of the log-odds derivative forbid any genuine period-two point at \(a=2/[b(1-b)]\). Classical interval-map theory then gives global fixed-point convergence, with both boundary fixed points ruled out for interior starts. Exact Taylor coefficients through degree five imply an inverse-square two-step recurrence with drift \(4C+(6C^2+4E)/u+O(u^{-3/2})\). This proves a convergent renormalized constant, including both parities; no finite experiment is used as an infinite proof. The checker reconstructs the nontrivial coefficients.
+## correctness
 
-**Originality — PASS within searched literature.** Direct inspection of the primary 2018, 2024 and 2026 literature shows earlier claims about global attraction, the flip boundary, and period-two orbits; these are not re-claimed. The new assertion is the model-specific universal two-term expansion with exact logarithmic coefficient and parity-independent finite constant. Related general and rational-map parabolic claims do not imply this coefficient without the specific fifth-order normal-form computation. Available mathematical research records and historical claim identifiers were searched. Potential uncatalogued higher-order parabolic literature remains a historical priority risk.
+PASS
 
-**Mathematical value — PASS.** The critical \(-1\) multiplier gives no linear decay estimate. The strict positive logarithmic correction is the first nontrivial correction to inverse-square critical slowing, valid for every interior initial condition (apart from exact finite landing). This quantifies convergence and finite-time prediction on the natural, already-studied evolutionary-game stability boundary. Neither a purely numerical gain nor an arbitrary unmotivated parameter slice is being claimed.
+Correctness PASS. For a=2/[b(1-b)] and x in (0,1), exact log-odds drift h(F_b(x))-h(x)=-a(x-b). A genuine two-cycle would have x+y=2b and a=integral_-1^1 h'(b+tz)dt >2h'(b)=2/[b(1-b)] by strict convexity, impossible. The classical no-period-two interval theorem gives convergence to 0,b,1, while the map's drift sign excludes endpoint limits from interior starts. Taylor coefficients F_b(b+y)-b=-y+C y³+D y⁴+E y⁵+O(y6), C=2(1-3B)/(3B²), E=2(30B²-20B+3)/(15B⁴), B=b(1-b); F²(b+y)-b=y-2Cy³+(3C²-2E)y⁵+O(y6). For even n=2j, reciprocal square u_j advances 4C+(6C²+4E)/u_j+O(u_j^-3/2). Since C>0, u_j=4Cj+O(log j); summable errors give u_j-4Cj-K log j->finite, K=(6C²+4E)/(4C). The next odd step increments reciprocal square by 2C+o(1), so the same full n-sequence constant exists. Explicit derivative makes exceptional landing preimages countable. Independent exact symbolic Taylor and K tests at b=1/5,3/10,1/2; not extrapolated finite sampling.
 
-**Closest literature and boundaries.** Chotibut et al., arXiv:1807.06831, discuss exact fixed-point and interval dynamics; Kryzhevich–Zhang–Chmara, arXiv:2412.16379, describe bifurcation and global attraction; Kryzhevich–Zhang, arXiv:2603.20685, investigate statistical invariants. Standard scalar parabolic theory motivates but does not directly provide the explicit model coefficient. The 1955 Coppel criterion is used only for global convergence. The theorem concerns the critical parameter, not an open neighborhood, and historical priority is not externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality PASS, with clearly credited covered symmetric slice. Chotibut et al. and Kryzhevich et al. established this replicator family, critical multiplier and global attraction. The published entropic congestion critical theorem and an EOS follow-up already supply a logarithmic coefficient at b=1/2 after exact coordinate conjugacy; that special case is NOT original. The surviving general theorem is for every asymmetric b∈(0,1), with an explicit b-dependent second logarithmic coefficient and shared parity constant. Prior symmetric slice and generic cubic normal-form existence do not by themselves imply this entire rational-function coefficient. No broader full-b result was identified in relevant primary literature or Resultary searches; priority remains best of knowledge.
+
+## value
+
+PASS
+
+Value PASS. A universal exact two-order global relaxation law on the entire physically meaningful interior interval at neutral flip, including a model-dependent positive log correction and full-parity renormalized constant, is a meaningful sharp iteration-speed result. Its all-b rational dependence is a nontrivial quantitative advance over standard local cubic flip and known symmetric special cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

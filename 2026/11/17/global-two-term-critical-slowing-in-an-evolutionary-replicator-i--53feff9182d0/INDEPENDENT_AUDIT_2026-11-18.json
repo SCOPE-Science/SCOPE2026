@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T04:56:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Correctness PASS. For a=2/[b(1-b)] and x in (0,1), exact log-odds drift h(F_b(x))-h(x)=-a(x-b). A genuine two-cycle would have x+y=2b and a=integral_-1^1 h'(b+tz)dt >2h'(b)=2/[b(1-b)] by strict convexity, impossible. The classical no-period-two interval theorem gives convergence to 0,b,1, while the map's drift sign excludes endpoint limits from interior starts. Taylor coefficients F_b(b+y)-b=-y+C y³+D y⁴+E y⁵+O(y6), C=2(1-3B)/(3B²), E=2(30B²-20B+3)/(15B⁴), B=b(1-b); F²(b+y)-b=y-2Cy³+(3C²-2E)y⁵+O(y6). For even n=2j, reciprocal square u_j advances 4C+(6C²+4E)/u_j+O(u_j^-3/2). Since C>0, u_j=4Cj+O(log j); summable errors give u_j-4Cj-K log j->finite, K=(6C²+4E)/(4C). The next odd step increments reciprocal square by 2C+o(1), so the same full n-sequence constant exists. Explicit derivative makes exceptional landing preimages countable. Independent exact symbolic Taylor and K tests at b=1/5,3/10,1/2; not extrapolated finite sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "EOS follow-up proves near-critical detuning a_N=8+theta/N for symmetric b=1/2 only; original replicator bifurcation papers analyze global attraction and cycle thresholds."
+        ],
+        "reasoning": "The near-critical symmetric horizon theorem is stronger in perturbation parameter but on a lower-dimensional b slice. It does not dominate all asymmetric b's logarithmic coefficient.",
+        "searches": [
+          "Resultary: for every b critical replicator map inverse square log correction",
+          "Resultary 2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca",
+          "arXiv:2412.16379"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.06831",
+        "arXiv:2412.16379",
+        "arXiv:2603.20685",
+        "Resultary full EOS critical crossover source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known global attraction, flip a=2/B and b=1/2 critical log are explicitly prior; new proof computes fifth-order asymmetric terms and the summable two-step recurrence yielding all-b K and one full-sequence constant."
+        ],
+        "reasoning": "Earlier b=1/2 case is an actual covered corollary, but the all-b theorem is not a corollary of a theorem restricted to b=1/2; the general K(B) calculation carries mathematical content.",
+        "searches": [
+          "Chotibut et al arXiv:1807.06831",
+          "Kryzhevich et al arXiv:2412.16379",
+          "Resultary symmetric EOS crossover RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At b=1/2, affine conjugacy maps critical F_b to symmetric EOS sigmoid; the known fixed-critical logarithmic correction covers this b slice."
+        ],
+        "reasoning": "The general asymmetric b case changes C,E and K rationally with B=b(1-b); symmetric EOS coefficients alone are not a proof for all B.",
+        "searches": [
+          "arXiv:1807.06831",
+          "arXiv:2412.16379",
+          "Resultary 2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known tables list stability/periodic orbits and symmetric fixed-critical scalar log correction; no closed all-b (2-5B)(4-15B)/(5B²(1-3B)) formula was located."
+        ],
+        "reasoning": "This is a coefficient along infinite dynamical orbits rather than a database table; no exact sequence table implies asymptotic convergence for all initial points.",
+        "searches": [
+          "Resultary: exact critical flip squared reciprocal log b arbitrary",
+          "arXiv:1807.06831",
+          "arXiv:2412.16379"
+        ]
+      },
+      "rationale": "Originality PASS, with clearly credited covered symmetric slice. Chotibut et al. and Kryzhevich et al. established this replicator family, critical multiplier and global attraction. The published entropic congestion critical theorem and an EOS follow-up already supply a logarithmic coefficient at b=1/2 after exact coordinate conjugacy; that special case is NOT original. The surviving general theorem is for every asymmetric b∈(0,1), with an explicit b-dependent second logarithmic coefficient and shared parity constant. Prior symmetric slice and generic cubic normal-form existence do not by themselves imply this entire rational-function coefficient. No broader full-b result was identified in relevant primary literature or Resultary searches; priority remains best of knowledge.",
+      "residual_risks": [
+        "Published general parabolic iteration normal forms may already encode this rational coefficient after substitution, although no explicit all-b global result was located.",
+        "b=1/2 is positively pre-covered and must not be separately presented as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known critical family and global dynamics; no same all-b two-order expansion in inspected sections",
+          "evidence": "2018 preprint source map and flip threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.06831",
+          "material_read": "Full accessible primary PDF consulted, especially first pages, model definition and global attraction context",
+          "method": "Original arXiv PDF opened and page screenshot inspected",
+          "title": "Family of chaotic maps from game theory",
+          "trigger": "Exact source interval map and known global threshold"
+        },
+        {
+          "assessment": "Identical map, previous global attraction; no matching all-b explicit K and same-parity constant in read material",
+          "evidence": "Bifurcation frontier and no-two-cycle regime.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.16379",
+          "material_read": "Primary PDF opened and inspected introduction/model and sections 2–3 around critical fixed point and two cycles",
+          "method": "PDF page screenshots and mathematical comparison",
+          "title": "Bifurcations and invariant sets for a family of replicator maps from evolutionary games",
+          "trigger": "Most likely same-model primary paper for critical slowing"
+        },
+        {
+          "assessment": "Covers b=1/2 fixed-critical slice; new near-critical theta/N extension likewise limited to symmetric b. Does not dominate all-b claim.",
+          "evidence": "At theta=0: w_N^-2=64N/3+(48/5)log N+O(1) in EOS normalization; b=1/2 only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca",
+          "material_read": "Entire published RESULT.md including theorem, exact sigmoid conjugacy and proof read",
+          "method": "Connected GitHub full text",
+          "title": "An exponentially weighted logarithmic crossover at the neutral flip of a sigmoid interval map",
+          "trigger": "Potential stronger same-model logarithmic result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Value PASS. A universal exact two-order global relaxation law on the entire physically meaningful interior interval at neutral flip, including a model-dependent positive log correction and full-parity renormalized constant, is a meaningful sharp iteration-speed result. Its all-b rational dependence is a nontrivial quantitative advance over standard local cubic flip and known symmetric special cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strictly x0∈(0,1), b∈(0,1), exact a=2/[b(1-b)]; preimages landing on b are a countable exceptional set.",
+    "No post-flip dynamics or off-diagonal two-agent claims."
+  ],
+  "schema_version": 1
+}
