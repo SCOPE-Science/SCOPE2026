@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "All \\(2^{14}=16384\\) states are included. For any flippable spin with \\(r=2\\) or \\(3\\) disagreeing neighbors, the disagreement-edge count changes by \\(3-2r=-1\\) or \\(-3\\), so the backward absorption equations are acyclic and exact. check_cyclic.py uses cyclic Fano lines and increasing-edge-cut dynamic programming; check_xor.py uses \\(\\mathbf F_2^3\\) incidence lines and a separately implemented recursive rational Bellman solver. Both run successfully and return the same 15 Bernstein coefficients, identical q-polynomial and 56 three-spin cases. The \\(1/15\\) success probability has a direct \\(3/6\\) times \\(2/5\\) times \\(1/3\\) local race proof. Finite exhaustive proof is valid for the fixed 14-site domain, with no claim of infinite extension.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Castellano et al., arXiv:cond-mat/0501599, sections II-IV: numerical network ordering trends, not an explicit general absorption formula for every finite cubic graph.",
+        "Baek, Ha and Jeong, arXiv:1112.5927, sections II-IV: numerical distributions of active-link density on random networks and regular ensembles, with no exact Heawood special case."
+      ],
+      "reasoning": "General statements that freezing can occur in finite networks and that odd-degree random graphs can retain disagreement do not determine exact harmonic measures. No inspected broader theorem gives all 14-vertex Heawood absorption probabilities or the rare seed criterion by specialization.",
+      "searches": [
+        "published-finding corpus: zero-temperature Glauber dynamics on cubic bipartite graphs Heawood graph stable states",
+        "web: zero temperature Glauber dynamics finite cubic graphs fixation metastable states exact distribution",
+        "web: \"Heawood graph\" \"zero temperature\" \"spin\" freezing"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/0501599",
+      "https://www.cpt.univ-mrs.fr/~barrat/pre71ter.pdf",
+      "https://arxiv.org/abs/1112.5927",
+      "https://arxiv.org/pdf/1112.5927",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93",
+      "https://mathworld.wolfram.com/FanoPlane.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A two-step majority projection and exact attraction basins on the Heawood graph: synchronous map \\(F^4=F^2\\) and isolated nonconstant fixed points; underlying generator differs from rate-one asynchronous Glauber flips.",
+        "Earlier icosahedral asynchronous nucleation finding, ID 2353d774-da00-4fa1-a9b3-88fd32bab91d, concerns a 12-site degree-five icosahedron and distinct cap geometry and polynomial.",
+        "Baek et al. formulate general zero-temperature single-spin rules but report random-network simulations, not an exact finite Heawood harmonic measure."
+      ],
+      "reasoning": "Same fixed points under two protocols do not imply equal accessibility. The present claim is a new exact Markov absorption distribution for a distinct canonical 14-site 3-regular graph and a Fano-geometric rare-seed race. Previously analyzed asynchronous networks do not contain a parameter substitution or graph reduction yielding its numeric coefficients. Residual risk is an undiscovered equivalent calculation.",
+      "searches": [
+        "published-finding corpus: Heawood graph asynchronous majority spin dynamics 3 regular ferromagnet exact absorption",
+        "web: \"Heawood\" \"majority\" \"absorbing\" spins",
+        "web: Heawood graph zero temperature Glauber dynamics majority rule absorbing states exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published Heawood majority study: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93 ; its RESULT.md was read in full and specifies synchronous updates, isolated nonconstant fixed points, and a 58-state projection.",
+        "Castellano et al., arXiv:cond-mat/0501599, complete text and PDF inspected: processes on complete, random and scale-free graphs, not the Heawood incidence graph."
+      ],
+      "reasoning": "The fixed-state count and Fano hexagon geometry are explicitly prior knowledge and are not the novelty claim. Synchronous attraction basins are not transition probabilities for an asynchronous Markov chain; the three-seed 1/15 race and full rational absorption law do not follow from synchronous isolated basins. No alternative Heawood asynchronous same-statement formulation was located in the searched material.",
+      "searches": [
+        "published-finding corpus: Heawood graph zero temperature Glauber Ising majority absorbing states freezing probability 14 vertices",
+        "published-finding corpus: on Heawood Fano incidence graph zero-temperature ferromagnetic majority Glauber has 58 absorbing configurations and exact nonconsensus absorption polynomial in Bernoulli density",
+        "web: \"Heawood\" \"Glauber\" \"absorption\" probability",
+        "web: Fano plane incidence Glauber coarsening exact probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published same-graph Heawood RESULT.md tabulates 58 synchronous fixed points, 1653 synchronous two-cycles and synchronous basin sizes but does not tabulate random-clock absorption weights.",
+        "Other available research results on Heawood-line bootstrap and icosahedral asynchronous freezing, identified by 08f9fbc1-0858-46af-bdba-37014fe6810f and 2353d774-da00-4fa1-a9b3-88fd32bab91d, involve different graphs and stochastic rules; neither states the Heawood asynchronous absorption polynomial."
+      ],
+      "reasoning": "The 58 stable configurations are already in a published table, so merely reproducing them would fail originality. The present four-term rational polynomial and 56 exactly classified 1/15 seed probabilities are not entries in the inspected relevant records. The absence of a result in a database is not a proof of global novelty.",
+      "searches": [
+        "published-finding corpus: Fano incidence graph majority dynamics 28 six cycles stable cut 56 traps probability absorption",
+        "published-finding corpus: three same-shore noncollinear Fano points seed six-cycle stable Ising state with probability one fifteenth 1/15 under asynchronous majority updates",
+        "web: \"Heawood\" \"noncollinear\" \"1/15\" majority",
+        "web: \"Heawood\" \"freezing\" majority dynamics"
+      ]
+    },
+    "rationale": "Closest same-graph full text establishes the 58 synchronous fixed points and their isolation, and these are credited. Neither its synchronous basin theorem nor the examined numerical random-network literature supplies the asynchronous absorption polynomial. Explicit statement-versus-prior-implication checks separate already-known geometry from the newly computed stochastic harmonic measure. Prior graph-specific asynchronous results are not stronger coverage of this distinct Fano model. Priority remains provisional to indexed and inspected material.",
+    "residual_risks": [
+      "A differently indexed or inaccessible earlier exact asynchronous Heawood calculation may exist.",
+      "Related exact finite graph absorption results may have unrecognized reductions, but no such implication was identified in inspected high-relevance sources.",
+      "Independent specialist priority assessment and independent formal verification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS fixed-state count and six-cycle geometry, NOT the asynchronous harmonic measures or rare-seed 1/15 race",
+        "evidence": [
+          "Theorem \\(F^4=F^2\\); 58 fixed states, 1653 two-cycles; 56 mixed fixed states have synchronous basin size one; text explicitly distinguishes synchronous from asynchronous majority."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93",
+        "material_read": "Full RESULT.md including theorem, ten-case Fano projection, fixed points, basins, proof, verification, scope and references",
+        "method": "Fetched publicly available repository RESULT.md and compared its synchronous map and basin statements with the continuous-time Markov absorption recurrence",
+        "title": "A two-step majority projection and exact attraction basins on the Heawood graph",
+        "trigger": "Same graph and majority rule; exact fixed-state census potentially covers the claimed absorption event"
+      },
+      {
+        "assessment": "Numerical study of complete, random and scale-free networks, no Heawood absorption coefficients",
+        "evidence": [
+          "The introduction explicitly lists complete graph, random graph and scale-free Barabasi-Albert graph; PDF has no Heawood occurrence; source first posted 2005-01-25."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0501599",
+        "material_read": "Full article accessible in arXiv HTML and original PDF; introduction, model, discussion of probability of disordered outcomes, graphs studied and conclusions inspected",
+        "method": "Inspected arXiv full text and original PDF pages including introduction and results and searched full document for Heawood and Petersen",
+        "title": "Comparison of voter and Glauber ordering dynamics on networks",
+        "trigger": "Early public zero-temperature Glauber study of metastable nonconsensus states in finite networks"
+      },
+      {
+        "assessment": "General numerical random-network metastability; no same-graph exact freezing polynomial",
+        "evidence": [
+          "Focuses on ER random networks with numerical distributions; no Heawood occurrence; first arXiv posting 2011-12-27."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1112.5927",
+        "material_read": "Full arXiv HTML with methods and results sections, original nine-page PDF with pages one and five visually inspected, targeted source search and conclusion",
+        "method": "Read manuscript text, model Eq. 2, reported random-network active-link distributions and conclusion; searched for Heawood and Petersen",
+        "title": "Absorbing states of zero-temperature Glauber dynamics in random networks",
+        "trigger": "Plausible study of finite-network zero-temperature trapping distributions and exact absorption"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5034f6ad-5fe4-4561-aae8-cabdfbd9053c",
+  "value": {
+    "rationale": "The Heawood Fano graph is the smallest cubic girth-six graph, providing a canonical sparse-network metastability benchmark. The complete rational absorption polynomial resolves a natural probability for all initial spin densities, while rare nucleation is characterized by Fano noncollinearity and a 1/15 bridge race. The known synchronous protocol has the same 56 mixed fixed states but isolated basins; at unbiased spins its mixed fixed-state probability is 7/2048, compared with the asynchronous 0.283824, a substantial and motivated kinetic contrast. Exact finite value does not require an unproved extension to larger graphs.",
+    "status": "PASS"
+  }
+}
