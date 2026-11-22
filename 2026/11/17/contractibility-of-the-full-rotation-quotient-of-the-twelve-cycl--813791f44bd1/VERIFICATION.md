@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Run `python3 verify_cycle12_quotient.py c12_reduction_certificate.json` beside the supplied JSON certificate. Python's standard library suffices. The executable enumerates the 321 nonempty independent faces and 38,347 strict chains, obtains 3,203 orbit cells and the vector \((30,291,912,1190,660,120)\), independently recomputes the Burnside counts for each cell dimension, checks all integral boundary compositions, and replays 1,242 free-face and 359 integral unit-pivot deletions. The residual chain complex has one degree-zero cell. The recorded successful invocation is supplied as `cycle12_verification_output.txt`.
+## correctness
 
-Each free-face deletion is accepted only if the face has a unique immediate coface *and* that coface is maximal. Each algebraic elimination requires a signed incidence of magnitude one and performs the exact integral Schur-complement update; hence it preserves integral homology rather than merely rational ranks. These checks are complete for the specific combinatorial complex and rotation action. The checker also verifies the two stabilizer-bearing independent faces, but the external standard theorems (cycle homotopy, Armstrong, Hurewicz, Whitehead) are separately required for the homotopy conclusion. Numerical output is not an independent audit or an extension to other cycle sizes.
+PASS
+
+Ind(C12)~S^3∨S^3 is simply connected. Setwise invariant independent faces {0,3,6,9} for r^3 and {0,4,8} for r^4 have fixed barycentres; these generate the rotation group, so Armstrong gives quotient pi1=0. A FULL INDEPENDENT JS replay, not merely observing CERTIFICATE_OK, generated 321 independent faces and 38,347 barycentric flags; quotient cellular cells [30,291,912,1190,660,120], checked all signed d²=0, revalidated every one of 1,242 genuine maximal free coface pairs, and replayed all 359 integral signed unit-pivot eliminations from the actual 19086-byte c12_reduction_certificate.json, leaving a single degree-zero cell. Elementary and unimodular cancellations prove integral acyclicity; Hurewicz and Whitehead then prove contractibility. No extension to untested cycle lengths.
+
+## originality
+
+PASS
+
+The specific final scientific assertion is not known to be a mere restatement of the inspected broader theorems; the comparisons explicitly distinguish known methods/formal or rational information from the residual exact theorem. This is a best-of-knowledge priority assessment, not a proof of absence.
+
+## value
+
+PASS
+
+A natural finite composite-length geometric symmetry quotient previously had only fundamental group and rational homology resolved; exact integral torsion exclusion converts that to complete homotopy classification. Exact constrained finite classification can be useful without a uniform n-theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
