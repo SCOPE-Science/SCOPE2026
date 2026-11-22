@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T22:51:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The m inverse branches turn covariance into log-integrals J(j). Integration by parts, Li₂(−1/j), and telescoping logs give C(m)=1+m⁻¹Σ_{j=1}^{m−1}jLi₂(−1/j), with C(1)=1. Each r_j=1+jLi₂(−1/j) has a positive decreasing integral representation; averaging establishes C(m)>0 and strict decrease. Dilogarithm expansion of r_j through j⁻³ and Euler–Maclaurin give (.25 log m+B)/m−1/(72m²)+1/(288m³)+O(m⁻⁴); independently evaluated B=1.0102793965954957… and checked high precision residuals. Lag decay O(kb⁻k) justifies absolute convergence and exact pair-count identity Var(S_N)=Nσ²−κ+2Σ_{k≥N}(k−N)C(b^k); geometric j-sum yields N b^(1−N)log b/[2(b−1)²]+O_b(b⁻N). Finite numerical quadrature and N checks are corroborative, not a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defaveri–Smith same singular observable includes doubling and numerical Green–Kubo variance, not all-base exact Li₂ formulas; Nicol–Schindler primarily studies logarithmic singularity large deviations."
+        ],
+        "reasoning": "General dynamical fluctuation and pressure theorems do not imply finite dilogarithm sum or signed finite-time sharp correction without substantial new analysis.",
+        "searches": [
+          "https://arxiv.org/html/2610.21288v1",
+          "https://arxiv.org/abs/2610.35221"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.21288v1",
+        "https://arxiv.org/abs/2610.35221"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Defaveri–Smith discusses doubling/tent/logistic fluctuations and numerically estimated Green–Kubo value; analytic logistic result does not transfer unchanged to integer full-branch map."
+        ],
+        "reasoning": "Classical pair counting is known and explicitly not novel; new nonstandard content is exact Li₂ branch integration plus sharp asymptotics.",
+        "searches": [
+          "https://arxiv.org/html/2610.21288v1",
+          "https://arxiv.org/abs/2610.35221"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary autocorrelation, Green–Kubo coefficients and finite-window variance are equivalent names for C(m), σ² and κ; Defaveri–Smith doubling case explicitly compared."
+        ],
+        "reasoning": "Aliases of observable −log x, Birkhoff sums and covariance tail do not yield an identical published closed formula in searches.",
+        "searches": [
+          "Resultary: dilogarithm exact covariance negative log x base b expanding map finite sample variance",
+          "Resultary: expanding map minus log x covariance dilogarithm finite window variance bias b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously quoted σ₂²≈3.705486 is a numerical benchmark; the new output is an exact analytic lag formula and entire sequence of finite-time corrections."
+        ],
+        "reasoning": "It is not merely a recomputation of a numerical variance entry.",
+        "searches": [
+          "Resultary search Birkhoff log singular covariance Green Kubo value 3.705486",
+          "Defaveri Smith doubling Green Kubo numerical value"
+        ]
+      },
+      "rationale": "The exact all-integer-base dilogarithmic covariance and finite-N signed asymptotic variance correction were not supplied by the inspected same-observable Defaveri–Smith paper, which reports doubling variance numerically; more general logarithm singularity deviation results concern different statistics. This is best-of-knowledge, not absence certification.",
+      "residual_risks": [
+        "An uninspected exact transfer-operator covariance computation under a different observable normalization could subsume part of the formula.",
+        "Nicol–Schindler complete primary text not verified; no whole-document exclusion asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL OVERLAP, NOT_COVERING exact claimed Li₂/finite-N expansion",
+          "evidence": "Source gives doubled-map σ² numerically; no exact all-base C(b^k) and sharp signed finite-N correction.",
+          "identifier_or_url": "https://arxiv.org/html/2610.21288v1",
+          "material_read": "Entire available PDF including fluctuation sections, Green–Kubo doubling numerical value ~3.705486, and analytic logistic-map appendix",
+          "method": "Full PDF text and selected page screenshots",
+          "title": "Dynamical phase transition for a logarithm observable in chaotic systems",
+          "trigger": "Exact same observable and doubling map"
+        },
+        {
+          "assessment": "Indeterminate full-text risk; different statistic",
+          "evidence": "Deviation and pressure regularity not itself an exact covariance identity.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.35221",
+          "material_read": "Abstract and available summary, not complete primary body",
+          "method": "ArXiv abstract / indexing",
+          "title": "Large deviations for observables with logarithmic singularity and differentiability of the pressure function",
+          "trigger": "Potential stronger singular-observable theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact quantitative covariance and finite-sample variance bias for a canonical singular observable on a standard chaotic map provide a useful calibration for temporal dependence, numerical fluctuations, and limiting-variance estimates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An uninspected exact transfer-operator covariance computation under a different observable normalization could subsume part of the formula.",
+    "Nicol–Schindler complete primary text not verified; no whole-document exclusion asserted.",
+    "All available prior mathematical results were compared by implication; same-date repository ordering is not evidence of historical priority.",
+    "No SCOPE/Resultary repository mutation, external certification or independent expert attestation.",
+    "Public metadata retain operational provenance; final scientific disposition is separate from private publication plan readiness."
+  ],
+  "schema_version": 1
+}
