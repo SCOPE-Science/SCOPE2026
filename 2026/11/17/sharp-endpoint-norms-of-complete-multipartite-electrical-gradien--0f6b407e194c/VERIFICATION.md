@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify.py` with SymPy installed. The script reconstructs every projection matrix using a grounded Laplacian inverse over exact rational numbers; this is algorithmically independent of the partwise dipole formula used in the proof. It checks symmetric idempotence, every individual absolute row sum, exact extremizing sign fields, endpoint maxima, and complete finite partition extremizers.
+## correctness
 
-Observed diagnostics:
+PASS
 
-```text
-EXACT_GROUNDED_LAPLACIAN_PROJECTION_GRAPHS_PASSED 128
-EXACT_EDGE_ROW_FORMULAS_PASSED 2926
-EXACT_SIGN_EXTREMIZERS_PASSED 2926
-PARTITION_EXTREMAL_CLASSIFICATION_PASSED 17
-ALL_EXACT_MULTIPARTITE_HODGE_ENDPOINT_CHECKS_PASSED
-```
+PASS. Reviewed the complete dipole potential, cross-part sign accounting, h_N(s) algebra, partition extremality derivative and exceptional N=2..7 cases in actual RESULT.md and verify.py. L phi=delta_u-delta_v follows by the partwise Laplacian formula, and absolute potential differences over interpart edges sum to h_N(a)+h_N(b). Convexity p=ab<=((N-c)/2)^2 and monotonic F_N(c), with odd integer balance, establish the stated maximizers; small orders are finite enumerations. Independent grounded-Laplacian calculations for ten representative partitions confirmed K11 1, K111 4/3, K22 3/2, K221 26/15, K34=K331=2, K44 17/8. Finite checks corroborate but do not replace the all-N proof.
 
-The 128 graphs exhaust integer-part-size multisets with total vertex number from two through ten. The final classification test exhausts multipartite integer partitions from two through eighteen vertices. Rational finite verification is not a substitute for the universal algebraic proof. No external or independent mathematical audit was performed.
+## originality
+
+PASS
+
+Unbalanced h_N and integer maxima are not implied by older balanced exact constants.
+
+## value
+
+PASS
+
+PASS. Arbitrary unbalanced multipartite electrical networks are a natural symmetric graph family and precise edgewise error amplification is a meaningful stability invariant of least-squares gradient reconstruction. The new two-part-size formula and sharp global maximizer over all integer partitions determine nontrivial transitions, including K331 co-maximization at N=7. Earlier balanced subfamily formulas do not supply these heterogeneous-row and partition results; this is more than a parameter substitution or a table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

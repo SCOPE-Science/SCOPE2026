@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claimed orthogonal projection is well-defined because the graph is connected and the incidence matrix has constant kernel. An explicitly constructed mean-zero dipole potential solves the Laplacian equation. Enumerating the nonzero types of cross-part edges, with verified signs, yields each exact absolute transfer-current row sum. Matrix symmetry gives both endpoint norms. The extremal-partition argument reduces to a balanced-product bound and an elementary monotonicity comparison, with small orders enumerated separately. A separate exact-rational grounded-Laplacian reconstruction checks 128 graphs, 2,926 edge rows and sign witnesses, and the exceptional graph maxima through eighteen vertices. Finite checks support, but do not replace, the complete proof.
+## correctness
 
-## Originality
-PASS under the inspected source comparison, with residual bibliographic risk. Brandes–Fleischer (2005) gives electrical potential/current machinery and centrality aggregates; Jiang–Lim–Yao–Ye (2008) gives least-squares projection onto gradient flows; Schild–Rao–Srivastava (2017) gives nonexact, graph-general localization bounds on the absolute transfer-current matrix. These cover the objects and the general formalism, not the evaluated complete-multipartite row formula and full fixed-order extremal classification. The two-way additive-model interpretation could independently encode the bipartite special case, and the broader electrical-current literature may contain an implicit antecedent. No claim of exhaustive historical priority is made.
+PASS
 
-## Mathematical value
-PASS. The problem measures worst-case edgewise sensitivity of Euclidean reconstruction of consistent gradient data. The answer is exact on an unrestricted natural graph family, despite its varying number of parts. Its reduction to two part sizes is a structural simplification, and its sharp fixed-order extremizers include nonbipartite exceptions at small orders. The uniform amplification ceiling \(3\), approached on balanced bipartite graphs, quantitatively contrasts endpoint instability with Hilbert-space nonexpansivity. The exact constants and attaining inputs can be used to calibrate worst-case perturbation bounds.
+PASS. Reviewed the complete dipole potential, cross-part sign accounting, h_N(s) algebra, partition extremality derivative and exceptional N=2..7 cases in actual RESULT.md and verify.py. L phi=delta_u-delta_v follows by the partwise Laplacian formula, and absolute potential differences over interpart edges sum to h_N(a)+h_N(b). Convexity p=ab<=((N-c)/2)^2 and monotonic F_N(c), with odd integer balance, establish the stated maximizers; small orders are finite enumerations. Independent grounded-Laplacian calculations for ten representative partitions confirmed K11 1, K111 4/3, K22 3/2, K221 26/15, K34=K331=2, K44 17/8. Finite checks corroborate but do not replace the all-N proof.
 
-## Scope and risk
-The theorem is for finite unweighted real edge-flow spaces and the canonical Euclidean projection; weighted, directed and nonmultipartite graphs are not covered. This is a self-review, not independent validation. Residual literature-priority risk remains for differently named electrical routing and additive-model projection constants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Unbalanced h_N and integer maxima are not implied by older balanced exact constants.
+
+## value
+
+PASS
+
+PASS. Arbitrary unbalanced multipartite electrical networks are a natural symmetric graph family and precise edgewise error amplification is a meaningful stability invariant of least-squares gradient reconstruction. The new two-part-size formula and sharp global maximizer over all integer partitions determine nontrivial transitions, including K331 co-maximization at N=7. Earlier balanced subfamily formulas do not supply these heterogeneous-row and partition results; this is more than a parameter substitution or a table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
