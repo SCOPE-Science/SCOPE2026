@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The closed dyadic-uniform transfer recursions follow from the two branch maps and the order of Markov switching. Algebraic elimination gives rational mode generating functions. Positivity and normalization for \(v>u\), nonexistence within the stated class for \(v\le u\), and uniqueness are proved directly; the three asymptotic regimes and the resonant logarithm follow by exact geometric convolution. The finite rational checker is corroboration, not the infinite proof. Restrictions to shell-uniform laws and to interior \(x\in(0,1)\) are explicit.
+PASS
 
-## Originality — PASS within inspected evidence
+PASS. Reconstructed post-transition E/C dyadic-shell transfer equations c_0=0, c_{k+1}=u e_k+(1-v)c_k, e_k=(1-u)e_{k+1}+v c_{k+1}+(1-u)e_0 2^{-(k+1)}; the top-shell E reinjection has geometric weights 2^{-(k+1)}. Eliminating their generating functions independently with symbolic rational algebra gives E=2(1-u)e_0[1-(1-v)z]/[(2-z)(1-u-(1-v)z)] and C=2(1-u)u e_0z/[(2-z)(1-u-(1-v)z)], and E+C exactly the claimed M. M(1)=1 forces e0=(v-u)/(2(1-u)(u+v)). For v<u the noncanceled positive pole lies at z=(1-u)/(1-v)<1; at equality nonnormalizable, so no probability in specified density subspace. For v>u both geometric poles outside the unit disk and coefficientwise nonnegative masses exist, verifying stationarity and uniqueness. Collision of poles r=(1-v)/(1-u)=1/2 gives k2^{-k} and exact log resonance. Fixed p=v/(u+v)>1/2 yields threshold s*=1/(3p-1) strictly in (0,1/p), independent of Lyapunov value. Independently evaluated exact rational examples in all 3 regimes. Caveat: no global uniqueness for singular measures or atomic zero; no total-variation mixing claim.
 
-Yan et al., arXiv:2308.09269, studies iid map selection, whereas this theorem has a two-state temporally correlated Markov choice. Monthus, arXiv:2409.19999, fully develops the iid dyadic shell Markov chain, which is *not* an external Markov-switching environment. The closest same-model earlier finding concerns iid trajectory couplings and occupations, not joint stationary laws. Independent published-claim index searches for Markov-modulated Pelikan switching and invariant densities returned iid Pelikan findings or Markov switching of two expanding maps. Neither supplies the displayed rational joint law and the constant-Lyapunov three-regime crossover. Residual risk: the exact result may be a corollary of a more general matrix-geometric Markov-modulated queue result or appear in unindexed literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result separates the density singularity class from the long-run expanding frequency and Lyapunov exponent, a mathematically motivated question for intermittent random maps. It gives the complete finite stationary solution of a two-phase semi-infinite shell system, an exact critical logarithmic law, and a sharp parameter locus. These features quantify how environmental memory changes spatial concentration without changing average exponential expansion.
+PASS best of knowledge. The closely related iid Pelikan results explicitly choose maps independently with fixed p, so cannot directly imply the Markov-environment joint stationary law depending separately on u and v or its fixed-frequency correlation threshold. No indexed exact equivalent in the searches; this is not proof of absolute priority.
 
-## Scope and limitations
+## value
 
-The invariant distribution is classified only within the mode-conditioned dyadic-uniform density class. Other singular invariant measures (including the fixed atom at zero on the completed interval) and convergence of arbitrary initial distributions are not addressed. This review is an same-model mathematical consistency and overlap assessment, not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Stationary regularity at a fixed positive Lyapunov exponent is a motivated structural distinction between temporal correlations and mean expansion. The complete exact probability-generating function and pole-collision trichotomy for the non-iid mode-conditioned transfer operator are nontrivial, explicitly parameterized, and usable to distinguish stochastic processes sharing their one-step mode frequencies; not a change of symbols in the iid formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
