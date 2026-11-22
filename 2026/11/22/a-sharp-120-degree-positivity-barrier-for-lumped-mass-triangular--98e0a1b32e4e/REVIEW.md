@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness (PASS).** From the physical triangle gradients, row-sum lumping gives \(M=(h/3)I\). Exact orthogonal projectors reduce all three update matrices to two scalar spectral factors. Their explicitly factored base-edge coefficients, the Crank–Nicolson apex diagonal, and a unique-turning-point exponential show *all* sign cases, including the endpoint angle and zero-step exceptions. The saved exact-rational verifier constructs the matrices independently and passes all 304 matrix/threshold checks plus the rational critical-angle matrix. Numerical samples are supplemental, not an infinite proof.
+
+**Originality (PASS, provisional historical priority).** Accessible full-text comparison with Jin–Lazarov–Thomée–Zhou (2015) and full indexed analyses of one-dimensional consistent-mass heat steps and nodal triangular clipping finds no exact mass-lumped Neumann three-vertex Crank–Nicolson \(120^\circ\) phase boundary. The 2018 Larsson–Thomée Neumann chapter is highly relevant but the entire text was inaccessible; its abstract gives broad general criteria rather than the specific sharp time interval. That access limit is a residual historical-priority risk and not a claim that the inaccessible chapter omits this result. All general M-matrix and qualitative Delaunay ideas are acknowledged as prior.
+
+**Value (PASS).** The sharp \(120^\circ\) cutoff is a natural geometric boundary for the smallest obtuse Neumann finite-element heat cell: below this angle an exact nonzero Crank–Nicolson positivity window survives, above it no nontrivial timestep works, although backward Euler and exact semidiscrete propagation eventually recover positivity. This separates spectral stability, geometric positivity and time discretization with exact necessary-and-sufficient bounds. The scope is intentionally limited to one triangle; no general mesh or accuracy result is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
