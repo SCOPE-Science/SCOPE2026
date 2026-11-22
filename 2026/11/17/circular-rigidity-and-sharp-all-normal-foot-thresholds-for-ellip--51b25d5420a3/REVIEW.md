@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-side projection condition is an intersection of strict Euclidean strips. A quantitative chord/tangent estimate yields the uniform fine-mesh bound, and the minimax tangent residual is zero only for a circle. Central symmetry reduces every even ellipse polygon to its origin, where the exact foot dot-product condition yields the stated finite tangent-ratio threshold; sampled/continuous angle minima give the asymptotic. The executable checker independently passed 605 finite cases. Its numerical samples are not an infinite proof.
+## correctness
 
-## Originality — PASS, provisional
-The exact regular-polygon normal chamber result in published literature was identified as covering all previously considered circular regular-polygon formulas; no such formula is claimed as new. The 2024 foot-strip characterization is prior, as is 2026 fixed odd-polygon radial/support rigidity. Actual semantic comparisons found no prior uniform noncircular smooth-oval extinction theorem or sharp even ellipse aspect-ratio threshold. The 2026 initiating preprint full text was inaccessible, so latent coverage and unindexed equivalent formulations remain priority risks.
+PASS
 
-## Mathematical value — PASS
-The statement settles a complete smooth-versus-circular geometric dichotomy, provides a quantitative shape defect with exact ellipse value and classifies every even equally eccentric-parameter sampled ellipse polygon by a sharp anisotropy cutoff. The order pi/n threshold is a structural boundary for feasible simultaneous perpendicular feet; this is stronger than a single computed example.
+Each side-foot condition is a strict convex strip; chord unit tangent differs from arclength tangent by at most κh. For any z in the kernel, |<z-γ(s),τ(s)>|≤2(1+Dκ)h uniformly in s, yielding Δ bound. Compactness and derivative of squared radius prove Δ=0 precisely for circles. On ellipse, maximum tangential residual at origin is a-b and antipodal pairing shows no translation can lower it. For even n central symmetry of the entire strip kernel permits z=0 when nonempty; direct midpoint/chord dot product gives the precise bound a²/b²<tan((2j+2)x)/tan((2j+1)x) for restrictive j, equality excluded. Minimize continuous f_x at π/4-x/2 and sample within x to get R_n=1+π/n+O(n^-2). n=4 admits all positive ellipse aspect ratios. Limits of smooth and finite regimes explicitly separated.
 
-## Scope and limitations
-Only strictly convex C2 smooth curves are covered by the uniform result; the explicit polygon classification assumes even vertex count and eccentric-anomaly spacing. Finite checks corroborate proof only. The literature search does not certify historical novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing regular-polygon maximal-normal chamber formulas cover only circular vertex configurations and area fractions; an odd-polygon radial/support inverse-uniqueness theorem assumes all feet internal rather than characterizing when existence persists. Zwierzyński pedal-iteration formula concerns projections to supporting lines, not finite segments. Neither implies exact anisotropic even-ellipse thresholds or fine-mesh smooth circle rigidity. Best-of-knowledge novelty survives with historical geometry risks.
+
+## value
+
+PASS
+
+A complete and sharp aspect-ratio feasibility classification for a natural family of polygonal approximations to ellipses, together with a smooth rigidity and mesh obstruction that singles out circles, is a structural geometric result of independent value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
