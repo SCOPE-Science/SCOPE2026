@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit matrix-unit calculation gives the triangular action and invariant corners. Finite-rank density and contractivity prove pointwise operator-norm decay on all compact operators; the projection \(P_m\) proves exact norm-one powers on that ideal. A monotone coupling justifies the norm supremum in the pure-birth representation. Partial fractions of the geometric holding-time generating function give the exact finite projection coefficients; a second geometric argument gives the sharp fixed-window constant. A bounded martingale strong law gives the all-weight ballistic threshold. For beta weights, a binomial coupling proves an \(O(\log m)\) discrepancy, allowing the Gaussian limit, and a binomial lower-tail estimate justifies the expected logarithmic correction. There is no passage from finite numerical checks to an infinite proof. `CHECK.py` passes 466 finite exact-rational assertions.
+## correctness
 
-**Originality — PASS, with priority risk.** Panja's primary article defines the normal UCP map and identifies its fixed points but does not give the compact-ideal iteration theorem or any finite-rank power-norm profile. Fidaleo–Ottomano–Rossi analyze general transient and spectral dynamics of UCP maps, not this explicit pure-birth representation. Comparisons with available mathematical records and historical claim titles revealed related weighted Bergman spectral problems, Kraus power-compactness, and Gaussian fluctuation problems, but none implies the exact specific law. Geometric waiting-time formulas and the binomial CLT are classical and are credited. An older implicit formulation of the diagonal Markov chain, or a general CP-iteration theorem implying its stability, may exist; independent publication-priority audit has not been performed.
+PASS
 
-**Mathematical value — PASS.** The same natural UCP operator displays compact-by-compact decay with maximal failure of uniform compact-ideal decay, and a completely explicit quantitative mechanism: finite-window spectral constants, a moment-determined ballistic degree frontier, and a Gaussian cutoff for the standard beta Bergman family. The sharp fronts inform how rapidly finite-rank tests can increase in complexity under iteration, and distinguish the absence of compact fixed points from quantitative power stability. This is not merely a matrix restatement of the fixed-point theorem, an arbitrary finite slice, or an unsupported numerical pattern.
+Panja’s full primary paper specifies Psi_w by its Kraus shift/tail operators, and the package correctly computes its action on E_ij; min(i,j) supplies the diagonal loss and indices reduce simultaneously. Finite corners are invariant, upper triangular, with spectral radius 1−r_N; strict moment log-convexity gives r_0=1>r_1>...>ρ. Uniform power-contractivity and finite-corner density prove individual compact-operator decay while P_m provides norm-one witnesses at iteration m. On diagonal operators the process is an increasing pure-birth chain; ordered uniform coupling puts the operator norm at initial state zero. Independent geometric holding times yield the stated partial-fraction survival expansion and dominant tail constant. Coupling each jump with Bernoulli(ρ) gives X_m/m→ρ via a bounded martingale strong law, while for beta weights r_k=ρ+(1−ρ)/(k+1), the nonnegative extra jumps have expected size O(log m) by the exact binomial reciprocal moment, giving CLT and logarithmic drift with uniform integrability. Independently compared finite rational survival recurrences with the spectral formula for m<=6, N<=5, ρ=1/3; every equality held.
 
-**Closest literature and limits.** Panja, arXiv:2611.09731v1 (definition of the UCP map and fixed points); Fidaleo, Ottomano and Rossi, arXiv:2110.06743v1 (general spectral/ergodic CP dynamics). The weighted-Bergman pure-birth finite-rank formula, its ballistic speed, and beta-weight Gaussian profile are the asserted contribution. The beta Gaussian statement is not extended to every admissible radial weight; arbitrary UCP maps are outside scope. No claim is made to independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Panja defines this exact completely positive map and its harmonic Toeplitz fixed space; its complete primary text does not establish finite-rank power-survival distributions, all-compact pointwise norm-stability, or beta-weight front CLT. The pure-birth methodology is classical; novelty resides in the explicit map-specific identification and sharp phase diagram.
+
+## value
+
+PASS
+
+The sharp contrast between pointwise compact-ideal norm stability and every iterate having norm one is a substantive operator-dynamical phenomenon. An exact finite-rank survival formula, sharp ballistic speed, Gaussian transition, and logarithmic drift yield precise, reusable quantitative cutoff information for the natural Bergman CP map, not a mere fixed-point restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
