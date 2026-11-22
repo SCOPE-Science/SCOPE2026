@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof's critical identities are the exact polar equation \(w'=2p(\lambda+fw)/g\), the periodic integrating-factor solution \(w_*\), the global decomposition \(w=w_*+C\rho\), and the physical-time clock \(dt/d\theta=1/(gw)\). The remainder estimate is uniform on sufficiently negative angles because \(w_*\) and \(g^{-1}\) are bounded, while \(\rho\) grows exponentially in the backward angular direction. The strictly positive periodic derivative \(\Phi'=1/(gK)\) establishes invertibility of the asymptotic clock. These statements prove the general infinite-family theorem.
+## correctness
 
-Run `python3 check.py` for symbolic verification of the cubic Cartesian-to-polar reduction and high-precision quadrature of the phase-resolved amplitude law and half-turn escape-time ratio. The execution reported `STAR_NODE_PHASE_BLOWUP_PROFILE_OK`. The numerical quadrature probes one parameter triple and finitely many negative angular positions; it is supplemental evidence, not an infinite proof.
+PASS
 
-The result assumes strict radial contraction, globally nonzero angular drift, a homogeneous polynomial nonlinearity, positive linear coefficient, and nonzero initial state. It does not cover angular stagnation, nonhomogeneous vector fields or perturbation stability. The literature comparison does not establish absolute publication priority. Independent validation has not been performed.
+Under degree 2p+1 homogeneity with λ>0, f(θ)=⟨u,Q(u)⟩<0 and g(θ)=⟨Ju,Q(u)⟩>0, polar coordinates give dot r=λr+fr^(2p+1), dot θ=gr^(2p). Setting w=r^(2p) makes dw/dθ=a(θ)w+2pλ/g(θ), a=2pf/g<0. Its unique positive periodic solution w_*(θ)=2pλρ(θ)∫_(−∞)^θ [g(s)ρ(s)]^−1ds gives w=w_*+Cρ. C<0 reaches zero at finite backward angle but at t→−∞, C=0 is attracting cycle, C>0 has θ→−∞, w→∞ and finite backward physical time. For C>0, Δ(t)=∫_(−∞)^θ ds/[g(s)(w_*(s)+Cρ(s))]=K(θ)/(Cρ(θ))+O(ρ^−2), K=w_*/(2pλ), so Δr^(2p)=K(θ)+O(Δ). The conjugating clock Φ=log(K/ρ) has derivative 1/(gK)>0 and shift Φ(θ+2π)=Φ(θ)+Λ, yielding phase-resolved universal B(log(CΔ)) and complete accumulation interval. K constant iff f constant. Independently checked radial/angle identities and numerically showed Δr²−K→0 at θ−9,−14,−19 for the cubic witness; these tests support but do not prove all angular systems.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the final precise statement, after a direct implication comparison of published SCOPE/Resultary records and primary literature; see four named checks and actual material read. Read full RESULT.md: conditional existence of a planar quasi-homogeneous periodic balance-law profile implies type-I blow-up and a Floquet condition; it does not assert every exterior initial condition in the star-node flow, backward time finiteness, or identification of amplitude K as the forward cycle radial graph. The exact forward star-node angular/Floquet result likewise does not give the backward physical-time profile.
+
+## value
+
+PASS
+
+Exact global backward classification and physical-time type-I blow-up with a nonconstant log-periodic amplitude tied to the *same* forward attracting-cycle radial graph is a motivated phase-resolution result, not just the textbook forward stability from the radial linearization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

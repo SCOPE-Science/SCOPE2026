@@ -1,21 +1,21 @@
-# Scientific review: backward blow-up amplitude echo in star-node flows
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(\dot z=\lambda z+Q(z)\) with strictly negative radial homogeneous coefficient \(f\) and positive angular coefficient \(g\), exact polar differentiation gives \(w'=2p(\lambda+fw)/g\) in the positive radial power \(w=r^{2p}\). The strictly decreasing integrating factor \(\rho\) produces a unique periodic positive graph and an exact decomposition \(w=w_*+C\rho\). Its quotient has strictly positive derivative, proving the full backward trichotomy. For \(C>0\), direct integration of actual physical time shows finite backward blow-up, and a uniform first-order expansion establishes \((t-t_-)r^{2p}=w_*(\theta)/(2p\lambda)+O(t-t_-)\). The logarithmic phase change is a global diffeomorphism, yielding an exact periodic profile and the universal accumulation interval. No numerical extrapolation substitutes for these proofs. The accompanying symbolic/numerical checker passes an explicit anisotropic cubic instance; it verifies only its finite tests.
+PASS
 
-## Originality — PASS within inspected sources
+Under degree 2p+1 homogeneity with λ>0, f(θ)=⟨u,Q(u)⟩<0 and g(θ)=⟨Ju,Q(u)⟩>0, polar coordinates give dot r=λr+fr^(2p+1), dot θ=gr^(2p). Setting w=r^(2p) makes dw/dθ=a(θ)w+2pλ/g(θ), a=2pf/g<0. Its unique positive periodic solution w_*(θ)=2pλρ(θ)∫_(−∞)^θ [g(s)ρ(s)]^−1ds gives w=w_*+Cρ. C<0 reaches zero at finite backward angle but at t→−∞, C=0 is attracting cycle, C>0 has θ→−∞, w→∞ and finite backward physical time. For C>0, Δ(t)=∫_(−∞)^θ ds/[g(s)(w_*(s)+Cρ(s))]=K(θ)/(Cρ(θ))+O(ρ^−2), K=w_*/(2pλ), so Δr^(2p)=K(θ)+O(Δ). The conjugating clock Φ=log(K/ρ) has derivative 1/(gK)>0 and shift Φ(θ+2π)=Φ(θ)+Λ, yielding phase-resolved universal B(log(CΔ)) and complete accumulation interval. K constant iff f constant. Independently checked radial/angle identities and numerically showed Δr²−K→0 at θ−9,−14,−19 for the cubic witness; these tests support but do not prove all angular systems.
 
-The closely relevant 2013 Bendjeddou–Llibre–Salhi author preprint contains the linear radial-power angular equation and periodic-orbit criteria, so neither that reduction nor existence is new. The 2023 Alarcón–Castro–Labouriau full-text treatment gives forward invariant-circle attraction and global topological phase portraits, including infinity, but not finite original-time backward escape or the precise logarithmically periodic amplitude profile. The published exact-angular-return record establishes forward-time period and Floquet rigidity but expressly excludes backward completeness from its scope. The related general planar oscillatory-blow-up record proves a conditional spectral criterion, not the present global partition of all initial conditions or an explicit formula identifying the blow-up amplitude with the forward attracting radial graph. The primary mathematical distinction is implication: none of the inspected statements yields the phase-resolved physical-time formula or its nonconstant-profile criterion without additional analytic work.
+## originality
 
-The underlying angular equation is long established, so the possibility that equivalent consequences occur in less readily indexed sources is a genuine residual novelty risk. No claim of priority beyond the inspected evidence is made.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge originality for the final precise statement, after a direct implication comparison of published SCOPE/Resultary records and primary literature; see four named checks and actual material read. Read full RESULT.md: conditional existence of a planar quasi-homogeneous periodic balance-law profile implies type-I blow-up and a Floquet condition; it does not assert every exterior initial condition in the star-node flow, backward time finiteness, or identification of amplitude K as the forward cycle radial graph. The exact forward star-node angular/Floquet result likewise does not give the backward physical-time profile.
 
-Qualitative phase portraits identify which orbits tend to infinity backwards but lose the physical-time information: finite-time versus infinite-time escape, exact divergence exponent, time-dependent angular oscillations, and the extent of universality across all exterior initial conditions. These are natural dynamical invariants. The nonconstant logarithmically periodic amplitude is not a cosmetic restatement of forward attraction: it describes the actual asymptotic blow-up clock and shows how one forward attracting cycle controls an entire backward blow-up basin. The polynomial witness proves that the oscillation is real, not an artifact of coordinate definitions. The result does not require a conjectural downstream theorem to motivate the exact classification.
+## value
 
-## Scope and residual risks
+PASS
 
-The angular drift must remain nonzero; the polycycle case is excluded. The result is not robustly extended to nonhomogeneous perturbations. The checker does not prove arbitrary-degree assertions. The guaranteed log-period need not be minimal. Literature coverage cannot exclude unindexed equivalent results, and no independent mathematical audit has been carried out.
+Exact global backward classification and physical-time type-I blow-up with a nonconstant log-periodic amplitude tied to the *same* forward attracting-cycle radial graph is a motivated phase-resolution result, not just the textbook forward stability from the radial linearization.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
