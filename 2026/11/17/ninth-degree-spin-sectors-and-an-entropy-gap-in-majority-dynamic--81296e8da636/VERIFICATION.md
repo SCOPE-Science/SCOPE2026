@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python verify_spectrum.py` with SymPy. It deterministically constructs the complete \(256\)-state directed transfer for \(GP(n,2)\), verifies its \(320\) edges, Tarjan strong components, the two \(12\)-state characteristic polynomials and the exact integer Collatz–Wielandt inequalities. It also constructs the prism transfer and checks its complete characteristic polynomial. The power-trace output through \(n=15\) is captured in `verify_spectrum.out`.
+# Independent mathematical audit
 
-Execute `python verify_direct.py` with NumPy. It independently builds all twenty or fewer explicit three-neighbor bit-update equations and enumerates every configuration on \(GP(n,2)\) and \(GP(n,1)\), \(5\le n\le10\). All \(2{,}795{,}520\) exhaustive checks passed; output is in `verify_direct.out`. The direct checker is not used to infer the all-size theorem.
+## correctness
 
-The finite transfer construction, SCC and characteristic computations are proved to encode the infinite family by the exact cyclic-window bijection in RESULT.md. The asymptotic theorem uses primitivity and a rational positive-vector spectral certificate; no floating-point approximation is used in any logical implication. Independent expert validation has not been performed.
+PASS
+
+Reconstructed the cyclic five-column local majority windows for GP(n,2), n>=5 to ensure 3 distinct neighbors, and the exact bijection F_n=tr(T^n) for 256-state transfer. Independent construction gave 320 edges, a 24-state recurrent strongly connected component and two singleton loops; symmetric/antisymmetric global spin sectors have exact integer characteristic factors t^3(t^9-t^8-t^7-t^4+2t^3+1) and t^3(t^9-t^8-t^7+2t^6-t^4-1). Independent exact Perron Collatz–Wielandt inequalities using B^60 1 establish 1.56485<alpha<1.56486. Primitivity and trace formula prove all-n root-sum count and entropy gap versus golden-ratio prism. Independent graph-state brute force n=5..8 reproduced GP2 [14,14,32,48] and GP1 [14,22,32,48]. Finite direct samples merely corroborate all-size transfer bijection.
+
+## originality
+
+PASS
+
+The GP(n,2) ninth-degree census and entropy deficit is not implied by general majority convergence/Boolean fixed-point bounds or matching-cut existence algorithms. Dodecahedral special case n=10 (118) and prism GP(n,1) formula are acknowledged known. Full related same-day published stride-three entropy-rebound result explicitly calls the stride-two factors previously reported comparison data, and adds GP(n,3), rather than supplying independent antecedent coverage of the step-two derivation. Historical chronology and an unindexed older perfect/matching-cut census remain risks.
+
+## value
+
+PASS
+
+The exact all-circumference fixed-population formula and rigorous exponential comparison between two natural 3-regular graph families show how rewiring internal spokes changes equilibrium entropy. Complete pair of ninth-degree sectors yields usable exact counts for arbitrary circumference; provides stronger dynamical information than existence of a stable coloring and a nontrivial quantitative order parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

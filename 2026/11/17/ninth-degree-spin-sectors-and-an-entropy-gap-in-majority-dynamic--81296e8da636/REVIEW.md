@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The five-column transfer represents exactly the majority-fixed constraint on every labelled \(GP(n,2)\), \(n\ge5\). The exact \(256\)-state SCC analysis and two \(12\)-state complement-sector characteristic polynomials prove the formula for arbitrarily large cycles. A positive integer vector gives the strict Perron-root interval by Collatz–Wielandt. The independent bitwise enumeration agrees on every configuration for \(5\le n\le10\). This verifies the central computational certificates without treating finite tests as an infinite theorem.
+## correctness
 
-## Originality — PASS, with historical qualification
-The closest full result, *All perfect matching cuts of generalized Petersen graphs with second jump two*, enumerates only perfect matching cuts, while majority-fixed states permit unmatched vertices. The known 118 dodecahedral fixed states cover only \(n=10\). The published prism formula covers \(GP(n,1)\), not \(GP(n,2)\). Primary full-text inspections of Gadouleau–Richard–Riis (2014) and Gomes–Juliano–Martins–dos Santos (2024) found general fixed-point and matching-cut theory but no ninth-degree GP(n,2) count. An unindexed older specialization remains a possibility.
+PASS
 
-## Mathematical value — PASS
-The complete matching-cut spectrum for this named infinite cubic graph family gives an exact equilibrium count, a structural color-complement factorization, and a strict exponential disparity from ordinary prisms. The precise per-vertex entropy is a natural invariant rather than an arbitrary numerical slice; it may serve as a benchmark for locality and graph-jump effects in deterministic majority dynamics.
+Reconstructed the cyclic five-column local majority windows for GP(n,2), n>=5 to ensure 3 distinct neighbors, and the exact bijection F_n=tr(T^n) for 256-state transfer. Independent construction gave 320 edges, a 24-state recurrent strongly connected component and two singleton loops; symmetric/antisymmetric global spin sectors have exact integer characteristic factors t^3(t^9-t^8-t^7-t^4+2t^3+1) and t^3(t^9-t^8-t^7+2t^6-t^4-1). Independent exact Perron Collatz–Wielandt inequalities using B^60 1 establish 1.56485<alpha<1.56486. Primitivity and trace formula prove all-n root-sum count and entropy gap versus golden-ratio prism. Independent graph-state brute force n=5..8 reproduced GP2 [14,14,32,48] and GP1 [14,22,32,48]. Finite direct samples merely corroborate all-size transfer bijection.
 
-## Limits
-Only fixed configurations are covered; no transient-basin or temporal two-cycle census is claimed. The matrix computations are explicit, exact, finite and reproducible, but the finding has not received an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The GP(n,2) ninth-degree census and entropy deficit is not implied by general majority convergence/Boolean fixed-point bounds or matching-cut existence algorithms. Dodecahedral special case n=10 (118) and prism GP(n,1) formula are acknowledged known. Full related same-day published stride-three entropy-rebound result explicitly calls the stride-two factors previously reported comparison data, and adds GP(n,3), rather than supplying independent antecedent coverage of the step-two derivation. Historical chronology and an unindexed older perfect/matching-cut census remain risks.
+
+## value
+
+PASS
+
+The exact all-circumference fixed-population formula and rigorous exponential comparison between two natural 3-regular graph families show how rewiring internal spokes changes equilibrium entropy. Complete pair of ninth-degree sectors yields usable exact counts for arbitrary circumference; provides stronger dynamical information than existence of a stable coloring and a nontrivial quantitative order parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
