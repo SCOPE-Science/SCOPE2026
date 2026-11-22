@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:13:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two independent endpoint-uniform chords on two unit circles with separation 2-delta are not motion-invariant line samples. Transforming uniform endpoints into unoriented line normal phi and signed arcsine offset gives exact crossing subdensity q_delta(z)=1_lens*pi^-4 integral |sin(phi-psi)| / [sqrt(1-(n_phi dot(z-c_-))^2)sqrt(1-(n_psi dot(z-c_+))^2)] dphi dpsi. The segment restriction is exactly membership in both disks, not merely supporting-line intersection. With z=(delta*x,sqrt(delta)*y), lens inequalities approach D={y^2+2|x|<1}, area(D)=4/3; the angular integral divided by log(1/delta) converges to 2*pi on the interior. The shown logarithmic boundary bounds make the convergence L1, and hence probability is (8/(3*pi^3))*delta^(3/2)*log(1/delta)(1+o(1)); conditional location converges in total variation to density 3/4 on D, with vertical density 3/4*(1-y^2) and moment 1/5. Inspected checker.py and independently checked that small-delta angular quadrature heads toward coefficient 2*pi; Monte Carlo at delta=.02 is not a proof of this limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nested-circle published theorem varies radii with center separation zero; David-Fix 1964 addresses one circle."
+        ],
+        "reasoning": "Both geometries lack the external near-tangency of distinct circle centers, and the induced small-lens area/angle concentration is not controlled by their stated single-center radial laws.",
+        "searches": [
+          "https://arxiv.org/abs/2504.12866",
+          "Resultary nested concentric random chord collision cusp 2026/11/1",
+          "David Fix 1964 intersections random chords of a circle"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2504.12866",
+        "doi:10.1093/biomet/51.3-4.373",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/parabolic-lens-law-for-crossings-of-random-chords-in-nearly-tang--5e20ff99e78b/RESULT.md",
+        "Resultary 2026/11/1 nested concentric random chords",
+        "Resultary external near-tangency search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the assigned proof a new 2*pi logarithmic angular singularity combines with shrinking area 4*delta^(3/2)/3; same-circle prior results have no shrinking displaced lens."
+        ],
+        "reasoning": "The cited prior chord laws neither imply the coefficient nor the TV spatial limit at distinct-center external tangency. An older unindexed displaced-circle theorem remains a possible priority risk.",
+        "searches": [
+          "https://arxiv.org/abs/2504.12866",
+          "published Resultary 2026/11/1 concentric nested-chord theorem",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/parabolic-lens-law-for-crossings-of-random-chords-in-nearly-tang--5e20ff99e78b/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bortolotto–Souza (arXiv:2504.12866), Theorems 1-2, gives same-circle chord intersection/radial laws for a common-center model."
+        ],
+        "reasoning": "A common-center ensemble is not a translated pair at external tangency; no parameter change in their result gives the delta^(3/2)*log(1/delta) coefficient or two-scale parabolic-lens TV law.",
+        "searches": [
+          "https://arxiv.org/abs/2504.12866",
+          "two nearly externally tangent unit circles random uniform endpoint chords crossing probability delta three halves logarithm and parabolic intersection lens"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved assigned theorem and same-circle or concentric-circle chord results, not an exact previously published displaced-circle tangency coefficient/table."
+        ],
+        "reasoning": "Probability is an asymptotic over continuous delta; there is no finite discrete classification whose table settles it; an exhaustive literature search is not claimed.",
+        "searches": [
+          "Resultary semantic query: two nearly externally tangent unit circles random uniform endpoint chords crossing probability delta three halves logarithm and parabolic intersection lens"
+        ]
+      },
+      "rationale": "PASS on best-knowledge statement/implication comparison, NOT a proof of absolute literature priority. Prior and current result evaluated using actual source theorem and full relevant published primary work; residual risks specifically documented.",
+      "residual_risks": [
+        "David–Fix (1964) primary article not read in full; undocumented older externally displaced-circle intersection results cannot be excluded.",
+        "The uniform-integrability logarithm bound is delicate at moving lens boundary; the cited proof explicitly treats boundary integrability, while Monte Carlo is supplementary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deals with one common-centered circle, hence not a covering theorem for external near-tangency; confirms chord sampling convention",
+          "evidence": [
+            "arXiv:2504.12866, Theorems 1-2 and Section 2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.12866",
+          "material_read": "Full OA preprint, including Theorems 1-2 and supporting section on endpoint-uniform chord sampling",
+          "method": "Opened preprint full PDF and inspected theorem pages/figures",
+          "title": "Intersections of random chords of a circle",
+          "trigger": "Highly relevant common-circle crossing probability and location law"
+        },
+        {
+          "assessment": "Proof internally supports the precise probability and TV limit; finite Monte Carlo is illustrative",
+          "evidence": [
+            "RESULT.md blob 86b784ccc327d6bf1238adc151733fdd7df87381; checker.py blob 339504a8be5b912e18b644c4551432a53c005600"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/parabolic-lens-law-for-crossings-of-random-chords-in-nearly-tang--5e20ff99e78b/RESULT.md",
+          "material_read": "Finding, explicit density Jacobian, lens blowup, angular logarithm, log-bound L1 argument, checker.py",
+          "method": "Read frozen Git RESULT.md and source checker.py; independent bounded angular quadrature",
+          "title": "Parabolic-lens law for crossings of random chords in nearly tangent circles",
+          "trigger": "Exact asserted probability and L1 proof"
+        },
+        {
+          "assessment": "Inaccessible full text is a residual historical risk; no whole-document noncoverage claim",
+          "evidence": [
+            "David and Fix, Biometrika 51 (1964), 373-379"
+          ],
+          "identifier_or_url": "doi:10.1093/biomet/51.3-4.373",
+          "material_read": "Bibliographic metadata/abstract only, NOT primary full text",
+          "method": "Bibliographic lookup without full article retrieval",
+          "title": "Intersections of random chords of a circle",
+          "trigger": "Older 1964 possible priority source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The angular-log singularity and uniform conditional geometry quantify a natural, sharply constrained random intersection event near the external-tangency boundary. The exact coefficient and total-variation parabolic lens law supply a reusable rare-event local limit for geometrically distinct chord ensembles.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2504.12866",
+    "doi:10.1093/biomet/51.3-4.373",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/parabolic-lens-law-for-crossings-of-random-chords-in-nearly-tang--5e20ff99e78b/RESULT.md",
+    "Resultary 2026/11/1 nested concentric random chords",
+    "Resultary external near-tangency search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only equal-radius unit circles, independently endpoint-uniform chords and delta downarrow zero; no exact finite-separation law.",
+    "No quantified total-variation convergence rate.",
+    "Scientific conclusions are qualified by specifically recorded literature access and novelty risks.",
+    "Original source files are unchanged: publication plan is not_ready for confidentiality, not science."
+  ],
+  "residual_risks": [
+    "David–Fix (1964) primary article not read in full; undocumented older externally displaced-circle intersection results cannot be excluded.",
+    "The uniform-integrability logarithm bound is delicate at moving lens boundary; the cited proof explicitly treats boundary integrability, while Monte Carlo is supplementary."
+  ],
+  "schema_version": 1
+}
