@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The complete proof constructs the post-primary inhomogeneous two-state Markov reward system. Its backward difference w(t) is an explicitly positive integral, so expected repeat episodes conditional on primary-infection time strictly decrease. Transforming to cumulative exposure x yields F(q)=int(1-exp(-q x))mu(dx), a positive-measure Bernstein representation with strict derivative signs. The truncated-exponential likelihood-ratio order proves the strict upper ratio, and concavity proves the strict lower ratio. Known source final-size Q then yields explicit groupwise two-sided bounds. The argument holds for positive, integrable common force and the stated transient parameter regime. The accompanying standalone verify.py, actually executed from its packaged source, passed all six epidemic scenarios and source-count/conservation identities. Finite checks are ancillary and are not substituted for infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Katriel (2010) abstract treats homogeneous partial immunity and the aggregate final size, not pre-epidemic vaccinated subgroup allocation.",
+        "Edlefsen (2014) full text, Sect. 2, explicitly sets the endpoint to initial infection only; participants leave observation after first infection, excluding repeat episodes.",
+        "Magpantay et al. (2014) studies vaccines for immunizing SIR infections, with no post-primary recurrent-infection process of the present type."
+      ],
+      "reasoning": "The general theorem allows any fixed, integrable force trajectory with exponentially distributed infectious periods and shared post-primary susceptibility; prior final-size studies use structurally different models. Classical truncated-exponential likelihood-ratio ordering and Bernstein integral representation are mathematical tools that are not individually claimed as new; the novel scoped statement is their strict combined implication for the unresolved leaky-vaccine reinfection allocation.",
+      "searches": [
+        "cumulative reinfections conditional primary infection susceptibility stochastic ordering epidemics vaccination susceptibility",
+        "complete Bernstein function susceptibility repeated infection life course frequency Poisson force exponential recovery",
+        "Bernstein function cumulative reinfections primary susceptibility fixed force of infection",
+        "https://doi.org/10.1016/j.mbs.2010.09.003",
+        "https://doi.org/10.1155/2014/813789"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1007/s11538-026-01610-w",
+      "https://www.medrxiv.org/content/10.1101/2025.09.12.25335631v1",
+      "https://onlinelibrary.wiley.com/doi/full/10.1155/2014/813789",
+      "https://doi.org/10.1137/140956695",
+      "https://doi.org/10.1016/j.mbs.2010.09.003",
+      "https://doi.org/10.1016/j.jtbi.2004.02.015"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source leaky SIRI gives only the identity Q_U+Q_V=[H-(1-exp(-phi H))/phi]/R0, so arbitrary positive splits with the same total are not excluded by that identity alone.",
+        "Source all-or-none proportionality yields Q_V/c=theta Q_U/(1-c), which is incompatible with the new strict inequality in the leaky branch and hence does not imply it.",
+        "Edlefsen treats hazard selection conditioned on first infection, an ingredient of the proof, but deliberately excludes repeat infections and does not imply the particular Markov-reward monotonicity or subgroup bounds."
+      ],
+      "reasoning": "The analytical step beyond prior totals is to prove that expected subsequent infection counts conditioned on a primary infection decrease strictly in primary-infection time for arbitrary common pressure. This creates a monotone-likelihood-ratio *repeat-to-primary* comparison and two-sided quantitative subgroup bounds. It is not a reparameterization of already-published total-infection formulas.",
+      "searches": [
+        "vaccinated secondary infections per primary are lower despite same reinfection susceptibility",
+        "vaccine susceptibility primary infection timing monotone conditional reinfection burden proportionality",
+        "https://doi.org/10.1007/s11538-026-01610-w",
+        "https://onlinelibrary.wiley.com/doi/full/10.1155/2014/813789"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gutierrez–Gog (2026), Sect. 4.3, eqs. (39)–(42), determines total reinfections and primary counts but expressly states that no separate groupwise reinfection expressions were obtained.",
+        "Gutierrez–Gog (2026), Sect. 3.3, eq. (18), gives equality of vaccinated and unvaccinated reinfection-to-primary ratios for ALL-OR-NONE immunity; the new theorem proves a strict inequality for LEAKY immunity."
+      ],
+      "reasoning": "Equivalent language includes secondary episodes per primary infection, breakthrough-versus-unvaccinated reinfection share, leaky versus polarized immunity and truncated-exponential first-infection timing. Existing all-or-none equality is not a stronger theorem covering the leaky inequality; the originating leaky total supplies one equation for two subgroup counts and not their ordering. The result uses an additional post-primary Markov reward comparison.",
+      "searches": [
+        "leaky SIRI transient reinfection group vaccinated strict per primary reinfection ordering versus all or none vaccine",
+        "post infection identical immunity vaccinees reinfection per primary strict ordering versus unvaccinated leaky vaccine",
+        "https://link.springer.com/article/10.1007/s11538-026-01610-w#Sec4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published source equations (39)–(42) give an aggregate total and primary counts, but no exact groupwise reinfection table or ordering.",
+        "Related published papers on reinfection thresholds, finite-network vaccination and immunizing-infection models address different mathematical observables."
+      ],
+      "reasoning": "The claim is an analytical inequality and ratio classification, not a known-table recomputation. Searches for exact ratios, subgroup reinfection allocation, and source parameter formulations did not identify a same-statement published table; this is not a claim of exhaustive uniqueness.",
+      "searches": [
+        "leaky and all or none reinfection subgroup burden bounds final size 2025 Gutierrez Gog"
+      ]
+    },
+    "rationale": "Full published primary article §4.3 expressly leaves the separate leaky groupwise repeat counts unspecified and proves only a total. Earlier all-or-none equality is distinct; Edlefsen analyzes conditional initial-infection selection but not subsequent episodes. Prior vaccination and partial-immunity literature was compared by mathematical implication. The strict within-outbreak leaky reinfection-per-primary ordering, its computable two-sided subgroup bounds, and the complete fixed-pressure derivative hierarchy were not covered by the inspected scientific statements. Some older complete full texts remain inaccessible; priority is literature-bounded rather than certified.",
+    "residual_risks": [
+      "The complete text of Gomes–White–Medley (2004) was not accessible; only its abstract and documented model contrasts were examined, so historical priority remains uncertain.",
+      "Katriel (2010) complete text was not obtained; its available abstract does not discuss vaccinated subgroup partitioning, but an earlier general statement could be relevant.",
+      "Complete text of the earliest September 2025 preprint version was unavailable; the complete 2026 published article was inspected, and priority to preprint-only variants remains possible.",
+      "An unindexed general Markov-reward or vaccine-effectiveness theorem may cover part of the fixed-force lemma; no universal uniqueness or independent validation is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source explicitly leaves groupwise leaky repeat-infection totals unresolved; all-or-none ratio equality and total leaky count are established prior, not claimed new.",
+        "evidence": [
+          "Full text §4.3 after eq. (42): inability to separate cumulative reinfections for groups.",
+          "§3.3 eq. (18): equal repeat/primary ratios for all-or-none."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-026-01610-w",
+        "material_read": "Sections 2–5, equations 18, 23–25, 36, 39–42 and discussion in full HTML",
+        "method": "Primary full-text reading and equation-by-equation implication comparison",
+        "title": "Final-Size Solutions for SIRI Models with Vaccination",
+        "trigger": "Exact source model; possible direct coverage"
+      },
+      {
+        "assessment": "Earliest public source date verified; priority to version 1 is retained without attributing full-text absence claims to unread version.",
+        "evidence": [
+          "medRxiv v1 record explicitly states Posted September 14, 2025."
+        ],
+        "identifier_or_url": "https://www.medrxiv.org/content/10.1101/2025.09.12.25335631v1",
+        "material_read": "Verified original preprint record, title, authors and public posting date September 14, 2025; complete first-version text unavailable.",
+        "method": "Preprint metadata and indexed full-text excerpts; no claim of full reading",
+        "title": "Final-size solutions for SIRI models with vaccination (preprint v1)",
+        "trigger": "Verify first public date rather than later journal date"
+      },
+      {
+        "assessment": "Established selection/first-infection timing principles but study explicitly removes subjects after first infection; no recurring post-primary infectious state or subgroup repeat-infection bounds.",
+        "evidence": [
+          "§1 notes endpoint is initial infection only and infected individuals are removed from at-risk population.",
+          "§2.4 analyzes high-risk enrichment among first infections."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1155/2014/813789",
+        "material_read": "Full HTML abstract, introduction, §§2.1–2.6 and results including proof-level hazard mixing observations",
+        "method": "Primary full-text reading and object comparison",
+        "title": "Leaky Vaccines Protect Highly Exposed Recipients at a Lower Rate",
+        "trigger": "Possible general coverage of conditional infection timing"
+      },
+      {
+        "assessment": "Studies immunizing SIR vaccine-failure mechanisms and age distributions; no indicated positive repeat-infection process. Full-text exclusion not asserted.",
+        "evidence": [
+          "Publisher abstract explicitly calls infection immunizing and compares prevalence and age distributions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/140956695",
+        "material_read": "Publisher abstract, methods description, aims and MSC; no complete full-text verification",
+        "method": "Source abstract and literature cross-check",
+        "title": "Epidemiological Consequences of Imperfect Vaccines for Immunizing Infections",
+        "trigger": "Comparative leaky/all-or-none vaccine literature"
+      },
+      {
+        "assessment": "Classical homogeneous, unvaccinated partial-immunity final sizes; possibility of a more general unpublished comparison remains a residual priority risk.",
+        "evidence": [
+          "Abstract describes aggregate A,Z and infection-number-specific system, without vaccinated subgroups."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.mbs.2010.09.003",
+        "material_read": "Published abstract and description of attack rate, final size, repeated-episode counts; full text not retrieved",
+        "method": "Abstract-level scope/implication comparison only",
+        "title": "Epidemics with partial immunity to reinfection",
+        "trigger": "Most relevant earlier transient reinfection theory"
+      },
+      {
+        "assessment": "Models immune waning, partial immunity, and a distinct vaccination mechanism. Could carry earlier related comparisons; unresolved full-text priority risk is recorded.",
+        "evidence": [
+          "Warwick repository says manuscript not available there; no accessible OA full text located.",
+          "DOI/abstract establishes immune-waning and threshold scope."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2004.02.015",
+        "material_read": "Warwick repository record and PubMed abstract only; full original text unavailable.",
+        "method": "Public preprint/open-access searches and abstract-level comparison; no full-text not-covering claim.",
+        "title": "Infection, reinfection, and vaccination under suboptimal immune protection",
+        "trigger": "Older related vaccination and partial immunity model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "be151af1-4b68-4100-ab16-a71e4514656c",
+  "value": {
+    "rationale": "The motivating article explicitly cannot disaggregate the cumulative leaky-vaccine reinfections that it can compute in total. The theorem supplies directly calculable strict upper/lower bounds on each otherwise uncomputed subgroup using only the paper's final pressure and inputs, distinguishes reinfection-share from primary-infection-share, and identifies a provable qualitative signature of leaky versus all-or-none protection despite identical post-infection susceptibility. The arbitrary-pressure Bernstein-response lemma shows the phenomenon is structural and not a tiny numerical example; the precise subgroup fact is motivated by the published unresolved epidemiological accounting problem. It does not claim vaccine effectiveness or an empirical clinical effect.",
+    "status": "PASS"
+  }
+}
