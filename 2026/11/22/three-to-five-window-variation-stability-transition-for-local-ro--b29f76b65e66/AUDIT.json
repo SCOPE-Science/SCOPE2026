@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The three-site proof exhausts all possible center-containing consecutive pooling blocks, proves each Jacobian maps every input step to an output with variation at most one, then integrates the piecewise-affine derivative. Strictly separated monotone data realize equality for each N>=4. The five-site 10-vector pair has exact rational KKT witnesses for 12 local proximal problems, with positive minimum strict slack 3/20; the output difference (0,1/3,0,1,2/3,1)/1000 and ratio 7/3 follow exactly. Scaling and right extension preserve the lower bound for arbitrary lambda>0 and N>=10. No five-site global upper sharpness is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c: a maximal connected-block projection over one fixed graph, no concatenation of window-dependent central rows.",
+        "https://helios2.mi.parisdescartes.fr/~moisan/papers/lm_tvmeans_siims11.pdf: Euclidean nonexpansivity (equation 20), local range (Proposition 3), and monotonicity (Proposition 4) are in distinct metrics from the asserted two-input adjacent-TV norm."
+      ],
+      "reasoning": "The source on arbitrary graph fused-lasso perturbation norms gives an induced seminorm of a single block-averaging map, whereas the five-window counterexample combines six incompatible local block partitions; applying its bound to separate windows cannot control adjacent differences between their outputs. Standard Euclidean firm nonexpansivity does not imply variation nonexpansivity.",
+      "searches": [
+        "published-finding corpus: local TV denoising 2011 Louchet Moisan variation stability Lipschitz of differences",
+        "published-finding corpus: TV-means local proximal operator radius two BV sensitivity",
+        "web: \"local total variation\" \"Lipschitz\" \"BV\" filter finite windows",
+        "GitHub fetch_file 2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "https://helios2.mi.parisdescartes.fr/~moisan/papers/lm_tvmeans_siims11.pdf",
+      "https://arxiv.org/html/1005.1971v4",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3191861/",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25",
+      "https://arxiv.org/abs/1012.5095",
+      "https://arxiv.org/abs/1005.1971"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c: exact graph-global fusion TV modulus; proof uses connected partitions and cuts.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25: sliding median sharp coefficient 2r+1 in cyclic TV; derivative selects coordinates rather than averaging fused blocks.",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3191861/: §4(d) and Appendix A address one-input TV diminution of 3-point medians, not two-input local ROF.",
+        "https://arxiv.org/html/1005.1971v4: 1d fused-lasso KKT and solution path provide methodology but no sliding five-window perturbation example."
+      ],
+      "reasoning": "Classical KKT and fused-block calculations supply the tools to prove the claim, not its asserted result. In particular the exact two-input 7/3 witness depends on six neighboring *different* fused-block partitions and is not a corollary of any published one-map Lipschitz bound among the inspected items.",
+      "searches": [
+        "GitHub fetch_file 2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c/RESULT.md",
+        "GitHub fetch_file 2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25/RESULT.md",
+        "web: Little Jones 2011 generalized methods solvers noise removal piecewise constant signals I background theory pdf",
+        "web: five point running total variation filter local ROF variation sensitivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full RESULT.md of 2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c gives a graph-global proximal TV seminorm for the same convex penalty, not independent window-by-window central outputs.",
+        "Full RESULT.md of 2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25 gives variation of cyclic sliding order statistics, not local fused-lasso center coordinates.",
+        "Louchet–Moisan §3–4 https://helios2.mi.parisdescartes.fr/~moisan/papers/lm_tvmeans_siims11.pdf defines local ROF and proves pointwise comparison/monotonicity."
+      ],
+      "reasoning": "The assembled local filter takes different center coordinates from distinct proximal fits. It is not the restriction or projection of a single global proximal map; neither the graph-global cut formula nor a local range/order principle implies the five-window oscillatory perturbation. The three-window contraction uses overlapping central block supports in a way absent from the compared theorems.",
+      "searches": [
+        "published-finding corpus: unweighted local ROF three tap TV prox five tap centred filter variation seminorm counterexample",
+        "published-finding corpus: three site sliding fused lasso prox center variation nonexpansive versus five site",
+        "web: \"local TV\" filter sliding three pixel stability total variation contractive Lipschitz",
+        "web: \"sliding\" \"ROF\" \"nonexpansive\" \"variation\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact record indexed for the three-versus-five local ROF variation transition in the actually returned published-finding corpus hit sets. Closest hits are cited with full repository IDs and comparison reasoning.",
+        "Five-site factor 7/3 is an exact finite KKT construction independently produced in check.py; it is not read off a preexisting table."
+      ],
+      "reasoning": "Absence in search is not a novelty proof. Database screening instead identifies the nearest statements for implication comparisons; none of those retrieved formulas is for the same operator, boundary convention, and input-difference seminorm.",
+      "searches": [
+        "published-finding corpus: three site sliding fused lasso prox center variation nonexpansive versus five site",
+        "published-finding corpus: unweighted local ROF three tap TV prox five tap centred filter variation seminorm counterexample",
+        "web: \"fused lasso\" \"sliding window\" \"total variation\" Lipschitz"
+      ]
+    },
+    "rationale": "Exact 3-to-5 local-ROF change is not implied by inspected local-ROF comparison principles, global graph-fused-lasso active-partition sensitivity, or running-median two-input estimates. The new quantity concerns adjacent variation of differences of independently window-fitted center outputs; the 7/3 witness combines incompatible local block partitions and was independently KKT-certified. Search nonhits alone were not treated as originality proof; residual priority risk remains.",
+    "residual_risks": [
+      "Older unindexed one-dimensional local-ROF stability or active-face averaging results might contain an equivalent window-size theorem; cannot certify global priority.",
+      "A stronger fully general sliding-window theorem could imply the bound even without matching keywords; not identified in inspected primary material.",
+      "Graph-global published claims are close in methods, and the precise relation must be independently assessed before priority assertions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found one-input local range, order comparison and Euclidean global prox nonexpansivity, not a statement comparing TV of two local filter outputs across 3/5 windows",
+        "evidence": [
+          "DOI 10.1137/100785855; published electronically 2011-06-21",
+          "Proposition 3 local range, Proposition 4 monotony, equation (20) Euclidean norm"
+        ],
+        "identifier_or_url": "https://helios2.mi.parisdescartes.fr/~moisan/papers/lm_tvmeans_siims11.pdf",
+        "material_read": "PDF §§1,3–4, local-filter definition and Propositions 3–5, statements of remaining sections and references",
+        "method": "web opened full-text PDF, inspected page image, read local-filter definitions, properties and searched the PDF for Lipschitz/nonexpansive/perturbation/stability",
+        "title": "Total Variation as a Local Filter",
+        "trigger": "same local ROF construction and window-size phenomena"
+      },
+      {
+        "assessment": "Supplies operator and active-face methods; addresses global generalized lasso solution paths, not assembled sliding-window center-output variation modulus",
+        "evidence": [
+          "arXiv:1005.1971v1 first public 2010-05-11",
+          "1d fused lasso path formulation and dual"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1005.1971v4",
+        "material_read": "HTML §§1–2 and 1d fused-lasso / dual/path theorem sections, plus full section outline",
+        "method": "web opened arXiv full-text HTML and inspected fused-lasso formulation and solution path machinery",
+        "title": "The Solution Path of the Generalized Lasso",
+        "trigger": "the exact same 1D fused-lasso proximal subproblem"
+      },
+      {
+        "assessment": "Identifies total variation regularization and proves one-input three-point median TV diminution, not this proximal sliding two-input theorem",
+        "evidence": [
+          "arXiv:1012.5095 first posted 2010-12-22",
+          "§4(d) and Appendix A: three-point median one-input variation"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3191861/",
+        "material_read": "Full PMC HTML §4, especially median subsection and Appendix A; tables of TV methods",
+        "method": "read HTML principal mathematical discussion and appendix, search within full text for variation and median",
+        "title": "Generalized Methods and Solvers for Noise Removal from Piecewise Constant Signals. I. Background Theory",
+        "trigger": "same signal denoising setting and three-point variation claims"
+      },
+      {
+        "assessment": "One global prox per graph, not independently optimized windows assembled by central coordinates",
+        "evidence": [
+          "Graph-global exact connected-partition cut formula; all-graph statement, not sliding assembly"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c",
+        "material_read": "Full publicly hosted RESULT.md including claim, proof and relationship-to-prior-work",
+        "method": "GitHub connector fetched repository file and compared operator/metric/quantifiers",
+        "title": "Exact graph-variation perturbation modulus of the graph fused-lasso denoiser",
+        "trigger": "strongest nearby graph-TV proximal two-input statement"
+      },
+      {
+        "assessment": "Order-statistic selection and periodic differences are different from local ROF fused-block averaging",
+        "evidence": [
+          "Cyclic sliding median coefficient 2r+1 for n>=8r; no ROF proximal fit"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25",
+        "material_read": "Full publicly hosted RESULT.md including theorem, proof and assumptions",
+        "method": "GitHub connector fetched repository file; checked median selector versus local ROF prox and cycle versus interior-path TV",
+        "title": "Sharp total-variation perturbation constant for sliding median filters",
+        "trigger": "two-input variation bounds for sliding nonlinear filters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b29f76b6-5e66-4ec4-a199-964981ac7fb6",
+  "value": {
+    "rationale": "Local TV fitting is an established denoising construction, yet spatial-window width controls whether TV distance between perturbed signals is preserved. The result gives a complete width-three nonexpansivity theorem and a substantive exact five-window amplification (7/3) rather than a routine numerical example. This distinction is important in choosing locality for robust nonlinear signal processing. Sharp global coefficient for width five is explicitly left open.",
+    "status": "PASS"
+  }
+}
