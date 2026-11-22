@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The statement is exactly an infinite prime family with simultaneous sharp valuations, and its coefficient residue follows from the integer q-series identity. The eta-quotient transformation sums are \(24,-120\), its six cusp orders are \((-5,2,1,1,1,1)\), and the level-three Eisenstein difference has the precise cusp-zero orders \(6,3\) needed to make the lift cusp. The standard Deligne--Serre prime-Hecke theorem at \((\ell,k,N)=(3,5,18)\) forces infinitely many nonzero prime coefficients. Li--Tang's base and internal recurrences transfer sharpness to every \(m\). Exact-series and cusp arithmetic are recomputed by the accompanying ordinary checker.
+
+**Originality — PASS with an explicit limitation.** Li--Tang's theorems prove lower divisibility bounds and internal congruences, not infinitely many sharp prime-index witnesses. Barman--Singh--Singh prove lacunarity modulo all powers of three, and thus already imply zero density of sharpness parameters: *no such density assertion is novel*. Neither inspected work gives the prime-index sharpness conclusion. The generic Deligne--Serre theorem must be combined with the nontrivial cuspidal lift of the normalized dissection. Targeted research-index, source, and historical-claim comparisons did not identify a stronger theorem implying this exact conjunction. Residual risk: unindexed specialized modular-form computations or prime-index statements.
+
+**Mathematical value — PASS.** A published all-index lower bound and a known density-zero exception set leave open whether the exact lower bound can occur along the prime numbers. Infinitely many prime parameters simultaneously attaining the exact valuation at *every* ternary scale resolves that natural sharpness question in a structurally distinct direction. The explicit cusp lift is reusable for Hecke investigations; no prime-density result or classification of all exceptions is claimed.
+
+**Closest covering literature.** Li--Tang, arXiv:2611.15164v1; Barman--Singh--Singh, DOI 10.1017/S0004972723000199; the standard Deligne--Serre prime-Hecke congruence (2020 exposition, DOI 10.1073/pnas.2005984117).
+
+Self-review: passed. Independent audit: not yet performed.
