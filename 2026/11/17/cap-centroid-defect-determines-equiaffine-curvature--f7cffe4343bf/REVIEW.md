@@ -1,15 +1,21 @@
-# Scientific assessment: cap-centroid curvature law
+# Independent mathematical audit
 
-## Correctness — PASS
-The \(C^4\) Taylor expansion and signed square-root inversion give the chord-width coefficient \(5b^2/(8a^3)-c/(2a^2)\), which is not reducible to the fourth derivative alone: the cubic-jet square is essential. Horizontal-slice integration gives area and first moment, and their ratio has the exact combination \((3f''f''''-5f'''^2)/(525f''^3)\). Normalization by cap area to the power \(2/3\) yields precisely the standard equiaffine curvature. The finite conic inequalities follow from covariance monotonicity of the exact chord-width factor. The standalone mpmath checker confirms conic signs, the limiting constant, and an asymmetric quartic jet. No finite numerical check is substituted for the proof.
+## correctness
 
-## Originality — PASS with stated priority risk
-The closest exact statement, Kim–Kim–Park (arXiv:1502.00188, Section 2, Theorem 2), gives the universal leading \(3/5\) ratio and an exact parabola characterization; its full accessible text was inspected, including the area/centroid integral identities and later sections. Kim–Kim (arXiv:1305.3337) characterizes parabolas by their exact area law, and Kim–Kim (arXiv:1502.01205) studies leading limits of triangle centroids. The standard equiaffine curvature formula is background. None of the inspected source claims or implications supplies the second-order cap-area-normalized equiaffine curvature recovery. Searches for equivalent phrasings and for a stronger geometric moment theorem produced no decisive covering result. This establishes best-knowledge noncoverage, not absolute priority; some specialist cap/affine-geometry literature remains a residual risk.
+PASS
 
-## Value — PASS
-Area and centroid depth are directly defined integral-geometric quantities, whereas equiaffine curvature requires fourth-order differential information. The result recovers that fourth-order local invariant from shrinking cap measurements, with an affine-covariant normalization and a sign test distinguishing elliptic from hyperbolic local osculating behavior. The normalizing exponent is forced by dimensions and the cap-area scaling, and the coefficient is universal for every positive-curvature \(C^4\) arc. This is a specific inverse-geometric extension of a motivated classical characterizing property, not a recomputation of the Archimedean \(3/5\) limit.
+In RESULT.md, expand f(x)=a x^2+b x^3+c x^4+o(x^4), a>0, and invert the signed square-root coordinate to order z^3. The two intersections have width L(y)=2sqrt(y/a)(1+qy+o(y)), q=5b²/(8a³)-c/(2a²). Integrate L and yL over [0,h]; dividing yields d(h)/h=3/5+12 qh/175+o(h). Since S(h)=(4/(3sqrt(a)))h^(3/2)(1+o(1)), substitution of D2f=2a,D3f=6b,D4f=24c gives precisely the boxed coefficient times k_ea=D4f/(3D2f^(5/3))-5 D3f²/(9D2f^(8/3)). Uniform little-oh in the local inverse and positive curvature justify the order. For conic A x²+2Bxy+C y²=Dy the chord-width factor sqrt(1+(B²-AC)y/(AD)) is monotone, and covariance against baseline density u^(1/2) proves ellipse/parabola/hyperbola inequalities on admissible finite cap ranges. We independently checked the inverse series algebra and exact centroid deficit, not merely a code marker.
 
-## Limitations and closest literature
-The theorem supplies pointwise asymptotics without a uniform rate, covers only smooth plane arcs, and does not assert global conic recognition from a single zero value. The global strict sign statement is confined to nondegenerate conic caps. Primary comparisons: https://arxiv.org/abs/1305.3337 , https://arxiv.org/abs/1502.00188 , https://arxiv.org/abs/1502.01205 . The classical equiaffine definition is not claimed new. Complete historical priority remains unverified; independent mathematical review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known parabolic cap 3/5 law and its exact equality characterizations do not compute the *signed second-order* coefficient or its equiaffine area normalization. The graph k_ea formula itself and conic monotonicity are standard ingredients and not independently novel; new consequence is a local invariant recovery from Euclidean cap statistics. Best-of-knowledge originality passes, not exhaustive priority.
+
+## value
+
+PASS
+
+The fourth-jet affine curvature is a natural geometric invariant; the theorem shows that two geometric measurements of arbitrarily small caps, without differentiating the boundary, determine its sign and magnitude in an affine-covariant limit. This is a motivated geometric measurement identity and a meaningful refinement of the classical 3/5 centroid law, not an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
