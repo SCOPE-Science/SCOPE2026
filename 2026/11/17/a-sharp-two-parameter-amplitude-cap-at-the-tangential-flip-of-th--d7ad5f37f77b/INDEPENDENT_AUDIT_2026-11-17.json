@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T17:09:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and check_chialvo.py",
+        "independent sympy and small-detuning nonlinear root checks /mnt/data/scope05_independent_checks_20261117.py"
+      ],
+      "rationale": "For f=x²exp(r-x)+k and q=2+sqrt2, r_c=q-log(2+2sqrt2), exact evaluation gives f(q)=q, multiplier -1, f’’(q)=0, f’’’(q)=2/q. The symmetric equations H1=[f(m+A)+f(m-A)]/2-m=0 and H2=[f(m+A)-f(m-A)]/(2A)+1=0, analytically extended in U=A², have nonsingular (m,U) Jacobian diag(-2,1/(3q)). Implicit differentiation gives U_r=3q,U_k=0,U_kk=-3/2, hence the quoted parabolic two-parameter cap and unique local cycle. Independent symbolic derivatives, independent two-cycle numeric roots across detunings and multipliers confirm the local attracting branch. The critical iterate f²(q+z)=q+z-(2/(3q))z³+O(z⁴) forces n(x_n-q)^2→3q/2 for sufficiently nearby nonfixed orbits. Claimed effects are local; excluded outside |t|>2sqrt(q) follows from U<0. Boundary parameter t=±2sqrt q is deliberately not covered by the fixed-t interior/exterior assertions.",
+      "residual_risks": [
+        "Local parameter uniformity and stability follow analytically from the IFT and positive cubic saturation; finite root tests do not establish global attracting basins."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original 2021 preprint Theorem 4 and Sections 2,4 show the same reduced map and exact fixed-point/flip curve; this dominates the qualitative tongue boundaries.",
+          "The published theorem does not in the inspected material state U_r=3q, U_kk=-3/2 or n(x_n-q)^2=3q/2."
+        ],
+        "reasoning": "The prior flip locus implies k±=1±2sqrt(qδ)+Oδ from geometry and cannot by itself establish the amplitude coefficient, center suppression or critical relaxation constant without separate higher-order local analysis.",
+        "searches": [
+          "Chialvo map flip tangent two-parameter period two amplitude cap local scaling critical relaxation",
+          "Chialvo map tangential flip degeneracy amplitude square bias critical slowing constant",
+          "arxiv:2111.14499"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2111.14499",
+        "arxiv:2505.24673",
+        "Resultary related discrete-map flip and critical-relaxation titles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=2+sqrt2, f(q)=q,f’(q)=-1,f’’(q)=0,f’’’(q)=2/q; analytic symmetric-cycle IFT Jacobian diag(-2,1/(3q)).",
+          "The previous flip-line formula identifies point (r_c,1) but does not imply the degenerate centered amplitude or exact parabolic convergence coefficient."
+        ],
+        "reasoning": "Deriving U involves differentiation of the two-cycle equations and an actual double-tangency balance. Critical time constant requires the coefficient -2/(3q) of f²-id; general n^{-1/2} scaling alone does not fix it.",
+        "searches": [
+          "Chialvo map flip tangent two-parameter period two amplitude cap local scaling critical relaxation",
+          "arxiv:2111.14499v3",
+          "arxiv:2505.24673"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Llovera Trujillo et al. give analytic parametrization of the flip line and supercritical regime for a one-parameter sweep.",
+          "Martin–Tang–Chialvo studies finite-time scaling for other parameter points, including zero-bias analysis."
+        ],
+        "reasoning": "Tangency and the existence of a generic period-two cycle are not new. A two-parameter amplitude surface U(r,k), its k² coefficient -3/4 and its suppressed center at the k=1 cusp are distinct quantitative formulations.",
+        "searches": [
+          "Chialvo map flip tangent two-parameter period two amplitude cap local scaling critical relaxation",
+          "arxiv:2111.14499 Theorem 4 flip bifurcation curve Chialvo",
+          "arxiv:2505.24673 finite-time scaling Chialvo"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns a self-indexed Chialvo item and other maps with inverse-square critical laws, but not an independently identified earlier Chialvo k=1 two-parameter asymptotic table."
+        ],
+        "reasoning": "There is no discrete table that decides this local analytic result; the relevant exact database equivalent would be a bifurcation coefficient/normal-form series on the same map and parameter point, not numerical bifurcation diagrams.",
+        "searches": [
+          "Chialvo map flip tangent two-parameter period two amplitude cap local scaling critical relaxation",
+          "Chialvo bifurcation numerical diagram period-two amplitude full two parameter table",
+          "Resultary related flip critical relaxation dynamical maps"
+        ]
+      },
+      "rationale": "Bounded PASS for the new evaluated coefficients of a two-parameter tangential flip normal form, suppressed mean displacement and n^{-1/2} critical relaxation for nonzero bias. The exact flip curve and generic supercritical existence are established by Llovera Trujillo et al. and explicitly excluded from novelty.",
+      "residual_risks": [
+        "A generic codimension-two normal-form theorem may express this calculation after substitution, diminishing method novelty; evaluated map-specific constants remain substantive.",
+        "Original Llovera et al. flip locus itself is not new and is excluded from the new claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same flip curve and generic supercriticality already prior. Distinct two-parameter amplitude and exact k=1 critical coefficient not stated in inspected sections.",
+          "evidence": "Theorem 4 on period-doubling, fixed-point multiplier; locus parametrized by fixed point z",
+          "identifier_or_url": "https://arxiv.org/abs/2111.14499",
+          "material_read": "Accessible primary arXiv preprint text including Sections 2.1 and 4 and Theorem 4, plus selected PDF pages inspected visually",
+          "method": "Original arXiv PDF and text with targeted theorem and figure inspection",
+          "title": "Periodic and chaotic dynamics in a map-based neuron model",
+          "trigger": "Identical reduced Chialvo map and exact flip locus"
+        },
+        {
+          "assessment": "Generic finite-time scaling includes other Chialvo settings, especially k=0, but not the tangential bias k=1 two-parameter amplitude cap",
+          "evidence": "Map examples and universal finite-time scaling discussion",
+          "identifier_or_url": "https://arxiv.org/abs/2505.24673",
+          "material_read": "Accessible primary paper abstract and relevant Chialvo example/appendix passages",
+          "method": "Primary arXiv search and article portions",
+          "title": "Finite-time scaling on low-dimensional map bifurcations",
+          "trigger": "Broad scaling theorem potentially fixes critical relaxation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Same-map local flip curve and critical normal-form mechanisms"
+      ],
+      "rationale": "At the minimum of the physical reduced-map flip line, the oscillatory regime has a two-parameter amplitude cap whose width is sqrt(r-r_c), with an unusually small mean offset and a computable slow-relaxation constant. These coefficients quantify a mathematically motivated degenerate flip rather than an arbitrary numerical parameter slice.",
+      "residual_risks": [
+        "Application and physical calibration not established; only local one-dimensional reduced neuron map."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific assessment, not external peer certification; originality residual risks preserved.",
+    "Only checked listed source files and relevant primary material, not every file in recursive package. No GitHub write or dispatcher completion call made."
+  ],
+  "schema_version": 1
+}

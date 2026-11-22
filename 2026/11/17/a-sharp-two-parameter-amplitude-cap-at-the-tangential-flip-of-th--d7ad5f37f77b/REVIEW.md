@@ -1,15 +1,21 @@
-# Scientific review: tangential Chialvo flip amplitude cap
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-dimensional reduced map is specified exactly. The period-two equations admit an analytic squared-amplitude continuation because the mean/squared-half-gap Jacobian at the tangency is \(\operatorname{diag}(-2,1/(3q))\). Direct derivatives give \(U_r=3q\), \(U_k=0\), and \(U_{kk}=-3/2\); they generate the uniform interior asymptotic cap. The mean-centering coefficient follows by subtracting the equilibrium equation. The nontrivial cycle's multiplier is inside the unit circle because the local cubic flip coefficient is positive. The zero-detuning second iterate has negative cubic drift, proving the precise critical inverse-square law. The accompanying checker verifies 12 symbolic identities, nine parameter/cycle instances, and 80,000 critical iterates. The code is supportive evidence only; the proof covers infinitely many parameters locally.
+## correctness
 
-## Originality — PASS within available evidence
-The closest source is Llovera Trujillo–Signerska-Rynkowska–Bartłomiejczyk, arXiv:2111.14499, Sections 2.1 and 4, inspected in full HTML. It **already derives the exact flip locus and generic supercriticality**. Therefore the mere presence of two crossings of a horizontal parameter slice is a corollary of prior work and is explicitly excluded from the asserted new contribution. What was not found there is the joint physical-coordinate squared-amplitude expansion \(3q(r-r_c)-3(k-1)^2/4\), its uniform semicircular profile, the suppressed cycle-mean shift, or the exact critical relaxation constant at the tangential flip. Martin–Tang–Chialvo, arXiv:2505.24673, treats generic flip scaling and the zero-bias reduced Chialvo map at a different parameter point; its full arXiv text was compared. The published-finding corpus mathematical record search returned Chialvo-related results on zero-bias compact recurrence and another degenerate fixed point, but no matching nonzero-bias tangential flip amplitude or mean law. This is a best-knowledge originality assessment, not independent priority certification. Generic normal-form theory greatly reduces the conceptual distance to the new coefficient calculation; relevant unindexed asymptotic work remains a risk.
+PASS
 
-## Mathematical value — PASS
-At a naturally occurring minimum of the neuron's known flip curve, a change of constant input alone creates and then destroys an attracting two-cycle locally, with a completely quantified narrow oscillation cap. The exact amplitude surface and the unusual higher-order mean shift distinguish the tangency from a routine one-parameter flip. They provide a parameter-space benchmark for resolving small-amplitude spiking and critical slowing down in the reduced model without claiming population-wide or full-system dynamics. This is a sharp locally complete asymptotic description, not a new general bifurcation theory.
+For f=x²exp(r-x)+k and q=2+sqrt2, r_c=q-log(2+2sqrt2), exact evaluation gives f(q)=q, multiplier -1, f’’(q)=0, f’’’(q)=2/q. The symmetric equations H1=[f(m+A)+f(m-A)]/2-m=0 and H2=[f(m+A)-f(m-A)]/(2A)+1=0, analytically extended in U=A², have nonsingular (m,U) Jacobian diag(-2,1/(3q)). Implicit differentiation gives U_r=3q,U_k=0,U_kk=-3/2, hence the quoted parabolic two-parameter cap and unique local cycle. Independent symbolic derivatives, independent two-cycle numeric roots across detunings and multipliers confirm the local attracting branch. The critical iterate f²(q+z)=q+z-(2/(3q))z³+O(z⁴) forces n(x_n-q)^2→3q/2 for sufficiently nearby nonfixed orbits. Claimed effects are local; excluded outside |t|>2sqrt(q) follows from U<0. Boundary parameter t=±2sqrt q is deliberately not covered by the fixed-t interior/exterior assertions.
 
-## Closest literature and limitations
-The original 2021 preprint supplies the flip curve and fixed-state geometry, not the uniform cap constants. The 2025 scaling study supplies the general critical exponent, not the nonzero-bias two-parameter profile. The exact calculations are local near \((r_c,1)\); they do not characterize remote cycles, full two-dimensional neuronal states, basins, or experimentally calibrated parameter ranges. A later independently performed literature-and-proof audit is still necessary for any publication-priority claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded PASS for the new evaluated coefficients of a two-parameter tangential flip normal form, suppressed mean displacement and n^{-1/2} critical relaxation for nonzero bias. The exact flip curve and generic supercritical existence are established by Llovera Trujillo et al. and explicitly excluded from novelty.
+
+## value
+
+PASS
+
+At the minimum of the physical reduced-map flip line, the oscillatory regime has a two-parameter amplitude cap whose width is sqrt(r-r_c), with an unusually small mean offset and a computable slow-relaxation constant. These coefficients quantify a mathematically motivated degenerate flip rather than an arbitrary numerical parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
