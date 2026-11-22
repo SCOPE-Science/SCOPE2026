@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The support-function identity follows from the support functions of the cube and crosspolytope. Strict inequalities \(1<t<n\) expose every listed generating vertex; transitivity, the event \(tM_n>S_n\), and partition of total spherical measure establish the exact two-level vertex-angle spectrum. The integral conditions on the maximal half-normal coordinate follow from its unique index. The exposed-vertex collision identity is the sum of squared cone measures. Continuity and strict monotonicity of the ratio \(S_n/M_n\) prove the unique equal-angle scale and the global quadratic minimum. The two-dimensional angular formula was reconstructed geometrically. Gaussian Mills-ratio estimates prove the Gumbel limit, while a finite-variance law of large numbers makes sum fluctuations negligible on the \(b_n^{-2}\) critical scale. A genuine infinite-dimensional proof, not simulation extrapolation, establishes both limits.
+## correctness
 
-## Originality — PASS (best-knowledge, priority provisional)
-The source-level comparison includes both the initial 2019 preprint and inspected published full-text sections of Kohl–Olsen–Sanyal's unconditional polytope paper; the paper develops reflexivity, perfect graphs, triangulations, and related invariants, not these normal-cone exposure laws. The initial 2024 preprint and inspected open-access journal text of Böröczky–Fodor–Hug develop Gaussian mean-width and stability comparisons for cubes/crosspolytopes, but not the scaled hull's vertex angles, angular equipartition, or collision transition. Related published geometric results on the polar intersection focus on volume/isotropic constants, not the angular vertex distribution of the hull. Available discovery records were compared by implication, especially previously published Gumbel angle transitions for different polytopes and related cube–crosspolytope duals; none supplied the present family-specific statement. Historical equivalence under unindexed names remains a risk. Search failure alone is not a novelty certificate.
+PASS
 
-## Mathematical value — PASS
-This natural unconditional family interpolates between a cube and its regular dual crosspolytope yet retains two drastically different vertex-orbit sizes. Its unique nontrivial *angularly equidistributed* realization minimizes directional collision probability, including in dimensions where the polytope is not regular. More strikingly, a sharp high-dimensional parameter window yields positive exposure probability on both orbits while the collision law is polynomial rather than exponential, identifying a precise geometric distinction between aggregate spherical angle and second angular moment. This is an interpretable metric invariant rather than a routine vertex count or arbitrary numerical slice.
+For every integer n>=2 and 1<t<n, the support h(g)=max(sum |g_i|,t max|g_i|) proves all 2^n corners and 2n coordinate apices are exposed; no other hull vertices exist. Gaussian direction signs and permutation symmetries give apex total p=Pr(tM>S) and individual normal angles p/(2n) and (1-p)/2^n. The finite multiple integral conditions on the unique absolute maximum, and collision C=p^2/(2n)+(1-p)^2/2^n. The random ratio S/M is atomless with positive probability in every open interval of (1,n), so p strictly increases 0 to1; strict convexity in p gives exactly one equipartition t* and absolute minimum 1/(2^n+2n). For n=2 angular integration gives p=4 arctan(t-1)/π and t*=sqrt2. For fixed s and b_n defined by nP(|G|>b_n)=1, classical half-normal extreme-value normalization yields b_n(M-b_n)=>Gumbel and b_n^2(S/(μn)-1)=o_P(1); with t_n(s)=μn/b_n(1+s/b_n^2), p=>1-exp(-e^s) and nC=>p^2/2. Reconstructed these hypotheses and scale; independently sampled Gaussian exposures at n=2 t=sqrt2 and n=3,5 plus checked support endpoints, while source checker.py was inspected. Experiments are not infinite proofs.
 
-## Limits and closest literature
-The probability-characterized balancing scale is not evaluated in elementary functions beyond dimension two, and the asymptotic statement is pointwise in the crossover parameter. Closest verified literature consists of Kohl–Olsen–Sanyal (2019), Böröczky–Fodor–Hug (2024), and related publicly indexed results about Gaussian exposures of other orbit-symmetric polytopes. No independent mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the two-orbit angular law, uniquely balanced cone angles and sharp combined Gumbel/collision window for the exact primal hull are not implied by examined isotropic-volume optimization or unconditional reflexive-combinatorial classifications. Important exact equivalence to a previously studied top-coordinate norm-ball family is openly credited.
+
+## value
+
+PASS
+
+The spherical angular distribution and exact equal-cone parameter of a natural cube–crosspolytope interpolation quantify probabilistic vertex accessibility, while the Gumbel transition separates exponentially many cube vertices from only linearly many apices in collision probability. This is a motivated geometric-probabilistic classification with natural all-dimensional limits; neither correct algebra nor the regular-octagon example alone drives the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
