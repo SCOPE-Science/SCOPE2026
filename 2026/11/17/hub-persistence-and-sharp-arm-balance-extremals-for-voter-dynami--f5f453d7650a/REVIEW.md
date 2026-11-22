@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is stated for the explicit rate-one vertex-update voter model, with a single initial center opinion-one and all peripheral opinions zero. Freezing the center before its first flip is legitimate because each root-copy clock can be split independently over the arms. Within each rooted path, the unique domain wall evolves as a birth–death chain. The return-before-absorption probability is exactly \(1-2/(2r-1)\) from the first positive interface state. The number of interface visits to the zero-prefix state is geometric; their total holding time has an exponential law of rate \(1/(2r-1)\). Averaging the independent root-copy hazards produces the full product. The fixation probability follows from the standard degree-weighted voter martingale, and strict concavity establishes sharp extremal arm allocations. Edge cases \(r=1\), \(k=1\), \(L=k\), and \(L=k+1\) are explicitly covered. Independent direct finite-generator and interface-generator calculations agree with the exact identities; neither is used as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Freezing the root at opinion one until its first reversal and thinning its independent rate-one update clock by arm gives independent rate-1/k kill hazards while the first arm vertex is zero. Each frozen path has a unique prefix of ones and a one-dimensional interface J, with 0→1 rate 1/2 for r>=2, interior ±1 rates 1/2, r−1→r rate 1. The harmonic probability of absorption at r before a return to J=0 starting at 1 is 2/(2r−1), including endpoint reflecting-rate equation. Therefore the sum of geometric repeated exponential residence times at J=0 is Exp(rate 1/(2r−1)), and its Laplace transform at 1/k is k/(k+2r−1). Independence over arms proves product and ties no-reversal precisely to all-one absorption. The degree-weighted spin fraction is a martingale under vertex updates, giving fixation k/(2L); these observables differ. Strict concavity of log(k+2r−1) yields balanced integer arm lengths as unique minimizer (up to permutation) and one long arm plus ones as maximizer. r=1 and k=1 boundary separately checked. Independent exact full-state CTMC killed-generator rational solution matched (r_i)=(1),(1,1),(1,2),(2,2),(1,1,2), confirming probability 1/2,4/9,4/15,4/25,9/32, without being treated as an infinite proof.
 
-The foundational persistence paper of Ben-Naim–Frachebourg–Krapivsky (arXiv:cond-mat/9511040) treats infinite-lattice and mean-field persistence/change counts, not the finite spider-tree center no-flip probability. Sood–Redner (arXiv:cond-mat/0412599) establishes classical heterogeneous-graph fixation and consensus behavior but not center persistence on arbitrary spider trees. Pickering–Lim (arXiv:1408.2130) studies complete and complete-bipartite networks and related urn state propagation, not the tree-path no-flip probability. A previous hub-persistence calculation for clique bouquets shares the central-persistence observable and the length-one star boundary; it does not encompass path arms of length at least two or the length-balancing extremal law. Semantic searches of mathematical research records and searchable literature found no direct covering result. The possibility of unindexed earlier formulas remains a residual risk and is not treated as proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The infinite-family formula extracts the effect of *arm placement*, not just total vertices and center degree, on a natural dynamic persistence event. The strict majorization extremal is mathematically informative: at fixed \((k,L)\), the same consensus winning probability \(k/(2L)\) coexists with distinct, exactly ordered no-flip probabilities. At \(L=2k\), balancing versus concentrating peripheral lengths changes the large-\(k\) persistence limits from \(e^{-3}\) to \(e^{-1}/3\), a non-vanishing structural contrast. The result is motivated by the distinction between persistence and fixation in the classical voter literature, and it is not simply an arbitrary finite table entry.
+PASS best-of-knowledge. Ben-Naim/Frachebourg/Krapivsky 1995 study voter persistence and flip-count distributions for Euclidean lattices and mean-field systems, not the rooted spider all-arm-length no-reversal probability. Sood–Redner 2005 study fixation and consensus time, not the stricter event of a given hub never flipping. A published exact product/resolvent result for private-CLIQUE bouquets has the same root-no-flip observable but fundamentally different blade transition generators and weights: it does not specialize to length-r rooted paths except the star r=1. No known same-object source was found giving the sharp arm-balancing extremals.
 
-## Closest sources and remaining limitations
+## value
 
-The principal related sources are the 1995 persistence paper, the 2004 heterogeneous-graph voter paper, and the 2014 spectral analysis cited in `RESULT.md`. The neighboring clique-bouquet claim concerns a different family and supplies no formula for nontrivial path arms. Full distributions of first-center-flip times, arbitrary initial configurations, and other attached graphs remain outside the theorem. Independent scientific validation and exhaustive historical-priority certification are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: separating hub never-flip persistence from its classical fixation probability on nonregular trees is a motivated stochastic process question. The exact independent-arm local-time factorization yields a natural, sharp quantitative topology effect: at fixed total edges and center degree, balancing arm lengths uniquely minimizes the leadership survival probability while concentrating length maximizes it, despite identical fixation chance. The unequal large-system limits give mathematically substantive shape sensitivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
