@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify_structure.py` to reconstruct all 64 possible ordered three-bit column pairs under the original synchronous NEC majority update. The program checks that every allowed transition has exactly the classified form and verifies the exact closed-walk count against the binomial expression for circumferences one through twenty (the scientific theorem covers three and above). Its recorded output is `structure_output.txt`.
+## correctness
 
-Compile `verify_direct.cpp` with `g++ -std=c++17 -O2 -Wall -Wextra verify_direct.cpp -o verify_direct` and run `./verify_direct`. This completely enumerates all binary torus states for each circumference three through seven using the direct local majority rule, classifies the fixed configurations by column type, and checks the exact formula; `direct_output.txt` records the run.
+PASS
 
-Both programs were run with passing exit codes after creation of the included sources. The universal proof relies on the local transition dichotomy and cyclic-walk count, not on the finite tests. The programs do not test noisy Toom dynamics, arbitrary temporal periods, or previously published results.
+For columns a,b in {0,...,7}, maj(a_r,a_(r+1),b_r)=a_r iff a_r=a_(r+1) or b_r=a_r. Uniform columns 0,7 have all 8 successors, whereas each nonuniform column has precisely itself and its next symbol along 1->3->2->6->4->5->1; no nonuniform-to-uniform edges. A cyclic word therefore lies wholly in the uniform two-symbol component (2^n states) or on the six-loop cycle (6 sum_{6|k} binom(n,k) states). The sixth-roots filter gives the exact cosine formula and sqrt(3)<2 proves the two classes have asymptotic proportion 1/2 each. An independently built 8-state adjacency matrix reproduced all 28 directed edges and traces for n=3..12; this corroborates, not replaces, the all-n argument. Definitions require labelled 3-row torus n>=3 and synchronous NEC including incumbent, not four-neighbor majority.
+
+## originality
+
+PASS
+
+The completed best-of-knowledge review compares the exact theorem (not just title) with the closest published records and primary source statements. Earlier majority-rule classifications on different update graphs are not implications because their allowed column arrows differ; absence of fully readable 1997 article remains a concrete priority risk. Access and priority risks are explicitly retained.
+
+## value
+
+PASS
+
+A complete all-circumference fixed-point census with the exact obstruction to interfaces and asymptotic coexistence of equally exponential phases is a natural question for the canonical deterministic Toom rule, not merely a transfer-matrix restatement or arbitrary tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
