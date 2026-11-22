@@ -1,0 +1,214 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T21:55:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite tree identities were independently reconstructed: D_0=0,D_1=1 and X_i=D_i-D_(i-1) obey X_1=1, X_i=1 for B_i=1 and X_i=1-X_(i-1) for B_i=0; hence X_i in {0,1}, nondecreasing depths and H_n=D_n. The exact rooted leaf increment is A_i=1{B_(i-1)=1,B_i=0}, with forced B_1=1. Success-delimited iid geometric K with P(K=k)=p q^k yields T=K+1, R=floor(K/2)+1, S=1{K>=1}, finite moments and renewal rates v=1/(1+q), ell=pq. The classical vector renewal-reward CLT applies to centered iid block rewards, with bounded L² incomplete-block remainder. Symbolic direct evaluation of p E[(R-vT,S-ell T)^{⊗2}] produced the three claimed Σ entries exactly and det=p²q⁴(1+q-q²)/(1+q)^4>0. An independent stationary covariance proof uses A_i and X_j: Cov(X_(i-1),A_i)=pq(1-μ), Cov(X_(i+k),A_i)=-pq μ(-q)^k for k>=0, and earlier j covariance zero. Summing gives Σ_12=pq(q²+q−1)/(1+q)². Leaf indicators A_i are stationary 1-dependent with lag-one covariance -(pq)², giving Σ_22=pq(1-3pq), and X has nontrivial eigenvalue -q, giving Σ_11. The common p-reset implies geometric mixing; summable lag and nonstationary boundary corrections prove Cov(H_n,L_n) and both diagonal entries nΣ+O(1). The O(1) mean bias is negligible under sqrt(n). Exact independent enumeration of all 1,022 labelled parent-word trees through n=10 matched recursions; independent rational six-moment DP through n=500 at p=1/3,1/2,2/3 matches the asymptotic signs and bounded n-error. These finite checks corroborate algebra only; infinite CLT follows analytically. Scope: fixed 0<p<1, n+1 vertices n edges, rooted leaves; no claims at p=0/1 or for varying p_n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Brownian distance-field theorem (November 8) implies the entire height process Gaussian limit and diameter/pair-distance consequences with variance pq/(1+q)^3 but does not include leaves; the leaf count depends on previous/current Bernoulli bits, not exclusively on distance-field marginals.",
+          "Published sharp two-lag transport crossover (November 8) concerns Kemeny/Wiener at p_N potentially small, with no height/leaf joint limit.",
+          "Leckey–Neininger, Hoppe trees, Theorems 2.3–2.5: root-weighted global attachment, logarithmic tree height and leaf CLT, rather than last-two-parent Bernoulli rule with linear height.",
+          "Isaev–Southwell–Zhukovskii (2022) explicitly study uniformly sampled labelled trees and bounded local perturbation tree parameters, not this ordered Bernoulli two-lag growth measure."
+        ],
+        "reasoning": "A stronger one-dimensional functional theorem covers the height fluctuation, and the original primary article supplies detailed trunk/branch facts. Neither contains the joint leaf-dependent observable or a parameter-dependent cross covariance. Uniform-labelled and Hoppe tree laws are not reductions of the two-lag process. General finite-state renewal theory is acknowledged as method and is not claimed novel.",
+        "searches": [
+          "Resultary: Bernoulli two-step recursive tree Kemeny constant path lengths leaves height",
+          "Resultary: last-or-penultimate recursive tree leaf count branch number covariance",
+          "Web: two memory attachment recursive trees height leaves joint central limit theorem",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-uniform-brownian-distance-field-limit-for-bernoulli-recursive--494c72361216/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-transport-crossover-in-two-lag-bernoulli-recursive-trees--0bd0db360670/RESULT.md",
+          "https://arxiv.org/html/1202.2439v3",
+          "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-tree-parameters-by-martingale-approach/32DFE2BAD7DFC3309F3FAD131FEFC451",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-joint-gaussian-law-for-root-branches-and-leaves-of-linearly-bias--386fc4aa21bb/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.02916",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-eventual-diameter-height-locking-in-bernoulli-two-step-recursive--8c6e93bb272e/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-uniform-brownian-distance-field-limit-for-bernoulli-recursive--494c72361216/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-transport-crossover-in-two-lag-bernoulli-recursive-trees--0bd0db360670/RESULT.md",
+        "https://arxiv.org/html/1202.2439v3",
+        "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-tree-parameters-by-martingale-approach/32DFE2BAD7DFC3309F3FAD131FEFC451",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-joint-gaussian-law-for-root-branches-and-leaves-of-linearly-bias--386fc4aa21bb/RESULT.md",
+        "Resultary semantic results for last-two-parent and height/leaf covariance (2026-11-18 UTC)",
+        "Actual assigned source tree 1ee2f7830285bbc48a588f1bba639928a21bfa6f at frozen commit 3285a1744f5600128a1c74c65c4bca4aae6a999b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tang–Wang–Wu Theorem 1.1 (one-end) and 1.2 (infinite walk collision) plus Section 3.1 branch-length distribution do not determine finite-tree joint H_n,L_n fluctuations by implication alone.",
+          "The published height marginal in the diameter-height locking and uniform Brownian distance-field results is exactly Σ_11=pq/(1+q)^3; this is unambiguously prior-covered.",
+          "The assigned nontrivial cross term changes sign at the unique q in (0,1) with q²+q−1=0. The earlier height-only theorem gives no cross term. Hoppe-tree height fluctuations have logarithmic center and bounded order, so cannot directly imply the linear-height two-lag covariance."
+        ],
+        "reasoning": "Correct implication comparison removes novelty from the height CLT and classical iid renewal-reward theorem, yet leaves the explicit new height–leaf cross covariance, nondegenerate joint matrix, sign reversal and asymptotic Gaussian independence as the proposed contribution. Published same-model distance/transport papers have different observables; no logical reduction from them to the joint leaf statistic was established.",
+        "searches": [
+          "https://arxiv.org/abs/2607.02916",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-eventual-diameter-height-locking-in-bernoulli-two-step-recursive--8c6e93bb272e/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-uniform-brownian-distance-field-limit-for-bernoulli-recursive--494c72361216/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-transport-crossover-in-two-lag-bernoulli-recursive-trees--0bd0db360670/RESULT.md",
+          "https://arxiv.org/html/1202.2439v3",
+          "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-tree-parameters-by-martingale-approach/32DFE2BAD7DFC3309F3FAD131FEFC451",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-joint-gaussian-law-for-root-branches-and-leaves-of-linearly-bias--386fc4aa21bb/RESULT.md",
+          "Resultary: tree trunk leaves sign transition covariance regenerative blocks finite memory attachment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang–Wang–Wu, arXiv:2607.02916, Section 1 and Theorems 1.1–1.2 introduce the same last-or-penultimate attachment and prove one end and walk collisions; their complete Sections 2–3 treat trunk/branch distributions and collision proof, not the joint height/leaf Gaussian law.",
+          "The earlier exact two-lag diameter-height theorem explicitly proves the height marginal CLT with variance pq/(1+q)^3, and the Brownian distance-field theorem contains a stronger functional height limit. The marginal height part of the assigned claim is therefore known, not counted as original.",
+          "Neither inspected same-model theorem tracks rooted leaf count L_n or obtains the off-diagonal factor pq(q^2+q-1)/(1+q)^2; distance-field convergence alone cannot determine the joint law with a statistic absent from the field."
+        ],
+        "reasoning": "The pair (H_n,L_n) is equivalent to an additive functional of the two-state height-increment Markov chain and adjacent Bernoulli pattern counts. General additive functional CLTs cover existence of a Gaussian limit; the explicit joint covariance and its golden-ratio zero require model-specific joint calculation. Known height CLT is credited as partial coverage. The inspected same-model published theorems do not logically imply the complete pair covariance or sign transition; a hidden generic transfer theorem with worked-out joint rewards remains a residual originality risk.",
+        "searches": [
+          "Resultary: last two vertices Bernoulli random recursive tree height leaves joint central limit covariance transition golden ratio",
+          "Resultary: random recursive trees Bernoulli sequences height leaf number fluctuation covariance two-lag",
+          "Resultary: two-step Bernoulli tree height leaf count joint distribution",
+          "Web: two lag Bernoulli random recursive trees height leaves covariance golden ratio",
+          "https://arxiv.org/abs/2607.02916",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-eventual-diameter-height-locking-in-bernoulli-two-step-recursive--8c6e93bb272e/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-uniform-brownian-distance-field-limit-for-bernoulli-recursive--494c72361216/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic published-finding queries identified the assigned finding itself, other two-lag geometry/transport results, and height/leaf formulae for different growth laws; no inspected distinct exact database table listed the displayed two-lag bivariate covariance as an entry.",
+          "The submitted verify.py computes finite exact moments; the theorem is a continuum-parameter n→∞ matrix and not a finite catalog entry."
+        ],
+        "reasoning": "No exact-table match was identified. This is a bounded search result, not proof that no unpublished or differently indexed equivalent exists. An abstract general covariance formula could subsume it after specialization, so that risk is recorded.",
+        "searches": [
+          "Resultary: golden ratio covariance height leaves recursive trees",
+          "Resultary: golden ratio covariance height leaves recursive trees",
+          "Web: two lag Bernoulli random recursive trees height leaves covariance golden ratio",
+          "https://arxiv.org/abs/2607.02916"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the explicit joint (height,leaf) covariance, its nondegenerate Gaussian limit and golden-ratio zero; partial coverage is substantive and explicitly credited. Same-model published November 2 height/diameter theorem and November 8 Brownian distance-field theorem already supply the first marginal limit and variance pq/(1+q)^3. Tang–Wang–Wu 2026 full paper supplies the random-tree model and trunk/branch structure. Neither establishes a leaf-dependent cross covariance or its sign transition. General finite-state/renewal-reward CLTs are standard methodology rather than a new result. Searches of published findings, same-model trees and primary tree-parameter literature did not identify an earlier full joint covariance theorem. This is qualified by unindexed equivalents or implicit abstract Markov reward calculations; a failed search is not priority certification.",
+      "residual_risks": [
+        "No exhaustive mathematical-priority guarantee: a differently indexed two-state Markov-additive covariance specialization or older last-two-parent tree study might state an equivalent result.",
+        "Known published 2026 same-model height marginal and Brownian height process cover Σ_11; it must not be advertised as new.",
+        "At critical q*, asymptotic Gaussian independence is proved, not finite-n independence; finite covariance has O(1) residual.",
+        "Finite numerical checks cannot certify general regenerative CLT; proof relies on classical finite-moment renewal reward theorem.",
+        "The only fresh publication blockers are operational provenance and cross-file status harmonization, not scientific weakness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and trunk/branch calculations but not joint Gaussian covariance; neither one-end nor collision property determines cross moment.",
+          "evidence": [
+            "Theorems 1.1 and 1.2 assert one topological end and infinite random-walk collisions.",
+            "Section 3.1 gives trunk steps and branch-length law, Sections 3.2–3.3 concern collisions, no cross-covariance of finite H_n,L_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.02916",
+          "material_read": "Complete web-rendered primary article: abstract, introduction, Theorems 1.1–1.2, Sections 2–3 and references (241 rendered lines).",
+          "method": "Read full theorem statements and trunk/branch derivation including Equation (3.1), (3.2) and compare to rooted height and finite-time leaves.",
+          "title": "Infinite collisions of simple random walks on random recursive trees generated by Bernoulli sequences",
+          "trigger": "exact same two-lag Bernoulli attachment law"
+        },
+        {
+          "assessment": "Mathematically covers height marginal σ_11 but not leaf marginal or cross covariance.",
+          "evidence": [
+            "Proof Step 6 derives Var coefficient pq/(1+q)^3 for rooted height.",
+            "Statement concerns diameter-minus-height stabilization and diameter Gaussian law; no L_n statistic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-eventual-diameter-height-locking-in-bernoulli-two-step-recursive--8c6e93bb272e/RESULT.md",
+          "material_read": "Complete RESULT.md (Finding, proof Steps 1–6, relation to work and limitations).",
+          "method": "Read exact root-height recursion, Markov stationary covariance computation and final claimed CLTs.",
+          "title": "Eventual diameter–height locking in Bernoulli two-step recursive trees",
+          "trigger": "identical attachment model and sharp height variance"
+        },
+        {
+          "assessment": "Prior covers height functional CLT and its own pairwise distance field; not the new joint height–leaf covariance without an additional observable calculation.",
+          "evidence": [
+            "Proof Steps 1–3 give σ²=pq/(1+q)^3 and Brownian interval-increment field.",
+            "No joint CLT or covariance with number of leaves is stated."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-uniform-brownian-distance-field-limit-for-bernoulli-recursive--494c72361216/RESULT.md",
+          "material_read": "Complete RESULT.md including functional martingale CLT, deterministic ancestor bound and metric-space consequences.",
+          "method": "Compared all observables and their joint limit implications; checked identity for height increment chain.",
+          "title": "A uniform Brownian distance-field limit for Bernoulli recursive trees",
+          "trigger": "stronger same-model functional Gaussian theorem might dominate"
+        },
+        {
+          "assessment": "Not covering joint height-leaf covariance; one observable is a random-walk transport functional and it treats endpoint windows absent here.",
+          "evidence": [
+            "Main formulas scale Kemeny by N² and identify Np_N window.",
+            "Its last section explicitly does not claim a CLT."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-transport-crossover-in-two-lag-bernoulli-recursive-trees--0bd0db360670/RESULT.md",
+          "material_read": "Complete RESULT.md finding, full five-step proof, verification and literature discussion.",
+          "method": "Compared Kemeny/Wiener and sparse p_N thresholds to the assigned fixed-p height–leaf matrix.",
+          "title": "A sharp transport crossover in two-lag Bernoulli recursive trees",
+          "trigger": "same model, possibly stronger finite-tree geometric invariant"
+        },
+        {
+          "assessment": "Not direct coverage: Hoppe attaches to all earlier vertices with root weight theta, height grows ~e log n, and leaves have a different asymptotic variance.",
+          "evidence": [
+            "Definition in Section 1 is root theta and all nonroot weights one.",
+            "Theorem 2.3/Corollary 2.4 give H~e log n, variance O(1); Theorem 2.5 gives leaf CLT."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1202.2439v3",
+          "material_read": "Complete arXiv HTML Sections 1–3 including Theorems 2.3–2.5 and proofs.",
+          "method": "Compared attachment weights, height order and leaf-fluctuation formula.",
+          "title": "Asymptotic analysis of Hoppe trees",
+          "trigger": "published height and leaf central-limit results for another recursive tree"
+        },
+        {
+          "assessment": "Theorem is formulated for uniform labelled Cayley trees, not ordered last-two-parent recursive trees; no implication across the probability laws follows.",
+          "evidence": [
+            "Article introduction explicitly restricts to uniform random unrooted labelled trees generated via Aldous–Broder method."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-tree-parameters-by-martingale-approach/32DFE2BAD7DFC3309F3FAD131FEFC451",
+          "material_read": "Cambridge article abstract, Introduction Section 1, model hypotheses and theorem setup defining uniform labelled tree law.",
+          "method": "Checked precise distribution of sampled trees and local perturbation stability hypotheses, not inferred negative coverage from a short snippet.",
+          "title": "Distribution of tree parameters by martingale approach",
+          "trigger": "broad CLT for tree parameters might subsume the claim"
+        },
+        {
+          "assessment": "Distinct root-weighted Hoppe model and root-branch statistic; does not dominate two-lag height–leaf sign transition.",
+          "evidence": [
+            "Its joint covariance is strictly positive c/[2(c+1)²], unlike the assigned sign-changing two-lag cross term."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-joint-gaussian-law-for-root-branches-and-leaves-of-linearly-bias--386fc4aa21bb/RESULT.md",
+          "material_read": "Complete RESULT.md theorem, martingale proof, exact covariance and limitations.",
+          "method": "Compared joint observables, attachment schemes and normalization.",
+          "title": "Joint Gaussian law for root branches and leaves of linearly biased Hoppe trees",
+          "trigger": "another published full joint tree Gaussian covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Height and rooted leaf count are canonical, independently motivated global geometric and branching observables in this concrete two-lag attachment law. The exact joint covariance changes sign at q=(sqrt(5)-1)/2, separating negative and positive mesoscopic dependence; at the critical parameter the limiting Gaussian coordinates are independent, despite using the same Bernoulli input. The explicit analytic threshold, not an arbitrary sampled finite case or mere generic CLT existence, is a meaningful new structural quantitative fact, and the O(1) covariance remainders sharpen its finite-n interpretation. Because prior work already covers the height marginal, value is specifically in the joint leaf comparison and transition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2607.02916",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-eventual-diameter-height-locking-in-bernoulli-two-step-recursive--8c6e93bb272e/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-uniform-brownian-distance-field-limit-for-bernoulli-recursive--494c72361216/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-transport-crossover-in-two-lag-bernoulli-recursive-trees--0bd0db360670/RESULT.md",
+    "https://arxiv.org/html/1202.2439v3",
+    "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-tree-parameters-by-martingale-approach/32DFE2BAD7DFC3309F3FAD131FEFC451",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-joint-gaussian-law-for-root-branches-and-leaves-of-linearly-bias--386fc4aa21bb/RESULT.md",
+    "Resultary semantic results for last-two-parent and height/leaf covariance (2026-11-18 UTC)",
+    "Actual assigned source tree 1ee2f7830285bbc48a588f1bba639928a21bfa6f at frozen commit 3285a1744f5600128a1c74c65c4bca4aae6a999b"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed p∈(0,1), q=1−p, in the recursive tree rooted at v0 with v0v1 initially and each v_n, n≥2, attached independently to v_(n−1) with probability p or v_(n−2) with probability q, (H_n−n/(1+q),L_n−npq)/sqrt(n) converges jointly to a nondegenerate centered Gaussian whose covariance entries are Σ_11=pq/(1+q)^3, Σ_22=pq(1−3pq), Σ_12=pq(q²+q−1)/(1+q)². Every finite covariance is nΣ+O_p(1). The cross-covariance sign changes at q=(sqrt(5)−1)/2; limiting Gaussian coordinates are independent at equality. n counts edges (n+1 vertices), and L counts rooted leaves.",
+  "limitations": [
+    "The complete source package was inspected through Git tree and seven exact-commit Git blob reads. Git SHA values are source identities, not SHA-256 hashes of file content.",
+    "No independent formal proof assistant or expert attestation, and no claim of such verification.",
+    "The related height marginal is prior published; the joint leaf transition is the surviving original/value proposition.",
+    "Public metadata includes a run-specific identifier and old review status, requiring neutral sanitization and cross-file harmonization prior to any public import."
+  ],
+  "residual_risks": [
+    "No exhaustive mathematical-priority guarantee: a differently indexed two-state Markov-additive covariance specialization or older last-two-parent tree study might state an equivalent result.",
+    "Known published 2026 same-model height marginal and Brownian height process cover Σ_11; it must not be advertised as new.",
+    "At critical q*, asymptotic Gaussian independence is proved, not finite-n independence; finite covariance has O(1) residual.",
+    "Finite numerical checks cannot certify general regenerative CLT; proof relies on classical finite-moment renewal reward theorem.",
+    "The only fresh publication blockers are operational provenance and cross-file status harmonization, not scientific weakness."
+  ],
+  "schema_version": 1
+}
