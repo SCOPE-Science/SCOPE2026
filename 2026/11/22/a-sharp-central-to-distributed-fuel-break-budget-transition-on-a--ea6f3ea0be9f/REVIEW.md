@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** All quantifiers are explicit: \(p\in(0,1]\), \(B\geq0\), independent undirected edge transmissions, uniform single-site ignition, and nonnegative budgets. The exact risk formula follows from pair connectivity. Unique symmetry follows from strict convexity at fixed central effort; the reduced objective has strictly positive second derivative, and the signs at both boundaries yield the full phase diagram. The cubic is strictly increasing and yields the exact positive optimizer. `check.py` independently enumerates bond states and ignition sites and checks an exact rational improvement witness. No finite experiment is used as an infinite proof.
+
+**Originality — PASS on inspected evidence, with historical caveat.** Full-text Ager et al. (2023) treats project geometry and wildfire simulation, not the exact path susceptibility budget. Full-text Yemshanov et al. (2021) studies discrete critical-node treatments. The full arXiv text of Somers and Manchester (2020) addresses a linearized SIS-based cost-to-go and exponential-cost optimization, not exact independent-bond final cluster risk. The closest located research-record item on two impermeable cuts on cycles concerns gap placements and independent ignitions, not continuous effort on three links of a four-site path. The shared ingredients of connectivity and convexity are established mathematics and not presented as new. A stronger unknown theorem under network-interdiction or resource-allocation language remains possible.
+
+**Value — PASS.** A fixed-budget four-site forest corridor is the first path on which a natural spatial concentration-to-diversification allocation transition occurs in the stated probabilistic model. The threshold \(\log(1+p)\), explicit cubic reconstruction, strict central priority above threshold and asymptotic equalization provide a complete policy phase diagram for a motivated model, not a selected numerical example. No practical deployment recommendation is made without empirical calibration.
+
+**Limitations.** Idealized one-shot independent transmission, homogeneous baseline probability, equal site stakes and exponential treatment response. External validation and real fire dynamics are out of scope. Priority remains provisional.
+
+Self-review: passed. Independent audit: not yet performed.
