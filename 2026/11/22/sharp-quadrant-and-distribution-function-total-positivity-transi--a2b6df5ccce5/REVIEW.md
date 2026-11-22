@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness (PASS).** An exact common-denominator identity reduces every quadrant-dependence comparison to the sign of a single affine polynomial in the joint lower-tail coordinate. Its two endpoint signs give sharp necessary and sufficient PQD/NQD/mixed thresholds. Independent exact differentiation expresses the CDF-TP\(2\) determinant as a strictly positive factor times \(\theta+qAB\); the lower bound \(AB\ge(1-t)^3\) is sharp as both transformed coordinates tend to zero. The resulting exact phase boundaries and endpoint cases are checked independently by symbolic rational arithmetic; the whole-domain claims follow from the displayed algebra, not sampling.
+
+**Originality (PASS, qualified).** The original 2024 family, its original dependence-preservation statements, and the geometric–FGM formula were compared with the author's reproduced primary chapter and relevant general PGF-copula results. The original proof that a PQD or CDF-TP\(2\) baseline remains so under a PGF transformation does not imply sharp recovery thresholds starting from a negative FGM parameter, nor classify mixed-sign quadrant dependence. Searches of related mathematical records and primary literature did not reveal the same full phase diagram. The original journal PDF was inaccessible and historical priority remains an explicit risk.
+
+**Value (PASS).** The work resolves the dependence classification of a published two-parameter model rather than producing an isolated example. It determines exactly which dependence order survives, which stronger order can be created even from a negative baseline, and the precise intermediate region in which neither quadrant order holds. The distinction is pertinent to interpretable copula modeling and dependence selection. It makes no assertion about density-TP\(2\).
+
+Self-review: passed. Independent audit: not yet performed.
