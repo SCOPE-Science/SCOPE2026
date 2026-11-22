@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For y with a fixed sign over each transition, H(y)=eta*y*abs(y)/2-y has an exact quadratic finite difference, giving Q_next-Q=±sigma2*eta*x²/2. Bounding Q in a radius-R cube gives sum x²≤4B/|sigma2*eta| over an N-transition one-sided block. The sigmoid globally has derivative at most 1/4; comparison of x_next with sigma1/2 followed by Cauchy–Schwarz proves N≤1+C_R. Choosing M_R=floor(C_R)+3 forces both signs within every M_R-state window. Stationary integration yields both measure lower bounds, including non-ergodic measures. At sigma3=0 the x-recurrence is sigmoid-only, keeps constant sign and has positive amplitude floor after two steps, making y diverge at least linearly and z at least quadratically. Exact rational coboundary tests passed; no finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Al-Taani et al., Symmetry 17 (2025) 143, Equation (11), uses a two-coordinate sigmoid/memristor system lacking the third-coordinate memory update needed for the quadratic potential.",
+        "The indexed “A sharp global attractor threshold for the two-cell sigmoid spiking map” concerns a different two-cell nonlinear map and a global-attractor step-size boundary.",
+        "The Sprott E sign-crossing index concerns a continuous-time generator, not a discrete-time cumulative quadratic defect."
+      ],
+      "reasoning": "Neither the later two-dimensional model nor the other indexed sigmoidal and Sprott systems has the defining triple update, parameter face, and simultaneous finite-block invariant-probability bound. Their theorems do not imply the present statement by specialization, duality or variable renaming.",
+      "searches": [
+        "three-dimensional sigmoid absolute quadratic chaotic map x next logistic sigmoid + x(eta abs y -1)(z²-1) y next y+x z next z+ sigma x (eta abs y -1) recurrence invariant",
+        "sigmoidal map hidden attractors mandatory sign oscillation uniform recurrence from discrete Lyapunov potential",
+        "Al-Taani sigmoidal fractional discrete map x2 x3 bounded invariant periodic orbits"
+      ]
+    },
+    "checked_sources": [
+      "Al-Taani et al., Symmetry 16 (2024) 1447, https://doi.org/10.3390/sym16111447, full open HTML material",
+      "Al-Taani et al., Symmetry 17 (2025) 143, https://doi.org/10.3390/sym17010143, full open HTML material",
+      "Indexed mathematical finding summaries: One-sided stationary geometry and forced sign crossing in the Sprott E flow (summary; not full text)",
+      "Indexed mathematical finding summaries: A sharp global attractor threshold for the two-cell sigmoid spiking map (summary; not full text)",
+      "Relevant web searches by paper title, underlying update equations, invariant half-space, bounded orbit and sign alternation aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary 2024 paper, Equation (9): x1 is driven by a sigmoid plus the product of x1, an absolute-value memory factor and a quadratic factor; x2 has increment x1; x3 has increment sigma2*x1*(eta*abs(x2)-1).",
+        "Primary 2024 paper, Equation (10) and Sections 3-6: no fixed point when sigma1 is nonzero, numerical dynamic analysis and stabilizing controlled variants; no no-bounded-orbits theorem at sigma3=0.",
+        "2025 authors’ related article, Equation (11): independent two-dimensional model without the x3 update."
+      ],
+      "reasoning": "No-fixed-point is weaker than no bounded orbit when cubic feedback is zero (maps without equilibria may have compact cycles). Numerical sign changes are weaker than a uniform bound on every return window and a positive lower bound for every stationary sign mass. Controllers change the equation and cannot imply uncontrolled results. A continuous-time sign-crossing analogy does not yield the discrete exact coefficient.",
+      "searches": [
+        "Asymmetry and Symmetry in New Three-Dimensional Chaotic Map with Commensurate and Incommensurate Fractional Orders bounded oscillation later",
+        "Al-Taani 2024 three functions hidden attractors bounded sign change",
+        "sigmoidal map hidden attractors mandatory sign oscillation uniform recurrence from discrete Lyapunov potential"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original Symmetry 16 (2024) 1447, equation (9), contains the same three-coordinate system; Sections 3-4 use bifurcation, Lyapunov and complexity statistics rather than all-time sign restrictions.",
+        "Publicly indexed entry “One-sided stationary geometry and forced sign crossing in the Sprott E flow” discusses an analogous sign-crossing obstruction for a distinct continuous-time vector field, not this discrete sigmoid-memory recurrence."
+      ],
+      "reasoning": "The possible aliases are sign-changing recurrence, one-sided Lyapunov/coboundary obstruction, invariant sign frequency and zero-feedback escape. Equation-level comparisons found no same-source statement or direct theorem for the identical update law. A general coboundary technique alone is not a stronger exact all-parameter finite-window inequality.",
+      "searches": [
+        "Al-Taani 2024 integer-order sigmoid absolute value quadratic 3D map one-sided bounded orbits cross zero infinitely often and uniform crossing time sign changes",
+        "Euler coboundary signed quadratic deficit z_{n+1}=z_n+sigma x_n(eta abs(y_n)-1) y_{n+1}=y_n+x_n sign crossing recurrence",
+        "Al-Taani 2024 three function chaotic map sigma2 sigma3 periodic orbits exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source reports numerical bifurcation diagrams, Lyapunov exponent calculations, ApEn and C0 complexity, and controllers, not an exact catalog of invariant measures or an orbit-wise half-space return bound.",
+        "Semantic published-finding corpus search results did not return a matching exact-bound database or table for the same map."
+      ],
+      "reasoning": "This theorem is uniform in all admissible real parameters and in all bounded orbits and invariant measures; it is neither a finite state-table entry nor implied by numerical diagrams. Failed search is not a priority proof, and unindexed equivalent sources remain a risk.",
+      "searches": [
+        "2024 Symmetry 16 1447 three functions sigma1 sigma2 sigma3 η |x2| x3^2 no compact recurrent invariant sets y>=0",
+        "Al-Taani Abu Hammad Abudayah Diabi Ouannas 2024 three-dimensional fractional map sigmoid absolute quadratic σ1 σ2 σ3 integer order absence of periodic orbits compact invariant measure"
+      ]
+    },
+    "rationale": "The 2024 source introduces this exact three-function system, studies hidden chaos by numerical bifurcation, phase portraits and complexity, and establishes control laws, but does not give an exact quadratic memory coboundary or a finite-window recurrence/mass lower bound; its feedback-zero face is not given an all-initial-state escape theorem. Its 2025 successor uses a different two-dimensional system. Actual semantic searches of published mathematical findings found analogies for Sprott E and another sigmoid map, not a stronger statement about these equations. The claim is not implied by their statements. The distinct object-specific bound is original within inspected evidence, not an assertion of global priority.",
+    "residual_risks": [
+      "Unindexed or inaccessible publications might establish equivalent one-sided recurrence laws for this exact map.",
+      "The indexed comparison records were accessible as ranked summaries; the relevant full GitHub pages could not be fetched, so they are not described as whole-document negative inspections.",
+      "The theorem is only for integer order. A fractional-order generalization requires independent proof and is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_NOT_COVERING_PROPOSED_BOUND; source shows numerical sign behavior but not the exact finite-block theorem or feedback-zero escape",
+        "evidence": "Equation (9) and Section 2.2 supply model; Equation (10) no equilibrium; Sections 3 and 4 numerical analyses; Sections 5 and 6 controllers/conclusion.",
+        "identifier_or_url": "https://doi.org/10.3390/sym16111447",
+        "material_read": "Full accessible HTML text: model and integer-order definitions, fixed-point discussion, numerical commensurate/incommensurate bifurcations, complexity, controls, conclusion and references",
+        "method": "Direct section-by-section reading of open article text with equations (9) through (35) and discussion",
+        "title": "Asymmetry and Symmetry in New Three-Dimensional Chaotic Map with Commensurate and Incommensurate Fractional Orders",
+        "trigger": "Same underlying recurrence and precise earliest public source date"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT; its two-dimensional model does not contain the signed quadratic memory update of the 2024 three-coordinate map",
+        "evidence": "Equation (11) has two state variables with sigmoid term, quadratic y2 term and increment y2=x1, but no third coordinate or absolute-value memory increment.",
+        "identifier_or_url": "https://doi.org/10.3390/sym17010143",
+        "material_read": "Accessible HTML Sections 1-6, especially Section 2.2 Equation (11), equilibrium analysis and dynamical conclusions",
+        "method": "Full open HTML text inspection of governing equations and following sections",
+        "title": "On Fractional Discrete Memristive Model with Incommensurate Orders: Symmetry, Asymmetry, Hidden Chaos and Control Approaches",
+        "trigger": "Later closely related study by identical authors with sigmoid/memristive terms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b19935c2-3490-4750-a185-3faf8a5d5876",
+  "value": {
+    "rationale": "For a published model whose uncontrolled attractors are described mainly numerically, this is a uniform structural restriction on all compact recurrence: sign balance with an explicit finite-visit bound and a positive stationary-mass floor. The boundary sigma3=0 loses every bounded orbit, so cubic feedback is necessary to support any compact invariant dynamics. These statements distinguish parameter-based visual chaos from mathematical constraints on where and how recurrence can occur; they are not a parameter substitution, numerical Lyapunov scan or known finite table. The bound is conservative but supplies genuine orbit-independent quantitative information.",
+    "status": "PASS"
+  }
+}
