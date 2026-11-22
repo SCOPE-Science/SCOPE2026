@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Every infinite-index assertion reduces to a polynomial identity whose difference is strictly increasing for all relevant indices. Exact mass normalization and count-survival formula match the original family; the first log-curvature determinant is 4L and the first hazard numerator is a positive multiple of H. Positive quadratic roots yield the complete parameter classification including equality; F(n) increasing proves a unique trough if H<0. SymPy checker recomputes these identities and exact rational witnesses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shafiq et al. 2022, Theorem 2 and Corollary 1, establish log-concavity implies IFR for their one-parameter BNDL distribution, https://doi.org/10.3390/mca27040062.",
+        "The cited generic implication log-concavity=>IFR is consistent with H=L+alpha+2 alpha^2 theta, but it neither provides the converse nor any exact Poisson-Loai parameter classification."
+      ],
+      "reasoning": "General log-concavity-to-IFR results yield only one sufficient region; they do not imply nonmonotone hazard shape or the strict IFR-without-log-concavity interval. Broader mixed-NB literature was checked under structural aliases; no directly dominating theorem was identified.",
+      "searches": [
+        "\"mixed negative binomial\" \"log concavity\" \"hazard rate\" common probability polynomial",
+        "quadratic polynomial times geometric probability mass function sharp increasing failure rate log concavity thresholds",
+        "\"The Binomial–Natural Discrete Lindley Distribution\" log concavity IFR",
+        "Poisson Loai 2024 IFR bathtub hazard two-parameter threshold alpha theta reliability"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11400954/",
+      "https://doi.org/10.1016/j.heliyon.2024.e36764",
+      "https://doi.org/10.3390/mca27040062",
+      "https://www.mdpi.com/2297-8747/27/4/62"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 model article provides the PMF and a hazard expression, but no universal monotonicity proof; its Figure 2 illustrates increasing examples.",
+        "Distinct PGL log-concavity record concerns a gamma-function polynomial prefactor and different parameter family.",
+        "The 2022 BNDL log-concavity theorem proves properties of a nonidentical one-parameter model."
+      ],
+      "reasoning": "The original generating expressions are inputs to new calculations, not themselves the claim. The key new implication is that a simple exact PLo polynomial can have an initial hazard decline and that log-concavity and IFR boundaries differ, evidenced by exact rational points. No examined source proves this pair of equivalences or the unique hazard-trough classification.",
+      "searches": [
+        "\"Poisson Loai\" \"hazard\" \"increasing\" \"decreasing\" 2024",
+        "\"Poisson Loai\" \"nonmonotone\" failure rate",
+        "\"Poisson Loai\" \"log-concavity\"",
+        "\"Poisson generalized Lindley\" log concavity initial block"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ahmadini et al. 2024, equations (2)-(4): count PMF, survival and hazard, https://pmc.ncbi.nlm.nih.gov/articles/PMC11400954/.",
+        "Alternative p_n/Pr(X>n) hazard is a monotone transformation of p_n/Pr(X>=n), so both conventions share exactly the same IFR threshold."
+      ],
+      "reasoning": "Source-equivalent mass and both hazard definitions were examined. The published numerical hazard plots do not logically imply all-parameter IFR; a sharp two-parameter boundary and exact initial sign reversal are not stated there.",
+      "searches": [
+        "\"Poisson Loai\" \"hazard\" \"log concavity\"",
+        "\"Poisson Loai\" \"increasing failure rate\"",
+        "Poisson Loai distribution mixed Poisson gamma Lindley discrete hazard IFR DFR nonlogconcave only initial coefficients",
+        "Poisson-Loai gamma Lindley negative binomial mixture hazard log-concavity phase boundary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The originating full-text article gives numerical plot examples and no exact parameter-domain table for IFR or log-concavity.",
+        "Related public mathematical records on Poisson–generalized Lindley, distinct Poisson mixtures, and other hazard phase diagrams do not state this exact Poisson–Loai two-curve classification."
+      ],
+      "reasoning": "The thresholds were queried with model name, author names, hazard abbreviations, and quadratic-geometric PMF aliases. No exact table matching the two phase boundaries was observed; indexing absence alone cannot prove uniqueness.",
+      "searches": [
+        "Ahmadini Ahsan-ul-Haq Hussain Poisson-Loai 2024 sharp log concavity and increasing failure rate distinction nonmonotone hazard",
+        "Poisson Loai 2024 IFR bathtub hazard two-parameter threshold alpha theta reliability",
+        "Poisson Loai distribution Ahmadini Ahsan ul Haq Hussain 2024 count pmf log concavity increasing failure rate hazard threshold",
+        "\"Poisson Loai\" \"log-concavity\" \"failure rate\""
+      ]
+    },
+    "rationale": "Read the originating open 2024 article and relevant 2022 BNDL full-text sections; neither proves the exact Poisson–Loai IFR or log-concavity phase diagram. Semantic searches in external records and public mathematical findings did not locate an equivalent or dominating result. Historiographic priority remains qualified, not certified.",
+    "residual_risks": [
+      "Broader or unindexed literature may contain an equivalent quadratic-geometric reliability theorem; this was not exhaustively ruled out.",
+      "Related public Poisson-generalized Lindley claim was compared using recoverable claim text, not independently full-text assessed for this research question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source defines the family and plots several increasing hazards, but does not give parameterwise necessary-and-sufficient IFR or mass log-concavity criteria; newly derived non-IFR regime is not ruled out by selected plots",
+        "evidence": [
+          "PMF and survival/hazard equations (2)-(4) directly reconstruct the present object.",
+          "Section 2 says plots show hazards increasing, not a quantifier-complete proof; no log-concavity theorem appears in its mathematical-properties section."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11400954/",
+        "material_read": "Full text of Sections 1–3 including original Loai mixing density (1), count PMF (2), survival (3), hazard (4), Figure 2 discussion, conclusions and references",
+        "method": "Read freely accessible PMC article text and searched the text for monotone, log-concave, increasing failure and numerical hazard descriptions",
+        "title": "A new two-parameter over-dispersed discrete distribution with mathematical properties, estimation, regression model and applications",
+        "trigger": "Exact originating count family; potential coverage of hazard monotonicity"
+      },
+      {
+        "assessment": "A different one-parameter discrete count model; its log-concavity-to-IFR implication is standard but cannot imply the sharp nonlogconcave IFR region or bathtub hazard for Poisson–Loai",
+        "evidence": [
+          "Theorem 2 is stated for BNDL with a linear-in-count factor.",
+          "Corollary 1 deduces IFR from log-concavity, not conversely."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2297-8747/27/4/62",
+        "material_read": "Open full-text Section 2.2.7 Theorem 2 on log-concavity and Section 2.3.2 Corollary 1 on increasing failure rate",
+        "method": "Examined the full relevant theorem/proof and reliability-section text available on the publisher open page",
+        "title": "The Binomial–Natural Discrete Lindley Distribution: Properties and Application to Count Data",
+        "trigger": "Potential broader log-concavity and IFR implications for discrete Lindley-derived counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0d8badb0-6a5f-4b6d-b066-b51c5c7a9efe",
+  "value": {
+    "rationale": "The exact two-threshold phase diagram classifies strong unimodality and IFR for an applied mixed-Poisson count family and identifies a genuine change from monotone to bathtub-shaped discrete failure hazard. The nonempty IFR-but-not-logconcave region and explicit trough index separate two natural reliability notions, going substantially beyond mere moment computation or a fixed-parameter example.",
+    "status": "PASS"
+  }
+}
