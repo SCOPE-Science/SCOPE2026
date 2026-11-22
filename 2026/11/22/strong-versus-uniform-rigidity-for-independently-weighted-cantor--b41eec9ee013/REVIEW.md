@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** Unit-modulus multiplication reduces strong rigidity to a single squared-return integral. The proof covers both directions for bounded and unbounded positional gaps, including the nontrivial limiting all-ones case by explicit Dirichlet approximation. The claimed first-order rate is a convergent infinite-product expansion. The packaged finite checker performs additional finite tests, but the unrestricted conclusions use the analytical estimates in RESULT.md.
+
+**Originality: PASS (with residual bibliographic risk).** Barbieri et al. (2017), Theorem 1.7 and Corollary 4.10, already give a related and more general positional-gap Dirichlet-set criterion; the gap aspect is explicitly prior background. Beltrán-Meneu et al. (2026), Proposition 3.2 and Example 3.11, connect uniform multiplier rigidity on continuous-function spaces to Dirichlet sets; their later Fourier-algebra construction separates rigidity notions for other operator classes. Neither inspected text classifies **strong-operator** rigidity of the nonstationary Bernoulli multiplication unitaries with convergent digit probabilities, nor compares two non-atomic full-support spectral measures on an identical fixed Cantor spectrum, nor gives the exact rare-digit return constant. Relevant published indexed public mathematical records searches did not show that combined implication. A pre-existing nonstationary Riesz-product formulation remains possible and has not been excluded definitively.
+
+**Value: PASS.** The complete two-parameter phase diagram distinguishes a topological gap invariant from asymptotic digit concentration, for an explicit natural infinite-dimensional family. The same Cantor spectrum supports non-atomic strong-rigid and non-rigid normal operators, and a strictly positive infinite-series constant quantifies the rigid return. The full spectrum and measure supports are held fixed, making the contrast genuinely operator-spectral rather than a change of underlying compact set.
+
+**Limits.** Probability convergence is assumed; arbitrary oscillating biases are not classified. No independent check is implied by the finite tests. Historical literature on Riesz-product rigidity is an acknowledged residual risk.
+
+Self-review: passed. Independent audit: not yet performed.
