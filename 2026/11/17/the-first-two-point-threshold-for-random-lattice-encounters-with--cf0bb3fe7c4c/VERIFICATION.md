@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-The analytic argument does not rely on a finite search or on simulation. It reduces the random rotation/translation model to covariogram overlaps, uses a local curvature expansion of the difference body and a lens-area integral, then evaluates the universal angular integral. The exact disk formula provides an independent non-generic boundary case.
+# Independent mathematical audit
 
-Execute `python check_lattice.py` with SciPy installed (`pip install -r requirements.txt` if necessary). The checker independently integrates the ellipse-overlap formula for three anisotropic ellipses and two disks, compares shrinking-threshold ratios to the asserted asymptotic constants, tests the conditional angular second moment against \(1/6\), normalizes the limiting beta density, and verifies the absence of integer-lattice unit triangles in a representative finite neighborhood (this last finite check is illustrative; the proof uses bipartiteness of the full infinite grid).
+## correctness
 
-The package checker was executed successfully and printed `RIGID_MOTION_LATTICE_TWO_POINT_ONSET_OK`. The optional `nonsymmetric_test.py` separately approximates a strictly convex asymmetric shape with support function \(h(\theta)=1+0.09\cos(2\theta)+0.03\cos(3\theta)\), numerically integrates overlap areas for shrinking gaps, and prints `ASYMMETRIC_CURVATURE_LENS_CHECK_OK`. Its polygon resolution and tested gaps are finite. Numerical quadrature is only corroboration. The \(o(\varepsilon^2)\) claim for general smooth convex bodies is established analytically; it is not experimentally certified in all bodies. Rigorous global priority search is not exhaustive, and independent mathematical audit has not been performed.
+PASS
+
+A set of three distinct square-lattice points has diameter at least sqrt2 (unit-neighbor graph triangle-free); for tD<sqrt2 the occupancy is 0/1/2, with exact second factorial moment equal to g(e1)+g(e2). Near t=1/D the sole diametral pair determines the boundary of K-K: its curvature is harmonic combination κB=κpκq/(κp+κq), with second radial drop D(DκB-1)α²/2; C4 strict positive curvature, unique pair and DκB>1 give four isolated critical rotation windows. Integrating the near-contact parabolic intersection lens with κp+κq yields p2~2D^(3/2)/sqrt((κp+κq)(DκB-1))*eps² and angular density 8/(3π)(1-z²)^(3/2), squared angle Beta(1/2,5/2). The ellipse substitution reproduces 4ab²/sqrt(a²-b²); the disk exact lens instead gives (16/3)a^(3/2)eps^(3/2). Independently integrated exact elliptical covariograms (e.g. (a,b)=(2,1),(3,2) at eps=.002 ratios 1.00445 and 1.00762). Boundary cases with multiple/degenerate diameters excluded, finite integration not a proof of asymptotics.
+
+## originality
+
+PASS
+
+Covariogram lens exponents and random-lattice occupancy theory are known ingredients. Barany/Roldan-Pensado studies wider large-body/thin-body occupancy and earlier random translate hull-area law is a different random variable. The critical *two-point lattice occupancy* threshold, anisotropic curvature coefficient and marked angular Beta limit are not implied by these read statements. Historical priority remains provisional.
+
+## value
+
+PASS
+
+Two-point onset is the first nontrivial random-lattice collision threshold. A symmetry-sensitive universal-versus-disk exponent and conditional orientation law are motivated exact contact-geometric probability invariants with natural use in stochastic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
