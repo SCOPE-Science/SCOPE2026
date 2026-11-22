@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T20:12:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd a>=3 the three positive generators a,b=a+2,c=a+4 are pairwise coprime; nonunit roots of 1/[(1-z^a)(1-z^b)(1-z^c)] are simple, so r_a(n) is a quadratic polynomial (n^2+3bn)/(2P)+constant plus P-periodic part, P=abc. Hence r(n+P)-r(n)=n+(P+3b)/2 and adjacent first difference increases by exactly 1 on each P-step, for ALL n>=0. Using b(x+y+z)+2(z-x)=n, the nonnegative branch decomposition gives exact T(E,L) sums at n=bK,bK+1; parity count formula T(E,L)=(m+1)(1+E/2)-Lm(m+1)/4-eta/2 yields base counts (8q^3+6q^2,8q^3+6q^2-q) for a=4q-1 and (32q^3+64q^2+35q+4,32q^3+64q^2+34q+4) for a=4q+1. All floor cutoffs m_i and parity contributions checked symbolically, including q=1 endpoints. At t=q-1 period shifts the difference is -1; summing the exact shift recovers both stated fifth-degree polynomial expressions R, with SymPy reducing their differences to 0 identically. Thus N in S_(R-1) but N+1 not, so S_p is not a terminal ray; any universal all-higher-p ray onset T(a) is >=R. The theorem does not assert existence or sharpness of T(a). Independent dynamic-programming representation counts for all 19 odd a=3..39 confirm both base and final pairs; this finite corroboration is not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu–Ying 2023 Theorem 1 explicitly states 0<=p<=floor(a/2) for arithmetic-progression triple {a,a+d,a+2d}; §7 asks for p>floor(a/2).",
+          "Komatsu–Hyun–Song 2026, Theorems 1.2–1.3, concerns long odd sets starting 2k+1 and ending 4k+1 or 4k+3; three-denomination overlap is isolated, not uniform in a.",
+          "Resultary parity-lifted theorem concerns (2u,2v,w) with two even generators and so does not cover three odd generators.",
+          "The quasipolynomial law from simple root-of-unity poles implies d(n+P)=d(n)+1 for the first difference, but leaves the claimed large residue-specific base drop and R_a to be established."
+        ],
+        "reasoning": "General p-Apéry and quasi-polynomial theorems are compatible with the claim but do not supply the explicit high-level odd-step two negative difference. Generator parity and cardinality prevent the other inspected family theorems from being a universal implication.",
+        "searches": [
+          "Resultary semantic query: three consecutive odd generators a a+2 a+4 p numerical semigroup fifth degree complete symmetry threshold r(n) downward adjacent denumerant",
+          "Resultary semantic query: eventual complete symmetry high p p-Frobenius triple arithmetic progression nonmonotone representation counts",
+          "Web query: site:arxiv.org 2608.14053 p-numerical semigroup consecutive odd integers 2026",
+          "Web query: representation function triple arithmetic progression adjacent decrease higher threshold eventual monotonicity denumerant",
+          "Resultary: effective eventual symmetry for parity-lifted denumerants",
+          "arxiv:2608.14053 §§1–4",
+          "Komatsu–Ying 2023 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "https://www.mdpi.com/2073-8994/15/7/1328",
+        "https://arxiv.org/abs/2207.08962",
+        "https://arxiv.org/html/2409.02394v1",
+        "https://arxiv.org/abs/2608.14053",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-sharp-eventual-complete-symmetry-threshold-for-the-consecuti--78b4d41fe9ec/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-effective-eventual-symmetry-for-parity-lifted-denumerants-and-th--09b2bb6db231",
+        "Resultary 2026 search hits for odd-triple obstruction, 17/18/19 cutoff, and parity-lifted denumerants",
+        "Published record of same finding https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-fifth-degree-obstruction-to-eventual-complete-symmetry-for-thr--c4b91e506e07 (self/mirror, not independent evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 arithmetic-progression theorem p<=floor(a/2) differs from p=R_a-1~a^5/32.",
+          "2024 p-symmetry paper supplies the definition and general framework, not a residue-specific down-step at N=bK+(q-1)abc.",
+          "2026 consecutive-odd main results use the family size growing with the first generator and do not quantify over {a,a+2,a+4} for every odd a>=3.",
+          "The 17,18,19 result has a fixed first generator and consecutive step 1; it cannot imply the odd-step-two unbounded-parameter family."
+        ],
+        "reasoning": "Matching the symmetry terminology or using the period-shift identity does not imply the new base-count table, positivity and fifth-degree closed formula. The converse implication from a single negative pair to nonterminal-ray status is elementary and credited, not itself claimed novel.",
+        "searches": [
+          "Resultary semantic query: three consecutive odd generators a a+2 a+4 p numerical semigroup fifth degree complete symmetry threshold r(n) downward adjacent denumerant",
+          "Resultary semantic query: eventual complete symmetry high p p-Frobenius triple arithmetic progression nonmonotone representation counts",
+          "Web query: Komatsu Ying p numerical semigroup three arithmetic progressions p completely symmetric definition terminal ray 2022",
+          "Komatsu–Ying 2023 main theorem and final comments",
+          "arxiv:2608.14053 §1 generator-family definitions",
+          "Resultary: sharp eventual complete symmetry for 17 18 19"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proposed r_a(N)=R>r_a(N+1)=R-1 yields N in S_(R-1) but N+1 not in S_(R-1), hence the threshold set is not a final segment.",
+          "Komatsu 2024 §2 (arxiv:2409.02394v1, around lines 90–96) defines p-complete symmetry by minimum of S_p equal to g_p+1.",
+          "Komatsu–Ying 2022 arxiv:2207.08962, introduction/§2 distinguishes representation-count threshold sets and p-symmetry, without this parameterized adjacent-drop formula."
+        ],
+        "reasoning": "Equivalent formulations are a high-level adjacent denumerant descent, a gap immediately after an included p-threshold value, and a lower bound on any all-higher-p ray onset. The known definitions alone do not establish the explicit witness or quintic family; checks were made at the level of implications.",
+        "searches": [
+          "Resultary semantic query: three consecutive odd generators a a+2 a+4 p numerical semigroup fifth degree complete symmetry threshold r(n) downward adjacent denumerant",
+          "Resultary semantic query: eventual complete symmetry high p p-Frobenius triple arithmetic progression nonmonotone representation counts",
+          "Web query: Komatsu Ying p numerical semigroup three arithmetic progressions p completely symmetric definition terminal ray 2022",
+          "Web: p-completely symmetric odd a+2 a+4 threshold",
+          "arxiv:2207.08962 §p-completely-symmetric definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the same published record with ID ending c4b91e506e07; this is a mirror of the item under audit, excluded as independent prior priority evidence.",
+          "A distinct Resultary 17,18,19 certificate reports the exact cutoff 505 for that fixed mixed-parity triple and a period-shift proof, not this odd-a polynomial family.",
+          "The odd 3,5,7 example N=45,R=14 and 5,7,9 example N=280,R=135 were independently reproduced by integer DP; examples alone are not the all-a theorem.",
+          "No externally indexed table of the two polynomial branches for R_a or the universal adjacent-drop pair was found in searches performed."
+        ],
+        "reasoning": "An identical repository mirror is not independent covering work; no separate exact database or table found that already states the uniform theorem. Search failure by itself does not certify priority.",
+        "searches": [
+          "Resultary semantic query: three consecutive odd generators a a+2 a+4 p numerical semigroup fifth degree complete symmetry threshold r(n) downward adjacent denumerant",
+          "Resultary semantic query: eventual complete symmetry high p p-Frobenius triple arithmetic progression nonmonotone representation counts",
+          "Web query: three consecutive odd generators denumerant consecutive drops high p complete symmetry fifth degree",
+          "Resultary: exact fifth-degree obstruction polynomial",
+          "Resultary: complete symmetry for consecutive triple 17,18,19"
+        ]
+      },
+      "rationale": "Best-of-knowledge noncoverage after separate searches in Resultary, published related records, and primary papers. Komatsu–Ying 2023 Theorem 1 covers p<=floor(a/2) for three-term arithmetic progressions; the claimed p=R_a-1 is quintic in a. The 2026 consecutive-odd paper studies generator sets {2k+1,2k+3,...,4k+1 or 4k+3}, not a three-element family for unbounded odd a. The 2024 symmetry theory defines p-complete symmetry but does not yield the explicit residue-class high-p drop. The related exact 17,18,19 threshold concerns mixed-parity consecutive integers, not all-odd step-two triples. An index hit for the exact same finding is the same underlying record and is not independent prior art. No stronger statement found which implies all odd-a values; unindexed equivalence and implicit derivation remain real residual risks.",
+      "residual_risks": [
+        "No global priority certification: an unindexed older denumerant formula or general arithmetic-progression theorem may imply the two R_a branches.",
+        "The 2026 consecutive-odd paper has isolated three-generator special cases; no uniform all-odd triple implication identified in reviewed scope.",
+        "The polynomial-plus-periodic denumerant method is classical; the additional base table is essential for novelty, and could conceivably exist in specialized restricted-partition literature.",
+        "Primary literature was compared by accessible full-text renditions; not every possible thesis, appendix or historical article was accessible or exhaustively read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1 and derived genus/power-sum formulas restrict to 0<=p<=floor(a/2); §7 identifies higher p as a difficult open direction. Does not state the claimed quintic-level adjacent descent.",
+          "evidence": "Theorem 1, §3 (2023 publisher HTML lines 259–262); §7 (lines 480–490).",
+          "identifier_or_url": "https://www.mdpi.com/2073-8994/15/7/1328",
+          "material_read": "Open-access full HTML: introduction, §2 p-Apéry definitions, complete Theorem 1 range and core staircase proof in §3, power/weighted-sum scope, examples, and §7 final comments.",
+          "method": "Read primary publisher HTML and compare quantified hypotheses, p-ranges, and output invariants against r_a(N),r_a(N+1).",
+          "title": "The p-Numerical Semigroup of the Triple of Arithmetic Progressions",
+          "trigger": "Exact same arithmetic-progression three-generator class, d=2 subset"
+        },
+        {
+          "assessment": "Supplies basic terminology and well-known quasipolynomial representation structure, but not the all-odd high-level obstruction with explicit R_a.",
+          "evidence": "Introduction, discussion of Sylvester–Cayley polynomial plus periodic denumerants, and §2 (abstract-page full-text lines 40–44).",
+          "identifier_or_url": "https://arxiv.org/abs/2207.08962",
+          "material_read": "Available primary arXiv full-text rendition: introduction, §2 definitions, p-Frobenius motivation and known quadratic-plus-periodic representation formula.",
+          "method": "Read full-text rendition via arXiv abstract page, compare definitions and generalized period-structure claim.",
+          "title": "p-numerical semigroups with p-symmetric properties",
+          "trigger": "Primary origin of p-symmetry and pairwise-coprime denumerant polynomial-plus-periodic fact"
+        },
+        {
+          "assessment": "Provides the complete-symmetry condition m_p=g_p+1 but no universal high-p a,a+2,a+4 adjacent drop or quintic lower bound.",
+          "evidence": "§1–2 (lines 37–96), examples (around line 326), table of contents showing general gluing and almost-symmetry topics.",
+          "identifier_or_url": "https://arxiv.org/html/2409.02394v1",
+          "material_read": "Full HTML introduction, §2 definitions, general theorem sections and example thresholds in §7.",
+          "method": "Primary arXiv HTML reading and statement-level implication comparison.",
+          "title": "p-numerical semigroups with p-symmetric properties, II",
+          "trigger": "Explicit p-completely-symmetric definition and general gluing/structure theorems"
+        },
+        {
+          "assessment": "Studied generator runs {2k+1,...,4k+1/4k+3}; even when the smallest case overlaps a triple, no statement covers all odd starting a with exactly three coins.",
+          "evidence": "§1 (lines 10–22), Theorems 1.2–1.3 (lines 33–62), §2 partition lemmas.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.14053",
+          "material_read": "Primary arXiv full-text rendition of definitions, Theorems 1.2–1.3, hypotheses, sections 2–4 partition/Apery methods.",
+          "method": "Read primary arXiv abstract-page full-text and compare cardinality of generator sets and quantified parameter.",
+          "title": "p-numerical semigroup of the sequence of consecutive odd integers",
+          "trigger": "Recent potentially dominating theorem for consecutive odd generator families"
+        },
+        {
+          "assessment": "A single fixed consecutive mixed-parity triple (17,18,19); not a uniform three-consecutive-odd d=2 theorem.",
+          "evidence": "Finding: cutoff 505 with r(2394)=505 and r(2395)=504, period L=5814; no variable a odd-step two formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-sharp-eventual-complete-symmetry-threshold-for-the-consecuti--78b4d41fe9ec/RESULT.md",
+          "material_read": "Full Resultary RESULT.md: exact theorem, formal-power-series period-shift proof, finite first-period exhaustive certificate argument and limitations.",
+          "method": "Read full published result via GitHub raw text and compare generators, parameter quantifiers and claimed output.",
+          "title": "The sharp eventual complete-symmetry threshold for the consecutive triple 17,18,19",
+          "trigger": "Closest separate prior exact eventual threshold and adjacent-drop certificate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical fixed-three-odd-denomination family is a natural unresolved higher-p regime in Komatsu–Ying 2023 §7. The exact adjacent downward witness at p=R_a-1 gives a nontrivial, parameter-uniform lower bound on any eventual complete-symmetry onset, R_a=a^5/32+O(a^4), and identifies separate mod-4 polynomial branches. This is a motivated structural boundary rather than a renamed period-shift lemma, isolated small enumeration, or routine corollary of low-p results. It does not settle the sharp threshold, eventual existence or entire exceptional p-spectrum, but those omissions do not erase the utility of the explicit infinite obstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The result supplies only an explicit lower bound on any eventual terminal-ray threshold, not existence or exact sharpness of such an onset.",
+    "Only odd a>=3 and step 2; no p-Frobenius function or entire exceptional spectrum classification.",
+    "Finite exact dynamic-programming checks are corroboration; analytical period shift and base floor sums prove the all-a statement.",
+    "Originality is best-of-knowledge with concrete unindexed literature and implicit consequence risks described under axes.originality.residual_risks.",
+    "No Lean proof or external expert attestation is claimed or altered."
+  ],
+  "schema_version": 1
+}
