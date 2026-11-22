@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The complete normalized two-dimensional CW model gives the cell counts and boundaries. Backtrack, two-step and four-cycle attaching relations kill the fundamental group; Euler characteristic and Hurewicz–Whitehead identify the sphere wedge. The quotient's optional edge–two-cell free pairs collapse to a two-sphere; the balanced part swap exchanges these pairs and acts freely on the residual sphere, giving a projective-plane quotient. The trace follows from the cellular Lefschetz formula. Direct finite chain complexes independently agree, including mod-two torsion signatures.
+
+**Originality — PASS, subject to the stated priority risk.** The closest published complete-bipartite length–Rips classification uses the unordered symmetrized complex, and expressly does not classify ordered blurred-magnitude simplicial sets. Ivanov–Xu give the object and categorical framework, and Melodia gives persistent length-nerve theory, but neither source's examined sections imply the present exact bipartite homotopy and geometric orbit-space theorem. Published research records were searched for alternative descriptions and quotient equivalents. Relevant sources were not universally searchable; equivalent unindexed work is possible.
+
+**Mathematical value — PASS.** The discrepancy between symmetrized length–Rips topology and ordered blurred-magnitude topology occurs already on the two-vertex graph. Uniform sphere-wedge homotopy, symmetry characters and the precise appearance of \(\mathbb Z/2\) in a free interchange quotient give an interpretable structure theorem and a concrete warning that taking genuine symmetry quotients can create integral torsion that the input lacks. This is not merely a rank calculation.
+
+**Closest literature and limitations.** Melodia, arXiv:2608.21479; Ivanov–Xu, arXiv:2411.01857 and Section 2.3; Livernet–Roff–Whitehouse, arXiv:2606.09747; and the published complete-bipartite symmetrized length–Rips classification. No claim is made for the entire filtration, for unordered complexes, or for arbitrary graph automorphism subgroups. Finite checker output is not substituted for the uniform CW argument.
+
+Self-review: passed. Independent audit: not yet performed.
