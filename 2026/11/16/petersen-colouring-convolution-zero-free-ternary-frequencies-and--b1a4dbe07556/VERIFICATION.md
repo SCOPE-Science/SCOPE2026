@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproducibility verification
+# Independent mathematical audit
 
-The finite claims were checked from the actual `check.cpp` and `SPECTRUM_Q4.csv` files in this package. Both use integer arithmetic throughout, including the cyclotomic encoding of ternary Fourier values in \(\mathbb Z[\omega]\), where \(\omega^2+\omega+1=0\).
+## correctness
 
-Run from the directory containing both files:
+PASS
 
-```sh
-c++ -O2 -std=c++17 check.cpp -o check
-./check
-```
+At each of the ten Kneser-labelled vertices a proper 3- or 4-colouring is tested across the fifteen disjoint-pair edges. Independent enumeration found 120 ternary and 12960 F2^2 proper words. Twenty S3 colour-name orbits prove every balanced ternary multiplier has form 9a-60!=0, while global translation forces precisely 39366 unbalanced zeros; min positive amplitude is 3. Independent complete 1048576-entry integer Walsh transform of all four-colour masks found 801222 zeros, 14790 extra balanced zeros by support degree 6..10 = 1110,2880,3420,5040,2340, min nonzero |W|=16. The Fourier-support indicator has Walsh absolute sum 87263536, giving norm 5453971/65536; translation averaging proves optimality among all projections. Source C++ includes independently direct character calculations by 513 symmetry orbits and full CSV certificate comparison; that source code was inspected; not every source certificate was independently downloaded. Combined analytic and exact finite arithmetic support the stated finite claim.
 
-Expected markers:
+## originality
 
-```
-THREE_COLOR_PASS colorings=120 frequencies=59049 zero=39366 rank=19683 min_nonzero=3 representative=98 multiplier=3
-FOUR_COLOR_PASS colorings=12960 frequencies=1048576 zero=801222 balanced_extra_zero=14790 rank=247354 min_nonzero=16 projection_abs_sum=87263536 projection_norm=5453971/65536 minimum_extra_degree=6 count_at_degree6=1110 witness=1450 direct_positive=6480 direct_negative=6480 balanced_orbits=513 spectral_levels=83
-```
+PASS
 
-Assertions check the Petersen graph's 15 edges and both classical colouring counts; the palette-four independent-set partitions into 20 three-class and 520 four-class types; exact Parseval; the complete signed spectrum certificate; nullities, additional zero-degree distribution and Fourier gaps; a directly evaluated balanced six-vertex cancellation; 513 independently recomputed direct character sums covering all balanced frequencies; the exact projection-kernel absolute sum; and a ternary extremizing multiplier evaluated independently of the cyclotomic transform.
+No examined accessible primary theorem, exact table, or prior published mathematical result implies the complete specific final claim. This is best-of-knowledge originality, with the separately recorded plausible historical risks.
 
-The endpoint optimality proof uses translation averaging; no finite search over arbitrary projections is asserted. The three-colour nonvanishing theorem has a separate exact orbit argument. Unproved extensions to other graphs, colours or higher dimensions are outside the claim. The verification is not an independent external audit.
+## value
+
+PASS
+
+On the natural Petersen graph, complete additive Fourier recoverability differs strikingly between proper 3-colourings and F2^2 proper 4-colourings: the latter has exactly 14790 nontrivial balanced cancellations, onset at support degree six, and sharp range-projection amplification. This structural distinction and full benchmark spectrum materially exceeds routine chromatic-polynomial counts; exact finite classification is an independently useful natural invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

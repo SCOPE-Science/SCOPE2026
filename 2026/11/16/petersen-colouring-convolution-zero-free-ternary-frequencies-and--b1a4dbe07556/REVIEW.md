@@ -1,19 +1,21 @@
-# Supported mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ternary claim follows algebraically: global colour translation forces all unbalanced zeros, and the twenty full colour-permutation orbits contribute \(9a-60\) on balanced frequencies, never zero. The code establishes the minimum magnitude three by a direct witness. The four-colour claim is a finite, exhaustive, exact-integer classification. The indicator Walsh transform covers every one of \(4^{10}\) frequencies, and the independent graph-automorphism and palette-linear orbit check covers every one of the \(4^9\) balanced frequencies using direct character sums. The signed spectrum, Parseval identities, direct weight-six cancellation, kernel absolute sum and projection averaging argument support the rank, spectral gap and sharp endpoint norm. The finite checker is an auditable computational proof, not a substitute for unbounded reasoning.
+PASS
 
-## Originality — PASS under bounded comparison
+At each of the ten Kneser-labelled vertices a proper 3- or 4-colouring is tested across the fifteen disjoint-pair edges. Independent enumeration found 120 ternary and 12960 F2^2 proper words. Twenty S3 colour-name orbits prove every balanced ternary multiplier has form 9a-60!=0, while global translation forces precisely 39366 unbalanced zeros; min positive amplitude is 3. Independent complete 1048576-entry integer Walsh transform of all four-colour masks found 801222 zeros, 14790 extra balanced zeros by support degree 6..10 = 1110,2880,3420,5040,2340, min nonzero |W|=16. The Fourier-support indicator has Walsh absolute sum 87263536, giving norm 5453971/65536; translation averaging proves optimality among all projections. Source C++ includes independently direct character calculations by 513 symmetry orbits and full CSV certificate comparison; that source code was inspected; not every source certificate was independently downloaded. Combined analytic and exact finite arithmetic support the stated finite claim.
 
-Goodall (arXiv:0806.4848v1, Sections 2–4) supplies finite-group Fourier/graph-polynomial methods; Cameron (2012) gives the exact Petersen proper-colouring and independent-colour-class counts. Tarsi (1999) examines graph-polynomial-weighted colouring sums. None of the inspected relevant statements evaluates the complete Petersen signed character distribution, the additional balanced four-colour zeros, or the optimal full-cube projection constant. Earlier results on four-colour mod-16 congruences and proper-colouring Fourier sampling are explicitly separated: congruence alone does not give the spectrum, and one-coordinate sampling is a different operator. The principal residual risk is an unlocated equivalent or unpublished full-spectrum census; search does not prove absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Petersen graph is a canonical, highly symmetric and three-chromatic test graph, and the transition from minimal to one-extra-colour palettes separates full Fourier recovery modulo global colour shifts from a nontrivial loss of recoverability. The six-vertex cancellation threshold identifies a precise low-degree obstruction, while the sharp norm quantifies large endpoint instability despite a sizeable recoverable range. This combination is a useful finite spectral benchmark for Potts-colouring Fourier analysis, not merely the already-known unsigned chromatic polynomial.
+No examined accessible primary theorem, exact table, or prior published mathematical result implies the complete specific final claim. This is best-of-knowledge originality, with the separately recorded plausible historical risks.
 
-## Limitations and close comparisons
+## value
 
-The theorem concerns one graph and two specified additive palette structures; no higher-palette, unlabelled, or arbitrary-graph generalization is claimed. The zero-free ternary argument and the general mod-16 congruence are not asserted to be new. Goodall's earlier preprint lacks a verified precise first public day, and an exhaustive historical-priority certificate is unavailable. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On the natural Petersen graph, complete additive Fourier recoverability differs strikingly between proper 3-colourings and F2^2 proper 4-colourings: the latter has exactly 14790 nontrivial balanced cancellations, onset at support degree six, and sharp range-projection amplification. This structural distinction and full benchmark spectrum materially exceeds routine chromatic-polynomial counts; exact finite classification is an independently useful natural invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
