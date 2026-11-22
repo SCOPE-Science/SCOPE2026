@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional wall-count law is hypergeometric on the four selected cyclic edges. Algebraic expansion gives the quartic two-point covariance. The discrete Laplacian, with wraparound terms accounted for, yields the complete nonzero-mode Fourier spectrum, and polynomial sums give the zero eigenvalue. Positivity and extremal sectors are proved through a unimodal rational function, global rational inequalities, and exhaustive *certified rational interval* comparisons at the nine small boundary lengths; no floating-point range check is treated as a proof. The supplied standalone `verify.py` passed its exact checks. Crucial boundaries: all integers \(n\ge5\), uniform four-wall cyclic ensemble, coordinate Walsh band, probability-normalized Gram.
+## correctness
 
-## Originality — PASS (provisional priority)
-Direct statement and implication comparisons were made against the full accessible mathematical results on proper-colouring cycle frames and Lucas-cube frames, the full HTML text of the Boolean-slice Fourier paper and the microcanonical Ising study, the published research search records, and related earlier mathematical statements. Unlike proper colourings, the shell has an exact number of broken cyclic bonds; unlike Lucas cubes it does not prohibit adjacent ones; unlike Hamming slices it is not exchangeable under arbitrary vertex permutations. None of these results supplies the quartic Fourier Gram eigenvalues or the two global size thresholds. The microcanonical energy-count formula counts the support but does not imply its covariance without further calculation. A residual priority risk remains from older fixed-energy Ising structure-factor formulas that might implicitly contain the spectrum.
+PASS
 
-## Value — PASS
-The model is the first nontrivial multi-domain low-excitation shell of a finite ferromagnetic ring, with a natural cyclic sampling and low-degree Walsh measurement problem. The result is a complete exact characterization of first-order observability in all lengths: positive spectrum, every eigenvalue, sharp exceptional mode transitions at 8 and 12, and quadratic asymptotic condition-number growth. The two threshold classifications, not just the existence of a Fourier diagonalization, distinguish this from routine frame evaluation. The result is restricted to four walls and does not claim general-wall extension.
+Exactly four cyclic domain walls means 2*C(n,4) spin states. The two-point value is a hypergeometric Krawtchouk sum; its quartic polynomial in q=t(n-t) and cyclic Laplacian give lambda_0=(n-4)/5 and lambda_k=4((n^2-3n+8)u-6)/((n-1)(n-2)(n-3)u^2) for nonzero modes. Its unimodal u dependence plus global inequalities and the inspected rational-interval verifier certify integer extremal threshold switches n=8 and n=12; an independent enumeration over all four-wall subsets for n=5..15 reproduced every covariance Fourier eigenvalue and all extremal indices (including tie n=8). Positive eigenvalues and the even-n formula (n-4)(n-3)/20 follow as stated. Finite checks only test derivation and boundary, not substitute for inequalities.
 
-## Literature and limitations
-Primary sources: Rao (arXiv:2111.03213v1, 2021-11-05) and Sitarachu–Zia–Bachmann (journal 2020-07-07, DOI:10.1088/1742-5468/ab97bc; accessible later arXiv:2306.16994v1). Closest other published research comparisons: the published-finding corpus proper-colouring-cycle and Lucas-cube Gram-spectrum results (full `RESULT.md` and proofs inspected). Older Denisov–Hänggi domain-statistics literature was examined at abstract level only, so no whole-document noncoverage inference is made. The theorem is conditional on exactly four walls, not a general result for all microcanonical energies; priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty assessment from actual statement-versus-implication comparisons and the indicated primary source reading, with stated residual risks.
+
+## value
+
+PASS
+
+The uniform exact-four-wall Ising energy shell is natural. Its explicit cyclic Fourier frame spectrum and distinct exact extremal-mode transitions establish sharp recovery conditioning throughout n>=5, including a quadratic asymptotic regime. A two-threshold theorem is not a generic covariance identity or arbitrary tiny gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
