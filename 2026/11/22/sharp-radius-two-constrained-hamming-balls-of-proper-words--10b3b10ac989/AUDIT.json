@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The exact local formula follows by partitioning zero-, one-, and two-position substitutions; adjacent changes require excluding q-d_i equal replacements while nonadjacent changes multiply. Writing b=q-3 and e_i for distance-two equality, internal four-letter distinctness h_i satisfies 1-e_i e_{i+1} <= h_i <= 2-e_i-e_{i+1}. Lower-bound difference is at least E+2M-A+b(n-3)E plus nonnegative terms, with A<=E-1 for E>0; equality forces a three-periodic proper word. The upper-bound difference is at least (q-2)sum k_i z_i - sum z_i; for q=3 the remaining endpoint-defect case has a strict loss through a nonadjacent interior pair at n>=5. Thus the claimed formulas and exactly counted equality cases hold for all q>=3,n>=5. A separately written enumerator checked 65,376 finite centers (q=3..6) against local formula and stated sharp cases; finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2405.20368: Theorems 1.3–1.6 treat large-graph separation regimes; conclusion frames further regime questions, not constrained radius-two ball statistics",
+        "https://doi.org/10.3389/fgene.2023.1158337: Section 5 codebook lower bounds under combined constraints"
+      ],
+      "reasoning": "Zhu works with proper graph colorings and Hamming separation, but his stated objects are asymptotic packing capacities on regular spectral expanders (with colorings modulo relabeling). The new result concerns labeled finite paths and every center’s constrained Hamming radius-two volume, followed by sharp periodic extremal classification; neither is implied by Zhu’s results or by forgetting the quotient. Rasool et al. optimize finite DNA codebooks satisfying GC, no-runlength, reverse-complement and Hamming-distance restrictions. Their construction tables and algorithm do not count allowable radius-two substitution neighbors around each homopolymer-free source; lower bounds on codebook cardinality do not imply sphere sizes. An arbitrary-graph local coloring-count identity would imply the path instance, but no such dominating theorem was identified in inspected material.",
+      "searches": [
+        "graphical error correcting codes of proper colorings local sphere volume path q colors radius two",
+        "Sphere packing proper colorings of an expander graph Honglin Zhu 2024 exact finite Hamming sphere radii local path colorings"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "Closest definition of proper-coloring error-correcting codes; stronger asymptotic scope but not local path sphere volumes.",
+        "identifier": "arxiv:2405.20368",
+        "source": "Zhu 2024"
+      },
+      {
+        "comparison": "DNA no-runlength/Hamming coding motivation but not constrained sphere geometry.",
+        "identifier": "doi:10.3389/fgene.2023.1158337",
+        "source": "Rasool et al. 2023"
+      },
+      {
+        "comparison": "94B25 identifies the mathematical claim as combinatorial coding theory.",
+        "identifier": "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=94B05",
+        "source": "MSC2020"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhu (2024) main statements are about asymptotic sizes of sets of separated colorings of spectral expanders, not local sphere geometry of paths.",
+        "Rasool et al. (2023) is about heuristic construction of constrained DNA codebooks and Hamming-distance bounds, not center-specific Hamming-neighborhood enumeration.",
+        "The usual q-ary Hamming ball formula \\(1+n(q-1)+\\binom n2(q-1)^2\\) has no center dependence because it includes improper outputs."
+      ],
+      "reasoning": "None of the inspected prior claims entails the exact correction to unrestricted balls, the strict equality classifications, or the ternary linear-minimum phenomenon. Their objects have different ambient domains, distance quotients, and quantifiers; equality of subject terms is not implication.",
+      "searches": [
+        "constrained Hamming two-ball size for homopolymer-free words / runlength-one q-ary sources; local formula and extremizers",
+        "graphical error correcting codes of proper colorings local sphere volume path q colors radius two",
+        "Sphere packing proper colorings of an expander graph Honglin Zhu 2024 exact finite Hamming sphere radii local path colorings",
+        "Evolutionary approach to construct robust codes for DNA-based data storage Rasool Jiang 2023 no-runlength Hamming distances"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2405.20368, Sections 1 and 6: proper-coloring code metric is quotiented by color permutations and results are asymptotic expander-packing regimes",
+        "Public related results on q-ary Hamming radius-two balls and multipermutation Ulam balls concern different ambient spaces and metrics."
+      ],
+      "reasoning": "No inspected equivalence converts an unrestricted Hamming ball or a quotient-coloring packing result into the center-dependent volume in a labeled proper-word space. The changed-coordinate corrections, period-three minimum, and alphabet-three growth transition require additional structural information.",
+      "searches": [
+        "exact sharp minimum maximum q-ary constrained radius two Hamming ball around proper coloring of path, alternating period-two versus period-three words",
+        "constrained Hamming two-ball size for homopolymer-free words / runlength-one q-ary sources; local formula and extremizers",
+        "exact size radius two restricted substitution ball for run-length-one words count all centers 2024"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rasool et al., 2023, Tables 3–6, report codebook sizes/rates at fixed lengths and distances, not restricted Hamming-ball minima/maxima",
+        "No exact path-word radius-two ball table matching the closed forms was found in the retrieved mathematical-finding records."
+      ],
+      "reasoning": "Tables of valid codebooks at given length and distance are not tables of center-specific constrained substitution-ball sizes. No known entry was found containing the two rigid extremal families or their q,n counts, but an unindexed table remains possible.",
+      "searches": [
+        "exact sharp minimum maximum q-ary constrained radius two Hamming ball around proper coloring of path, alternating period-two versus period-three words",
+        "Evolutionary approach to construct robust codes for DNA-based data storage Rasool Jiang 2023 no-runlength Hamming distances",
+        "exact size radius two restricted substitution ball for run-length-one words count all centers 2024"
+      ]
+    },
+    "rationale": "Examined arXiv:2405.20368 (introduction, technical regime sections, conclusion) and DOI:10.3389/fgene.2023.1158337 (constraints, algorithm, tables, conclusion) and compared theorem-level implications. Actual targeted searches of public literature and a mathematical-finding index returned related unconstrained Hamming volumes, radius-two Turan-mass studies, proper-coloring noise codebooks, and graph-coloring packing, but no result asserting the all-q,n center formula with sharp period-two and period-three extremizers. This is a best-knowledge assessment with explicit residual priority risk.",
+    "residual_risks": [
+      "A public mathematical finding on proper-colouring noise was accessible only through a search-result synopsis; its full exposition was not accessible for comparison, although the synopsis addresses zero-error codebook size rather than path-constrained Hamming balls.",
+      "An earlier exact local-sphere theorem might be indexed under graph coloring reconfiguration, proper-word substitution neighborhoods, or a different sphere/metric name.",
+      "Search does not certify absence from every journal, thesis or unindexed table.",
+      "Same-model review and bounded exhaustive checks do not substitute for independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the present labeled path radius-two sphere-volume and rigid period extremizers; different quotient/separation metric and asymptotic regular-graph target.",
+        "evidence": [
+          "Section 1 states quotient by S_q and defines separation of proper colorings",
+          "Theorems 1.3–1.6 and Section 6 concern expansion-dependent asymptotic regimes, not exact path-ball volumes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.20368",
+        "material_read": "Available arXiv HTML abstract, theorem statements and selected substantive passages in Sections 1, 3, 4 and 6, including the conclusion.",
+        "method": "Read open-access arXiv HTML and located sections, checked statement scope and searched for path and Hamming-ball treatment.",
+        "title": "Sphere packing proper colorings of an expander graph",
+        "trigger": "Directly concerns error-correcting codes on proper q-colorings and could dominate path-geometry results"
+      },
+      {
+        "assessment": "INDETERMINATE_FROM_SYNOPSIS: the displayed result addresses maximum zero-error codebook sizes for a proper-coloring noise channel, not the center-dependent Hamming radius-two ball size. No whole-document exclusion is claimed.",
+        "evidence": [
+          "Synopsis states M_2(n)=2^{n-1}, M_q(n)=1 for q>=3 for its specified proper-colouring noise channel; no radius-two Hamming-ball counts appear in the accessible synopsis."
+        ],
+        "identifier_or_url": "5c134e3bde95 (public mathematical-finding entry)",
+        "material_read": "Search-result synopsis only; full text was inaccessible through the available public browser.",
+        "method": "Compared the stated synopsis claim with the new local radius-two Hamming-metric invariant; attempted a full-text public page.",
+        "title": "Finite-block zero-error codebooks for proper-colouring noise",
+        "trigger": "Shares proper-coloring channel terminology and could imply an error-neighborhood result."
+      },
+      {
+        "assessment": "NOT_COVERING: optimization of DNA codebooks, not an exact complete Hamming radius-two ball formula over labeled proper words.",
+        "evidence": [
+          "Section 2 describes GC, no-runlength, Hamming-distance, and reverse-complement constraints",
+          "Section 5 tables give codebook cardinality lower bounds and rates rather than radius-two volumes"
+        ],
+        "identifier_or_url": "https://doi.org/10.3389/fgene.2023.1158337",
+        "material_read": "Selected full-text passages of publisher article Sections 2 and 5, algorithm descriptions, Tables 3–6 and conclusion.",
+        "method": "Read lawful publisher open-access HTML, inspected no-runlength, Hamming constraint and quantitative results.",
+        "title": "Evolutionary approach to construct robust codes for DNA-based data storage",
+        "trigger": "No-runlength and Hamming-distance constraints in DNA code construction might already imply local neighborhood counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "10b3b10a-c989-46e8-b419-b1fb03f9ea5d",
+  "value": {
+    "rationale": "The exact center-dependent error-neighborhood volume for a homopolymer-free language is an information-theoretically motivated metric invariant, needed to quantify finite-block packing and reconstruction geometry. Sharp lower and upper volumes, rigid period-three and period-two equality cases, and a q=3 change from linear to quadratic volume spread are structural facts, not mere renamings of unrestricted Hamming balls or isolated small-length computations. The result is a complete all-length extremal classification with an explicit finite-radius proof; it does not claim optimal code size.",
+    "status": "PASS"
+  }
+}

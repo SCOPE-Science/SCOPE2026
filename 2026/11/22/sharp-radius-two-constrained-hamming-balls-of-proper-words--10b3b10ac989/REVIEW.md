@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The claimed radius-two ball consists of outputs differing at zero, one, or two coordinates. Single-coordinate alternatives are counted by \(u_i\). Nonadjacent changed sites are independent. Adjacent changed sites are counted by product-minus-equal-replacements \(v_i\). Every output has a unique changed-coordinate set. The extrema proof uses the exact decomposition, the four-letter bounds \(1-e_ie_{i+1}\le h_i\le 2-e_i-e_{i+1}\), and strict nonadjacent-pair losses to force period-three minima and period-two maxima for \(n\ge5\). The separately written finite checker passed 65,376 labeled centers for \(q=3,4,5,6\) in specified ranges, confirming the algebraic expressions and equality counts. Finite checks do not independently certify the symbolic proof.
+
+**Originality — PASS, with residual historical risk.** Zhu (2024, arXiv:2405.20368, sections 1, 3–6) addresses proper-coloring code packing on expanders, not labeled finite path-ball volumes. Rasool et al. (2023, DOI 10.3389/fgene.2023.1158337, sections 2 and 5) treat DNA codebook optimization subject to run and Hamming constraints, not exact center-dependent constrained sphere counts. Public matching-term searches and comparison against related radius-two Hamming, Ulam, and local-word results did not identify a theorem implying both sharp periodic extremizer classifications. An unindexed or differently named exact formula remains possible.
+
+**Value — PASS.** This is an exact all-length local-metric geometry result in a natural constrained code space, with rigid extremal centers and a ternary-versus-larger-alphabet growth transition. It provides concrete sphere-volume inputs for packing arguments, while making no claim about optimal code sizes. Neither algorithmic reproducibility nor novelty alone is used to establish this mathematical value.
+
+**Limitations.** Labeled words, path (not cycle), no equal neighbors, substitution/Hamming distance only, and \(q\ge3,n\ge5\) for sharp-extrema uniqueness. Related biochemical constraints are excluded. Priority requires independent literature assessment, and no independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
