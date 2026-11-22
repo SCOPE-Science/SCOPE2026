@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:09:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — The Vámos rank-four independence complex is the full 3-skeleton of a 7-simplex with exactly five forbidden 4-faces removed. Each forbidden face meets any other in <=2 vertices; the 4-boundary of F∪{x} maps to ±F in relative chains with no second forbidden face, proving integral surjectivity of ∧⁴A→E, hence reduced H3=Z^{35−5}=Z^30 and no other reduced integral homology. Incidence degrees distinguish {0,1,6,7} (two) and {2,3,4,5} (three), giving intrinsic full G=D4×D4 of order 64. The rational character χ(g)=tr(∧⁴A)(g)−signed trace on five forbidden facets; character orthogonality gives the stated 5×5 multiplicity matrix, with trivial-low row zero, trivial-high column dimension one, and full trivial tensor absent. Rational averaging of barycentrically subdivided ordinary geometric quotient yields homology 0/1/0 in top degree for low/high/full groups, respectively. Independent permutations generated order64, χ(e)=30, and average traces gave low0 high1 full0. No integral quotient torsion classification or equivariant lattice splitting is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karn et al Section 5 uses full G≈D4×D4 and computes a dimension-33 KL coefficient, not dimension-30 H3(K).",
+          "Moci–Pezzoli general theorem relates matroid homology representations but no explicit Vámos quotient dimensions."
+        ],
+        "reasoning": "The general functorial machinery and same automorphism group can facilitate, not automatically deliver, the explicit coefficient matrix. Different homology and KL representations must not be conflated.",
+        "searches": [
+          "Vámos matroid automorphism D4 D4 equivariant homology representation quotient invariants character",
+          "equivariant Kazhdan Lusztig theory Vámos matroid Karn Nasr Proudfoot Vecchi",
+          "Moci Pezzoli matroid automorphism homology Theorem 16"
+        ]
+      },
+      "checked_sources": [
+        "Git tree c7079c766852a0aa505053812d83ceca8bd57f6f RESULT.md a38ee11c64284c6472317a397b7c93777969b657",
+        "Git verify_vamos.py b3b0a8eb84c58d21da3b30bfc721c0f8ef031db9",
+        "https://pages.uoregon.edu/njp/eq-relax.pdf",
+        "https://arxiv.org/pdf/2001.03760",
+        "https://doi.org/10.1155/2012/430859",
+        "SageMath Matroid Catalog Vamos"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Karn et al directly prove Aut(V8)=D4×D4, so group identification alone is covered.",
+          "The kernel of ∧⁴ A→E and resulting explicit 30-dimensional decomposition with invariants (0,1,0) is distinct from the 33-dimensional KL invariant and requires signed face computation."
+        ],
+        "reasoning": "The assessed novel claim is the explicit homology representation/quotients; a proof treating the already-known group identification as novel would be invalid, but the complete output is not implied by merely naming the group or Tutte polynomial.",
+        "searches": [
+          "Vámos matroid automorphism D4 D4 equivariant homology representation quotient invariants character",
+          "Karn Nasr Proudfoot Vecchi section 5 Vamos",
+          "Moci Pezzoli 2020 matroid homology Theorem 16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The integral exact sequence expresses H3 as kernel of signed forbidden-face quotient of ∧⁴augmentation, equivalent to a rational character difference.",
+          "Moci–Pezzoli arXiv:2001.03760 identifies homology modules abstractly via other combinatorial representations, but does not display the Vámos 5x5 character."
+        ],
+        "reasoning": "Checking matroid complex versus order complex and rational equivariant homology identifies equivalent machinery but no explicit previously computed 25-coefficient Vámos decomposition.",
+        "searches": [
+          "Vámos matroid automorphism D4 D4 equivariant homology representation quotient invariants character",
+          "equivariant matroid independence homology lattice flats representations",
+          "Moci Pezzoli 2001.03760"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Five circuit-hyperplanes and Tutte polynomial are published/standard but not a 25-entry homology multiplicity table.",
+          "Existing KL coefficient character table has dimension 33; identity character 30 here."
+        ],
+        "reasoning": "No checked table gives this exact simplicial H3 character and its low/high invariant contrast. Known input and unrelated 33-dimensional character are explicitly credited.",
+        "searches": [
+          "Vámos matroid automorphism D4 D4 equivariant homology representation quotient invariants character",
+          "Vámos matroid 30 homology D4 times D4 character tables",
+          "SageMath matroids catalog Vamos circuit hyperplanes"
+        ]
+      },
+      "rationale": "PASS best of knowledge — The published matroid Tutte polynomial and shellable wedge rank already give nonequivariant rank30. Karn–Nasr–Proudfoot–Vecchi's primary Vámos Section 5 explicitly establishes the **same automorphism group D4×D4**, but its representation is an equivariant Kazhdan–Lusztig coefficient of dimension 33, not the 30-dimensional simplicial top homology character. Moci–Pezzoli provide a general equivariant matroid-homology representation framework; their inspected applications do not compute the complete 25-term Vámos D4×D4 decomposition or the two intrinsic quotient invariant ranks. The explicit signed five-facet exact sequence and asymmetric quotient results are additional. Unindexed older computations of Vámos equivariant characters remain possible.",
+      "residual_risks": [
+        "The D4×D4 automorphism group is explicitly prior in Karn et al; not attributed as a new group identification.",
+        "Other literature on equivariant matroid independence homology may have unindexed explicit Vámos character tables; selected accessible principal sources did not show the exact one.",
+        "Quotient rational cohomology does not establish integral acyclicity or homeomorphism; modular chain computations are auxiliary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GROUP_COVERED, DIFFERENT_REPRESENTATION",
+          "evidence": "Section 5 identifies full D4×D4 and its separate action; its 33-dimensional equivariant Kazhdan–Lusztig coefficient is not H3(Ind(V8)) of dimension 30.",
+          "identifier_or_url": "https://pages.uoregon.edu/njp/eq-relax.pdf",
+          "material_read": "Full accessible PDF; read Section 5 Vámos and its D4×D4 group action, KL coefficient representation and relevant tables",
+          "method": "read primary PDF and page image",
+          "title": "Equivariant Kazhdan–Lusztig theory of paving matroids",
+          "trigger": "same Vámos matroid and full automorphism group"
+        },
+        {
+          "assessment": "GENERAL_METHOD, NO_EXPLICIT_VAMOS",
+          "evidence": "Equivariant matroid homology module is related abstractly to combinatorial data; checked material does not state the 25-term Vámos decomposition or quotient-invariant ranks.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.03760",
+          "material_read": "Full available PDF searched and inspected Theorem 16 and discussion/examples",
+          "method": "read primary PDF relevant theorem and applications",
+          "title": "Representations of automorphism groups on the homology of matroids",
+          "trigger": "potential general homology theorem dominating exact character"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Vámos is a canonical nonrepresentable sparse-paving matroid; its two intrinsically distinguished D4 actions have **different** rational quotient topology despite equal group order and the same nonequivariant wedge rank. The exact 30-dimensional character and five-facet integral exact sequence make a new, motivated structural invariant available, not just a Tutte polynomial recomputation. Rational quotient results are not assertions of integral contractibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The D4×D4 automorphism group is explicitly prior in Karn et al; not attributed as a new group identification.",
+    "Other literature on equivariant matroid independence homology may have unindexed explicit Vámos character tables; selected accessible principal sources did not show the exact one.",
+    "Quotient rational cohomology does not establish integral acyclicity or homeomorphism; modular chain computations are auxiliary."
+  ],
+  "schema_version": 1
+}
