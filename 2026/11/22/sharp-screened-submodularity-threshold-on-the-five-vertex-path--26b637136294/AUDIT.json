@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The proof defines the full six-edge Boolean lattice and positive-screened/unregularized limits. The exact independent standard-library checker computes det(mu I+L_S)/mu for all 64 subsets and every one of 240 elementary submodularity comparisons. The -Delta numerator factors as a positive prefactor times q(mu) in exactly one case, and 210 other nonzero numerator polynomials have strictly positive constant and nonnegative remaining coefficients after the substitution mu=v+5/4; 29 are identically zero. Descartes and rational signs isolate a unique root of q between 5/4 and 13/10. An explicit unscreened comparison is 3/70. Exhaustive exact polynomial identities, not floating-point sampling, prove all real-parameter quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Summers et al. Theorem 3 (arxiv:1411.4884) would have claimed broader unscreened submodularity, but was expressly invalidated by the correction",
+        "Ma et al. (arxiv:1209.3694) proves regularized vertex-label-query V-optimality submodularity in a different decision variable"
+      ],
+      "reasoning": "Neither the invalidated universal unscreened claim nor the vertex-query result implies submodularity after every possible added edge on P5 at a positive screening level. No checked stronger theorem establishes the threshold.",
+      "searches": [
+        "regularized Kirchhoff index supermodularity path graphs edge addition threshold screening five vertices",
+        "topology design for optimal network coherence correction submodularity regularized",
+        "Tikhonov regularization restores submodularity edge augmentation graph coherence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1411.4884v1, full primary text sections relevant to edge-submodularity",
+      "https://personal.utdallas.edu/~ths150130/papers/ECC_Correction.pdf, full extracted correction text",
+      "arxiv:1209.3694, full relevant sections of graph Gaussian random-field vertex-query analysis",
+      "Additional public scholarly search: screened Laplacian resolvent trace edge addition; regularization restores submodularity; P5 counterexample exact threshold"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Correction: at mu=0, S={24}, e=13, f=35 yields a positive trace-submodularity defect approximately 0.0429; exact value here is 3/70",
+        "Current claim: for all six candidate chords and mu>=rho, each elementary defect is nonpositive and the empty-set pair 13,35 fails for 0<mu<rho",
+        "Ma et al. 2012, section 3.1: selecting labels makes a conditional covariance principal submatrix smaller, not the same graph modification"
+      ],
+      "reasoning": "The correction supplies one mu=0 counterexample but neither recovers all inequalities at positive mu nor determines the sharp boundary; its statements do not logically imply the new result. The regularized vertex-query result is not transferable to changing the fixed graph precision by rank-one edge contributions.",
+      "searches": [
+        "screened Laplacian resolvent trace submodularity ridge regularization edge addition path counterexample threshold",
+        "regularized Kirchhoff index supermodularity path graphs edge addition threshold screening five vertices",
+        "network coherence submodularity error five node path edge addition correction exact positive threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/1411.4884: edge-selection objective -trace pseudoinverse of the unscreened Laplacian, theorem III.A",
+        "https://personal.utdallas.edu/~ths150130/papers/ECC_Correction.pdf: same graph and edge-addition objective, with a three-chord positive unscreened defect",
+        "https://arxiv.org/abs/1209.3694: regularized Laplacian inverse, but decisions are which vertices to observe/condition"
+      ],
+      "reasoning": "The normalized benefit is equivalent up to a constant to minimizing inverse resolvent trace over added edges. The original and correction concern mu=0 only, while the vertex-observation principal-submatrix operation is not an edge addition (rank-one Laplacian) update; the latter theorem does not entail submodularity here.",
+      "searches": [
+        "screened Laplacian resolvent trace submodularity ridge regularization edge addition path counterexample threshold",
+        "trace inverse regularized Laplacian edge addition submodular non-submodular screened network coherence",
+        "five-vertex path P5 exact screening threshold submodularity trace inverse graph Laplacian augmented chord additions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2014 arxiv and correction contain no quartic or full 240-inequality screening table",
+        "The exact coefficient certificate here computes all 64 subset polynomials and 240 local inequalities"
+      ],
+      "reasoning": "No equivalent quartic cutoff or all-nonedges screening table appeared in the searched mathematical records. This absence is not treated as a proof that none exists elsewhere.",
+      "searches": [
+        "five-vertex path P5 exact screening threshold submodularity trace inverse graph Laplacian augmented chord additions",
+        "network coherence submodularity error five node path edge addition correction exact positive threshold",
+        "resolvent trace regularization restores submodularity graph edge addition finite path all nonedges"
+      ]
+    },
+    "rationale": "The 2014 edge-addition paper asserts unscreened submodularity and its later correction disproves it via P5. Neither inspected full text establishes an exact uniform positive diagonal screening threshold for every one of the six missing edges; the vertex-observation GRF theorem is for a different ground set. The exact quartic restoration statement was not found in the searched literature or accessible previous scientific claims. This is an evidence-qualified originality assessment, not a guarantee of publication priority.",
+    "residual_risks": [
+      "The full bibliographic universe, unindexed equivalences and newly published findings are not exhaustively accessible; originality is best-knowledge only.",
+      "The correction PDF was read as complete parsed text, but raster inspection was unavailable due an HTTP retrieval error; source equations were independently reconstructed in exact arithmetic.",
+      "The proven threshold only addresses a fixed finite graph and unit candidate weights; it does not give general network-wide screening guarantees."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its cited Theorem 3 concerns mu=0 and is invalidated by later correction; no mu-dependent sharp threshold or all-six-path-chord certificate appears",
+        "evidence": [
+          "Theorem 3 claims submodularity of -trace(L_E pseudoinverse) under edge additions",
+          "Section III.A relies on a square-preservation Loewner inequality later identified as false"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.4884",
+        "material_read": "Introduction, §II definition, §III.A Theorem 3 and its proof, §III.B algorithms, relevant conclusion; full rendered text accessible",
+        "method": "Read primary open-access paper body as HTML text, compared exact decision variables and objective",
+        "title": "Topology Design for Optimal Network Coherence",
+        "trigger": "Exact parent objective and claimed universal edge-submodularity"
+      },
+      {
+        "assessment": "Shows original unscreened statement false and documents a three-chord witness; does not address screened inverses or exhaustive six-edge submodularity",
+        "evidence": [
+          "The correction specifies P5 and S1={13,24}, S2={24,35}",
+          "It reports the unscreened defect 0.0429, exactly 3/70 by new calculation"
+        ],
+        "identifier_or_url": "https://personal.utdallas.edu/~ths150130/papers/ECC_Correction.pdf",
+        "material_read": "Entire available parsed two-page correction text including graph, its S1,S2, numerical traces and concluding limitations",
+        "method": "Read full structured text extracted from institutional PDF; raster screenshot unavailable due transient fetch error",
+        "title": "Correction to “Topology design for optimal network coherence”",
+        "trigger": "The five-vertex counterexample is the motivating exact graph"
+      },
+      {
+        "assessment": "Treats conditioning on selected vertices, not adding graph edges; its submodularity theorem does not cover this claim",
+        "evidence": [
+          "§2.1 defines a regularized Laplacian and predictive covariance from a principal submatrix",
+          "§3.1 proves risk-reduction submodularity for sets of observed vertices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.3694",
+        "material_read": "Abstract and full text §§1–3.2, including regularized Laplacian definition and principal-submatrix covariance",
+        "method": "Inspected open-access HTML text; compared which sets enter the matrices",
+        "title": "Submodularity in Batch Active Learning and Survey Problems on Gaussian Random Fields",
+        "trigger": "Plausible stronger submodularity of inverses with diagonal regularization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "26b63713-6294-4c67-b644-1d157978b615",
+  "value": {
+    "rationale": "The object is the canonical five-node graph used in the published correction disproving greedy network-coherence submodularity. The result gives its exact minimum uniform screening strength needed to restore all diminishing-returns inequalities over every possible missing edge, rather than merely resolving the original three-chord witness. This resolves a natural control-design boundary with a sharp exact quartic and a reproducible complete proof; it does not claim a general graph theorem or an algorithmic improvement for unbounded network sizes.",
+    "status": "PASS"
+  }
+}
