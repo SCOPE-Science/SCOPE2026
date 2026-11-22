@@ -1,19 +1,21 @@
-# Scientific review: sharp graph-variation instability of simplex projection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for finite connected simple unit-weight graphs, Euclidean simplex projection, positive simplex mass, and two-input graph total variation. Strict KKT support cells yield exactly the coordinate-centering matrices; the graph layer-cake identity gives the exact cut test. Cross-cut contributions are bounded by the input cut size, and active–inactive internal edges by \(ab(n-k)/k\). The exact maximization of \(\lfloor k^2/4floor(n-k)/k\) gives the displayed parity formula. For every \(n\ge4q\), two cliques with \(q\) matching active-to-active edges have edge connectivity exactly \(q\) and yield equality with actual nearby inputs. The standard-library rational checker was rerun from this package, with complete small graphs, randomized larger instances and exact nonlinear witnesses. Infinite statements rest on the proof, not enumerations.
+PASS
 
-## Originality — PASS, qualified
+The Euclidean simplex KKT threshold (x_i-tau)_+ gives full-dimensional active-support cells and Jacobian J_A h=h_A-average_A(h), zero off A, all A nonempty. Since this map annihilates constant directions, a discrete layer-cake representation and graph coarea give an exact linear operator seminorm maximum over all nontrivial cut indicators S. For k=|A|, a=|A∩S|, b=k-a, and cut c=|∂S|, cut edges contribute <=c and internal edges <=ab(n-k)/k. Hence L(G)<=1+max_k floor(k²/4)(n-k)/(k lambda); exact integer parity optimization yields F_n=(n²-1)/16 for odd, n²/16 for n divisible by 4, (n²-4)/16 for n=2 mod 4. For n>=4q choose balanced even maximizing k, split the n-k inactive vertices between two cliques and bridge exactly q matched active vertices: each clique has >=q+1 vertices, and every cut splitting one clique has >=q internal edges, while the clique-separating cut has q. The chosen A,S achieve all edge terms with equality. Perturb x_i=r/k on A, -1 off A by epsilon 1_S in the same active cell, giving exact pairs. The n=2,3 q=1 edge cases use a bridge witness. Independent exact rational n=8,q=2 construction yielded quotient 3 matching 1+(64/16)/2; F_n integer expression independently checked through n=16. A single-input graph TV decrease follows scalar 1-Lipschitz clipping after the fixed threshold.
 
-Duchi et al. (2008), Condat (2014) and Martins–Astudillo (2016) supply algorithmic threshold and active-set Jacobian machinery, not graph-edge variation constants. Lellmann et al. (2009) investigate spatial TV for multi-class image labeling, not this two-input scalar network quotient. The closely relevant public cyclic-variation simplex projection manuscript treats the same map but only one cycle, obtaining linear-in-dimension sharp growth and not implying the new arbitrary-graph quadratic connectivity envelope. Nearby complete-graph and graph-TV denoiser claims concern restricted graphs or a different nonlinear map. published-finding corpus and primary-literature searches found no dominating equivalent theorem. Residual risks are an unindexed equivalent general graph seminorm theorem or an implicit projection-norm result in older analysis literature. This qualified assessment is not a certification of worldwide priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph TV modulus governs sensitivity of mass-conserving, nonnegative vertex projections, and the exact cut formula enables graph-specific comparisons. The sharp connectivity-dependent \(1+F_n/q\) envelope demonstrates a structural instability hierarchy, attained on explicit simple graphs and growing quadratically at connectivity one, even though each signal's TV contracts. The precise cutoff \(n\ge4q\) and no-weight restriction are disclosed.
+Best-of-knowledge PASS: Duchi/Condat/Martins-Astudillo establish KKT and active Jacobians, but no arbitrary-graph TV operator modulus. The earlier published precise cycle graph formula and complete graph Gini formula concern single graph families. The exact all-G active-cut theorem and edge-connectivity sharp extremal family are not consequences of cycle-only or Euclidean norm conclusions.
 
-## Scope and limitations
+## value
 
-Real Euclidean simplex projection, positive mass, simple connected unweighted finite graphs. No sharp fixed-order connectivity envelope is claimed for \(n<4q\), and no weighted or non-Euclidean generalization is proved. Finite checker output cannot establish an infinite-dimensional statement. Independent scrutiny is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp n²/(16q) edge-connectivity envelope exposes quadratic growth of two-input instability despite contraction of each individual graph signal; it relates a natural nonlinear projection problem to graph min-cuts and yields sharp graph constructions for every feasible n>=4q. That is a meaningful stability classification and geometry of extremizers, not merely a new integer table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

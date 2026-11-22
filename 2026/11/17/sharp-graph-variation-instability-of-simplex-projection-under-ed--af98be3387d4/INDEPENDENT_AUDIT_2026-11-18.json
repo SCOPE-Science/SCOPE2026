@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:57:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Euclidean simplex KKT threshold (x_i-tau)_+ gives full-dimensional active-support cells and Jacobian J_A h=h_A-average_A(h), zero off A, all A nonempty. Since this map annihilates constant directions, a discrete layer-cake representation and graph coarea give an exact linear operator seminorm maximum over all nontrivial cut indicators S. For k=|A|, a=|A∩S|, b=k-a, and cut c=|∂S|, cut edges contribute <=c and internal edges <=ab(n-k)/k. Hence L(G)<=1+max_k floor(k²/4)(n-k)/(k lambda); exact integer parity optimization yields F_n=(n²-1)/16 for odd, n²/16 for n divisible by 4, (n²-4)/16 for n=2 mod 4. For n>=4q choose balanced even maximizing k, split the n-k inactive vertices between two cliques and bridge exactly q matched active vertices: each clique has >=q+1 vertices, and every cut splitting one clique has >=q internal edges, while the clique-separating cut has q. The chosen A,S achieve all edge terms with equality. Perturb x_i=r/k on A, -1 off A by epsilon 1_S in the same active cell, giving exact pairs. The n=2,3 q=1 edge cases use a bridge witness. Independent exact rational n=8,q=2 construction yielded quotient 3 matching 1+(64/16)/2; F_n integer expression independently checked through n=16. A single-input graph TV decrease follows scalar 1-Lipschitz clipping after the fixed threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 26 published exact cycle result gives Lip for a single cycle, approximately n/4; its full theorem expressly limits itself to cyclic unit edges.",
+          "The Gini-variation result uses a complete-graph averaging seminorm and different order of growth."
+        ],
+        "reasoning": "Single-graph-family results do not imply arbitrary G cut/support reduction or attained universal q-connectivity envelope; same mass r invariance is already known and not claimed as new.",
+        "searches": [
+          "simplex projection graph variation operator Lipschitz constant active set cut edge connectivity sharp n2/16",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-variation-perturbation-modulus-of-euclidean-simplex-p--f402bd3437a8"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1602.02068v2",
+        "https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a",
+        "https://doi.org/10.1145/1390156.1390191"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sparsemax J_A determines derivatives, but the graph cut maximum and q-bridge constructions are additional combinatorial analysis.",
+          "Cycle TV theorem cannot upper bound a bridge graph: cycles lack bridges, while for q=1 the envelope grows quadratically in n."
+        ],
+        "reasoning": "No inspected prior theorem dominates all connected graphs or their connectivity-stratified exact n²/16q envelope; an unknown all-graph theorem remains possible.",
+        "searches": [
+          "simplex projection graph variation operator Lipschitz constant active set cut edge connectivity sharp n2/16",
+          "https://arxiv.org/html/1602.02068v2",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martins–Astudillo state the sparsemax Jacobian J_A for Euclidean simplex projection; Condat gives the threshold and active set.",
+          "Neither source computes the two-input edge-TV seminorm norm via graph cuts."
+        ],
+        "reasoning": "Same nonlinear operator is recognized and credited, but a Euclidean Jacobian formula does not itself determine an arbitrary-graph cut operator norm and its sharp connectivity envelope.",
+        "searches": [
+          "simplex projection graph variation operator Lipschitz constant active set cut edge connectivity sharp n2/16",
+          "https://arxiv.org/html/1602.02068v2",
+          "https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published exact cyclic four-residue table is for C_n; the present F_n three-case expression governs maximum across graphs of prescribed edge connectivity and different n²-scale extremizers."
+        ],
+        "reasoning": "Recomputation of a known cycle table would not count as novelty; the source claim is an exact new graph family extremum with a universal cut formula, not that earlier table.",
+        "searches": [
+          "simplex projection graph variation operator Lipschitz constant active set cut edge connectivity sharp n2/16",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Duchi/Condat/Martins-Astudillo establish KKT and active Jacobians, but no arbitrary-graph TV operator modulus. The earlier published precise cycle graph formula and complete graph Gini formula concern single graph families. The exact all-G active-cut theorem and edge-connectivity sharp extremal family are not consequences of cycle-only or Euclidean norm conclusions.",
+      "residual_risks": [
+        "Possible prior exact arbitrary-graph variation bound outside indexed literature; novelty is not historical certification.",
+        "Sharp q-connectivity envelope is asserted only n>=4q, not smaller orders; fixed-graph formula may require exponential maximization.",
+        "Finite graph enumeration is not an all-graph proof; analytical layer-cake/coarea and bridge construction supply all-parameter result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes active support derivative but no edge-TV operator norm.",
+          "evidence": "J_A local derivative matches the source; graph coarea and connectivity are not treated there.",
+          "identifier_or_url": "https://arxiv.org/html/1602.02068v2",
+          "material_read": "HTML sections 2.1–2.5, Jacobian formulas (11)–(12).",
+          "method": "Read arXiv HTML full mathematical sections.",
+          "title": "From Softmax to Sparsemax: A Sparse Model of Attention and Multi-Label Classification",
+          "trigger": "Same Euclidean simplex projection and active Jacobian"
+        },
+        {
+          "assessment": "Supplies projection KKT, not graph variation Lipschitz classification.",
+          "evidence": "The scientific subject is efficient projection by scalar threshold, not edge-TV two-input amplification.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf",
+          "material_read": "First page screenshot and extracted text of threshold and algorithm sections, not necessarily all appendices.",
+          "method": "Read lawful open PDF with screenshot page 1 and relevant extracted sections.",
+          "title": "Fast Projection onto the Simplex and the l1 Ball",
+          "trigger": "Classical simplex KKT and algorithmic upper result"
+        },
+        {
+          "assessment": "Previous theorem handles only C_n, rather than all G or connectivity q.",
+          "evidence": "Its main theorem gives exact floor((n+2)^2/8)/ceil((n+2)/2) for cycle TV and expressly says arbitrary graphs are outside scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a",
+          "material_read": "Full public RESULT.md and five-step proof.",
+          "method": "Read pinned published GitHub RESULT.md, blob ce309e9546bffdb34d2303ded18498099ee24408.",
+          "title": "Sharp cyclic-variation amplification of Euclidean simplex projection",
+          "trigger": "Same nonlinear P and same kind of TV but fixed cycle graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp n²/(16q) edge-connectivity envelope exposes quadratic growth of two-input instability despite contraction of each individual graph signal; it relates a natural nonlinear projection problem to graph min-cuts and yields sharp graph constructions for every feasible n>=4q. That is a meaningful stability classification and geometry of extremizers, not merely a new integer table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Euclidean projection P_r onto the positive-mass simplex over a finite connected unweighted simple graph, the exact two-input edge-total-variation modulus is max over active supports A and graph cuts S of TV_G(J_A 1_S)/|partial S|. It satisfies L(G)<=1+F_n/lambda(G), with three-residue F_n and equality for every n>=4q among graphs of edge connectivity q via two q-matching-joined cliques, with attained actual input pairs.",
+  "limitations": [
+    "Possible prior exact arbitrary-graph variation bound outside indexed literature; novelty is not historical certification.",
+    "Sharp q-connectivity envelope is asserted only n>=4q, not smaller orders; fixed-graph formula may require exponential maximization.",
+    "Finite graph enumeration is not an all-graph proof; analytical layer-cake/coarea and bridge construction supply all-parameter result."
+  ],
+  "schema_version": 1
+}
