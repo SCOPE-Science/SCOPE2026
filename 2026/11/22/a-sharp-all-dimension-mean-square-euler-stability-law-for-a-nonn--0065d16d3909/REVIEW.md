@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The claimed domain is every finite integer chain length at least two and strictly positive drift shear and noise. The covariance map is reconstructed directly from the independent centered increments. A positive-cone rank-one resolvent establishes the exact mean-square criterion, the binomial-square series evaluates it, and the Fourier collision-probability representation proves global strict monotonicity without relying on sampling. The all-dimension continuous limit follows by an exact gamma integral. The attached exact computations check identities and finite spectra but are not treated as infinite proof. Equality cases and the impossible mean-stability region at step at least two are covered.
+
+## Originality — PASS, with residual risks
+The inspected full 2023 primary article discusses continuous-time mean-square stability for two- and three-mode nonnormal systems, not this all-chain discretization. The 2012 Buckwar–Kelly paper is particularly close on nonnormal \(\theta\)-Maruyama methods, and its two-dimensional case may subsume the \(m=2\) specialization. This work does **not** claim \(m=2\) priority; the claimed contribution is a single explicit formula, sharp no-reentry theorem, and continuous/discrete frontier for all \(m\ge2\), especially arbitrarily large \(m\). The 2012 full text was not obtainable and remains a named historical-priority risk. Semantic-result searches located related but not dominating published records in numerical stability and stochastic switching. Independent literature priority remains unverified.
+
+## Value — PASS
+Nonnormal drift and multiplicative feedback can make an apparently stable explicit stochastic solver fail in variance. The theorem gives a sharp step-selection criterion for the complete natural higher-dimensional Jordan test family, exhibits stable continuous dynamics destabilized by time discretization, and quantifies the unusual fact that all chain lengths have one monotone step boundary despite alternating signs in the deterministic Euler matrix. The result is not a mere single-parameter recomputation: the dimension-dependent binomial-square gain and strict all-length monotonicity are structural and directly support method testing. It does not imply results for general matrices or practical stochastic PDE discretizations.
+
+Self-review: passed. Independent audit: not yet performed.
