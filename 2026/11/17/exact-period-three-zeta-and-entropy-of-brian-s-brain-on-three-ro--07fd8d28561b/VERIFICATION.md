@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The files `verify_transfer.py`, `verify_direct.cpp`, and `perron_vector.txt` are complete and standalone within this package. For the symbolic transfer certificate, install SymPy 1.10 or later and run `python verify_transfer.py` with the vector in the same directory. For direct original-state enumeration, compile `g++ -std=c++17 -O3 verify_direct.cpp -o verify_direct` and run `./verify_direct`. Both were run from this package directory. No network access or downloaded data are required for either scientific computation.
+## correctness
 
-`verify_transfer.py` enumerates every possible transition among \(4096\) ordered pairs of sixty-four symbolic vertical-column histories. It builds and decomposes the entire graph, checks the sole cyclic strongly connected component and its complete characteristic factorization using exact integer arithmetic, and directly evaluates all spatially labelled closed-walk counts through circumference twelve. The vector certificate consists of \(184\) positive integers in the canonical increasing-code order of the cyclic component; the program checks every strict Collatz–Wielandt inequality with only integer multiplication. This finite, complete transfer construction establishes the stated counts for all \(n\ge3\).
+PASS
 
-`verify_direct.cpp` independently enumerates each of the \(3^{3n}\) original three-state configurations for \(n=3,4,5\), computes the actual synchronous Moore update exactly three times, and counts returns. It uses explicit eight-distinct-neighbor masks rather than symbolic history constraints. The expected return counts are \(1,145,181\), respectively. These direct finite checks are corroboration, not the all-size proof. The saved output files are comparison artifacts, not substitutes for executing the computations.
+Read full frozen RESULT.md, inspect the actual 4096-pair `verify_transfer.py` and verified tree path inventory. A time-three-fixed cell has exactly four possible histories (always resting or one of three 0→1→2 phases); local exact-two Moore firing in each of 3 rows and times defines necessary/sufficient triples of 64-state columns. Cyclic length-n walks in the 4096 pair graph biject with labelled torus F^3-fixed configurations for n>=3. Independently re-implemented the local constraints: obtained 12,286 graph edges, 2,125 active vertices, unique cyclic SCC with 184 vertices and 559 internal edges. Independently reconstructed exact integer/symbolic 184×184 characteristic polynomial x^156 Q(x)^2 R(x) and initial traces S3=1,S4=145,S5=181, matching the claimed zeta. Only all-rest is time-one fixed; hence C3=(S_n−1)/3 and n4 has 48 orbits. The attached program's positive Perron vector and integer Collatz–Wielandt inequalities give the strict 3.26505918..3.26505920 interval (vector was identified at actual package path, not independently recalculated in this audit); primitivity from strong connectivity and a self-loop yields trace asymptotic. Neither small-n enumeration nor saved logs alone proves all n: the finite graph bijection and exact characteristic check do.
 
-The factorization and the strict spectral bounds are finite computer-assisted certificates reproducible from the included files; they are not a proof about all temporal periods, attraction basins, or historical uniqueness. Independent external auditing has not been performed.
+## originality
+
+PASS
+
+The classic Brian's Brain rule, unrestricted-plane three-cycles and transfer-matrix enumeration methods pre-exist and are credited. The specific three-row B2/S/C3 Moore torus temporal-three symbolic zeta with degree-28 spectral factor, sharp circumference-four onset and spectral radius bound was not found in inspected comparable sources. Read full published two-row Brian's Brain rigidity result (two-row offset collisions) and separate two-row Wireworld results; their graph incidence, matrix and numbers differ, so they do not imply the three-row polynomial. Jen's 1988 cylindrical CA framework is a method, not this exact computed invariant. Accessible historical sources incomplete; originality is best-of-knowledge.
+
+## value
+
+PASS
+
+Exact primitive temporal 3-cycle populations for every circumference of the first distinct-offset three-row Brian's Brain torus form a natural complete classification of a well-established CA rule. The rational spatial zeta polynomial, exact onset and rigorously confined entropy base quantify nontrivial population growth, rather than one arbitrary tiny instance. Computer algebra certification of the natural transfer graph is part of a finite exact self-contained invariant, not an excuse to equate computation with value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
