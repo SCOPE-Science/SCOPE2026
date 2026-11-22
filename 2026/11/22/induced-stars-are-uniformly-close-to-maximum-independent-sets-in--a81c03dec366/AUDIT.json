@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For \\(1\\le k\\le n\\), the central hub exists with failure probability at most \\(e^{-k/4}\\), and a nonneighbor must fall in an endpoint tail. Their count is \\(\\operatorname{Bin}(n,k/(4n))\\); its k-subset union bound is \\((e/4)^k\\). This yields \\(D_n\\le Y+1\\) without assuming the hub event and tail count independent. The case \\(k>n\\) is vacuous. Fixed-bin occupancy proves \\(\\alpha_n\\to\\infty\\), and the uniform geometric tail proves exponential moments and ratio convergence. The verifier exhaustively checked 146598 endpoint pairings by two independent maximum-independent-set algorithms.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Justicz–Scheinerman–Winkler (1990), abstract on disjoint subfamilies and common intersecting interval.",
+        "Boucheron–Fernandez de la Vega (2001), publisher abstract on global independence fluctuation.",
+        "Diaconis–Holmes–Janson (2011), full text, Section 2.3 and Example 7.4, random interval graph measures."
+      ],
+      "reasoning": "The closest stronger-looking results control the size of global independent sets, graph-limit statistics, or existence of a universal interval. On the universal-interval event the gap is zero, but knowing that event has probability 2/3 does not control the gap on its complement, so neither a bounded-additive nor exponential-tail theorem follows from that probability.",
+      "searches": [
+        "Literature index query: random intervals maximal disjoint subfamily all intersect one common interval with high probability bounded deletion",
+        "Web: \"random interval graph\" \"induced star\" \"maximum independent\"",
+        "Web: \"random interval graphs\" \"largest induced star\"",
+        "Web: \"random interval graph\" \"maximal induced star\" approximation independence"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1102.2841 (full HTML; first public 2011-02-14)",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4578824/ (full lawful manuscript)",
+      "https://doi.org/10.1080/00029890.1990.11995679 (abstract and metadata only)",
+      "https://doi.org/10.1017/S0963548301004813 (abstract and metadata only)",
+      "https://arxiv.org/html/2312.01467v1 (full HTML)",
+      "Semantic research-record index searched for random interval local/global packing, induced stars, independent kissing and equivalences",
+      "Previously catalogued universal-interval point-process result, which concerns the universal-vertex count rather than a local/global gap bound"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known 2/3 probability of an interval intersecting every other one; Section 2.3 of arXiv:1102.2841 cites this event.",
+        "Global independence fluctuations (2001) concern the marginal law of maximum disjoint intervals.",
+        "De–Khurana–Singh (2023) Definition 1 covers the graph invariant but not its random distribution."
+      ],
+      "reasoning": "A universal interval makes the whole independent packing (except at most the hub) a local independent set, proving a zero-gap assertion on the 2/3 event. However its complement has fixed probability 1/3 for all sizes, whereas the new theorem uniformly bounds a potentially unbounded gap on both events. Global independent-set estimates do not logically imply the existence of a sampled interval meeting almost all intervals in one maximizing packing. The 2023 deterministic invariant definition supplies no probabilistic all-n inequality.",
+      "searches": [
+        "Literature index query: random interval graph independent kissing number largest induced star difference from independence number exponentially tight",
+        "Justicz–Scheinerman–Winkler, Random Intervals (1990) publisher abstract",
+        "Boucheron–Fernandez de la Vega (2001) Cambridge abstract",
+        "arXiv:1102.2841, Section 2.3 and Example 7.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2312.01467v1, Definition 1, identifies the independent kissing number as maximum neighborhood independence; published 2023-12-03.",
+        "arXiv:1102.2841, Section 2.3, describes the random endpoint-pair interval graph and existing packing/universal-interval results."
+      ],
+      "reasoning": "The exact same mathematical invariant has a distinct later name (independent kissing number) and a deterministic largest-induced-star formulation. Accessible results use it in competitive algorithms or discuss global packings, not the claimed uniform additive exponential gap for iid-endpoint random interval graphs. No returned database result implied the gap.",
+      "searches": [
+        "Literature index query: random interval graph independent kissing number largest induced star difference from independence number exponentially tight",
+        "Literature index query: uniform random interval graphs local independence maximum neighborhood independent set global independence tight exponential tail",
+        "Web: \"random interval graph\" \"largest induced star\"",
+        "Web: \"random interval graph\" \"star\" \"independence number\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed 2026 study on stochastic incomparability under adding a leaf to a fixed star concerns priority-greedy independent-set output on a fixed modified star.",
+        "Indexed 2026 study on component–coverage covariance for uniformly paired intervals concerns interval coverage/component covariance, not local independence.",
+        "Complete own-record claim searches identified no same local/global packing comparison."
+      ],
+      "reasoning": "No exact table or database statement containing the claimed all-size uniform exponential gap was located. Finite combinatorial endpoint pairings are independently reproduced rather than quoted as known-table entries; absence from the search is not itself a novelty proof.",
+      "searches": [
+        "Literature index query: random interval graph maximum neighbourhood independence induced star size occupancy random endpoints asymptotic",
+        "Literature index query: independent kissing number random interval graph maximum induced star local independence vs independence number near equality exponential tail",
+        "Web: \"largest induced star\" \"random interval\""
+      ]
+    },
+    "rationale": "The exact local/global exponential additive comparison is not implied by the known 2/3 event of a universal interval, by global independence fluctuations, or by the later deterministic independent-kissing-number definition. Actual semantic queries found no covering finding; accessible primary full text and honest limited abstract comparisons support best-knowledge originality, with specifically named inaccessible full-text risks.",
+    "residual_risks": [
+      "The complete 1990 Random Intervals paper was not accessible; a stronger argument within it might potentially imply the comparison despite the narrower accessible abstract.",
+      "The complete 2001 global-independence paper was not accessible; an unobserved local-neighborhood lemma could affect historical priority.",
+      "Unindexed or differently named earlier results on interval scheduling and induced-star packing might be equivalent. Neither database coverage nor the finite census proves novelty.",
+      "No optimal tail constant or exact limiting gap law is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the local-to-global additive tail: it handles graph limits, clique/chromatic statistics, degree distributions and the universal-interval probability.",
+        "evidence": [
+          "arXiv:1102.2841, Section 2.3, lines 49–65; Example 7.4, lines 257–262; https://pmc.ncbi.nlm.nih.gov/articles/PMC4578824/"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1102.2841",
+        "material_read": "Relevant passages in the lawful full HTML: introduction, Sections 2.3 and 3 overview, Example 7.4, and cited literature; not a claim to have exhaustively read every paragraph",
+        "method": "Read open-access arXiv HTML and full PMC author manuscript",
+        "title": "Interval graph limits",
+        "trigger": "Exact random interval model and cited independence/universal-interval results"
+      },
+      {
+        "assessment": "Abstract specifies global packing and a universal-intersection event, without explicit independent-neighborhood exponential gap; no negative whole-document judgment is made.",
+        "evidence": [
+          "1990 American Mathematical Monthly 97, 881–889; publisher abstract; arXiv:1102.2841 Section 2.3 cites 2/3 universal-interval probability"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00029890.1990.11995679",
+        "material_read": "Publisher title, abstract, bibliographic metadata and secondary full review discussion only; primary theorem text unavailable",
+        "method": "Publisher abstract and lawful OA/arXiv search; authorized institutional retrieval unavailable",
+        "title": "Random Intervals",
+        "trigger": "Original same iid endpoint-pair model, disjoint interval packing and common interval"
+      },
+      {
+        "assessment": "The abstract establishes global independence fluctuations and a greedy analysis, not local neighborhood independence. Full internal comparisons remain a residual risk.",
+        "evidence": [
+          "Cambridge University Press abstract, published online 2001-12-10"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548301004813",
+        "material_read": "Cambridge publisher abstract, exact model, abstract claims and bibliographic metadata only; full text unavailable",
+        "method": "Publisher abstract and lawful OA/arXiv search; authorized institutional retrieval unavailable",
+        "title": "On the Independence Number of Random Interval Graphs",
+        "trigger": "Closest global independence-number fluctuation work under exactly the same model"
+      },
+      {
+        "assessment": "Defines beta via maximum independent open neighborhood, and studies algorithmic and deterministic geometric consequences, not iid random interval gap tails.",
+        "evidence": [
+          "arXiv:2312.01467v1 Definition 1; Sections 1 and 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.01467",
+        "material_read": "Relevant passages in the lawful full HTML: Definition 1, introductory and related-work sections, Section 6 results, and the conclusion; not every proof",
+        "method": "arXiv full HTML",
+        "title": "Online Dominating Set and Coloring for Geometric Intersection Graphs",
+        "trigger": "The exact invariant is called the independent kissing number"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a81c03de-c366-48f4-8961-e4701414209c",
+  "value": {
+    "rationale": "Independent kissing number is a natural local intersection-geometry invariant. A uniform exponential additive gap (rather than a ratio-only approximation or a single 2/3 exact-equality event) is a substantive structural comparison between locally visible disjoint packings and the global optimal packing, with all-size constants, model invariance, and justified analytic scaling.",
+    "status": "PASS"
+  }
+}
