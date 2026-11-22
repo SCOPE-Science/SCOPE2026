@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact iid radial law and chi-square moments proved. Critical second-moment identity 96(d+6)/(d+2)^4 checked using raw moments. High-moment bounds plus integrable logarithmic tails justify log Taylor expansion, delivering 2a-48 at fixed a. Strong law proves pathwise signs; finite numerics are checks only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Song et al. (2026), arXiv:2604.14669v1, Theorem 1 and Appendix B.3, establishes ZO-GD covariance/mean-square analysis.",
+        "Ye (2026), arXiv:2606.20446, Section 2 and Theorem 1 explicitly choose norm-normalized decreasing steps.",
+        "Kozak et al. stochastic subspace descent reports expectation and probabilistic convergence, not a 24/d^3 logarithmic window in its accessible abstract."
+      ],
+      "reasoning": "The original covariance theorem covers mean-square rates only and has no logarithmic exponent; generic convergence theorems need not supply a sharp critical coefficient. The older stochastic-subspace full text was unavailable and remains a risk.",
+      "searches": [
+        "High-Probability Last-Iterate Guarantees for Two-Point Gaussian Zeroth-Order Stochastic Gradient Descent Haishan Ye 2606.20446",
+        "Gaussian two point estimator quadratic constant unnormalized step isotropic Euclidean norm Lyapunov exponent at mean square threshold",
+        "https://arxiv.org/html/2604.14669v1",
+        "https://arxiv.org/abs/2003.02684"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.14669v1",
+      "https://arxiv.org/abs/2606.20446",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-probe-averaging-can-reverse-almost-sure-stability-in-gaussian-ze--bd4e7bf676c0",
+      "https://arxiv.org/abs/2003.02684"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Song et al. (2026), arXiv:2604.14669v1, Theorem 1 and Appendix B.3, establishes ZO-GD covariance/mean-square analysis.",
+        "Published scalar probe-averaging main theorem proves a distinct dimension-one n-probe pathwise versus moment gap 8/n.",
+        "Ye (2026), arXiv:2606.20446, Section 2 and Theorem 1 explicitly choose norm-normalized decreasing steps."
+      ],
+      "reasoning": "Song et al. imply 2/(d+2) as the special isotropic mean-square boundary; they do not imply the logarithmic correction. The scalar n-probe paper computes 8/n for a different random multiplier and n-to-infinity limit. Ye uses direction-normalized/decaying steps and therefore cannot be specialized by holding an unnormalized constant gain.",
+      "searches": [
+        "Gaussian one-probe unnormalized zeroth-order descent rank-one updates pathwise Lyapunov rate 24 over d cubed, mean-square threshold 2/(d+2)",
+        "High-Probability Last-Iterate Guarantees for Two-Point Gaussian Zeroth-Order Stochastic Gradient Descent Haishan Ye 2606.20446",
+        "https://arxiv.org/html/2604.14669v1",
+        "2026/11/2/SCOPE-probe-averaging-can-reverse-almost-sure-stability-in-gaussian-ze--bd4e7bf676c0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published scalar probe-averaging main theorem proves a distinct dimension-one n-probe pathwise versus moment gap 8/n."
+      ],
+      "reasoning": "The rank-one Gaussian central-difference recursion equals an isotropic random-matrix product; the nearest scalar multiplier changes probe count, not ambient state dimension. The scalar formula cannot be reduced to the chi-square pair U,W of the present claim.",
+      "searches": [
+        "Gaussian one-probe unnormalized zeroth-order descent rank-one updates pathwise Lyapunov rate 24 over d cubed, mean-square threshold 2/(d+2)",
+        "random direction matrix I minus eta u u transpose Gaussian isotropic quadratic almost sure norm product stochastic optimization",
+        "multiplicative gaussian rank-one stochastic descent sharp almost sure threshold versus mean square covariance independence dimension",
+        "2026/11/2/SCOPE-probe-averaging-can-reverse-almost-sure-stability-in-gaussian-ze--bd4e7bf676c0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed entry returned the one-probe ambient-dimensional 24/d^3 coefficient. The closest indexed entries concern scalar probe count or mean-square covariance design."
+      ],
+      "reasoning": "No finite table or exact numerical constant recovered in searches entails the stated d-to-infinity asymptotic. Negative search evidence alone is not proof of novelty.",
+      "searches": [
+        "Gaussian one-probe unnormalized zeroth-order descent rank-one updates pathwise Lyapunov rate 24 over d cubed, mean-square threshold 2/(d+2)",
+        "Gaussian zeroth order descent isotropic quadratic pathwise mean square stability thresholds high dimension d^-3 gap 24",
+        "d-dimensional Gaussian rank one product log norm mean square instability O(d^-3)",
+        "2026/10/18/SCOPE-sharp-alignment-threshold-for-minimax-anisotropic-gaussian-fin--39df47931288"
+      ]
+    },
+    "rationale": "In-source exact mean-square edge is prior; original claim is the ambient-dimensional unnormalized single-probe local Lyapunov coefficient 24 and phase window. Relevant source text and existing scalar n-probe overlap were compared by implications. No accessible covering statement was identified; historical general random-product literature remains a risk.",
+    "residual_risks": [
+      "Older random matrix product or stochastic direction descent papers may already contain an equivalent sharp coefficient; broad full-text coverage was not exhaustive.",
+      "The older stochastic-subspace reference was compared at abstract level only; its full proof could contain a relevant special case.",
+      "No independent external scientific review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Mean-square stability established; the new logarithmic coefficient and pathwise transition are not stated in the inspected full text.",
+        "evidence": "Theorem 1 critical step and Appendix A.6 Gaussian fourth-moment identity; Appendix B.3 multi-probe covariance, no log-Lyapunov formula.",
+        "identifier_or_url": "https://arxiv.org/html/2604.14669v1",
+        "material_read": "Abstract, Section 4.2, Theorem 1, Appendix A.6 and Appendix B.3",
+        "method": "Read accessible primary full-text HTML and compare recurrence, assumptions, theorem and appendices",
+        "title": "Zeroth-Order Optimization at the Edge of Stability",
+        "trigger": "Exact one-probe Gaussian covariance edge for the same quadratic update"
+      },
+      {
+        "assessment": "Fixed-horizon high-probability convergence for norm-normalized decaying steps, not the constant unnormalized Lyapunov transition.",
+        "evidence": "Section 2.1 states explicit inverse-norm normalization; Theorem 1 includes d>=16log(6T/delta).",
+        "identifier_or_url": "https://academ.us/article/2606.20446/",
+        "material_read": "Abstract, Section 1.1, Section 2.1, main Theorem 1, Section 5 and Appendix start",
+        "method": "Read primary article in accessible HTML rendering",
+        "title": "High-Probability Last-Iterate Guarantees for Two-Point Gaussian Zeroth-Order Stochastic Gradient Descent",
+        "trigger": "Fresh related high-probability pathwise Gaussian two-point method"
+      },
+      {
+        "assessment": "One-dimensional f(x) with n averaged probes per iteration, exact gap 8/n; genuinely different law and high-dimensional parameter.",
+        "evidence": "Finding and large-probe expansion F_n(2+c/n)=(c-4)/n+O(n^-2).",
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/11/2/SCOPE-probe-averaging-can-reverse-almost-sure-stability-in-gaussian-ze--bd4e7bf676c0/RESULT.md",
+        "material_read": "Complete RESULT.md including proof, verification, prior relations and limitations",
+        "method": "Read public full text through authorized repository read interface",
+        "title": "Probe averaging can reverse almost-sure stability in Gaussian zeroth-order descent",
+        "trigger": "Closest published logarithmic Lyapunov stability result with Gaussian probes"
+      },
+      {
+        "assessment": "Convergence rates and probability statements may be relevant but no basis for a whole-document noncoverage assertion.",
+        "evidence": "Published abstract advertises expectation convergence and probabilistic convergence under strong convexity.",
+        "identifier_or_url": "https://arxiv.org/abs/2003.02684",
+        "material_read": "Abstract and accessible bibliographic excerpts; full text not obtained",
+        "method": "Search and compare published abstract, with access limitation recorded",
+        "title": "A stochastic subspace approach to gradient-free optimization in high dimensions",
+        "trigger": "Classical broad randomized projection gradient descent results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "472ee7d7-2553-48d6-a15a-13d69d2cd1db",
+  "value": {
+    "rationale": "The exact ambient-dimensional 24/d^3 correction quantifies a natural reliability distinction at the mean-square stability edge of widely studied Gaussian zeroth-order methods: expected squared risk grows while almost every trajectory converges. The gap width is a derived asymptotic, not an arbitrary slice or routine unchanged-parameter restatement.",
+    "status": "PASS"
+  }
+}
