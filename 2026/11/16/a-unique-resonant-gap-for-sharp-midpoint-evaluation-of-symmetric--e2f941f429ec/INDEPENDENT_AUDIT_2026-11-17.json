@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:00:59.924003Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/a-unique-resonant-gap-for-sharp-midpoint-evaluation-of-symmetric--e2f941f429ec/RESULT.md",
+        "Git blob c79904c49aa0eaeea6893ba5eb12f05ea5bd749b",
+        "Independent bounded arithmetic/symbolic tests in /mnt/data/scope05_independent_bounded_checks_20261117.py; run finished SUCCESS for five claims (finite checks only)."
+      ],
+      "rationale": "Orthogonalization of {1, cos(ωt)−sinc ω, sin(ωt)} in averaged L² gives V=1+sinc ω cosω−2sinc² ω>0 and K(ω)=1+2(1−sinc ω)²/V; Riesz representation determines equality vectors. SymPy independently differentiated and factored K′=2(1−s)N/(ωV²), with N as printed in RESULT.md. Analytic proof excludes 0<ω<π and 2π<ω<3π by K<3, ω≥3π by K<27/7<4 while K(3π/2)>4, and proves N>0 for π<ω<3π/2. In last quadrant 3π/2<ω<2π, N>0 at entry and N<0 once cosω≥(√3−1)/2; on the remainder the derivative bounds N_c<-158/81, N_s<43/9, c′>9/10, s′<7/50 force dN/dω<0 and unique root. Exact endpoints K(0+)=9/4, K(∞)=3; 65-digit independent root agrees ω*=4.9049244571380714153237888 and K*=4.2673035613955620568. Numeric sampling alone is not uniqueness proof.",
+      "residual_risks": [
+        "Symmetric exactly three frequencies and midpoint only; finite gap root is transcendental and numerical decimals are approximations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang arbitrary k sparse-frequency exterior bound is broad but not an exact midpoint constant optimized over symmetric gaps.",
+          "Sharp endpoint Nikolskii theorem evaluates x=1 and finds supremum 9 reached only in frequency collision, unlike current x=0 unique interior gap."
+        ],
+        "reasoning": "An estimate over broader frequency classes with larger constant does not dominate the sharp special-case midpoint optimizer.",
+        "searches": [
+          "sharp midpoint evaluation nonharmonic symmetric three-frequency exponential sums optimal frequency gap Nikolskii Christoffel reproducing kernel",
+          "https://arxiv.org/abs/2607.10501",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-endpoint-nikolskii-constant-for-symmetric-three-tone-fouri--e11889d28f9d"
+        ]
+      },
+      "checked_sources": [
+        "sharp midpoint evaluation nonharmonic symmetric three-frequency exponential sums optimal frequency gap Nikolskii Christoffel reproducing kernel",
+        "symmetric midpoint three-frequency exponential sums exact leverage bound optimal gap",
+        "https://arxiv.org/abs/2607.10501",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-endpoint-nikolskii-constant-for-symmetric-three-tone-fouri--e11889d28f9d",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-interior-frequency-splitting-transition-for-three-tone-fourie--4a3bedbd64a2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Interior-splitting theorem is a local bifurcation near gap zero depending on x, explicitly disclaims global-gap optimization.",
+          "Endpoint theorem has a nonattained collision supremum 9, while midpoint optimum is attained for finite ω.",
+          "Zhang theorem controls exterior extrapolation and transfers but not the exact center Christoffel frequency tuning."
+        ],
+        "reasoning": "None proves that the midpoint gap derivative has exactly one global zero/max on (0,∞), a new gap-specific inequality.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-interior-frequency-splitting-transition-for-three-tone-fourie--4a3bedbd64a2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-endpoint-nikolskii-constant-for-symmetric-three-tone-fouri--e11889d28f9d",
+          "https://arxiv.org/abs/2607.10501"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K(ω) is exactly the Christoffel/leverage function at x=0 for Vω=span{1,e^{iωt},e^{-iωt}} with probability inner product.",
+          "Published same-day interior-frequency-splitting leverage L_d(x) gives same fixed-gap formula at x=0, but analyzes local d↓0 expansion and x thresholds."
+        ],
+        "reasoning": "Exact fixed-gap kernel is common knowledge and overlaps the local result; the global ω supremum with one w* is not a formal consequence of a local gap expansion.",
+        "searches": [
+          "sharp midpoint evaluation nonharmonic symmetric three-frequency exponential sums optimal frequency gap Nikolskii Christoffel reproducing kernel",
+          "symmetric midpoint three-frequency exponential sums exact leverage bound optimal gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published endpoint exact constant 9 differs from midpoint K*=4.26730356.",
+          "Independent numerical root is a check, not evidence of a previously tabulated global optimum."
+        ],
+        "reasoning": "No exact prior table of midpoint-optimal gap identified; proof uses sign bounds rather than decimal lookup.",
+        "searches": [
+          "sharp midpoint evaluation nonharmonic symmetric three-frequency exponential sums optimal frequency gap Nikolskii Christoffel reproducing kernel",
+          "symmetric midpoint 3 tone Fourier optimum omega 4.904924457"
+        ]
+      },
+      "rationale": "The orthogonal three-tone evaluation kernel is known in general and the endpoint case is sharply solved, but the unique global optimum over frequency gap at the *midpoint* is different. Related local interior frequency splitting only covers the small-gap neighborhood; it does not imply the global resonant optimum. Potential earlier Christoffel/sampling inequalities remain priority risk.",
+      "residual_risks": [
+        "General exterior-frequency article full text not obtained; prior nonharmonic Christoffel optimization under another terminology may exist.",
+        "No optimization over nonsymmetric triples or off-center evaluation sites is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ENDPOINT_BUT_NOT_MIDPOINT_OPTIMAL_GAP",
+          "evidence": [
+            "Proof fixes x=1 with odd sine term nonzero and obtains strict K<9; midpoint x=0 removes odd channel."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-endpoint-nikolskii-constant-for-symmetric-three-tone-fouri--e11889d28f9d/RESULT.md",
+          "material_read": "Entire RESULT.md finding, orthogonal basis, endpoint representer, global 9 bound and collision limit",
+          "method": "GitHub full text of published record",
+          "title": "Sharp endpoint Nikolskii constant for symmetric three-tone Fourier sums",
+          "trigger": "Identical Fourier space and interval with evaluation location changed"
+        },
+        {
+          "assessment": "LOCAL_ONLY_NOT_GLOBAL_MIDPOINT_OPTIMUM",
+          "evidence": [
+            "The result explicitly does not maximize d over all positive gaps; exact global ω* absent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-an-interior-frequency-splitting-transition-for-three-tone-fourie--4a3bedbd64a2/RESULT.md",
+          "material_read": "Entire RESULT.md local Taylor expansion and local critical x0, bifurcation branch, stated limitations",
+          "method": "GitHub full text blob c20dd06e824354a435d65982d332e08e610d14c9",
+          "title": "An interior frequency-splitting transition for three-tone Fourier leverage",
+          "trigger": "Identical L_d(x) function and possibly stronger global behavior"
+        },
+        {
+          "assessment": "GENERAL_EXTERIOR_BOUNDS_FULL_TEXT_UNREAD",
+          "evidence": [
+            "Abstract states bounds for x≥1 on interval [-1,1], while the present statement is exact x=0 sharp frequency optimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10501",
+          "material_read": "ArXiv abstract, αXiv v2 abstract and stated theorem/exterior objective; full text inaccessible",
+          "method": "ArXiv abstract and lawful OA alternatives; Oxford VPN disconnected",
+          "title": "Optimal Extrapolation Bounds for Sparse Fourier Sums",
+          "trigger": "General sparse Fourier point-evaluation bounds with no separation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/a-unique-resonant-gap-for-sharp-midpoint-evaluation-of-symmetric--e2f941f429ec/RESULT.md",
+        "sharp midpoint evaluation nonharmonic symmetric three-frequency exponential sums optimal frequency gap Nikolskii Christoffel reproducing kernel",
+        "symmetric midpoint three-frequency exponential sums exact leverage bound optimal gap"
+      ],
+      "rationale": "The exact in-domain pointwise evaluation amplification for the smallest oscillatory nontrivial Fourier space is a canonical leverage/Christoffel invariant. Optimizing over gap and proving attainment, uniqueness, and sharp separation from collision and infinite-separation limits is a complete meaningful frequency-design result rather than a textbook fixed-gap Cauchy–Schwarz application.",
+      "residual_risks": [
+        "The mathematical claim is restricted to the explicitly defined object/invariant; no unrelated broader theorem is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Symmetric exactly three frequencies and midpoint only; finite gap root is transcendental and numerical decimals are approximations.",
+    "General exterior-frequency article full text not obtained; prior nonharmonic Christoffel optimization under another terminology may exist.",
+    "No optimization over nonsymmetric triples or off-center evaluation sites is claimed."
+  ],
+  "schema_version": 1
+}
