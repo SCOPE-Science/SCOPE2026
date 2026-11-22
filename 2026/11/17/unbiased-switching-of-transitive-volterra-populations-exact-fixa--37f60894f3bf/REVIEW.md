@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof proves simplex preservation, derives a bounded coordinate martingale and a summable quadratic-variation identity, excludes every nonvertex possible limit using the least supported index in the transitive skew matrix, and derives the pathwise exponential rates from iid sign frequencies. Interior initial coordinates and strict coefficient bounds are explicitly stated. An exact rational finite-word checker corroborates algebraic identities but is not relied on as an infinite proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2023 autonomous SIS QSO gives a one-step constituent model, not a randomly switched many-species result. Jamilov–Scheutzow–Wilke-Berenguer's random-Volterra Theorem 3.1 (arXiv:1401.7840) uses, for every coordinate, an operator satisfying \((Vx)_k=x_k^2\); the present support contains only \(V_A,V_{-A}\) with all pair intensities below one, so that theorem does not imply fixation here. Neither it nor the checked indexed findings gives the exact initial-mass selection law and pairwise extinction exponent. Risk: unindexed, differently framed martingale/population literature could imply the theorem.
+PASS
 
-**Value — PASS.** Arbitrary-dimensional transitive interactions are a natural full class of Volterra population competitions. The result establishes complete stochastic outcome probabilities and sample-path decay spectra, not just stability at a fixed point. It gives an exact prediction independent of asymmetrical pair-strength parameters that cannot be obtained from either autonomous map.
+For fixed skew A with 0<a_ij<1 above diagonal and iid fair signs, each coordinate X_{n,i} is a bounded martingale. Its exact conditional square increment is Xi²(A X)_i², so the sum of expected increments is finite and the almost sure limit Y obeys Yi(A Y)_i=0. In any support with ≥2 positive coordinates, its smallest index has strictly positive row interaction, contradiction; therefore Y is a simplex vertex. Martingale expectations give P(I=i)=x_i, even from boundary starts. For initially all-positive x, factors remain in [1−ρ,1+ρ]; log increments converge in Cesàro to iid log(1+σ a_{ji}) at a realized vertex, and a common SLLN event gives loser exponent 1/2 log(1−a_{jI}²). The use of signs from the original iid sequence is legitimate even conditioned on I since the SLLN is an unconditional probability-one event. Exact rational one-step checks and small sign-word enumeration corroborate but do not prove the infinite result.
 
-The result does not treat cyclic tournaments, biased switching or finite-time fixation errors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Generic bounded martingale convergence does not force vertex limits, and published random Volterra vertex-convergence theorem requires support containing a map with a squaring coordinate; the two strict-amplitude opposite maps lack such a map. Exact initial-weight fixation and pairwise extinction exponents are a distinct natural transitive subfamily.
+
+## value
+
+PASS
+
+The exact fixation law equal to starting fractions and pathwise pairwise loss exponents under a natural unbiased environmental switch yield an interpretable general-dimensional theorem. It separates stochastic coexistence uncertainty from deterministic transitive advantage, going beyond routine martingale convergence by proving vertex support collapse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

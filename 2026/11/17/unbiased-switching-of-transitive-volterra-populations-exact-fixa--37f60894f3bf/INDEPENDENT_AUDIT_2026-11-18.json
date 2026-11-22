@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T20:51:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed skew A with 0<a_ij<1 above diagonal and iid fair signs, each coordinate X_{n,i} is a bounded martingale. Its exact conditional square increment is Xi²(A X)_i², so the sum of expected increments is finite and the almost sure limit Y obeys Yi(A Y)_i=0. In any support with ≥2 positive coordinates, its smallest index has strictly positive row interaction, contradiction; therefore Y is a simplex vertex. Martingale expectations give P(I=i)=x_i, even from boundary starts. For initially all-positive x, factors remain in [1−ρ,1+ρ]; log increments converge in Cesàro to iid log(1+σ a_{ji}) at a realized vertex, and a common SLLN event gives loser exponent 1/2 log(1−a_{jI}²). The use of signs from the original iid sequence is legitimate even conditioned on I since the SLLN is an unconditional probability-one event. Exact rational one-step checks and small sign-word enumeration corroborate but do not prove the infinite result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 Theorem 3.1 assumes for every coordinate some support operator squares the coordinate, which in the Volterra parameters requires an extreme coefficient; this model has |a_ij|<1. The 2014 conclusion is vertex convergence under different hypotheses."
+        ],
+        "reasoning": "The prior abstract random-process theorem cannot be applied to this two-map strict-amplitude support, while its general conclusion also does not report fixation weights or sharp pairwise exponents.",
+        "searches": [
+          "arXiv:1401.7840",
+          "random iid ± Volterra quadratic stochastic operators fixation probability initial coordinates extinction Lyapunov exponents"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, check_random_volterra.py, original Git hashes",
+        "Jamilov, Scheutzow and Wilke-Berenguer arXiv:1401.7840, Section 3 Theorem 3.1",
+        "Adilova, Jamilov and Reinfelds (2023) DOI:10.3846/mma.2023.15999 (bounded description)",
+        "Resultary semantic query: random iid ± Volterra quadratic stochastic operators fixation probability initial coordinates extinction Lyapunov exponents"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From martingality alone, Y may lie on a nonvertex invariant face; the transitive lowest-index argument is needed. The reference random convergence theorem has a mismatched strong support hypothesis; the deterministic epidemic QSO does not imply random iid fair switching."
+        ],
+        "reasoning": "Even when one starts with standard martingale convergence and SLLN, the main theorem applies them with a real transitive-support elimination and an exact distribution/rate law not inherited from the cited statements.",
+        "searches": [
+          "arXiv:1401.7840",
+          "doi:10.3846/mma.2023.15999",
+          "random iid ± Volterra quadratic stochastic operators fixation probability initial coordinates extinction Lyapunov exponents"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jamilov–Scheutzow–Wilke-Berenguer 2014 Theorem 3.1 covers random Volterra iteration with a support-squaring hypothesis absent here; Adilova–Jamilov–Reinfelds 2023 treats autonomous deterministic epidemic quadratic stochastic maps."
+        ],
+        "reasoning": "Neither is an equivalent fair two-map, transitive-tournament random process theorem with both vertex weights and all loser exponents.",
+        "searches": [
+          "random iid ± Volterra quadratic stochastic operators fixation probability initial coordinates extinction Lyapunov exponents",
+          "arXiv:1401.7840",
+          "doi:10.3846/mma.2023.15999"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic returns adjacent random quadratic and population processes, no exact simultaneous fixation-weight/conditional-loss exponent table with this strict A and fair independent switch."
+        ],
+        "reasoning": "The claim is a probabilistic all-m theorem, not a finite database result; negative search does not certify novelty.",
+        "searches": [
+          "random iid ± Volterra quadratic stochastic operators fixation probability initial coordinates extinction Lyapunov exponents",
+          "Resultary random Volterra quadratic switching fixation probabilities"
+        ]
+      },
+      "rationale": "Generic bounded martingale convergence does not force vertex limits, and published random Volterra vertex-convergence theorem requires support containing a map with a squaring coordinate; the two strict-amplitude opposite maps lack such a map. Exact initial-weight fixation and pairwise extinction exponents are a distinct natural transitive subfamily.",
+      "residual_risks": [
+        "A general stochastic-approximation or martingale theorem might imply the transitive-support conclusion under another formulation; no exhaustive search of all stochastic-population literature.",
+        "Exponent assertion needs strictly positive initial coordinates; absent types stay identically zero and are not assigned finite decay rates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its required coordinate-squaring support operator is absent for strictly |a_ij|<1; exact probabilities and loser exponents not established by that theorem",
+          "evidence": "Theorem 3.1 support condition (3.1) and convergence conclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.7840",
+          "material_read": "Accessible primary PDF, especially Section 3 Theorem 3.1 and its support hypotheses and proof; targeted additional context",
+          "method": "ArXiv primary full-text PDF, material read",
+          "title": "On the Random Dynamics of Volterra Quadratic Operators",
+          "trigger": "Closest random-Volterra vertex convergence theorem"
+        },
+        {
+          "assessment": "Deterministic epidemic QSO models; unable to rule out every related application from limited reading",
+          "evidence": "Paper identifies autonomous signed interaction quadratic operators; full-text priority risk remains.",
+          "identifier_or_url": "https://doi.org/10.3846/mma.2023.15999",
+          "material_read": "Bibliographic record and descriptive material, not a complete full-text assessment in this run",
+          "method": "Publisher/open article citation and prior research context",
+          "title": "On Discrete-Time Models of Network Worm Propagation Generated by Quadratic Operators",
+          "trigger": "Published deterministic Volterra/QSO dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact fixation law equal to starting fractions and pathwise pairwise loss exponents under a natural unbiased environmental switch yield an interpretable general-dimensional theorem. It separates stochastic coexistence uncertainty from deterministic transitive advantage, going beyond routine martingale convergence by proving vertex support collapse.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Skew transitive 0<a_ij<1 above diagonal, iid unbiased switching, finite m≥2; decay rate only for initially strictly positive data. No finite-horizon mixing or fluctuations.",
+  "schema_version": 1
+}
