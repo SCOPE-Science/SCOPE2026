@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The edge-codegree bound follows from a direct parallel-resistance subgraph and Rayleigh monotonicity; summing gives the curvature inequality. A simplicial closed neighbourhood is a clique, and strictness follows when an outside component joins two clique terminals of unequal voltage. The equality characterization and every-parameter sharpness construction follow. Foster's identity forces average curvature \(1/n\), yielding chordal rigidity via the simplicial-vertex theorem. Exact exhaustive spanning-tree enumerations independently check orders two through five and all equality cases there.
+
+**Originality — PASS, with historical-priority risk.** The full papers of Zhou–Wang–Bu (2016), Devriendt (2025), and Khan–Haidar (2026) were compared for the exact local edge-codegree and simplicial bounds, the equality classification, and the implication for all chordal graphs. The published two-connectivity, complement-connectivity, degree lower bounds, and existence of nonregular resistance-regular graphs do not imply the new quantified statements. Full text of two additional plausible works was not obtained; this limits historical-priority confidence. No assertion of exhaustive literature coverage or independent priority certification is made.
+
+**Value — PASS.** The sharp inequality supplies a graph-local, triangle-based obstruction for equal-resistance-centrality networks, and the exact equality cases explain its extremal mechanism. It proves an infinite-family rigidity theorem for chordal graphs, including biconnected chordal examples not ruled out merely by no-cut-vertex requirements. This is a structural restriction and exact sharp classification, not a finite table or parameter renaming. The proof uses standard electrical identities in a new combination; the result does not purport to resolve the general regularity questions for nonchordal graphs.
+
+**Closest literature and limitations.** See the cited 2016 resistance-matrix characterization, 2025 resistance-curvature paper, and November 2026 nonregular resistance-regular constructions. Unit resistances are essential to the displayed denominators, and unresolved historical coverage remains a risk.
+
+Self-review: passed. Independent audit: not yet performed.
