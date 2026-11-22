@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "For k<=n-1, simultaneous positive labels form a partial Latin square, and the negatives can be filled greedily without their forbidden symbols using at most k-1 previous-symbol exclusions plus one forbidden value. The published Smetaniuk completion theorem then realizes every Boolean trace. A full Latin row gives the sharp size-n obstruction. At n=3, each of 12 Latin square hypotheses contains four of the 27 possible entries; the Hamming-weight saturation argument forces every nonzero pattern once for shattered triples and yields precisely 216 Latin triangles. All 270 compatible pairs are shattered; there are 108 maximal pairs, no shattered fours. Two distinct constructions of the 12 squares and the edge-triangle incidence complex give rank(d2)=133 over F2, betti1=111, betti2=83. The Python checker further verifies all 25920 compatible triples at n=4. Original finite source paths were inspected and both programs executed. These computations have finite, explicit, reproducible domains and are not used as a proof of the infinite-n completion theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Smetaniuk theorem, reproduced as Theorem 5 in doi:10.1016/j.disc.2006.05.028, supplies arbitrary partial Latin square completion for <=n-1 entries.",
+        "Luria-Simkin studies random support thresholds in Latin boxes.",
+        "Benediktsson-Macpherson-Adler concerns neighborhood set systems on Johnson and Hamming graphs."
+      ],
+      "reasoning": "The all-order low-size support assertion relies on a strong known completion result, and is presented as a Boolean-trace corollary with its own greedy negative-label construction. The novelty assessment is not based on claiming this completion fact or general VC asymptotics; the exact order-three maximal faces and homology are additional and not covered by these theorems.",
+      "searches": [
+        "Every partial Latin square of at most n-1 prescribed entries is Boolean shattered by Latin squares Smetaniuk Evans theorem",
+        "arxiv:1711.09741 HTML introduction, Theorems 1.3-1.6",
+        "arxiv:2007.16042 published full-text introduction and Hamming/Johnson theorems"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1606.00032",
+      "arxiv:1711.09741",
+      "doi:10.1016/j.disc.2006.05.028",
+      "arxiv:2007.16042",
+      "published-record:63721f81dfe5",
+      "published-record:58ffe400075c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hatami-Qian Theorem 1.3 is an asymptotic VC lower bound, not a degreewise face classification at n=3.",
+        "Partial-Latin completion proves the range <=n-1 but makes no n=3 boundary homology claim.",
+        "Indexed 3-sorted Latin incidence theory classifies rank-four first-order theories, not hypothesis-class Boolean traces."
+      ],
+      "reasoning": "The full combined finding adds an exact boundary at the first nontrivial Latin order and an exact binary chain-complex invariant. Neither maximum VC-dimension lower bounds nor the existence of completions of small partial assignments determines that facet decomposition or mod-two homology. Older finite enumerations could nevertheless reproduce it.",
+      "searches": [
+        "Hatami Qian Latin squares VC dimension 2016 exact order-three shattering complex triples triangular facets and mod-two Betti numbers",
+        "Every partial Latin square of at most n-1 prescribed entries is Boolean shattered by Latin squares Smetaniuk Evans theorem",
+        "Latin square Boolean incidence hypothesis class entry membership VC-shattering order three order four nonpure 216 triangles 108 pairs",
+        "arxiv:1606.00032v2 Sections 1 and 2.2",
+        "published-record:63721f81dfe5",
+        "published-record:58ffe400075c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hatami-Qian arxiv:1606.00032 defines the exact same concepts in its introduction, Eq. (1.0.1), and proves only asymptotic lower VC bounds at Theorem 1.3.",
+        "No exact order-3 face polynomial or mod-two Betti ranks found in inspected full text or returned indexed matches."
+      ],
+      "reasoning": "Equivalent learning-theoretic and combinatorial names include Latin squares as 3-uniform tripartite perfect matchings, latin boxes, complete Latin array incidence vectors and 3D permutation tensors. These identify the same objects, but the inspected closest theorem is a lower bound on maximal VC dimension, not a classification of every shattered 27-point support; the specific homology does not follow from that bound.",
+      "searches": [
+        "Hatami Qian Latin squares VC dimension 2016 exact order-three shattering complex triples triangular facets and mod-two Betti numbers",
+        "Latin square order 3 VC shattering polynomial 1+27z+270z2+216z3 and 108 maximal pairs, homology",
+        "Latin square Boolean incidence hypothesis class entry membership VC-shattering order three order four nonpure 216 triangles 108 pairs",
+        "\"Latin square\" \"shattered\" \"concept class\" 3",
+        "arxiv:1606.00032 HTML sections 1 and 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed result published-record:63721f81dfe5 describes the complex of ALL partial Latin squares of order three with dimension eight and wedge of 38 four-spheres.",
+        "Present complex is formed by shattered supports of the twelve COMPLETED squares and has dimension two, with mod-two Betti ranks 111 and 83.",
+        "No indexed exact 1+27z+270z^2+216z^3 and 108 pair facets was returned."
+      ],
+      "reasoning": "A complex of partial Latin-square assignments contains partial placements without requiring all binary traces to be extendible; it is not the shattering complex. Its published homology is therefore not an exact table of the present Betti ranks. Index incompleteness is a residual priority risk.",
+      "searches": [
+        "Latin square order 3 VC shattering polynomial 1+27z+270z2+216z3 and 108 maximal pairs, homology",
+        "\"Latin squares\" \"shattering polynomial\" \"216\"",
+        "published-index query: Thirty-eight four-spheres order-three partial Latin-square complex exact integral homotopy"
+      ]
+    },
+    "rationale": "The 2016 Hatami-Qian paper treats exactly the same family of Latin squares as subsets of [n]^3, but its published VC statements are asymptotic bounds and its full inspected text does not state an exact n=3 shattering face complex or homology. The 2017 Luria-Simkin paper treats support thresholds for random Latin boxes, not trace shattering. Smetaniuk already proved the completion theorem used for low-size supports; this input is not attributed as new. Published mathematical records on the complex of all partial Latin squares and on finite-variable Latin-square incidence are not the Boolean shattering complex of all completed Latin squares; their currently accessible summaries show a different object and no implication of these exact Betti ranks. The new contribution is the combined exact n=3 geometric and homological boundary, with the sharp low-size Boolean trace formulation. Historical priority remains provisional.",
+    "residual_risks": [
+      "Unindexed finite Latin-square trace computations could already contain the order-three polynomial and binary Betti numbers.",
+      "The two closest published indexed geometric results were comparable by their summaries only, not full documents; their stated objects nevertheless differ.",
+      "The original 1981 proof of Smetaniuk theorem was not re-read, although its exact statement was verified in a later journal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same objects, no exact n=3 shattering complex or homology stated in material read",
+        "evidence": [
+          "Eq. 1.0.1 represents Latin square as triples",
+          "Theorem 1.3 gives n^2-(e+o(1))n^{5/3} VC lower bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1606.00032v2",
+        "material_read": "Full HTML introduction, definitions, Theorems 1.3-1.4 and section 2.2 proof",
+        "method": "Opened accessible HTML and compared hypotheses/conclusions",
+        "title": "Teaching dimension, VC dimension and critical sets for Latin squares",
+        "trigger": "Exactly the same concept class and VC dimension"
+      },
+      {
+        "assessment": "Different random threshold question; no exact Boolean trace classification",
+        "evidence": [
+          "Definition 1.1 Latin box 3D incidence array",
+          "Theorems 1.3-1.6 random-containment thresholds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1711.09741",
+        "material_read": "Accessible full HTML introduction, Definition 1.1, Theorems 1.3-1.6, start of proof section",
+        "method": "Reviewed theorem objectives and 3D 0/1 incidence representation",
+        "title": "On the Threshold Problem for Latin Boxes",
+        "trigger": "Middle-cohort representation and avoidance motivation"
+      },
+      {
+        "assessment": "Used as prior theorem for <=n-1 partial entries, not claimed original",
+        "evidence": [
+          "Theorem 5: partial Latin square with <= n-1 filled cells completable"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2006.05.028",
+        "material_read": "HTML theorem extract stating Theorem 5 Evans conjecture; original Smetaniuk 1981 proof not inspected",
+        "method": "Checked stated bound and hypotheses in accessible journal HTML",
+        "title": "On avoiding odd partial Latin squares and r-multi Latin squares",
+        "trigger": "Established completion theorem required for all n"
+      },
+      {
+        "assessment": "Neighborhood concept family, not Latin squares",
+        "evidence": [
+          "Theorems bound VC of adjacency relation on Johnson and Hamming graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+        "material_read": "Full published HTML introduction, set-system definitions and Hamming and Johnson results surfaced by web text",
+        "method": "Compared the exact binary query relation and stated VC theorems",
+        "title": "Vapnik-Chervonenkis dimension and density on Johnson and Hamming graphs",
+        "trigger": "Middle-cohort VC set-system literature"
+      },
+      {
+        "assessment": "Nonidentical complex; summary does not cover this Boolean shattered-support complex",
+        "evidence": [
+          "Indexed all-partial-Latin-square complex is eight-dimensional, not the two-dimensional shattering complex"
+        ],
+        "identifier_or_url": "published-record:63721f81dfe5",
+        "material_read": "Published-index title and abstract only; linked full contents inaccessible",
+        "method": "Compared stated ground complex, face dimension and homology in index",
+        "title": "Thirty-eight four-spheres in the order-three partial Latin-square complex",
+        "trigger": "Same Latin order and simplicial homology vocabulary"
+      },
+      {
+        "assessment": "Finite-variable first-order indistinguishability is not an exact shattered-support polynomial",
+        "evidence": [
+          "The published summary classifies rank-four theories, not binary trace support families"
+        ],
+        "identifier_or_url": "published-record:58ffe400075c",
+        "material_read": "Published-index title and abstract only; not the full text",
+        "method": "Compared definitions and logical quantifiers at result-summary level",
+        "title": "Four rank-four theories of three-sorted Latin-square incidence structures",
+        "trigger": "Same incidence structures and low-rank logical invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9fbb171d-9dac-4c98-80a2-c6a9fa190689",
+  "value": {
+    "rationale": "The exact low-order boundary is motivated by the same Latin-square learning class studied in a primary paper, and the sharp <=n-1 universal shattering guarantee resolves every labelled support in that range rather than a scalar extremum. At the smallest order where the guarantee does not settle triples, the precise geometric obstruction and nonpure maximal-face classification are given, with 111 mod-two one-cycles and 83 two-cycles. These are natural combinatorial invariants of the same hypothesis family and are not known-table recomputations in the literature checked; they support studying local completion obstructions and topology of learning traces. The result does not claim a new general completion theorem or universal higher-degree VC bound.",
+    "status": "PASS"
+  }
+}
