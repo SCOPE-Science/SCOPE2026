@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "From Weibull profile scale MLE, sum Y_i=n. For all t≤1/n the empirical minCF is exactly t; the null Exp(1) minCF equals t(1-exp(-1/t)), forcing the deterministic square term. An explicit integrable tail bound and Bessel/Laplace saddle prove uniform first-order collapse. The clipping decomposition isolates the max breakpoint t=1/M, with linear slope rM/n; endpoint Watson expansion gives correction 2r exp(-M-gamma/M)/gamma². For unequal maxima, exponential rate comparison proves eventual reverse ordering. The current package checker passed 66 high-precision assertions (not itself the infinite proof).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2307.03429 Sections 2-4 cover parameter-free tests under transformations but do not expand the specified minCF statistic as its weight varies.",
+        "Falk-Stupfler supplies transform uniqueness and empirical-functional convergence, but the inspected abstract does not cover weight-dependent fitted Weibull tests.",
+        "arxiv:2310.12348 Sections 5-6 establish fixed-weight null limit and consistency and simulate gamma=0.5,1,5; no changing-gamma theorem in the inspected paper."
+      ],
+      "reasoning": "Generic minCF convergence and MLE equivariance do not entail a uniform-in-data gamma/n² bound, a Bessel saddle coefficient, or a fixed-sample exponential correction with its max-dependent scale. Classical Laplace asymptotics are a legitimate potential broad technique, and this broader-priority possibility is retained as a risk.",
+      "searches": [
+        "arxiv:2307.03429 full text: MLE equivariance and Weibull standardized tests",
+        "Falk-Stupfler 2019/2021 min-characteristic function characterization DOI 10.1007/s13171-019-00184-1",
+        "Web: minCF goodness of fit large gamma asymptotic tuning Weibull minimum characteristic",
+        "Indexed research-record query: goodness of fit high smoothing parameter weight gamma empirical min characteristic statistic second order maximum order statistics Weibull maximum reverse order"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.12348 (2023-10-18 full accessible text)",
+      "arxiv:2307.03429 (2023-07-07 full accessible text)",
+      "doi:10.1007/s13171-019-00184-1 (metadata/abstract only)",
+      "doi:10.1016/j.csda.2024.107988 (published-version metadata)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original fixed-weight consistency quantifies n→∞ at each fixed gamma; it neither implies nor excludes the distinct order of limits gamma→∞ at fixed n.",
+        "MLE standardization fixes the null parameters but does not imply the high-weight endpoint expansion without clipping decomposition and Laplace analysis."
+      ],
+      "reasoning": "The finding complements, rather than contradicts, the original consistency theorem. None of the inspected specific prior theorems contains a stronger result with the same sample-size/gamma quantifiers from which the whole new claim is an immediate corollary.",
+      "searches": [
+        "arxiv:2310.12348 Section 5 Theorem 5.5 and 5.8 and Section 8 conclusion",
+        "arxiv:2307.03429 Proposition 2.1 and Section 3",
+        "Web: Meintanis Milosevic Jimenez-Gamero 2023 high gamma Weibull weighted L2",
+        "Indexed research-record query: large exponential weight Weibull min characteristic function test leading deterministic Bessel K and correction depends on largest MLE transformed observation sample maximum reverse ranking"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meintanis et al. (2023), arxiv:2310.12348, eqs. (3.3),(4.1)-(4.3), define the empirical minCF test; their Theorems 5.5 and 5.8 fix the weight when taking sample-size limits.",
+        "Matsui-Meintanis (2023), arxiv:2307.03429, proves MLE equivariance, not a large-weight expansion.",
+        "Targeted indexed research-record searches returned Weibull parameter, maximum-order and unrelated minCF themes but no matching high-weight expansion."
+      ],
+      "reasoning": "The equivalent kernel form T=n∫[t exp(-1/t)-n^{-1}Σ(tY_i-1)_+]² exp(-gamma t)dt is compared directly. This exposes a cancellation from the fitted mean-one constraint; neither source provides the Bessel leading term plus the clipped-maximum endpoint correction, or its reverse ranking implication. Search non-detection alone is not proof of priority.",
+      "searches": [
+        "Indexed research-record query: Weibull min-characteristic goodness-of-fit large gamma tuning sample mean 1 deterministic collapse Bessel K",
+        "Indexed research-record query: empirical min characteristic function Weibull high gamma limit transformed MLE sample mean spectral degeneracy",
+        "Web: min-characteristic function gamma infinity Weibull goodness of fit high tuning collapse MLE",
+        "arxiv:2310.12348 sections 3-5 and appendix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original source power tables concern finite gamma values and finite sample sizes; they do not list this varying-gamma asymptotic or a correction governed by the standardized sample maximum.",
+        "The queried published research-record results showed no matching exact formula or lookup table."
+      ],
+      "reasoning": "The claim is a parameterized asymptotic theorem, not a recomputed finite-sample table. The exact integral and Bessel representation are verifiable analytically and are not equivalent to existing finite-gamma simulation entries.",
+      "searches": [
+        "Indexed research-record query: 2023 minCF Weibull MLE asymptotics gamma tends infinity n fixed saddle point sample maximum",
+        "Indexed research-record query: Goodness--of--Fit Tests Based on the Min--Characteristic Function Meintanis Milošević Jiménez-Gamero 2023",
+        "arxiv:2310.12348 Section 6 numerical tables and Section 4 analytic formulas"
+      ]
+    },
+    "rationale": "Targeted indexed research-record queries, own-current-ledger claims, the defining 2023 primary full text and the 2023 equivariance paper did not reveal a covering statement. The fixed-gamma n→∞ results in the original paper do not imply this gamma→∞ fixed-n plus uniform gamma/n² result. Known general minCF tools do not directly contain the explicit extremal correction; classical Laplace-method priority remains a risk.",
+    "residual_risks": [
+      "Foundational Falk-Stupfler article not inspected in full; possible unindexed classical weighted-transform/saddle-point analogues.",
+      "The literature searches and similarity search do not establish global novelty.",
+      "No independent referee or external validation has checked the new theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines identical Weibull test and fixed-weight limits but not the large-weight sample-order theorem",
+        "evidence": [
+          "equations (3.1),(3.3),(4.1)-(4.3); Section 5 Theorems 5.5,5.8; Table 2 and Section 8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.12348",
+        "material_read": "Full accessible manuscript in text, particularly Sections 2–6, Sections 8–9 including Proposition 3.1 proof and Theorems 5.5/5.8",
+        "method": "Read accessible arXiv full HTML-equivalent text sections and mathematical displays",
+        "title": "Goodness-of-Fit Tests Based on the Min-Characteristic Function",
+        "trigger": "Direct definition and most plausible earlier coverage of the exact statistic"
+      },
+      {
+        "assessment": "Proves fitting equivariance but no minCF high-gamma expansion or sample-max correction",
+        "evidence": [
+          "proposition 2.1; Section 3 standardization; Section 4 fit tests"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.03429",
+        "material_read": "Accessible full paper Sections 1–4, including equivariance argument and simulations",
+        "method": "Read arXiv full text and relevant transformation formulas",
+        "title": "MLE-Equivariance, Data Transformations and Invariant Tests of Fit",
+        "trigger": "Weibull fitting and invariance might dominate the statement"
+      },
+      {
+        "assessment": "Foundation of minCF uniqueness and convergence, not a demonstrated covering large-weight fitted test theorem; residual historical risk explicitly retained",
+        "evidence": [
+          "2019 DOI metadata and 2021 volume reference; abstract scope"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13171-019-00184-1",
+        "material_read": "Abstract and bibliographic metadata only; full primary article not inspected",
+        "method": "Publisher metadata and author publication record",
+        "title": "The Min-characteristic Function: Characterizing Distributions by Their Min-linear Projections",
+        "trigger": "Foundational minCF results potentially cover the local transform behavior"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd6e896d-1821-43bf-b719-1f635cb3e6bb",
+  "value": {
+    "rationale": "For the published exponential-weight Weibull minCF statistic, the large-tuning limit discards all sample dependence at the dominant Bessel scale; the first surviving information is an exponentially smaller maximum-order correction that reverses the conventional large-statistic ordering. The explicit nonasymptotic bound and joint gamma/n² regime quantify the weight/sample-size relationship and explain when numeric calibration becomes extremely delicate. This is a motivated structural boundary for a specific test, not an arbitrary numerical slice or a mere restatement of consistency.",
+    "status": "PASS"
+  }
+}
