@@ -1,0 +1,11 @@
+# Review
+
+**Correctness — PASS.** The universal normal-form product formula is deduced from the Coxeter right-descent rule. Comparing forward and reverse products gives an exhaustive three-case commutation predicate; summing parity-indexed partners gives the exact element-centralizer distribution. Two independent descriptions of multiplication (closed alternating form and dihedral group BFS/length-ascent implementation) agree through \(m=64\). The finite check supports but does not establish the universal quantifier; the structural proof does.
+
+**Originality — PASS with residual priority risk.** Denton et al. (2010), §§2.4, 3.7.1, address the Hecke monoid presentation and representation-theoretic quiver/radical invariants, not full element centralizers. He (2015), §§4–5, studies the algebraic center/cocenter and does not state the monoid centralizer spectrum. A separate earlier invariant on this dihedral monoid counts powers, not commuting pairs. Direct literature and mathematical-result searches did not identify a stronger theorem that gives the two-parity centralizer profile; unlocated prior enumerations cannot be excluded. The known Coxeter normal forms, descent multiplication, and center-of-algebra theorems are explicitly credited, not presented as new.
+
+**Value — PASS.** Centralizer-size distribution is a natural complete invariant of finite-monoid commutativity, not an arbitrary subcase. Here it determines an unexpected parity-dependent jump from two to four central elements and an exact persistent commutation density \(5/8\) across an unbounded sequence of noncommutative monoids. The uniform formulas supply a concrete rank-two baseline for comparisons with higher-rank zero-Hecke monoids and J-trivial semigroups, and they are not merely a single small-case table.
+
+**Closest prior literature and risks.** The monoid presentation and indexing already occur in Denton et al. (arXiv:1010.3455); the different algebraic center in He (arXiv:1502.02183) must not be conflated with the center of the monoid. The proof is self-contained after these standard definitions. A specialized older commuting-pair table could diminish originality, but none was located in the comparisons recorded in the structured audit. No independent validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
