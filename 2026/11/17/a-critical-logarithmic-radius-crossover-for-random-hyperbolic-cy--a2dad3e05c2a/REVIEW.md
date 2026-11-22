@@ -1,11 +1,21 @@
-# Scientific review — hyperbolic cyclic-polygon area crossover
+# Independent mathematical audit
 
-**Correctness: PASS.** The finite-sample area identity is derived by a hyperbolic area primitive and Stokes' theorem, independently cross-checked by a Gauss--Bonnet implementation. Exact Dirichlet circular spacings, exponential normalization, uniform local expansions and the independent central limit theorem establish the limiting area, variance and transition endpoints. The fixed-window Gaussian limit is centered at the limiting mean under the explicitly stated tuning accuracy. The numerical checker verifies several cases but is not an infinite proof.
+## correctness
 
-**Originality: PASS, with historical uncertainty.** An open-access 2014 hyperbolic-triangle area paper supplies geometric formulas, not a random many-vertex limit. The relevant sections of the accessible full-text 2015 hyperbolic cyclic-polygon existence/uniqueness paper are deterministic and does not cover the logarithmic-radius probabilistic phase transition. Euclidean random-polygon variance papers and probabilistic hyperbolic-circumcircle results address different sampling objects or statistics. Searches on the crossover parameter, angular exponential gaps, hyperbolic area normalization, and arctangent form revealed no directly dominating statement. The standard Dirichlet-spacing and delta-method mechanisms are acknowledged as antecedents; the explicit geometric crossover is the assessed contribution. Unindexed equivalent treatments and stronger general geometric limit theorems remain priority risks.
+PASS
 
-**Value: PASS.** At the geometric boundary between a disk too large for a random polygon to fill and a disk densely approximated by its sampled boundary vertices, the circle radius must grow logarithmically with the number of vertices. The exact limiting captured-area fraction is strictly monotone and invertible, and a parameter-dependent nondegenerate Gaussian law quantifies the fluctuations. The two asymptotic endpoints recover the ideal-polygon and filled-disk geometries, giving a natural and interpretable transition rather than an arbitrary parameter slice.
+In Poincare disk with q=tanh²(R/2), Stokes/geodesic-angle computation gives exactly A_n=Σ_j F_q(δ_j), F_q(δ)=2atan2(q sinδ,1-q cosδ), including a signed term when δ>π. Sorted angular gaps have Dirichlet(1,…,1) law, representable as 2π E_j/Σ E_i. With q=1−λ/n and typical E_j bounded by O(log n), F_q(2π E_j/Σ E_i) tends to 2atan(2π E_j/λ); exponential tail and Taylor remainder yield o_p(n^-1/2) on the empirical average. LLN gives Φ; delta method on Σ E_i yields influence g(E)−E[E gʹ(E)](E−1) and variance Var(g(E)−α E)>0. Area disk 4πq/(1−q) yields Ψ=λΦ/(4π). Monotonicity follows from decreasing arctan(y)/y and endpoint expansions of the exponential integral; λ→0 ideal-polygon and λ→∞ disk-filling regimes via bounded empirical spacings. Checked R≈log(4n/λ) and CLT tuning λ_n=λ+o(n^-1/2).
 
-**Scientific limitations.** Sampling must be uniform by circle arclength in curvature \(-1\), and the Gaussian limit requires controlled tuning. No independent mathematical or historical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A same-object fixed-n published polylogarithmic formula for the mean area is relevant and covers the finite-n expectation, but explicitly does not cover the simultaneous radius-and-n limit or the CLT. Independent primary hyperbolic geometry and general Euclidean/hyperbolic polygon results do not state this tuned crossover; novelty remains best-of-knowledge.
+
+## value
+
+PASS
+
+The coupling R~log n produces an explicit, strictly invertible disk-coverage phase profile and a fluctuation law in a natural random hyperbolic polygon model, distinguishing geometric finite-radius polygon behavior from ideal and disk regimes. The exact mean-only result is not the claimed addition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

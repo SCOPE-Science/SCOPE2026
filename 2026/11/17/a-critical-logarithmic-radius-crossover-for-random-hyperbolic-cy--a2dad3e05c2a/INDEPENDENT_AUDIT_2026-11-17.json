@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:54:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In Poincare disk with q=tanh²(R/2), Stokes/geodesic-angle computation gives exactly A_n=Σ_j F_q(δ_j), F_q(δ)=2atan2(q sinδ,1-q cosδ), including a signed term when δ>π. Sorted angular gaps have Dirichlet(1,…,1) law, representable as 2π E_j/Σ E_i. With q=1−λ/n and typical E_j bounded by O(log n), F_q(2π E_j/Σ E_i) tends to 2atan(2π E_j/λ); exponential tail and Taylor remainder yield o_p(n^-1/2) on the empirical average. LLN gives Φ; delta method on Σ E_i yields influence g(E)−E[E gʹ(E)](E−1) and variance Var(g(E)−α E)>0. Area disk 4πq/(1−q) yields Ψ=λΦ/(4π). Monotonicity follows from decreasing arctan(y)/y and endpoint expansions of the exponential integral; λ→0 ideal-polygon and λ→∞ disk-filling regimes via bounded empirical spacings. Checked R≈log(4n/λ) and CLT tuning λ_n=λ+o(n^-1/2).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kourimska–Skuppin–Springborn arXiv:1506.08069; Besau–Rosen–Thäle fixed-body hyperbolic random-polytope CLTs (2021)"
+        ],
+        "reasoning": "Prescribed-side geometry and fixed-body sampling CLTs do not assert a moving boundary radius R_n~log n or the precise arctan profile and variance.",
+        "searches": [
+          "hyperbolic random cyclic polygon area sample vertices boundary log radius critical Dirichlet exponential Gaussian",
+          "Deterministic hyperbolic cyclic polygons and general random-polygon central-limit techniques"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/2014/838497",
+        "https://arxiv.org/abs/1506.08069",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-finite-polylogarithmic-mean-area-laws-for-random-hyperbolic-cycl--205189fce0d1",
+        "https://link.springer.com/article/10.1007/s00208-021-02257-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 2026/11/17/205189fce0d1; full text explicitly states only fixed n and no joint asymptotic"
+        ],
+        "reasoning": "One can derive parts by new asymptotic analysis of its Fourier gap representation, but the prior statement and O_n remainder do not imply or establish the claimed CLT. Deterministic geometric formulas are acknowledged background.",
+        "searches": [
+          "hyperbolic random cyclic polygon area sample vertices boundary log radius critical Dirichlet exponential Gaussian",
+          "Could the fixed-n all-n formula already imply a critical profile?"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bao–Chen (2014) DOI:10.1155/2014/838497 and Resultary 2026/11/17/205189fce0d1 full RESULT"
+        ],
+        "reasoning": "The fixed-n prior result evaluates the same expected area with polylogarithms but fixes n, and its error O_n is nonuniform for n→∞.",
+        "searches": [
+          "hyperbolic random cyclic polygon area sample vertices boundary log radius critical Dirichlet exponential Gaussian",
+          "Ordered circular Dirichlet gaps and the hyperbolic Gauss–Bonnet sum of signed angular contributions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/17/SCOPE-finite-polylogarithmic-mean-area-laws-for-random-hyperbolic-cycl--205189fce0d1 full RESULT.md"
+        ],
+        "reasoning": "Finite-n means are covered; the new claim is a joint scaling limit with variance, not novelty of finite-n moments.",
+        "searches": [
+          "hyperbolic random cyclic polygon area sample vertices boundary log radius critical Dirichlet exponential Gaussian",
+          "Fixed-n expected hyperbolic random cyclic polygon area table"
+        ]
+      },
+      "rationale": "A same-object fixed-n published polylogarithmic formula for the mean area is relevant and covers the finite-n expectation, but explicitly does not cover the simultaneous radius-and-n limit or the CLT. Independent primary hyperbolic geometry and general Euclidean/hyperbolic polygon results do not state this tuned crossover; novelty remains best-of-knowledge.",
+      "residual_risks": [
+        "An earlier uniform-in-n asymptotic for fixed-n expected area or general triangular array Dirichlet spacings might subsume portions of the profile.",
+        "Specialized hyperbolic boundary-polygon stochastic literature is not exhaustively indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all finite-n mean areas, not a joint n,R limit or Gaussian fluctuations.",
+          "evidence": "Finding and proof of finite polylogarithm sum; Limitations explicitly exclude joint large-n large-R asymptotics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-finite-polylogarithmic-mean-area-laws-for-random-hyperbolic-cycl--205189fce0d1",
+          "material_read": "Entire RESULT.md: fixed-n polylogarithmic expectation, Gauss–Bonnet gap Fourier identity, fixed-n large-R expansion and scope/limitations.",
+          "method": "Full GitHub research text at public immutable result path; implication comparison.",
+          "title": "Finite polylogarithmic mean-area laws for random hyperbolic cyclic polygons",
+          "trigger": "Exact same boundary sampling model and area observable"
+        },
+        {
+          "assessment": "Deterministic triangle/polygon area, no random growing-radius regime.",
+          "evidence": "Theorem 2 and Remarks 6/9/10.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/838497",
+          "material_read": "Open full article introduction, hyperbolic metric and area definitions, Theorem 2, and polygon-area Remarks 6/9/10.",
+          "method": "Read original lawful full HTML and compared its area statements with joint stochastic theorem.",
+          "title": "A New Hyperbolic Area Formula of a Hyperbolic Triangle and Its Applications",
+          "trigger": "Primary geometric area formula underlying the signed gap identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coupling R~log n produces an explicit, strictly invertible disk-coverage phase profile and a fluctuation law in a natural random hyperbolic polygon model, distinguishing geometric finite-radius polygon behavior from ideal and disk regimes. The exact mean-only result is not the claimed addition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1155/2014/838497",
+    "https://arxiv.org/abs/1506.08069",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-finite-polylogarithmic-mean-area-laws-for-random-hyperbolic-cycl--205189fce0d1",
+    "https://link.springer.com/article/10.1007/s00208-021-02257-9"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a hyperbolic circle with n angularly uniform boundary samples, n sech²(R_n/2)→λ gives a monotone arctangent area-coverage profile, explicit endpoint regimes and a nondegenerate fixed-parameter Gaussian fluctuation.",
+  "limitations": [
+    "Vertices are sampled independently uniformly in hyperbolic circle arclength at curvature −1; fixed critical-parameter CLT is not a universal fluctuation theorem for arbitrary hyperbolic convex sets."
+  ],
+  "residual_risks": [
+    "An earlier uniform-in-n asymptotic for fixed-n expected area or general triangular array Dirichlet spacings might subsume portions of the profile.",
+    "Specialized hyperbolic boundary-polygon stochastic literature is not exhaustively indexed."
+  ],
+  "schema_version": 1
+}
