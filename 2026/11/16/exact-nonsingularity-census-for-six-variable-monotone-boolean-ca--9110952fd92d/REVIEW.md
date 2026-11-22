@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS (finite exact census).** The cofactor bijection exhausts all labelled monotone six-variable functions and reconstructs 7,828,354 unique truth masks. An integer 64-point Walsh butterfly calculation was compared at every frequency of every function with an independently constructed transform from direct character sums on five-dimensional cofactors; all comparisons and the full weight-stratified census passed. The loop bounds and exact 64-bit truth-mask encoding are supplied in a standalone C++17 file. The Fourier operator consequences follow from character diagonalization. The finite character of the claim is essential.
+## correctness
 
-**Originality — PASS under bounded comparison.** The 2012 paper supplies one even nonsingular dimension-six example and the Fourier-Cayley connection; the 2016 paper supplies the general character-sum expression. A 2013 six-variable Walsh-distribution thesis concerns all Boolean functions, not monotonicity-stratified Cayley invertibility. The specified complete exceptional-population count, twelve support-size strata and sharp gaps are not stated in the inspected material. An overlooked prior computation or unpublished table remains possible.
+PASS
 
-**Mathematical value — PASS.** Dimension six is the first place the classical even-support singularity heuristic fails; its counterexample was historically motivating. Determining the complete proportion of exceptions, their natural support-size distribution and uniform sharp inverse stability resolves the finite first-exception census rather than repeating one witness. This is a natural exact invariant, not an arbitrary small subcase.
+For each monotone 6-variable function the cofactor decomposition f=(a,b) with a<=b is bijective. The cofactor Walsh coefficients A±B give all 64 eigenvalues of unnormalized Boolean convolution; full 64-point butterfly appears separately in the inspected verifier. An independently written and compiled exact C++ cofactor enumeration reproduced all 7,828,354 functions, 3,913,460 odd supports (every one gap 1), 3,914,894 even supports, precisely 23,732 even zero-free supports (each gap 2), and all 12 support-size strata. The original C++ checks dimensions 1 through 5 for absence of even nonsingular supports. Integer bounds and bit masks are appropriate; finite exhaustive bijection is sufficient for this finite theorem, not for dimensions >6. Fourier diagonalization gives inverse norms and condition numbers.
 
-**Limitations.** Neither the general 2016 formula nor published enumeration of all Boolean functions directly yields these monotone-subpopulation numbers without filtering and exact computation. No results beyond six dimensions, independent certification, or universal priority are claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2012 paper proves that some six-variable even supports are nonsingular and describes Walsh/Cayley equivalence; 2016 gives general monotone Walsh formulas; neither inspected statement yields the exact 23,732-class partition, its 12 support-size strata, or sharp first-exception gap. This is not a new Walsh transform or existence theorem. No identical published record was returned by targeted Resultary searches excluding the same newly posted claim; a hidden prior census remains possible.
+
+## value
+
+PASS
+
+The first dimension in which even monotone support can avoid a zero Walsh multiplier is mathematically natural and previously motivated by a constructed exception. A complete exact frequency, support-size distribution and sharp inverse-norm law quantify how exceptional that counterexample is at the first threshold; the invariant is natural and not merely a tiny arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
