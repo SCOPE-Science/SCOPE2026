@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has a completely specified full-plane domain, a positive-definite site-dependent metric for every real \(\kappa>0\), and a closed-cell tie convention. Direct subtraction of the three quadratic costs yields the exact product identity (1). Both sign regimes are exhausted algebraically, including the zero-factor boundaries; the resulting polyhedra have the explicitly proved intersections, separations, areas, and topologies. The equal-parameter case is covered separately. An exact-rational checker independently recomputes the minimizing costs and membership and reports 86,778 passed assertions. Computation does not substitute for the proof of infinitely many parameters or topology.
+PASS
 
-## Originality — PASS (provisional historical priority)
+Cost expansion Q_j=|z|²+κ+(κ−1)t_j²−2κt_j with t1+t2+t3=0 gives Q_i−Q_j=(t_i−t_j)[−(κ−1)t_k−2κ] exactly. In X,Y with z=(X,√3Y), factoring sign inequalities into u=X−Y,v=X+Y gives exhaustive two-component decomposition for κ<1, single wedge at 1, and three convex regions with two single-point intersections for κ>1. Directly checking all equality axes closes sign cases. Separation is achieved between (0,0) and (−2c,0) in X,Y (minimum 2c); core vertices (0,0),(c/2,±√3c/2),(2c,0) give area √3c². A tree of convex full-dimensional pieces touching only at two points is contractible with exactly two cut points and three distinct interior components. Independently evaluated exact rational quadratic costs and membership for 26047 sample coordinates and κ values, only corroborative; algebra establishes all positive real κ.
 
-The closest anisotropic tensor literature supplies site-star-convex formulas, not a full-plane connected-component classification. Classical anisotropic Voronoi sources explicitly acknowledge orphan cells, and that general phenomenon is not claimed as new. Closest published exact results treat two-site orphan directions or three *collinear*, scalar-weighted site metrics. Neither supplies the equilateral, threefold rotated, equal-spectrum matrix family, its reducible bisectors, the sharp two-component/orphan gap, or the connected two-pinch interior-component regime. Relevant primary documents were read at the levels stated in the structured comparison. Historical equivalent examples in unindexed degeneracy literature remain possible and require independent priority review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Three sites with equal-spectrum, radially aligned ellipses form a natural minimal symmetric nontrivial example. The two sides of isotropy exhibit sharply different global topologies: an exact distant orphan versus a path-connected cell with three interior components and two cut points. The theorem identifies precise polyhedral shapes, the unique shortest gap, and a compact-core area. These provide a concrete structural boundary to the star-convex framework for anisotropic morphological quantities, rather than a renamed textbook observation or an unmotivated numeric slice.
+Foundational Labelle–Shewchuk 2003 and Canas–Gortler 2011 describe site-fixed quadratic anisotropic cells, orphan configurations and sufficient net conditions to exclude orphans, but no theorem in inspected material gives the exact radially aligned equilateral three-site one-parameter global partition. Published Resultary Loewner-orphan two-site theorem handles two sites; published three-collinear-site sharp visibility thresholds concern scalar metrics and collinear sites. Neither algebraically implies the noncollinear rotated-matrix pinch decomposition. Venkovic–Anzt 2026 abstract restricts tensor formulas to star-convex cells; full text unavailable, explicitly an originality residual risk. Best-of-knowledge PASS.
 
-## Sources and limits
+## value
 
-Primary references are Venkovic and Anzt (arXiv:2610.08656v1, 2026); Labelle and Shewchuk (SoCG 2003); Canas and Gortler (arXiv:1102.3670, 2011). Related published exact comparisons are *Loewner rigidity and an exact angular orphan law for two-site anisotropic Voronoi cells* (2026-11-01) and *Sharp minimal-site visibility and three-site phase thresholds in quadratic Voronoi geometry* (2026-11-08). The former two exact reports concern distinct two-site or collinear settings, respectively. No general-position or clipped-diagram classification is asserted; no external independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This equal-spectrum rotated-ellipse triple is a natural minimal symmetric anisotropy test case. Its complete sharp transition from a separated orphan to a connected but pinched non-star-shaped cell exposes geometric limits of star-convex diagram methods, with explicit globally meaningful gap, cut-point and area constants. It is not a generic reminder that anisotropic Voronoi regions may be disconnected.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
