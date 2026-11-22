@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T01:53:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: from r=x^2-1 and G=x(1-ar), r'=r q_a(r), q_a(r)=1-2a+(a^2-2a)r+a^2 r^2. q(-1)=q(2/a)=1; vertex r*=(2-a)/(2a) has q=-b, b=a+a^2/4. Since q<=1, H=q^2 exceeds t>=1 iff q<-sqrt(t), giving r_pm=[2-a±sqrt(a^2+4a-4sqrt(t))]/(2a). For X uniform on (-sqrt(1+2/a),sqrt(1+2/a)), calculate probability [sqrt(1+r_+)-sqrt(1+r_-)]/sqrt(1+2/a)=sqrt(1-2sqrt(1+sqrt(t))/(a+2)), supported 1<=t<b^2 when a>2sqrt(2)-2. For Z=a(X^2-1) independently uniform on (-a,2), interval width produces sqrt(max(a^2+4a-4sqrt(t),0))/(a+2). Essential sup b^2; derivatives give asserted endpoint and onset constants. For sign flip r>1/a, whereas amplification r<r_+(1)<1/a (a<1), so events disjoint. The probability 1-sqrt((a+1)/(a+2)) follows from |x|>sqrt(1+1/a). No trajectory-wide result follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hofmann 2026 studies the cubic dynamical map and its post-edge orbit geometry; Chen & Bruna concern primarily higher-rate two-cycle dynamics, not these specified first-step distributions. Hofmann complete paper inaccessible, making the comparison conditional."
+        ],
+        "reasoning": "Neither accessible result statement mathematically implies the explicit nested-square-root and residual-uniform tail laws merely from a bifurcation classification; a full source may strengthen coverage.",
+        "searches": [
+          "arXiv:2607.04993 scalar-gradient-map section referenced in title/abstract",
+          "arXiv:2206.04172 two-step gradient updates",
+          "Resultary_Search: quartic gradient first-step amplification probability"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2310.01687",
+        "https://arxiv.org/abs/2607.04993",
+        "https://arxiv.org/abs/2206.04172",
+        "Resultary_Search one-step quartic map semantic query",
+        "Git blob bf65d95910cbf9dfb848dba300889475c894880f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older threshold a_c states existence/nonexistence of non-monotone steps; it does not determine probability under X uniform versus Z uniform. The new probabilities require an explicit quadratic level-set integration."
+        ],
+        "reasoning": "The known scalar map and global threshold are sufficient premises to derive the formulas with new elementary work, but do not state the result by an immediate identical theorem or stronger quantified distribution.",
+        "searches": [
+          "arXiv:2310.01687 Theorem 2.1",
+          "arXiv:2607.04993 abstract",
+          "arXiv:2206.04172"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen et al. use an affinely equivalent residual recursion and prove monotone-loss threshold a_c=2sqrt(2)-2; no probability measure of the full H>t superlevel sets appears in the examined theorem/derivation."
+        ],
+        "reasoning": "An equivalent coordinate form of the cubic map itself is known, so only the exact measure of its full severity level sets under two stated priors is assessed as new.",
+        "searches": [
+          "Resultary_Search: one step loss increase gradient quartic catapult severity amplification probability step size Chen Balasubramanian threshold",
+          "arXiv:2310.01687 Theorem 2.1 Lemma 1 Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A current same-claim published record is the assigned finding, not earlier independent evidence; no matching published severity table was found among retrieved relevant prior records."
+        ],
+        "reasoning": "This is a continuous distribution of a specified map, not a finite database/table invariant. Negative search is only absence of discovered match, not novelty proof.",
+        "searches": [
+          "Resultary_Search semantic query above, top ranked including same 2026-11-17 record",
+          "arXiv:2310.01687 bounded region and threshold"
+        ]
+      },
+      "rationale": "PASS (best knowledge): earlier papers specify the identical cubic residual map, catapult onset and bounded domain, but their examined statements do not give the arbitrary severity threshold probabilities under two distinct continuous initialization measures or the event disjointness. The exact one-step superlevel measure is new relative to checked implications, not a new dynamical map or threshold. Inaccessible full Hofmann text is a real priority risk; no negative whole-document claim is made.",
+      "residual_risks": [
+        "Historical exact one-step exceedance formula may predate checked literature; deriving an algebraic corollary can have short independent proof without assured first publication.",
+        "Hofmann 2026 relevant full primary paper not read because arXiv full text unavailable and institutional VPN disconnected.",
+        "Only one update; uniform weights versus uniform residuals are two distinct priors, not a coordinate-invariant probability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cubic recursion, threshold, and residual initialization; examined passages do not provide one-step full amplification severity tails.",
+          "evidence": [
+            "Theorem 2.1 monotone-loss frontier; Lemma 1 residual recursion; Appendix A"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.01687",
+          "material_read": "Actual full arXiv HTML relevant Theorem 2.1, Lemma 1, Appendix A and residual transformation",
+          "method": "full-text HTML section reading",
+          "title": "From Stability to Chaos: Analyzing Gradient Descent Dynamics in Quadratic Regression (Chen et al. 2023)",
+          "trigger": "exact same cubic gradient dynamics and threshold"
+        },
+        {
+          "assessment": "Plausibly related and inaccessible for full comparison; not classified as whole-document noncoverage.",
+          "evidence": [
+            "arXiv:2607.04993 abstract; Oxford retrieval status vpn_disconnected, no full-text inspection"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.04993",
+          "material_read": "arXiv title, abstract and publicly accessible summary of scalar foundation only; full primary PDF/HTML could not be obtained",
+          "method": "arXiv abstract plus access attempts; authorized institutional retrieval returned vpn_disconnected",
+          "title": "The Map Behind the Flow: Finite-Step Gradient Descent as a Dynamical System (Hofmann 2026)",
+          "trigger": "identical quartic loss and cubic map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the question of the distribution of a transient first-step loss spike is physically intrinsic to the exact quartic gradient dynamics; both initializations used in the literature lead to markedly different severity distributions, despite identical deterministic thresholds. Sharp onset, endpoint and sign-switch separation are diagnostic refinements beyond a binary stable/unstable classification, not a parameter renaming or gratuitous tiny instance. This is restricted one-step analysis, not a full catapult trajectory law.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2310.01687",
+    "https://arxiv.org/abs/2607.04993",
+    "https://arxiv.org/abs/2206.04172",
+    "Resultary_Search one-step quartic map semantic query",
+    "Git blob bf65d95910cbf9dfb848dba300889475c894880f"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the one-dimensional quartic gradient map with 0<a<1, the exact entire first-update loss-exceedance distribution under uniform physical weights and separately uniform residuals, its sharp square-root threshold/endpoint laws, and disjointness of strict first-update amplification from sign reversal.",
+  "limitations": [
+    "No formal Lean or expert certification asserted.",
+    "Scientific review is complete; provenance-clean publication transport is not ready."
+  ],
+  "residual_risks": [
+    "Historical exact one-step exceedance formula may predate checked literature; deriving an algebraic corollary can have short independent proof without assured first publication.",
+    "Hofmann 2026 relevant full primary paper not read because arXiv full text unavailable and institutional VPN disconnected.",
+    "Only one update; uniform weights versus uniform residuals are two distinct priors, not a coordinate-invariant probability."
+  ],
+  "schema_version": 1
+}

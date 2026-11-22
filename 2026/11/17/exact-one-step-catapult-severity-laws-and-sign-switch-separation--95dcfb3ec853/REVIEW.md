@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof defines both probability measures, derives the exact cubic residual identity, and uses a quadratic discriminant and two interval-length formulas to obtain necessary-and-sufficient exceedance laws for every stated parameter and severity. The formulas include their strict endpoints, square-root asymptotics and sign-switch exclusion. The standalone checker corroborates exact identities and selected numerical probabilities, rather than being taken as a universal proof.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-Hofmann's arXiv:2607.04993v1 (§§2.1–2.10) contains the same gradient map, a phase threshold and a state-space envelope. Chen et al.'s arXiv:2310.01687v1 (§2 and Appendix A) contains the equivalent residual map, global convergence and the uniform-residual phase threshold. Chen and Bruna's arXiv:2206.04172v1 (§4 and Appendix F) covers stable period-two behavior for a different parameter range. None of the inspected relevant primary statements supplies the two full relative first-loss exceedance distributions for all thresholds \(t\ge1\). Actual searches of a mathematical research record and external literature for equivalent formulas, spikes, probabilities, arbitrary severity and the same quartic map identified related optimization methods but no directly covering statement. The distinction between knowing that an increase exists and knowing the exact superlevel-set measure at **every** severity is essential. Priority is provisional, and an independently derived short special-case calculation may exist elsewhere.
+PASS
 
-## Value — PASS
-The complete exceedance distribution, not merely a transition threshold, quantifies the severity and frequency of one-step loss spikes among convergent-regime initializations, and gives exact risk quantiles. Contrasting uniform physical weights with uniform residuals demonstrates a substantive sampling-coordinate effect. The independent sign-switch mechanism is proven disjoint, clarifying what loss spikes do and do not indicate. This is a natural exact invariant of the specified random-initialization dynamical model; broader neural-network claims are expressly excluded.
+PASS: from r=x^2-1 and G=x(1-ar), r'=r q_a(r), q_a(r)=1-2a+(a^2-2a)r+a^2 r^2. q(-1)=q(2/a)=1; vertex r*=(2-a)/(2a) has q=-b, b=a+a^2/4. Since q<=1, H=q^2 exceeds t>=1 iff q<-sqrt(t), giving r_pm=[2-a±sqrt(a^2+4a-4sqrt(t))]/(2a). For X uniform on (-sqrt(1+2/a),sqrt(1+2/a)), calculate probability [sqrt(1+r_+)-sqrt(1+r_-)]/sqrt(1+2/a)=sqrt(1-2sqrt(1+sqrt(t))/(a+2)), supported 1<=t<b^2 when a>2sqrt(2)-2. For Z=a(X^2-1) independently uniform on (-a,2), interval width produces sqrt(max(a^2+4a-4sqrt(t),0))/(a+2). Essential sup b^2; derivatives give asserted endpoint and onset constants. For sign flip r>1/a, whereas amplification r<r_+(1)<1/a (a<1), so events disjoint. The probability 1-sqrt((a+1)/(a+2)) follows from |x|>sqrt(1+1/a). No trajectory-wide result follows.
 
-## Closest literature and limitations
-Prior cubic map, catapult threshold and sign-boundary ingredients are explicitly credited. The new claim is only the exact all-threshold distribution and its two sampling laws and consequences. Calculations are elementary but go beyond the printed threshold/phase classifications; exhaustive historical priority and independent validation are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): earlier papers specify the identical cubic residual map, catapult onset and bounded domain, but their examined statements do not give the arbitrary severity threshold probabilities under two distinct continuous initialization measures or the event disjointness. The exact one-step superlevel measure is new relative to checked implications, not a new dynamical map or threshold. Inaccessible full Hofmann text is a real priority risk; no negative whole-document claim is made.
+
+## value
+
+PASS
+
+PASS: the question of the distribution of a transient first-step loss spike is physically intrinsic to the exact quartic gradient dynamics; both initializations used in the literature lead to markedly different severity distributions, despite identical deterministic thresholds. Sharp onset, endpoint and sign-switch separation are diagnostic refinements beyond a binary stable/unstable classification, not a parameter renaming or gratuitous tiny instance. This is restricted one-step analysis, not a full catapult trajectory law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
