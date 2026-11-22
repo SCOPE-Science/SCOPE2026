@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 checker.py` in the extracted artifact directory, using only Python 3 standard library. Success marker: `HEXAGON_SEVEN_L6_ALPHABETS_PASS`.
+# Independent mathematical audit
 
-The checker constructs cubic Fourier coefficient fibers directly from 343 ordered triples and also builds the moment Laurent polynomial independently from unordered multinomial triples. It checks their agreement for all \(2274\) normalized exponent tuples over cyclotomic rings, and then checks the complete minimum, next-value, maximum and optimizer count tables. The exact five-phase comparison orders elements \(A+B(\sqrt5-1)/2\) by integer sign and squared-integer comparisons, so no numerical tolerance enters any claimed minimum. Expected normalized minimizer counts are \(3,6,3,6,3\), and the raw coefficient counts are \(24,162,192,750,648\). The all-one moment is \(5881\).
+## correctness
 
-The analytic proof supplies Fourier orthogonality, the bijective three-coefficient phase gauge, and the no-aliasing transfer on rectangular grids of side lengths at least seven. The finite exhaustive certificate proves no statement about arbitrary coefficient phases, other alphabets, or other apertures. No separate external mathematical validation has been performed.
+PASS
+
+For centered 7-point hexagonal aperture, Fourier orthogonality proves M6=Σ_v |Σ_(i,j,k:e_i+e_j+e_k=v) a_i a_j a_k|² over 37 triple-sum fibers of 343 ordered triples. Gauge scalar and two characters make first three coefficients 1, leaving q^4 cases for q=2..6. Independently enumerated all Σq^4=2274 cases by exact cyclotomic/integer arithmetic, obtaining minima q2 649,q3 913,q4 649,q5 1936−519√5,q6 649; next attainable q2 1081,q3 1084,q4 841,q5 1876−489√5,q6 757; normalized minimizer counts 3,6,3,6,3, complete exponent tuples as in RESULT.md, max 5881 unique normalized and q^3 orbit lifts. Grid m,n>=7 follows no collision of triple sums in [-3,3]^2. Exhaustive finite proof only for five finite alphabets; no continuous-phase minimization claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exhaustive five-alphabet sixth Fourier-moment minima, next values, and minimizing phase classes on the natural seven-site centered hexagon; prior complementary-array or fourth-moment claims do not imply it.
+
+## value
+
+PASS
+
+The centered seven-site hexagonal aperture is a natural minimal 2D finite-phase coding design. Complete sixth Fourier-moment optima and next gaps for five standard phase alphabets, including the nonmonotone pentaphase exact algebraic benchmark and all equality classes, can serve as exact design/reference facts without needing a general infinite-alphabet theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

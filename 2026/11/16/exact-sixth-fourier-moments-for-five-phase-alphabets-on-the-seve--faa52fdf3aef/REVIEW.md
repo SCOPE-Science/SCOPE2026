@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Fourier orthogonality makes the sixth moment the sum of squared coefficients of a cubic Laurent polynomial. The two independent constructions in `checker.py` (ordered triple convolution and unordered multinomial Laurent pair enumeration) agree exactly for all \(2274\) gauge-normalized inputs. Exact integer and cyclotomic arithmetic, including a sign-of-surd comparator, proves all five minima, the next attainable values, maximizer uniqueness, and the complete minimizing phase tuples. The three-coefficient gauge removes precisely \(q^3\) phase degrees of freedom, with no collapsed distinct normalized cases. The exponent box for cubes proves finite-grid transfer at grid dimensions at least seven. Boundary: no claim for unrestricted complex phases or other alphabets.
+PASS
 
-## Originality — PASS (best-knowledge, priority risk retained)
+For centered 7-point hexagonal aperture, Fourier orthogonality proves M6=Σ_v |Σ_(i,j,k:e_i+e_j+e_k=v) a_i a_j a_k|² over 37 triple-sum fibers of 343 ordered triples. Gauge scalar and two characters make first three coefficients 1, leaving q^4 cases for q=2..6. Independently enumerated all Σq^4=2274 cases by exact cyclotomic/integer arithmetic, obtaining minima q2 649,q3 913,q4 649,q5 1936−519√5,q6 649; next attainable q2 1081,q3 1084,q4 841,q5 1876−489√5,q6 757; normalized minimizer counts 3,6,3,6,3, complete exponent tuples as in RESULT.md, max 5881 unique normalized and q^3 orbit lifts. Grid m,n>=7 follows no collision of triple sums in [-3,3]^2. Exhaustive finite proof only for five finite alphabets; no continuous-phase minimization claimed.
 
-The closest same-support literature, Ding–Noshad–Tarokh, concerns complementary families of arrays, not single-array sixth moments. Du–Jiang's 2022 constructions concern polyphase Golay sets; the measured object is not the same. The same seven-site published fourth-moment classification does not control the sixth-moment minimizer spectrum. The six-outer-site hexagon sixth-moment theorem removes the central character and cannot imply the seven-site census. The six-site triangular sixth-moment census has different triple-sum relations. Exact online searches and full-text inspections disclosed no already-covering result. Residual risk: unindexed specialist array-design tables or equivalent finite enumerations, and lack of independent historical-priority audit.
+## originality
 
-## Value — PASS
+PASS
 
-The centered first-ring hexagonal aperture is a standard sparse planar arrangement in coded-aperture and phase-array analysis; the sixth-power moment controls a higher penalty on large Fourier peaks than the fourth moment. The complete early-alphabet spectrum, every optimizing phase, and sharp second-value gaps provide reproducible phase-only benchmarks. Its fifth-root minimum \(1936-519\sqrt5\) and gap \(30(\sqrt5-2)\) show a genuine cyclotomic, nonmonotone quantization phenomenon. No downstream design performance or unrestricted-phase optimum is asserted.
+Best-of-knowledge original exhaustive five-alphabet sixth Fourier-moment minima, next values, and minimizing phase classes on the natural seven-site centered hexagon; prior complementary-array or fourth-moment claims do not imply it.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The centered seven-site hexagonal aperture is a natural minimal 2D finite-phase coding design. Complete sixth Fourier-moment optima and next gaps for five standard phase alphabets, including the nonmonotone pentaphase exact algebraic benchmark and all equality classes, can serve as exact design/reference facts without needing a general infinite-alphabet theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
