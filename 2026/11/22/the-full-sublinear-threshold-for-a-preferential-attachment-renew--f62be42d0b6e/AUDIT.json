@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For gamma=0 the series diverges; for 0<gamma<=0.63 compare with a geometric series of sum 1/(3^gamma-1)>1. On [0.63,0.99], 14 rational intervals use monotonic lower bounds of the first 300 positive terms and 65-digit directed-decimal enclosures, minimum margin >0.0011064. For gamma in [0.99,1], compare gamma-dependent products with q0=49/25 beta products; the exact beta-integral telescoping identity yields B_j bounds. The derivative splits into the first five negative terms (certified upper < -1.47), positive terms 6..1000 (upper < 0.81), and a rigorous integral tail (upper <0.08). Hence phi prime<-0.58, and since phi(1)=1 it is >1 to the left. Full proof specifies uniform convergence and all boundary cases. CHECKER.py was executed from its actual packaged path and independently spot-checked with a second interval method; finite output supports exactly the enclosures used by the proof, not an unproved infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rudas–Tóth–Valkó, Random Trees and General Branching Processes (2007), arxiv:math/0503728, already treats degree distribution convergence for broad single-community attachment weights",
+        "Ben-Hamou et al. Section 1.2 explicitly credits general branching-process results for earlier single-community convergence",
+        "published-finding corpus nearest for broader query: 2026/11/8/SCOPE-exact-positivity-recovery-thresholds-for-a-stiff-girk-map-on-uni--f986375c2148; unrelated birth-chain integrator positivity"
+      ],
+      "reasoning": "A stronger historical convergence theorem for a graph process does not determine the numerical truth of the particular 2026 coupling sufficient condition; thus the new claim is limited to this exact inequality. No new convergence priority is asserted.",
+      "searches": [
+        "gamma 3^gamma-1 renewal birth rates j^gamma stability threshold full gamma interval",
+        "one-community nonlinear preferential attachment inequality gamma spectral coupling 3^gamma-1 beta fixed point",
+        "Rudas Toth Valko random trees general branching processes preferential attachment degree distribution 2007 sublinear theorem pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.06904v1",
+      "arxiv:math/0503728v2 (full-text relevant sections)",
+      "https://docs.python.org/3/library/decimal.html",
+      "published-finding corpus semantic searches on exact formula, equivalent parameterization and broader birth-process classes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Motivating authors prove only gamma<=ln2/ln3 and a left neighborhood of gamma=1, and suggest a possible unexecuted numerical proof"
+      ],
+      "reasoning": "The examined published results do not entail the scalar inequality. The present 300-term uniform lower bound and quantitative derivative bound supply the missing implication for every real gamma<1. The gamma=1 boundary is equality and is separately handled. A stronger universal series inequality from unlocated literature remains possible but was not found.",
+      "searches": [
+        "arxiv:2611.06904v1 Theorem 2, Lemma 14 and Remark 8",
+        "arxiv:math/0503728 title/abstract",
+        "published-finding corpus semantic literal inequality search",
+        "For all real 0 <= gamma < 1, sum over k>=1 product j=1..k of j^gamma divided by (j^gamma + 3^gamma -1) > 1; preferential attachment inequality arxiv 2611.06904"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ben-Hamou–Broutin–Cazaux, arxiv:2611.06904v1, pp. 26-28, states phi(gamma)>1 equivalently beta_star>3^gamma-2 and leaves full gamma range open",
+        "published-finding corpus nearest for the literal-inequality query: 2026/10/12/SCOPE-strict-subcritical-chaundy-bullard-monotonicity-at-the-one-third--235cc647b649; its binomial-tail statement is different"
+      ],
+      "reasoning": "The strict series inequality and stationary-parameter equivalence are the same condition under the primary paper’s Lemma 14. The present finding claims a missing proof, not an independent redefinition. Existing partial intervals and endpoint local derivative do not logically imply the all-parameter result.",
+      "searches": [
+        "For all real 0 <= gamma < 1, sum over k>=1 product j=1..k of j^gamma divided by (j^gamma + 3^gamma -1) > 1; preferential attachment inequality arxiv 2611.06904",
+        "Ben-Hamou Broutin Cazaux open inequality sublinear preferential attachment phi(gamma) 2026",
+        "\"3^gamma-1\" \"j^gamma\" \"preferential attachment\" inequality",
+        "arxiv:2611.06904v1 Lemma 14, Eq. (22), Remark 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source displays a numerical plot but explicitly does not give a rigorous full-interval verification",
+        "Closest published-finding corpus id for sum-product query: 2026/10/18/SCOPE-a-sharp-m-class-phase-boundary-and-quadratic-onset-for-compound--fafa66d95c35; its Poisson Beta statement has no matching series or parameters"
+      ],
+      "reasoning": "A plot or finite parameter table is not a continuum proof. The new 14-interval table is embedded as reproducible exact rational endpoints plus rigorous enclosures; no known covering exact database was retrieved.",
+      "searches": [
+        "Sublinear multi-type preferential attachment Ben-Hamou Broutin Cazaux sum product j^gamma/(j^gamma+3^gamma-1) greater than one for all 0<gamma<1",
+        "pure birth process j to power gamma exponential killing expected number jumps inequality",
+        "\"sublinear multi-type preferential attachment\" \"condition\" solved 2026"
+      ]
+    },
+    "rationale": "The primary arXiv v1 (Nov 4, 2026) explicitly states this exact inequality as unproved for the full sublinear interval after verifying only its initial range and a non-quantified neighborhood of gamma=1. Its outline of a possible numerical proof does not supply finite interval data, certified bounds, or a full proof. No retrieved published-finding corpus finding or inspected related publication proves the scalar inequality. Historical priority is not absolute; related general attachment convergence was known long before and is not represented as a new theorem here.",
+    "residual_risks": [
+      "Historical full-text coverage is not exhaustive; an equivalent analytic inequality may exist under a different notation.",
+      "The proof depends on documented correct rounding of Python Decimal exp/ln with outward expansion; independent machine-formal verification has not been carried out.",
+      "General convergence for one-community attachment existed independently, so novelty is restricted to the exact series inequality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly unresolved full parameter inequality; initial range and endpoint local derivative only; does not contain the 14 certified intervals or global endpoint derivative estimate",
+        "evidence": [
+          "arXiv:2611.06904v1, Lemma 14 pp.26-27",
+          "arXiv:2611.06904v1, Remark 8 pp.27-28",
+          "arXiv:2611.06904v1, Theorem 2 pp.3-4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.06904",
+        "material_read": "Primary arXiv PDF full-text: title/abstract, pp. 3-4 Theorem 2 and related work, pp. 26-28 Lemma 14, Figure 3 and Remark 8 including derivative; relevant proof regions and references",
+        "method": "Read full-text PDF parsed mathematical statements and visually inspected the relevant PDF page",
+        "title": "Sublinear multi-type preferential attachment",
+        "trigger": "Identical series inequality appears as Theorem 2 condition and equation (22)"
+      },
+      {
+        "assessment": "The earlier theorem supplies broad degree-convergence coverage, but its products involve a variable Malthusian parameter, not the exact fixed 2026 scalar inequality with 3^gamma-1; no deduction of the target bound was found in inspected relevant material.",
+        "evidence": [
+          "arxiv:math/0503728v2 pp. 1-2, 15-17 and branching-process hypotheses",
+          "arxiv:2611.06904v1 Section 1.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0503728",
+        "material_read": "Open arXiv full-text preprint: title/abstract, Sections 1 and 2 on general attachment weights, final proof section on pure-birth reproduction rates and branching-process moment conditions; targeted formula searches, plus the 2026 related-work assessment",
+        "method": "Read accessible full-text PDF and visually inspected the first page; examined the relevant derivations of branching-process renewal products and their parameter roles",
+        "title": "Random trees and general branching processes",
+        "trigger": "Earlier general single-community attachment convergence theorem potentially dominates probabilistic corollary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f62be42d-0b6e-49e6-95d4-ae38ee4cb1fe",
+  "value": {
+    "rationale": "A recent mathematically motivated model imposes the exact nontrivial strict series bound as its key hypothesis for a coupling-based convergence result and explicitly leaves its full validity unsettled. The new global proof closes that precise hypothesis for every strict sublinear exponent, with a tiny 14-cell rational certificate and analytic tail control. It distinguishes the sharp gamma=1 equality boundary, and avoids claiming independent graph convergence or any two-community conjecture. Computational assistance does not by itself create value; the resolution of a specific stated parameter gap does.",
+    "status": "PASS"
+  }
+}
