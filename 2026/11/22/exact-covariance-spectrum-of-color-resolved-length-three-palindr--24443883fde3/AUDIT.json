@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exactly five overlap offsets give the full entrywise covariance for all n>=5. Constant, symmetric-zero-row, skew-zero-row and two standard contrast sectors exhaust the dimension q(q-1); each has the eigenvalue claimed. Explicit strict radical inequalities prove positivity and ordering. The m-dependent CLT yields the stated fixed-q multivariate normal and chi-square limits, with exact finite verification by checker.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General paper Theorem 30 treats arbitrary multiple overlapping word-pattern covariances",
+        "Spectral Analysis of Word Statistics treats scattered word statistics"
+      ],
+      "reasoning": "The older theorem can produce the entries of our kernel and is strictly broader for covariance computation; it does not in the accessible theorem statement give the five sorted eigenvalues or their positive multiplicities. We do not claim novelty for the covariance-generation machinery. Scattered-word spectral formulas do not directly imply finite cyclic contiguous-pattern covariance.",
+      "searches": [
+        "A unified approach to word occurrence probabilities overlapping word patterns covariance Theorem 30",
+        "Spectral Analysis of Word Statistics subsequence covariance eigenvalues versus contiguous pattern occurrences",
+        "doi:10.1016/S0166-218X(00)00195-5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1505.08043",
+      "https://doi.org/10.1016/S0166-218X(00)00195-5",
+      "https://arxiv.org/abs/2012.00742"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 30 implies pair covariance can be calculated by overlaps",
+        "The Rubinchik–Shur mean formula specializes to all length-3 palindromes but does not recover the vector of color-resolved mixed moments",
+        "The 2021 word-statistics article works on subsequences"
+      ],
+      "reasoning": "The exact kernel itself is an easy specialization of existing overlap theory, so the final contribution is narrowly the complete q-parametric eigendecomposition, ordering, conditioning, and a nondegenerate joint test. None of the read primary materials states or immediately provides those diagonalized facts without the present symmetry analysis.",
+      "searches": [
+        "doi:10.1016/S0166-218X(00)00195-5",
+        "A unified approach to word occurrence probabilities overlapping word patterns covariance Theorem 30",
+        "arXiv:1505.08043",
+        "Spectral Analysis of Word Statistics subsequence covariance eigenvalues versus contiguous pattern occurrences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1505.08043 Lemma 3.3 gives only the total expected factor count",
+        "arXiv:2012.00742 describes scattered subsequences, not consecutive motifs"
+      ],
+      "reasoning": "A color-resolved ABA motif vector is not equivalent to total palindromic richness or scattered-subsequence counts. The proposed spectrum diagonalizes a different covariance operator; the search found no equivalent eigenspace statement.",
+      "searches": [
+        "full eigenvalue spectrum colored ABA palindrome consecutive pattern-count covariance symmetric q-ary circular iid words",
+        "all q(q-1) colored nonconstant length-3 palindromes covariance five eigenvalues positive definite q-ary",
+        "arXiv:1505.08043",
+        "arXiv:2012.00742"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for complete ABA colored palindrome covariance spectrum found related palindrome-radius and ordinal-pattern results but no directly matching named eigenvalue table",
+        "Theorem 30 supplies an implicit general covariance-matrix construction"
+      ],
+      "reasoning": "No exact table of the five eigenvalue classes and their q-dependent multiplicities was observed. This is a bounded search, not proof that none exists.",
+      "searches": [
+        "full eigenvalue spectrum colored ABA palindrome consecutive pattern-count covariance symmetric q-ary circular iid words",
+        "all q(q-1) colored nonconstant length-3 palindromes covariance five eigenvalues positive definite q-ary",
+        "joint covariance matrix spectrum counts ABA palindromic patterns random word uniform alphabet eigenvalues"
+      ]
+    },
+    "rationale": "Explicit complete finite-sample spectrum, strict mode ordering and calibrated multivariate chi-square law were not found in compared sources; prior overlap covariance machinery explicitly acknowledged. Limited access to earlier full text leaves material historical-priority risk.",
+    "residual_risks": [
+      "The complete 2001 overlap-statistics paper was unavailable to inspect, so an explicit specialization might be present beyond the indexed theorem passages",
+      "A multivariate pattern-count paper not retrieved by the bounded searches might give the equivalent spectral decomposition",
+      "The asymptotic chi-square law follows routinely once the covariance spectrum is known; it is not independently claimed as a new multivariate CLT"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Basic factor means and distinct richness, no multivariate color-resolved finite covariance spectrum",
+        "evidence": [
+          "Lemma 3.3 states mean (n-m+1)/q^{floor(m/2)} for palindromic factors; Theorem 1.2 addresses distinct palindromic richness"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.08043",
+        "material_read": "Full accessible arXiv HTML text including introduction, section 3, and reference discussion; sections on distinct palindromic factors",
+        "method": "Examined theorem/lemma statements and factor-occurrence definitions",
+        "title": "The Number of Distinct Subpalindromes in Random Words",
+        "trigger": "Same palindrome object and uniform-alphabet null"
+      },
+      {
+        "assessment": "The general theorem covers extraction of covariance entries; this work does not claim the kernel as a novel general methodology. No explicit ordered-ABA spectral decomposition located in read passages; lack of whole text remains a priority risk",
+        "evidence": [
+          "Theorem 30 provides covariance matrix for arbitrary sets of overlapping word patterns via correlation polynomials",
+          "Section 2.3 defines cross-overlap sets and autocorrelation polynomials"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0166-218X(00)00195-5",
+        "material_read": "Indexed text extracts covering sections 2.1 and 2.3 and full displayed statement of Theorem 30; complete article download unavailable",
+        "method": "Compared overlap matrix, multivariate covariance formula and resulting implications for consecutive motifs",
+        "title": "A unified approach to word occurrence probabilities",
+        "trigger": "General overlap-matrix theorem plausibly covers all covariance entries"
+      },
+      {
+        "assessment": "Studies scattered-subsequence statistics, rather than contiguous circular triples; abstract alone cannot certify noncoverage of all possible specializations",
+        "evidence": [
+          "Institutional abstract explicitly describes fixed-length words occurring as subsequences and their spectrum"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.00742",
+        "material_read": "Institutional article record and abstract, not full article",
+        "method": "Compared statistic type and stated spectral theorem",
+        "title": "Spectral Analysis of Word Statistics",
+        "trigger": "Spectral decomposition of word-count covariance could dominate this claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "24443883-fde3-4549-b1b3-e7489c5c5d65",
+  "value": {
+    "rationale": "The color-resolved count vector gives a natural null calibration for all q(q-1) ordered nonconstant palindrome motifs. Five explicit symmetry-sector variances separate color contrast from directed circulations, giving complete classification, invertibility at every finite n, and an asymptotic chi-square omnibus diagnostic without numerical inversion of estimated covariance; the high-q condition-number limit quantifies stability. This is more than recomputing a single pattern count.",
+    "status": "PASS"
+  }
+}
