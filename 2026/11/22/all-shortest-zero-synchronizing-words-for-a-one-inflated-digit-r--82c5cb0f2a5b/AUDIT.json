@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The carry telescoping identity makes a word reset exactly when [A-M,A] is representable; a forbidden residue below b^(2k-2) rules out shorter words; signed digits parameterize T_(2k-1) and show full long runs exactly in interior-digit blocks, giving all optimal A and exact count. Verification script directly compares all eligible intervals in 16 parameter pairs and independently BFS-checks shortest lengths in 16 cases; finite tests are corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhou provides a qualitative existence criterion and explicitly raises quantitative length bounds.",
+        "Cruz–Loquias–Thuswaldner study expanding rational matrix digit systems rather than the specified scalar family.",
+        "The closest published result is restricted to the ternary case and gives only a lower count."
+      ],
+      "reasoning": "Generic automaton shortest-word algorithms do not mathematically imply the stated closed optimal-word bands. The full relevant primary and precursor statements do not dominate the exact all-base enumeration; the known ternary length is a covered special portion, explicitly excluded from the novelty claim.",
+      "searches": [
+        "base-b complete residue system digit set inflated last digit b^k-1 exact minimal reset word synchronization length",
+        "quantitative carry synchronization shortest synchronizing words nonstandard digit representations finite automata Černý",
+        "arXiv:2611.07446v1 Sections 4 and 6.3",
+        "arXiv:2507.06158v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.07446v1 Sections 4,6.3",
+      "published ternary full RESULT.md 2026/11/8",
+      "arXiv:2507.06158v1",
+      "published-finding corpus semantic queries q0-q4",
+      "published mathematical results considered for implication comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Precursor has min length 2k-1 at b=3 and count >=(3^(k-1)+1)/2, explicitly not claiming all shortest words.",
+        "Current formula gives exactly that count and classifies all intervals, and also proves all higher-base shortest lengths and optimal families."
+      ],
+      "reasoning": "Known existence plus lower count does not entail an exact count or identification of all minimizers. At b>=4 the ternary predecessor cannot apply under its fixed-base hypothesis. The present shortest ternary length is expressly prior art, not the originality basis.",
+      "searches": [
+        "all shortest zero synchronizing words exact number in complete residue nonstandard scalar digit sets {0,1,...,b-2,b^k-1}, base b, optimal word classification",
+        "nonstandard radix digit set {0,1,...,b-2,b^k-1} zero synchronizing reset word shortest length 2k-1 carry automaton",
+        "base-b complete residue system digit set inflated last digit b^k-1 exact minimal reset word synchronization length",
+        "published-finding corpus 2026/11/8/SCOPE-sharp-zero-synchronizing-lengths-for-a-ternary-nonstandard-digit--fa7b02222afc"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published ternary predecessor proves shortest length and a lower bound on number of optimal words, not their complete set or the exact count.",
+        "A zero-synchronizing input is equivalent to an interval of M+1 represented consecutive integers via the carry identity."
+      ],
+      "reasoning": "Aliases checked include carry reset words, zero synchronization, canonical complete-residue digit sets, and consecutive nonstandard representation intervals. The present theorem concerns exhaustive optimal-word classification and exact multiplicity for every b>=3; its ternary optimal length alone is previously covered.",
+      "searches": [
+        "all shortest zero synchronizing words exact number in complete residue nonstandard scalar digit sets {0,1,...,b-2,b^k-1}, base b, optimal word classification",
+        "nonstandard radix digit set {0,1,...,b-2,b^k-1} zero synchronizing reset word shortest length 2k-1 carry automaton",
+        "published-finding corpus: 2026/11/8/SCOPE-sharp-zero-synchronizing-lengths-for-a-ternary-nonstandard-digit--fa7b02222afc"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact exhaustive optimal-word table or formula was returned for the multi-base family.",
+        "The prior published ternary paper verifies only several small cases and supplies at least a given number of shortest words."
+      ],
+      "reasoning": "The new closed formula is universal in two unbounded parameters, and finite tabulations in old sources cannot substitute for or cover the uniform proof; absence in search is not proof of uniqueness.",
+      "searches": [
+        "all shortest zero synchronizing words exact number in complete residue nonstandard scalar digit sets {0,1,...,b-2,b^k-1}, base b, optimal word classification",
+        "one inflated digit finite automaton two-phase zero powers then ones synchronizing word interval of consecutive representable integers",
+        "published-finding corpus 2026/11/8/SCOPE-sharp-zero-synchronizing-lengths-for-a-ternary-nonstandard-digit--fa7b02222afc"
+      ]
+    },
+    "rationale": "The closest fully inspected ternary paper only establishes shortest length and a lower bound for shortest-word count and disclaims completeness. The present all-optimum classification, exact ternary count and new arbitrary-base law are not formal corollaries of the inspected references. Residual earlier unindexed coverage risk retained.",
+    "residual_risks": [
+      "Possible unindexed broader reset-word theorem could cover the all-base family.",
+      "Historical literature coverage may be incomplete outside the indexed and inspected primary sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative existence only; not a shortest-word or exact optimal-family result",
+        "evidence": [
+          "Section 4 establishes synchronization conditions; Section 6.3 asks for quantitative lengths."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.07446v1",
+        "material_read": "Relevant full HTML sections covering carry synchronization (Section 4) and quantitative problems (Section 6.3), including hypotheses and statements",
+        "method": "Primary source web inspection",
+        "title": "Periodic counting, carry synchronization, and primes in nonstandard numeration systems",
+        "trigger": "Motivating recent qualitative result and explicit quantitative problem"
+      },
+      {
+        "assessment": "Covers ternary minimal length and constructs at least a given number of shortest words, explicitly not claiming exhaustive count; not higher-base classification",
+        "evidence": [
+          "Theorem states min length 2k+1 for digit {0,1,3^(k+1)-1} with k>=1, gives at least (3^k+1)/2 shortest words.",
+          "Proof says no assertion that this is the complete set of minimum words is needed."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-zero-synchronizing-lengths-for-a-ternary-nonstandard-digit--fa7b02222afc/RESULT.md",
+        "material_read": "Complete RESULT.md, all sections including theorem, proof, verification, limitations and references",
+        "method": "Direct public GitHub file retrieval",
+        "title": "Sharp zero-synchronizing lengths for a ternary nonstandard digit family",
+        "trigger": "Directly matching ternary special family and claimed sharp lengths"
+      },
+      {
+        "assessment": "Different matrix objects, no all-base exact optimal-word classification here",
+        "evidence": [
+          "The primary emphasis is expanding rational matrices and addition automata, not the scalar digit-set reset-word count."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.06158v1",
+        "material_read": "Relevant abstract and theorem scope regarding two-dimensional rational matrices and addition automata",
+        "method": "Public full-text source comparison",
+        "title": "Addition Automata and Attractors of Digit Systems Corresponding to Expanding Rational Matrices",
+        "trigger": "Related prior addition-transducer digit-system theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "82c5cb0f-2a5b-48fa-a224-70c056fd153a",
+  "value": {
+    "rationale": "A natural quantitative problem left by a qualitative existence theorem is settled with an exact full classification of all shortest words, sharp base-dependent minimal length, and an exact multiplicity law; this converts the best-known ternary lower count into equality and identifies all higher-base extremal words.",
+    "status": "PASS"
+  }
+}
