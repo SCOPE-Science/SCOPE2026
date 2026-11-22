@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact two-geometric-component mass function produces the stated probability-generating-function factorization. Differentiating its logarithm gives the three factorial cumulants. The equal-second-cumulant parameterization is strictly interior because \(b<c<a\), and a factored quadratic difference proves positivity of the Poisson rate. Strict convexity of \(x\mapsto x^{3/2}\) forces a third-cumulant bulge between equal endpoint values, so the intermediate-value theorem supplies two distinct parameters for every target below the maximum. An exact positive integer comparison certifies the displayed collision, and noncancellation of the dominant pole establishes distinct full laws. The included reproducibility program passed 71 finite checks; none substitutes for the continuum argument.
+
+**Originality — PASS, with residual historical uncertainty.** The 2023 defining preprint was read through its introduction, model, generating-function, moment and estimation sections. It gives moment expressions and maximum-likelihood/EM methods but does not present the open-region failure of the first-three-moment inverse map. A later full-text model treatment was compared; no such theorem was found in the inspected material. Searches for the model's moment inversion, factorial cumulants, geometric-mixture aliases, and parameter nonidentifiability revealed no directly covering result. General moment-identifiability research is not a proof of novelty, and an overlooked general theorem or alternate-version appendix remains a risk.
+
+**Value — PASS.** This is a concrete obstruction in a natural three-parameter overdispersed count model: matching the first three population moments, even exactly and with strictly positive parameters, does not determine its distribution. The collision persists across an open moment region and is not due to nonidentifiable full likelihoods. It therefore identifies a substantive limit of any globally unique estimator based only on these three moments, while leaving full-likelihood inference untouched.
+
+**Scope and risks.** No claim is made about a complete moment-fiber census, fourth moments, numerical estimators, or finite-sample power. Historical priority has not been independently verified.
+
+Self-review: passed. Independent audit: not yet performed.
