@@ -1,11 +1,21 @@
-# Scientific review: four-cube section covariance transition
+# Independent mathematical audit
 
-**Correctness — PASS.** The section is parameterized by three mutually perpendicular coordinate directions and a constant Euclidean Jacobian. Its conditional rectangular fibers give three exact one-dimensional covariance moments with no mixed terms. The integral evaluations, normalizations, all-real-parameter eigenvalue ordering, and exact crossing are proved analytically in RESULT.md. The standalone exact-rational hull/second-moment checks independently reproduce the formula at 15 parameter values, including both boundaries. The proof does not infer the infinite result from these finite checks.
+## correctness
 
-**Originality — PASS, with a historical-priority reservation.** The most relevant pre-existing specific result is Ambrus, arXiv:2107.14778, Theorem 3: the same curve's \(t=2\) direction is critical for **section volume**, not its interior covariance. Ambrus and Gárgyán, arXiv:2307.03792, analyze the volume functional and its normal-parameter Hessian; this is a different tensor from the volume-uniform covariance. Brandenburg, De Loera, and Meroni, arXiv:2304.14239, give general exact algorithms for integrating polynomial moments over sections, and therefore encompass **computability** of the present moments, but the inspected material does not evaluate this spectral family or derive the least-eigenvalue crossing at \(3/2\). Jevtić–Živaljević, arXiv:2108.00618, describe the equal-weight median-hypersimplex boundary, not the transition. Actual database searches, the scientific implication comparisons, and residual priority risks are recorded in AUDIT.json. The unsearched historical literature could contain a prior equivalent formula; no independent novelty certification is claimed.
+PASS
 
-**Mathematical value — PASS.** This is a natural, complete interior-covariance classification of the specific one-parameter four-cube sections containing the already important non-diagonal volume-critical slice. The result identifies a non-combinatorial eigenspace transition with a sharp exact threshold, a double eigenvalue at the transition, and a distinct volume critical point. These are structural facts about a genuine geometric moment invariant, beyond merely repeating a general algorithm or the known scalar volume extremum.
+For each real t>=1 the orthogonal coordinates x=(a-tB,-a-tB,B+b,B-b) give constant intrinsic Jacobian and exact rectangular fibers |a|<=1-t|B|, |b|<=1-|B|. Independently integrated I0=(3t-1)/(6t), IA=(5t-1)/(20t), IB=(10t^3-10t^2+5t-1)/(20t^3), I2=(5t-3)/(60t); conditional symmetry removes all mixed moments. This yields the three claimed rational intrinsic-volume covariance eigenvalues. Symbolically checked three pairwise differences, their positivity, unique least-eigenaxis crossing t=3/2 with both eigenvalues 13/35 and condition number 142/117, and volume derivative vanishing at t=2. The claimed polytope face-lattice constancy for t>1 follows from coordinate-face intersections; t=1 is a distinct octahedral endpoint. The supplied rational triangulation check was inspected, and the all-real assertion rests on the analytic integrals.
 
-**Scientific limits.** The classification is not extended to arbitrary normals or higher dimensions. The fact that a general moment algorithm could evaluate this family remains the strongest source-coverage consideration. Supporting numerical checks are finite only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: natural two-block four-cube central sections have known volume critical points and there exist general parametric moment algorithms, but the inspected primary results do not supply the explicit three covariance eigenvalue functions, their crossing at t=3/2, or the strict separation from volume minimum t=2. No implication from the recorded general moment method to this computed family without a nontrivial instantiation and diagonalization was identified. Historical unnoticed calculations remain possible.
+
+## value
+
+PASS
+
+PASS: an exact uniform-intrinsic-volume covariance spectrum in a geometrically natural symmetry class, with a sharp crossing of least-inertia directions entirely inside a constant combinatorial chamber, contrasts with a known and different volume critical normal. The parameter t is the ratio of the two equal coordinate pairs, not an arbitrary unmotivated numeric slice; the classification may be used to study isotropy and inertia transitions in cube sections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T16:59:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each real t>=1 the orthogonal coordinates x=(a-tB,-a-tB,B+b,B-b) give constant intrinsic Jacobian and exact rectangular fibers |a|<=1-t|B|, |b|<=1-|B|. Independently integrated I0=(3t-1)/(6t), IA=(5t-1)/(20t), IB=(10t^3-10t^2+5t-1)/(20t^3), I2=(5t-3)/(60t); conditional symmetry removes all mixed moments. This yields the three claimed rational intrinsic-volume covariance eigenvalues. Symbolically checked three pairwise differences, their positivity, unique least-eigenaxis crossing t=3/2 with both eigenvalues 13/35 and condition number 142/117, and volume derivative vanishing at t=2. The claimed polytope face-lattice constancy for t>1 follows from coordinate-face intersections; t=1 is a distinct octahedral endpoint. The supplied rational triangulation check was inspected, and the all-real assertion rests on the analytic integrals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brandenburg–De Loera–Meroni give broad algorithms for slicing-polytopes polynomial moments; Ambrus–Gárgyán classify non-diagonal critical volume normals and Hessians."
+        ],
+        "reasoning": "The algorithm is general enough to compute second moments in principle, but neither inspected source states the evaluated spectral branches, least-eigenaxis crossover, or precise 3/2 and 2 separation.",
+        "searches": [
+          "covariance eigenvalues of four dimensional cube central hyperplane sections (1,1,t,t) 3/2 axis switching",
+          "https://arxiv.org/abs/2304.14239",
+          "https://arxiv.org/abs/2307.03792"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2107.14778",
+        "https://arxiv.org/pdf/2307.03792",
+        "https://arxiv.org/pdf/2304.14239",
+        "Assigned four-cube section RESULT.md and artifacts/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Volume derivative vanishes at t=2, whereas λC-λA=(t-1)(3-2t)/(5t²(3t-1)) changes sign at t=3/2."
+        ],
+        "reasoning": "The previously known result at t=2 gives neither this second-moment identity nor the t=3/2 crossing. The general integration theory enables a computation, but does not directly entail these stated evaluated constants as a theorem without carrying one out.",
+        "searches": [
+          "https://arxiv.org/abs/2107.14778",
+          "https://arxiv.org/abs/2307.03792",
+          "https://arxiv.org/abs/2304.14239"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is intrinsic 3D uniform-section covariance with explicit eigendirections; the Ambrus result concerns critical points of the central section volume functional."
+        ],
+        "reasoning": "A volume Hessian with respect to normal direction is not covariance of points inside a fixed section; equal normal parameters alone do not imply equal tensor statistics.",
+        "searches": [
+          "covariance eigenvalues of four dimensional cube central hyperplane sections (1,1,t,t) 3/2 axis switching",
+          "https://arxiv.org/abs/2107.14778"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known 4-cube critical-volume normal (1,1,2,2) and t=1 hypersimplex-related section are different outputs than the complete covariance spectrum."
+        ],
+        "reasoning": "No exact covariance eigenvalue table for every real t in this fixed section family was found; these prior volume tables alone cannot yield the axis transition without additional integration.",
+        "searches": [
+          "covariance eigenvalues of four dimensional cube central hyperplane sections (1,1,t,t) 3/2 axis switching",
+          "https://arxiv.org/abs/2107.14778"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: natural two-block four-cube central sections have known volume critical points and there exist general parametric moment algorithms, but the inspected primary results do not supply the explicit three covariance eigenvalue functions, their crossing at t=3/2, or the strict separation from volume minimum t=2. No implication from the recorded general moment method to this computed family without a nontrivial instantiation and diagonalization was identified. Historical unnoticed calculations remain possible.",
+      "residual_risks": [
+        "A source using alternative language such as inertia tensor or principal moments may contain an overlooked equivalent computation.",
+        "The 15 rational hull profiles are only corroborative; convex-hull incidence is numerical even though the integrated moments use exact rationals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NONCOVERING of explicit covariance eigenvalue crossing; covers cited volume fact",
+          "evidence": "Critical normal (1,1,2,2) concerns volume, not uniform random section covariance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.14778",
+          "material_read": "Accessible primary PDF abstract, theorem concerning non-diagonal critical sections in dimension four, and relevant volume proof",
+          "method": "read primary PDF text and relevant theorem",
+          "title": "Critical central sections of the cube",
+          "trigger": "Same four-dimensional normal family and t=2 volume extremum"
+        },
+        {
+          "assessment": "Does not state the uniform-section inertia spectrum",
+          "evidence": "Normal-direction second variation of section volume is not point-distribution covariance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.03792",
+          "material_read": "Accessible primary PDF main critical-section results and sections on Hessians and non-diagonal volume functionals",
+          "method": "read PDF primary text",
+          "title": "Non-diagonal critical central sections of the cube",
+          "trigger": "Possible stronger classification in same central-section normal space"
+        },
+        {
+          "assessment": "General algorithm provides procedure but not numerical evaluated t=3/2 covariance transition",
+          "evidence": "Moment computation framework potentially applicable; no specified λA,λB,λC branch comparisons.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.14239",
+          "material_read": "Accessible full primary PDF algorithm statements for polynomial integrals of varying sections and explanatory examples",
+          "method": "read primary PDF main theorem and method sections",
+          "title": "The Best Ways to Slice a Polytope",
+          "trigger": "Broad parametric methods could dominate polynomial-moment computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: an exact uniform-intrinsic-volume covariance spectrum in a geometrically natural symmetry class, with a sharp crossing of least-inertia directions entirely inside a constant combinatorial chamber, contrasts with a known and different volume critical normal. The parameter t is the ratio of the two equal coordinate pairs, not an arbitrary unmotivated numeric slice; the classification may be used to study isotropy and inertia transitions in cube sections.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classification restricted to normal (1,1,t,t), t>=1, with intrinsic volume and inherited Euclidean metric; no arbitrary-normal/dimensional extension.",
+    "Priority best-of-knowledge, not an assertion of complete exhaustive global literature coverage."
+  ],
+  "schema_version": 1
+}
