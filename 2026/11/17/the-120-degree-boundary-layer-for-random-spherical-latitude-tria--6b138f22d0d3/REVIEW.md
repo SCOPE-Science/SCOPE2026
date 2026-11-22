@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof reconstructs the geodesic tangent-angle identity, uses a sorted-gap fundamental domain for an exact probability integral, proves strict monotonicity, localizes all near-equatorial admissible triples at the three corner charts, and obtains the rare probability plus conditional total-variation convergence through \(L^1\) density convergence. The independent vector-based checker agrees at nondegenerate test triangles and confirms the coefficient numerically; it does not replace the proof.
+PASS
 
-## Originality
+The geodesic angle at a sampled longitude between adjacent half-gaps a,b is ψ_c(a)+ψ_c(b), with ψ_c(a)=atan2(cos a,c sin a); independent 3D tangent-dot calculations confirmed 16 nongeneric test angles. The ordered half-gap simplex density and monotone ψ reduce the maximal angle to two shortest gaps and yield the stated exact one-dimensional integral. Both contributing ψ values decrease strictly in c, with a switching boundary of positive area, establishing strict probability monotonicity. Near equator c↓0 the event forces a=O(c), b−π/2=O(c), three disjoint bounded rescaled charts; their indicator densities converge L1 to the planar triangle D of area 2/3, producing p(c)~4c²/π² and conditional marked total variation convergence. The polar c↑1 limit is the planar cyclic-triangle 2/3 probability. Finite tests are corroborative, not an infinity proof.
 
-**PASS, with historical-priority risk.** The closest full-source fixed-latitude result treats intrinsic angles below \(90^\circ\), has a forbidden belt, and therefore neither coincides with nor implies this \(120^\circ\) event and its nontrivial equatorial blow-up. Zachos supplies the underlying deterministic spherical Fermat criterion, not the stochastic ring law. Finch--Jones sample the entire sphere. Actual mathematical-index searches and accessible earlier claims identified no same or stronger result, but these checks do not establish absolute priority; an older specialized paper may be missed.
+## originality
 
-## Value
+PASS
 
-**PASS.** The event is the natural angular boundary for the unweighted spherical Fermat--Torricelli configuration. The new geometry is stronger than a probability calculation: it determines the only near-equatorial configurations that survive the angle constraint and gives their full two-dimensional scaled law in total variation.
+PASS qualified: an exact same-object 2026 small-latitude-circle publication treats three intrinsic angles <90°, giving a forbidden belt and onset at c²=1/3. That probability does not imply the distinct 120° criterion, nonzero equatorial c² law, or conditional marked triangle distribution. Zachos covers deterministic spherical Fermat conditions; Finch–Jones full-sphere triangle laws use different sampling. No dominating threshold theorem found in actual Resultary search.
 
-## Sources and limits
+## value
 
-Primary comparisons: Zachos (2014), arXiv:1408.6495; Finch and Jones (2010), arXiv:1009.5329; *A sharp latitude threshold and exact acute-triangle law on spherical small circles* (2026), full primary public RESULT.md. No global sphere-Steiner network equivalence or independent mathematical certification is claimed. The inaccessible full text of Le (1989) and possible older special-angle literature remain priority risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the 120° threshold is the natural unweighted Fermat–Torricelli floating-versus-absorbed angular condition. An exact probability and rare-event conditional geometry at equatorial singularity give a useful structural boundary-layer law for a natural geometric sampling model, not an arbitrary numerical cutoff. Claim does not assert equivalence with every global Steiner network.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
