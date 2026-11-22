@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:54:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Active contact points of the minimal enclosing ball of C=A∩B have convex weights with zero mean displacement; averaging squared distances bounds each larger ball center offset by sqrt(a²-r²) and sqrt(b²-r²). Triangle inequality for centers and concavity of sqrt(t²-r²) yield D<=2sqrt(s²-r²). The enclosing two-ball radius max(a,b,(a+b+D)/2) is bounded by s+sqrt(s²-r²), since max(a,b)<=2s-r<=s+sqrt(s²-r²). Cauchy–Schwarz gives ratio <=(1+sqrt2)/2. A=(-1,0),(1,0),(0,1+sqrt2), B=(-1,0),(1,0),(0,-1-sqrt2) attain equality with radii sqrt2,sqrt2,1,1+sqrt2. The zero-radius and 1D interval cases are explicitly covered; finite sampled balls do not replace proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 Bryant et al. Theorem 2.1 gives R(A∪B)<=R(A)+R(B) for overlapping A,B, without a positive overlap-radius correction.",
+          "The proposed bound adds R(A∩B), and is strictly stronger than that triangle estimate for many nondegenerate overlaps."
+        ],
+        "reasoning": "Triangle inequality alone cannot imply the target because it bounds R(A∪B), not its sum with the overlap radius. A dominating general Euclidean-ball center displacement inequality might furnish an alternate proof but was not located as a published sharp two-parameter submodularity theorem.",
+        "searches": [
+          "Euclidean circumradius minimal enclosing ball intersecting submodularity sharp union intersection (1+sqrt2)/2",
+          "Bryant Huber Moulton Tupper 2023 Theorem 2.1 circumradius diversity triangle inequality",
+          "minimum enclosing ball union overlap radius sharp factor"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: Euclidean circumradius minimal enclosing ball intersecting submodularity sharp union intersection (1+sqrt2)/2",
+        "Bryant and Tupper 2026 arxiv:2608.11468 Section 4 Example 15 full HTML",
+        "Bryant et al. 2023 DOI 10.1007/s00454-023-00493-1 Theorem 2.1 full HTML"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact prior conclusion of 2023: circumradius is a diversity, hence obeys overlapping-set subadditivity.",
+          "Exact prior conclusion 2026: intersecting-submodularity can fail with ratio 6/5.",
+          "Target proves a quantitative optimal replacement with explicit equality at ratio (1+sqrt2)/2 and all overlap regimes."
+        ],
+        "reasoning": "Neither previous conclusion logically fixes the optimal larger-than-one factor; the target uses a new center-displacement and support-contact argument to sharpen both.",
+        "searches": [
+          "Euclidean circumradius minimal enclosing ball intersecting submodularity sharp union intersection (1+sqrt2)/2",
+          "arxiv:2608.11468 Section 4 Example 15",
+          "DOI:10.1007/s00454-023-00493-1 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026 Bryant–Tupper Example 15 provides A,B with R(A)=R(B)=5/4, R(A∩B)=1 and R(A∪B)=2, ratio 6/5.",
+          "The target gives exact envelope involving normalized r/s, plus an optimal coefficient (1+sqrt2)/2."
+        ],
+        "reasoning": "A counterexample to exact submodularity is an indication of the problem, not an answer to the optimal relaxation; relabeling the quantity circumradius diversity does not create a dominating known theorem.",
+        "searches": [
+          "Euclidean circumradius minimal enclosing ball intersecting submodularity sharp union intersection (1+sqrt2)/2",
+          "Bryant Tupper submodular strongly submodular diversities Example 15 2608.11468",
+          "Euclidean minimum enclosing balls weak intersecting submodularity additive correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 published table contains a nonsharp four-point ratio 6/5, while this exact four-point extremizer attains (1+sqrt2)/2."
+        ],
+        "reasoning": "The existing planar example does not tabulate the all-dimensional sharp constant or the complete r/s envelope; these are not a known-table recomputation. Possible unindexed older geometry tables remain a priority risk.",
+        "searches": [
+          "Euclidean circumradius minimal enclosing ball intersecting submodularity sharp union intersection (1+sqrt2)/2",
+          "minimum enclosing ball union intersection sharp sqrt2 constant database",
+          "Bryant Tupper 2026 circumradius planar four point table"
+        ]
+      },
+      "rationale": "Read the 2026 Bryant–Tupper preprint’s relevant Section 4/Example 15 and the 2023 Bryant–Huber–Moulton–Tupper diversity theorem. They prove respectively failure of submodularity at ratio 6/5 and intersecting subadditivity, not the sharper continuous overlap-radius envelope or optimal factor 1.207106…; no earlier matching sharp theorem located in searched published Resultary records. Historical priority remains qualified as an unindexed minimum-enclosing-ball inequality may exist.",
+      "residual_risks": [
+        "A previously published disguised center-radius or minimum-enclosing-ball union inequality could imply the same bound; novelty across all historical geometric inequalities is not verified.",
+        "Claim is restricted to finite genuinely intersecting Euclidean sets; convex hull intersection alone does not qualify."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counterexample 6/5, no equivalent sharp multiplicative relaxation in materially read portion.",
+          "evidence": [
+            "Example 15 specifies four planar points; ratio 6/5; not a sharp bound theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.11468",
+          "material_read": "Accessible long arXiv abstract-page full-text HTML, especially Section 4 and Example 15; source includes complete counterexample and nearby discussion.",
+          "method": "web arxiv abs full text (HTML)",
+          "title": "Submodular and strongly submodular functions and diversities",
+          "trigger": "Exact same Euclidean circumradius failure and motivating counterexample"
+        },
+        {
+          "assessment": "Provides subadditivity but not the proposed intersection-corrected sharp bound.",
+          "evidence": [
+            "Theorem 2.1: overlapping A,B imply R(A∪B)<=R(A)+R(B); no R(A∩B) penalty."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00454-023-00493-1",
+          "material_read": "Accessible complete Springer open-access text, particularly Theorem 2.1 and intersecting triangle proof.",
+          "method": "publisher HTML full text",
+          "title": "Diversities and the Generalized Circumradius",
+          "trigger": "Primary classification of circumradius as diversity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Intersecting-submodularity failure leaves a natural structural quantitative question; this theorem gives the best dimension-independent correction, a strictly stronger sharp continuous envelope, optimal four-point witnesses and a 1D-versus-higher-dimensional dichotomy. It resolves a motivating gap rather than changing an arbitrary number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic query: Euclidean circumradius minimal enclosing ball intersecting submodularity sharp union intersection (1+sqrt2)/2",
+    "Bryant and Tupper 2026 arxiv:2608.11468 Section 4 Example 15 full HTML",
+    "Bryant et al. 2023 DOI 10.1007/s00454-023-00493-1 Theorem 2.1 full HTML"
+  ],
+  "disposition": "passed",
+  "final_claim": "For finite intersecting Euclidean sets, a sharp bound R(A∪B)<=s+sqrt(s²-r²) implies sharp universal intersection-submodularity factor (1+sqrt(2))/2 for d>=2, while d=1 admits factor 1.",
+  "limitations": [
+    "Applies only to finite intersecting Euclidean sets, not arbitrary norms or disjoint sets.",
+    "No complete equality-case classification asserted; numerical support enumeration is not proof."
+  ],
+  "residual_risks": [
+    "A previously published disguised center-radius or minimum-enclosing-ball union inequality could imply the same bound; novelty across all historical geometric inequalities is not verified.",
+    "Claim is restricted to finite genuinely intersecting Euclidean sets; convex hull intersection alone does not qualify."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns all finite nonempty intersecting Euclidean point sets. The smallest common-ball center lies in the convex hull of its active contacts. The weighted squared-distance identity bounds each separate center's displacement from the common center by a square root, and a two-ball covering lemma bounds the union radius. Concavity and a one-variable Cauchy–Schwarz optimization yield the displayed sharp universal factor. Exact planar configurations attain the sharp two-parameter bound at every possible normalized common radius; dimension one is handled by interval inclusion–exclusion. Degenerate radii and tangencies are covered explicitly. The standard-library verifier independently computed minimum-radius balls for 1,752 random comparisons plus explicit examples; the general result is analytical, not inferred from sampling.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Bryant and Tupper (arXiv:2608.11468v1, Section 4, Example 15) explicitly exhibit a four-point Euclidean circumradius failure of intersecting submodularity with ratio \(6/5\). Their Section 4 and related examples establish neither a universal multiplicative inequality nor its sharp constant and continuous common-radius envelope. Bryant, Huber, Moulton, and Tupper (DOI 10.1007/s00454-023-00493-1, especially Theorem 2.1) establish intersecting **subadditivity** and representation properties, not the additive common-set correction with the sharp factor. Published mathematical-record and literature searches under circumradius diversity, minimum enclosing ball radius, weak/approximate/intersecting submodularity, union–intersection inequalities, and sharp \(\sqrt2\) factors did not identify a stronger covering theorem. Matched comparison is by implication: ordinary subadditivity supplies no positive \(R(A\cap B)\) term; a single counterexample cannot yield the global sharp coefficient. An unindexed or differently named geometric inequality remains a historical priority risk.
+PASS
 
-## Mathematical value — PASS
-The motivating failure of intersecting submodularity leaves a natural quantitative question: how far can the Euclidean circumradius diversity deviate? The result answers it with a dimension-independent optimal factor, a strictly more informative exact two-parameter bound, a sharp four-point witness in every higher dimension, and a one-dimensional dichotomy. It refines a genuine structural property, not a numerical variant of an existing example.
+Active contact points of the minimal enclosing ball of C=A∩B have convex weights with zero mean displacement; averaging squared distances bounds each larger ball center offset by sqrt(a²-r²) and sqrt(b²-r²). Triangle inequality for centers and concavity of sqrt(t²-r²) yield D<=2sqrt(s²-r²). The enclosing two-ball radius max(a,b,(a+b+D)/2) is bounded by s+sqrt(s²-r²), since max(a,b)<=2s-r<=s+sqrt(s²-r²). Cauchy–Schwarz gives ratio <=(1+sqrt2)/2. A=(-1,0),(1,0),(0,1+sqrt2), B=(-1,0),(1,0),(0,-1-sqrt2) attain equality with radii sqrt2,sqrt2,1,1+sqrt2. The zero-radius and 1D interval cases are explicitly covered; finite sampled balls do not replace proof.
 
-## Limits
-No optimality is claimed for other Minkowski gauges or for nonintersecting finite sets. No complete equality classification is asserted. Numerical checks do not replace proof. Historical priority is contingent on accessible primary records.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Read the 2026 Bryant–Tupper preprint’s relevant Section 4/Example 15 and the 2023 Bryant–Huber–Moulton–Tupper diversity theorem. They prove respectively failure of submodularity at ratio 6/5 and intersecting subadditivity, not the sharper continuous overlap-radius envelope or optimal factor 1.207106…; no earlier matching sharp theorem located in searched published Resultary records. Historical priority remains qualified as an unindexed minimum-enclosing-ball inequality may exist.
+
+## value
+
+PASS
+
+Intersecting-submodularity failure leaves a natural structural quantitative question; this theorem gives the best dimension-independent correction, a strictly stronger sharp continuous envelope, optimal four-point witnesses and a 1D-versus-higher-dimensional dichotomy. It resolves a motivating gap rather than changing an arbitrary number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
