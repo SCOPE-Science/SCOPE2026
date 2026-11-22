@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The transfer state records exact component connectivity and occupancy parity at the frontier, and the transition rule rejects a completed even component. The finite-board identity is forced by the trailing empty column. All 19 reachable states communicate with the empty state, and a zero self-loop makes the integer matrix primitive. Exact characteristic factorization, Sturm counting and a finite positive-return lower bound isolate the Perron root. The four-column completion proves that finite-board and infinite-strip word growth have the same exponential rate; the stripe embedding proves the planar area-normalized lower bound. Reproducible checker tests include exhaustive finite-board enumeration for one through five columns.
+
+**Originality — PASS within the inspected evidence.** Callard's thesis, Chapter 7 p. 54, describes the multidimensional odd shift and credits Cassaigne's unpublished soficity result; neither inspected passage claims this three-row entropy. Existing two-row results determine a degree-five eigenvalue and exact two-row zeta function, not the three-row degree-eleven root. Search comparisons considered equivalent formulations such as finite-width hard-constraint transfer matrices, odd polyomino connected-component count, and planar entropy strip lower bounds. A 2010 unpublished source could contain related calculations and remains a nonzero priority risk.
+
+**Value — PASS.** At width three, additional frontier connectivity patterns beyond the two-row case make the exact spectral invariant nontrivial; this invariant controls the asymptotic census of odd-sized islands. It also yields a strict numerical improvement of a full two-dimensional entropy lower bound, from approximately \(0.41736\) to above \(0.48216\) per site. This does not claim to solve the planar entropy problem.
+
+**Scientific limitations.** The proof is for the three-row open strip and a planar lower bound only. Exhaustive checks of finite widths are supplementary, not proofs of infinite behavior. The broader literature and unpublished constructions may contain equivalent statements that were not accessible in full.
+
+Self-review: passed. Independent audit: not yet performed.
