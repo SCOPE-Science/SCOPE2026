@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "Independent uniform output packet marks give a deterministic equivalence on N0>floor(t/a). Conditional prefix nonmatching is a walk with increments +1 and -(a-1); an exact generalized cycle-lemma count yields a finite sum that collapses to the binomial atom at p=1/a. Binomial Chernoff gives the uniform e^{-n/(8a)} coupling error; Stirling and a tail-sum identity yield the sharp constants. A standalone standard-library checker reproduced 3919 exact rational assertions, including actual small shuffle enumerations; finite assertions do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 primary papers derive optimal strategies, expected scores and score-moment formulas; the 2025 primary PDF develops one-card marginals.",
+        "The Dvoretzky-Motzkin lemma has broader combinatorial scope for deterministic step words, but no shuffle-model identification or finite-n error and first-hit consequences."
+      ],
+      "reasoning": "A ballot theorem combined with known shuffle structure is a legitimate proof input, not an independently new generalized lemma. Neither this general tool alone nor the inspected earlier optimal-score results imply the exact first-success waiting-time law without the previously absent prefix-event coupling and cancellation; no dominant prior claim was found. Priority risk from uninspected historical literature is retained.",
+      "searches": [
+        "https://arxiv.org/pdf/2205.08793",
+        "https://arxiv.org/pdf/2209.04276",
+        "https://www.aimspress.com/aimspress-data/math/2025/10/PDF/math-10-10-1075.pdf",
+        "classical Dvoretzky-Motzkin cycle lemma A problem of arrangements",
+        "Bernoulli walk stay below rational slope 1/a floor t/a central binomial probability ballot cycle lemma"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.04339v1",
+      "https://www.aimspress.com/aimspress-data/math/2025/10/PDF/math-10-10-1075.pdf",
+      "https://arxiv.org/pdf/2308.15782",
+      "https://arxiv.org/pdf/2209.04276",
+      "https://arxiv.org/pdf/2205.08793",
+      "https://doi.org/10.1214/aoap/1028903379",
+      "https://doi.org/10.1215/S0012-7094-47-01423-3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-fixed-shuffle-score-for-unique-label-no-feedback-riffle-gu--7af61d909478"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing the optimal guess at each position and the expectation of the total number correct is insufficient to determine the joint event of no matches in the first t positions.",
+        "A previously published total-score weak limit on the sqrt(n) scale also does not determine the lattice first-hit survival, especially its exact finite-t binomial identity and exponentially small finite-deck error.",
+        "The 2023/2024 distributional paper explicitly says waiting times for correct guesses may be examined, but does not evaluate them."
+      ],
+      "reasoning": "The precise new claim is a complete first-hit prefix law and its quantitative finite-deck transfer; it does not re-claim prior optimality, total-score expectation, or classical ballot enumeration. A joint first-match analysis is a genuinely different statistic requiring correlations across positions.",
+      "searches": [
+        "https://arxiv.org/html/2611.04339v1",
+        "https://arxiv.org/pdf/2308.15782",
+        "https://arxiv.org/pdf/2209.04276",
+        "published-finding corpus: sharp fixed-shuffle score for unique-label no-feedback riffle guesses"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new zero-prefix-match event is equivalent to a nonnegative prefix walk with steps +1 and -(a-1); its central binomial atom is obtained through the classical cycle lemma.",
+        "The 2026 primary text proves the per-position optimal guess and mean total number of correct guesses, without a first-correct waiting-time statement; the 2023 paper explicitly mentions waiting times as future work."
+      ],
+      "reasoning": "We searched card-guessing waiting time, first-hit, zero-match prefix, binomial-atom and ballot aliases. The classical cycle lemma covers the intermediate walk count (not claimed novel), but no inspected primary work states or supplies the sharp first-hit law for a GSR shuffle, including its exponentially uniform finite-deck packet comparison.",
+      "searches": [
+        "no-feedback riffle shuffle first correct guess waiting time probability no correct first t binomial point probability center; generalized ballot",
+        "first successful prediction first hit of optimal staircase guessing after fixed number of riffle shuffles; zero-match prefix",
+        "https://arxiv.org/html/2611.04339v1",
+        "https://arxiv.org/pdf/2308.15782"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest identified published result: 2026/11/8/SCOPE-sharp-fixed-shuffle-score-for-unique-label-no-feedback-riffle-gu--7af61d909478, addressing distinct unique-label total expected scores.",
+        "Published result 2026/10/12/SCOPE-proportional-beta-mean-tail-monotonicity-and-an-exact-binomial-q--d8963fd36297 concerns monotonicity of binomial tails, not first hits of a riffle guessing strategy."
+      ],
+      "reasoning": "No inspected database record supplies the waiting-time survival sequence or its sharp first-half finite-deck comparison. Semantic retrieval is incomplete, so nonappearance is not evidence of mathematical uniqueness.",
+      "searches": [
+        "published-finding corpus semantic query: no-feedback riffle shuffle first correct guess waiting time probability no correct first t binomial point probability center; generalized ballot",
+        "published-finding corpus semantic query: first successful prediction first hit of optimal staircase guessing after fixed number of riffle shuffles; zero-match prefix",
+        "published-finding corpus semantic query: Bernoulli walk stay below rational slope 1/a floor t/a central binomial probability ballot cycle lemma"
+      ]
+    },
+    "rationale": "Compared same shuffle strategy, marginal and score-distribution primary sources, generalized ballot enumeration, accessible published claims and current related prior-claim abstracts. The finite-deck first-correct-guess survival is a different joint statistic with an explicit probability and uniform error; the ballot theorem itself is acknowledged classical, and historical priority is uncertain.",
+    "residual_risks": [
+      "The complete 1998 Ciucu text was not accessible for an exhaustive comparison; only its abstract and descriptions by later authors were available.",
+      "Classical rational-slope ballot literature might already express the auxiliary Bernoulli survival as a binomial atom; that identity is not being claimed original in isolation.",
+      "Searchable and semantically indexed published records cannot establish global historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes canonical expected-score-optimal top-half guess and expected total score; does not give first-success prefix law",
+        "evidence": "Theorem 1.1 supplies g_i=floor(i/a)+1 in the top half, Theorem 1.2 expected score; section 6 discusses total-score distribution as next question.",
+        "identifier_or_url": "https://arxiv.org/html/2611.04339v1",
+        "material_read": "Full HTML material in sections 1, 2, 4, 5, 6, including strategy statement, proof, expected score, remarks and references",
+        "method": "Read primary open-access full-text sections and compared hypotheses, event statistics, theorem implications",
+        "title": "Optimal no-feedback card guessing after a fixed number of riffle shuffles",
+        "trigger": "Exact same shuffle, expected-score-optimal strategy, and packet count"
+      },
+      {
+        "assessment": "The paper determines marginal single-card position generating functions rather than the joint zero-match prefix probability",
+        "evidence": "Theorem 3.3 and sections 1-4 give mixture component probability generating functions, not joint first-hit time.",
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/10/PDF/math-10-10-1075.pdf",
+        "material_read": "Full primary PDF text searched, abstract, introduction, generating-function theorem and middle figures inspected; page image checked",
+        "method": "Full text extraction and visual section inspection",
+        "title": "A generating function framework for the no-feedback card guessing game after riffle shuffles",
+        "trigger": "Marginal packet distributions might imply first-hit result"
+      },
+      {
+        "assessment": "Total-score law only; conclusion explicitly proposes waiting times as a further question",
+        "evidence": "Conclusion: methods allow analysis of other questions, like waiting times for correct guesses.",
+        "identifier_or_url": "https://arxiv.org/pdf/2308.15782",
+        "material_read": "Primary PDF introduction, distribution and moment statements, complete conclusion, reference material; page 17 image checked",
+        "method": "Read text and displayed conclusion page image",
+        "title": "On card guessing games: Limit law for no feedback one-time riffle shuffle",
+        "trigger": "Directly adjacent question of waiting times, possibly prior proof"
+      },
+      {
+        "assessment": "Accessible material develops entire-deck score moments and distribution, no corresponding first-match evaluation found",
+        "evidence": "Introduction distinguishes score generating functions and higher moments; no first-waiting-time theorem identified in inspected relevant passages.",
+        "identifier_or_url": "https://arxiv.org/pdf/2209.04276",
+        "material_read": "Full source PDF abstract and detailed introduction/section structure; page 2 image inspected, full text searched for waiting",
+        "method": "Primary full-text section scan and source-page image",
+        "title": "No-feedback Card Guessing Game: Moments and distributions under the optimal strategy",
+        "trigger": "Earlier full total-score distribution may encode the first-hit event"
+      },
+      {
+        "assessment": "Addresses strategy and expected score, no first-hit law in inspected material",
+        "evidence": "Abstract and results table restrict contributions to optimal guessing and expected correct count.",
+        "identifier_or_url": "https://arxiv.org/pdf/2205.08793",
+        "material_read": "Primary PDF abstract, introduction, game rules and results table; title page image checked; searchable text inspected",
+        "method": "Source PDF text and visual inspection",
+        "title": "No Feedback? No Worries! The art of guessing the right card",
+        "trigger": "Original fixed-shuffle optimal strategy and possible first-hitting analysis"
+      },
+      {
+        "assessment": "Full-document coverage remains unresolved; cannot classify whole original text as not covering the claim",
+        "evidence": "Accessible abstract describes optimal strategies and expectation; later 2023 paper explicitly identifies waiting-time analysis as an open direction.",
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1028903379",
+        "material_read": "Accessible bibliographic abstracts and detailed citations in later primary papers; full historical article not retrieved",
+        "method": "Publisher landing-page attempt, bibliographic search, and comparison through later primary sources",
+        "title": "No-feedback card guessing for dovetail shuffles",
+        "trigger": "Earlier foundational paper might include exact waiting-time formulas"
+      },
+      {
+        "assessment": "Known general combinatorial step-count theorem used in proof, not claimed new",
+        "evidence": "The cycle lemma gives (h+1)/(t+1) times a binomial coefficient for all nonnegative walk prefixes, but not the shuffle first-hit event.",
+        "identifier_or_url": "https://doi.org/10.1215/S0012-7094-47-01423-3",
+        "material_read": "Bibliographic confirmation and established cycle-lemma statement; original full article not inspected",
+        "method": "Compared classical cyclic-rotation lemma with auxiliary path count",
+        "title": "A problem of arrangements",
+        "trigger": "Dominating classical ballot enumeration possibility"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b9ab77b-ff71-43cb-b346-610d3f9922f7",
+  "value": {
+    "rationale": "First-correct waiting time is a natural joint-dependence statistic not encoded by known optimal expected-score results; the theorem yields an exact all-prefix survival sequence in the auxiliary representation, exponentially sharp transfer to actual fixed-shuffle decks, and a mathematically motivated heavy-tail versus censored-mean distinction with explicit sharp constants.",
+    "status": "PASS"
+  }
+}
