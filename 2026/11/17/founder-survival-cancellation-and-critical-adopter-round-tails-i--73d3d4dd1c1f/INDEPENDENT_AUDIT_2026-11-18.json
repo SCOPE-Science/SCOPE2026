@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T03:15:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed r and each fixed round horizon the integrated-exposure direct-adoption probability expands as p f_nu(tau) (rho Theta/N)+O(N^-2 Theta^2), so conditional Poisson splitting with surviving parents gives offspring Z=1{E>=tau}+Poisson(c min(E,tau)) with *dependent* survival/contact via common E. Its PGF G(s)=lambda(1-e^{-[lambda+c(1-s)]tau})/[lambda+c(1-s)]+s e^{-[lambda+c(1-s)]tau}. I independently symbolically substituted s=lambda/c and simplified G(s)-s=0, computed G'(1)=1+kappa(c/lambda-1) and G''(1)|c=lambda=2kappa. Strictly convex PGF gives q=min(1,lambda/c). For each fixed K, from 1..K-1 adopters a next-round-extinction probability bounded below by kappa^(K-1)exp(-2rho K tau), giving a uniform geometric stopping tail and passage from finite-horizon convergence to K-first-passage law. Then K increases. At criticality the offspring span is one and finite variance 2kappa; Dwass cyclic identity plus aperiodic local CLT gives n^-3/2/(2sqrt(pi kappa)) and n^-1/2/sqrt(pi kappa). No fixed-N eternal survival or macroscopic-outbreak assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ball–Donnelly gives generic branching approximations; Goodman age/phase-dependent extinction theory provides generic fixed-point perspective; Muñoz–Nuño–Meacci defines this process and deterministic invasion threshold R."
+        ],
+        "reasoning": "Generic branching methods do not alone state the exact correlated offspring PGF and fixed-point cancellation for the particular discrete contagion transition kernel. The source may contain further model details not fully read this run, flagged as risk.",
+        "searches": [
+          "Muñoz Nuño Meacci two-stage contagion stochastic founder survival branching process critical total adopter rounds exact extinction formula",
+          "Ball Donnelly Strong approximations for epidemic models 1995",
+          "Goodman 1967 age dependent birth death extinction probabilities",
+          "Muñoz Nuño Meacci 2611.08353 v2"
+        ]
+      },
+      "checked_sources": [
+        "Pinned full stochastic founder RESULT.md and independent numerical source verify.py",
+        "Independent symbolic PGF root/derivative/second derivative and stopping-time bound reconstruction",
+        "Muñoz–Nuño–Meacci arXiv:2611.08353v2 indexed information (full primary unavailable)",
+        "Ball–Donnelly 1995 generic approximation literature",
+        "Dwass 1969 classical total progeny identity",
+        "Resultary published same-model deterministic cubic threshold full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original source states R threshold and finite-N almost sure extinction; Dwass converts any specified critical offspring law to a progeny coefficient once its variance is known."
+        ],
+        "reasoning": "The current exact cancellation and occupancy constant use additional model-specific offspring PGF and kappa-dependent factorial moment. These are not stated or logically fixed solely by source deterministic R, except if the source independently contains the exact stochastic reproduction law (inaccessible risk).",
+        "searches": [
+          "Muñoz Nuño Meacci two-stage contagion stochastic founder survival branching process critical total adopter rounds exact extinction formula",
+          "arxiv 2611.08353 stochastic two-stage chain threshold extinction",
+          "Dwass 1969 progeny total in branching process",
+          "Ball Donnelly 1995 strong epidemic approximation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A Poisson(c T) parent with persistence 1{E>=tau} is not independently sampled from parent survival; the PGF includes s times the same exponential weight."
+        ],
+        "reasoning": "Any equivalent Bellman–Harris/Crump–Mode–Jagers embedding must preserve this correlated finite-round parent continuation. Standard continuous-time Markov birth-death extinction 1-mu/lambda resembles q, but the round-by-round numerical critical variance 2kappa and finite-N iterated threshold are different formulated statements.",
+        "searches": [
+          "Muñoz Nuño Meacci two-stage contagion stochastic founder survival branching process critical total adopter rounds exact extinction formula",
+          "age-dependent birth-death extinction lambda mu Galton Watson exact survival",
+          "Ball Donnelly strong approximation epidemic branching models"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Resultary same-model findings concern deterministic threshold cubic/branch onset or the present exact founder result; no independent database entry for the same r-founder double-limit or kappa critical tail was located."
+        ],
+        "reasoning": "No natural finite exact-parameter table applies here: the main claim is a stochastic limit identity. The database check targets named model/parameter and aliases, not just numeric matching.",
+        "searches": [
+          "Muñoz Nuño Meacci two-stage contagion stochastic founder survival branching process critical total adopter rounds exact extinction formula",
+          "Muñoz Nuño Meacci founder invasion branching total progeny distribution",
+          "Resultary founder two-stage contagion and cubic invasion maps"
+        ]
+      },
+      "rationale": "Classical Galton–Watson, branching epidemic approximation, and Dwass local-CLT tail are standard. The potentially novel content is their exact conditional correlation law from a named four-compartment synchronous exposure model, the unexpected cancellation q=lambda/c, and a uniform fixed-K finite-population first-passage limit with explicit kappa critical coefficient. The source deterministic R and finite-N extinction do not by themselves imply the probability formula; full primary text remained incompletely accessible, so the priority is best-of-knowledge.",
+      "residual_risks": [
+        "Full Muñoz–Nuño–Meacci primary model source not independently read: exact hazard closure, conditional cohort update and any unadvertised one-founder statements remain priority/model-fidelity risks.",
+        "Generic age-dependent epidemic branching papers may imply the cancellation under an equivalent offspring parametrization; the comparison remains best-of-knowledge.",
+        "The uniform stopping-bound argument assumes all adopter-generation mechanisms in the specified finite transition kernel are triggered by existing adopters, including primed exits; the pinned closure description was checked but source appendix inaccessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Priority and exact full source kernel remain a residual risk; no whole-document noncoverage claim",
+          "evidence": [
+            "Source cited for same finite N classes, within-round exposure and R threshold; only the inspected secondary mathematical specification used for proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.08353",
+          "material_read": "Title/abstract, indexed v2 summary, Section 4.2/Appendix S2 description as quoted in inspected pinned package; full original article NOT read independently",
+          "method": "Public arXiv/HTML retrieval attempts and source citations",
+          "title": "From elementary processes to chaos: a discrete-time two-stage contagion model and its continuous limit",
+          "trigger": "exact source of stochastic finite-population transition law"
+        },
+        {
+          "assessment": "Not covering rare-founders stochastic first-passage/branching genealogy",
+          "evidence": [
+            "Analyzes deterministic low-density center map n a_n^2 and endemic bifurcation; no one-founder PGF or critical total progeny tail."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-cubic-critical-extinction-and-square-root-endemic-onset-at-a-fin--639ff3c33c61",
+          "material_read": "Complete 10,479-character published RESULT.md and its deterministic center map analysis",
+          "method": "Pinned published Git blob SHA eb462ecad7fbffb1b310906541311d127f006bad",
+          "title": "Cubic critical extinction and square-root endemic onset at finite-round contagion degeneracy",
+          "trigger": "same finite-round contagion family"
+        },
+        {
+          "assessment": "Known method, not original; formula applies after model offspring PGF is derived",
+          "evidence": [
+            "P(S=n)=n^{-1} P(sum of n iid Z=n-1), critical finite variance 2kappa."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3212112",
+          "material_read": "Bibliographic statement and classical cyclic progeny identity (Dwass formula), not full 1969 paper",
+          "method": "Standard theorem checked against formula as mathematical background",
+          "title": "The total progeny in a branching process and a related random walk",
+          "trigger": "used for n^-3/2 proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A founder-count establishment law and a sharp critical occupation distribution for a model with explicit correlation between parent persistence and contacts are mathematically natural, quantitatively informative stochastic refinements of the deterministic epidemic threshold. They distinguish extinction of finite populations from the two-stage threshold event, with a nontrivial exactly simplified probability and kappa-dependent tail.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No simultaneous K,N scaling, no fixed-N survival, no arbitrary alternative hazard closure; full original epidemic primary text inaccessible, residual priority and model-fidelity checks needed.",
+    "Full Muñoz–Nuño–Meacci primary model source not independently read: exact hazard closure, conditional cohort update and any unadvertised one-founder statements remain priority/model-fidelity risks.",
+    "Generic age-dependent epidemic branching papers may imply the cancellation under an equivalent offspring parametrization; the comparison remains best-of-knowledge.",
+    "The uniform stopping-bound argument assumes all adopter-generation mechanisms in the specified finite transition kernel are triggered by existing adopters, including primed exits; the pinned closure description was checked but source appendix inaccessible."
+  ],
+  "schema_version": 1
+}

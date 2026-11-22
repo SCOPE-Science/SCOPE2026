@@ -1,19 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The actual finite-population transition mechanism in the primary full text has been reconstructed. Its one-founder hazard expansion yields a mixed-Poisson offspring law coupled to the parent's round survival. Exact integration gives the PGF; substitution at \(s=\lambda/c\) and strict PGF convexity prove the extinction law. A uniform one-round absorption lower bound controls the fixed-threshold hitting times, legitimizing the order of limits. At criticality, the exact factorial moment \(2\kappa\), lattice span one, and Dwass's identity plus the local central limit theorem give the sharp tail constants. The standalone checker confirms selected identities and finite-population limits, not infinite statements.
+PASS
 
-## Originality (O): PASS, provisional priority
+For fixed r and each fixed round horizon the integrated-exposure direct-adoption probability expands as p f_nu(tau) (rho Theta/N)+O(N^-2 Theta^2), so conditional Poisson splitting with surviving parents gives offspring Z=1{E>=tau}+Poisson(c min(E,tau)) with *dependent* survival/contact via common E. Its PGF G(s)=lambda(1-e^{-[lambda+c(1-s)]tau})/[lambda+c(1-s)]+s e^{-[lambda+c(1-s)]tau}. I independently symbolically substituted s=lambda/c and simplified G(s)-s=0, computed G'(1)=1+kappa(c/lambda-1) and G''(1)|c=lambda=2kappa. Strictly convex PGF gives q=min(1,lambda/c). For each fixed K, from 1..K-1 adopters a next-round-extinction probability bounded below by kappa^(K-1)exp(-2rho K tau), giving a uniform geometric stopping tail and passage from finite-horizon convergence to K-first-passage law. Then K increases. At criticality the offspring span is one and finite variance 2kappa; Dwass cyclic identity plus aperiodic local CLT gives n^-3/2/(2sqrt(pi kappa)) and n^-1/2/sqrt(pi kappa). No fixed-N eternal survival or macroscopic-outbreak assertion.
 
-The primary Muñoz–Nuño–Meacci work contains the four-compartment chain, deterministic stability threshold and finite-population simulations, but not this early-founder event limit or exact critical occupation tail. Ball–Donnelly supplies general epidemic-to-branching coupling methods, Goodman treats age-dependent extinction equations, and Dwass supplies a general total-progeny identity; none of these inspected materials explicitly contains the parameter-specific correlated offspring PGF, cancellation, and both limit statements for the present chain. The broadly applicable older theory reduces, but does not eliminate, the novelty of deriving a concrete and exactly solvable model-specific law. Goodman's complete text was inaccessible, and close unnoticed equivalent calculations remain a risk.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The motivating model's deterministic invasion boundary does not determine the chance that one adopter establishes a growing early lineage. The result answers that natural finite-population initial-condition question with an exact, nontrivial probability, and the critical tail quantifies the length-dependent founder burden at the boundary. The fact that the founder survival law depends on the round only through the deterministic reproduction ratio while the occupation tail retains an additional factor is a structural distinction. This is a model-specific statistical-dynamical result, not a claim to novelty of general Galton–Watson probability theory.
+Classical Galton–Watson, branching epidemic approximation, and Dwass local-CLT tail are standard. The potentially novel content is their exact conditional correlation law from a named four-compartment synchronous exposure model, the unexpected cancellation q=lambda/c, and a uniform fixed-K finite-population first-passage limit with explicit kappa critical coefficient. The source deterministic R and finite-N extinction do not by themselves imply the probability formula; full primary text remained incompletely accessible, so the priority is best-of-knowledge.
 
-## Limitations and priority
+## value
 
-The order of the two asymptotic limits is essential, macroscopic outbreak probability is not asserted, and independent mathematical review has not occurred. The Goodman article and historical branching literature may contain unindexed equivalent special cases.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A founder-count establishment law and a sharp critical occupation distribution for a model with explicit correlation between parent persistence and contacts are mathematically natural, quantitatively informative stochastic refinements of the deterministic epidemic threshold. They distinguish extinction of finite populations from the two-stage threshold event, with a nontrivial exactly simplified probability and kappa-dependent tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
