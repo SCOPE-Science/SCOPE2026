@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The full continuous intensity determines the aperiodic autocorrelation coefficients. Normalizing the initial tap and fixing the final tap via the third autocorrelation leaves one complex variable constrained to the intersection of two circles. The first autocorrelation is the explicit identity (3). For nonzero second autocorrelation, subtraction at the two circle intersections gives the strict triangle region; for zero second autocorrelation, the remaining equation is cubic, and root geometry gives the exact maximum and all threefold boundaries. All converse constructions and the palindrome exception are explicitly verified. A standalone exact Eisenstein arithmetic test establishes the triple witness, and over 300 reconstruction checks support the algebra. Numerical tests alone do not certify infinite quantifiers.
+## correctness
 
-## Originality
-**PASS relative to evidence inspected.** The general one-dimensional phase-retrieval zero-flipping classification is classical, and Beinert–Plonka (2016, Theorem 3.6) already construct Pauli partners with four nonzero taps. Beinert–Plonka (2020, Example 24.3) **already show a three-solution four-tap fiber**. Neither the 2016 full-text classification, the 2020 chapter's full relevant section, the 2023 Katz–Rahman–Ward factorization theorem, nor the 2026 Novikov–Xu construction supplies the exact all-positive-modulus triangle criterion, its converse, or the maximum-fiber boundary equivalence. published-finding corpus searches for corresponding claims and parameter aliases found neighboring Fourier retrieval results but no equivalent or stronger one. Possible unindexed special-case calculations remain a material priority risk.
+PASS
 
-## Mathematical value
-**PASS.** The natural measurement design is full time-side intensity plus continuous Fourier-side intensity on the shortest support allowing nontrivial Pauli ambiguity. A complete necessary-and-sufficient condition in the experimentally prescribed four amplitude parameters is a meaningful identifiability boundary: it separates all universally reconstructible amplitude patterns from those admitting genuine companions and sharply limits fiber multiplicity. This is more than an isolated witness, a renaming of zero-flipping, or a computed table entry.
+Fix global phase a=A>0 and R3 fixes d=De^{iδ}. Let U=Ac,V=d conj(b), z=U+V=R2, k=(D²-A²)e^{2iδ}, |U|=AC=r, |V|=BD=s. Directly expanding first autocorrelation verifies Ad R1=A²e^{2iδ}conj(z)+U(z-U)+k conj(U). When z!=0 two circle intersections at most; equality of their R1 values equivalent to (s²-r²)z=k conj(z)^2. Nondegeneracy requires |r-s|<|k|<r+s (after solving |z|=|s²-r²|/|k|). When z=0, r=s and U constrained to circle; cubic U³+AdR1 U-kr²=0 bounds fiber by three, and two distinct nontrivial solutions occur iff 0<|k|<2r. Triple requires R1=R2=0 and |k|=r=s, achieved by three cubic roots. Explicit independent exact symbolic computation for j=0,1,2 verified all R0..R3=(65/4,0,0,2) for f_j=1-(3/2)ω^(-j)z+3ω^j z²+2z³ with ordered squared moduli (1,9/4,9,4). Nontrivial equivalence excludes reversal except at A=D,B=C, handled separately; lengths <=3 follow a single real-linear middle-tap equation. Completeness relies on the all-case analytic two-circle/cubic proof, not finite checks.
 
-## Residual limitations
-The result does not imply stability under measurement noise and does not address sparse missing interior taps or longer sequences. The historical example of triple fibers is correctly attributed; the criterion and all-amplitude classification are the claimed contribution. General factorization results are broader in domain but do not provide the specialized threshold without additional argument. Bibliographic completeness remains uncertain; independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS is confined to the all-positive four-magnitude necessary-and-sufficient triangle, global three-phase upper bound, and exact triple locus. Beinert–Plonka already gave 2016 nonuniqueness for lengths>3 and a 2020 four-tap threefold example. Their explicit primary 2020 Example 24.3 is acknowledged and NOT counted as new. General autocorrelation factorization and phase retrieval constructions do not supply the four-magnitude sharp classification in inspected results.
+
+## value
+
+PASS
+
+Given a natural signal-recovery side-information model, the exact open region deciding ambiguity and the sharp maximum-fiber locus are useful structural statements: they identify when positive four-tap data provably do or do not determine phase. This goes beyond old isolated examples and generic almost-everywhere assertions while remaining a self-contained classification; no unsupported downstream stability claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
