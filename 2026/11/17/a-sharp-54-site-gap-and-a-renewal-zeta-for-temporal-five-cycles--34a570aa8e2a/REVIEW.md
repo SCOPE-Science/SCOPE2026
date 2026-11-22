@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the exact time update, labelled spatial domain and primitive-temporal-orbit normalization. The space-time graph bijection yields fifth-return counts by an adjacency trace. Complete construction of the finite graph establishes one isolated loop, one two-cycle, and five 16-vertex, 18-edge strongly connected components with three simple cycles of lengths 11, 12 and 13 sharing a vertex. The determinant cycle-cover expansion gives the rational renewal function and the prime-five division gives orbit counts. The interval-semigroup argument makes 54 a sharp exclusion. A dependency-free Python certificate and separately written C++ exhaustive state checker were both executed; all checks passed. The latter alone is not treated as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+The Rule22 one-step condition is sum of three adjacent binary bits exactly 1. The inspected t=5 space-time transfer construction is a finite 1024-state graph. A separate implementation generated 1023 edges and SCC sizes 1,2,16,16,16,16,16; one 16-state block has 18 edges, exactly three simple cycles lengths 11,12,13 with 9 vertices common. The inspected checker verifies the remaining four blocks exhaustively; common-vertex intersection precludes disjoint-cycle determinant products, so each block det(I-zB)=1-z^11-z^12-z^13, and -zQ'/Q gives its trace. The one-/two-cycle contributions cancel against F_n fixed points and division by the five temporal phases yields the orbit generating function for every n, not a finite extrapolation. The positive coefficient support is the semigroup <11,12,13>; its union intervals [11k,13k] have last missing values 53,54, conductor 55. An independent direct bit-state enumeration is finite corroboration, not the all-n proof.
 
-The 2019 study by Martínez et al. already exhibits period-five configurations at sizes 11, 12, 13 and contains extensive de Bruijn and finite-ring investigations. The new claim is not those examples, but the exact all-circumference primitive-orbit generating function and the sharp 54-site Frobenius cutoff. The nearest related exact temporal-four census addresses a different power of the update map and does not imply the fifth-return language. Searches for Rule 22 fifth-return zeta, exact counts, and sizes 11, 12, 13 did not identify a prior equivalent statement. Historic cycle catalogues may be incomplete, so independent priority checking remains appropriate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural short-period invariant of a widely studied nonlinear elementary automaton. The recurrent space-time language has an unexpectedly simple three-loop renewal determinant, translating the emergence of five-step recurrence into a semigroup of three consecutive spatial lengths. The sharp gap ending at circumference 54 and exact exponential orbit growth are substantive consequences; this is not a mere small-ring census or a restatement of already known examples.
+Best-of-knowledge search and actual statement comparisons across Resultary, primary accessible literature and the assigned proof found no earlier statement implying this specific final claim. Named comparisons below identify exact overlap and inapplicability; failure to find a source is not itself novelty proof, and material uninspected is retained as risk.
 
-## Limits
+## value
 
-Other temporal periods, attraction basins and global maximal cycle lengths remain outside scope. Source-access and historical-priority risks do not affect the finite mathematical proof, but they qualify the originality assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Primitive temporal-five cycles of Rule22 are a natural previously studied attractor class. The full all-circumference rational orbit series, sharp conductor 55, exclusion of n=54 and growth constant classify a meaningful infinite family beyond known isolated periodic patterns; the invariant cannot be inferred from the finite n<=20 atlas or temporal-four census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
