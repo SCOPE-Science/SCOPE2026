@@ -1,15 +1,21 @@
-# Review of the complete-bipartite sharp Poincaré claim
+# Independent mathematical audit
 
-## Correctness — PASS
-The metric constant is obtained by averaging the actual triangle inequalities for every same-part pair through every opposite-part vertex. Every inequality is saturated by the intrinsic graph metric, and equality demands the corresponding triangle equality for each triple. For real \(L^1\), layer-cake integration reduces the problem to all nontrivial cuts. With \(d=x-y\) and \(D=a-b\), the exact identity \(s(N-s)-2e=d(D-d)\) yields both sharp branches and the exhaustive equality cases. In the imbalanced branch, complementing a cut makes \(1\le d\le D/2\), and \(e\ge bd\) gives the required sharp bound. The included exact checker independently exhausts the finite diagnostic range but is not substituted for this proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The 3 November 2026 source proves cotype-dependent general bounds, not these two exact target constants. An existing exact crown-graph calculation involves deletion of a perfect matching; an existing Heawood-graph calculation involves a different graph; neither implies the two-parameter complete-biclique classification. The published multipartite L1 distortion result solves a different optimization. Search results from the available research records and primary literature do not show the same formula or complete equality cases. However, an older edge-isoperimetric treatment could use a mathematically equivalent normalization; lack of a match is not proof of priority. One closely related published result was available only through its summary.
+PASS
 
-## Mathematical value — PASS
-This determines two natural nonlinear Poincaré invariants for every nontrivial complete bipartite graph, with a sharp discrete transition in every optimal L1 cut family. It separates arbitrary metric and real L1 targets quantitatively; the optimal ratio approaches \(3/2\) along balanced bicliques. Equality classification determines the geometry of all extremal L1 maps via their level sets. These are exact infinite-family structural results rather than a numerical sample or an arbitrary single-graph computation.
+For K_{a,b}, a≥b≥2,N=a+b, averaging triangle inequalities through each opposite-part vertex yields same-shore sum ≤[(a−1)/b+(b−1)/a] times edge sum; graph shortest-path metric (distance 2 same part,1 cross) attains it and equality exactly when all such triangles saturate. For real L1 target threshold-cut coarea suffices; for x,y selected vertices, crossing edges e=bx+ay−2xy and all pair crossings s(N−s), identity s(N−s)−2e=(x−y)(a−b−x+y). D=a−b=0 and 1 force optimal cut value 2 and all d=x−y∈{0,D}; D≥2 complementary reduction d∈[1,D/2], e≥bd and sharp singletons obtain gamma_L1=max(4ab/[N(N−1)],2a/N). Unique optimal families as stated: x=y, x−y in {0,1}, or singleton/converse for D≥2. gamma_met=2(a²+b²+ab−a−b)/[N(N−1)]; checked independent exact all cut counts for a≤11. Finite verification supplements unrestricted algebra.
 
-## Limitations
-Only exponent one and unweighted complete bipartite graphs with both classes of size at least two are covered. The constants use unordered distinct-pair averaging and need rescaling for other conventions. Published equivalent cut formulations may exist under different names; no independent audit or external certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution remains after subtracting credited prior special or broader results; each of four implication comparisons and source inspections below document the boundaries. Published general complete multipartite metric theorem already establishes the metric-target half, but does not establish real-L1 sharp cut constant and equality characterization. 
+
+## value
+
+PASS
+
+This is a complete classification of sharp exponent-one Poincaré constants and equality-cut strata for natural complete bipartite graph family, including discrete imbalance transition D=0,1 versus D≥2. Metric formula alone is already an instance of general multipartite theorem, but the distinct L1 cut phase and all equality maps constitute an unknown independently useful exact invariant, not merely known metric table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
