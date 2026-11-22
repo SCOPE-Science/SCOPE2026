@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The derivative-to-function isometry modulo constants, the leaf-trace cut kernel and its strict edgewise convexity give the exact sharp norm for each tree. The combinatorial leaf bound turns the universal problem into an explicit integer quadratic, with equality only for balanced double-stars once the sharp value exceeds one. All edge-case conventions, the first threshold at five edges and nonattainment in the continuous edgewise \(W^{1,1}\) class are covered by the proof. The standalone checker completed 325330 exact arithmetic assertions, including all labeled trees through seven edges.
+
+**Originality — PASS, qualified.** The closest general boundary trace literature concerns Euclidean \(BV\) domains, metric-space trace existence, and infinite-tree Besov trace classes. Closest published finite-tree comparators address the real mean-zero \(H^1\)-to-supremum embedding and a linear trace right-inverse minimization; neither states or implies the volume-centered \(W^{1,1}\)-to-Euclidean-leaf trace cut formula or its balanced-double-star shape maximization. There remains a priority risk from general, possibly unindexed, metric-graph embedding or endpoint variation literature.
+
+**Value — PASS.** The boundary trace is a direct observable of network signals with only an arclength mean and a total-gradient budget. The exact topology classification locates the first amplification transition, identifies the unique most trace-unstable topology at every larger edge count, gives a computable sharp constant for each fixed tree, and shows sharply different geometry from the Hilbert-energy endpoint evaluation problem.
+
+**Closest literature and limitations.** Cianchi et al. (2013), Lahti–Shanmugalingam (2015), and Björn et al. (2013) establish neighboring trace frameworks. The relevant published metric-tree evaluation and weighted tree extension results address different operators, exponents, and targets. The theorem requires unit edges, the specified volume centering and leaf norm. Supremums are not attained in the stated Sobolev domain. No independently validated novelty or proof assessment is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
