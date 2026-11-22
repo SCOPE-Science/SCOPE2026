@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The ambient ball, complex polynomial band, conditional beta law, and all six spectral sectors are defined explicitly. Conditional transverse-ball moments give an orthogonal direct sum with dimension \(\binom{d+2}{2}\). The beta stochastic-order comparisons prove all four interior strict inequalities; min-max tests using \(u\) and \(1-u\) place the two scalar-even eigenvalues strictly outside them. Complete determinant identities give the thin-slab constant. An exact full monomial determinant and 24 independent numeric full-matrix integrations support arithmetic consistency; they are not substituted for the universal proof.
+## correctness
 
-## Originality — PASS, with priority limitations
-The 2023 Gerhards–Huang paper (arXiv:2308.03543) treats the same degree-polynomial space and general subdomains but chiefly establishes high-bandwidth spectral asymptotics and general variational bounds. Closest published quadratic half-ball and radial-mask classifications treat different observation sets, while the equatorial-belt analysis is for surface harmonics. Gilbert–Slepian (1977) treats univariate interval concentration; only its abstract could be inspected. No inspected full source states the simultaneous six-level strict ordering, exact eigenvalue multiplicities, and the sharp fixed-dimensional slab-conditioning constant. General weighted-Jacobi theory might imply a specialization and priority cannot be independently certified.
+PASS
 
-## Mathematical value — PASS
-The centered volume slab is a standard incomplete-observation geometry. The theorem classifies sharp worst- and best-case observations for the **entire** quadratic polynomial space, proves that the extremizers never switch to transverse modes at any aperture or dimension, and gives the exact loss of stability in thin slabs. These are functional spectral facts beyond merely enumerating a small matrix.
+For U=X_1² with Beta(1/2,(d+1)/2), conditioning on U splits Π₂ into even 2×2, axial linear, transverse linear, mixed x_1Y, and centered transverse quadratic sectors of dimensions 2,1,d−1,d−1,d(d−1)/2. Conditional moments yield the stated four scalar beta-CDFs and generalized even eigenvalues. Strict beta stochastic orders and min-max on u and 1−u place λ− and λ+ outside the four scalar levels. Determinant/first-moment expansions produce λ+/λ−~405 a^(−4)/(8(d+1)(d+4)). Direct independent symbolic constant check and the actual verify_exact.py source corroborate arithmetic; finite tests do not prove the infinite family.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No located prior result implies the six strictly ordered degree-two central-ball-slab levels and sharp fixed-dimensional thin-width prefactor. Existing polynomial-ball asymptotic theory, half-ball parity, and radial-mask classification differ geometrically and in conclusion. Best-of-knowledge only.
+
+## value
+
+PASS
+
+Complete strict spectrum and unique extremizers quantify a natural finite-bandwidth localization problem; the exact small-aperture a^(−4) instability and dimension prefactor are significant sharp quantitative consequences not just normalization tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
