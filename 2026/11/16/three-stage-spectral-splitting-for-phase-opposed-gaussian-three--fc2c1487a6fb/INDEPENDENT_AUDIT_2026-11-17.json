@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:09:36.802058Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Gaussian Fourier identity gives F(x)=exp(-x²/2)(2 exp(-s/2)cosh(sqrt s x)-a), I=F². For x>0, F’=x exp(-x²/2)[a-H_s(x)] and H_s(0)=A(s). The entire expansion H_s/(2c)=1-s+Σ_(k>=1)(1-s/(2k+1)) (s x²)^k/(2k)! has coefficients with at most one negative-to-positive switch; after dividing H_s-a by the first positive monomial, the nonzero negative-degree terms and positive-degree terms have strictly positive derivative, forcing one positive root iff a>A(s). F is positive at this strict side maximum since it decays to zero from above. Comparing F(0)=B(s)-a yields exactly one center, two sides, or center+two sides; the boundary at a=A(s) is a quartically flat strict central maximum, while at a=B(s) the center is a fourth-order *minimum* of intensity. Expansion at s0 yields x_*²=3(s-s0)/s0+O((s-s0)^2), and at s1 yields I(0)=a²(s-s1)^2/4+O((s-s1)^3). Independently solved H_s(x)=a by bracketing for representative s=.2,.7,1,3 across phases and found exactly the predicted off-center roots; these samples cannot establish continuum claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chand–Nolen–Wu explicitly study two-component harmonic interference in their 2026 published abstract; its reported two-frequency bifurcation does not state the fixed three-tone global classification.",
+          "Miramont et al. 2022 classify spectrogram zeros and denoising rather than deterministic local maxima for this signed profile."
+        ],
+        "reasoning": "Two-tone results and zeros-of-stochastic-spectrogram literature do not mathematically imply both two-variable sharp curves A(s),B(s). Hidden multitone appendix possible because Chand full manuscript inaccessible.",
+        "searches": [
+          "three tone Gaussian short time Fourier transform phase opposed signed amplitudes exactly three maxima",
+          "arXiv:2601.10910",
+          "arXiv:2210.05459"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, VERIFICATION.md",
+        "Resultary search three tone Gaussian short time Fourier transform phase opposed signed amplitudes exactly three maxima",
+        "Chand–Nolen–Wu 2026 Duke primary abstract and arXiv:2601.10910",
+        "Miramont et al. arXiv:2210.05459"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three-tone signed STFT has a center cancellation and two independent amplitude thresholds absent in the described two-tone spectral interference paper."
+        ],
+        "reasoning": "The elementary Gaussian transform is known; exhaustive all-x modal classification and sharp square-root/quadratic onset laws are new claims of this package not directly implied by identified prior statements.",
+        "searches": [
+          "arXiv:2601.10910 two-tone model",
+          "Miramont et al arXiv:2210.05459",
+          "three tone Gaussian short time Fourier transform phase opposed signed amplitudes exactly three maxima"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At fixed phase-opposition time, intensity is the square of a signed symmetric three-Gaussian combination, not an ordinary positive Gaussian mixture or expected zero-intensity function."
+        ],
+        "reasoning": "Searched Gaussian mixture stationary points and three-tone STFT bubble/ridge aliases; the signed amplitude can cross zero and create a third intensity peak. Generic two-Gaussian or positive Gaussian mixtures cannot be directly substituted.",
+        "searches": [
+          "three tone Gaussian short time Fourier transform phase opposed signed amplitudes exactly three maxima",
+          "Gaussian mixtures extrema sign variation 3 components",
+          "arXiv:2601.10910"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published three-line random spectrogram result concerns expected zero intensity, not intensity of a fixed phase-opposed 3-line signal."
+        ],
+        "reasoning": "A numerically similar three-line bifurcation in a different observable is not coverage of the signed F(x)^2 mode-count table.",
+        "searches": [
+          "three tone Gaussian short time Fourier transform phase opposed signed amplitudes exactly three maxima",
+          "Resultary 2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after separate formulation/implication comparisons, published-result search, and bounded primary-literature inspection; not a certification of absolute historical priority. The elementary Gaussian transform is known; exhaustive all-x modal classification and sharp square-root/quadratic onset laws are new claims of this package not directly implied by identified prior statements.",
+      "residual_risks": [
+        "Closely related 2026 article has inaccessible full text (large arXiv PDF and Oxford disconnected); a multi-tone appendix or older signed three-Gaussian mode count could cover result.",
+        "Local maxima include arbitrarily small peaks; no robust detectability or all-time spectrogram claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS-LIMITED; cannot assert whole manuscript noncoverage",
+          "evidence": "2026 published abstract expressly describes two-component harmonic model, but hidden multi-tone appendices cannot be excluded.",
+          "identifier_or_url": "https://doi.org/10.1016/j.acha.2026.101889",
+          "material_read": "Primary journal metadata and full detailed abstract describing explicit two-tone model and thresholds; full long-form manuscript not read (arXiv PDF too large and Oxford vpn_disconnected)",
+          "method": "Duke publisher/citation landing plus arXiv 2601.10910 abstract and OA attempt",
+          "title": "On spectral interference of the short-time Fourier transform and its nonlinear variations",
+          "trigger": "Closest 2026 two-component Gaussian STFT primary paper"
+        },
+        {
+          "assessment": "OBJECT mismatch but full comparison limited",
+          "evidence": "Distribution/topology of zeros is not local maxima of fixed deterministic signed-Gaussian squared amplitude.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.05459",
+          "material_read": "Title, bibliographic record and research claim in source references, no complete PDF read",
+          "method": "arXiv catalog/related-literature search",
+          "title": "Unsupervised classification of the spectrogram zeros",
+          "trigger": "Three-tone Gaussian spectrogram zeros possible alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Coherent signed three-Gaussian spectroscopy has two mathematically distinct transitions: symmetry-breaking side-peak bifurcation followed by emergence of a central peak from a fourth-order spectral null. Exact global mode count, unique side maxima, and onset laws give a motivated nonlinear measurement invariant; the difference from a mere two-tone Rayleigh criterion is substantial despite being a restricted slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only real x on a single phase-opposed Gaussian-window slice, equal outer amplitudes, arbitrary a>0,d>0; extrema even when tiny; no noise/global time-frequency guarantees.",
+    "Closely related 2026 article has inaccessible full text (large arXiv PDF and Oxford disconnected); a multi-tone appendix or older signed three-Gaussian mode count could cover result.",
+    "Local maxima include arbitrarily small peaks; no robust detectability or all-time spectrogram claim."
+  ],
+  "schema_version": 1
+}

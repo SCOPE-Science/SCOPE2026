@@ -1,15 +1,21 @@
-# Review of the three-tone Gaussian spectral phase diagram
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** Fourier integration yields the exact amplitude \(F\). Differentiation reduces all noncentral stationary points to one explicitly displayed entire power series in the positive variable \(sx^2\). The coefficient sequence has at most one negative-to-positive sign transition. Dividing by the first positive monomial makes the expression strictly increasing, hence there is exactly one positive stationary amplitude point when \(a>A(s)\), and none otherwise. Signs of \(F(0)\), \(F(x_*)\), and the positive tail classify all intensity critical points including the boundary cases. The analytic expansions and normalization were separately checked in the attached script. Risk: only a one-time slice is covered, and numerical tests do not establish other phase configurations.
+## correctness
 
-## Originality
-**PASS relative to examined sources.** Chand–Nolen–Wu's 2026 abstract and journal metadata identify a two-component harmonic model, not the present three-component signed profile. Miramont et al.'s 2022 full-text sections 1–3 study spectrogram zero locations, three-tone interference and denoising, but do not give these global maxima curves. The published three-line Gaussian result treats expected zero density of random coefficients, not deterministic intensity peaks; the published two-chirped-tone result treats a local bifurcation for a different signal. Exact statement-to-statement comparisons and remaining risks are recorded in `AUDIT.json`. The full 76-page manuscript of the closest 2026 paper could not be inspected, so a hidden generalization remains possible.
+PASS
 
-## Mathematical value
-**PASS.** For a minimal phase-coherent three-tone signal, the exact two-parameter classification distinguishes resolution of the outer modes from the emergence of a central peak after destructive cancellation. Its two sharp boundaries, quartic criticality, square-root splitting, and quadratic central-peak onset give quantitative resolution benchmarks not deducible from two-tone calculations. This is a natural complete classification, not a numerical convenience slice: the chosen time is precisely where the middle and outer Fourier components are phase-opposed. Risks: local maxima are not necessarily noise-robust detected modes, and the result is not an all-time theorem.
+The Gaussian Fourier identity gives F(x)=exp(-x²/2)(2 exp(-s/2)cosh(sqrt s x)-a), I=F². For x>0, F’=x exp(-x²/2)[a-H_s(x)] and H_s(0)=A(s). The entire expansion H_s/(2c)=1-s+Σ_(k>=1)(1-s/(2k+1)) (s x²)^k/(2k)! has coefficients with at most one negative-to-positive switch; after dividing H_s-a by the first positive monomial, the nonzero negative-degree terms and positive-degree terms have strictly positive derivative, forcing one positive root iff a>A(s). F is positive at this strict side maximum since it decays to zero from above. Comparing F(0)=B(s)-a yields exactly one center, two sides, or center+two sides; the boundary at a=A(s) is a quartically flat strict central maximum, while at a=B(s) the center is a fourth-order *minimum* of intensity. Expansion at s0 yields x_*²=3(s-s0)/s0+O((s-s0)^2), and at s1 yields I(0)=a²(s-s1)^2/4+O((s-s1)^3). Independently solved H_s(x)=a by bracketing for representative s=.2,.7,1,3 across phases and found exactly the predicted off-center roots; these samples cannot establish continuum claims.
 
-## Verification status
-The provided checker passed 212 assertions, including the Fourier normalization. This is a supplementary finite check, not an infinite proof. The sign-pattern proof establishes the complete classification analytically.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after separate formulation/implication comparisons, published-result search, and bounded primary-literature inspection; not a certification of absolute historical priority. The elementary Gaussian transform is known; exhaustive all-x modal classification and sharp square-root/quadratic onset laws are new claims of this package not directly implied by identified prior statements.
+
+## value
+
+PASS
+
+Coherent signed three-Gaussian spectroscopy has two mathematically distinct transitions: symmetry-breaking side-peak bifurcation followed by emergence of a central peak from a fourth-order spectral null. Exact global mode count, unique side maxima, and onset laws give a motivated nonlinear measurement invariant; the difference from a mere two-tone Rayleigh criterion is substantial despite being a restricted slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
