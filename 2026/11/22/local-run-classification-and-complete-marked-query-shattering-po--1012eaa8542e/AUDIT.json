@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For each n>=3, at most one equality test per vertex; proper partial three-colourings of a proper cycle vertex subset extend across all gaps. All-positive and 101 traces force alternating target colours on consecutive triples; 1001 excludes four-run supports. A complete 8-trace table proves permitted triple runs, with one/two-run tables similarly explicit. Exact n/r rooting with positive gap compositions proves each coefficient. The direct-trace verifier exhaustively checks all 4^n marked supports for 3<=n<=8 against independent formula. The n=3 full-cycle exception is handled by 6<8 proper colourings. Checks support, not replace, universal proof. The nonpurity corollary constructs all maximal alternating-position supports via proper target colourings of an auxiliary cycle and checks one-step nonextendability.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guingona et al. prove a dimension formula for zero sets of vector-space linear-combination families, not restricted proper colourings on a cyclic graph.",
+        "Walker derives general shatter-function bounds and tree dimension of leaf sets, not individual supports of a prescribed graph-colouring concept class.",
+        "Published complete-bipartite proper colouring polynomial covers a graph family with different adjacency constraints, not cycles."
+      ],
+      "reasoning": "General Sauer–Shelah estimates and zero-set dimension theorems cannot determine exact cyclic marked-support coefficients. A complete-bipartite formula does not dominate this family. The path construction is used only for an already-known degree bound, not as a polynomial identity.",
+      "searches": [
+        "published-finding corpus: Marked query shattering proper colourings of paths cycle chromatic constraints, run-length decomposition, exponential cyclic composition",
+        "published-finding corpus: Trace shattering complex for graph homomorphisms from cyclic graphs to K3; colors tested vertex by vertex, coefficient enumeration",
+        "arxiv 2109.04805 full HTML: Littlestone and VC-dimension of families of zero sets",
+        "arxiv 2203.12211 full HTML: Tree Dimension and the Sauer-Shelah Dichotomy"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1708.05118",
+      "https://arxiv.org/abs/2109.04805",
+      "https://arxiv.org/abs/2203.12211",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-vc-and-littlestone-ranks-for-proper-three-colourings-of-fi--22fcc09464b4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-a-sharp-three-colour-palette-threshold-for-vc-and-online-shatter--5ed55547f077"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The same-family 2026 theorem computes VC rank and online rank and documents that all individual shattered supports are not classified.",
+        "The path theorem proves a four-consecutive-vertex impossibility and constructs one maximum shattered set; it does not give the multiplicity of target colours on arbitrary run sets or cyclic n/r enumeration.",
+        "Blanca et al. identify graph structure from random proper-colouring samples, not a fixed known-cycle equality query shattering complex."
+      ],
+      "reasoning": "The new claim strictly refines the known cycle rank: it determines each marked support and every coefficient. Its proof uses additional necessary triple-run restrictions, a sufficient all-trace witness for each run and a cyclic rooted-composition enumeration, so it is not obtained from the known scalar upper/lower bounds alone.",
+      "searches": [
+        "GitHub public full RESULT.md: exact three-colouring cycle VC and Littlestone ranks (2026-11-08)",
+        "GitHub public full RESULT.md: three-colouring path palette threshold (2026-10-26)",
+        "arxiv 1708.05118 HTML full intro/problem setup: H-colourings sampled to learn unknown graph",
+        "arxiv 2203.12211 Sections 1 and 1.1: shatter function upper bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Public RESULT.md: Exact VC and Littlestone ranks for proper three-colourings of finite cycles, 2026-11-08: full theorem and Limitations explicitly say no classification of all individual shattered supports.",
+        "Public RESULT.md: A sharp three-colour palette threshold for VC and online shattering of path colourings, 2026-10-26: only dimension formula plus a local four-run obstruction, no coefficientwise enumerator."
+      ],
+      "reasoning": "The full marked-query polynomial counts every permissible colour marking on every selected cyclic vertex set. Neither scalar dimension theorem characterizes all supports or gives their coefficients; the present theorem derives the exact run types and n/r cyclic composition law. Cyclic words and graph homomorphism to K3 are equivalent descriptions and were searched.",
+      "searches": [
+        "published-finding corpus: Exact complete face polynomial of marked vertex-colour equality shattering supports for proper three-colourings of cycles, selected runs length at most three, alternating colours on triple, coefficients 3 6 6 transfer matrix",
+        "published-finding corpus: 3-coloring cycle Boolean VC shattered support classification runs 1 2 3, polynomial 1+12z+42z^2+24z^3, cyclic word color equality",
+        "web: shattering polynomial proper three colorings cycles complete marked vertex-color supports"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public indexed result is the exact rank theorem for this same family; its complete RESULT.md expressly disclaims an individual-support classification."
+      ],
+      "reasoning": "No identical coefficient table or cyclic marked-support formula was found in the actually searched public records. This is a bounded literature comparison, not an absolute historical uniqueness assertion.",
+      "searches": [
+        "published-finding corpus: 3-coloring cycle Boolean VC shattered support classification runs 1 2 3, polynomial 1+12z+42z^2+24z^3, cyclic word color equality",
+        "published-finding corpus: Exact complete face polynomial of marked vertex-colour equality shattering supports for proper three-colourings of cycles, selected runs length at most three, alternating colours on triple, coefficients 3 6 6 transfer matrix"
+      ]
+    },
+    "rationale": "The closest same-family full public theorem gives only VC and Littlestone ranks and explicitly says it does not classify individual shattered supports. A prior path theorem gives the four-run obstruction but neither cyclic marked-colour multiplicities nor full coefficient formula. General VC bounds, zero-set systems, graph-structure learning and Fourier studies do not imply the presented coefficient counts. Actual indexed searches and relevant full public result texts were checked; priority remains conditional on unindexed literature.",
+    "residual_risks": [
+      "A preexisting but unindexed equivalent marked-cycle face enumerator could remain undiscovered.",
+      "Fourier/colouring research published under different combinatorial terminology may have overlooked relevant equivalent statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COV novelty restricted to complete support classification and polynomial: this source explicitly claims only two dimensions and says it does not classify all individual shattered supports.",
+        "evidence": [
+          "Its theorem states VC rank floor(3n/4) and online rank n-1.",
+          "Its Limitations expressly says the VC proof does not classify all individual shattered supports."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-vc-and-littlestone-ranks-for-proper-three-colourings-of-fi--22fcc09464b4",
+        "material_read": "Full RESULT.md: finding, definitions, five proof steps, verification, relationship, limitations and references",
+        "method": "Public repository file read",
+        "title": "Exact VC and Littlestone ranks for proper three-colourings of finite cycles",
+        "trigger": "Same hypothesis family and marked binary equality queries; decisive direct comparison"
+      },
+      {
+        "assessment": "Contains the local four-run impossibility and VC ranks for paths; no complete marked-support classification or cyclic coefficient counting.",
+        "evidence": [
+          "Full finding concerns VC and online dimensions, not a polynomial.",
+          "Path construction selects one witness pattern."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-a-sharp-three-colour-palette-threshold-for-vc-and-online-shatter--5ed55547f077",
+        "material_read": "Full RESULT.md including precise theorem, local obstruction proof, witness and limitations",
+        "method": "Public repository file read",
+        "title": "A sharp three-colour palette threshold for VC and online shattering of path colourings",
+        "trigger": "Same binary equality query model and local obstruction on paths"
+      },
+      {
+        "assessment": "Different learning target: unknown graph edges from samples of colourings, not fixed-cycle colour-query VC complex.",
+        "evidence": [
+          "Introduction defines graph identifiability from random H-colouring samples, not all binary equality traces.",
+          "Version 1 publicly posted 2017-08-17 UTC."
+        ],
+        "identifier_or_url": "arxiv:1708.05118v1; https://arxiv.org/html/1708.05118v2",
+        "material_read": "Abstract, introduction and formal H-colouring/structure-learning problem statement; section-topic search",
+        "method": "Open-access HTML full text with text search",
+        "title": "Structure Learning of H-colorings",
+        "trigger": "Earliest verified direct study of proper graph colourings in a learning context"
+      },
+      {
+        "assessment": "Zero sets of linear combinations over fields are not the proper-colouring indicator family.",
+        "evidence": [
+          "Theorem 3.10 uses linearly independent function families and yields dimension d-1, not cyclic marked coefficients."
+        ],
+        "identifier_or_url": "arxiv:2109.04805v1; https://arxiv.org/html/2109.04805v1",
+        "material_read": "Introduction, Section 2 definitions, Section 3 theorem statements and source hypothesis definitions",
+        "method": "Open-access HTML full text",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Foundational logic-side VC dimensions of definable set systems"
+      },
+      {
+        "assessment": "Provides general upper bounds and dimension definitions without cycle-colouring marked-support enumeration.",
+        "evidence": [
+          "Theorem 1.3 and Corollaries 1.7 and 1.10 give general Sauer–Shelah-style bounds."
+        ],
+        "identifier_or_url": "arxiv:2203.12211v1; https://arxiv.org/html/2203.12211v2",
+        "material_read": "Full table of contents, first binary-tree section and shattering applications/theorem statements",
+        "method": "Open-access HTML full text",
+        "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+        "trigger": "General shattering counting bound and foundation context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1012eaa8-542e-4013-99a2-1a51b8ca2678",
+  "value": {
+    "rationale": "Counting every binary vertex-colour test support for the standard three-colouring concept class of cycles is a natural face-enumeration refinement beyond the already-known scalar VC dimension. The complete local run/multiplicity classification and exact coefficientwise formula distinguish selected-vertex support patterns, expose the alternating triple constraint and recover the full finite-size profile at arbitrary cycle orders. It is a structural all-order theorem with direct reproducible checks, not an arbitrary finite numerical slice or a restatement of the rank. In even cycles the same structural law proves infinitely many nonpure complexes and enumerates an exact family of lower-dimensional maximal faces.",
+    "status": "PASS"
+  }
+}
