@@ -1,0 +1,18 @@
+# Scientific review
+
+## Correctness — PASS
+The stated map is the 2024 cyclic Lotka–Volterra polynomial at exactly \(R=3\), with both interaction coefficients equal. On its diagonal the exact logistic coordinate is \(u=3(1+2a)t/4\). The three-by-three derivative matrix has one radial eigenvalue \(4(1-2u)\) and an invariant, double transverse eigenvalue \(4[1-(2+a)u/(1+2a)]\). Since the splitting is fixed along the orbit, the three exponents are scalar Birkhoff logarithmic integrals against the arcsine measure. Jensen's cosine-log identity evaluates all cases including the neutral boundary, and elementary expansions give the sharp one-sided constants.
+
+For \(a=1\), the full map factors as \(F(x)=(4-3\sum_i x_i)x\), fixing all composition ratios. The logistic measure on each ray is ergodic and has exponents \((\log2,0,0)\); Lebesgue almost every initial state in the compact tetrahedron has one raywise empirical limit. Since the ray is determined by the limit's first moments, no fixed invariant probability can attract a positive-volume set. The standalone checker passed 764 deterministic finite tests. The proof, not the finite tests, establishes the infinite claims; exact zero-derivative exceptional orbits are excluded from the almost-everywhere statements.
+
+## Originality — PASS within accessible evidence
+The complete HTML of Muni (2024), arXiv:2408.15054v1, was read across its model, Lyapunov charts, bifurcation sections, conclusions and references. It reports numerically identified quasiperiodicity and hyperchaos largely near \(R=1.4\) with unequal interactions, not an exact full Lyapunov formula on the \(R=3\) diagonal or a no-physical-measure theorem at unit symmetric competition. An indexed same-map result gives sharp Floquet multipliers of a synchronous primitive two-cycle for \(R>2\); this does not imply ergodic exponents for the logistic-four invariant measure or the neutral ray foliation. A related Euler–May–Leonard simplex result studies a distinct \(R=1\) step, where the neutral face is pointwise fixed, unlike the present chaotic \(R=3\) slice. Classical ergodicity and cosine integrals are properly credited as tools, not claimed new. The 1987 Gardini et al. predecessor was accessible as an abstract only and remains a material uninspected priority risk; the evidence does not prove absolute uniqueness.
+
+## Value — PASS
+The theorem gives an exact nonperiodic three-dimensional Lyapunov spectrum of an explicitly published model, resolves every positive symmetric interaction parameter on the natural maximal-chaos slice, and identifies a unique zero of two transverse exponents with asymmetric linear and square-root critical laws. At that same parameter, a full-dimensional invariant set splits into a continuum of mutually distinct chaotic ergodic ray measures with no three-dimensional physical measure. This distinguishes intrinsic instability from attractor hyperchaos and gives an exact analytical benchmark for numerical Lyapunov charts. It is a structural phase transition, not a numerical scan, isolated Jacobian example or arbitrary finite cutoff.
+
+## Closest work and limitations
+Muni (2024) introduces the map; Gardini, Lupini, Mammana and Messia (1987) address related three-dimensional Lotka–Volterra bifurcations but their full paper was not readable in this review. The symmetric-Ricker and two-site-coupling literature has different maps. This finding does not assert a physical hyperchaotic attractor when \(a
+e1\), nor a parameter-global basin classification away from the neutral tetrahedron. Unindexed equivalent theorems remain a literature risk.
+
+Self-review: passed. Independent audit: not yet performed.
