@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The uniform homotopy classification is proved by the explicit graph decomposition, a forced-matching parity argument, a two-cone recurrence for open-ladder perfect matching complexes, an exact identification of the exceptional simplex's attaching subcomplex with a path-independence complex, and the standard classification of those independence complexes. This is a structural proof for all \(n\ge2\), not a deduction from finite enumeration.
+# Independent mathematical audit
 
-The accompanying `VERIFY.py` is standalone Python 3 with no third-party dependencies. It exhaustively generates the perfect-matchings of the deleted graph for widths \(2\le n\le13\), verifies the parity rule for the exceptional cross-edge, and for odd widths through \(13\) checks each of the \(2^{n-1}\) subsets of the exceptional horizontal matching against the claimed path-independent-set criterion. For \(2\le n\le12\) it constructs all simplicial faces and reduces them by an acyclic lexicographic face-poset matching; it checks the critical-cell degree and count against the theorem. The exact text of a completed run is in `verification_output.txt`.
+## correctness
 
-The finite computations do not prove an infinite-family statement or establish literature originality. They independently check essential combinatorial premises of the symbolic proof. All homotopy types are ordinary, nonequivariant, and integral. Independent mathematical auditing remains outstanding.
+PASS
+
+The graph with one perimeter edge removed is an open two-row ladder plus one crossing edge. A perfect matching using that edge is impossible for even n and unique for odd n by forced alternation. The open-ladder extendible-matching complex admits a two-cone induction A_n≃Σ A_(n-2), A_1 contractible, A_2≃S^0. For odd n, the single exceptional simplex intersects the contractible open-ladder complex in exactly Ind(P_(n-1)): each chosen horizontal segment must be nonconsecutive and conversely extends by paired horizontals and remaining rungs. Null attachment gives ΣInd(P_(n-1)); the standard path three-periodic homotopy classification yields the claimed n mod6 branches. n=2 gives two connected components S^0. Independent direct enumeration of perfect-matchings, face sets and reduced Euler data n=2..8 agrees; finite checks do not establish the unbounded assertion.
+
+## originality
+
+PASS
+
+The specific perimeter-edge defect changes the graph and attaching simplex; established intact Möbius/circular ladder complex classifications and the existing antipodal-rung defect are neither equivalent nor stronger results on this object. No discovered published proof dominates the exact six-periodic deletion classification; absolute historical novelty remains qualified.
+
+## value
+
+PASS
+
+Deleting a natural symmetry orbit of one edge changes a two-sphere-wedge in the intact ladder to one sphere or contractible, with an exact infinite congruence classification and a structural attaching-complex explanation. This is a motivated graph-topology fault problem with informative integral homotopy transition, not a recomputation of an intact graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

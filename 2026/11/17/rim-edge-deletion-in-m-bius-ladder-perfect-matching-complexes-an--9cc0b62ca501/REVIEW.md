@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The result identifies the defective graph as an open ladder plus one cross-edge. A forced-matching argument proves that the cross-edge is absent from all perfect matchings at even widths and belongs to exactly one at odd widths. An independent two-cone induction gives the complete homotopy type of the open-ladder complex. The exceptional simplex intersects it in the exact independence complex of a path, leading to a null attaching map into a contractible complex and the periodic sphere/point classification. Finite perfect-matching reconstruction, exact intersection checks, and acyclic face-poset reductions corroborate the symbolic hypotheses and boundary cases.
+## correctness
 
-## Originality
-**PASS, with residual risk.** The closest primary work, Agarwal–Basak (arXiv:2608.30601, relevant full-text Sections 3 and 5), classifies intact Möbius and circular ladders. Chandrakar–Singh (arXiv:2407.05809) treats open ladder complexes. Related matching-complex computations and antipodal-spoke deletions concern different complexes or different edge orbits. In particular, an antipodal-spoke deletion may give a contractible even-width complex, while the perimeter-edge deletion here gives a sphere; a circular-ladder edge deletion involves an untwisted prism and has different parity behavior. The new one-cross-edge simplex and its path-independence attachment are not supplied by those statements. Searches of the indexed mathematical record did not identify the exact classification. Unindexed or differently formulated prior work is possible.
+PASS
 
-## Value
-**PASS.** A one-edge defect in the same canonical cubic graph family studied in the 2026 paper changes the number of spheres and introduces complete contractibility at one odd residue class. Comparing the two edge orbits exposes a structural topological distinction between a deleted perimeter edge and a deleted antipodal chord. The result provides an all-width integral homotopy classification with a direct combinatorial mechanism, rather than a finite census or numerical improvement.
+The graph with one perimeter edge removed is an open two-row ladder plus one crossing edge. A perfect matching using that edge is impossible for even n and unique for odd n by forced alternation. The open-ladder extendible-matching complex admits a two-cone induction A_n≃Σ A_(n-2), A_1 contractible, A_2≃S^0. For odd n, the single exceptional simplex intersects the contractible open-ladder complex in exactly Ind(P_(n-1)): each chosen horizontal segment must be nonconsecutive and conversely extends by paired horizontals and remaining rungs. Null attachment gives ΣInd(P_(n-1)); the standard path three-periodic homotopy classification yields the claimed n mod6 branches. n=2 gives two connected components S^0. Independent direct enumeration of perfect-matchings, face sets and reduced Euler data n=2..8 agrees; finite checks do not establish the unbounded assertion.
 
-## Scope and literature limitations
-The theorem concerns precisely one perimeter-edge deletion and does not classify arbitrary multiple deletions or equivariant actions. The 2026 motivating manuscript was examined in full, while the 2024 open-ladder article was accessed at the abstract/index level and its needed homotopy statement was re-proved independently. Prior published claims or equivalences not present in accessible indices cannot be ruled out. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specific perimeter-edge defect changes the graph and attaching simplex; established intact Möbius/circular ladder complex classifications and the existing antipodal-rung defect are neither equivalent nor stronger results on this object. No discovered published proof dominates the exact six-periodic deletion classification; absolute historical novelty remains qualified.
+
+## value
+
+PASS
+
+Deleting a natural symmetry orbit of one edge changes a two-sphere-wedge in the intact ladder to one sphere or contractible, with an exact infinite congruence classification and a structural attaching-complex explanation. This is a motivated graph-topology fault problem with informative integral homotopy transition, not a recomputation of an intact graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

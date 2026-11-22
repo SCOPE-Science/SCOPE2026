@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:08:38.373211Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph with one perimeter edge removed is an open two-row ladder plus one crossing edge. A perfect matching using that edge is impossible for even n and unique for odd n by forced alternation. The open-ladder extendible-matching complex admits a two-cone induction A_n≃Σ A_(n-2), A_1 contractible, A_2≃S^0. For odd n, the single exceptional simplex intersects the contractible open-ladder complex in exactly Ind(P_(n-1)): each chosen horizontal segment must be nonconsecutive and conversely extends by paired horizontals and remaining rungs. Null attachment gives ΣInd(P_(n-1)); the standard path three-periodic homotopy classification yields the claimed n mod6 branches. n=2 gives two connected components S^0. Independent direct enumeration of perfect-matchings, face sets and reduced Euler data n=2..8 agrees; finite checks do not establish the unbounded assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Antipodal rung deletion belongs to a different edge orbit; a circular untwisted ladder defect has different seam states.",
+          "The 2026 Agarwal–Basak intact theorem yields two spheres in even widths, while this defect yields one."
+        ],
+        "reasoning": "Results on different graph/edge orbits do not imply the rim-defect formula. No stronger all-edge-fault theorem was found in the checked sources.",
+        "searches": [
+          "perfect matching complex Möbius ladder remove single rim edge homotopy suspension independence path",
+          "Resultary: deleting one antipodal rung contracts perfect matching complex",
+          "Resultary: horizontal edge defect circular ladder"
+        ]
+      },
+      "checked_sources": [
+        "actual source RESULT.md 26a5b8959c3b710a21be5b5ebdfa858fff196d73",
+        "actual source VERIFY.py 2d8ff25ddcd379b3eb46a6852049f7fda3c29d19",
+        "arXiv:2608.30601 Theorem21 p14",
+        "arXiv:2407.05809; Resultary near-neighbor deletion records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intact graph G and defective graph G-e have different sets of perfect matching facets; deletion is not homotopy-invariant by formal restriction.",
+          "The odd-n exception is precisely ΣInd(P_(n-1)) after adding a facet, an assertion not supplied in Theorem21."
+        ],
+        "reasoning": "No implication from the intact result alone reaches the defective class: an additional graph-specific forced matching and gluing theorem are needed.",
+        "searches": [
+          "Agarwal–Basak Theorem 21 on intact Möbius ladder",
+          "perfect matching complex Möbius ladder remove single rim edge homotopy suspension independence path"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Agarwal–Basak Theorem 21 treats perfect matching complexes of UNDELETED M_(2n); deletion induces an additional unique facet for odd n and removes one seam option.",
+          "Chandrakar–Singh treat open polygonal line tilings; they supply at most the A_n piece."
+        ],
+        "reasoning": "Aliases perfect matching extendibility complex and matching facets were checked; none of these full intact/open-ladder formulations is equivalent to the defective Möbius graph with its odd-n attaching simplex.",
+        "searches": [
+          "perfect matching complex Möbius ladder remove single rim edge homotopy suspension independence path",
+          "arXiv:2608.30601v2 §§3,5; Theorem 21",
+          "arXiv:2407.05809"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published tables for intact Möbius ladders list two-sphere and periodic wedges; no inspected exact table for perimeter-deleted perfect matching complexes.",
+          "Finite exhaustive local checks n<=8 are independent consistency checks, not a lookup for all n."
+        ],
+        "reasoning": "The claimed homotopy at arbitrary n is not a known-table recomputation in inspected coverage; failure of a search is not proof of novelty.",
+        "searches": [
+          "perfect matching complex Möbius ladder remove single rim edge homotopy suspension independence path",
+          "Resultary Möbius-ladder defect and exact homology search"
+        ]
+      },
+      "rationale": "The specific perimeter-edge defect changes the graph and attaching simplex; established intact Möbius/circular ladder complex classifications and the existing antipodal-rung defect are neither equivalent nor stronger results on this object. No discovered published proof dominates the exact six-periodic deletion classification; absolute historical novelty remains qualified.",
+      "residual_risks": [
+        "Potential unindexed defective-Möbius-ladder classification or thesis despite targeted search",
+        "Open-ladder recurrence and path-independence lemma are classical/published building blocks, not individually novel",
+        "Finite checks only n<=8 independently; original proof establishes uniform parameters"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the perimeter-edge-deleted graph. Theorem21 is intact M_(2n); Theorem25 intact circular ladder.",
+          "evidence": "Theorem21 p14 exact intact wedge classifications; no graph-edge-deletion statement in results/future directions.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601",
+          "material_read": "Complete authorized 19-page extracted article, including main theorems p3, definitions p5, proof of Theorem21 p13–14 and Theorem25 p16–17, and references.",
+          "method": "Full-text extraction via authorized institutional paper service after attempted open sources",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same graph before deletion and a plausible broader classification"
+        },
+        {
+          "assessment": "OPEN-LADDER building block may be prior; coverage of defective Möbius attachment not established.",
+          "evidence": "A_n open-ladder suspension is independently reconstructed in the audited proof; priority of that building block not claimed.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.05809",
+          "material_read": "Related text/abstract and its open-ladder theorem as quoted/referenced in full Agarwal–Basak paper; not independently complete primary manuscript.",
+          "method": "Cross-reference and available abstract, not whole-document exclusion",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "Potential theorem for open ladder subcomplex"
+        },
+        {
+          "assessment": "Does not furnish perimeter-edge classification: antipodal chord rather than rim edge.",
+          "evidence": "That prior only asserts even-width rung deletion contractible; current even-width rim deletion is noncontractible sphere.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-deleting-one-antipodal-rung-contracts-the-perfect-matching-compl--12d0cff3f925",
+          "material_read": "Published result title and semantic summary (not full primary text).",
+          "method": "Resultary semantic corpus inspection",
+          "title": "Deleting one antipodal rung contracts the perfect-matching complex of every even-width Möbius ladder",
+          "trigger": "Same graph but different deleted-edge orbit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deleting a natural symmetry orbit of one edge changes a two-sphere-wedge in the intact ladder to one sphere or contractible, with an exact infinite congruence classification and a structural attaching-complex explanation. This is a motivated graph-topology fault problem with informative integral homotopy transition, not a recomputation of an intact graph table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one perimeter edge, n>=2; not antipodal-rung defects, multi-edge defects, equivariant homotopy or arbitrary graphs."
+  ],
+  "schema_version": 1
+}
