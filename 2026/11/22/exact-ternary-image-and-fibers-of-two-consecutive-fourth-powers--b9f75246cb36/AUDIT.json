@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Direct expansion gives \\(8F=(2x+1)^4+6(2x+1)^2+1\\). Hensel lifting proves exactly two roots for every target \\(1\\pmod3\\) and no unit-input roots for the other classes. At \\(2x+1=3s\\) a unique 3-adic square root gives a bijective isometric coordinate \\(H(s)=s\\sqrt{1+3s^2/2}\\), reducing the singular image to \\(1/8+(27/4)s^2\\). Counting all roots of squares modulo \\(3^j\\) then proves every finite fiber and image cardinality; geometric summation gives density \\(25/72\\). The included exact exhaustive standard-library checker passes every target fiber for each modulus through \\(3^9\\), totaling 29,523 target checks; finite testing is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.3 and Lemma 3.1 of Ding–Zieve prove field-level image sums and counts; the characteristic-three singular lifting is absent.",
+        "Sun 2003 restricts quartic congruence results to primes p>3.",
+        "The indexed pentatope-image theorem is for a different polynomial and p≥7."
+      ],
+      "reasoning": "A general Hensel or quartic-solving technique may be adapted to the local result, but the located broader results do not state a theorem with parameters that implies exact three-adic fibers and the limit \\(25/72\\).",
+      "searches": [
+        "prime-power residue values of sums of two consecutive fourth powers quadratic critical branches",
+        "polynomial image x4 plus 6x2 plus 1 three-adic residue fiber density",
+        "arXiv:2309.14979",
+        "doi:10.1016/S0022-314X(03)00067-2",
+        "2026/11/2/SCOPE-exact-good-prime-power-images-and-p-adic-density-of-pentatope-nu--c524d9c86455"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2309.14979 (full accessible text)",
+      "https://doi.org/10.5281/zenodo.8283157 (scope and abstract only)",
+      "https://doi.org/10.1016/S0022-314X(03)00067-2 (publisher HTML intro and section 5)",
+      "2026/11/2/SCOPE-exact-ternary-residue-images-of-the-sixth-binomial-polynomial--2c5deda1b9d1",
+      "2026/11/8/SCOPE-three-dyadic-image-phases-for-quartic-dickson-polynomials-of-the--3f6fb024e734",
+      "2026/11/2/SCOPE-exact-good-prime-power-images-and-p-adic-density-of-pentatope-nu--c524d9c86455"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 quartic finite-field results do not involve nonreduced residue rings, so cannot be substituted to obtain all k.",
+        "The 2026 indexed sixth-binomial claim concerns three image components for a degree-six integer-valued polynomial, while our quartic has two components and density \\(25/72\\).",
+        "The indexed Dickson quartic has a dyadic rather than ternary map and different coefficients."
+      ],
+      "reasoning": "None of the inspected assertions has a universal parameter specialization with object F(x)=x^4+(x+1)^4 modulo \\(3^k\\), all target fiber counts, and its 3-adic image measure. Analogous scaled-square proofs do not automatically imply this arithmetic classification.",
+      "searches": [
+        "arXiv:2309.14979",
+        "doi:10.5281/zenodo.8283157",
+        "exact 3-adic value set of x^4+(x+1)^4, image density 25/72 and square critical branch",
+        "2026/11/2/SCOPE-exact-ternary-residue-images-of-the-sixth-binomial-polynomial--2c5deda1b9d1",
+        "2026/11/8/SCOPE-three-dyadic-image-phases-for-quartic-dickson-polynomials-of-the--3f6fb024e734"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Centered identity: 8F((t-1)/2)=t^4+6t^2+1; any equivalence must treat this even quartic over Z/\\(3^k\\), not just F_\\(3^k\\).",
+        "Ding–Zieve Lemma 3.1 concerns \\(X^4+aX^2\\) over fields F_q, with field operations and no local ring lifting."
+      ],
+      "reasoning": "The affine substitution gives the complete natural alternate wording. Searches using both forms and p-adic/residue-ring synonyms yielded no exact same-image or target-fiber statement; different fields F_(3^r) are not the residue rings Z/(3^r).",
+      "searches": [
+        "exact 3-adic value set of x^4+(x+1)^4, image density 25/72 and square critical branch",
+        "quartic 3-adic polynomial value set t^4+6t^2+1 modulo powers of three",
+        "\"x^4+(x+1)^4\" \"3-adic\" image",
+        "\"quartic\" \"value set\" modulo \"3^n\" polynomial",
+        "arXiv:2309.14979"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The matching-prefix web search returned OEIS A224845, the unrelated decimal lengths of Mills primes, which diverges after 254; it is not a polynomial image table.",
+        "Searches for the rational density and quartic function did not locate a same-object table."
+      ],
+      "reasoning": "A short numerical prefix matching a different sequence does not cover the full congruence spectrum. No located exact database entry gives these residue counts or every target multiplicity.",
+      "searches": [
+        "\"2, 4, 10, 29, 85, 254, 760\" residue quartic",
+        "\"25/72\" \"fourth powers\" 3-adic",
+        "site:oeis.org \"2, 4, 10, 29, 85, 254\"",
+        "number of values x^4+(x+1)^4 modulo powers of 3"
+      ]
+    },
+    "rationale": "Ding and Zieve, arXiv:2309.14979, full-text Lemma 3.1 and Theorem 1.3 establish the value-set count/sum for even quartics over finite fields, including characteristic three, but do not assert any ring-modulo-\\(3^k\\) image or the complete fibers. Finch-Smith–Harrington–Wong 2023 treats prime moduli p≥5 and Sun 2003 treats primes p>3. Published indexed claims about other three-adic and quartic maps involve nonequivalent input polynomials. Actual semantic searches disclosed no matching formula or \\(25/72\\) density. Global priority remains subject to unindexed or implicit broader literature.",
+    "residual_risks": [
+      "A general published theorem on local values of quartic polynomials or Hensel stratification could implicitly imply this exact specialization without stating its density.",
+      "Not every potentially relevant source was inspected at manuscript level; two closest indexed claims were compared at the statement level and do not have parameter-level implication.",
+      "Bibliographic searches cannot certify absolute novelty or independent verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Field-level value counts and sums, not the full prime-power ring images/fibers or density at three",
+        "evidence": [
+          "Section 3 Lemma 3.1 computes image cardinalities for \\(X^4+aX^2\\) over F_q; Theorem 1.3 computes sums of distinct images.",
+          "Section 3 explicitly handles char(F_q)=3 but never Z/3^kZ."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.14979",
+        "material_read": "Publicly accessible complete 2023 arXiv HTML text, Sections 1–4, particularly Lemma 3.1, Theorem 1.3, its proof and characteristic-three discussion",
+        "method": "Primary full-text reading; compared rings, polynomials, target invariants and stated results",
+        "title": "On sums of powers of consecutive squares over finite fields, and sums of distinct values of polynomials",
+        "trigger": "Full field-level quartic value-set theorem is the closest plausible source"
+      },
+      {
+        "assessment": "Its published scope is polynomial residues modulo primes p≥5, hence does not cover a 3-adic tower",
+        "evidence": [
+          "The abstract explicitly states that p≥5 is prime and that the objects are sums of distinct residues modulo p."
+        ],
+        "identifier_or_url": "https://doi.org/10.5281/zenodo.8283157",
+        "material_read": "Published 2023 abstract, DOI bibliographic record, prime-range scope p≥5; the PDF was not examined",
+        "method": "Read abstract/statement and distinguished domain from current prime-three result",
+        "title": "Sums of distinct polynomial residues",
+        "trigger": "Immediate earlier 2023 conjecture source cited in Ding–Zieve"
+      },
+      {
+        "assessment": "Treats quartic root counts modulo p for primes p>3, not p=3 or all prime powers",
+        "evidence": [
+          "Sun (2003), introduction: p>3; Section 5: quartic congruences modulo p with restrictions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0022-314X(03)00067-2",
+        "material_read": "Publisher public HTML article description, introduction and detailed Section 5 quartic congruence theorems",
+        "method": "Compared prime/domain hypotheses and target root counting",
+        "title": "Cubic and quartic congruences modulo a prime",
+        "trigger": "Potentially dominating earlier quartic-congruence classification"
+      },
+      {
+        "assessment": "Different degree-six integer-valued polynomial and three components; no direct implication for consecutive fourth powers",
+        "evidence": [
+          "Claimed density \\(5/12\\) for binomial(x,6) is different and its three branches are not the present polynomial."
+        ],
+        "identifier_or_url": "2026/11/2/SCOPE-exact-ternary-residue-images-of-the-sixth-binomial-polynomial--2c5deda1b9d1",
+        "material_read": "Indexed public scientific claim and mathematical summary, not the full manuscript",
+        "method": "Statement/parameter comparison",
+        "title": "Exact ternary residue images of the sixth binomial polynomial",
+        "trigger": "Closest published indexed result on 3-adic full-ball and scaled-square images"
+      },
+      {
+        "assessment": "Concerns E_4(X,a) modulo powers of 2, with different coefficients and density phases; not an implication",
+        "evidence": [
+          "Published indexed theorem concerns p=2 and \\(E_4(X,a)=X^4-3aX^2+a^2\\)."
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-three-dyadic-image-phases-for-quartic-dickson-polynomials-of-the--3f6fb024e734",
+        "material_read": "Indexed public scientific claim and mathematical summary, not the full manuscript",
+        "method": "Comparison of coefficients, prime and quantifiers",
+        "title": "Three dyadic image phases for quartic Dickson polynomials of the second kind",
+        "trigger": "Closest indexed quartic-padic value-set classification"
+      },
+      {
+        "assessment": "Covers binomial(x,4) and primes p≥7; does not specialize to polynomial F or p=3",
+        "evidence": [
+          "Indexed claim explicitly requires p≥7 and the pentatope polynomial."
+        ],
+        "identifier_or_url": "2026/11/2/SCOPE-exact-good-prime-power-images-and-p-adic-density-of-pentatope-nu--c524d9c86455",
+        "material_read": "Indexed public scientific claim and mathematical summary only",
+        "method": "Tested parameter/domain specialization",
+        "title": "Exact good-prime-power images and p-adic density of pentatope numbers",
+        "trigger": "General-looking prime-power quartic classification may dominate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b9f75246-cb36-44c0-bf30-d4ce59fa653a",
+  "value": {
+    "rationale": "The natural polynomial \\(x^4+(x+1)^4\\) is a basic adjacent-power Diophantine value problem. At the exceptional prime 3, one singular residue class creates genuine higher-precision square obstructions not visible in the mod-3 image. The result provides a complete local-solubility criterion, every target representation count, an explicit all-level image census and the exact nontrivial local density \\(25/72\\); these are structural invariants useful for prime-power congruence problems rather than an arbitrary sample or a known prime-field table.",
+    "status": "PASS"
+  }
+}
