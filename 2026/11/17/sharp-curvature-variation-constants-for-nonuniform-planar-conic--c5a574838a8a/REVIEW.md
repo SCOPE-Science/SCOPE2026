@@ -1,15 +1,21 @@
-# Scientific review: nonuniform planar conic-spline interpolation
+# Independent mathematical audit
 
-## Correctness (PASS)
-The argument reconstructs the unique sine interpolant on each wedge of angle below \(\pi\) and represents the error by the Dirichlet Green kernel for \(D^2+1\). Direct sine-product maximization yields \(\frac12\tan(h/2)\), and exact integration yields \(\sec(h/2)-1\). Antipodal invariance of the curvature measure gives the additional factor \(1/2\) in the global supremum coefficient. The rank-one seminorm \(q(x)=|\langle x,v\rangle|\) has two curvature atoms of mass two, giving equality in both norms for every fan. A pigeonhole inequality for the half-circle gaps proves the unique minimax fan. The proof covers signed finite measures and cells of arbitrary length below \(\pi\). All relevant normalizations and endpoint atoms are explicit. The accompanying deterministic diagnostic passed 372 checks; it does not establish the universal theorem.
+## correctness
 
-## Originality (PASS with priority risk)
-Unser's 2026 Proposition 5.2 is the closest source and explicitly gives the local Dirichlet Green kernel and uniform-grid curvature-variation error bounds. The published integrated coefficient is \(\tfrac12h\tan(h/2)\), which is larger than the exact \(\sec(h/2)-1\); it also does not state the complete nonuniform-fan sharp constants or minimax fan characterization. The present claim is thus a genuine new sharpened, nonuniform exact-error classification relative to that source, but it is not independent of its Green-kernel method. Unser–Fageot–Ward (2016) concerns generalized-TV representer theorems rather than sample-interpolation error norms. published-finding corpus searches for the relevant source, curvature variation, Green norms, and equivalent constants returned no directly covering result; the closest geometry and quadrature results use different invariants. Classical trigonometric-spline literature, notably Schoenberg (1964) and Koch (1984), is a residual priority risk because equivalent local kernel-norm identities could appear there; full coverage of those historical originals was not established. A failed search is not a uniqueness proof.
+PASS
 
-## Mathematical value (PASS)
-The modern paper identifies the curvature-variation bound as a way to control planar conic-spline approximations of homogeneous regularizers. Exact constants matter for quantifying and designing a finite fan. Here the unnormalized \(L^1\) coefficient improves the uniform-grid bound asymptotically by a factor of two, and the supremum coefficient is sharp for the whole-circle Hessian variation. The same rank-one seminorm witnesses both worst cases; no artificial parameter slicing is needed. The minimax analysis determines the unique optimal choice of angular sampling locations among all centrally symmetric nonuniform fans. This is a natural complete error-constant classification, not a claimed general theorem on arbitrary spherical manifolds.
+On each cell, (D^2+1)e=mu with zero boundary values and Green G_h(s,t)=-sin(min(s,t))*sin(h-max(s,t))/sin h. The kernel sup is tan(h/2)/2 and exact integrated norm is cos(t-h/2)/cos(h/2)-1, maximized at cell midpoint. Antipodal symmetry forces cell mass <=M/2, explaining the sup factor 1/4; L1 sums both antipodal cells with full 2pi measure. For q(x)=|<v,x>| the profile |sin(theta-alpha)| has mu=2delta_alpha+2delta_(alpha+pi), M=4 and maximizes both. Since sum of N gaps is pi, h*>=pi/N with equality only equally spaced. Checked exact trigonometric identities for h=0.3,0.7,1.4,2.1; boundary masses contribute zero to Green cell errors. General all-fan result follows from Green representation, not finite script.
 
-## Limitations and closest literature
-The leading provenance of the kernel and general approximation framework is M. Unser, arXiv:2611.06212v1 (2026-11-04), Proposition 5.2. Generalized-TV L-splines: Unser, Fageot, Ward, arXiv:1603.01427. Background: Schoenberg, *On trigonometric spline interpolation* (1964), and Koch, *Collocation by L-Splines at Transformed Gaussian Points* (1984). Unresolved priority risk: some of the local norm formulas may be recoverable from older general interpolation results. No higher-dimensional, non-antipodal, or function-adaptive sampling conclusion is asserted. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Unser Proposition 5.2 gives the same local Dirichlet kernel and rate on a uniform grid, including a nonsharp integrated upper bound, but not the jointly sharp exact unnormalized L1 constant, global antipodal factor, rank-one extremizer for every nonuniform fan, or minimax optimal design. Classical L-spline theory may have the local kernel norm; this is a real residual priority risk.
+
+## value
+
+PASS
+
+Best constants for curvature-measure interpolation and exact optimal ray placement matter for numerical conic-spline approximation. Simultaneous seminorm equality and exact nonuniform minimax rule improve a merely rate-level error estimate; this natural optimal recovery problem supports mathematical value independently of code.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

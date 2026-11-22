@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:06:15.553407Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On each cell, (D^2+1)e=mu with zero boundary values and Green G_h(s,t)=-sin(min(s,t))*sin(h-max(s,t))/sin h. The kernel sup is tan(h/2)/2 and exact integrated norm is cos(t-h/2)/cos(h/2)-1, maximized at cell midpoint. Antipodal symmetry forces cell mass <=M/2, explaining the sup factor 1/4; L1 sums both antipodal cells with full 2pi measure. For q(x)=|<v,x>| the profile |sin(theta-alpha)| has mu=2delta_alpha+2delta_(alpha+pi), M=4 and maximizes both. Since sum of N gaps is pi, h*>=pi/N with equality only equally spaced. Checked exact trigonometric identities for h=0.3,0.7,1.4,2.1; boundary masses contribute zero to Green cell errors. General all-fan result follows from Green representation, not finite script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2611.06212 Proposition 5.2",
+          "Unser uniform-grid L1 coefficient (h/2)tan(h/2) vs submitted exact sec(h/2)-1"
+        ],
+        "reasoning": "Unser supplies the kernel and uniform-grid inequalities, but integrating the kernel sharpened the L1 bound, while global antipodal mass symmetry improves L infinity. Nonuniform gap extremizer and exact optimal fan remain additional. General representer theory is not a best-constant theorem for nodal interpolation.",
+        "searches": [
+          "conic spline interpolation planar curvature measure sharp Green kernel L1 sup minimax nonuniform fan",
+          "curvature bounded conic spline interpolation norm exact L1 tan sec fan optimal",
+          "Unser Proposition 5.2 nonuniform spline curvature variation estimates"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2611.06212",
+        "I. J. Schoenberg, On trigonometric spline interpolation, Journal of Mathematics and Mechanics 13 (1964), 795–825",
+        "conic spline interpolation planar curvature measure sharp Green kernel L1 sup minimax nonuniform fan",
+        "curvature bounded conic spline interpolation norm exact L1 tan sec fan optimal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2611.06212 Sec.5 Proposition 5.2",
+          "Green kernel elementary integrated formula and antipodal extremal curvature source"
+        ],
+        "reasoning": "The local Green kernel from Unser permits derivation of constants by an additional exact integration; its published upper estimates do not state those sharp constants. The classical Schoenberg paper was not fully inspected and cannot support a whole-document noncoverage conclusion; it is not used to assert novelty by search failure.",
+        "searches": [
+          "https://arxiv.org/pdf/2611.06212",
+          "I. J. Schoenberg, On trigonometric spline interpolation, Journal of Mathematics and Mechanics 13 (1964), 795–825"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2611.06212",
+          "G_h(s,t) and integrated norm sec(h/2)-1 in assigned RESULT.md"
+        ],
+        "reasoning": "Conic-spline interpolation is a Dirichlet error problem for D^2+1, so the proper comparison is to trigonometric L-spline Green-operator norms, not merely the term conic spline. Exact nonuniform fan/operator-bound combination was not found in read prior source.",
+        "searches": [
+          "conic spline interpolation planar curvature measure sharp Green kernel L1 sup minimax nonuniform fan",
+          "curvature bounded conic spline interpolation norm exact L1 tan sec fan optimal",
+          "trigonometric L spline Dirichlet Green operator L1 L infinity sharp norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: own exact nonuniform fan entry; adjacent quasi-norm spline and projection records with different operators/metrics.",
+          "Source Proposition 5.2 explicitly displays no all-nonuniform best-constant table."
+        ],
+        "reasoning": "The relevant exact comparison is operator error against curvature variation under a central fan, not general spline Lebesgue constants. No retrieved table for this exact all-fan extremum; older L-spline literature is explicitly flagged as residual priority.",
+        "searches": [
+          "conic spline interpolation planar curvature measure sharp Green kernel L1 sup minimax nonuniform fan",
+          "curvature bounded conic spline interpolation norm exact L1 tan sec fan optimal"
+        ]
+      },
+      "rationale": "Unser Proposition 5.2 gives the same local Dirichlet kernel and rate on a uniform grid, including a nonsharp integrated upper bound, but not the jointly sharp exact unnormalized L1 constant, global antipodal factor, rank-one extremizer for every nonuniform fan, or minimax optimal design. Classical L-spline theory may have the local kernel norm; this is a real residual priority risk.",
+      "residual_risks": [
+        "Full Schoenberg 1964 and related Koch 1984 L-spline collocation primary articles not obtained; they may state an equivalent local sharp Green norm.",
+        "The admissible class requires centrally symmetric gaps <pi and full-circle measure normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit known kernel and uniform-grid inequalities; not exact present nonuniform sharp sup/L1 optimal ray design",
+          "evidence": [
+            "Proposition 5.2; displayed L1 coefficient (h/2)tan(h/2), local max kernel tan(h/2)/2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.06212",
+          "material_read": "Read primary full arXiv PDF, especially Proposition 5.2, its proof and displayed Dirichlet Green kernel in planar section; visually checked PDF pages 46–49",
+          "method": "Web full-PDF text plus page screenshots",
+          "title": "Michael Unser, Quasi-norms on R^d: Characterization and Approximation by Conic Splines",
+          "trigger": "Identical interpolant and curvature total-variation seminorm"
+        },
+        {
+          "assessment": "Inaccessible plausible priority risk; no assertion paper does not cover this result",
+          "evidence": [
+            "Historical 1964 L-spline scope mentioned in primary modern paper"
+          ],
+          "identifier_or_url": "I. J. Schoenberg, On trigonometric spline interpolation, Journal of Mathematics and Mechanics 13 (1964), 795–825",
+          "material_read": "Citation/title and known classical connection only; paper full text not obtained",
+          "method": "Bibliographic identification, not primary full-text inspection",
+          "title": "I. J. Schoenberg, On trigonometric spline interpolation (1964)",
+          "trigger": "Potential older exact trigonometric L-spline Green estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Best constants for curvature-measure interpolation and exact optimal ray placement matter for numerical conic-spline approximation. Simultaneous seminorm equality and exact nonuniform minimax rule improve a merely rate-level error estimate; this natural optimal recovery problem supports mathematical value independently of code.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Schoenberg 1964 and related Koch 1984 L-spline collocation primary articles not obtained; they may state an equivalent local sharp Green norm.",
+    "The admissible class requires centrally symmetric gaps <pi and full-circle measure normalization."
+  ],
+  "schema_version": 1
+}
