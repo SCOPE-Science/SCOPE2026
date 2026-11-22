@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The projected Euclidean facet normals are calculated exactly, giving the necessary three independent barriers. All pairwise comparisons in the interval for the first-block sum are sufficient, so an explicit full-dimensional-ball center exists at the proposed radius. Tight inequalities force the stated point or cube-section center sets, and the cube-section vertex enumeration is elementary and exact. An independent unsymmetrized linear-program checker corroborates 2,380 admissible cases. No finite computation is substituted for the general argument.
+## correctness
 
-**Originality — PASS, provisional historical priority.** The 2022 panhandle and 2016 split-matroid literature, plus the later face enumeration text, establish the objects and their facets, not this exact metric solution. A highly relevant prior public panhandle inball theorem was read in full and compared: it covers only the one-sided handle-capacity-one situation; its upper-center stratum is a simplex, whereas both genuine block capacities here yield potentially complex cube sections. The arbitrary four-parameter two-sided formula and every-contact classification are not a stated implication of that theorem. A broader unlocated general Chebyshev-center theorem remains a risk.
+PASS
 
-**Mathematical value — PASS.** This is a natural complete Euclidean invariant of the canonical genuinely two-sided elementary-split matroid family, with sharp changes between unique and highly nonunique centers, and exact new high-complexity optimizer strata on both sides. The result is not merely a numerical instance or a routine special case of a published result; it covers strictly different matroid parameters and exhibits a distinct upper-stratum geometry.
+In the intrinsic rank hyperplane, projected coordinate normal norms equal q=sqrt((n-1)/n) and split normal p=sqrt(hs/n). Eroding true facets gives bounds t=qR<=ci<=1−t and sum_first_h ci<=r−pR. Summation yields necessary R<=R0=min(k,n−k)/(nq), R<=RL=r/(hq+p), R<=RU=(s−k+r)/(sq+p). For any R below all, the first block sum interval [max(ht,k−s(1−t)),min(h(1−t),k−st,r−pR)] is nonempty; block-uniform coordinates construct feasible centers. Equality determines uniform/two cubical phases/unique ties; a cube slice of level alpha has C(m,alpha) binary vertices when integral or m*C(m−1,floor alpha) when not. Independent unrestricted scipy LP at five admissible parameter points, including n=9 lower/upper examples and n=8 equal branch, returned analytic R to 1e−8. The all-parameter proof is analytic, not inferred from those LPs.
 
-**Closest literature and limitations.** Hanely et al., arXiv:2201.12442 (2022), Joswig–Schröter arXiv:1607.06291 (2016), Ferroni–Schröter *Face enumeration for split matroid polytopes* (full HTML), and the 2026-11-08 public panhandle inball result (full RESULT.md) were compared. Absolute historical novelty remains provisional, and no multiple-split or nonstandard-metric claims are made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the four-parameter intrinsic Chebyshev inradius, both genuine cube-section incenter phases, exact all-center tangencies and cube-section vertex numbers. Panhandle special case uses a capacity-one block with an upper simplex phase, not this genuinely two-sided h,s>=4 classification; ordinary box-section convexity alone does not compute the three barriers.
+
+## value
+
+PASS
+
+The both-sided elementary split matroid is a canonical, naturally parameterized hypersimplex truncation. Complete Chebyshev radius, all-center geometry and exact contact/vertex strata supply useful metric classification beyond the previously studied capacity-one panhandle special case. Strict cubical phases are high-dimensional and not trivial one-vertex examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
