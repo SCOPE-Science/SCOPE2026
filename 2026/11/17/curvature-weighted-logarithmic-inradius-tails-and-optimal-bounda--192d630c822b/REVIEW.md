@@ -1,15 +1,21 @@
-# Scientific review: curvature-weighted small-inradius law
+# Independent mathematical audit
 
-## Correctness — PASS
-The sixfold rooted-gap measure is normalized exactly. The local area-to-semiperimeter calculation gives the \(\kappa ab/4\) cusp, whose hyperbolic sublevel area has the logarithmic coefficient. Noncorner strata contribute only order \(t\), while a differentiable inverse change of variables and Scheffé's lemma establish total-variation convergence of the location, logarithmic split and normalized deficit. Hölder and total curvature prove the two sharp optimizers. The standalone ellipse and circle tests passed; finite computation is supporting evidence only.
+## correctness
 
-## Originality — PASS (with residual historical risk)
-The closest public circle inradius distribution is a special case explicitly excluded from the new claim. The general smooth-curve small-area law has a different observable, scaling and curvature optimizer, so its full statement does not imply the present inradius asymptotic or spatial marked law. The previously known \(\sqrt\kappa\) sampler for expected Hausdorff polygon approximation does not give this new inradius functional. Relevant original affine polygon and random area/perimeter literature was compared. The 2023 isoperimetric triangle study has a different sampling model; its accessible summary was read, not treated as complete evidence against all possible overlap. Historical priority remains provisional.
+PASS
 
-## Value — PASS
-The result identifies the curvature-sensitive coefficient of a natural triangle-degeneracy event, its rare-event location and scale law, and the unique best boundary sampling strategy. Its \(\sqrt\kappa\) density contrasts concretely with affine arclength \(\kappa^{1/3}\), and the sharp equal-perimeter circle bound gives a geometric extremal consequence.
+PASS — For a C³ strictly convex oval with κ>0 and iid positive C¹ arclength density f, rooting three ordered samples just after their unique largest cyclic gap gives exactly a 6 ds da db density. In the only logarithmically dominant corner (a,b small), determinant and perimeter expansions uniformly yield r=κ(s)ab/4·(1+o(1)), even for unequal a,b. The sublevel cusp ab<4t/κ has area (4t/κ)t^0 log(1/t)+O(t), while one-small-gap boundary strips are O(t); hence P(r<t)~24t log(L/t)∫f³/κ. With v=log(a/L)/log(t/L), w=r/t, derivative r_b≈κ a/4 gives local jacobian 4t log(L/t)/κ and normalized density f³/(κ I); concentration, pointwise density and Scheffé justify total variation. Hölder yields unique f∝sqrt κ; Cauchy–Schwarz plus ∫κ ds=2π yields uniform-density circle minimum 12/(π L); layer cake gives p<1. Independent exact circle normalization confirms 24I=6/π² when L=2π, matching prior circle tail. No sampled experiment is used as an infinite proof.
 
-## Limitations
-Fixed \(C^3\) strictly convex closed curve with positive curvature and fixed positive \(C^1\) density only. No uniform error rate, nonsmooth or flat-point extension, or independent review. Earlier unindexed literature may contain overlapping claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge — The unit-circle t log(1/t) coefficient and entire circle inradius law were previously published and are NOT new here. The general curved-boundary density-dependent coefficient, spatial rare-event mark, total-variation independent logarithmic gap/inradius marks and unique f∝sqrt κ optimization are additional statements. A prior general-curve small-AREA result has exponent 2/3 and optimizer κ^(1/3), and does not imply the inradius divided by variable perimeter; the same sqrt κ density in Hausdorff sampling solves a different criterion.
+
+## value
+
+PASS
+
+PASS — Rare degeneracy of triangles from random samples is a natural stochastic-geometric statistic, and the t log t cusp mechanism distinguishes inradius from area. The theorem provides an explicit curvature-sensitive local sampling law, complete marked limiting structure and sharp variational optimum; all are independently meaningful mathematical answers across a natural full class of smooth convex curves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
