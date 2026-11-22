@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Leaf-row independence gives corank at most one; explicit normalized left and right null vectors pair as 1+sum nonnegative terms. Consecutive rank losses are impossible and the rank-one endpoint needs m isolated drops, so T>=2m-1. Exact rational computation of the m=2 example returns J/3. Proof works uniformly for all m>=2.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ko (2010), Caltech thesis, chapters on symmetric parallel and pairwise averaging, pages 7,55,63 (PDF numbering).",
+        "Ghosh and Lee (2013), SIAM J. Control Optim., DOI 10.1137/120862478 abstract."
+      ],
+      "reasoning": "A symmetric-factor or pairwise-only lower bound does not cover the unrestricted, potentially nonsymmetric star factors. Ghosh–Lee uses dynamic decentralized controllers rather than explicitly restricted nonnegative stochastic matrix products; complete text not read, so there is remaining priority uncertainty.",
+      "searches": [
+        "star graph time varying stochastic positive diagonal 2n-3 rounds finite time consensus rank one",
+        "star network finite-time exact consensus minimum rounds lower bound consecutive singular matrices",
+        "Optimal Finite-Time Consensus on Fixed and Periodic Graphs",
+        "On Matrix Factorization and Scheduling for Finite-Time Average-Consensus"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1302.6668 full text",
+      "Caltech 2010 Ko thesis relevant chapters and PDF page images",
+      "DOI:10.1137/120862478 publisher abstract",
+      "published-finding corpus semantic searches for rank drops, star finite consensus and positive diagonal models"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1302.6668, full text sections on undirected existence, general bounds and the minimal-step question.",
+        "Ko thesis 2010, inspected PDF relevant symmetric-factor and pairwise scheduling sections.",
+        "Ghosh–Lee DOI 10.1137/120862478, accessible abstract."
+      ],
+      "reasoning": "Existence and n(n-1)/2 style upper bounds do not imply T>=2n-3. General rank-one finality and individual factor corank<=1 only imply T>=n-1, missing the new consecutive-rank-loss exclusion. Symmetric/pairwise factor lower bounds, if any, cannot logically imply the same lower bound for a larger nonsymmetric admissible class.",
+      "searches": [
+        "minimum rounds exact average consensus on star graph using arbitrary stochastic row matrices with strictly positive diagonals; sharp n rounds",
+        "star graph time varying stochastic positive diagonal 2n-3 rounds finite time consensus rank one",
+        "star network finite-time exact consensus minimum rounds lower bound consecutive singular matrices",
+        "support star matrices singular products consecutive rank loss self loops",
+        "Ghosh Lee 2013 optimal finite time consensus star graph positive diagonals"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hendrickx–Shi–Johansson arXiv:1302.6668: existence, open step minimization.",
+        "published-finding corpus closest 2026/11/2 SCOPE-sharp-two-round-stochastic-consensus-on-odd-cycles--b2b600a3fbfd concerns spatially homogeneous odd-cycle rate optimization."
+      ],
+      "reasoning": "Adjacent singular-factor transversality is a statement about consecutive rank decreases for arbitrary star-supported stochastic products, not about the best stationary mixing rate or arbitrary graph existence.",
+      "searches": [
+        "minimum rounds exact average consensus on star graph using arbitrary stochastic row matrices with strictly positive diagonals; sharp n rounds",
+        "star graph time varying stochastic positive diagonal 2n-3 rounds finite time consensus rank one",
+        "star network finite-time exact consensus minimum rounds lower bound consecutive singular matrices",
+        "minimum time finite time consensus star 2n-3 row stochastic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches: related peer-epoch, spectral star mixing and two-round matching results, no same exact theorem among returned hits.",
+        "No catalog/table of minimum rounds for arbitrary positive-diagonal star factors found in inspected material."
+      ],
+      "reasoning": "The theorem gives an all-m formula rather than a finite-graph table; an unmatched database search is not a uniqueness proof.",
+      "searches": [
+        "star graph time varying stochastic positive diagonal 2n-3 rounds finite time consensus rank one",
+        "star network finite-time exact consensus minimum rounds lower bound consecutive singular matrices",
+        "support star matrices singular products consecutive rank loss self loops",
+        "arXiv:1302.6668"
+      ]
+    },
+    "rationale": "The 2013 primary paper proves existence and notes minimal-step problems but does not furnish the all-star two-round rank obstruction. The 2010 thesis concerns more restricted symmetric/pairwise weight structures. Repository searches found no statement implying this universal lower bound. A broader 2013 decentralized-controller paper could not be fully compared and remains a named residual priority risk.",
+    "residual_risks": [
+      "Unindexed algebraic semigroup results could contain an equivalent consecutive-rank-drop lemma.",
+      "The full Ghosh–Lee 2013 article was not inspected and could affect novelty if its general formulation implies this restriction.",
+      "No full classification of the shortest achievable horizon on stars with m>=3 is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "Establishes general construction and existence, and identifies minimum-round optimization as further question; no 2m-1 universal star rank-loss statement in inspected material.",
+        "identifier_or_url": "https://arxiv.org/abs/1302.6668",
+        "material_read": "Full accessible 2013 preprint text, including existence proof and minimal-step discussion",
+        "method": "Read primary preprint full text rendered in browser; compare round bounds and star-specific claims",
+        "title": "Finite-time consensus using stochastic matrices with positive diagonals",
+        "trigger": "Exact same model of nonnegative positive-diagonal stochastic consensus on undirected networks"
+      },
+      {
+        "assessment": "DIFFERENT_RESTRICTED_MODEL",
+        "evidence": "Parallel updates constrained to symmetric/doubly-stochastic factors; pairwise scheduling is a proper subclass of arbitrary row-stochastic star factors.",
+        "identifier_or_url": "https://thesis.caltech.edu/5763/01/consensus.pdf",
+        "material_read": "Relevant sections on pairwise averaging and symmetric parallel factors including PDF screenshots of pages 7, 55 and 63; not every page",
+        "method": "Inspected relevant thesis chapters and their factor-model hypotheses",
+        "title": "On Matrix Factorization and Scheduling for Finite-Time Average-Consensus",
+        "trigger": "Scheduling and matrix-factorization theorems potentially dominating the claimed star bound"
+      },
+      {
+        "assessment": "POTENTIALLY_RELEVANT_ACCESS_RISK",
+        "evidence": "Uses finite-horizon decentralized-control and quadratic-invariance synthesis; unclear whether its full results imply the present positive-diagonal stochastic star lower bound.",
+        "identifier_or_url": "https://doi.org/10.1137/120862478",
+        "material_read": "Publisher abstract and bibliographic details; full text not accessible in this run",
+        "method": "Compared accessible publisher abstract with factor constraints and exact claim",
+        "title": "Optimal Finite-Time Consensus on Fixed and Periodic Graphs",
+        "trigger": "Claim of minimum-horizon consensus in a general graph-control setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f6d90219-7466-486e-a100-15a302c5fe14",
+  "value": {
+    "rationale": "Uniform near-factor-two improvement from elementary per-round corank counting, for a natural communication bottleneck and the exact general positive-diagonal stochastic consensus class of a foundational paper. It identifies a new structural necessity without arbitrary graph enumeration.",
+    "status": "PASS"
+  }
+}
