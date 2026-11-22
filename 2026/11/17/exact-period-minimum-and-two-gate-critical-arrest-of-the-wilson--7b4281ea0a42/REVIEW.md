@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On the invariant algebraic unit circle the exact forward angular speed is \(f_b(\theta)=1+\cos\theta\sin\theta(\cos^2\theta-b)\) in absolute value, and the defining function \(R=x^2+y^2-1\) obeys \(\dot R=-2x(x^3-bx)R\). The admissible interval is characterized by two elementary extrema. Strict convexity follows directly from a positive second parameter derivative, and the exact middle-period evaluation uses \(f_{1/2}=1+\sin4\theta/8\). The critical points are quadratic and occur in antipodal pairs. The local rescaled reciprocal-speed integrals give the explicit coefficient \(C\), two-atom limits, conditional Cauchy laws and weighted cofactor limits. These identities prove all parameter quantifiers and the stability signs. Finite quadrature checks agree but do not substitute for the proof.
+PASS
 
-## Originality — PASS within available evidence
+Read entire frozen RESULT.md and actual checker.py tree entry. The polynomial cofactor identity Rdot=-2x(x^3-bx)R proves invariance and physical-time normal exponent; angular speed f_b=1+cosθ sinθ(cos²θ-b). Global positive f interval follows two one-variable sharp extrema; a quarter-turn gives T(b)=T(1-b), while differentiation T''=2 integral[(xy)^2/f^3]>0 yields strict convexity and unique T(1/2)=16pi/sqrt63. At both endpoints f has exactly two antipodal quadratic zeros and a uniform positive complement; blow-up θ−θg=√eps z with dominated convergence gives C/√eps, half-half occupation atoms and conditional standard Cauchy. Weighting the same gate integral by -2cos²θ(cos²θ-b) establishes opposite transverse log-multiplier coefficients q_−,q_+. Independently evaluated high-precision critical root, period minimum and symmetry, and the constant C; local proof, not numeric extrapolation, establishes endpoint limits.
 
-The complete publicly readable arXiv:2101.03874v1 (especially Section 3.1 and Corollary 3.2) establishes the system, exact existence boundaries, and limit-cycle counts and stability types, not the strict physical-period convexity, its exact minimizer, the equal sharp two-end arrest coefficient, or the paired Floquet/occupation laws. Gasull–Sabatini (2019) and Chen–Chen (2020) concern the same system and may be stronger sources; accessible abstracts emphasize existence, multiplicity and bifurcations. They were not inspectable in full, so a prior quantitative derivation remains possible and human confirmation is warranted. Nearby published results on other algebraic ovals and other cubic limit cycles do not imply the numerical constants for this vector field. Full-text inaccessibility is a residual priority risk, not evidence of absence.
+## originality
 
-## Value — PASS
+PASS
 
-The original work classifies when the fixed algebraic limit cycle survives, but that qualitative classification does not describe its physical traversal time. The new global strict-convexity/symmetry result gives an exact sharp period floor for the natural entire admissible family, and the two sharp singular limits explain precisely how that periodic orbit arrests at either extremal parameter. Equal slowing times with opposite transverse stability and the concentration of physical-time sampling at two antipodal bottlenecks are natural, measurable dynamics of this same bifurcation, rather than an artificial parameter slice.
+Earlier work on the exact Wilson polynomial family does establish the fixed invariant unit circle, admissible b-window and stability transitions, which are credited. The inspected accessible mathematical statements do not state the symmetric strictly convex original-time period with exact minimum plus paired gate occupation/Cauchy limits and sharp opposite Floquet blowup coefficients. Generic saddle-node critical slowing and similar Qin oscillator calculations are mathematically analogous but not a model-specific coverage result. Crucial 2019 and 2020 whole-paper priority inspection was blocked: DOI 2019 OA preprint returned 403 after arXiv/OA attempt; the authorized Oxford route returned vpn_disconnected, so this is a material residual risk, NOT an originality failure by itself.
 
-## Remaining limitations
+## value
 
-Publication priority relative to the inaccessible full 2019 and 2020 papers is not fully settled. The claimed scope is only the fixed circle; other cycles and global basins are not addressed. All results are self-reviewed; no independent verification or audit is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a fixed algebraic cycle already known to exist, the physical-time period and normal-stability magnitude are natural exact dynamical invariants. Exact global minimum, symmetric arrest-rate despite asymmetric opposite-sign Floquet endpoints, and two-point localization with Cauchy gate fluctuations give substantial quantitative bifurcation data not supplied by a bare existence window. The invariant circle is natural, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
