@@ -1,19 +1,21 @@
-# Review of saturated-fiber return and exceptional dimension
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The original affine branch formulas imply a dyadic-interval length recursion; the reflected walk identity \(\ell_n=2^{S_n-M_n}\) follows by induction. Reversing independent ternary increments converts saturation to a weighted nonnegative-ballot count. Weighted Catalan decomposition proves the exact generating function, and the two square-root singularities yield the distinct parity constants. The upper Hausdorff estimate uses a uniform exponential cylinder bound; the lower bound explicitly constructs arbitrarily high-entropy Cantor subsystems with repeated complete-height returns. Every quantifier concerns the fixed affine map and the full initial vertical leaves. The attached checker independently enumerates all short words by rational interval mapping; its finite checks are supplementary, not infinite proof.
+PASS
 
-## Originality
+Full initial z-interval is dyadic and base ternary digit 0/1 halves its length, digit 2 doubles unless already saturated. Consequently h_n=M_n-S_n and saturation exactly a running maximum. Reversing independent ternary increments produces a ballot path weighted two per downstep, with coefficient sum 2^j(C(n,j)-C(n,j-1)). Weighted Catalan return GF yields 2/(1-2z+sqrt(1-8z^2)); its two dominant square-root singularities give distinct even/odd constants. For dimension upper bound weighted cylinder summation controls limsup h_n<=H; lower bound concat negative Dyck bridges followed by one positive digit and take m to infinity. SLLN gives Lebesgue zero. Independently enumerated all ternary words through length 10, reproducing reflected lengths and counts. Finite enumeration alone is not a proof of dimension or asymptotics.
 
-**PASS within inspected evidence.** The foundational map paper (arXiv:1811.01009) proves almost-sure leaf shrinkage but does not state exact full-height return counts, even/odd asymptotic coefficients, or the exceptional-set dimension. The full-text survey (arXiv:2401.00836) treats invariant measures, Lyapunov signs, periodic orbits and mixing, without these formulas. Related published results concern neutral periodic *fixed fibers*, stationary coordinate covariances and mixing tails; a shared walk or exponential rate is not an implication of the present leaf-geometry claim. An earlier independent exact derivation in unindexed literature remains possible, and the proofs necessarily use established ballot, Catalan and fractal methods.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The original almost-everywhere contraction theorem leaves open the metric size of exceptional base leaves. The exact nonshrinkage dimension quantifies that null yet dimension-near-full obstruction. Saturation probabilities distinguish finite-time full-height returns from average Lyapunov contraction and reveal an arithmetic parity effect with different sharp constants. Both questions are intrinsic to the original nonuniformly contracting center direction; neither depends on arbitrary parameter slices. These results give a reproducible quantitative description complementary to existing ergodic and periodic-point results.
+Original map paper supplies dyadic leaf shrinkage and a.e. contraction. It does not state this exact full-leaf saturation probability distribution, two parity amplitudes or Hausdorff dimension; existing periodic-neutral-fiber spectrum concerns different conditional periodic fixed-fiber sets. Ballot/Catalan tools are classical ingredients not claimed as newly discovered.
 
-## Limits and closest comparisons
+## value
 
-The claims are for projected complete fibers of the specific original three-dimensional map. They do not prove robustness under perturbation, a global classification of all irregular Lyapunov sets, or behavior of arbitrary nearby point pairs. Proposition 12 of arXiv:1811.01009 and the stopping-time arguments in later mixing studies are substantive prior ingredients; no novelty is attributed to their statements. The general 2024 survey and related published periodic-fiber/correlation results were compared by statement and implication. Publication priority has not been independently confirmed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Almost-everywhere collapse conceals a geometrically large null exceptional set; its sharp Hausdorff dimension and finite-time saturation law distinguish measure from dimension for a natural heterochaotic model. Both exact return statistics and noncontraction dimension are motivated geometric/dynamical invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

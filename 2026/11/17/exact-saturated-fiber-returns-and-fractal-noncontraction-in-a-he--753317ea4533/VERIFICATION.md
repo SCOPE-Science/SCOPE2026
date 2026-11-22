@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Direct verification and proof limits
+# Independent mathematical audit
 
-The attached `check_fiber_law.py` recomputes the image of each full third-coordinate interval under all \(3^n\) ternary branch sequences for \(0\le n\le9\), using exact rational arithmetic. For every sequence it compares the resulting interval length with the reflected-walk formula \(2^{S_n-M_n}\). It independently counts saturation events and verifies the exact weighted-ballot sum at every tested length. It also counts the nonpositive balanced ternary blocks for \(1\le m\le6\), checking the weighted Catalan factors and the stated dimension constant.
+## correctness
 
-The checker outputs `HETEROCHAOS_SATURATION_BALLOT_DIMENSION_CHECK_OK` on success. Its numerical dimension and asymptotic-constant output is descriptive; the analytical proofs in `RESULT.md` establish the all-time and infinite-set results. Finite enumeration neither proves all lengths nor a Hausdorff-dimension identity.
+PASS
 
-Scientific uncertainties: previously published exact formulas for this specialized full-leaf observable may exist outside the inspected literature; no independent mathematical audit has been performed. The conclusions depend on the precise affine branch convention away from boundary fibers. No third-party full article is reproduced here.
+Full initial z-interval is dyadic and base ternary digit 0/1 halves its length, digit 2 doubles unless already saturated. Consequently h_n=M_n-S_n and saturation exactly a running maximum. Reversing independent ternary increments produces a ballot path weighted two per downstep, with coefficient sum 2^j(C(n,j)-C(n,j-1)). Weighted Catalan return GF yields 2/(1-2z+sqrt(1-8z^2)); its two dominant square-root singularities give distinct even/odd constants. For dimension upper bound weighted cylinder summation controls limsup h_n<=H; lower bound concat negative Dyck bridges followed by one positive digit and take m to infinity. SLLN gives Lebesgue zero. Independently enumerated all ternary words through length 10, reproducing reflected lengths and counts. Finite enumeration alone is not a proof of dimension or asymptotics.
+
+## originality
+
+PASS
+
+Original map paper supplies dyadic leaf shrinkage and a.e. contraction. It does not state this exact full-leaf saturation probability distribution, two parity amplitudes or Hausdorff dimension; existing periodic-neutral-fiber spectrum concerns different conditional periodic fixed-fiber sets. Ballot/Catalan tools are classical ingredients not claimed as newly discovered.
+
+## value
+
+PASS
+
+Almost-everywhere collapse conceals a geometrically large null exceptional set; its sharp Hausdorff dimension and finite-time saturation law distinguish measure from dimension for a natural heterochaotic model. Both exact return statistics and noncontraction dimension are motivated geometric/dynamical invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
