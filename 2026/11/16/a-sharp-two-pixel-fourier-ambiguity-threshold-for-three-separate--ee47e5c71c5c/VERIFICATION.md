@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-The bundled `CHECK.py` uses Python standard-library integer arithmetic only. Running `python3 CHECK.py` enumerates every one of the 11,628 five-part compositions with every part at least two and total span at most 24. It verifies an independent cut-position enumeration, counts every reversal class, and compares exact aperiodic correlations by three independent formulas. It detects no nontrivial fiber below span 24 and precisely two distinct reflection classes in a single fiber at span 24. The independent formula for the number of reflection classes follows from Burnside's lemma; the run/gap composition count follows from stars-and-bars.
+## correctness
 
-The checker also verifies the universal construction as a formal two-variable Laurent coefficient identity: its assertion is algebraic for all positive integer values of both resolutions, not merely a finite experiment. The Python checks supplement the explicit polynomial factorization in the proof. No conclusion is drawn about arbitrary real endpoints, noisy measurements, or first collisions at other minimum widths. Neither external independent mathematical certification nor independent audit has occurred.
+PASS
+
+Full continuous Fourier magnitude of each integer-cell union equals common sinc factor times binary polynomial magnitude; equality is equivalent to equality of the entire aperiodic autocorrelation vector and the maximum occupied endpoints identify N. Exhausted every five-part composition with all parts>=2 through N=24: independent integer re-enumeration 11,628 words; first and only nontrivial reflection-class pair at N=24 is (2,2,12,4,4) vs (2,4,6,2,10). Independent symbolic two-variable endpoint-polynomial autocorrelation identity proves all-resolution homometry for arbitrary positive w,g; that construction provides an upper bound, not sharpness for arbitrary floors.
+
+## originality
+
+PASS
+
+Best-of-knowledge natural simultaneous two-cell occupied-and-gap floor has an exact first-span classification distinct from known less constrained three-run and equally constrained four-run classifications.
+
+## value
+
+PASS
+
+First exact resolution threshold and unique ambiguous fiber for a simple physically motivated three-aperture class with a two-pixel feature floor. Exhaustive finite census is appropriate to sharp first cutoff and paired with an all-resolution symbolic construction; no generic downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

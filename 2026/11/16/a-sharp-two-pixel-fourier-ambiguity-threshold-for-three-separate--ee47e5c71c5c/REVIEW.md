@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier reduction uses a common unit-cell sinc factor and the full unit-circle Laurent identity, with both endpoint digits occupied so maximal lag fixes span. The five-part composition parameterization enumerates the whole model for every span from ten to twenty-four, and the supplied integer-exact checker compares each complete autocorrelation vector, reflection orbits, and independent enumerators. The two-variable endpoint-polynomial factorization is an exact identity valid for all positive integer resolutions; finite samples are supplementary only. The final claim's quantifiers, boundaries, first exceptional pair, and construction were reconstructed from the actual `CHECK.py` and `RESULT.md` files. The general sharp threshold for arbitrary resolution parameters is expressly unproved.
+## correctness
 
-## Originality — PASS relative to inspected literature, with risks
-Xia–Xu (arXiv:2606.19855) has the broader factor-flipping construction but no identified two-pixel three-run first-span census. Full public `RESULT.md` was read for the first unrestricted three-run span-12 result, the occupied-width-two gap-one span-19 result, and the four-run foreground/background-two span-22 result. Their exact hypotheses differ from the simultaneous three-run five-feature lower bound; the unrestricted example and its dilation supply a witness but not the lower bound or uniqueness within the constrained model. Searches of indexed results, aliases, and the accessible same-domain prior finding claims did not identify the new sharp cutoff. An older unindexed homometric binary-mask table or a nonexplicit implication of general factorization remains possible; snippets and search absence are not guarantees of novelty.
+PASS
 
-## Mathematical value — PASS
-A two-cell minimum on foreground *and* separating background models feature-resolution-limited optical apertures. The theorem supplies a complete sharp identifiability cutoff, unique first ambiguous fiber, and an all-resolution explicit obstruction; these are not inherited simply from the previously known first span at unrestricted widths. It also exhibits an unexpected comparison: the corresponding four-interval model becomes ambiguous at span twenty-two, earlier than this three-interval model at twenty-four. The exact object, invariant, and future use in phaseless aperture design motivate the specific finite classification rather than an arbitrary census.
+Full continuous Fourier magnitude of each integer-cell union equals common sinc factor times binary polynomial magnitude; equality is equivalent to equality of the entire aperiodic autocorrelation vector and the maximum occupied endpoints identify N. Exhausted every five-part composition with all parts>=2 through N=24: independent integer re-enumeration 11,628 words; first and only nontrivial reflection-class pair at N=24 is (2,2,12,4,4) vs (2,4,6,2,10). Independent symbolic two-variable endpoint-polynomial autocorrelation identity proves all-resolution homometry for arbitrary positive w,g; that construction provides an upper bound, not sharpness for arbitrary floors.
 
-## Limitations and closest evidence
-Only three-component integer-grid masks with complete Fourier magnitudes are classified through their first collision. No independent audit, robustness guarantee, or all-resolution sharp lower bound is asserted. The source arXiv:2606.19855 has relevant sections and theorem statements inspected; its full displayed factor examples could not all be recovered in the consulted representation. General earlier work on binary autocorrelations could contain equivalent constrained counts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge natural simultaneous two-cell occupied-and-gap floor has an exact first-span classification distinct from known less constrained three-run and equally constrained four-run classifications.
+
+## value
+
+PASS
+
+First exact resolution threshold and unique ambiguous fiber for a simple physically motivated three-aperture class with a two-pixel feature floor. Exhaustive finite census is appropriate to sharp first cutoff and paired with an all-resolution symbolic construction; no generic downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
