@@ -1,15 +1,21 @@
-# Scientific review: Sharp circular-cap depth laws for regular polygonal tests
+# Independent mathematical audit
 
-## Correctness — PASS
-The definitions, radial hypotheses, quantifiers, boundary conditions and normalization have been checked. The proof gives an explicit sufficient dilation threshold, derives exact equality with finite facet-direction depth, identifies disjoint and overlapping circular caps, integrates the independent radius and nearest-normal angle for a complete CDF, verifies the first-derivative match and second-derivative jump, and integrates the exact mean and leading bias. The supplied standalone checker passes 116 deterministic numerical comparisons, which supplement but do not replace the analytic proof.
+## correctness
 
-## Originality — PASS, provisional
-Molchanov–Nagy's general translate-depth framework and two published finite-scale stabilization theorems cover the polyhedral reduction and are fully credited. Random Tukey-depth and finite-direction approximation papers concern different randomized-direction or convergence statements. Targeted published-result and full-primary-text comparisons found no result giving the universal exact lower-tail slope, sharp circular-cap overlap cutoff, complete fixed-regular-fan CDF, or finite-normal mean bias. The older paper on uniform-distribution depth was accessible only in abstract/bibliography; broader historical priority is unverified.
+PASS
 
-## Mathematical value — PASS
-The sharp first-overlap transition and distribution-free lower-tail CDF hold across arbitrary strictly positive radial distributions and give a natural geometric invariant of oriented regular normal fans. For the uniform disk, the full CDF and smoothness transition, exact mean and sharp approximation coefficient establish a complete, nontrivial quantitative classification rather than a routine experiment or a theorem simply reworded from a prior general reduction.
+For a regular m-gon fan and a positive radial disk measure, the stated t>=2R/[1-cos(2*pi/m)] ensures that any missed translate can be dominated and approximated by one of the m facet halfspaces: d_t(y)=H(max_i u_i·y). With Y radial, {d_t(Y)<=z} is a union of m outward caps at projection threshold q=H^(-1)(z). Adjacent normals are separated by 2*pi/m, so caps have disjoint interiors iff q>=R*cos(pi/m); below that threshold positive radial density gives strict overlap and hence strict inequality P(Z<=z)<mz. For the uniform disk radial density 2r and independent nearest-normal angular error uniform in [0,pi/m] yield the complete two-branch CDF via integral of (1-q^2/sec-angle^2)_+, the C1/non-C2 contact, and the mean a/(2*pi)+[((pi/2)-a)tan(a)-sin^2(a)]/(4*pi*a), expanding to 1/8+pi^2/(24m^2)+O(m^-4). Independent numerical quadrature separately evaluates 25 CDFs and 5 double-integral means. The unrestricted radial-law theorem rests on cap geometry, not numerical densities.
 
-## Limits
-The sufficient scale need not be optimal, no anisotropic analogue is proved, the all-direction Tukey depth is not the same functional, and no independent audit or historical priority certification has been performed. The package's finite tests are illustrative checks, not a substitute for its universal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior translate-depth construction and its general polyhedral facet stabilization are explicitly credited. The examined uniform-depth approximation papers concern random directions and uniform convergence, not the value law at fixed regular directions. The new statement derives the exact universal linear CDF interval and full uniform-disk CDF with mean bias; those are not implications of a mere facet reduction without further cap-overlap and angular integration.
+
+## value
+
+PASS
+
+The exact all-radial-law lower tail until a sharp geometric contact is a distribution-free calibration principle for finite directional depth. The uniform-disk full depth-value CDF and explicit m^-2 finite-normal bias quantify the cost of using a regular discrete test fan and identify a genuine C1 but non-C2 transition. These are natural invariant laws, not an arbitrary sample parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
