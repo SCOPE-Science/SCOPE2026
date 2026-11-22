@@ -1,19 +1,21 @@
-# Scientific review: weighted graph-variation stability of softmax
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is an exact two-input supremum, not an assertion of finite-pair equality. The central covariance optimization is proved by eliminating discordant support pairs and applying variance bounds to the remaining concordant support. This yields a sharp norm formula for every quotient norm; weighted graph coarea turns its factors into weighted degrees and reciprocal minimum cuts. The unit-graph envelope and equality characterization follow from the minimum-cut size distinction. All boundaries include \(n=2\), arbitrary strictly positive edge weights and \(\beta>0\). Exact-rational diagnostics independently check finite cases; the analytical proof, not the enumeration, covers all orders.
+PASS
 
-## Originality: PASS (qualified)
+Reconstructed the finite-dimensional covariance lemma by support-reducing a maximizing probability measure to a concordant two-atom pair, giving beta/4 pair-product; graph-TV quotient duality gives N(e_i-e_j)=d_w(i)+d_w(j) and N*(e_i-e_j)=1/lambda_w(i,j) by exact graph coarea and a mincut indicator. The softmax Jacobian integration proves all-pair upper bounds, while finite scores approach equal two-atom boundary probabilities and infinitesimal mincut directions give the sharp supremum. For lambda>=2 degree sum <=2(n-1) yields strict n/4 bound; for a bridge, degree sum <=n with equality exactly for two boundary vertices universal on their own sides. Tree and K_ab formulas follow from pair connectivities. This proof, not finite graphs, covers all n, positive weights and real inputs.
 
-The softmax Jacobian in Martins--Astudillo (2016) does not yield the graph norm without nontrivial covariance optimization and minimum-cut duality. The sharp standard-\(\ell_p\) bounds in Nair (2025) are not the weighted graph-variation bound and cannot yield its graph-specific equality classification. Sandryhaila--Moura (2013) studies a different graph-variation definition based on a normalized shift, and Liu--Yin (2021/2023) defines a different variation-regularized optimization map. Semantic and formula-level searches did not identify the claimed formula, but an unindexed equivalent covariance or graph-Lipschitz result is a residual bibliographic risk. The earlier papers' distinct norms and maps are not taken as novelty proof by title alone.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Graph-edge variation is a natural norm for smoothness of graph signals, while softmax is a canonical probability-normalization operator. The exact min-cut/weighted-degree formula is an efficiently computable graph invariant for stability under arbitrary perturbations, not merely a numerical special case. It yields an exact nonexpansivity criterion, the full unit-graph sharp envelope and extremizers, a complete tree stability classification, and a biclique threshold. The contrast with standard \(\ell_p\)-norm contractivity explains why a bound on a probability map in ordinary coordinates does not control edgewise variation on irregular graphs.
+The exact norm-dual/covariance product for ordinary softmax in arbitrary graph edge-TV, and its min-cut factor and sharp bridge envelope, are not implied by the prior ordinary ell-p operator estimates, the standard softmax derivative formula, or a graph-regularized alternative map. A searchable equivalent general norm theorem remains a priority risk but was not found in the actual comparisons.
 
-## Scope and residual risks
+## value
 
-The proof does not address infinite, directed or disconnected graphs, nor alternative normalization maps. Boundary softmax profiles are approached in a limit; finite-pair attainment is not claimed. Independent examination of possible older equivalent formulations, especially in abstract covariance optimization, remains useful.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp, graph-specific nonlinear stability modulus relevant to graph signals and optimization; it shows graph-TV amplification can grow linearly on stars while usual coordinate ell-p softmax remains bounded. It supplies a natural mincut criterion and exact tree/biclique classifications beyond a routine derivative identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

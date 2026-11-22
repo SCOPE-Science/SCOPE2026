@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:13:17.066961Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the finite-dimensional covariance lemma by support-reducing a maximizing probability measure to a concordant two-atom pair, giving beta/4 pair-product; graph-TV quotient duality gives N(e_i-e_j)=d_w(i)+d_w(j) and N*(e_i-e_j)=1/lambda_w(i,j) by exact graph coarea and a mincut indicator. The softmax Jacobian integration proves all-pair upper bounds, while finite scores approach equal two-atom boundary probabilities and infinitesimal mincut directions give the sharp supremum. For lambda>=2 degree sum <=2(n-1) yields strict n/4 bound; for a bridge, degree sum <=n with equality exactly for two boundary vertices universal on their own sides. Tree and K_ab formulas follow from pair connectivities. This proof, not finite graphs, covers all n, positive weights and real inputs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nair arxiv:2510.23012 concerns ordinary ell_p coordinate norms, unlike seminorm sum w|h_u-h_v|; Liu–Yin arxiv:2101.00153 defines a changed graph-regularized optimization map."
+        ],
+        "reasoning": "Neither is a dominating same-map same-norm statement; n/4 on a star exceeds any graph-independent bound for these input/output TV seminorms.",
+        "searches": [
+          "Nair Softmax is 1/2-Lipschitz tight bound ell_p arxiv:2510.23012",
+          "Liu Yin Graphmax graph total variation regularized softmax arxiv:2101.00153",
+          "Resultary softmax graph edge total variation"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1602.02068 Eq.8/Section2.5",
+        "arxiv:2510.23012 (ell_p statement)",
+        "arxiv:2101.00153 (graphmax objective)",
+        "Resultary semantic searches: sharp softmax graph edge total variation; softmax Jacobian arbitrary quotient norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Derivative formula Dsigma=beta(Diag(p)-pp^T) is known; the exact mincut factor requires N*(e_i-e_j)=1/lambda and extremal two-atom covariance optimization not in compared assertions."
+        ],
+        "reasoning": "Standard softmax differentiation and norm contraction estimates do not logically entail the sharp weighted graph-TV expression or its bridge rigidity.",
+        "searches": [
+          "arxiv 1602.02068 Section 2.5 softmax Jacobian",
+          "Nair 2025 softmax ellp versus graph TV",
+          "arxiv 2101.00153 graphmax map"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martins–Astudillo arxiv:1602.02068 Eq. (8) derives Dsoftmax=Diag(p)-pp^T but not an induced weighted graph-TV quotient operator norm; own result is listed in Resultary, not a distinct prior proof."
+        ],
+        "reasoning": "The covariance-pair and dual-unit-ball forms were compared; the old Jacobian alone is only an input to a new pairwise minimax over p and graph-TV directions.",
+        "searches": [
+          "Resultary: sharp softmax graph edge total variation Lipschitz weighted minimum cut covariance dual norm",
+          "softmax Jacobian arbitrary quotient norm covariance pair support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest exact entry is the candidate 2026/11/17/SCOPE-sharp-graph-variation-stability-of-softmax-by-weighted-minimum-c--3a3c3b1e0d40; other returned graph-variation entries concern projection, heating, or graph cuts for different operators."
+        ],
+        "reasoning": "No independent preexisting same-operator exact table found; generic sharp ell_p constants cannot contain arbitrary weighted pair-mincuts. Search absence alone does not establish priority.",
+        "searches": [
+          "Resultary weighted minimum cut softmax stability graph",
+          "softmax sharp graph total variation table star biclique"
+        ]
+      },
+      "rationale": "The exact norm-dual/covariance product for ordinary softmax in arbitrary graph edge-TV, and its min-cut factor and sharp bridge envelope, are not implied by the prior ordinary ell-p operator estimates, the standard softmax derivative formula, or a graph-regularized alternative map. A searchable equivalent general norm theorem remains a priority risk but was not found in the actual comparisons.",
+      "residual_risks": [
+        "No complete systematic survey of every dual-norm covariance theorem; unindexed or implicit pre-2026 general norm formulation could precede this formula.",
+        "Checked finite graph enumeration n<=5 does not establish sharpness for all n; all-order proof assessed analytically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INGREDIENT_NOT_COVERING",
+          "evidence": "Derivative formula is present; no graph-mincut seminorm coefficient in inspected derivation.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.02068",
+          "material_read": "Primary PDF relevant Section 2 and Eq. (8), visually checked page 2",
+          "method": "full PDF page/section reading and screenshot",
+          "title": "From Softmax to Sparsemax: A Sparse Model of Attention and Multi-Label Classification",
+          "trigger": "Same ordinary softmax Jacobian and sensitivity"
+        },
+        {
+          "assessment": "DIFFERENT_NORM_SCOPE",
+          "evidence": "Statement is ell_p, not weighted edge total variation.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.23012",
+          "material_read": "Abstract/theorem scope and norm specification; entire proof not independently inspected",
+          "method": "public summary/abstract comparison",
+          "title": "Softmax is 1/2-Lipschitz: A Tight Bound across All ell_p Norms",
+          "trigger": "Potential stronger norm-uniform theorem"
+        },
+        {
+          "assessment": "DIFFERENT_MAP",
+          "evidence": "Graphmax modifies the optimization objective; submitted theorem concerns ordinary softmax.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.00153",
+          "material_read": "Public abstract/operator description; not all pages independently inspected",
+          "method": "lawful public arXiv record",
+          "title": "Graphmax for Text Generation",
+          "trigger": "Graph-total-variation terminology may hide exact map identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, graph-specific nonlinear stability modulus relevant to graph signals and optimization; it shows graph-TV amplification can grow linearly on stars while usual coordinate ell-p softmax remains bounded. It supplies a natural mincut criterion and exact tree/biclique classifications beyond a routine derivative identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No complete systematic survey of every dual-norm covariance theorem; unindexed or implicit pre-2026 general norm formulation could precede this formula.",
+    "Checked finite graph enumeration n<=5 does not establish sharpness for all n; all-order proof assessed analytically."
+  ],
+  "schema_version": 1
+}
