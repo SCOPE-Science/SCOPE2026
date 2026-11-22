@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Exact count by fixed mask, binomial inclusion–exclusion formula, multivariate exponential formula, and Gaussian Wick identity agree independently. Complement symmetry and adjacent-weight recurrence follow by explicit moment factorization. Gaussian integration by parts proves a_m recurrence and its strict positivity for m>=2. Starting at n=4, alternating even positivity and odd strict-descent induction gives the claimed sign sectors and sharp least absolute multiplier at all n>=4; low-order rows prove all exceptional ranks. The included standalone verifier directly enumerated all 4094 characters at n<=11 and checked independent formulas through n<=60. No numerical experiment is presented as an unbounded proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Compared scientific statement: unrestricted-permutation fixed-position spectrum uses factorial \\((n-j)!\\), nonnegative in all sufficiently large orders, unlike the sign-split involution spectrum.",
+        "Chow–Mansour Proposition 7 enumerates involutions with a fixed *number* of fixed points, a coarser scalar statistic.",
+        "A separate involution descent-profile analysis concerns descent sets of involutions, not fixed-point locations."
+      ],
+      "reasoning": "The unrestricted-permutation theorem changes the underlying measure and its all-order sign law. A scalar fixed-point count enumerator implies formula (1) after a specialized multivariate lift, but neither it nor the existing factorial-spectrum theorem implies positivity of all even involution multipliers, odd central sign transition, or the exact central minimum without additional proof.",
+      "searches": [
+        "uniform permutations fixed position profiles signed Walsh multipliers factorial sum n! exact positivity condition 15",
+        "involutions fixed points Boolean cube exact spectral condition numbers central gaussian squared minus one",
+        "\"involutions\" \"fixed point\" \"multivariate\" \"generating function\""
+      ]
+    },
+    "checked_sources": [
+      "Lugo (2009), arXiv:0911.3604, inspected material in full-text HTML",
+      "Chow and Mansour (2010), DOI:10.1007/s11856-010-0088-8, inspected Section 4/Proposition 7 full-text",
+      "OEIS A053871, indexed exact central moment recurrence",
+      "Published record 2026/11/16/SCOPE-exact-six-vertex-involution-fourier-spectrum-and-sharp-projectio--4a2458c730e8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lugo 2009: exact partial matching model and scalar involution counts, but its investigated object is compositions of two involutions.",
+        "Chow–Mansour 2010: Proposition 7 gives scalar involution generating function exp(x+x^2/2) as a specialization, not the signed positionwise extremum.",
+        "Related unrestricted-permutation fixed-point theorem has a similar difference identity but uses a different input counting sequence and has no odd negative spectral sector.",
+        "Published matching edge-Walsh theorem 2026/11/16/SCOPE-dyadic-walsh-rigidity-and-explicit-singular-resonances-for-compl--3518315cdf56 signs transposition edges, not fixed positions."
+      ],
+      "reasoning": "Prior results give the enumeration substrate, and the present proof openly derives the relevant multivariate EGF. The all-order nonzero statement and exact spectral gap are a genuine further implication, not a direct restatement of the scalar EGF; the known permutation case alone cannot force the involution signs.",
+      "searches": [
+        "Walsh Fourier transform of fixed point indicator set of involutions perfect matchings with isolated vertices symmetric group, signed fixed points, zero-free and sharp minimum",
+        "fixed-point set of involutions signed exponential generating function exp(x+y squared /2 -x + y) Fourier eigenvalues",
+        "Fourier fixed point set involutions Boolean XOR Fourier eigenvalues condition number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lugo, arXiv:0911.3604, full text sections 1/4/6: partial matchings, scalar fixed-point counts, and pair compositions; no Boolean positionwise Fourier theorem found.",
+        "Chow–Mansour, DOI 10.1007/s11856-010-0088-8, Section 4 Proposition 7: involution enumerators in a wreath product; scalar counts, not characterwise signed profiles.",
+        "Published database candidate 2026/11/16/SCOPE-exact-six-vertex-involution-fourier-spectrum-and-sharp-projectio--4a2458c730e8: edge-sign Fourier of permutation matrices, not labelled fixed-point subset character."
+      ],
+      "reasoning": "The signed fixed-point indicator kernel encodes unmatched labelled vertices. Edge-incidence signed-matching transforms instead sign transpositions; they cannot be converted by a coordinate relabeling because edge coordinates and vertex fixed-position coordinates have different spaces and dimensions. Scalar EGF specializes to the generating function used here but does not itself assert the global sign and minimum theorem.",
+      "searches": [
+        "involution polynomials two-color fixed points, signed fixed points, Gaussian moment Hermite polynomials spectral invertibility boolean group",
+        "\"involution\" \"fixed points\" \"Walsh transform\" permutation",
+        "binary convolution fixed point incidence distribution uniform random involutions zero modes n=2 n=3 all n>=4 Fourier transform"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A053871, https://oeis.org/A053871, already records central moments \\(1,0,2,8,60,544,\\ldots\\) with recurrence \\(a_m=2(m-1)(a_{m-1}+a_{m-2})\\).",
+        "Exact source search showed no table identifying \\(a_{\\lfloor n/2\rfloor}\\) as the sharp *involution fixed-point Walsh gap* in all orders."
+      ],
+      "reasoning": "The known central-moment integer sequence is not claimed new. Novelty is the identification of this sequence with the sharp least absolute Fourier multiplier of a different natural family and the proof of the global sign/rank classification. A table of moments alone does not imply the exact Fourier minimizing property.",
+      "searches": [
+        "\"1, 0, 2, 8, 60, 544, 6040, 79008\" chi-square moments",
+        "OEIS central moments chi square 1 0 2 8 60 544 6040"
+      ]
+    },
+    "rationale": "The all-frequency sign pattern and least Fourier-multiplier theorem for exact involution fixed-point profiles are not given by the inspected classical involution counting sources. The natural complete scalar fixed-point EGF and the central-moment sequence are established prior art and explicitly credited; obtaining the noncancellation/central-minimum spectral theorem requires a separate adjacent-weight argument. Related positional fixed-point Walsh results for unrestricted permutations and involution permutation-matrix edge-Fourier spectra do not imply this result. Exact semantic searches and recoverable own claims found no equivalent or stronger covering statement; priority remains bounded by indexing.",
+    "residual_risks": [
+      "Unindexed or differently phrased signed fixed-point polynomial identity may imply the spectral signs and minimum.",
+      "Full OEIS A053871 page was unavailable to direct fetch; indexed sequence and recurrence nevertheless were positively identified and credited.",
+      "Search results cannot establish absolute priority; older multivariate marked-involution generating functions may contain a usable implicit specialization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical enumeration and fixed-point constraints; no statement on signed single-involution position profiles or sharp Walsh gaps located",
+        "evidence": "arXiv:0911.3604 dated 2009-11-18; Section 4 Corollary 4.2 and Section 6 Proposition 6.1; full HTML Fourier search had no matches.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0911.3604",
+        "material_read": "Abstract and Introduction; Sections 4 and 6 on pair matchings and fixed-point constraints; searched full HTML for Fourier",
+        "method": "Read HTML complete relevant portions and mathematical formulas; exact section comparison",
+        "title": "The cycle structure of compositions of random involutions",
+        "trigger": "Foundational archived partial-matching representation and involution statistics, possible wider implied multivariate statement"
+      },
+      {
+        "assessment": "Provides scalar counts and exponential generating functions including classical involutions; no positional Walsh spectrum or extremal multiplier proved",
+        "evidence": "Chow–Mansour, Section 4, Proposition 7, \\(r=1\\) scalar involution generating series; Fourier search returned no matches.",
+        "identifier_or_url": "https://doi.org/10.1007/s11856-010-0088-8",
+        "material_read": "Author-contributed full text, Introduction and Section 4 including Proposition 7 and proof, with full-text term search for Fourier",
+        "method": "Read accessible author-contributed HTML text rendition and compare generating-function assertions and coordinates",
+        "title": "Counting derangements, involutions and unimodal elements in the wreath product",
+        "trigger": "Most plausible stronger generalization of involution fixed-point counting via wreath products"
+      },
+      {
+        "assessment": "The central moments are known; theorem not claimed for their numeric novelty",
+        "evidence": "Indexed A053871 lists \\(1,0,2,8,60,544,6040,79008\\) and central-moment recurrence.",
+        "identifier_or_url": "https://oeis.org/A053871",
+        "material_read": "Indexed sequence and recurrence read from mathematical sequence search result; direct OEIS page fetch denied 403",
+        "method": "Search sequence and recurrence in OEIS-indexed external result",
+        "title": "OEIS A053871",
+        "trigger": "Exact table/equivalent recurrence for the central coefficient \\(a_m\\)"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7bf298b2-0571-49c2-ae59-08204a11b66e",
+  "value": {
+    "rationale": "The fixed-point location set is a canonical sufficient local profile of a random involution. Beyond known telephone numbers and central moments, the theorem completely classifies recoverability of XOR convolution for all sizes, discovers the odd/even spectral sign split, and identifies its exactly sharp Euclidean inverse amplification. The exact central-gap correspondence and all-order minimization are relevant to Boolean harmonic analysis of weighted combinatorial distributions rather than an arbitrary small finite slice.",
+    "status": "PASS"
+  }
+}
