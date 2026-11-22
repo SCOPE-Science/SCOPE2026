@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_complete_graph_maximal.py` with Python 3; no external packages or data files are required. The script was executed on the actual embedded source before delivery. Its outputs were:
+## correctness
 
-```
-EXACT_ACTIVE_CUT_TABLES_PASSED 50375
-INDEPENDENT_EXPLICIT_ACTIVE_CUTS_PASSED 85372
-EXACT_STRICT_BRANCH_WITNESSES_PASSED 299
-EXACT_TWO_INPUT_RATIONAL_PAIRS_PASSED 3598
-SIGNED_SEMINORM_OBSTRUCTION_CHECKS_PASSED 19
-ALL_COMPLETE_GRAPH_TWO_INPUT_BV_CHECKS_PASSED
-```
+PASS
 
-The proof applies to all finite graph orders and uses exact coarea and an elementary convexity argument. Neither finite tests nor rational samples certify a universal identity by themselves. The claimed maximal function on nonnegative data is the conventional centered graph-ball average; signed-input absolute values are excluded. Literature coverage was checked against the three cited primary preprints; a possible earlier equivalent result under a different functional-analytic vocabulary remains an originality risk.
+PASS: Complete graph K_n centered nonnegative ball maximal is exactly M f_i=max(f_i, arithmetic mean f). On each strict mean-comparison chamber S, branch A_S is constant-preserving and copies h_i for i in S, mean h otherwise. Coarea gives exact complete-pair Gini norm from binary cuts. Independently derived exact branch-cut identity R=x(n-x)/(n*l)+z(n-z)/(n*(n-l)), with l=|U|, x=|S∩U|, z=|S\U|. Maximizing x<=l<=n/2 gives x(n-x)<=l(n-l), maximizing z gives floor(n²/4), and the convex endpoint m+floor(n²/4)/m on m∈[ceil(n/2),n-1] yields n>=3 coefficient 1+floor((n-2)²/4)/(n(n-1)). n=2 explicit half difference separately. Reconstructed exact integer cardinality constraints and cut ratios exhaustively for n=2,...,24 (including n=24 value 673/552); exact attaining input 1_S with one vertex raised within same strict chamber. No signed absolute-value conclusion is claimed; constant-shift counterexamples show that variant fails. No numerical extrapolation to all n.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): González-Riquelme–Madrid arxiv:2005.03146 Theorem 1 and González-Riquelme–Kovač–Madrid arxiv:2603.12462 Theorem 1 establish one-input centered complete-graph Var(Mf)/Var(f)=1-1/n; their BV continuity is qualitative and their one-input inequality cannot be applied to nonlinear differences. Same-day two-input star results have different graph operator. A 13 Nov 2026 newer primary paper on p-variation graph maximal operators likewise formulates single-input constants. The exact two-input K_n factor and n=4 amplification onset remain original to best knowledge.
+
+## value
+
+PASS
+
+PASS: Sharp nonlinear stability of the canonical complete-graph maximal averaging operator in all dimensions, with exact finite-n transition from nonexpansive to expansive pairwise variation and asymptotic ceiling 5/4. The difference from strong individual-signal smoothing directly informs sensitivity of finite-graph filtering and makes a natural complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

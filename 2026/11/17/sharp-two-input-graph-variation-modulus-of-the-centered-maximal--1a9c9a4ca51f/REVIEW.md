@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The formula is derived from an explicit branch decomposition, a nested-cut coarea reduction, an independently recomputed exact three-level cut identity, and a convex one-variable maximization. The \(n=2\) exception is proved directly. Every sharp constant is attained by two nonnegative signals in one strict chamber. The standalone exact-rational checker repeats both the symbolic combinatorics and direct output evaluations for finite cases. Finite tests support but do not replace the full-order proof.
+## correctness
 
-## Originality — PASS (best-knowledge; qualified)
-The closest primary material includes Soria–Tradacete's finite-graph maximal \(\ell_p\) results (arXiv:1410.6204), the single-input variation theorem and qualitative BV continuity of González-Riquelme–Madrid (arXiv:2005.03146), and the all-exponent single-input theorem of González-Riquelme–Kovač–Madrid (arXiv:2603.12462). The inspected results optimize \(\operatorname{TV}(Mf)/\operatorname{TV}(f)\) or estimate continuity in norms including a basepoint, rather than the sharp nonnegative-cone two-input quotient. Those implications do not yield the pairwise constant, as the latter strictly exceeds one for \(n\ge4\) while the single-input factor is below one. A separately established two-input result could nevertheless exist under the aliases mean-floor clipping, Gini mean difference, or Markov averaging. It was not located in the documented searches.
+PASS
 
-## Mathematical value — PASS
-The theorem gives a natural exact stability modulus of a classical nonlinear operator on every complete graph; it proves the smallest dimension of two-input variation amplification, supplies sharp nondegenerate witnesses, and determines the asymptotic factor \(5/4\). It explains a genuine distinction between output smoothing and perturbation stability rather than simply recomputing an existing one-input constant.
+PASS: Complete graph K_n centered nonnegative ball maximal is exactly M f_i=max(f_i, arithmetic mean f). On each strict mean-comparison chamber S, branch A_S is constant-preserving and copies h_i for i in S, mean h otherwise. Coarea gives exact complete-pair Gini norm from binary cuts. Independently derived exact branch-cut identity R=x(n-x)/(n*l)+z(n-z)/(n*(n-l)), with l=|U|, x=|S∩U|, z=|S\U|. Maximizing x<=l<=n/2 gives x(n-x)<=l(n-l), maximizing z gives floor(n²/4), and the convex endpoint m+floor(n²/4)/m on m∈[ceil(n/2),n-1] yields n>=3 coefficient 1+floor((n-2)²/4)/(n(n-1)). n=2 explicit half difference separately. Reconstructed exact integer cardinality constraints and cut ratios exhaustively for n=2,...,24 (including n=24 value 673/552); exact attaining input 1_S with one vertex raised within same strict chamber. No signed absolute-value conclusion is claimed; constant-shift counterexamples show that variant fails. No numerical extrapolation to all n.
 
-## Limits and nearest antecedents
-Graph total variation is a seminorm modulo constants and the absolute-value maximal operator does not respect constant shifts on signed data. The nonnegative restriction is mathematically essential. Unknown priority from older mean-clipping or Gini-norm literature is the main residual originality risk; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): González-Riquelme–Madrid arxiv:2005.03146 Theorem 1 and González-Riquelme–Kovač–Madrid arxiv:2603.12462 Theorem 1 establish one-input centered complete-graph Var(Mf)/Var(f)=1-1/n; their BV continuity is qualitative and their one-input inequality cannot be applied to nonlinear differences. Same-day two-input star results have different graph operator. A 13 Nov 2026 newer primary paper on p-variation graph maximal operators likewise formulates single-input constants. The exact two-input K_n factor and n=4 amplification onset remain original to best knowledge.
+
+## value
+
+PASS
+
+PASS: Sharp nonlinear stability of the canonical complete-graph maximal averaging operator in all dimensions, with exact finite-n transition from nonexpansive to expansive pairwise variation and asymptotic ceiling 5/4. The difference from strong individual-signal smoothing directly informs sensitivity of finite-graph filtering and makes a natural complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
