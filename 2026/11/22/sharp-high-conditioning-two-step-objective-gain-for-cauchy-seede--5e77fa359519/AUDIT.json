@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The domain is the two-dimensional SPD diagonal quadratic, with a Cauchy seed and exactly one running-curvature feedback step. The exact spectral-gradient recurrence gives a squared-energy ratio R(k,r), with k>1 and r>0, and second-step parameter a^2=(1+r)/(1+k^2*r). The proof uses a in (1/k,1) and an explicit strictly positive three-term polynomial certificate for k-R(k,r)>0. The family r=k^{-3/2} satisfies R(k,r)/k to 1. The k=9,r=1/63 witness gives exact F2/F0=1379/639. An actual symbolic-algebra verifier and exact-rational witness ran successfully; finite numerical tests are only checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published BB-interval result: F_{j+1}/F_j <= (k-1)^2 for all selectors, sharp locally even after Cauchy initialization.",
+        "A separate two-step cyclic steepest-descent frontier concerns a repeated Cauchy-based step, not the geometric-mean feedback."
+      ],
+      "reasoning": "A universal bound on a single local objective ratio does not dominate the stronger initial-to-final asymptotic F2/F0<k with sharp coefficient one. Combining standard Cauchy decrease with that local bound gives order k^2, not the stated order k.",
+      "searches": [
+        "sharp two-step total objective amplification after exact line-search Cauchy initialization geometric mean Barzilai Borwein spectral gradient step grows linearly condition number with asymptotic coefficient one",
+        "two step objective amplification geometric mean BB Cauchy warmstart kappa near kappa",
+        "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+        "2026/10/12/SCOPE-sharp-condition-number-frontier-for-objective-monotonicity-of-tw--1a4bfe561ff3/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.03546",
+      "https://optimization-online.org/wp-content/uploads/2018/05/6628.pdf",
+      "https://doi.org/10.1007/978-3-319-17689-5_3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-sharp-condition-number-frontier-for-objective-monotonicity-of-tw--1a4bfe561ff3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang et al. (2026), Section 4, eqs. 35--36 and Theorem 8 concern construction and convergence of stepsizes.",
+        "Dai et al. (2018), Sections 2--4 treat geometric-mean BB as an existing method and give asymptotic rates.",
+        "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c proves a k/4 leading value for a distinct CG_AOS update, which is not a bound on Cauchy-seeded AdOGD."
+      ],
+      "reasoning": "Neither eventual step/rate convergence nor the other method’s two-mode example logically entails the precise early-time sharp upper envelope and leading coefficient. The new proof derives and bounds this different invariant directly.",
+      "searches": [
+        "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+        "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa/RESULT.md",
+        "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c/RESULT.md",
+        "https://arxiv.org/abs/2608.03546",
+        "https://optimization-online.org/wp-content/uploads/2018/05/6628.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "First AdOGD feedback: a=1/c1=sqrt(BB1*BB2), explicitly the positive geometrical BB stepsize in Dai--Huang--Liu (2018, eq. 16).",
+        "BB-interval manuscript recognizes any selector between BB2 and BB1, including the geometric mean."
+      ],
+      "reasoning": "The method is not new. Equivalence of the second update to a classical spectral step does not itself furnish the sharp two-step total-objective coefficient from the specified Cauchy initialization.",
+      "searches": [
+        "AdOGD first feedback local curvature geometric mean BB after exact line search worst F2 over F0 approximately condition number kappa",
+        "spectral gradient Dai geometrical mean BB1 BB2 two-step objective ratio initial exact line-search sharp upper kappa",
+        "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+        "https://optimization-online.org/wp-content/uploads/2018/05/6628.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53 has local sharp (k-1)^2, not the present initial-to-final sharp linear growth.",
+        "Closest method-specific record 2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa studies endpoint initialization and asymptotic identification, not F2/F0."
+      ],
+      "reasoning": "The available semantic-record findings and the checked local source claims provide no exact table, identifier, or two-update objective-ratio classification that subsumes the present asymptotic result; record absence alone is not a novelty proof.",
+      "searches": [
+        "sharp two-step total objective amplification after exact line-search Cauchy initialization geometric mean Barzilai Borwein spectral gradient step grows linearly condition number with asymptotic coefficient one",
+        "AdOGD first feedback local curvature geometric mean BB after exact line search worst F2 over F0 approximately condition number kappa",
+        "spectral gradient Dai geometrical mean BB1 BB2 two-step objective ratio initial exact line-search sharp upper kappa",
+        "two step objective amplification geometric mean BB Cauchy warmstart kappa near kappa"
+      ]
+    },
+    "rationale": "The exact feedback step is the classical geometric-mean Barzilai--Borwein spectral step: this algorithmic equivalence is explicitly acknowledged. The claimed result is instead the complete initial-to-final two-update gain after a Cauchy seed. The 2018 full spectral-gradient manuscript discusses the geometric mean and asymptotic R-convergence, not a sharp F2/F0 high-conditioning bound. The published BB-interval record gives a sharp one-step F2/F1 bound, which combined with a Cauchy reduction provides only a weaker order-k^2 upper bound and does not imply the sharp order-k coefficient. The published AdOGD record concerns endpoint spectral persistence, and a separate two-mode record treats CG_AOS with a different gain constant and method. No equivalent precise theorem was found in actual searches. The full 2015 chapter studying the same underlying spectral step could not be read, so priority is qualified.",
+    "residual_risks": [
+      "The full 2015 analysis of the exact positive geometric-mean spectral step was not accessible; an equivalent sharp finite-horizon theorem there remains possible.",
+      "Extensive historical spectral-gradient literature beyond inspected sources may contain an equivalent two-step asymptotic bound.",
+      "The theorem treats only two modes and exactly two updates, not arbitrary-dimensional or multi-iteration amplification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes method and eventual stepsizes; does not establish sharp initial-to-final two-step objective gain",
+        "evidence": [
+          "arXiv v1 Sections 2,4,5; 2026-08-04 initial release"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.03546",
+        "material_read": "Complete accessible 2026 arXiv v1, including equations (9)--(10), (35)--(36), Theorem 8, experiments and references",
+        "method": "Full-text inspection and mathematical specialization to the two-mode Cauchy seed",
+        "title": "Pursuing Optimal Stepsize in Adaptive Gradient-Based Quadratic Optimization",
+        "trigger": "Original source of the running local-curvature feedback and its first update"
+      },
+      {
+        "assessment": "Explicitly establishes prior algorithmic equivalence and asymptotic rates; no matching finite two-update sharp coefficient identified",
+        "evidence": [
+          "Eq. (16) gives sqrt(BB1*BB2); Theorem 2 gives R-superlinear convergence under hypotheses"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2018/05/6628.pdf",
+        "material_read": "Accessible manuscript, method definitions, Sections 2--4 convergence material and references",
+        "method": "Full-text review with searches for geometric mean, Cauchy, two-step and worst-case",
+        "title": "A Family of Spectral Gradient Methods for Optimization",
+        "trigger": "Same geometric-mean BB step and possible stronger spectral convergence results"
+      },
+      {
+        "assessment": "Plausible historical-priority risk; abstract reports two-dimensional R-superlinear convergence but no exact finite-horizon gain",
+        "evidence": [
+          "2015 conference chapter, DOI 10.1007/978-3-319-17689-5_3"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-319-17689-5_3",
+        "material_read": "Bibliographic record and abstract only; complete 2015 chapter unavailable",
+        "method": "Search for arXiv and lawful open access followed by authorized institutional request, which did not provide full text",
+        "title": "A Positive Barzilai--Borwein-Like Stepsize and an Extension for Symmetric Linear Systems",
+        "trigger": "Original geometric-mean rule and specific two-dimensional spectral analysis"
+      },
+      {
+        "assessment": "Contains the local one-step (k-1)^2 bound, not the initial-to-final order-k sharp coefficient",
+        "evidence": [
+          "Theorem and proof: F2/F1=(kr(1-a)^2+(1-ka)^2)/(1+kr)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+        "material_read": "Entire published RESULT.md, including exact two-mode F2/F1 formula, proof, limits and references",
+        "method": "Primary full-file inspection and direct implication comparison",
+        "title": "Sharp objective-monotonicity frontier for Barzilai--Borwein interval steps",
+        "trigger": "Directly similar strong one-step bound and exact Cauchy warm start"
+      },
+      {
+        "assessment": "No two-step objective-gain result; concerns convergence of parameter estimates",
+        "evidence": [
+          "Counterexamples and repaired endpoint-persistence theorem"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+        "material_read": "Entire published RESULT.md",
+        "method": "Primary full-file inspection of claims, formulae, and proof",
+        "title": "Spectral-persistence counterexamples and a repair for AdOGD",
+        "trigger": "Same recent algorithm and spectral initialization"
+      },
+      {
+        "assessment": "Different CG_AOS method, ratio f2/f0~k/4; no implication of Cauchy-seeded AdOGD sharp k",
+        "evidence": [
+          "published-finding corpus published summary and ID"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c",
+        "material_read": "Published semantic result summary, not primary full document",
+        "method": "published-finding corpus semantic comparison of method and implied bounds",
+        "title": "Sharp two-mode transient amplification for CG_AOS after exact initialization",
+        "trigger": "Plausible similar f2/f0 high-conditioning result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5e77fa35-9519-4ce4-8c40-1398fa0f35b2",
+  "value": {
+    "rationale": "A spectral feedback step can undo a truly exact first line search, rather than merely increase the objective relative to a small intermediate value. The nontrivial, asymptotically sharp order-k two-update bound distinguishes finite-time budget safety from eventual convergence. It is a motivated early-iteration stability fact for the recently proposed running-estimator method, not a renamed gradient formula or an arbitrary finite table.",
+    "status": "PASS"
+  }
+}
