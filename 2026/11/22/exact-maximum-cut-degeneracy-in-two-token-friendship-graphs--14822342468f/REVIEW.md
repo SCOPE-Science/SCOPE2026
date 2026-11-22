@@ -1,0 +1,15 @@
+# Scientific review: exact maximum-cut degeneracy in two-token friendship graphs
+
+## Correctness — PASS
+Every edge of the token graph lies in exactly one lifted triangle. Equality in the tight two-edges-per-triangle bound is equivalent to satisfying the nonmonochromatic constraint on each such triangle. Fixing hub-token colors makes all remaining variables independent by petal or petal-pair. An independently enumerated \(4\times4\) compatibility matrix has rows \((7,5,5,2)\), \((5,6,6,5)\), \((5,6,6,5)\), and \((2,5,5,7)\). The resulting state sum, grouping and division by two prove the exact enumerator for all integers \(q\ge1\). The normalized three-class estimate explicitly bounds every nonconstant hub pattern and proves both the claimed asymptotic and concentration. Direct full-graph enumeration confirms the first three values, and an independent formula checker covers the first six. These finite checks are not substituted for the all-order proof.
+
+## Originality — PASS, provisional historical priority
+Apte, Parekh and Sud (arXiv:2506.03441v1, public June 3, 2025) motivate studying physical token graphs through spectral energy and frustration; they do not count maximum cuts. Alejandro-Soto et al. (arXiv:2611.25153v1), examined in its HTML full text including Sections 2 and 3.2, subsequently give the triangle-decomposition upper bound and parity-lift lower bound. Its general results **already imply the scalar maximum-cut value**, which is therefore deliberately not claimed original. It does not provide the complete count of optimum cuts, the petal compatibility matrix or the dominant \(7^{\binom q2}\) entropy and concentration for the friendship family. The 2020 2-token graph article was located but not fully retrievable in this round; relevant accessible portions describe structural properties rather than an equivalent optimum count. Related database and prior-record searches did not identify covering statements. Older unindexed or non-English formulations remain a residual risk; no search absence establishes unique priority.
+
+## Value — PASS
+The exact size of a maximum cut does not determine how many maximizers exist or what typical maximizers look like. On a natural increasing family of connected, highly triangular token graphs, the theorem gives a complete labeled optimum-count formula and an exact limiting entropy with overwhelmingly one hub-token behavior. This supplies information not contained in the already-known scalar optimum, and the proof identifies the local constraints responsible for the global count. It is motivated by the recent token-graph maximum-cut/phase-frustration literature rather than a selected numerical coincidence.
+
+## Limits
+The theorem covers unweighted two-token friendship graphs and is not a result about all token graphs, all weights or orbit-counted cuts. Published priority is not independently established. Independent mathematical audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
