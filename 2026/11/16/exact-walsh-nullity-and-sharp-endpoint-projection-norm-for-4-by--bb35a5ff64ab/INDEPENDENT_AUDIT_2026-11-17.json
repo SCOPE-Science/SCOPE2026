@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:01:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At frozen tree 7ab29eac reconstructed 4-by-4 ASM alternating row/column partial-sum definition and binary NONZERO support convention (minus-one entries are also support ones). A 4x4 row must be one of eight alternating rows; 8^4=4096 candidate matrices, exact column check yields 42 unique supports. Mod-2 odd row/column parities impose seven independent affine equations, leaving nine free bits; every reduced character has 128 ambient representatives with equal Walsh magnitudes. A separate exact-integer reduced enumeration and independent Walsh butterfly over 512 frequencies matched the supplied 13-level histogram, including 120 zeros; hence ambient nullity 15,360 and rank 50,176. The independent projection-support inverse transform has total absolute numerator 3,184, yielding 199/32. Package check_asm4.py directly recomputes all 65,536 ambient characters and compares frequency_spectrum.csv (512 rows) and support_masks.csv (42 rows) against exact enumeration; inspected source and certificate shape. Fourier translation averaging proves no arbitrary real/complex projection onto the range has lower endpoint norm. No higher ASM order inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary exact-ternary-fourier-nullity...600132c8f187 uses entrywise reduction mod3 for order four and a different ambient abelian group"
+        ],
+        "reasoning": "The ternary entry-value transform has different characters, zero count and support; it is not a stronger theorem for this binary support embedding. Other 4x4 regular/balanced 0-1 matrix records likewise concern different families.",
+        "searches": [
+          "alternating sign matrices order four ASM binary support Walsh spectrum projection norm 199/32",
+          "Resultary ternary ASM4 convolution record 600132c8f187"
+        ]
+      },
+      "checked_sources": [
+        "https://orca.cardiff.ac.uk/id/eprint/27750/1/MultiplyRefinedEnumerationOfASMs-November2014.pdf",
+        "https://arxiv.org/pdf/math/0408234",
+        "https://arxiv.org/abs/math/9407211",
+        "Resultary search: alternating sign matrices order four ASM binary support Walsh spectrum projection norm 199/32"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Behrend multi-refined enumeration is not evaluated at 512 independent reduced Walsh sign patterns; Zippin finite-group translation-invariant projection framework is general, not an evaluated ASM4 constant"
+        ],
+        "reasoning": "Existing generating functions in principle encode some signed specializations, but no inspected theorem produces the complete indicator of surviving support or the sum |inverse-Walsh(support)|. 199/32 requires extra finite evaluation; this does not claim that general Fourier averaging itself is new.",
+        "searches": [
+          "alternating sign matrices order four ASM binary support Walsh spectrum projection norm 199/32",
+          "Behrend multiply-refined enumeration, bulk/boundary theorem",
+          "standard translation averaging"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Okada: character formulas for ASM symmetry-class counts; Behrend: multiply-refined boundary/bulk x,y,z statistics; package binary nonzero-support 16-coordinate Fourier encoding"
+        ],
+        "reasoning": "Bulk/diagonal and up-to-four boundary statistics are not 16 freely chosen site-wise signs, and conventional signed-ASM objects are not the binary nonzero supports. Therefore the named equivalent partition formulations do not directly identify all 512 reduced Walsh values or the endpoint projection norm.",
+        "searches": [
+          "alternating sign matrices order four ASM binary support Walsh spectrum projection norm 199/32",
+          "Okada arXiv:math/0408234",
+          "Behrend multiply-refined ASM PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Zeilberger enumeration theorem establishes |ASM4|=42, already treated as known; inspected 42 unique binary supports and complete 512-character spectrum"
+        ],
+        "reasoning": "The 42-count or an ASM number table does not tabulate the Fourier signs for all site subsets, 15,360 zeros, or 199/32. No exact matching table surfaced in primary/result records.",
+        "searches": [
+          "alternating sign matrices order four ASM binary support Walsh spectrum projection norm 199/32",
+          "Zeilberger ASM enumeration math/9407211",
+          "ASM count 42"
+        ]
+      },
+      "rationale": "Classical ASM count 42, refined boundary/bulk partition functions, and ASM symmetry-class formulas do not state the 16-bit nonzero-support sign-character table nor its 9-dimensional affine reduction and sharp 199/32 projection norm. The representation differs from ternary signed ASM embeddings in nearby published records.",
+      "residual_risks": [
+        "An unindexed fully site-weighted ASM partition-function evaluation might imply the entire reduced sign spectrum.",
+        "Order four is finite; originality is in the evaluated Fourier table/range invariant and not the known ASM count or translation averaging."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PARAMETERS_NO_EXACT_COVERAGE",
+          "evidence": "Relevant refinements track a small set of boundary/bulk statistics, not freely signed entrywise nonzero-support Walsh mask. No entire-paper noncoverage inferred from excerpts.",
+          "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/27750/1/MultiplyRefinedEnumerationOfASMs-November2014.pdf",
+          "material_read": "PDF contents and theorem on page 31 treating boundary and bulk generating variables",
+          "method": "Lawful accepted-manuscript PDF pages and theorem inspection",
+          "title": "Multiply-refined enumeration of alternating sign matrices (Behrend)",
+          "trigger": "Potentially dominating refined ASM partition functions"
+        },
+        {
+          "assessment": "DIFFERENT_ENUMERATION",
+          "evidence": "Classical-group character formulas enumerate ASM symmetry classes, not arbitrary site-wise support characters.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0408234",
+          "material_read": "Primary PDF opening pages and main enumeration framing",
+          "method": "arXiv PDF page image and theorem context",
+          "title": "Enumeration of Symmetry Classes of Alternating Sign Matrices and Characters of Classical Groups (Okada)",
+          "trigger": "ASM symmetries and characters might encode full spectrum"
+        },
+        {
+          "assessment": "KNOWN_CARDINALITY_NOT_SPECTRUM",
+          "evidence": "42 is known; no claim of reading full proof or of novel ASM count.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9407211",
+          "material_read": "Abstract/record and stated classical cardinality, no full text",
+          "method": "Bibliographic and statement inspection only",
+          "title": "Proof of the Alternating Sign Matrix Conjecture (Zeilberger)",
+          "trigger": "Existing ASM count could render census known"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The alternating-sign matrices of order four are the natural first reasonably rich small even ASM family, and their binary nonzero-support code is canonical under the parity constraints. Its complete first nontrivial support spectrum determines invertibility failure, exact rank and the best endpoint-stable Fourier recovery projection. The nontrivial 9-variable quotient, explicit 120 reduced zeros and exact 199/32 are independently useful concrete invariants, not merely a re-count of 42 matrices.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://orca.cardiff.ac.uk/id/eprint/27750/1/MultiplyRefinedEnumerationOfASMs-November2014.pdf",
+    "https://arxiv.org/pdf/math/0408234",
+    "https://arxiv.org/abs/math/9407211",
+    "Resultary search: alternating sign matrices order four ASM binary support Walsh spectrum projection norm 199/32",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-walsh-nullity-and-sharp-endpoint-projection-norm-for-4-by--bb35a5ff64ab"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed order four, binary support not signed real/ternary entries.",
+    "The finite enumeration is exhaustive, but not an all-order general formula.",
+    "Unindexed weighted enumeration could affect priority."
+  ],
+  "residual_risks": [
+    "An unindexed fully site-weighted ASM partition-function evaluation might imply the entire reduced sign spectrum.",
+    "Order four is finite; originality is in the evaluated Fourier table/range invariant and not the known ASM count or translation averaging.",
+    "Fixed order four, binary support not signed real/ternary entries.",
+    "The finite enumeration is exhaustive, but not an all-order general formula.",
+    "Unindexed weighted enumeration could affect priority."
+  ],
+  "schema_version": 1
+}
