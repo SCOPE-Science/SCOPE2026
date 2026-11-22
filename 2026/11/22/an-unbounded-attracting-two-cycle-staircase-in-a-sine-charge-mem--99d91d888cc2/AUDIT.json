@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "On mu=0, the exact s,d,z reduction forces every nontrivial two-cycle to satisfy d1=-d0 and sin(z0)=sin(z1)=-1/(2h). Exhausting the two sine-root classes gives all two-cycles. Exact products of 2x2 Jacobian blocks yield multipliers 1±q (same branch) or repeated 1+q (opposite branches), with the third multiplier zero. Exactly the cross-class cycles with charge displacement 2(theta+pi*n) can be sinks, and their strict condition is rho(theta+pi*n)<1. Integer counting proves N(h), asymptotics follow from theta~rho~2sqrt(h-1/2). The implicit-function theorem continues any finite selected set to small mu>0 because F^2-Id has invertible derivative at hyperbolic sinks. Symbolic and high-precision checks from check.py passed; numerical checks are not a substitute for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peng et al. https://www.mdpi.com/2073-8994/16/8/990 Section 3 analyzes numerical bifurcation curves and coexistence, with no all-parameter theorem on attracting prime-two cycles.",
+        "Closest indexed mathematical summary: \"Sharp two-cycle resonance towers in a fixed-point-free sine-memory map\" concerns a different fixed-point-free cosine/sine-memory map; it has no asserted three-dimensional positive-input continuation.",
+        "Another indexed summary: \"Infinite repelling two-cycles and their sharp density in a cosine-memory logistic map\" concerns repelling orbits of a different system, not this sink staircase."
+      ],
+      "reasoning": "A stronger general theorem could subsume the result even without identical wording. Among the accessible full primary article and indexed summaries, no stronger statement about this sine-charge map and its zero-gain/positive-gain two-cycle sinks was found. Generic local persistence of a *specified* hyperbolic cycle is known but does not imply that arbitrarily many such cycles exist or determine their exact count.",
+      "searches": [
+        "Peng Shi Li Xiang Dai 2024 Simulink Modeling and Analysis of a Three-Dimensional Discrete Memristor Map sigma sine difference z x-y period-two attracting cycles near mu zero h one-half",
+        "unbounded number of attracting primitive period-two cycles for sinusoidal charge memory map as coupling approaches 1/2, sine phase lattice, exact Floquet multipliers 1-2 sqrt(4h^2-1)(theta+pi n)",
+        "\"Simulink Modeling and Analysis\" \"period-2\" memristor \"attracting\""
+      ]
+    },
+    "checked_sources": [
+      "https://www.mdpi.com/2073-8994/16/8/990",
+      "https://doi.org/10.1142/S0218127424501244",
+      "https://doi.org/10.1016/j.ins.2021.02.022",
+      "Published indexed mathematical summaries for distinct sine-memory and cosine-memory maps; original source/claim aliases queried"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior source https://www.mdpi.com/2073-8994/16/8/990 states that multiple attractors coexist, but does not identify exact parameters for arbitrarily many *period-two sinks*.",
+        "Accessible prior claim for the same map (separately recorded): high-amplification equilibrium-line counts at fixed positive gain; concerns fixed points, not prime-two sinks.",
+        "Accessible prior claim for the same map (separately recorded): critical boundary h=1/2 and mu=0 for selected initial data; does not cover h>1/2 or positive-input persistence.",
+        "Xiang et al. https://doi.org/10.1142/S0218127424501244 investigates a two-dimensional sine-arcsine model with different recurrence."
+      ],
+      "reasoning": "The new theorem is not implied by (i) equilibrium-line counts as amplification tends to infinity, (ii) a critical initial-condition separatrix at h=1/2, or (iii) numerical multistability lacking a period-two census. The central new implication is arbitrary finite numbers of *attracting primitive two-cycles* for strictly positive input, constructed through exact, quantified zero-gain sinks.",
+      "searches": [
+        "Peng Shi Li Xiang Dai 2024 Simulink Modeling and Analysis of a Three-Dimensional Discrete Memristor Map sigma sine difference z x-y period-two attracting cycles near mu zero h one-half",
+        "three-dimensional symmetric memristive cosine-logarithm map period two multistability infinite sink staircases Floquet sin z differential",
+        "map (x,y,z) -> (g(x)+h sin(z)(x-y),g(y)-h sin(z)(x-y),z+x-y) attracting 2 cycles count",
+        "unbounded number of attracting primitive period-two cycles for sinusoidal charge memory map as coupling approaches 1/2, sine phase lattice, exact Floquet multipliers 1-2 sqrt(4h^2-1)(theta+pi n)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary source https://www.mdpi.com/2073-8994/16/8/990 Eq. (3): full 3D sine-charge map; subsection 3.3 and Conclusions: numerical multistability but no charge-lattice Floquet calculation.",
+        "Related 2D memristor source https://doi.org/10.1142/S0218127424501244 has a sine-arcsine two-dimensional state, not this three-dimensional scalar-amplifier plus charge-integrator map."
+      ],
+      "reasoning": "The claim is equivalent to an exact classification of attracting primitive two-cycles of the reduced zero-gain map (s,d,z)->(C,2h sin(z)d,z+d), plus hyperbolic continuation in the full published family. An indexed title or statement about a different two-dimensional map, or merely many attractors of unspecified period, does not imply these exact formulas.",
+      "searches": [
+        "three-dimensional symmetric memristive cosine-logarithm map period two multistability infinite sink staircases Floquet sin z differential",
+        "map (x,y,z) -> (g(x)+h sin(z)(x-y),g(y)-h sin(z)(x-y),z+x-y) attracting 2 cycles count",
+        "\"sin z\" \"z+x-y\" \"period-two\" coupled maps"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary paper https://www.mdpi.com/2073-8994/16/8/990 Figures 9-10: colored numerical basin plots for other input gains, not a phase-lattice table at zero gain.",
+        "Primary paper https://www.mdpi.com/2073-8994/16/8/990 Eq. (3) specifies an exact real map, not a finite-state database."
+      ],
+      "reasoning": "The result computes a continuous-parameter and unbounded-phase-index family, rather than reproducing a known finite table. Source basin plots do not enumerate exact primitive two-cycles, classify their Floquet types, or give the sharp square-root count.",
+      "searches": [
+        "Peng Shi Li Xiang Dai 2024 Simulink Modeling and Analysis of a Three-Dimensional Discrete Memristor Map sigma sine difference z x-y period-two attracting cycles near mu zero h one-half",
+        "unbounded number of attracting primitive period-two cycles for sinusoidal charge memory map as coupling approaches 1/2, sine phase lattice, exact Floquet multipliers 1-2 sqrt(4h^2-1)(theta+pi n)",
+        "\"Simulink Modeling and Analysis of a Three-Dimensional Discrete Memristor Map\" period two stable cycle"
+      ]
+    },
+    "rationale": "The primary full-text map paper presents the defining equations and numerical multistability, not a complete primitive-two-cycle phase lattice, exact two-step multiplier degeneration, an exact hyperbolic sink count, its inverse-square-root divergence, or continuation of arbitrary finite sink multiplicity to positive input gain. Relevant accessible indexed results concern different maps or a distinct critical boundary; actual claim-versus-implication comparisons are given below. Priority remains qualified by the residual risks.",
+    "residual_risks": [
+      "Unindexed equivalent periodic-orbit classifications of the exact same three-dimensional map may exist.",
+      "The related 2024 two-dimensional paper and the 2021 generator paper were not inspected in full, although their stated models differ.",
+      "The numerical basin claims in the originating paper are not taken as proof of the new statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the map and reports simulations; no theorem classifying prime-two cycles near mu=0, their Floquet spectrum, sink count or positive-gain persistence.",
+        "evidence": [
+          "Eq. (3) agrees with the displayed F after setting k=0.1.",
+          "Figures 9-10 and Section 3.3 concern numerical basins at nonzero gain; Conclusions discuss coexisting attractors without period-two phase-lattice statements."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2073-8994/16/8/990",
+        "material_read": "Complete accessible HTML article: Abstract, Introduction, Section 2 Eq. (3), Section 3.1 equilibrium/stability, Section 3.2 bifurcation, Section 3.3 multistability, Conclusions and references",
+        "method": "Direct equation and implication comparison to the proposed all-parameter two-cycle proof",
+        "title": "Simulink Modeling and Analysis of a Three-Dimensional Discrete Memristor Map",
+        "trigger": "Exact same map, source of all parameters and claimed numerical multistability"
+      },
+      {
+        "assessment": "Clearly a different 2D model; no inference of whole-document noncoverage is made from the preview.",
+        "evidence": [
+          "Public July 17, 2024 preview defines a 2D sine-arcsine-based model, unlike the 3D cosine-logarithmic scalar amplifier plus charge integration."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0218127424501244",
+        "material_read": "Public abstract and introduction preview identifying the sine-arcsine two-dimensional discrete memristor recurrence",
+        "method": "Compare stated state dimension, scalar subsystem, and study aims; full technical text not inspected",
+        "title": "A Two-Dimensional Discrete Memristor Map: Analysis and Implementation",
+        "trigger": "Related paper by overlapping authors, earlier in 2024"
+      },
+      {
+        "assessment": "Background scalar-map origin; no claim that its full text was checked or rules out related higher-dimensional results.",
+        "evidence": [
+          "Peng et al. reference 3 and Eq. (1) attribute the one-dimensional formula to Mansouri and Wang (2021)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ins.2021.02.022",
+        "material_read": "Bibliographic identification and the 2024 primary paper’s transcription of the scalar generator; original full text not inspected",
+        "method": "Compare the dimension and presence of the charge-memory equation",
+        "title": "A novel one-dimensional chaotic map generator and its application in a new index representation-based image encryption scheme",
+        "trigger": "Source of the scalar amplifier used inside the map"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "99d91d88-8cc2-4f0a-81b0-f1f4f10a4cc3",
+  "value": {
+    "rationale": "The primary article motivates multistability but supplies no quantitative primitive-period-two construction. The result is a natural complete classification of a dynamical invariant (hyperbolic prime-two sinks) at a canonical input boundary and proves, beyond that boundary, arbitrarily many coexisting open-basin attracting cycles at strictly positive gain. The exact coupling staircase, square-root accumulation and repeated Floquet multiplier provide analytical structure unavailable from the reported basin plots. It is not an arbitrary finite parameter sample or a restatement of basic local persistence.",
+    "status": "PASS"
+  }
+}
