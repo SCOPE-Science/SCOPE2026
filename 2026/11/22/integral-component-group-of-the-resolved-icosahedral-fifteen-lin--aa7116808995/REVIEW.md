@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The complete incidence lattice is obtained by exact arithmetic over the quadratic field from all 105 line pairs. The 31-vertex/75-edge dual graph follows from the explicit blowup prescription, and the genus and stability checks are exact. Two integer cofactor determinants, the full Laplacian characteristic polynomial and all local modular ranks identify the full Smith normal form without assuming that the spectrum determines it. The component-group interpretation is conditional on a regular split semistable smoothing with unit-thickness nodes.
+
+**Originality — PASS, provisionally.** The classical fifteen-line configuration and the general graph-Néron theorem are acknowledged; neither supplies the present complete Smith form. Full primary sections of the icosahedral-configuration study and two related published research notes were compared at statement level; the latter concern reductions of the same lines, not the Jacobian of this resolved graph. The older Hirzebruch text treats line arrangements and covers, not this particular graph critical group. A specialist historical calculation or an inaccessible detailed monograph may still contain an equivalent result, so priority remains provisional.
+
+**Mathematical value — PASS.** The full singular-point resolution is a canonical geometric boundary of a distinguished Coxeter line arrangement, rather than an arbitrary graph slice. Its genus-45 degeneration has an intrinsic component group, and the nontrivial 11-, 17- and 31-primary *integral* structure is not determined by a spanning-tree number or rational spectrum alone. A complete finite invariant is useful for future arithmetic degenerations even without a new general component-group theorem.
+
+**Closest literature and limits.** Hirzebruch (1983), Hoge–Röhrle (2015), Calvo (2022) and earlier modular-reduction studies give the arrangement geometry; graph-Jacobian references give the general correspondence. This calculation fixes all integral invariant factors only for the stated stable boundary and unit-thickness regular smoothings. The precise historical priority is not guaranteed by a finite literature search.
+
+Self-review: passed. Independent audit: not yet performed.
