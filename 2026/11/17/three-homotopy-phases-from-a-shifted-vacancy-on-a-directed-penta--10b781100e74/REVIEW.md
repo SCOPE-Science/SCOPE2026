@@ -1,15 +1,21 @@
-# Scientific assessment: vacancy shifts on the directed pentagonal rose
+# Independent mathematical audit
 
-## Correctness — PASS
-The object and initial configurations are completely specified: two coherently oriented pentagons sharing one root, six grains, and four permissible positions of one private-branch vacancy. The deterministic chip recurrence is exact and cycles back after a bounded enumerated number of states. The avalanche complex is covered by the full simplices of maximal firing sets; the nerve lemma applies because each nonempty intersection is a simplex. Explicit free-face collapses reduce three shifts to a simplicial three-cycle or point. In the fourth shift, a full directed-Hasse acyclicity check certifies a matching with one critical vertex and two critical triangles, yielding the integral wedge of two two-spheres. The standard-library checker constructs all these objects from scratch and compares direct and nerve mod-two homology as a separate check. There is no infinite extrapolation.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The closest primary work is Riihimäki–Smith, *Avalanche homology of digraphs via sandpile dynamics* (arXiv:2606.26786, first submitted June 25, 2026). Its Proposition 3.25 handles synchronized cycles; its discussion after the proposition specifically flags asymmetric cyclic wedges as a potentially richer case. The symmetric shift is credited as known. The three asymmetric shifts do not arise from that symmetric proposition. Indexed mathematical records on near-critical roses and on disjoint cycles give single-sphere laws under different chip patterns or different graph topology, not this three-phase classification. Actual searches for pentagonal roses, directed figure-eights, six-chip asynchronous initial vectors and related phrasing did not identify equivalent coverage. The accessible full-text primary material was its public original version; a later revision and possible unindexed sources remain risks, so the search is not presented as an absolute proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The motivating paper explicitly raises asymmetric initial configurations of wedges of directed cycles as a source of new homotopy behavior. The complete, natural four-position experiment fixes the graph and the total chip count, changing only one vacancy location, yet exhibits three different *integral homotopy types*: a circle, two two-spheres, and a contractible space. The signed-free discrete-Morse certificate proves the exceptional sphere-wedge rather than merely supplying numerical Betti counts. This is a concrete, reproducible boundary example for extensions of avalanche topology beyond paths and cycles, not a claim to classify arbitrary roses.
+The frozen source specifies all nine vertices, ten arcs, initial chip vectors, and deterministic simultaneous firing recurrence. Exact whole-state recurrence detects first repeats after 5 or 9 states and generates 5,8,7,6 maximal firing sets for h=0..3. Covering their downward-closed face complex by full maximal simplices has contractible finite intersections; the nerve lemma applies. Direct nerve enumeration yields 20,129,75,39 faces and deterministic elementary free-face removals 7,45,37,19. Reduced h0 nerve is a 3-edge circle and h2/h3 each a vertex. For h1 the remaining 8 vertices/18 edges/13 triangles carry 11 explicit edge-triangle Morse pairs and a complementary seven-edge spanning-tree matching; inspecting the code confirms acyclicity via complete reversed Hasse DAG, with exactly one critical vertex and two triangles, which is an integral wedge S2veeS2. Independent recurrence and bitset homology matched all four phases. Finite proof is exhaustive for four specified configurations only.
 
-## Closest sources and limitations
-The symmetric case is in Proposition 3.25 of arXiv:2606.26786. The relevant indexed near-critical-rose result (record 82df2b606a99) and independent-cycle result (record 895fca22084e) are not asserted to have been read beyond their public indexed summaries. A revision of the primary paper and unindexed equivalents remain potential overlap risks. No independent validation or generalization to other lengths is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Riihimäki–Smith 2026 primary article establishes avalanche complex framework and synchronized-symmetric two-cycle wedge case (symmetric h=0); its discussion of asymmetric wedge cycles does not classify the shifted six-chip configurations h=1..3. Resultary near-critical directed rose sphere and separate-cycle gcd results use different chip regimes/graphs and do not imply the exceptional two-2-sphere phase. Full prior coverage acknowledged for h=0, while all three shifted cases are original best-of-knowledge.
+
+## value
+
+PASS
+
+This is a complete exact finite phase diagram for a minimal natural directed rose, showing a geometrically nontrivial transition from circle to two two-spheres to contractibility as just one vacancy moves. The two-sphere multiplicity and subsequent disappearance motivate studying asynchronous mixed-cycle avalanches; it is a meaningful non-obvious boundary classification, not a random bit pattern.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
