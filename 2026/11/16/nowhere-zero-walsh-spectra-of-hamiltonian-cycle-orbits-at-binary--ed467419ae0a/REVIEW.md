@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is a universal integer congruence, not a conjectural pattern from finite experiments. For each negative-edge set, the signed-cycle sum expands over forced subgraphs. Every extendible forced subgraph with at most the allowed number of edges contracts to a Hamiltonian cycle on blocks with an exact orientation factor. Legendre's factorial valuation and the binary-digit record condition show that every nonempty term has an extra factor of two relative to the total unoriented Hamiltonian-cycle count. Larger forced subsets carry enough powers of two automatically. This establishes every quantifier and the nonzero spectral and convolution consequences. Exact Walsh transforms through eight vertices, separate signed dynamic programming through sixteen vertices, and two independently enumerated boundary signings were checked against the supplied checker. Computational evidence remains corroborative, not a substitute for the proof.
+## correctness
 
-## Originality — PASS under bounded evidence
-An archival edge-labeling study by Gimbel characterizes labelings whose Hamiltonian cycles have equal aggregate labels; it does not compare counts of cycles of opposite signs under unrestricted labels. A Hamiltonian-enumeration formula of Staples supplies general count machinery without the binary-digit two-adic noncancellation theorem. Yan's signed-complete-graph theorem characterizes existence of positive and negative Hamiltonian cycles, without counting their difference; sign existence is strictly weaker, as the explicit zero examples show. Searches of relevant Fourier, signed-cycle, arithmetic and known-result records found no prior statement or stronger formula that would imply the congruence. An unindexed two-adic specialization could nonetheless predate this result; no exhaustive priority certification is claimed.
+PASS
 
-## Mathematical value — PASS
-A complete-graph Hamiltonian-cycle orbit is a canonical graphic-matroid-related frequency set on a Boolean edge group. Determining that its full Walsh transform never vanishes, for an infinite irregular family of graph orders, yields exact invertibility of a natural combinatorial convolution operator. The *common exact two-adic order* for every sign assignment is stronger than a mere nonvanishing fact and is not obtainable from the unsigned Hamiltonian-cycle count or ordinary Parseval estimates. The order-five and order-nine cancellation examples make the digit criterion a meaningful boundary rather than an arbitrary slice. The result may inform recovery and support-rigidity questions for graph-orbit measures.
+Expand each cycle sign product as sum_{F subset A}(-2)^|F| N_n(F). For F with t<=n-3 that is extendible, its components are disjoint paths and orientation count yields N_n(F)=2^(h-1)(n-t-1)!; otherwise N_n(F)=0. Legendre valuation and s2(n-1-t)<=s2(n-1) for the binary-digit family give divisibility by 2^(nu2(M)+1). For t>=n-2 factor 2^t alone suffices. The empty subset is M, whose valuation is n-2-s2(n-1). This establishes exact nonvanishing for every signing without relying on finite enumeration. Independently enumerated 12 unoriented K5 cycles and 20160 unoriented K9 cycles: negative one-edge n5 splits 6:6 and negative K4 n9 has counts 1440,8640,8640,1440, alternating sum 0. The code includes a separate Held-Karp signed-DP and finite full Walsh support test; source was inspected, but those runs do not replace the proof.
 
-## Remaining limits
-An exact coefficient distribution or complete classification of the excluded orders is not proved. The strongest potential originality risk is an earlier, hard-to-index congruence about signed Hamiltonian-cycle enumerators. The characterization of signs in Yan does not resolve this. Further independent review is needed before any unqualified historical priority statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared all-signings congruence against Hamilton enumeration, sign-existence and related graph-Walsh spectra. The prior statements examined do not imply the universal exact valuation on the specified infinite binary-digit family.
+
+## value
+
+PASS
+
+This is a nontrivial entire infinite family of orders in a natural graph-incidence Boolean convolution problem: it gives sign-independent 2-adic valuations, exact Fourier invertibility and explicit sharp excluded-order witnesses. The arithmetic cancellation control is more informative than merely observing both cycle signs or recovering unsigned cycle counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

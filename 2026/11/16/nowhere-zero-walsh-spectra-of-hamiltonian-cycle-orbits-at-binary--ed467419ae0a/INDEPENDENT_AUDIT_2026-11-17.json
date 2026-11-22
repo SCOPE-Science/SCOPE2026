@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:51:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expand each cycle sign product as sum_{F subset A}(-2)^|F| N_n(F). For F with t<=n-3 that is extendible, its components are disjoint paths and orientation count yields N_n(F)=2^(h-1)(n-t-1)!; otherwise N_n(F)=0. Legendre valuation and s2(n-1-t)<=s2(n-1) for the binary-digit family give divisibility by 2^(nu2(M)+1). For t>=n-2 factor 2^t alone suffices. The empty subset is M, whose valuation is n-2-s2(n-1). This establishes exact nonvanishing for every signing without relying on finite enumeration. Independently enumerated 12 unoriented K5 cycles and 20160 unoriented K9 cycles: negative one-edge n5 splits 6:6 and negative K4 n9 has counts 1440,8640,8640,1440, alternating sum 0. The code includes a separate Held-Karp signed-DP and finite full Walsh support test; source was inspected, but those runs do not replace the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Staples Theorem 3.7 counts cycles through combinatorial operator identities.",
+          "Gimbel concerns all cycle labels equal; Yan concerns sign existence."
+        ],
+        "reasoning": "An enumeration formula can encode W but does not logically assert the valuations. A condition that all cycles share a label and a condition that both signs occur are both insufficient for exact signed noncancellation.",
+        "searches": [
+          "Staples arxiv 1408.1036 Hamiltonian cycles determinants permanents",
+          "Gimbel 2004 Abelian Group Labels on Hamiltonian Cycles",
+          "Yan 2025 signed complete Hamilton cycles"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1408.1036v2",
+        "https://arxiv.org/pdf/2502.10612",
+        "https://combinatorialpress.com/jcmcc-articles/volume-051/abelian-group-labels-on-hamiltonian-cycles/",
+        "Resultary semantic query: Hamiltonian cycles complete graph Walsh transform 2-adic nonvanishing all signings binary digit orders",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-fourier-nullity-and-sharp-recovery-gap-for-nine-vertex-ham--4a7bd305f8b5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For an extendible t-edge forest of h paths, N(F)=2^(h-1)(n-t-1)!.",
+          "The inequality s2(n-1-t)<=s2(n-1) follows from the exact binary digit-record family and forces all nonempty terms to vanish mod 2^(nu2(M)+1)."
+        ],
+        "reasoning": "These are substantive extra valuation steps beyond generic signed cycle counting. Yan sign coexistence permits equal counts, demonstrated by the n=9 K4-negative signing.",
+        "searches": [
+          "signed Hamilton cycle count congruence factorial Legendre s2(n-1)",
+          "Gimbel cycle labels vs signed imbalance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Walsh coefficients equal signed Hamiltonian-cycle partition sums and eigenvalues of convolution on F2^{E(K_n)}.",
+          "Yan 2025 Thm 5.1 studies whether sign types exist, not their count difference."
+        ],
+        "reasoning": "The natural equivalent is a signed Hamiltonian cycle polynomial at ±1 edge weights. Found literature does not provide the universal 2-adic congruence; Resultary self-record is not treated as earlier priority.",
+        "searches": [
+          "Hamiltonian cycles complete graph Walsh transform 2-adic nonvanishing all signings binary digit orders",
+          "Hamiltonian cycle sign products ±1 complete graph dyadic congruence factorial valuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary record at n=9 has exact Fourier nullity, but n=9 is outside the theorem family.",
+          "There are zero signings at n=5 and n=9, while n=3,4,6,7,8 are zero-free as claimed."
+        ],
+        "reasoning": "A small n table cannot subsume the all-n congruence. Direct self-record is not independent predecessor.",
+        "searches": [
+          "Hamiltonian-cycle complete graph Walsh support dyadic binary order n=(2^k-1)2^j",
+          "nine vertex Hamilton cycle full Walsh spectrum table Resultary"
+        ]
+      },
+      "rationale": "Compared all-signings congruence against Hamilton enumeration, sign-existence and related graph-Walsh spectra. The prior statements examined do not imply the universal exact valuation on the specified infinite binary-digit family.",
+      "residual_risks": [
+        "Unindexed older congruence results for Hamilton cycle generating functions might overlap.",
+        "No universal characterization outside the binary-digit family claimed; n5,n9 only specific counterexamples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives enumeration through determinant/permanent identities; no universal sign-independent 2-adic congruence for the complete-graph cycle orbit in the examined material",
+          "evidence": "General evaluation of signed adjacency is weaker than a proof of exact valuation for every signing and this n-family.",
+          "identifier_or_url": "https://arxiv.org/html/1408.1036v2",
+          "material_read": "Accessible full HTML; Theorem 3.7 and related counting formulas and introduction",
+          "method": "Read exact theorem and counting object",
+          "title": "Graph-induced operators: Hamiltonian cycle enumeration via fermion-zeon convolution",
+          "trigger": "Hamiltonian-cycle enumeration could imply signed Walsh valuation"
+        },
+        {
+          "assessment": "Statements about existence of both signs or uniformity do not count the positive-minus-negative imbalance modulo a large power of 2",
+          "evidence": "Theorem 5.1 distinguishes sign presence in signed complete graphs; n=9 negative K4 example has both signs in exactly equal counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2502.10612",
+          "material_read": "Complete primary PDF, title, introduction, theorem 5.1 (including page screenshot) and sign-existence proof context",
+          "method": "Read PDF mathematical results and inspected PDF page 4 screenshot in browser tool",
+          "title": "Hamiltonian Cycles in Signed and Multisigned Complete Graphs",
+          "trigger": "Signed Hamilton cycle positivity dichotomy could dominate noncancellation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a nontrivial entire infinite family of orders in a natural graph-incidence Boolean convolution problem: it gives sign-independent 2-adic valuations, exact Fourier invertibility and explicit sharp excluded-order witnesses. The arithmetic cancellation control is more informative than merely observing both cycle signs or recovering unsigned cycle counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/1408.1036v2",
+    "https://arxiv.org/pdf/2502.10612",
+    "https://combinatorialpress.com/jcmcc-articles/volume-051/abelian-group-labels-on-hamiltonian-cycles/",
+    "Resultary semantic query: Hamiltonian cycles complete graph Walsh transform 2-adic nonvanishing all signings binary digit orders",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-fourier-nullity-and-sharp-recovery-gap-for-nine-vertex-ham--4a7bd305f8b5"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n=(2^k-1)2^j>=3 and every subset A of K_n edges, the unnormalized Walsh coefficient over unoriented Hamiltonian cycle incidence vectors is congruent to M_n=(n-1)!/2 modulo 2^(nu2(M_n)+1); thus all multipliers have nonzero exact two-adic valuation n-2-s2(n-1). For n=5 and n=9 explicit signed edge sets give exact zero coefficients.",
+  "limitations": [
+    "The family does not include all n and zero examples do not classify every excluded order.",
+    "No automatic implication about optimal inverse conditioning beyond nonvanishing."
+  ],
+  "residual_risks": [
+    "Unindexed older congruence results for Hamilton cycle generating functions might overlap.",
+    "No universal characterization outside the binary-digit family claimed; n5,n9 only specific counterexamples."
+  ],
+  "schema_version": 1
+}
