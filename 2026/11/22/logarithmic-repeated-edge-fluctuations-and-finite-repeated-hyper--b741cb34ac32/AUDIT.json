@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional intensity is q(E-D)/binom(k+B,k); binomial birth concentration gives its rank-dependent summability. For k=2 a localized martingale strong law first bounds D by O(log n), then summable intensity errors give A_n-(2q²/p²)log n -> finite a.s. Bounded martingale differences with predictable variance asymptotic to (2q²/p²)log n give a normal CLT. The first Betti difference follows exactly from E-V+components. Independent rational enumeration checked 542 conditional intensities; finite simulation remains diagnostic only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Callaway et al., arXiv:cond-mat/0104546v2, analyze degree distributions, component sizes, percolation and degree correlation under a related growing graph process. Their full preprint was inspected and does not present a repeat-count CLT.",
+        "Krapivsky arXiv:2611.14824v1 presents growing uniform hypergraphs, cluster distributions and Betti observables at extensive scales, not the distribution or a.s. count of repeat attempts."
+      ],
+      "reasoning": "The older all-births-plus-optional-edges graph model is related but is not a theorem asserting the target count or its exact coefficient. Standard urn collision asymptotics could potentially imply the claim with additional reduction, a residual priority risk, but no located published theorem asserts stronger coverage of this precise moving-birth process.",
+      "searches": [
+        "Growing random graph with vertex immigration probability p and independently sampled uniform existing vertex pairs, multiplicity duplicates count asymptotic 2(1-p)^2/p^2 log n central limit normal",
+        "\"Are randomly grown graphs really random\" redundant edge multiple edges repeated link",
+        "\"randomly grown\" graph \"double edges\" \"logarithm\" repetitions"
+      ]
+    },
+    "checked_sources": [
+      "Krapivsky, arXiv:2611.14824v1 (2026), relevant PDF sections and references",
+      "Callaway et al., arXiv:cond-mat/0104546v2 (2001), complete PDF",
+      "The Poisson paintbox of sparse random hypergraph degree spectra (different model and degree invariant)",
+      "An exact nt=r² boundary for isolation–overlap dependence in random uniform hypergraphs (fixed-edge model)",
+      "Exact second cumulant matrix for shortest cycles of a two-parent recursive DAG (different attachment model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Krapivsky explicitly defines independent uniform hyperedge trials but works with cluster and homology statistics; its Section VI emphasizes extensive observables and possible finite-dimensional higher Betti limits.",
+        "Callaway et al. present macroscopic graph statistics and neglect rare local processes at leading order; their conclusions do not bound or identify cumulative repeat-attempt fluctuations.",
+        "A found public pedagogical discussion, Foundations of Data Science, remarks that multiple edges are unlikely at individual late steps; this is compatible with an unbounded cumulative logarithmic count."
+      ],
+      "reasoning": "Neither leading-order graph topology nor a per-time asymptotically rare repeat probability logically gives the exact logarithmic coefficient, almost-sure convergence and centered Gaussian limit without controlling the random compensator. They do not imply the whole result.",
+      "searches": [
+        "arXiv:2611.14824v1 PDF Sections II,V,VI and references",
+        "arXiv:cond-mat/0104546v2 PDF Sections II–VI",
+        "Krapivsky growing uniform hypergraphs GRH(k), repeated hyperedge collisions: finite duplicates for k>=3 and logarithmically many in k=2, Poisson approximation logarithmic central limit theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The difference between multigraph and simple graph first Betti numbers is exactly the repeat-attempt count for k=2, using the classical Euler graph cycle-rank formula.",
+        "arXiv:2611.14824v1 treats uniform hyperedge sampling and macroscopic topology; no logarithmic duplicate-count limit or Gaussian fluctuation law was located in the inspected text."
+      ],
+      "reasoning": "Equivalent terms include repeated hyperedge attempts, parallel-edge excess, occupied-bin collisions and multigraph-minus-simple cycle rank. The deterministic identity alone is known; the novelty claim concerns logarithmic almost-sure and Gaussian fluctuation limits in the moving random urn, plus finite repetition for higher rank.",
+      "searches": [
+        "Growing k-uniform random hypergraph duplicate hyperedges finite almost surely k>=3 but logarithmic for graph k=2 Betti number cyclomatic surplus",
+        "\"growing random\" hypergraph \"repeated\" \"hyperedge\" \"almost surely\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest record matches concerned unrelated two-parent recursive DAGs, uniform-attachment multigraphs and fixed-edge hypergraph overlap, rather than the independent vertex-birth/hyperedge-trial process of arXiv:2611.14824.",
+        "No exact finite count table or equivalent full asymptotic formula was located in the inspected sources."
+      ],
+      "reasoning": "A table of finite graph counts cannot by itself dominate the stated all-parameter almost-sure and normal limit. The absence of a hit is not proof of novelty.",
+      "searches": [
+        "Increasing vertex set random edge-attachment with replacement finite repeated hyperedge events threshold at uniformity order k, multigraph vs simple graph cycle rank",
+        "random graphs birth edge addition uniformly chosen pair \"multiple edges\" logarithmic duplicates"
+      ]
+    },
+    "rationale": "The inspected 2026 source treats extensive cluster and topological quantities, not repeated sampling attempts; foundational growing-graph work does not give the cumulative logarithmic CLT. Multiple targeted record and primary literature searches did not locate a dominating result. Classical graph cycle rank and martingale CLT are credited as tools, not claimed new. Priority risk remains in possible unindexed moving-urn occupancy literature.",
+    "residual_risks": [
+      "An unindexed general theorem for collisions in growing finite alphabets may specialize to the same quantitative CLT.",
+      "Callaway model timing differs, so a variant may have been analyzed separately.",
+      "Search coverage does not constitute a proof of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the model and macroscopic structural results; no repeat-attempt logarithmic CLT or finite-versus-infinite rank distinction located",
+        "evidence": [
+          "Definition of new uniformly sampled k-subsets; Section II mass law; Section V k-uniform extension; Section VI discussion of Betti numbers"
+        ],
+        "identifier_or_url": "arXiv:2611.14824v1; https://arxiv.org/pdf/2611.14824",
+        "material_read": "PDF Sections I, II, V, VI and references, including rules and sections on graphs and Betti numbers",
+        "method": "Read full-text relevant sections and compare variables and conclusions",
+        "title": "Randomly growing uniform hypergraphs",
+        "trigger": "Exact same vertex-versus-hyperedge growth mechanism and topological observables"
+      },
+      {
+        "assessment": "Studies different birth/edge timing but is a nearby related model. Does not give cumulative duplicate-selection fluctuation laws or higher-rank threshold",
+        "evidence": [
+          "Sections II–VI, Eq. (1)–(26), model description and conclusions"
+        ],
+        "identifier_or_url": "arXiv:cond-mat/0104546v2; https://arxiv.org/pdf/cond-mat/0104546",
+        "material_read": "Complete eight-page PDF text; model, degree distribution, percolation, correlations and conclusions inspected",
+        "method": "Open-access author preprint full-text reading; compared definitions and measured observables",
+        "title": "Are randomly grown graphs really random?",
+        "trigger": "Foundational earlier uniform growing graph model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b741cb34-ac32-42da-ad9e-7d19ad0b539d",
+  "value": {
+    "rationale": "The graph-versus-hypergraph rank boundary changes the almost-sure long-run count of discarded repeat trials from infinitely many to finitely many. In rank 2 the exact count is the multigraph-to-simple first Betti discrepancy, whose logarithmic fluctuations are on a scale hidden by extensive Betti analysis; hence the result supplies a natural topology-sensitive correction to a model expressly analyzed via Betti numbers, with a fully identified rate and distribution, not an arbitrary finite cutoff.",
+    "status": "PASS"
+  }
+}
