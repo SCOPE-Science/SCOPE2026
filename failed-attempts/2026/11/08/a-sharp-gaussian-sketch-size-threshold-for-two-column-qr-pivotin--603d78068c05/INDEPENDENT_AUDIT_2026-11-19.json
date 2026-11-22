@@ -1,0 +1,211 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T00:43:30Z",
+  "axes": {
+    "correctness": {
+      "exact_domain": "All real full-column-rank m×2 with m>=2; two columns satisfying t>1 and |rho|<1; Gaussian sketch height any integer >=1; first sketch-norm pivot, original-column projection error normalized to best of the two original-column projections; exact arithmetic.",
+      "key_certificates": [
+        "Verified current seven-entry actual Git tree SHA matches assignment; result blob sha and source verifier blob SHA were checked via assigned Git tree.",
+        "Independently derived quadratic trace/determinant, beta CDF, k=4 rational derivative and exact maximizer by symbolic computation.",
+        "Independent Gaussian pivot Monte Carlo and beta CDF numerical quadrature across 6 parameter combinations; finite supportive checks only."
+      ],
+      "rationale": "The normalized original-column squared Frobenius projection losses are exactly 1 and t². Each Gaussian sketch row gives a two-dimensional centered normal quadratic form with eigenvalues of opposite signs, trace 1-t² and determinant -t²(1-rho²); diagonalization gives independent chi-square_k variables and beta threshold theta. Orthogonality maximizes theta (and expected loss); I_z(alpha,alpha)<=z for alpha>=1 and z<=1/2 proves strict mean <2 for every input k>=2; the k=1 asymptotic diverges and k=2 approaches 2. For k=4 the beta CDF polynomial and rational derivative give w*=(5+2sqrt(7))/3 and value (17+7sqrt(7))/27; the small-beta tail proves the t^(2-k) asymptotics for fixed |rho|<1. All hypotheses k>=1, t>1, |rho|<1 and projection-vs-SVD normalization checked. Independent symbolic reconstruction and direct quadrature and Monte Carlo checks corroborate only finite instances, not the infinity claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaunt Theorem 2.1 treats all independent sums of correlated-normal products (including the zero-mean sign event associated with the pivot), with Corollary 2.12 giving the complete beta CDF.",
+          "The November 2 orthogonal-column first-pivot theorem includes formula (4), exactly I_{beta/(alpha_1+beta)}(k/2,k/2), for any k and exactly two competitors.",
+          "The November 8 Gaussian CUR/CPQR comparison gives for diagonal two-column A_kappa the exact q-moment 1+(kappa^q-1)I_{1/(1+kappa²)}(s/2,s/2), so q=2 is precisely the assigned squared-loss orthogonal specialization, with general moment cutoffs."
+        ],
+        "reasoning": "The cited results cover the probabilistic core on a strictly larger class and the numerical-pivot orthogonal subclass on a more general moment family; the assigned all-input threshold and k=4 optimizer are elementary maximizations of those existing formulas. The numerical algorithms in 2015, 2018 and 2020 do not independently supply the complete bound, but do not cancel this coverage.",
+        "searches": [
+          "exact probability of choosing wrong pivot in Gaussian sketched two-column QRCP beta distribution norm ratio correlation uniform expected projection error sketch dimension 2 4",
+          "randomized QR column pivoting Gaussian sketch first pivot two columns expected relative Frobenius error sharp worst case four rows",
+          "https://arxiv.org/pdf/2408.04101",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-moment-cutoffs-for-the-first-gaussian-sketched-cur-pivot--18298ce65322/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-golden-ratio-orientation-transition-for-gaussian-sketched-qr-p--87492150b186/RESULT.md",
+          "https://arxiv.org/abs/1804.05138"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2408.04101 Thm 2.1, Cor 2.12",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2/RESULT.md eq. (4)",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-moment-cutoffs-for-the-first-gaussian-sketched-cur-pivot--18298ce65322/RESULT.md CPQR q-moment theorem",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-golden-ratio-orientation-transition-for-gaussian-sketched-qr-p--87492150b186/RESULT.md k=2 comparison",
+        "https://arxiv.org/abs/1509.06820 full public text",
+        "https://arxiv.org/abs/2008.04447 §3.1",
+        "https://arxiv.org/abs/1804.05138 main theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The assigned wrong-pivot event is Gaunt’s product sum sign after U=g-tb and V=g+tb; for centered normals Gaunt Corollary 2.12 gives the identical beta threshold and all sketch heights.",
+          "With the known beta CDF, k=1 gives p=(2/pi)arcsin sqrt(1/(1+t²)) at orthogonality and unbounded t²p; k=2 gives p=1/(1+t²) and sharp limit 2; k=4 gives I_z(2,2)=3z²-2z³, and its optimizer is the root of -3w²+10w+1=0.",
+          "November 8 prior exact q-moment law for diagonal Gaussian QRCP directly implies the k=2 mean-risk threshold in the same model, and Nov 2 orthogonal theorem gives exact p for all k."
+        ],
+        "reasoning": "The theorem as a *new* mathematical finding is covered by the earlier general distribution theorem plus elementary norm projection and polynomial calculus; earlier specific Gaussian-QR results reinforce that the canonical risk formula and sketch-width cutoff are no longer undiscovered. The reported optimizer value does not create independence from the stronger exact law.",
+        "searches": [
+          "exact probability of choosing wrong pivot in Gaussian sketched two-column QRCP beta distribution norm ratio correlation uniform expected projection error sketch dimension 2 4",
+          "randomized QR column pivoting Gaussian sketch first pivot two columns expected relative Frobenius error sharp worst case four rows",
+          "https://arxiv.org/pdf/2408.04101",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-moment-cutoffs-for-the-first-gaussian-sketched-cur-pivot--18298ce65322/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-golden-ratio-orientation-transition-for-gaussian-sketched-qr-p--87492150b186/RESULT.md",
+          "https://arxiv.org/abs/1509.06820",
+          "https://arxiv.org/abs/2008.04447",
+          "https://arxiv.org/abs/1804.05138"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaunt, arXiv:2408.04101v2, Theorem 2.1 and Corollary 2.12 (equation 2.17), gives the exact beta sign CDF for a sum of iid zero-mean correlated Gaussian products for any row count.",
+          "Apply the identity ||g||²-t²||rho*g+sqrt(1-rho²)*h||² = sum_i (g_i-t(rho*g_i+s*h_i))(g_i+t(rho*g_i+s*h_i)). The product-factor correlation is (1-t²)/D, D²=(t²+1)²-4t²rho², hence the Gaunt sign law is exactly I_{(D+1-t²)/(2D)}(k/2,k/2), the submitted all-correlation probability.",
+          "November 2 Gaussian-sketched QR orientation result already derives the same quadratic-form eigenvalue reduction for two sketch rows."
+        ],
+        "reasoning": "The assigned all-geometry beta probability law is not merely analogous to the published distribution: with the explicit factorization and parameter mapping it is its mathematical special case for every k,t,rho. Its projection-loss expectation then follows by multiplying the probability by t²-1 and adding one. The 2024 source is demonstrably earlier, so coverage is decisive even though it does not use QR pivot terminology.",
+        "searches": [
+          "exact probability of choosing wrong pivot in Gaussian sketched two-column QRCP beta distribution norm ratio correlation uniform expected projection error sketch dimension 2 4",
+          "Gaussian F ratio sketch pivot selection loss chi-square norm comparison correlation",
+          "https://arxiv.org/pdf/2408.04101",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-golden-ratio-orientation-transition-for-gaussian-sketched-qr-p--87492150b186/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 2 first-pivot theorem equation (4) is an exact beta table/formula for orthogonal two-column sketches for arbitrary positive integer sketch height.",
+          "November 8 Gaussian CUR/CPQR moment theorem is an exact two-column q-moment table including q=2, k=2/4 and beyond.",
+          "Gaunt Corollary 2.12 equation (2.17) supplies the exact all-correlation beta CDF after the zero-mean specialization."
+        ],
+        "reasoning": "An exact database/lookup of the global four-row constant was not found, but the exact higher-dimensional probability law and the precise diagonal two-column q-moment family are already present as published formulae. Missing literal numeric constant is not novelty because it follows by differentiating the known beta-polynomial special case.",
+        "searches": [
+          "exact probability of choosing wrong pivot in Gaussian sketched two-column QRCP beta distribution norm ratio correlation uniform expected projection error sketch dimension 2 4",
+          "randomized QR column pivoting Gaussian sketch first pivot two columns expected relative Frobenius error sharp worst case four rows",
+          "Gaussian F ratio sketch pivot selection loss chi-square norm comparison correlation",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-moment-cutoffs-for-the-first-gaussian-sketched-cur-pivot--18298ce65322/RESULT.md",
+          "https://arxiv.org/pdf/2408.04101"
+        ]
+      },
+      "rationale": "The entire central probability law is a literal zero-mean Gaussian-product-sum sign special case of Gaunt (2024), Theorem 2.1/Corollary 2.12. Substitution U=g-tb, V=g+tb gives sign of the wrong-pivot sketched norm difference and r=(1-t²)/D, exactly theta=(1+r)/2. Expected projection loss follows by a two-point multiplication; 1-versus-2 sketch-row qualitative threshold and k=4 global constant follow by routine beta specialization and one-variable differentiation. Earlier November 2 Resultary QR first-pivot theorem gives same exact orthogonal beta law for any k, and earlier/same-day Gaussian CUR vs CPQR result gives q=2 diagonal mean-loss threshold. No independent mathematical newness remains under strong-coverage/corollary principle, despite differing engineering terminology.",
+      "residual_risks": [
+        "Gaunt (2024) is demonstrably earlier and its proof covers the exact probability distribution, independent of further unindexed literature.",
+        "Same-day relative chronology of the November 8 comparison record and the assigned November 8 record was not established; no within-day priority assertion is made.",
+        "This review does not assess full QR factorization performance, only the single first norm-pivot and original-column projection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: direct exact law for all t,rho,k, with only elementary changes of variables; decisive O rejection",
+          "evidence": [
+            "Theorem 2.1, eq. (2.2): independent scaled chi-square difference for sums of correlated normal products.",
+            "Corollary 2.12 eq. (2.17): in zero-mean case P(S_k<=0)=I_{(1-r)/2}(k/2,k/2).",
+            "The identity r=(1-t²)/D gives the assigned complementary probability I_{(1+r)/2}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.04101",
+          "material_read": "Public full PDF, introduction, zero-mean specialization of Theorem 2.1 pp.2–3, and complete Corollary 2.12 with equation (2.17) and proof p.9, checked against rendered PDF page image",
+          "method": "Explicit factorization of the exact sketched-norm difference into a sum of Gaussian products; match covariance and beta argument",
+          "title": "On the product of correlated normal random variables and the noncentral chi-square difference distribution",
+          "trigger": "Broad antecedent with exact sign probabilities for sums of correlated-normal products matching the pivot difference"
+        },
+        {
+          "assessment": "COVERING for orthogonal subclass: direct exact beta pivot probability for every k, before submitted publication",
+          "evidence": [
+            "Equation (4) gives I_{1/(1+t²)}(k/2,k/2) for two orthogonal columns.",
+            "The sum over competitors collapses to the same single event when n=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2/RESULT.md",
+          "material_read": "Full RESULT.md: finding, equations (1)–(5), gamma and one-competitor beta-tail proof and limitations",
+          "method": "Specialize n=2 and identify alpha_1=t², beta=1, sketch rows k",
+          "title": "Exact Gaussian-sketch first-pivot law and sharp runner-up principle",
+          "trigger": "Previously published same first-Gaussian-norm-QRCP pivot with exactly two orthogonal columns"
+        },
+        {
+          "assessment": "COVERING on diagonal Gaussian CPQR input, including qualitative sketch-row threshold; whole all-correlation formula requires Gaunt",
+          "evidence": [
+            "Formula E[E_CPQR^q]=1+(kappa^q-1)I_{1/(1+kappa²)}(s/2,s/2).",
+            "Critical exponent q=s entails sketch width two as the exact q=2 boundary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-moment-cutoffs-for-the-first-gaussian-sketched-cur-pivot--18298ce65322/RESULT.md",
+          "material_read": "Full RESULT.md: finding, model, CPQR alternative, sharp q-moment cutoff proof, limits",
+          "method": "Set q=2 and kappa=t; compare E^2 original diagonal cross error to submitted squared Frobenius projection ratio",
+          "title": "Sharp moment cutoffs for the first Gaussian-sketched CUR pivot",
+          "trigger": "Same two-column diagonal CPQR choice with exact q-moment and sketch-width boundary"
+        },
+        {
+          "assessment": "RELATED STRONG INGREDIENT: same correlation-dependent k=2 probability; different regret objective and fixed-spectrum maximization",
+          "evidence": [
+            "Wrong pivot probability 1/2(1-delta/sqrt(delta²+4L)), derived from independent chi-square_2.",
+            "Assigned k=2 law agrees after L=det Gram and delta=norm difference."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-golden-ratio-orientation-transition-for-gaussian-sketched-qr-p--87492150b186/RESULT.md",
+          "material_read": "Full RESULT.md: finding, proof of Gaussian difference quadratic eigenvalue and exact wrong-pivot probability, limitations",
+          "method": "Compare Gram determinant/column norm gap and mapped k=2 beta event",
+          "title": "A golden-ratio orientation transition for Gaussian-sketched QR pivot regret",
+          "trigger": "Same two-column Gaussian maximum-norm first pivot with correlated input and two sketch rows"
+        },
+        {
+          "assessment": "Non-covering as an independently stated exact all-input mean-risk threshold in read sections; origin of QRCP algorithm acknowledged; coverage from Gaunt suffices",
+          "evidence": [
+            "Algorithm uses norm-based column selection from Gaussian sketch.",
+            "Analysis of sketched norms and chi-square conditioning, not the assigned exact all-correlation sketch-width optimizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.06820",
+          "material_read": "Lawful public ar5iv full HTML: abstract, algorithmic Gaussian sampling and Section 3 norm distribution and pivot conditioning",
+          "method": "Contrast method and marginal Gaussian sketch analysis to fully joint product-sign event",
+          "title": "Randomized QR with Column Pivoting",
+          "trigger": "Original paper on Gaussian-sketch QR column pivots"
+        },
+        {
+          "assessment": "RELATED, not independently exact all-geometry pairwise-loss classification in inspected material",
+          "evidence": [
+            "Section 3.1 treats sampled norm distributions and Bayesian uncertainty."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.04447",
+          "material_read": "Public arXiv PDF, Section 3.1 Bayesian individual sampled-column norm treatment, PDF pages visually checked",
+          "method": "Compare marginal norm uncertainty to joint event and loss expectation",
+          "title": "Randomized Projection for Rank-Revealing Matrix Factorizations and Low-Rank Approximations",
+          "trigger": "Updated prior randomized QRCP analysis and single-column sketch posterior"
+        },
+        {
+          "assessment": "Related high-probability approach, not independently exact expectation/eigenvalue law",
+          "evidence": [
+            "Theorem 2 gives pseudo-diagonal dominance via probability/JL rather than exact beta sign event."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.05138",
+          "material_read": "Public arXiv PDF, first sections, Algorithm 2 and main pseudo-diagonal dominance theorem including visually inspected pages",
+          "method": "Compare high-probability JL guarantee to exact one-step first-pivot sign law",
+          "title": "Fast Parallel Randomized QR with Column Pivoting Algorithms for Reliable Low-rank Matrix Approximations",
+          "trigger": "Reliability theorem for similar Gaussian QR pivot"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A worst-case Gaussian sketch budget for first QR pivot is a mathematically natural and practically interpretable quantity; however, the submitted purported new mathematical content consists of a direct instance of a published exact Gaussian product-sign theorem, a known exact q-moment calculation for diagonal CPQR, and textbook beta-polynomial/one-variable optimizations. No new structural lemma, hard gap, nontrivial extension of the probabilistic distribution, or independent valuable mathematical invariant beyond their immediate consequences is established. Reproducibility, a convenient sharp constant, and a credible engineering interpretation alone do not make this covered special-case calculation a distinct new contribution.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2408.04101 Thm 2.1, Cor 2.12",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2/RESULT.md eq. (4)",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-moment-cutoffs-for-the-first-gaussian-sketched-cur-pivot--18298ce65322/RESULT.md CPQR q-moment theorem",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-golden-ratio-orientation-transition-for-gaussian-sketched-qr-p--87492150b186/RESULT.md k=2 comparison",
+    "https://arxiv.org/abs/1509.06820 full public text",
+    "https://arxiv.org/abs/2008.04447 §3.1",
+    "https://arxiv.org/abs/1804.05138 main theorem"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Proved only for one Gaussian first pivot, two full-rank original columns, exact projection and relative squared Frobenius error; no guarantee for subsequent QR pivots, SVD rank-one optimum or structured sketches.",
+    "Historical provenance in original public files is inaccurate/operational and precludes a safe ready publication plan; this is distinct from scientific O/V failure.",
+    "No formal Lean or expert attestation; scientific finite tests do not prove continuum.",
+    "Scientific correctness is accepted, but same-input probability law is a published mathematical corollary; preserve rejected entire original package."
+  ],
+  "residual_risks": [
+    "Gaunt (2024) is demonstrably earlier and its proof covers the exact probability distribution, independent of further unindexed literature.",
+    "Same-day relative chronology of the November 8 comparison record and the assigned November 8 record was not established; no within-day priority assertion is made.",
+    "This review does not assess full QR factorization performance, only the single first norm-pivot and original-column projection."
+  ],
+  "schema_version": 1
+}
