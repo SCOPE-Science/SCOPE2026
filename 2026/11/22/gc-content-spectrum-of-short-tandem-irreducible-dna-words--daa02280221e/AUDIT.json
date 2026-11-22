@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The 36 legal triples and append rule are derived directly from the length-one and length-two square exclusions. Four-label group symmetries give an exact ten-state transfer matrix. Its determinant is the stated denominator; the adjugate identity bounds the full numerator degree by twelve, and exact integer-polynomial calculations verify all thirteen required coefficients, establishing the all-length formula rather than extrapolating finite data. An independent brute-force enumeration of every word through length eight matches. The underlying 36-state directed graph is strongly connected and has legal (length,GC-weight) cycles (3,1) and (4,1), whose determinant is one in absolute value. This establishes primitive/lattice aperiodicity for the finite-state local limit theorem. Implicit differentiation of the simple dominant pole gives mean n/2 and variance coefficient (7 sqrt(3)-6)/72; the unweighted residue is sqrt(3). The resulting exact balanced prefactor follows. The code supplies exhaustive finite certificates; no finite experiment is substituted for the analytic limit proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al., 2020, Corollary 4 establishes an asymptotic rate for GC-balanced irreducible words and immediately before it says no explicit recurrence is supplied: https://ymchee66.github.io/home/PDF/encgcbalancedjournal.pdf",
+        "Yu and Schwartz, 2024, Section 1 and constructions cover duplication-free codes for disjoint or equal-length errors, not a fixed-GC enumeration of the full k<=2 irreducible language: https://arxiv.org/abs/2401.04675"
+      ],
+      "reasoning": "The rate theorem is broader in allowing k=3 but weaker on exact k=2 composition multiplicities; no implication supplies the new coefficient array or local-limit constant. The more general error models in Yu--Schwartz do not imply exact fixed-composition counts under this particular local language.",
+      "searches": [
+        "Chee Chrisnata Kiah Nguyen irreducible DNA GC balanced recurrence 2020 exact composition polynomial",
+        "tandem duplication irreducible words GC content weight enumerator exact distribution bivariate generating function 2021",
+        "https://arxiv.org/abs/2401.04675",
+        "https://ymchee66.github.io/home/PDF/encgcbalancedjournal.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1801.02310",
+      "https://ymchee66.github.io/home/PDF/encgcbalancedjournal.pdf",
+      "https://arxiv.org/abs/2401.04675",
+      "Published mathematical-claims semantic search for fixed-GC irreducible words, duplication-avoidance languages, weight enumerators and central coefficients."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee et al. 2020, p.4896, Corollary 4: balanced and unbalanced languages have equal exponential rate; the full length/G-C generating function is not provided.",
+        "Chee et al. 2018, Section II: unrestricted irreducible-word recurrence with q-ary total counts; its specialization corresponds to u=1 here.",
+        "Yu and Schwartz 2024: related code constructions, not an all-GC-weight enumeration."
+      ],
+      "reasoning": "The special case u=1 and the exponential base are known and expressly excluded from priority claims. Knowing F(z,1) or equality of exponential rates does not determine F(z,u), the variance of GC count, or the exact constant multiplying (1+sqrt(3))^n/sqrt(n). The present claim is strictly finer under the same constraints.",
+      "searches": [
+        "https://arxiv.org/abs/1801.02310",
+        "https://ymchee66.github.io/home/PDF/encgcbalancedjournal.pdf",
+        "https://arxiv.org/abs/2401.04675",
+        "GC balanced tandem duplication irreducible words 2020 Chee Chrisnata Kiah Nguyen polynomial distribution",
+        "tandem duplication irreducible words GC content weight enumerator exact distribution bivariate generating function 2021"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2018 irreducible-word preprint Section II counts lengths over an unrestricted alphabet rather than conditioning on an AT/GC split: https://arxiv.org/abs/1801.02310",
+        "Author-hosted 2020 paper p.4896 explicitly distinguishes GC-balanced counts from unweighted recurrences: https://ymchee66.github.io/home/PDF/encgcbalancedjournal.pdf"
+      ],
+      "reasoning": "The same forbidden factors are aa and abab; a genuinely equivalent result would determine each coefficient by GC weight. The inspected unweighted recurrence fixes only the specialization u=1, which cannot reconstruct coefficients for all weights. The 2020 analysis identifies the missing balanced enumeration explicitly.",
+      "searches": [
+        "exact length by GC weight enumerator of quaternary words avoiding aa and abab tandem squares of lengths one and two",
+        "exact GC content weight enumerator 2 irreducible strings avoid aa abab count generating function quaternary",
+        "GC-balanced tandem square avoidance quaternary bivariate generating function",
+        "https://arxiv.org/abs/1801.02310",
+        "https://ymchee66.github.io/home/PDF/encgcbalancedjournal.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant mathematical-index summaries instead describe circular reverse-complement constraint languages, general binary balance, universal cycles, or short DNA codebook extrema; no evaluated same-language GC-weight array appears in those retrieved summaries.",
+        "The explicitly verified finite counts here are 48 at n=4, 320 at n=6, 2192 at n=8 and 15104 at n=10; these are not claimed novel independently of the all-length theorem."
+      ],
+      "reasoning": "Search absence alone is not proof of novelty, and no universal database coverage is claimed. The full-text close primary source specifically says its balanced recursion is unavailable, which is the substantive comparison supporting this axis.",
+      "searches": [
+        "exact length by GC weight enumerator of quaternary words avoiding aa and abab tandem squares of lengths one and two",
+        "GC-balanced two-irreducible words exact counts square root prefactor Gaussian GC variance",
+        "exact GC content weight enumerator 2 irreducible strings avoid aa abab count generating function quaternary",
+        "GC balanced tandem duplication irreducible words 2020 Chee Chrisnata Kiah Nguyen polynomial distribution"
+      ]
+    },
+    "rationale": "The strongest close source explicitly reports that it lacks an explicit GC-balanced irreducible enumeration, proving only the exponential rate. Earlier all-composition irreducible recurrences and related duplication-free constructions do not imply the evaluated bivariate composition generating function or the central-coefficient constant. The unweighted growth rate and transfer-matrix method are acknowledged as known. A targeted semantic comparison of published mathematical claims did not reveal an equivalent all-GC-weight theorem; an unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An equivalent older result may exist under weighted regular languages, constrained-channel enumerators, or a different terminology not retrieved by targeted searches.",
+      "The analytic finite-state local-limit step cites standard theory rather than reproving its general theorem; the graph hypotheses and derivative constants are directly verified.",
+      "The known exponential rate is not a new contribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover exact GC-composition enumeration; directly acknowledges omission of an explicit recurrence for balanced irreducible counts, while deriving the already-known exponential information rate.",
+        "evidence": [
+          "p.4896, lines corresponding to Corollary 4 and the preceding paragraph: the paper states it does not provide an explicit recurrence for GC-balanced irreducibles.",
+          "p.4892 and Section V describe GC balance and encoding, not the numerator, denominator, or local coefficient constant."
+        ],
+        "identifier_or_url": "https://ymchee66.github.io/home/PDF/encgcbalancedjournal.pdf",
+        "material_read": "The complete accessible paper including the definitions, Section II around p.4895–4896 and Corollary 4, and Section V balancing construction.",
+        "method": "Author-hosted PDF inspected as readable text and page images.",
+        "title": "Efficient Encoding/Decoding of GC-Balanced Codes Correcting Tandem Duplications",
+        "trigger": "Same DNA alphabet, same GC-balance, and same bounded tandem-duplication irreducibility."
+      },
+      {
+        "assessment": "Specialization at u=1 is covered; fixed-GC weights, the two-variable enumerator, and its conditional local limit are not.",
+        "evidence": [
+          "Section II enumerates q-ary irreducible words by total length, not by GC group weight.",
+          "No GC-balanced term appears in the accessible preprint text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.02310",
+        "material_read": "Accessible complete preprint, especially definitions, Section II enumeration, and the length-only recurrence.",
+        "method": "Full-text HTML reading and checking the GC-balanced term in document content.",
+        "title": "Efficient Encoding/Decoding of Irreducible Words for Codes Correcting Tandem Duplications",
+        "trigger": "Immediate predecessor providing unweighted k<=2 irreducibility count recurrences and rates."
+      },
+      {
+        "assessment": "Neither the DNA GC split nor an all-length GC composition count for k<=2 irreducibles appears as an established result.",
+        "evidence": [
+          "Abstract and introduction target error-correcting code constructions for disjoint/equal-length duplication errors.",
+          "Searches for GC balance and enumeration found no relevant exact-count theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.04675",
+        "material_read": "Accessible full-text preprint with abstract, introduction, model, constructions and results; term search for GC composition and enumeration.",
+        "method": "Full-text HTML reading and focused term comparisons.",
+        "title": "On Duplication-Free Codes for Disjoint or Equal-Length Errors",
+        "trigger": "Recent duplication-free code construction that could plausibly dominate a two-length local avoidance theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "daa02280-221e-4e1b-9795-a26c013e1ac6",
+  "value": {
+    "rationale": "GC-balanced tandem-irreducible input words are a natural finite-block reservoir for DNA code design; the closely relevant coding paper explicitly leaves exact balanced counts without a recurrence. The complete coefficient-level enumerator gives every finite-length reservoir size, while a sharp evaluated n^{-1/2} penalty quantifies how GC balance changes the known rate. These facts are structural, all-length, nontrivial refinements and are not presented as codebook optima or biochemical guarantees.",
+    "status": "PASS"
+  }
+}
