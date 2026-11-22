@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The exact tree residual decomposes without cross-branches; all local normal equations are reconstructed and yield the displayed explicit solution with D>0, Delta>0. Rigorous inequalities prove star and unweighted positivity; an exact rational P4 obstruction plus continuity proves universal topology converse. Independently solved exact-rational examples check algebra but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Lawlor–Kale Theorem 3.7 is conditioned on a nonnegative approximate inverse and concludes nonsingularity; not a positivity guarantee.",
+        "Gould–Scott norm-minimization techniques and Jia–Kang adaptive residual minimization set the approximation framework."
+      ],
+      "reasoning": "There is broader background for arbitrary matrices, but its conclusions do not determine signs in the distinct tree/weight class. Factorized approximations and nonlinear optimization constraints are non-equivalent.",
+      "searches": [
+        "SPAI M matrix nonsingular nonnegative conditional theorem",
+        "M-matrix sparse approximate inverse preconditioner monotonicity fixed support",
+        "Gould Scott 1998 sparse approximate inverse least-squares"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1503.04500",
+      "https://charm.cs.illinois.edu/newPapers/05-21/sai.pdf",
+      "https://www.numerical.rl.ac.uk/media/people/nick-gould/GoulScot98_sisc.pdf",
+      "https://epubs.siam.org/doi/10.1137/030601132",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2010/930218",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-one-entry-sparsity-enlargement-can-singularize-an-optimal-spd-sp--8d0a3a7c570f",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-three-dimensions-are-minimal-for-transient-sign-loss-in-converge--2c2f43a9b905",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-frontier-for-energy-scaled-diagonal-inverse-fit--e3c8abb91b78"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang–Lawlor–Kale Section 3.3 states: if the computed sparse approximate inverse is nonnegative, nonsingularity follows for strictly column diagonally dominant M-matrices.",
+        "Jia–Kang 2015 develops adaptive residual-based RSAI and dropping criteria.",
+        "Gould–Scott uses independent Frobenius least-squares subproblems."
+      ],
+      "reasoning": "The star theorem supplies a new sufficient condition for the *premise* of Wang–Lawlor–Kale; the P4 witness shows the premise is false on another strictly diagonally dominant M-matrix. Neither that conditional result nor adaptive-pattern strategies yield the quantified all-weight iff classification.",
+      "searches": [
+        "Wang Lawlor Kale Theorem 3.7 nonnegative M-matrix sparse approximate inverse",
+        "Gould Scott 1998 graph pattern positivity sparsity",
+        "Jia Kang 2015 residual sparse approximate inverse positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jia–Kang 2015 analyzes adaptive RSAI pattern selection, not sign of fixed graph-neighborhood minimizers.",
+        "Wang–Lawlor–Kale Theorem 3.7 assumes nonnegativity rather than proving it for any tree class."
+      ],
+      "reasoning": "The proof's exact local sign formula and universal star iff criterion are not implied by general least-squares formulas without the new tree-specific analysis; same vocabulary alone is not covering.",
+      "searches": [
+        "nonnegative sparse approximate inverse M matrix tree graph pattern",
+        "SPAI positive coefficients tree weighted Laplacian",
+        "arxiv:1503.04500 Section 2",
+        "Wang Lawlor Kale §3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit: 2026/10/26 one-entry sparsity enlargement can singularize an optimal SPD sparse approximate inverse.",
+        "Other published-finding corpus hits concern Newton–Schulz inverse sign loss, diagonal inverse fitting, and incomplete Cholesky."
+      ],
+      "reasoning": "The closest sparse-approximate-inverse record treats a 3×3 general SPD matrix and singularity under a change of support; it neither includes the shifted weighted-tree M-matrix class nor implies the local sign identity or sharp star rigidity.",
+      "searches": [
+        "published-finding corpus weighted tree graph-pattern sparse approximate inverse sign classification",
+        "published-finding corpus one-entry sparsity enlargement singularize optimal SPD sparse approximate inverse",
+        "sparse approximate inverse positivity weighted four-node path table"
+      ]
+    },
+    "rationale": "Primary SPAI research establishes Frobenius minimization and pattern selection but not the local sign formula/all-weight star characterization. Most relevant direct M-matrix treatment Wang–Lawlor–Kale Theorem 3.7 explicitly assumes computed inverse nonnegativity; our claim determines its failure and a sharp topology regime where it holds. Related published records address different algorithms and objectives. Remaining priority risk is unindexed older results.",
+    "residual_risks": [
+      "Full text of Holland–Wathen–Shaw 2005/2006 was not accessible; publisher abstract alone cannot rule out equivalent statements in the body.",
+      "Old preprints, theses, or unindexed fixed-pattern sign studies may contain an equivalent tree result; novelty is supported by examined sources rather than certified publication priority.",
+      "The theorem is about one specific unconstrained right Frobenius problem; alternative symmetry-constrained or nonnegative-constrained minimizers are not compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Theorem 3.7 assumes computed inverse M>=0; no all-weights star criterion or fixed-tree sign formula",
+        "evidence": "Section 3.3 Lemma 3.5 starts with 'If the least squares solution ... is nonnegative'; Theorem 3.7 starts 'If ... M is a nonnegative matrix'.",
+        "identifier_or_url": "https://charm.cs.illinois.edu/newPapers/05-21/sai.pdf",
+        "material_read": "Full abstract, Sections 2 and 3, including normal equations (10)–(11), Lemmas 3.5–3.6, Theorem 3.7 and proof, conclusions",
+        "method": "Full PDF text read with page screenshot inspection",
+        "title": "The Nonsingularity of Sparse Approximate Inverse Preconditioning and Its Performance Based on Processor Virtualization",
+        "trigger": "Direct M-matrix and nonnegative SPAI result"
+      },
+      {
+        "assessment": "NOT_COVERING: adaptive RSAI efficiency and sparsity dropping do not give exact fixed-tree graph-pattern positivity sign law",
+        "evidence": "arXiv:1503.04500 initial submission 16 March 2015; abstract states adaptive index selection and comparative performance.",
+        "identifier_or_url": "https://arxiv.org/abs/1503.04500",
+        "material_read": "Abstract, introduction, method's least-squares framework and adaptive residual pattern selection; arXiv submission history v1",
+        "method": "Accessible arXiv HTML full-text sections, checked submission history",
+        "title": "A Residual Based Sparse Approximate Inverse Preconditioning Procedure for Large Sparse Linear Systems",
+        "trigger": "Verified pre-2016 SPAI focal source and primary MSC 65F10"
+      },
+      {
+        "assessment": "NOT_COVERING in examined sections; foundational method not a positivity classification",
+        "evidence": "Explains norm-minimizing sparse inverse construction, not a sign theorem for shifted weighted tree Laplacians.",
+        "identifier_or_url": "https://www.numerical.rl.ac.uk/media/people/nick-gould/GoulScot98_sisc.pdf",
+        "material_read": "Problem statement, introductory setup and core independent subproblem representation; inspected full-text searchable content for M-matrix/tree/nonnegative",
+        "method": "Open full PDF and screenshot of relevant initial material",
+        "title": "Sparse approximate-inverse preconditioners using norm-minimization techniques",
+        "trigger": "Foundational fixed-sparsity Frobenius minimization"
+      },
+      {
+        "assessment": "Unresolved complete-paper comparison; available abstract concerns alternative norms and targets rather than tree sign positivity",
+        "evidence": "Publisher abstract characterizes prescribed-pattern Frobenius approximants and target-norm extensions; online date 25 July 2006.",
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/030601132",
+        "material_read": "Publisher abstract, scope and bibliographic data only; full text not accessible",
+        "method": "Publisher landing-page inspection",
+        "title": "Sparse Approximate Inverses and Target Matrices",
+        "trigger": "Fixed-pattern and alternative target matrix prior art"
+      },
+      {
+        "assessment": "NOT_COVERING in accessible relevant method section; no local weighted-tree positivity theorem found",
+        "evidence": "Columnwise least squares for fixed sparsity patterns, then iterative pattern enlargement and dropping.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2010/930218",
+        "material_read": "Available HTML method description of fixed-pattern independent least-squares problems and adaptive variants",
+        "method": "Full-text HTML method section",
+        "title": "Smoothing and Regularization with Modified Sparse Approximate Inverses",
+        "trigger": "Explicit static-pattern least-squares notation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d2c6b5c8-5218-429f-8f13-8b1fadfe0a1e",
+  "value": {
+    "rationale": "A complete topology iff law and local test for sign preservation identify exactly when the condition needed for M-matrix preconditioner guarantees is robust to all conductances. Homogeneous trees remain strictly positive, while a minimal length-three path with heterogeneous weights can violate positivity despite strict diagonal dominance. This distinguishes a structural obstruction from isolated numerical counterexamples and informs order-preserving sparse inverse design.",
+    "status": "PASS"
+  }
+}
