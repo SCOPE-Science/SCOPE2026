@@ -1,19 +1,21 @@
-# Scientific review: clique-windmill vertex radii
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The centered edge-generator normalization is fixed. Every acyclic orientation on the one-hub clique bouquet is uniquely specified by independent total orders on the cliques. Its local coordinate scores are the centered ranks, giving the exact identity \(Q=mC_k+2\sum_{i<j}H_iH_j\). The multinomial formula counts all vertex radii, including collisions, without overcounting. Mean and variance follow from independent centered ranks, and the fixed-clique-size limit follows from CLT, SLLN and Slutsky. The strict outer-contact condition is a pairwise-product equality. A separately implemented direct edge-sign enumerator checked 548,748 vertices in seven cases, all moments and exact shell counts. These finite checks are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+The graph windmill has no simple cycles between cliques. Acyclic orientations correspond bijectively to independent total orders of the m K_k petals, yielding (k!)^m distinct vertices. In each clique the hub rank H_i is iid uniform on {j−(k−1)/2}; C_k is the clique score squared norm, σ_k²=E H_i². The common hub coordinate sums the H_i, whereas leaf coordinates remain disjoint, so Q=mC_k+(ΣH_i)^2−ΣH_i²=mC_k+2Σ_{i<j}H_iH_j. Multiplying by four and grouping counts of each b_j=2j−(k−1) gives the complete integer shell polynomial with weight ((k−1)!)^m m!/Πa_j!. Independence and centering give E Q=mC_k and Var(Q)=4 binom(m,2)σ_k⁴=2m(m−1)σ_k⁴; distinct pair cross covariances vanish. CLT and SLLN yield Q/m ⇒ C_k−σ_k²+σ_k²χ₁² for fixed k. Maximal common same-sign hub ranks uniquely provide R²=mC_k+m(m−1)(k−1)²/4, contact count 2((k−1)!)^m. This is a full analytic proof rather than an extrapolation of finite ranks.
 
-Sanchez–Kolesnik (arXiv:2009.09322, full HTML Sections 1–3) study tournament-score zonotopes and their realizability, not vertex squared-radius distributions. Padrol–Pilaud–Poullot (arXiv:2111.12422, full HTML sections 1–2) determine deformation cones and recall acyclic-orientation vertices. Pešović–Stojadinović (arXiv:2209.12053, full HTML sections 2–4) study combinatorial, not Euclidean radial, enumerators. The closest published general cone-law result already supplies the outer radius and farthest contacts, which are explicitly credited here. Its full proof and finding do not enumerate intermediate Euclidean vertex-radius shells or determine their variance and limiting law. The published cactus inertia result uses uniform interior volume, not uniform vertex counting, and cannot imply this distribution. Three directed mathematical-record searches for clique-windmill Euclidean vertex radii, shell multiplicities and chi-square limits did not identify equivalent/stronger coverage. Failure of search is not uniqueness proof; alternative terminology is the remaining bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The joint hub coordinate couples otherwise independently oriented clique blocks and produces a nontrivial *quadratic* global radial statistic. The exact complete radius polynomial is a geometrically natural all-shell invariant. Its exact order-\(m^2\) variance and non-Gaussian chi-square limit show that vertex radii fail to concentrate even though every petal is fixed-size and all vertices arise from symmetric local permutahedra. This quantifies a distinction between typical vertices and exponentially rare extreme contacts; it is not implied by knowledge of only the outer radius or uniform-volume inertia.
+The full uniform discrete-vertex radial polynomial and shifted chi-square law are distinct from known global outer radius/contact and continuous-volume inertia; the latter are credited, not presented as new. No prior complete distribution was established by indexed search and inspected sources.
 
-## Closest literature and limitations
+## value
 
-The claim concerns the full discrete uniform-vertex radial law in the canonical Euclidean realization, for integers \(k\ge3,m\ge2\), with fixed \(k\) in the limit. The comparison does not certify absolute historical priority, and no independent audit was conducted. Earlier outer-contact theorems remain credited as prior knowledge.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-shell multiplicity polynomial for a natural infinite family of graph zonotopes gives exact vertex inertia fluctuations and a counterintuitive nonconcentrating χ₁² radial law despite exponentially many independent clique choices. Exact variance, asymptotic law, and contact rarity separate typical geometry from known worst-case radius, a motivated and independently useful invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

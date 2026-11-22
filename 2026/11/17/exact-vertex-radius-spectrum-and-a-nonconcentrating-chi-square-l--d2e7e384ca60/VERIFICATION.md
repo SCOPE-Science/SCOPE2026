@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python3 verification/check_windmill.py` with standard Python 3. The script uses only the Python standard library, directly enumerates acyclic orientations as independent total orders, forms each centered vertex by summing oriented half-edge generators, and compares its exact integer \(4Q\) values against the independent rank/multinomial formula. It checks the number of distinct vertices, exact finite moments, all shell multiplicities, the outermost squared radius, and the number of outer contacts for seven input pairs. The observed marker is `CLIQUE_WINDMILL_RADII_PASS cases=7 enumerated=548748`.
+# Independent mathematical audit
 
-Checked cases: \((k,m)=(3,2),(3,3),(3,4),(4,2),(4,3),(5,2),(6,2)\). This totals 548,748 enumerated vertices. The computational check is finite and does not establish the all-parameter claim by itself. The proof uses the acyclic-orientation bijection, the exact hub-score identity, and independent rank moments. The weak limit uses the central limit theorem and strong law with fixed clique size; no finite simulation is offered as its proof.
+## correctness
 
-Independent mathematical audit: not performed.
+PASS
+
+The graph windmill has no simple cycles between cliques. Acyclic orientations correspond bijectively to independent total orders of the m K_k petals, yielding (k!)^m distinct vertices. In each clique the hub rank H_i is iid uniform on {j−(k−1)/2}; C_k is the clique score squared norm, σ_k²=E H_i². The common hub coordinate sums the H_i, whereas leaf coordinates remain disjoint, so Q=mC_k+(ΣH_i)^2−ΣH_i²=mC_k+2Σ_{i<j}H_iH_j. Multiplying by four and grouping counts of each b_j=2j−(k−1) gives the complete integer shell polynomial with weight ((k−1)!)^m m!/Πa_j!. Independence and centering give E Q=mC_k and Var(Q)=4 binom(m,2)σ_k⁴=2m(m−1)σ_k⁴; distinct pair cross covariances vanish. CLT and SLLN yield Q/m ⇒ C_k−σ_k²+σ_k²χ₁² for fixed k. Maximal common same-sign hub ranks uniquely provide R²=mC_k+m(m−1)(k−1)²/4, contact count 2((k−1)!)^m. This is a full analytic proof rather than an extrapolation of finite ranks.
+
+## originality
+
+PASS
+
+The full uniform discrete-vertex radial polynomial and shifted chi-square law are distinct from known global outer radius/contact and continuous-volume inertia; the latter are credited, not presented as new. No prior complete distribution was established by indexed search and inspected sources.
+
+## value
+
+PASS
+
+The all-shell multiplicity polynomial for a natural infinite family of graph zonotopes gives exact vertex inertia fluctuations and a counterintuitive nonconcentrating χ₁² radial law despite exponentially many independent clique choices. Exact variance, asymptotic law, and contact rarity separate typical geometry from known worst-case radius, a motivated and independently useful invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

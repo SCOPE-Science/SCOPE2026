@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:54:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph windmill has no simple cycles between cliques. Acyclic orientations correspond bijectively to independent total orders of the m K_k petals, yielding (k!)^m distinct vertices. In each clique the hub rank H_i is iid uniform on {j−(k−1)/2}; C_k is the clique score squared norm, σ_k²=E H_i². The common hub coordinate sums the H_i, whereas leaf coordinates remain disjoint, so Q=mC_k+(ΣH_i)^2−ΣH_i²=mC_k+2Σ_{i<j}H_iH_j. Multiplying by four and grouping counts of each b_j=2j−(k−1) gives the complete integer shell polynomial with weight ((k−1)!)^m m!/Πa_j!. Independence and centering give E Q=mC_k and Var(Q)=4 binom(m,2)σ_k⁴=2m(m−1)σ_k⁴; distinct pair cross covariances vanish. CLT and SLLN yield Q/m ⇒ C_k−σ_k²+σ_k²χ₁² for fixed k. Maximal common same-sign hub ranks uniquely provide R²=mC_k+m(m−1)(k−1)²/4, contact count 2((k−1)!)^m. This is a full analytic proof rather than an extrapolation of finite ranks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published graph-general cone/contact theorem already covers the outer radius and farthest-vertex equality, which is explicitly subordinate here.",
+          "Cactus intrinsic inertia formula concerns uniform volume; uniform vertex Q distribution is a different probability measure."
+        ],
+        "reasoning": "A universal outer-radius law does not specify frequencies of nonextreme vertex radius shells or the chi-square distribution. The generic combinatorial zonotope framework likewise does not evaluate all windmill vertex metrics.",
+        "searches": [
+          "clique windmill graph zonotope uniform vertex squared radius distribution chi square law",
+          "Resultary universal Euclidean cone law and farthest-point rigidity graphical zonotopes 19096c28cee4",
+          "Resultary universal inertia and covariance laws for cactus graphical zonotopes 4688476ceb85",
+          "arXiv:2111.12422"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.09322 random tournament score geometry",
+        "arXiv:2111.12422 graph zonotope framework",
+        "Resultary 19096c28cee4 outer cone/contact",
+        "Resultary 4688476ceb85 intrinsic volume covariance",
+        "Resultary 6312a553822c two-clique weighted covariance summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known outer radius gives the maximum of Q only; exactly computed variance 2m(m−1)σ⁴ and limit m^{-1}Q⇒C−σ²+σ²χ₁² use all hub-rank configurations, not just contacts."
+        ],
+        "reasoning": "The old radius/contact theorem is indeed stronger on extremes but not on the claimed distribution; it cannot imply its full coefficient polynomial or nonconcentration law. Even the generic random-tournament score realization needs a new independent-clique calculation.",
+        "searches": [
+          "arXiv:2009.09322 tournament score geometry",
+          "clique windmill graph zonotope uniform vertex squared radius distribution chi square law",
+          "Resultary 19096c28cee4 farthest-point theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scores of the hub in m independent clique orientations are iid discrete uniform ranks, and the squared vertex radius is a degenerate quadratic U-statistic mC+2Σ_{i<j}H_iH_j.",
+          "Random tournament score polytopes and clique gluings give related graph-orientation objects but no all-shell windmill law."
+        ],
+        "reasoning": "This fact can be expressed as a quadratic statistic of independent uniform tournament ranks. Checked aliases do not reveal a prior theorem specializing to the exact multinomial radius spectrum and non-Gaussian fixed-clique asymptotic.",
+        "searches": [
+          "clique windmill graph zonotope uniform vertex squared radius distribution chi square law",
+          "arXiv:2009.09322 The geometry of random tournaments",
+          "Resultary 2026/11/8 two clique covariance conditioning optimum 6312a553822c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest windmill-family findings concern normal-cone probabilities or a different stable-set polytope; K2q radial shells concern a different graph."
+        ],
+        "reasoning": "No matched published windmill discrete-vertex complete radius spectrum appeared; this is limited index evidence, not proof of universal uniqueness.",
+        "searches": [
+          "clique windmill graph zonotope uniform vertex squared radius distribution chi square law",
+          "Resultary search clique windmill graph zonotope uniform vertex squared radius distribution chi square law",
+          "Resultary 2026/11/17 exact radial shells K2q fb52cfc91ae5",
+          "Resultary 2026/11/17 friendship graphical zonotope Gaussian angle spectrum 504e87f321fe"
+        ]
+      },
+      "rationale": "The full uniform discrete-vertex radial polynomial and shifted chi-square law are distinct from known global outer radius/contact and continuous-volume inertia; the latter are credited, not presented as new. No prior complete distribution was established by indexed search and inspected sources.",
+      "residual_risks": [
+        "A complete squared-score-rank distribution for clique windmills might exist under a statistics/U-statistics name not indexed by geometric vocabulary.",
+        "The two-clique weighted covariance paper was located by summary but not read fully; it is a plausible m=2 overlap, not observed all-m coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GEOMETRIC_CORRESPONDENCE_ONLY",
+          "evidence": "Identifies score polytopes, not clique-windmill uniform-vertex Q distribution or chi-square limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.09322",
+          "material_read": "Introduction and first sections defining tournament score/zonotope geometry and incidence conventions",
+          "method": "Read primary arXiv PDF text and visually inspected opening pages",
+          "title": "The geometry of random tournaments",
+          "trigger": "Score polytope of complete graph may imply windmill radius law"
+        },
+        {
+          "assessment": "FRAMEWORK_NOT_RADIAL_DISTRIBUTION",
+          "evidence": "Acyclic orientation vertex correspondence is known; all-shell Euclidean moment is not identified.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.12422",
+          "material_read": "Basic graph orientation/zonotope theory and deformation discussion",
+          "method": "Read primary arXiv PDF text, inspected relevant sections",
+          "title": "Deformed graphical zonotopes",
+          "trigger": "Generic graph zonotope could cover gluing"
+        },
+        {
+          "assessment": "POSSIBLE_SPECIAL_CASE_RISK",
+          "evidence": "Deals with two-clique weighted covariance optimization; might cover a special case of the m=2 moment, not the arbitrary m radial generating polynomial and chi-square regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-unique-covariance-conditioning-optimum-for-weighted-two-clique--6312a553822c",
+          "material_read": "Search-index scientific summary only, not full article text",
+          "method": "Inspected Resultary search summary; does not support whole-document exclusion",
+          "title": "A unique covariance-conditioning optimum for weighted two-clique graphical zonotopes",
+          "trigger": "Closest clique-gluing discrete covariance claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-shell multiplicity polynomial for a natural infinite family of graph zonotopes gives exact vertex inertia fluctuations and a counterintuitive nonconcentrating χ₁² radial law despite exponentially many independent clique choices. Exact variance, asymptotic law, and contact rarity separate typical geometry from known worst-case radius, a motivated and independently useful invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "k≥3,m≥2, unit complete clique petals meeting at a single shared vertex, fixed k as m→∞, and equal counting weight on distinct vertices only.",
+    "Outer radius/contact part is known prior geometry and not an independent novelty contribution."
+  ],
+  "schema_version": 1
+}
