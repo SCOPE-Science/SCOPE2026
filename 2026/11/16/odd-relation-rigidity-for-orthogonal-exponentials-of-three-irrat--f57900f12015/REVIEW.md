@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier zero set is exactly the union of three odd half-lattices. Pairwise irrationality makes their colors disjoint and forbids repeated incident colors. A triangle is equivalent to an all-odd integer relation among reciprocal lengths, and the unique primitive relation makes this equivalence exact. A properly three-edge-colored complete graph on four vertices must consist of three perfect matchings; comparing three induced primitive relations yields the contradiction \(k=0\) despite an odd nonzero frequency coefficient. The proof covers dimensions of the rational span two and three, all positive lengths, and possible subset-sum collisions. The exact checker verifies the example but is not relied on for the infinite proof.
+PASS
 
-## Originality — PASS relative to inspected sources
+Factor the Fourier transform as product (1+exp(-2pi i at)), etc. Its zeros are three pairwise disjoint odd half-lattices; two edges with the same color at a vertex yield an even-integral difference that is in none, so every orthogonality clique is properly 3-edge-colored. Every triangle must use all three colors and gives odd xA-yB-zC=0; a unique primitive integer relation permits such odd coefficients iff all entries odd. K4 uniquely 3-edge-colors by opposite-edge matchings, and comparing integer multiples of the same rank-two primitive relation in its 3 triangles forces k=l=-k=0, contradicting odd edge coefficients. The rank-three case precludes triangles. For A=1+sqrt2, B=sqrt2, C=1, relation A-B-C=0; a=-1+sqrt2,b=sqrt2/2,c=1 yield 8 distinct subset sums by coefficient comparison over Q(sqrt2). Checker computes only that witness, not all families. No assumptions on irrationality have been omitted.
 
-The closest directly relevant preprint is Zhou, arXiv:2610.33987v1. Its principal convolution theorem assumes that the Fourier zero set with zero forms a subgroup, a condition violated by every measure here. Its product theorem studies tensor products and complete spectra, rather than maximal partial orthogonality for a one-dimensional convolution. The 2026 random Bernoulli-convolution paper by Baker et al. concerns infinite random products and Fourier decay, not finite three-factor zero-graph arithmetic. Work on maximal incomplete exponential families for cubes has different objects and hypotheses. Searches for finite three-factor Bernoulli convolutions, irrational reciprocal relations, and orthogonal exponential triples produced no dominating result; this is evidence of noncoverage within searched material, not a universal priority proof. Zhou's complete body could not be retrieved during the comparison, and older finite-atomic Hadamard literature remains a substantial residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This provides a complete, sharp arithmetic classification of a natural finite convolution family, not a selected numerical slice. It shows an unexpected odd maximal orthogonality cardinality on a power-of-two-size atomic support, describes all extremizers, and explains the precise transition between two and three allowed Fourier frequencies by parity of a primitive integer relation. This directly tests the boundary between partial orthogonality and spectral completeness in finite Bernoulli convolutions.
+No full theorem with the precise primitive odd reciprocal relation and universal clique maximum 3 was identified in accessible primary material. Most related convolution theorem requires a subgroup Fourier-zero set, which fails; a plausible inaccessible full manuscript is kept as a risk.
 
-## Closest literature and limitations
+## value
 
-References and scientific limitations are set out in RESULT.md. The theorem makes no claim about rationally commensurable factors, biased convolutions, or other factor counts. The proof's logical validity is distinct from unresolved older-publication priority. No independent verification has been obtained.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum cardinality and full 3-clique geometry for the natural finite 3-Bernoulli convolution provide a sharp, structurally motivated non-spectral partial-orthogonality result. The unexpectedly rigid odd-parity integer relation and explicit eight-atom witness are meaningful beyond restating Fourier zeros. No assertion of new general finite-frame theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

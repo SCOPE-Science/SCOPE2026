@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The exact Fourier factorization, the primitive-relation parity argument, and the four-vertex impossibility proof can be checked directly from RESULT.md. Run `python3 verify.py` using a standard Python 3 installation. It checks eight distinct sites in the quadratic field and exact annihilating half-lattice products for each pair of the three witness frequencies. Finite checks are supplementary, not proof of a universal statement.
+## correctness
 
-The main scientific scope restriction is pairwise irrational ratios of the three positive Bernoulli lengths. The literary priority check has an explicit residual risk because a complete accessible version of the closest 2026 spectrality manuscript was not available during the comparison. Independent audit has not been performed.
+PASS
+
+Factor the Fourier transform as product (1+exp(-2pi i at)), etc. Its zeros are three pairwise disjoint odd half-lattices; two edges with the same color at a vertex yield an even-integral difference that is in none, so every orthogonality clique is properly 3-edge-colored. Every triangle must use all three colors and gives odd xA-yB-zC=0; a unique primitive integer relation permits such odd coefficients iff all entries odd. K4 uniquely 3-edge-colors by opposite-edge matchings, and comparing integer multiples of the same rank-two primitive relation in its 3 triangles forces k=l=-k=0, contradicting odd edge coefficients. The rank-three case precludes triangles. For A=1+sqrt2, B=sqrt2, C=1, relation A-B-C=0; a=-1+sqrt2,b=sqrt2/2,c=1 yield 8 distinct subset sums by coefficient comparison over Q(sqrt2). Checker computes only that witness, not all families. No assumptions on irrationality have been omitted.
+
+## originality
+
+PASS
+
+No full theorem with the precise primitive odd reciprocal relation and universal clique maximum 3 was identified in accessible primary material. Most related convolution theorem requires a subgroup Fourier-zero set, which fails; a plausible inaccessible full manuscript is kept as a risk.
+
+## value
+
+PASS
+
+The maximum cardinality and full 3-clique geometry for the natural finite 3-Bernoulli convolution provide a sharp, structurally motivated non-spectral partial-orthogonality result. The unexpectedly rigid odd-parity integer relation and explicit eight-atom witness are meaningful beyond restating Fourier zeros. No assertion of new general finite-frame theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
