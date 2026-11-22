@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-20",
+  "audited_at_utc": "2026-11-20T10:09:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob f85d3ff3a0186a8fe058f666e13acdd7bffd347e",
+        "Assigned artifacts/verify_radau_markov.py Git blob e8c4c13706e923d6f261d5ac4f4bfbf09741782f",
+        "Independent exact SymPy differentiation and rational matrix inversion executed 2026-11-20 UTC",
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md"
+      ],
+      "rationale": "The claim is mathematically correct. For row generators Q with off-diagonal rates >=0, Q1=0 and spec(Q) in Re z<=0; the Radau denominator zeros 2±i√2 are excluded so r(hQ) exists, and r(0)=1 preserves row sums. Exact expansion r(z)=1+z+z²/2+z³/6+z⁴/36−z⁵/108+O(z⁶) implies each reachable off-diagonal entry has a positive leading term a_d(Q^d)_{ij}h^d at shortest path length d<=4 in n<=5; unreachable entries vanish identically and diagonals start at 1. For the given six-state absorbing birth chain, independently reconstructed nilpotent Jordan functional calculus yields all five candidate c_0..c_4 expressions and all five absorbing b_1..b_5 identities, with b5=h5 P(h)/D(h)^5. All c_0..c_4 and b_1..b_4 are nonnegative on [0,3]; P is strictly increasing for h>0 and has unique positive zero alpha in (1/4,13/50). For (0,alpha), b5<0, for [alpha,3] all entries nonnegative, and for h>3 c0=2(3−h)/D<0. Independent SymPy exact simplification and independent rational 6x6 inversion at h=1/10,1/4,13/50,1,3,4 confirm the identities, row sums, signs, and alpha≈0.253946561637298. No finite extrapolation is used for universal n<=5 or exact interval.",
+      "residual_risks": [
+        "No quantitative epsilon_Q uniform across arbitrary unbounded-rate generators is proven or claimed.",
+        "Exact stochasticity interval pertains only to the specified uniform six-state birth chain; it is not a universal six-state safe-step interval.",
+        "The packaged script was read and its finite checks evaluated conceptually; independent exact algebra was performed rather than relying on an opaque VERIFY_OK log."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045/RESULT.md: items 1-4 classify feasibility through eleven states and nonexistence for n>=12, containing the exact same six-state polynomial and interval as item 3.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md: universality holds for arbitrary finite row Markov generators Q, not just cycles."
+        ],
+        "reasoning": "The November 2 predecessor is a broader absorbing birth-chain analysis that contains the candidate full six-state witness as a special case; the October 27 predecessor already has the same all-generator small-step theorem. Their combination dominates the candidate as stated. A new proof of these already-published assertions does not supply an independent new conclusion.",
+        "searches": [
+          "Third order two stage Radau IIA stability function (6+2z)/(6-4z+z²) Markov generator positivity and sharp six state nonnegativity small timestep exact interval pure birth chain",
+          "absolute monotonicity Markov stochasticity of rational Runge Kutta discretizations pure birth chain positive rational Taylor coefficients",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045/RESULT.md",
+        "https://papers.sze.hu/research-portal/publications/10.1016/j.apnum.2004.08.026",
+        "https://arxiv.org/abs/1303.6651",
+        "https://doi.org/10.1016/S0377-0427(99)00134-X"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md: for all row CTMC generators on at most five states, there exists a Q-dependent positive safe step neighborhood, and n=6 is minimal failure.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md: for precisely the candidate Q*, the exact full stochasticity set equals {0} U [eta,3], including rate rescaling.",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045/RESULT.md: stronger n=2,...,11 and n>=12 birth-family feasibility facts, with the candidate six-state interval as item 3."
+        ],
+        "reasoning": "Let A be the universal n<=5 and sharp six-state theorem from Oct 27, and B be the exact pure-birth witness interval from Oct 13. A ∧ B logically entails the entire candidate Finding, its boundaries and stated scope. The later Nov 2 theorem independently entails B. Hence originality FAIL is decisive even without complete access to older numerical-analysis literature.",
+        "searches": [
+          "Third order two stage Radau IIA stability function (6+2z)/(6-4z+z²) Markov generator positivity and sharp six state nonnegativity small timestep exact interval pure birth chain",
+          "sharp minimum number of states continuous time Markov generator entrywise positivity Padé [1/2] Radau IIA, compare Gauss Legendre [2/2] eight states",
+          "absolute monotonicity Markov stochasticity of rational Runge Kutta discretizations pure birth chain positive rational Taylor coefficients",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md: Finding 1 and Proof 1: every row CTMC generator Q of size <=5 is locally endpoint-positive for Radau IIA r(z); n=6 directed cycle violates positivity at arbitrarily small steps.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md: Finding and Proof: six-state homogeneous absorbing pure-birth Q6 has positivity set exactly {0} U [eta,3], eta=0.253946561637298... root of the same quintic P."
+        ],
+        "reasoning": "The candidate universal low-dimensional guarantee and six-state sharpness are *identical* to the October 27 theorem, independent of which six-state witness is used. The witness-specific interval is *identical* to the October 13 pure-birth theorem. No new equivalence, normalization, parameter value, or domain survives.",
+        "searches": [
+          "Third order two stage Radau IIA stability function (6+2z)/(6-4z+z²) Markov generator positivity and sharp six state nonnegativity small timestep exact interval pure birth chain",
+          "sharp minimum number of states continuous time Markov generator entrywise positivity Padé [1/2] Radau IIA, compare Gauss Legendre [2/2] eight states",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md: published exact entrywise nonnegativity set {0} U [eta,3] with P(h)=h^5+30h^4+180h^3+360h²+180h-72.",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045/RESULT.md: item 3 repeats the exact six-state safe set, and proof gives c0..c4 and b0..b4 rational coefficients identical to those submitted (after index shift)."
+        ],
+        "reasoning": "An exact published mathematical record/table exists, not just a rough numerical bound or a similar method. It includes the exact quintic, normalized rate, rational transition entries and both interval endpoints.",
+        "searches": [
+          "Third order two stage Radau IIA stability function (6+2z)/(6-4z+z²) Markov generator positivity and sharp six state nonnegativity small timestep exact interval pure birth chain",
+          "sharp minimum number of states continuous time Markov generator entrywise positivity Padé [1/2] Radau IIA, compare Gauss Legendre [2/2] eight states",
+          "absolute monotonicity Markov stochasticity of rational Runge Kutta discretizations pure birth chain positive rational Taylor coefficients",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045/RESULT.md"
+        ]
+      },
+      "rationale": "Decisive prior coverage. The 2026-10-27 published RESULT explicitly proves the identical universal CTMC n<=5 small-step positivity statement and the identical sharp minimal dimension six for r(z)=(6+2z)/(z²-4z+6), with a different six-state witness. The 2026-10-13 published RESULT proves the exact same absorbing homogeneous six-state birth-chain set {0} ∪ [eta,3], where eta is the same unique root of h^5+30h^4+180h^3+360h²+180h-72; it also proves the n<=5 hierarchy. On 2026-11-02 a stronger published birth-chain feasibility theorem repeats that exact n=6 interval and treats all n>=2. Together the October 27 and October 13 statements imply every scientific assertion in this November 8 claim. This is not merely matching titles or parameters, or later coverage. The previous package originality comparison missed these direct predecessors.",
+      "residual_risks": [
+        "Classical published numerical-analysis theory may provide still older coverage, but cannot rescue the originality of this post-2026-10-13/27 finding.",
+        "The earlier Resultary records are public mathematical texts, and their title/metadata review labels alone were not relied upon; full claim/proof comparisons and separate algebra checks establish direct coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING for the whole six-state pure-birth exact stochasticity interval and rescaling; published before candidate 2026-11-08.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md: Finding: for N=6, R(hQ_N)>=0 iff h=0 or eta<=h<=3, with eta root of the same P; Proof displays the exact c and t entries.",
+            "METADATA.json publication_date=2026-10-13, GitHub blob 4ad46a8ee1e2a50b436c01ba338647e057dd20c3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md",
+          "material_read": "Entire RESULT.md (~5,954 characters): Finding, assumptions, proof with five transient derivatives and absorber columns, root sign proof, verification, prior work and limitations; plus METADATA.json publication_date 2026-10-13.",
+          "method": "Fetched source RESULT.md using GitHub connector at main, read full text, compared formulas/quantifiers/normalization and independently reproduced c0..c4, b1..b5 with exact symbolic algebra.",
+          "title": "A six-state re-entrant positivity threshold for two-stage Radau IIA on pure-birth chains",
+          "trigger": "Exact same method, birth-chain generator, six-state polynomial and re-entrant safe-step set surfaced by semantic search."
+        },
+        {
+          "assessment": "COVERING for universal <=5-state small-step guarantee and six-state sharpness; witness happens to be an irreducible six-cycle instead of candidate absorbing birth chain.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md: Finding item 1: every Q <=5 admits epsilon_Q; six states sharp. Proof 1 expands r through a5=-1/108, uses shortest path d<=n-1.",
+            "METADATA.json publication_date=2026-10-27, GitHub blob 2227681f345b7a3de94fe667cf0e3479991634a5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md",
+          "material_read": "Entire RESULT.md (~11,474 characters), including three findings, complete universal shortest-positive-path proof, six-cycle rational entry certificates, limits and references; plus METADATA.json publication_date 2026-10-27.",
+          "method": "Fetched full RESULT.md using GitHub connector, checked its quantifiers and short-path argument against candidate and independently recalculated the relevant Maclaurin coefficients.",
+          "title": "Six states are the sharp small-step positivity barrier for two-stage Radau IIA on Markov generators",
+          "trigger": "Exact all-generator sharp state-count theorem and same Radau IIA rational function surfaced by semantic search."
+        },
+        {
+          "assessment": "COVERING for the six-state witness and stronger birth-chain feasibility boundary; does not itself cover arbitrary CTMC n<=5, already covered by Oct 27.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045/RESULT.md: Finding item 3 and proof give exactly the candidate six-state safe set and polynomial, while item 1 gives an eleven-state positive-step feasibility cutoff.",
+            "METADATA.json publication_date=2026-11-02, GitHub blob 3643336c11a9c43456141b9bd4f34642c55dc611."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045/RESULT.md",
+          "material_read": "Entire RESULT.md (~8,265 characters), including all four theorem items, nilpotent generating function, exact rational coefficients, sine-phase cutoff proof, verification and limitations; plus METADATA.json publication_date 2026-11-02.",
+          "method": "Fetched full RESULT.md and metadata from GitHub, compared n=6 polynomial, coefficients and quantifiers with candidate and Oct 13 record.",
+          "title": "The eleven-state feasibility cutoff for Radau IIA on absorbing birth chains",
+          "trigger": "Broader family classification for the same rational map and birth-chain generators."
+        },
+        {
+          "assessment": "Context only: general RK positivity thresholds, not needed for the decisive prior-coverage judgment.",
+          "evidence": [
+            "Z. Horváth, Applied Numerical Mathematics 53 (2005), pp. 341–356, DOI:10.1016/j.apnum.2004.08.026; abstract discusses general positive-IVP step thresholds."
+          ],
+          "identifier_or_url": "https://papers.sze.hu/research-portal/publications/10.1016/j.apnum.2004.08.026",
+          "material_read": "Institutional bibliographic record and detailed abstract, not the full paper.",
+          "method": "Searched web for the exact paper and read publication metadata/abstract; no conclusion about its full-document equivalence is drawn.",
+          "title": "On the positivity step size threshold of Runge-Kutta methods",
+          "trigger": "Classical broad numerical positivity framework cited by the covering October 13 predecessor."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-six-state-re-entrant-positivity-threshold-for-two-stage-radau--be294053bb82/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045/RESULT.md",
+        "Assigned RESULT.md, proof and verification artifacts"
+      ],
+      "rationale": "The sharp state count for loss of small-step Markov positivity and the exact re-entrant safe-step set for a canonical absorbing birth chain are mathematically natural and intrinsically meaningful. However this submission adds no new classification, boundary case, structural lemma or unknown invariant: the exact interval and polynomial already appeared 2026-10-13 and were restated in a stronger birth-chain result 2026-11-02, while the entire universal five-state guarantee and six-state sharpness appeared 2026-10-27. As a new result it is a recomputation/combined restatement of already published exact facts, with no substantive mathematical gap remaining. Correct algebra and reproducibility do not make a covered repetition scientifically valuable as an independent finding.",
+      "residual_risks": [
+        "The underlying methods and exact facts may remain pedagogically useful, but usefulness as exposition is not an original mathematical finding and cannot justify an accepted research certificate."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "This is scientific originality/value rejection, not tool/transport/access failure.",
+    "Historical priority might be even earlier, but the three fully read 2026 predecessors are decisive; no reliance on publication status badges or snippets.",
+    "Existing submitted public RESULT.md and SLOGAN.txt are preserved unchanged; no attempt to rescue identical prior claims through a disclaimer, extra certificate, new author credit or fabricated provenance.",
+    "No GitHub writes or dispatcher closeout operations were performed."
+  ],
+  "schema_version": 1
+}
