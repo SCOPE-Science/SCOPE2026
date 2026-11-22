@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The full-domain proof reconstructs the parent mixed-Poisson PGF, positivity of the modified law, unique canonical coefficients from quadratic roots, a weak-majorization/complex-root bound for every inflated coefficient, and the exact negative root crossing for deflation. At and below threshold every coefficient is nonnegative with summable intensities; above it all sufficiently high even-order coefficients are negative. Explicit endpoint cases are covered. The delivered SymPy/Fraction checker reproduces the key exact algebra but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vinogradov (2007) identifies a sharp threshold for the one-geometric baseline.",
+        "Hürlimann (2015) covers all unmodified two-geometric convolutions.",
+        "Related zero-inflated negative-binomial of integer shape has a different parameter and equal-summand specialization."
+      ],
+      "reasoning": "Single geometric zero deflation and an equal-parameter shape-two negative binomial are not a priori sufficient for the heterogeneous root pair and the Bilal parameter path. The new proof compares the negative root against the larger of two distinct geometric parameters. The inaccessible 2007 full text leaves a residual uncertainty about possible generalizations, but its accessible scope does not assert this two-root threshold.",
+      "searches": [
+        "zero modified compound Poisson distribution theorem geometric convolution",
+        "zero modified negative binomial infinite divisibility shape two",
+        "Vinogradov 2007 zero modified geometric critical deflation pdf",
+        "Hürlimann Newton distribution convolution geometric compound poisson"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1155/2023/2779120",
+      "https://doi.org/10.1155/2015/189596",
+      "https://doi.org/10.1007/s10440-007-9117-y",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2023/2779120",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2015/189596"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hürlimann (2015), Section 4, already gives the sum of two independent geometric counts; the original canonical coefficients are \\((a^n+b^n)/n\\).",
+        "Eliwa et al. (2023), Sections 2, 3 and 7, introduce the mixed-Poisson–Bilal law and its ordinary count statistics.",
+        "Vinogradov (2007) explicitly focuses on a critical zero deflation of a geometric law; its full text could not be read."
+      ],
+      "reasoning": "Neither the parent PGF nor an infinite-divisibility proof for the unmodified count logically establishes the modified PGF is infinitely divisible, since zero deflation eventually generates logarithmic sign changes. The single-geometric result addresses a different denominator degree. The sharp threshold is derived by the previously unavailable crossing of a signed quadratic numerator root.",
+      "searches": [
+        "2015 The Concepts of Pseudo Compound Poisson and Partition Representations in Discrete Probability section 4",
+        "2007 On Structural and Asymptotic Properties of Some Classes of Distributions zero-deflation",
+        "2023 Discrete Extension of Poisson Distribution for Overdispersed Count Data Theory Applications"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hürlimann (2015), Sections 1, 2 and 4, identifies compound-Poisson coefficients of a *non-zero-modified* convolution of geometric counts.",
+        "Vinogradov (2007) abstract identifies critical zero deflation of a single geometric distribution, not the specified heterogeneous two-summand family."
+      ],
+      "reasoning": "A mixed Poisson–Bilal distribution is the two-geometric Newton distribution along a particular one-dimensional parameter curve, so this equivalence was included, not overlooked. The new transformation is applied to the total count after convolution; it is not equivalent to independently zero-modifying its summands, and requires a separate quadratic numerator and comparison of both root moduli.",
+      "searches": [
+        "\"zero-modified\" \"convolution of geometric\" infinite divisibility",
+        "\"zero-inflated\" \"hypogeometric\" \"infinite divisibility\" distribution",
+        "\"zero modified\" \"two geometric\" infinite divisibility pgf",
+        "\"sum of independent geometric\" \"zero modification\" compound Poisson distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 originating article surveys discrete properties including hazard and estimation but does not tabulate zero-deflation infinite-divisibility thresholds.",
+        "The 2015 article provides the unmodified Newton convolution and ordinary canonical coefficients; the extra-zero parameter does not appear there.",
+        "Related indexed research findings concern zero-inflated negative-binomial counts or the geometric maximum, not this zero-modified sum."
+      ],
+      "reasoning": "Searched distributions and exact threshold aliases with both the original name and its known equivalent Newton-convolution description. No table or exact formula found with threshold \\(1+3/[(\beta+1)(2\beta+7)]\\). A failed index search is not a proof of unique priority.",
+      "searches": [
+        "Poisson Bilal distribution geometric convolution exact sum of two independent geometrics likelihood ratio order common rate",
+        "mixed Poisson Bilal discrete distribution 2023 exact thinning conditional distribution geometric components",
+        "zero modified two geometric convolution infinite divisibility compound Poisson sharp zero modification"
+      ]
+    },
+    "rationale": "The 2023 model and 2015 two-geometric Newton convolution are acknowledged as existing. The new theorem is the sharp all-parameter zero-modification phase boundary and infinite-order obstruction, not their parent formulas. Literature search and statement-level comparisons disclosed no direct covering result; priority remains provisional given a relevant 2007 single-geometric paper with inaccessible full text.",
+    "residual_risks": [
+      "Vinogradov (2007) full text unavailable; a more general result hidden in that work could reduce priority of the zero-deflation threshold.",
+      "General zero-modified geometric-convolution literature is not exhaustively indexed or accessible; absence of exact formula from a search is not proof of novelty.",
+      "A possible extension of known equal-summand negative-binomial zero-inflation conclusions to heterogeneous deflation was checked conceptually but not exhaustively across all historical treatises."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No zero-modification or infinite-divisibility threshold identified in sections inspected; source supplies the 2023 probability model",
+        "evidence": [
+          "First published 13 February 2023.",
+          "Article states Poisson mixing by a continuous Bilal law and reports statistics/aging/inference; its displayed mean agrees with \\(5\beta/6\\), validating the scale."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2023/2779120",
+        "material_read": "Open-access article HTML including abstract, Sections 1–3 and 7 plus displayed tables and methods; mathematical equations omitted by the text extractor, so the exact input PGF was independently derived from the stated mixing construction and checked symbolically",
+        "method": "Full article HTML and independent mixed-Poisson integration",
+        "title": "Discrete Extension of Poisson Distribution for Overdispersed Count Data: Theory and Applications",
+        "trigger": "Originating count law, scale and probability-generating function"
+      },
+      {
+        "assessment": "Directly covers the *unmodified* two-geometric convolution and gives canonical coefficients, but not zero-modification of the sum or the deflation phase boundary",
+        "evidence": [
+          "Section 4 defines the convolution of \\(m\\) independent geometric laws and the two-parameter Newton law.",
+          "Section 1 explains compound-Poisson criterion for nonnegative logarithmic coefficients; Sections 4–5 concern unmodified model and MLE."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2015/189596",
+        "material_read": "Open-access article HTML, especially Sections 1, 2, 4, 5 and the Section 4 formulas for Newton-distribution convolution and canonical PGF coefficients",
+        "method": "Read complete relevant open-access HTML descriptions and surrounding theorem context; some display equations were missing from the extracted text, so the convolution identity was re-derived algebraically",
+        "title": "The Concepts of Pseudo Compound Poisson and Partition Representations in Discrete Probability",
+        "trigger": "Potential prior exact equivalent model as convolution of geometric variables"
+      },
+      {
+        "assessment": "The abstract describes zero deflation of a single geometric law; the full text is inaccessible, so broader implications for two-summand modification are unresolved",
+        "evidence": [
+          "Abstract says the critical zero-deflation value from a geometric law is determined.",
+          "No claim of full-text noncoverage is made."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10440-007-9117-y",
+        "material_read": "Title, bibliographic metadata, abstract and visible discussion snippets only; arXiv and legal OA search did not expose full text; institutional access returned a disconnected-VPN status",
+        "method": "Public bibliographic and abstract inspection; attempted authorized institutional retrieval without bypass",
+        "title": "On Structural and Asymptotic Properties of Some Classes of Distributions",
+        "trigger": "Closest earlier exact infinite-divisibility boundary for zero deflation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "629172e5-405f-4ff5-9913-6cce13b8c21d",
+  "value": {
+    "rationale": "A conventional model adjustment (zero inflation and deflation) is analyzed at the sharp boundary of a structurally important infinitely-divisible class of overdispersed counts. The theorem gives a complete criterion for a published one-parameter family, including a nonempty zero-deflation regime retaining compound-Poisson structure and an infinite-order obstruction beyond. This is more than computing routine moments, a low-index negative check, or re-identifying an already-known geometric convolution.",
+    "status": "PASS"
+  }
+}
