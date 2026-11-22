@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian covariance and Schur complement produce the objective; explicit positive all-ratio non-collocation gap, global uniform asymptotic bound, rigorous localization of every maximizer, local negative-definite Hessian plus symmetry, and stationary-point expansions yield the theorem. Boundary observations are handled by continuous extension. Exact arithmetic checks and a standalone replay backstop but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li et al. arXiv:2210.08329v3, Sect. 3 Proposition 1 and Appendix B.3 include independent and correlated levelwise GP posterior covariance formulas for paired difference data; Sect. 4 optimizes sample counts, not one-high/one-low location separation.",
+        "Yang et al. arXiv:1811.09757, Appendix B, Algorithm 2 greedily selects maximal pointwise prediction variance, while arXiv:1812.02919 Appendix A does the same.",
+        "General Gaussian regression, including Li et al. Appendix B.3, covers the unoptimized multivariate covariance formula; no inspected broader theorem determines the global optimizer locations, all-ratio strict separation or limiting algebraic constant."
+      ],
+      "reasoning": "The general co-kriging/BQ regression identity covers the covariance formula but not the nonconvex two-location global optimization. The independent increment setting using paired evaluations imposes a different data constraint from a nonnested one-high/one-low budget. The new claim does not present standard conditioning as novel.",
+      "searches": [
+        "Web: multilevel Bayesian quadrature non nested observations co kriging optimal sampling 2021 2022",
+        "Web: optimal co-kriging integrated posterior variance low high sampling sites multi fidelity design",
+        "Primary arxiv:2210.08329v3 sections 3-5, appendix headings; Primary arxiv:1811.09757 sections 2-4 and appendix B"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2210.08329v3",
+      "https://arxiv.org/abs/1811.09757",
+      "https://arxiv.org/abs/1812.02919",
+      "https://arxiv.org/abs/2202.10615",
+      "https://arxiv.org/abs/2210.08329",
+      "Published mathematical design results on Brownian-bridge kernel quadrature and variance-optimal two-node sampling"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1811.09757 includes additive low-fidelity plus independent discrepancy, but uses pointwise-variance-driven greed and does not give global integrated risk optimization.",
+        "arXiv:2210.08329 provides a telescoping, independent-level BQ posterior; the analyzed budget does not supply the paired difference evaluation required by its basic method.",
+        "A previously published exact design identifies a symmetric pair in a single Gaussian bridge with independent additive sensor noises, not the nonnested two-field model."
+      ],
+      "reasoning": "A general formula for the posterior covariance can be instantiated here, but it neither establishes non-collocation for every discrepancy ratio nor the golden-ratio localization, strict Hessian uniqueness and sharp asymptotic improvement. No stronger inspected theorem logically dominates the final claim.",
+      "searches": [
+        "Semantic literature search: sharp exact noisy optimal one point Matérn 3/2 Gaussian process integral observation design location noise threshold",
+        "Semantic literature search: one high fidelity and one low fidelity Brownian bridge observation, no collocation always optimal",
+        "Web: \"two-fidelity\" \"Brownian bridge\" \"optimal design\"",
+        "Primary arxiv:1812.02919 sections 1-4 Appendix A"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A published result entitled Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature optimizes expected risk under two iid draws of a single bridge, not two fidelity-dependent fields.",
+        "Yang et al. arXiv:1811.09757 defines an additive discrepancy co-kriging model and chooses locations by greedy pointwise variance, not this integrated asymptotic design."
+      ],
+      "reasoning": "Swapping to a single bridge with two observation noises is not a distribution-preserving equivalence: the high observation contains the discrepancy bridge whose integral is part of the target, so the observation noise is correlated with the target. The exact cross-covariance and resulting optimized objective differ from the prior single-bridge designs.",
+      "searches": [
+        "Semantic literature search: multilevel Bayesian quadrature two fidelity independent Brownian bridge discrepancy one observation each optimal two observation sites",
+        "Semantic literature search: exact globally optimal co-kriging high and low fidelity observation locations for Brownian bridge integral asymptotic golden ratio",
+        "Web: \"Brownian bridge\" \"co-kriging\" \"design\" integral observations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published result entitled Exact optimal nodes and stratification penalty for Ornstein-Uhlenbeck Bayesian quadrature concerns an ordinary single-GP OU integral design.",
+        "A related mathematical finding optimizes mutual information of noisy same-bridge observation channels.",
+        "A related mathematical finding optimizes two noisy values of a single Brownian bridge integral.",
+        "No retrieved table reports the high/low cross-fidelity golden-ratio sites."
+      ],
+      "reasoning": "The closest exact numerical/design records differ in observation field and conditional covariance. No matching numerical table, exact algebraic pair or equivalent statement was found; this is evidence of search coverage, not proof of novelty.",
+      "searches": [
+        "Semantic literature search: co-kriging two correlated Brownian bridge Gaussian processes one high one low fidelity optimal integrated posterior variance design",
+        "Semantic literature search: multifidelity co-kriging additive independent Brownian bridge discrepancy posterior integral variance",
+        "Comparative mathematical statement search: two noisy Brownian-bridge observations",
+        "Comparative mathematical statement search: mutual information for two bridge measurements",
+        "Web: \"golden ratio\" \"multifidelity\" \"quadrature\" Brownian"
+      ]
+    },
+    "rationale": "Nine targeted semantic mathematical queries, relevant prior-statement comparisons and targeted primary-text searches found no equivalent or dominating global integrated two-fidelity design theorem. General Bayesian conditioning, additive discrepancy modeling, and sample-count allocation are acknowledged as prior-covered; the new all-ratio anti-collocation and golden-ratio two-global-maximizer asymptotics require a further sharp location optimization. Search does not certify priority.",
+    "residual_risks": [
+      "A specialization of older co-kriging exact-design theory might express the same global optimizer without matching title or language; the most similar published two-site randomized bridge source could not be read beyond its indexed claim because the repository lookup failed.",
+      "Only an abstract-level comparison was possible for Cai et al.; no assertion of full-text exclusion is made.",
+      "Independent mathematical/publication-priority audit not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General levelwise BQ and allocation, no global one-high/one-low nonnested optimal pair or golden asymptotic",
+        "evidence": "Sect. 3 levelwise increments; Sect. 4 bounds/counts; Appendix B.3 separable correlated-level posterior identity without any exact optimized sites",
+        "identifier_or_url": "https://arxiv.org/html/2210.08329v3",
+        "material_read": "full-text HTML Sections 1-5, Appendix B.2-B.4 including the correlated-level extension B.3 and its covariance matrix formulas",
+        "method": "read accessible scholarly full-text HTML, directly compare covariance/data constraints and optimized decision variables",
+        "title": "Multilevel Bayesian Quadrature",
+        "trigger": "Direct motivation for multilevel GP integration and budget-sensitive observations"
+      },
+      {
+        "assessment": "Model class overlaps, but the pointwise greedy algorithm does not imply integral-Bayes-risk global siting",
+        "evidence": "Sect. 2 defines low-fidelity plus discrepancy GP; Appendix B Algorithm 2 maximizes pointwise variance",
+        "identifier_or_url": "https://arxiv.org/abs/1811.09757",
+        "material_read": "full available arXiv HTML introduction, methodology, numerical applications, Appendix B active learning",
+        "method": "read full HTML indexed sections, inspect active learning placement criterion and reference model",
+        "title": "Physics-Informed CoKriging: A Gaussian-Process-Regression-Based Multifidelity Method for Data-Model Convergence",
+        "trigger": "Additive independent discrepancy co-kriging is the closest model equivalence"
+      },
+      {
+        "assessment": "Develops statistical approximation with greedy sampling, not exact integrated-risk optimization of two Brownian bridges",
+        "evidence": "Introduction outlines bifidelity covariance approximation; Appendix A chooses maxima of predictive pointwise uncertainty",
+        "identifier_or_url": "https://arxiv.org/abs/1812.02919",
+        "material_read": "full available arXiv HTML introduction, method, results, conclusions, Appendix A sampling",
+        "method": "read full HTML indexed sections and compare design and criterion",
+        "title": "When Bifidelity Meets CoKriging: An Efficient Physics-Informed Multifidelity Method",
+        "trigger": "Additional close co-kriging and adaptive placement model"
+      },
+      {
+        "assessment": "Bounds do not explicitly display exact fixed two-fidelity sites in the accessed material; residual risk remains",
+        "evidence": "Arxiv abstract announces general average-case bounds for single-kernel noisy BQ",
+        "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+        "material_read": "abstract and accessible search overview only; no full-text NOT_COVERING inference drawn",
+        "method": "checked arXiv abstract, compared its claimed general error bounds conservatively",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Possible broader average-case posterior quadrature bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2cd73c03-42c2-44aa-a5c7-0a0313d207d5",
+  "value": {
+    "rationale": "The theorem identifies a natural limitation of co-locating evaluations in the smallest nontrivial multifidelity Bayesian integral design. It establishes a globally valid strict separation, an exact golden-ratio limiting low-fidelity placement, and a nonzero quantified improvement that persists as discrepancy variance grows. This is a structural and nontrivial design characterization, not a routine known-table evaluation or arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
