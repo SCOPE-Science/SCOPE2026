@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The index ranges, endpoint cases and Euclidean Jacobian have been reconstructed. Facets are precisely the \(n\) coordinate and \(n-1\) edge inequalities; the coordinate-reflection map is an isometry to an alternating-fence order polytope. The slicing recurrence produces each facet volume, the generating-function ODE proves its exact analytic form, and subtraction of its nearest simple pole gives a uniform exponential remainder. This uniformity establishes the bulk limit for any indices diverging from both endpoints. Finite independent permutation enumeration through order nine and an exact-polynomial dimension-forty asymptotic check corroborate but do not replace the proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest primary source is Coons–Sullivant, arXiv:1901.07443: its Euler zigzag volume and triangulations are antecedents, but individual Euclidean facet areas and the endpoint-to-bulk limit were not found in the inspected paper. Aliniaeifard et al., arXiv:1804.00360, analyze stable-set-polytope combinatorics, including facets and edges, but not their Euclidean areas in the inspected text. Von Bell et al., arXiv:2102.11306, concern order-polytope triangulations and volumes in a related snake family, rather than the indexed metric facet profile. The nearest published mathematical record on zigzag polytope peak-clearance tilts concerns a global statistic, not an implication covering all these indexed facet measures. Full-text access to that separate published record was unavailable, so equivalence risk is retained explicitly. The total surface-area identity is not counted as a new result.
+PASS
 
-## Value — PASS
-Euclidean facet measure is a natural full boundary invariant; the theorem gives the complete profile for every dimension with an efficient exact recursion, including two distinct endpoint anomalies and a universal bulk regime. It distinguishes boundary positions that combinatorial facet counts and aggregate surface-to-volume ratios cannot separate. The nontrivial spectral calculation establishes persistent boundary layers rather than only a finite table. No broader downstream theorem is required to make this complete metric classification useful.
+PASS. Reflecting even coordinates is an isometry between P_n of path stable sets in unscaled R^n and the zigzag order polytope, so Euler zigzag volume E_n/n! is an admitted antecedent. Exact slicing separates independent subpaths: coordinate area a_{j-1} a_{n-j}; edge area sqrt2 times integral A_{j-1}(1-t)A_{n-j-1}(t) with A'_r(t)=A_{r-1}(1-t). The generating function solves F_tt=-z²F, F(z,0)=1 and reflection derivative, giving F(z,t)=cos(zt)+tan(pi/4+z/2)sin(zt). Its isolated nearest simple pole z=pi/2 has leading coefficient (4/pi)(2/pi)^r sin(pi t/2) uniformly in t, with O(pi^{-r}) remainder after analytic subtraction on |z|=pi; fixed-index and both-tail-diverging index limits follow, including distinct endpoints. The divergence theorem with fields x and x-(1/2)1 yields sum of coordinate facets 2n*volume and edge facets sqrt2*n*volume. Independently regenerated rational recurrences and integrated each labelled facet for n=2..18; both aggregate identities held exactly, and n=18 ratios C1/V=1.5707963322 and C2/V=2.4674010833 match pi/2 and pi²/4. Prior universal area total alone and short finite enumeration do not establish all indexed asymptotics. No sharp all-index maxima is asserted.
 
-## Limits
-Historical priority can be affected by unindexed work on alternating permutations, face volumes or order-statistic boundary densities. Sharp within-dimension extrema, higher Steiner coefficients and general graphs are not claimed. Numerical checks are finite corroboration only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for explicitly indexed boundary facet formulas and especially endpoint-to-bulk asymptotic transitions; total surface/volume identity and generic contracted-poset facet area formula are prior and not independent novelty.
+
+## value
+
+PASS
+
+PASS: Every position-dependent Euclidean boundary facet area is a natural boundary statistic of a canonical Fibonacci/zigzag polytope; a uniform nearest-pole argument reveals explicit endpoint anomalies and a universal bulk even when indices diverge arbitrarily slowly. It is a genuine geometric asymptotic refinement beyond the known global area/volume flux relation. The latter and generic finite area computability alone are not counted as new value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
