@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Definitions are exact; the source game/graph equivalence and Catalan enumeration are invoked within their hypotheses. The \\(c_m\\) formula follows from the 2010 primary theorem. A central-binomial lower bound gives at least \\(n/m\\) connected types at block size \\(m=\\lceil\\log_4 n+4\\log_4(\\log n)\\rceil\\). Distinct connected types make \\(r!\\) different but isomorphic legal order ideals. The squared class mass and Stirling prove the unconditional limit. Exhaustive checks at \\(1\\le n\\le6\\) and selected numerical supply cases corroborate, but are not used to extrapolate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Saitoh et al. count/generate connected unlabeled proper interval graphs; do not bound probability of isomorphic uniform stable positions",
+        "Binyamin and Kniffen count isomorphism types K_n and explicitly distinguish their open collision problem"
+      ],
+      "reasoning": "Counting connected graph types or total quotient classes is weaker than bounding a large fiber of the map from ordered positions to isomorphism classes; even exact \\(K_n\\) alone does not imply the claimed exponential collision rate.",
+      "searches": [
+        "Isomorphism class distribution of unlabeled unit interval graphs uniformly random Pyranim position permutation components probability asymptotic",
+        "2010 Saitoh Yamanaka Kiyomi Uehara full PDF, Theorems 1 and 2",
+        "2026 Binyamin Kniffen full PDF, sections 4 and 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.16153v1, 2026-11-12 full text",
+      "Saitoh et al. 2010 publisher PDF full text",
+      "OEIS A005217",
+      "Current indexed published-finding corpus records across several query variants",
+      "Fresh web searches on random Pyranim collision and equivalent Dyck-path statements",
+      "Existing accessible research claims in the current private ledger for duplicate exclusion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously known c_m is exponential and game isomorphism admits component permutation, but no previous source explicitly combines enough pairwise distinct connected types with factorial orbit and near-Catalan-sized class",
+        "published-finding corpus search matches concerned unrelated random logic collisions and Catalan statistics, not this limit"
+      ],
+      "reasoning": "The new quantitative implication uses \\(m\\) proportional to \\(\\log n\\) with \\(4\\log\\log n\\) slack, \\(r=\\lfloor n/m\\rfloor\\), and \\(r!=4^n\\exp(-o(n))\\); the crucial step is a new uniform-position fiber estimate not stated in the source theorems.",
+      "searches": [
+        "Does random pair of Pyranim game states have subexponential isomorphism probability n-th root of collision probability 1 Binyamin Kniffen 2611.16153",
+        "large isomorphism class random Dyck paths Catalan words proper unit interval connected components permutations factorial proof collision exponential rate",
+        "Enumerating Pyranim Isomorphisms probability two random states isomorphic nth root tends 1 using permutations of many distinct connected unit interval graph components",
+        "arxiv 2611.16153 Binyamin Kniffen open question probability isomorphic random pyramid game positions limit n-th root",
+        "arXiv:2611.16153v1 full text, Corollary 5.1 and question 4",
+        "doi:10.1587/transinf.E93.D.1816 full text, Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 paper: game isomorphism equivalent to unit interval graph isomorphism; question 4 states the desired collision nth-root limit",
+        "Related published-finding corpus matches include 2026/11/2/SCOPE-catalan-composition-law-and-gaussian-universality-index-for-dyck--425e8fe1de91 and 2026/10/25/SCOPE-a-catalan-square-root-law-for-distinct-scattered-dyck-subsequenc--1f441f5bc822, which concern distinct Dyck-word statistics, not the graph-isomorphism collision"
+      ],
+      "reasoning": "Equivalent statement: the Rényi order-two collision entropy of uniformly sampled stable positions is \\(o(n)\\). Existing Dyck-subsequence/universality theorems do not imply that quotient statistic; the authors ask it explicitly.",
+      "searches": [
+        "large isomorphism class random Dyck paths Catalan words proper unit interval connected components permutations factorial proof collision exponential rate",
+        "Isomorphism class distribution of unlabeled unit interval graphs uniformly random Pyranim position permutation components probability asymptotic",
+        "probability two independent uniform Dyck paths isomorphic as unlabeled proper interval graphs limit root",
+        "arXiv:2611.16153v1, section 5.3, question 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005217 tabulates numbers of unlabeled unit interval graph types, not collision probabilities",
+        "The 2026 article lists the isomorphism-class sequence A400758 and poses the probability limit separately"
+      ],
+      "reasoning": "The exact connected-type and unlabelled-class tables are inputs; they do not compute the size-weighted squared sum of game-state fibers. No exact collision table or asymptotic was found in the checked records.",
+      "searches": [
+        "OEIS A005217 https://oeis.org/A005217",
+        "Does random pair of Pyranim game states have subexponential isomorphism probability n-th root of collision probability 1 Binyamin Kniffen 2611.16153",
+        "\"Enumerating Pyranim Isomorphisms\" \"probability\" \"subexponential\" answer"
+      ]
+    },
+    "rationale": "The 2026 primary paper explicitly leaves the collision \\(n\\)-th-root limit open; the 2010 interval-graph enumeration supplies \\(c_m\\) but addresses connected-type uniform generation, not the uniform-position collision probability. A new \\(r!\\) class-size construction translates the known connected-type census into the first stated limit and a quantitative lower bound. Searches found no directly covering statement, though priority is not independently certified.",
+    "residual_risks": [
+      "Unindexed or obscure historical work may already imply or state the collision limit.",
+      "OEIS A400758 access was unavailable during one query; the 2026 primary work reports its scope and sequence name.",
+      "The result concerns only the nth-root scale, not a sharp decay law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes definitions and needed isomorphism equivalence, asks for the precise nth-root limit; does not supply the factorial-class probability bound or its limit",
+        "evidence": [
+          "2026-11-12 v1, sections 2.4, 4.1, 4.2, 5.1, 5.3 question 4",
+          "\\(|\\mathcal T_n|=C_{n+1}\\); game isomorphic iff associated unlabeled unit interval graphs isomorphic",
+          "Explicit limit question with question mark in the manuscript"
+        ],
+        "identifier_or_url": "arXiv:2611.16153v1; https://borowiecki.dev/pdf/2611.16153",
+        "material_read": "Full 16-page accessible manuscript including sections 2–5, theorem 2.6, corollary 5.1, connected-type enumeration, question 4 in section 5.3 and references",
+        "method": "Read page text and inspected rendered PDF pages containing Theorem 4.1 and the open question",
+        "title": "Enumerating Pyranim Isomorphisms",
+        "trigger": "Explicit open problem on collision probability of independently sampled positions, plus game/graph bijection and Catalan count"
+      },
+      {
+        "assessment": "Provides the exact c_m formula and uniform generation of connected unlabeled types; no random-Pyranim collision law or factorial isomorphism-class statement",
+        "evidence": [
+          "2010 Theorem 1: \\(c_m=(C_{m-1}+\\binom{m-1}{\\lfloor(m-1)/2\\rfloor})/2\\)",
+          "Connected proper interval graphs correspond to Dyck words up to reflection; disconnected types allow component reorderings",
+          "Random sampling in that paper is uniform over connected graph isomorphism types, unlike uniform Pyranim states"
+        ],
+        "identifier_or_url": "doi:10.1587/transinf.E93.D.1816; https://www.jstage.jst.go.jp/article/transinf/E93.D/7/E93.D_7_1816/_pdf/-char/en",
+        "material_read": "Accessible eight-page original, sections 1–4 including Theorem 1, Theorem 2, connected interval-word encoding, proof and concluding remarks",
+        "method": "Read publisher full-text PDF text and reviewed rendered page containing Theorem 1",
+        "title": "Random Generation and Enumeration of Proper Interval Graphs",
+        "trigger": "Primary source for the exact number of connected unlabeled proper/unit interval graphs and uniqueness of connected interval word encoding"
+      },
+      {
+        "assessment": "Counts unlabeled unit interval graph types by size but does not tabulate collision probabilities for uniform Pyranim positions",
+        "evidence": [
+          "A005217 enumerates distinct unlabeled unit interval graphs",
+          "Generating function described via connected-type Euler transform"
+        ],
+        "identifier_or_url": "https://oeis.org/A005217",
+        "material_read": "Sequence definition, generating-function formula, citations, entries through available range",
+        "method": "Inspected online database entry",
+        "title": "OEIS A005217",
+        "trigger": "Exact database/table check for unlabeled unit interval graph type counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "037f0c51-e7ce-40f2-95ef-7b004a35a741",
+  "value": {
+    "rationale": "Settles an explicit 2026 open mathematical question on the exponential scale of isomorphism collisions of random Catalan game states, not a routine catalog entry. The explicit factorial-fiber mechanism is reusable for class-size concentration questions and yields a quantitative subexponential lower bound. Does not assert the exact decay rate.",
+    "status": "PASS"
+  }
+}
