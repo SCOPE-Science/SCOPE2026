@@ -1,0 +1,182 @@
+{
+  "correctness": {
+    "rationale": "An exact q-by-q difference-matrix calculation distinguishes all ordered replacements by row/column sums. The only two-context collision for each ordered replacement is (a,c)=(b,d) versus (d,b). Boundary substitutions contribute disjoint 2(q-1) vectors. For q>=3 each trigram supports a mutation-change vector unique to it, forcing q^3 distinct windows for saturation; an order-three linear de Bruijn word has exactly those windows. BEST and directed Matrix-Tree on the de Bruijn graph count all shortest maximizers. The attached local, literal-enumeration and determinant checkers reproduce q=2..8 (with q>=3 threshold) and q=2..5 counting cases. Finite checks are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/1502.00517v1",
+        "https://arxiv.org/abs/2506.22172",
+        "https://arxiv.org/html/2609.19493v2"
+      ],
+      "reasoning": "General code bounds or Eulerian construction do not determine the number of different length-two profiles in the exact-one-substitution neighborhood of one fixed word. The specific bound and sharp first-attainment constraints are not consequences of those inspected results.",
+      "searches": [
+        "all length-three factors necessary for maximal adjacent pair profile substitution sphere; de Bruijn extremizers",
+        "sharp capacity local one point substitution oriented dinucleotide Markov type spectra q-ary word de Bruijn full order three first saturation length",
+        "arXiv:1502.00517v1",
+        "arXiv:2506.22172v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.19493v2",
+      "https://arxiv.org/html/1502.00517v1",
+      "https://link.springer.com/article/10.1186/1471-2164-14-610",
+      "https://arxiv.org/abs/2506.22172",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-single-insertion-dinucleotide-profile-ambiguity-in-binary--7545727346c0",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-complete-one-deletion-dinucleotide-profile-ball-distribution--294c530e44d7",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-ternary-ordered-bigram-multispectrum-counts-and-the-degree--f0497779133f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://link.springer.com/article/10.1186/1471-2164-14-610",
+        "https://arxiv.org/html/2609.19493v2",
+        "https://arxiv.org/html/1502.00517v1",
+        "https://arxiv.org/abs/2506.22172",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-single-insertion-dinucleotide-profile-ambiguity-in-binary--7545727346c0",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-complete-one-deletion-dinucleotide-profile-ball-distribution--294c530e44d7",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-ternary-ordered-bigram-multispectrum-counts-and-the-degree--f0497779133f"
+      ],
+      "reasoning": "The precise new claim is a universal q>=3 maximum for all fixed words under a source-letter Hamming-distance-one substitution, a sharp length threshold, and exact enumeration of shortest maximizers. Context mutation bookkeeping is covered but lacks the collision enumeration; general profile codework and insertion/deletion results do not imply this conjunction.",
+      "searches": [
+        "exact number different ordered bigram histogram vectors reachable from a q-ary word by exactly one symbol substitution or point mutation, de Bruijn saturation length q cubed",
+        "all length-three factors necessary for maximal adjacent pair profile substitution sphere; de Bruijn extremizers",
+        "sharp capacity local one point substitution oriented dinucleotide Markov type spectra q-ary word de Bruijn full order three first saturation length",
+        "exact output profile capacity under single substitution of a fixed word oriented length two substring histogram",
+        "published-finding corpus:2026/11/8/SCOPE-exact-single-insertion-dinucleotide-profile-ambiguity-in-binary--7545727346c0",
+        "published-finding corpus:2026/11/8/SCOPE-the-complete-one-deletion-dinucleotide-profile-ball-distribution--294c530e44d7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://link.springer.com/article/10.1186/1471-2164-14-610",
+        "https://arxiv.org/html/2609.19493v2",
+        "https://arxiv.org/html/1502.00517v1"
+      ],
+      "reasoning": "The local mutation vector is a known object, but an equivalent statement would also give its distinct-output collision count for every fixed source word. The full inspected mutation and profile-channel works do not make that inference or state the new capacity/threshold.",
+      "searches": [
+        "exact number different ordered bigram histogram vectors reachable from a q-ary word by exactly one symbol substitution or point mutation, de Bruijn saturation length q cubed",
+        "local change vectors E_ad + E_dc - E_ab - E_bc of 2-mer count under single letter substitution classification collision",
+        "\"single substitution\" \"2-gram\" \"profile\" \"distinct\" words",
+        "\"substitution sphere\" \"Markov type\" sequence profile",
+        "arXiv:2609.19493v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-ternary-ordered-bigram-multispectrum-counts-and-the-degree--f0497779133f",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-single-insertion-dinucleotide-profile-ambiguity-in-binary--7545727346c0",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-complete-one-deletion-dinucleotide-profile-ball-distribution--294c530e44d7"
+      ],
+      "reasoning": "A global inventory of ternary Markov types and binary edit-profile ball tables differ in source quantification, edit operation or alphabet; none is a table of q-ary substitution-profile capacities or first-length extremizers.",
+      "searches": [
+        "q(q-1)(q^2-1)+2(q-1) substitution dinucleotide profile",
+        "exact output profile capacity under single substitution of a fixed word oriented length two substring histogram",
+        "published-finding corpus:2026/11/2/SCOPE-exact-ternary-ordered-bigram-multispectrum-counts-and-the-degree--f0497779133f"
+      ]
+    },
+    "rationale": "Actual published-finding corpus and public-text searches found nearby profile, mutation, deletion, insertion and de Bruijn literature, but no claim covering the exact q-ary one-substitution oriented-bigram output-ball bound and sharp first saturation with all extremizers. The known local mutation identity and classical de Bruijn count are credited. Comparisons concern implication of actual statements, not matching titles; unindexed equivalent Markov-type enumeration remains a documented risk.",
+    "residual_risks": [
+      "An earlier equivalent calculation may be indexed under Markov transition-count changes, dinucleotide mutation spectra, or de Bruijn profile balls without the current terminology.",
+      "The local two-edge change equation and Eulerian/de Bruijn counting methods are established, so the novelty claim is limited to the particular collision-capacity and sharp-saturation theorem.",
+      "Independent historical-priority assessment and independent proof verification have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No displayed universal one-source-symbol-substitution bigram-profile ball cardinality, q-ary sharp first length, or de Bruijn extremizer classification in the inspected text.",
+        "evidence": [
+          "arXiv:2609.19493v1 first public 2026-09-16; v2 2026-10-18",
+          "https://arxiv.org/html/2609.19493v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.19493v2",
+        "material_read": "Public full HTML v2: abstract, coding claims, definitions and overlap/linear-hashing sections, and related-work section.",
+        "method": "Compared exact output-ball quantifiers, window length, code redundancy, and local difference claims.",
+        "title": "Polynomially larger deletion codes by linear hashing of substring counts",
+        "trigger": "The recent source explicitly uses substring-count changes and extends to substitution errors."
+      },
+      {
+        "assessment": "Relevant measurement formalism but does not give the q-ary local substitution sphere bound or first-attainment rigidity.",
+        "evidence": [
+          "arXiv:1502.00517v1",
+          "https://arxiv.org/html/1502.00517v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1502.00517v1",
+        "material_read": "Public full HTML v1: core definitions, error models, sequence-profile and code enumeration sections.",
+        "method": "Compared source-symbol mutation of one fixed word against global profile sets and sequence-profile code bounds.",
+        "title": "Codes for DNA Sequence Profiles",
+        "trigger": "Defines oriented k-mer count vectors and substitution-affected profile channels."
+      },
+      {
+        "assessment": "Local substitution bookkeeping is covered and credited, but the article does not address the number of distinguishable mutant profile outputs or saturation thresholds.",
+        "evidence": [
+          "https://link.springer.com/article/10.1186/1471-2164-14-610",
+          "BMC Genomics 14, article 610 (2013)"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/1471-2164-14-610",
+        "material_read": "Open-access article, specifically methods section on substitution effects in dinucleotide contexts, with biological results and article purpose.",
+        "method": "Identified the local plus/minus dinucleotide accounting as known; compared this to the new collision classification, extremal length and enumeration.",
+        "title": "Modelling mutational and selection pressures on dinucleotides in eukaryotic phyla",
+        "trigger": "Uses a context-sensitive local base-substitution effect on dinucleotide counts."
+      },
+      {
+        "assessment": "Eulerian construction is standard groundwork, not the stated local substitution capacity and rigidity.",
+        "evidence": [
+          "arXiv:2506.22172v1 first public 2025-06-27",
+          "https://arxiv.org/abs/2506.22172"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.22172",
+        "material_read": "Public full HTML: k-mer equivalence description and Eulerian construction discussion.",
+        "method": "Compared use of de Bruijn witnesses against a profile-output extremum under mutations.",
+        "title": "Bridging Chaos Game Representations and k-mer Frequencies of DNA Sequences",
+        "trigger": "Uses Eulerian de Bruijn digraphs to synthesize sequences with prescribed k-mer frequencies."
+      },
+      {
+        "assessment": "Does not imply the claimed result: input length changes and possible adjacent pairs are created rather than replaced; domain is binary.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-single-insertion-dinucleotide-profile-ambiguity-in-binary--7545727346c0",
+          "Six-profile insertion bound in binary words"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-single-insertion-dinucleotide-profile-ambiguity-in-binary--7545727346c0",
+        "material_read": "Entire public RESULT.md including statement, proof, limits and references.",
+        "method": "Checked whether an insertion-ball result determines a source-substitution ball or alphabet-general extremizers.",
+        "title": "Exact single-insertion dinucleotide-profile ambiguity in binary words",
+        "trigger": "Published exact local dinucleotide-profile ball for one insertion."
+      },
+      {
+        "assessment": "Does not imply the q-ary substitution capacity or q-cubed first-attainment threshold: deletion changes the length and its local change signatures differ.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-complete-one-deletion-dinucleotide-profile-ball-distribution--294c530e44d7",
+          "Six-profile deletion bound in binary words"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-complete-one-deletion-dinucleotide-profile-ball-distribution--294c530e44d7",
+        "material_read": "Entire public RESULT.md including formula, proof, limitations and references.",
+        "method": "Compared deletion-versus-substitution change vectors and domains.",
+        "title": "The complete one-deletion dinucleotide-profile ball distribution for binary words",
+        "trigger": "Published exact local dinucleotide-profile ball for one deletion."
+      },
+      {
+        "assessment": "No implication: changes order of quantifiers and does not enumerate mutants of a fixed word, much less maximal q-ary mutation-image diversity.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-ternary-ordered-bigram-multispectrum-counts-and-the-degree--f0497779133f",
+          "All-length rational ternary global profile enumerator"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-ternary-ordered-bigram-multispectrum-counts-and-the-degree--f0497779133f",
+        "material_read": "Entire public RESULT.md including Eulerian characterization, generating function, verification, limitations.",
+        "method": "Compared global image cardinality over all source words against the cardinality of a fixed word’s one-mutation image.",
+        "title": "Exact ternary ordered-bigram multispectrum counts and the degree-six law",
+        "trigger": "Published exact enumeration of all possible q=3 full ordered-bigram profile vectors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34ff8f27-117b-4d18-907c-1a5eabb491cc",
+  "value": {
+    "rationale": "The source-substitution dinucleotide-profile ball is a natural loss-of-order observation channel for mutation-corrupted short reads. The exact worst-case cardinality across all q>=3, the optimal first length q^3+2, and exact enumeration of all shortest extremal sources are mathematically motivated invariants describing the channel’s full local diversity and its de Bruijn rigidity, not a trivial global-profile census or a renaming of deletion bounds.",
+    "status": "PASS"
+  }
+}
