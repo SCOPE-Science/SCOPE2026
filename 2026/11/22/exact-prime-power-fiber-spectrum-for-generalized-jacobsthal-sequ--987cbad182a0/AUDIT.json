@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The integral Binet identity follows from the split characteristic roots. Because a is primitive modulo p^r for p>=5, a+1 is a unit and the least period is T=phi(p^r), as J_s=0 and J_(s+1)=1 force s even and a^s=1. Even indices enumerate square units exactly once, odd indices nonsquare units exactly once; the Legendre indicators therefore count exactly one hit per qualifying branch. Their overlap is c_p, computed by standard quadratic-character sums including sum_z chi(z^2-1)=-1, proved via the bijection (u-v)(u+v)=1. Inclusion-exclusion and total hits give H0,H1,H2. All boundary cases p>=5,r>=1 are included, and zero/one/two is an infinite theorem, not inferred from finite tests. The standalone program independently verified 76 primitive-root parameter cases, 583944 targets, and 566784 terms.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Griffiths–Bramham (2015), Theorem 3.5 concerns complete moduli for the a=2 specialization",
+        "The 2026 complete-modulus and local-isometry result specifies exact surjectivity regimes but no multiplicity histogram at nonsurjective primitive-root primes",
+        "Bilgici–Bród, DOI:10.2478/amsil-2023-0001, concerns a different parameterization"
+      ],
+      "reasoning": "A classification of complete residue moduli is logically weaker than a target-wise 0/1/2 fiber classification. Local isometries at p dividing a+1 cannot imply the present result, since the primitive-root condition at p>=5 forces p not to divide a+1.",
+      "searches": [
+        "Jacobsthal sequence primitive root period modulo prime powers exactly which residue values and how many occurrences",
+        "linear recurrence with characteristic roots negative one and primitive root modular image 0 1 2 fiber distribution Legendre",
+        "primitive root exponential plus alternating one divided base plus one full modulo p^r residue hit count"
+      ]
+    },
+    "checked_sources": [
+      "A Generalization of Jacobsthal and Jacobsthal-Lucas Numbers — https://arxiv.org/abs/1911.11515",
+      "On generalized Jacobsthal and Jacobsthal–Lucas numbers — https://www.math.us.edu.pl/annales/contents/2022/v36i2/02_amsil-2022-0011.pdf",
+      "The Jacobsthal Numbers: Two Results and Two Questions — https://www.fq.math.ca/Papers1/53-2/GriffithsBramham11172014.pdf",
+      "Complete residue moduli and local isometries for the split-root Jacobsthal family — published research record, 2026-10-18, identifier suffix c296a849b8e0",
+      "On r-Jacobsthal and r-Jacobsthal–Lucas numbers — https://doi.org/10.2478/amsil-2023-0001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1911.11515, Definition 1/Theorem 2 state identity of objects and Binet formula but not the prime-power group-action consequence",
+        "Griffiths–Bramham Theorem 3.5 and the public 2026 record state complete-modulus information but not singular/overlap fiber counts",
+        "The character identity sum_z chi(z^2-1)=-1 is standard and explicitly credited, not itself claimed new"
+      ],
+      "reasoning": "The claimed conclusion fixes every target y modulo p^r and gives all three global multiplicity counts. Existing cited statements do not imply either the overlap count c_p or the uniform prime-power multiplicities without a new two-branch character decomposition. A potentially stronger general theorem in non-inspected literature is an explicit unresolved bibliographic risk, not ruled out by a failed search.",
+      "searches": [
+        "complete modular image size and multiplicity of (a^n - (-1)^n)/(a+1) primitive root",
+        "quadratic character simultaneous sign x+1 x-1 prime power distribution residue fibers generalized Jacobsthal",
+        "modulo p powers generalized Jacobsthal recurrence exact histogram one two preimages period"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Al-Kateeb, arXiv:1911.11515, Theorem 2 supplies the Binet formula but no fiber counts",
+        "Bród–Michalski, DOI:10.2478/amsil-2022-0011, studies the same sequence, without modular multiplicities",
+        "A published 2026 complete-modulus record (suffix c296a849b8e0) was inspected in full"
+      ],
+      "reasoning": "The equality is equivalent to a two-coset intersection of affine-shifted quadratic residues, so searches included both the recurrence name and this disguised quadratic-character formulation. The Binet formula alone does not assert prime-power fiber frequencies, and no same-conclusion equivalence was located.",
+      "searches": [
+        "generalized Jacobsthal J(k,n)=(k^n-(-1)^n)/(k+1) modulo p^a primitive root image fiber multiplicity quadratic character",
+        "modulo p powers generalized Jacobsthal recurrence exact histogram one two preimages period",
+        "complete modular image size and multiplicity of (a^n - (-1)^n)/(a+1) primitive root"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2019 source contains tables of initial sequence values, not all prime-power residue fiber tables",
+        "An exact 76-parameter computational census in the standalone checker corroborates but is not prior published literature"
+      ],
+      "reasoning": "Named source tables and the searched mathematical research index contain no exact table or database assertion of the complete prime-power 0/1/2 histogram. This is absence of identified coverage, not proof of global priority.",
+      "searches": [
+        "quadratic character intersection of translated square and nonsquare classes in split-root Lucas recurrence",
+        "complete modular image size and multiplicity of (a^n - (-1)^n)/(a+1) primitive root"
+      ]
+    },
+    "rationale": "The claim is not a mere Binet formula or non-surjectivity assertion: it determines every target multiplicity, every prime-power histogram, the sharp least period, and the parameter-independent mod-eight bias. Full-text comparisons show older authors establish the recurrence, while the closest 2026 complete-modulus result concerns which moduli are fully represented, not the fine fibers in the primitive-root regime. Searches have not identified a theorem logically implying all these conclusions; equivalence in uncatalogued Lucas-fiber literature remains a priority risk.",
+    "residual_risks": [
+      "Unindexed general results on quadratic-character coset intersections or Lucas sequence modular fiber distributions might imply this special case.",
+      "No exhaustive worldwide survey of books, dissertations, inaccessible print papers or all later citations was performed.",
+      "The same recurrence and Binet formula were previously published, so only the fine primitive-root fiber profile is proposed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS exact sequence definition and Binet formula; DOES NOT STATE the claimed prime-power target-by-target fibers or histogram",
+        "evidence": [
+          "Definition 1 and Theorem 2 give the matching recurrence and closed form",
+          "Sections 3–5 concern matrix identities, Catalan/Cassini relations and term sums"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.11515",
+        "material_read": "Full web-rendered text, Sections 1–5, including Definition 1, Theorem 2, matrices, identities and sums",
+        "method": "Read the complete rendered public preprint and compared each theorem conclusion with modular fiber, period, primitive-root and Legendre-indicator claims",
+        "title": "A Generalization of Jacobsthal and Jacobsthal-Lucas Numbers",
+        "trigger": "Exact recurrence and Binet-formula predecessor, posted 2019-11-26"
+      },
+      {
+        "assessment": "COVERS the recurrence and standard formulas but does not state a modular image or fiber multiplicity law",
+        "evidence": [
+          "The full paper treats Binet identities, matrix formulas, Catalan/Cassini identities and summations",
+          "No full-level target-fiber formula or multiplicity histogram appears among its results"
+        ],
+        "identifier_or_url": "https://www.math.us.edu.pl/annales/contents/2022/v36i2/02_amsil-2022-0011.pdf",
+        "material_read": "Full available PDF text, including equations (2.1) and (2.8), stated results and concluding identities",
+        "method": "Inspected all theorem topics for primitive-root prime-power residue multiplicities rather than just matching the recurrence",
+        "title": "On generalized Jacobsthal and Jacobsthal–Lucas numbers",
+        "trigger": "Published treatment of the exact same generalized recurrence, dated 2022-07-01"
+      },
+      {
+        "assessment": "DOES NOT GIVE zero/one/two fiber counts or their prime-power histogram; its completeness criterion is weaker and different",
+        "evidence": [
+          "Theorem 3.5 classifies complete residue moduli for the classical Jacobsthal sequence only"
+        ],
+        "identifier_or_url": "https://www.fq.math.ca/Papers1/53-2/GriffithsBramham11172014.pdf",
+        "material_read": "Five-page PDF, including Theorem 3.5 visible on page four",
+        "method": "Compared surjective/complete-modulus assertion at the classical base with exact non-surjective fiber histograms at arbitrary primitive-root parameters",
+        "title": "The Jacobsthal Numbers: Two Results and Two Questions",
+        "trigger": "Prior exact complete-modulus theorem for classical base two"
+      },
+      {
+        "assessment": "COVERS complete-modulus behavior and bijections at primes dividing the parameter plus one, but not the nonsurjective fiber profile when a is primitive modulo p^r",
+        "evidence": [
+          "It explicitly shows non-surjectivity for p not dividing a(a+1), without quantifying which targets have zero, one or two hits",
+          "Its local isometries assume primes dividing a+1 whereas primitive roots here require p not dividing a+1"
+        ],
+        "identifier_or_url": "published research record, 2026-10-18, identifier suffix c296a849b8e0",
+        "material_read": "Entire public RESULT.md, including full definition, local isometry proof, prime obstruction and references",
+        "method": "Checked explicit conditions and implications, especially the case of primes not dividing the recurrence parameter plus one",
+        "title": "Complete residue moduli and local isometries for the split-root Jacobsthal family",
+        "trigger": "Very close complete-modulus and local-isometry result for same recurrence"
+      },
+      {
+        "assessment": "Different recurrence and no applicable modular fiber statement",
+        "evidence": [
+          "The parameter family uses characteristic coefficients distinct from the split-root pair (a,-1) studied here"
+        ],
+        "identifier_or_url": "https://doi.org/10.2478/amsil-2023-0001",
+        "material_read": "Accessible article text, definition and stated theorem areas",
+        "method": "Compared characteristic roots and recurrence coefficients before examining stated results",
+        "title": "On r-Jacobsthal and r-Jacobsthal–Lucas numbers",
+        "trigger": "Nearby similarly named parameterized recurrence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "987cbad1-82a0-4e58-a3bd-384de201d811",
+  "value": {
+    "rationale": "Modular output statistics are a natural refinement of the published question of whether Jacobsthal recurrence residues are complete. Exact singular/overlap fiber frequencies in all prime-power residue rings are a nontrivial, well-motivated invariant even where the image is known to be proper. The result identifies every attainable target and its multiplicity, the minimal period, sharp maximum two, a uniform lift law, and an explicit mod-eight histogram independent of the primitive-root parameter, answering a natural complete classification problem; no downstream theorem or Artin-style infinitude is asserted.",
+    "status": "PASS"
+  }
+}
