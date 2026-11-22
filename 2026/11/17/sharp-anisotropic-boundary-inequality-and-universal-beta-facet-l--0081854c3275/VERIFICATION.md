@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-21.md",
+      "INDEPENDENT_AUDIT_2026-11-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-All finite checks were run using the included `verify.py`, with exact SymPy rational determinants and no floating-point tolerance. The 270 tested facet Gram determinants and the associated volume determinants agree for parameters \(2\le m\le6\) and three independent positive rational scale pairs. The output was `CYCLE_ANISOTROPIC_PASS cases=270 m=2..6 distinct_scales=3`.
+# Independent mathematical audit
 
-The complete general claim rests on the explicit free-sum coning, a cycle-incidence singular-value product, all-parametric normals, the Euclidean pyramid-volume identity, the paired vector triangle inequality, and a uniform Riemann-sum estimate. Finite determinant checks do not establish any infinite statement by themselves. No independent mathematical audit has been conducted.
+## correctness
+
+PASS
+
+Reconstructed dimension 2m-2 and free-sum-of-two-(m-1)-simplices facet census m^2. Cycle-incidence Gram determinant supplies m^4(ab)^(2m-2), each omit-one-from-each-matching facet has wedge squared (ab)^(2m-2)(E_t/a^2+O_t/b^2); converting the cone volume to facet height gives the stated Euclidean area, with E_t=m t(m-t), O_t=m(t+1)(m-t-1). Paired identity E_(m-1-t)=O_t and vector triangle inequality yield the cosh(log(a/b)/2) sharp factor, strict when m>=3 and a!=b. Uniform normalized mixture lambda in [0,1] and |sqrt(x)-sqrt(y)|<=sqrt(|x-y|) give an O(m^-1/2) uniform mesh error; its positive integral pi/8 proves the weak beta limit and surface normalization even for unbounded anisotropy. Independently reconstructed 58 exact rational facet Gram determinants for m=2..4 and (a,b)=(1,1),(2,3), also base wedge determinants. Finite tests are supplemental, not the general proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS after inspecting the frozen proof, searching mathematical aliases/general implications, comparing related primary theorems and published results at statement-level. The contribution is the specific final claim, not its openly credited combinatorial, signal-processing or probabilistic prerequisites. Inaccessible or less-indexed literature remains explicitly a residual risk.
+
+## value
+
+PASS
+
+Motivated Euclidean isoperimetric deformation of a natural graphic root/edge polytope, with a sharp all-parameter minimizer and an unusually robust area-weighted facet-limit distribution despite unbounded anisotropy. The full-scale uniformity and rigidity are genuine geometric information beyond the previously tabulated unweighted facet distances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
