@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "For all q>=3, the closed-ball formula R_b union K_a union own membership is exact. At most one empty row and column gives the q lower bound; 3,4,5-symbol templates have complete nonempty, distinct signature matrices, and a disjoint-block lemma proves the q+floor(q/3) upper bound. The sharp first three cases use exhaustive independent enumeration of 84, 1820 and 53130 size-q subsets, and monotonicity excludes all smaller sizes. The checker can be run from its embedded path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1412.5842v1 Theorem statements concern directed in-neighborhoods, with minimal code cardinality q(q-1) at word length two; arxiv:1508.00403v1 Theorem 2.1 proves only undirected identifiability"
+      ],
+      "reasoning": "Directed signatures are not the union of forward and backward overlaps used here; the directed results do not supply undirected identifiability with q+floor(q/3) sensors. The undirected existence theorem gives no size guarantee besides taking all vertices.",
+      "searches": [
+        "\"identifying codes\" \"de Bruijn\" \"construction\" undirected 2022 2024",
+        "arxiv:1412.5842v1 directed identifying codes"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1508.00403",
+      "https://arxiv.org/abs/1412.5842"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horan 2015 explicitly leaves minimum cardinality and efficient construction as a question. Boutin et al. 2014 optimize a directed-neighborhood version. The present union-of-blocks proof constructs q+floor(q/3) undirected sensors and a q lower bound."
+      ],
+      "reasoning": "Neither a bare existence result nor the directed code bound yields the new explicit undirected approximation guarantee; they cover different strength or different neighborhoods.",
+      "searches": [
+        "arxiv:1508.00403v1 Theorem 2.1 and Section 4",
+        "arxiv:1412.5842v1 introduction and Section 3",
+        "\"undirected de Bruijn graph length two identifying code minimum cardinality sensor set size bound\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1508.00403v1, Section 4, question 3 expressly asks for minimum size and efficient codes in undirected de Bruijn graphs"
+      ],
+      "reasoning": "The new assertion is the size and explicit construction in the undirected two-coordinate network, not the existing existence proposition. Translating ordered pairs to directed edges is an equivalent formulation of the same problem, but no matching result was found.",
+      "searches": [
+        "\"identifying codes\" \"undirected de Bruijn\" \"minimum\" cardinality",
+        "\"B(d,2)\" identifying code minimal cardinality",
+        "arxiv:1508.00403v1 section 4 question 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant results on binary five-word undirected identifying codes concern a 32-vertex graph, whereas the present graph has q^2 vertices of word length two; no exact q=3,4,5 table was located in searched literature"
+      ],
+      "reasoning": "The small-alphabet exact values are certified by exhaustive combinations and do not reproduce the published binary length-five table. Lack of a located table is not independently proof of absence.",
+      "searches": [
+        "\"undirected de Bruijn graph length two identifying code minimum cardinality sensor set size bound\"",
+        "\"identifying codes\" \"undirected de Bruijn\" size q^2 q",
+        "\"identifying\" \"B(d,2)\" code",
+        "\"minimum 1-identifying codes undirected binary de Bruijn graph B(2,5) B(2,6) exact cardinality constructions\""
+      ]
+    },
+    "rationale": "An undirected all-alphabet explicit linear sensor bound and q=3,4,5 minima are not implied by the previously published existence theorem or the distinct directed-network optimum. The full relevant undirected paper explicitly asks for efficient/minimum constructions. Actual database and literature searches did not identify a dominating claim; unindexed equivalent research is a residual priority risk.",
+    "residual_risks": [
+      "A mathematically equivalent result might exist under sensor placement, line-graph, or ordered-pair incidence terminology and be absent from indexed searches.",
+      "The theorem is a near-optimal bound, not an exact general determination; q>=6 optimality is intentionally not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXISTENCE_ONLY; does not entail the new upper bound, lower bound or finite minima",
+        "evidence": [
+          "2015-08-03 first arXiv submission",
+          "Section 4 explicitly asks what the minimum identifying-code size is and requests efficient constructions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.00403",
+        "material_read": "Full-text HTML relevant sections: Definition 1.1, Definition 1.4, Section 2 Theorem 2.1, Section 4 Future Work question 3",
+        "method": "Read the available HTML transcription and compared actual statements, domains, and minimum-size question",
+        "title": "On the Existence of t-Identifying Codes in Undirected De Bruijn Graphs",
+        "trigger": "Same undirected graph and identifying-code question"
+      },
+      {
+        "assessment": "NOT_COVERING because its exact minimality is directed rather than undirected",
+        "evidence": [
+          "2014-12-18 first arXiv submission",
+          "The paper explicitly defines the directed de Bruijn graph and incoming-radius identifying signatures"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.5842",
+        "material_read": "Full-text HTML: title/abstract, introduction, definitions, and theorem summary for directed radius-t codes",
+        "method": "Compared directed closed incoming neighborhoods with undirected union of in/out neighborhoods",
+        "title": "Identifying Codes on Directed De Bruijn Graphs",
+        "trigger": "Near-name match and stronger-looking minimum-code theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "89051278-0806-47cb-bb95-85a58a577517",
+  "value": {
+    "rationale": "A constructive family of at most 4q/3 sensors identifies all q^2 vertices in a fault-location network, within a factor at most 4/3 of the proved lower bound q. This is a mathematically motivated scalable response to the 2015 undirected minimum-code and efficient-construction questions, with fully exact initial alphabet cases; it is not a routine substitution of a known directed optimal code.",
+    "status": "PASS"
+  }
+}
