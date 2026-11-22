@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The private-neighbor characterization is equivalent to nonremovability for all dominating sets. The five-bit local transition checks each actual center exactly once with both boundary exclusions. Induction on support-prefix length proves the 64-state subset-family determinization represents all \\(2^k\\) support labelings exactly. All 206 BFS reachable states and transitions are constructed, with 140 accepting and 79 rejecting edges. The max-plus vector recurrence is exact, and the equality \\(w_{21}=w_{16}+2\\) holds on all 206 states (and again at \\(n=17,\\ldots,20\\)), so induction yields \\(w_{n+5}=w_n+2\\) for all \\(n\\ge16\\). Exact bases \\(n=0,\\ldots,20\\) yield \\(\\lfloor(2n+2)/5\\rfloor\\). An independent direct mask-enumeration and literal-deletion implementation checks all shattered-support coefficients for \\(n=0,\\ldots,13\\). Reproducible graph digest 745e40a73b2b4c98aa3dee965bd42ffe216cefd75c1ccb361d3d905f7650bd1d. Boundaries \\(n=0,1,2\\) included. All-n proof is a finite certificate plus induction, not a extrapolation of finitely many examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonamy et al., arXiv:1810.00789, develops output-polynomial enumeration on graph classes.",
+        "Mofidi arXiv:2212.04570, full text concerns structure and reconfiguration of minimal dominating sets.",
+        "Mary arXiv:2407.00694, full text Theorem 0 concerns dualization complexity when the input hypergraph has bounded VC dimension."
+      ],
+      "reasoning": "General minimal-dominator enumeration and hypergraph dualization papers cover broader graph families but do not state or imply the all-n *shattering dimension* for the minimal-dominator output on a path. Any theorem determining all minimal transversals does not itself provide a stronger formula for the support shattering polynomial without a separate trace analysis. The known restriction to maximal independent sets is a strict subclass, so its VC dimension is not an upper bound on the full class.",
+      "searches": [
+        "VC shattering of inclusion-minimal dominating sets in path graphs, support polynomial and dimension",
+        "VC dimension all inclusion-minimal dominating sets of path graph P_n formula floor((2n+2)/5)",
+        "VC dimension minimal dominating sets path graph vertex incidence shattering",
+        "VC dimension of hypergraph minimal transversals on intervals path closed neighborhood"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1810.00789",
+      "arxiv:2212.04570",
+      "doi:10.3390/sym12122053",
+      "arxiv:2109.04805",
+      "arxiv:2407.00694",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-first-vc-littlestone-separation-for-minimal-dominating-sets-of-p--85d3ecbad804",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-periodic-shattering-law-for-minimum-independent-dominating-set--ab94895bb7a2",
+      "2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc",
+      "2026/11/8/SCOPE-complete-shattering-polynomial-and-forbidden-gap-law-for-maximal--4d0afc364bee",
+      "https://arxiv.org/abs/2407.00694"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full RESULT.md at 2026/10/26/SCOPE-first-vc-littlestone-separation-for-minimal-dominating-sets-of-p--85d3ecbad804 expressly says exact connected path dimensions are established only through eleven and no larger connected-path formula is asserted.",
+        "Full RESULT.md at 2026/11/8/SCOPE-a-periodic-shattering-law-for-minimum-independent-dominating-set--ab94895bb7a2 concerns smallest independent dominating sets, with VC dimension at most 2 in its classified cases.",
+        "Hernandez-Gomez et al. Symmetry 2020 addresses minimum-cardinality domination, not inclusion-minimal domination.",
+        "Guingona et al. arXiv:2109.04805 concerns linear zero-set concept classes."
+      ],
+      "reasoning": "The connected-path all-length formula and the precise 206-state all-support transfer go beyond an eleven-point census and its disjoint-union additivity. The minimum-cardinality independent family and minimum-cardinality dominating family do not determine the all-inclusion-minimal family, nor does a result for cycles imply the corresponding path formula. No inspected primary theorem encompasses the stated conclusion.",
+      "searches": [
+        "VC shattering of inclusion-minimal dominating sets in path graphs, support polynomial and dimension",
+        "VC dimension all inclusion-minimal dominating sets of path graph P_n formula floor((2n+2)/5)",
+        "private neighborhood transversals of path VC dimension coordinate incidence",
+        "\"minimal dominating sets\" \"VC dimension\" path"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonamy et al. arXiv:1810.00789, introduction, identifies minimal dominating sets with minimal transversals of the closed-neighborhood hypergraph.",
+        "Mary arXiv:2407.00694, sections 1 and main theorem, addresses the VC dimension of the input hypergraph, not the output minimal-transversal family.",
+        "Full published path gap RESULT.md at 2026/10/26/SCOPE-first-vc-littlestone-separation-for-minimal-dominating-sets-of-p--85d3ecbad804 limits its exact static computations to \\(n\\le11\\)."
+      ],
+      "reasoning": "Minimal hitting-set, minimal transversal, private-neighbor and dominating-set formulations all describe the same path concept family after converting each closed neighborhood to a hyperedge. Searches under these aliases did not reveal the all-length formula; neither an enumeration algorithm nor a bound on the original hypergraph family implies the VC dimension of the output transversal family.",
+      "searches": [
+        "VC shattering of inclusion-minimal dominating sets in path graphs, support polynomial and dimension",
+        "coordinate shattering minimum dominating sets of paths, exact VC dimension",
+        "minimal dominating sets paths all-length VC dimension n modulo 5 2n/5",
+        "VC dimension of hypergraph minimal transversals on intervals path closed neighborhood"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public path-gap full RESULT.md at 2026/10/26/SCOPE-first-vc-littlestone-separation-for-minimal-dominating-sets-of-p--85d3ecbad804 gives base values \\(n\\le11\\), including \\(\\operatorname{VCdim}(P_{11})=4\\).",
+        "Complete direct standalone enumeration through \\(n=13\\) agrees with the 206-state model and identifies new polynomial coefficients for \\(n=13\\)."
+      ],
+      "reasoning": "The earlier finite table through \\(n=11\\) is consistent with the new formula but neither establishes the periodicity for all n nor the complete face enumerator. An apparent numerical match is not an implication. No exact all-parameter table was identified in accessible records; that absence alone is not evidence of global uniqueness.",
+      "searches": [
+        "VC dimension all inclusion-minimal dominating sets of path graph P_n formula floor((2n+2)/5)",
+        "shattering polynomial of minimal dominating sets of paths finite automaton 206 states five-step period",
+        "minimal dominating sets paths all-length VC dimension n modulo 5 2n/5",
+        "\"minimal dominating sets\" shattered supports paths"
+      ]
+    },
+    "rationale": "The closest fully inspected path record calculates the inclusion-minimal-domination VC dimension only through 11 vertices and states that higher connected-path dimensions are not determined. The new all-n value \\(\\lfloor(2n+2)/5\\rfloor\\), full-face finite-state transfer, and five-step certified recurrence are not implied by those finite values, nor by minimum-cardinality or maximal-independent restrictions. Literature searched on the equivalent minimal-transversal model did not identify an all-n strengthening. Significant historical priority risk remains outside inspected publications.",
+    "residual_risks": [
+      "A differently indexed theorem for shattering the hypergraph of minimal transversals of a path-neighborhood hypergraph may provide equivalent or stronger all-n coverage.",
+      "Uninspected papers or databases may record the same five-periodic profile or all-face generating function.",
+      "The graph and max-plus certificate are computer-assisted rather than independently reimplemented and certified by outside reviewers; correctness is supported by code inspection and exact direct finite cross-checks."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related objects, no found exact path output-shattering dimension",
+        "evidence": "First released 2018-10-01; introduction establishes the minimal transversal identification and studies output-polynomial enumeration.",
+        "identifier_or_url": "https://arxiv.org/abs/1810.00789",
+        "material_read": "Full text HTML introduction, stated results, and treatment of minimal dominators/transversals",
+        "method": "Direct readable arXiv article inspection; searched graph/VC relationship",
+        "title": "Enumerating minimal dominating sets in K_t-free graphs and variants",
+        "trigger": "Same inclusion-minimal dominating-set object and dual transversal formulation"
+      },
+      {
+        "assessment": "No covering all-length static VC formula found",
+        "evidence": "Studies reconfiguration, graph median/partial cube structure and complement-minimality.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.04570",
+        "material_read": "Accessible full HTML mathematical article and its statement-level results",
+        "method": "Read full primary text",
+        "title": "On dominating graph of graphs, median graphs and partial cubes, and graphs in which complement of every minimal dominating set is minimal dominating",
+        "trigger": "Same minimal dominating-set family and path-related properties"
+      },
+      {
+        "assessment": "Different hypothesis class; not stronger on inclusion-minimal vertex shattering",
+        "evidence": "Minimum-cardinality, not all inclusion-minimal, dominating sets are enumerated/classified.",
+        "identifier_or_url": "https://doi.org/10.3390/sym12122053",
+        "material_read": "Accessible full HTML publication and main results",
+        "method": "Read primary article",
+        "title": "Transitivity on Minimum Dominating Sets of Paths and Cycles",
+        "trigger": "Same path graph but minimum-cardinality domination restriction"
+      },
+      {
+        "assessment": "Linear zero-set systems do not contain minimal dominating sets on paths as an established corollary",
+        "evidence": "Family of zero sets of linear maps, with no domination structure.",
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Accessible full HTML article with definitions and main results",
+        "method": "Read primary paper",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Similar joint learning dimensions and potential general theorem"
+      },
+      {
+        "assessment": "Input-hypergraph VC controls enumeration; not output minimal transversal VC on fixed paths",
+        "evidence": "Theorem 0 bounds complexity of deciding whether supplied minimal transversals are complete, using VCdim of H.",
+        "identifier_or_url": "https://arxiv.org/abs/2407.00694",
+        "material_read": "Full HTML article, abstract, Introduction and Theorem 0",
+        "method": "Direct primary HTML inspection",
+        "title": "Enumeration of minimal transversals of hypergraphs of bounded VC-dimension",
+        "trigger": "Most plausible general dual transversal plus VC coverage"
+      },
+      {
+        "assessment": "Sharp numeric VC(P11)=4 and earlier cases; explicitly does not claim all-n path VC law",
+        "evidence": "Limitations: exact values for connected paths established only up to eleven vertices; no general formula for larger connected paths asserted.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-first-vc-littlestone-separation-for-minimal-dominating-sets-of-p--85d3ecbad804",
+        "material_read": "Entire public RESULT.md (Finding, Proof, Relationship to prior work, Limitations)",
+        "method": "GitHub read of original scientific result file",
+        "title": "First VC-Littlestone separation for minimal dominating sets of paths",
+        "trigger": "Exact same path family; decisive overlap comparator"
+      },
+      {
+        "assessment": "Minimum-cardinality independent dominating sets; not the full all-minimal family",
+        "evidence": "The source imposes independent and minimum-cardinality requirements and its theorem has VC dimension at most 2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-periodic-shattering-law-for-minimum-independent-dominating-set--ab94895bb7a2",
+        "material_read": "Entire public RESULT.md incl. proofs and limitations",
+        "method": "GitHub read original scientific result file",
+        "title": "A periodic shattering law for minimum independent dominating sets of paths",
+        "trigger": "Potentially similar all-length path shattering polynomial"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "763e1575-fe9a-432a-a6e8-1f2098a8e570",
+  "value": {
+    "rationale": "All inclusion-minimal dominating sets are a canonical graph-solution/monotone-transversal dual family, whose shattering complexity matters for learning minimal domination witnesses and enumeration geometry. Earlier exact path analysis ended at eleven, so the sharp all-n VC law establishes the asymptotic density \\(2/5\\), distinct from the maximal independent subfamily density \\(1/3\\). The full all-coefficient 206-state rational enumerator supplies information not encoded by the scalar VC rank. These are infinite all-parameter exact results for a natural object, not a narrow tabulation or a routine reuse of the earlier 11-vertex gap.",
+    "status": "PASS"
+  }
+}
