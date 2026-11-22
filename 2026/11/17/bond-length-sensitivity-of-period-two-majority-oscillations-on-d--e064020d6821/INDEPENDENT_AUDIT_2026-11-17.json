@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:54:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph is labelled C_n^2 for n>=7, with degree-3 endpoints only at the deleted bond and degree-4 elsewhere; ties on degree four retain the bit. Encode temporal pair (x_i,y_i) by four symbols, and impose both majority equations locally on five-symbol windows. Trace(L1 R1 A^(n-2)) for d=1 or trace(L2 A R2 A^(n-3)) for d=2, with A a 256-state de Bruijn transition, counts every labelled F^2-fixed configuration once; restricting to diagonal pairs gives 16-state fixed configurations, whose subtraction equals twice the number of unordered primitive two-cycles. Since the 256- and 16-state power-traces satisfy degree-at-most-256 and 16 Cayley–Hamilton recurrences, their difference obeys product recurrence of order <=272. The shifted 12-periodicity difference obeys the same order. The inspected source program verifies 272 consecutive zeros for n=7..278, thereby rigorously extending the period 12 formula to ALL n>=7, with 12 initial values. A separately constructed exact sparse 256/16-state transfer implementation (not just saved logs) replicated BOTH defect types for EVERY n=7..290 including 272 zero differences, and independent direct labelled-state enumeration n=7..14 matches. n=7 distance-two witness 0100110 <-> 1011001 checks the new odd-residue orbit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1016/0012-365X(80)90121-1 : eventual period bound only",
+          "https://arxiv.org/pdf/2205.08972 : structural uniform one-dimensional majority periodicity"
+        ],
+        "reasoning": "Period<=2 is strictly weaker than counting exact labelled primitive-two orbits after one edge is removed. Uniform no-defect classification has inapplicable homogeneous transition rows.",
+        "searches": [
+          "Goles Olivos periodic generalized symmetric threshold dynamics at most two",
+          "Nakar Ron 2022 classification radius two majority cycle"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2205.08972",
+        "https://arxiv.org/abs/1405.2486",
+        "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/bond-length-sensitivity-of-period-two-majority-oscillations-on-d--e064020d6821/code/transfer_certificate.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2205.08972 : intact homogeneous local rule in the original paper",
+          "Current trace predicates differ at 0 and d and open-neighbor tie is retained"
+        ],
+        "reasoning": "Neither general eventual-two-cycle theorem nor homogeneous ring patterns imply exact defect-class orbit multiplicities. Proof uses distinct defect matrices L_d,R_d absent from both references.",
+        "searches": [
+          "Nakar Ron The Structure of Configurations in One-Dimensional Majority Cellular Automata theorem radius two",
+          "Goles Olivos periodic behaviour threshold finite graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2205.08972 : uniform neighborhood and cell stability/periodic patterns",
+          "Actual source graph G_n,d has two different degree-three update vertices"
+        ],
+        "reasoning": "The defect changes the local transition predicates, so intact-ring periodicity cannot be used as an equivalent formulation of the two defect traces; no mapping preserving all orbits was found.",
+        "searches": [
+          "Resultary period two majority defective squared cycle missing nearest next nearest bond",
+          "Nakar Ron radius two majority configurations intact ring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact two-case all-n period-12 table identified; current separately regenerated numerator sequences for n=7..18",
+          "Independent n=7..290 exact transfer trace reproduced case formulas"
+        ],
+        "reasoning": "The exact 12-residue patterns arise from a 272-term finite recurrence certificate; they are not values copied from an earlier table, and independent enumeration supports the certificate predicates.",
+        "searches": [
+          "Resultary bond length sensitivity one edge majority oscillations G n 1 2 period twelve",
+          "majority dynamics squared cycle missing edge 2-cycle exact OEIS"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the closely related uniform radius-two majority cellular automaton is not the defective graph: at two endpoints, vertex degree drops from four to three and the tie rule changes; the compared intact-ring classification uses a uniform closed 5-cell majority neighborhood. General symmetric-threshold eventual period<=2 results do not supply primitive orbit counts. The two missing-bond cases have different formulas, and neither is a corollary of the intact-ring periodic configurations or results on chorded ordinary cycles; Resultary record searches found no older exact deleted-bond classification. Risk of other uncatalogued transfer enumerations remains.",
+      "residual_risks": [
+        "Unindexed specialist transfer-matrix enumerations of one-edge-defective threshold automata might precede this result.",
+        "The full older Goles–Olivos publication was not accessible; only its general period bound is used, not an unsupported whole-paper exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NONCOVERING for the defective open-neighbor model, while the intact-ring structural antecedents are credited",
+          "evidence": "Uniform radius-two/local 5-cell rule and no one-bond deletion; cannot imply two nonhomogeneous degree-three vertices exact cycle census.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+          "material_read": "ArXiv mathematical PDF relevant model and Theorem 1/§1.4, including cell neighborhood convention; page screenshot inspected",
+          "method": "Read primary PDF text and mathematical page images",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+          "trigger": "Closest established classification of radius-two majority periodic states"
+        },
+        {
+          "assessment": "Supports general upper-bound periodicity only; no evidence of these exact defective-graph counts",
+          "evidence": "Period-at-most-two statement is not enumeration of primitive-two orbits.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Published abstract and bibliographic/theorem statement; original complete article inaccessible",
+          "method": "Abstract-level examination, no whole-document NOT_COVERING inferred",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "General theorem that synchronous symmetric threshold networks eventually have period <=2"
+        },
+        {
+          "assessment": "Different random/unimodular graph questions rather than the same labelled defect census",
+          "evidence": "Study covers convergence/unanimity/disagreement; not an identified formula for G_n,1 and G_n,2.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "ArXiv publicly visible abstract and model scope",
+          "method": "Read accessible abstract and bibliographic comparison",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Majority-dynamics broad graph context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: an exact all-size, bounded and 12-periodic primitive-two-cycle census for a natural local defect in the radius-two cycle is a meaningful classification of how weak symmetry breaking changes recurrent dynamics. Distinguishing bond length one from two and the odd n≡3 mod4 onset is a structural counterexample to naive uniform-ring universality, not an arbitrary small-instance table; the proof supplies an exhaustive finite certificate extended to all n.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Computer-assisted finite certificate relies on exact 256- and 16-state matrix definitions and 272 initial zero tests, together with the mathematical Cayley–Hamilton recurrence; random or short enumeration alone would not prove all n.",
+    "Only one deleted edge and synchronous open-neighbor tie-retention rule; basins and times to enter recurrent states are not classified."
+  ],
+  "schema_version": 1
+}

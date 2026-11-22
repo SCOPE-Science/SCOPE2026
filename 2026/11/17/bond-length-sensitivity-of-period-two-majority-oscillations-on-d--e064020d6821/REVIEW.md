@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns binary synchronous majority on the labelled graph obtained by deleting exactly one edge of distance one or two from the squared cycle, for every ring length at least seven. The explicit local update uses the open-neighbor majority with self-retention of a tie. The proof's central correspondence is exact: the trace of the product of successive de Bruijn adjacency matrices counts all ordered pairs \((x,y)\) satisfying the reciprocal update equations, and the restricted diagonal-letter trace counts fixed points. The difference is twice the number of genuine temporal two-cycles. A product of two characteristic-polynomial recurrences, in dimensions 256 and 16, annihilates this difference, and its 12-step shift difference. An exact script verifies 272 consecutive shift zeros, which proves the uniform twelve-periodic identity by recurrence. A separate graph-level program checks 261888 initial states without using any of the transfer construction. The computer-assisted all-size proof is not an extrapolation from the small direct enumeration.
+PASS
 
-## Originality — PASS, with priority qualifications
+The graph is labelled C_n^2 for n>=7, with degree-3 endpoints only at the deleted bond and degree-4 elsewhere; ties on degree four retain the bit. Encode temporal pair (x_i,y_i) by four symbols, and impose both majority equations locally on five-symbol windows. Trace(L1 R1 A^(n-2)) for d=1 or trace(L2 A R2 A^(n-3)) for d=2, with A a 256-state de Bruijn transition, counts every labelled F^2-fixed configuration once; restricting to diagonal pairs gives 16-state fixed configurations, whose subtraction equals twice the number of unordered primitive two-cycles. Since the 256- and 16-state power-traces satisfy degree-at-most-256 and 16 Cayley–Hamilton recurrences, their difference obeys product recurrence of order <=272. The shifted 12-periodicity difference obeys the same order. The inspected source program verifies 272 consecutive zeros for n=7..278, thereby rigorously extending the period 12 formula to ALL n>=7, with 12 initial values. A separately constructed exact sparse 256/16-state transfer implementation (not just saved logs) replicated BOTH defect types for EVERY n=7..290 including 272 zero differences, and independent direct labelled-state enumeration n=7..14 matches. n=7 distance-two witness 0100110 <-> 1011001 checks the new odd-residue orbit.
 
-The closest substantive antecedent is Nakar–Ron's classification of all eventual recurrent configurations of *uniform* radius-two majority rings (arXiv:2205.08972, Theorem 1 and Section 1.4). That result explicitly lists all uniform short-period patterns and their fixed points; it does not cover two defective endpoints with lower degree. General period-at-most-two results of Goles and Olivos, and the published graph-majority convergence results of Benjamini and collaborators, similarly do not imply two explicit deleted-bond orbit counts. Tosic–Agha's 2004 author PDF addresses general one-dimensional uniform threshold automata and was inspected in relevant sections; it does not state a corresponding defect formula. Related prior fixed-point counts on the intact squared cycle and period-two counts on the ordinary cycle with an added chord also do not entail this result, because both the graph and its update neighborhoods differ. Semantic searches found no exact corresponding database table, but absence of a match is not taken as a uniqueness certificate. Complete historical coverage is not guaranteed, especially for older inaccessible articles.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The size-independent, complete two-cycle counts identify a sharply selective dynamical consequence of a *single* edge deletion. Removing a nearest-neighbor bond never produces primitive temporal two-cycles at odd ring lengths, while removing a distance-two bond creates exactly one at every length congruent to three modulo four. Both counts remain bounded by four for arbitrarily large rings. The result quantifies the robustness and fragility of oscillations on a classical radius-two majority system, rather than merely re-enumerating fixed points or invoking a general convergence theorem.
+PASS best-of-knowledge: the closely related uniform radius-two majority cellular automaton is not the defective graph: at two endpoints, vertex degree drops from four to three and the tie rule changes; the compared intact-ring classification uses a uniform closed 5-cell majority neighborhood. General symmetric-threshold eventual period<=2 results do not supply primitive orbit counts. The two missing-bond cases have different formulas, and neither is a corollary of the intact-ring periodic configurations or results on chorded ordinary cycles; Resultary record searches found no older exact deleted-bond classification. Risk of other uncatalogued transfer enumerations remains.
 
-## Limits and remaining risks
+## value
 
-The formulas do not count attraction basins, do not bound transient time and do not apply to multiple defects or ring lengths below seven. Their all-size proof uses an exact finite transfer-matrix certificate together with Cayley–Hamilton; the programs and outputs are included for independent replay. Some relevant older literature is not available in full, so historical priority needs further expert verification. No independent mathematical audit has yet been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: an exact all-size, bounded and 12-periodic primitive-two-cycle census for a natural local defect in the radius-two cycle is a meaningful classification of how weak symmetry breaking changes recurrent dynamics. Distinguishing bond length one from two and the odd n≡3 mod4 onset is a structural counterexample to naive uniform-ring universality, not an arbitrary small-instance table; the proof supplies an exhaustive finite certificate extended to all n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
