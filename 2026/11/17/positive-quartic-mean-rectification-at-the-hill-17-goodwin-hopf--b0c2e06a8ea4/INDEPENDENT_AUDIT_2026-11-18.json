@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:57:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scalar reduction (D+1)^3u=f_K(E+u)-E and the real Hopf crossing at -3 and ±i√3 fix the normalizations. At e_*^17=8/9, dimensionless derivatives through order four are (-8,0,1152,-2304), checked independently with exact symbolic differentiation; f(e_*)=0 eliminates quadratic time harmonics. Cubic solvability yields E-e_*=2A²/e_*+O(A⁴), K-K_*=34A²/e_*+O(A⁴), with first Lyapunov coefficient negative. Period-averaging gives 9δ=(1152/e_*²)/2*(2/e_*)*(A⁴/2)+(-2304/e_*³)/24*(3A⁴/8)=576-36 over e_*³, hence 60A⁴/e_*³. Independently in dimensionless units this is 64−4=60 after division by 9. The local center-manifold/Hopf theorem, not ODE experiments, supplies existence and uniform remainders. Only K↓K_* from above and the half peak-to-trough amplitude are claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2407.00461 gives existence of attracting periodic behavior, not concentration-average fourth-order asymptotics",
+          "The 2014 article is bibliographically identified but its full text was inaccessible"
+        ],
+        "reasoning": "The broader theorem has broader existence hypotheses but no determining average-shift coefficient; cannot infer this quantitative local expansion from existence or from the known order-two cancellation.",
+        "searches": [
+          "Katz Giordano Margaliot 2024 Goodwin oscillations strongly 2 cooperative convergence",
+          "Woller Gonze Erneux Goodwin 2014 Appendix A nonlinear expansion"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1088/1478-3975/11/4/045002",
+        "https://arxiv.org/abs/2407.00461",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-variance-cascade-and-feedback-anticovariance-gap-in-the-go--b2a531c0f2bc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known quadratic shift at m=17 is zero; a vanishing A² coefficient leaves the A⁴ sign free",
+          "The original proof uses f^(4)(e*) and E(K) detuning to obtain 576−36, quantities missing from an order-two claim"
+        ],
+        "reasoning": "The fact that the quadratic term is zero neither implies zero mean nor implies positive fourth-order coefficient; the new coefficient requires distinct, explicit fourth-order algebra.",
+        "searches": [
+          "Woller Gonze Erneux Goodwin m 17 quadratic term 2014",
+          "Goodwin oscillations strongly 2 cooperative arxiv 2407.00461"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Woller–Gonze–Erneux (2014), Appendix A known second-order zero proportional to m−17; no independently verified fourth-order statement",
+          "Resultary SCOPE goodwin-global-hopf-slope-balance--69bab068e3f7 concerns derivative-energy-weighted threshold"
+        ],
+        "reasoning": "A center-manifold DC component at fourth order is the relevant alias; first-order Hopf existence or periodic slope balance alone is not the same term. No equivalent fourth-order coefficient was established in accessible inspected passages.",
+        "searches": [
+          "Goodwin 17 zero quadratic mean correction fourth order oscillation offset Woller Gonze Erneux",
+          "Resultary: Goodwin oscillator Hill 17 fourth-order mean rectification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary SCOPE-exact-variance-cascade-and-feedback-anticovariance-gap-in-the-go--b2a531c0f2bc supplies stationary variance identities, not the near-Hopf fourth-order mean",
+          "No exact published coefficient table was identified in these queries"
+        ],
+        "reasoning": "No known table/computation was shown to encode the moving-Hopf quartic mean; absence of a match is not proof of novelty.",
+        "searches": [
+          "Resultary Goodwin Hill exponent 17 quartic coefficient 60",
+          "Resultary Goodwin stationary exact variance cascade 2026/10/11"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the old m=17 cancellation is expressly known; the surviving fixed-exponent fourth-order positive mean coefficient and its moving-equilibrium contribution are not implied by the located lower-order perturbation or generic orbit-existence theorems. Full text of a particularly relevant 2014 primary article could not be recovered, leaving a material priority risk.",
+      "residual_risks": [
+        "Full 2014 Woller–Gonze–Erneux text and Appendix A not independently retrieved; Oxford returned vpn_disconnected, so an unlocated fourth-order calculation could affect priority.",
+        "The local normal-form result applies only to equal decay and Hill 17; ODE numerics do not prove o(A⁴)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Claim supports a local Hopf theorem with exact quartic coefficient; finite checker only checks symbolic identities and sampled ODE regimes",
+          "evidence": "RESULT.md sections Steps 1–3; goodwin_quartic_checker.py exact_checks",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/positive-quartic-mean-rectification-at-the-hill-17-goodwin-hopf--b0c2e06a8ea4/RESULT.md",
+          "material_read": "Complete RESULT.md finding/proof/limitations plus goodwin_quartic_checker.py, AUDIT.json, REVIEW.md, SLOGAN.txt and VERIFICATION.md",
+          "method": "Connected GitHub immutable path/blob read; independent SymPy differentiation",
+          "title": "Positive quartic mean rectification at the Hill-17 Goodwin Hopf point",
+          "trigger": "assigned exact claim"
+        },
+        {
+          "assessment": "ACCESS LIMITATION; cannot assert whole document lacks later fourth-order formula",
+          "evidence": "Known (A.10)–(A.20) second-order cancellation per package; no full document NOT_COVERING inference",
+          "identifier_or_url": "https://doi.org/10.1088/1478-3975/11/4/045002",
+          "material_read": "Bibliographic abstract and precise Appendix A theorem references in assigned package; full primary article not accessible despite preprint/OA attempts and authorized institutional download",
+          "method": "Source search plus authorized access attempt; returned vpn_disconnected",
+          "title": "The Goodwin model revisited: Hopf bifurcation, limit-cycle, and periodic entrainment",
+          "trigger": "same model and known degenerate m=17 quadratic mean"
+        },
+        {
+          "assessment": "No located quantitative concentration quartic mean statement; scope differ",
+          "evidence": "Model relevance and existence statement in abstract, uncertainty preserved",
+          "identifier_or_url": "https://arxiv.org/abs/2407.00461",
+          "material_read": "Available abstract and cited Goodwin periodic-existence statements; not a full proof comparison of all appendices",
+          "method": "arXiv contextual comparison",
+          "title": "Existence of attracting periodic orbits in 3-dimensional strongly 2-cooperative systems",
+          "trigger": "relevant more general cycle existence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the exact Hill-17 inflection, the standard quadratic Jensen mean-sign test degenerates. Determining the first nonzero fourth-order concentration bias, including the competition between moving equilibrium and negative intrinsic quartic curvature, resolves a motivated physically interpretable mathematical sign and parameter scale, not a generic substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1088/1478-3975/11/4/045002",
+    "https://arxiv.org/abs/2407.00461",
+    "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-variance-cascade-and-feedback-anticovariance-gap-in-the-go--b2a531c0f2bc"
+  ],
+  "disposition": "passed",
+  "final_claim": "Fixed Hill exponent 17: the attracting local Goodwin Hopf cycle has physical-time terminal mean minus moving equilibrium equal to 60 A^4/e_*^3+o(A^4), or 15(K-K_*)^2/(289e_*)+o((K-K_*)^2).",
+  "limitations": [
+    "Local small-supercritical Hopf branch only, normalized equal decay, Hill exponent exactly 17.",
+    "Oxford institutional access returned vpn_disconnected for the 2014 primary article; no human-verification bypass."
+  ],
+  "residual_risks": [
+    "Full 2014 Woller–Gonze–Erneux text and Appendix A not independently retrieved; Oxford returned vpn_disconnected, so an unlocated fourth-order calculation could affect priority.",
+    "The local normal-form result applies only to equal decay and Hill 17; ODE numerics do not prove o(A⁴)."
+  ],
+  "schema_version": 1
+}
