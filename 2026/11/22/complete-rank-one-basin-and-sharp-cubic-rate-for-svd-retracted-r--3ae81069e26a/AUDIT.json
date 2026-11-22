@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "In arbitrary ambient dimensions the tangent correction lives in the two factor planes. Its exact two-by-two matrix [[cd,cb],[ad,0]] yields simple leading singular value and strict angle contractions. Boundary cases give either zero projection, one-step termination or two-step termination. In target bases, exact Gram offdiagonals are a*b^2*c^3 and a^2*b*d^3, yielding the cubic recurrences; the logarithmic linearization has eigenvalues three and minus one, so the matrix error has the precise base-three double-log rate. The 15,310 executed exact and floating-point assertions supplement but do not substitute the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1, main theorem and Appendix F] proves quadratic estimates from a spectral initialization for random linear observations.",
+        "[4] studies a first-order Riemannian gradient descent map with random initialization.",
+        "[3] is a retraction geometry survey; it does not give the claimed all-start SVD-Gauss–Newton theorem.",
+        "[5, main theorems] proves local quadratic convergence for RISRO, whose retraction is orthographic."
+      ],
+      "reasoning": "A general local Q-quadratic result is weaker than a complete global identity-observation basin plus a sharp cubic exponent. Random-initialization gradient descent concerns a different map. None of these results explicitly or logically yields the stated exact boundary classification and the base-three error precision exponent.",
+      "searches": [
+        "global convergence Riemannian Gauss Newton rank one arbitrary initialization orthogonal degeneracy",
+        "rank one matrix manifold tangent projection dominant singular vector cubic principal angle recurrence",
+        "\"rank-one\" \"Riemannian Gauss Newton\" \"cubic convergence\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.01542v1",
+      "https://arxiv.org/abs/2609.17048",
+      "https://sites.uclouvain.be/absil/2013-04/low_rank_retraction_13PA_techrep.pdf",
+      "https://arxiv.org/abs/2012.15467",
+      "https://arxiv.org/abs/1708.02488",
+      "https://arxiv.org/pdf/2011.08360"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1, §2, Algorithm 1] uses truncated SVD, whereas its convergence guarantee is local Q-quadratic with spectral initialization under Gaussian measurements.",
+        "[2, §2 and Lemma 5.3, Appendix C.2.3] establishes exact population correction only for an orthographic retraction.",
+        "[3] details the distinct retractions and their low-rank properties.",
+        "[5, §3.3] derives a Schur-complement orthographic retraction, not truncated SVD; its quadratic rate does not determine the SVD orbit."
+      ],
+      "reasoning": "The present proof derives a new two-by-two SVD eigenvector dynamics and boundary analysis from the source update. The stronger one-step orthographic population theorem does not dominate an SVD-specific rate classification because its conclusion does not apply to the SVD iterate. The known quadratic upper bound does not fix the exact cubic exponent or global basin.",
+      "searches": [
+        "https://arxiv.org/html/2611.01542v1 §2 and Appendix F",
+        "https://arxiv.org/abs/2609.17048 Lemma 5.3 Appendix C.2.3",
+        "https://arxiv.org/pdf/2011.08360 §3.3 and Theorem 2",
+        "https://sites.uclouvain.be/absil/2013-04/low_rank_retraction_13PA_techrep.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1, §2] defines SVD-retracted Gauss–Newton; [2, Lemma 5.3] uses orthographic retraction, yielding a genuinely different iterate.",
+        "[3] distinguishes orthographic from best-rank SVD retractions.",
+        "[5, §3.3] explicitly uses orthographic retraction, despite its Gauss–Newton interpretation."
+      ],
+      "reasoning": "The candidate is equivalent to alternating a tangent-plane projection of a fixed rank-one target with the best rank-one SVD. Reparametrization in factor angles does not turn the orthographic retraction identity into the SVD orbit: one is locally exact in one step, while the other has strictly positive interior errors after every finite step.",
+      "searches": [
+        "\"rank-one\" \"Riemannian Gauss Newton\" \"cubic convergence\"",
+        "\"tangent projection\" \"truncated SVD\" \"cubic convergence\"",
+        "full observation rank one matrix sensing Riemannian Gauss Newton third-order local convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "[1] contains no full-observation cubic rank-one table.",
+        "The accessible retraction survey [3] provides formulas and retraction properties, not an exact iterated angle census."
+      ],
+      "reasoning": "The claim concerns a continuous all-dimensional iteration, not a finite database entry. No source encountered states an exact listed sequence of its angle map or the full start-type classification.",
+      "searches": [
+        "\"SVD\" \"Gauss–Newton\" \"third order\" matrix low rank",
+        "Gauss Newton low rank matrix recovery full observation rank one global convergence from arbitrary initialization",
+        "RGN SVD retraction rank one target double log 3 angular convergence"
+      ]
+    },
+    "rationale": "Exact comparison shows that [1] establishes the SVD-retracted update and local quadratic random-sensing results, but not the identified full-observation all-start basin with a sharp cubic precision exponent. The population identity in [2, Lemma 5.3] uses orthographic rather than SVD retraction and does not imply this orbit. The survey [3] and RGD study [4] likewise do not imply it. Residual priority risk: an unindexed specialized deterministic SVD-retraction analysis could cover the calculation.",
+    "residual_risks": [
+      "An unindexed population-dynamics proof for truncated-SVD rank-one Riemannian Gauss–Newton could imply this result.",
+      "The older general Gauss–Newton convergence article was available only at abstract-level in this comparison, and specialized appendices could contain stronger formulae.",
+      "The present result is a particular exact observation model, not a claim of novelty for all geometric Gauss–Newton methods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ALGORITHM_COVERING_ONLY",
+        "evidence": "Tangent solve plus best rank-one SVD appears in §2; main guarantee is a high-probability local Q-quadratic sensing result with spectral initialization; no full-data all-start cubic classification is stated.",
+        "identifier_or_url": "https://arxiv.org/html/2611.01542v1",
+        "material_read": "Full arXiv HTML, especially §1, §2 Algorithm 1, §3 main results and Appendix F",
+        "method": "Direct inspection of public HTML text and equations",
+        "title": "Rank-Optimal Sample Complexity of Riemannian Gauss-Newton for Low-Rank Matrix Recovery",
+        "trigger": "Exact motivating SVD-retracted tangent update and possible stronger convergence result"
+      },
+      {
+        "assessment": "DIFFERENT_RETRACTION",
+        "evidence": "Lemma 5.3 gives a one-step population identity for its orthographic retraction. This is not the best-rank truncated SVD retraction whose nonterminating cubic orbit is claimed.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.17048",
+        "material_read": "Full arXiv accessible text, §2 retraction definition, §5.1 Lemma 5.3 and Appendix C.2.3 proof",
+        "method": "Primary full-text comparison of retractions and implications",
+        "title": "Near-Optimal Nonconvex Matrix Completion",
+        "trigger": "Plausible population RGN result with exact recovery"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY",
+        "evidence": "Describes SVD and orthographic low-rank retractions, not the exact full-observation rank-one RGN global dynamics or base-three exponent.",
+        "identifier_or_url": "https://sites.uclouvain.be/absil/2013-04/low_rank_retraction_13PA_techrep.pdf",
+        "material_read": "Accessible technical report, retraction formulas and discussion around PDF pages 5–8",
+        "method": "Primary paper text and PDF-page comparison",
+        "title": "Low-rank retractions: a survey and new results",
+        "trigger": "Potential general retraction identity or higher-order convergence theorem"
+      },
+      {
+        "assessment": "DIFFERENT_ALGORITHM",
+        "evidence": "Its convergence analysis concerns Riemannian gradient descent from random initialization, not the SVD-retracted Gauss–Newton tangent solve.",
+        "identifier_or_url": "https://arxiv.org/abs/2012.15467",
+        "material_read": "Public full HTML and method/convergence statements",
+        "method": "Comparison of update and quantified convergence rate",
+        "title": "Fast Global Convergence for Low-rank Matrix Recovery via Riemannian Gradient Descent with Random Initialization",
+        "trigger": "Possible global basin theorem for rank-one recovery"
+      },
+      {
+        "assessment": "DIFFERENT_RETRACTION",
+        "evidence": "Section 3.3 derives an orthographic Schur-complement retraction and local quadratic convergence, not SVD-retracted rank-one all-start cubic dynamics.",
+        "identifier_or_url": "https://arxiv.org/pdf/2011.08360",
+        "material_read": "49-page open arXiv preprint, abstract, methods, section 3.3 around PDF pages 12–14, convergence statements and retraction derivation",
+        "method": "Direct primary PDF text comparison and page-image inspection",
+        "title": "Recursive Importance Sketching for Rank Constrained Least Squares: Algorithms and High-order Convergence",
+        "trigger": "Highly relevant Gauss–Newton-equivalent low-rank algorithm promising high-order convergence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3ae81069-e26a-4ea4-bc19-27039a129c23",
+  "value": {
+    "rationale": "A complete all-start basin and sharp cubic rate for the exact full-observation specialization of an emerging SVD-retracted low-rank Gauss–Newton method provide a natural deterministic control problem. They expose a single geometric degeneracy and isolate the rate-changing contribution of SVD retraction, a substantive distinction from the known orthographic population identity. They furnish a rigorous baseline for future perturbation and partial-observation analyses; no transfer to those settings is claimed.",
+    "status": "PASS"
+  }
+}
