@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The accompanying `check_book_facets.py` is a standalone Python 3 program using only the standard library; execute `python3 check_book_facets.py`. The program independently enumerates integer anchored graph-Lipschitz potentials for the two-hub triangular-book graph, applies the connected-tight-edge characterization as a combinatorial rank test, and computes squared Euclidean norms with `fractions.Fraction`. It checks the full norm-and-facet-size multiset against the formulas and verifies the exact tangent-normal ranks and second-shell degeneracies. The same program also checks algebraic inequality signs over a finite parameter range.
+## correctness
 
-Observed execution:
+PASS
 
-`TRIANGULAR_BOOK_FACET_SHELL_CHECKS_PASSED facets=6138 norm_entries=6138 incenter_ranks=9 second_shells=9 integer_inequalities=499`
+Polar vertices correspond exactly to centered integral graph-Lipschitz potentials with connected graph of tight edges, a full-rank criterion. Anchoring hubs yields d=0 with all leaves ±1 (type A) or d=±1 with leaves 0 or d (type B), complete 3*2^q classification. Squared polar norms are q-(2t-q)^2/(q+2) or k(q+2-k)/(q+2), with 2q or q+1 facet vertices respectively. Antipodal facet inequalities bound global inball radius by inverse maximal norm, attained at origin; rank of balanced leaf-sign tangent normals gives affine dimension 2 for even q, 1 for odd. Comparing second type-A shell with maximal B shell yields exact q=2,3 tie, stabilization and O(q^-5/2) shell clearance. Independent 2<=q<=10 exact shell identities and proof of nonnegative norm gap; source code independently enumerates potentials q1..10.
 
-Direct exhaustive checks cover the book sizes \(1\le q\le10\) (including the excluded boundary \(q=1\)); inequality checks cover \(2\le q\le500\). Finite enumeration does **not** imply the all-integer theorem, uniqueness in the literature, or global optimization over continuous centers. Those conclusions are established by the analytic proof and its global antipodal-center argument in `RESULT.md`. This is self-reviewed work with no independent mathematical audit.
+## originality
+
+PASS
+
+Best-of-knowledge original surviving contribution: Priority assessed by comparing precise mathematical implications and acknowledging stronger partial coverage; historical first priority is not certified.
+
+## value
+
+PASS
+
+Exact complete canonical Euclidean facet-distance spectrum, center-locus parity and second shell for a natural two-hub triangular-book graph is a motivated structural classification, and distinguishes the inradius geometry of graph joins from their facet counts. The quantified second-shell multiplicities and center dimensions are independently useful invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
