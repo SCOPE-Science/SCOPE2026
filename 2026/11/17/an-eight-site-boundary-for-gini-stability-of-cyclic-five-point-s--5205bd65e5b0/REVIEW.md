@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The statement specifies the fixed five-tap periodic operator and complete-pair Gini seminorm for every real signal and every integer \(n\ge5\). Polynomial moments give the stencil exactly; a layer-cake decomposition proves that the seminorm is maximized on cuts. The short complete exact-integer certificate enumerates **every** nontrivial cut in the only four dimensions used for the finite sharp constants — \(L_5=6/7\), \(L_6=101/105\), \(L_7=69/70\), and \(L_8=251/245\) — with no probabilistic or partial extrapolation. For the unrestricted range, the singleton ratio follows from all 5 nonzero coefficients and their 10 mutual pairs; the \(47/35\) upper bound is the triangle inequality for five translated copies. Full proof and reproducible checker are in `RESULT.md` and `check_sg_gini.py`.
+## correctness
 
-## Originality: PASS (historically qualified)
-The original Savitzky–Golay article and two subsequent technical treatments establish local polynomial smoothing, coefficient construction, frequency behavior and implementations. The closest indexed record, *Seven points maximize the positivity defect of quadratic Savitzky–Golay smoothing*, concerns loss of positivity and an all-window bound, not Gini variation on periodic samples. In particular, knowing the absolute coefficient sum \(47/35\) does **not** give the small-cycle cut maximization or the sharp size-eight threshold. Searches for pairwise variation, signed cyclic convolution and the exact kernel found no covering primary assertion. One historical equivalence risk remains: related older time-domain studies might contain a reformulation not indexed under Gini or dispersion.
+PASS
 
-## Mathematical value: PASS
-The five-point Savitzky–Golay smoother is a standard local quadratic smoothing filter, but its negative outer weights make claims of uniform dispersion reduction nontrivial. The sharp eight-vertex cutoff resolves exactly when smoothing is automatically Gini-nonexpansive on short periodic records; the all-size impulse witness and sharp uniform \(47/35\) amplification envelope quantify the price of polynomial reproduction. This is a natural complete stability classification, not an arbitrary subset computation or merely a rederivation of known coefficients.
+The classical least-squares centered quadratic stencil is (-3,12,17,12,-3)/35 and fixes constants. Every real vector decomposes into positive nested binary cuts modulo constants; the Gini pair sum is additive over such nested cuts, while postfilter Gini obeys the triangle inequality, so the exact operator norm is the maximum over nonempty binary masks. For each n=5,6,7,8 independent exact integer enumeration visited all (2^n−2) masks: totals 30,62,126,254=472 and fixed-cardinality maxima (110,180);(157,256,303);(204,338,414);(251,420,531,560). Quotients give sharp L_n=(6/7,101/105,69/70,251/245). The n≥8 impulse formula follows algebraically from five distinct nonzero entries and their 10 mutual variations: G_n(35S_ne0)=47n−125, G_n(e0)=n−1. Thus strict amplification for all n≥8 is proved without extrapolating finite cases. The triangle inequality over five shifts gives L_n≤47/35, attained only in the n→∞ supremum. Correctness is limited to the specified periodic, equal-mass Gini setting; per-size norms n≥9 are not claimed.
 
-## Boundaries and residual priority risk
-The exact coefficients are supplied only through eight sites; all larger sites have a proven expansion witness and sharp family-wide envelope, not known exact per-site norms. Periodic wraparound and equal sample masses are essential. The result is not externally or independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for sharp Gini operator norms on short cyclic rings and the universal n=8 amplification boundary. Candan–Inan 2014 full primary article explicitly derives this same five-coefficient stencil (equation (4) and text p.205) but studies minimum-norm polynomial fit and implementation, not complete-pair Gini amplification. The related full Resultary three-tap Gini theorem establishes an exact norm for a positive averaging filter, not the signed five-tap SG multiplier; its cut variance identity cannot infer the present maxima. The exact 47/35 absolute coefficient sum is elementary and not claimed novel alone; the finite exact cut threshold and its analytical all-size witness are the meaningful new statements.
+
+## value
+
+PASS
+
+The five-point Savitzky–Golay filter is widely used to reduce measurement noise but has negative outer weights, so a global pairwise-dispersion contraction property is not automatic. Exactly locating the eight-site transition, with all-real-input proof and sharp family-wide amplification envelope, is a meaningful natural stability boundary for an established operator, not just a rederived coefficient stencil or arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

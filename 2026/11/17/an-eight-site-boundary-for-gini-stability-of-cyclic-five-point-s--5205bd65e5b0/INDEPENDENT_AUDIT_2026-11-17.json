@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:15:35.819636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned source RESULT.md blob a6dde68bcbbb8b42c91fb0ace4de02b90e97d23a",
+        "Pinned check_sg_gini.py blob 13a90e4a2a6caf21841853f35c760ca4eaf37153",
+        "Independent full 472-mask exhaustive integer enumeration in independent_checks.py"
+      ],
+      "rationale": "The classical least-squares centered quadratic stencil is (-3,12,17,12,-3)/35 and fixes constants. Every real vector decomposes into positive nested binary cuts modulo constants; the Gini pair sum is additive over such nested cuts, while postfilter Gini obeys the triangle inequality, so the exact operator norm is the maximum over nonempty binary masks. For each n=5,6,7,8 independent exact integer enumeration visited all (2^n−2) masks: totals 30,62,126,254=472 and fixed-cardinality maxima (110,180);(157,256,303);(204,338,414);(251,420,531,560). Quotients give sharp L_n=(6/7,101/105,69/70,251/245). The n≥8 impulse formula follows algebraically from five distinct nonzero entries and their 10 mutual variations: G_n(35S_ne0)=47n−125, G_n(e0)=n−1. Thus strict amplification for all n≥8 is proved without extrapolating finite cases. The triangle inequality over five shifts gives L_n≤47/35, attained only in the n→∞ supremum. Correctness is limited to the specified periodic, equal-mass Gini setting; per-size norms n≥9 are not claimed.",
+      "residual_risks": [
+        "Finite exhaustion restricted to the four explicitly claimed base sizes; no claim of sharp per-size n≥9 norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full Resultary three-point theorem treats P=(shift−1+I+shift)/3 with all nonnegative coefficients and always Gini-contractive.",
+          "The five-point SG filter has two negative taps and can expand Gini starting at n=8, so neither a positive Markov contraction theorem nor Gini formula for the three-tap case implies its bounds."
+        ],
+        "reasoning": "General filter design or positive stochastic-operator contraction theorems do not cover this signed kernel; a separate exact finite cut computation and impulse law are needed.",
+        "searches": [
+          "cyclic Savitzky Golay 5 point quadratic filter Gini variation seminorm n=8 251/245 impulse",
+          "time domain Savitzky Golay filter analysis 2011 stability oscillation Gini",
+          "Resultary sharp Gini contraction cyclic three-point averaging"
+        ]
+      },
+      "checked_sources": [
+        "Candan–Inan Signal Processing 104 (2014) pp.203–211 full PDF",
+        "Resultary 2026/11/17 cyclic three-tap Gini theorem full",
+        "cyclic Savitzky Golay 5 point quadratic filter Gini variation seminorm n=8 251/245 impulse"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Candan–Inan computes least-squares coefficient vector but not a ratio G_n(S_n f)/G_n(f) or the n=8 threshold.",
+          "The prior three-tap formula γ_n=1−8/(3 floor(n²/4)) is for a different positive filter; using it gives no sharp bound for signed five-tap SG."
+        ],
+        "reasoning": "Even combined with the elementary bound 47/35, prior results do not entail that n≤7 is contractive or n=8 first expansive; cut geometry and impulse construction supply the gap.",
+        "searches": [
+          "cyclic Savitzky Golay 5 point quadratic filter Gini variation seminorm n=8 251/245 impulse",
+          "A unified framework derivation implementation Savitzky Golay Candan Inan 2014",
+          "Sharp Gini contraction and level-count variance cyclic three point averaging full"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Candan–Inan (2014), p.205, has exactly h=(−3,12,17,12,−3)/35, but only design/implementation analyses.",
+          "Gini seminorm is complete-graph total variation Σ_i<j|f_i−f_j|; this differs from local total variation Σ|f_i−f_{i+1}| or Dobrushin oscillation."
+        ],
+        "reasoning": "An equivalent prior would evaluate the signed cyclic convolution in complete-pair Gini norm across sizes, rather than simply know the stencil, frequency response or row absolute sum.",
+        "searches": [
+          "cyclic Savitzky Golay 5 point quadratic filter Gini variation seminorm n=8 251/245 impulse",
+          "five point Savitzky Golay Gini cyclic complete pair 251/245 eight site boundary",
+          "Savitzky Golay quadratic 5 point Gini mean difference monotonicity negative kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected exact published n=5..8 cut-maxima table covers G_n(S_nf) for every real f.",
+          "The 472 mask extrema are integer exact in independently reconstructed enumeration, not sampled signals."
+        ],
+        "reasoning": "Known coefficient/positivity-defect tabulations are distinct invariants and would not determine the complete-pair pairwise-Gini norms.",
+        "searches": [
+          "cyclic Savitzky Golay 5 point quadratic filter Gini variation seminorm n=8 251/245 impulse",
+          "Savitzky Golay Gini 6/7 101/105 69/70 251/245",
+          "Resultary positivity defect quadratic Savitzky Golay seven points"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for sharp Gini operator norms on short cyclic rings and the universal n=8 amplification boundary. Candan–Inan 2014 full primary article explicitly derives this same five-coefficient stencil (equation (4) and text p.205) but studies minimum-norm polynomial fit and implementation, not complete-pair Gini amplification. The related full Resultary three-tap Gini theorem establishes an exact norm for a positive averaging filter, not the signed five-tap SG multiplier; its cut variance identity cannot infer the present maxima. The exact 47/35 absolute coefficient sum is elementary and not claimed novel alone; the finite exact cut threshold and its analytical all-size witness are the meaningful new statements.",
+      "residual_risks": [
+        "Older unindexed Gini/mean-difference operator norms under alternative dispersion terminology might exist; current positive-filter theory does not settle this signed filter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Derives same weights but does not contain a Gini stability boundary for periodic rings",
+          "evidence": "At p.205 it explicitly states 1/35[−3,12,17,12,−3] for N=L=2; objective is design and efficient implementation.",
+          "identifier_or_url": "https://web.stanford.edu/~inanh/papers/unified-sg.pdf",
+          "material_read": "Author-hosted 2014 PDF pp.203–206 including equations (4), (9)–(10); main section titles and full-document term searches; visually verified pages 203 and 205",
+          "method": "Read OA author-hosted original pp.203–206, PDF screenshots of pp.203/205, searched remainder for Gini/pairwise variation, compared design objective",
+          "title": "A unified framework for derivation and implementation of Savitzky–Golay filters",
+          "trigger": "Exact five-tap quadratic smoothing coefficients, possible stronger time-domain facts"
+        },
+        {
+          "assessment": "Not covering; exact norm for positive 3-tap filter, fundamentally different coefficients",
+          "evidence": "Its γ_n is <1 for every finite n, whereas the five-tap signed SG has L_8=251/245>1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-and-level-count-variance-for-cyclic-three--e4cea2805c7a/RESULT.md",
+          "material_read": "Full Resultary RESULT.md including exact cut deficit and comparison",
+          "method": "Read GitHub blob 12a992ce204879b563a785ec1b63ad3417e751fd",
+          "title": "Sharp Gini contraction and level-count variance for cyclic three-point averaging",
+          "trigger": "Same Gini seminorm and cyclic filter operator"
+        },
+        {
+          "assessment": "Same target, not separate prior publication",
+          "evidence": "Explicit 472 cut certificate and separate infinite impulse/envelope arguments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-an-eight-site-boundary-for-gini-stability-of-cyclic-five-point-s--5205bd65e5b0/RESULT.md",
+          "material_read": "Full pinned target proof and exact certificate",
+          "method": "Read Git source blob a6dde68bcbbb8b42c91fb0ace4de02b90e97d23a",
+          "title": "An eight-site boundary for Gini stability of cyclic five-point Savitzky–Golay smoothing",
+          "trigger": "Same indexed source control"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sharp all-real-input binary-cut reduction",
+        "Exact n≤8 classification and algebraic n≥8 expansion witness"
+      ],
+      "rationale": "The five-point Savitzky–Golay filter is widely used to reduce measurement noise but has negative outer weights, so a global pairwise-dispersion contraction property is not automatic. Exactly locating the eight-site transition, with all-real-input proof and sharp family-wide amplification envelope, is a meaningful natural stability boundary for an established operator, not just a rederived coefficient stencil or arbitrary finite table.",
+      "residual_risks": [
+        "Restricted to equal-sample periodic wraparound five-tap quadratic filter; no open-interval endpoints or multistep stability treated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite norms known exactly through n=8; for n≥9 claim only strict lower bound and sharp family supremum, not exact individual norms.",
+    "Assumes periodic real data and uniform pair weights."
+  ],
+  "schema_version": 1
+}
