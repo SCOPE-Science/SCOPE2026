@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For all m≥1, arbitrary Borel copulas with uniform marginals and all normalized real trigonometric polynomials are handled by a direct inequality. Sine/cosine test pairs bound worst risk by (1+max c_k)/2. The Fejer sum identity with strictly positive triangular weights forces max c_k≥−1/m. Uniform random nonidentity (m+1)th-root displacement yields all complex moments −1/m and therefore exactly isotropic risk (m−1)/(2m). Equality forces vanishing geometric sum almost surely and all cosine moments −1/m; a double-angle calculation rules out fixed shifts for m≥3. Standalone finite checks passed 2341 tests but are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1706.04502: abstract and first two pages establish random-number-of-lattice-nodes asymptotic bounds for smoothness classes, not exact arbitrary joint laws with two nodes.",
+        "arxiv:2109.11694: introduction and theorem 2.8 concern rank-one lattice construction and error estimates under Korobov smoothness, not a finite Fourier minimax copula.",
+        "Roach–Wright (1977) abstract: transportation assignment optimum for specified simulation models; no explicit all-Fourier-band two-node minimax is stated there, and the full text was not inspected."
+      ],
+      "reasoning": "Although randomized lattice algorithms cover a wider class of integrands or more sample counts, their rate theorems do not imply an exact sharp two-point worst-variance constant over arbitrary marginal-preserving dependence; their algorithms are restricted to prescribed lattice constructions. The new optimum is not presented as a general convergence-rate extension.",
+      "searches": [
+        "finite Fourier band Monte Carlo antithetic two-point sampling minimax coupling",
+        "\"uniform marginals\" \"trigonometric\" \"antithetic\" sampling",
+        "\"minimax\" \"two-point\" \"trigonometric polynomials\" quadrature variance",
+        "\"Optimal antithetic sampling plans\" Roach Wright 1977 two point trigonometric periodic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1706.04502",
+      "arxiv:2109.11694",
+      "arxiv:2110.15124",
+      "doi:10.1080/00949657708810144 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1706.04502: Theorems 9 and 11 concern rate estimates in budget-varying Sobolev/Korobov settings.",
+        "arxiv:2109.11694: algorithm 2.4 and theorem 2.8 concern existence/construction of good lattice generating vectors and rate bounds.",
+        "arxiv:2110.15124: introductory covariance equation and KL/concordance criteria do not by themselves imply the Fejér lower bound over the entire Fourier ball."
+      ],
+      "reasoning": "All-coupling minimax is stronger than optimizing a chosen antithetic family and uses a different quantifier order from smoothness-rate lattice results. The identity E|sum_{j=0}^m exp(2πijΔ)|²≥0 supplies the missing sharp universal lower bound; uniform nonidentity roots provide equality. The named source theorems establish useful background but not that implication on their inspected statements.",
+      "searches": [
+        "fast: \"two-point\" antithetic trigonometric polynomials minimax variance random Fourier quadrature",
+        "fast: fixed uniform marginals two point Fourier quadrature optimal negative correlation Fejer kernel",
+        "fast: nontrivial roots of unity random difference two sample minimax Fourier integration variance",
+        "sharp minimum worst-case covariance two uniform samples real Fourier harmonics 1 to m Fejer kernel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2110.15124: pairwise antithetic coupling via Fréchet/rearrangement and general dependence; the inspected section 6.1 treats empirical Monte Carlo integration, not bounded Fourier-mode minimax.",
+        "Classical Fejér nonnegative trigonometric kernel is the exact dual device in the present proof; it is acknowledged as prior mathematical machinery."
+      ],
+      "reasoning": "An equivalent formulation would optimize the largest symmetric cross-correlation eigenvalue on the first m Fourier modes, or find the minimal maximal real Fourier moment of a circle probability measure. The inspected sources do not state this exact all-copula value or equality-support result. Because classical positive-definite Fourier sequences can imply special cases without named quadrature terminology, an equivalent old formulation remains a residual risk.",
+      "searches": [
+        "\"two-point\" antithetic trigonometric polynomials minimax variance random Fourier quadrature",
+        "optimal negative correlation trigonometric polynomial bandlimited equal marginals circle random phase difference",
+        "minimax cosine Fourier moments negative first m positive definite Toeplitz roots of unity",
+        "two marginally uniform samples Fourier moment Fejer positivity tight frame root-of-unity differences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Target constants are exact rational functions of the bandwidth, not numbers borrowed from any precomputed numerical table.",
+        "The construction and sharp support necessity are proved directly by finite Fourier identities and Fejér positivity."
+      ],
+      "reasoning": "No relevant exact table of these sharp finite-bandwidth two-node minimax risks or support restrictions was identified by the actual searches. A failed table search is not affirmative novelty evidence; a known positive-definite Toeplitz extremal theorem could still directly subsume this result.",
+      "searches": [
+        "nontrivial roots of unity random difference two sample minimax Fourier integration variance",
+        "minimax variance two point Monte Carlo quadrature with random nonzero (m+1)th root-of-unity shift (m-1)/2m",
+        "random phase difference uniform nonzero roots of unity optimal bandlimited Monte Carlo quadrature variance"
+      ]
+    },
+    "rationale": "The exact two-node finite-bandwidth minimax criterion ranges over arbitrary copulas, unlike inspected random-node lattice rate theorems or general antithetic dependence methodologies. Actual alias, Fourier-moment, root-of-unity and antithetic searches identified no directly equivalent or dominating published statement. Classical Fejer positivity and lattice orthogonality are acknowledged prior machinery, leaving significant equivalent-historical-priority risk.",
+    "residual_risks": [
+      "An older Toeplitz-positive-definiteness or extremal trigonometric moment theorem may directly imply the claimed lower bound and root support.",
+      "The short classical Fejer proof makes independent publication-priority assessment particularly important.",
+      "The selected full-text passages, not line-by-line inspection of every source page, ground the stated comparison.",
+      "Roach–Wright (1977) is directly relevant to optimal antithetic plans, but its inaccessible full text was not compared theorem by theorem; an implicit spectral specialization remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Investigates random numbers of lattice points and asymptotic smoothness-space bounds; inspected claims do not provide exact two-point arbitrary-copula minimax variance.",
+        "evidence": [
+          "arxiv:1706.04502, introduction and theorems overview: randomized prime-point lattice QMC; smoothness rate bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1706.04502",
+        "material_read": "Full-text PDF pages 1–3 including abstract, main randomized-lattice definitions, introduction and the statement of Theorems 9, 11 and 12 as summarized in the introduction.",
+        "method": "Read available PDF text and page image of first page, compared sample budget, domain, error criterion and quantifiers.",
+        "title": "Lattice rules with random n achieve nearly the optimal error independently of the dimension",
+        "trigger": "Earliest substantive randomized periodic lattice quadrature source; risk of a stronger rate or exact two-point lower bound."
+      },
+      {
+        "assessment": "Its results concern construction and smoothness-rate bounds for ranked lattices rather than exact two-point marginal-preserving dependence minimax.",
+        "evidence": [
+          "arxiv:2109.11694, introduction, Definition 1.1, Theorem 2.8, Remark 3.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.11694",
+        "material_read": "Full-text PDF abstract and introduction pages 1–4, rank-one point-set definition, statement and proof beginning of Theorem 2.8, and the sections discussing root-mean-square error and random shifts.",
+        "method": "Read parsed PDF text and first-page image; inspected relevant statements and searched terms relating to random shifts and Fourier coefficients.",
+        "title": "Component-by-component construction of randomized rank-1 lattice rules achieving almost the optimal randomized error rate",
+        "trigger": "Direct primary reference on randomized periodic quadrature and Fourier representations."
+      },
+      {
+        "assessment": "Presents general antithetic schemes and empirical integration comparisons; does not state the inspected finite-harmonic all-coupling minimax risk/equality characterization.",
+        "evidence": [
+          "arxiv:2110.15124, equation (1), introduction and section 6.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2110.15124",
+        "material_read": "Full-text PDF abstract and introductory Fréchet/covariance discussion, KL-optimality statement and section 6.1 on Monte Carlo integration, together with source search for Fourier/specific quadrature language.",
+        "method": "Read relevant PDF text and page image of the introduction; compared general concordance/KL/covariance criteria with the sharp Fourier ball worst-case variance.",
+        "title": "Living on the Edge: An Unified Approach to Antithetic Sampling",
+        "trigger": "Potential broader dependence-minimization result covering any equal-marginal pair."
+      },
+      {
+        "assessment": "Generic optimization of antithetic plans for a supplied model is not on the accessible statement an exact spectral minimax theorem over all bandlimited functions; the uninspected full text remains a plausible historical-priority risk.",
+        "evidence": [
+          "Roach and Wright (1977), abstract: transportation assignment and branch-and-bound antithetic sampling plans for fixed model-sampling problems."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00949657708810144",
+        "material_read": "Publisher abstract and bibliographic metadata only; no full-text proof or appendix accessible.",
+        "method": "Read accessible abstract and compared its fixed-model transportation objective against the all-Fourier-band worst-case minimax quantifier.",
+        "title": "Optimal antithetic sampling plans",
+        "trigger": "Historical optimal-antithetic sampling literature, potentially stronger via assignment or group-sampling reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dde34143-0d54-44b8-ba7e-3231411c07e4",
+  "value": {
+    "rationale": "The fixed-marginal, two-evaluation integration problem has a natural finite Fourier norm criterion. The new sharp universal copula optimum is achieved by a finite random shift that equalizes risk across all 2m directions, and every optimum has highly constrained root-of-unity difference support; a deterministic fixed shift fails from bandwidth m=3 onward. Improvement against iid is 1/m, meaningful especially at small bandwidth, with no claim of large-bandwidth universal speedup.",
+    "status": "PASS"
+  }
+}
