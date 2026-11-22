@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Strict one-coordinate convexity forces single-alphabet optimizers to be binary, and conditional exponential integration tensors their sharp values. At equality, each saturated averaged cut forces every fiber difference to saturate; connectedness of the complete-bipartite cut graphs yields the full additive rigidity. The adjacent-factor ratio and strict hyperbolic-sine inequality determine all parameter transitions. Taylor expansion of the unique smooth continuous-density optimum, and periodicity/density of fractional parts, prove the arithmetic quantization statement. Finite-grid checker computations confirm representative exact polytope optima but are not substituted for the all-parameter proof.
+## correctness
 
-**Originality — PASS with historical priority risk.** A search of published mathematical finding records did not locate this claim or its equivalent parameter/staircase formulation, and accessible earlier findings on bounded differences and finite metric Lipschitz variance have different functionals. The fully read 2012 Dzindzalieta source optimizes a one-sided deviation event, whereas the present theorem optimizes one centered exponential integral and characterizes all its optimizers. The inspected portions of Samorodnitsky's 2008 log-Sobolev paper concern entropy/Dirichlet-energy inequalities rather than finite-alphabet exponential extrema. The 1989 McDiarmid foundational chapter and Bentkus 2007 paper could not be read in full; their stronger convex-order statements might imply parts of the product inequality, and unknown older equivalent formulations remain possible. The distinctly assessed contribution includes the simultaneous full equality rigidity, cardinality staircase, and exact arithmetic quantization effect—not merely the classical exponential bounded-differences upper bound.
+PASS
 
-**Mathematical value — PASS.** Finite alphabet size is intrinsic to discrete Lipschitz-function spaces, and exponential integration is the exact, non-Gaussian object underlying concentration and Orlicz embeddings. The result classifies all norming functions on heterogeneous products, identifies nontrivial optimizing cut-size changes with the tilt parameter, and resolves an order-\(m^{-2}\) arithmetic oscillation not visible in dimension-free bounded-differences estimates. These are structurally motivated sharp facts rather than a small numeric improvement to a standard estimate.
+For one uniform m-point coordinate, translate an oscillation<=1 vector into [0,1]^m. The log centered exponential functional has strictly positive second derivative with respect to each coordinate at fixed others: λ²w(1−w)>0. Thus every maximum is a 0/1 cut, nonconstant by Jensen, giving sharp factor H_m(k). Conditional exponential integration over successive coordinates yields product upper bound with equality attained by sums of cuts. The equality argument is substantive: the conditional mean h on earlier coordinates itself maximizes; across a cut edge h varies by exactly one, so every fiber of f must have the same full signed difference. The product of complete bipartite cut graphs is connected, so the residual last-coordinate function is independent of earlier coordinates and separately a binary cut. The neighboring H_m ratio gives threshold B_m(λ), with derivative negative because sinh(mt)>m sinh(t); endpoints (m−1)/2 and zero count all tie values. The smooth gλ(p) has unique interior max pλ and second derivative −λ², giving the lattice squared-distance discrepancy with Oλ(m^−3) remainder; fractional parts of irrational pλ are dense, including p_1=1−1/(e−1). The source's integer bounded-difference polytope test and small-alphabet finite checks are supplementary, not infinite proofs. A numerical independent check of the lattice error and staircase is consistent; strict convexity/tensor equality bears universal conclusion.
 
-**Scientific limits.** Uniform product alphabets, real functions and fixed positive \(\lambda\) are essential to the statement. General weighted alphabets and exact tail envelopes remain outside scope. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+McDiarmid and Bentkus supply general product concentration bounds; Samorodnitsky treats binary log-Sobolev; Dzindzalieta treats sharp one-sided tail-event probabilities, not the same centered fixed-λ exponential functional. Those sources do not, on inspected material, imply the entire sharp mixed-alphabet MGF extremizer family or its quantitative arithmetic m→∞ phase. Resultary searches found nearby Hamming and Bernoulli entries with distinct invariants, no exact dominating theorem. Best-of-knowledge PASS; inaccessible Bentkus and McDiarmid full chapters and possible stronger convex-order bounds remain real residual risks.
+
+## value
+
+PASS
+
+The exact sharp uniform finite-alphabet concentration/exponential embedding constant is a natural variational quantity, not merely a coarse bounded-differences estimate. Classifying *all* maximizing functions and their additive rigidity is a structural result. The exact finite-alphabet transition staircase and second-order irrational-grid oscillation offer nontrivial parameter-sensitive information beyond the familiar binary case, with no unsupported tail-optimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
