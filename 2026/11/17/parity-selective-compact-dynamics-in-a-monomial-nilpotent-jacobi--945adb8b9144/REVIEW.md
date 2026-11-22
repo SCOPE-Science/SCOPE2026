@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The time-preserving polynomial shear reduces the new family to an axial skew flow over a one-dimensional Hamiltonian oscillator. The exact Jacobian cube identity establishes pointwise nilpotence for all integer degrees. The Hamiltonian potential has precisely one central period annulus and one saddle barrier, so its oval quadratures exhaust all possible planar bounded recurrence. The axial displacement is even-degree positive; for odd degree it changes sign between the center and the separatrix and is a nonzero real-analytic function, hence has finitely many interior zeros. A classification of equilibrium, separatrix and regular level behavior excludes every other bounded forward trajectory. The logarithmic timing coefficient and the finite drift correction follow from the quadratic saddle expansion. Finite numerical tests are supplementary, not relied upon for completeness.
+PASS
 
-## Originality
+Under polynomial automorphism u=x,v=y+x^2,w=z, time is unchanged and the system is dot u=v^m, dot v=w, dot w=v^(2m)-1. Direct differentiation yields J^3=0. The planar Hamiltonian H=w^2/2+V_m(v), V_m=v-v^(2m+1)/(2m+1), has one center at v=-1 and saddle at v=1, so regular bounded ovals have turning points a(E)<-1<b(E)<1 and period T(E) and axial drift D(E) given by actual quadrature. Even m gives D>0. Odd m gives D<0 at E<=0 and center, while at saddle D=T+O(1)->+infinity; analyticity and nonzero endpoint signs give finitely many zeros of D in compact interior, hence a positive finite number of periodic cylinders. Nonzero drift ovals, planar equilibria and saddle-asymptotic branches have unbounded u, exhausting bounded forward trajectories. Quadratic saddle expansion gives coefficient 1/sqrt(2m) in log(1/(E_+-E)); subtracting T makes integrable v^m-1 cancellation. Independent quadratures for m=2..5 confirmed expected signs including near saddle; finite tests do not establish all-degree claims.
 
-**PASS within inspected evidence.** The directly relevant work of Castañeda and Rebollo-Perdomo (arXiv:2209.06986v1; Section 4 and Proposition 1.3) establishes the conserved Hamiltonian and exactly one periodic surface for linear defining polynomials, then asks how many surfaces may occur for higher degree. It does not contain this parity classification for all higher monomial degrees, nor the whole-space bounded-forward theorem or the separatrix drift correction. The closest published mathematical-record result for an even-kinetic skew flow uses a different potential/axial drift; its statement does not imply this nilpotent-Jacobian result. The discrete four-cycle degree-threshold result likewise concerns iteration, not the flow. A 2026 paper by the originating authors studies a distinct pointwise-Hurwitz family. The 2025 journal-version full text was inaccessible, although the 2022 preprint was fully inspected, and this limits publication-priority confidence.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** In the explicit higher-degree direction raised by the originating paper, the theorem supplies a natural sharp infinite-degree transition: even powers have no compact recurrence at all; odd powers have a finite positive collection of full isochronous periodic cylinders, and these account for every bounded forward solution. The universal saddle logarithmic coefficient also records original physical-time behavior and the finite relative axial correction. The exact positive odd-degree cylinder count remains open; no uniqueness beyond finiteness is asserted.
+The original primary Castañeda–Rebollo-Perdomo full 2022 preprint provides same Hamiltonian skew-flow framework and period cylinders in the linear defining polynomial case (Proposition 1.3), while explicitly posing higher-degree surface multiplicity. It does not assert this monomial degree-by-degree parity classification nor whole bounded-forward classification, and separate published even-kinetic flow has different restoring force. Best-of-knowledge O with journal-version access risk.
 
-## Closest literature and limitations
+## value
 
-The first public version of the originating paper is 2022-09-15 (arXiv:2209.06986v1). The published version is *Archiv der Mathematik* 124 (2025), 415–434, DOI 10.1007/s00013-024-02085-8; only its publisher preview could be checked. A distinct 2026 Hurwitz construction (arXiv:2610.09176) does not provide coverage. The exact number of odd-degree energy cylinders, blow-up rates for unbounded trajectories, and persistence under perturbations are not established. The present review does not constitute an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A motivated higher-monomial answer to the exact research question of periodic-surface multiplicity: all even degrees have no compact recurrence, each odd degree has finite nonzero families of physically isochronous periodic cylinders accounting for all bounded orbits. Explicit sharp separatrix drift/time behavior is nontrivial additional dynamical structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

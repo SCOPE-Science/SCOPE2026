@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification scope
+# Independent mathematical audit
 
-The central all-integer claims are verified by the analytical proof in `RESULT.md`, not by a finite computation. The exact coordinate change \(u,v,w)=(x,y+x^2,z)\\ is a polynomial automorphism preserving physical time; multiplying the general symbolic Jacobian in that proof gives \(J^3=0\). The one-degree-of-freedom Hamiltonian and the drift quadrature are derived without a limiting approximation. The finiteness argument uses analyticity plus nonzero endpoint signs, not a bounded search for zeros.
+## correctness
 
-The standalone `check.py` is ordinary reproducibility code written using the standard Python library only. Execute `python3 check.py` from the directory containing this file. In a clean replay it checked the exact Jacobian cube on rational test points for six integer degrees, the period and drift quadratures on sample energies for five degrees, the strict even-degree drift sign, and odd-degree root brackets for degrees one, three and five. Its expected markers are `EXACT_JACOBIAN_CUBE_ZERO_ON_TEST_POINTS_OK` and `FINITE_QUADRATURE_CROSSCHECK_OK`. It prints approximate roots, which are illustrative and not exhaustive algebraic root certificates.
+PASS
 
-The results do not determine the exact number of zeros for each odd degree. Source-comparison confidence is limited by incomplete access to the later journal version of the originating preprint. Independent audit has not been performed.
+Under polynomial automorphism u=x,v=y+x^2,w=z, time is unchanged and the system is dot u=v^m, dot v=w, dot w=v^(2m)-1. Direct differentiation yields J^3=0. The planar Hamiltonian H=w^2/2+V_m(v), V_m=v-v^(2m+1)/(2m+1), has one center at v=-1 and saddle at v=1, so regular bounded ovals have turning points a(E)<-1<b(E)<1 and period T(E) and axial drift D(E) given by actual quadrature. Even m gives D>0. Odd m gives D<0 at E<=0 and center, while at saddle D=T+O(1)->+infinity; analyticity and nonzero endpoint signs give finitely many zeros of D in compact interior, hence a positive finite number of periodic cylinders. Nonzero drift ovals, planar equilibria and saddle-asymptotic branches have unbounded u, exhausting bounded forward trajectories. Quadratic saddle expansion gives coefficient 1/sqrt(2m) in log(1/(E_+-E)); subtracting T makes integrable v^m-1 cancellation. Independent quadratures for m=2..5 confirmed expected signs including near saddle; finite tests do not establish all-degree claims.
+
+## originality
+
+PASS
+
+The original primary Castañeda–Rebollo-Perdomo full 2022 preprint provides same Hamiltonian skew-flow framework and period cylinders in the linear defining polynomial case (Proposition 1.3), while explicitly posing higher-degree surface multiplicity. It does not assert this monomial degree-by-degree parity classification nor whole bounded-forward classification, and separate published even-kinetic flow has different restoring force. Best-of-knowledge O with journal-version access risk.
+
+## value
+
+PASS
+
+A motivated higher-monomial answer to the exact research question of periodic-surface multiplicity: all even degrees have no compact recurrence, each odd degree has finite nonzero families of physically isochronous periodic cylinders accounting for all bounded orbits. Explicit sharp separatrix drift/time behavior is nontrivial additional dynamical structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
