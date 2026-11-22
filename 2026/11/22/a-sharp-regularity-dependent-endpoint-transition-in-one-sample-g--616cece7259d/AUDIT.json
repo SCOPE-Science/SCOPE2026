@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Stochastic Fubini and Ito isometry give the exact target covariance and observation variance, so conditioning reduces the design to maximizing a positive scalar gain. In logarithmic coordinates the covariance integral is a marginal of a jointly log-concave density; Prékopa implies a nonincreasing logarithmic derivative, strictly decreasing by real analyticity and unequal endpoint slopes. The Gaussian variance fraction is nondecreasing in time. Their difference therefore crosses zero at most once, yielding uniqueness and global optimality. Explicit evaluation at time one produces the sharp variance threshold. The Brownian order has negative endpoint derivative for every finite noise. A supplementary independently implemented quadrature and stationarity checker passed 3653 assertions. The continuum theorem does not rely on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General noisy Bayesian-quadrature error rates in arxiv:2202.10615 do not determine the unique minimizing location for this restricted covariance model.",
+        "Abstract of Plaskota, Ritter and Wasilkowski (2004) concerns weighted approximation and integration of integrated Brownian motion on the half-line; full hypotheses and design theorems are inaccessible."
+      ],
+      "reasoning": "A general exact optimal design theorem for fractional Volterra processes with noisy one-site samples would cover the claim; none was verified. The older integrated-Brownian design paper plausibly addresses a related subcase, hence complete coverage is unresolved rather than declared impossible.",
+      "searches": [
+        "\"integrated Wiener\" \"optimal\" \"quadrature\" \"noise\" \"design\"",
+        "\"integrated Brownian motion\" \"optimal observation\" \"integral\" \"noisy\"",
+        "\"optimal designs for weighted approximation and integration\" pdf Plaskota",
+        "Plaskota Ritter Wasilkowski optimal weighted approximation integration Brownian motion 2004",
+        "arxiv:2202.10615"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2202.10615 (full public text)",
+      "arxiv:2302.02053 (full public text)",
+      "doi:10.1016/j.jco.2003.10.002 (abstract only)",
+      "doi:10.1081/STA-120022249 (abstract only)",
+      "doi:10.1016/j.jfa.2013.05.040 (log-concavity theorem discussion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The kernel-based quadrature rate theorems apply under broad assumptions but do not imply the sharp finite single-location optimizer.",
+        "The integrated-Wiener FEM representation does not itself solve the noisy one-node design optimization.",
+        "The abstracts of the two older design papers are materially too thin to settle whether their full theorems contain special cases."
+      ],
+      "reasoning": "The theorem is not inferred merely from Gaussian covariance conditioning, which yields a scalar objective but not its global shape; the indispensable new comparison is log-time concavity and its sharp boundary sign. Published stronger coverage has not been found, but inaccessible relevant primary results preclude certified priority.",
+      "searches": [
+        "arxiv:2202.10615",
+        "arxiv:2302.02053",
+        "\"On Sampling Designs for Integral Estimation\" pdf Mukherjee",
+        "\"optimal designs for weighted approximation and integration\" pdf Plaskota"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cai–Lam–Scarlett (2022) full public text describes noisy kernel-quadrature error rates, not an all-order one-site Volterra phase boundary.",
+        "Zhang–Stringer–Brown–Stafford (2023) full public text studies integrated-Wiener priors and finite-element representations.",
+        "The stationarity condition is equivalent to monotonicity of a log-time covariance elasticity, rather than an alternative statement of standard Gaussian conditioning."
+      ],
+      "reasoning": "Equivalent formulations could involve optimal one-point recovery of Volterra-integral linear functionals, spline kernel quadrature, or fractional Brownian integration. The inspected source statements concern different objectives or approximations; they do not assert the regularity-dependent activation threshold. Specialist terminology remains a residual risk.",
+      "searches": [
+        "\"integrated Wiener\" \"optimal\" \"quadrature\" \"noise\" \"design\"",
+        "\"integrated Brownian motion\" \"optimal observation\" \"integral\" \"noisy\"",
+        "\"integrated Wiener\" quadrature \"one point\" \"noise\" sensor",
+        "\"integrated Wiener\" \"one point\" noisy quadrature",
+        "arxiv:2202.10615",
+        "arxiv:2302.02053"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact one-site noise-threshold table for all nonnegative real orders was identified in the accessible published materials.",
+        "The result derives a closed threshold involving the Gamma function, plus a unique-root equation, directly from the Volterra covariance, without importing any tabulated optimization."
+      ],
+      "reasoning": "Only exact tabulations resolving both terminal activation and uniqueness across the full order range would subsume this theorem; the checked source material does not provide such a table. Search absence is not proof of nonexistence.",
+      "searches": [
+        "\"integrated Brownian motion\" \"optimal observation\" \"integral\" \"noisy\"",
+        "\"integrated Wiener\" quadrature \"one point\" \"noise\" sensor",
+        "\"integrated Brownian motion\" \"one\" \"noisy\" \"optimal\" \"time\" sensor"
+      ]
+    },
+    "rationale": "The claimed contribution is the universal one-site, noise-dependent endpoint-activation theorem for all real nonnegative Riemann–Liouville Volterra orders, not the classical Gaussian conditioning rule or the marginal log-concavity theorem. Public primary text on noisy kernel quadrature provides rate results, and integrated-Wiener modeling research focuses on FEM approximation; neither inspected statement implies this exact all-order threshold. Historical integrated-Brownian and product-kernel design publications are material residual publication-priority risks because only their abstracts could be accessed.",
+    "residual_risks": [
+      "Full historical papers on integrated Brownian optimal designs, 2003 and 2004, could contain dominating or equivalent special-case theorems; their abstracts cannot settle this.",
+      "A differently named fractional-integral or spline optimal-recovery theorem may be absent from the searches.",
+      "No independent publication-priority evaluation has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different, broader rate problem with no inspected explicit real-order endpoint-activation law",
+        "evidence": [
+          "Public version v1 dated 2022-02-22; analyzes noisy kernel quadrature and order-optimal rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+        "material_read": "Full accessible arXiv HTML preprint text, including setup, theorem statements and error-rate discussion",
+        "method": "Read public article text and compare its quantified design objective and error-bound conclusions against a fixed one-site Volterra-location threshold",
+        "title": "Order-Optimal Error Bounds for Noisy Kernel-Based Bayesian Quadrature",
+        "trigger": "Direct general noisy Bayesian quadrature and its finite-noise error theorems"
+      },
+      {
+        "assessment": "Focuses on integrated-Wiener modeling/approximation; no inspected exact noisy single-site sampling classification",
+        "evidence": [
+          "Public version v1 dated 2023-02-04; describes integrated-Wiener processes and overlapping-spline approximations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.02053",
+        "material_read": "Full accessible arXiv HTML preprint text, mathematical model definitions, and approximation discussion",
+        "method": "Compared integrated-Wiener process kernels and FEM approximation objectives to optimal single integral-observation design",
+        "title": "Model-based Smoothing with Integrated Wiener Processes and Overlapping Splines",
+        "trigger": "Same Volterra/once-integrated-Wiener object and numerical model relevance"
+      },
+      {
+        "assessment": "UNRESOLVED possible special-case implication; no whole-document noncoverage assertion",
+        "evidence": [
+          "Article published 2004; related to integrated Brownian integral design on the half-line; full paper not inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jco.2003.10.002",
+        "material_read": "Abstract/bibliographic material only, not primary full theorems",
+        "method": "Looked for lawful open-access and arXiv text; institutional retrieval was unavailable",
+        "title": "Optimal weighted approximation and integration of Brownian motion and its integrated processes",
+        "trigger": "Plausible direct predecessor optimizing integrated Brownian observables"
+      },
+      {
+        "assessment": "UNRESOLVED possible stronger general design result",
+        "evidence": [
+          "Published in 2003; discusses integral estimation for structured stochastic covariance models; full paper not inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1081/STA-120022249",
+        "material_read": "Abstract/bibliographic material only, not primary full theorems",
+        "method": "Looked for lawful open-access and arXiv text; institutional retrieval was unavailable",
+        "title": "On Sampling Designs for Integral Estimation of Stochastic Processes",
+        "trigger": "Direct stochastic integral sampling design terminology"
+      },
+      {
+        "assessment": "Supports the standard marginal log-concavity step, not a novelty claim",
+        "evidence": [
+          "Prékopa marginal log-concavity theorem is classical; used for all real nonnegative kernel orders."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jfa.2013.05.040",
+        "material_read": "Accessible primary article introduction and its explicit statement of marginal log-concavity as a classical consequence of the Prékopa–Leindler inequality",
+        "method": "Read the primary article introduction, verifying that log-concave functions have log-concave marginals; this supplies an independent precise citation for the marginal lemma.",
+        "title": "How to recognize convexity of a set from its marginals",
+        "trigger": "Independent reference for classical Prékopa marginal log-concavity used as a proof lemma"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "616cece7-259d-4814-91cf-72b65d349442",
+  "value": {
+    "rationale": "Optimal placement of one costly Gaussian trajectory observation for the entire integral is a natural, non-arbitrary probabilistic quadrature design. The global, exact threshold produces a qualitative roughness transition: all alpha>0 have a finite noise level at which the final time becomes optimal, whereas Brownian alpha=0 never does at finite variance. It also supplies a reliable one-root solver for the interior design across all real orders and factorial-dependent calibration for integer integrated-Wiener models. No general multiple-sample guarantee is claimed.",
+    "status": "PASS"
+  }
+}
