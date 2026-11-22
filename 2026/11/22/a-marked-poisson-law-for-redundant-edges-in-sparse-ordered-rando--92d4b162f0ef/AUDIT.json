@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Each increasing r-tuple specifies exactly one r-edge shortcut witness; E W_{n,r}=binom(n,r)(c/n)^r. A length-r undirected cycle has a witness under exactly 2r of the r! relative vertex orders. Factorial moments of short cycle counts give independent Poisson means c^r/r!, overlap of distinct bounded-length cycles is O(1/n), and expected longer witness counts are bounded by sum_{r>L} c^r/r!. Consequently all witnesses are disjoint with high probability and coincide one-for-one with transitive-redundant arcs; the marked and total Poisson limits, matching property and expectation follow. The finite checker executed from the candidate package and passed 67,738 tests; it is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rödl–Thoma (https://doi.org/10.1017/S0963548305006760), public abstract: extremal cover-graph deletions with p at least C n^{-1+1/l}; this is not the p=c/n limit.",
+        "Karp (https://doi.org/10.1002/rsa.3240010106): unrestricted directed graph strongly connected components/transitive closure, not ordered acyclic independent arcs.",
+        "Karrer–Newman (https://arxiv.org/pdf/0907.4346), Section IV: independent Poisson edge multiplicities with expected degree constraints, not the Bernoulli simple graph marked shortcut law."
+      ],
+      "reasoning": "Stronger graph-cover or random-DAG results were checked for implication. The accessible statements concern other random measures, density regimes, or observables and do not imply the complete Poisson marking. The inaccessible Rödl–Thoma full text remains a risk rather than an asserted negative.",
+      "searches": [
+        "\"On Cover Graphs and Dependent Arcs in Acyclic Orientations\" Rödl Thoma",
+        "\"random graph orders\" covers Poisson sparse",
+        "\"The transitive closure of a random digraph\" Karp 1990"
+      ]
+    },
+    "checked_sources": [
+      "https://www.math.cmu.edu/~af1p/Texfiles/RANDGRAPHORD.pdf",
+      "https://doi.org/10.1017/S0963548305006760",
+      "https://arxiv.org/pdf/0907.4346",
+      "https://arxiv.org/pdf/1310.8224",
+      "https://doi.org/10.1002/rsa.3240010106",
+      "https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.dag.transitive_reduction.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Albert–Frieze (https://www.math.cmu.edu/~af1p/Texfiles/RANDGRAPHORD.pdf): fixed-p height/set-up/width/dimension, no sparse dependent-arc Poisson limit in material read.",
+        "Clough et al. (https://arxiv.org/pdf/1310.8224), especially Section 4: empirical reduction and rewiring null model, no independent simple Bernoulli c/n marked limit.",
+        "A separate fixed-p calculation of minimal/maximal vertex counts has a different observable, different scaling, and does not yield a redundancy law."
+      ],
+      "reasoning": "The classical Poisson cycle law alone does not state the oriented shortcut thinning or establish that removed arcs are one-to-one with witnesses. Published random graph order statistics, degree-conditional null models, and repair tasks do not directly dominate this claim.",
+      "searches": [
+        "Albert Frieze Random Graph Orders 1989 full text",
+        "Clough Gollings Loach Evans 2013 transitive reduction of citation networks full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a finite DAG a direct arc is removed exactly when another directed path joins its endpoints (see Aho–Garey–Ullman definition, and https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.dag.transitive_reduction.html).",
+        "No inspected source stated the joint law of shortcut certificate lengths for independent Bernoulli forward arcs."
+      ],
+      "reasoning": "The equivalent dependent-arc / Hasse-cover formulation has the same event as a redundant arc; the source search compared implications rather than treating the names as different. No exact matching theorem was found in the inspected material.",
+      "searches": [
+        "\"Poisson\" \"random graph orders\" \"covers\" \"p=c/n\"",
+        "\"transitive reduction\" \"Poisson\" random directed acyclic graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula/table for redundant-arc counts or length marks was identified in the actually retrieved results."
+      ],
+      "reasoning": "The exponential-series parameter is also a standard cycle factorial series, but a parameter match alone would not establish the reduction count. The complete event equivalence and model assumptions were compared.",
+      "searches": [
+        "\"e^c - 1 - c - c^2/2\" transitive reduction random graph",
+        "\"exp(c)-1-c-c^2/2\" poset random graph"
+      ]
+    },
+    "rationale": "Specific random-order transitive-reduction and marked-Poisson statement was compared against accessible original random graph orders, dependent-arc theory, directed-acyclic null models and transitive-reduction literature. None of the inspected results gives the present simple-Bernoulli c/n count and certificate-length spectrum. Disjoint cycle-Poisson counts are acknowledged classical; what is distinct is the orientation thinning plus identification with the unique reduction. Inaccessible full text and general-cycle literature remain explicit priority risks.",
+    "residual_risks": [
+      "Rödl–Thoma (2005) is highly relevant but only its abstract was accessible; its complete contents were not examined.",
+      "A general theorem on sparse acyclic orientations or Poisson cycle functionals could imply the stated specialization even if it uses different terminology.",
+      "Prior-claim search was evidence of non-overlap among accessible records, not proof of worldwide uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same fixed-p construction but studies height, width, set-up and related order parameters, not c/n redundancy marks",
+        "evidence": [
+          "PDF introduction explicitly describes edges as sometimes redundant without analyzing them; fixed p=1/2 and constant-p height results."
+        ],
+        "identifier_or_url": "https://www.math.cmu.edu/~af1p/Texfiles/RANDGRAPHORD.pdf",
+        "material_read": "Abstract, introduction, height and concentration proofs, set-up, topics of closing sections",
+        "method": "Full public PDF text and page-image inspection",
+        "title": "Random Graph Orders",
+        "trigger": "Same forward-edge random-order model and transitive closure"
+      },
+      {
+        "assessment": "Related extremal random-graph deletion counts in a different density regime; full-text overlap not excluded",
+        "evidence": [
+          "Publisher abstract specifies p>=C n^{-1+1/l} for fixed l, rather than c/n, and an orientation minimization objective."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548305006760",
+        "material_read": "Publisher abstract and institutional-publication description; full text unavailable",
+        "method": "Publisher abstract, public research repository and lawful open-access search; full text not obtained",
+        "title": "On Cover Graphs and Dependent Arcs in Acyclic Orientations",
+        "trigger": "Dependent arcs are exactly redundant arcs in an acyclic orientation"
+      },
+      {
+        "assessment": "Its independent-edge model uses Poisson numbers of parallel edges and analyzes expected degree and pair connection, so not the finite simple Bernoulli count law",
+        "evidence": [
+          "Section IV.A declares Poisson number of arcs per ordered vertex pair with mean P_ij; no redundant-edge spectrum in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0907.4346",
+        "material_read": "Abstract, Sections I–IV including exact model definition on PDF pages 1 and 10, and scope of subsequent sections",
+        "method": "Original arXiv PDF text and screenshot",
+        "title": "Random graph models for directed acyclic networks",
+        "trigger": "Independent-edge null model for ordered DAGs"
+      },
+      {
+        "assessment": "Reports empirical and rewired citation networks, not the analytic c/n simple-graph distribution",
+        "evidence": [
+          "Section 4 compares degree distributions before and after reduction and degree-preserving rewiring."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.8224",
+        "material_read": "Abstract, Sections 1, 4 and 5, and references in full public PDF",
+        "method": "Original arXiv PDF text and page-image inspection",
+        "title": "Transitive reduction of citation networks",
+        "trigger": "Exact transitive reduction observable and ordered null-model comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92d4b162-f0ef-4117-9149-6df75370c32d",
+  "value": {
+    "rationale": "Transitive reduction is a canonical minimal reachability representation of a causal or precedence DAG. In the c/n independent-edge null model, the count of removable relations is a natural operational invariant, not a contrived statistic. The independent certificate-length spectrum c^r/r!, explicit e^c-1-c-c^2/2 deletion law, and high-probability vertex-disjoint unique proofs explain not only how many edges are redundant but the complete finite mechanism by which they arise. This yields interpretable exact asymptotic benchmarks for sparse ordered networks, and is not the generic undirected-cycle count alone.",
+    "status": "PASS"
+  }
+}
