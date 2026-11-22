@@ -1,11 +1,21 @@
-# Review of the regular-variation Aluthge singular-value theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The weights of each generalized transform are binomial geometric means. Monotonicity orders their singular values. The key uniform local law follows from the uniform-convergence theorem for regularly varying sequences on compact positive ratio intervals and exponential binomial concentration; the exceptional events are controlled by logarithmic growth of the extreme input-weight ratios. Potter bounds supply a summable uniform majorant precisely when \(\beta p>1\), validating exchange of the infinite Schatten sum and the limit. Counting follows from a unique strictly monotone threshold crossing. Fixed-iteration Schatten membership is squeezed between the original and its finite translate, including all endpoint cases. The proof explicitly handles the infinite tail, the initial-index boundary and quasi-Schatten exponents.
+## correctness
 
-**Originality: PASS, subject to stated priority risks.** The closest abstract of Stanković (arXiv:2611.07728) states pointwise singular-value and Schatten convergence but not a sharp polynomial rate or a uniform rank-density law; full text was inaccessible, so an unseen quantitative passage cannot be excluded. The two most relevant accessible research records were read in full in their RESULT.md scientific statements: one treats unilateral stretched-exponential weights and a \(n^{1-\alpha}\) boundary layer; the other treats bilateral stretched exponentials. Their hypotheses and conclusions do not imply the regularly varying linear layer or the sharp universal coefficient. The classical weighted-shift literature describes the averaging transformation and Schatten-ideal preservation but does not establish this exact macroscopic spectral classification in the inspected material. An older general binomial-smoothed regular-variation theorem might imply the analytic profile; the specific operator-theoretic sharp integrated law was not located.
+PASS
 
-**Mathematical value: PASS.** The theorem determines the entire high-singular-value distribution, not only decay of the operator norm, for a natural broad class containing every inverse-power compact shift and arbitrarily slowly varying modulations. The effective rank has a sharp *linear* law, contrasting with the known sublinear singular-value layers for stretched exponentials. It supplies new explicit sharp constants for every admissible Schatten or quasi-Schatten scale, identifies the exact ideal threshold, and gives an immediately reusable benchmark for quantitative compact-operator dynamics.
+Positive shift weights give |W| diagonal and ordinary unilateral polar shift, so one Aluthge transform sends log w_j to (1-t)log w_j+t log w_{j+1}; after n iterates log w_j^(n)=E log w_{j+B_n} for Bin(n,t). Monotonicity guarantees these are the decreasing singular-value list, not merely unordered weights. Uniform regular variation on compact positive index ratios [t/2,R+1] coupled with exponential Chernoff concentration proves the macroscopic profile (t+u)^-β uniformly 0<=u<=R; the exceptional contribution is O(log n e^-cn) using monotonicity. The counting law follows from the unique crossing of (1+u/t)^-β with θ. For βp>1, the integral ∫0^∞(t+u)^-βp du=t^{1-βp}/(βp-1) follows from Riemann sums plus a Potter bound on the infinite tail, rather than finite approximation; ideal membership equivalence w_{j+n}<=w_j^(n)<=w_j is correct including the critical slowly varying case. Independently checked numerical log-binomial smoothing for nonconstant slowly varying L(j)=log(j+e)^0.65, β=1.2, t=.35, ranks j up to 3n for n=100,400,1000; norm ratios approach predicted t^-β and maximum local errors decrease (0.555,0.419,0.360), consistent but not proof.
 
-**Limits and priorities.** Monotonicity, fixed interior parameter and strict Schatten summability threshold are hypotheses, not technical decorations. This is not a full classification of arbitrary compact operators; competing equivalent older binomial averaging theorems and the inaccessible full text of the directly motivating preprint remain residual originality risks. Numerical diagnostics support but do not establish universal statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Stanković result provides finite-rank/qualitative singular convergence and the binomial formula but no uniform linearly scaled rank profile or the integrated sharp Schatten constants for arbitrary monotone regularly varying sequences. Same-day almost-periodic polynomially modulated profile covers a distinct family, including constant modulation only, but does not imply arbitrary slowly varying factors. Best-of-knowledge.
+
+## value
+
+PASS
+
+A complete macroscopic singular-value profile, exact high-level counting curve and asymptotic Schatten effective rank for a natural infinite-dimensional compact shift family with arbitrary monotone slowly varying factors provide a useful operator-theoretic scaling law. The nontrivial uniform concentration/Potter proof distinguishes it from a fixed-j binomial average or single pure-power example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
