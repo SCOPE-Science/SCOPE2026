@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The universal energy classification follows from the exact difference-multiplicity partition, the four-point stabilizer alternatives, and a complete analysis of the three-internal-edge case. The Fourier collision identity is verified directly using the stated unitary transform and Parseval. The exact-integer checker independently tested 278200 four-subsets and 60 edge-energy comparisons. The tests supplement rather than replace the all-order argument.
+## correctness
 
-## Originality: PASS relative to inspected sources
-Gupta et al. (2026, arXiv:2610.31807) introduce the graph collision dimension and general edge-energy estimates, but the inspected discussion and finite Fourier preliminaries do not state a sharp four-shore cyclic labeling classification. Ferguson et al. (2026, arXiv:2610.36276), notably sections 1, 2, 4 and 9.1, explicitly pursue Fourier first-norm minimization, solve the two- and three-element cases, and leave four-point first-norm optimization for future work. Their established transformation and energy ingredients are not asserted as new here. A second comparison against indexed four-point Wiener minimizer studies found a different moment and different objective. Exact equivalent older small-set additive-energy classifications remain the chief priority risk.
+PASS
 
-## Mathematical value: PASS
-This is a complete exact optimization in all cyclic orders of a natural graph-theoretic Fourier collision statistic, with a four-way arithmetic phase diagram and complete optimal-label classifications. The appearance of punctured order-five subgroups, rather than the antipodal-pair designs natural to even-order Wiener minimization, gives a motivated distinction between two Fourier complexity objectives. It is not merely a finite check or a restatement of the known graph energy upper bound.
+PASS. Reconstructed all four integer modulus branches for every N≥8 directly from r(t)=|A∩(A+t)|, E(A)=16+∑_{t≠0}r(t)² and ∑_{t≠0}r(t)=12. Translation stabilizer |H| divides four: order four gives 64 (subgroup coset); order two yields two quotient points with energy 6 lifting by |H|³=8 to 48. For trivial H, all nonzero overlap counts≤3 and an involutive difference can contribute only 0 or 2. Pairing ±t bounds the noninvolution sum: maximum 52 requires two pairs with overlap three; the next possible odd-order maximum is 44, and involution-two case is at most 46. Three internal d-arrows in four vertices are a four-path or a 3-cycle plus isolate; the latter cannot attain the relevant maxima (odd-order energy 40), while the four-step progression has energy 64,52,46,44 for step orders 4,5,6,≥7. This yields exactly the extremizers in all four torsion regimes. Checked analytic graph transform f=1_A(x)+1_A(y)−2 1_A(x)1_A(y), Parseval ∑|f̂|²=8(N−4), and ∑|f̂|⁴=[8(N−4)]⁴/N⁴+2(N−8)⁴(NE−256)/N⁴+16(NE−256)²/N⁴. The latter is strictly increasing in E for E>0, including N=8, so the D4 minimum and equality shapes follow. Inspected checker.py enumerating N=8..33 and separate signed-edge pair sums; an independent separate script enumerated N=8..27 exactly and corroborated all four maxima. Neither finite enumeration is the all-N proof.
 
-## Scope and limits
-Only four-point shore sets and their edge collision dimension are optimized, not the full Fourier ratio and not higher-shore bipartite graphs. Finite checks do not prove the infinite theorem. No claim of priority against uninspected older additive-combinatorics literature is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original residual scientific increment after explicitly excluding known prior coverage; exact historical priority is not certified. Directly relevant inaccessible paper remains a live priority risk, not an automatic scientific failure.
+
+## value
+
+PASS
+
+PASS. The exact sharp four-arithmetic-phase classification and equality geometries give a natural Fourier fourth-moment/collision-dimension optimization for labelled K_{4,N−4}, across every ambient order. The nontrivial torsion transitions at 4 and 5 and involution parity explain why a single generic four-point progression does not solve the problem, making this more than a standard graph Fourier identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
