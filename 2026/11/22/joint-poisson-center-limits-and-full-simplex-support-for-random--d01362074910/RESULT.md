@@ -1,0 +1,108 @@
+# Joint Poisson-center limits and full-simplex support for random smallest enclosing balls
+
+## Finding
+
+**Theorem.** Fix an integer \(d\ge 2\), constants \(\alpha,c>0\), and i.i.d. points \(X_1,X_2,\ldots\) in the closed Euclidean unit ball of \(\mathbb R^d\). Assume the law is spherically symmetric and absolutely continuous, and its radial variable \(\rho=\|X_1\|\) satisfies
+\[
+\Pr(\rho>1-t)=ct^\alpha(1+o(1))\quad(t\downarrow0).
+\]
+Set \(b_n=(cn)^{-1/\alpha}\). Let \(C_n\) and \(R_n\) be the unique center and the radius of the smallest enclosing ball of the first \(n\) sample points. Let \(K_n\) be the number of distinct sample points lying exactly on its boundary.
+
+Let \(N\) be the Poisson point process on \(\mathbb S^{d-1}\times(0,\infty)\) with intensity
+\[
+\sigma_{d-1}(du)\,\alpha s^{\alpha-1}\,ds,
+\]
+where \(\sigma_{d-1}\) is probability-uniform measure on the unit sphere. Define the random concave lower envelope
+\[
+F(z)=\inf_{(u,s)\in N}\{s+u\cdot z\},\qquad z\in\mathbb R^d.
+\]
+Almost surely, \(F\) attains its finite maximum \(H\) at a **unique** point \(Z\). Exactly \(d+1\) Poisson atoms satisfy \(s+u\cdot Z=H\); their directions are affinely independent and the origin is in the interior of their simplex. Moreover,
+\[
+\left(\frac{C_n}{b_n},\frac{1-R_n}{b_n}\right)
+\ \Longrightarrow\ (Z,H),
+\qquad
+\Pr(K_n=d+1)\longrightarrow1.
+\]
+The vector \(Z\) has a rotation-invariant law and \(\Pr(Z=0)=0\). For a sample uniform in the unit \(d\)-ball the assumptions hold with \(\alpha=1\), \(c=d\), and \(b_n=(dn)^{-1}\).
+
+This answers the limiting-center uniqueness question and establishes full-simplex support under the regular-variation subclass of the bounded-support hypotheses discussed by Henze and Klatt. It does **not** establish the corresponding support conjecture under merely two-sided power bounds without a regular-variation limit.
+
+## Assumptions and scope
+
+All limits have fixed dimension \(d\); the number of points \(n\) tends to infinity. The law of the radial variable need not have a globally specified density, but spherical symmetry, absolute continuity, and the displayed one-term radial tail equivalence are required. The independent directions are uniform on \(\mathbb S^{d-1}\). The strict inequality in the radial tail is immaterial under absolute continuity. The number \(K_n\) counts *all* observations at the optimal sphere's boundary, not the size of a freely chosen support subset; the claim is that this number itself equals \(d+1\) with high probability.
+
+The limiting linear program is the maximization of the *lower* envelope of affine functions, rather than minimization of an upper envelope. The signs in its definition follow by expanding the distances \(\|(1-b_ns)u-b_nz\|\). The limiting center is on scale \(b_n\), not the square-root scale suggested by a generic strong-convexity estimate.
+
+## Proof
+
+**1. Extremal point process.** Write \(X_i=\rho_iU_i\) with independent uniform directions and radial marks, and define \(S_{n,i}=(1-\rho_i)/b_n\). The tail assumption gives, for every \(s>0\),
+\[
+n\Pr(S_{n,i}\le s)\longrightarrow s^\alpha.
+\]
+Consequently the binomial point measure \(N_n=\sum_{i=1}^n\delta_{(U_i,S_{n,i})}\) converges vaguely in distribution on \(\mathbb S^{d-1}\times[0,\infty)\) to \(N\) with the displayed intensity. For fixed bounded intervals in the second coordinate, this follows directly from independent Bernoulli rare-event counts; disjoint intervals and angular sets yield independent Poisson limits. The limit has finitely many atoms below each finite depth threshold, no atoms at zero or any prescribed positive threshold, and independent diffuse angular coordinates.
+
+**2. Angular shielding and existence.** Choose \(d+1\) small open spherical caps around the vertices of a regular simplex centered at zero. For a sufficiently small cap radius there is \(\kappa>0\) such that any choice of one direction from each cap obeys
+\[
+\min_j u_j\cdot v\le-\kappa\quad\text{for every unit }v.
+\]
+The Poisson intensity of each cap up to depth \(M\) grows like a positive multiple of \(M^\alpha\). Thus, with probability approaching one as \(M\to\infty\), each cap has an atom with depth at most \(M\). On that event,
+\[
+F(z)\le M-\kappa\|z\|.
+\]
+Since \(F(0)=\min_{(u,s)\in N}s>0\) almost surely and \(F\) is continuous on compact sets (see step 4), \(F\) has an attained, finite maximum. The cap property holds almost surely for some finite random \(M\), establishing coercivity without a deterministic bound on the optimizer.
+
+For the finite sample, the analogous cap event has probability arbitrarily close to one for large \(n\) after choosing \(M\). Because the unit ball centered at the origin encloses the observations, \(R_n\le1\). If \(u\cdot C_n\le-\kappa\|C_n\|\) for a selected point \(x=(1-b_ns)u\), with \(s\le M\), then \(\|x-C_n\|\le1\) implies
+\[
+2\kappa(1-Mb_n)\|C_n\|\le 2Mb_n.
+\]
+It follows that \(C_n/b_n\) is tight. This argument is uniform over the selected angular caps and does not assume a rate of convergence of the Poisson process.
+
+**3. The limiting active simplex is uniquely determining.** Let \(Z\) maximize \(F\) and put \(H=F(Z)\). Only atoms of depth at most \(H+\|Z\|+1\) can be active, so the active set is nonempty and finite. Its directions must have the origin in their convex hull. Indeed, otherwise the strict separation theorem gives a direction increasing all active affine functions; the finite slack to the remaining nearby atoms and the depth cutoff then permit a small improvement of \(F\), contradicting maximality.
+
+Almost surely, no set of at most \(d\) sampled directions has the origin in its convex hull: each fixed collection of at most \(d\) independent uniform directions is in general position, and the entire Poisson collection is countable. Therefore there are at least \(d+1\) active constraints. Almost surely no \(d+2\) affine functions \(z\mapsto s_i+u_i\cdot z\) meet at a common value at one point: any \(d+1\) of their lifted rows \((u_i,-1)\) are linearly independent with probability one, and conditional on those rows and depths, the next diffuse independent depth hits the required value with probability zero. Taking the countable union proves at most \(d+1\) active constraints.
+
+Hence precisely \(d+1\) constraints are active. Their directions form an affinely independent simplex containing zero in its interior, and in particular span \(\mathbb R^d\). If \(Z'\neq Z\) were another maximizer, each active affine function at the midpoint of \(Z,Z'\) would equal \(H\), while its endpoint values would both be at least \(H\). Affineness forces both endpoint values to equal \(H\), so every active direction would be orthogonal to \(Z-Z'\). Spanning gives \(Z=Z'\), a contradiction.
+
+Finally, \(Z\neq0\) almost surely: at the origin the unique smallest-depth atom is the only active one, and its unit direction cannot have zero in its convex hull. Rotational invariance follows from uniqueness and the rotation-equivariance of the Poisson intensity.
+
+**4. Uniform local convergence of objectives.** For \(z\in\mathbb R^d\), define
+\[
+F_n(z)=\min_{i\le n}\frac{1-\|X_i-b_nz\|}{b_n}.
+\]
+Then \(C_n/b_n\) maximizes \(F_n\) and \(\max_zF_n(z)=(1-R_n)/b_n\). For \(X_i=(1-b_ns)u\), and bounded \(s\) and \(\|z\|\), a uniform Taylor expansion gives
+\[
+\frac{1-\|(1-b_ns)u-b_nz\|}{b_n}
+=s+u\cdot z+O(b_n).
+\]
+The deterministic triangle inequalities also give the global bounds \(s-\|z\|\le(1-\|X_i-b_nz\|)/b_n\le s+\|z\|\).
+
+Fix a compact ball \(\|z\|\le L\). If an atom at depth at most \(A\) exists, all marks at depths greater than \(A+2L+1\) are uniformly irrelevant to either lower envelope. The remaining point configurations are finite and converge under standard local point-process couplings. The Taylor expansion and the minimum's Lipschitz property imply that \(F_n\) converges in law to \(F\) in the topology of uniform convergence on each compact ball. Angular shielding supplies tight optimizers, and step 3 supplies a unique limiting optimizer. The argmax continuous-mapping argument therefore yields the asserted *joint* limit for \((C_n/b_n,(1-R_n)/b_n)\).
+
+**5. All \(d+1\) constraints survive for the actual enclosing ball.** Work in a local point-process coupling on which the compact objectives and optimizers converge. The limiting optimum has exactly \(d+1\) active atoms. On a compact containing the limiting and finite optimizers, these atoms are separated by a positive slack from all other depth-bounded atoms, because there are only finitely many such competitors; atoms of greater depth cannot bind by the triangle bounds. Hence for sufficiently large \(n\), *every* point on the finite optimum sphere belongs to the group of \(d+1\) observations corresponding to the limiting active atoms.
+
+For the Euclidean minimum enclosing ball, first-order optimality of \(c\mapsto\max_i\|X_i-c\|\) states that the origin belongs to the convex hull of the outward unit vectors \((X_i-C_n)/R_n\) from its boundary points. A proper subset of the above \(d+1\) observations has at most \(d\) limiting directions and, by the general-position property in step 3, its convex hull remains separated from the origin for all sufficiently large \(n\). Such a proper subset cannot be the full boundary set. Therefore exactly \(d+1\) sample points lie on the minimum enclosing sphere eventually in the coupling. Convergence in distribution of the underlying configurations gives \(\Pr(K_n=d+1)\to1\).
+
+## Verification
+
+The derivations in steps 2--5 are analytical, not consequences of numerical experiments. The packaged `checker.py` tests the finite linear-envelope structure for dimensions 2, 3, and 4, with radial exponents 0.5, 1, and 2. It uses fixed-seed generated point configurations and checks optimality inequalities, exactly \(d+1\) active rows, strictly positive affine barycentric weights, and strict directional decreases away from each optimum. It passed 13,770 finite numerical checks on 810 configurations.
+
+The packaged `meb_diagnostic.py` independently constructs planar minimum enclosing disks for uniform-ball samples and compares the scaled sample centers and radii with the linearized envelope. It passed 216 finite numerical checks. It observed 21, 22, and 24 three-point supports in 24 experiments with sizes 50, 150, and 400 respectively. These finite frequencies only illustrate the theorem, do not certify its asymptotic limit, and provide no uniform error bound.
+
+For reproducibility, use Python with `numpy` and `scipy`, then run `python checker.py` and `python meb_diagnostic.py` from the containing directory. Neither checker is required as a premise of the analytical proof.
+
+## Relationship to prior work
+
+Henze and Klatt (2026, arXiv:2611.09726v1) establish Poisson-functional limits for the **radius** of the smallest enclosing ball in Gumbel, Fréchet and Weibull regimes. Their Section 8(2) explicitly asks whether the appropriately rescaled **center** converges and whether the maximizer of the Weibull affine-Poisson functional is almost surely unique. Section 7.3 and Conjecture 7.6 address dominance of \(d+1\)-point support in higher dimensions; their planar result is already known under broader hypotheses. The present theorem supplies the missing uniqueness and joint center-radius statement, and proves support dominance in every fixed dimension under the narrower regular-variation radial tail assumption.
+
+Classical extreme-value point-process convergence and finite-dimensional linear-programming genericity are proof ingredients, not newly claimed techniques. Mayer and Molchanov (2006) analyze maximum interpoint distances rather than random enclosing centers. Munteanu, Sohler and Feldman (2014) analyze algorithms for probabilistic enclosing balls rather than this rare-boundary asymptotic center law. General convergence-of-argmax principles are not themselves sufficient without the random affine-envelope uniqueness and support-stability verification established above.
+
+## Limitations
+
+This is a one-term weak-limit theorem in fixed dimension and supplies neither a closed form for the law of \(Z\) nor finite-sample rates. The radial tail needs genuine regular variation, so the result does not settle the broader conjecture under arbitrary oscillatory tails satisfying only two-sided power bounds. The relevant finite configurations are almost surely in general position; a non-atomless angular distribution can produce multiple limiting optimizers and is excluded. Prior-art comparison is based on the referenced open problem, targeted searchable literature and mathematical-result comparisons; unindexed older equivalent results remain a possible priority risk. No independent mathematical audit has been performed.
+
+## References
+
+- N. Henze and M. Klatt (2026), *Extreme-value asymptotics for smallest enclosing balls of spherically symmetric samples*, arXiv:2611.09726v1, first posted 2026-11-06. https://arxiv.org/abs/2611.09726
+- M. Mayer and I. Molchanov (2006), *A limit theorem for the maximal interpoint distance of a random sample in the unit ball*, arXiv:math/0605289. https://arxiv.org/abs/math/0605289
+- A. Munteanu, C. Sohler and D. Feldman (2014), *Smallest enclosing ball for probabilistic data*, ACM Symposium on Computational Geometry, doi:10.1145/2582112.2582114. https://doi.org/10.1145/2582112.2582114
+- H. Ding (2019), *Minimum Enclosing Ball Revisited: Stability and Sub-linear Time Algorithms*, arXiv:1904.03796. https://arxiv.org/abs/1904.03796

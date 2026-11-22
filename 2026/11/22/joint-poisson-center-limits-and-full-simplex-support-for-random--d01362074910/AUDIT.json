@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "A complete proof handles the radial-tail normalization and rare-event Poisson process, angular coercive shielding and tightness, generic exactly-(d+1)-constraint affine-LP activity, uniqueness, uniform local convergence of the nonlinear finite objective, joint argmax convergence, and a separate boundary-support stability argument using subgradients. The latter is necessary because center convergence alone does not control sample support. Computation: 13,770 plus 216 executed finite checks support but do not establish the limit. The proof explicitly excludes oscillatory tails and non-uniform angles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:math/0605289 establishes extreme diameters (maximum interpoint distances), not enclosing-center/active simplex limits.",
+        "Munteanu--Sohler--Feldman (2014) treats computational approximation with uncertain point positions; the target is not the asymptotic random sample center.",
+        "Henze--Klatt Section 7 proves three-point support in d=2 and explicitly poses the d>=3 bounded-tail problem as Conjecture 7.6."
+      ],
+      "reasoning": "The new assertion strengthens the scalar enclosing-radius limit by a random optimizer and exact number of active constraints. General computational stability/coreset results do not give the Poisson boundary law; diameter extremes are different optimization objectives. The 2026 source conjecture directly excludes already-established broader coverage in the inspected main paper.",
+      "searches": [
+        "published-finding corpus: joint weak convergence center and radius of smallest enclosing ball uniform random points unit ball extreme values",
+        "published-finding corpus: rescaled Chebyshev center random points uniform unit disk convergence distribution support simplex",
+        "web: \"minimum enclosing ball\" \"center\" \"limit\" \"random\" \"unit ball\"",
+        "web: \"Poisson\" \"minimum enclosing ball\" \"center\" \"distribution\" \"limit\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.09726v1 §§1,2,7,8 and scalar theorem description",
+      "arxiv:math/0605289 abstract",
+      "doi:10.1145/2582112.2582114 repository abstract",
+      "arxiv:1904.03796 abstract",
+      "published-finding corpus semantic searches identified above",
+      "own current-week ledger (79 recovered finding claims and titles)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Henze--Klatt arXiv:2611.09726v1, Section 8(2), says the limiting radius-center pair and a.s. uniqueness are natural questions, and Section 7.3 formulates full support as a higher-dimensional conjecture; their Theorem 5.9 gives only the scalar Poisson radius functional.",
+        "Mayer--Molchanov arXiv:math/0605289 studies maximal interpoint distance. Ding arXiv:1904.03796 studies stable approximation algorithms, not random center limit laws."
+      ],
+      "reasoning": "The scalar radius limit and tightness do not imply center convergence without a unique limiting optimizer. The independently proved general-position active-set lemma supplies this missing hypothesis, and strict-slack transfer plus subgradient optimality yields d+1 sample support. The result only treats radial tail equivalence, not the wider two-sided bounds of Conjecture 7.6.",
+      "searches": [
+        "arXiv HTML 2611.09726v1 sections 1, 2, 7.1, 7.2, 7.3, 8; source lines on Theorem 5.9 and Conjecture 7.6",
+        "web: \"minimum enclosing ball\" \"center\" \"limit\" \"random\" \"unit ball\"",
+        "web: asymptotics minimum enclosing ball center random points unit ball limit distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Henze--Klatt arXiv:2611.09726v1, Section 8(2), defines the Weibull affine infimum and explicitly asks whether its center maximizer is unique and convergent; the article contains radius-only limit and center tightness.",
+        "published-finding corpus closest geometric returns concerned Poisson extreme widths, sampling near boundaries, or deterministic optimizer problems, not the lower-envelope center or support law."
+      ],
+      "reasoning": "Changing signs from smallest radius to maximization of a concave lower envelope yields the exact displayed candidate functional. No examined item stated its generic full-simplex optimizer, the joint center-radius convergence, or the resulting high-dimensional support-count limit. Generic argmax theorems alone do not establish uniqueness.",
+      "searches": [
+        "published-finding corpus: Poisson boundary extreme point process smallest enclosing ball Weibull rescaled center unique argmax random variational functional",
+        "published-finding corpus: minimum enclosing radius Poisson variational functional center argmax almost surely unique",
+        "web: \"enclosing radius\" \"rescaled center\" Weibull Poisson unique"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible private same-slot ledger contained 79 prior finding rows, with no row matching the enclosing-ball limit theorem or its primary source by the focused claim/alias scan.",
+        "published-finding corpus search returned closest IDs 2026/10/12/SCOPE-weibull-limit-for-the-natural-support-boundary-estimator-in-l-p--d363caf19ac0 and 2026/10/4/SCOPE-second-order-circumradius-tails-for-three-random-points-in-a-euc--a55adf18ae99; the former is an Lp-copula boundary estimator and the latter concerns finite-three-point circumradius tails, not the random n-point minimum enclosing center."
+      ],
+      "reasoning": "No exact table/database of optimizer centers, full-simplex Poisson activity, or finite enclosing-ball support count was found in the queries actually executed. This is exclusion of observed entries, not a uniqueness proof or assertion that the complete literature is indexed.",
+      "searches": [
+        "published-finding corpus: arXiv:2611.09726 Henze Klatt limiting center of smallest enclosing ball Weibull regime Poisson argmax",
+        "published-finding corpus: uniform unit ball smallest enclosing ball joint radius center limit distribution",
+        "own latest private research ledger ledger claim/title scan: enclos; poiss(on) functional; circumb; centers; smallest ball; random disk"
+      ]
+    },
+    "rationale": "The source paper explicitly lists convergence and uniqueness of the Weibull limiting center as open and higher-dimensional d+1 support as conjectural. A general-position Poisson linear-programming lemma plus strict active-set transfer supplies a mathematically distinct claim, not the known radius-only scalar law. Relevant published-finding corpus and own-ledger claim comparisons returned no covering equivalent. Some old literature was only accessible by abstracts, a stated residual risk.",
+    "residual_risks": [
+      "General argmax or stochastic linear-programming results may contain an implicit equivalent not surfaced by indexed searches.",
+      "Full Section 5 HTML was temporarily inaccessible on reinspection, although the primary article statement, introduction, Section 7 and explicit Section 8 questions were materially read.",
+      "Older algorithmic and random-diameter primary bodies beyond accessible abstracts were not exhaustively inspected; their stated objects differ.",
+      "The result requires an actual limit for the radial tail, not merely two-sided power inequalities; do not describe it as a proof of all cases of the broader conjecture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the joint center convergence, generic affine-Poisson uniqueness, and high-dimensional support theorem under regular variation; scalar radius law and planar support already covered.",
+        "evidence": [
+          "Section 8(2): the rescaled center may converge to an a.s. unique maximizer; posed as a question.",
+          "Section 7.3 Conjecture 7.6: d+1 support proposed beyond dimension 2.",
+          "Section 8(1): normalized radius deficit is the supremum of an affine Poisson lower envelope."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.09726v1",
+        "material_read": "Full-text HTML portions: abstract and introduction; Daniels comparison in Section 2; statements and arguments for Section 7 including the Gaussian support proof and Conjecture 7.6; Section 8 open questions; theorem 5.9 described in Section 8.",
+        "method": "Read the accessible lawful arXiv HTML primary content and matched the scalar functional and open-question statements with the proposed joint claim.",
+        "title": "Extreme-value asymptotics for smallest enclosing balls of spherically symmetric samples",
+        "trigger": "Same model, exactly corresponding Weibull affine variational functional, questions on centers and supporting configurations."
+      },
+      {
+        "assessment": "The object is maximum pairwise distance, rather than enclosing-ball center; not sufficient by itself to resolve the candidate. Full-text coverage not claimed.",
+        "evidence": [
+          "Abstract explicitly states maximum interpoint distance (sample diameter) and its extreme-value normalization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0605289",
+        "material_read": "Public full abstract, title, and scope metadata; not the complete body.",
+        "method": "Inspected primary arXiv abstract and compared the optimized geometric statistic.",
+        "title": "A limit theorem for the maximal interpoint distance of a random sample in the unit ball",
+        "trigger": "Shared uniform-ball extreme geometry and Poisson limits."
+      },
+      {
+        "assessment": "Addresses approximation of expected maximum distance for uncertain locations, not a random-sample center limit; access-limited priority remains.",
+        "evidence": [
+          "Repository abstract states a polynomial-time approximate expected-max-distance center algorithm and streaming applications."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/2582112.2582114",
+        "material_read": "Research repository abstract and publication metadata, not full proceedings body.",
+        "method": "Compared stated computational objective, probability model, and limiting regime.",
+        "title": "Smallest enclosing ball for probabilistic data",
+        "trigger": "Same general geometric optimization words and uncertain input locations."
+      },
+      {
+        "assessment": "Supplies algorithmic stability perspectives but no assessed equivalent of the stochastic optimizer and support law; residual broader-coverage risk retained.",
+        "evidence": [
+          "Abstract concerns approximation and computational sample complexity for MEB, not random boundary-mark weak convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.03796",
+        "material_read": "Primary arXiv abstract; full body not read.",
+        "method": "Compared deterministic/algorithmic stability statement against distributional Weibull-Poisson limit.",
+        "title": "Minimum Enclosing Ball Revisited: Stability and Sub-linear Time Algorithms",
+        "trigger": "Potentially stronger location stability that could be used for center convergence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d0136207-4910-4922-8398-fda1ad938048",
+  "value": {
+    "rationale": "This proves a specifically posed center-limit and uniqueness question for the standard regularly varying Weibull class, strengthens radius asymptotics to a joint geometric statistic, and yields a natural complete full-simplex support classification in every fixed dimension. The random active-set lemma is necessary structural content, not a renaming or a moment corollary. The theorem gives meaningful information even without an explicit density or rates.",
+    "status": "PASS"
+  }
+}
