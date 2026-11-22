@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "On real BV of the unit circle, the Jordan derivative has equal positive/negative masses and admits a coupling into oriented arcs. The Hilbert triangle inequality reduces the full norm exactly to arcs with variation two. Arc Fourier energies give F_a''(L)=2[(K_a*K_a)(L)-2K_a(L)] away from zero; fourfold centered boxes produce F_a'(az)=p(z) and F_a(az)=a Phi(z) for 0<z<1 and all 0<a<=1/3. Strict convexity of p and p(0)=1>0>p(1)=-1/12 give a unique critical r. For a<L<=1/2, K_a=0, K_a*K_a>=0 and F_a'(1/2)=0, excluding additional maxima. The Fourier multiplier 1-sinc^2(pi k a) is strictly positive at all k!=0, so Hilbert equality rigidity yields exactly a single optimal arc. At a<=1/4 the separated-jump plateau is a/5, strictly smaller than a Phi(r). A standalone standard-library checker passes 1,628 exact-rational, decimal and bounded Fourier checks. No finite tests are substituted for continuum proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Angeloni et al. (2023), DOI 10.1515/math-2022-0573, Theorem 3 and Section 4, establish variation convergence for sampling-Kantorovich operators with averaged B-spline kernels, not the sharp norm of the convolution residual.",
+        "Poisson-mixture and one-sided boxcar analyses have different multipliers and optimizer structures; they do not supply a general triangular-kernel domination statement."
+      ],
+      "reasoning": "A theorem providing only an approximation rate, BV contractivity or variation convergence cannot determine this numerical sharp L2 constant, nor classify its equality arcs. The observed coefficient is a kernel-specific fourfold-box effect, not a substitution into the compared results.",
+      "searches": [
+        "sharp bounded variation approximation error by triangular Steklov kernel on periodic circle",
+        "sharp total variation L2 residual for circle convolution with B-spline triangular kernel exact extremizing arcs",
+        "periodic triangular Fejer Steklov second-order mean squared L2 defect under Jordan total variation: optimal short arc length 0.611 times bandwidth"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1411.2261",
+      "https://doi.org/10.1155/2015/253636",
+      "https://doi.org/10.1515/math-2022-0573",
+      "https://www.researchgate.net/publication/268155901_Rate_of_approximation_for_multivariate_sampling_Kantorovich_operators_on_some_functions_spaces",
+      "https://www.academia.edu/85769755/Functions_of_Boundedkthp_Variation_and_Continuity_Modulus"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Costarelli-Vinti 2014: sampling Kantorovich on R^n, Lipschitz/Orlicz degree-of-approximation estimates; no BV-to-L2 sharp norm (author full text, Sections 1 and 4-6).",
+        "Mejía-Silvestre 2015: periodic generalized p-variation and fractional moduli for iterated Steklov; the inspected full text does not state optimal centered BV-to-L2 error or its pulse length (full article rendering, equations partly degraded).",
+        "Angeloni et al. 2023: convergence in Tonelli variation for general multidimensional sampled operators, not this periodic sharp Hilbert residual (complete HTML Sections 3-4)."
+      ],
+      "reasoning": "No source premise entails the quantified statement for every a in (0,1/3], its exact polynomial root, and its complete equality classification. Shared words such as B-spline, Steklov and BV do not establish implication, and separately optimized one-sided smoothing cannot be transferred through translation when the identity term is present.",
+      "searches": [
+        "\"Steklov\" \"sharp\" \"variation\" \"L2\" convolution",
+        "\"B-spline\" \"BV\" \"L2\" \"sharp\" convolution",
+        "\"Functions of Bounded kth p-Variation and Continuity Modulus\" full text html 2015 hindawi"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The unit-width centred order-two B-spline is the triangular convolution of two uniform box kernels. Costarelli-Vinti (2014), DOI 10.1216/JIE-2014-26-4-455, Section 6, use B-splines in discrete sampling Kantorovich approximation, not the residual of this circle convolution.",
+        "Mejía-Silvestre (2015), DOI 10.1155/2015/253636, define kth iterated forward Steklov averages in Lemma 7 and derive higher p-variation and fractional-modulus estimates. Those are not an exact full-Jordan-BV L2 residual norm."
+      ],
+      "reasoning": "Convolution kernels equal up to a translation do not imply equality of identity-minus-operator norms: (I-shift*T) is not a shift of (I-T). No inspected equivalent formulation fixes both centred residual and squared BV-L2 sharp constant or identifies the short-pulse root.",
+      "searches": [
+        "periodic B-spline order two convolution sharp BV to L2 error exact norm pulse extremizers",
+        "second Steklov mean – identity exact optimal discontinuity pulse length variation L2",
+        "\"triangular kernel\" \"bounded variation\" \"sharp\" approximation L2",
+        "\"0.6111143254\" \"Steklov\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-root and numerical-constant queries returned no identified matching scholarly table or statement. The public index returned related spline and smoothing records but none describing this precise centred two-box convolution residual."
+      ],
+      "reasoning": "The constant is defined by an algebraic critical point rather than a tabulated quantity. Negative lookup evidence is limited: absence from search results cannot prove originality, and a nonindexed record remains possible.",
+      "searches": [
+        "\"0.6111143254\" \"Steklov\"",
+        "\"0.2463343737\" triangular smoothing",
+        "BV to L2 convolution approximation short pulse resonance two close jumps triangular kernel"
+      ]
+    },
+    "rationale": "Inspected relevant full primary literature and searched the public index by object, function class, equivalent periodic B-spline representations, numerical root and sharp BV-L2 pulse patterns. Older articles address sampled Kantorovich schemes or kth p-variation Steklov estimates, while the present exact norm is for the centred convolution residual of order two. The distinct operator multipliers and sharp pulse length prevent implication from neighbouring boxcar or Poisson smoothing claims. No covering statement identified; indexing gaps and incomplete 2015 formula rendering leave acknowledged historical risk.",
+    "residual_risks": [
+      "Public literature and indexed-record searches cannot exclude a pre-digital or unindexed exact inequality in another notation.",
+      "The 2015 full-text mirror has degraded equation glyphs; the high-level theorem scope is legible, but some low-level formulas may warrant later human comparison.",
+      "The result for wider bandwidths is deliberately unasserted; this is a scope limitation, not evidence of optimality beyond the stated range."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different sampled reconstruction operator on R^n; no directly covering periodic centred BV-to-L2 residual norm or short-pulse extremizers",
+        "evidence": [
+          "The operator samples cell averages and reconstructs by translated kernel summation; theorem material concerns Lipschitz and Orlicz approximation rates.",
+          "Section 6 defines central cardinal B-splines and their Fourier transforms, but not the sharp norm of I-S_a^2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.2261",
+        "material_read": "Author-posted complete text exposed in ResearchGate HTML, including introduction, operator definitions, approximation theorems, B-spline examples in Section 6 and end sections",
+        "method": "Full-text HTML section reading and targeted term search, public mirror https://www.researchgate.net/publication/268155901_Rate_of_approximation_for_multivariate_sampling_Kantorovich_operators_on_some_functions_spaces",
+        "title": "Rate of approximation for multivariate sampling Kantorovich operators on some functions spaces",
+        "trigger": "Pre-2016 B-spline-kernel approximation theory and common operator aliases"
+      },
+      {
+        "assessment": "Focus on generalized higher p-variation and fractional moduli, not sharp real Jordan BV-to-L2 error of a centered triangular convolution. OCR imperfection limits a categorical negative statement.",
+        "evidence": [
+          "Section 2 defines iterated forward Steklov means and gives higher p-variation estimates.",
+          "Main statements concern limiting scale behavior, fractional continuity modulus and p>1 variation rather than the exact norm of I-S_a^2."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2015/253636",
+        "material_read": "Full publicly accessible article text via Academia HTML, especially Lemma 7, the iterated forward Steklov construction, Theorems 10-12 and applications; equation glyphs imperfect in text rendering",
+        "method": "Read https://www.academia.edu/85769755/Functions_of_Boundedkthp_Variation_and_Continuity_Modulus and publisher search-rendered sections; publisher direct HTML fetch returned forbidden",
+        "title": "Functions of Bounded kth p-Variation and Continuity Modulus",
+        "trigger": "Same iterated Steklov construction for periodic functions"
+      },
+      {
+        "assessment": "Convergence in variation of sampled multidimensional operators; no stronger exact centered circular BV-to-L2 norm implication",
+        "evidence": [
+          "Theorem 3 states convergence of variation residual for AC inputs with additional hypotheses as scale tends to infinity.",
+          "Section 4 constructs averaged B-spline kernels but does not optimize joint L2 discontinuity placement."
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/math-2022-0573",
+        "material_read": "Full open HTML, introduction, Theorem 3 and proof, Section 4 kernel examples",
+        "method": "Read openly available De Gruyter HTML at https://www.degruyterbrill.com/document/doi/10.1515/math-2022-0573/html",
+        "title": "Multidimensional sampling-Kantorovich operators in BV-spaces",
+        "trigger": "Later broader BV approximation work using averaged B-spline kernels"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9f69981a-cbc3-4c3b-b942-04f4acbab588",
+  "value": {
+    "rationale": "Iterated centered Steklov averaging is a natural positive B-spline smoother. Its exact BV-to-L2 error measures worst loss near edges for any bandwidth up to the geometrically natural one-third support threshold. The theorem gives a continuously parameterized sharp constant, identifies every extremal signal, and quantifies a nontrivial approximately 23.17 percent squared-error amplification from nearby opposite jumps compared with separated jumps; this is a meaningful interaction principle rather than routine reproduction or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
