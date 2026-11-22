@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:04:21.128587Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m=1 direct integration of an interval gives its midpoint; m=2 is a geodesic circle so F≡L/4. For m≥3, choose candidate point x on edge i and a shortest other edge j. The i∪j circle contributes constant integral to L F(x). For every third edge k, shortest path from interior i to y on k is min{x+α_k(y),ℓ_i-x+β_k(y)}, concave in x; reflection of k swaps α,β, making endpoint integrals equal, hence nonnegative chord gap. On the middle interval of k of width min(ℓ_i,ℓ_k)/2 the switch coordinate lies in [ℓ_i/4,3ℓ_i/4], forcing positive gap ≥min(x,ℓ_i-x)min(ℓ_i,ℓ_k)/(4L). Summation proves hub rigidity. Direct hub integration of min{y,ℓ_k-y+b_k} yields (sum ℓ²+2aL-ma²)/(4L), with shortest-edge ties included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2012 general continuous-demand network median permits arbitrary graph and density, but gives a DC/branch-and-bound method rather than a symbolic all-m two-hub theorem or explicit strict gap."
+        ],
+        "reasoning": "Algorithmic generality does not entail the stated exact family-wide symbolic formula without additional proof; the quantified special-family structural classification is not present in the checked statements.",
+        "searches": [
+          "Resultary Search: uniform arclength 1 median parallel edges multigraph pumpkin banana graph minimizing integrated distance hubs quantitative gap",
+          "Blanquero–Carrizosa 2012 Sections 2–5"
+        ]
+      },
+      "checked_sources": [
+        "Blanquero–Carrizosa 2012 complete manuscript text, Proposition 3 and Sections 2–5",
+        "Baptista–Kennedy–Mugnolo arXiv:2312.04952 PDF",
+        "Kennedy–Kurasov–Malenova–Mugnolo arXiv:1504.01962 PDF",
+        "Resultary Search: uniform arclength 1 median parallel edges multigraph pumpkin banana graph minimizing integrated distance hubs quantitative gap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Blanquero–Carrizosa Proposition 3 gives a difference-of-convex decomposition of H on each edge and global algorithm; Kennedy et al. optimize the Laplacian spectral gap on pumpkin graphs."
+        ],
+        "reasoning": "Neither the DC property alone nor Laplacian spectral bounds logically imply the exact hub-only minimizers for every vector of positive parallel lengths and the explicit positive stability estimate.",
+        "searches": [
+          "Blanquero–Carrizosa PDF Proposition 3",
+          "Resultary Search: uniform arclength 1 median parallel edges multigraph pumpkin banana graph minimizing integrated distance hubs quantitative gap",
+          "Kennedy–Kurasov–Malenova–Mugnolo arXiv:1504.01962"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blanquero–Carrizosa defines ∫d(x,y) against edge demand and derives DC decomposition. Baptista–Kennedy–Mugnolo computes ∫∫d(x,y) both points random."
+        ],
+        "reasoning": "Target solves argmin_x ∫d(x,y)dy and positive off-hub margin for parallel edges; the double mean distance is not that minimization.",
+        "searches": [
+          "Resultary Search: uniform arclength 1 median parallel edges multigraph pumpkin banana graph minimizing integrated distance hubs quantitative gap",
+          "Blanquero–Carrizosa 2012 continuous median PDF",
+          "Baptista–Kennedy–Mugnolo arXiv:2312.04952"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected published table gives the complete arbitrary-length m-parallel graph median location/cost and strict gap; available tables concern two-point graph mean or algorithm benchmarks."
+        ],
+        "reasoning": "The result is an exact continuous all-real-length classification rather than a finite census; prior per-instance optimization procedure is not equivalent to tabulated theorem.",
+        "searches": [
+          "Resultary Search: uniform arclength 1 median parallel edges multigraph pumpkin banana graph minimizing integrated distance hubs quantitative gap",
+          "Baptista–Kennedy–Mugnolo arXiv:2312.04952"
+        ]
+      },
+      "rationale": "Continuous-demand geodesic 1-median is classical and Blanquero–Carrizosa analyze its objective and global algorithms, but inspected material does not give the exact all-positive-length parallel-graph classification and strict quantitative gap. Parallel/pumpkin graph spectral gap and two-point mean-distance results use different functionals, not a minimizer over one location. Resultary checks found related graph means and an assigned exact banana result itself, but no earlier domination of this theorem.",
+      "residual_risks": [
+        "The 2012 manuscript cites earlier uniform-edge-demand 1-median location research without full primary follow-up; a specialized earlier banana theorem remains a historical priority risk.",
+        "No claim for nonuniform demand, arbitrary graphs, or optimality of coefficient 1/4."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_GENERAL_ALGORITHM_NOT_EXACT_BANANA_CLASSIFICATION",
+          "evidence": [
+            "Defines continuous one-median and expresses H|edge as DC, then uses branch-and-bound; no all-length two-hub optimizer theorem or quantitative positive gap in inspected statements."
+          ],
+          "identifier_or_url": "https://idus.us.es/server/api/core/bitstreams/c248990d-954d-43b0-b17f-8f9747308ad4/content",
+          "material_read": "Entire accessible 363-line manuscript text, Sections 1–5, problem (3)/(4), Proposition 3 and numerical network benchmarks; visual screenshot service unavailable",
+          "method": "Publisher/institutional PDF parsed text; screenshot attempt returned DisabledError",
+          "title": "Solving the median problem with continuous demand on a network",
+          "trigger": "Precisely same one-facility geodesic arclength-demand objective"
+        },
+        {
+          "assessment": "DIFFERENT_DOUBLE_AVERAGE",
+          "evidence": [
+            "Mean distance averages independent x,y; its fixed-total-length extremizers do not minimize single-facility F(x)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.04952",
+          "material_read": "20-page PDF abstract/introduction and definition of two-point mean; screenshot p1",
+          "method": "ArXiv PDF parsed text and visual page",
+          "title": "Mean distance on metric graphs",
+          "trigger": "Metric-graph arclength averages and known extremal metric graph families"
+        },
+        {
+          "assessment": "SAME_GRAPH_DIFFERENT_INVARIANT",
+          "evidence": [
+            "Optimizes first positive graph Laplacian eigenvalue, not argmin of mean geodesic distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1504.01962",
+          "material_read": "26-page PDF abstract, introduction, metric graph model and spectral-gap problem; screenshot p1",
+          "method": "ArXiv PDF parsed text and visual page",
+          "title": "On the spectral gap of a quantum graph",
+          "trigger": "Same pumpkin/banana family of metric graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-median problem on a canonical continuum metric-graph family has a complete nontrivial classification for all edge lengths, including edge paths longer than the actual hub geodesic. An explicit closed optimum and quantitative strict interior gap are natural benchmarks for facility location and metric-graph geometry; the result is not merely enumeration or the known two-point mean-distance functional.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The objective is one-point arclength median, not expected distance between two random graph points.",
+    "Uniform arclength density and positive finite edge lengths essential; no claim that stability coefficient 1/4 is optimal."
+  ],
+  "schema_version": 1
+}

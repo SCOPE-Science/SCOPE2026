@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Reproducible checks
-Run `python3 checker.py` from the extracted artifact directory (only Python standard library required). The checker evaluates all graph integrals analytically through piecewise linear minima, checks the closed hub formula and two-edge circle degeneracy, tests the strict gap inequality with positive prescribed length profiles, and compares against independent midpoint quadrature over actual shortest-path alternatives. It executes 22,000 parameter-position cases across 800 graph configurations with two through nine edges, including repeated edge lengths, and 24 quadrature comparisons. The actual successful marker is `PARALLEL_GRAPH_ARCLENGTH_MEDIAN_OK 22000 max_bound_excess 8.882e-16 max_midpoint_error 1.212e-07`.
+# Independent mathematical audit
 
-## Limits
-Finite computation corroborates formulas at tested instances; the theorem for every positive real length vector rests on the analytical proof, not the checker. Independent external proof and historical-priority audits have not been conducted.
+## correctness
+
+PASS
+
+For m=1 direct integration of an interval gives its midpoint; m=2 is a geodesic circle so F≡L/4. For m≥3, choose candidate point x on edge i and a shortest other edge j. The i∪j circle contributes constant integral to L F(x). For every third edge k, shortest path from interior i to y on k is min{x+α_k(y),ℓ_i-x+β_k(y)}, concave in x; reflection of k swaps α,β, making endpoint integrals equal, hence nonnegative chord gap. On the middle interval of k of width min(ℓ_i,ℓ_k)/2 the switch coordinate lies in [ℓ_i/4,3ℓ_i/4], forcing positive gap ≥min(x,ℓ_i-x)min(ℓ_i,ℓ_k)/(4L). Summation proves hub rigidity. Direct hub integration of min{y,ℓ_k-y+b_k} yields (sum ℓ²+2aL-ma²)/(4L), with shortest-edge ties included.
+
+## originality
+
+PASS
+
+Continuous-demand geodesic 1-median is classical and Blanquero–Carrizosa analyze its objective and global algorithms, but inspected material does not give the exact all-positive-length parallel-graph classification and strict quantitative gap. Parallel/pumpkin graph spectral gap and two-point mean-distance results use different functionals, not a minimizer over one location. Resultary checks found related graph means and an assigned exact banana result itself, but no earlier domination of this theorem.
+
+## value
+
+PASS
+
+The one-median problem on a canonical continuum metric-graph family has a complete nontrivial classification for all edge lengths, including edge paths longer than the actual hub geodesic. An explicit closed optimum and quantitative strict interior gap are natural benchmarks for facility location and metric-graph geometry; the result is not merely enumeration or the known two-point mean-distance functional.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
