@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T13:04:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/17/a-cubic-law-for-the-largest-triangle-inellipse-containing-a-mark--263604298c3c/RESULT.md at e445181e127b2110093a44c41a607a46ab3f47e9",
+        "2026/11/17/a-cubic-law-for-the-largest-triangle-inellipse-containing-a-mark--263604298c3c/VERIFICATION.md",
+        "2026/11/17/a-cubic-law-for-the-largest-triangle-inellipse-containing-a-mark--263604298c3c/check.py",
+        "/mnt/data/audit08_independent_checks.py bounded independent exact checks (where applicable)"
+      ],
+      "rationale": "The final theorem explicitly restricts to three-side-tangent nondegenerate inellipses and an interior target w_i>0 (allowing target on filled-ellipse boundary). Restricting F_u to each side gives a squared linear form, u_i>0 and sum u_i=1. Exact Hessian determinant 4u1u2u3 and center value -u1u2u3 give normalized area pi sqrt(product u). The inequality F_u(w)<=0 is exactly the Heron triangle inequality for sqrt(u_i w_i); hypograph convexity follows from geometric-mean concavity. The objective sum log u_i is strictly concave on the convex feasible domain, with an interior Slater point u_i proportional to 1/w_i and boundary product zero. Unconstrained Steiner u=(1/3)^3 is feasible iff 2sum w_i^2<=1. When infeasible, exactly one Heron inequality is violated there, so the single active constraint yields sqrt(w_k u_k)=sqrt(w_i u_i)+sqrt(w_j u_j); all other triangle inequalities then hold strictly. Its one-parameter product ABC q^2(q+1)^2/[A(q+1)^2+Bq^2+C]^3 has derivative proportional to the displayed cubic with sign pattern +,+,-,- and exactly one positive zero. The median t>2/3 gives u=(1-t,t/2,t/2) and H=(pi/2)t sqrt(1-t), matching C1 at t=2/3. Independent exact SymPy checked the q-derivative, F_u(4/5,1/10,1/10)=0 for u=(1/5,2/5,2/5), and the right second derivative -3sqrt(3)pi/4. No sample proves universality; the convex proof does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MathWorld Steiner Inellipse states the classical unconstrained unique maximum area inellipse",
+          "Resultary 2026-10-11 triangle-local John ellipsoids of cut polytopes concerns another convex body, and simplex-truncation John results change the body rather than require a marked point inside the inellipse"
+        ],
+        "reasoning": "Classical Steiner optimality applies only when that ellipse contains the target; it does not decide the constrained optimum outside it. John ellipsoids for truncated simplices optimize a different feasible set and do not dominate the specified cubic.",
+        "searches": [
+          "Resultary semantic search: largest area triangle inellipse containing a prescribed interior point barycentric coordinates constraint cubic optimal Steiner ellipse",
+          "Steiner John ellipse triangle containment constrained fixed point"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1504.05141 Horwitz (2015), primary incidence theorems",
+        "Juhasz, Annales Mathematicae et Informaticae 40 (2012) 37–46, primary full text",
+        "MathWorld Steiner Inellipse and Inellipse, classical unrestricted maximal area",
+        "Resultary semantic search: largest area triangle inellipse containing a prescribed interior point barycentric coordinates constraint cubic optimal Steiner ellipse"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Horwitz source addresses incidence of two given points or prescribed point/tangent direction",
+          "Juhasz 2012 Theorem 3.1 and Section 3 describe all inellipses and distinguished Brianchon points; no constrained maximum area theorem"
+        ],
+        "reasoning": "The parametric family is a necessary starting point but neither parameterization nor unconstrained Steiner/John maximality implies the inequality-constrained cubic optimization and median C1-not-C2 profile without additional work.",
+        "searches": [
+          "Resultary semantic search: largest area triangle inellipse containing a prescribed interior point barycentric coordinates constraint cubic optimal Steiner ellipse",
+          "arXiv:1504.05141 full text 2015",
+          "Juhasz 2012 pp37–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1504.05141 principal theorem statements solve incidence/tangency geometry for inellipses and prescribed points; no area-maximizing containment target",
+          "Juhasz (2012) Section 3 supplies the two-parameter inellipse rational representation, not constrained area optimization"
+        ],
+        "reasoning": "Incident point ON an ellipse and target INSIDE its filled ellipse are inequivalent feasible conditions. The Steiner family parameterization alone does not give the active-corner optimization or its cubic.",
+        "searches": [
+          "Resultary semantic search: largest area triangle inellipse containing a prescribed interior point barycentric coordinates constraint cubic optimal Steiner ellipse",
+          "Horwitz point-on-inellipse vs point containment objective"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Juhasz (2012) lists Steiner, Mandart and contact-point parametrizations, not a table of all marked-point optimal areas",
+          "Horwitz (2015) classifies geometry of ellipses through prescribed points, not an optimal-value table"
+        ],
+        "reasoning": "No inspected table lists the unique maximizer for a continuum of target barycentric triples; the exact H(t) curve is not a lookup already present in inspected sources. Search absence is not a definitive novelty proof.",
+        "searches": [
+          "Resultary semantic search: largest area triangle inellipse containing a prescribed interior point barycentric coordinates constraint cubic optimal Steiner ellipse",
+          "inellipse barycentric tables prescribed point constrained area"
+        ]
+      },
+      "rationale": "Four statement-level comparisons distinguish the specified result from the inspected primary-source coverage; best-of-knowledge priority, not an absence-of-search novelty guarantee. ",
+      "residual_risks": [
+        "Unindexed older triangle-geometric optimization could formulate the same marked-point maximum in alternate coordinates.",
+        "Claim uses phrase \"filled interiors contain P\" but explicit assumptions allow boundary point; assessed against the precise closed-filled-ellipse convention in scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies point incidence, not a filled-target area optimizer",
+          "evidence": "arXiv:1504.05141 geometrical inellipse incidence; search for contain/maximum area returned no such theorem wording",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.05141",
+          "material_read": "Abstract, introduction, theorem statements and relevant point/tangent geometric argument; inspected PDF pages 1–3 and searched full parsed text for contain/maximum area",
+          "method": "Primary arXiv full-text examination with page images and text search",
+          "title": "Dynamics of ellipses inscribed in triangles",
+          "trigger": "Same inellipse family, prescribed-point titles and possible dominating theorem"
+        },
+        {
+          "assessment": "Rational control-point parametrization; no marked-target area optimum",
+          "evidence": "Article abstract: parametric description of all inellipses; Section 3 Eq. 3.3 defines two weights; no target-inclusion optimization",
+          "identifier_or_url": "https://real-j.mtak.hu/22331/1/AnnMathInf_40_2012.pdf",
+          "material_read": "The journal article pp37–46 including Section 3 Theorem 3.1, contact points, Mandart/Steiner examples and references",
+          "method": "Original journal PDF inspected by text and page image 37",
+          "title": "Control point based representation of inellipses of triangles",
+          "trigger": "Full parametrization of exactly same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1504.05141 Horwitz (2015), primary incidence theorems",
+        "Juhasz, Annales Mathematicae et Informaticae 40 (2012) 37–46, primary full text",
+        "MathWorld Steiner Inellipse and Inellipse, classical unrestricted maximal area"
+      ],
+      "rationale": "Maximal-area three-side-contact ellipses under one point-inclusion constraint form a natural affine-invariant geometric design problem; an all-interior-target constructive optimum, sharp Steiner saturation region, and nontrivial curvature break are motivated and not mere replacement of a classical unrestricted optimum. Three-side tangency and closed point containment are explicit limits.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/17/a-cubic-law-for-the-largest-triangle-inellipse-containing-a-mark--263604298c3c/RESULT.md source blob tree b0949fc86797688fcce4db7832258a0dfdd5baf7",
+    "2026/11/17/a-cubic-law-for-the-largest-triangle-inellipse-containing-a-mark--263604298c3c/AUDIT.json",
+    "2026/11/17/a-cubic-law-for-the-largest-triangle-inellipse-containing-a-mark--263604298c3c/METADATA.json",
+    "2026/11/17/a-cubic-law-for-the-largest-triangle-inellipse-containing-a-mark--263604298c3c/VERIFICATION.md",
+    "arXiv:1504.05141 Horwitz (2015), primary incidence theorems",
+    "Juhasz, Annales Mathematicae et Informaticae 40 (2012) 37–46, primary full text",
+    "MathWorld Steiner Inellipse and Inellipse, classical unrestricted maximal area",
+    "Resultary semantic search: largest area triangle inellipse containing a prescribed interior point barycentric coordinates constraint cubic optimal Steiner ellipse"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed older triangle-geometric optimization could formulate the same marked-point maximum in alternate coordinates.",
+    "Claim uses phrase \"filled interiors contain P\" but explicit assumptions allow boundary point; assessed against the precise closed-filled-ellipse convention in scope.",
+    "Source code diagnostics and prior VERIFICATION_OK do not establish infinite theorems, originality or value.",
+    "Source public METADATA.json and AUDIT.json contain operational scope_run_id; publication withheld pending complete sanitization."
+  ],
+  "schema_version": 1
+}

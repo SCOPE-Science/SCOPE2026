@@ -1,19 +1,21 @@
-# Review of the marked-point inellipse theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem covers every nondegenerate triangle and strictly interior point. The general three-side-tangent conic equation is proved by restriction to the sides; its quadratic matrix has determinant \(4u_1u_2u_3\) and its center value is \(-u_1u_2u_3\). The marked-point inclusion test becomes triangle inequalities for three positive square roots. The geometric-mean superlevel constraints form a convex feasible set and the log-area function is strictly concave. When Steiner is excluded, a single active constraint and the one-sign-change cubic establish the unique global maximum. A full analytic proof, exact rational checks, and an independently initialized numerical optimizer comparison support the claim. Finite tests are not substitutes for the proof.
+PASS
 
-## Originality
+The final theorem explicitly restricts to three-side-tangent nondegenerate inellipses and an interior target w_i>0 (allowing target on filled-ellipse boundary). Restricting F_u to each side gives a squared linear form, u_i>0 and sum u_i=1. Exact Hessian determinant 4u1u2u3 and center value -u1u2u3 give normalized area pi sqrt(product u). The inequality F_u(w)<=0 is exactly the Heron triangle inequality for sqrt(u_i w_i); hypograph convexity follows from geometric-mean concavity. The objective sum log u_i is strictly concave on the convex feasible domain, with an interior Slater point u_i proportional to 1/w_i and boundary product zero. Unconstrained Steiner u=(1/3)^3 is feasible iff 2sum w_i^2<=1. When infeasible, exactly one Heron inequality is violated there, so the single active constraint yields sqrt(w_k u_k)=sqrt(w_i u_i)+sqrt(w_j u_j); all other triangle inequalities then hold strictly. Its one-parameter product ABC q^2(q+1)^2/[A(q+1)^2+Bq^2+C]^3 has derivative proportional to the displayed cubic with sign pattern +,+,-,- and exactly one positive zero. The median t>2/3 gives u=(1-t,t/2,t/2) and H=(pi/2)t sqrt(1-t), matching C1 at t=2/3. Independent exact SymPy checked the q-derivative, F_u(4/5,1/10,1/10)=0 for u=(1/5,2/5,2/5), and the right second derivative -3sqrt(3)pi/4. No sample proves universality; the convex proof does.
 
-**PASS, with historical-priority risk.** The unrestricted Steiner maximum and classical center-area formula are prior work. Horwitz's 2015 full text counts inellipses through two points and treats one point with a specified tangent slope; Juhász's 2012 full article provides a rational parametrization and distinguished inellipses. Neither inspected source proves the target-*containment* area maximum, active-corner cubic or universal median area-transition law. Relevant public mathematical-index searches did not return an equivalent claim; indexed ellipsoid results for truncated simplices and quadrilateral inellipses use different objects. Search absence is not priority certification. Chakerian's 1979 primary treatment was not inspected in full, and equivalent older formulations remain possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The problem maximizes an intrinsic area fraction over a canonical geometric family for an arbitrary marked target. Its answer is a complete affine-invariant classification with a unique explicit algebraic optimizer, a meaningful boundary between unconstrained and constrained geometric behavior, and a sharp regularity transition along every median. Its usefulness is self-contained and does not depend on a downstream conjecture.
+Four statement-level comparisons distinguish the specified result from the inspected primary-source coverage; best-of-knowledge priority, not an absence-of-search novelty guarantee. 
 
-## Limits
+## value
 
-The result applies only to positive barycentric targets and to ellipses tangent to all three triangle sides. It does not claim the largest ellipse among candidates having fewer side contacts, nor higher-dimensional or multi-target extensions. Independent mathematical auditing remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Maximal-area three-side-contact ellipses under one point-inclusion constraint form a natural affine-invariant geometric design problem; an all-interior-target constructive optimum, sharp Steiner saturation region, and nontrivial curvature break are motivated and not mere replacement of a classical unrestricted optimum. Three-side tangency and closed point containment are explicit limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
