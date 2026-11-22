@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The analytic proof uses an exact conjugation of Poisson measures by disk Möbius maps for the subcritical nonclosure theorem; this argument covers all subcritical amplitudes without truncating a power series. Derivative identities give a unique cubic critical point at unit magnitude and exactly two nondegenerate folds above it. Direct local inverse expansions and positive density weights give the leading constants and the sharp integrability cutoffs. The embedded script corroborates those constants and critical identities but is not a substitute for the universal proof.
+## correctness
 
-## Originality
-The motivating 2026 Gade–Gupta preprint describes numerical nonclosure of the Ott–Antonsen family; a published 2026 mathematical result gives the quadratic weak-kick circular-cumulant cascade. Neither accessible statement includes a uniform-in-amplitude nonclosure theorem or the exact cubic/fold density and integrability transition. The 2020 Möbius-map paper provides a different, exactly Poisson-preserving update. The 2023 sine-circle-map paper already gives the classical invertibility boundary; that boundary alone is not claimed new. The 2026 preprint's full text was unavailable, and historical priority remains provisional.
+PASS
 
-## Value
-The result quantifies a phase-density regularity mechanism at the exact point where the single-step map ceases to be a diffeomorphism, providing optimal conditional-density integrability thresholds as well as a nonperturbative explanation of closure failure. These relate directly to the continuum transfer operator used in recent discrete-oscillator work. It does not assert any long-time invariant-density or synchronization theorem.
+For T(theta)=theta+omega-s sin(theta+gamma), derivative 1-s cos gives analytic diffeomorphism for |s|<1, one order-three degeneracy at |s|=1 with third derivative equal to 1, and two nondegenerate folds for |s|>1 with absolute second derivative sqrt(s²-1). Poisson-law-to-Poisson-law orientation-preserving homeomorphisms must be Möbius because conjugation by boundary automorphisms preserves Haar and hence is rotation. A nonrotation Möbius derivative has a second harmonic absent from 1-s cos; only s=0 closes. Change of variables yields the critical cusp coefficient 2P_a(c)/6^(2/3), fold coefficient P_a(c)sqrt(2/absolute second derivative) and strict L^p cutoffs 3/2,2. Independent numerical local cubic ratios at source displacements 0.06,0.03,0.01 are 1.03390,1.01737,1.00588 and converge correctly. These checks corroborate the analytic asymptotics, not the all-s proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete 2026-11-08 published weak-kick circular-cumulant result proves only fixed-order O(s²) moment defects for small kicks and cannot imply regularity at |s|>=1. The motivating 2026 Kuramoto abstract already notes qualitative nonclosure and provides transfer equation; generic fold and cusp exponents and invertibility threshold are old, but the joint exact Poisson density one-step all-s classification, coefficient and integrability statement is not shown in inspected sources. Best-of-knowledge pass with original primary full text unavailable.
+
+## value
+
+PASS
+
+A single sharp one-step regularity phase diagram for the noninvertible sine kick of Poisson ensembles, including model-specific density coefficients, L^p thresholds and all-amplitude nonclosure, provides a motivated diagnostic for discrete phase dynamics beyond qualitative Ott-Antonsen failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
