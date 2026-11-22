@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T15:59:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four-simplex Δ^4 has 31 nonempty Hasse nodes and 75 primitive cover edges. For g in S5 an invariant matching is exactly a union of primitive-edge orbits. For o selected orbits the signed augmented reduced trace contribution is (-1)^(o-1), including -1 for the empty union, giving chi_E(g)=-P_g(-1). A legal face has no repeated Hasse nodes and no directed closed Forman V-path. I independently implemented an exhaustive C++ DFS over all orbit subsets with exact incidence, overlap and directed-cycle pruning. Its six nonidentity class counts, including empty, were 449440,10480,1029,1,32,3, and signed reduced Lefschetz traces -16,0,-1,-1,0,1 in the stated cycle-type order. Scoville §5.2 provides the exact full f-vector and identity reduced Euler characteristic 212456. S5 character arithmetic gives seven integral virtual Specht coefficients 1769,7079,8851,10623,8854,7084,1772 and 1769 full quotient reduced Euler characteristic. These are *virtual alternating* homology coefficients, not actual degreewise Betti numbers; the unknown graded homology is not inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general automorphism theorem supplies group, not character.",
+          "Published S4 character of Δ3 (99,1,-1,0,-1) and optimally matched Δ4 top-stratum stabilizer census concern different complexes or only maximal faces."
+        ],
+        "reasoning": "A homotopy or automorphism statement in a broader simplex parameter does not supply the complete 5-label equivariant character; an optimal-stratum count misses lower-dimensional faces contributing to the virtual trace.",
+        "searches": [
+          "four simplex Morse complex S5 equivariant Euler characteristic alternating fixed faces",
+          "four simplex acyclic Morse matching complex full virtual S5 character Scoville 2026",
+          "published SCOPE tetrahedral four-label S4 Morse matching complex character"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2604.18172v1",
+        "https://arxiv.org/abs/1904.10907",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-full-symmetric-group-character-of-the-tetrahedral-discrete-m--792ac3c70a65",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/the-full-equivariant-euler-character-of-the-four-simplex-morse-m--9a6e8285c3e9/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scoville states Δ4 full integral homology remains out of reach and gives only χ_E(1)=212456.",
+          "The new six nontrivial conjugacy traces are independently computed by exhaustive orbit-subset enumeration."
+        ],
+        "reasoning": "A virtual character is not determined by its value at the identity. The 6 additional values and quotient Euler character cannot be inferred from prior f-vector alone. Conversely positive virtual coefficients are not sufficient to assert actual graded homology concentration; the audited text avoids that false implication.",
+        "searches": [
+          "https://arxiv.org/html/2604.18172v1",
+          "four simplex Morse complex S5 equivariant Euler characteristic alternating fixed faces",
+          "Lin Scoville On the automorphism group of the Morse complex 2019"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scoville arXiv:2604.18172 §5.2 reports non-equivariant f-vector and total reduced Euler χ=212456 but no six nonidentity traces.",
+          "Lin–Scoville arXiv:1904.10907 characterizes automorphism S5 action, not its virtual Euler character."
+        ],
+        "reasoning": "Virtual alternating homology character equals alternating oriented-chain representation. This alias was searched explicitly. The known single identity trace does not imply the other six class values or their multiplicities.",
+        "searches": [
+          "four simplex Morse complex S5 equivariant Euler characteristic alternating fixed faces",
+          "S5 Morse complex Δ4 signed Lefschetz virtual representation 212456 -16 0 -1 -1 0 1",
+          "https://arxiv.org/html/2604.18172v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary has 2026/11/1 four-simplex optimal matching stabilizer spectrum and a separate 2026/11/8 tetrahedral full S4 character; no independently published all-face S5 table outside the audited record was recovered.",
+          "Scoville Section 5.2 exact face vector is a known identity-only table."
+        ],
+        "reasoning": "The relevant finite object and symmetry action were checked against indexed tables. Face f-vector and optimal-stabilizer orbits do not determine the signed fixed-face counts for arbitrary group elements.",
+        "searches": [
+          "four simplex Morse complex S5 equivariant Euler characteristic alternating fixed faces",
+          "full discrete Morse complex four simplex 5 labels equivariant Euler signed face table 1769"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Scoville computed ordinary f-vector/identity Euler characteristic, explicitly not full homology or S5 signed traces; Lin–Scoville computed action/automorphism existence but not its virtual character. Published tetrahedral four-label S4 character and four-simplex optimal-facet stabilizer census do not supply all-face five-label signed Lefschetz sums. The exact nonidentity character remains distinct in inspected literature.",
+      "residual_risks": [
+        "An unindexed full S5-equivariant face-orbit or Euler table might exist.",
+        "The exact identity component uses Scoville’s published f-vector, not a fresh all-identity enumeration; the six nonidentity components were freshly exhaustively enumerated.",
+        "Unknown graded homology is not determined by positive virtual Specht coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR",
+          "evidence": "§1 and §5.2 state f-vector and χ̃(Δ4)=212456; no full S5 signed nonidentity virtual trace; graded Δ4 homology unknown.",
+          "identifier_or_url": "https://arxiv.org/html/2604.18172v1",
+          "material_read": "Open full HTML sections 1, 2 (Definitions 1–2), §5.2, data and concluding limitations; explicitly identifies χ̃=212456 and uncomputed Δ4 homology",
+          "method": "Full primary HTML article inspection",
+          "title": "The complex of discrete Morse matchings of the n-simplex: homotopy types and structural results",
+          "trigger": "Exact original four-simplex f-vector and Hasse-complex definition"
+        },
+        {
+          "assessment": "AUDITED_CLAIM",
+          "evidence": "Oriented orbit-union reduced Lefschetz formula and all six nonidentity class counts were independently rebuilt.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/the-full-equivariant-euler-character-of-the-four-simplex-morse-m--9a6e8285c3e9/RESULT.md",
+          "material_read": "Complete RESULT.md, proof, exact six class counts and Specht multiplicities; both attached checkers inspected",
+          "method": "Frozen GitHub full text and finite-code read",
+          "title": "The full equivariant Euler character of the four-simplex Morse-matching complex",
+          "trigger": "Exact assigned finite claim and exhaustive algorithm"
+        },
+        {
+          "assessment": "STRUCTURAL_PRIOR",
+          "evidence": "Describes abstract automorphism group, not specific S5 Lefschetz traces.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.10907",
+          "material_read": "Indexed theorem/structural scope; full original text not independently inspected this run",
+          "method": "Scientific claim comparison by theorem and cited scope",
+          "title": "On the automorphism group of the Morse complex",
+          "trigger": "Natural S5 action may imply virtual character?"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the full S5 equivariant virtual Euler character of a natural but prohibitively large full discrete-Morse matching complex is a meaningful exact finite classification; its 1769 quotient reduced Euler characteristic and 7 Specht multiplicities capture symmetry information absent from raw face counts. This exact invariant is useful even while graded integral homology remains unknown.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full virtual representation only, not actual graded homology or integral modules.",
+    "Exhaustive finite nonidentity trace enumeration combined with published exact identity f-vector; no claim to recalculate 380125 optimal matching total."
+  ],
+  "schema_version": 1
+}

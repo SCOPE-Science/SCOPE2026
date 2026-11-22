@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is the alternating reduced rational homology **character**, not a graded homology decomposition. The chain-level fixed-orbit sign \((-1)^{o-1}\) follows by multiplying simplex orientation sign \((-1)^{k-o}\) by the degree sign \((-1)^{k-1}\), and the augmented empty face contributes \(-1\). For each of six nonidentity conjugacy classes, exhaustive orbit-union enumeration is exact on the finite 75-vertex Morse-matching complex. Two distinct cycle tests (closed gradient-path digraph and reversed full Hasse graph with topological sort) give the same six traces and matching counts. The published full face vector supplies the identity, and character inner products determine the virtual Specht coefficients exactly. The four-label tetrahedral computation reproduces an independently published character. No assumption about unknown graded five-label homology is used.
+## correctness
 
-## Originality — PASS, with residual literature risk
-Scoville's April 2026 paper reports the nonequivariant full \(f\)-vector of the four-simplex Morse complex and explicitly leaves its homology unknown, not specifying nonidentity equivariant Euler traces. Lin–Scoville determine its automorphism group but not its Euler representation. The published census *Symmetry classes of optimal discrete Morse matchings on the four-simplex* determines stabilizers of **top-dimensional optimal faces**, not contributions of all nonoptimal faces; the two statements do not imply one another. The published tetrahedral character calculation concerns four labels, not the five-label object. Search and full-text comparisons identified no equivalent full reduced \(S_5\) virtual Euler representation. An unindexed or implicit equivalent calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-The first simplex dimension whose full integral homology is beyond present practical calculation nevertheless has a completely accessible **equivariant Euler invariant**, now determined for the full automorphism group. Its seven class traces yield a natural positive virtual Specht decomposition and the previously unavailable exact rational Euler characteristic \(1770\) of the full symmetry quotient. The result cannot be inferred from the single published nonequivariant Euler number or from top-facet orbit counts; it gives usable constraints on any future computation of the graded homology.
+The four-simplex Δ^4 has 31 nonempty Hasse nodes and 75 primitive cover edges. For g in S5 an invariant matching is exactly a union of primitive-edge orbits. For o selected orbits the signed augmented reduced trace contribution is (-1)^(o-1), including -1 for the empty union, giving chi_E(g)=-P_g(-1). A legal face has no repeated Hasse nodes and no directed closed Forman V-path. I independently implemented an exhaustive C++ DFS over all orbit subsets with exact incidence, overlap and directed-cycle pruning. Its six nonidentity class counts, including empty, were 449440,10480,1029,1,32,3, and signed reduced Lefschetz traces -16,0,-1,-1,0,1 in the stated cycle-type order. Scoville §5.2 provides the exact full f-vector and identity reduced Euler characteristic 212456. S5 character arithmetic gives seven integral virtual Specht coefficients 1769,7079,8851,10623,8854,7084,1772 and 1769 full quotient reduced Euler characteristic. These are *virtual alternating* homology coefficients, not actual degreewise Betti numbers; the unknown graded homology is not inferred.
 
-## Sources and limitations
-Primary: N. A. Scoville, arXiv:2604.18172v1 (2026-04-20), Sections 2 and 5, especially the complete four-simplex \(f\)-vector and stated limits of homology computation. Comparison: M. Lin and N. A. Scoville, arXiv:1904.10907v1, Theorem 1; full published research records on optimal four-simplex matching orbits and the four-label tetrahedral homology character. The result is a finite exact calculation in a representation ring; it does **not** settle graded homology, integral module structure, or higher-dimensional simplices. Literature-search coverage is not a proof of uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Scoville computed ordinary f-vector/identity Euler characteristic, explicitly not full homology or S5 signed traces; Lin–Scoville computed action/automorphism existence but not its virtual character. Published tetrahedral four-label S4 character and four-simplex optimal-facet stabilizer census do not supply all-face five-label signed Lefschetz sums. The exact nonidentity character remains distinct in inspected literature.
+
+## value
+
+PASS
+
+PASS: the full S5 equivariant virtual Euler character of a natural but prohibitively large full discrete-Morse matching complex is a meaningful exact finite classification; its 1769 quotient reduced Euler characteristic and 7 Specht multiplicities capture symmetry information absent from raw face counts. This exact invariant is useful even while graded integral homology remains unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
