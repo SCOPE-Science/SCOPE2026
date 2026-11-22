@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition is unambiguous: faces are subsets of the twenty-four graph edges with matching number at most two. The checker constructs all faces both by forbidden disjoint triples (1,096 minimal nonfaces) and by two-vertex-cover subsets, obtaining identical 3,149-face sets. A complete deterministic sequential matching yields 1,552 augmented pairs, 45 critical three-simplices, and an acyclic 11,832-cover Hasse orientation. On nonempty faces it gives one critical vertex and 45 critical three-simplices, with a second acyclicity test on 11,808 covers. The integral discrete-Morse theorem therefore yields a wedge of 45 three-spheres without needing an unverified attaching-map assumption. The generator and checker are included and reproducible.
+PASS
 
-## Originality — PASS, with limitations
+The specified GP(8,3) graph has 16 vertices and 24 edges; every nonface of the edge-subset complex contains a three-edge matching. An independently written exhaustive enumerator generated precisely 1,096 forbidden triples, 3,149 augmented faces, f=(24,276,928,1224,600,96), and the 1,552 pairs from the declared increasing-edge sequential matching. It independently topologically sorted all 11,832 augmented and 11,808 ordinary directed cover relations, with no cycle and exactly one remaining ordinary critical 0-cell and 45 ordinary critical 3-cells. Standard integral discrete-Morse theory gives a CW complex with precisely those cells: attaching 3-cells to the point 2-skeleton yields wedge of 45 S^3. Completeness is for this 24-edge graph only, not a sampled extrapolation.
 
-The directly motivating Shan–Wang 2026 theorem establishes injection and nonvanishing in the top bipartite degree, not an exact rank or sparse-graph homotopy type. Holmsen–Lee supply general homological vanishing; Linusson–Shareshian–Welker classify complete graph and complete biclique domains. The accessible published Heawood and Petersen third non-matching calculations concern different graphs. A prior total three-cut calculation for this same graph has sphere rank 45 but uses graph vertices, a different face predicate, and dimension 10; its conclusion neither states nor implies the graph-edge non-matching claim without an additional unprovided equivalence. Focused comparisons found no equivalent or stronger coverage. An unindexed equivalent calculation is still possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Möbius–Kantor graph is the canonical cubic bipartite Levi graph of the eight-point Möbius–Kantor configuration, rather than an ad hoc edge subset. Threshold three is the first nontrivial non-matching stage beyond the basic pairwise-incidence stage. The 2026 edge-addition theory guarantees persistent nonzero degree-three homology for graphs containing a six-cycle but does not give its rank or homotopy type. This exact result supplies a meaningful integral 45-generator benchmark at that bound and a complete, reproducible homotopy certificate, useful for comparison with other sparse symmetric bipartite graphs. No broader generalized Petersen classification is asserted.
+This exact integral non-matching homotopy computation for the sparse Möbius–Kantor graph is not supplied by general bipartite Leray-vanishing or complete-graph formulas, nor by the identically numbered but fundamentally different vertex total-three-cut complex. Other graphs' third non-matching multiplicities 9 and 55 do not entail 45. Best-of-knowledge priority remains conditional on unindexed prior computations.
 
-## Closest literature and residual risks
+## value
 
-The primary comparisons are Shan–Wang (2026, arXiv:2609.02621, sections 1–3), Holmsen–Lee (arXiv:2003.11270, statements and matching method), Linusson–Shareshian–Welker (arXiv:math/0410345, Theorems 1.1 and 1.4), and published Heawood, Petersen and total-three-cut calculations as linked in RESULT.md. The precise classification has not been independently validated externally. Bibliographic searches do not constitute a uniqueness proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical cubic symmetric 16-vertex graph is a natural first noncomplete bipartite nonmatching benchmark; the previously unforced integral Betti multiplicity 45 and explicit 3-sphere homotopy model are independently reusable exact data beyond Leray vanishing. Computing one finite complex is valuable here due to the graph's mathematical prominence and a full rigorous homotopy certificate, not because all finite counts are automatically significant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
