@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The certificate `CHECK.py` uses only exact integer arithmetic modulo the prime 1021. It enumerates all 1,024 subsets of the ten-site cycle, isolates the 60 disconnected supports for lag three, and checks all 3,600 ordered time/frequency support pairs. Each reduced Fourier submatrix has full column rank, certifying nonvanishing of a complex Fourier minor under cyclotomic specialization. Seven rotation classes provide a separate census check.
+# Independent mathematical audit
 
-The sharpness polynomial is algebraically factored in RESULT.md; the script checks the six nonzero coefficient positions, both disconnected support patterns at lag two, and the three surviving Fourier frequencies by exact finite-field evaluation. Its characteristic-zero vanishing is a direct factor identity, not inferred from modular vanishing.
+## correctness
 
-Execution: `python CHECK.py`. Observed output: `CHECK_OK disconnected_supports=60 rotation_orbits=7 exact_modular_ranks=3600 sharp_witness=verified`.
+PASS
 
-The finite computation exhausts exactly the fixed ten-site domain. It does not test other cycle orders or measurement noise. Independent mathematical audit has not been performed.
+For each nonzero ten-vector full STFT intensity inversion gives all coordinate products at window ambiguity-nonzero lags, determining phase iff the m-support graph is connected. Finite, exhaustive classification of the 2^10 support subsets yielded exactly 60 three-disconnected sets and seven rotation orbits; independent exact elimination over F_1021 with primitive order-ten root 432 gave full column rank for all 3,600 ordered time/Fourier-disconnected support pairs. Nonzero modular minors imply nonzero characteristic-zero cyclotomic minors. The polynomial (1+z^5)(z-1)(z-omega^{-4}) has disconnected time support {0,1,2,5,6,7} and Fourier support {2,6,8} at m=2, establishing the claimed sharpness for exponential bands m in 0..4. Check does not extend to arbitrary cyclic N or noisy recovery.
+
+## originality
+
+PASS
+
+Best-of-knowledge: a full-space d=10 lag-three strong two-window result goes beyond the cited general-composite m>=4 sufficient bound and beyond published prime-period sector-only sharpness; same numerical lag alone does not imply full-space coverage.
+
+## value
+
+PASS
+
+A motivated first small composite-order full-space boundary, improving a known sufficient three-versus-four-lag discrepancy. Exact exhaustive Fourier support-incidence certificate plus explicit two-lag witness settle a natural parameter threshold, independently useful to finite-group phase retrieval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

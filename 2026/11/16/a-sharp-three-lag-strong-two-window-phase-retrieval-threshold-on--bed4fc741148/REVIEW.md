@@ -1,19 +1,21 @@
-# Review of the ten-cycle strong two-window threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The STFT intensity/ambiguity identity recovers all correlation products across visible lags. Connectivity yields injectivity, and the Fourier covariance transfers the criterion to the second window. The 60 disconnected supports are exhaustively enumerated, and all 3,600 possible ordered pairs yield full-column-rank reduced Fourier matrices over the finite field of 1,021 elements, thereby proving the corresponding complex cyclotomic ranks. The explicit factored signal has disconnected time and Fourier support at lag two, with no missing nonzero coefficients. The attached standard-library checker was executed successfully. No asymptotic inference from finite data is needed.
+PASS
 
-## Originality
+For each nonzero ten-vector full STFT intensity inversion gives all coordinate products at window ambiguity-nonzero lags, determining phase iff the m-support graph is connected. Finite, exhaustive classification of the 2^10 support subsets yielded exactly 60 three-disconnected sets and seven rotation orbits; independent exact elimination over F_1021 with primitive order-ten root 432 gave full column rank for all 3,600 ordered time/Fourier-disconnected support pairs. Nonzero modular minors imply nonzero characteristic-zero cyclotomic minors. The polynomial (1+z^5)(z-1)(z-omega^{-4}) has disconnected time support {0,1,2,5,6,7} and Fourier support {2,6,8} at m=2, establishing the claimed sharpness for exponential bands m in 0..4. Check does not extend to arbitrary cyclic N or noisy recovery.
 
-PASS relative to the inspected sources and searches. Bartusel (arXiv:2605.31507, 2026) proves the general sufficient composite bound, which in dimension ten needs bandwidth four, whereas the new result shows that bandwidth three is necessary and sufficient. The earlier published prime-period Floquet result only treats each symmetry sector separately; it explicitly excludes the general full-space classification. Bartusel (2023) provides the connectivity reduction but not the order-ten joint Fourier support obstruction. The exact published order-eight/nine support-incidence data concern other orders. Exact historical priority for alternative formulations is not guaranteed.
+## originality
 
-## Value
+PASS
 
-PASS. Strong two-window retrieval asks for recovery using either experiment separately, not their pooled data. Ten is a natural first composite case in which an exact strictly better bandwidth than the general bound can be demonstrated by a complete classification. The theorem supplies the sharp acquisition bandwidth for all signals, not just periodic/eigenvector subfamilies, and a concrete nonrecoverable witness below it. The finite scope is a genuine full-space threshold rather than an arbitrary small parameter evaluation.
+Best-of-knowledge: a full-space d=10 lag-three strong two-window result goes beyond the cited general-composite m>=4 sufficient bound and beyond published prime-period sector-only sharpness; same numerical lag alone does not imply full-space coverage.
 
-## Limitations and closest literature
+## value
 
-The claim is for complete ten-site STFT arrays; it does not address stability/noise or larger composite orders. The closest prior works are Bartusel (2026), Bartusel (2023), and the published prime-period Floquet-sector result of October 2026. All mathematical correctness checks here are self-review; no independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A motivated first small composite-order full-space boundary, improving a known sufficient three-versus-four-lag discrepancy. Exact exhaustive Fourier support-incidence certificate plus explicit two-lag witness settle a natural parameter threshold, independently useful to finite-group phase retrieval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
