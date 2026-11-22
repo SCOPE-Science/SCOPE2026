@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "A complete bijection maps words in the exact Parikh class to bounded partitions of area C. Distinct earlier/later a choices give abbab iff two positive parts differ by at least two. Hence avoidance forces positive parts to have spread at most one, and for every feasible positive-part count there is exactly one balanced partition. This proves the count, total polynomial, sharp maximum, universal avoidability and probability for all nonnegative parameters with 0<=C<=AB. Independently executed brute-force 48,619 words/1,377 fibers and automaton 6,253 fibers reproduce exact counts and denominator. Finite computations are not used to prove arbitrary-parameter steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.06717, Theorem 5.1 proves a factoring-hardness statement for the different four-letter pattern abab; Theorem 5.7 gives a generic additive approximation, not the claimed all-parameter exact enumerator.",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-sandwich-subsequence-profiles-within-binary-parikh-matrix--b40371a80999/RESULT.md (ab^t a lacks a final b)",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-parikh-class-avoidance-of-two-ended-runs-and-the-sharp-fiv--3ca5f597072a/RESULT.md (the family ab^r a and five-letter abbba do not cover abbab)"
+      ],
+      "reasoning": "The known generic decision/approximation and Gaussian counting methods can compute some finite instances, but do not state the claimed all-parameter closed-form numerator. Containment of a b b a b implies containment of a b b a, so avoidance of a b b a implies avoidance of a b b a b, but the implication is strict: a b b a itself lacks the final b and avoids the longer pattern. Thus the known sandwich-pattern count is a lower bound for this distinct avoidance event, not its exact enumeration.",
+      "searches": [
+        "published-finding corpus search: binary Parikh matrix fixed a b ab pairs avoid abab subsequence exact count",
+        "published-finding corpus search: fixed binary Parikh matrix exact probability avoid subsequence abbab stable partitions",
+        "published-finding corpus search: inversion refined avoidance spectra balanced binary patterns",
+        "Full-primary manuscript Section 5, arxiv:2610.06717"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.06717",
+      "https://arxiv.org/abs/2510.07159",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-inversion-refined-avoidance-spectra-for-all-balanced-four-letter--e75590ea1e11/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-sandwich-subsequence-profiles-within-binary-parikh-matrix--b40371a80999/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-parikh-class-avoidance-of-two-ended-runs-and-the-sharp-fiv--3ca5f597072a/RESULT.md",
+      "https://oeis.org/A209888"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-inversion-refined-avoidance-spectra-for-all-balanced-four-letter--e75590ea1e11/RESULT.md (states six balanced length-four patterns only; abab has divisor-controlled numerator)",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-parikh-class-avoidance-of-two-ended-runs-and-the-sharp-fiv--3ca5f597072a/RESULT.md (states ab^r a and abbba, not abbab)",
+        "https://arxiv.org/abs/2510.07159 (partition representation already known)"
+      ],
+      "reasoning": "A four-letter avoidance theorem cannot supply five-letter avoidance counts merely by inclusion (avoiding a four-letter subsequence implies avoiding a containing five-letter subsequence, but is not equivalent). The sandwich family lacks the last b, and its containment criterion is the number of internal b letters, not the spread of positive Ferrers rows. Neither prior result contains the complete consequence for the different pattern.",
+      "searches": [
+        "published-finding corpus search: inversion-refined avoidance spectra for all balanced four-letter scattered patterns",
+        "published-finding corpus search: exact parikh class avoidance of two-ended runs five letter",
+        "published-finding corpus search: binary inversion fixed subsequence 01101",
+        "Accessible own-ledger claim search: abbab, 01101, parikh-matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.06717 (Section 5, partition encoding of fixed classes)",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-inversion-refined-avoidance-spectra-for-all-balanced-four-letter--e75590ea1e11/RESULT.md (explicit length-four avoidance polynomials)",
+        "Repository exact searches returned no occurrence of either distinctive pattern string"
+      ],
+      "reasoning": "Equality of length and Parikh data does not make a five-letter containment event equivalent to a four-letter avoidance. The word-to-Ferrers bijection is known, but the new condition that all positive row lengths differ by at most one is not stated in the inspected comparable sources.",
+      "searches": [
+        "published-finding corpus search: fixed binary Parikh matrices avoid scattered ababa exact distribution",
+        "published-finding corpus search: fixed binary Parikh matrix exact probability avoid subsequence abbab stable partitions",
+        "GitHub code search published-finding corpus/2026: abbab",
+        "GitHub code search published-finding corpus/2026: 01101",
+        "Web slow: \"abbab\" subsequence avoidance Parikh matrix enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching repository files were returned from these searches",
+        "OEIS A209888 counts contiguous-factor 01101 avoidance, which differs from scattered-subsequence avoidance"
+      ],
+      "reasoning": "The closest exact enumerations found concern a different read model (contiguous factors), other shorter patterns, or run-sandwich patterns. This is a bounded search result, not a mathematical uniqueness proof.",
+      "searches": [
+        "GitHub search published-finding corpus/2026: abbab",
+        "GitHub search published-finding corpus/2026: 01101",
+        "Web slow: \"01101\" \"subsequence\" \"inversion\" avoidance",
+        "Web slow: \"abbab\" \"partition\" \"binary word\" avoiding subsequence"
+      ]
+    },
+    "rationale": "Primary 2026 Section 5 establishes a general approximation scheme and an ab-ab factoring case; it does not supply the all-parameter exact five-letter abbab avoidance law. Richomme supplies only the underlying word-to-partition bijection. Three full comparable published results cover balanced length-four patterns or the different sandwich family ab^r a, not the new trailing-b pattern. Positive-part row spread is a distinct necessary-and-sufficient condition; no searched record gave the same explicit polynomial, counts, or maximum. Nonindexed equivalent work remains a priority risk.",
+    "residual_risks": [
+      "An equivalent specialized balanced-partition enumeration may exist in unindexed literature despite direct searches.",
+      "Generic integer-point counting can evaluate special input regions but may hide equivalent formulas not explicitly indexed.",
+      "The result is deliberately one fixed five-letter pattern, so no broader claim for arbitrary patterns is warranted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_BACKGROUND_NOT_COVERING",
+        "evidence": "2026-10-05 first public. Paper proves generic additive approximations and a factoring obstruction for different abab; no abbab closed numerator, balanced-positive-part criterion, or maximum.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+        "material_read": "Primary complete HTML text, introduction, definitions and full Section 5 (Theorem 5.1, Lemma 5.6 and approximation theorem), with explicit word-to-partition encoding",
+        "method": "Direct full-text reading on arxiv HTML and targeted string search",
+        "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+        "trigger": "Same triple A,B,C and exact conditional probability sought"
+      },
+      {
+        "assessment": "KNOWN_PARTITION_MODEL_NOT_PATTERN_RESULT",
+        "evidence": "2025-10-08 first public; describes rectangle-partition bijection and structural rewriting of 2-binomial classes; no avoidance criterion for the specific five-letter pattern.",
+        "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+        "material_read": "Primary arxiv HTML abstract, introduction, contributions, and sections on partition correspondence",
+        "method": "Direct primary HTML reading",
+        "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+        "trigger": "Foundational bounded Ferrers partition representation of the classes"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Exact polynomial U,D,T only for length-four patterns 0110,1001,0101,1010,0011,1100; none is the requested length-five 01101.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-inversion-refined-avoidance-spectra-for-all-balanced-four-letter--e75590ea1e11/RESULT.md",
+        "material_read": "Full RESULT.md via published repository source, including finding, assumptions, proof, verification and relationship",
+        "method": "Full published source-file retrieval",
+        "title": "Inversion-refined avoidance spectra for all balanced four-letter scattered patterns",
+        "trigger": "Closest same statistic A,B,C with all six balanced length-four patterns"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Internal-between-a b count and patterns ab^t a; the trailing b in abbab changes the exact containment criterion.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-sandwich-subsequence-profiles-within-binary-parikh-matrix--b40371a80999/RESULT.md",
+        "material_read": "Full RESULT.md with bivariate Gaussian sum and support law",
+        "method": "Full published source-file retrieval",
+        "title": "Exact sandwich-subsequence profiles within binary Parikh-matrix classes",
+        "trigger": "Same classes with patterns a b^t a"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Result is about ab^r a and explicitly abbba; does not give two positive-part spread condition for abbab.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-parikh-class-avoidance-of-two-ended-runs-and-the-sharp-fiv--3ca5f597072a/RESULT.md",
+        "material_read": "Full RESULT.md including complete polynomial and sharp maximum",
+        "method": "Full published source-file retrieval",
+        "title": "Exact Parikh-class avoidance of two-ended runs and the sharp five-letter extremum",
+        "trigger": "Same source problem, exact enumeration for a five-letter pattern"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "102d48f6-9309-45d6-a2b1-855dc21cdb29",
+  "value": {
+    "rationale": "The 2026 fixed-Parikh-class probability problem requests quantitative fixed-pattern frequencies, but its general result is only additive approximation and several shorter pattern cases have different arithmetic complexity. The all-parameter closed inversion-refined count for a natural five-letter scattered pattern has a substantive structural positive-part-spread characterization, proves every class has an avoider, yields the complete generating polynomial and a sharp max. The numerator admits a direct constant-number-of-arithmetic-operations formula even though the Gaussian denominator can be large. It is not a mere single numerical instance or an unmotivated slice.",
+    "status": "PASS"
+  }
+}
