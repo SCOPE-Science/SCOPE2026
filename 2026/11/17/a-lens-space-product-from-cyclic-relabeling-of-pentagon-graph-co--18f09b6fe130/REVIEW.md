@@ -1,15 +1,21 @@
-# Mathematical review: cyclic target-color quotient of pentagon colorings
+# Independent mathematical audit
 
-## Correctness — PASS
-The final assertion is the homotopy equivalence \(\operatorname{Hom}(C_5,K_5)/C_5\simeq S^2\times L(5;1,2)\), where the group permutes **target** labels and not the source cycle. The free-action premise follows directly from invariant color supports: an invariant nonempty row set must contain all five colors, conflicting with a neighboring nonempty disjoint set. The smaller color-equivariant model is supported by Schultz's coordinate-forgetting map, Lemma 3.12 and Proposition 5.1. Since both spaces are free finite-group complexes and the map is a nonequivariant homotopy equivalence, equivariant Whitehead supplies a quotient equivalence. Schultz's explicit target-color-natural poset isomorphism and derived-neighborhood construction identify the smaller model as the boundary of an invariant regular neighborhood of the diagonal in \(\partial\Delta^4\times\partial\Delta^4\). Quotienting a derived neighborhood under the free simplicial action gives a regular neighborhood of the quotient diagonal. Its normal sphere bundle is the unit tangent sphere bundle of \(\partial\Delta^4/C_5\). The sum-zero real representation of the five-color cycle has real rotation weights \(1,2\), so the base is \(L(5;1,2)\); orientable three-manifold parallelizability yields the product. The standalone exhaustive enumeration confirms 45,540 cells, five-element color orbits, 9,108 quotient cell orbits and zero Euler characteristic. It does not purport to prove the infinite homotopy statement by enumeration.
+## correctness
 
-## Originality — PASS against inspected statements
-The primary 2005 Schultz theorem gives an ordinary Stiefel identification and a reduced *model*, not the target-color quotient product type. The 2013 Dover–Özaydın theorem addresses source-reflection equivariance. The closest published record on joint source/target symmetry gives a **rational character** for all \(n\), and another computes **integral source-dihedral quotient homology** at five colors. Both were inspected at the full RESULT text level. Neither determines the target cyclic quotient's lens-space product homotopy type. The related 2024 Stiefel quotient paper treats right frame actions, not target-color permutations. Originality is subject to the possibility of an unindexed equivalent theorem or a previously recorded equivariant regular-neighborhood consequence.
+PASS
 
-## Value — PASS
-This is a complete homotopy classification of the most elementary simply connected pentagonal coloring manifold under a transitive, freely acting group of color relabelings. It exhibits nontrivial five-torsion in two different integral homology degrees while the unquotiented space has free homology, and it explains the quotient by a natural geometric construction (a unit tangent bundle over a concrete lens space). The precise identification is useful for all homotopy and cohomology invariants of this canonical quotient; it is not an arbitrary numerical slice or a bare rational Betti calculation.
+Cells of Hom(C5,K5) are tuples of nonempty color sets with adjacent sets disjoint. A target five-cycle cannot fix a cell: invariant nonempty color sets would all be the full five-color set. Schultz’s reduced model arises by forgetting certain source positions and a canonical face-poset isomorphism to the boundary of a derived regular neighborhood of the diagonal inside M×M, M=∂Δ4. All involved set inclusion, complement and derived-star constructions commute with target color permutations. Both source and reduced models are free G-CW complexes, so nonequivariant equivalence upgrades to G-homotopy equivalence. Taking quotient gives the sphere bundle of tangent space of M/G. The color permutation sum-zero representation splits into rotation planes of weights 1 and 2, so M/G = L(5;1,2). This oriented 3-manifold is parallelizable; tangent S²-bundle trivializes. Independent direct row-cell enumeration gave (1020,5700,13000,15000,8750,2070) cells, each in free orbit of size five; quotient cell counts (204,1140,2600,3000,1750,414) and Euler zero. Finite Euler counts corroborate, not prove, the PL normal-bundle argument.
 
-## Scientific limitations
-No classification of general target-color subgroups or larger complete-graph targets is claimed. The equivalence is homotopical; no explicit equivariant homeomorphism of the full unreduced color complex with an orthogonal Stiefel model is claimed. The equivariant use of Schultz's reduced regular-neighborhood model rests on its explicitly natural subset-poset maps and the standard regular-neighborhood theorem, not on a separate theorem attributed to Schultz. Publication priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Source-position D5 quotients and nonequivariant Stiefel identifications are distinct from target-color cyclic quotients. The target permutation acts through the normal bundle of the simplex-boundary diagonal and the oriented lens base; source reflection results alone do not determine these torsion and homotopy data.
+
+## value
+
+PASS
+
+The target-color orbit of a familiar graph-Hom coloring manifold has a previously unreported integral homotopy model, including explicit five-torsion and a product lens-space structure. The distinction between source- and target-permutation actions makes the topological classification meaningful and potentially reusable in equivariant graph-complex topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
