@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The all-size proof is the closed stationary first/second moment generator identity with positive denominators. Stationary second moments exist by a total-number quadratic Lyapunov drift. Exact full-site rational moment calculations in the companion checker validate 82 separate stationary moment equations across four parameter settings, including the no-gradient case; finite checks are independent corroboration and not the proof of generality. The unique rate optimum follows from an explicitly strictly increasing cubic polynomial in a positive dimensionless rate.
+
+**Originality: PASS on examined evidence, with residual risk.** Giardinà–Redig–Vafayi (arXiv:0906.4664, §§2,8) introduce symmetric inclusion and the positive-correlation principle for endpoint reservoirs on chains. Floreani–Redig–Sau (arXiv:2007.08272, §§2,5) give a general two-reservoir correlation factorization, including the squared reservoir-difference factor. Kim–Sau (Commun. Math. Phys. 2026, §§1,6) study spectral gaps of sitewise-reservoir SIP, not this covariance. The present result solves a different all-site bath architecture and obtains an explicit all-size covariance, a within-shore ratio and a unique finite-rate maximum; the known positivity and contrast factorization are credited, not claimed. Searches of pertinent public research summaries and literature did not reveal a directly subsuming result. This absence is not proof of worldwide novelty; an unindexed matching computation is the main residual risk.
+
+**Mathematical value: PASS.** The finite-rate optimum identifies a mathematically sharp tradeoff between correlation formation and throughput in an interacting stochastic transport model. The exact rate threshold, all-pair covariance structure and size-independent large-network optimal-rate limit serve as a benchmark for nonequilibrium inclusion dynamics. It is not merely a renaming of the known sign inequality.
+
+**Limits.** Positive \(\kappa,\gamma,\rho_A,\rho_B\); equal shore sizes \(n\ge2\); hopping \(v\ge0\). Uniqueness of the covariance maximum requires unequal reservoir means, while the formulas still cover equal means. No nonstationary or higher-moment claim is made.
+
+Self-review: passed. Independent audit: not yet performed.
