@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction of the exact finite claim
+# Independent mathematical audit
 
-1. Compile `check_spectrum.cpp` with `g++ -O3 -std=c++17 check_spectrum.cpp -o check_spectrum` and run `./check_spectrum`. Uses only the C++17 standard library and no floating point.
-2. Run `python check_spectrum.py` with Python 3 and NumPy installed. It enumerates columns rather than rows and applies its own exact-integer vectorized 25-axis transform. The array needs approximately 410 MB peak working memory.
+## correctness
 
-Actual recorded checks, successfully rerun from these files:
+PASS
 
-```text
-tables=297200 characters=33554432 zeros=16777216 all_even_residue=16_mod_32 min_nonzero=16 first_min_frequency=36045 parseval=9972377190400 PASS
-tables=297200 characters=33554432 zeros=16777216 all_even_residue=16_mod_32 min_nonzero=16 PASS
-```
+The 11-dimensional row/column character gauge fixes the first row and column to zero without changing Hamming parity. The complete labelled 6x6 margin-three matrix family is encoded injectively by its lower-right 5x5 block. Independently implemented C++ recursion over all 20 legal row masks, tracking six remaining column capacities; it enumerated exactly 297200 valid matrices. A complete exact signed 25-dimensional Walsh–Hadamard transform of all 33,554,432 representatives gave odd_nonzero=0, even_nonzero=16,777,216, wrong_even_residue_mod32=0, min_abs=16, witness W(36045)=16, Parseval sumsq=9,972,377,190,400. This is exhaustive exact-integer proof for this finite family, not sampling; the original independent column-first Python checker is consistent. Diagonalizing convolution and complement parity yields rank 2^35, inverse norm 1/16, and P=(I+tau_J)/2 of ell^p norm one.
 
-The scripts check every reduced Fourier multiplier; neither asserts an infinite-size theorem. The reported exact values are verified by assertions, not inferred from these printed lines alone. The source codes themselves and their defined finite loops provide the reproducible evidence. The full 36-coordinate assertion follows by the proved row/column frequency-gauge symmetry. Independent external mathematical audit has not been performed.
+## originality
+
+PASS
+
+The known count 297200 and elementary complement cancellation on odd frequencies do not imply nonvanishing of every even coefficient or its universal residue 16 mod 32. General fixed-margin table sampling/counting and Fourier analysis of partial Hadamards concern other invariants/families. Exact zero-locus plus sharp inverse are not identified as covered by those primary results.
+
+## value
+
+PASS
+
+Fully labelled balanced binary matrices are natural regular bipartite graph incidence states. The uniform parity-residue theorem and exact Fourier zero set solve a complete deconvolution identifiability and sharp stability problem on this fixed natural family, beyond the already known cardinality; costly 2^25 exhaustive work has a precise mathematical interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed margins, complement involution, dimension-eleven row/column frequency gauge, and unique lower-right-block representation have been checked. The only nontrivial finite claim is the complete 25-bit congruence; two independently implemented row-first C++ and column-first Python exact-integer transforms independently verify all 33,554,432 reduced characters. Every reduced odd character is zero, every reduced even character has multiplier \(16\pmod{32}\), and the exact minimum 16 is attained. Parseval, rank, projection formula, and inverse norm follow in the stated normalization.
+## correctness
 
-**Originality — PASS under bounded comparison.** Blanchet–Stauffer (arXiv:1007.1214, inspected in HTML) analyzes sampling/counting fixed-margin binary tables, while de Launey–Levin (arXiv:1003.4003, inspected in HTML) analyzes Fourier inversion for different partial Hadamard designs. The classical table count 297200 and the elementary complement-induced zeros are expressly prior/elementary; neither implies the nonzero modulo-32 residue at all remaining characters. Semantic literature searches, public mathematical record comparisons, and recoverable historical claim checks did not identify the evaluated six-by-six congruence. Residual risk: unindexed signed enumerations or equivalent specialized tables.
+PASS
 
-**Value — PASS.** Fixed-margin binary contingency tables are natural configuration spaces for degree-constrained bipartite networks. This is the first balanced size beyond the elementary two-/four-row cases where odd complement pairing alone cannot establish absence of additional Fourier zeros: the family size has 2-adic valuation four. The nontrivial exact congruence determines precisely which signals are recoverable by convolution and gives sharp stability, providing a reproducible finite benchmark for Fourier methods on constrained random tables. No generalization to larger dimensions is claimed.
+The 11-dimensional row/column character gauge fixes the first row and column to zero without changing Hamming parity. The complete labelled 6x6 margin-three matrix family is encoded injectively by its lower-right 5x5 block. Independently implemented C++ recursion over all 20 legal row masks, tracking six remaining column capacities; it enumerated exactly 297200 valid matrices. A complete exact signed 25-dimensional Walsh–Hadamard transform of all 33,554,432 representatives gave odd_nonzero=0, even_nonzero=16,777,216, wrong_even_residue_mod32=0, min_abs=16, witness W(36045)=16, Parseval sumsq=9,972,377,190,400. This is exhaustive exact-integer proof for this finite family, not sampling; the original independent column-first Python checker is consistent. Diagonalizing convolution and complement parity yields rank 2^35, inverse norm 1/16, and P=(I+tau_J)/2 of ell^p norm one.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known count 297200 and elementary complement cancellation on odd frequencies do not imply nonvanishing of every even coefficient or its universal residue 16 mod 32. General fixed-margin table sampling/counting and Fourier analysis of partial Hadamards concern other invariants/families. Exact zero-locus plus sharp inverse are not identified as covered by those primary results.
+
+## value
+
+PASS
+
+Fully labelled balanced binary matrices are natural regular bipartite graph incidence states. The uniform parity-residue theorem and exact Fourier zero set solve a complete deconvolution identifiability and sharp stability problem on this fixed natural family, beyond the already known cardinality; costly 2^25 exhaustive work has a precise mathematical interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

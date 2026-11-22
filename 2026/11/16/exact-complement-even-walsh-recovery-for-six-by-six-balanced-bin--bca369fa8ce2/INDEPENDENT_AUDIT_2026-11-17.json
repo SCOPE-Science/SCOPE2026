@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:14:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md, check_spectrum.cpp, check_spectrum.py",
+        "independent C++ complete 25-axis exact transform, witness and Parseval"
+      ],
+      "rationale": "The 11-dimensional row/column character gauge fixes the first row and column to zero without changing Hamming parity. The complete labelled 6x6 margin-three matrix family is encoded injectively by its lower-right 5x5 block. Independently implemented C++ recursion over all 20 legal row masks, tracking six remaining column capacities; it enumerated exactly 297200 valid matrices. A complete exact signed 25-dimensional Walsh–Hadamard transform of all 33,554,432 representatives gave odd_nonzero=0, even_nonzero=16,777,216, wrong_even_residue_mod32=0, min_abs=16, witness W(36045)=16, Parseval sumsq=9,972,377,190,400. This is exhaustive exact-integer proof for this finite family, not sampling; the original independent column-first Python checker is consistent. Diagonalizing convolution and complement parity yields rank 2^35, inverse norm 1/16, and P=(I+tau_J)/2 of ell^p norm one.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blanchet–Stauffer uniform configuration-model sampling and enumeration bounds do not dominate character-by-character Walsh coefficients; de Launey–Levin Fourier counting applies to partial Hadamard matrices."
+        ],
+        "reasoning": "Broader method/family does not imply this specific exact finite transform and spectral gap.",
+        "searches": [
+          "Resultary: Walsh Fourier transforms balanced 6x6 binary contingency tables margin three even nonzero mod 32",
+          "https://arxiv.org/abs/1007.1214",
+          "https://arxiv.org/abs/1003.4003"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1007.1214",
+        "https://arxiv.org/abs/1003.4003",
+        "https://oeis.org/A058527",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-complement-even-walsh-recovery-for-six-by-six-balanced-bin--bca369fa8ce2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A known count divisible by 32 gives no nonzero lower bound for W(S), unlike the established W(S)=16 mod32 for all even S; independent exhaustive transform supplies the new logical step."
+        ],
+        "reasoning": "Prior graph count/sampling claims cannot algebraically entail the nonvanishing residue without additional complete character information.",
+        "searches": [
+          "Resultary: Walsh Fourier transforms balanced 6x6 binary contingency tables margin three even nonzero mod 32",
+          "https://arxiv.org/abs/1007.1214",
+          "https://arxiv.org/abs/1003.4003"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complement symmetry enforces W(S)=0 for odd |S| only; even parity congruence does not follow from this alone. Primary related papers analyze counts and sampling or partial Hadamards, not the same signed transform."
+        ],
+        "reasoning": "The exact character support and modulus-32 theorem are not an equivalent restatement of existing table counts.",
+        "searches": [
+          "Resultary: Walsh Fourier transforms balanced 6x6 binary contingency tables margin three even nonzero mod 32",
+          "fixed-margin binary table Walsh transform nonzero even characters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table count 297200 is already known and separately enumerated; a cardinality entry fixes W(0) alone. The exact nonzero-Walsh count (half), even modulo 32 and sharp witness were verified across every reduced character."
+        ],
+        "reasoning": "Known cardinality table does not contain or imply complete signed Fourier spectrum; unindexed full tables remain risk.",
+        "searches": [
+          "Resultary: Walsh Fourier transforms balanced 6x6 binary contingency tables margin three even nonzero mod 32",
+          "OEIS A058527 balanced 6x6 binary matrices 297200"
+        ]
+      },
+      "rationale": "The known count 297200 and elementary complement cancellation on odd frequencies do not imply nonvanishing of every even coefficient or its universal residue 16 mod 32. General fixed-margin table sampling/counting and Fourier analysis of partial Hadamards concern other invariants/families. Exact zero-locus plus sharp inverse are not identified as covered by those primary results.",
+      "residual_risks": [
+        "Finite complete lookup could have appeared in unindexed computer tables; lack of a matched publication is not a proof of global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the full Walsh coefficients",
+          "evidence": "Counts/sampling distribution conditions, not 6x6 parity-class exact Walsh multipliers.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.1214",
+          "material_read": "PDF introduction and theorem 1.1 on sampling/configuration model and margins",
+          "method": "full PDF opened, inspected introduction and theorem page",
+          "title": "Characterizing Optimal Sampling of Binary Contingency Tables via the Configuration Model",
+          "trigger": "same row/column-margin binary matrices"
+        },
+        {
+          "assessment": "NOT_COVERING distinct combinatorial object",
+          "evidence": "Different partial Hadamard matrix count; not 6x6 balanced fixed-margin character table.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.4003",
+          "material_read": "PDF introduction, theorems 1–2, early sections of random-walk/Fourier counting",
+          "method": "full PDF opened and pages inspected",
+          "title": "A Fourier-analytic Approach to Counting Partial Hadamard Matrices",
+          "trigger": "nearby Fourier character-sum method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "complete exact combinatorial certificate",
+        "binary contingency tables and character transform analysis"
+      ],
+      "rationale": "Fully labelled balanced binary matrices are natural regular bipartite graph incidence states. The uniform parity-residue theorem and exact Fourier zero set solve a complete deconvolution identifiability and sharp stability problem on this fixed natural family, beyond the already known cardinality; costly 2^25 exhaustive work has a precise mathematical interpretation.",
+      "residual_risks": [
+        "This is finite 6-by-6 only; it does not imply congruence for other margins or higher orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No extrapolation beyond labelled 6x6, every row and column 3, unnormalized transform; no quotient by permutations."
+  ],
+  "schema_version": 1
+}
