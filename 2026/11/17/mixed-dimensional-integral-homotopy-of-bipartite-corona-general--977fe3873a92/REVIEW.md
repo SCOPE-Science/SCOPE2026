@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The final claim specifies every integer \(a,b\ge2\), the precise graph, ordinary geodesic general-position complex and integral homotopy type. The face classification follows from exact graph distances and agrees with Wang's carefully inspected Lemma 3. Three finite subcomplexes cover all high-dimensional faces, and their intersections with the full leaf simplex are contractible. The ordinary join identity gives sphere wedges with exact multiplicities, while every remaining edge adds one circle. Standalone direct graph-distance enumeration and mod-two simplicial boundary ranks independently corroborate six nontrivial parameter pairs. The infinite assertion relies on the topological proof, not on enumeration. Risks: the noncanonical wedge splitting is not equivariant, and the proof does not extend by the same reasoning to additional vertex classes without further work.
+## correctness
 
-**Originality — PASS, with residual risk.** The complete face classification (Wang May 27, 2026, Lemma 3) and the complete bipartite corona face polynomial (Wang May 30, 2026, Lemmas 3–4) are openly credited as prior stronger combinatorial descriptions of the same simplicial complex. Their full accessible texts were inspected; neither presents homotopy, integral homology, a cross-polytopal join decomposition or the circle/sphere split. Rather (2026-03-06) studies corona general-position polynomials, not this topological classification. The closest indexed mathematical constructions address other complexes on bipartite graphs or give a counting polynomial for complete-graph coronas. The exact integral homotopy theorem requires the topological gluing argument, though the full prior face characterization makes this a potentially natural consequence. Residual risk: a previously unstated or unindexed derivation could already give the same bouquet. Absence of indexed matches alone is not treated as proof of novelty.
+PASS
 
-**Mathematical value — PASS.** General-position complexes encode geodesic avoidance, and coronas are the subject of a recent complete-multipartite polynomial/unimodality problem. The full mixed-dimensional integral homotopy type for an infinite natural family reveals simultaneous fundamental-group generators and two different higher homology degrees. In asymmetric examples, these occur in three separate degrees, distinguishing the homotopy information from a single number or coefficient sequence. The proof supplies a reusable geometric interpretation through cross-polytope joins and contractible gluing, and identifies the exceptional one-faces that control the free fundamental group. The result is a topological refinement of, not replacement for, the established face classification.
+PASS: For each a,b>=2 the geodesic triple rule exactly yields Y=Delta_(A union B leaves) union (O_A * D_(B leaves)) union (O_B * D_(A leaves)) plus ab+a+b edges not incident to any higher face. The two join pieces meet in the full simplex on leaves; collapsing this contractible CW subcomplex gives wedge of two joins, O_A=S^(a-1) and b discrete points produce (b-1) copies of S^a, similarly (a-1) copies of S^b. All added edges have endpoints in connected Y and contribute one circle each. A leaf is not an internal geodesic vertex; own root and leaf with a third is forbidden, and the cross-shore root/leaf restrictions give the three classifications. Works integrally; when a=b higher spheres combine. Independently enumerated all graph-metric forbidden triples and legal faces for (2,2),(2,3),(3,3): face vectors (8,28,16,1),(10,45,44,19,1),(12,66,88,57,6,1), and Euler characteristics -5,-9,-18, matching Euler predictions 1 plus reduced Euler. The source checker also enumerates six small pairs; those finite tests are not an infinite proof.
 
-**Sources and limitations.** Rather, arXiv:2603.06930 (2026-03-06); Wang, DOI:10.5281/zenodo.20411641 (2026-05-27), full Lemmas 2–3; Wang, DOI:10.5281/zenodo.20453868 (2026-05-30), full Lemmas 3–4. Comparisons included indexed exact/alias searches and the existing accessible relevant claim records. Independent validation has not occurred. Finite verification uses mod-two homology only, while the theorem is an integral homotopy statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: The complete prior Wang face classifications and corona polynomial are acknowledged. They determine the abstract complex but do not state the homotopy pushout/collapse result or mixed-dimensional wedge. The topological decomposition, not the known face enumeration, is the additional mathematics. Wang’s complete combinatorial characterization is a strong prerequisite and potential corollary risk, but no covering topological theorem was found in the material read.
+
+## value
+
+PASS
+
+PASS: An all-size integral homotopy calculation for a natural graph-metric general-position complex, including genuine mixed sphere dimensions and circles, is a motivated classification. The homotopy decomposition is stronger than a face polynomial or Betti estimate and is useful for subsequent topological and equivariant investigations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

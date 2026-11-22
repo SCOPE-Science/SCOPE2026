@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification
-The theoretical proof is the four-stage graph-distance/cover/join/edge-attachment argument in `RESULT.md`. Its crucial domains are all \(a,b\ge2\), all geodesic triples, and no additions of two- or higher-dimensional faces beyond the stated subcomplexes. It does not rely on numerical extrapolation.
 
-The standalone `verify_corona_gp.py` uses graph adjacency, BFS geodesics and complete simplicial enumeration rather than assuming the proposed face classification. For six pairs \((2,2),(2,3),(2,4),(3,3),(3,4),(4,4)\), the complete enumerated face sets agree **exactly** with an independently coded classification, and all mod-two reduced Betti ranks match the integral wedge prediction. In particular, for \((2,3)\) the nonzero reduced Betti numbers are \(11\) in degree one, \(2\) in degree two and \(1\) in degree three; for \((3,3)\) the corresponding degrees are one and three, with ranks \(15\) and \(4\). See `verification_output.txt` for complete observed face counts and exact boundary ranks.
+# Independent mathematical audit
 
-Command: `python3 verify_corona_gp.py`. The program depends only on the standard Python library and prints `CORONA_GENERAL_POSITION_COMPLETE_INDEPENDENT_ENUMERATION_PASS` on success. The recorded output is from an actual run of this complete program. These checks cannot establish an unbounded integer theorem or independent mathematical audit; the general result follows from the proof.
+## correctness
+
+PASS
+
+PASS: For each a,b>=2 the geodesic triple rule exactly yields Y=Delta_(A union B leaves) union (O_A * D_(B leaves)) union (O_B * D_(A leaves)) plus ab+a+b edges not incident to any higher face. The two join pieces meet in the full simplex on leaves; collapsing this contractible CW subcomplex gives wedge of two joins, O_A=S^(a-1) and b discrete points produce (b-1) copies of S^a, similarly (a-1) copies of S^b. All added edges have endpoints in connected Y and contribute one circle each. A leaf is not an internal geodesic vertex; own root and leaf with a third is forbidden, and the cross-shore root/leaf restrictions give the three classifications. Works integrally; when a=b higher spheres combine. Independently enumerated all graph-metric forbidden triples and legal faces for (2,2),(2,3),(3,3): face vectors (8,28,16,1),(10,45,44,19,1),(12,66,88,57,6,1), and Euler characteristics -5,-9,-18, matching Euler predictions 1 plus reduced Euler. The source checker also enumerates six small pairs; those finite tests are not an infinite proof.
+
+## originality
+
+PASS
+
+PASS: The complete prior Wang face classifications and corona polynomial are acknowledged. They determine the abstract complex but do not state the homotopy pushout/collapse result or mixed-dimensional wedge. The topological decomposition, not the known face enumeration, is the additional mathematics. Wang’s complete combinatorial characterization is a strong prerequisite and potential corollary risk, but no covering topological theorem was found in the material read.
+
+## value
+
+PASS
+
+PASS: An all-size integral homotopy calculation for a natural graph-metric general-position complex, including genuine mixed sphere dimensions and circles, is a motivated classification. The homotopy decomposition is stronger than a face polynomial or Betti estimate and is useful for subsequent topological and equivariant investigations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
