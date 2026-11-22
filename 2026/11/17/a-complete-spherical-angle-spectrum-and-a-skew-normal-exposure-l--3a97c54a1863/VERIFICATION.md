@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` is analytic and covers all integer dimensions \(d\ge2\) and real parameters \(0<a<\ell\). A separate executable checker, `check_normal.py`, provides finite geometric and probability corroboration; it cannot certify unbounded-dimensional claims by enumeration.
+## correctness
 
-Execution: `python check_normal.py`. Tested with Python 3, NumPy 2.3.5, and SciPy 1.17.0. Verified output includes:
+PASS
 
-```
-EXTREME_VERTEX_CHECK_PASS dims=2..6
-EXPOSURE_MAP_CHECK_PASS dims=2..8 directions_per_dim=16000
-ARCSINE_MOMENT_MONTE_CARLO_PASS dims=2,3,4,5,8,12,32,64 samples=250000_per_dim
-FINITE_ANGLE_LEVEL_SOBOL_PASS dims=2,3,4,5,7,9 sobol_points_per_dim=262144
-CENTRAL_WINDOW_SANITY_PASS dims=128,512 ranks=3
-ISOCANTED_ANGULAR_PASS
-```
+The stated coordinate inequalities are equivalent to Minkowski addition of (ell-a)/2 times the coordinate cube and a/2 times the diagonal segment: coordinate range <=ell-a and absolute coordinate bounds ensure an admissible common shift. The support function is half(ell-a)sum|g_i|+half(a)|sum g_i|. For almost every Gaussian normal g, signs of coordinates and sign of total specify exactly 2^(d+1)-2 distinct vertices; impossible are two opposite total-sign sign-vectors. The half-normal comparison yields q_dj and 2 binom(d,j) for each 1<=j<=d, and coupling a positive half-normal increase proves strict levels. Signed half-normal Berry-Esseen has identical variance and bounded third moment uniformly in j, giving c=sqrt(2/(pi-2)). The central limit of (sum signs,sum G) with correlation sqrt(2/pi), conditioned on sum G positive, gives the asserted skew-normal density; 2D/3D orthant identities provide arcsine exact moments. Independently sampled 100,000 Gaussian normal directions in each d=2,3,5,16; compared rank mean/variance to exact formulas, checked 2^-d weighted sum of half-normal q values ~1 (within 0.004 for d=2 and tighter later), and checked d=2 exact angles. These are finite confirmations, not replacements for the general probability proof.
 
-The analytic proof additionally requires: (1) a complete, nonduplicated exposed-vertex labelling via the support function; (2) half-normal sign probability calculation and strict level ordering; (3) Berry–Esseen uniformity in all sign patterns; (4) a bivariate Gaussian conditional limit; and (5) exact Gaussian orthant moment identities. Each appears explicitly in the proof rather than being inferred from numerical output. Source comparisons support provisional priority only, not a claim that all research records have been exhaustively indexed. Independent mathematical validation has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge the exact angular rank law and skew-normal exposure asymptotics are not assertions of the inspected isocanted-polytope geometry, volume, or lower face-measure works. General Gaussian orthant theory is used as an ingredient, not described as new. Residual unindexed geometry literature risk remains.
+
+## value
+
+PASS
+
+Spherical normal-cone angles capture directional exposure likelihood, a natural but nonuniform geometric invariant of a canonical segment-canted cube; complete dimension-free multiplicity and probability-level formulas and a skew-normal rank CLT with exact finite moments are a substantive structural law rather than a uniform vertex count restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
