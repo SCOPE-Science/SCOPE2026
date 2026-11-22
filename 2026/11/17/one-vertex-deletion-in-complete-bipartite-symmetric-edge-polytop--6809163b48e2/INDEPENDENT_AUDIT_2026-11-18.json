@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:07:21.583740Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim removes precisely one oriented signed root, retaining its negative, from P_{p,q} for all p,q>=2. The Cayley representation P=conv(Q,-Q) and s=(1+sum_L x_i)/2 turn the deletion into x_1-x_{p+1}<=s and a cap pyramid. The projection candidate z_H=v-g/||g||^2 has barycentric coefficients q(p+2),p(q+2),2(p+q)-pq divided by pq+4(p+q), so it belongs to the facet precisely through the threshold pq<=2(p+q), with a lower-dimensional point at equality. For pq>2(p+q), the A/B-simplex candidate has positive coefficients; the residual scalar products of every surviving root establish the global KKT projection inequality and yield squared distance pq/[2pq-p-q]. Metric distance convexity gives the directed Hausdorff equality. Simplex-difference mixed-volume coefficients, explicit slice Jacobians 2 and s, and beta integrals yield integer normalized volumes T_{p,q} and E_{p,q}; both use the root lattice normalization (n-1)!vol/sqrt(n). Independent exact-Fraction recalculation for p,q=(2,2),(3,3),(4,4),(5,5),(3,7) reproduces the sums and distance, and the inspected checker explicitly handles 256 p,q pairs plus optional 11 hulls. This is an analytic proof for all p,q, not an extrapolation from that finite sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higashitani–Jochemko–Michałek obtain volume/Ehrhart invariants for the original complete-bipartite symmetric-edge polytope, not deleting a signed vertex.",
+          "The broader Ferrers biclique deletion theorem covers deleted blocks on Q=product of simplices, but not the centrally symmetric convex hull."
+        ],
+        "reasoning": "General original-polytope and positive-sign root-polytope formulas fail to determine the missing centrally symmetric cap; they do not contain the asserted two-regime metric projection or the E_{p,q} expression.",
+        "searches": [
+          "Resultary semantic search: symmetric edge polytope complete bipartite deleting one oriented root Hausdorff distance volume cap",
+          "arXiv:1807.07678",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-metric-volume-separation-under-biclique-deletion-from-a--70f9cced854f/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.07678",
+        "arXiv:1910.05193",
+        "arXiv:2107.12315",
+        "arXiv:1802.01515",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-one-oriented-root-deletion-a-crosspolytopal-cap-and-three-scales--a593f125d3ff/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-metric-volume-separation-under-biclique-deletion-from-a--70f9cced854f/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original whole-volume formula T_{p,q} alone cannot provide cap E_{p,q}; the deletion hyperplane is newly exposed.",
+          "The complete-graph single-root theorem gives a dimension-only gap, whereas the present gap has an internal pq threshold."
+        ],
+        "reasoning": "The submitted result adds a geometrically distinct truncation theorem and exact cap integration; no inspected older implication supplies both the switched exposed face and the cap formula.",
+        "searches": [
+          "Resultary semantic search: symmetric edge polytope complete bipartite deleting one oriented root Hausdorff distance volume cap",
+          "arXiv:1807.07678",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-one-oriented-root-deletion-a-crosspolytopal-cap-and-three-scales--a593f125d3ff/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full complete-graph oriented deletion has constant gap 1/sqrt(2), crosspolytopal cap and width law; this biclique polytope has a p,q-dependent gap and A/B/C contact phases.",
+          "The Ferrers result is a product of two simplices with one sign, not conv(Q,-Q)."
+        ],
+        "reasoning": "Comparison under the common language of vertex-deleted root polytopes and robustness shows different ambient vertex sets, shape, metric projection, and volume normalizations; neither is a rephrasing of the present signed biclique cap.",
+        "searches": [
+          "Resultary semantic search: symmetric edge polytope complete bipartite deleting one oriented root Hausdorff distance volume cap",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-one-oriented-root-deletion-a-crosspolytopal-cap-and-three-scales--a593f125d3ff/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-metric-volume-separation-under-biclique-deletion-from-a--70f9cced854f/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite p,q checks determine e.g. T,E=(12,2),(108,10),(1176,66),(14220,490),(6464,288) for (2,2),(3,3),(4,4),(5,5),(3,7); these are evaluations of the new expression.",
+          "Neither the compared root-polytope Resultary records nor referenced general robustness treat this complete (p,q) deletion table."
+        ],
+        "reasoning": "No exact table or database was found that supplies the claimed all-parameter lost cap; finite evaluation is corroborative, not novelty evidence by itself.",
+        "searches": [
+          "Resultary semantic search: symmetric edge polytope complete bipartite deleting one oriented root Hausdorff distance volume cap"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for oriented signed-bipartite truncation: undeleted symmetric-edge volumes and facet enumerations, complete-graph root deletion and one-sign Ferrers deletions do not imply the exact signed-bipartite cap loss plus its projection-face threshold. Priority remains qualified by incomplete access to original HJM full text and possible unindexed equivalent results.",
+      "residual_risks": [
+        "A general vertex-deleted symmetric-edge-polytope truncation result with the same signed biclique specialization may be unindexed.",
+        "Full primary HJM PDF not independently read due to institutional VPN disconnected; literature access is an O residual risk, not a false mathematical FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains complete cap-cut/KKT/mixed-volume argument",
+          "evidence": "Equations for z_H coefficients and E_{p,q}; explicit p,q>=2 quantification.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/one-vertex-deletion-in-complete-bipartite-symmetric-edge-polytop--6809163b48e2/RESULT.md",
+          "material_read": "Entire Finding, Assumptions, Proof, Verification, References",
+          "method": "GitHub connector frozen blob c7c4e3c92479fdc153ae2532102fefabd9dc4c77",
+          "title": "Assigned complete-bipartite signed-root deletion RESULT.md",
+          "trigger": "Direct final claim"
+        },
+        {
+          "assessment": "NOT_COVERING for complete bipartite signed root polytope; applies instead to complete type-A roots",
+          "evidence": "The complete-graph cap is crosspolytope and Euclidean distance is 1/sqrt(2), unlike p,q-dependent two regimes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-one-oriented-root-deletion-a-crosspolytopal-cap-and-three-scales--a593f125d3ff/RESULT.md",
+          "material_read": "Complete RESULT.md including proof, assumptions and references",
+          "method": "GitHub Resultary/2026 source file",
+          "title": "One oriented-root deletion: a crosspolytopal cap and three scales of geometric loss",
+          "trigger": "Closest same-operation published comparison"
+        },
+        {
+          "assessment": "NOT_COVERING for signed centrally symmetric hull",
+          "evidence": "Underlying Q is a single product simplex and deletion is an entire biclique; result cannot supply P=conv(Q,-Q) cap volume.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-metric-volume-separation-under-biclique-deletion-from-a--70f9cced854f/RESULT.md",
+          "material_read": "Complete RESULT.md and detailed projection/hypergeometric proof",
+          "method": "GitHub Resultary/2026 source file",
+          "title": "A sharp metric-volume separation under biclique deletion from a product of simplices",
+          "trigger": "Closest bipartite edge-root comparison"
+        },
+        {
+          "assessment": "Full-document coverage cannot be excluded from snippets, but prior claims primarily address undeleted objects",
+          "evidence": "Institutional full text returned vpn_disconnected; retain priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.07678",
+          "material_read": "Public abstract, source cited formula and selected referenced theorem descriptions; full PDF not obtained",
+          "method": "Web/open-access attempt followed by authorized institutional retrieval; VPN disconnected",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Same original family volume literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph family is a standard canonical family of symmetric edge/root polytopes; deleting a single oriented generator is a natural stability perturbation. The theorem determines two independent sharp invariants (Euclidean vertex robustness/contact-face transition and exact normalized lost volume), including a non-obvious pq=2(p+q) boundary. These are not immediate from the undeleted-volume formula and can serve lattice-geometry and robustness analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1807.07678",
+    "arXiv:1910.05193",
+    "arXiv:2107.12315",
+    "arXiv:1802.01515",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-one-oriented-root-deletion-a-crosspolytopal-cap-and-three-scales--a593f125d3ff/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-metric-volume-separation-under-biclique-deletion-from-a--70f9cced854f/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/one-vertex-deletion-in-complete-bipartite-symmetric-edge-polytop--6809163b48e2/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A single oriented deletion only, not both signs; projection contact at threshold belongs to a proper subface despite full facet exposure.",
+    "Finite verification does not establish universal all-parameter mixed-volume formulas; they follow from analytic integration.",
+    "A general vertex-deleted symmetric-edge-polytope truncation result with the same signed biclique specialization may be unindexed.",
+    "Full primary HJM PDF not independently read due to institutional VPN disconnected; literature access is an O residual risk, not a false mathematical FAIL."
+  ],
+  "schema_version": 1
+}
