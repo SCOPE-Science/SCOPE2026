@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A weighted graph coarea identity bounds every coordinate-permutation action by the ratio of maximal to minimal equal-cardinality edge boundaries. Sorting is continuous and piecewise a coordinate permutation on any input segment. Exact strict-ranking witness pairs realize all cardinality-wise ratios. Singleton and two-point cuts prove that equality with one forces a uniformly weighted clique. Explicit boundary counts prove the path, cycle, star, and barbell values. The checker reproduces independent finite rational calculations; the universal statement rests on proof.
+## correctness
 
-**Originality — PASS, qualified.** Hajaiej (2010) Theorem 4.1 and the discrete rearrangement papers of Steinerberger (2022), Gupta–Steinerberger (2022), and Hajaiej–Han–Hua (2022) give *one-input* gradient-energy statements, not the two-input BV stability constant. Chen et al. (2014) discuss graph variation for signal recovery, not rank-order stability. The known coarea and permutation principles are acknowledged. Similar cut-functionals in geometric graph optimization do not imply the rank-order perturbation claim. Residual risk is an implicit formula in older rearrangement/variation theory, including a 1975 source whose full text was not accessed. No uniqueness-of-discovery assertion is made.
+PASS
 
-**Value — PASS.** The result characterizes a natural nonlinear operator modulus over every finite positively weighted graph, including exact attainment. The rigidity criterion characterizes the rare case of variation nonexpansivity, and the barbell family exhibits quadratic sensitivity despite coordinatewise norm contraction. These are structural facts rather than isolated numerical computations or a parameter substitution.
+Read frozen RESULT.md and checker.py; the cut coarea identity bounds the weighted TV of every vertex permutation by max J_k/I_k, and linear interpolation between f and g decomposes nonlinear sorting into finitely many such permutations. Strict-ranking f and f+1_S witnesses attain each cut ratio. Singleton and doubleton cuts force equal weights on all possible edges at L=1, including n=2 separately. Path/cycle/star/barbell evaluations agree with the cut formula. Independent exact weighted four-vertex cut enumeration gave ratios (4,10/3,4); checker.py was inspected (not blindly used). No universal assertion rests on the finite checks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the sharp general two-input cut formula and rigidity, not of coarea, variation-decreasing rearrangement, or max/min cuts.
+
+## value
+
+PASS
+
+The two-input stability modulus of graph rank sorting, which is not implied by one-input Pólya–Szegő contraction, has a sharp finite combinatorial characterization for arbitrary positive edge weights, a rigidity theorem, and a quadratic barbell counterexample. Such a parameter quantifies sensitivity of graph-variation regularization and is not a routine relabelling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

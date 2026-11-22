@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The theorem is established by finite-graph coarea, the piecewise-permutation representation of sorting, and exact two-cut witness construction. It does not rely on a finite search for universal correctness.
+# Independent mathematical audit
 
-The standalone checker `checker.py` uses Python's standard library and exact rational arithmetic. It independently compares cut-profile bounds to induced permutation operator norms, constructs explicit strict-order witness pairs, and checks exact examples. The observed output was:
+## correctness
 
-```
-ALL_CONNECTED_SIMPLE_GRAPHS_EXACTLY_CHECKED 43
-EXACT_WEIGHTED_GRAPHS_CHECKED 24
-PATH_STAR_CYCLE_FORMULAS_PASSED 11
-BARBELL_EXACT_QUADRATIC_GROWTH_PASSED 5
-ALL_SORTING_GRAPH_BV_TESTS_PASSED
-```
+PASS
 
-The checks enumerate finite cases only; they neither certify all graphs nor settle historical publication priority. A full-text comparison with all older rearrangement literature is not claimed. External mathematical validation is not yet performed.
+Read frozen RESULT.md and checker.py; the cut coarea identity bounds the weighted TV of every vertex permutation by max J_k/I_k, and linear interpolation between f and g decomposes nonlinear sorting into finitely many such permutations. Strict-ranking f and f+1_S witnesses attain each cut ratio. Singleton and doubleton cuts force equal weights on all possible edges at L=1, including n=2 separately. Path/cycle/star/barbell evaluations agree with the cut formula. Independent exact weighted four-vertex cut enumeration gave ratios (4,10/3,4); checker.py was inspected (not blindly used). No universal assertion rests on the finite checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the sharp general two-input cut formula and rigidity, not of coarea, variation-decreasing rearrangement, or max/min cuts.
+
+## value
+
+PASS
+
+The two-input stability modulus of graph rank sorting, which is not implied by one-input Pólya–Szegő contraction, has a sharp finite combinatorial characterization for arbitrary positive edge weights, a rigidity theorem, and a quadratic barbell counterexample. Such a parameter quantifies sensitivity of graph-variation regularization and is not a routine relabelling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
