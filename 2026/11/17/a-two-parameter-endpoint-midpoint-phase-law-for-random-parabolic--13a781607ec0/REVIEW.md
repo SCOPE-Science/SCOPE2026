@@ -1,15 +1,21 @@
-# Scientific review: two-parameter tangent-triangle endpoint–midpoint law
+# Independent mathematical audit
 
-## Correctness
-PASS. The tangent-line intersection determinant yields the exact cubic product in the three ordered parameters. The global maximum is unique at the limiting ordered triple \((-1,0,1)\). The exact nonnegative deficit decomposition controls all tails on a fixed compact rescaled support. For every \(p,q>0\), the transformed Jacobi density has an integrable monomial majorant and the limiting simplex integral has the displayed gamma-function value. Normalized density convergence in \(L^1\) proves total variation, while the simplex coordinate change proves the Dirichlet marks. Numerical independently evaluated finite-threshold integrals agree with the tail constant at shrinking thresholds.
+## correctness
 
-## Originality
-PASS for the two-parameter singular-density family and its conditional marked law, not for the uniform special case. Kim and Shim (arXiv:1401.4751) and Kim and colleagues (arXiv:1404.2969) provide deterministic tangent-triangle area identities. The closest published random-parabolic-hull law, *Endpoint-driven Gamma and interior Gaussian fluctuations for random parabolic hulls* (2026-11-02), covers the complete fixed-sample distribution when the horizontal parameter is uniform; its full RESULT.md was read. That result does not evaluate Jacobi-weighted sampling, the independently tunable endpoint and midpoint exponents, or the resulting Dirichlet marks. No matching two-parameter statement was identified by the recorded published-finding corpus and external literature searches. The generality of local Laplace asymptotic techniques and incomplete historical indexing are residual priority risks; absence in search is not a proof of absolute novelty.
+PASS
 
-## Mathematical value
-PASS. This sampling family models preferential sampling near an arc's endpoints and near (or away from) the arc's central tangency. Both are geometrically distinguished in the unique maximal tangent triangle. The theorem determines how each type of sampling concentration contributes quantitatively to the probability exponent, while recording the full conditional geometry of the rare triple. It distinguishes an exact natural class of sampling laws that cannot be recovered by the known uniform-parameter distribution.
+Recomputed tangent intersection coordinates ((s+t)/2,st) and determinant A=(b-a)(c-b)(c-a)/4; A reaches 1/2 only at (-1,0,1). Deficit expansion gives u+v+y^2 at scales endpoint epsilon, midpoint sqrt epsilon. Checked the density normalization B(q/2,p), the transformed monomial exponent 2p+q/2, the gamma simplex integral and Dirichlet(p,p,q/2,1) mark with independent fair sign; integrable majorant holds for every fixed p,q>0 even with endpoint/midpoint integrable singularities. Independently used SymPy to verify K(1,1)=32sqrt(2)/45 and a nontrivial simplex value p=2,q=3. L1 convergence of rescaled unconditioned densities and positive asymptotic mass gives total-variation convergence; no finite quadrature is treated as limit proof.
 
-## Limits and sources
-The claim is fixed-sample and fixed-parameter; it does not establish uniformity as \(p,q\) vary, arbitrary-curve universality, or the entire finite-threshold distribution. The principal sources are arXiv:1401.4751, arXiv:1404.2969, and the published 2026-11-02 published-finding corpus parabolic-hull finding. Independent literature priority and mathematical audit are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for full two-exponent beta–Jacobi weighted tail/marked law, while the p=q=1 distribution and deterministic tangent area geometry are explicitly prior. Neither a uniform-sample hull distribution nor deterministic parabola triangle identity implies continuously variable exponents and weighted conditional marks.
+
+## value
+
+PASS
+
+Exact rare-event exponents encode two independent natural singularities of a normalized beta–Jacobi law on a bounded parabola and identify endpoint epsilon versus midpoint sqrt(epsilon) geometry. The conditional Dirichlet TV distribution and normalized deficit mark are independently useful exact probabilistic invariants, not a bare parameter rename of the known uniform hull. Scope restricted to three tangents and fixed p,q>0.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

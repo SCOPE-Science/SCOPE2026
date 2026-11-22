@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof in `RESULT.md` is analytical. It uses direct tangent-line intersections, a unique global maximum, a nonnegative deficit decomposition, explicit scaling of three ordered tangency locations, an integrable dominating function for each fixed \(p,q>0\), and the gamma-function simplex integral.
+## correctness
 
-Run `python check.py` with the dependencies in `requirements.txt`. The checker independently calculates line-intersection triangle areas for 1000 deterministic-seed triples; normalizes three beta–Jacobi densities; evaluates exact finite-threshold survival probabilities by nested adaptive quadrature for the cases \((p,q)=(1,1),(2,2),(1,3)\) and thresholds \(0.025\) and \(0.007\); and checks the limit prefactor against their predicted rates. It also checks the exact uniform specialization \(32\sqrt2/45\). The observed finite-threshold/predicted ratios approach one as the threshold decreases.
+PASS
 
-Successful execution prints `JACOBI_TANGENT_TWO_SCALE_TAIL_DIAGNOSTICS_OK`. Finite quadrature and samples are evidence of implementation consistency, not an infinite proof. The historical priority of the variable-density theorem is not independently certified.
+Recomputed tangent intersection coordinates ((s+t)/2,st) and determinant A=(b-a)(c-b)(c-a)/4; A reaches 1/2 only at (-1,0,1). Deficit expansion gives u+v+y^2 at scales endpoint epsilon, midpoint sqrt epsilon. Checked the density normalization B(q/2,p), the transformed monomial exponent 2p+q/2, the gamma simplex integral and Dirichlet(p,p,q/2,1) mark with independent fair sign; integrable majorant holds for every fixed p,q>0 even with endpoint/midpoint integrable singularities. Independently used SymPy to verify K(1,1)=32sqrt(2)/45 and a nontrivial simplex value p=2,q=3. L1 convergence of rescaled unconditioned densities and positive asymptotic mass gives total-variation convergence; no finite quadrature is treated as limit proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for full two-exponent beta–Jacobi weighted tail/marked law, while the p=q=1 distribution and deterministic tangent area geometry are explicitly prior. Neither a uniform-sample hull distribution nor deterministic parabola triangle identity implies continuously variable exponents and weighted conditional marks.
+
+## value
+
+PASS
+
+Exact rare-event exponents encode two independent natural singularities of a normalized beta–Jacobi law on a bounded parabola and identify endpoint epsilon versus midpoint sqrt(epsilon) geometry. The conditional Dirichlet TV distribution and normalized deficit mark are independently useful exact probabilistic invariants, not a bare parameter rename of the known uniform hull. Scope restricted to three tangents and fixed p,q>0.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
