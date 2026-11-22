@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For n=2..6 every ternary word is generated and checked for self-bifix, every surviving pair for both oriented cross-bifix overlaps and Hamming distance >=3; this gives an if-and-only-if with compatibility cliques. Python Bron-Kerbosch enumerates all maximal cliques (414 candidates and 24,156 edges at n=6, with exactly 528 maximal 8-cliques and no larger), while independent C++17 increasing-order enumeration counts all cliques and independently obtains maximal sizes 1,1,2,4,8 and maximum-code counts 6,18,108,300,528. Complete optimal-code tables and all alphabet-permutation/reversal orbits were checked. Two explicit codebook witnesses are listed. Scope finite n<=6; no extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al. 2012 Theorem 1.1 is a size bound up to a constant factor and Theorems 3.1-3.2 give constructions, without a sharp Hamming-three combined finite census.",
+        "Blackburn 2013 proves general non-overlap size bounds and exact unrestricted small block lengths.",
+        "2025 Wang/Fang/Feng partial-overlap with restricted Hamming distance: preview discusses constructions/general bounds; full text was not verified."
+      ],
+      "reasoning": "A capacity bound under weaker unconstrained hypotheses does not imply the exact capacity after adding a minimum-distance-three constraint, nor equality counts and symmetries. The relevant accessible theorems are not directly strong enough for the new exact statement. Full 2025 comparison remains a disclosed risk, rather than a claimed whole-text exclusion.",
+      "searches": [
+        "Exact maximum ternary non-overlapping cross-bifix-free codes correcting one substitution Hamming distance three short lengths four five six",
+        "Joint non-overlap and single substitution correction code sizes ternary length five Hamming distance 3",
+        "ternary six-symbol non-overlapping cross-bifix-free codes with Hamming distance three one substitution correction maximum eight codewords 528 optima",
+        "arxiv:1209.0236 theorem 1.1 theorem 3.1 construction",
+        "arxiv:1303.1026 non-overlapping codes bounds"
+      ]
+    },
+    "checked_sources": [
+      "Chee et al., arxiv:1209.0236 v1 (2012-09-03), relevant full-text theorems",
+      "Blackburn, arxiv:1303.1026 v1 (2013-03-05), relevant full-text results",
+      "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a (full RESULT.md)",
+      "2026/10/12/SCOPE-exact-ternary-length-five-non-overlapping-codes-detecting-one-su--d72ce427d800 (full RESULT.md)",
+      "Wang/Fang/Feng 2025 DOI:10.1016/j.disc.2024.114236 (abstract/preview only)",
+      "Own accessible ledger claims p0001_g000062 and p0002_g000091 (claim deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full published detection paper 2026/10/12/SCOPE-exact-ternary-length-five-non-overlapping-codes-detecting-one-su--d72ce427d800 assumes minimum Hamming distance 2 and gives capacity 9 at n=5.",
+        "Full unrestricted length-five paper 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a assumes no Hamming distance restriction and gives capacity 17.",
+        "Chee et al. 2012 and Blackburn 2013 are source-specific construction/general non-overlap results.",
+        "Wang/Fang/Feng 2025 expanded preview is insufficient for a complete whole-paper implication check."
+      ],
+      "reasoning": "The present claim is a *smaller* constrained maximum, not a corollary merely because broader classes have larger maxima. Even an exact maximum 9 under Hamming distance two cannot show distance-three maximum four without a separate impossibility argument. Exact optimizer counts and orbit spectra require new full finite classification. The only plausible unresolved implication is inaccessible detailed 2025 material; it is named and retained as a priority risk.",
+      "searches": [
+        "Exact maximum ternary non-overlapping cross-bifix-free codes correcting one substitution Hamming distance three short lengths four five six",
+        "Joint non-overlap and single substitution correction code sizes ternary length five Hamming distance 3",
+        "Maximum cross-bifix-free non-overlapping ternary codes with minimum Hamming distance 3 (correct one substitution) at blocklength five or six; 3-ary five-mer correction and self-synchronization",
+        "maximum error-correcting non-overlapping code q=3 n=5 d=3 and all equidistant extremizers",
+        "ternary n=6 q=3 self-synchronizing code minimum distance 3 exact size eight and equality classes",
+        "2026/10/12/SCOPE-exact-ternary-length-five-non-overlapping-codes-detecting-one-su--d72ce427d800",
+        "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest result 2026/10/12/SCOPE-exact-ternary-length-five-non-overlapping-codes-detecting-one-su--d72ce427d800 treats cross-bifix-free q=3,n=5 but Hamming distance >=2, NOT >=3.",
+        "Chee et al. (arXiv:1209.0236), cross-bifix-free terminology and generalized construction definitions.",
+        "Blackburn (arXiv:1303.1026), non-overlapping = cross-bifix-free terminology."
+      ],
+      "reasoning": "Exact equivalence of cross-bifix-free, non-overlapping, and strong comma-free is used; substitution correction at known frame boundaries is equivalent to pairwise Hamming distance at least three, unlike detection (at least two), deletion correction or uncorrupted comma-free codes. Searches targeted those aliases, the exact q=3,n=5 and n=6 parameters and counts, and no returned theorem stated the same conjunction.",
+      "searches": [
+        "Exact maximum ternary non-overlapping cross-bifix-free codes correcting one substitution Hamming distance three short lengths four five six",
+        "Maximum cross-bifix-free non-overlapping ternary codes with minimum Hamming distance 3 (correct one substitution) at blocklength five or six; 3-ary five-mer correction and self-synchronization",
+        "ternary length-five non-overlapping minimum Hamming distance three correction of one substitution exact maximum four 300 codebooks",
+        "ternary six-symbol non-overlapping cross-bifix-free codes with Hamming distance three one substitution correction maximum eight codewords 528 optima",
+        "ternary n=6 q=3 self-synchronizing code minimum distance 3 exact size eight and equality classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Read full published RESULT.md 2026/10/12/SCOPE-exact-ternary-length-five-non-overlapping-codes-detecting-one-su--d72ce427d800: exact ternary length-five size 9 at Hamming >=2, 24 optima; explicitly disclaims distance three.",
+        "Read full published RESULT.md 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a: ternary length-five maximum 17 with no Hamming restriction, 12 optima.",
+        "Own accessible current-week parts p0001_g000062 and p0002_g000091 searched by recoverable claims and exact conditions; no duplicate complete n=2..6 ternary nonoverlap/Hamming-three classification found."
+      ],
+      "reasoning": "Published tables for q=3,n=5 concern 17 uncorrected or 9 detecting codewords and mathematically cannot certify the exact distance-three optimum four. These results do not contain the length-six eight-word capacity, 528 labeled equality cases, or the Hamming-three five-word rigidity. Accessible own claims on comma-free or deletion codes concern different constraints and error models; no matching claim was identified.",
+      "searches": [
+        "ternary length-five non-overlapping minimum Hamming distance three correction of one substitution exact maximum four 300 codebooks",
+        "ternary cross-bifix free code correct single symbol error five length four codewords 29 equivalence classes",
+        "ternary six-symbol non-overlapping cross-bifix-free codes with Hamming distance three one substitution correction maximum eight codewords 528 optima",
+        "2026/10/12/SCOPE-exact-ternary-length-five-non-overlapping-codes-detecting-one-su--d72ce427d800",
+        "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+      ]
+    },
+    "rationale": "The nearest exact ternary n=5 work concerns unrestricted non-overlap (17 words) or one-substitution detection at distance 2 (9 words), neither implies the distance-three four-word optimum. General 2012-2013 cross-bifix/non-overlap results give constructions and size bounds not this exact q=3 n=2..6 equality-class census. Actual semantic published-finding corpus searches for code equivalences and counts and accessible own ledger claim comparisons found no equivalent or dominating exact statement, though the 2025 Hamming-restricted overlap article full text and unindexed work remain explicit risks.",
+    "residual_risks": [
+      "The full 2025 Wang/Fang/Feng article on restricted overlap and Hamming distance could contain an exact theorem or table not visible in the preview; assessed best-knowledge risk, not asserted absent.",
+      "Unindexed or older private tables may duplicate this finite computation; unsuccessful searching is not a uniqueness proof.",
+      "No independent mathematician has audited this computer-assisted finite proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General construction and non-overlap size bounds, not the sharp joint Hamming distance-three q=3,n<=6 classification.",
+        "evidence": [
+          "arxiv:1209.0236 v1 2012-09-03",
+          "Theorem 1.1, Theorems 3.1-3.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.0236",
+        "material_read": "arXiv abstract, first sections with Definitions, Theorems 1.1 and 3.1-3.2, full PDF page screenshots for introduction and construction.",
+        "method": "Open arXiv full text as PDF, read extracted theorem and construction passages, inspect page images.",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Primary dated source for the non-overlapping/cross-bifix-free constrained alphabet and archive assignment."
+      },
+      {
+        "assessment": "General unconstrained results do not fix q=3 Hamming >=3 maximum codebooks or orbit counts.",
+        "evidence": [
+          "arxiv:1303.1026 v1 2013-03-05",
+          "Definitions and bounds for unrestricted non-overlapping codes"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+        "material_read": "arXiv abstract and sections on definitions, bounds, exact small lengths and concluding scope, including PDF page images.",
+        "method": "Read publicly accessible arXiv full text, compare exact theorem hypotheses.",
+        "title": "Non-overlapping codes",
+        "trigger": "Foundational exact and general non-overlap bounds with possible implication to restricted finite optimum."
+      },
+      {
+        "assessment": "Maximum 17 for unconstrained non-overlap; no Hamming >=3 joint theorem, and cannot imply its labeled four-word maximum or 300 optima.",
+        "evidence": [
+          "S(3,5)=17, N(3,5)=12 without Hamming constraint"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a/RESULT.md",
+        "material_read": "Full public RESULT.md including theorem, all-alphabet SQN optimization proof, original q=3 equality case and references.",
+        "method": "Read raw published full research document through the GitHub read connector.",
+        "title": "Exact size and enumeration of maximum length-five non-overlapping codes",
+        "trigger": "Exact ternary length-five census potentially implying the new n=5 constraint."
+      },
+      {
+        "assessment": "Maximum nine at minimum Hamming distance two is not the maximum four at distance three and does not determine the complete five/six-symbol distance-three census.",
+        "evidence": [
+          "Explicit scope: Hamming >=2 only; joint q=3,n=5 detection maximum 9 with 24 optimizers"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-exact-ternary-length-five-non-overlapping-codes-detecting-one-su--d72ce427d800/RESULT.md",
+        "material_read": "Entire public RESULT.md including theorem, graph proof, 24 equality cases, distinction between detection and correction.",
+        "method": "Read full raw public research document through GitHub file connector.",
+        "title": "Exact ternary length-five non-overlapping codes detecting one substitution",
+        "trigger": "Identical q,n and synchronization condition, weaker one-error detection."
+      },
+      {
+        "assessment": "Preview advertises general constructions and bounds but does not show this exact finite q=3 strong-nonoverlap Hamming-three table; complete material unavailable, so the paper cannot be ruled out.",
+        "evidence": [
+          "Wang, Fang and Feng (2025), Discrete Mathematics 348:114236; DOI:10.1016/j.disc.2024.114236"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114236",
+        "material_read": "Accessible article abstract and expanded text preview, including summarized section on Hamming restrictions; not a complete paper.",
+        "method": "Review searchable journal preview; arXiv and OA full-text search yielded no usable manuscript; publisher full-text attempt unsuccessful.",
+        "title": "q-ary (1,k)-overlap-free codes with given restrictions",
+        "trigger": "Plausibly stronger Hamming-constrained partial-overlap result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "51c6a485-cde6-4baa-bcf0-21e2eb255ba4",
+  "value": {
+    "rationale": "A natural joint constraint in block codes is cross-bifix self-synchronization plus Hamming-distance-three one-substitution correction. The exact minimum length six for transmitting eight ternary messages (3 bits) gives a meaningful short-block threshold, while 528 six-symbol optimal designs in 49 equivalence classes and rigid equidistance of every five-symbol optimum supply design and classification data. The complete reproducible finite benchmark is a substantive constrained-channel invariant without depending on a general asymptotic theorem.",
+    "status": "PASS"
+  }
+}
