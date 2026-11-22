@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducible finite certificate
+# Independent mathematical audit
 
-The archive contains the exact plain-text programs `verify_reduced_gp.py` and `verify_full_gp.cpp`, and their independent standard output transcripts `verification_reduced_output.txt` and `verification_full_output.txt`. They are free of external dependencies other than Python 3 and a C++17 compiler.
+## correctness
 
-Run:
+PASS
 
-```sh
-python3 verify_reduced_gp.py > reduced.out
-g++ -O3 -std=c++17 -Wall -Wextra -pedantic verify_full_gp.cpp -o verify_full_gp
-./verify_full_gp > full.out
-cmp reduced.out verification_reduced_output.txt
-cmp full.out verification_full_output.txt
-```
+For odd k=1,3, GP(10,k) is cubic bipartite with the displayed A/B shores. The exact 1024-to-1024 maps U and V give F(a,b)=(U(b),V(a)), hence F^2=(UV,VU). Independent direct implementation from the graph neighborhoods confirmed on all 1024 masks that (UV)^3=(UV)^2 and (VU)^3=(VU)^2, and both have 124 fixed shores, giving F^6=F^4, 124 equilibria, and ((124)^2-124)/2=7626 primitive temporal two-cycles. The terminal maps s_A=(UV)^2 and s_B=(VU)^2 imply a full state eventually fixes iff s_A(a)=U(s_B(b)). Counting shore-fiber products yields fixed basins 36,784 (prism) and 107,224 (Desargues), with complementary two-cycle basins 1,011,792 and 941,352. Independent enumeration of all 1,048,576 ordered shore pairs for both k reproduced every first-entry table entry: for prism period-one [124,8710,14750,8560,4640], period-two [15252,485710,366590,108320,35920]; for Desargues period-one [124,2940,24480,32640,47040], period-two [15252,129140,442720,169920,184320]. Positive t=4 populations certify sharpness. This is genuinely exhaustive finite proof for the two 20-vertex graphs, not a general n extrapolation.
 
-`verify_reduced_gp.py` constructs \(U\) and \(V\) from graph adjacency, enumerates \(2^{10}\) states in each shore, checks \(124\) fixed points in each two-step map, computes the terminal projection distribution and the exact first-entry/period table for every \(2^{20}\) initial shore pair. `verify_full_gp.cpp` builds the original twenty 3-neighbor masks and independently evolves all \(2^{20}\) 20-bit states for each graph, producing the matching records without referring to the shore factorization.
+## originality
 
-The integer identity \(T^3=T^2\) on each of the four ten-bit maps can be checked directly by applying the map three times to each of \(1{,}024\) inputs. The reduced code's loop asserts that each input reaches a shore fixed state within at most twenty updates; the complete outputs and the verified four-update maximum show a much stronger bound. This finite proof requires no extrapolation. All claims are confined to these graphs and the stated update convention.
+PASS
 
-No outside source or authority has independently audited these results.
+PASS best-of-knowledge, but substantial overlap is acknowledged: a fully inspected separately published Desargues double-cover result has *exactly* the 124, 7626, 107224 and Desargues entry counts. The published all-prism Lucas recurrence covers prism fixed/two-cycle totals. However neither inspected theorem gives the prism fixed-attraction basin 36784, its full entrance-time vector and fixed-weight contrast, or the matched two-graph equal-attractor/different-basin comparison, which remain mathematically substantive. The Desargues half and common recurrent counts are not called new.
+
+## value
+
+PASS
+
+A natural pair of highly symmetric cubic 20-vertex graphs have identical periodic-orbit totals yet sharply different attraction basins. The exact finite complete-basin distinction is a motivated dynamical counterexample to inferring transient global behavior from attractor counts, with a reproducible sharp entry clock and weight spectrum; does not need an infinite-family theorem to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
