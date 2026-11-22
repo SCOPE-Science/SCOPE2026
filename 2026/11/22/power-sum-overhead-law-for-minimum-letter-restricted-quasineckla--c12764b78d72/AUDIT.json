@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The unique maximal-initial-zero-run decomposition proves the exact coefficient formula in both directions; Burnside rotation counts are exact. For fixed r,s the L=1 term has degree r-1 in m, all other L have degree at most r-2, and for nonbinary s the nonidentity necklace terms are exponentially smaller. The code directly enumerated 107054 words in 126 parameter slices and passed 770 larger coefficient and Burnside comparisons; finite experiments are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4 supplies a global injection from nonnecklace quasinecklaces into necklaces but changes a symbol, so does not preserve the number of minimum letters.",
+        "Section 4.3 preserves upper bounds on sum of letters, not an exact count of minimum symbols."
+      ],
+      "reasoning": "An unrestricted cardinality inequality and a bounded-total-weight generation bound do not imply the exact conditional ratio; conditioning changes the relevant fibers of the injection.",
+      "searches": [
+        "sharp candidate output overhead generation quasinecklaces for nonbinary alphabet with fixed count of minimum letter",
+        "Gabric Sawada exact number of quasinecklaces over k letters given occurrences of minimum letter",
+        "2026 \"quasinecklace\" \"overhead\" fixed weight",
+        "arxiv:2607.05324 Theorem 4, Sections 3.1 and 4.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.05324v1 full HTML sections specified above",
+      "doi:10.1016/j.jda.2017.10.002 bibliographic abstract",
+      "Public published-finding corpus record: Sharp exact-content overhead for binary quasinecklaces (summary)",
+      "Public published-finding corpus record: Sharp first-order fixed-content quasinecklace overhead (summary)",
+      "Search for exact fixed-minimum-count nonbinary quasinecklace statistics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Univariate recurrence does not retain the number of minimum letters.",
+        "Binary exact-content records can supply only \\(s=1\\), whereas the claim assumes \\(s\\ge2\\).",
+        "Overall candidate-overhead results do not give exact conditional counts."
+      ],
+      "reasoning": "The proof isolates a new statistic absent from the prior recurrence, identifies weighted choices for successor letters, and establishes an asymptotic power-sum not a corollary of the global injection. An exact implementation of the earlier univariate recursion cannot retrieve the split without new refinement.",
+      "searches": [
+        "arxiv:2607.05324 Definition 3, Theorem 4, Lemma 8, Theorem 9, Section 4.3",
+        "2026/10/26/SCOPE-sharp-exact-content-overhead-for-binary-quasinecklaces--88d9cf336fe0",
+        "2026/11/2/SCOPE-sharp-first-order-fixed-content-quasinecklace-overhead--dcae5275cf00",
+        "2026/11/8/SCOPE-log-periodic-overhead-in-binary-quasinecklace-enumeration--526ea0af0f9e",
+        "sharp candidate output overhead generation quasinecklaces for nonbinary alphabet with fixed count of minimum letter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gabrić–Sawada Definition 3 identifies maximal initial runs and successor order; no same fixed-minimum-count power-sum equivalence found in their Section 3.1.",
+        "Indexed binary exact-content result concerns only two-symbol words."
+      ],
+      "reasoning": "Rewriting the claim as a coefficient of a successor-restricted gap polynomial or a conditional generator overhead does not match the published univariate recurrence, which forgets minimum-letter counts. The binary specialization is subsumed and is not claimed as original.",
+      "searches": [
+        "ternary quasinecklaces exactly two smallest letters first zero run phase, difference from ordinary necklaces, exact enumeration",
+        "quasinecklace exact content ternary two zeros counts non-necklaces",
+        "ternary quasinecklaces minimal symbol multiplicity two generating functions",
+        "multivariate generating function quasinecklace minimum letter count for alphabet size q power sum asymptotic",
+        "\"quasinecklace\" \"minimum\" \"multiplicity\" alphabet",
+        "\"quasinecklace\" \"fixed\" \"content\" \"necklaces\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Appendix A illustrates short quasinecklace lists and Section 3.1 gives an univariate length recurrence; neither provides the two-parameter coefficient table.",
+        "The numerical checks here exhaust small cases only and are not used as evidence of novelty."
+      ],
+      "reasoning": "No known table or sequence with the entire nonbinary fixed-minimum-count polynomial and asymptotic conditional ratio was returned. The claim is an all-parameter formula, not extrapolation of any table.",
+      "searches": [
+        "quasinecklaces binary exact fixed weight enumeration zero runs longest prefix bivariate generating function",
+        "quasinecklaces length n alphabet two maximal zero run count by number of ones",
+        "multivariate generating function quasinecklace minimum letter count for alphabet size q power sum asymptotic",
+        "\"quasinecklaces\" \"exact number of occurrences\" smallest symbol",
+        "arxiv:2607.05324 Appendix A and Section 3.1"
+      ]
+    },
+    "rationale": "The main full-text source counts quasinecklaces by total length, while this theorem refines by minimum-letter count for every nonbinary alphabet and gives a new sharp power-sum conditional overhead law. The published binary-only fixed-content results are not broader coverage of the nonbinary law. Remaining priority risk is explicitly recorded.",
+    "residual_risks": [
+      "An unindexed or not fully accessible paper could already state the same fixed-minimum-letter enumerator.",
+      "The binary published records were available only as indexed summaries, so their full texts were not exhaustively examined.",
+      "The refined formula uses a related run decomposition to the original paper; the priority assessment rests on the additional statistic and resulting power-sum law, not on claiming a new definition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST; counts total length and supports global/weight-bounded enumeration, not the exact minimum-letter-count refinement",
+        "evidence": [
+          "2026-07-06 first posted; Definition 3 specifies initial maximum run and successor order",
+          "Theorem 4 injection alters symbol composition",
+          "Section 3.1 counts by total length; Section 4.3 bounds sum of symbols"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.05324",
+        "material_read": "Definition 3, Theorem 4 and proof, Lemma 8 and proof, Theorem 9, Section 4.3 including Corollary 18, Appendix A descriptions",
+        "method": "Read public arXiv full HTML text across cited sections",
+        "title": "Necklaces and Lyndon words in colexicographic order",
+        "trigger": "Same quasinecklace definition and core algorithm"
+      },
+      {
+        "assessment": "Binary pseudonecklaces; does not establish nonbinary successor-sensitive formula",
+        "evidence": [
+          "The 2017 abstract describes binary colexicographic enumeration and pseudonecklaces"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jda.2017.10.002",
+        "material_read": "Public bibliographic abstract and scope, not full paper",
+        "method": "Public metadata and abstract comparison",
+        "title": "Necklaces and Lyndon words in colexicographic and binary reflected Gray code order",
+        "trigger": "Earlier binary colex algorithm and related pseudonecklaces"
+      },
+      {
+        "assessment": "Binary full-content statement; special case outside the claimed nonbinary domain",
+        "evidence": [
+          "Its stated range is binary quasinecklaces with prescribed zeroes and ones; its bound is sharp in the binary setting"
+        ],
+        "identifier_or_url": "Public published-finding corpus indexed record, 2026-10-26",
+        "material_read": "Indexed title and scientific summary only; full text not verified",
+        "method": "Semantic search and comparison of explicit object/parameter coverage",
+        "title": "Sharp exact-content overhead for binary quasinecklaces",
+        "trigger": "Potentially dominating fixed-content result"
+      },
+      {
+        "assessment": "Binary asymptotic with a fixed number of ones, not a nonbinary minimum-letter-count slice",
+        "evidence": [
+          "Its stated parameters use binary words and fixed ones"
+        ],
+        "identifier_or_url": "Public published-finding corpus indexed record, 2026-11-02",
+        "material_read": "Indexed title and scientific summary only; full text not verified",
+        "method": "Semantic search and statement comparison",
+        "title": "Sharp first-order fixed-content quasinecklace overhead",
+        "trigger": "Potentially overlapping asymptotic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c12764b7-8d72-4fe2-a0ed-2ee7f7706157",
+  "value": {
+    "rationale": "The exact minimum-letter-count enumerator and sharp nonbinary power-sum law resolve the algorithmically natural conditional workload of colex necklace filtering. They expose an unbounded family of conditional candidate/output ratios at every fixed nonbinary alphabet, which the published unrestricted constant-overhead statement cannot describe. The scope is an infinite natural parameter family, not a finite-table recomputation.",
+    "status": "PASS"
+  }
+}
