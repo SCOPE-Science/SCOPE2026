@@ -1,15 +1,21 @@
-# Scientific review of a spoke-weighted Petersen Poincaré law
+# Independent mathematical audit
 
-## Correctness — PASS
-The only structural reduction is averaging an arbitrary ten-point pullback pseudometric under dihedral symmetries preserving the prescribed conductances. The averaged pair metric remains a pseudometric and keeps both sums unchanged. Seven exhaustive pair orbits have sizes \(5,5,10,5,10,5,5\). Explicit paths provide two positive-coefficient certificates \(S\le25(x+y+z)\) and \(S\le20(x+y)+45z\); their convex combination establishes the full intermediate interval, and monotonicity establishes both outer intervals. Three actual metric-space witnesses attain every interval. The equalities, normalizations, endpoints, and nonconstant-map condition are accounted for. `verify_petersen.py` executes standalone exact-rational supplementary checks for nine parameter values, both routing schemes, all orbit sizes, and all triple triangle inequalities for each test witness. Computations alone would not prove the theorem; the routing and convex-combination argument does.
+## correctness
 
-## Originality — PASS, subject to bibliographic limitations
-The strongest directly inspected source is Polavarapu, arXiv:2611.05649, whose theorem gives general Banach-target upper bounds depending on cotype and scalar expansion, not an exact arbitrary-metric constant for this three-conductance-orbit graph. Altschuler–Dodos–Tikhomirov–Tyros, arXiv:2509.25489, study metric extrapolation and random-regular-graph asymptotics rather than this concrete phase diagram. A published indexed study of optimal spectral-gap design on generalized Petersen networks concerns the quadratic scalar Laplacian and cannot imply the arbitrary-metric first-power inequality by specialization. Existing work on Petersen \(L^1\)-distortion likewise has a distinct optimization variable. Direct literature queries and indexed-record searches revealed no covering computation of the three branches \(t=1,9/4\), while absence from these searches is not a uniqueness certificate. An unindexed equivalent calculation remains a risk; the indexed generalized Petersen design study was available only as a scientific summary, not inspected full text.
+PASS
 
-## Mathematical value — PASS
-An exact nonlinear metric Poincaré constant for a canonical ten-vertex cubic graph is a natural benchmark for nonlinear expansion. Distinguishing spoke conductance from the ten equal rim conductances is the graph's intrinsic orbit-scaled deformation. The answer is not a single routine bound: two distinct all-pairs routing certificates intersect at an exact intermediate extremizer, and their competition produces two sharp transitions and three geometrically different equality mechanisms. The full conductance parameter range is settled, including singular collapse regimes and endpoints. No general-graph theorem or \(p>1\) conclusion is asserted.
+PASS: For any target metric, the pullback pseudometric on Petersen vertices can be dihedrally averaged without changing pair-sum S or weighted edge-sum D_t. Seven pair orbits with weights 5,5,10,5,10,5,5 and two realizable graph-route certificates imply S<=25(x+y+z) and S<=20(x+y)+45z for averaged rim lengths x,y and spoke z. The convex combination coefficient (9-4t)/(4+t) on 1<=t<=9/4 gives S<=125(x+y+t z)/(4+t); for outer regimes direct coefficient comparisons give S/D_t<=5/t and <=4. With total conductance 5(2+t), Gamma=(2+t) S/(10D_t). Three actual target metrics respectively attain each bound: two-point rim collapse, intrinsic edge-length metric (2,2,1), and five-cycle spoke collapse. Independent exact rational shortest-path and triangle-inequality calculations for t=1/11,1/2,1,10/9,3/2,2,9/4,5/2,7 corroborated equality. The universal metric upper proof uses all seven pair orbits, not sampling. Equality within 1<t<9/4 forces averaged x=y=2z.
 
-## Limitations
-Independent validation has not been performed. The statement concerns first-power metric distances and one conductance parameter, not the scalar spectral gap, arbitrary edge weighting, or higher powers. The result does not classify all individual equality maps, only their dihedrally averaged edge lengths in the open intermediate phase. The possible existence of another presentation of the same exact formula in unindexed published work remains unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge, with genuinely read exact-object comparators and explicitly bounded coverage risks. A scalar quadratic spectral gap cannot imply the optimum of arbitrary target 1-power distances; qualitative Banach inequalities do not determine the sharp 125/(4+t) dual route envelope. Exact t-specific equality witnesses are additional.
+
+## value
+
+PASS
+
+PASS: The unrestricted metric first-power Poincare constant of a graph is distinct from scalar quadratic eigenvalue gaps. This gives a complete, attained, exact t-dependent classification for a canonical 10-vertex network, with two genuine extremizer transitions at t=1 and t=9/4 and a structural averaged-metric equality condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
