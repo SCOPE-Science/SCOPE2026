@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For \\(m,K>0\\), \\(d\\in[0,m]\\), the rationalized weighted response is exactly \\(1-K(K+t)/(K^2+2Km+t^2)\\), with \\(t=\\sqrt{m^2-d^2}\\). Its derivative with respect to \\(t\\) has sign opposite the strictly decreasing polynomial \\(K^2+2Km-2Kt-t^2\\); its value at \\(t=m\\) equals \\(K^2-m^2\\). For \\(m>K\\) this yields one interior minimum; the exact gap to uniform is \\(K(m-t)(K-t)/[(K+m)(K^2+2Km+t^2)]\\), giving unique positive crossover \\(t=K\\) and correct endpoints. For arbitrary \\(0<\\gamma<1\\), the Taylor coefficient \\(K[\\gamma K-(1-\\gamma)m]/[m(K+m)^3]\\) proves local decrease above threshold, while endpoint increases; existence only. Analytical steps were recomputed, symbolic differentiation/factorization checked, and the packaged standard-library checker ran 12081 diagnostic assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nachman (2006) supplies general stochastic predator aggregation and local Holling-type terms, but the subject is different prey-distribution classes rather than all intermediate contrasts of two fixed-mean densities.",
+        "The published Type III allocation theorem has no predator redistribution; the published occupancy staircase adds logistic crowding and fixed local predation pressure."
+      ],
+      "reasoning": "Checked whether the current theorem is a special case of a stronger quantified shape/optimization statement, not just whether broad machinery can calculate its objective. The closest full mathematical results govern different functions and cannot imply the exact sign frontier under these assumptions without a new derivation. Priority risk from unexplored subcases of the broader 2006 model remains.",
+      "searches": [
+        "spatially patchy prey functional response nonlinear predator aggregation sublinear square root local prey density bimodal minimum consumption",
+        "A functional response model of a predator population foraging in a patchy habitat DOI 10.1111/j.1365-2656.2006.01114.x",
+        "Two sharp patch-allocation transitions for a generalized Type III feeding response, published RESULT.md",
+        "An exact occupancy staircase for prey aggregation under crowding and predator satiation, published RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "Nachman, J Anim Ecol (2006), doi:10.1111/j.1365-2656.2006.01114.x",
+      "Nachman, Exp Appl Acarol (2006), doi:10.1007/s10493-006-7209-4",
+      "Hossie and Murray, Ecology (2016), doi:10.1890/15-1535.1",
+      "Skalski and Gilliam, Ecology (2001), doi:10.1890/0012-9658(2001)082[3083:FRWPIV]2.0.CO;2",
+      "Published finding, Two sharp patch-allocation transitions for a generalized Type III feeding response",
+      "Published finding, An exact occupancy staircase for prey aggregation under crowding and predator satiation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior empirical result: aggregation can benefit predators at low mean density but not at high mean density under an interference/redistribution model.",
+        "New assertion: at a fixed *high* mean \\(\\(\\(\\(\\(m>K\\)\\)\\)\\)\\), weak heterogeneity decreases the per-predator response but near-complete concentration increases it, crossing at exactly \\(\\sqrt{m^2-K^2}\\), with a unique minimum.",
+        "These statements have different quantifiers: prior compares classes and mean density; current varies contrast continuously at fixed mean under imposed sublinear tracking."
+      ],
+      "reasoning": "Neither broad qualitative observation entails a fixed-mean reentrant crossover nor exact uniqueness. The stronger general response could be specialized to formulate the two-patch objective, but all sign and optimality statements use the new rationalization and derivative. No equivalent or dominating published statement was located in accessible full-text comparisons.",
+      "searches": [
+        "prey spatial heterogeneity x=m±d predator selection weights square root local density Holling II feeding weighted harmonic mean critical prey concentration saturation K reentrant",
+        "prey patchiness predator aggregation weaker than proportional square root functional response aggregation exponent 0.5 holling type II intake patch distribution",
+        "Nachman 2006 discussion and appendices DOI 10.1111/j.1365-2656.2006.01114.x",
+        "Hossie and Murray 2016 DOI 10.1890/15-1535.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact aggregate-response variable is a predator-weighted average of Holling-II local feeding rates, with a fixed total prey density and square-root redistribution.",
+        "Nachman 2006 J Anim Ecol studies broad population weighted responses for random, clumped and even prey distributions, without giving this deterministic two-patch closed-form phase diagram.",
+        "The fixed-predator Type III allocation published result uses two unweighted predator utilities f_p with p>1, not the Holling-II per-predator weighted mean."
+      ],
+      "reasoning": "Considered aliases: prey aggregation, patchiness, spatial averaging of functional response, predation dilution, predator clumping and foraging allocation. An expression for weighted mean alone does not state the derivative sign, the unique U-shaped phase, or exact crossover of this specialization. No equivalent threshold theorem was identified; the precursor could contain a broader formula from which the first equation is specializable.",
+      "searches": [
+        "two patch prey heterogeneity predator aggregative response square root prey density Holling type II per predator intake unique minimum patchiness half saturation threshold",
+        "prey spatial heterogeneity x=m±d predator selection weights square root local density Holling II feeding weighted harmonic mean critical prey concentration saturation K reentrant",
+        "predator intake weighted by local prey to fractional power square root two patches unique minimum nonmonotone heterogeneity",
+        "Nachman 2006 full article sections model/appendices DOI 10.1111/j.1365-2656.2006.01114.x"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected empirical Nachman paper reports measured plant-level rates in tables; these are not an exact two-patch parameter table or m/K critical boundary.",
+        "Hossie–Murray (2016) has experimental clumped versus evenly distributed prey treatments with predator interference, not a table of this model’s unique minimum.",
+        "Semantic research-index results returned the two different published allocation theorems cited in source inspections."
+      ],
+      "reasoning": "No checked table/database enumerates the exact critical \\(d_*=\\sqrt{m^2-t_*^2}\\), \\(d_0=\\sqrt{m^2-K^2}\\) or global monotonicity for fixed square-root tracking; numerical simulation of a generic model is not an exact table for all continuous parameters.",
+      "searches": [
+        "two patch prey heterogeneity predator aggregative response square root prey density Holling type II per predator intake unique minimum patchiness half saturation threshold",
+        "predator intake weighted by local prey to fractional power square root two patches unique minimum nonmonotone heterogeneity",
+        "two patches predator redistribution square root prey density saturating functional response optimal patchiness minimum",
+        "The effects of prey patchiness predator aggregation and mutual interference Nachman 2006 doi:10.1007/s10493-006-7209-4",
+        "Spatial arrangement of prey affects shape of ratio-dependent functional response Hossie Murray 2016"
+      ]
+    },
+    "rationale": "Direct published-scope and own-record overlap searches identified strong qualitative precursor Nachman 2006 and two more closely titled published mathematical allocation claims. Full relevant texts compare distinct deterministic fixed-predator/Hill and logistic-crowding objectives versus the novel predator-weighted square-root two-patch intake. No accessed source states or directly implies the unique nonmonotone clumping phase and exact crossover. General predator-aggregation machinery and possible undetected specialized prior analyses remain named priority risks.",
+    "residual_risks": [
+      "Nachman 2006 broad functional-response framework may allow other implicit specializations; some formula graphics were not directly readable in HTML.",
+      "Other published foraging-resource optimization papers might establish the exact two-patch square-root case under different terminology.",
+      "No independent historical-priority audit has occurred; search absence does not establish novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides a general population functional-response framework, and describes qualitative density-dependent patchiness effects; does not state a square-root two-patch fixed-mean crossover, its exact half-saturation frontier, or its unique minimum. General weighted mean could be derived as a specialized submodel; threshold uniqueness is not a stated consequence.",
+        "evidence": "Article full HTML text, main model discussion and Appendices 1–5, DOI 10.1111/j.1365-2656.2006.01114.x; first-published stamp 2006-06-23.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1365-2656.2006.01114.x",
+        "material_read": "Accessible article sections including introduction, prey/predator distribution assumptions, aggregative response model, discussion, limitations, and Appendices 1–5; equations rendered as images were not machine-extracted.",
+        "method": "Read full available HTML article text, including main analysis and appendix descriptions; compared stated conclusions and model objectives to the fixed-two-patch theorem.",
+        "title": "A functional response model of a predator population foraging in a patchy habitat",
+        "trigger": "Exact same spatial heterogeneity and aggregate per-predator intake subject; most plausible broader coverage."
+      },
+      {
+        "assessment": "Reports prey/predator patchiness, changes in intake from nonrandom search, and qualitative density effects; does not fix the idealized square-root two-patch allocation or derive the exact reentrant crossover.",
+        "evidence": "DOI 10.1007/s10493-006-7209-4, PubMed PMID 16596345, accessible manuscript transcription.",
+        "identifier_or_url": "https://doi.org/10.1007/s10493-006-7209-4",
+        "material_read": "Accessible paper text, introduction, within-plant methods, results table, discussion and aggregative response sections on a lawful publisher-cited manuscript display.",
+        "method": "Inspected accessible full-text transcription and PubMed metadata; compared stage-specific measured aggregation model against deterministic two-level square-root weights.",
+        "title": "The effects of prey patchiness, predator aggregation, and mutual interference on the functional response of Phytoseiulus persimilis feeding on Tetranychus urticae",
+        "trigger": "Earlier 2006 direct empirical predator-patch study and predecessor of analytic framework."
+      },
+      {
+        "assessment": "Studied three-patch spatial arrangement, interference and ratio-dependent response shape; does not supply the same two-patch weighted Holling-II function or the exact crossover threshold.",
+        "evidence": "Article full HTML, DOI 10.1890/15-1535.1, published 2016-04-08.",
+        "identifier_or_url": "https://doi.org/10.1890/15-1535.1",
+        "material_read": "Accessible article abstract, introduction, full methods, and interpretation of predator interference and ratio-dependent responses.",
+        "method": "Read HTML full text sections; compared ratio-dependent interference mechanism and fixed experimental clumped/uniform treatments to continuum-of-clumping Holling-II square-root model.",
+        "title": "Spatial arrangement of prey affects the shape of ratio-dependent functional response in strongly antagonistic predators",
+        "trigger": "Recent closely analogous prey-clumping experimental paper with per-predator response."
+      },
+      {
+        "assessment": "Two predators stay fixed, each in its own patch, with local Hill exponent p>1 and additive total intake. Not a weighted per-predator Holling-II response with predator redistribution proportional to the square root of prey density. Neither threshold nor sign result implies the other.",
+        "evidence": "Full published RESULT.md: I(x)=f_p(x)+f_p(B-x); explicitly states one predator per patch and no redistribution.",
+        "identifier_or_url": "published scientific record 7d3ca49da7d6",
+        "material_read": "Complete openly published RESULT.md, including theorem, assumptions, proof, and prior-work comparison.",
+        "method": "Read the complete published RESULT.md and compared objective, predator allocation, Hill exponent and threshold quantifiers.",
+        "title": "Two sharp patch-allocation transitions for a generalized Type III feeding response",
+        "trigger": "Closest indexed two-patch feeding extrema and a putative stronger fixed-prey-budget optimization theorem."
+      },
+      {
+        "assessment": "Its target is maximizing net prey growth under fixed local predation pressure and logistic crowding across n patches, not per-predator feeding with endogenous square-root patch tracking. No implication of the crossover at \\(d_0\\) or unique minimum.",
+        "evidence": "Full published RESULT.md: separable objective sum_i (rx_i-rx_i²/K-c x_i/(1+h x_i)); no predator tracking.",
+        "identifier_or_url": "published scientific record 0d3ae31b84de",
+        "material_read": "Complete openly published RESULT.md including proof and assumptions.",
+        "method": "Read published mathematical claim and compared weighted predator allocation versus fixed predation pressure and prey net-growth objective.",
+        "title": "An exact occupancy staircase for prey aggregation under crowding and predator satiation",
+        "trigger": "Closely related mathematical prey clustering and saturating Holling-II loss."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12f4960f-5d1e-4ad2-b558-2e6b3554720e",
+  "value": {
+    "rationale": "The exact model isolates a specific mechanistic competition: Holling-II intake saturation lowers efficiency within prey-rich patches while sublinear predator tracking reallocates foragers to prey-rich patches. At the same fixed prey mean, moderately clumped and maximally clumped distributions produce opposite signs relative to uniform density. The unique minimum, explicit crossing, sharp threshold \\(\\(\\(\\(\\(m=K\\)\\)\\)\\)\\) and robustness existence for other sublinear exponents offer natural assay benchmarks; no empirical field recommendation is inferred.",
+    "status": "PASS"
+  }
+}
