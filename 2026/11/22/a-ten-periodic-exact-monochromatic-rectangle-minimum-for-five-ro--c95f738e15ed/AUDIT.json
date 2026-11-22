@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Exact definition of 20 row-pair-colour load slots yields R=sum choose(k,2); column balances enforce the universal discrete-convexity lower bound. At b=5q with odd q, nonbalanced columns force >=2 extra; balanced cases with zero/one extra would require at most two odd row-pair equality counts, contradicting that all ten row triples each require an odd pair and any pair lies in three triples. Block B has load two in every slot, block C has 16 mutually distinct slots, and W has loads 0,1,2 with counts 2,16,2; the ten-residue construction gives equality in all cases. Standalone verifier tests the exact finite witnesses and independently counts constructed rectangles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alm–Miller: Table 2 covers 5 by 5 through 5 by 8; Problem 4 asks for general exact values and convexity sharpness.",
+        "Cooper–Fenner–Purewal: Proposition 7.3 supplies a general integer quadratic minimization whose optimum was computed with solvers for selected dimensions, not a closed-form formula valid at five rows for all widths.",
+        "Fenner–Gasarch–Glover–Purewal: Section 5 classifies existence of a zero-rectangle colouring, not minimum positive multiplicity."
+      ],
+      "reasoning": "The available broader results impose lower bounds or characterize a zero-versus-positive threshold, or give unevaluated exact optimization formulations. None of the inspected result statements settles the explicit five-row all-width minimum and parity-exception classification. Older supersaturation work could contain an unindexed equivalent.",
+      "searches": [
+        "https://arxiv.org/pdf/2611.19635v1",
+        "https://arxiv.org/pdf/0810.3019",
+        "https://arxiv.org/pdf/1005.3750",
+        "https://www.cs.umd.edu/~gasarch/TOPICS/sane/generalsane.pdf",
+        "minimum number monochromatic K2,2 in red blue colored complete bipartite graph exact"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2611.19635v1",
+      "https://arxiv.org/pdf/0810.3019",
+      "https://arxiv.org/pdf/1005.3750",
+      "https://www.iosrjournals.org/iosr-jm/papers/Vol13-issue2/Version-1/J1302016478.pdf",
+      "https://www.cs.umd.edu/~gasarch/TOPICS/sane/generalsane.pdf",
+      "https://oeis.org/A399620"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper states Problem 4: determine the extremal function and characterize when convexity is sharp; it isolates the five-by-five anomaly, not an infinite congruence class.",
+        "Cooper et al. state the general optimization as Proposition 7.3, and report computational optimization for selected cases.",
+        "Chang–Zhu–Lin study when monochromatic K_{s,t} substructures must exist, rather than the sharp number of monochromatic K_{2,2} across all widths."
+      ],
+      "reasoning": "Simple bounds from either earlier paper are consistent with but strictly weaker than an exact all-width five-row formula. The nonattainability at odd multiples of five requires an additional three-row parity hitting argument, and the upper bounds require the uniform ten-residue block system. The new conclusion is not presented as new merely because its notation differs.",
+      "searches": [
+        "https://arxiv.org/pdf/2611.19635v1#page=14",
+        "https://arxiv.org/pdf/0810.3019#page=16",
+        "https://arxiv.org/pdf/1005.3750#page=26",
+        "https://www.iosrjournals.org/iosr-jm/papers/Vol13-issue2/Version-1/J1302016478.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A two-colouring of the 5-by-b array is a red–blue edge-colouring of the complete bipartite graph K_{5,b}; monochromatic rectangles correspond bijectively to monochromatic four-cycles.",
+        "Cooper–Fenner–Purewal Proposition 7.3 exactly represents the general minimum by a quadratic integer optimization in column multiplicities, not by an all-width evaluated five-row formula."
+      ],
+      "reasoning": "The biclique reformulation is an alias, not an independent claim. An arbitrary-dimensional optimization recipe is more general as an algorithmic representation but does not give or imply by direct substitution the ten-periodic closed evaluation or its explicit sharp constructions without additional optimization and parity arguments.",
+      "searches": [
+        "exact minimum monochromatic rectangles in every 2-coloring of five-row grids 5 by b for all b; formula periodic modulo ten",
+        "two-colored grids complete bipartite K5,n minimum number monochromatic 4-cycles periodic exact",
+        "minimum monochromatic K2,2 copies K5,n two-color edges exact",
+        "https://arxiv.org/pdf/0810.3019"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A399620 records only the square-grid diagonal entries through eight in its currently displayed sequence.",
+        "The motivating paper identifies OEIS A399621 as a table of finite small-grid values; its Table 2 lists five-row widths five through eight and no complete width-five formula."
+      ],
+      "reasoning": "The already tabulated widths agree with the formula but finite entries do not imply the exact integer-sequence formula at every positive width. The full current A399621 page was not materially inspected, leaving a limited database-entry risk.",
+      "searches": [
+        "https://oeis.org/A399620",
+        "https://arxiv.org/pdf/2611.19635v1",
+        "A399621 5 n monochromatic rectangles sequence closed formula",
+        "rho(5,n) monochromatic rectangles exact all n 2 coloring"
+      ]
+    },
+    "rationale": "Best-knowledge originality: the motivating open-access 2026 paper requests an all-width determination and provides only small cases; the 2008 exact integer-quadratic representation is not a closed evaluation, and earlier checkerboard classifications concern existence rather than positive minimum counts. Search comparisons found no equivalent all-order formula. The strongest historical risk is an unindexed equivalent result in older bipartite supersaturation literature; no independent priority determination is claimed.",
+    "residual_risks": [
+      "Unindexed earlier extremal red–blue four-cycle supersaturation or quadratic-optimization solution may already imply the same all-width five-row formula.",
+      "Full present-day OEIS A399621 entry was not materially inspected; the finite table and diagonal entry were inspected through the primary paper and A399620.",
+      "Other mathematically relevant older works outside the inspected paper sections may contain equivalent results; absence from search is not a novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Small-grid values and a general convexity approach are documented; no all-width five-row exact expression or periodic sharpness statement is present in the inspected substantive sections.",
+        "evidence": [
+          "Table 2 records rho(5,5),rho(5,6),rho(5,7),rho(5,8) as 2,4,8,12.",
+          "Problem 4 expressly asks for rho(a,b) and sharpness of convexity equality."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.19635v1",
+        "material_read": "Definition 3.1, Table 2, Sections 3–5 and 8, the lower-bound and five-by-five arguments, Appendix A and references",
+        "method": "Primary open-access arXiv full-text sections and corresponding page images",
+        "title": "Constructive and computational methods for extremal and near-extremal box colorings",
+        "trigger": "Direct motivating source defining the same invariant and posing exact-evaluation Problem 4"
+      },
+      {
+        "assessment": "Proposition 7.3 is a general exact integer-quadratic-program characterization and could algorithmically calculate the claimed invariant, but does not evaluate its minimum for all five-row widths.",
+        "evidence": [
+          "Proposition 7.3 gives a minimum of Q_r(v)-v dot delta_r over multiplicity vectors and reports selected solver calculations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0810.3019",
+        "material_read": "Definitions and higher-dimensional results, Section 7 on two colours and three dimensions, Definition 7.2, Proposition 7.3 and adjacent discussion",
+        "method": "Primary open-access arXiv full-text relevant results with page image",
+        "title": "Monochromatic Boxes in Colored Grids",
+        "trigger": "Possible stronger coverage via exact general (c,t)-guaranteed grid optimization"
+      },
+      {
+        "assessment": "Classifies which grids can have no monochromatic rectangle, not the number that must occur once it is positive.",
+        "evidence": [
+          "Section 5 identifies the five-by-five obstruction for two colours."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1005.3750",
+        "material_read": "Abstract, table of contents, definitions, convexity arguments in Section 2, Section 5 theorem on zero-rectangle existence and adjacent statements",
+        "method": "Primary open-access arXiv relevant sections and page image",
+        "title": "Rectangle Free Coloring of Grids",
+        "trigger": "Earlier exact two-colour checkerboard theorem potentially subsuming a count"
+      },
+      {
+        "assessment": "Existence thresholds for monochromatic subrectangles, with no inspected statement of the all-width minimum multiplicity.",
+        "evidence": [
+          "Introduction identifies forcing thresholds as the objective and translates checkerboards to two-colour complete bipartite graphs."
+        ],
+        "identifier_or_url": "https://www.iosrjournals.org/iosr-jm/papers/Vol13-issue2/Version-1/J1302016478.pdf",
+        "material_read": "Abstract, introduction, Sections 1.1–1.2 on forcing monochromatic rectangles and the generalization plan",
+        "method": "Publisher open-access PDF text with page image",
+        "title": "The Existence of (s, t)-Monochromatic-rectangles in a 2-colored Checkerboard",
+        "trigger": "Terminological alias of two-colour K_{2,2} counting"
+      },
+      {
+        "assessment": "Supplies general guaranteed multiplicity lower bounds and specific obstruction sets, not exact five-row counts at every width.",
+        "evidence": [
+          "Theorem 3.1 provides monotone increments of a previously guaranteed rectangle count, explicitly not an assertion of exactness."
+        ],
+        "identifier_or_url": "https://www.cs.umd.edu/~gasarch/TOPICS/sane/generalsane.pdf",
+        "material_read": "Section 3 statements and proofs of the general rectangle-count lower bounds and finite obstruction examples",
+        "method": "Author-hosted full-text relevant sections",
+        "title": "Sane Bounds on Van der Waerden-Type Numbers",
+        "trigger": "Older work explicitly guaranteeing multiple monochromatic rectangles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c95f738e-15ed-4954-a473-53df063cfa88",
+  "value": {
+    "rationale": "The result is an exact natural five-row infinite-width extremal counting classification directly prompted by Problem 4 in a new paper. It gives a sharp modular failure of the natural lower bound at every odd multiple of five, matching explicit constructions uniformly across all widths. It advances the precise minimum number of forced red/blue four-cycles, beyond binary avoidability or finite lookup values, without requiring a further downstream theorem.",
+    "status": "PASS"
+  }
+}
