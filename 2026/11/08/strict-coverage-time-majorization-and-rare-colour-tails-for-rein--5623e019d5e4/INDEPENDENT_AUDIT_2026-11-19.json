@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T17:53:47.833438Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The predictive Pólya law is a Dirichlet mixture for all real a_i>0. Conditioning on P shows P(no S in t draws)=(A-a_S)_{overline t}/(A)_{overline t}; inclusion-exclusion gives survival for t>=1. For a chosen pair with total h, Dirichlet aggregation makes Q=P_i+P_j and all outside probabilities independent of its split while U=P_i/Q~Beta(a_i,a_j). Conditional on the number M of pair draws and outside coverage, the chance both pair colours appear is 1-[(a_i)_{overline M}+(a_j)_{overline M}]/(h)_{overline M}; for M>=2 the summand is strictly convex and symmetric in the split, while it is zero for M<=1. Therefore any nontrivial balancing strictly raises P(T<=t) at each t>=k, since M>=2 and full outside coverage have positive joint probability for positive initial masses; for t<k coverage is impossible. A finite chain of T-transfers proves the full strict majorization order and uniqueness up to permutation. Each singleton absent probability equals Gamma(A)/Gamma(A-a_i) t^{-a_i}(1+o(1)); every pair absence is O(t^{-(a_i+a_j)}), so Bonferroni yields m Gamma(A)/Gamma(A-alpha) t^{-alpha}. Conditioning gives asymptotic probability 1/m for each of m minimal-mass still-unseen colours and vanishing probability for multiple unseen colours. The positive-power moment criterion follows from the discrete tail-sum comparison sum t^{s-1-alpha}. Boundaries k=2,t=0 and noninteger positive masses were checked. Independent fresh code compared 48 finite-time Dirichlet-mixture inclusion-exclusion probabilities to a distinct reinforced-path dynamic program, 36 strict-balance tests for three nontrivial transfers, and 8 large-t gamma-ratio tests; INDEPENDENT_CHECK_OK 92. Finite checks are not proof of the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zoroa et al. 2016, Theorem 6.1, strictly orders the complete-coupon time under balancing a *fixed iid probability vector*.",
+          "Calabrese 2012 orders a 2-colour count under changes in reinforcement s at fixed initial composition; Dean 2022 gives growing-composition functional limits."
+        ],
+        "reasoning": "The deterministic coupon theorem is not a substitution: two different Dirichlet priors are not coupled into almost-sure pointwise majorization, and integrating a pointwise theorem cannot compare their laws. The Calabrese and Dean results vary other parameters or observables. Thus they do not logically dominate the audited strict fixed-A reinforced urn majorization.",
+        "searches": [
+          "https://arxiv.org/pdf/1608.00155 Theorem 6.1 and Corollary 6.1",
+          "https://geary.ucd.ie/workingpapers/workingpapers/gearywp201216.pdf Theorem 4.2",
+          "https://arxiv.org/pdf/2206.05138 abstract and introduction",
+          "Resultary query: reinforced coupon collector last unseen rare colors tail minimum initial masses"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-coverage-time-majorization-and-rare-colour-tails-for-rein--5623e019d5e4 (same record, not independent prior)",
+        "https://arxiv.org/pdf/2110.02155 (Jacobs 2022)",
+        "https://arxiv.org/pdf/1608.00155 (Zoroa et al. 2016)",
+        "https://arxiv.org/pdf/1911.01052 (Henze and Holmes 2019)",
+        "https://geary.ucd.ie/workingpapers/workingpapers/gearywp201216.pdf (Calabrese 2012)",
+        "https://arxiv.org/pdf/2206.05138 (Dean 2022)",
+        "Resultary semantic published search: full-cover Pólya/Dirichlet-multinomial majorization, no independent exact dominating item identified",
+        "Web literature searches: beta-binomial/Dirichlet-multinomial full support, majorization, Schur-concavity, reinforced coupon collection and rare last unseen colour"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jacobs 2022 implies availability of the all-colour Pólya completion distribution for integer masses; standard Dirichlet mixing extends to positive real masses.",
+          "Henze–Holmes 2019 implies singleton tail exponent and moment threshold; Bonferroni over all missing singleton colours gives the minimum-mass multicolour tail by an additional simple step.",
+          "Zoroa et al. 2016 does not imply a stochastic comparison between two distinct Dirichlet parameter vectors; a strict beta-split lemma supplies it directly."
+        ],
+        "reasoning": "Subtracting already established finite distribution and scalar first-hit mathematics leaves the strict stochastic majorization theorem as a specific, independently motivated assertion. Its beta split and strictly convex rising factorial proof are new relative to inspected prior texts, though priority is qualified because a general older Dirichlet–multinomial occupancy majorization lemma could still imply it.",
+        "searches": [
+          "https://arxiv.org/pdf/2110.02155 sections 7 and 7.1",
+          "https://arxiv.org/pdf/1911.01052 Sections 2–4",
+          "https://arxiv.org/pdf/1608.00155 Section 6",
+          "web searches: Dirichlet mixture expected coupon collector cover probability majorization alpha; Polya urn cover time Schur-convex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-colour first hit is equivalently the event of every cell being positive in a Dirichlet–multinomial count vector, or completion of unit tubes in Jacobs (2022) Definition 4.",
+          "Jacobs negative Pólya formula covers finite complete-coverage probabilities, but neither strict alpha-majorization nor last-unseen asymptotic appears among the inspected negative-distribution results."
+        ],
+        "reasoning": "Renaming the model as a Dirichlet-compound multinomial, a negative Pólya waiting-time law or a unit-tube fill does not make the exact distribution new. The only claimed nontrivial remaining cross-parameter comparison is Schur concavity/convexity of P(T<=t) in the positive Dirichlet shape vector at fixed total; no matched equivalent theorem in searched primary material established that comparison.",
+        "searches": [
+          "Resultary semantic query: Polya urn full colour coverage time majorization initial composition Dirichlet multinomial occupancy Schur concavity",
+          "Resultary semantic query: Dirichlet multinomial no empty cells probability Schur-concave concentration vector",
+          "web searches: \"Polya urn\" \"majorization\" \"coverage\" all colors; \"Dirichlet multinomial\" \"Schur concave\" occupancy",
+          "https://arxiv.org/pdf/2110.02155"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jacobs 2022 gives a general negative Pólya distribution, including exact finite completion probabilities and a (3,2,1) example.",
+          "The archived matching Resultary finding is the same assigned work, not an independent earlier item; related Resultary entries concern iid or Dirichlet-multinomial covariances, not a stronger all-time majorization."
+        ],
+        "reasoning": "The exact survival formula is an already-known computable specialization and should not itself be counted as novel. Existing tables can certify only particular compositions and time horizons; none found encodes a universal inequality over the full continuum of positive a vectors and every t, or the asymptotic rarest-colour conditional law. Remaining historical database coverage risk is named explicitly.",
+        "searches": [
+          "Resultary query: Dirichlet multinomial no empty cells probability Schur-concave concentration vector",
+          "Resultary query: Polya urn full colour coverage time majorization initial composition Dirichlet multinomial occupancy Schur concavity",
+          "https://arxiv.org/pdf/2110.02155 Definition 4 and example 4",
+          "web search: Polya Eggenberger distribution probability all cells positive majorization concentration parameters"
+        ]
+      },
+      "rationale": "Qualified acceptance only for the genuinely cross-parameter strict all-time stochastic majorization in a unit-reinforcement Pólya urn. Jacobs (2022) already contains the exact negative-Pólya all-colour completion distribution and must be credited; Henze–Holmes (2019) covers the one-colour tail; Zoroa et al. (2016) provides exact deterministic-iid coupon majorization. The decisive comparison is that neither latter theorem compares Dirichlet mixtures with different shape vectors at fixed sum. Calabrese (2012) varies replacement amount, Dean (2022) studies growing-composition limits. No stronger result in the bounded Resultary searches or primary inspected sources was shown to imply the strict alpha-majorization result; priority is best-of-knowledge with specific listed risk.",
+      "residual_risks": [
+        "Best-of-knowledge priority only: a general earlier Dirichlet–multinomial full-support Schur-concavity theorem could imply the strict all-time comparison without mentioning Pólya coverage; not discovered in current bounded searches.",
+        "Jacobs (2022) already covers exact multicolour completion distributions (at least integer initial urn sizes), so that portion receives no originality credit.",
+        "The minimum-shape tail and moment threshold use standard gamma/Beta first-hit tails plus Bonferroni; extension to the last unseen colour is elementary rather than an independently strong research result.",
+        "No external specialist originality verification; no theorem for non-unit replacement, zero masses, or likelihood-ratio order is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the exact multicolour all-tubes-filled waiting-time distribution for positive integer initial ball compositions, and hence its ordinary finite occupancy enumerations. DOES NOT establish strict stochastic majorization when varying initial masses at fixed total; also does not state the minimum-mass last-unseen limit. Originality credit excludes general exact distribution.",
+          "evidence": [
+            "Definition 4 item 3, p.20: npl(v,tau)(k) is sum over final-colour completion events under Pólya draws; tau=(1,...,1) makes it first all-colour appearance.",
+            "p.21 heavy-tailed example (3,2,1); pp.22,24 concern negative Pólya formulas, no shape-majorization of two different urns."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.02155",
+          "material_read": "31-page primary preprint inspected at the model definitions on pp.1–2, negative-distribution construction and Definition 4 on pp.19–21, one-tube result Theorem 12 on p.22, and multicolour Markov description on pp.24–25; actual page images p.1, pp.20–22 and p.25 inspected",
+          "method": "Read extracted primary PDF text and relevant original PDF page images, identify threshold vector tau=(1,...,1), compare npl(v,tau)(t) and cumulative coverage to the audited T distribution; searched paper for a majorization comparison",
+          "title": "Urns & Tubes",
+          "trigger": "Direct prior for exactly the all-colour completion time in the same reinforced sampling model (negative Pólya distribution for one tube per colour)"
+        },
+        {
+          "assessment": "ESTABLISHES strict stochastic ordering for iid fixed probability vectors; DOES NOT directly compare Dirichlet-mixture laws across different concentration parameter vectors. The audited beta-split argument is an additional step not supplied by the iid theorem.",
+          "evidence": [
+            "Theorem 6.1, p.23: p and p' related by Robin-Hood transfer, strict comparison for n>=k+1 with positive remaining support.",
+            "Corollary 6.1, p.25: deterministic p majorization comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.00155",
+          "material_read": "33-page primary paper: model assumptions and introductory coupon formulation pp.1–3, Section 6 transfer definition, Theorem 6.1, proof and Corollary 6.1, pp.21–25; PDF cover checked",
+          "method": "Compared the fixed p vector and Robin Hood transfer in Theorem 6.1 to P~Dirichlet(a) under changes in a; checked strict condition n>=k+1",
+          "title": "The coupon collector urn model with unequal probabilities in ecology and evolution",
+          "trigger": "Exact strict majorization theorem for coupon completion; possible implication through Dirichlet mixing"
+        },
+        {
+          "assessment": "COVERS one distinguished colour first-arrival power tails and moment thresholds, not multicolour coverage ordering or the precise conditional identity of the last unseen among unequal initial masses.",
+          "evidence": [
+            "Abstract p.1 and Section 2 pp.2–3: single specified black colour first-hit probability and infinite mean at one initial black ball.",
+            "Section 4 pp.4–5 discusses variance and higher moments for the single-colour first-arrival time."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.01052",
+          "material_read": "Complete five-page primary PDF, particularly the abstract, beta-binomial representation and Sections 2–4 on first black draw, moments and variance; p.1 page image checked",
+          "method": "Identify first-colour waiting probability P(T_i>t) as beta-binomial zero-count; compare with union event for all k colours",
+          "title": "Curiosities regarding waiting times in Pólya’s urn model",
+          "trigger": "Same Pólya reinforcement, first occurrence of a rare colour, tail exponent and moment criterion"
+        },
+        {
+          "assessment": "DOES NOT COVER: compares count of draws of one colour under different replacement amounts s while keeping starting b,r and draw count fixed; it is neither all-colour cover time nor initial-mass vector majorization.",
+          "evidence": [
+            "Abstract and Theorem 4.2 pp.2,5: replacement amounts s>s* with same b,r; Section 4 convex ordering of single-colour count X, not the first all-colour stopping time."
+          ],
+          "identifier_or_url": "https://geary.ucd.ie/workingpapers/workingpapers/gearywp201216.pdf",
+          "material_read": "Full accessible 11-page working paper, including Section 2 two-colour scheme, Theorem 3.1, Section 4 Theorems 4.2 and 4.4 and their comparison parameter; original PDF page 4 examined",
+          "method": "Compared the controlled parameter s (replacement increment) with the audited controlled parameter vector a at fixed total and common increment s=1",
+          "title": "Uniform correlation structure and convex stochastic ordering in the Pólya urn scheme",
+          "trigger": "Potential general stochastic-order result in exactly the reinforced urn model"
+        },
+        {
+          "assessment": "Not a direct covering theorem for strict all-time cover-time majorization or fixed-configuration polynomial rare-colour tails; general identity-urn scope is not enough to imply those claims.",
+          "evidence": [
+            "Abstract p.1: functional limits of urn compositions with growing initial numbers of balls; deterministic first-order and Gaussian second-order limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.05138",
+          "material_read": "Primary 54-page PDF: abstract, opening model and asymptotic regimes in introduction; original page image p.1 checked; principal conclusions concern composition limits",
+          "method": "Compared observable and quantifier regime: composition process as initial mass and number of draws both grow versus fixed initial mass and finite-time first complete coverage",
+          "title": "Functional limit theorems for Pólya urns with growing initial compositions",
+          "trigger": "Potential broader urn theorem from original cited bibliography"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural stochastic-order extremal problem for the time until every species/colour has appeared under preferential reinforcement. Uniform starting mass uniquely minimizes all attainable survival probabilities at a fixed total (not merely expectations that may be infinite), and the exact rarest-colour exponent demonstrates why tails and moments respond nontrivially to initial imbalances. The old exact distribution and scalar first-hit tail are background; the surviving strict all-horizon comparison makes an independently usable structural classification of the entire cover-time law. No broad downstream theorem is required and none is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-coverage-time-majorization-and-rare-colour-tails-for-rein--5623e019d5e4 (same record, not independent prior)",
+    "https://arxiv.org/pdf/2110.02155 (Jacobs 2022)",
+    "https://arxiv.org/pdf/1608.00155 (Zoroa et al. 2016)",
+    "https://arxiv.org/pdf/1911.01052 (Henze and Holmes 2019)",
+    "https://geary.ucd.ie/workingpapers/workingpapers/gearywp201216.pdf (Calabrese 2012)",
+    "https://arxiv.org/pdf/2206.05138 (Dean 2022)",
+    "Resultary semantic published search: full-cover Pólya/Dirichlet-multinomial majorization, no independent exact dominating item identified",
+    "Web literature searches: beta-binomial/Dirichlet-multinomial full support, majorization, Schur-concavity, reinforced coupon collection and rare last unseen colour"
+  ],
+  "disposition": "passed",
+  "final_claim": "Same proved all-horizon strict cross-initial-mass stochastic ordering, sharp alpha=min a_i tail and last-unseen-colour asymptotics, with explicit acknowledgement that exact negative-Pólya full-coverage distributions and single-colour waiting-time tails are previously established and only the strict reinforced majorization is the surviving central originality claim.",
+  "limitations": [
+    "Primary full-text inspections performed for Jacobs 2022, Zoroa et al. 2016, Henze–Holmes 2019, Calabrese 2012; Dean 2022 read at relevant introductory/model portions, not every one of its 54 pages.",
+    "92 independent bounded finite/double-gamma checks corroborate but do not establish infinite quantifiers.",
+    "Strong historical priority remains qualified for possible earlier general Dirichlet–multinomial occupancy majorization.",
+    "Publication is not ready due extant public operational identifiers in AUDIT.json and METADATA.json and uncorrected Jacobs attribution."
+  ],
+  "schema_version": 1
+}
