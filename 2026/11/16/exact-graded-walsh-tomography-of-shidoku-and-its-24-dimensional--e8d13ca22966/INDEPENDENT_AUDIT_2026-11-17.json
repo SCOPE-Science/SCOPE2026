@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:50:09.820785Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently generated all 288 4x4 Sudoku boards from allowed permutations with row/column/2x2-block constraints. The monomial Gram identity K_d(u,v)=sum_{j<=d} binom(a(u,v),j), with a the number of identical cell-symbol placements, holds because each common placement admits exactly binom(a,j) conjunctions; Walsh and monomial degree filtrations coincide by (-1)^x=1-2x. Independent modular Gaussian elimination on the 288x288 integer Gram matrices over both p=1009 and p=10007 gave lower bounds (1,25,151,264,288). To certify *rational upper* bounds, reconstructed exact integer null projectors independently (without reading the supplied compressed binary) from approximate eigenspaces as candidates, then rounded and checked every matrix identity in int64 exact arithmetic: for d=1,2,3 with scales 288,2880,2880 and kernel dimensions 263,137,24, each X is symmetric, X^2=sX, K_d X=0 and trace X=s*(288-r_d). All exact products had zero residual and entries fit signed int16/int64. This proves rational nullities at least these values; paired with modular lower bounds it proves the exact real ranks. Since the constant feature belongs to E_0, nonzero degree-three null vectors have total mass zero, and epsilon perturbations of the uniform strictly positive law supply different positive laws with identical low-degree marginals; degree-four full rank proves uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arnold et al symmetry classification studies 288 solutions/two symmetry orbits, not the hierarchy (1,25,151,264,288).",
+          "Fontana–Rogantin explicitly solves a 4x4 indicator polynomial instance with CoCoA; full chapter inaccessible, so broader coverage is a material unresolved priority risk, but no exact hierarchy has been shown."
+        ],
+        "reasoning": "Known general algebraic representation of the solution set may permit computing the Hilbert function, but an implication to the precise rank vector was not established from accessible passages.",
+        "searches": [
+          "Resultary: Shidoku Sudoku 4x4 degree filtered Walsh monomial evaluation ranks 1 25 151 264 288 tomography",
+          "doi:10.1017/CBO9780511642401.013",
+          "arXiv:1302.5949"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, verify.py and crosscheck.py (compressed projector_data.zlib inaccessible via GitHub text interface, independently reproduced exact projector identities)",
+        "Resultary Resultary: Shidoku Sudoku 4x4 degree filtered Walsh monomial evaluation ranks 1 25 151 264 288 tomography",
+        "Arnold-Lucas-Taalman DOI 10.4169/074683410X480203",
+        "Arnold-Field-Lucas-Taalman arXiv:1302.5949",
+        "Fontana-Rogantin DOI 10.1017/CBO9780511642401.013 and .025 public abstracts",
+        "Published Shidoku four-clue census, theory.tifr.res.in"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full recovery at degree four might be deduced from known existence of individual unique four-clue witnesses for each board, but not the dimension of the degree-three kernel.",
+          "A degree-two/three Hilbert function requires additional Gram-rank computation beyond knowing that the zero-dimensional Sudoku ideal has 288 points."
+        ],
+        "reasoning": "The exact cubic blind-space dimension is a surviving potentially new assertion; no decisive published stronger result was established in accessible text.",
+        "searches": [
+          "Resultary: Shidoku Sudoku 4x4 degree filtered Walsh monomial evaluation ranks 1 25 151 264 288 tomography",
+          "doi:10.1017/CBO9780511642401.013",
+          "arXiv:1302.5949"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The degree-d Walsh/marginal rank on the 288 Sudoku boards is the Hilbert function of placement monomials restricted to the finite Shidoku solution variety.",
+          "Indicator functions of designs and 64-variable polynomial ideals describe the same underlying combinatorial point set."
+        ],
+        "reasoning": "Potentially equivalent algebraic-statistics language requires checking exact Hilbert function/degree filtration, not merely board enumerations or polynomial ideal definitions.",
+        "searches": [
+          "Resultary: Shidoku Sudoku 4x4 degree filtered Walsh monomial evaluation ranks 1 25 151 264 288 tomography",
+          "doi:10.4169/074683410X480203",
+          "doi:10.1017/CBO9780511642401.013"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 288 solution count and 25,728 uniquely determining 4-clue conjunctions are known.",
+          "A four-clue uniqueness census does not determine lower-degree span ranks 25,151,264 or the exact 24-dimensional probability-law ambiguity."
+        ],
+        "reasoning": "Do not mistake old grid and clue tables for this degree-filtered rank table; continue to flag inaccessible algebraic-statistics tables as possible exact coverage.",
+        "searches": [
+          "Resultary: Shidoku Sudoku 4x4 degree filtered Walsh monomial evaluation ranks 1 25 151 264 288 tomography",
+          "https://theory.tifr.res.in/~sgupta/sudoku/shidoku.html",
+          "doi:10.4169/074683410X480203",
+          "Resultary: Shidoku graded Walsh tomography"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with a substantive historical risk. Arnold–Lucas–Taalman give the standard 288 Shidoku solutions and 64-variable ideal (not new here), and earlier 25,728 unique four-clue sets establish an existence-level upper endpoint; neither by itself specifies quadratic rank 151 nor 24-dimensional cubic marginal ambiguity. Fontana–Rogantin 2009 Indicator function and sudoku designs studies exactly Sudoku indicator polynomials and a CoCoA treatment of the 4x4 instance. The full text was inaccessible (institutional VPN disconnected) and the available abstract does not resolve whether the exact degree-filtered ranks are hidden there; document this risk, not automatically fail originality without a decisive implication.",
+      "residual_risks": [
+        "Fontana–Rogantin 2009 chapter investigates the exact 4x4 design/indicator ideal and may contain an equivalent Hilbert/rank table; full chapter not accessed because Oxford returned vpn_disconnected.",
+        "Cambridge lists another same-titled chapter DOI .025 that was not material-read in full.",
+        "Underlying 288 solution and four-clue endpoint counts are prior art, not newly established.",
+        "Compressed original projector binary not read through connected GitHub (UTF-8 transport rejection); exact rational null certificates were independently recreated and verified instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_KNOWN_NOT_EXACT_RANK_SHOWN",
+          "evidence": "Defines the polynomial solution set and 288 boards but no exact 1,25,151,264,288 degree filtered rank table identified in material inspected.",
+          "identifier_or_url": "https://doi.org/10.4169/074683410X480203",
+          "material_read": "Lawful author-hosted paper text with 64-variable encoding and solution counts inspected; no exhaustive independent scan of supplemental tables",
+          "method": "full text/sections relevant to algebraic encoding and count; compare target rank hierarchy",
+          "title": "Gröbner Basis Representations of Sudoku",
+          "trigger": "Same 64-indicator polynomial representation and 4x4 solution set"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Two symmetry orbits and permutation symmetries do not alone produce the placement-marginal rank hierarchy.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.5949",
+          "material_read": "Public arXiv abstract and relevant symmetry/spectrum description; not all pages rechecked",
+          "method": "abstract and object/parameter comparison",
+          "title": "Minimal complete Shidoku symmetry groups",
+          "trigger": "Same 288 boards and symmetry classifications"
+        },
+        {
+          "assessment": "MATERIAL_UNRESOLVED_PRIORITY_RISK",
+          "evidence": "Abstract explicitly covers 4x4 Sudoku via CoCoA; it neither displays nor excludes the target degree ranks. Cannot assert whole-paper NOT_COVERING. Oxford access blocked by disconnected institutional VPN.",
+          "identifier_or_url": "https://doi.org/10.1017/CBO9780511642401.013",
+          "material_read": "Publisher abstract, Italian institutional repository abstract, and public extracts; full chapter not accessed",
+          "method": "Cambridge and institutional catalogues; attempted authorized Oxford paper with VPN disconnected",
+          "title": "Indicator function and sudoku designs",
+          "trigger": "Exact 4x4 Sudoku indicator-polynomial prior is plausible stronger coverage"
+        },
+        {
+          "assessment": "MATERIAL_UNRESOLVED_PRIORITY_RISK",
+          "evidence": "The same-title online-supplement listing has a distinct DOI and pages 408–423; possible related material not yet compared in full.",
+          "identifier_or_url": "https://doi.org/10.1017/CBO9780511642401.025",
+          "material_read": "Publisher chapter 24 catalogue page; abstract not available, full chapter not read",
+          "method": "Cambridge catalogue check",
+          "title": "Indicator function and sudoku designs (separate Cambridge chapter listing)",
+          "trigger": "Same-title chapter listing as potential another edition/part"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Low-degree identifiability of probability laws on a natural 288-point combinatorial design is an exact, nontrivial statistical tomography invariant. The 24-dimensional cubic blind space and sharp universal fourth-degree sufficiency quantify an explicit information gap, unlike the known grid count or existence of a single uniquely identifying four-clue set. A complete natural finite degree hierarchy can be valuable without extending to 9x9 Sudoku.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All 288 labelled order-four Shidoku grids, not modulo symmetry and not full 9x9 Sudoku.",
+    "No explicit optimal reduced measurement subsets or robustness against noise.",
+    "Inaccessible directly relevant Fontana–Rogantin chapter remains priority risk, not an automatic scientific failure."
+  ],
+  "schema_version": 1
+}
