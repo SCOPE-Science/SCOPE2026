@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The edge signature is exactly the Hamming disagreement count outside the edge direction. A complete mask-based \\((d-1)\\)- and \\(d\\)-subset scan and a separately implemented breadth-first-search distance-vector scan agree on all four joint minima and all basis sets for dimensions \\(2\\) through \\(5\\); both directly verify the finite geometric families, with \\(176\\) and \\(160\\) optima in the two nontrivial cases. Exhaustion and monotonicity rule out all smaller joint sets. For dimensions four and five, ordinary edge-resolution also fails at sizes two and three, respectively. Computations are exact and replayed from the delivered source files.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2102.10916, §2: inequality between ordinary metric/edge metric dimensions and a known ordinary edge dimension for the four-cube; no vertex-edge coverage.",
+        "Tavakoli et al., 2023, publisher abstract: the dominant edge metric generator must be a vertex cover, stronger than the edge-distance-one condition.",
+        "Published record titled Dominant edge metric dimension and minimum bases of hypercubes: cover-based optimum \\(2^{d-1}\\) for \\(d\\ge3\\), versus the present smaller joint ve-coverage optima."
+      ],
+      "reasoning": "A general cover-based result only bounds the weaker vertex-edge version from above, not from below; for \\(Q_4\\) and \\(Q_5\\), the cover-based numbers are \\(8\\) and \\(16\\), whereas the joint ve-coverage numbers verified here are \\(4\\) and \\(5\\). The general ordinary-edge-metric inequalities likewise do not constrain optimizer intersection with ve-domination sufficiently to imply the claim.",
+      "searches": [
+        "\"dominant edge metric dimension\" \"hypercube\"",
+        "arxiv:2102.10916 hypercube edge metric and mixed metric dimension",
+        "doi:10.5614/ejgta.2023.11.1.16 vertex cover dominant edge metric dimension"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2211.09327 (2022-11-17, definitions and graph families)",
+      "arxiv:2102.10916 (2021-02-22, ordinary hypercube edge-metric dimension)",
+      "DOI:10.5614/ejgta.2023.11.1.16 (cover-based distinct invariant)",
+      "Published research-record short summary: Dominant edge metric dimension and minimum bases of hypercubes (2026-09-30)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 work introduces joint ve-domination with edge metric resolution, but its explicit Cartesian-product families are products of paths/cycles rather than all iterated products of \\(K_2\\).",
+        "The 2021 hypercube paper proves relationships among scalar edge/vertex/mixed metric dimensions but not domination intersection or orbit classification.",
+        "The vertex-cover variant is logically stronger, and a minimum cover-based solution is not a minimum solution under ve domination."
+      ],
+      "reasoning": "Neither earlier scalar edge-resolving dimensions nor stronger-cover-based minimum basis results imply that no four-cube joint basis of size three exists, that no five-cube joint basis of size four exists, or that the respective exact geometries number \\(16+64+96\\) and \\(160\\).",
+      "searches": [
+        "\"vertex-edge dominant edge metric dimension\" hypercube 2025",
+        "arxiv:2211.09327 §7 open problems bipartite Cartesian graphs",
+        "arxiv:2102.10916 §2 Lemmas 1–3 Theorems 4,7",
+        "\"dominant edge metric dimension\" \"hypercubes\" minimum bases"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2211.09327, §§2–4: joint edge resolution and vertex-edge domination are the two independent conditions.",
+        "The mask formulation separates every pair of edges and intersects the distance-one cover of each edge; it is logically equivalent to the published definition."
+      ],
+      "reasoning": "Alternate phrases such as ve-dominant edge-resolving, simultaneous edge locating/ve coverage, and joint edge metric sensor sets refer to the same two conditions. None of the inspected relevant statements supplies the exact four- and five-cube basis census.",
+      "searches": [
+        "\"vertex-edge dominant edge metric dimension\" \"hypercube\" Q4 Q5",
+        "hypercube vertex-edge dominant edge resolving exact dimension cubic hypercube Q4 Q5",
+        "arxiv:2211.09327 §2 edge-distance and vertex-edge domination definitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact four-/five-cube joint ve-dominating edge-resolving table was identified in the inspected matching research records or targeted public searches.",
+        "The explicit candidate universes have sizes \\(2380\\) in dimension four and \\(237336\\) in dimension five at the two necessary cardinalities; both independent programs compare complete optimum sets."
+      ],
+      "reasoning": "The integer pairs and geometric families are not implied by a known table found in these searches. Absence of a search hit is only weak evidence and not proof of novelty; residual unindexed-table risk is retained.",
+      "searches": [
+        "\"Q4\" \"176\" \"edge metric\"",
+        "\"Q5\" \"160\" \"edge\" \"resolving\"",
+        "\"176\" \"160\" \"hypercube\" \"edge metric\" resolving",
+        "vertex-to-edge distance at most one and distinguish all cube edges: minimum joint sets Q_4 Q_5"
+      ]
+    },
+    "rationale": "The 2022 composite-parameter paper gives definitions and classical/product cases but not the small-cube optimizer geometry. The 2021 hypercube paper covers metric and edge-metric dimensions, without the joint edge-coverage condition. The similarly named vertex-cover dominant edge metric dimension is strictly stronger. The closest published records found do not imply the joint minima or all-basis classifications; unindexed literature is a remaining priority risk.",
+    "residual_risks": [
+      "Search and accessible records cannot rule out uncatalogued or unpublished identical tables.",
+      "The full text of the 2023 cover-based paper was not read; only its clearly distinct definition was checked.",
+      "Some later published material may be absent from the accessible indexes; independent historical-priority checking remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines target invariant but does not establish small-cube values, basis counts or orbit geometries",
+        "evidence": [
+          "§2: ve-dominates iff incident or adjacent to an incident edge (edge distance at most one)",
+          "§4: reported products are path by path and path by cycle; not the higher Cartesian binary cubes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.09327",
+        "material_read": "Accessible arXiv HTML: §2 preliminary edge distance/ve-domination definitions; §§3–4 list of families, §5 bounds, §7 open problems",
+        "method": "Read HTML scientific body, compare exact domination condition and Cartesian-product claims",
+        "title": "Unique identification and domination of edges in a graph: The vertex-edge dominant edge metric dimension",
+        "trigger": "Foundational definition and possible product cases subsuming cubes"
+      },
+      {
+        "assessment": "Ordinary vertex/edge/mixed resolution relations do not impose ve-domination or enumerate joint bases",
+        "evidence": [
+          "Q4 ordinary edge dimension is three; metric dimension four",
+          "No additional vertex-edge coverage condition is present in the invariant"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2102.10916v1",
+        "material_read": "HTML §1 definitions and §2 Lemmas 1–3, Theorem 4, Q4 example and Theorem 7",
+        "method": "Read open arXiv HTML and compare statement strength",
+        "title": "On Metric Dimensions of Hypercubes",
+        "trigger": "Same graph family and nearby ordinary edge-resolving invariant"
+      },
+      {
+        "assessment": "Uses vertex cover, unlike the weaker ve-domination condition. Full-article priority check remains incomplete but the named invariant is distinct.",
+        "evidence": [
+          "Publisher abstract requires a vertex cover that edge-resolves; a minimum vertex cover of a cube has \\(2^{d-1}\\) vertices"
+        ],
+        "identifier_or_url": "https://www.ejgta.org/index.php/ejgta/article/view/1686",
+        "material_read": "Publisher abstract and definition; publisher full article not inspected",
+        "method": "Read publisher landing-page definition; compare hypotheses",
+        "title": "The dominant edge metric dimension of graphs",
+        "trigger": "Closely named parameter that might dominate joint ve-domination"
+      },
+      {
+        "assessment": "Exact cover-based dimension \\(2^{d-1}\\) for \\(d\\ge3\\) does not imply the weaker joint ve-domination census",
+        "evidence": [
+          "The record explicitly identifies minimum vertex covers as its optimal sets"
+        ],
+        "identifier_or_url": "Published research record, 2026-09-30, exact title",
+        "material_read": "Search-result title and short mathematical summary only; not the full manuscript",
+        "method": "Compared recorded theorem with definitions from the 2023 vertex-cover source",
+        "title": "Dominant edge metric dimension and minimum bases of hypercubes",
+        "trigger": "Closest published cube result identified in research-record search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "19697090-43b3-465d-8baf-7ede38785cf2",
+  "value": {
+    "rationale": "The 2022 composite invariant asks for joint distance identification and local edge coverage, a natural dual requirement in graph sensor design. The small binary cubes are canonical Cartesian powers, and these are the first dimensions in the tested sequence where edge resolution alone is insufficient: the cardinality must increase by exactly one. Exhaustive geometric classification discovers three separate optimizer orbits in the four-cube and only one in the five-cube, a useful sharp finite benchmark and boundary for further cube research. No general higher-dimensional result is claimed.",
+    "status": "PASS"
+  }
+}
