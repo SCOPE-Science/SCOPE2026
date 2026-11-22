@@ -1,0 +1,168 @@
+{
+  "correctness": {
+    "rationale": "The theorem uses exact Rayleigh evaluations on hub-constant, first-rim Fourier and highest-rim Fourier vectors to bound lambda_2 and lambda_max simultaneously for arbitrary nonnegative independent edge weights. The resulting scalar max/min eigenratio bound has unique minimizing ratio m/S_m for all m>=3, including the m=3 and even-rim degeneracies. The uniform-within-class Fourier spectrum attains it. Equality forces first-frequency real cosine and sine vectors each to minimize a Rayleigh quotient; the complex rim eigenvector then forces every rim edge identical by its imaginary part, and every spoke identical by its real part. The budget fixes the unique optimizer. The known gap-optimal star for m>=7 and the asymptotic separation follow by the same exact Rayleigh bounds and Taylor expansions. Direct code reproduced 3910 supplemental tests including 4 exact polynomial checks; finite sampling is not used as proof. Critical limitations: combinatorial Laplacian, connected wheel, nonnegative edges, uniform masses, equal unit prices, B>0.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kempton et al. (2015) give general optimization dynamics for a spectral eigenratio on graphs and thus a numerical or algorithmic framework that includes wheel weight rays; inspection showed no exact wheel solution or rigidity theorem.",
+        "Shafi, Arcak, El Ghaoui (2010) give general spectral-constraint weight-allocation methods; inspected statements and examples did not contain the joint Fourier extreme-mode formula or exact uniqueness claim.",
+        "Göring, Helmberg and Reiss (2013) optimize lambda_max-lambda_2 (spectral width), whereas the new exact claim optimizes lambda_max/lambda_2. The full 2011 preprint was accessible and the objective, introduction, formulation and surrounding theory were inspected; no wheel eigenratio result appeared in the searched full-text sections."
+      ],
+      "reasoning": "General SDP and iterative methods can cover *computational feasibility* and the mathematical setup, but not automatically the exact closed-form uniqueness and large-m contrast. No inspected stronger exact wheel theorem implies the new claim. It is not asserted that previous general frameworks failed to optimize this objective numerically.",
+      "searches": [
+        "synchronizability weighted wheel graph first Fourier highest Fourier radius ratio m sin",
+        "optimal wheel eigenratio λn/λ2 conductance asymptotic m/4",
+        "On Minimizing the Spectral Width of Graph Laplacians and Associated Graph Realizations",
+        "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+        "https://arxiv.org/pdf/1505.07279",
+        "https://doi.org/10.1137/110859658"
+      ]
+    },
+    "checked_sources": [
+      "Published exact wheel lambda_2 result: https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99/RESULT.md",
+      "Kempton et al., 2015 arXiv preprint: https://arxiv.org/pdf/1505.07279",
+      "Boyd et al., 2009 wheel SLEM section: https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "Shafi et al., 2010 eigenvalue design: https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+      "Ghosh et al., 2008 resistance: https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "Göring et al., 2011 accessible spectral-width preprint: https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior maximum-gap wheel theorem: at unit prices and m>=7, unique optimum has b_j=0 and a_j=B/m. The new eigenratio theorem has b_j=B/(m+S_m)>0 for every m>=3, so the prior optimal allocation is not an optimizer of the new objective.",
+        "Published discrete-time wheel SLEM rates differ from the new ratio-optimal rates already at six rim vertices (q/p=2 versus 3/2); normalization and allowed global timestep are not the same.",
+        "The general 2015 eigenratio optimizer is algorithmic. No retrieved exact wheel closed formula, global eigenvector rigidity at both extremal Fourier branches, or m-to-infinity slowdown was stated.",
+        "Ghosh, Boyd, Saberi give a wheel spectral decomposition but optimize inverse eigenvalue sums, and do not impose the new upper/lower eigenvalue balancing."
+      ],
+      "reasoning": "The new exact full optimizer is not a corollary of an optimum stated for a different objective; the spectral decomposition is known but requires a new coupled lower-bound argument and uniqueness analysis. The method is an accessible specialization of standard spectral optimization, not an independent novel general method; publication-priority risk remains for an equivalent unwitnessed specialization.",
+      "searches": [
+        "wheel graph optimal Laplacian eigenratio synchronizability rim to spoke conductance ratio",
+        "weighted wheel synchronization eigenratio optimal ratio spokes rim edge weights",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99/RESULT.md",
+        "https://arxiv.org/pdf/1505.07279",
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arXiv:1505.07279 paper directly minimizes the Laplacian eigenratio; its degree-upper-bound constraints do NOT distinguish the attainable rays from the aggregate-budget problem because the ratio is homogeneous of degree zero. Relevant main text, method and supplementary material were inspected; no wheel-specific exact constants were identified.",
+        "Boyd–Diaconis–Parrilo–Xiao (2009), Section 5.4.3, minimizes discrete-time stochastic-chain SLEM, not Laplacian lambda_max/lambda_2. Its six-rim wheel has q/p=2, while the present exact rate ratio is 3/2.",
+        "The earlier exact wheel connectivity theorem uses the same Fourier eigenvectors but optimizes lambda_2 only; see https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99/RESULT.md"
+      ],
+      "reasoning": "The eigenratio is a scale-free Laplacian condition number, also called a synchronizability eigenratio. Homogeneous capacity limits do not by themselves create a distinct problem, and the generic optimization framework is prior. The asserted new mathematical content is the closed m-dependent unique *all-edge* optimizer and its exact absolute-gap tradeoff. The prior wheel SLEM and maximum-gap formulas are different optimization objectives and, as explicit comparisons show, their optimality statements do not imply the present weight ratio.",
+      "searches": [
+        "wheel graph Laplacian eigenratio min λmax λ2 condition number globally optimal spoke rim weighted complete classification",
+        "weighted wheel synchronization eigenratio optimal ratio spokes rim edge weights",
+        "wheel graph Laplacian eigenratio optimal edge weights synchronization spoke rim conductance ratio condition number",
+        "https://arxiv.org/pdf/1505.07279",
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved wheel-specific exact record https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99/RESULT.md states the lambda_2 price threshold, a critical optimizer interval and spectral-gap rigidity, not an eigenratio minimum.",
+        "The full wheel Section 5.4.3 of https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf tabulates the discrete-time SLEM optimum, which differs numerically in the six-rim case.",
+        "Related exact wheel records recovered by topic concern resistance minimization, Hodge projections, metric Poincaré inequalities, heat-Lipschitz constants, coordinate control, and discrete-time Markov chains, not this ratio classification."
+      ],
+      "reasoning": "Comparison went beyond title/parameter coincidence: actual objective functions, feasible ray constraints, exact six-rim weight ratios and claimed optimizers were compared. Available result records do not tabulate the same eigenratio allocation. An inaccessible table elsewhere or unpublished exact calculation cannot be excluded.",
+      "searches": [
+        "spectral condition ratio wheel network Laplacian exact global minimizer",
+        "wheel networks spectral condition number λmax over λ2 optimal weighted wheel",
+        "weighted wheel spectral gap versus spectral radius optimal ratio wheel m/4",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99/RESULT.md",
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf"
+      ]
+    },
+    "rationale": "Published wheel Fourier spectra, general spectral optimization and the exact lambda_2-maximizing wheel allocation are acknowledged as prior; exact same-graph published theorem and 2009 discrete SLEM wheel formula were compared by implication. The new theorem is the globally unique optimizer of lambda_max/lambda_2 and the exact scaling of its difference from lambda_2-maximization, neither supplied by the inspected statements. A 2015 general algorithm does cover eigenratio-feasible rays and is not disclaimed as outside scope simply because it used degree caps. The exact closed-form classification is not found there. Remaining publication-priority uncertainty due unindexed equivalent literature is explicitly stated.",
+    "residual_risks": [
+      "The general eigenratio optimization framework of Kempton et al. includes the same conductance rays; it could support independent derivation of the wheel formulas although no exact wheel specialization was identified in inspected text.",
+      "The 2009 wheel SLEM paper has Fourier modes and an exact formula for another eigenvalue objective; a related unpublished conversion or proposition could exist.",
+      "An unindexed exact eigenratio allocation for wheels may have appeared elsewhere; search absence is not a novelty guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same Fourier decomposition and first-mode rigidity already known; different objective lambda_2 maximum, known deletion regime not claimed new",
+        "evidence": [
+          "Theorem says for m>=7 at equal prices the lambda_2 optimum deletes all rim edges, whereas eigenratio-optimal formula here has all rim rates positive",
+          "Prior result establishes m-dependent spectral gap upper envelope and uniform-rigidity argument, not lambda_max/lambda_2 minimization"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99/RESULT.md",
+        "material_read": "Complete RESULT.md including theorem, two Fourier Rayleigh bounds, exact lambda_2 price cases, optimizer rigidity and prior-work discussion",
+        "method": "Read public full-text theorem and proof",
+        "title": "Quadratic spoke-price frontier for fastest mixing on wheels",
+        "trigger": "Exact same wheel and nonnegative independently adjustable conductances under linear budget"
+      },
+      {
+        "assessment": "General eigenratio optimization and feasibility-ray coverage are established; no exact all-rim wheel classification found in inspected material. This is the most significant residual priority risk.",
+        "evidence": [
+          "Preprint dated 2015-05-27 explicitly addresses r=lambda_n/lambda_2",
+          "Per-node upper degree constraints and total budget describe the same rays for a scale-free objective, so objective equivalence is acknowledged",
+          "No wheel-specific closed-form formula or all-asymmetric optimality proof identified"
+        ],
+        "identifier_or_url": "arXiv:1505.07279; https://arxiv.org/pdf/1505.07279",
+        "material_read": "ArXiv full text: introductory problem formulation, main eigenratio and weighted-degree constraints, distributed spectral-gradient method and examples, plus relevant supplementary sections; keyword checked for wheel case",
+        "method": "Read PDF extracted pages and visual page images; searched exact graph term in accessible PDF manuscript",
+        "title": "Self-organization of weighted networks for optimal synchronizability",
+        "trigger": "Directly optimizes Laplacian eigenratio; key potential broader coverage"
+      },
+      {
+        "assessment": "Discrete-time SLEM with stochastic nonnegativity is distinct. Its wheel q/p is 2 at six rim vertices, vs new b/a=3/2. Fourier eigenvalues are prior.",
+        "evidence": [
+          "Section 5.4.3 states p*=1/m and q*=(1-1/m)/(2-cos(2pi/m)-cos(2pi floor(m/2)/m))",
+          "The resulting q/p value for m=6 is 2, confirming nonidentical optimizers"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full introductory Markov/SLEM constraints and full Section 5.4.3 wheel block diagonalization and exact p,q optimal rates, page 814",
+        "method": "Read primary PDF text and rendered page image of wheel proof",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Closest exact wheel Fourier graph-specific optimization; possible hidden equivalence to eigenratio"
+      },
+      {
+        "assessment": "General allocation framework, not explicit global wheel eigenratio formula or uniqueness theorem",
+        "evidence": [
+          "Concerns meeting Laplacian eigenvalue constraints rather than the exact ratio-balancing wheel allocation"
+        ],
+        "identifier_or_url": "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+        "material_read": "Abstract, problem setup, SDP framework and examples in accessible 2010 Allerton PDF",
+        "method": "Read selected full-text sections and page images",
+        "title": "Designing Node and Edge Weights of a Graph to Meet Laplacian Eigenvalue Constraints",
+        "trigger": "Potential general spectral constraint optimizer"
+      },
+      {
+        "assessment": "Provides wheel Fourier spectrum and resistance objective; does not claim eigenratio allocation",
+        "evidence": [
+          "The wheel section writes nonzero spectrum (m+1)a and a+2b(1-cos(2pi k/m)) and minimizes inverse-spectrum sum"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Wheel-graph example and exact Fourier eigenvalue formula in PDF near page 59; related abstract",
+        "method": "Read wheel example in searchable PDF and page image",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Contains explicit weighted-wheel spectrum and independent edge budget design"
+      },
+      {
+        "assessment": "Distinct spectral-width difference objective; no wheel-specific eigenratio classification found. Other unpublished implications or independent rediscoveries remain possible.",
+        "evidence": [
+          "Abstract explicitly optimizes lambda_max minus lambda_2, not their quotient"
+        ],
+        "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+        "material_read": "Public 2011 preprint full-text PDF: title, introduction, exact objective (1), dual framework, structural theorem descriptions and search for wheel/ratio",
+        "method": "Read full-text preprint pages and a rendered page image, and searched its extracted text for wheel and ratio",
+        "title": "On Minimizing the Spectral Width of Graph Laplacians and Associated Graph Realizations",
+        "trigger": "Potential domination by a related two-extreme-eigenvalue objective"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "23cc3948-d013-4906-b95c-6b0e4b82f246",
+  "value": {
+    "rationale": "The wheel is a natural, graphically simple but nontrivial family of synchronization and diffusion networks. The complete all-edge optimizer classification produces an exact structural law balancing highest versus lowest Fourier modes and rules out symmetry-breaking competitors. The explicit budget-asymptotic reveals a mathematically consequential objective conflict: eigenratio optimization funds almost exclusively rim rates and slows the absolute algebraic connectivity by factor asymptotic m/4 relative to fastest diffusion, while giving only a constant additive improvement in eigenratio. The result is a motivated exact structural control-design distinction, not a narrow arbitrary parameter slice or a claim that the Fourier spectrum itself is novel.",
+    "status": "PASS"
+  }
+}
