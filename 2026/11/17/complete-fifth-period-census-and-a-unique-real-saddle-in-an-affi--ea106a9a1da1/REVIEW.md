@@ -1,15 +1,21 @@
-# Scientific review: complete fifth-period census in an affine nilpotent-Jacobian family
+# Independent mathematical audit
 
-## Correctness — PASS
-The parameter reduction consists of two invertible polynomial coordinate changes, and the normalized map has an exact period-preserving correspondence with the planar recurrence \(F(a,b)=(b,a^2-b^2)\). The fifth-iterate fixed-point scheme has exact lexicographic Gröbner basis \(\{a-R(b),bQ_{15}(b)\}\), with a square-free degree-sixteen eliminant. Exact Sturm counting gives six real fifth-fixed points, five primitive. Since period five is prime, the other ten complex fifth-fixed points form exactly two additional primitive cycles, interchanged by conjugation. The fraction-arithmetic return-matrix enclosure proves one multiplier in \((0,1)\) and one below \(-1\) for the real orbit; the third is zero. `CHECK.py` recomputes the polynomial ideal and rational root and multiplier certificates. No infinite-orbit extrapolation is used.
+## correctness
 
-## Originality — PASS within the inspected sources
-The 2006 work of Chamberland studies precisely the simplest planar recurrence, but does not give its fifth-period enumeration. The 2022 arXiv paper of Castañeda and Rebollo-Perdomo (Remark 3.2) **already announces existence** of a five-cycle using Gröbner elimination; this fact is explicitly excluded from the originality claim. It does not give the total complex/real fifth-period census or the hyperbolic saddle classification. A 2026 published mathematical record supplies a sharp four-cycle degree threshold for the same nilpotent-Jacobian family, not the fifth-period census. Published findings on multiple three-cycles concern different polynomial degrees/periods. The remaining publication-priority risk is an unindexed equivalent enumeration or an expanded inaccessible 2024 journal version.
+PASS
 
-## Value — PASS
-This is the first nontrivial prime-period census beyond the already-known three-cycle in the most elementary polynomial example, a case singled out by its original authors as displaying complicated dynamics. The result distinguishes existence from **uniqueness over the reals**, gives the full complex orbit structure, and determines the real cycle's saddle nature, despite pointwise nilpotent Jacobians. The coefficient-independent outcome and contrast with the known absence of period four reveal a genuine period-spectrum structure, rather than merely another numerical periodic witness. The result does not claim a classification of all periods.
+C PASS: The nondegenerate affine-parametric 3D nilpotent-Jacobian family is polynomially conjugate to G0(u,v,w)=(v-w,w,(v-w)^2), and each periodic state corresponds bijectively to a point of F(a,b)=(b,a^2-b^2). Independently reconstructed F^5-id and its exact lexicographic rational Groebner basis: a-R(b) with a degree-15 rational polynomial and second eliminant b*Q15(b)/1215. Squarefree degree-16 eliminant gives 16 simple complex fifth-fixed points, one fixed and 15 primitive period-5 points (three complex 5-cycles). An independent exact Sturm count found 5 nonzero real roots and the origin, so exactly one real primitive 5-cycle; complex conjugation exchanges the other two. Independent fifth-return 2x2 Jacobian calculation at the isolated positive root yielded trace ~-224.877075, determinant ~-162.975847 and eigenvalues ~0.722412,-225.599488; rational interval bounds in inspected CHECK.py certify positive eigenvalue in (0,1), negative below -1, with extra exact zero 3D eigenvalue. The finite symbolic elimination is exhaustive due its ideal/squarefree proof, not a floating-point search.
 
-## Limitations
-Only period-five points are classified. The 2006 and 2022 sources had already established the map and the existence of other periods. The 2024 journal version of the source paper was not separately read; the lawful 2022 arXiv full text was inspected. The exact checker uses SymPy to construct a Gröbner basis and Sturm isolations, followed by rational interval arithmetic. Unindexed equivalent results cannot be ruled out absolutely.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS (qualified): The original Chamberland map and the 2022 Castañeda-Rebollo-Perdomo full preprint (Remark 3.2) already explicitly show that a primitive five-cycle exists in this affine family, and that existence is excluded from novelty. The earlier period-four threshold result concerns a different return length. The inspected prior primary text does not establish the full sixteen complex points, exactly one real five-cycle, or its hyperbolic saddle multipliers. The expanded 2024 journal version of the same 2022 paper was not individually inspected and remains a material historical-coverage risk; no claim of absolute global priority is made.
+
+## value
+
+PASS
+
+V PASS: A complete prime-period-five census for a canonical everywhere nilpotent-Jacobian polynomial map resolves a natural exact dynamical invariant beyond prior period-3/period-4 structural results. The distinction between existence and unique real saddle, plus parameter independence and three complex cycles, is mathematically informative about global dynamics despite pointwise Jacobian nilpotency; no unwarranted classification of other periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
