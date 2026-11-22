@@ -1,0 +1,15 @@
+# Scientific review of the prism-line Ising magnetization theorem
+
+## Correctness
+PASS. Every line-graph bond belongs to exactly one triangle at a cubic base vertex; all triangles can simultaneously attain energy \(-J\). The transfer matrix follows from the two explicit not-all-equal triangle constraints at each column, and periodic closure gives the trace with no double counting. Exact determinant expansion and implicit differentiation provide the four-factor spectral law and Curie coefficient. An independent original-edge interaction census over all assignments with circumferences three to six reproduces the complete ground-state histograms, including their magnetizations; a separate symbolic program checks the analytic identities. These finite checks corroborate but do not replace the all-length argument.
+
+## Originality
+PASS on available evidence, with residual historical risk. The closest directly inspected primary paper, Varma (arXiv:1305.4606), addresses the saturation field on different ladders and a two-dimensional kagome model, not the longitudinal zero-field magnetization polynomial of these prism line graphs. The exact entropy growth base was previously present in a different Eulerian-orientation ice-rule enumeration on prism line graphs and is expressly not claimed as original. The current result distinguishes that previously studied ensemble from physical edge spins and derives a field-weighted polynomial and a specific zero-temperature Curie constant. Searches for prism-line Ising, kagome tubes, transfer matrices, algebraic Curie coefficients, and stronger equivalent classifications yielded no exact covering statement; title or parameter mismatches alone were not treated as proof of novelty. A separate 1987 susceptibility paper concerns transverse response of different lattices; 2017 work again concerns two-dimensional perpendicular response. Some plausible unindexed sources were not fully accessible, so definitive priority is not established.
+
+## Mathematical value
+PASS. The coefficient quantifies a physically natural fluctuation response across all circumferences of a frustrated, finite-width kagome-type tube, rather than providing an arbitrary finite enumeration. The complete magnetization-weighted partition polynomial permits exact finite-size response and higher moments; its nontrivial limiting algebraic Curie amplitude is not inferable from the unweighted residual entropy. The underlying transfer decomposition gives a reproducible benchmark for quasi-one-dimensional frustrated magnetism.
+
+## Scientific scope and residual risks
+The model is classical, zero-field and nearest-neighbor isotropic, with \(3n\) labeled spins and \(n\ge3\); the zero-temperature limit precedes the infinite-cylinder limit. The calculations do not determine physical transverse response or robustness to additional couplings. Existing entropy results and transfer-matrix methodology are not novel; unpublished or unindexed exact magnetization calculations could affect originality.
+
+Self-review: passed. Independent audit: not yet performed.
