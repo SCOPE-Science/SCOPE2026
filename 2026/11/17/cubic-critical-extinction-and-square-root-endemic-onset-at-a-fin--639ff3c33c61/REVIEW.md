@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The model equations are reproduced with their exact competing-risk infection probability. The stationary three-component elimination is verified symbolically and yields an analytic scalar equilibrium equation. Its quadratic coefficient vanishes at the unique finite-round threshold. At that threshold, the exact logarithmic second derivative is strictly negative because the explicit polynomial inequality holds for every \(0<p\le1/2\). The center-manifold degree-two invariance agrees with stationary slaving, so the scalar equilibrium cubic is the physical center-map cubic. An explicit independent cubic expansion and five high-precision parameter checks support this nonstandard identification. The inverse-square telescoping argument proves the critical \(n^{-1/2}\) rate, and a blow-up argument proves the positive square-root branch and local stability.
+PASS
 
-## Originality
+Reconstructed physical three-coordinate round map and exact stationary slaving w=κga/δ, z=(1-p)Ba(1-ca)/(m+(2-p)Ba). Its H_B(a) has H(0)=κ and H'(0)=0 precisely at the unique p_c∈(0,1/2); logarithmic second derivative yields H''(0)=-2C. The bracket 1+(2-p)^2-1/p² is strictly negative for 0<p<=1/2, giving universal C>0. Center directions have multiplier 1 and two stable e^{-m}; matching stationary and center-graph quadratic jets produces a'=a-Ca³+O(a⁴). Reciprocal-square increments imply n a_n²→1/(2C), and a=√η v blow-up produces unique stable nearby positive branch for η>0. Independently checked p_c, coefficient, and negative H'' at four positive rate pairs, not substituted for universal inequality or dynamics proof.
 
-PASS within inspected evidence, subject to historical-priority risk. The motivating 2026 map paper derives the invasion surface and parametric stationary branches but does not analyze the zero-quadratic equality case. The 2018/2019 continuous-time two-stage contagion theory treats a different flow and its bifurcation division; those conclusions do not imply the finite-round cubic coefficient, the exact discrete inverse-square clock, or its positive branch amplitude. The ordinary nondegenerate finite-round forward/backward threshold and linear endemic onset have already been derived elsewhere and are expressly *not* claimed as new. Search comparisons with general multiple-exposure epidemic degeneracies, two-patch SIS crossovers, and percolation tricritical laws show different governing objects and coefficients, not a dominating theorem for this precise discrete-round map. A general one-dimensional cubic-map normal-form theorem supplies the qualitative square-root mechanism, but not the substantive universal sign and explicit parameter-dependent constant proved here.
+## originality
 
-## Value
+PASS
 
-PASS. The codimension-two parameter is the natural boundary between forward and backward onset, not an arbitrary numerical slice. Its complete critical classification answers whether the vanishing quadratic term hides a repelling higher-order branch, determines the slow extinction law, and quantifies how the endemic fraction emerges. The exact sign valid for every positive turnover/round length and the explicit scaling amplitude are a useful structural closure of the finite-round bifurcation diagram, while respecting the absence of global claims.
+Relevant already-published finite-round studies prove the invasion surface, sign-changing quadratic center coefficient and the ordinary 1/n decay *away* from the equality p=p_c; both explicitly exclude classifying p=p_c. The submitted positive cubic coefficient, n^{-1/2} clock and square-root endemic onset at this equality locus are not a special case of the nondegenerate theorem or continuous-time Katriel p=1/2 boundary. Best-of-knowledge qualification persists for original model article and general codimension-two bifurcation work.
 
-## Closest literature and limitations
+## value
 
-Muñoz, Nuño, and Meacci, arXiv:2611.08353v1 (2026), full HTML source inspected. Katriel, arXiv:1812.08867v2 (2018), full PDF inspected. Published mathematical-record searches retrieved other epidemic degeneracies with different evolution equations and parameters; no identical critical finite-round result was identified. Historical novelty is not a proof of exhaustive priority. Locality is essential; remote equilibria and nonlinear attractors are not classified, and finite-population stochastic persistence is outside the result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The previously excluded codimension-two boundary is a natural unresolved case of a biologically motivated exact finite-round map; its universally signed cubic coefficient determines qualitative stability and a sharp critical extinction clock and singular endemic amplitude. This is a structurally motivated degeneracy, not an arbitrary selected parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
