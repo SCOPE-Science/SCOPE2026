@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The multiplication action is irreducible for every nonidentity element precisely because its order is \(p\) and \(\operatorname{ord}_p(2)=n\). A dimension-preserving flag action that fixes a point fixes a simplex and hence a constituent proper subspace, contradicting irreducibility. The classical Solomon–Tits sphere-wedge theorem gives a simply connected \((n-2)\)-complex with top Betti rank \(2^{n(n-1)/2}\). The Cartan–Leray spectral sequence gives all integral homology strictly below top degree; the top group is free as the kernel of the maximal-dimensional cellular boundary, and the Euler characteristic of the free quotient determines its rank. The cohomology Serre spectral sequence has no transgression into the base row through degree \(n-2\), proving the nonzero products. The prime-rank divisibility argument is elementary and exact. Standalone exact finite-field flag tests for ranks four and five agree with predicted quotient Euler characteristics.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Compared **statements**, not titles: [1] gives the classical nonequivariant building theorem and arithmetic Steinberg-module results, not the prime Singer orbit-space integral homology or mod-\(p\) cup-length. [2] studies quotients of affine Bruhat–Tits buildings with zeta functions, not finite spherical building orbit spaces. A pre-existing full Singer quotient at rank four has a different group and is not free; it neither contains this infinite family nor implies its classifying-map cup products. The closest related Singer-action literature on other simplicial complexes concerns different spaces. Searches did not identify an explicit stronger theorem subsuming this exact free quotient classification, but an implicit or unindexed classical application remains a genuine risk.
+PASS
 
-## Value — PASS
-The object is a canonical finite building with a natural irreducible subgroup of its Singer symmetry; its quotients produce arbitrarily long, nonzero Bockstein-product strings of torsion classes while their simply connected covers have homology in only one positive dimension. The exact lower homology, Euler-derived free top group, and multiplicative cohomology constraints are structural invariants across an infinite family, not a numerological finite census. The result uses known general tools, but identifies a natural action for which they yield a unified and reproducible integral/multiplicative classification.
+Free action follows because each nonidentity scalar of primitive prime order p has irreducible minimal polynomial of degree n and cannot stabilize a nonzero proper F2-subspace; rank-preserving flags have no inversions. Solomon–Tits gives simply connected cover B_n≃∨^{2^{n(n−1)/2}}S^{n−2} for n>=4, and Cartan–Leray gives H_odd<d=Z/p and H_even<d=0. Top integral homology is free because a d-dimensional finite cellular complex has free H_d; quotient Euler characteristic determines rank (2^{n(n−1)/2}+(-1)^d(1-p))/p. The mod-p Serre spectral sequence of B_n→Y→BC_p has no differential into row zero through degree d; c* preserves ξ and η=βξ products and is injective in degree d. For unbounded odd prime n and any p|2^n−1, ord_p2=n. Separate exact integer checks at (n,p)=(4,5),(5,31),(7,127) obtained top ranks 12,34,16514; original finite flag verifier was read, not blindly trusted. The finite checks do not establish the all-n cup products.
 
-## Residual limits
-No claim of complete top-degree cohomology multiplication, of composite-rank cases without a primitive prime, or of priority against inaccessible/unindexed equivalent literature. Computer checks do not substitute for the general proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for integral odd-degree torsion and nontrivial Bockstein cup products of the free primitive-prime spherical-building quotient, with unbounded cup-length. The all-subgroup Singer quotient theorem already covers these groups' π1, H1 and rational top Betti numbers, so those portions are explicitly prior-covered, but its full proof expressly excludes higher integral and mod-p cohomology and products. Finite Grassmannian orbits and affine buildings are not equivalent claims.
+
+## value
+
+PASS
+
+These are natural free prime-order Singer actions on finite spherical buildings, and the mod-p multiplicative topology with unbounded cup-length separates the quotients from the rational-homology census. The explicit infinite family and torsion ranks are independent mathematical invariants rather than a cosmetic restatement of the rational character theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
