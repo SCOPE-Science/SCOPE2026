@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The proof uses an independent row-cycle upper bound 3s and a balanced three-band construction of exactly 3s vertices. The numeric inequalities q>=s+1 and 2(ceil(n/3)+s-1)<=n follow by all three residues and hold in the stated domain. Distinct-band pairs have a shortest cyclic arc across an empty gap and an unselected vertical switch; same-band pairs have explicit geodesics. All pairs are covered, including ties and the boundary n=6s-6. The embedded checker independently constructs paths and performs obstruction-aware BFS on 360 parameter pairs; finite checks only support, do not replace, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Korže and Vesel, Mutual-visibility sets in Cartesian products of paths and cycles, arXiv:2309.15201 (2023), Results Math. 79:116 (2024), DOI 10.1007/s00025-024-02139-x: Proposition 2.1 gives only the universal upper bound, Proposition 2.2 treats height two, Theorem 2.4 assumes the path height exceeds circumference minus one, and Conjecture 2.6 asks for exact values for n>=12.",
+        "Cicerone, Di Stefano and Klavžar, On the mutual visibility in Cartesian products and triangle-free graphs, arXiv:2112.13024 (2021): general Cartesian-product results and triangle-free cases do not supply the explicit claimed parameter range."
+      ],
+      "reasoning": "The long-path theorem has circumference n<=s+1; here n>=6s-6>s+1 for every s>=3, so the earlier theorem cannot imply equality. A conjecture, even stronger in stated scope, is not a prior proof. The existing upper bound alone is insufficient; this finding supplies the matching constructions on an infinite two-parameter subregion.",
+      "searches": [
+        "Korze Vesel conjecture 2.6 min(3s,2t) cylindrical grids t>=12 long circumference proof",
+        "Korze Vesel 2024 cylinder Theorem 2.4 long path s+1 >= t",
+        "2025 2026 conjecture 2.6 mutual visibility P_s C_t min 3s 2t proof"
+      ]
+    },
+    "checked_sources": [
+      "Korže and Vesel, Mutual-visibility sets in Cartesian products of paths and cycles, arXiv:2309.15201 (2023), Results Math. 79:116 (2024), DOI 10.1007/s00025-024-02139-x",
+      "Cicerone, Di Stefano and Klavžar, On the mutual visibility in Cartesian products and triangle-free graphs, arXiv:2112.13024 (2021)",
+      "Bujtás, Klavžar and Tian, Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets, Aequationes mathematicae 99 (2025), DOI 10.1007/s00010-025-01197-y",
+      "Indexed same-cylinder multiset dimension record; summary-level only",
+      "Indexed lower ordinary mutual visibility odd three-row tori record; summary-level only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Korže and Vesel, Mutual-visibility sets in Cartesian products of paths and cycles, arXiv:2309.15201 (2023), Results Math. 79:116 (2024), DOI 10.1007/s00025-024-02139-x: Proposition 2.1, Theorem 2.4, Remark 2.5 and Conjecture 2.6.",
+        "Direct analytic construction and shortest-path proof supplied in RESULT.md, checked against independent finite BFS computations."
+      ],
+      "reasoning": "No earlier inspected theorem implies 3s as an attained value on unbounded n>>s. The new path witnesses specifically use the cyclic empty gap between row-staggered column bands; without them the pre-existing bound mu<=3s provides no equality. The case n=6s-5 remains unclaimed.",
+      "searches": [
+        "mutual-visibility number of cylinders P_s Cartesian C_t for t>=6s, explicit row-staggered three-columns construction attaining 3s",
+        "Korze Vesel conjecture 2.6 min(3s,2t) cylindrical grids t>=12 long circumference proof",
+        "Prove Korze Vesel conjecture mutual visibility P3 square Cn every n >=12 equals nine, three-row cylinder",
+        "mutual visibility P_s square C_t long circumference 3s inequality upper bound proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Korže and Vesel, Mutual-visibility sets in Cartesian products of paths and cycles, arXiv:2309.15201 (2023), Results Math. 79:116 (2024), DOI 10.1007/s00025-024-02139-x: definition of mutual visibility and Proposition 2.1",
+        "The largest degree of an ordinary visibility polynomial of the same graph would equal its mutual-visibility number; the inspected 2025 visibility-polynomial paper gives no matching all-cylinder formula."
+      ],
+      "reasoning": "Commutativity of Cartesian product makes cycle–path and path–cycle cylinders the same graphs. The statement is an exact maximum (not a lower maximality or total-visibility invariant). Search aliases and ordinary visibility-polynomial coverage were checked; no stronger equivalence producing the construction was identified.",
+      "searches": [
+        "mutual-visibility number of cylinders P_s Cartesian C_t for t>=6s, explicit row-staggered three-columns construction attaining 3s",
+        "visibility of cycles times paths staggered 3-per-fiber configuration gap construction",
+        "mutual visibility cylindrical grids t >= 6s 3s 2024 2025"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Korže and Vesel, Mutual-visibility sets in Cartesian products of paths and cycles, arXiv:2309.15201 (2023), Results Math. 79:116 (2024), DOI 10.1007/s00025-024-02139-x: Table 1 and Remark 2.5 describe finite computed cases (through circumference 17).",
+        "Indexed results for lower ordinary mutual visibility on odd three-row tori and multiset metric dimension on cylindrical grids concern distinct numerical invariants; only summary-level comparisons were available for those."
+      ],
+      "reasoning": "The known finite table overlaps a few small instances of the new domain but does not cover arbitrarily large height and circumference. No exact table or database formula for the new two-parameter range emerged in the actual record searches. Summary-level evidence is not treated as complete full-text exclusion.",
+      "searches": [
+        "mutual-visibility number of cylinders P_s Cartesian C_t for t>=6s, explicit row-staggered three-columns construction attaining 3s",
+        "Korze Vesel conjecture 2.6 min(3s,2t) cylindrical grids t>=12 long circumference proof",
+        "Korze Vesel 2024 Table 1 n <= 12 Remark 2.5 n <= 17",
+        "mutual visibility cylindrical grids P_s C_n 3s explicit construction"
+      ]
+    },
+    "rationale": "The exact same graph family is addressed by Korže–Vesel, whose full accessible article states the result as part of a conjecture outside finite tests and an opposite long-path theorem. The known universal upper bound is credited. Actual literature and record searches did not find a covering infinite long-circumference construction. Main residual risk is unindexed or inaccessible later work, not any known implication.",
+    "residual_risks": [
+      "Non-exhaustive global priority clearance; mathematical record semantic search can miss equivalent formulas.",
+      "The 2021 product paper was inspected at abstract level only, and two nearby indexed full texts were inaccessible.",
+      "The 2025 visibility-polynomial article was reviewed selectively, not fully line by line."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Upper bound and finite cases established; the long-circumference infinite equality remains a conjectured region in the inspected text.",
+        "evidence": [
+          "Proposition 2.1: upper min{3s,2n}; Theorem 2.4: s+1>=n; Conjecture 2.6: all n>=12."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-024-02139-x",
+        "material_read": "Accessible full HTML text, focusing on definitions, section 2 Proposition 2.1/2.2, Theorem 2.4, Table 1 and Remark 2.5, Conjecture 2.6, conclusions and references",
+        "method": "Direct primary text reading and comparison of hypotheses and implications",
+        "title": "Mutual-visibility sets in Cartesian products of paths and cycles",
+        "trigger": "Same graph family, exact conjecture, strongest plausible coverage"
+      },
+      {
+        "assessment": "No demonstrated covering implication; full text not independently inspected, retained as residual risk.",
+        "evidence": [
+          "Abstract: Cartesian products, independent mutual-visibility sets, equivalence to Zarankiewicz problem in complete products."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.13024",
+        "material_read": "Public abstract and scope; complete arXiv full text not accessible through the attempted HTML source",
+        "method": "Abstract-level comparison; checked its claims as quoted in the more directly relevant 2024 full text",
+        "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+        "trigger": "Foundational product results potentially dominating later upper bounds"
+      },
+      {
+        "assessment": "No exact equality for long P_s square C_n found in inspected material; residual non-exhaustive full-text risk.",
+        "evidence": [
+          "2025 article focuses visibility polynomials and dual/total variants, and cites 2024 Korže–Vesel cylinder work."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+        "material_read": "Accessible HTML abstract, introductory/theorem descriptions and product-related references; not asserted to be a complete end-to-end reading",
+        "method": "Checked targeted occurrences and statements for cylinder Cartesian-product equalities",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Later potentially broader theory and all-size enumerations"
+      },
+      {
+        "assessment": "Multiset metric resolving number concerns distance-profile identification, not unobstructed shortest-path mutual visibility; no evident implication of mu=3s. Inaccessibility remains recorded.",
+        "evidence": [
+          "Indexed summary concerns three multiset landmarks and a 6m+3 circumference threshold, rather than 3s mutually visible vertices."
+        ],
+        "identifier_or_url": "Indexed scientific title: Three-point multiset bases for cylindrical grids at circumference six times the height",
+        "material_read": "Indexed title and scientific summary only; full text access attempt unsuccessful",
+        "method": "Statement-level comparison of invariant and claimed implication",
+        "title": "Three-point multiset bases for cylindrical grids at circumference six times the height",
+        "trigger": "Same graph family and similar six-times-height parameter threshold"
+      },
+      {
+        "assessment": "Different extremal direction and graph class, does not imply the claimed maximum; residual summary-only risk.",
+        "evidence": [
+          "Indexed summary computes lower visibility 5 on C3 square odd cycle."
+        ],
+        "identifier_or_url": "Indexed scientific title: Lower mutual-visibility number of odd three-row tori",
+        "material_read": "Indexed title and scientific summary only",
+        "method": "Comparison of ordinary maximum versus minimum inclusion-maximal and cycle-cycle versus path-cycle factors",
+        "title": "Lower mutual-visibility number of odd three-row tori",
+        "trigger": "Near-name overlap with mutual visibility on three-row Cartesian products"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c58cbd6-3369-4923-bedf-a62054237234",
+  "value": {
+    "rationale": "The source explicitly conjectures equality with a two-factor upper bound for all large cycle circumferences and leaves the cylinder case open. The new three-band gap-switching lemma proves equality for unbounded s and n, not a fixed small example or numerical improvement. The theorem gives a uniform, reproducible optimal construction with a precise arithmetic feasibility regime; it is not inferred from the prior upper bound. It does not claim to solve the remaining boundary or classify all optimum sets.",
+    "status": "PASS"
+  }
+}
