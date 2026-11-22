@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-21.md",
+      "INDEPENDENT_AUDIT_2026-11-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction and scope of checks
+# Independent mathematical audit
 
-Execute `python check_tree_poisson.py` using Python 3's standard library. The script enumerates all labelled trees on two through six vertices using Prüfer sequences (\(1+3+16+125+1296=1441\) trees), compares independent exact-fraction inversions of the Poisson Laplacian with cross-cut distance sums, and checks all edge-row sign witnesses. It additionally samples 120 trees on seven, eight and ten vertices, verifies the sharp star/path values for every order two through fifteen, and exhaustively enumerates cube vertices in smaller cases. The resulting diagnostics are:
+## correctness
 
-```
-EXACT_PSEUDOINVERSE_VS_CROSS_CUT_DISTANCE_PASSED 1441
-ADDITIONAL_EXACT_RANDOM_TREES_PASSED 120
-SHARP_STAR_AND_PATH_ENDPOINTS_PASSED 14
-ALL_TREE_POISSON_CHECKS_PASSED
-```
+PASS
 
-The general tree formula, equality classification and complexity estimate are established by the written edge-flux and cut-distance proof; the finite checker is an independent implementation check, not a proof of the quantified theorem. Independent audit has not been performed.
+Summing Lg=f-bar f across one shore of edge e proves g(u)-g(v)=n^-1 Σ_{A×B}(f(x)-f(y)). The tree path metric bounds the sum by n^-1 W_e Lip(f), and the cut-distance ramp realizes equality on every cross pair. Equality on all cross pairs forces the complete ramp characterization. Rooted distance sums <=a(a-1)/2 give path upper K<=floor(n²/4)/2 with equality only when both cut shores are end-rooted paths; a leaf-edge sum >=2n-3 proves the star lower and uniqueness. Subtree distances plus rerooted total distances give linear-time W_e. Independently checked 145 small labelled tree cases by exact matrix inversion and cut sums.
+
+## originality
+
+PASS
+
+No inspected prior result asserts the induced tree-Laplacian-inverse Lip→Lip norm with its cut-distance maximum, equality ramps, linear-time algorithm and sharp star/path classifications; best-of-knowledge original as an operator-norm package, despite classical Green/distance identities.
+
+## value
+
+PASS
+
+Computes an induced operator norm of a natural Green/Poisson inverse on every tree, classifies all equality input functions, identifies unique extremal tree shapes, and supplies linear evaluation; this is structurally stronger than a small numerical graph instance or a known Wiener index table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

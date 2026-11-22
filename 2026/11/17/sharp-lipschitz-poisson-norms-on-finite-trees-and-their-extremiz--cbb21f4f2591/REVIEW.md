@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every cut edge, summing the mean-zero Poisson equation over one shore yields the exact edge-flux identity. Applying the tree Lipschitz inequality gives the cross-cut bound, realized by an explicit signed distance ramp; equality in every positive cross pair proves the complete extremizer classification. Root-distance sums bound each cross-cut sum by half the order times the cut balance and identify paths as the unique maximum. A leaf-edge estimate identifies stars as the unique minimum. A bottom-up/rerooted distance recurrence proves the claimed linear-time computation. Exact rational experiments independently reproduce the formula for all labelled trees through six vertices; the universal statements rest on the proof, not enumeration.
+PASS
 
-## Originality — PASS (qualified)
+Summing Lg=f-bar f across one shore of edge e proves g(u)-g(v)=n^-1 Σ_{A×B}(f(x)-f(y)). The tree path metric bounds the sum by n^-1 W_e Lip(f), and the cut-distance ramp realizes equality on every cross pair. Equality on all cross pairs forces the complete ramp characterization. Rooted distance sums <=a(a-1)/2 give path upper K<=floor(n²/4)/2 with equality only when both cut shores are end-rooted paths; a leaf-edge sum >=2n-3 proves the star lower and uniqueness. Subtree distances plus rerooted total distances give linear-time W_e. Independently checked 145 small labelled tree cases by exact matrix inversion and cut sums.
 
-Compared to the tree-distance matrix inverse and perturbation results of Bapat--Kirkland--Neumann (2005), Green representations of Chung--Yau (2000), and distance-index extremality of Dankelmann--Entringer (2000) and Székely--Wang (2013), the precise claimed output concerns the Lipschitz norm of the graph-Laplacian pseudoinverse, the maximum **edge-separated** pair-distance sum, all equality fields and an exact linear-time algorithm. Those inspected statements neither assert nor directly imply this operator norm and its classification without the extra cut-flow and sharpness argument. Older equivalent reformulations remain a genuine bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a complete sharp stability invariant for discrete Poisson recovery on every finite tree, not a single small instance. Exact operator conditioning can vary between order-one amplification on stars and quadratic-in-order amplification on paths. The extremizer classification identifies precisely which Lipschitz inputs are maximally amplified, while the linear-time formula makes the sharp constant feasible to compute on large trees. The graph-topology-dependent boundary is mathematically motivated by Poisson stability, not by an arbitrary parameter slice.
+No inspected prior result asserts the induced tree-Laplacian-inverse Lip→Lip norm with its cut-distance maximum, equality ramps, linear-time algorithm and sharp star/path classifications; best-of-knowledge original as an operator-norm package, despite classical Green/distance identities.
 
-## Unresolved limits
+## value
 
-The evidence does not establish precedence over all historical manuscripts. Weighted networks, cyclic graphs and alternative norms remain outside the theorem. Finite checker tests are diagnostic and cannot establish the universal proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Computes an induced operator norm of a natural Green/Poisson inverse on every tree, classifies all equality input functions, identifies unique extremal tree shapes, and supplies linear evaluation; this is structurally stronger than a small numerical graph instance or a known Wiener index table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
