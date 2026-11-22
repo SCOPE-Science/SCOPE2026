@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-Rank-one saturation is exactly equivalent to equality in the strict finite singular-value quasi-norm comparison. The projective incidence proof gives both directions of the complex threshold; the separate determinant-signature and conformal-matrix proof gives the complete real two-by-two sequence. All endpoints \(0<p<q\le\infty\) and scalar fields are explicitly quantified. No nonstandard computation or experimental extrapolation is used.
+## correctness
 
-## Originality — PASS (qualified)
-The inspected 2026 primary paper establishes broad real Schatten Gelfand bounds, proving an initial exact rank-one plateau at least through the matrix order; it does not supply the complex first-drop threshold or real–complex two-by-two discrepancy. The 2020 preprint/2021 paper concentrates on real matrix spaces and asymptotic estimates rather than exact field-sensitive low-index thresholds. Searches for field-dependent two-by-two Gelfand numbers and the \(2n\) Segre threshold returned no directly equivalent claim. This is not a proof of absolute literature novelty: older algebraic-geometry-to-width applications could imply the result without naming it.
+PASS
 
-## Mathematical value — PASS
-The first strict Gelfand drop is the exact number of linear measurements needed to make every nonzero matrix in a test subspace avoid rank one in the sharp worst-case sense. The complex all-order cutoff and complete order-two real–complex separation provide exact boundary data for the surrounding high-dimensional Schatten width theory and distinguish the role of the scalar field. Classical dimension and norm inequalities are credited as inputs, not treated as novel contributions.
+In RESULT.md, Schatten-ratio equality iff rank one follows from strict convexity of t^(q/p) on positive singular-value p-masses (q=infinity via max); compact p-unit spheres also work for p<1. Rank-one projective Segre dimension 2n-2 in P^(n^2-1) and projective intersection theorem force any linear test F of dim >=(n-1)^2+1 to intersect rank-one. The Grassmannian incidence count N-d=2n-1 greater than Segre dimension constructs a disjoint dim (n-1)^2 plane. Dimension/codim quantifiers give first loss at 2n. For real 2x2 det signature (2,2), every 3-plane meets det=0 and conformal 2-plane span{I,J} has equal singular values. Universal two-singular-value lower ratio beta is attained. Both endpoints and all 0<p<q<=infinity are included; no exact c_(2n) for n>2.
 
-## Limitations and closest literature
-The theorem does not quantify the amount of the complex first drop for orders greater than two and does not classify real higher-order thresholds. Relevant comparisons: Prochno (2026), arXiv:2611.08448v1; Hinrichs–Prochno–Vybíral (2020/2021), arXiv:2011.06554. A prior formulation in spaces of constant rank or algebraic matrix subspaces is a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge originality is limited to exact all-square complex first-drop threshold and field-sensitive 2x2 sequence; standard Segre geometry itself is classical. Neither inspected primary Gelfand paper has the same exact complex threshold, and the nearby all-two-row exact theorem assumes n>=3 columns. Older rank-one-free matrix-space literature could encode the threshold and an earlier 2x2 formula could cover the special case; this residual is not a decisive documented coverage of the combined all-n claim.
+
+## value
+
+PASS
+
+The first strict Gelfand-number index of a natural operator-ideal embedding and its real-versus-complex sensitivity are exact structural width invariants, useful to locate rank-one saturation boundaries. The complex threshold is all n and not simply a restatement of the qualitative asymptotic estimates. No claim of new Segre theorem or all-index explicit spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
