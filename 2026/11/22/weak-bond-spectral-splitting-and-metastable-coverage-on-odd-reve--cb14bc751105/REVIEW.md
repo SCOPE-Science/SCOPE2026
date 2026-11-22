@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The claim concerns the continuous-time symmetric reversible \(00\leftrightarrow11\) dynamics on odd cycles with one closing-bond rate \(\varepsilon\). The staggered particle–hole map turns the ordinary bonds into symmetric exclusion exchanges on a path, whose fixed-\(K\) sectors are explicitly irreducible. Uniform sector averaging gives the exact effective birth-and-death generator. A pair-flip hypercube comparison diagonalizes that generator by Krawtchouk polynomials, with nonzero first-order rates \(4j(N-j)/(N(N-1))\). Finite symmetric-matrix perturbation supplies the \(O_N(\varepsilon^2)\) remainder, and the slow-time first moment establishes the coverage formula. The supplementary checker verifies exact sector identities and low eigenvalues on several odd lengths; finite enumerations are not substituted for the all-length proof. A finite-\(\varepsilon\) formula and a joint \(N\)-large/\(\varepsilon\)-small limit are not established.
+
+## Originality — PASS, qualified
+The leading spectral splitting and the slow-time coverage crossover are compared against Mercado et al., arXiv:2212.12286, which derive equilibrium densities for *uniform-bond* reversible dimer rings, and against Crampé et al., arXiv:1603.06796, and Mobilia, arXiv:cond-mat/0204148, whose reaction-diffusion/exclusion dynamics do not share the one weak pair-flip closing bond on an odd path. The alternating-sublattice conserved quantity and sector enumeration themselves are known and not claimed to be new. Chen and Stinchcombe, Phys. Rev. E 49 (1994), study diffusion plus a defective bond; their inaccessible full text is a residual overlap risk despite the model and geometry distinctions. Literature or indexing omissions and implicit consequences of more general spectral formulas remain possible. No publication-priority certification is asserted.
+
+## Mathematical value — PASS
+The result determines every near-zero relaxation rate created by breaking an additional conservation law at one bond, as well as the sharp spectral gap and the explicit metastable coverage crossover. The complete closed-form eigenvalue family and observable noncommuting equilibrium limits quantify how a local topology-restoring perturbation destroys sector memory. This is physically motivated by the finite-size parity phenomena of reversible dissociative adsorption, and is not merely a special-case computation of a known density.
+
+Self-review: passed. Independent audit: not yet performed.
