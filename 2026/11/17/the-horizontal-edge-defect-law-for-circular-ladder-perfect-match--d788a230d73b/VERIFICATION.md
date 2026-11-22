@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof in `RESULT.md` is an unrestricted integer-homotopy argument. `verify_horizontal_defect.py` independently enumerates every perfect matching for widths \(3\le n\le14\); for \(3\le n\le10\) it also explicitly builds every face, checks the exact union and the independence-path intersection for even widths, and reduces the full simplicial chain complex over \(\mathbb F_2\). It compares all Betti ranks to the stated four-part homotopy formula. Eight full chain-complex instances include \(67{,}639\) total faces. The larger widths use exact facet partition only. Output is in `verification_output.txt`. There is no integer Smith-normal-form calculation in this verifier: integrality follows from the proven homotopy decomposition, not from modular computations.
+## correctness
 
-Reproduce with `python verify_horizontal_defect.py` from a directory containing this package's extracted files. No packages beyond the Python standard library are required. Finite verification is not an infinite proof, and a self-review does not constitute an independent audit.
+PASS
+
+The complex has as faces exactly edge matchings extendible to a perfect matching after deleting top seam edge T0 from C_n□K2 (n≥3). Every perfect matching using a rung has paired top/bottom horizontal edges, so is an open-ladder matching. For odd n no rungless perfect matching exists and the complex equals L_n≃point. For even n the deleted-top-edge graph has exactly one extra rungless perfect-matching facet F, and its exact simplicial intersection with L_n is Ind(P_{n−1}) via alternating ordered horizontal edges. Open ladder decomposes as a union of two cones with intersection L_{n−2}, so L_{2k}≃S^{k−1}. The attachment inclusion Ind(P_{2k−1})→S^{k−1} is null because the source is contractible or a lower-dimensional sphere (n=4 uses path connectivity), yielding S^{n/2−1}∨Σ Ind(P_{n−1}) and the displayed mod-6 cases. Independently enumerated every perfect matching for n=3..10, confirmed no extra face for odd n and one for even, inspected verify_horizontal_defect.py for reduced mod-two homology tests 3..10 and facet partition 11..14. Finite tests corroborate the analytic all-n decomposition, not prove infinity.
+
+## originality
+
+PASS
+
+The new uniform one-horizontal-edge-deletion integral homotopy decomposition is not implied by known intact prism and open ladder theorems; the distinct n=6 one-edge-fault record is narrower and expressly credits the horizontal family. Best-of-knowledge judgment remains qualified by unavailable full Agarwal–Basak text and any unindexed seam-defect classification.
+
+## value
+
+PASS
+
+Single-edge faults are a natural robustness question for an established family of perfect-matching complexes. The proof explains an unexpected infinite mod-six periodic classification and infinitely many mixed-dimensional sphere wedges, distinguishing a horizontal rim break from vertical-rung breaks. The exact decomposition is structurally reusable, not merely a small finite recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
