@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every finite dimension and fixed positive cap vector, feasibility is equivalent to b≤Σu_i(a_i)_+. Strict feasibility gives lower approximation of every base feasible point via interpolation with a strict-slack vertex, and compactness plus uniqueness give continuity. At equality the feasible set is exactly the maximizing face; outer semicontinuity places all optimizer limits there. For every chosen point of that face, the written epsilon perturbation produces exactly that optimizer by the clipped Lagrangian certificate with multiplier 1/epsilon, proving complete attainment and sharp Euclidean jump. Exact rational check on the distributed verify.py passed 3512 assertions, including strictly feasible perturbations. The infinite proof is analytic and does not rely on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lee–Tam–Yen 2006 abstract, https://ideas.repec.org/a/spr/joptap/v129y2006i3d10.1007_s10957-006-9076-x.html: perturbations in the linear part of quadratic programming data; no stated variable constraint-normal face formula.",
+        "General multiparametric quadratic programming references with fixed constraint-normal matrices and varying right-hand sides give different hypotheses.",
+        "Published record published record, \"Sharp maximum-norm sensitivity of conservative capped-simplex cell-average limiters\" (2026-11-02): sensitivity of a fixed-constraint conservative capped-simplex projection, not the moving halfspace."
+      ],
+      "reasoning": "Broad sensitivity theory predicts possible loss of regularity without constraint qualification, so no general discovery of that phenomenon is claimed. The accessible sources do not state a result that specializes to the full attainable face and exact discontinuity criterion for moving one-row constraints. The restricted-access 2006 article is an explicit residual-priority risk, not assumed fully excluded.",
+      "searches": [
+        "parametric quadratic program discontinuous solution map moving constraints strong convexity counterexample",
+        "parametric quadratic programming cluster set optimizer at degenerate parameter feasible face",
+        "parametric quadratic programming discontinuity optimizer feasible set varying linear inequality box constraints strict feasibility"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2507.14488v1/v2 (relevant primary sections and comparison)",
+      "https://github.com/atEchoOff/QuadraticKnapsack.jl (README)",
+      "doi:10.1007/s10957-006-9076-x (abstract only)",
+      "https://math.stackexchange.com/questions/4946681/orthogonal-projection-onto-the-intersection-of-a-box-and-a-half-space (full public discussion)",
+      "Published finding published record, \"Sharp maximum-norm sensitivity of conservative capped-simplex cell-average limiters\" (2026-11-02) (record title and summary)",
+      "Published finding published record, \"Boundary-only feasibility forces slack escape in exponential-slack I-LMM\" (2026-10-12) (record title and summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source §3.2 states solution is continuous in input parameters because the squared norm is differentiable. Its Lemma 3.2 and Theorem 3.3 establish a concave dual scalar function and a solver, not sensitivity at a zero coefficient with feasible slack collapsing.",
+        "At a=(1,0), b=1, u=(1,1), source equation yields the optimizer (1,0), whereas at a=(1−ε,ε), b=1 it yields (1,1) for every 0<ε<1; these are exact feasible counterdata.",
+        "Closest published comparison published record, \"Sharp maximum-norm sensitivity of conservative capped-simplex cell-average limiters\" (2026-11-02) assumes fixed mass equality, not a parameter-dependent normal."
+      ],
+      "reasoning": "The original clipped-vector lemma is used as an optimality certificate and remains correct. Smoothness of the objective does not imply continuity of an optimizer under moving constraints when the feasible maximum is active and a coefficient vanishes. The new theorem supplies a necessary-and-sufficient correction and a full cluster-set formula; no result in the inspected primary material logically implies it.",
+      "searches": [
+        "arxiv:2507.14488v2 §3.2 Eq. (3.9), Fig. 2 and Theorem 3.3",
+        "quadratic continuous knapsack solution max face at vanishing constraint weight discontinuity",
+        "quadratic knapsack limiter feasibility boundary non-Lipschitz continuity solution entropy stable discontinuous Galerkin"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Christner–Chan arXiv:2507.14488v2 Eq. (3.9): box/halfspace minimum-norm formulation; §3.2 Theorem 3.3 gives scalar clipped multiplier but no parameter cluster description.",
+        "Mathematics Stack Exchange, 2024-07-16 question / 2025-10-05 edited answer https://math.stackexchange.com/questions/4946681/orthogonal-projection-onto-the-intersection-of-a-box-and-a-half-space provides the projection/clipping formula."
+      ],
+      "reasoning": "The natural equivalent problem is projection of the origin onto a moving box–halfspace intersection. Its known scalar multiplier formula alone does not give the discontinuity locus when the normal has zero coefficients. The new exact cluster set and sharp jump are checked directly against these formulations.",
+      "searches": [
+        "quadratic knapsack optimizer discontinuity at feasible boundary degeneracy near zero coefficient positive scalar constraint",
+        "projection of zero onto parametric box intersect a halfspace discontinuity at changing normals",
+        "\"quadratic knapsack\" \"discontinuous\" solution varying coefficients",
+        "continuity of Euclidean projection onto moving halfspaces clipped box Slater fails"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published record published record, \"Boundary-only feasibility forces slack escape in exponential-slack I-LMM\" (2026-10-12) treats a transformed vanishing-slack system, not a quadratic knapsack.",
+        "Christner–Chan Figs. 2–3 illustrate continuous variation for sampled inputs away from the zero-normal feasibility corner; no exact degeneration table is stated in §3.2.",
+        "QuadraticKnapsack.jl public README https://github.com/atEchoOff/QuadraticKnapsack.jl lists the solver interface but no parameter-space table or discontinuity classification."
+      ],
+      "reasoning": "No tabulation of the exact joint-parameter boundary limit sets or the sharp u_Z norm jump was identified; finite numerical plots cannot cover this continuous parameter family. A search miss is not proof of absolute priority.",
+      "searches": [
+        "Christner Chan quadratic knapsack DG limiter continuity edge vanishing coefficient feasibility equality",
+        "minimum norm box halfspace sensitivity degeneracy face cluster set numerical limiter",
+        "\"quadratic knapsack\" continuity \"feasibility boundary\" discontinuous optimizer"
+      ]
+    },
+    "rationale": "The main source, arXiv:2507.14488v2 §3.2 (Eq. 3.9, pp. 9–11), defines the same unique Euclidean box/halfspace minimizer and claims continuity in input parameters, but does not classify singular feasible-input boundaries. At zero constraint coefficients on the feasible-margin boundary, this theorem constructs every point of the maximizing face as an exact KKT-certified limit and identifies the sharp discontinuity set and norm jump. Classical projection references cover the clipped-multiplier formula only, which is not claimed as new. The accessible 2006 solution-map paper considers only linear-part perturbations rather than moving the constraint normal. The closest indexed findings concerning capped-simplex limiters, degeneracy of other constraints, and parametric quadratic programs use different constraints and do not imply the present exact cluster set.",
+    "residual_risks": [
+      "The full text of Lee–Tam–Yen (2006) was restricted; its abstract alone cannot definitively exclude a comparable general lemma.",
+      "Generic parametric optimization sensitivity theory may contain an abstract broader statement; the claimed originality is the explicit exact classification for this limiter, not first observation of loss of regularity.",
+      "Unindexed or concurrent detailed optimizer-map analyses remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same optimization structure and clipped solver; explicit statement of continuity without an exclusion for degenerating feasible inputs. No full continuity locus or limiting-face theorem in the relevant sections.",
+        "evidence": [
+          "PDF lines 649–660 state problem and broad continuity claim; lines 721–786 define multiplier algorithm.",
+          "ArXiv earliest v1 publicly submitted 2025-07-19, v2 2026-11-04."
+        ],
+        "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2507.14488",
+        "material_read": "Main introduction, §3.1–3.3, especially PDF text pp. 9–12, Eq. (3.9), Fig. 2, Lemma 3.2, Theorem 3.3 and algorithm",
+        "method": "Read primary PDF text extraction with exact displayed equations and numerical figure captions",
+        "title": "Entropy Stable Nodal Discontinuous Galerkin Methods via Quadratic Knapsack Limiting",
+        "trigger": "Original paper defining the numerical limiter and asserting parameter continuity"
+      },
+      {
+        "assessment": "Same box and weighted-norm problem; no explicit parameter continuity or boundary cluster classification in README. Source implementation was not independently audited.",
+        "evidence": [
+          "README lines 178–190 formulate the quadratic knapsack problem and cite the original paper."
+        ],
+        "identifier_or_url": "https://github.com/atEchoOff/QuadraticKnapsack.jl",
+        "material_read": "README problem formulation and documented input/output interface",
+        "method": "Read repository README text",
+        "title": "QuadraticKnapsack.jl",
+        "trigger": "Directly corresponding public implementation"
+      },
+      {
+        "assessment": "Abstract restricts itself to perturbations of linear parts; the exact moving constraint-normal comparison cannot be ruled out from the abstract alone.",
+        "evidence": [
+          "IDEAS abstract at https://ideas.repec.org/a/spr/joptap/v129y2006i3d10.1007_s10957-006-9076-x.html lines 66–80."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10957-006-9076-x",
+        "material_read": "Accessible full abstract and bibliographic metadata; primary full text restricted",
+        "method": "Read public journal-index abstract and references; not a whole-paper inspection",
+        "title": "Continuity of the Solution Map in Quadratic Programs under Linear Perturbations",
+        "trigger": "Plausible broader parametric QP sensitivity theorem"
+      },
+      {
+        "assessment": "Derives usual projection/dual formula; it does not address moving-normal discontinuity and full cluster faces.",
+        "evidence": [
+          "Discussion sections on Lagrangian and coordinate clipping, question dated 2024-07-16."
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/4946681/orthogonal-projection-onto-the-intersection-of-a-box-and-a-half-space",
+        "material_read": "Full question, comments and solution describing scalar multiplier and coordinatewise clipping",
+        "method": "Read public mathematical discussion text",
+        "title": "Orthogonal Projection onto the Intersection of a Box and a Half Space",
+        "trigger": "Closest standard equivalent projection formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e27cab95-5a85-47aa-bbff-f43892eff41e",
+  "value": {
+    "rationale": "The motivating 2025/2026 paper invokes the parameter continuity of its quadratic knapsack limiter to explain improved temporal regularity. The derived necessary-and-sufficient continuity locus, exact boundary cluster face and sharp cap-dependent jump identify a precise structural limitation and a strict-feasibility condition that avoids it. They enable meaningful robustness assumptions for numerical entropy limiting without claiming a PDE trajectory encounters the degeneracy. A full classification and sharp magnitude for a natural computational subproblem have mathematical value beyond a one-off counterexample.",
+    "status": "PASS"
+  }
+}
