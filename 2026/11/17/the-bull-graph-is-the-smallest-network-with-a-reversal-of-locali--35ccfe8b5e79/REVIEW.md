@@ -1,15 +1,21 @@
-# Review of the bull-graph localized consensus ranking theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A symmetric-Laplacian spectral projector identity reduces the squared-error ordering to diagonal heat kernels with exact dependence on time \(s=2t\). The explicit complete classification of connected simple graphs through four vertices yields seven strictly positive low-degree-minus-high-degree expressions; the other graph classes are regular. An exact radical expansion on the bull graph has ordered spectral exponents and coefficient signs \(+,-,-,+\). After multiplying by the slowest exponential, a monotone derivative numerator establishes precisely one positive crossing. A standalone exact-symbolic checker reconstructs the table and coefficients, and high precision numerics locate the single root. The infinity and initial-time limits and the source/target signs are handled explicitly. This is a finite-graph theorem with an all-time analytical uniqueness proof, not an inference from sampled times.
+## correctness
 
-## Originality
-**PASS within inspected primary literature, with residual priority risk.** Li–Li–Li's arXiv:2611.04994v1 discusses spectral synchronization crossing mechanisms and quantum van der Pol oscillators, not the sharp minimum order for equal-amplitude single-vertex graph-consensus impulse relaxation; the statements are not mutually implied without the graph classification. Chung's graph heat-kernel/PageRank paper concerns broader spectral diffusion, prominently normalized rather than this exact degree-ranked unweighted diagonal comparison. Chatterjee–Takada–Hayakawa concern non-Hermitian quantum exceptional points, not ordinary symmetric graph heat diagonals. General spectral-mode theory is compatible with this result and supplies an elementary method, but does not identify the minimal graph size or the unique bull-graph crossover. Other graph-heat centrality literature may contain an equivalent formulation, and historical priority is not independently certified.
+PASS
 
-## Value
-**PASS.** A vertex-localized perturbation has a natural operational meaning: activating one node and measuring its global squared consensus residual. The theorem proves a sharp five-node threshold for the failure of the intuitive degree-based *time-uniform* ordering, while every residual separately decreases. The exact unique crossing is a reproducible finite motif test for graph relaxation and spectral-weight redistribution, not an arbitrary chosen parameter slice. No claim that this is a quantum Mpemba effect or that all five-node graphs are classified is needed.
+The exact normalization E_v(t)=(exp(-2tL))_vv-1/n correctly reduces rankings to graph heat diagonals at s=2t. Enumerating the ten unlabeled connected graphs of orders <=4 gives seven nonzero spectral difference formulas (P3, star, P4, paw three pairs, diamond) all strictly positive q=e^-s∈(0,1); each same-degree pair is symmetry-equivalent. The bull Laplacian at (a,b,c,d,e) has eigenvalues 0,(5-√13)/2,(5-√5)/2,(5+√5)/2,(5+√13)/2; the projector differences are A e^-αs -B e^-βs -C e^-γs +D e^-δs, with A=(13-3√13)/52, B=(5+√5)/20,C=(5-√5)/20,D=(13+3√13)/52, all positive. It has F(0)=0, F’(0)=-1, slow-mode coefficient A>0; after dividing by e^-αs, the rescaled derivative changes sign once because the further exponentially rescaled derivative is strictly increasing from negative to infinity. Therefore precisely one simple positive zero. I checked the radical identities and numerical root independently with exact/sufficient-precision arithmetic; the numeric value is not a proof of uniqueness.
 
-## Limitations
-Graph classes are connected, simple, unweighted, undirected, and use the ordinary combinatorial Laplacian. Initial impulses are equal unit amplitude. The conclusion is about squared Euclidean disagreement; it makes no assertion about nonlinear or quantum dynamics. Scholarly priority remains subject to external assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The common heat-diagonal spectral representation is prior. The specific sharp five-vertex combinatorial threshold, full <=4 obstruction and unique bull crossover were not shown to be implied by the inspected published graph heat-diagonal or Mpemba-mode literature, subject to residual indexing risk.
+
+## value
+
+PASS
+
+Minimal graph-size counterexamples are motivated by the misconception that the degree-based fastest initial relaxation order stays fixed. The precise five-node bull obstruction and a rigorously unique switch time describe a structural boundary for localized consensus, not merely a diagnostic plot or routine restatement of graph spectral decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
