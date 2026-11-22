@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T08:00:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the assigned RESULT.md blob 7686756fddaba06d56a28b3e4ae1e20f41d0580c, the Boolean-lattice Möbius coefficient factors over maximal selected coordinate runs. The exact one-run generating function (1-z^k)/(1-z^(k+1)) gives q_l=0 or ±1 on the stated residues. The degree bound D=n-r for 1<=r<=k-1 follows from the run count and gap congruence, attained by the length n-r prefix; D=n for residues 0,k. The unnormalized monomial-to-Walsh formula then forces divisibility by 2^(n-D) and yields a frequency supported on a maximal-degree monomial attaining that magnitude, establishing both gcd and least nonzero multiplier. The n<k boundary has only the zero-frequency nonzero multiplier 2^n; k>=2, n>=1 and linear, not cyclic, avoidance are explicit. Counting-convolution characters give the pseudoinverse norm; zero-free is asserted only for residues 0,k. The actual two verification scripts verify integer Möbius transforms and full Walsh spectra, independently cross-checked in bounded k,n cases; finite checks are supporting diagnostics, not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published general theorem assumes its forbidden factor is unbordered and produces a 2^(n mod k) gap; the forbidden factor 1^k has a nontrivial border for every k>=2 and here yields 2^(n mod(k+1)) except zero/k residues."
+        ],
+        "reasoning": "The broader-looking unbordered theorem does not apply, even as a corollary or after bit complement; it requires disjoint possible occurrences, false for 1^k. The distinct modular sharp gap precludes direct substitution.",
+        "searches": [
+          "Walsh transform binary strings avoiding runs of k consecutive ones Möbius coefficients exact minimum gcd run factor Fourier convolution",
+          "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 7686756fddaba06d56a28b3e4ae1e20f41d0580c",
+        "verify_mobius.py SHA 44ff17b4ea03a63b43d031b9a22c27a4f0c3c1fc",
+        "verify_walsh.py SHA ed1f33326391feae08e9ccef52820b698a17a408",
+        "arXiv:1308.3619",
+        "arXiv:0902.4246",
+        "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Gray code enumerates the same object but gives no signed frequency evaluations; the full unbordered-pattern proof applies only when distinct occurrence windows cannot overlap."
+        ],
+        "reasoning": "Neither cited input entails the Möbius coefficient support or the sharp bordered-word Walsh gap. The finite-group diagonalization is standard and not claimed as novel.",
+        "searches": [
+          "https://arxiv.org/abs/1308.3619",
+          "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The theorem is characterwise evaluation of a signed avoidance polynomial at all ±1 assignments and the binary-cube Walsh transform; both are equivalent under signed fugacities."
+        ],
+        "reasoning": "I compared the signed hard-core/run-polynomial formulation to ordinary unsigned enumeration: specializing z=-1 for total counts does not recover full coordinate-character support. No inspected source states this full Möbius run-support theorem.",
+        "searches": [
+          "generalized Fibonacci strings avoiding k consecutive ones signed enumerator Boolean Möbius Fourier transform",
+          "Walsh transform binary strings avoiding runs of k consecutive ones Möbius coefficients exact minimum gcd run factor Fourier convolution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Generalized Fibonacci-string Gray coding and run-length-limited enumerators track unsigned word counts or charge/weight rather than tables of every Walsh character and the exact gcd."
+        ],
+        "reasoning": "No exact Walsh database/table reproducing the all-k,all-n formula was identified. Finite small-n tables would not imply the quantified run-factor classification; a failed search is not proof of absence.",
+        "searches": [
+          "Walsh transform binary strings avoiding runs of k consecutive ones Möbius coefficients exact minimum gcd run factor Fourier convolution",
+          "arXiv:1308.3619",
+          "arXiv:0902.4246"
+        ]
+      },
+      "rationale": "The theorem's specific integer Möbius support on selected runs and the sharp all-frequency least Walsh multiplier for the highly bordered pattern 1^k are not implied by the compared unbordered-pattern theorem, generalized Fibonacci Gray codes or ordinary generating-function counts. Best-of-knowledge PASS for this motivated natural pattern class, with priority and general signed-pattern results still possible in unindexed literature.",
+      "residual_risks": [
+        "Unindexed older work on signed pattern-avoidance/reliability polynomials may contain an equivalent multilinear support theorem; historical priority is not certified.",
+        "Bounded independent finite checks do not constitute the all-length proof; the proof was reconstructed from formal-series and degree arguments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for coordinatewise Fourier law",
+          "evidence": "The sections describe generation and trace-partitioned Gray codes for run-avoiding strings, not sharp signed Walsh multipliers.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.3619",
+          "material_read": "Accessible full-text HTML: introduction, definitions and Gray-code construction",
+          "method": "Read full-text HTML sections and compared theorem statements",
+          "title": "A trace partitioned Gray code for q-ary generalized Fibonacci strings",
+          "trigger": "Exact family avoiding consecutive ones and generalized Fibonacci enumeration"
+        },
+        {
+          "assessment": "NOT_COVERING the bordered 1^k case",
+          "evidence": "The original theorem explicitly assumes no self-overlap; 1^k is bordered and the sharp modulus differs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md",
+          "material_read": "Complete RESULT.md including assumptions, proof and scope",
+          "method": "Read complete source using approved repository reader",
+          "title": "Sharp dyadic Walsh gaps for avoidance of unbordered binary words",
+          "trigger": "Potential dominating all-word-pattern Walsh theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the standard k-consecutive-one avoidance language (generalized Fibonacci strings), the exact integral Möbius support gives reusable coefficient-level structure, while the sharp minimum character multiplier directly quantifies stability of counting convolution on every binary cube size. This is a nontrivial uniform structural theorem, not just counting or an arbitrary small enumeration; no broader result is required for the exact gap to be useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 7686756fddaba06d56a28b3e4ae1e20f41d0580c",
+    "verify_mobius.py SHA 44ff17b4ea03a63b43d031b9a22c27a4f0c3c1fc",
+    "verify_walsh.py SHA ed1f33326391feae08e9ccef52820b698a17a408",
+    "arXiv:1308.3619",
+    "arXiv:0902.4246",
+    "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": "Unindexed older work on signed pattern-avoidance/reliability polynomials may contain an equivalent multilinear support theorem; historical priority is not certified.; Bounded independent finite checks do not constitute the all-length proof; the proof was reconstructed from formal-series and degree arguments.",
+  "residual_risks": [
+    "Unindexed older work on signed pattern-avoidance/reliability polynomials may contain an equivalent multilinear support theorem; historical priority is not certified.",
+    "Bounded independent finite checks do not constitute the all-length proof; the proof was reconstructed from formal-series and degree arguments."
+  ],
+  "schema_version": 1
+}

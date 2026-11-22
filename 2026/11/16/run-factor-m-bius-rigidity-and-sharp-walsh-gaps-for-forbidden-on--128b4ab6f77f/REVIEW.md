@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the integer multilinear coefficients from Boolean-lattice Möbius inversion, explicitly factors them over maximal coordinate runs, and proves the exact one-run generating series \((1-z^k)/(1-z^{k+1})\). The modular missing-coordinate inequality proves the maximum nonzero monomial degree in every residue class, including \(n<k\). Transforming those integer monomials into Walsh coefficients gives universal dyadic divisibility and an explicit top-degree frequency attaining the bound. The finite-group Fourier diagonalization yields the exact pseudoinverse norm. Two separate exact-arithmetic checkers verify 90 complete Walsh spectra, 72 full Möbius coefficient arrays and 6,138 direct frequency comparisons. The theorem does not infer infinite claims from finite tests.
+PASS
 
-## Originality — PASS under bounded comparison
+At the assigned RESULT.md blob 7686756fddaba06d56a28b3e4ae1e20f41d0580c, the Boolean-lattice Möbius coefficient factors over maximal selected coordinate runs. The exact one-run generating function (1-z^k)/(1-z^(k+1)) gives q_l=0 or ±1 on the stated residues. The degree bound D=n-r for 1<=r<=k-1 follows from the run count and gap congruence, attained by the length n-r prefix; D=n for residues 0,k. The unnormalized monomial-to-Walsh formula then forces divisibility by 2^(n-D) and yields a frequency supported on a maximal-degree monomial attaining that magnitude, establishing both gcd and least nonzero multiplier. The n<k boundary has only the zero-frequency nonzero multiplier 2^n; k>=2, n>=1 and linear, not cyclic, avoidance are explicit. Counting-convolution characters give the pseudoinverse norm; zero-free is asserted only for residues 0,k. The actual two verification scripts verify integer Möbius transforms and full Walsh spectra, independently cross-checked in bounded k,n cases; finite checks are supporting diagnostics, not the all-n proof.
 
-Bernini–Bilotta–Pinzani–Vajnovszki (arXiv:1308.3619) establish generalized Fibonacci word enumeration and Gray-code generation. Kurmaev (arXiv:0902.4246) develops constant-weight/charge RLL enumerations with different constraints and statistics. Cowell (DOI:10.1155/2015/140909) proves a uniform-probability reliability polynomial; this is potentially related to the one-block signed enumerator but is not an arbitrary-coordinate Walsh coefficient or a maximum-degree spectral gap statement. Gupta–Sarkar (ePrint 2003/040) treat general transforms from algebraic normal form, without the concrete forbidden-run coefficient classification. The present all-parameter statement is not inferred merely from title matching or from absence of search hits. Relevant specific short-run spectral results are special cases and are not separately claimed. Incomplete access to some historical full texts and potentially unindexed reliability applications remain priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant arises from generalized Fibonacci codebooks and consecutive-run reliability systems, not arbitrary numerical slices. It resolves a spectral stability question for every forbidden run cap and every word length, making the worst recoverable Fourier amplification explicit. The complete signed multilinear-support classification is a structural assertion behind the sharp constant; it also gives explicit attaining frequencies without exhaustive transforms. This extends beyond a fixed short-pattern computation and explains a uniform residue mechanism. It does not claim that the all-residue singularity classification is solved.
+The theorem's specific integer Möbius support on selected runs and the sharp all-frequency least Walsh multiplier for the highly bordered pattern 1^k are not implied by the compared unbordered-pattern theorem, generalized Fibonacci Gray codes or ordinary generating-function counts. Best-of-knowledge PASS for this motivated natural pattern class, with priority and general signed-pattern results still possible in unindexed literature.
 
-## Limitations and closest literature
+## value
 
-The main links are arXiv:1308.3619, arXiv:0902.4246, DOI:10.1155/2015/140909 and ePrint 2003/040. The last two supply broad methodology, and may make parts of the argument derivable; neither inspected material supplied the asserted concrete all-character, all-run-cap sharp Walsh law. Full zero loci, cyclic constraints and independent validation remain open outside this claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the standard k-consecutive-one avoidance language (generalized Fibonacci strings), the exact integral Möbius support gives reusable coefficient-level structure, while the sharp minimum character multiplier directly quantifies stability of counting convolution on every binary cube size. This is a nontrivial uniform structural theorem, not just counting or an arbitrary small enumeration; no broader result is required for the exact gap to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

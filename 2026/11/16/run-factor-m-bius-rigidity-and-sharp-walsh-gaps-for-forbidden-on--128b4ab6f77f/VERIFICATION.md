@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_walsh.py` and `python3 verify_mobius.py` using Python 3 standard library. The first command should print `WALSH_FULL_ENUMERATION_PASS 90` with sampled spectra. The second should print `MOBIUS_RUN_CLASSIFICATION_PASS 72 6138`. Both programs raise an exception on any inconsistent certificate.
+## correctness
 
-The computation covers finite ranges and does not replace the proof of the infinite statement. In particular the 90 Walsh spectra use every parameter pair `2 <= k <= 7`, `1 <= n <= 15`; the 72 Möbius checks use `2 <= k <= 7`, `0 <= n <= 11`. Exact integer arithmetic avoids numerical rounding. The proofs of the run factorization, rational generating function, maximal degree and Walsh diagonalization are written in `RESULT.md`.
+PASS
 
-Historical comparisons rely on accessible literature and remain short of exhaustive priority certification. No independent mathematical audit has been performed.
+At the assigned RESULT.md blob 7686756fddaba06d56a28b3e4ae1e20f41d0580c, the Boolean-lattice Möbius coefficient factors over maximal selected coordinate runs. The exact one-run generating function (1-z^k)/(1-z^(k+1)) gives q_l=0 or ±1 on the stated residues. The degree bound D=n-r for 1<=r<=k-1 follows from the run count and gap congruence, attained by the length n-r prefix; D=n for residues 0,k. The unnormalized monomial-to-Walsh formula then forces divisibility by 2^(n-D) and yields a frequency supported on a maximal-degree monomial attaining that magnitude, establishing both gcd and least nonzero multiplier. The n<k boundary has only the zero-frequency nonzero multiplier 2^n; k>=2, n>=1 and linear, not cyclic, avoidance are explicit. Counting-convolution characters give the pseudoinverse norm; zero-free is asserted only for residues 0,k. The actual two verification scripts verify integer Möbius transforms and full Walsh spectra, independently cross-checked in bounded k,n cases; finite checks are supporting diagnostics, not the all-n proof.
+
+## originality
+
+PASS
+
+The theorem's specific integer Möbius support on selected runs and the sharp all-frequency least Walsh multiplier for the highly bordered pattern 1^k are not implied by the compared unbordered-pattern theorem, generalized Fibonacci Gray codes or ordinary generating-function counts. Best-of-knowledge PASS for this motivated natural pattern class, with priority and general signed-pattern results still possible in unindexed literature.
+
+## value
+
+PASS
+
+For the standard k-consecutive-one avoidance language (generalized Fibonacci strings), the exact integral Möbius support gives reusable coefficient-level structure, while the sharp minimum character multiplier directly quantifies stability of counting convolution on every binary cube size. This is a nontrivial uniform structural theorem, not just counting or an arbitrary small enumeration; no broader result is required for the exact gap to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
