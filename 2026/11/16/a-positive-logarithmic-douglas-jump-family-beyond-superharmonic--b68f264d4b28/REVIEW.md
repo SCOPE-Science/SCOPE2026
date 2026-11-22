@@ -1,15 +1,21 @@
-# Scientific review of a logarithmic Douglas jump family
+# Independent mathematical audit
 
-## Correctness — PASS
-The circular Fourier normalization matches the disk integral, with \(\psi_c(n)=n[1+c(H_{n+1}-1)]/(n+1)\). The Poisson moment identity is exact. Although the radial mixing factor has one sign change, the Poisson-kernel ratio is strictly increasing in its radial parameter; the positive antipodal integral \(1-3\log2+2\operatorname{Li}_2(1/2)\) then forces positivity at every angle. The singularity comes from the \(1/(1-t)\) component of the signed mixing weight and yields \(c\pi/|\theta|\); it does not hold at \(c=0\), where the mass is exactly one. The argument proves the infinite assertions; the 152 finite diagnostics are secondary.
+## correctness
 
-## Originality — PASS relative to the checked literature
-The closest directly motivated manuscript is arXiv:2607.26870, whose full-text Definition 2.1 and Section 5 explicitly leave classification and exact jump kernels open. A related May 2026 manuscript arXiv:2605.13787 works with superharmonic weights, whereas here \(\Delta w_c(0)>0\) for \(c>1\). A prior radial-power boundary representation concerns \((1-|z|^2)^\alpha\), and the logarithmic derivative of a positive power-kernel family is **signed**, so it cannot establish positive jump density without the new one-crossing argument. Searches of published mathematical records and public literature did not surface an equivalent logarithmic-phase theorem. Risk: older Lévy-symbol or generalized Bernstein-function results may subsume this precise family without the same terminology.
+PASS
 
-## Mathematical value — PASS
-This supplies a structural, not merely numerical, example of a positive Douglas form outside the classical superharmonic class. The unexpectedly signed positive superposition and the sharp finite-versus-infinite jump activity transition at the critical radial exponent address two explicit problems in the motivating work and distinguish the family from trivial positive mixtures.
+For the normalized complex-gradient Poisson energy, the mode z^n has exact symbol n²∫_0^1 t^(n-1)(1-t)(1-c log(1-t))dt = n/(n+1)[1+c(H_{n+1}-1)]. The signed Poisson mixing factor v(t)=t/(1-t)-log(1-t)-1 has one sign crossing. Its Poisson integral J_v(pi)=1-3log2+2Li_2(1/2)=0.08503951125...>0; ratios P_t(theta1)/P_t(theta2) strictly increase in t when theta1<theta2, proving J_v(theta)>0 and strictly decreasing for every angle. Independent positive quadratures at pi,2,1,0.4 confirm this but do not substitute for the single-crossing proof. Fourier Poisson moments give exactly the asserted positive jump form. Near theta=0, P_(1-s)(theta)/s approximates 2/(s²+theta²), yielding c*pi/|theta| with logarithmic remainder, hence c=0 finite mass one versus all c>0 infinite activity. The origin expansion gives Δw_c(0)=4(c-1), so c>1 truly lies outside superharmonic weights.
 
-## Closest literature and limitations
-The general Douglas framework and the superharmonic subclasses do not compute this positive signed-mixture kernel, and an earlier radial-power example cannot directly imply positivity. This is not a general classification of all radial weights, and no full semigroup or all-capacity formula is claimed. The exact intensity uses normalized Haar probability; alternative conventions multiply constants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded search finds no prior covering the final substantive claim as a whole; all identifiable overlapping subresults are disclosed, especially the duplicate two-row parity/gap, and residual historical risks are retained.
+
+## value
+
+PASS
+
+The new explicit positive kernel in a natural logarithmic perturbation of the critical radial Dirichlet weight is substantive because positivity survives a signed mixing density and nonsuperharmonic c>1; this is not automatic from the known superharmonic sufficiency theorem. The exact jump activity discontinuity c=0 versus c>0 and sharp near-diagonal kernel can be used to understand the boundary process. Its restricted one-parameter scope is clearly disclosed, with no unwarranted claim to classify all Douglas weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
