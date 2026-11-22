@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For a closed set omitting u, each omitted nonleaf forces an omitted child; this gives a path to a leaf. Conversely the complement of each such path is closed and a maximal u-omitter. Finite closure systems have exactly maximal omitters as proper meet-irreducibles, giving a bijection. Each leaf contributes one path of every length up to its depth plus one. A descendant-leaf incidence count gives n <= c <= L(n-L+1) <= floor((n+1)^2/4), with equality exactly for rooted paths and optimal brooms. Executed Python checker confirmed 18,249 labelled-rooted tree instances up to n=7 and 2,238,526 candidate subsets. Computation tests finite cases only; all-size proof given in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Defrain–Ohana–Vilmin 2025, Theorem 1 and Theorem 9: incremental-polynomial enumeration for acyclic implicational bases with bounded conclusion-degree; this family has bound one.",
+        "Babin 2026, main theorem: general coNP-completeness for acyclic implication bases with bounded premise size; this is a hardness result for a broader class, not a count.",
+        "Nourine–Vilmin 2023, Theorem 5: recursive meet-irreducible description under arbitrary acyclic splits."
+      ],
+      "reasoning": "Generic enumeration algorithms and recursive constructive descriptions can of course enumerate these examples and may yield another derivation on specialization, but do not state the size-by-size leaf-depth identity or its sharp universal extremal count for the concrete tree dependence class. No new generic enumeration algorithm or contradiction to hardness is claimed.",
+      "searches": [
+        "\"Enumerating the Irreducible Closed Sets of an Acyclic Implicational Base of Bounded Degree\"",
+        "\"Completeness of Canonical Closure Representations Is coNP-Complete\"",
+        "\"Hierarchical decompositions of implicational bases\" full text",
+        "published-finding corpus: Canonical closure representation for tree-shaped conjunctive Horn implications, maximal closed sets omitting a node are complements of downward paths, exact number of characteristic models and broom extremizers."
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.18534",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol359-isaac2025/html/LIPIcs.ISAAC.2025.24/LIPIcs.ISAAC.2025.24.html",
+      "https://arxiv.org/html/2202.05536v2",
+      "https://doi.org/10.1016/j.disc.2021.112399 (limited to indexed text, not used to infer noncoverage)",
+      "published-finding corpus record 2026/10/18/SCOPE-rooted-horn-circuit-spectrum-of-hamming-geodesic-convexity-and-a--5074ded0ed82 (semantic summary)",
+      "published-finding corpus record 2026/10/18/SCOPE-sharp-horn-width-separation-in-cut-edge-formal-concept-closures--d7f468095bda (semantic summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Babin 2026 Lemma 2.3 supplies maximal-omitter equivalence but no obstruction paths or extremizers.",
+        "Defrain–Ohana–Vilmin 2025 Lemma 7 uses transversal selections for general bounded conclusion degree, with no tree leaf-depth census.",
+        "Nourine–Vilmin 2023 Theorem 5 gives general acyclic-split maximal-extension recursion, potentially implying a specialization but not numerically explicit."
+      ],
+      "reasoning": "The new comparison target is the conjunction of exact path-complement classification, coefficient formula and sharp extremal characterization over all rooted trees. Each generic source entails general enumerability but does not state this precise invariant; the proof here establishes the branch-specific simplification and extremal inequalities.",
+      "searches": [
+        "\"Horn\" \"rooted tree\" \"meet-irreducible\" \"leaf\" path",
+        "\"acyclic implicational base\" \"tree\" \"irreducible closed sets\"",
+        "published-finding corpus: Enumeration of characteristic models of acyclic convex geometries arising from rooted-tree AND-gates, minimal intersection generators polynomial size sharp quadratic."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Babin 2026, §2 Lemma 2.3: maximal closed omitters are meet-irreducibles, without tree specialization.",
+        "Nourine–Vilmin 2023, §§3.2 and 4.2: a decomposition tree indexes sub-bases, not the underlying root-to-leaf dependency tree; Theorem 5 is a general acyclic-split recurrence.",
+        "published-finding corpus closest semantic records include Rooted Horn-circuit spectrum of Hamming geodesic convexity (2026/10/18) and Sharp Horn-width separation in cut-edge formal concept closures (2026/10/18), with different closure objects."
+      ],
+      "reasoning": "The present theorem specifies the missing-vertex complement path in an input rooted dependency tree and gives a complete size polynomial; a tree decomposition *of the base* is a different construction. The general maximal-omitter equivalence is used in the proof, not claimed as original.",
+      "searches": [
+        "\"Horn\" \"rooted tree\" \"meet-irreducible\" \"leaf\" path",
+        "\"characteristic models\" \"tree\" \"Horn\" \"maximal\" closure system",
+        "\"tree\" \"Horn\" \"meet irreducibles\" \"path\" \"children\"",
+        "published-finding corpus: Rooted tree closures with each nonleaf vertex implied by the set of its children, meet-irreducible sets complement root-to-leaf subpaths, characteristic model deficit polynomial and leaf-depth distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No numerical table or exact matching canonical-model spectrum was returned by these searches.",
+        "A generic tree ancestor-count integer sequence would not alone imply the identity with Horn characteristic models; conversely, if an exact prior model-spectrum table is found the novelty assessment must be revisited."
+      ],
+      "reasoning": "The claim is an all-tree structural bijection and exact polynomial, not a fixed sequence lookup. Search failure alone is not an originality proof.",
+      "searches": [
+        "\"characteristic models\" \"rooted tree\" \"leaf depths\" coefficient polynomial",
+        "\"meet-irreducible\" \"floor((n+1)^2/4)\" tree horn",
+        "site:oeis.org \"leaf depth\" \"rooted tree\" \"ancestors\" sequence",
+        "published-finding corpus: Characteristic models of acyclic Horn implication tree, tree dependency hypergraph each head once, total number at most floor((n+1)^2/4), extremal broom rooted trees"
+      ]
+    },
+    "rationale": "Meaning-based published-finding corpus comparisons, accessible current-week history, and full pertinent HTML of three closest primary papers did not reveal the all-tree characteristic-model path-complement theorem together with its deficit spectrum, inverse leaf-depth recovery and sharp quadratic output-size extremum. General known maximal-omitter lemmas and bounded-conclusion-degree enumeration algorithms are explicitly credited. The recursive decomposition theorem is an important possible route to the specialization, not an independently verified statement of these exact formulas.",
+    "residual_risks": [
+      "General algorithms in the 2023 and 2025 papers may imply this tree case after a short specialization; the original mathematical value rests on making the full exact spectrum, inversion and extremal shape explicit.",
+      "Additional older closure-system or monotone-gate reliability literature may contain an equivalent path-complement characterization under different terminology.",
+      "Semantic search and inspected literature do not establish global historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General hardness and maximal-omitter lemma; no proposed tree spectrum or sharp extremum",
+        "evidence": [
+          "Lemma 2.3 describes maximal closed omitters",
+          "main theorem discusses acyclic small-premise hardness",
+          "no matched tree or broom specialization in full-text search"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.18534",
+        "material_read": "Accessible 550-line arXiv-rendered full text, including abstract, introduction, preliminaries (Lemmas 2.3–2.7), proof construction and its comparisons; searched whole document for tree/broom",
+        "method": "full-text HTML via web, targeted find and section inspection",
+        "title": "Completeness of Canonical Closure Representations Is coNP-Complete",
+        "trigger": "Closest motivating recent work on acyclic Horn characteristic models and hardness"
+      },
+      {
+        "assessment": "The broad incremental-polynomial algorithm applies, but the exact tree-specific model spectrum and broom extremal theorem are not stated",
+        "evidence": [
+          "Theorem 9 gives general incremental-polynomial enumeration",
+          "Lemma 7 uses transversal selections for maximal-omitter computation",
+          "no explicit rooted dependency tree model-spectrum theorem"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol359-isaac2025/html/LIPIcs.ISAAC.2025.24/LIPIcs.ISAAC.2025.24.html",
+        "material_read": "Complete relevant HTML, especially Sections 2 through 5 and conclusion, including Theorems 1 and 9 and Lemma 7; document searched for tree",
+        "method": "publisher OA HTML and targeted line search",
+        "title": "Enumerating the Irreducible Closed Sets of an Acyclic Implicational Base of Bounded Degree",
+        "trigger": "Dominating algorithmic result for bounded conclusion degree"
+      },
+      {
+        "assessment": "Its decomposition tree acts on partitions of implicational bases rather than the present child-to-parent Horn rule input tree. General recursive results may specialize but do not state this polynomial or its sharp extremizers.",
+        "evidence": [
+          "Definition 2 gives a Sigma-tree indexing basis splits",
+          "Theorem 5 describes maximal extensions in acyclic splits",
+          "no exact leaf-depth characteristic-model spectrum stated"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.05536v2",
+        "material_read": "Full accessible 780-line HTML, especially §3.2 defining the decomposition tree and §4.2 Theorem 5 giving acyclic-split meet-irreducible recursion",
+        "method": "OA arXiv HTML, section inspection and targeted searches for rooted, path, tree",
+        "title": "Hierarchical decompositions of implicational bases for the enumeration of meet-irreducible elements",
+        "trigger": "Potentially covering earlier recursive closure enumeration via tree decompositions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e2c176b7-a833-4ed5-bba8-2f46ea49321b",
+  "value": {
+    "rationale": "The full set of characteristic models is the canonical irredundant intersection representation of the Horn closure. For all rooted-tree conjunctive implication bases (unbounded premise arity, maximum occurrence-degree two), the new exact polynomial completely identifies omission-size frequencies and lets one reconstruct leaf-depth counts, while matching lower and upper extremal shapes quantify the exact representation-size range. This is a motivated complete structural classification, not an arbitrary numerical case or a generic polynomial-enumerability restatement.",
+    "status": "PASS"
+  }
+}
