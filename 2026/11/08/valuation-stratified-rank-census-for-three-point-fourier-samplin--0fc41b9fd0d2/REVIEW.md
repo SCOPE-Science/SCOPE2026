@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The monomial-support proof shows every cyclotomic cancellation in a three-by-three determinant is termwise for prime-power order, including primes two and three by a first-moment obstruction. The exhaustive six exponent matchings force proportional restricted rows or columns, which yields the sharp rank inequalities; independent valuation-pair counting proves the exact census. The fixed-prime singularity asymptotic follows by a dominated close-pair estimate and a negligible overlap bound. The embedded exact-arithmetic checker corroborates all ranks for eight tested small orders, including the small-prime boundary cases. Finite enumeration is not an infinite proof.
+## correctness
 
-## Originality — PASS, bounded comparison
-The prime-square published rank census covers odd \(p\) at \(k=2\) only; a prior dyadic prime-power census covers \(p=2\). The all-composite principal-minor criterion is a diagonal restriction and does not classify arbitrary row/column triples. Alexeev–Cahill–Mixon and Osgood–Siripuram–Wu characterize universal row sets rather than individual rank strata. The new domain is all odd primes at every higher exponent \(k\ge3\), including equal-valuation triple strata absent in the dyadic case, complete counts, and a common asymptotic constant. Unindexed stronger generalized-Vandermonde results remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-Identifying all singular sampling configurations and their exact ranks, not just whether a sampling pattern is universally nonsingular, answers a natural finite harmonic-analysis design question. Prime-cube and higher orders contain nested residue classes not present in the prime-square classification; valuation strata quantify the resulting failures. The asymptotic rate of the singular set determines the density of non-invertible three-point sampling choices across all growing prime-power grids. These are structural classifications, not isolated numerical examples.
+Proof checked from actual RESULT.md: primitive cyclotomic coefficient constancy and six-term budget force termwise equality. At p=2,3 the only potential complete + and - cyclotomic cells contradict equality of exponent first moments. Six monomial matchings force proportional row/column pairs, and all 2x2 minors test rank one. Exact disjoint valuation-stratum counts yield H1/H2/H3; for fixed p the two close-pair events each have scaled probability 3/p and intersection O_p(k^2/p^{2k}), proving p^(k+1)*singular fraction -> 6. Independently reconstructed Git source tree and ran exact cyclotomic-versus-valuation ranks for 194052 normalized pairs; all agreed. Independently computed integer closed-form counts p=3,k=3 and p=5,k=3, plus finite asymptotic diagnostics.
 
-## Scope and risks
-Computations verify only finite cases, while the general result relies on the written cyclotomic and counting arguments. Novelty is best-knowledge and is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the complete cyclic prime-power p-adic stratum counts, all-rank global incidence and fixed-p 6/(pN) limiting law. The pointwise 3x3 singularity criterion is already a corollary of the published generic unit-modulus determinant lemma and is NOT separately original. Full relevant earlier exact cyclic results stop at p^2; universal-set theorems test full spark rather than incidence. No earlier all-k odd-prime table or asymptotic implication was found after source inspection, with substantial unindexed-equivalence risks named.
+
+## value
+
+PASS
+
+Three-frequency sampling invertibility is a natural finite Fourier design question, and the exact global rank-one/rank-two/rank-three census for every prime-power cyclic group, including higher odd-prime valuation geometries, is an intrinsically useful exact distribution, beyond universal yes/no full-spark tests and isolated p-square tables. The fixed-prime sparse singular density quantifies how failure incidence decays across increasing prime powers. This value judgment is limited to the complete incidence and asymptotic, not to the already published generic determinant rigidity lemma. No paper-sized follow-up is required for a natural complete exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
