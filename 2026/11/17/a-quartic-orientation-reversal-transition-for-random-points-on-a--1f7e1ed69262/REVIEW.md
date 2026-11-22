@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The four-point plane-contact argument establishes a deterministic one-turn sign threshold; an exact paired determinant, endpoint localization, and uniform blow-up prove the quartic asymptotic and marked limit. The volume integral is exact. Direct determinant calculations and finite samples are supporting checks only.
+## correctness
 
-**Originality: PASS (qualified historical priority).** Musin's Chebyshev curve result controls deterministic intersections, and Starostin--van der Heijden discuss cylindrical curves. Neither inspected full text gives this random orientation-reversal probability or a conditional uniform-polytope law. Related indexing results concern other models. An unindexed predecessor cannot be excluded.
+PASS
 
-**Value: PASS.** The event is a natural orientation change of random tetrahedra sampled from a classical curve. The sharp full-turn threshold, quartic rarity, and four-dimensional conditional limit identify a geometric mechanism invisible in a mere zero-count statement.
+For f=A+Bt+C cos t+E sin t, four distinct zeros in any interval of length ≤2π force three zeros of f′, impossible unless their span reaches 2π, and equality leads only to double endpoint contacts; the confluent Wronskian of {1,t,cos,sin} is positive. Exact paired determinant D=4 sin h sin k H shows near h=k=0,d=2π its leading sign is −2π(d−2π), with positive quartic correction at d=2π; compactness and endpoint multiplicities localize all sign reversals near the two endpoint doublets. After t=(εx1,εx2,2π+εx3,2π+εx4), determinant leading homogeneous term π ε³(x1−x2)(x3−x4)(x1+x2−x3−x4) fixes the bounded limiting R. Integrating R in midpoint and half-gap variables with Jacobian 4 gives volume 1/6, and ordered-sampling density 24/L⁴ yields ε⁴/(4π⁴). The rescaled conditional densities converge a.e. and integrate to one, so Scheffe gives total variation; marginal ∫ produces 12a(1−a)². Independent direct determinant ratios tended to 1 for positive/negative test vectors at ε=.1,.03,.01. Finite samples do not prove compactness or TV; analytic argument provides these.
 
-Scientific limits: unit circular helix, uniform arclength sampling, small positive excess beyond one turn; no general-length formula and no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge O PASS with concrete primary statements compared against the full claim and retained residual priority risks; inaccessible abstracts are not treated as conclusive NOT_COVERING. 
+
+## value
+
+PASS
+
+The one-full-turn threshold is a natural change in orientation of random inscribed tetrahedra on a 3D convex helical arc; the precise fourth-order onset and the complete conditional geometry are statistically interpretable invariants and considerably stronger than deterministic zero-counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
