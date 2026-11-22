@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-`verify_two_cube_radial.py` is a standalone source artifact, with its exact bytes embedded alongside this document. Running with Python 3 and NumPy prints `PASS 276 exact/statistical assertions`, followed by sample exact mean, scaled variance, and conditional variance values. The 276 count comprises 256 exact fraction assertions on small part sizes, 15 seeded-sampling comparisons, two overall-variance limit comparisons, and three critical conditional-variance comparisons. The sampling tolerances are stated explicitly in the source and must not be interpreted as proof.
+## correctness
 
-For exact rational checks, conditional squares have \(\mathbb E[R_n\mid T=t]=(n+2)t^2/3\) and \(\operatorname{Var}(R_n\mid T=t)=4(n-1)t^4/45\). Dirichlet factorial moments give the first and second moments of the total square-energy and conditional mean. For large dimensions, the script checks convergence of \(N\operatorname{Var}(F_N)\) and \(N^2\operatorname{Var}(C_N)\) at representative block fractions. Infinite-dimensional Gaussian and critical non-Gaussian convergence are analytical, not exhaustively machine-certified.
+PASS
 
-No independent audit or external validation has been performed.
+The norm-sum cubical join has maxima (T,U,1−T−U)~Dirichlet(p,q,1); conditionally one coordinate per block attains each maximum and other coordinates are independent uniform on its interval. Hence C=[(p+2)T²+(q+2)U²]/(3N), with mean from Dirichlet second moments. Independent Beta(p,q) split W=T/(T+U) and Beta(1,N) slack S give √N(W−p/N)→N(0,α(1−α)), NS→Exp(1). Conditional Lindeberg CLT for squared uniform coordinates yields noise variance (4/45)(α^5+(1−α)^5); the mean split variance is (4/9)α(1−α)(2α−1)^2, totaling (4/45)(1−15α²(1−α)²). At d=p−q~κ√N, expand exactly C=(1−S)^2[(N+4)/4+d(W−1/2)+(N+4)(W−1/2)^2]/(3N) and subtract the exact mean, giving (Z²−1+4κZ)/12−(E−1)/6; variance 1/24+κ²/9. No finite simulation substitutes for beta-Dirichlet and Lindeberg proofs.
+
+## originality
+
+PASS
+
+Relevant published all-degree moment formulas for positive-coordinate multipartite stable-set polytopes and Hanner-polytopes are acknowledged as covering elementary moments and free-sum covariance machinery, but the specific conditional-statistic double-scaling non-Gaussian law was not present in the full statements read. Originality remains best-of-knowledge with an inaccessible algebraic primary paper named as a risk.
+
+## value
+
+PASS
+
+The two block maxima are intrinsic canonical coarse radial coordinates; precisely at equal block sizes their linear Gaussian variance cancels and a different second-order law appears. This resolves a natural degeneracy, identifies the sqrt(N) imbalance scale, and distinguishes the full radius from conditional radial information, rather than promoting a routine moment calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

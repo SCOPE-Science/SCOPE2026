@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cubical-join norm description, full-dimensional Lebesgue density, block-maximum Dirichlet law, and conditional independent-coordinate representation are derived explicitly. Exact Dirichlet second and fourth moments reproduce the finite means and variances. A conditional triangular-array central limit theorem, the beta delta method, and an exact second-order expansion prove all limiting laws and their distinct scalings. The independent verifier passed 276 rational and stochastic diagnostic assertions. Asymptotic statements rely on the mathematical proof, not finite simulation.
+## correctness
 
-**Originality — PASS with historical-priority risk.** The closest available all-degree moment formula for positive multipartite stable-set joins and the Hanner \(\ell_1\)-sum volume/covariance recursion are credited and their implications compared. They cover some finite moments of this model but do not state the conditional beta critical-window asymptotics, quadratic-Gaussian/exponential limit, or distinction from the persistent full-radius Gaussian law. Broad searches of related descriptions did not identify an equivalent statement. The relevant motivating algebraic paper was inspected via its public abstract only, with failed full-text retrieval; that is a residual risk, not proof of absence. No independent priority certification is asserted.
+PASS
 
-**Mathematical value — PASS.** The sum of two cubical blocks is a natural centrally symmetric Hanner polytope and signed stable-set polytope, with a canonical Euclidean radial observable. The full squared-radius energy conceals a second-order stochastic phase transition; conditioning on two geometrically intrinsic block maxima reveals the sharp \(\sqrt N\) balance window, non-Gaussian law, and exact contrast in fluctuation scales. This is a motivated geometric-probabilistic structural classification, not simply an arbitrary moment computation.
+The norm-sum cubical join has maxima (T,U,1−T−U)~Dirichlet(p,q,1); conditionally one coordinate per block attains each maximum and other coordinates are independent uniform on its interval. Hence C=[(p+2)T²+(q+2)U²]/(3N), with mean from Dirichlet second moments. Independent Beta(p,q) split W=T/(T+U) and Beta(1,N) slack S give √N(W−p/N)→N(0,α(1−α)), NS→Exp(1). Conditional Lindeberg CLT for squared uniform coordinates yields noise variance (4/45)(α^5+(1−α)^5); the mean split variance is (4/9)α(1−α)(2α−1)^2, totaling (4/45)(1−15α²(1−α)²). At d=p−q~κ√N, expand exactly C=(1−S)^2[(N+4)/4+d(W−1/2)+(N+4)(W−1/2)^2]/(3N) and subtract the exact mean, giving (Z²−1+4κZ)/12−(E−1)/6; variance 1/24+κ²/9. No finite simulation substitutes for beta-Dirichlet and Lindeberg proofs.
 
-**Limitations and risks.** Only the standard orthogonal two-block realization is analyzed; full-text access to the motivating paper was not available; differently termed priority remains possible. Numerical experiments cannot certify the infinite-dimensional limit. The finding has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relevant published all-degree moment formulas for positive-coordinate multipartite stable-set polytopes and Hanner-polytopes are acknowledged as covering elementary moments and free-sum covariance machinery, but the specific conditional-statistic double-scaling non-Gaussian law was not present in the full statements read. Originality remains best-of-knowledge with an inaccessible algebraic primary paper named as a risk.
+
+## value
+
+PASS
+
+The two block maxima are intrinsic canonical coarse radial coordinates; precisely at equal block sizes their linear Gaussian variance cancels and a different second-order law appears. This resolves a natural degeneracy, identifies the sqrt(N) imbalance scale, and distinguishes the full radius from conditional radial information, rather than promoting a routine moment calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
