@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T20:04:43.405850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under a uniform initial interval point, conditional shell-position distributions remain uniform through contractions, ordinary doublings and the top-shell reset. Hence the exact dyadic-shell chain moves +/-1 away from zero, and at a doubling from depth zero draws a geometric G with Pr(G>=d)=2^-d. Coupling to the same-sign Skorokhod-reflected simple random walk makes M-W nonnegative, nonincreasing except at a zero-reset, yielding Pr(max_{k<=N}(M-W)>=d)<=Np2^-d. For each fixed p>1/2 the chain has negative drift off zero and positive recurrent visits to 0 at linear rate; independent geometric extremes attain log_2 N almost surely (Borel–Cantelli on dyadic times). Under p_N=1/2+beta/sqrt(N), the sign triangular array has drift -2beta/sqrt(N) and variance tending to 1, so Donsker plus continuous Skorokhod reflection and o_P(sqrt N) path error prove J1 convergence. Brownian level sets have zero Lebesgue occupation, supporting the deep-shell occupation functional limit. Integrating 2 Phi-bar(a/sqrt t) over t in [0,1] yields the stated 2(1+a^2)Phi-bar(a)-2a phi(a). Independent numerical quadrature checked the expectation formula for a=.1,.4,1,2 to machine precision. Reviewed actual rational-coordinate checker.py. The log optimality assertion only holds at fixed p>1/2, not uniformly in the window.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Gaussian window controls mean physical X, not the random path of -log_2 X.",
+          "Exact excursion hitting tails characterize maximum depth on completed returns rather than the uniform error over an entire horizon."
+        ],
+        "reasoning": "The inspected earlier primary Pelikan sources cover auxiliary chains, expectations, correlations, excursions and stationarity, but do not dominate the uniform-in-time path coupling and joint occupation assertions.",
+        "searches": [
+          "arXiv:2409.19999 Pelikan random map",
+          "Resultary 2026/11/1 Gaussian critical-window crossover mean Pelikan coordinate",
+          "Resultary 2026/10/18 exact maximum-depth excursions Pelikan random map"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 1770323921c87a0508431fec9a416b3208a27b40",
+        "Frozen checker.py blob c88ecb19a56762a29d8c38049a0624653148e1c9",
+        "https://arxiv.org/pdf/2409.19999 Sections II and VI",
+        "https://arxiv.org/abs/2308.09269",
+        "Resultary 2026/11/1 Gaussian critical-window mean-coordinate result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing shell transition law and standard reflection invariance theorem, when supplemented by a new uniform geometric reset coupling, yield the near-critical result; the new coupling/error bound is substantive.",
+          "Occupation law is a discontinuous indicator mapping made valid through Brownian zero-time levels and path-level control, not a direct mean-coordinate corollary."
+        ],
+        "reasoning": "The prior representations plus general probability principles are ingredients rather than an already-stated quantitative path approximation with optimal maximum log growth; the claim is a genuine worked conditional occupation transfer on this model.",
+        "searches": [
+          "arXiv:2409.19999 Sections II and VI",
+          "Donsker invariance principle reflected walk",
+          "Resultary 2026/11/1 Gaussian mean coordinate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monthus 2024 PDF Eq. (20) gives exact dyadic shell transitions, and Section VI Eq. (126) introduces an auxiliary reflected walk with digit erasure.",
+          "The submitted result bounds max path difference by geometric reinjections and proves a critical-window occupation functional, not merely shell-chain equivalence."
+        ],
+        "reasoning": "The strongest alias/equivalence is Monthus’s shell-chain and reflected-walk representation. Those model identities by themselves do not state or numerically imply the claimed sharp simultaneous error and near-critical occupation law.",
+        "searches": [
+          "Resultary Pelikan random doubling halving map dyadic shell coupling reflected walk critical window occupation almost sure logarithmic error",
+          "arXiv:2409.19999 Pelikan binary-spin reflected walk representation",
+          "arXiv:2308.09269 Pelikan random map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Monthus computes transient and stationary shell probabilities; these are not a pathwise joint coupling distribution to a reflected walk.",
+          "Finite checker.py trajectories are ancillary tests, not a table for N arbitrarily large or beta windows."
+        ],
+        "reasoning": "An exact one-time shell propagator or a finite simulation cannot supply the maximum-over-time coupling statement or the Brownian occupation distribution without additional stochastic analysis.",
+        "searches": [
+          "arXiv:2409.19999 propagator dyadic shell Markov chain",
+          "Resultary Pelikan dyadic depth reflected walk critical occupation distribution"
+        ]
+      },
+      "rationale": "Monthus (arXiv:2409.19999) already derives the Pelikan dyadic-shell Markov chain, geometric reset and auxiliary reflected-walk/erased-bit representation. That prior fact is properly used as an ingredient. A complete joint coupling with the stated finite-horizon geometric max tail and sharp logarithmic error, plus the actual coordinate process-level critical-window and exponential-shell occupation law, was not found in material read. The other Pelikan records concern stationary correlations, mean coordinate crossovers or isolated excursions. The new result is narrower than claiming discovery of the shell chain or reflected Brownian invariance principle.",
+      "residual_risks": [
+        "Minute-level first-passage or digit-erasure estimates in uninspected appendices/general coupling papers could imply portions of the same result.",
+        "The optimality step requires independence of geometric marks at successive zero doublings and ergodic positive recurrence for fixed p>1/2; reconstructed via conditional shell uniformity, not direct experimental proof.",
+        "No uniform almost-sure optimality as p approaches 1/2 and no quenched initial-binary-sequence result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS shell chain/reset and auxiliary reflection; not identified as covering maximum uniform error, log sharpness or critical occupation process.",
+          "evidence": "Eq. (20) shell chain; Eq. (126) auxiliary reflected walk plus erased bits.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.19999",
+          "material_read": "PDF pages 1, 4 and 19 (0-based 0,3,18), especially shell transition Eq.(20), reflected-walk digit description Eq.(126), and related discussions",
+          "method": "Open full PDF; visually inspect relevant pages and search for Brownian and occupation terminology",
+          "title": "Explicit dynamical properties of the Pelikan random map in the chaotic region and at the intermittent critical point",
+          "trigger": "Most plausible same-dynamics primary source"
+        },
+        {
+          "assessment": "Different statistic and quantifiers; cannot imply the pathwise depth functional convergence.",
+          "evidence": "Explicit scalar mean-coordinate Gaussian crossover, no path occupation law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-gaussian-critical-window-crossover-for-the-mean-coordinate-of--3c956fec7465/RESULT.md",
+          "material_read": "Indexed finding and actual formula on mean E[X_N], not the complete path",
+          "method": "Resultary semantic record and mathematical statement comparison",
+          "title": "A Gaussian critical-window crossover for the mean coordinate of the Pelikan random map",
+          "trigger": "Prior critical parameter window in same model"
+        },
+        {
+          "assessment": "Establishes background dynamics; full-content priority caveat retained.",
+          "evidence": "Pelikan map invariant/correlation and phase threshold, not an inspected exact path coupling.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.09269",
+          "material_read": "Bibliographic claim and indexed model descriptions, not full theorem-by-theorem paper text",
+          "method": "Abstract-level identification plus cited context",
+          "title": "Transition to anomalous dynamics in a simple random map",
+          "trigger": "Foundational Pelikan intermittent threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform error coupling of an actual random interval trajectory to a standard reflected walk gives quantitative pathwise control through the intermittent transition, identifies the optimal order of approximation, and transfers a whole-path functional limit and a nontrivial deep-shell occupation statistic. This is a motivated mechanism-level refinement beyond first moments or stationarity and applies at all finite horizons via a usable tail bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 1770323921c87a0508431fec9a416b3208a27b40",
+    "Frozen checker.py blob c88ecb19a56762a29d8c38049a0624653148e1c9",
+    "https://arxiv.org/pdf/2409.19999 Sections II and VI",
+    "https://arxiv.org/abs/2308.09269",
+    "Resultary 2026/11/1 Gaussian critical-window mean-coordinate result"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Minute-level first-passage or digit-erasure estimates in uninspected appendices/general coupling papers could imply portions of the same result.",
+    "The optimality step requires independence of geometric marks at successive zero doublings and ergodic positive recurrence for fixed p>1/2; reconstructed via conditional shell uniformity, not direct experimental proof.",
+    "No uniform almost-sure optimality as p approaches 1/2 and no quenched initial-binary-sequence result."
+  ],
+  "schema_version": 1
+}

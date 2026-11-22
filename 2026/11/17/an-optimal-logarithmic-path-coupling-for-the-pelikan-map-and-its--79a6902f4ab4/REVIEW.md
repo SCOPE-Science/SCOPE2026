@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The binary-shell Markov law is obtained by conditioning affine images of uniform dyadic cells; reset overshoots have exactly geometric tails. A shared-sign reflected-walk coupling yields the uniform difference bound; the stationary return-frequency argument proves its sharp logarithmic almost-sure order for fixed expansion probability above one half. The triangular-array invariance principle and continuous Skorokhod reflection prove the process-level critical-window limit. Brownian level-set nullity justifies the occupation functional, and Gaussian integration gives its stated mean. Direct rational-coordinate and Monte Carlo checks in `checker.py` corroborate identities but are not the proof. Limits of the initial-law and critical-window assumptions are explicit.
+## correctness
 
-## Originality — PASS within inspected literature
-Yan et al. (2023) provide the random interval map and intermittent phenomenology; Monthus (2024) provides the shell chain, exact propagators and an auxiliary binary reflected-walk encoding. Their full accessible articles were inspected in the relevant model, transient, and binary sections. The new claim is not their transition kernel, the reflected-walk representation itself, or the established mean-position crossover: it is a **sharp uniform-in-time path coupling to the physical shell coordinate, including its optimal almost-sure maximal discrepancy**, combined with process-level critical-window occupation. A closely related 2026 mean-coordinate record explicitly limits itself to first moments and not a process invariance principle. Published overlap searches addressed geometric resets, reflected Brownian scaling, coupling, joint limits and occupation laws. Derivation from the ingredients in Monthus plus standard probability tools remains a genuine priority risk; absence of a matching statement is not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-The sharp coupling transfers path observables of the nonlinear stochastic interval map to a universal reflected walk while quantifying the finite-horizon error, not just a one-time approximation. Its optimal logarithmic order answers how accurate this replacement can be, and the associated critical-window occupation law quantifies random residence at physically meaningful exponentially small states at the intermittent transition. The full occupation functional is a new natural observable beyond stationary densities or mean decay; its nondegeneracy distinguishes a single typical trajectory from annealed behavior. Value depends on these joint sharp and dynamical conclusions, not on a routine Donsker limit alone.
+Under a uniform initial interval point, conditional shell-position distributions remain uniform through contractions, ordinary doublings and the top-shell reset. Hence the exact dyadic-shell chain moves +/-1 away from zero, and at a doubling from depth zero draws a geometric G with Pr(G>=d)=2^-d. Coupling to the same-sign Skorokhod-reflected simple random walk makes M-W nonnegative, nonincreasing except at a zero-reset, yielding Pr(max_{k<=N}(M-W)>=d)<=Np2^-d. For each fixed p>1/2 the chain has negative drift off zero and positive recurrent visits to 0 at linear rate; independent geometric extremes attain log_2 N almost surely (Borel–Cantelli on dyadic times). Under p_N=1/2+beta/sqrt(N), the sign triangular array has drift -2beta/sqrt(N) and variance tending to 1, so Donsker plus continuous Skorokhod reflection and o_P(sqrt N) path error prove J1 convergence. Brownian level sets have zero Lebesgue occupation, supporting the deep-shell occupation functional limit. Integrating 2 Phi-bar(a/sqrt t) over t in [0,1] yields the stated 2(1+a^2)Phi-bar(a)-2a phi(a). Independent numerical quadrature checked the expectation formula for a=.1,.4,1,2 to machine precision. Reviewed actual rational-coordinate checker.py. The log optimality assertion only holds at fixed p>1/2, not uniformly in the window.
 
-## Closest literature and limitations
-Closest: Yan et al., arXiv:2308.09269, full HTML (especially model and critical regime); Monthus, arXiv:2409.19999, full HTML (shell Markov chain, finite-time propagator, binary representation); published mean-coordinate crossover record `2026/11/1/SCOPE-a-gaussian-critical-window-crossover-for-the-mean-coordinate-of--3c956fec7465`, complete statement and proof. Further related published Pelikan excursion, return, and stationary-correlation records were compared. Results require uniform initial data and independent branch choices; fixed-parameter sharpness is not uniform at the threshold; priority against unindexed general coupling results is unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Monthus (arXiv:2409.19999) already derives the Pelikan dyadic-shell Markov chain, geometric reset and auxiliary reflected-walk/erased-bit representation. That prior fact is properly used as an ingredient. A complete joint coupling with the stated finite-horizon geometric max tail and sharp logarithmic error, plus the actual coordinate process-level critical-window and exponential-shell occupation law, was not found in material read. The other Pelikan records concern stationary correlations, mean coordinate crossovers or isolated excursions. The new result is narrower than claiming discovery of the shell chain or reflected Brownian invariance principle.
+
+## value
+
+PASS
+
+A uniform error coupling of an actual random interval trajectory to a standard reflected walk gives quantitative pathwise control through the intermittent transition, identifies the optimal order of approximation, and transfers a whole-path functional limit and a nontrivial deep-shell occupation statistic. This is a motivated mechanism-level refinement beyond first moments or stationarity and applies at all finite horizons via a usable tail bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
