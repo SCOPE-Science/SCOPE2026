@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The pairwise and repeated-index triple sums are differentiated without omitting diagonal terms; the exact two-cluster scalar equation and invariant transverse-mode decomposition give all nonneutral eigenvalues. A positive relative derivative rejects nonantipodal locking. Opposite-sign internal modes reject unbalanced multioscillator blocks. The exactly invariant symmetric-splitting family proves balanced antipodal instability where linear analysis alone is inconclusive. A positive cubic term excludes marginal solitary states, and the synchrony/strict solitary cases have a uniform spectral gap transverse to the rotational orbit. The exact-rational verification script checks 238 finite cases independently of the algebraic simplification. Finite calculations are supporting checks, not infinite proofs.
+PASS
 
-## Originality — PASS, provisionally
+The exact repeated-index vector field reduces to Im[(A Z1+B Z2 conjugate(Z1))e^{-i theta_i}], A=NK1/(N-1), B=K2. Subtracting the two group velocities gives dot Delta=-sin Delta[A+B((n-m)^2+4nm cos Delta)/N^2]. Any interior non-antipodal lock has positive tangential derivative. Differentiating the original full j,l double sum yields internal eigenvalues -(n-m)(A+B)/N and +(n-m)(A+B)/N (each with respective block dimension minus one), and relative eigenvalue A+B[1-8nm/N^2]. Both blocks size >=2 imply a positive internal eigenvalue except equal blocks, whose zero modes admit an explicitly unstable invariant symmetric split (+u,-u). Only one-solitary antipodal clusters can attract; solving lambda_rel<0 gives N=3,4,5,6 and the stated exact strict gain thresholds. Positive cubic drift of Delta-pi at equality excludes Lyapunov stability there. At synchrony eigenvalues -(A+B). Independently differentiated every original repeated-index pair and triple term on six rational finite antipodal partitions and checked the eigenvalue formulas. The six checks are corroborative; the analytic spectrum and boundary sign prove the unbounded N claim.
 
-The original 2026 Sharma et al. paper contains the actual repeated-index interaction, but its Section 2.1 and full results focus on numerically determined synchronization transitions with heterogeneous frequencies and network topology, not a complete finite-size two-cluster stability classification. The nearby published exact distinct-triad classification was inspected in full; its interaction argument, index convention and stability spectrum differ, so it does not imply the present six-oscillator cutoff. The full 2023 preprint of León et al. on identical-oscillator two-cluster states was also inspected: its symmetric interaction \(\sin(\theta_j+\theta_\ell-2\theta_i)\) differs from this model. The other main competing symmetric-triad papers and pure-triad continuum results were also compared. The review cannot establish worldwide priority, and otherwise unindexed small-N cluster literature remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The complete-graph/identical-frequency reduction is a natural baseline for the source model. The result exposes the sharp size cutoff at six, four explicit stability thresholds, all boundary instabilities, and a categorical distinction between solitary and multi-oscillator minorities. The contrast with the distinct-triad convention is structurally useful: apparently similar higher-order couplings may allow stable seven-site antipodal states in one convention but forbid any beyond six in the other.
+Best-of-knowledge distinct from finite-size symmetric ordered-distinct-triad phase diagrams: the repeated-index asymmetric interaction doubles the source theta_j, whereas the nearest exact prior model doubles target theta_i. Model-specific Jacobian, precise solitary threshold and nonlinear equality endpoints were not found in the inspected source model literature. Historical priority is provisional.
 
-## Limitations
+## value
 
-Two-cluster locking only, and fixed positive coupling parameters. No claim about the complete attractor inventory, frequency disorder or sparse graphs. Historical priority provisional; independent validation outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a sharp all-N classification of natural two-cluster local stability for a published mixed higher-order Kuramoto equation; the six-oscillator ceiling, discrete sharp thresholds and nonhyperbolic exclusion distinguish interaction conventions in a mathematically consequential way, not a trivial parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
