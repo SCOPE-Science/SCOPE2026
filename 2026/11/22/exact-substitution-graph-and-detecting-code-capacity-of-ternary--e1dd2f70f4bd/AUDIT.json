@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "A sign encoding proves the Fibonacci counts; any internal symbol change forces a forbidden alternating triple, so only endpoints change. Independent endpoint choices induce K1/K2/C4 fibers, with separate P3 boundary at length 4. Multiplying the local independence polynomials yields exact all-length codebook counts. Actual dependency-free checker independently enumerated all vertices and edges for lengths 4–16; finite checks corroborate but do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tang et al., arXiv:2208.02330, main construction and bounds are for simultaneously correcting short duplications and edits, with alphabet size at least four and redundancy estimates rather than an exact ternary detecting-codebook census.",
+        "Yu and Schwartz, arXiv:2401.04675, constructions are designed for disjoint or equal-length tandem-duplication errors.",
+        "An indexed mathematical report on median swap graphs of bounded-run binary words concerns adjacent swaps of binary words, a different edge relation."
+      ],
+      "reasoning": "A code that corrects a stronger error model is only a sufficient detecting code for the simpler model; its existence does not establish the optimum or the independent-set enumerator. The full graph structure in the claim is not an implication of the inspected coding constructions.",
+      "searches": [
+        "Hamming mutation graph of tandem duplication irreducible DNA sequences avoiding squares length 1 or 2",
+        "one step substitution of locally irreducible reverse complement DNA words degree enumerator",
+        "tandem duplication irreducible ternary strings single substitution error detection induced Hamming graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1801.02310",
+      "arXiv:1911.05413",
+      "arXiv:1911.06561",
+      "arXiv:2208.02330",
+      "arXiv:2401.04675",
+      "Published median swap graphs for bounded-run binary words (abstract-level comparison only)",
+      "Published exact clique/chromatic numbers of tandem-duplication confusability graphs (abstract-level comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kovačević, arXiv:1911.06561, introduction and theorem: studies the capacity of codes against tandem duplications of lengths up to three; its objective is not minimum Hamming distance two inside the restricted length-one/two irreducible language.",
+        "Tang et al., arXiv:1911.05413, Theorem 11 and Definitions 2/20: sufficient bounds and detection for noisy or unrestricted substitutions embedded within duplication sequences; the associated ambiguity condition is based on duplication roots.",
+        "Chee et al., arXiv:1801.02310, encoding/ranking of irreducible words concerns a count of vertices, not edges or independent sets."
+      ],
+      "reasoning": "The only directly common fact, the count of irreducible vertices, is known and not asserted new. The classification of every one-substitution edge as an endpoint change, its K1/K2/C4 fiber components, and the resulting exact independence polynomial do not follow from an upper/lower bound on a different confusability graph or from vertex enumeration alone. Unlocated equivalent claims remain a residual priority risk.",
+      "searches": [
+        "ternary (<=2) tandem-irreducible strings induced Hamming graph connected components 4 cycles exact optimal error detecting codes",
+        "ternary irreducible tandem duplication strings hamming distance one graph connected components substitution detecting code",
+        "Chee et al. arXiv:1801.02310; Tang et al. arXiv:1911.05413; Kovačević arXiv:1911.06561"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chee et al., arXiv:1801.02310, sections on irreducible-word encoding and ranking: word language overlaps, but does not specify the induced single-substitution adjacency graph.",
+        "Tang et al., arXiv:1911.05413, sections III-IV: detection is of a substitution during a repeated-duplication process rather than a solitary Hamming-one change on short-repeat-irreducible ternary words."
+      ],
+      "reasoning": "The change of channel is substantive: duplicate-descendant/root confusability and one-coordinate Hamming adjacency are different binary relations on words. Neither a language enumeration nor an edit-channel redundancy bound implies the graph component classification or the all-codebook independence polynomial.",
+      "searches": [
+        "ternary (<=2) tandem-irreducible strings induced Hamming graph connected components 4 cycles exact optimal error detecting codes",
+        "For ternary words avoiding adjacent equal symbols and length two tandem squares abab, the induced Hamming distance one graph consists of isolated vertices, isolated edges and four-cycles, with Fibonacci counts and exact independence number.",
+        "ternary words avoid aa abab Hamming adjacency graph 4 cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The independently enumerated new graph contains 6 paths at length four, and 330 isolated vertices, 1068 edges and 864 four-cycles at length sixteen; these were independently generated directly from the forbidden factors.",
+        "A published table of cyclic ternary pair-composition capacities counts circular unordered adjacent-pair observations, not Hamming-one graph components."
+      ],
+      "reasoning": "No exact table returned the same component counts or codebook polynomial. Matching counts over a finite tested range would not itself establish an equivalent all-length statement; the novelty comparison is by the graph adjacency and all-length implications.",
+      "searches": [
+        "AA ABAB avoiding ternary word substitution restricted changes endpoints only",
+        "ternary square free length two irreducible words substitution graph degree at most two disjoint cycles paths",
+        "ternary duplication irreducible language maximum 1 error detecting subset hamming distance 2"
+      ]
+    },
+    "rationale": "Closest primary results enumerate or encode irreducible words or analyze duplication-descendant confusability, not the induced one-substitution Hamming graph on ternary 1,2-irreducible words and its complete detecting-codebook polynomial. Both the edge mechanism and the exact all-length extremum are additional. Possible unindexed equivalent literature remains a disclosed priority risk.",
+    "residual_risks": [
+      "A prior equivalent structural description of this induced Hamming graph might exist under alternative tandem-free/square-avoiding or chemical sequence terminology.",
+      "Not every conceivable historical repository or appendix was exhaustively inspected; priority requires independent literature assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides constrained-language enumeration and encoding, not substitution graph decomposition",
+        "evidence": [
+          "The paper addresses duplication-correcting code encoding of irreducibles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.02310",
+        "material_read": "Introduction, finite-state encoder construction, rank/unrank statements and mathematical word language",
+        "method": "arXiv full-text HTML reading",
+        "title": "Efficient Encoding/Decoding of Irreducible Words for Codes Correcting Tandem Duplications",
+        "trigger": "Same irreducible-word family"
+      },
+      {
+        "assessment": "Broader error scenario but different adjacent relation; no exact standalone Hamming-one graph polynomial",
+        "evidence": [
+          "Definition 2, Lemmas 14 and 21, Theorem 11, Definition 20 focus on duplication descendant roots."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.05413",
+        "material_read": "Definitions and lemmas on irreducible roots; sections III and IV; error models and principal detecting-code bounds",
+        "method": "arXiv full-text HTML reading",
+        "title": "Single-Error Detection and Correction for Duplication and Substitution Channels",
+        "trigger": "Substitution detection with duplication constraints"
+      },
+      {
+        "assessment": "Duplication descendant-confusability, no substitution graph",
+        "evidence": [
+          "Result characterizes asymptotic rate for tandem duplications of length at most three."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.06561",
+        "material_read": "Introduction, definitions of confusability, main theorem and code capacity discussion",
+        "method": "arXiv full-text HTML reading",
+        "title": "On the Maximum Number of Non-Confusable Strings Evolving Under Short Tandem Duplications",
+        "trigger": "Irreducible words for short duplications"
+      },
+      {
+        "assessment": "Different q>=4 mixed-edit channel and redundancy not exact ternary graph",
+        "evidence": [
+          "Constructs asymptotic-rate codes for short duplications plus at most p edits."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.02330",
+        "material_read": "Channel description, main bounds/constructions, permitted alphabets and applications",
+        "method": "arXiv full-text HTML reading",
+        "title": "Low-redundancy codes for correcting multiple short-duplication and edit errors",
+        "trigger": "Potential stronger coding coverage"
+      },
+      {
+        "assessment": "No induced substitution-graph component census",
+        "evidence": [
+          "Duplication-free constructions for disjoint or equal-length duplications."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.04675",
+        "material_read": "Introduction, duplication-free construction, error definitions and main statements",
+        "method": "arXiv full-text HTML reading",
+        "title": "On Duplication-Free Codes for Disjoint or Equal-Length Errors",
+        "trigger": "Constrained sequence code families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e1dd2f70-f4bd-485a-8d5a-d12c5312327a",
+  "value": {
+    "rationale": "The forbidden aa/abab language is the natural short-duplication-irreducible input constraint. A uniform four-vertex bound and complete K1/K2/C4 component spectrum for all lengths are structural. They imply exact sharp constrained one-substitution-detection code sizes, the independence polynomial for all codebooks, and an explicit limiting optimal packing density; these precise invariants cannot be read from the previously known vertex count alone.",
+    "status": "PASS"
+  }
+}
