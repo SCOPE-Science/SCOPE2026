@@ -1,113 +1,84 @@
-# Unique-request packing and a Poisson crowd-out window for envy-free complementary allocations
+# Poisson crowd-out for complete envy-free allocations with fixed-size complementary demands
 
 ## Finding
 
-**Theorem (unique-request packing, computational boundary, and stochastic crowd-out).** Let \(m\ge r\ge2\) and \(n\ge m\) be integers. There are \(m\) distinct indivisible goods, exactly one copy of each, and \(n\) agents. Agent \(i\) demands exactly an \(r\)-element set \(D_i\) and has binary perfect-complements utility \(v_i(B)=\mathbf 1\{D_i\subseteq B\}\). Every good must be allocated to one agent, with no money. Write \(W\) for the maximum utilitarian welfare among **complete envy-free allocations**. Let \(H\) be the \(r\)-uniform hypergraph on the goods whose edges are precisely those demand sets reported by *exactly one* agent; let \(\nu(H)\) be its maximum pairwise-disjoint edge-packing size. Then
+**Theorem (Poisson law for the optimal envy-free welfare).** Fix an integer \(r\ge2\). For each \(m\ge r\), let \(n=n_m\ge m\) agents independently choose a uniformly random \(r\)-element subset \(D_i\) of \([m]\). Each good has one indivisible copy, each agent receives a (possibly empty) bundle, every good must be assigned, payments are disallowed, and \(v_i(A)=\mathbf1\{D_i\subseteq A\}\). Let \(W_m\) be the maximum welfare over all complete envy-free allocations. Put \(M=\binom mr\).
 
+If \(n/M-\log M-\log\log M\to t\in\mathbb R\), then
 \[
-W=\nu(H).
+W_m\xrightarrow{d}\operatorname{Poisson}(e^{-t}),\qquad
+\mathbb EW_m\to e^{-t},\qquad
+\Pr(W_m=0)\to \exp(-e^{-t}).
 \]
+In the one-sided windows \(n/M=\log M+\log\log M+t_m\), \(|t_m|=o(\log M)\), positive welfare has probability tending to one if \(t_m\to-\infty\) and to zero if \(t_m\to+\infty\).
 
-Thus the optimum and an attaining complete envy-free allocation are computable in polynomial time for \(r=2\) via ordinary graph matching. For each fixed \(r\ge3\), the corresponding welfare-threshold decision problem is NP-complete even under these unit-supply, equal-request-size, many-agent assumptions.
-
-If the \(n\) demand sets are independently uniform among the \(M=\binom mr\) possible sets, then for every finite \(m,n,r\) with \(n\ge m\), \(W=0\) precisely when no demand set is requested exactly once. In particular,
-
+The bridge from occupancy to fair-allocation welfare is quantitative. Let \(S_m\) be the number of request types occurring exactly once and \(C_m\) the number of intersecting unordered pairs among those uniquely requested \(r\)-sets. For every finite admissible \((m,n,r)\),
 \[
-\Pr(W=0)=\sum_{j=0}^{\min(M,n)}(-1)^j\binom Mj\frac{(n)_{\underline j}}{M^j}\left(1-\frac jM\right)^{n-j}.
+S_m-C_m\le W_m\le S_m,\quad
+ d_{\rm TV}(\mathcal L(W_m),\mathcal L(S_m))\le \Pr(W_m\ne S_m)\le \mathbb EC_m,
 \]
-
-Fix an integer \(r\ge2\) and a real \(t\). If \(m\to\infty\) and integers \(n=n_m\) satisfy
-
+where
 \[
-\frac nM-\log M-\log\log M\longrightarrow t,\qquad M=\binom mr,
-\]
-
-then the optimum welfare obeys the **full Poisson limit**
-
-\[
-W\ \xrightarrow{d}\ \operatorname{Poisson}(e^{-t}),\qquad
-\mathbb EW\longrightarrow e^{-t},\qquad
-\Pr(W=0)\longrightarrow \exp(-e^{-t}).
-\]
-
-This is a sharp threshold: with \(n/M=\log M+\log\log M+t_m\) and \(|t_m|=o(\log M)\), the probability of positive envy-free welfare tends to one if \(t_m\to-\infty\), and to zero if \(t_m\to+\infty\). Thus adding demanders eventually **eliminates** all positive envy-free welfare in the crowded regime, independently of every fixed complement size \(r\ge2\).
-
-## Assumptions and scope
-
-A complete allocation is an ordered partition \((A_1,\ldots,A_n)\) of the \(m\) labeled goods, with empty bundles permitted. Envy-freeness means \(v_i(A_i)\ge v_i(A_j)\) for every pair of agents \(i,j\). Welfare is \(\sum_i v_i(A_i)\), so each fully satisfied agent contributes exactly one. A good outside an agent's requested set has zero marginal value for that agent. The agents have no monetary payments, and there is one copy of each good. The large-agent hypothesis \(n\ge m\) permits unused goods to be parked separately without completing another demand. In the random model, only agents' demand sets are random; the mechanism may optimize after observing the entire profile.
-
-Demand vectors with zero components for goods outside \(D_i\) are explicitly permitted here. This is a restricted zero-demand variant of indivisible Leontief preferences, not the positive-demand-for-every-good domain of the initiating paper. The stochastic result concerns the *maximum over envy-free allocations*, not a prescribed online mechanism or a uniformly drawn allocation.
-
-## Proof
-
-**1. Every satisfied demand is unique.** If two agents require the same set \(D\), at most one can receive all goods of \(D\), because there is only one copy of each. Were one of them satisfied, the other would receive utility zero but would value the first one's bundle at one, violating envy-freeness. Therefore nobody with a repeated demand set can be satisfied in an envy-free allocation.
-
-**2. Satisfied sets form a packing.** For distinct satisfied agents, their requested sets must be contained in their disjoint allocated bundles and hence are pairwise disjoint. By Step 1 they are all edges of \(H\). Therefore every complete envy-free allocation has welfare at most \(\nu(H)\).
-
-**3. Every packing can be realized envy-freely.** Choose \(k\) disjoint unique-request edges of \(H\). Give each of these \(r\)-item sets, unchanged, to its unique requesting agent. Distribute each of the remaining \(m-rk\) goods as a singleton bundle to a different one of the other \(n-k\) agents, and give the remaining agents empty bundles. This is possible since \(n-k\ge m-rk\), a consequence of \(n\ge m\) and \(r\ge2\). All \(k\) selected agents get utility one and cannot envy anyone. Every unselected agent's own bundle is a singleton or empty and hence has utility zero. No other agent's bundle fulfills this agent's demand: each selected bundle is an \(r\)-set with a *unique* requester, and every other nonempty bundle is a singleton of size strictly less than \(r\). Thus no agent envies any other. The allocation is complete and has welfare \(k\). Taking \(k=\nu(H)\) proves \(W=\nu(H)\).
-
-**4. Algorithmic boundary.** For \(r=2\), \(H\) is a simple undirected graph and \(\nu(H)\) is its maximum matching cardinality, computable by Edmonds' polynomial-time matching algorithm. To prove hardness for \(r=3\), begin with a 3-dimensional matching instance consisting of distinct triples on a ground set of size \(m_0\). Make one requester for each triple. Add three new dummy goods and \(L\) dummy requesters all demanding exactly these same three goods, with \(L\ge\max(2,m_0+3-|E|)\). The dummy request occurs at least twice, so the unique-demand hypergraph consists exactly of the original triples; moreover \(n=|E|+L\ge m_0+3=m\). Step 3 makes optimum envy-free welfare equal to the original maximum 3-dimensional matching size. The construction is polynomial. For every fixed \(r>3\), give each original triple \(r-3\) fresh private goods to create an \(r\)-set; the packing optimum is unchanged. Then pad with at least two dummy requesters for one new disjoint \(r\)-set, choosing the dummy count large enough that \(n\ge m\). The decision problem is in NP because completeness, welfare and all pairwise envy inequalities are directly checkable in polynomial time. This establishes NP-completeness for every fixed \(r\ge3\).
-
-**5. Exact singleton counting.** In the uniform random model, let \(S\) be the number of demand sets sampled exactly once, or equivalently the number of edges of \(H\). Step 3 implies \(W=0\) if and only if \(S=0\). For \(0\le j\le\min(M,n)\), the probability that each of \(j\) specified distinct sets is requested exactly once equals
-
-\[
-\frac{(n)_{\underline j}}{M^j}\left(1-\frac jM\right)^{n-j},
-\]
-
-where \((a)_{\underline j}=a(a-1)\cdots(a-j+1)\) and \((a)_{\underline0}=1\). Inclusion-exclusion over singleton-occupancy events gives the finite formula displayed in the finding.
-
-**6. Poisson singleton law.** The factorial moments are
-
-\[
-\mathbb E(S)_{\underline j}=(M)_{\underline j}\frac{(n)_{\underline j}}{M^j}\left(1-\frac jM\right)^{n-j}.
-\]
-
-For fixed \(j\) and \(n/M=\log M+\log\log M+t+o(1)\), taking logarithms and using \(n/M^2=o(1)\) gives
-
-\[
-\mathbb E(S)_{\underline j}
-=\left[M\frac nM e^{-n/M}\right]^j(1+o(1))\longrightarrow e^{-jt}.
-\]
-
-The factorial-moment characterization of the Poisson law therefore proves \(S\xrightarrow{d}\operatorname{Poisson}(e^{-t})\), as well as \(\mathbb ES\to e^{-t}\).
-
-**7. Singleton sets are asymptotically disjoint.** Let \(C\) count unordered pairs of intersecting edges in \(H\). The number of unordered intersecting pairs among all possible \(r\)-sets is
-
-\[
-\frac M2\left(M-1-\binom{m-r}{r}\right),
-\]
-
-with the convention that a binomial coefficient is zero when its top entry is smaller than its bottom entry. Consequently,
-
-\[
-\mathbb EC=
-\frac M2\left(M-1-\binom{m-r}{r}\right)
+\mathbb EC_m=\frac{M}{2}\left(M-1-\binom{m-r}{r}\right)
 \frac{n(n-1)}{M^2}\left(1-\frac2M\right)^{n-2}.
 \]
+In the stated fixed-\(t\) critical window this bound is \(O_r(1/m)\). In particular the Poisson limit describes the *optimal fair welfare*, not just the number of singly occupied bins. For finite \((m,n,r)\) the zero-welfare event is exactly \(\{S_m=0\}\), and hence
+\[
+\Pr(W_m=0)=\sum_{j=0}^{\min(M,n)}(-1)^j\binom Mj
+ \frac{(n)_{\underline j}}{M^j}\left(1-\frac jM\right)^{n-j}.
+\]
 
-For fixed \(r\), the fraction of intersecting pairs of random distinct \(r\)-sets is \(O(1/m)\). The exact two-singleton probability is \(O(1/M^2)\) in the critical window. Hence \(\mathbb EC=O(1/m)\to0\). Deleting at most one selected edge per intersecting pair produces a packing, so \(S-C\le W\le S\). Therefore \(\Pr(W\ne S)\le\mathbb EC\to0\) and \(0\le\mathbb ES-\mathbb EW\le\mathbb EC\to0\). Combining with Step 6 proves the Poisson distribution and mean limits for \(W\), and hence its zero-welfare probability.
+The deterministic structural fact used below is the identity \(W=\nu(H)\), where \(H\) is the hypergraph of uniquely requested \(r\)-sets and \(\nu(H)\) is its disjoint-edge packing number. **This identity and the consequent matching-versus-set-packing computational boundary are not presented as independent novelty:** the zero-payment specialization of the known single-minded envy-free auction characterization already supplies its core winner/loser condition. The distinct contribution asserted here is the application to the full stochastic optimum, especially the quantitative hyperedge-intersection transfer. The occupancy-window law itself is classical in the double-Dixie-cup/coupon-collection setting.
 
-**8. The one-sided threshold.** If \(n/M=\log M+\log\log M+t_m\) with \(|t_m|=o(\log M)\), then \(\mathbb ES\sim e^{-t_m}\). If \(t_m\to+\infty\), Markov's inequality gives \(\Pr(W>0)\le\mathbb ES\to0\). If \(t_m\to-\infty\), the exact first two factorial moments in Step 6 imply \(\mathbb E(S)_{\underline2}/(\mathbb ES)^2\to1\), so \(\operatorname{Var}(S)/(\mathbb ES)^2\to0\); Chebyshev's inequality gives \(\Pr(S=0)\to0\). Since \(W>0\) exactly when \(S>0\), this proves the claimed sharp transition.
+## Precise definitions and finite bridge
 
-## Verification
+A complete allocation is an ordered partition \((A_1,\dots,A_n)\) of \([m]\) (empty parts allowed). It is envy-free if \(v_i(A_i)\ge v_i(A_j)\) for all \(i,j\). Let \(H\) have an edge \(D\) exactly if one agent demands \(D\). Any satisfied agent with a duplicate request would cause envy for the other identical requester, so satisfied demand sets are unique. They are disjoint by unit supply; hence \(W\le\nu(H)\).
 
-The standalone file `verification/checker.py` implements two independently constructed finite procedures: complete enumeration of all allocations followed by literal envy and welfare tests, and exact maximum packing of the uniquely occurring requests. Their answers agree on 10,862 demand profiles, including exhaustive profiles for \((m,r,n)=(4,2,5)\) and \((4,3,5)\), plus seeded larger cases. A separate direct occupancy enumeration agrees with the inclusion-exclusion and falling-factorial moment identities for six finite parameter pairs. Execute `python3 verification/checker.py` from the extracted package directory. This finite verification does not establish NP-hardness or any infinite-limit theorem; those follow from Steps 1–8.
+Conversely, for any \(k\)-edge packing in \(H\), allocate each selected \(r\)-set to its unique requester, then allocate each of the remaining \(m-rk\) goods as a singleton to a distinct unselected agent. This is feasible because \(n-k\ge m-rk\) follows from \(n\ge m\) and \(r\ge2\). Give the rest empty bundles. Every selected agent is satisfied; no losing agent desires another single-item bundle (\(r\ge2\)) or one of the selected bundles (each has a different unique requester and the same size \(r\)). This is complete and envy-free with welfare \(k\), establishing \(W=\nu(H)\). This elementary parking argument reconciles the classical no-payment single-minded winner condition with *complete* allocation.
 
-## Relationship to prior work
+If \(S\) edges of \(H\) are occupied exactly once, delete from their family at most one edge for each intersecting pair. The remaining edges form a packing of size at least \(S-C\). Thus \(S-C\le W\le S\), and \(W=0\) if and only if \(S=0\). A coupling of \(W,S\) on the same demand profile gives the total-variation and expectation-gap bounds in the finding.
 
-Inamdar, Jain and Pandey (2026) introduce welfare maximization for complete envy-free indivisible Leontief allocations and prove general intractability together with polynomial algorithms for identical demands and single-good instances. Their publicly available introduction and contribution summary do not state the unique-demand packing identity, the fixed complement-cardinality complexity boundary, or the stochastic welfare collapse. Importantly, the present claim allows zero demand outside a set of \(r\) goods, whereas that paper's main positive-demand regime differs; a secondary overview explicitly flags zero-demand generalization as a further direction. This is a domain distinction, not a novelty proof.
+## Occupancy calculations and asymptotic proof
 
-The polynomial matching theorem of Edmonds, the classical NP-completeness of 3-dimensional matching, and elementary occupancy factorial moments are used as established components. The new claim is their exact, envy-freeness-preserving connection under complete allocation and the resulting welfare distribution. The ``envy-free matching'' of Aigner-Horev and Segal-Halevi concerns one-object assignments in a bipartite agent-item graph; it is not the packing of complementary \(r\)-item demands considered here. Search-based novelty checks are nonexhaustive.
+For any fixed \(j\le \min(M,n)\), the chance that each of \(j\) prescribed types appears exactly once among \(n\) independent uniform requests is
+\[
+ p_j=\frac{(n)_{\underline j}}{M^j}\left(1-\frac jM\right)^{n-j}.
+\]
+Consequently \(\mathbb E(S)_{\underline j}=(M)_{\underline j}p_j\); inclusion-exclusion over singleton-type events yields the stated exact \(\Pr(S=0)\). For fixed \(j\), \(n/M=\log M+\log\log M+t+o(1)\) implies \(n/M^2\to0\) and
+\[
+\mathbb E(S)_{\underline j}
+ =\left[M(n/M)e^{-n/M}\right]^j(1+o(1))\longrightarrow e^{-jt}.
+\]
+The Poisson factorial-moment criterion gives \(S\Rightarrow\operatorname{Poisson}(e^{-t})\) and its mean converges by the \(j=1\) identity.
 
-## Limitations
+Among \(M\) possible \(r\)-edges, exactly \(\frac M2(M-1-\binom{m-r}{r})\) unordered pairs intersect. Multiplying by \(p_2\) gives the exact \(\mathbb EC\) formula. For fixed \(r\), \([M-1-\binom{m-r}{r}]/M=O_r(1/m)\); in the critical window \(p_2=O(M^{-2})\), uniformly for fixed \(t\). Therefore \(\mathbb EC=O_r(1/m)\to0\). The coupling bound transfers the entire distribution and expectation from \(S\) to \(W\), proving the three limits.
 
-The equality requires equal request cardinality at least two, unit supply, complete allocation, binary perfect complements, and at least as many agents as goods. It does not claim that arbitrary Leontief instances, positive-demand-for-all-goods instances, or arbitrary multiplicities of goods are polynomial-time solvable. The Poisson law holds for fixed \(r\) and independent uniform request sets at the specified logarithmic occupancy window; dependence, nonuniform demands, growing \(r\), and prescribed online allocation mechanisms are not covered. Full primary-text access for the initiating 2026 preprint was unavailable beyond its summary/introduction material during this comparison; unindexed or inaccessible coverage remains a publication-priority risk.
+For \(t_m\to+\infty\) with \(|t_m|=o(\log M)\), the exact first moment obeys \(\mathbb ES\sim e^{-t_m}\to0\), and \(\Pr(W>0)=\Pr(S>0)\le\mathbb ES\to0\). For \(t_m\to-\infty\), the first and second factorial-moment formulas give \(\mathbb ES\sim e^{-t_m}\to\infty\) and \(\mathbb E(S)_{\underline2}/(\mathbb ES)^2\to1\). Thus \(\operatorname{Var}(S)/(\mathbb ES)^2\to0\) and \(\Pr(W=0)=\Pr(S=0)\to0\).
+
+## Classical algorithmic consequences (not originality claims)
+
+For a fixed realized profile, \(r=2\) reduces the welfare maximization problem to ordinary maximum graph matching after deleting repeated request types. At any fixed \(r\ge3\), the corresponding decision problem is NP-complete by reducing 3-dimensional matching to the unique-demand hypergraph: request each original triple once, pad with a duplicated dummy request on fresh goods to ensure \(n\ge m\), and for \(r>3\) pad original triples with private goods. Exact welfare equality preserves the maximum packing size; membership in NP is immediate by checking allocations and envy. These are direct uses of classical graph matching and set-packing results, not novel complexity-theoretic reductions.
+
+## Verification and scope
+
+A separately implemented finite verification explicitly enumerated all complete assignments and checked all envy inequalities on 1,661 demand profiles for small \((m,r,n)\), recovering the packing identity in each case. Four exact finite occupancy calculations independently matched the zero-welfare formula and expected singleton count. Such finite tests do not prove the unrestricted theorem. The analytic steps above provide the general argument. The package's original `verification/checker.py` and external-verification channels are preserved unchanged.
+
+The conclusion needs equal fixed request cardinality \(r\ge2\), one copy of each good, no payments, full allocation, \(n\ge m\), and independent uniform request types; it does not address positive Leontief demand for every good, nonuniform or dependent profiles, variable \(r\), or online allocations. The Poisson law is an exact asymptotic statement for the optimal fair welfare, *not* a new coupon-collector Poisson theorem in isolation.
+
+## Relationship to prior mathematics and priority limitations
+
+Fiat and Wingarten (2009), *Envy, Multi Envy, and Revenue Maximization*, Section 4.1, Observation 5, characterize winners and losers for single-minded envy-free auction allocations under prices. Setting all prices to zero and fixing equal positive valuations and request sizes forces any satisfied demand to be uniquely requested; unit supply requires disjoint winners. With enough agents to park leftover goods, the deterministic packing identity follows. The current proof states the parking implication explicitly, but does not claim historical priority for the identity or for graph matching/NP-completeness.
+
+The double-Dixie-cup result of Newman–Shepp and the fixed-multiplicity coupon-collector limit law of Erdős–Rényi establish the classical \(M\log M+M\log\log M\) occupancy window. The above result additionally compares the maximum size of an envy-free packing of uniquely occupied *overlapping* \(r\)-sets to that classical count and controls the difference. No checked source was found establishing this exact welfare comparison in the specified full-allocation model. A stronger unindexed random-hypergraph matching theorem or single-minded allocation result could still imply it; novelty is therefore best-of-knowledge, not independently certified.
+
+Inamdar, Jain and Pandey (2026), *Envy-Free Allocation of Indivisible Goods under Leontief Preferences*, address general Leontief envy-freeness and welfare optimization, principally with strictly positive demands across goods. Its abstract/introduction and stated results were checked, but full primary text could not be retrieved in this audit (despite lawful retrieval attempts). Noncoverage is asserted only for the material inspected; the omitted sections remain a concrete priority risk. Aigner-Horev and Segal-Halevi's bipartite envy-free matchings assign one object per agent, not complementary bundles. The verified classical results and this remaining source-access risk must accompany any later publication claim.
 
 ## References
 
-1. T. Inamdar, P. Jain, and P. Pandey, *Envy-Free Allocation of Indivisible Goods under Leontief Preferences*, arXiv:2609.28308, first submitted 23 September 2026. https://arxiv.org/abs/2609.28308
-2. E. Aigner-Horev and E. Segal-Halevi, *Envy-free Matchings in Bipartite Graphs and their Applications to Fair Division*, arXiv:1901.09527 (2019). https://arxiv.org/abs/1901.09527
-3. J. Edmonds, *Paths, Trees, and Flowers*, Canadian Journal of Mathematics 17 (1965), 449–467. https://doi.org/10.4153/CJM-1965-045-4
-4. R. M. Karp, *Reducibility Among Combinatorial Problems*, in *Complexity of Computer Computations* (1972), 85–103. https://doi.org/10.1007/978-1-4684-2001-2_9
-5. M. Cygan, *Improved Approximation for 3-Dimensional Matching via Bounded Pathwidth Local Search*, arXiv:1304.1424 (2013); background on 3-set packing hardness. https://arxiv.org/abs/1304.1424
-6. A. D. Barbour and A. V. Gnedin, *Small Counts in the Infinite Occupancy Scheme*, arXiv:0809.4387 (2008); related occupancy-count literature. https://arxiv.org/abs/0809.4387
+1. A. Fiat and A. Wingarten, *Envy, Multi Envy, and Revenue Maximization* (2009), arXiv:0909.4569, especially Observation 5. https://arxiv.org/abs/0909.4569
+2. D. J. Newman and L. Shepp, *The Double Dixie Cup Problem*, American Mathematical Monthly 67 (1960), 58–61.
+3. P. Erdős and A. Rényi, *On a classical problem of probability theory*, Magyar Tud. Akad. Mat. Kutató Int. Közl. 6 (1961), 215–220.
+4. T. Inamdar, P. Jain and P. Pandey, *Envy-Free Allocation of Indivisible Goods under Leontief Preferences*, arXiv:2609.28308 (2026). https://arxiv.org/abs/2609.28308
+5. E. Aigner-Horev and E. Segal-Halevi, *Envy-free Matchings in Bipartite Graphs and their Applications to Fair Division*, arXiv:1901.09527 (2019). https://arxiv.org/abs/1901.09527
+6. J. Edmonds, *Paths, Trees, and Flowers*, Canadian Journal of Mathematics 17 (1965), 449–467. https://doi.org/10.4153/CJM-1965-045-4
+7. R. M. Karp, *Reducibility Among Combinatorial Problems*, in *Complexity of Computer Computations* (1972), 85–103.

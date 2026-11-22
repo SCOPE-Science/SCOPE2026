@@ -1,132 +1,129 @@
 {
   "correctness": {
-    "rationale": "For fixed demand cardinality r>=2, n>=m and unit-supply binary perfect complements: Step 1 proves duplicate-demand satisfaction violates envy; Step 2 maps all satisfied agents to disjoint unique requests; Step 3 constructs a complete envy-free allocation for every unique-request packing by assigning unused goods separately to unused agents. The matching/3-set-packing complexity boundary follows from polynomial padding that preserves the optimum. An exact factorial-moment computation and an O(1/m) collision bound prove the Poisson welfare law and convergence of the mean. Step 8 verifies the one-sided threshold using first and second moments. Independent direct-enumeration algorithms agreed on 10862 finite demand profiles and six exact occupancy cases; no finite checks are asserted as asymptotic proofs.",
+    "rationale": "Every complete no-payment envy-free welfare optimum equals the unique-request packing number by upper bound and singleton parking; inclusion-exclusion and factorial moments prove the singleton law; O(1/m) expected intersections transfer distribution and mean; finite checks independent of the original checker corroborate 1661 exact profiles and 4 occupancy cases.",
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "arxiv:2609.28308 HTML introduction and contribution summary, sections 1 and 1.1",
-        "2026 zero-demand extension discussed as a further question in the secondary summary at emergentmind.com/open-problems/envy-free-existence-zero-demand-goods-leontief",
-        "arxiv:1304.1424: NP-hardness and approximation of 3-set packing without any complete envy-free allocation equivalence"
+        "Erdos-Renyi's fixed multiplicity coupon collector covers the log M+log log M window for once-occupied types",
+        "Inamdar Jain Pandey arXiv:2609.28308 abstract/summary addresses general Leontief allocation, full paper inaccessible"
       ],
-      "reasoning": "The original Leontief welfare study gives general hardness and algorithms in distinct restricted domains, not a theorem whose hypotheses contain the zero-demand request-set submodel and whose conclusion gives this exact invariant or its occupancy law. Full original proof sections were not accessible, so any stronger unindexed result in them remains a specifically recorded risk, not an assertion of whole-text noncoverage.",
+      "reasoning": "The classical occupancy limit covers S, not automatically the optimum W of an intersecting-hyperedge packing; the explicit C bound supplies that transfer.",
       "searches": [
-        "Public literature query: Leontief envy free allocation unit supply pair demands matching duplicate unique demands maximum welfare 2026",
-        "Public literature query: 2609.28308 Theorem 5 maximum welfare matching zero-demand goods",
-        "Scientific-literature semantic query: Maximum social welfare envy-free complete allocation indivisible goods single minded agents unit supply two complementary resources unique demand hypergraph set packing"
+        "double Dixie cup Newman Shepp Erdos Renyi two-copy coupon collector",
+        "random uniform hypergraph singleton matching Poisson window",
+        "Inamdar Jain Pandey 2026 Leontief welfare"
       ]
     },
     "checked_sources": [
-      "arxiv:2609.28308 (partially inspected primary text)",
-      "doi:10.1016/j.ins.2021.11.059 (abstract, definition and theorem)",
-      "arxiv:1304.1424 (abstract)",
-      "arxiv:0809.4387 (abstract)",
-      "arxiv:2201.12811 (abstract)",
-      "doi:10.4153/CJM-1965-045-4 (algorithmic background)",
-      "doi:10.1007/978-1-4684-2001-2_9 (complexity background)"
+      "Fiat–Wingarten 2009 sec 4.1 (full author-uploaded text)",
+      "Newman–Shepp 1960 double Dixie cup (historical result through later accounts)",
+      "Erdős–Rényi 1961 multiple-coupon collector (historical result through later cited accounts)",
+      "Castro–Marinho 2026 arXiv:2610.33199 (abstract)",
+      "Inamdar–Jain–Pandey 2026 arXiv:2609.28308 (abstract/summary only)",
+      "Aigner-Horev–Segal-Halevi 2019 arXiv:1901.09527 (summary)",
+      "Resultary semantic searches of allocation/packing/Poisson records"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Edmonds 1965 and arxiv:2201.12811 establish polynomial ordinary graph matching, but not the unique-demand envy-free reduction",
-        "Karp 1972 and arxiv:1304.1424 establish 3-dimensional matching hardness, but not hardness under complete allocations with binary complements and n>=m",
-        "arxiv:0809.4387 concerns occupancy small counts; the present fair-allocation welfare limit also requires the packing identity and vanishing collision calculation"
+        "Fiat Wingarten winner-loser conditions plus parking prove the packing identity",
+        "Classical coupon collector proves singleton-count behavior",
+        "The explicit intersection expectation bounds W-S, absent from compared general auction and occupancy statements"
       ],
-      "reasoning": "Even if individual occupancy and packing lemmas are textbook or classical, their combination is not an immediate special case of a checked fair-allocation theorem: the decisive issue is whether envy-freeness forbids repeated demanders and can be attained by parking all leftovers as singleton bundles. This is proved directly and is not claimed to follow from prior work.",
+      "reasoning": "Both prior ingredients are substantive and must be credited; neither alone implies the narrowed fair-welfare Poisson theorem without a stochastic matching-to-count comparison.",
       "searches": [
-        "Public literature query: envy free allocation single minded agents exactly two items graph matching approximation welfare",
-        "Public literature query: balls bins no singleton boxes threshold M log M M log log M poisson number exactly one",
-        "Public literature query: maximum matching polynomial Edmonds blossom; 3-dimensional matching NP complete Karp",
-        "Scientific-literature semantic query: two-demand Leontief envy-free allocation q=1 unique requests resource pair graph"
+        "Fiat Wingarten 2009 Observation 5 single-minded envy-free pricing",
+        "Erdos Renyi two-copy coupon collector limit law",
+        "Resultary optimal welfare single-minded Poisson"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "arxiv:2609.28308 contribution summary (2026-09-23): welfare-maximizing complete envy-free Leontief allocations and only stated special cases single-good/identical demands",
-        "arxiv:1901.09527: envy-free bipartite matching is one-object assignment, not simultaneous r-item complements"
+        "Fiat and Wingarten (2009), sec.4.1 Obs.5: losing agents cannot have valued demand contained in a zero-price winner's bundle; at equal demand size this forbids duplicates",
+        "Complete allocation requires assigning residual goods; n>=m makes singleton parking possible"
       ],
-      "reasoning": "The closest term envy-free matching is a different agent-object bipartite model. Equivalence to set packing is newly proved only after using unique-demand filtering and a complete allocation construction for r>=2; a name or matching-algorithm similarity does not imply the complete envy-free welfare identity.",
+      "reasoning": "The deterministic restriction is covered in a zero-price equivalent formulation with a simple completion; the narrowed stochastic law also needs a random-overlap bound.",
       "searches": [
-        "Scientific-literature semantic query: Leontief preference indivisible goods pairs demand each agent two goods envy free maximum matching singleton unique demand edges no duplicated agents",
-        "Scientific-literature semantic query: single-minded indivisible allocation envy free maximizing number satisfied distinct r-element demands graph matching polynomial",
-        "Public literature query: single minded agents envy free welfare maximization complementary indivisible goods set packing duplicate demand"
+        "Fiat Wingarten 2009 single-minded zero-price Observation 5",
+        "Resultary semantic: complete envy free single-minded fixed r packing"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Reviewed indexed literature claims contain no direct implication between unique-request packing and complete envy-free welfare",
-        "A reviewed published occupancy result concerns pairwise-independent collision bounds, not unique-request welfare"
+        "An indexed record reproduces the present manuscript; other hits concern unrelated allocation and random graph models.",
+        "No located earlier welfare-count table; lack of a hit is not novelty proof"
       ],
-      "reasoning": "No located published index table identifies a graph/hypergraph of uniquely requested complementary bundles with complete envy-free welfare exactly equal to packing number, or the Poisson law of that welfare. A failed search does not establish global uniqueness or priority.",
+      "reasoning": "Exact finite zero-welfare probabilities are occupancy inclusion-exclusion and not novel. A distinct exact welfare-to-singleton error formula is the surviving quantitative fact.",
       "searches": [
-        "Scientific-literature semantic query: Poisson critical window welfare collapse envy free pair demand unique occupancy bins n choose m 2 log log",
-        "Scientific-literature semantic query: random fair allocation positive welfare disappearance duplicates single-minded pair request occupancy Poisson",
-        "Public literature query: random pair demands envy free welfare occupancy singleton edges poisson threshold fair division"
+        "Resultary unique request packing Poisson crowd-out",
+        "Resultary random r-uniform singleton edge packing Poisson",
+        "public web exact welfare Poisson fair division complementary demands"
       ]
     },
-    "rationale": "The main new statement connects complete envy-free welfare of identical-cardinality single-minded complement demanders to the packing of uniquely occurring requests; the exact two-vs-three complexity boundary and Poisson extinction law are consequences for the same allocation objective. The initiating 2026 Leontief paper states general hardness and tractable one-good/identical-demand cases and primarily assumes positive demand for every type; our model explicitly permits zero demand outside the requested set. Classical graph matching, 3-dimensional matching, and occupancy alone do not imply the envy-free packing equivalence. Available claim databases and targeted primary-literature searches yielded no clear dominating statement; inaccessible material and unindexed equivalents remain a real priority risk.",
+    "qualified": true,
+    "rationale": "Earlier zero-price single-minded winner conditions cover the deterministic packing implication, and classical double-Dixie-cup work covers the singleton occupancy window. The narrowly remaining exact optimal welfare distribution and O(1/m) transfer were not found stated or implied by a single checked prior theorem; remaining primary-access and unindexed random-hypergraph coverage risks are explicit.",
     "residual_risks": [
-      "Full proof sections and appendices of arxiv:2609.28308 were not accessible despite direct and alternate lawful access attempts. This limits completeness of the same-object literature comparison.",
-      "An earlier single-minded-allocation theorem or an unpublished/unindexed preprint could already imply the exact packing identity.",
-      "The occupancy limit is a standard type of Poisson approximation; novelty is claimed for its welfare interpretation and the exact structural connection, not for the general factorial-moment method."
+      "Full 2026 Leontief paper and appendices could not be inspected; available abstract is insufficient to rule out exact coverage.",
+      "Classical random-hypergraph matching and occupancy theorems may already contain the expected-intersection transfer as an easy corollary.",
+      "The surviving contribution is narrowly specialized and assembled from well-known ingredients; its independent mathematical significance is modest."
     ],
     "source_inspections": [
       {
-        "assessment": "No statement of unique-request packing or crowd-out appeared in inspected material; cannot certify absence from unretrieved sections.",
+        "assessment": "Decisive coverage of deterministic unique-request winner restriction, not of the random welfare law",
         "evidence": [
-          "arxiv:2609.28308 first submission 2026-09-23",
-          "Introduction summarizes complexity results as one-good or identical-demand polynomial cases and general NP-hardness"
+          "Section 4 defines v_i(S)=v_i if S_i subset S, else 0; Observation 5 gives losing-agent comparison v(S_i)<=p(S_j) when S_i subset S_j"
         ],
-        "identifier_or_url": "https://arxiv.org/html/2609.28308",
-        "material_read": "ArXiv HTML abstract, introduction, and contribution summary; the later theorem proofs and appendices were inaccessible.",
-        "method": "Read accessible arXiv HTML; compared summary of algorithmic cases and stated assumptions with exact zero-demand, uniform-cardinality, unit-supply assumptions.",
+        "identifier_or_url": "https://arxiv.org/abs/0909.4569",
+        "material_read": "Available full author-uploaded text including model, Sections 4, 4.1 Observation 5, and later pricing analysis",
+        "method": "Read primary author-uploaded text at researchgate.net/publication/45874518_Envy_Multi_Envy_and_Revenue_Maximization and compared Observation 5 under zero prices",
+        "title": "Envy, Multi Envy, and Revenue Maximization",
+        "trigger": "Single-minded bidders, envy and zero-price equivalent formulation"
+      },
+      {
+        "assessment": "No same theorem in available portions; full-text noncoverage cannot be claimed.",
+        "evidence": [
+          "2026-09-23 abstract: general NP-hardness and algorithms for one good or identical demands; later sections not obtained"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.28308",
+        "material_read": "Published abstract and accessible summary; full proofs and appendices not retrieved.",
+        "method": "Compared accessible arXiv and lawful OA previews; full text remained unavailable through authorized channels.",
         "title": "Envy-Free Allocation of Indivisible Goods under Leontief Preferences",
-        "trigger": "Same valuation family and welfare-maximization objective; most plausible direct coverage."
+        "trigger": "Most directly related 2026 Leontief welfare model"
       },
       {
-        "assessment": "Different domain and payoff; does not directly imply the present theorem.",
+        "assessment": "Confirms exact occupancy threshold is classical; does not address envy-free welfare or random hyperedge packing",
         "evidence": [
-          "doi:10.1016/j.ins.2021.11.059 defines an X-side envy-free bipartite matching and focuses on at-most-one-item-per-agent allocations"
+          "Abstract cites fixed-m multiple-coupon Gumbel limit and threshold n log n+(m-1)n log log n"
         ],
-        "identifier_or_url": "https://doi.org/10.1016/j.ins.2021.11.059",
-        "material_read": "Published abstract, introduction, formal definition, Theorem 1.2 and discussed house-allocation application.",
-        "method": "Compared bipartite one-object assignment feasibility criterion to r-item perfect-complement envy among complete bundles.",
-        "title": "Envy-free Matchings in Bipartite Graphs and their Applications to Fair Division",
-        "trigger": "Same term envy-free matching and polynomial maximum-cardinality algorithm."
-      },
-      {
-        "assessment": "Covers source hardness but not target allocation equivalence or threshold law.",
-        "evidence": [
-          "arxiv:1304.1424 abstract: k-set packing/3-dimensional matching NP-complete"
-        ],
-        "identifier_or_url": "https://arxiv.org/abs/1304.1424",
-        "material_read": "Abstract specifying k-set packing and 3-dimensional matching hardness.",
-        "method": "Checked source problem and supplied independent polynomial padding reduction in RESULT.md.",
-        "title": "Improved Approximation for 3-Dimensional Matching via Bounded Pathwidth Local Search",
-        "trigger": "Classical NP-hardness of 3-set packing used in reduction."
-      },
-      {
-        "assessment": "Related occupancy background; no implication for complete envy-free allocation optimum by itself.",
-        "evidence": [
-          "arxiv:0809.4387 abstract concerns occupancy counts, not allocation envy constraints"
-        ],
-        "identifier_or_url": "https://arxiv.org/abs/0809.4387",
-        "material_read": "Abstract describing small counts in infinite occupancy schemes and their limit behavior.",
-        "method": "Distinguished occupancy-only statements from envy-free welfare and reproduced finite and limiting calculations independently.",
-        "title": "Small Counts in the Infinite Occupancy Scheme",
-        "trigger": "Potential broader results on singleton occupancy distributions."
+        "identifier_or_url": "https://arxiv.org/abs/2610.33199",
+        "material_read": "Available abstract describing the fixed-m Erdős–Rényi theorem and varying-m extension",
+        "method": "Read abstract and compared the two-copy log M+log log M window",
+        "title": "Cutoff profile for the coupon collector with many collections",
+        "trigger": "Explicit restatement of Erdős–Rényi fixed-multiplicity coupon limits"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness_evidence": "Old result Step 1-3 established duplicate-request exclusion, disjoint packing, and singleton parking; finite direct checker claimed 10862 tested profiles. The original complete proof remains in the frozen Git source blob.",
+    "material_preserved": "The preexisting assessment accepted the deterministic packing identity, r=2/3 boundary and Poisson welfare law. This revised record corrects its originality claims by recognizing the 2009 single-minded price-zero characterization and the 1960–1961 double coupon collector results; the original Git blob remains historically available.",
+    "originality_evidence": "Old review compared the 2026 Leontief summary, bipartite envy-free matching, Edmonds, Karp, and classical occupancy, but missed Fiat-Wingarten Observation 5 and classical double-Dixie-cup coverage; corrected here.",
+    "status": "passed",
+    "value_evidence": "Original identified a naturally motivated complete-allocation optimal welfare and its sharp random crowd-out window, now narrowed to stochastic welfare transfer."
+  },
+  "review_type": "scientific_review",
   "schema_version": 1,
-  "scope_run_id": "f25fb9e5-9abf-4e4d-a2c6-07414eccd1d2",
   "value": {
-    "rationale": "Motivated by difficult complete envy-free welfare maximization for indivisible complementary resources. A natural unit-supply equal-cardinality class admits an exact optimizable invariant once singleton parking is available; r=2 versus every fixed r>=3 marks a nontrivial polynomial/NP-complete boundary. Independent uniform demands cause a counterintuitive crowd-out transition: increasing participation eventually drives the optimal fair welfare to zero, with an exact finite probability and universal limiting Poisson law. This gives a precise benchmark for complementary resource allocation, not an arbitrary tiny numerical slice.",
+    "rationale": "The full distribution of optimal complete envy-free welfare is a natural allocation invariant. Its equivalence in probability to a classical singleton occupancy count despite demand-set overlaps supplies a quantitative answer for a many-agent, fully allocated, nontrivial complementarity regime. This is modest, and does not claim general fair-division or occupancy novelty.",
     "status": "PASS"
+  },
+  "verification_channels": {
+    "expert_attestation": "not_performed",
+    "lean_verification": "not_performed"
   }
 }
