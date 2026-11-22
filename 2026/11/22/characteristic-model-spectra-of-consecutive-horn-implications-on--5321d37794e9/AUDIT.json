@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For path bases, rules are precisely avoidance of 110; maximal omission of i produces a maximal independent prefix. For cyclic bases, proper closed sets are independent sets and exactly 0 or 1 individually addable vertices characterizes unique covers. Weighted independent-set recurrence and cyclic gap double-counting yield the complete formal rational functions; simple-pole vs double-pole analysis gives asymptotics. Python verify.py checks actual lattice meet-irreducibility, full missing-atom distributions, and Fibonacci closed-set totals for path orders 0..11 and cycles 3..11. Boundary domains, all quantified cases, and limits are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Babin 2026 Theorem 6.3 gives a global hardness result; its Section 7 explicitly separates bounded-degree algorithms",
+        "Defrain et al. 2025 handle incremental-polynomial bounded-degree enumeration, not closed-form rank spectra",
+        "The path basis is acyclic and bounded-degree, but the ring is cyclic and lies outside that algorithm theorem"
+      ],
+      "reasoning": "Algorithmic tractability and generic maximal-omitter characterization do not themselves give the explicit complete bivariate rank polynomials. The cycle formula counts an additional family outside ordinary maximal independent sets; this family is essential to the displayed term with squared denominator.",
+      "searches": [
+        "acyclic convex geometry path Horn implications maximal independent set exact bivariate enumeration",
+        "acyclic Horn implications path canonical meet irreducibles closed sets",
+        "cyclic Horn implication closure maximal independent sets one free vertex exact count generating function"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.18534",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol359-isaac2025/html/LIPIcs.ISAAC.2025.24/LIPIcs.ISAAC.2025.24.html",
+      "https://arxiv.org/abs/2506.24052",
+      "https://doi.org/10.1016/j.amc.2020.125155",
+      "https://orbilu.uni.lu/handle/10993/387"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Babin 2026 Lemma 2.3 supplies only maximal-omitter framework",
+        "Defrain et al. 2025 show structural MIS connections but not this concrete path/ring characterization",
+        "Graph enumeration literature implies the ordinary maximal independent contributions but not independently the closure correspondence or the one-undominated cyclic correction"
+      ],
+      "reasoning": "The claim explicitly excludes novelty of the general maximal-omitter lemma and the classical MIS counts. It adds the concrete Horn normal form and especially cyclic one-defect family; neither surveyed general result, without new instance-specific argument, implies the full expressions.",
+      "searches": [
+        "finite closure system chain implications antecedents size two cycles path irreducible",
+        "meet irreducible canonical Horn representations consecutive binary implications (i,i+1) implies (i+2) maximal independent sets path Padovan growth",
+        "cyclic definite Horn clauses consecutive triple (i i+1) implies (i+2) characteristic models Perrin Padovan"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Babin 2026 Lemma 2.3 (https://arxiv.org/abs/2607.18534): generic MI/maximal-omitter equivalence",
+        "Defrain et al. 2025 Proposition 3 and Example 5: attached irreducibles and MIS reductions",
+        "Exact characteristic-model equivalence on the consecutive path and ring bases follows from new direct normal-form arguments in RESULT.md"
+      ],
+      "reasoning": "Generic maximal omission is known; here the concrete normal forms require proving a path-prefix independence condition and a cyclic one-free-vertex condition. Neither an identical statement nor a general parametric enumeration yielding both series was identified.",
+      "searches": [
+        "meet irreducible canonical Horn representations consecutive binary implications (i,i+1) implies (i+2) maximal independent sets path Padovan growth",
+        "periodic 110-avoiding binary words meet-irreducible closure lattice independent dominating sets cycle",
+        "characteristic models path Horn function \"maximal independent\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results include a published note about one-pass implication bases of cycle maximal-independent-set contexts, a different incidence closure object",
+        "Known Perrin/Padovan counts and cardinality refinements in 2008 and 2020 graph literature are credited"
+      ],
+      "reasoning": "No retrieved table was an exact table of proper Horn meet-irreducibles under the two specified consecutive-rule families. A database summary is not sufficient to exclude an inaccessible equivalence; that remains a residual risk.",
+      "searches": [
+        "meet irreducible canonical Horn representations consecutive binary implications (i,i+1) implies (i+2) maximal independent sets path Padovan growth",
+        "cyclic definite Horn clauses consecutive triple (i i+1) implies (i+2) characteristic models Perrin Padovan",
+        "characteristic models 110 avoiding binary words implicational system Fibonacci Padovan"
+      ]
+    },
+    "rationale": "The general maximal-omitter criterion and classical Padovan/Perrin graph enumerations are fully credited. The new claim is the concrete consecutive-rule Horn characteristic-model normal forms, their two complete omitted-atom series, and the linear growth-factor transition; none was supplied by the checked accessible primary texts. Priority remains provisional because a close independent-set-context published note was accessible only by summary and some older sources by abstract.",
+    "residual_risks": [
+      "The 2008 cycle paper was reviewed in abstract only, so its full text could contain unrecognized equivalent formulas.",
+      "A published cycle maximal-independent-set context study was returned as a database summary, but its full public repository page could not be opened. Its context is not the same as this Horn closure as described, but substantive hidden overlap is not excluded.",
+      "Historical title/semantic searches are not proof of absence of equivalent work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General canonical identification hardness and maximal-omitter lemma are already known; no path/ring rank series or one-defect cyclic normal form was found in the inspected material",
+        "evidence": [
+          "Lemma 2.3: MI iff maximal closed omission of an atom",
+          "Section 7: generic hardness and translation consequences, not formulas for these consecutive bases"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.18534",
+        "material_read": "Full accessible HTML: introduction; definitions and Lemmas 2.3–2.6; main Theorem 6.3 and Section 7 consequences, including bounded-degree qualification",
+        "method": "direct text inspection and exact comparison of statements",
+        "title": "Completeness of Canonical Closure Representations Is coNP-Complete",
+        "trigger": "Recent source on characteristic models, maximal omission and complexity"
+      },
+      {
+        "assessment": "Gives incremental-polynomial algorithms and general maximal-independent-set connections, not the exact canonical-model polynomial for these consecutive bases or the cyclic case",
+        "evidence": [
+          "Proposition 3: attached irreducibles form a partition in convex geometries",
+          "Example 5: a separate exponential canonical family for disjoint pair premises",
+          "Theorems concern degree-based algorithms, not the concrete two-series census"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol359-isaac2025/html/LIPIcs.ISAAC.2025.24/LIPIcs.ISAAC.2025.24.html",
+        "material_read": "Full accessible HTML: abstract; Introduction; Preliminaries, Proposition 3 and Example 5; degree definitions; algorithmic results and conclusion",
+        "method": "direct primary-text inspection",
+        "title": "Enumerating the Irreducible Closed Sets of an Acyclic Implicational Base of Bounded Degree",
+        "trigger": "General tractable acyclic bounded-degree enumeration may dominate path claim"
+      },
+      {
+        "assessment": "Known independent-set cardinality spectra; these are credited; does not state the additional cyclic one-undominated family as Horn characteristic models",
+        "evidence": [
+          "Fact 3.2 and Fact 3.3 give weighted maximal-independent-set recurrences for paths and cycles"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.amc.2020.125155",
+        "material_read": "Accessible full HTML: definitions, Fact 3.2, Fact 3.3, path and cycle Padovan/Perrin counts",
+        "method": "text comparison of recurrence and counted object",
+        "title": "On the existence and the number of independent (1,2)-dominating sets in the G-join of graphs",
+        "trigger": "Independent-set Padovan/Perrin enumerations potentially imply portions of count"
+      },
+      {
+        "assessment": "Perrin count and dihedral orbit classification are explicitly prior; entire article cannot be ruled out as containing closer equivalent formulas",
+        "evidence": [
+          "Abstract states the nth Perrin count for maximal independent cycle sets"
+        ],
+        "identifier_or_url": "https://orbilu.uni.lu/handle/10993/387",
+        "material_read": "Bibliographic record and abstract only; full article not inspected",
+        "method": "abstract metadata review",
+        "title": "Counting non-isomorphic maximal independent sets of the n-cycle graph",
+        "trigger": "Exact pre-existing Perrin cycle MIS count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5321d377-94e9-45d8-84e5-e9c559129d34",
+  "value": {
+    "rationale": "Characteristic models constitute the unique minimum family from which all Horn models can be reconstructed by intersections. The two natural local binary propagation geometries admit complete exact size-resolved canonical representations, with a provable new linear asymptotic factor in going from the chain to cyclic feedback. This is a concrete motivated tractability/compression boundary adjacent to recent general hardness and bounded-degree translation results, not a rebranding of known Perrin numbers or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
