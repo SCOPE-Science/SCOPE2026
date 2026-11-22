@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+The component criterion is pathwise: each retained root-to-target ancestral path can jump across one missing ancestor but not two successive missing ancestors. Conditioning on the original root retained gives an exact two-type genealogical process with generating functions \(G_A(x,y)=\phi(px+(1-p)y)\), \(G_B(x,y)=\phi(px+1-p)\). Eliminating the two extinction probabilities gives a scalar concave fixed point, with derivative \(R_m(p)=mp+m^2p(1-p)\) at zero. This proves the stated exact threshold, including extinction at the critical boundary. The ancestral-path recurrence proves the exact expected component size. A second-order expansion at the critical fixed point proves the amplitude whenever \(\mathbb E[X(X-1)]<\infty\). These critical identities have been reconstructed directly and checked with exact enumeration for a finite binary tree and high-precision two-offspring-family diagnostics. Finite checks are supplementary and are not claimed as proofs of the infinite statements.
+
+## Originality — PASS under the inspected evidence
+The closest source, Ménard–Sénizergues (arXiv:2611.09762v1), studies independent **bond** states and proves the threshold depends on the offspring distribution beyond its mean. Here the sites, rather than edges, are independently open, so the graph-disconnection event is a two-missing-ancestor separator, leading to a distinct explicit polynomial threshold and a second-factorial-moment critical amplitude. de Lima–Szabó–Valesin (DOI 10.1002/rsa.21104) treats oriented **bond** percolation with independent short/long edge states on regular rooted trees; it is not a theorem about this correlated-edge site law on random-offspring trees. Quine's multitype near-critical work is background machinery, not an identified model-specialized formula. The closest semantic research-record results concern site percolation on ordinary recursive trees or unrelated finite graph pairs; their claims do not imply this law. Searches do not prove uniqueness; priority remains subject to older or unindexed graph-power literature.
+
+## Value — PASS
+Independent-edge percolation on the grandparent graph has an offspring-law-sensitive critical point, so a law-independent site threshold on the same geometry is a motivated and structurally informative contrast. The exact subcritical susceptibility and the near-critical survival amplitude distinguish threshold universality from second-moment dependence. These are natural cluster observables and the complete parameter classification for the site model, not arbitrary finite samples or renamed numerical evaluations. The two-type reduction is reusable for other finite-length ancestral-site rules, but no such extension is claimed.
+
+## Sources, checks, and limitations
+- Ménard and Sénizergues, *Percolation on grandparent graphs of Bienaymé trees*, arXiv:2611.09762v1 (November 6, 2026): inspected introduction, model, exploration, and threshold theorem in accessible full-text rendering; source is about bond percolation.
+- de Lima, Szabó and Valesin, *Multirange percolation on oriented trees: Critical curve and limit behavior*, Random Structures & Algorithms 62 (2023), DOI 10.1002/rsa.21104: inspected accessible open-access article's model, theorems, and branching arguments; independently open edges on regular oriented trees.
+- Quine, *The multitype Galton–Watson process with rho near 1*, Advances in Applied Probability 4 (1972), DOI 10.2307/1425989: abstract and metadata inspected; full text not inspected, so general-tool coverage remains a possible priority risk.
+- Exact finite enumeration and arithmetic checks are reproducible with `python3 checker.py`. No computational or literature check is a certificate of worldwide originality.
+- Self-review only; no independent expert audit.
+
+Self-review: passed. Independent audit: not yet performed.
