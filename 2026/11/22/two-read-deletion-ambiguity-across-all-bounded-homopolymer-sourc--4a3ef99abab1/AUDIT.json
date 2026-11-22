@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For each unordered two-symbol pair, the Type-A first/last differing interval is intrinsic and unique (Cai–Kiah–Nguyen–Yaakobi, Proposition 9). Both possible alternating phases are run-limited iff the left and right context boundary runs, when using a selected central symbol, are shorter than r. The exact admissible context series is (1+S_r-2z^r)/(1-(q-1)S_r); the unrestricted length>=2 alternating interval contributes u^2z^2/(1-uz). Formal multiplication gives the all-q, all-r>=2 bivariate edge count without double counting. For r>=2 the denominator has a unique simple strictly dominant root in (0,1), so coefficient extraction proves the edge-conditioned geometric span limit and the average-degree slope. A direct independent deletion-deck enumerator and an exact rational-recurrence/terminal-run dynamic program passed finite tests; no finite check is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/1211.3128 Section V studies one-deletion-correcting code hypergraph bounds for run-limited sources, not this two-read graph.",
+        "https://arxiv.org/abs/2004.06032 Section III uses the unrestricted binary two-read graph for code bounds.",
+        "Published unrestricted degree spectrum https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1 classifies all binary words, not the finite run-capped induced graph."
+      ],
+      "reasoning": "The RLL hypergraph source addresses a stricter N=1 code condition and its source has different run constraints; the unrestricted two-read graph describes the ambient relation. None supplies the exact finite-cap pair counts or the disagreement-span distribution for the induced graph.",
+      "searches": [
+        "published-finding corpus: constrained two-read deletion reconstruction graph run lengths bounded edge generating function",
+        "published-finding corpus: homopolymer bounded codewords ambiguous under two deletion reads count q r",
+        "Web: run-length limited constrained sequence reconstruction codes two reads deletion Chee Kiah 2017"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1211.3128",
+      "https://arxiv.org/abs/2001.01376",
+      "https://arxiv.org/abs/2004.06032",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-bigram-spectrum-reconstruction-under-a-bounded-run-constra--359f20149e86",
+      "Related indexed homopolymer-free two-read short-length capacity and edge-count claim (exact r=1 subcase)",
+      "Related indexed q-ary homopolymer-free one-deletion confusability claim (different graph)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91 proves e_unrestricted(n)=binom(q,2) sum_(L=2)^n (n-L+1) q^(n-L).",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1 gives the unrestricted binary degree distribution.",
+        "Existing exact cap-one homopolymer-free two-read graph claim gives binom(q,2)(q-1)^(n-3)((n-1)(q-2)+1)."
+      ],
+      "reasoning": "The r=1 prior case coincides with H=(1-z)/(1-(q-1)z) and is explicitly excluded from new scope. The ambient edge count corresponds to H=1/(1-qz), and its restriction is not a function of the ambient total alone. The new r>=2 formula needs the count of contexts with a full run ending in one of the chosen alternating symbols. The geometric span and mean-degree laws follow from the resulting new rational series, not from unrestricted counts.",
+      "searches": [
+        "published-finding corpus: two-read deletion confusability on homopolymer-free codes adjacency swaps graph degree spectrum",
+        "published-finding corpus: binary words runs at most two two read reconstructability confusability edge counts",
+        "Web: \"alternating\" \"run-length limited\" \"two reads\" deletion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cai–Kiah–Nguyen–Yaakobi Proposition 9 https://arxiv.org/abs/2001.01376 defines the common-deletion-two condition by Type-A blocks.",
+        "Unrestricted edge enumeration https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91 uses the same alternation mechanism, but free outside contexts."
+      ],
+      "reasoning": "The only matching equivalence is the standard two-distinct-read/Type-A representation. The constrained graph retains only pairs with both endpoints in a finite maximal-run-length source; the boundary restriction changes every nontrivial cap. A formula for all unconstrained pairs cannot by itself supply counts under an induced source restriction.",
+      "searches": [
+        "published-finding corpus: q-ary run-length at most r strings length n two common one-deletion descendants exact enumeration pairs generating function",
+        "published-finding corpus: run-limited sequence two read confusability Type A alternating interval enumerator",
+        "Web: \"run length limited\" \"two reads\" \"deletion\" \"reconstruction\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full public unrestricted edge-count theorem https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91 contains a one-line q-ary all-length total, but no run-cap index.",
+        "Published bounded-run bigram profile enumeration https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-bigram-spectrum-reconstruction-under-a-bounded-run-constra--359f20149e86 is for no-deletion, noiseless multiset reads."
+      ],
+      "reasoning": "No inspected exact table or database records the claimed all-q, all-r>=2 values or the span-refined generating function. The r=1 boundary case is previously known and used solely as a check. This negative search is not a proof of priority.",
+      "searches": [
+        "published-finding corpus: Exact RLL bounded homopolymer two-read deletion confusable pair enumerator E(z)=binomial(q,2) z^2 (1+S_r-2z^r)^2 / ((1-z)(1-(q-1)S_r)^2)",
+        "published-finding corpus: two distinct deletion outputs and maximal constant run length all q exact count edge pairs",
+        "Web: run length limited words deletion reconstruction read coverage exact edge enumerator formula"
+      ]
+    },
+    "rationale": "The all-q unrestricted edge result already counts arbitrary outside contexts and the special zero-repeat case r=1 is already known. Neither establishes the exact two-sided run-cap interface restrictions for every finite r>=2 or the full span-bivariate enumerator and geometric limit. The inspected primary papers focus on single-read constrained code size or on unrestricted two-read Type-A code design. Closest indexed exact graph and bounded-run-profile notes are distinguished by object and statistic. Priority is qualified because older non-indexed derivations might exist.",
+    "residual_risks": [
+      "Priority risk: an older differently indexed analysis may already tabulate RLL-restricted two-read edge counts under another terminology.",
+      "A known single-read RLL source often means minimum zero-run length; the current maximum constant-run cap is a different constraint and cannot be conflated.",
+      "The published Type-A equivalence is a premise; this result makes no claim to a new proof of it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: single-read constrained code-size hypergraph bounds, not exact two-distinct-read graph edges under maximal run cap.",
+        "evidence": "Section V defines s-deletion correcting codes with disjoint deletion balls and derives bounds, not two-read intersection-equals-two edge counts; arXiv browser lines 403–483.",
+        "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+        "material_read": "Abstract, introduction, Section V definition/constraint/code-bound argument including Theorem V.2 and its proof, numerical result discussion.",
+        "method": "Read browser-extracted original arXiv full text at cited section and theorem, including Sections V and VI.",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Primary 2012 constrained deletion-code literature; origin anchor and source-scope collision check."
+      },
+      {
+        "assessment": "FOUND premise: exact alternating-interval equivalence; no bounded-run enumerator or span limit.",
+        "evidence": "Proposition 9 characterizes exactly two common one-deletion outputs and treats Hamming distance one separately; Section III, lines 168–209.",
+        "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+        "material_read": "Section III, Theorem 7, Definition 8, Proposition 9 and proof of the full q-ary two-deletion-output characterization.",
+        "method": "Read primary arXiv browser text through Proposition 9, including the first/last difference argument and converse.",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Exact Type-A equivalence potentially subsumes claim."
+      },
+      {
+        "assessment": "NOT_COVERING: unrestricted binary graph and redundancy bounds; its 2-periodic-run constraint limits alternating runs, not the maximal constant runs in the source.",
+        "evidence": "Section II-B Definition 3 bounds the longest 2-periodic run; Section III defines the unrestricted Type-A graph.",
+        "identifier_or_url": "https://arxiv.org/abs/2004.06032",
+        "material_read": "Sections II-B and III, Type-A Lemma 6, reconstruction code constraints, clique-cover setup.",
+        "method": "Read original arXiv browser text, especially lines 49–130 and the Type-A/graph passages.",
+        "title": "Optimal Reconstruction Codes for Deletion Channels",
+        "trigger": "Same read model and graph; possible stronger coverage."
+      },
+      {
+        "assessment": "COVERS ambient enumerator and alternating interval lemma but NOT_COVERING finite maximum constant-run caps r>=2 or disagreement span law.",
+        "evidence": "Published theorem gives binom(q,2) sum_(L=2)^n (n-L+1)q^(n-L) and explicitly leaves more refined statistics untouched.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "material_read": "Complete published RESULT.md (finding, assumptions, proof, verification, prior relationships, limits).",
+        "method": "Read authorized GitHub public repository file through the read-only connector.",
+        "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+        "trigger": "Closest exact global edge invariant across every alphabet."
+      },
+      {
+        "assessment": "NOT_COVERING: unrestricted binary vertex degrees do not count edges both of whose endpoints obey a run cap.",
+        "evidence": "Its degree sum depends on alternating runs of unrestricted binary differences; target edges require both original source words to be r-run-capped.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1",
+        "material_read": "Complete published RESULT.md through proof and limitations.",
+        "method": "Read public original via read-only repository connector.",
+        "title": "Complete degree spectrum of the binary two-read deletion-reconstruction graph",
+        "trigger": "Stronger unrestricted binary graph spectrum could imply edge counts in a subset."
+      },
+      {
+        "assessment": "NOT_COVERING: observes noiseless bigram multiplicity vectors, rather than two single-deletion reads.",
+        "evidence": "Its output is a multiset of all overlapping two-grams with multiplicity; target uses two distinct length-(n-1) deletion outputs.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-bigram-spectrum-reconstruction-under-a-bounded-run-constra--359f20149e86",
+        "material_read": "Complete published RESULT.md through proof and limitations.",
+        "method": "Read public original via read-only repository connector.",
+        "title": "Exact bigram-spectrum reconstruction under a bounded-run constraint",
+        "trigger": "Same maximal-run restriction, potential exact profile table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4a3ef99a-bab1-4f54-b5ed-6a4867023bde",
+  "value": {
+    "rationale": "Bounded maximum homopolymer lengths are natural channel-source constraints, and two-distinct-read reconstruction excludes precisely these induced-graph edges. The work supplies the complete all-alphabet, all-finite-r>=2, all-length graph edge invariant, refined by an intrinsically canonical disagreement span, plus a universal limiting geometric span law and an explicit average-degree coefficient. This quantifies conflict density and locality in a practically motivated constrained channel, beyond mere finite recomputation or the already known r=1 slice; it makes no unsupported optimum-code-size claim.",
+    "status": "PASS"
+  }
+}
