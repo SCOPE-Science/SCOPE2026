@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify_exact_witnesses.py` beside `verify_mod101.cpp`. The check was executed successfully from these final artifact paths and printed `DODECAHEDRAL_ERASURES_EXACT_CHECK_OK`.
+## correctness
 
-The C++ checker exhaustively evaluates \(125970\) eight-row subsets of the \(20\times9\) harmonic evaluation matrix reduced by \(\sqrt5\mapsto45\pmod{101}\), finding \(123030\) independent bases and \(40991\) distinct hyperplane closures, exactly twenty-five of size twelve and none of size thirteen. The Python checker constructs integer-pair coefficients in \(\mathbb Z[\sqrt5]\) and confirms exact nonzero polynomial witnesses with precisely each twelve-vertex zero set. It also compares the collected closures with the exact witnesses rather than assuming they are the same.
+PASS
 
-The proof relies on the exact reduction implication from characteristic zero to characteristic \(101\), followed by separate characteristic-zero witnesses; modular tests alone would not prove existence of null vectors over \(\mathbb C\). The verified claims are limited to the specified twenty vertices and the degree-at-most-two spherical harmonic space. No externally independent validation was performed.
+The real nine-column basis 1,x,y,z,xy,yz,zx,x²-y²,y²-z² is H_<=2 on S² up to invertible scales. Modular reduction Q(sqrt5) to F101 via sqrt5->45 is valid; independent C++ enumeration of all C(20,8)=125970 eight-row sets yielded 123030 full rank, 2940 deficient, 40991 distinct rank-eight hyperplane closures of sizes 8:35820,9:4420,10:546,11:180,12:25. Hence no 13-point set lies in a rank-eight hyperplane. Independently generated exact Q(sqrt5) cofactor null vectors for all 25 twelve-point closures and checked their full 20-vertex zero sets equal exactly those 12 vertices; modular rank 8 gives one-dimensional kernels. Explicit 9-row modular rank certificate and the 12-point quadratic witness bound the threshold sharply. The modular obstruction is only used in the valid one-way direction; exact witnesses establish existence.
+
+## originality
+
+PASS
+
+Fresh claim-vs-prior, equivalent-statement, stronger-coverage and exact-table comparisons identified no decisive covering implication in inspected evidence; priority remains best-of-knowledge with named full/partial reading and risks.
+
+## value
+
+PASS
+
+Erasure robustness of a natural Platonic 20-node spherical sampling design is a mathematically motivated exact row-matroid invariant. The sharp worst-case 13-observation guarantee, 25 complete 12-observation exceptions and contrast with an optimal chosen 9-set are useful benchmarks and structurally different from full-grid rank. A finite classification is valuable without claiming stable noise conditioning or other degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

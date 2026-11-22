@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full nine-dimensional mixed-degree harmonic basis is explicit. Reduction to \(\mathbb F_{101}\) proves that no set of thirteen vertices can have rank below nine: exhaustive enumeration of all \(125970\) eight-row subsets shows that every rank-eight hyperplane closure contains at most twelve vertices. The twenty-five possible singular twelve-point sets are each verified in characteristic zero using exact nonzero null vectors over \(\mathbb Z[\sqrt5]\), and their rank is exactly eight. The supplied two-stage checker was executed successfully from its final paths. A nine-row nonsingular example certifies that the smallest designed sample set has cardinality nine.
+## correctness
 
-## Originality — PASS with historical-priority limitations
-Actual searches considered mixed-degree quadratic dodecahedral erasures, quadric zero sets, exceptional twelve-point samples, and more general spherical interpolation. The full 2022 Zandieh–Han–Avron paper gives probabilistic sampling results, not this every-subset theorem. The existing complete-dodecahedron exact-degree spectral records concern full-vertex evaluation and do not imply the twenty-five exceptional twelve-row sets. The published cuboctahedral graphic-matroid theorem has a different vertex geometry and left-kernel structure. An exact covering statement was not identified, but absence from searches is not a proof of historical novelty; older polyhedral interpolation or design tables remain a credible risk. The 2022 Bellet–Brachet–Croisille article was accessible in abstract/metadata, not completely in full text; it concerns cubed-sphere grids, and that limited access does not itself rule out hidden overlap.
+PASS
 
-## Mathematical value — PASS
-Worst-case recovery under missing vertices is distinct from full-grid harmonic rank. The sharp threshold of thirteen observations, the surprise that nine carefully chosen observations suffice, and the complete twenty-five exceptional twelve-point patterns are useful exact benchmarks for deterministic directional sampling on a natural Platonic design. The result gives a natural maximal zero-set size for nonzero quadratic spherical harmonics restricted to the dodecahedron. No quantitative noise stability or theorem for other grids is asserted.
+The real nine-column basis 1,x,y,z,xy,yz,zx,x²-y²,y²-z² is H_<=2 on S² up to invertible scales. Modular reduction Q(sqrt5) to F101 via sqrt5->45 is valid; independent C++ enumeration of all C(20,8)=125970 eight-row sets yielded 123030 full rank, 2940 deficient, 40991 distinct rank-eight hyperplane closures of sizes 8:35820,9:4420,10:546,11:180,12:25. Hence no 13-point set lies in a rank-eight hyperplane. Independently generated exact Q(sqrt5) cofactor null vectors for all 25 twelve-point closures and checked their full 20-vertex zero sets equal exactly those 12 vertices; modular rank 8 gives one-dimensional kernels. Explicit 9-row modular rank certificate and the 12-point quadratic witness bound the threshold sharply. The modular obstruction is only used in the valid one-way direction; exact witnesses establish existence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fresh claim-vs-prior, equivalent-statement, stronger-coverage and exact-table comparisons identified no decisive covering implication in inspected evidence; priority remains best-of-knowledge with named full/partial reading and risks.
+
+## value
+
+PASS
+
+Erasure robustness of a natural Platonic 20-node spherical sampling design is a mathematically motivated exact row-matroid invariant. The sharp worst-case 13-observation guarantee, 25 complete 12-observation exceptions and contrast with an optimal chosen 9-set are useful benchmarks and structurally different from full-grid rank. A finite classification is valuable without claiming stable noise conditioning or other degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
