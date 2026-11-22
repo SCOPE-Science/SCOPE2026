@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-19.md",
+      "INDEPENDENT_AUDIT_2026-11-19.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,8 @@
 }
 ---
 
-The central mathematical argument classifies each shattered comparison support by at most one outgoing query per earlier position. The all-order polynomial follows by independent counting, without computational assumptions.
+The final claimed theorem is the all-length **positional pair-query support classification** and its partition-matroid/Stirling enumerator. Necessity follows from the impossible pair of answers for edges sharing their left endpoint (a 231 triple). Sufficiency follows by right-to-left extremal insertion, preserving avoidance and realizing every binary labeling; no computation is used for the universal proof.
 
-For the online part, `depth8_tree.json` gives a complete binary mistake tree of depth eight. The query pairs are zero-indexed. `heap_query_indices` has 255 entries, and children of node index `r` are `2*r+1` (false) and `2*r+2` (true). `verify.py` exhaustively tests the 256 possible binary root-to-leaf paths using independently enumerated length-seven 231-avoiders. It confirms 429 possible hypotheses, making a complete depth-nine tree impossible. Direct sums of avoiding permutations establish the all-order amplification.
+The unchanged `verify.py` and `depth8_tree.json` are retained as original evidence. The former checks finite coefficient profiles (lengths 1–8), while the latter is a complete 255-query depth-eight online tree. The online depth eight at length seven is previously covered by the 2 November 2026 Wilf-equivalence classification after permutation inversion, and is **not** claimed as an original theorem here. An independent replay of the original tree verified all 256 leaves among 429 avoiding seven-permutations. Independently regenerated shattered-support profiles for lengths 2–6 agreed with the polynomial.
 
-Run `python3 verify.py` with both companion files in the same directory. The packaged replay successfully verified the exact shattering support coefficient counts for lengths one through eight and the complete depth-eight certificate. This is a finite certificate plus a separate all-length proof; it is not an external independent audit.
-
-Limitations: historical priority under alternative terminology is not exhaustively settled; the exact online dimension for every permutation length is not asserted.
+Full mathematical correctness uses the explicit universal proof, not finite extrapolation. Alternative literature under Catalan inversion-set terminology remains a priority risk. No Lean proof or expert attestation is claimed.
