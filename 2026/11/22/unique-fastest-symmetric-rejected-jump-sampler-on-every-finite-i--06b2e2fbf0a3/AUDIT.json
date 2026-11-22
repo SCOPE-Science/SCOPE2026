@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The proof builds the full stochastic kernel for every symmetric integer law; an endpoint-centered Rayleigh vector gives the exact universal spectral obstruction. The proposed uniform nonzero-displacement law is evaluated entrywise and has one scalar nonstationary eigenvalue. For shape stability, each fixed-distance graph Laplacian has norm at most 4 and a second-moment spectral inequality forces positive eigenvalue spread; arbitrary unused mass is handled by an exact laziness decomposition. Both boundary n=2 and S=0 are covered. The package checker supplies 15,483 corroborating exact/numerical tests but is not relied on as an all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Diaconis, Xiao (2004) solve fastest mixing over graph-support constraints, including unconstrained complete-graph weights.",
+        "Boyd, Diaconis, Sun, Xiao (path paper) set nonadjacent transitions to zero."
+      ],
+      "reasoning": "General graph FMMC allows a kernel with every row equal to uniform and optimal centered norm zero, which is outside the state-independent rejected-displacement feasible set for n>2. The path FMMC excludes the long-range jumps of the optimizer. Neither contains the required constrained all-n optimum or quantitative stability estimate.",
+      "searches": [
+        "fastest mixing Metropolis uniform interval box bounded symmetric increment distribution optimum rejection",
+        "fastest mixing Markov chain symmetric proposal finite interval rejection optimize integer displacement distribution",
+        "uniform stationary Markov path finite displacement independent proposal optimal spectral gap Rayleigh boundary test"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2303.08535",
+      "https://arxiv.org/pdf/2207.10488",
+      "https://stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc_path.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2303.08535v1 proves continuum optimum 1/2, and its discrete numerical counterpart is only a numerical approximation of the continuum in the inspected sections.",
+        "arxiv:2207.10488 discusses discrete Markov chains as context and numerical discretization but evaluates continuum box eigenmodes, not the finite n constrained optimization.",
+        "Boyd, Diaconis, Xiao (2004) establishes general semidefinite programming formulation but not an explicit solution in this subclass."
+      ],
+      "reasoning": "Neither the continuous optimum nor the unrestricted graph optimum logically implies the exact discrete minimum: the former has another state space, while the latter admits a strictly faster kernel that is forbidden here. The endpoint Rayleigh test and perturbative rigidity argument yield new specialized information. The result might still be obtainable by applying standard spectral principles; this is an acknowledged residual priority risk rather than a contradiction.",
+      "searches": [
+        "discrete random walk confined box arbitrary symmetric jump distribution rejection fastest mixing optimal global proposal",
+        "arxiv 2303.08535 first submitted 15 March 2023 singular relaxation random walk in a box Metropolis Monte Carlo",
+        "Metropolis random walk uniform jump box spectral gap discontinuous localization transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2303.08535v1, section III.A: for a continuous uniform proposal spanning the box, the whole centered spectrum has factor 1/2.",
+        "arxiv:2207.10488, Appendix D: continuous box kernel and localization; no finite integer proposal design equality."
+      ],
+      "reasoning": "Under the discrete rejected-jump kernel, all nonzero displacement masses contribute to a Toeplitz off-diagonal matrix and boundary rejections; the finite optimum is 1/2−1/[2(n−1)]. The continuous box has no self-site atom and has factor exactly 1/2. Translating coordinates or scaling the continuous domain cannot yield the discrete correction or stability term.",
+      "searches": [
+        "Chepelianskii Majumdar Schawe Trizac 2303.08535 relaxation eigenmode random walk box",
+        "Metropolis random walk uniform jump box spectral gap discontinuous localization transition",
+        "optimal proposal distribution random walk Metropolis uniform target interval symmetric translation invariant jump rejection spectral gap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic research records concern alternating cycles, second-power cycles, and crown graphs, with distinct kernels and feasible sets.",
+        "No exact numeric tables or stationary formulas with the same finite interval displacement proposal constraint were found in the inspected records."
+      ],
+      "reasoning": "The candidate is an all-n structural and spectral inequality, not merely a table entry. Prior finite graph catalogues with the same n or eigenvalue symbol cannot cover it unless their constraints imply the rejected-jump family, which the inspected results do not.",
+      "searches": [
+        "finite n Metropolis rejected translation invariant displacement symmetric jump distribution uniform interval complete graph globally optimal SLEM n minus 2 over 2 n minus 2",
+        "discrete hard box random walk fastest spectral mixing optimal proposal w plus minus j 1/(2(n-1)) rejection rate one half",
+        "complete graph lazy walk translation invariant displacements rejected out of bounds one-half limit spectral stability uniqueness"
+      ]
+    },
+    "rationale": "Full-text portions of both closely matching continuous-box arXiv works, unrestricted graph fastest-mixing, and the nearest-neighbor path optimization were inspected. Their statements do not imply the exact lattice proposal optimum or stability without a new admissibility-specific derivation. Semantic research matches for alternating cycles, two-hop cycles and crown graphs have different topology/constraint sets. A continuum-to-lattice adaptation might be considered implicit by specialists, and independently unindexed coverage remains a residual risk.",
+    "residual_risks": [
+      "A sufficiently strong unindexed result on finite rejected-displacement Metropolis samplers could cover the discrete theorem.",
+      "The 2023 continuous result plus a familiar spectral technique might be viewed as an implicit route to the discrete optimum; no external priority certification was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Continuous-domain optimal factor 1/2 known; no exact finite lattice all-integer proposal unique optimum or quantitative stability stated in read material",
+        "evidence": [
+          "Equation (9) reduces the continuous box operator to rank-one plus rejection; equation (10) gives centered eigenvalue 1−1/a; a=2 yields 1/2.",
+          "The model integrates over an interval of continuous positions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.08535",
+        "material_read": "Abstract, introduction, continuous box spectral integral operator, section III.A uniform jumps, high-jump spectrum and conclusion",
+        "method": "Read open-access arXiv PDF text and inspect rendered pages 3 and 11",
+        "title": "Singular relaxation of a random walk in a box with a Metropolis Monte Carlo dynamics",
+        "trigger": "Very close same rejection mechanism, box and full spectral optimum"
+      },
+      {
+        "assessment": "Continuous-position box proposals and numerical discretization; does not state global exact n-site rejected-integer proposal optimum or rigidity inequality in inspected material",
+        "evidence": [
+          "Section II describes symmetric continuous w(eta); Appendix D equation (D3) is an integral kernel.",
+          "Appendix D sections 1–2 focus on continuous box localization and polynomial proposal densities."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.10488",
+        "material_read": "Introduction, section II discrete-chain/continuum distinction, Appendix D box model sections 1–2 including eigenvalue equation",
+        "method": "Read arXiv open-access PDF text and inspect rendered title page",
+        "title": "Metropolis Monte Carlo sampling: convergence, localization transition and optimality",
+        "trigger": "Precursor by same authors including a box appendix and discrete chain discussion"
+      },
+      {
+        "assessment": "General graph optimization has a strictly broader feasible class allowing a zero-centered-norm kernel; no exact solution for state-independent rejected integer displacements in read material",
+        "evidence": [
+          "The admissible variable is a symmetric Markov transition matrix subject to graph edge support, not a single displacement probability vector tied across boundary sites."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Introduction, general SDP formulation and examples including complete-graph unconstrained comparison",
+        "method": "Read author-hosted PDF text and first rendered page",
+        "title": "Fastest mixing Markov chain on a graph",
+        "trigger": "Potential stronger theorem for all reversible kernels"
+      },
+      {
+        "assessment": "Restricts transitions to adjacent sites; its optimal nearest-neighbor chain does not contain long-range accepted proposals",
+        "evidence": [
+          "Page 1 explicitly requires P_{ij}=0 when |i−j|>1."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+        "material_read": "Abstract, first pages and nearest-neighbor transition constraints",
+        "method": "Read author-hosted PDF text and rendered first page",
+        "title": "Fastest mixing Markov chain on a path",
+        "trigger": "Same finite interval site set but possibly stronger path result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "06b2e2fb-f0a3-4db2-b49a-9096f86f468d",
+  "value": {
+    "rationale": "Sampling a uniform target with a symmetric state-independent proposal and hard-wall rejection is a standard physical Monte Carlo design problem. The result solves it globally for all finite lattice widths, proving unique optimal jump weights and an explicit stability penalty for wasted mass and asymmetric step-length choices. It identifies a finite-lattice speedup strictly beyond the 1/2 continuum optimum while preserving exactly 1/2 acceptance. This is a natural, reusable structural design fact, not a selected parameter numerical example.",
+    "status": "PASS"
+  }
+}
