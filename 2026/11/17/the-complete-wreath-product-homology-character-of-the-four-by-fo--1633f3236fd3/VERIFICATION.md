@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_rook2.py` in an environment with Python 3 and its standard library; no network or nonstandard packages are required. `verification_output.txt` records the complete expected output. Success requires the final line `ROOK2_FULL_EQUIVARIANT_CHARACTER_PASS`.
+## correctness
 
-The executable enumerates all \(2^{16}\) cell subsets, constructs exact integral simplicial boundary *supports* for mod-two reduction, checks boundary ranks \((15,105,279,144)\), and uses dimension and \(\partial^2=0\) to justify their equality with the rational ranks. It generates all \(1152\) graph automorphisms, checks they preserve each face, computes the signed Lefschetz number two independent ways, and checks the expected twenty conjugacy-class aggregates. The irreducible multiplicities are recovered from exact character inner products and extension traces; subgroup invariant ranks are independently averaged. `character_table.csv` is an inspectable compressed table of all twenty class values.
+PASS
 
-A complete finite check is not an independent mathematical audit, a proof of novelty, or a theorem for other board sizes. This package does not claim any determination of integral quotient torsion or homotopy equivalences of orbit spaces.
+For X=Ind_2(K4□K4) the induced-degree≤1 face predicate, exhaustively evaluated for all 2^16 subsets, gives cardinality face vector (1,16,120,384,528,144). Independent bitset elimination of the full mod-two simplicial boundaries gives ranks (15,105,279,144). Since characteristic-zero ranks are at least these and chain dimension/im(d^2=0) force upper bounds successively at exactly the same values, rational reduced homology is concentrated in degree three of dimension 105. The full graph automorphism group is (S4×S4)⋊C2 of order 1152. Independently enumerated its 1152 cell permutations, computed the exact signed Lefschetz trace over all invariant faces, and confirmed full-group trace sum zero. The packaged verifier independently computes invariant faces via orbit cycle unions, 20 conjugacy-class values, tensor Specht multiplicity matrix, ± diagonal extensions and row/diagonal invariant dimensions 3,5,3; the complete script and proof were read. A finite exhaustive calculation establishes only this fixed board, not a theorem for every rook graph.
+
+## originality
+
+PASS
+
+Nonequivariant 105-sphere topology is acknowledged as prior. The new result gives a 20-class full automorphism action, explicit rational Specht and wreath-product decomposition, and subgroup quotient Betti numbers; these are not implied by adjacency spectral/critical groups or by the nonequivariant rank alone. Relevant primary higher-independence papers concern different graph families, and no exact rook dissociation equivariant table surfaced in searches.
+
+## value
+
+PASS
+
+This natural sixteen-cell rook dissociation complex has large nontrivial symmetry; its full 1152-element rational action and 20-class character are not fixed by the known 105-sphere count. The explicit 105-dimensional module and surprising 0/3/5/3 subgroup invariant dimensions form an independently useful exact equivariant invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
