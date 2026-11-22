@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification of the cyclic three-point median Gini formula
+# Independent mathematical audit
 
-Run `python3 check_median_gini.py` using a standard Python 3 interpreter. The program uses exact rational arithmetic and no third-party packages. It enumerates every strict input ordering and every nonempty proper binary cut for cycle sizes three through eight; it then evaluates actual input/output pairs with rational one-coordinate perturbations for sizes four through 110, and checks the universal three-copy cut bound directly for sizes five through 100.
+## correctness
 
-Observed output:
+PASS
 
-```
-EXHAUSTIVE_STRICT_ORDER_AND_ALL_BINARY_CUTS_PASSED 3 0
-EXHAUSTIVE_STRICT_ORDER_AND_ALL_BINARY_CUTS_PASSED 4 4/3
-EXHAUSTIVE_STRICT_ORDER_AND_ALL_BINARY_CUTS_PASSED 5 3/2
-EXHAUSTIVE_STRICT_ORDER_AND_ALL_BINARY_CUTS_PASSED 6 9/5
-EXHAUSTIVE_STRICT_ORDER_AND_ALL_BINARY_CUTS_PASSED 7 2
-EXHAUSTIVE_STRICT_ORDER_AND_ALL_BINARY_CUTS_PASSED 8 15/7
-EXHAUSTIVE_PERMUTATIONS_TOTAL 46230
-EXPLICIT_TWO_INPUT_SHARP_WITNESSES_PASSED_4_TO_110
-EXACT_CAPACITY_CUT_BOUND_PASSED_5_TO_100
-ALL_MEDIAN_GINI_CHECKS_PASSED
-```
+PASS: Defined the 3-point simultaneous cyclic median and unweighted all-pair Gini seminorm (not adjacent TV). On strict-order chambers the Jacobian is a coordinate-copy selector with multiplicities c_j<=3; any such constant-preserving selector has exact Gini norm max_S t(n-t)/(k(n-k)) by real level-set coarea. Checked the all-dimensional cut proof for n>=7: for k<=n/6 use monotonicity of t(n-t) and the decreasing 3(n-3k)/(n-k); for k>n/6 use 9/5 < 2 <= target. n=5,6 separated, n=3 all windows identical, and n=4 cannot select one site three times because three pair conditions among the other sites are contradictory. Explicit single-coordinate perturbations produce 4/3 for n=4 and 3(n-3)/(n-1) for every n>=5, with n=3 zero. Independently rebuilt actual selector from all strict-order permutations and ALL nontrivial binary cuts for n=3,...,7 (maxima 0, 4/3, 3/2, 9/5, 2), plus checked explicit dimension-dependent sharp witnesses. Finite runs corroborate, not replace all-n inequalities.
 
-The proof in `RESULT.md` establishes arbitrary dimension using selector linearization, exact coarea reduction, a uniform cut bound, and explicit attainment. These computations corroborate but cannot replace those unrestricted steps. No weighted, iterated, or nonperiodic statement is certified here.
+## originality
+
+PASS
+
+PASS (best of knowledge): earlier cyclic median perturbation BV result proves adjacent-edge two-input constants 0,2,3, and the arithmetic-saturation paper gives coordinate lp bounds; these do not determine complete-pair Gini ratios or the formula 3(n-3)/(n-1). Qiu 1994 primary full two-page letter uses binary thresholding to minimize local median smoothing/fidelity cost, not pairwise Gini perturbation. A same-day morphological opening has the same n>=6 numerical coefficient but a different max-min operator, with distinct n=3 and n=5 boundary regimes; its theorem does not imply a median identity. Older unindexed filter variation studies remain a risk.
+
+## value
+
+PASS
+
+PASS: Complete sharp all-dimensional classification of a natural classical local nonlinear denoiser in an intrinsically permutation-invariant global pair-dispersion metric; identifies four-site onset and exact finite-n rate to limiting factor three. Not a mere substitution of adjacent-edge TV or lp constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of sharp two-input Gini sensitivity for cyclic three-point medians
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integer cycle sizes at least three, the theorem concerns the two-input complete-pair Gini seminorm, not single-input smoothing. Every strict-order median chamber induces a row-selector matrix. Its exact Gini seminorm is the maximum over nonempty proper binary cuts, proved by layer-cake. The sharp bound uses the three-window capacity and the cases of one or two small dimensions, with an analytic dichotomy \(k\le n/6\) versus \(k>n/6\) for all \(n\ge7\). Explicit single-coordinate perturbations attain the constants in every dimension. Exhaustive strict-chamber checks through eight sites and exact higher-dimensional witness checks corroborate the proof. No finite enumeration establishes the infinite theorem by itself.
+## correctness
 
-## Originality — PASS, qualified
-The closest full scientific comparison is *Arithmetic saturation of the Lipschitz amplification of cyclic running medians* (2026), which establishes \(\ell_p\)-operator norms via selector multiplicities; its norm vanishes only at zero, whereas the present Gini seminorm identifies all constant vectors and requires a separate cut-capacity estimate. *Sharp BV perturbation threshold for cyclic three-point medians* (2026) establishes a different exact function \(0,2,3\) for adjacent-edge variation, rather than this dimension-dependent complete-pair coefficient. The author-hosted two-page full text of Qiu (1994) concerns a local threshold/cost optimization; the inspected sections of Maragos and Schafer (1987) concern morphological representation and roots, and the inspected sections of Arias-Castro and Donoho (2006/2009) concern statistical mean-square denoising risk. Restrepo and Chacón (1994) report one-input variation smoothing and use nonperiodic finite boundaries; their full text was not inspected. No inspected statement implies the complete-pair formula, but an unindexed historical formulation, or an uninspected general rank-one cut theorem, remains possible.
+PASS
 
-## Mathematical value — PASS
-Complete-pair Gini variation measures global rather than adjacent spatial dispersion, making the exact two-input sensitivity of a classical robust filter a natural stability question. The finite-dimensional transition \(0\to4/3\to3(n-3)/(n-1)\), the sharp explicit attaining input pairs, and the unattained envelope \(3\) distinguish global dispersion amplification from both \(\ell_p\) perturbation and local variation estimates. The result is finite-dimensional but fully quantified, provides nontrivial cut-capacity control, and needs no speculative downstream theorem to motivate the exact boundary.
+PASS: Defined the 3-point simultaneous cyclic median and unweighted all-pair Gini seminorm (not adjacent TV). On strict-order chambers the Jacobian is a coordinate-copy selector with multiplicities c_j<=3; any such constant-preserving selector has exact Gini norm max_S t(n-t)/(k(n-k)) by real level-set coarea. Checked the all-dimensional cut proof for n>=7: for k<=n/6 use monotonicity of t(n-t) and the decreasing 3(n-3k)/(n-k); for k>n/6 use 9/5 < 2 <= target. n=5,6 separated, n=3 all windows identical, and n=4 cannot select one site three times because three pair conditions among the other sites are contradictory. Explicit single-coordinate perturbations produce 4/3 for n=4 and 3(n-3)/(n-1) for every n>=5, with n=3 zero. Independently rebuilt actual selector from all strict-order permutations and ALL nontrivial binary cuts for n=3,...,7 (maxima 0, 4/3, 3/2, 9/5, 2), plus checked explicit dimension-dependent sharp witnesses. Finite runs corroborate, not replace all-n inequalities.
 
-## Limitations and closest literature
-The theorem is restricted to one unweighted periodic three-point median pass. It gives no claim for larger windows, iterates, weighted complete-pair variation, or other boundary conventions. Priority remains qualified because some older relevant papers were only partially inspected. The proof was reconstructed and its computations replayed within the current package; external independent validation is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): earlier cyclic median perturbation BV result proves adjacent-edge two-input constants 0,2,3, and the arithmetic-saturation paper gives coordinate lp bounds; these do not determine complete-pair Gini ratios or the formula 3(n-3)/(n-1). Qiu 1994 primary full two-page letter uses binary thresholding to minimize local median smoothing/fidelity cost, not pairwise Gini perturbation. A same-day morphological opening has the same n>=6 numerical coefficient but a different max-min operator, with distinct n=3 and n=5 boundary regimes; its theorem does not imply a median identity. Older unindexed filter variation studies remain a risk.
+
+## value
+
+PASS
+
+PASS: Complete sharp all-dimensional classification of a natural classical local nonlinear denoiser in an intrinsically permutation-invariant global pair-dispersion metric; identifies four-site onset and exact finite-n rate to limiting factor three. Not a mere substitution of adjacent-edge TV or lp constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
