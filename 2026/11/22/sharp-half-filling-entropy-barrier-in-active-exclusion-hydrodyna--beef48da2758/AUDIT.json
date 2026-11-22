@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For the stated PDE, direct differentiation verifies H=diag((1-2rho)/(1-rho),1), H DF=(DF)^T H and grad(q)=(DF)^T grad(h). The chain rule gives exact periodic entropy dissipation with no Pe term. On 0<=rho<=R<1/2, alpha_R<=f''<=1 and periodic Poincare gives the exact rate min(2 alpha_R (2pi/L)^2,4). For stationary, periodic, or traveling patterns staying at/below half filling, zero dissipation forces m=0, rho_x=0, including at rho=1/2 by the interior maximum condition. Above half filling the unpolarized flux Jacobian has imaginary eigenvalues, and at half filling a nonzero Jordan block, excluding a positive-definite entropy Hessian there. All analytic hypotheses and boundaries are explicit; CHECKER.py independently verifies identities and sample finite-grid balances (83 assertion groups), but finite tests are not relied upon as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kourbane-Houssene et al. arXiv:1801.08952 full main text equations (5)-(7) gives the PDE and linear spinodal",
+        "Agranov et al. arXiv:2209.03000 available full source addresses fluctuating entropy production, large deviations, and biased phases",
+        "Published ...feb965488439 concerns finite-ring linear spinodal rather than nonlinear continuum evolution",
+        "Agranov–Ro–Kafri–Lecomte arXiv:2104.14650 section III.4 constructs Gaussian-order large-deviation free energy, not the nonlinear PDE entropy",
+        "2018 arXiv:1801.08952 equations (8)-(11) construct flat stationary domain-wall/binodal profiles with coexistence assumptions, not arbitrary periodic stationary/traveling PDE solutions"
+      ],
+      "reasoning": "A linear spinodal criterion implies only local spectral stability and does not imply a pointwise trajectory-cap-dependent global nonlinear Lyapunov law. Stochastic entropy production is a distinct observable. Standard theory allows an entropy if a symmetrizer exists, but neither source supplies this explicit entropy and its sharp obstruction. A covariance-based Gaussian quasi-potential is not an exact nonlinear deterministic Lyapunov law and does not dominate the present traveling-wave barrier. Although the 2018 stationary interface ODE is closely relevant and its computed binodals describe phase coexistence, it neither states nor implies a universal theorem about every smooth finite-ring stationary and traveling profile without additional completeness assumptions; the new nonlinear energy identity supplies the direct all-profile exclusion.",
+      "searches": [
+        "published-finding corpus: active exclusion lattice gas run-and-tumble hydrodynamic eigenvalues damped oscillation wave number band exact square root discriminant phase",
+        "published-finding corpus: active exclusion process hydrodynamics motility-induced phase separation sharp linear instability onset density",
+        "published-finding corpus: convex entropy symmetrizer parabolic conservation density m active exclusion spinodal threshold rho one half",
+        "Web: active lattice gas hydrodynamics Lyapunov half density motility induced phase separation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1801.08952",
+      "https://arxiv.org/abs/2209.03000",
+      "https://doi.org/10.1088/1742-5468/aca0eb",
+      "Published ...85d5b0aa7168",
+      "Published ...feb965488439",
+      "Published ...de465cebd595",
+      "https://arxiv.org/html/2104.14650v4 (full-text Gaussian quasi-potential)",
+      "https://arxiv.org/html/2301.10680v3 (current-fluctuation study)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 arXiv:1801.08952 reports Pe^2(1-rho0)(2rho0-1)>2 as a homogeneous linear instability condition",
+        "Published ...85d5b0aa7168 reports sharp linear nonmodal amplification and special density two-thirds",
+        "Published ...de465cebd595 reports current-fluctuation optimizer; no matching dissipative energy",
+        "Agranov et al. arXiv:2104.14650 shows Gaussian-order fluctuating hydrodynamics and section III.4 quasi-potential, not nonlinear global energy"
+      ],
+      "reasoning": "The earlier linear instability results do not rule out finite-amplitude nonlinear steady waves entirely below half occupancy or yield a Pe-independent nonlinear decay certificate. The present nonexistence theorem is a genuinely stronger statement in its pointwise-limited nonlinear domain; it does not reverse-claim the known linear threshold. The 2018 interface/binodal calculation is also not a proof of absence of every other bounded steady/traveling pattern below half occupancy, without a separate exhaustive classification.",
+      "searches": [
+        "published-finding corpus: active exclusion lattice gas run-and-tumble hydrodynamic eigenvalues damped oscillation wave number band exact square root discriminant phase",
+        "published-finding corpus: nonlinear entropy Lyapunov full active lattice gas hydrodynamics low density one half symmetrization nonlinear exponential stability any Peclet",
+        "published-finding corpus: active exclusion process hydrodynamics motility-induced phase separation sharp linear instability onset density",
+        "published-finding corpus: no phase separated stationary solutions density below 1/2 active lattice hydrodynamics energy",
+        "published-finding corpus: nonlinear half filling density cap entropy active exclusion polarization traveling wave impossibility"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Symbolic equivalence of the local entropy-flux pair to H DF=(DF)^T H and grad q=(DF)^T grad h checked exactly",
+        "Published nonmodal active-lattice result ...85d5b0aa7168 analyzes linear nonnormal growth, not an entropy for the full nonlinear flux"
+      ],
+      "reasoning": "Searched entropy symmetrization, nonlinear Lyapunov and half-filling pattern exclusion aliases. Entropy symmetrization is the same algebraic content as cancellation of the nonlinear Pe flux, but the returned active-lattice claims contain no such full nonlinear cancellation or steady/traveling-wave deduction.",
+      "searches": [
+        "published-finding corpus: nonlinear entropy Lyapunov full active lattice gas hydrodynamics low density one half symmetrization nonlinear exponential stability any Peclet",
+        "published-finding corpus: active lattice gas density polarization exact nonlinear entropy dissipation half filling Kourbane Erignoux Pe",
+        "published-finding corpus: convex entropy symmetrizer parabolic conservation density m active exclusion spinodal threshold rho one half",
+        "published-finding corpus: nonlinear half filling density cap entropy active exclusion polarization traveling wave impossibility"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of publicly indexed scientific findings yielded no exact same-system nonlinear entropy identity; the closest identified claims address linear nonmodal response, finite-ring spinodal, and current fluctuations",
+        "The continuous entropy identity is not a finite table or catalogued numerical invariant"
+      ],
+      "reasoning": "The claim is a continuum theorem, not a finite exact database/table entry. Searching exact source IDs and statement synonyms did not reveal the specific identity. Absence of a search hit is treated as evidence of a checked comparison, not proof of publication novelty.",
+      "searches": [
+        "published-finding corpus: arXiv 1801.08952 Kourbane Houssene Erignoux Bodineau Tailleur density polarization entropy",
+        "published-finding corpus: arXiv 2209.03000 Agranov Cates Jack entropy hydrodynamics steady free energy",
+        "published-finding corpus: nonlinear half filling density cap entropy active exclusion polarization traveling wave impossibility"
+      ]
+    },
+    "rationale": "The 2018 full-text derivation provides the PDE and its homogeneous linear spinodal; it does not provide the explicit symmetrizing nonlinear entropy, all-Pe relative-entropy decay under a trajectory-wide cap, nonexistence of wholly sub-half-filling steady/traveling profiles, or sharp local convex-symmetrizer obstruction. The 2022 full-text entropy-production analysis instead studies stochastic pathwise irreversibility and rare-event statistics. The closest published claim about nonmodal response treats linear modes and is neither stronger nor equivalent to the global nonlinear dissipation identity. Originality remains qualified by possible implicit coverage in general two-by-two symmetrizable balance-law theory.",
+    "residual_risks": [
+      "The exact local entropy calculation may be implicit in less searchable general symmetrizer literature or an uncited active lattice paper.",
+      "Same-model review does not constitute independent publication priority certification.",
+      "Claims need no pointwise cap invariance; if inferred, that would exceed the theorem.",
+      "General nonlocal or degenerate entropy methods may remain possible above half filling; only positive-definite Hessian local entropy-flux pairs are obstructed.",
+      "The original paper already constructs special exact stationary phase interfaces; the pattern-exclusion theorem is not claimed to supersede those binodal formulae."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the same deterministic PDE, linear spinodal and specific flat phase-interface/binodal construction. Does not directly state a globally valid nonlinear Lyapunov identity, no-pattern theorem for arbitrary smooth periodic steady/traveling profiles wholly below half filling, or sharp local convex-symmetrizer obstruction.",
+        "evidence": [
+          "First arXiv public timestamp 2018-01-26 19:33 UTC",
+          "Dimensionless PDE equations (5)-(6), linear spinodal criterion equation (7)",
+          "The main text equations (8)-(11) construct flat stationary interfaces and binodals under coexistence assumptions, not an exhaustive classification of all periodic steady/traveling solutions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.08952",
+        "material_read": "Full arXiv main text, including microscopic and hydrodynamic derivations (3)-(6), linear spinodal equation (7), and stationary phase-interface/binodal construction equations (8)-(11)",
+        "method": "Read full-text HTML including equations and phase analysis; compared implications to the proposed nonlinear entropy and traveling-wave exclusion",
+        "title": "Exact Hydrodynamic Description of Active Lattice Gases",
+        "trigger": "Identical underlying density-polarization PDE and potentially dominating phase separation conclusions"
+      },
+      {
+        "assessment": "Investigates stochastic pathwise irreversibility, not the deterministic h and q with exact Pe-independent dissipation",
+        "evidence": [
+          "First arXiv public timestamp 2022-09-07",
+          "IEPR source is log forward/reversed path-probability ratio; stationarity rate depends on Pe and rho"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.03000",
+        "material_read": "Accessible open full text sections on fluctuating hydrodynamics, informatic entropy production, variational large deviations and physical phase diagram; compared their entropy production observable",
+        "method": "Read public full-paper content and checked entropy definitions/claims against deterministic PDE entropy-flux law",
+        "title": "Entropy production and its large deviations in an active lattice gas",
+        "trigger": "Same active lattice gas and apparent entropy terminology"
+      },
+      {
+        "assessment": "Its free energy is a Gaussian-order large-deviation quasi-potential computed using covariance inversion, not a nonlinear Lyapunov functional with exact pointwise cancellation for the deterministic PDE",
+        "evidence": [
+          "arXiv:2104.14650v4 section III.4, equations (21)-(24), states explicitly only Gaussian/quadratic order",
+          "Section I distinguishes prior deterministic hydrodynamics from the new typical fluctuation analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2104.14650v4",
+        "material_read": "Full HTML article including section III.4 on free-energy/quasi-potential and sections on two-point covariance and linearized mode relaxation",
+        "method": "Read full accessible HTML and compared quadratic fluctuation-rate functional to deterministic nonlinear exact entropy pair and all-Pe steady-state exclusion",
+        "title": "Exact fluctuating hydrodynamics of active lattice gases -- Typical fluctuations",
+        "trigger": "Same underlying PDE and a section named free-energy for the density profile; plausible broad coverage"
+      },
+      {
+        "assessment": "Linear finite-mode amplification can coexist with weighted nonlinear entropy monotonicity; neither statement implies the other",
+        "evidence": [
+          "Published claim treats r=2/3 weighted self-adjointness and large Pe transient gain, not an all-Pe global entropy identity"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-nonmodal-amplification-in-an-interacting-active-lattice-ga--85d5b0aa7168",
+        "material_read": "Full published RESULT.md, including finding, assumptions, proof, relationship, limitations and references",
+        "method": "Fetched and read full public scientific RESULT.md; compared the exact Fourier semigroup norm and eigenvalue statements to the nonlinear entropy theorem",
+        "title": "Sharp nonmodal amplification in an interacting active lattice gas",
+        "trigger": "Same exact hydrodynamic linear modes; closest published overlap"
+      },
+      {
+        "assessment": "No covering implication across model, scope, or nonlinear energy statement",
+        "evidence": [
+          "Sharp discrete barrier depends on finite ring size, while current half-filling Hessian barrier is local continuum characteristic structure"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-finite-ring-spinodal-and-a-five-site-barrier-in-active-exc--feb965488439",
+        "material_read": "Published summary of finite-ring spinodal claim; no full text claimed read",
+        "method": "Compared different discrete finite-ring mean-field linearization to continuum nonlinear theorem",
+        "title": "Exact finite-ring spinodal and a five-site barrier in active exclusion mean fields",
+        "trigger": "Related density threshold in active lattice system"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "beef48da-2758-4700-85bd-1c5a6d7dc2e7",
+  "value": {
+    "rationale": "The previously derived active-exclusion hydrodynamics has a nonlinear phase-separation problem. The exact strictly convex entropy construction, independent of drive, gives an explicit quantitative mixing rate as long as the physical trajectory stays under a sharp pointwise threshold. More importantly it excludes every stationary/traveling density pattern wholly below half filling even at arbitrarily strong drive, a nonlinear structural boundary not implied by a linear spinodal. Loss of hyperbolicity at exactly half filling explains why this specific energy mechanism cannot be extended with positive-definite local curvature. The conditional nature is explicitly delimited rather than presented as global cap propagation.",
+    "status": "PASS"
+  }
+}

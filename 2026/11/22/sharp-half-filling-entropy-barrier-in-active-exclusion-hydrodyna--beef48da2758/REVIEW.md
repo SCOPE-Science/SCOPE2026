@@ -1,0 +1,11 @@
+# Review of the half-filling nonlinear entropy theorem
+
+**Correctness — PASS.** The proof starts from the exact density–polarization PDE and verifies the full local entropy-flux identity. Convexity is uniform on a density interval capped by \(R<1/2\), and the periodic Poincaré constant produces a fully explicit nonlinear decay rate. A steady or traveling profile contained in \(\rho\le1/2\) has zero dissipation and must be constant. At and above half filling, characteristic nonreal eigenvalues or a nontrivial Jordan block prevent positive-definite local Hessian symmetrizers. The independent checker verifies 83 exact algebraic/numerical assertion groups; no numerical sample is substituted for the proof.
+
+**Originality — PASS, qualified.** The 2018 active-lattice derivation, linear spinodal and flat-interface binodals are prior work; the exact entropy and nonlinear no-pattern barrier are the assessed additions. The 2021 Gaussian-order quasi-potential is a fluctuating-hydrodynamic quantity rather than the present exact nonlinear Lyapunov entropy. The 2022 entropy-production large-deviations theory concerns pathwise irreversibility, not the entropy flux here. Published nonmodal-amplification and finite-ring-spinodal findings concern related but non-dominating linear results. General entropy-system theory could implicitly contain the calculation, and independent literature-priority assessment remains necessary.
+
+**Mathematical value — PASS.** The same driven PDE supports phase-coexistence questions, so a drive-independent nonlinear certificate and sharp local-density obstruction address a natural structural gap. The theorem makes no claim that low initial mean, or even an initially low maximum, stays low under arbitrary dynamics. It is a deterministic PDE theorem rather than a microscopic statistical certification.
+
+**Closest literature and limitations.** Kourbane-Houssene et al., arXiv:1801.08952 (PDE and linear instability); Agranov et al., arXiv:2209.03000 (entropy-production fluctuations). Exact general convex symmetrizer prior art remains a residual risk. Only classical periodic solutions under their stated ranges are covered; no finite-system phase diagram or unconditional cap invariance is proved.
+
+Self-review: passed. Independent audit: not yet performed.
