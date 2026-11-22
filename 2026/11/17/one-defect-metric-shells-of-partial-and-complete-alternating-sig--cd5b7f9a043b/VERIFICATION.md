@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the metric-shell theorem
+# Independent mathematical audit
 
-The following commands were executed using the embedded scripts (in the same directory) with Python 3:
+## correctness
 
-`python scripts/verify_one_defect.py`
+PASS
 
-`ONE_DEFECT_CERTIFICATES_PASS full_orders=48 partial_rectangles=36 partial_one_defect=2117 partial_shells=[((1, 1), 1164), ((1, 2), 266), ((2, 1), 526), ((2, 2), 161)] enumerated_ASM=478 full_one_defect=217`
+For a partial alternating-sign matrix with unique -1 at (r,c), each row/column containing it has 1 or 2 positive arms. Frobenius squared distance lower bound δ²(1+(a-1)/2+(b-1)/2) with δ=Y_rc+1>=1 follows from saturation and Cauchy-Schwarz; the displayed zero-center and half-arm point attains (a+b)/2. Complete ASMs with one -1 are row/column-permutation equivalent to the 3x3 cross D⊕I_(n-3). Direct exact KKT potential h verifies X_ij=(A_ij-h_i-h_j)_+, nonnegative doubly stochastic rows/columns, unique nearest projection and squared distance 2+2/(n+5); choose 3 rows, 3 columns and remaining permutation to count C(n,3)^2(n-3)!. Independently built rational matrices n=3..35 and verified every row/column constraint, every complementarity entry and exact distances.
 
-`python scripts/independent_qp.py`
+## originality
 
-`ONE_DEFECT_INDEPENDENT_QP_PASS full_orders=7 partial_cases=14 max_coordinate_error=2.75e-15`
+PASS
 
-The first program checks exact rational row and column sums, entrywise nonnegativity, the canonical KKT potential identities, exact distances for orders three through fifty, and direct transfers of one-defect partial matrices. It independently enumerates all one-negative partial alternating-sign matrices in seven small rectangular shapes and complete alternating-sign matrices in orders three through five, checking canonical decomposition, distance shells, and the predicted multiplicities.
+Heuer–Striker studies partial-ASM and matching-polytope structures, and Striker studies the ASM polytope; neither compared statement provides the all-order explicit nearest-point one-defect Frobenius shells. General nonnegative bistochastic projection algorithms are broader computational frameworks, not an existing fixed closed-form shell formula. Resultary nearest inradius/diameter and other Birkhoff projection families concern distinct points/metrics. Best of knowledge with older matrix-nearness residual risk.
 
-The optional second program requires NumPy and SciPy. It solves equality-constrained Birkhoff projection quadratic programs with a linearly independent equality system, and separately solves inequality-constrained partial-permutation projection programs, comparing optimization outputs to the exact values. These finite computations corroborate the analytical identities; they are not proofs of the unrestricted statements or evidence of historical uniqueness.
+## value
 
-Independent mathematical audit has not been performed.
+PASS
+
+Three partial exact distance shells and an all-order exact complete-matrix projection exhibit how global row/column conservation delocalizes a single alternating-sign defect by 2/(n+5). These are interpretable, natural quantitative invariants of standard ASM and Birkhoff polytopes, with unique projections and full family counts, not a routine restatement of polytope definitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

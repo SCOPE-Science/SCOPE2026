@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:47:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md dded26b4a1866f031011b408e54478d0d2e3fcca",
+        "pinned scripts/verify_one_defect.py cce4a279f94a3efdcebf8f28a44cef753a49df44",
+        "independent exact Fraction KKT audit at n=3..35"
+      ],
+      "rationale": "For a partial alternating-sign matrix with unique -1 at (r,c), each row/column containing it has 1 or 2 positive arms. Frobenius squared distance lower bound δ²(1+(a-1)/2+(b-1)/2) with δ=Y_rc+1>=1 follows from saturation and Cauchy-Schwarz; the displayed zero-center and half-arm point attains (a+b)/2. Complete ASMs with one -1 are row/column-permutation equivalent to the 3x3 cross D⊕I_(n-3). Direct exact KKT potential h verifies X_ij=(A_ij-h_i-h_j)_+, nonnegative doubly stochastic rows/columns, unique nearest projection and squared distance 2+2/(n+5); choose 3 rows, 3 columns and remaining permutation to count C(n,3)^2(n-3)!. Independently built rational matrices n=3..35 and verified every row/column constraint, every complementarity entry and exact distances.",
+      "residual_risks": [
+        "Tests n<=35 do not establish universal case; written Cauchy-Schwarz and KKT proof does. The count assumes the unique defect forces the canonical core, checked combinatorially."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known general bistochastic Euclidean projection yields existence and numerical solvers; other indexed exact distances concern alternate forbidden permutation vertices or internal inradius."
+        ],
+        "reasoning": "A generic projection characterization does not mathematically imply a stated exact closed-form shell or unique projecting matrix without the specialized KKT calculation; no stronger explicit one-defect case was identified.",
+        "searches": [
+          "Frobenius distance Birkhoff polytope alternating sign matrix exactly one -1 projection metric shell",
+          "exact nearest doubly stochastic matrix one-negative alternating sign matrix KKT"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2012.09901",
+        "https://arxiv.org/abs/0705.0998",
+        "Resultary searches for alternating-sign-matrix Frobenius nearest doubly substochastic and Birkhoff one-defect shells"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Partial ASM/Striker polytope descriptions determine admissible entries and convex hull; current source proves exact lower bound and KKT sufficiency."
+        ],
+        "reasoning": "A polytope representation or general nearest-point theorem supplies premises but not the evaluated one-defect all-order distances, unlike the explicit proof reconstructed here.",
+        "searches": [
+          "https://arxiv.org/abs/2012.09901",
+          "https://arxiv.org/abs/0705.0998",
+          "Frobenius distance Birkhoff polytope alternating sign matrix exactly one -1 projection metric shell"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heuer–Striker (arXiv:2012.09901) identifies partial-permutation polytopes with doubly substochastic matrices."
+        ],
+        "reasoning": "Same optimization may be called nearest subpermutation or nearest bistochastic matrix; searched those equivalent names and found no already-identified exact one-defect formula.",
+        "searches": [
+          "partial alternating sign matrix Frobenius projection Birkhoff one negative defect",
+          "one negative entry alternating sign matrix nearest doubly substochastic subpermutation Frobenius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest includes shared insphere and incenter jump for partial ASM polytopes and alternate Birkhoff nearest-vertex families, not the defect shells."
+        ],
+        "reasoning": "Enumeration C(n,3)^2(n-3)! and distance shells are full parameter statements rather than small tabulated cases; a search miss remains only bounded evidence.",
+        "searches": [
+          "Frobenius distance Birkhoff polytope alternating sign matrix exactly one -1 projection metric shell",
+          "partial alternating sign matrix Frobenius projection Birkhoff one negative defect",
+          "ASM with one -1 choose n 3 squared Frobenius distance 2+2/(n+5)"
+        ]
+      },
+      "rationale": "Heuer–Striker studies partial-ASM and matching-polytope structures, and Striker studies the ASM polytope; neither compared statement provides the all-order explicit nearest-point one-defect Frobenius shells. General nonnegative bistochastic projection algorithms are broader computational frameworks, not an existing fixed closed-form shell formula. Resultary nearest inradius/diameter and other Birkhoff projection families concern distinct points/metrics. Best of knowledge with older matrix-nearness residual risk.",
+      "residual_risks": [
+        "Original primary full manuscripts were not completely inspected during this execution; a historical equivalent specialized KKT formula in matrix-nearness literature is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports object definitions and convex hull; no verified whole-manuscript noncoverage assertion",
+          "evidence": [
+            "arXiv:2012.09901 abstract",
+            "pinned RESULT citations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.09901",
+          "material_read": "Public abstract, publication metadata and definitions as quoted in pinned source; complete manuscript not read",
+          "method": "arXiv bibliographic source and abstract",
+          "title": "Partial permutation and alternating sign matrix polytopes",
+          "trigger": "Exact same partial ASM and subpermutation polytopes"
+        },
+        {
+          "assessment": "Provides background; exact one-defect projection not verified as previously claimed",
+          "evidence": [
+            "arXiv:0705.0998"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0705.0998",
+          "material_read": "Abstract/metadata and structural theorem references from pinned source; full manuscript not inspected",
+          "method": "public arXiv metadata and source citation",
+          "title": "The alternating sign matrix polytope",
+          "trigger": "Standard Birkhoff/ASM convex-hull relationship"
+        },
+        {
+          "assessment": "Inradii and incenter dimensions of individual polytopes do not determine the one-defect external projection",
+          "evidence": [
+            "Resultary indexed precise result summary"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-shared-insphere-and-a-sharp-incenter-dimension-jump-for-partia--a7aa307ea2ec",
+          "material_read": "Indexed title and full result summary only; not whole document",
+          "method": "published result semantic search",
+          "title": "A shared insphere and a sharp incenter-dimension jump for partial alternating-sign-matrix polytopes",
+          "trigger": "Nearest indexed same ASM polytopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2012.09901",
+        "https://arxiv.org/abs/0705.0998",
+        "exact projected matrices and KKT certificate"
+      ],
+      "rationale": "Three partial exact distance shells and an all-order exact complete-matrix projection exhibit how global row/column conservation delocalizes a single alternating-sign defect by 2/(n+5). These are interpretable, natural quantitative invariants of standard ASM and Birkhoff polytopes, with unique projections and full family counts, not a routine restatement of polytope definitions.",
+      "residual_risks": [
+        "Multi-defect distances and whole-polytope Hausdorff extremality are not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-negative condition essential; full matrix-nearness bibliography not exhausted."
+  ],
+  "schema_version": 1
+}

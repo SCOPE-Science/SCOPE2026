@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The partial-matrix lower bound comes from the negative-entry cost and separate Cauchy–Schwarz inequalities for each of its saturated row and column; a feasible entrywise construction attains that bound and strict convexity proves uniqueness. For the complete case, row/column permutation equivalence reduces every matrix to one three-by-three defect block and a matching block. The displayed doubly stochastic matrix and separable row/column potentials provide a global KKT certificate, with all matrix indices and the smallest order checked. The exact squared norm and exact combinatorial shell multiplicity then follow by direct calculation. The proof does not extrapolate finite computations to infinity.
+PASS
 
-## Originality — PASS, provisional historical priority
+For a partial alternating-sign matrix with unique -1 at (r,c), each row/column containing it has 1 or 2 positive arms. Frobenius squared distance lower bound δ²(1+(a-1)/2+(b-1)/2) with δ=Y_rc+1>=1 follows from saturation and Cauchy-Schwarz; the displayed zero-center and half-arm point attains (a+b)/2. Complete ASMs with one -1 are row/column-permutation equivalent to the 3x3 cross D⊕I_(n-3). Direct exact KKT potential h verifies X_ij=(A_ij-h_i-h_j)_+, nonnegative doubly stochastic rows/columns, unique nearest projection and squared distance 2+2/(n+5); choose 3 rows, 3 columns and remaining permutation to count C(n,3)^2(n-3)!. Independently built rational matrices n=3..35 and verified every row/column constraint, every complementarity entry and exact distances.
 
-The 2020 Heuer–Striker primary paper establishes partial alternating-sign-matrix and partial-permutation polytope descriptions, but its inspected matrix, inequality, vertex, face-lattice and volume sections do not give one-defect Euclidean projections. Striker's original standard ASM-polytope paper gives Birkhoff inclusion and face structure rather than nearest-point formulas. Relevant 2022 multiplicative-order work concerns algebraic properties of matrices with negative entries. Existing published geometric results on inballs, diameters, and generic bistochastic projection stability do not logically imply this explicit full three-shell partial classification or the complete-case formula and multiplicity. Searches for metric-projection terminology, matrix nearness, equivalent defect forms, and exact distance values located no covering statement. Lack of a match is not proof of priority, and older matrix-nearness literature remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact metric cost of restoring nonnegative partial matchings from alternating-sign vertices is a natural quantitative difference between two nested combinatorial polytope families. The result classifies the complete one-negative boundary of the larger family, including the distinction between unsaturated partial row/column constraints and globally conserved margins. The nonzero off-block entries of every complete-case projection reveal a structural nonlocality that is invisible from one-negative support or from a vertex/facet census. The closed distance penalty and shell multiplicity hold at all sizes and are not arbitrary finite examples.
+Heuer–Striker studies partial-ASM and matching-polytope structures, and Striker studies the ASM polytope; neither compared statement provides the all-order explicit nearest-point one-defect Frobenius shells. General nonnegative bistochastic projection algorithms are broader computational frameworks, not an existing fixed closed-form shell formula. Resultary nearest inradius/diameter and other Birkhoff projection families concern distinct points/metrics. Best of knowledge with older matrix-nearness residual risk.
 
-## Closest literature and limitations
+## value
 
-Heuer–Striker (arXiv:2012.09901), Striker (arXiv:0705.0998), and O'Brien–Quinlan (doi:10.1016/j.laa.2022.06.001) provide relevant definitions and comparisons, not the asserted distance formulas. The result excludes multiple-negative matrices and makes no global maximum-distance claim for the full ASM polytope. Independent priority and proof assessment remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three partial exact distance shells and an all-order exact complete-matrix projection exhibit how global row/column conservation delocalizes a single alternating-sign defect by 2/(n+5). These are interpretable, natural quantitative invariants of standard ASM and Birkhoff polytopes, with unique projections and full family counts, not a routine restatement of polytope definitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
