@@ -1,0 +1,15 @@
+# Review of age–position chronology under threshold resetting
+
+## Correctness — PASS
+For every \(L,v,D>0\), the regenerative mean first-passage time is \(L/v\), so the stationary age–position occupation formula is well defined. Differentiation of the explicitly stated killed Green resolvent gives the conditional mean. The strict monotonicity on each side of the reset point follows from \(\sinh z>z\) for \(z>0\). Five polynomial occupation potentials satisfy their Dirichlet generator equations, yielding both covariance formulas. The forward covariance follows from the Markov conditional hitting time. Symbolic checks and direct killed-kernel quadrature corroborated all computation steps, but the proof is analytic.
+
+## Originality — PASS, qualified
+The most relevant source [1] contains the killed Green resolvent and stationary position variance, which are acknowledged as premises, but its examined main text and appendices address relaxation and spatial observables, not conditional renewal age or the sharp sign classification of its covariance with position. [2] and [3] treat threshold-reset spatial law and dynamics, without these marked age statistics. [4] gives classical unmarked renewal inspection identities but not a spatially conditioned Brownian threshold-reset law. Indexed findings on renewal age/residual correlations treat only the unmarked clocks, and the related exact reset-count oscillation result treats a different observable. The derived phase boundary and strict conditional-age minimum require a new interpretation and sign argument beyond citing the resolvent; possible unindexed equivalent computations remain a priority risk. General occupation and renewal theorems are not claimed as original.
+
+## Value — PASS
+The natural physical observations are current displacement, time since last wall event and time until the next wall event in threshold-triggered transport or ideal integrate-and-fire models. The theorem shows why identical marginal backward/forward waiting times need not be equally informative about the instantaneous state; it establishes a universal-in-diffusivity temporal covariance difference and an exact Péclet transition between diffusion-dominated positive and drift-dominated negative position–age coupling. The location of the unique conditional-age minimum is a structural statement for the complete half-line, not an arbitrary parameter slice. The finding remains limited to the stated model, not a general nonequilibrium entropy theorem.
+
+## Closest literature and scientific limitations
+[1] R. Das, S. N. Majumdar, A. Pal, arXiv:2609.24438, 2026; [2] B. De Bruyne et al., arXiv:2009.03419; [3] R. Falcao and M. R. Evans, arXiv:1610.03503; [4] A. Pal et al., arXiv:2108.07018. All references are credited for their foundational Green and renewal formulas. No claim is made for nonlinear forces, finite boundaries, experimental identification, thermodynamic cost or independent validation. A preexisting unindexed equivalent derivation remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
