@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full graph and shortest-path metric are explicit; exact clique enumeration finds 802 and 6,462 nonempty faces. Verified elementary collapses reduce them to two-dimensional cores, and elimination of all non-tree-edge generators in complete triangle presentations proves simple connectivity. Euler characteristics yield ranks 21 and 1; the two-dimensional homology-Whitehead argument proves integral sphere-wedge homotopy types. A directly computed unit determinant minor proves that the 20 octahedral hexagon cycles together with the global polyhedral cycle form an integral (rather than rational) basis. The local cycles bound at scale three; the surviving global cycle has a unit coefficient after reduction. The standalone checker uses exact arithmetic and reproduces its recorded output.
+## correctness
 
-**Originality — PASS subject to residual publication-priority risk.** Adamaszek–Adams (arXiv:1503.03669) classifies Rips complexes of subsets of a circle under the circle metric; its theorem does not include an intrinsic graph metric on the truncated icosahedron. Saleh–Titz Mite–Witzel (arXiv:2302.14388) classifies the five Platonic solids and expressly leaves Archimedean examples as a prospective extension. The closest indexed calculations concern the truncated octahedron, truncated cube, rhombicuboctahedron and other graphs, not this specific 60-vertex fullerene or the 20-versus-one integral persistence decomposition. Indexed-search failures cannot exclude unindexed fullerene results; this remains a declared risk.
+PASS
 
-**Mathematical value — PASS.** The truncated icosahedron is the canonical 60-vertex fullerene, with twenty geometrically distinguished hexagons and twelve pentagons. The theorem explains a sharp, interpretable topological event: the twenty local octahedral sphere classes die precisely on enlarging the threshold from two to three, while a primitive global polyhedral sphere persists. The integral basis and inclusion map add information unavailable from Betti numbers alone and provide a natural test case for graph-metric topological persistence.
+Read all eight actual Git-source files and independently reconstructed the eight-blob Git tree SHA 3c937b2e8a4fb9446a7eaf9fb086efd0e98ae136. The RESULT and SLOGAN identify a specific finite 60-vertex unweighted truncated-icosahedral graph with inclusive graph-distance thresholds 2,3. Reimplemented face enumeration, independent greedy elementary collapses, spanning-tree triangle-relator elimination, oriented 116-triangle surface cycle, twenty signed eight-triangle octahedron cycles, exact integral chain transport and primitive-pivot checks. The independent collapse order (not the source checker order) yields 144 free pairs and a (60,246,208) two-core at r=2, and 3122 pairs and a (60,108,50) two-core at r=3; both have π1=1 and Euler characteristics 22 and 2. Exactly 802 and 6462 faces and H2 ranks 21 and 1 are independently recovered. At r=2 the twenty hexagon cycles admit exclusive ±1 triangle pivots absent from the other twenty classes, and the global cycle has an additional ±1 pivot, yielding a unit determinant 21×21 minor and hence an integral basis of H2. At r=3 the global 2-cycle transports to 50 ±1 triangles and generates the rank-one integral H2; hexagon cycles bound six-vertex simplices, giving kernel Z^20 and split surjectivity. The proof uses genuine free-face deformation retractions, elementary π1 deductions, integral Hurewicz and homological Whitehead; the finite computations exhaust this exact finite graph, not an infinite class.
 
-Scientific limits: not a classification at all radii, and no equivariant or Euclidean-metric result; no definitive priority or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The submitted r2/r3 integral homotopy types and mod-two bar counts were already established in an earlier-dated exact same-graph finding; credit remains with that work. A separately worthwhile integral strengthening survives: the explicit 20 hexagon octahedral cycles plus global surface cycle form a unimodular integral basis, and the geometric global class maps to a primitive generator at r3, fixing the integer lattice map. Earlier stagewise integral homotopy and mod-two nonvanishing do not determine the map index or these signed generators; the primary same-object results inspected in full do not state the integral refinement. Best-of-knowledge PASS with material priority risk, not universal novelty certification.
+
+## value
+
+PASS
+
+The sixty-vertex buckminsterfullerene is a canonical natural Archimedean graph with exactly 20 geometrically distinguished hexagons. The integral 2→3 map and a face-supported Z-basis are meaningful local-to-global topological invariants: field barcodes and separate sphere homotopy types leave possible odd integral index and do not name generators. The unimodular splitting identifies exactly which 20 geometric classes die and which primitive global class survives, information a future researcher could use for integer persistence or symmetry computations. This is a legitimate narrow exact refinement even though the stage homotopy ranks are old; no downstream generalization is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
