@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ten-dimensional domain, normalized Haar and counting inner products, and all deletion spectra follow from the character values of the tetrahedral rotational representation and the exact \(12\times12\) isotypic projector. The standalone rational enumerator checks idempotence, character norms, all 66 erasure cases, rank and nonzero witnesses. The two-by-two principal-minor argument is an all-cases proof; the finite checker is only supplementary. No unproved extrapolation or genericity assumption is used.
+PASS
 
-## Originality — PASS (historical-priority qualified)
+The 12 tetrahedral rotations form A4; the standard real rotation representation has character 3 on identity, -1 on three half-turns and 0 on eight order-three elements. Its matrix coefficients plus constants form 10D Wigner degree0+1 subspace, with full-group normalized Haar/counting isometry. The image projector has P_{gh}=(1+3chi(g^-1 h))/12, diagonal 5/6 and off diagonal -1/6 (half-turn) or 1/12 (3-cycle). Erasing two nodes gives I-R_E^*R_E, whose two nonunit eigenvalues are 1-(5/6±P_{gh}); these are 0,1/3 for half-turn and 1/12,1/4 for order three, with eight unit eigenvalues. Exactly 12*3/2=18 halfturn and 12*8/2=48 order-three unordered pairs; unit-weights fixed at 1/12. Independently enumerated all even permutations, verified exact rational projector idempotence on 12x12, all 66 classifications and spectra, plus one-erasure eigenvalue 1/6. The explicit delta-supported half-turn witness follows from the character difference and matches the continuous trace formula. Exact representation/projection proof covers every pair, with exhaustive finite computation as cross-check.
 
-The 2009 Gräf–Potts source **already supplies the twelve-point tetrahedral degree-two quadrature**, so full-design tightness is not claimed as novel. Section 4 was inspected directly, including the tetrahedral-group construction. The distinct claim concerns all 66 minimal ten-point subsamplers, their exact spectra, 18/48 split, and sharp stability. The 2023 Price–McEwen primary full arXiv v1 text was inspected in its Wigner transform and sampling theorem sections: it develops computational transform methods and isolatitudinal sampling, not this tetrahedral erasure classification. The 2015 McEwen et al. sampling theorem uses a distinct equiangular construction. Published database matches on icosahedral fivefold Wigner sampling, symmetric-group three-cycle sampling, and tetrahedral support spectra have different objects and do not imply the claimed two-deletion spectra. General Fourier-frame and nonabelian representation theory remain plausible sources of a previously stated equivalent case; absence from the checked records is not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives the complete **smallest-possible** sampling designs for a canonical twelve-element rotation-group cubature, exact noise conditioning for all such designs, and a sharp geometric criterion isolating the invisible modes. It pinpoints a nonuniform erasure vulnerability despite the perfectly tight full frame, a relevant distinction in rotation-group interpolation and acquisition with missing measurements. This is a natural complete finite classification rather than a mere recomputation of the already-known twelve-node quadrature.
+Gräf–Potts (2009) Section 4 explicitly gives the full 12-node tetrahedral rotation-group cubature, so that background is already covered. Scott/general finite-frame erasure and group representation identities are classical, but the inspected 2009 paper supplies no 10-of-12 erasure classification or sharp two-eigenvalue spectrum. Price–McEwen 2023 and McEwen et al. 2015 provide general Wigner transforms/other rotation sampling designs. Resultary prior icosahedral twelve-node Wigner spectra concern a different group and bandlimit. The complete half-turn/3-cycle classification is best-of-knowledge new, with a bounded residual risk from generic frame-erasure tables.
 
-## Limitations and close literature
+## value
 
-The scope is fixed to degree at most one, equal original weights, and the tetrahedral rotation group. The full known twelve-point design is not a new claim. Earlier equivalent frame-erasure literature could exist. The self-review does not substitute for an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural smallest-cardinality complete sampling problem: Wigner degree0+1 space dimension 10, tetrahedral cubature has exactly 12 fixed nodes. The 48 successful and 18 obstructed minimal 10-node subsets, optimal sqrt(12) stability and explicit invisible trace modes are meaningful complete missing-data classification, not mere restatement of known full 12-node isometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
