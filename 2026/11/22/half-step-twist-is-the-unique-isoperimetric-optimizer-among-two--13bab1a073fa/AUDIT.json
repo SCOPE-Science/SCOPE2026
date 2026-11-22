@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every integer n>=3 and real height, scale, rotation, explicit lateral facet altitude yields S=2nR^2 sin(beta)(c+sqrt(y^2+a^2)); mixed planar area integration yields V=nR^3 y sin(beta)(c+a/3), a in [0,1-c]. Sign of d_y log(S^3/V^2) equals sign of t^2-2ct-3a^2 with a unique crossing, yielding global height optimum. At the optimized height the relative-twist derivative has sign 9ac-t(t+4c)<0 for c>=1/2 and 0<=a<=1-c<=c, t>=2c. Hence sharp equality cases and constant follow without finite tests. The independent hull checker passed 5,582 assertions; finite checks corroborate formulas only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth–Lángi (arXiv:1302.6164) establish convex-hull volume inequalities for translates and reflected copies, without simultaneously optimizing surface and volume over ring rotation and axial separation.",
+        "The retrieved broad ellipsoid theorem optimizes enclosing and inscribed ellipsoids, not the Euclidean boundary area of the hull."
+      ],
+      "reasoning": "Checked stronger-looking convex-hull, metric-optimization, ellipsoid and prismatoid theorems for implication. None of the inspected theorem statements bounds S^3/V^2 sharply for the two-ring family or determines the unique jointly optimizing height and twist.",
+      "searches": [
+        "convex hull two parallel congruent regular n-gons optimized isoperimetric quotient twist",
+        "https://arxiv.org/abs/1302.6164",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-john-l-wner-ellipsoid-profile-of-twisted-regular-polygonal--4eb565e76a67",
+        "isoperimetric twisted prisms regular polygon area volume"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2110.12265",
+      "https://arxiv.org/abs/1302.6164",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-john-l-wner-ellipsoid-profile-of-twisted-regular-polygonal--4eb565e76a67",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-uniform-antiprisms-uniquely-minimize-mean-planar-silhouette-comp--b44d8c773553",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-equidihedral-minimax-and-volume-angle-separation-in-regular-anti--12f724b4a957"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ellipsoid profile: V=n h R^2 sin(beta)(2cos(beta)+cos(beta-delta))/3, but no boundary-area optimization.",
+        "Silhouette complexity: unique height is edge-uniform, with half-height squared (1-cos(beta))(1+2cos(beta))/2 at R=1.",
+        "Dihedral minimax: a separate equidihedral height, accompanied by a circumsphere-volume maximizer of h/R=sqrt(2)."
+      ],
+      "reasoning": "The proof uses the prior V expression but newly computes and optimizes the true lateral triangle surface S. The pre-existing optimizers solve objectives not monotone-equivalent to S^3/V^2; after allowing height readjustment, the new envelope derivative is strictly negative in relative twist. As an explicit logical separator, for n>=4 the new optimizer is taller than the uniform one, so the silhouette theorem cannot characterize it.",
+      "searches": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-john-l-wner-ellipsoid-profile-of-twisted-regular-polygonal--4eb565e76a67",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-uniform-antiprisms-uniquely-minimize-mean-planar-silhouette-comp--b44d8c773553",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-equidihedral-minimax-and-volume-angle-separation-in-regular-anti--12f724b4a957",
+        "sharp Euclidean isoperimetric ratio right antiprism surface area volume optimum height twist equilateral faces",
+        "minimize surface area at fixed volume twisted regular polygonal prismatoids antiprism half step separation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Optimizing ordinary area at fixed volume is equivalent by homogeneity to minimizing S^3/V^2. The 2026 ellipsoid-profile result gives identical V for the same twisted ring hull but compares John-volume and Löwner-volume ratios.",
+        "The silhouette optimizer for half-step right antiprisms is the edge-uniform height, whereas the sharp S^3/V^2 height is strictly taller for every n>=4."
+      ],
+      "reasoning": "Both S/V^(2/3) and S^3/V^2 and relative isoperimetric deficit were considered, together with equal-edge, minimum-area, and antiprism terminology. Shared polytope and volume do not imply the new global area minimizer; in particular, previously optimized heights are provably different for n>=4.",
+      "searches": [
+        "sharp Euclidean isoperimetric ratio right antiprism surface area volume optimum height twist equilateral faces",
+        "minimize surface area at fixed volume twisted regular polygonal prismatoids antiprism half step separation",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-john-l-wner-ellipsoid-profile-of-twisted-regular-polygonal--4eb565e76a67",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-uniform-antiprisms-uniquely-minimize-mean-planar-silhouette-comp--b44d8c773553",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-equidihedral-minimax-and-volume-angle-separation-in-regular-anti--12f724b4a957"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Results for regular and edge-uniform antiprism volume/area are special input formulas; a table at those special heights does not optimize height and twist simultaneously.",
+        "published-finding corpus nearest matched titles were the ellipsoid profile, silhouette complexity, dihedral minimax, tetrahedron volume envelope and spherical covering, not the claimed isoperimetric theorem."
+      ],
+      "reasoning": "Compared direct formulas and exact low-n endpoints as well as the full free-parameter claim. Special-case regular antiprism data do not include the all-n sharp two-parameter minimization or its equality classification.",
+      "searches": [
+        "sharp Euclidean isoperimetric ratio right antiprism surface area volume optimum height twist equilateral faces",
+        "minimize surface area at fixed volume twisted regular polygonal prismatoids antiprism half step separation",
+        "regular antiprism height volume surface area isoperimetric ratio sharp optimizer equal side edges",
+        "regular antiprism volume surface area optimum height regular octahedron",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-john-l-wner-ellipsoid-profile-of-twisted-regular-polygonal--4eb565e76a67"
+      ]
+    },
+    "rationale": "Inspected primary and nearest full public mathematical records for the same geometry, as well as published-finding corpus semantic queries and recoverable local ledgers. The exact volume input is preexisting; none of the inspected stronger-looking statements gives the sharp joint S^3/V^2 twist/height minimizer or unique equality classification. Provisional priority, subject to unindexed classical specialization and partial access to the 2013 convex-hull source.",
+    "residual_risks": [
+      "An unindexed or historical analysis of Euclidean antiprism isoperimetry may contain an equivalent global theorem.",
+      "For Horváth–Lángi, the arXiv abstract and main stated scope were accessible, but this round did not obtain the complete full-text body; therefore whole-document noncoverage is not asserted.",
+      "The unavailable latest historical part-1 generation prevents exhaustive local deduplication; accessible part-1 and part-2 recoverable claims and current published-finding corpus search were checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: result concerns volumes in S^3, while the new result is a Euclidean S^3/V^2 constrained surface minimization",
+        "evidence": "The paper explicitly states spherical-space existence and an integral spherical-volume formula (Sections 3–6) and first-public v1 on 2021-10-23.",
+        "identifier_or_url": "https://arxiv.org/html/2110.12265v1",
+        "material_read": "Full HTML introduction, theorems and section structure, including existence, spherical dihedral angles and spherical volume formulas",
+        "method": "Inspected accessible public arXiv HTML v1, distinguished ambient spherical geometry and Euclidean family definition",
+        "title": "The volume of a spherical antiprism",
+        "trigger": "2021 primary literature on antiprism geometry with publication date in cohort"
+      },
+      {
+        "assessment": "No known implication to Euclidean surface-area minimization of rotated parallel polygons; abstract-level exclusion has residual risk",
+        "evidence": "Abstract identifies volume inequalities under translations or reflections, not a boundary-area versus volume sharp law.",
+        "identifier_or_url": "https://arxiv.org/abs/1302.6164",
+        "material_read": "arXiv abstract and accessible full-text summary; full 9-page body was not independently obtained in this round",
+        "method": "Compared stated abstract-level theorem scope (translates and point/hyperplane reflections) with independent twist and height parameters",
+        "title": "On the volume of the convex hull of two convex bodies",
+        "trigger": "Broad convex-hull volume extremization that might dominate a ring-hull theorem"
+      },
+      {
+        "assessment": "Partly overlapping ingredient (exact volume) but not covering sharp isoperimetric area/volume optimization",
+        "evidence": "Theorem studies inscribed/circumscribed ellipsoid semiaxes and fractional ellipsoid volumes, not surface area; V formula is explicitly acknowledged.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-john-l-wner-ellipsoid-profile-of-twisted-regular-polygonal--4eb565e76a67",
+        "material_read": "Entire RESULT.md, including all numbered proof sections, hypotheses and limitations",
+        "method": "Directly compared formulas and optimized objective in the complete public theorem record",
+        "title": "Exact John–Löwner ellipsoid profile of twisted regular polygonal prismatoids",
+        "trigger": "Exactly same convex polytope family and identical volume normalization"
+      },
+      {
+        "assessment": "Not covering: objective is expected number of silhouette edges, with edge-uniform optimum",
+        "evidence": "Its height is edge-uniform; new exact proof gives a strictly taller isoperimetric optimum for n>=4.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-uniform-antiprisms-uniquely-minimize-mean-planar-silhouette-comp--b44d8c773553",
+        "material_read": "Entire RESULT.md including two normal-angle orbits and optimizer proof",
+        "method": "Compared optimization functions and tested that minimizer differs when n>=4",
+        "title": "Uniform antiprisms uniquely minimize mean planar-silhouette complexity in every order",
+        "trigger": "An optimization over the exact same half-step antiprism height family"
+      },
+      {
+        "assessment": "Not covering: maximum dihedral and fixed circumsphere volume differ from fixed-volume surface area",
+        "evidence": "The reported heights are equidihedral, uniform, and fixed-circumsphere-volume, not a fixed-volume surface-area optimum.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-equidihedral-minimax-and-volume-angle-separation-in-regular-anti--12f724b4a957",
+        "material_read": "Entire RESULT.md including proof of dihedral minimax and volume under fixed circumsphere",
+        "method": "Compared quantifiers, constraints, quantities, and equality cases",
+        "title": "Equidihedral minimax and volume–angle separation in regular antiprisms",
+        "trigger": "Same height family with multiple exact extremal aspect ratios"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "13bab1a0-73fa-49b6-8307-46f0086b6dde",
+  "value": {
+    "rationale": "This solves a natural joint extremal problem for the complete family of regular parallel two-ring hulls rather than a special arbitrary parameter value: the sharp isoperimetric constant, all equality geometries, exact optimal height and many-sided cylinder limit are established. Its strict separation from the edge-uniform height for all n>=4 identifies a meaningful geometric tradeoff between equal edges and surface efficiency.",
+    "status": "PASS"
+  }
+}
