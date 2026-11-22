@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducible checks
-The standard-library Python script `verify.py` enumerates undirected translation edge orbits as inverse-pairs of nonzero group elements and explicitly builds the corresponding Cayley graph for each selection. It tests bipartiteness by breadth-first two-coloring, without appealing to the claimed character criterion. It compares the result against the proposed \(2a+1\)-facet model for \(C_{2^a}\times C_2\) at \(a=1,2,3,4\), exhausting respectively 8, 32, 512 and 131072 selections.
+# Independent mathematical audit
 
-A separate reduction of the facet nerve to binary matrices gives reduced mod-two Betti numbers \(\widetilde\beta_1=1,2,3,4\) and no others in these finite cases. For odd direct factors, two group examples are checked exhaustively and one is checked over all singletons/pairs plus 12000 deterministic pseudorandom masks; the code's seed and algorithm are fixed. The saved `verification_output.txt` contains the result of executing the exact included verifier. These checks corroborate the general proof and do not assert that finite enumeration proves an infinite theorem.
+## correctness
 
-Run locally using `python verify.py`; no input data, remote service, or additional package is required. The `RESULT.md` proof establishes the unbounded claim by an explicit nerve argument, not by extrapolation. Independent mathematical audit has not occurred.
+PASS
+
+For any finite abelian A, an invariant edge orbit corresponds to inversion class ±d and a collection forms a fixed-point simplex precisely if its Cayley graph admits parity character χ on generated subgroup with χ(d)=1. Odd-order direct factors can be projected away by a contiguous simplicial retraction. For cyclic 2^a, admissible nonempty sets have a common valuation k, giving a disjoint union of a simplices. For C_(2^a)×C2, cover by 2a+1 facet simplices F_k, G_(−1), G_k; all multiple intersections simplices, the G-facet nerve has a contractible core, and a extra edges F_kG_k each produce one S¹. Independent BFS Cayley enumeration for a=1,2,3 yields reduced Euler characteristics −1,−2,−3 (and f-vectors [1,3,3],[1,5,8,2],[1,9,26,24,11,2]); proof of nerve collapse establishes integral homotopy, not just mod-two Betti numbers. Scope excludes 2-primary rank≥3.
+
+## originality
+
+PASS
+
+The non-elementary regular translation fixed-space family has an explicit two-primary nerve not supplied by nonequivariant colorable-graph homotopy theorems or the previously published elementary-abelian case a=1; full text of Linusson–Shareshian was inaccessible through authorized access.
+
+## value
+
+PASS
+
+Regular translation is a canonical symmetry of bipartite graph complexes; changing the 2-primary rank by one independent involution changes connected components into an unbounded wedge of circles while odd factors disappear. The structural integral homotopy classification, for an infinite non-elementary group family, is intrinsically useful beyond a tiny finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
