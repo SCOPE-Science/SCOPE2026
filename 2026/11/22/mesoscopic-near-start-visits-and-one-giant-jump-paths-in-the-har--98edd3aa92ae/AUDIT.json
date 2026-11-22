@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The path-weight formula is exact for positive ordered compositions; bounding intermediate harmonic factors gives a two-sided coefficient-series sandwich. The derivative identity for powers of \\(-\\log(1-z)\\) gives the uniform \\(kH_{h-1}^{k-1}/h\\) coefficient bound, and truncation to \\(h^{1-\\varepsilon}\\) yields its sharp fixed-k leading term. Because log h/log n tends to theta in (0,1), geometric-series domination proves the hitting constant and tight size-biased-geometric jump count. Restricted compositions yield uniform giant index and independent small-jump logarithmic scales, and uniform harmonic-factor ratios transfer the result. Tested exact path enumeration, rational dynamic programming, and asymptotic numerical consistency: checker.py, 497 assertions. Finite checks are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brandenberger–Chin–Mossel arXiv:2505.24821, Theorem 1.1(iii), an \\(O(1/(hH_k))\\) near-start upper bound for sublinear gaps",
+        "Svihla arXiv:2611.00347v1, Theorem 2.1: expansion restricted to target \\(k=o(\\sqrt n)\\)",
+        "Iksanov–Nikitin–Yakymiv 2026, Theorem 1.3: global joint height and small-decrement-count CLTs"
+      ],
+      "reasoning": "A general upper bound cannot yield the exponent-dependent multiplier \\((1-\\theta)^{-2}\\) or the conditioned path law. The detailed expansion applies to target states negligible compared with sqrt n, disjoint from near-n targets. The global CLT concerns the complete path to absorption, not rare finite-length near-root conditioned visits. Thus these prominent stronger-looking results do not imply the claim on their stated domains.",
+      "searches": [
+        "critical beta-splitting tagged leaf Markov chain probability visit clade n-h slow varying harmonic renewal singularity",
+        "\"critical beta-splitting\" \"large clades\" n minus h probability near root",
+        "\"critical beta-splitting\" \"harmonic descent\" \"hitting\" \"near\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.00347",
+      "https://arxiv.org/abs/2505.24821",
+      "https://arxiv.org/abs/2405.05102",
+      "https://arxiv.org/abs/2412.06826",
+      "https://arxiv.org/abs/1109.5985",
+      "https://do.csc.knu.ua/iksan/wp-content/uploads/sites/3/2026/02/iksnikyak130226-rev.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aldous–Janson–Li arXiv:2405.05102, Theorem 1.1, proves limit \\(a(n,k)\\) at fixed k",
+        "Brandenberger–Chin–Mossel arXiv:2505.24821, Theorem 1.1(iii), bounds near-start \\(a(n,k)\\)",
+        "Svihla arXiv:2611.00347v1, Theorem 2.1, expands \\(\\(a(n,k)\\)-a(k)\\) for \\(k=o(\\sqrt n)\\)",
+        "Gnedin–Iksanov arXiv:1109.5985, Theorem 3.1, is about bulk K_n and singleton counts"
+      ],
+      "reasoning": "The present target \\(\\(k=n-h\\)_n\\) tends to n, outside the small-target expansion and fixed-k limit. Brandenberger et al. supply only order upper bounds, which neither fix the asymptotic coefficient nor describe conditional paths. General regenerative-composition results concern distinct aggregate observables; the possibility of a clever reduction to a wider published theorem is a residual priority risk.",
+      "searches": [
+        "harmonic descent chain hitting n minus n theta near initial state mesoscopic occupation probability 1/(1-theta)^2 critical beta-splitting",
+        "critical beta-splitting tagged leaf Markov chain probability visit clade n-h slow varying harmonic renewal singularity",
+        "\"regenerative compositions\" \"small parts\" \"large part\" \"log-uniform\" gamma 2012",
+        "\"harmonic descent chain\" \"n-k\" hitting near start k=n-h probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aldous–Janson–Li arXiv:2405.05102, Theorem 1.1: fixed target state as start grows",
+        "Iksanov arXiv:2412.06826: regenerative representation and fixed-target visitation",
+        "Gnedin–Iksanov arXiv:1109.5985, introduction and Theorem 3.1: global composition block-count limits"
+      ],
+      "reasoning": "The chain is equivalently the tagged-leaf clade-size sequence of a critical beta-splitting tree and a regenerative composition decrement chain. These were explicitly checked, not treated as distinct merely because of terminology. Their inspected conclusions concern fixed-target occupation or global block counts; neither specifies the conditional mesoscopic near-start time-ordered jump log scales. This does not rule out unstated implications from wider regenerative theory.",
+      "searches": [
+        "harmonic descent chain hitting n minus n theta near initial state mesoscopic occupation probability 1/(1-theta)^2 critical beta-splitting",
+        "critical beta-splitting tagged leaf Markov chain probability visit clade n-h slow varying harmonic renewal singularity",
+        "\"harmonic descent\" \"near-root\" \"clade\" small decrements \"probability\"",
+        "\"harmonic descent\" \"mesoscopic\" \"path\" hitting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search for exact coefficient and near-diagonal occupation did not identify a published exact table for the claimed conditional law",
+        "Svihla arXiv:2611.00347v1, equation (2.1), supplies a small-target asymptotic rather than a near-start table",
+        "Closest public mathematical-record match 2026/11/2/SCOPE-a-complete-nearest-neighbor-covariance-sign-phase-diagram-for-th--8f49c92bec20 studies a different beta-splitting mass-exchange model"
+      ],
+      "reasoning": "The positive-composition generating function is a standard identity and is not claimed as a novel database. Searches for a tabulated near-start constant or equivalent conditioned time-ordered composition law found no directly covering entry. A negative search is evidence of bounded checking only, not proof of global novelty.",
+      "searches": [
+        "harmonic descent chain hitting n minus n theta near initial state mesoscopic occupation probability 1/(1-theta)^2 critical beta-splitting",
+        "harmonic renewal generating function logarithmic step probability coefficients 1/(1-z log) log n mesoscopic",
+        "\"harmonic descent\" \"near-diagonal\" \"probability\"",
+        "\"harmonic descent\" \"n-k\" \"occupancy\" probability near start"
+      ]
+    },
+    "rationale": "Compared the conditional near-start path theorem with fixed-target occupation, small-target asymptotic expansion, near-start bounds, regenerative-composition block-count theory, and related global decrement CLTs. The inspected theorems do not yield the same near-start rare-hit constant together with the joint fixed-jump-count path shape. Historical subsumption remains possible.",
+    "residual_risks": [
+      "A broad theorem on regenerative compositions or logarithmic compositions may imply the conditioned one-giant-jump path law without using the same terminology.",
+      "The exact generating-function coefficient calculation uses established combinatorial identities; the novelty claim attaches to the conditioned harmonic descent limit, not to those identities.",
+      "Source comparison does not constitute an exhaustive search of every historical paper or prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.1 requires \\(k=o(\\sqrt n)\\); does not state a result about the conditional jump sequence for \\(k\\sim n\\). Same chain definition is credited.",
+        "evidence": [
+          "arXiv:2611.00347v1, pp. 1–4, Theorem 2.1 and equation (1.3)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.00347",
+        "material_read": "Full text accessible in lawful preprint/PDF rendering; abstract, introduction, §§2.1–2.2 and theorem statements, with search across text for near-diagonal and composition terms",
+        "method": "Compared target-size regime and hypotheses of main theorems against \\(k=n-h\\) with \\(h=n^{\\theta+o(1)}\\)",
+        "title": "Exact Asymptotics for the Harmonic Descent Chain and Extended Convergence Bounds for Recursive Statistics",
+        "trigger": "Most recent motivating exact occupation expansion for the identical chain"
+      },
+      {
+        "assessment": "The near-start bound shares scale but does not give theta-dependent leading constant, conditional path-count distribution, or jump geometry.",
+        "evidence": [
+          "arXiv:2505.24821, Theorem 1.1(iii), Remark 3 and §1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.24821",
+        "material_read": "Introduction, Theorem 1.1 and Remarks, tree/clade correspondence, main proof sections and appendix-topic index; PDF and first-page visual inspection",
+        "method": "Examined Theorem 1.1(ii)-(v), especially (iii) and Remark 3 on k near n; searched n-k and appendices",
+        "title": "Asymptotics for the harmonic descent chain and applications to critical beta-splitting trees",
+        "trigger": "Direct near-start bounds could dominate proposed event asymptotic"
+      },
+      {
+        "assessment": "Establishes fixed-target limit and finite recursion; the conditional mesoscopic path law is not stated.",
+        "evidence": [
+          "arXiv:2405.05102, Theorem 1.1, equations (1.1), (1.2), (2.4)-(2.6)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.05102",
+        "material_read": "Abstract, introduction, Theorem 1.1, exact finite recursion and Markov coupling; PDF and first-page visual inspection",
+        "method": "Compared Theorem 1.1 fixed-target quantifiers and equations (2.4)-(2.6) with near-start rare visit",
+        "title": "The Harmonic Descent Chain",
+        "trigger": "Foundational occupation result for same chain and possible extension"
+      },
+      {
+        "assessment": "Shows fixed-index limiting visitation via subordinator renewal, not the asserted conditional near-start path shape.",
+        "evidence": [
+          "arXiv:2412.06826, fixed-index occupation representation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.06826",
+        "material_read": "Three-page preprint, abstract, representation, central fixed-index hitting argument; PDF and first-page visual inspection",
+        "method": "Compared represented visitation limit with near-start conditioning and its ordered decrement sequence",
+        "title": "A comment on the article The harmonic descent chain by Aldous, Janson and Li",
+        "trigger": "Regenerative-composition representation may imply conditioned path laws"
+      },
+      {
+        "assessment": "General theory about total numbers of occupied blocks and singleton counts; no directly equivalent conditional near-start trajectory statement identified. Potential implicit specialization remains.",
+        "evidence": [
+          "arXiv:1109.5985, §§1–3, Theorem 3.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1109.5985",
+        "material_read": "Introduction and principal block-count theorem/assumptions, plus first-page visual inspection and text search for hitting",
+        "method": "Compared Theorem 3.1 block-count scaling with rare near-start exact composition conditional law",
+        "title": "Regenerative compositions in the case of slow variation: A renewal theory approach",
+        "trigger": "Broad regeneration theory might subsume the harmonic descent chain"
+      },
+      {
+        "assessment": "Global joint CLTs, not the mesoscopic rare event and conditional fixed-step decomposition.",
+        "evidence": [
+          "2026 preprint, Theorem 1.3, Proposition 2.1"
+        ],
+        "identifier_or_url": "https://do.csc.knu.ua/iksan/wp-content/uploads/sites/3/2026/02/iksnikyak130226-rev.pdf",
+        "material_read": "Introduction, Definitions 1.1 and Theorem 1.3, subordinator representation and later theorem context",
+        "method": "Distinguished CLTs for whole-path step counts from rare visits to a specified near-start state",
+        "title": "An infinite balls-in-boxes approach to the critical beta-splitting tree: some central limit theorems",
+        "trigger": "Recent work on decrement-size counts in identical tree model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "98edd3aa-92ae-4b77-9165-970352089eea",
+  "value": {
+    "rationale": "The near-start clade deficit \\(h=n^{\\theta+o(1)}\\) is the natural gap between single-jump and bulk occupation regimes in the critical beta-splitting tagged-leaf chain. The exponent-dependent hitting coefficient, size-biased-geometric conditioned number of transitions, and uniform giant-step position with independent log-uniform remaining decrements together supply a structural rare-event genealogy description not determined by the known O-bound. The object and observables arise from the model, and the claim is broader and more informative than a numerical special case.",
+    "status": "PASS"
+  }
+}
