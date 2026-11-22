@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The full graph and ordinary outsider signature predicate are specified exactly. Monotonicity reduces optimality to excluding k-1 sets; checker.cpp tests every k-1 and k subset, validates exhaustive binomial trial counts, finds witnesses, and partitions all optima under exact generators. All counts and orbit distributions passed the actual standalone replay. A separate Python set-based implementation confirmed q<=6 and verified q=7 witness; a distinct linear integer formulation gave the same q=6 and q=7 optima. The proof is finite only; no extrapolation is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Araki (2009), Theorems 3.1, 6.1 and 6.3, construct minimum connected twin dominating sets via directed factors; pairwise distinct outsider signatures are not part of that definition.",
+        "Boutin–Goliber–Pelto (arXiv:1412.5842), Section 3, treats all-vertex radius-t identification in directed de Bruijn graphs, not this undirected Kautz graph."
+      ],
+      "reasoning": "Broad theorems about coverage or stronger all-vertex identifying codes do not provide an exact size or census of ordinary locating-dominating sets without a separate lower bound and enumeration. The finite exhaustive certificate proves precisely those missing assertions.",
+      "searches": [
+        "minimum locating-dominating number of length-two undirected Kautz graphs on q symbols, graph of ordered distinct pairs with shift adjacency, q=3 4 5 6 7",
+        "Connected k-tuple twin domination in de Bruijn and Kautz digraphs Toru Araki 2009",
+        "Identifying Codes on Directed De Bruijn Graphs arxiv 1412.5842",
+        "minimum locating dominating set directed Kautz graph diameter 2"
+      ]
+    },
+    "checked_sources": [
+      "https://journals.lib.unb.ca/index.php/AOR/article/view/2808",
+      "https://doi.org/10.1016/j.disc.2009.05.031",
+      "https://arxiv.org/pdf/1412.5842",
+      "Published exact enumeration of directed ternary Kautz identifying codes (different orientation and identification predicate)",
+      "Published ordinary location-domination on Petersen line and crown graphs (different adjacency model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Twin domination imposes in/out coverage on a directed graph and need not distinguish any two outsider signatures.",
+        "All-vertex identifying codes imply ordinary locating domination on the same undirected graph, but their existence and enumeration do not imply minimality or the census of the weaker notion.",
+        "Published indexed ternary Kautz identification uses directed incoming neighborhoods."
+      ],
+      "reasoning": "The new statement needs exact exclusion of every smaller sensor set and all weaker-problem optimal placements, neither established by the checked stronger-code upper bounds or by directed analogues. No claim is made that locating domination and identification are equivalent.",
+      "searches": [
+        "Connected k-tuple twin domination in de Bruijn and Kautz digraphs (Theorem 6.3)",
+        "Identifying Codes on Directed De Bruijn Graphs (Theorems 3.5–3.11)",
+        "ordinary locating-dominating sets vs identifying codes closed neighborhood",
+        "exact counting and uniform generation of optimal Kautz identifying codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A length-two Kautz vertex is an arc of the loopless complete directed graph; forgetting shift orientation produces adjacency when the head of either arc equals the tail of the other.",
+        "Araki (2009), Section 2, gives the line-digraph interpretation but optimizes directed twin domination."
+      ],
+      "reasoning": "The arc-line representation is mathematically equivalent to the stated graph and was included in comparisons. Ordinary location-domination is not equal to directed twin domination, all-vertex identification or the line graph of an undirected complete graph: the relevant vertex neighborhoods and quantifiers differ.",
+      "searches": [
+        "locating domination length two Kautz q-ary digraph undirected explicit",
+        "Kautz graph locating dominating code graph 2 word minimum locating domination",
+        "line digraph of complete bidirected graph ordinary locating domination 30 vertices 7 sensors 42 vertices 8 sensors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed Kautz results returned directed incoming-identification problems with variable word length, not ordinary location-domination of undirected length-two networks.",
+        "Other indexed locating-domination tables concerned graph families with different adjacency (crown graphs, Petersen line graph, Heawood graph)."
+      ],
+      "reasoning": "No returned table gave the stated minimum-size and complete labeled-orbit census for the same graph and definitions. Search is evidence of bounded comparison, not a proof that no unindexed calculation exists.",
+      "searches": [
+        "undirected Kautz graph K(q-1,2) minimum locating-dominating sets first sensor excess q=6 and exact counts 20 168 84 11040 13860",
+        "locating dominating Kautz graph length 2 exact number optimum q 6 7",
+        "minimum locating-dominating number of length-two undirected Kautz graphs on q symbols",
+        "minimum locating-dominating number of length-two undirected Kautz graphs on q symbols, graph of ordered distinct pairs with shift adjacency, q=3 4 5 6 7"
+      ]
+    },
+    "rationale": "Beneath a bounded primary-literature and semantic-index comparison, the new outsider-only optimization/census was not implied by directed twin domination, directed de Bruijn all-vertex identification or indexed codes on different network graphs. Stronger identifying-code existence on an identical graph yields a one-sided upper bound but not the lower or all optimal weaker sets. The residual risk of prior unindexed calculations is acknowledged.",
+    "residual_risks": [
+      "An unindexed historical table or graph-isomorphic reformulation could cover one or more finite cases.",
+      "The publisher full-text rendering of Araki (2009) was only partially reopened, despite substantive inspection of relevant sections.",
+      "Public indexed summaries of adjacent but different Kautz identification work were compared by mathematical model; those summaries are not used to claim whole-document noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general complexity and terminology; does not report the finite length-two Kautz code census in the inspected material. No whole-article noncoverage inference is drawn.",
+        "evidence": [
+          "Publicly dated 2008-03-25; separates signatures of all vertices from signatures of outsiders."
+        ],
+        "identifier_or_url": "https://journals.lib.unb.ca/index.php/AOR/article/view/2808",
+        "material_read": "Open-access article entry, abstract, definitions of identifying vs locating-dominating codes, bibliographic publication data",
+        "method": "Open-access publisher article HTML",
+        "title": "Hardness results and approximation algorithms for identifying codes and locating-dominating codes in graphs",
+        "trigger": "Definitions, historical date and potential general bounds"
+      },
+      {
+        "assessment": "Different directed coverage problem, no pairwise signature separation; no direct implication of new finite classification. Uninspected passages remain a residual access risk.",
+        "evidence": [
+          "Theorem 6.3 gives connected twin domination by directed line-graph factors, while the present condition distinguishes outsiders using undirected open neighborhoods."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2009.05.031",
+        "material_read": "Publisher-indexed full-text rendering: abstract, Kautz definitions and line-digraph model in Section 2, factor construction in Sections 3–5, and Theorems 6.1–6.3 with conclusion",
+        "method": "Scientific full-text rendering returned by literature search; original publisher redirect blocked direct reopening",
+        "title": "Connected k-tuple twin domination in de Bruijn and Kautz digraphs",
+        "trigger": "Exact Kautz graph family and a possibly stronger universal sensor bound"
+      },
+      {
+        "assessment": "Directed de Bruijn all-vertex identifying-code optimization; does not subsume undirected Kautz ordinary locating domination. First arXiv submission date is 2014-12-18, distinguished from PDF revision and cover-page dates.",
+        "evidence": [
+          "Theorem 3.5 is a lower bound for directed de Bruijn identifying codes; Sections 3–4 explicitly retain orientation and all-vertex quantifiers."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.5842",
+        "material_read": "27-page accessible PDF: title/abstract and introductions, definitions, Section 3 theorems 3.5–3.11, discussion of directed graph identification, concluding remarks; first and third pages rendered visually",
+        "method": "Lawful open arXiv PDF, searchable text and page-image inspection",
+        "title": "Identifying Codes on Directed De Bruijn Graphs",
+        "trigger": "Related graph-network identification and potential general lower bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1ce7ae9-2923-4c64-9f03-6273e3f2f497",
+  "value": {
+    "rationale": "The sensor budget for location-identifying faults in a standard Kautz network is a natural graph-code invariant. The first failure of q-sensor placement occurs at q=6, continues at q=7, and has a large, exactly determined finite design census with a nontrivial reduction from 16 to 5 natural-symmetry types. Explicit feasible layouts and exact minimum counts are directly useful for short Kautz network design and tests of stronger code constraints, without claiming an asymptotic theorem.",
+    "status": "PASS"
+  }
+}
