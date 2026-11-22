@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Execute with Python 3 (standard library only) in a directory containing the complete embedded package:
+## correctness
 
-```sh
-python3 verify_full.py
-python3 character.py
-python3 direct_fixed_check.py
-```
+PASS
 
-`verify_full.py` independently derives the \(508\) maximal cliques, all \(830101\) augmented faces, \(414848\) matched pairs, and \(405\) unmatched tetrahedra, then performs a topological sort over the full matched Hasse directed graph. The output marker is `PREMISE_Q4_WEDGE_405_VERIFIED`. This independently checks the essential homological premise, although that nonequivariant classification was previously known.
+The 64-point Hamming scale-two Rips complex is Ind(K4×K4×K4), previously proved homotopy equivalent to a wedge of 405 3-spheres; the source proof and actual verify_full.py finite matching/acyclicity certificates were reconstructed. Independent enumeration got 508 maximal simplex candidates, 830101 faces, 414848 matched pairs and 405 unmatched tetrahedra (finite complete count), and source code performs full Hasse acyclicity topological sort. For each translation in C4^3, invariant simplices correspond to independent sets in a compatibility graph of nonadjacent translation orbits of the forbidden distance-three graph. Reduced Lefschetz and orientations give trace = I(H,-1), because invariant orbit lengths are 1,2,4 and the alternating fixed-simplex sum matches the orbit-set inclusion signs. Independently computed all 64 integer traces by an independent-set deletion recurrence, recovering ten class values (405,9,9,-3,-3,45,1,1,1,1). Exact Gaussian-integer Fourier sums give nonnegative multiplicities 9 seven times,6 thirty times,8 nine times,5 eighteen times, summing 405. Trace averages 576/64=9 and 568/8=71 prove stated rational quotient invariant ranks by barycentric-transfer, not torsion claims. Complete finite enumeration is exhaustive for this fixed finite object, subject to ordinary implementation correctness.
 
-`character.py` reconstructs the \(64\) translations and their admissible orbit quotient graphs, evaluates each exact independence polynomial at \(-1\), groups the ten coordinate-cycle types, and performs all \(64\) exact Gaussian-integer Fourier inversions. It asserts the complete claimed types, total \(405\), nine full-group invariants and seventy-one half-turn subgroup invariants, then writes `translation_character.csv`. The output marker is `QUATERNARY_TRANSLATION_CHARACTER_PASS`.
+## originality
 
-`direct_fixed_check.py` independently builds every simplex from the complete maximal-face taxonomy (coordinate planes, Hamming balls, and parity tetrahedra), and for one representative of each of the ten automorphism types directly sums the signed simplicial action over **every** fixed simplex, including the empty-face reduced correction. Its output marker is `DIRECT_FACE_LEFSCHETZ_PASS`.
+PASS
 
-Recorded execution output is included as `verification_output.txt`, and the full sixty-four-row table is included as `translation_character.csv`. The calculations prove the finite claims through exact integer recurrence and exhaustive enumerations; they do not prove an arbitrary-alphabet extension. The proof of the invariant-subcomplex relation and of rational orbit-space homology is mathematical and not a separate computer test. Independent external mathematical audit has not been performed.
+PASS best-of-knowledge for complete C4^3 trace/Fourier classification, with underlying wedge-405 sphere count explicitly prior. Prior analogous ternary C3^3 characters and binary hyperoctahedral Rips work do not imply order-two/order-four quaternary trace split or quotient ranks.
+
+## value
+
+PASS
+
+A fixed natural 64-point Hamming complex has previously known nonequivariant homology, but its full symmetry character distinguishes order-two from order-four translations and computes all 64 multiplicities. The complete C4³ action and the 9 and 71 rational quotient dimensions are genuine new exact invariants of a natural finite classification, not a random slice or a recomputation of 405.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
