@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete claim is a finite cyclotomic-zero census for all 40 Costas permutations of order five in the 3125-element additive group. The necessary calculation is integer-only: count, for each character, the frequencies of its five possible exponents modulo five. The fifth cyclotomic polynomial proves that exact vanishing is equivalent to all five counts being equal.
+## correctness
 
-`check_integer.py` was run and returned `COSTAS5_PROJECTIVE_CYCLOTOMIC_PASS 40 157 16 320 2805 2500 625`, together with the four exceptional representatives and the Hamming-weight distribution. It filters all 120 permutations and verifies the normalization and zero test for all 3125 characters.
+PASS
 
-`check_independent.cpp` was compiled as C++17 and executed, returning `COSTAS5_INDEPENDENT_PASS 40 16 125 12`. It generates Costas permutations by a different, incremental backtracking method, enumerates all full-group characters and recomputes the finite-orbit results.
+The Costas definition checks ordinary integer differences for all d=1..4; enumerating all 120 permutations yields exactly 40. The multiplier W_C(k) is a degree-4 integer polynomial at a primitive fifth root; minimal cyclotomic polynomial Φ5 implies zero iff all five residue counts equal 8. k→k+c*1 and k→a*k (a nonzero F5) act on zeros; all nonconstant frequency orbits have size20 and exactly 156 canonical representatives (plus one constant). Complete exact integer residue tables for all 157 canonical representatives identify 16 vanishing classes (12 also vanishing for all permutations, 4 additional), and every other class is nonvanishing. This is exhaustive finite proof, not sampled evidence or floating-point testing. An independent enumeration across all 3125 frequencies reproduced Costas count 40, 320 zeros, rank2805, all-permutation rank625, 240/80 overlap and weight distribution 4,4,92,108,112.
 
-`certificate.json` holds the complete 157-by-two residue profile table. Every class not marked zero has an explicitly unequal pair of integer counts in that table, making the finite nonvanishing check exhaustive and inspectable. The rank conclusion uses only Fourier diagonalization; no floating-point rank threshold is involved.
+## originality
 
-The computation does not address orders other than five or establish priority against unpublished and unindexed sources.
+PASS
+
+Earlier Costas-array construction, parity, correlation and nonlinear phase literature concerns individual arrays or their enumeration, not the sum of characters over the full forty-element ensemble in (F5)^5. The closest indexed order-five binary Fourier permutation-matrix result is over 25 binary coordinates, not the additive five-coordinate quinary operator. Exact finite tables could nevertheless have been computed elsewhere; novelty is best-of-knowledge with this risk.
+
+## value
+
+PASS
+
+All order-five Costas arrays form a classical canonical finite signal-design family; a complete additive ensemble Fourier zero locus determines which translation-convolution modes are visible. The exact contrast against all permutations (rank 2805 vs 625) and the 16 symmetry orbits are mathematically interpretable and nontrivial despite finite order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
