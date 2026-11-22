@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The full argument first invokes the exact Lebesgue cylinder identity in Corona--Della Corte, Lemma 3.6, then proves P(V_m) is in V_ceil(m/2) because |rho^2(w)| counts even-position ones. On V_1 the two explicit eigenvalues are 1 and 1/2. The L1 dyadic expectation error is at most Lip(phi)*2^-m. For m=2^n, two-mode coefficients satisfy |c_(n+1)-c_n|<=Lip(phi)*2^(n+2-2^n); the tail is bounded by Lip(phi)*2^(n+3-2^n), giving the stated 9 Lip(phi) 2^(-2^n) remainder for all n>=1. The exact arithmetic checker computes c_4(x)=38745189/134217728 using 65,536 initial dyadic atoms, and the proven 1/512 error makes the coordinate resonance strictly positive. Finite arithmetic is a coefficient certificate, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 theorem establishes strong mixing on all measurable sets but is qualitative and gives no explicit remainder for Lipschitz observables.",
+        "The 2021 introduction to erasing maps treats combinatorial and topological dynamical properties; no quantitative Lebesgue-correlation upper bound was identified in its material read."
+      ],
+      "reasoning": "Qualitative mixing has broader observable scope but cannot imply any specified rate; the source cylinder lemma contains enough exact input to enable a new quantitative argument, yet does not supply the claimed infinite-resolution functional estimate. Classical general perturbation/spectral-gap theorems are not directly applicable to the densely discontinuous erasing map without verifying transfer regularity.",
+      "searches": [
+        "\"erasing interval map binary erasing 00 empty 01 1 10 0 11 01 leading bit autocorrelation spectrum decay\"",
+        "\"finite dyadic cylinder observables Perron operator erasing map double exponential asymptotic remainder\"",
+        "\"transfer operator erasing substitution Lipschitz decay rate Perron Frobenius\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2102.01674",
+      "https://doi.org/10.1017/etds.2023.16",
+      "https://pubblicazioni.unicam.it/retrieve/e891bb2f-11bb-4aa7-92a6-55751c8ff3e9/2023c-CoronaDellaCorte-ETDS.pdf",
+      "https://arxiv.org/abs/2102.09374"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 Lemma 3.6 gives the exact even-prefix transfer identity; Theorem 3.4 establishes strong mixing, and its proof obtains a scalar 1/2 recursion for the two half-intervals.",
+        "The present derivation creates Lambda by a limit of normalized 2^n-scale dyadic approximants and proves a uniform L1 remainder of at most 9 Lip(phi)2^(-2^n).",
+        "A four-stage rational transfer computation plus an infinite tail estimate proves Lambda(x)>0."
+      ],
+      "reasoning": "The prior first-bit recurrence directly covers the first-bit eigenmode and is excluded from the novelty assertion. Strong mixing does not imply any uniform exponential rate or superexponential residual. A cylinder-transfer formula is the credited key lemma, not a pre-existing all-Lipschitz spectral asymptotic; the additional multiscale estimate and continuous coordinate witness distinguish the claim from the source statement.",
+      "searches": [
+        "Corona Della Corte 2023 erasing interval map quantitative mixing Lipschitz spectral transfer Perron Frobenius exact rate eigenvalue one half",
+        "the simplest erasing substitution 2021 topology measure mixing",
+        "Mixing properties of erasing interval maps full text Lemma 3.6 Lemma 3.8 Theorem 3.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Corona--Della Corte 2023 Section 3: Lemma 3.6 is the exact dyadic-cylinder transfer formula; Lemma 3.8 gives the coarse one-bit recurrence but stops at qualitative mixing.",
+        "Della Corte--Isola--Piergallini 2021 Sections 1 and 6 concern topological mixing, entropy and periodic dynamics, not Lipschitz transfer asymptotics."
+      ],
+      "reasoning": "A one-bit eigenvalue 1/2 is already present in the motivating argument and is not claimed as original. The new claim is a bounded, linear asymptotic residue on the full Lipschitz class with a uniform superexponentially small remainder, plus a nonzero coordinate witness. No inspected source states this equivalent all-Lipschitz expansion.",
+      "searches": [
+        "\"Mixing properties of erasing interval maps\" \"spectral\" \"correlations\"",
+        "\"Mixing properties of erasing interval maps\" \"rates\" \"mixing\"",
+        "\"Corona Della Corte erasing substitution rho squared transfer operator dyadic cylinders exact spectral collapse\"",
+        "\"erasing substitution Lebesgue invariant map exact correlations binary digits eigenvalue 1/2 exponential decay\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating papers contain symbolic substitution identities and a one-bit recurrence, but no table of full Lipschitz residues or certified coordinate residue enclosure.",
+        "No exact amplitude database for this specific map was identified in the accessible literature search."
+      ],
+      "reasoning": "The exact rational coordinate amplitude approximant and proof of a limiting universal residue are not recomputations of a known table. The absence of a located table is not treated as a uniqueness proof.",
+      "searches": [
+        "\"simplest erasing substitution\" \"transfer operator\" \"correlation\"",
+        "\"erasing substitution\" \"Perron Frobenius\" \"Lipschitz\"",
+        "\"model-case erasing substitution rho squared two-mode spectral decomposition Lipschitz correlation 2^-n\""
+      ]
+    },
+    "rationale": "The 2021 origin paper studies topological and combinatorial erasing dynamics; Corona--Della Corte 2023 prove invariance and qualitative strong mixing, with Lemma 3.6 as a cited input and an exact leading-bit contraction in the proof of Lemma 3.8. The newly assessed quantitative statement concerns all Lipschitz observables, a continuous coordinate with strictly positive certified amplitude, and a doubly exponential remainder after the leading mode. These are not stated as consequences in the inspected primary texts; the proof requires multiresolution L1 interpolation and a summable amplitude construction. Unindexed equivalent quantitative interpolation results are a genuine residual risk.",
+    "residual_risks": [
+      "The quantitative result is built from a known strong cylinder-transfer lemma and one-bit recurrence; priority requires comparing potential independently known interpolation/spectral refinement not indexed by searched title or terminology.",
+      "The 2021 family paper is not claimed to have been checked cover to cover.",
+      "Pointwise behavior at exceptional binary expansions is outside the Lebesgue-almost-everywhere assertion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the essentially equivalent map R and proves topological mixing, chaos, entropy, without identifying the all-Lipschitz transfer asymptotic",
+        "evidence": "https://www.researchgate.net/publication/348981351_The_simplest_erasing_substitution ; https://arxiv.org/abs/2102.01674",
+        "identifier_or_url": "https://arxiv.org/abs/2102.01674",
+        "material_read": "Author-uploaded full text: abstract, introduction and Section 6 topological-mixing discussion; arXiv metadata confirmed initial timestamp February 2, 2021",
+        "method": "Read accessible full-text transcription on ResearchGate and arXiv date record; searched for mixing and correlation",
+        "title": "The simplest erasing substitution",
+        "trigger": "Earliest published source for the model and a plausible earlier dynamical classification"
+      },
+      {
+        "assessment": "Proves Lebesgue invariance and qualitative mixing; exact cylinder transfer and one-bit 1/2 decay are cited as known; does not state the uniform Lipschitz two-mode asymptotic with doubly exponential remainder or the coordinate coefficient",
+        "evidence": "https://pubblicazioni.unicam.it/retrieve/e891bb2f-11bb-4aa7-92a6-55751c8ff3e9/2023c-CoronaDellaCorte-ETDS.pdf (Lemma 3.6 and proof of Lemma 3.8)",
+        "identifier_or_url": "https://doi.org/10.1017/etds.2023.16",
+        "material_read": "Author-accessible full text: definitions and statements in Sections 2--4, Lemmas 3.5, 3.6, 3.8, Theorem 3.4 and their relevant arguments on pages 12--18",
+        "method": "Read publicly accessible university-hosted PDF text and visual source pages; compared exact lemma statements and proof recurrence",
+        "title": "Mixing properties of erasing interval maps",
+        "trigger": "Direct same-map full-text priority comparison and essential hypothesis source"
+      },
+      {
+        "assessment": "Topological properties and hierarchy of erasing substitutions; no full-document negative claim made because full primary text was not independently read",
+        "evidence": "https://arxiv.org/abs/2102.09374 ; https://pubblicazioni.unicam.it/handle/11581/460361",
+        "identifier_or_url": "https://arxiv.org/abs/2102.09374",
+        "material_read": "Abstract, available publication metadata and connection cited by the 2023 primary full text; not its entire manuscript",
+        "method": "Inspected public abstract and compared paper scope with 2023 introduction and references",
+        "title": "Dynamics of interval maps generated by erasing substitutions",
+        "trigger": "Related earlier erasing-substitution family might imply the same measurable result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b12b3198-d4a4-43ef-a3c7-4448b321a946",
+  "value": {
+    "rationale": "For a published densely discontinuous infinite-entropy map, qualitative strong mixing gives no usable mixing time or coordinate covariance decay. The theorem gives one linear residue for every Lipschitz measurement, exact sharp 2^-n memory as witnessed by the smooth coordinate, and an explicit doubly exponential remainder controlling all finer binary effects. The finite-cylinder operator filtration plus multiscale Lipschitz bridge provides a structurally motivated statistical refinement and a reproducible exact numerical enclosure, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
