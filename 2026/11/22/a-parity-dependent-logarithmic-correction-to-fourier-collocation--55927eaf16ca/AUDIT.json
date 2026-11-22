@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact even/odd Fourier and omitted-tail identities, the odd half-grid sine cancellation, Poisson summation, a uniform-in-all-later-times Gaussian comparison, and a near-antipodal even-index witness yield matched O(N^-2) brackets. The expansion and factors 1 and 3 are proved by explicit tail asymptotics with dominated convergence. The standalone finite diagnostic was run and returned PASS: 346; this is not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cifani–Jakobsen Section 3 uses a viscosity-modified nonlinear Fourier Galerkin approximation of periodic fractional conservation laws; it does not evaluate the original Fourier heat propagator.",
+        "Li Appendix B estimates norm overshoots and small-step defects; these estimates are compatible with exponentially small negative entries.",
+        "The published published-finding corpus 2026 theorem gives N*T_N to leading order on even grids, leaving O((log N)/N^2) fluctuations unresolved."
+      ],
+      "reasoning": "The larger families of spectral approximation and effective maximum principles are not logically stronger in the specific signed entrywise and second-order asymptotic sense. The old leading limit permits any log coefficient and does not quantify odd grids.",
+      "searches": [
+        "published-finding corpus: Fourier heat pseudospectral odd grid positivity recovery logarithmic correction 3 log N / N squared",
+        "published-finding corpus: truncated Gaussian theta heat spectral cutoff uniform positivity eventual log N correction",
+        "arxiv:1011.3443 Section 3",
+        "arxiv:2107.09438 Appendix B"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1011.3443v1, Section 3, public full HTML",
+      "arxiv:2107.09438v1, Appendix B Theorem B.1, public full HTML",
+      "published-finding corpus:2026/11/8/SCOPE-a-sharp-n-1-positivity-recovery-horizon-for-fourier-collocation--d4274dc28d8b public full RESULT.md and originality AUDIT.json",
+      "accessible current-week own ledger g000106, 106 claim strings for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The directly matching published-finding corpus theorem gives for c>pi positivity from c/N onward, and for c<pi negative entries at c/N, only on even grids. These allow both proposed corrections without determining them.",
+        "The published proof uses e^{-N^2t/4}*coth(Nt/2) for the even-grid cutoff and a Gaussian lower bound; it does not expand into the 1/N shifted boundary layer.",
+        "Odd-grid formula has no single real Nyquist mode; the first omitted symmetric Fourier pair cancels to leading order at an antipodal half-grid point."
+      ],
+      "reasoning": "Neither a first-order squeeze nor norm estimates imply a second-order coefficient. The new proof establishes N-dependent comparisons c=pi-(kappa log N±B)/N with parity-sensitive omitted tails, which are stronger claims.",
+      "searches": [
+        "published-finding corpus:2026/11/8/SCOPE-a-sharp-n-1-positivity-recovery-horizon-for-fourier-collocation--d4274dc28d8b",
+        "published-finding corpus: Fourier pseudospectral heat positivity recovery time parity-dependent N^-2 log N coefficient even odd 1 3",
+        "published-finding corpus: Fourier collocation heat semigroup exact log correction comparison Dong Li effective maximum principle",
+        "arxiv:2107.09438 Theorem B.1",
+        "arxiv:1011.3443 Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact semigroup is a truncated Jacobi theta heat kernel; for odd N the missing Fourier pair begins at (N+1)/2 and cancels linearly at the antipode.",
+        "The closest published published-finding corpus Fourier-collocation result includes the same even-grid Nyquist convention but proves only the leading limit N*T_N=pi and explicitly excludes odd grids.",
+        "Li (arXiv:2107.09438), Appendix B Theorem B.1, bounds induced maximum norm as 1+O(1/N) in a large-step regime, not exact sign of near-antipodal kernel entries."
+      ],
+      "reasoning": "An equivalent statement would establish the second asymptotic term of the last negative entry of a discrete theta/periodized Gaussian cutoff; leading-order positivity and effective maximum-norm bounds do not determine that coefficient. The new odd missing-Nyquist cancellation causes an extra 1/N, so neither odd correction nor the even logarithmic term follows from the published statements.",
+      "searches": [
+        "published-finding corpus: Fourier collocation heat eventual positivity parity logarithmic correction Nyquist even odd",
+        "published-finding corpus: truncated Jacobi theta Fourier heat kernel odd grid endpoint alias antipodal cosine tail correction",
+        "published-finding corpus: Fourier collocation heat semigroup exact log correction comparison Dong Li effective maximum principle",
+        "published-finding corpus:2026/11/8/SCOPE-a-sharp-n-1-positivity-recovery-horizon-for-fourier-collocation--d4274dc28d8b"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 106 accessible own-record claims yielded no matches for the Fourier spectral heat/Nyquist target terms.",
+        "The closest published published-finding corpus record title, complete RESULT.md and relevant limitations were read and contain neither logarithmic asymptotic coefficient.",
+        "This is an asymptotic all-grid kernel-sign invariant, not an entry in a finite numerical table."
+      ],
+      "reasoning": "A finite grid table could suggest the constants but cannot imply the uniform all-time, all-grid asymptotics. All accessible own claims were used for deduplication only; absence is not a proof of global uniqueness.",
+      "searches": [
+        "published-finding corpus: Fourier heat pseudospectral odd grid positivity recovery logarithmic correction 3 log N / N squared",
+        "published-finding corpus: truncated Jacobi theta Fourier heat kernel odd grid endpoint alias antipodal cosine tail correction",
+        "own current-week ledger 106 recoverable claim strings searched for Fourier collocation, Nyquist, spectral heat, logarithmic correction"
+      ]
+    },
+    "rationale": "Compared statement implications against a directly matching published leading-order Fourier-collocation theorem and full-text primary Fourier-spectral literature; neither logarithmic correction nor odd-grid law follows from available statements or examined proofs. Source-level precedence risk remains for unindexed specialized cutoff/theta analysis.",
+    "residual_risks": [
+      "Unindexed literature on partial theta kernels or discrete Fourier cutoff positivity may contain the same second-order expansion.",
+      "Search evidence establishes a best-knowledge comparison, not an independent publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different viscosity-modified spectral Galerkin setting; does not determine unmodified Fourier heat collocation entrywise eventual positivity or its asymptotic parity correction",
+        "evidence": [
+          "Cifani–Jakobsen define a nonlinear spectral viscosity method, with added epsilon_N*Q_N modification, and prove convergence/regularity properties; Section 3 treats nonmonotone Gibbs phenomena, not a last-negative-entry time.",
+          "First public 2010-11-15; primary numerical MSC 65M70."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1011.3443v1",
+        "material_read": "Abstract, Introduction, Section 3 including equations (3.1)–(3.5) and statements on spectral accuracy and non-monotonicity",
+        "method": "public full HTML manuscript, lines 32–102 and 182–245",
+        "title": "On the spectral vanishing viscosity method for periodic fractional conservation laws",
+        "trigger": "2010 archival original spectral-viscosity source; potential general Fourier positivity coverage"
+      },
+      {
+        "assessment": "The upper induced-norm and lower small-step defect bounds do not determine strict individual-entry recovery at the logarithmic scale",
+        "evidence": [
+          "Li Theorem B.1 gives A_N,t≤1+O(N^-1) when N²t large compared to log N; it does not assert entrywise positivity nor a last sign-change asymptotic."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2107.09438v1",
+        "material_read": "Abstract, contents and Appendix B, Theorem B.1, construction of truncated Fourier heat sum, proof of norm bounds",
+        "method": "public full HTML manuscript, lines 37–48 and 4274–4334",
+        "title": "Effective maximum principles for spectral methods",
+        "trigger": "Closest published broad maximum-principle theory for Fourier-collocation heat flow"
+      },
+      {
+        "assessment": "Establishes leading pi/N for even N only; new log corrections and odd law not stated and not entailed by its bounds",
+        "evidence": [
+          "Full RESULT.md proves even-grid N*T_N→pi, states exact finite-grid T_N and odd-grid asymptotic are not determined; its proof evaluates only fixed c away from pi."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-n-1-positivity-recovery-horizon-for-fourier-collocation--d4274dc28d8b",
+        "material_read": "Complete published RESULT.md (definitions, full proof, verification, relationship, limitations) and relevant originality AUDIT.json entries",
+        "method": "read GitHub public full text via repository file fetch",
+        "title": "A sharp N^{-1} positivity-recovery horizon for Fourier-collocation heat flow",
+        "trigger": "Same objects and leading-order quantity; decisive possible implication comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "55927eaf-16ca-4d8c-a7ae-77d16eda7807",
+  "value": {
+    "rationale": "The theorem resolves a natural precise unknown in an existing leading-order result for the unfiltered numerical heat propagator: a sharp parity-dependent logarithmic correction to eventual nodal positivity. The factor-three effect has a mechanistic explanation in Nyquist-mode cancellation and sharp matching positive/negative comparisons, with significance for positivity guarantees on odd versus even collocation meshes. This is not an arbitrary finite table or routine substitution.",
+    "status": "PASS"
+  }
+}
