@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The exact two-dimensional invariant subspace and stationary total-density curve reduce symmetry-breaking equilibria to a single analytic equation. Its linear coefficient crosses zero transversely and its cubic term is strictly negative for every stated positive parameter. The two other symmetry blocks give one persistent unstable eigenvalue near the branch, proving that the bifurcating equilibria are saddles. Direct Jacobian reconstruction and exact symbolic identities were tested. This proof is local, not a global attractor classification.
+
+**Originality — PASS (literature-bounded).** The initiating 2026 paper defines nonlinear competitor-avoidance mobility, examines asymmetric exclusion and numerical coexistence, and does not give this symmetric centered-response pitchfork, its amplitude constant or its full-dimensional instability classification. A 2019 open-access two-patch competition paper treats delayed *constant* dispersal and does not subsume the state-dependent mobility derivatives here. Closely related general chemotactic symmetry-breaking and two-patch epidemic pitchfork results concern different equations and do not imply the coefficient or ecological instability index. The 2023 two-patch dispersal paper remained accessible only by abstract; this is a historical-priority risk.
+
+**Value — PASS.** Onset of stationary species segregation is a natural diagnostic in nonlinear dispersal ecology, but need not be the onset of stable coexistence. The theorem gives an exact steepness boundary, orientation-independent amplitude coefficient, and a rigorous warning against equating emergent patterns with biological persistence; unlike a mere stability calculation it classifies the local stationary branch, direction, rate and full-space Morse index.
+
+Self-review: passed. Independent audit: not yet performed.
