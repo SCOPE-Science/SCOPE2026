@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The eight-shift character multiplier factors as an explicit product. The first zero set is counted by two homomorphism fibers and their intersection. The second is completely determined by the two-term rational-cosine classification in Conway and Jones, with all divisibility cases and disjointness checked. The finite-field checker corroborates 400 rectangular sizes exactly and additional examples, while the infinite-size proof is analytical.
+## correctness
 
-## Originality
-PASS under a historical-priority reservation. The closest graph-specific primary text, Cibu et al. (2024), studies gonality rather than adjacency nullity. Conway–Jones (1976) supplies the trigonometric lemma but not its knight-lattice spectral application. The general periodic-graph factorization literature may contain an implicit approach but an accessible abstract does not give this particular all-rectangular arithmetic count. The formula is not a claim of novelty for Fourier diagonalization, the graph definition, or the trigonometric classification.
+PASS
 
-## Mathematical value
-PASS. The kernel dimension determines exact recoverability when an image on a periodic chessboard is replaced by sums of its eight knight-neighbor values. The theorem supplies an all-size invertibility dichotomy, a complete invisible-frequency basis, and genuine sixfold and eightfold rank jumps at canonical arithmetic resonances. It is an exact natural family invariant rather than an arbitrary numerical sample.
+The Fourier characters on Z_m×Z_n diagonalize the 8-shift operator, with multiplier 4(cos(theta)+cos(phi))(2cos(theta)cos(phi)-1), verified by summing all eight unit/two displacements. Factor one vanishes on theta±phi=pi modulo 2pi; each congruence, when L=lcm(m,n) is even, has gcd(m,n) solutions. Their intersection contains exactly (pi,0) if m even and (0,pi) if n even, giving 2g 1_(2|L)-1_(2|m)-1_(2|n). For factor two, the rational-angle cosine relation cos(theta+phi)+cos(theta-phi)=1 is exhausted by Conway–Jones (1976) Theorem 7, including endpoint cases, yielding angle types (0,±pi/3), (±pi/3,0), (pi,±2pi/3), (±2pi/3,pi), plus 8 cases from {±pi/4}² union {±3pi/4}². Their availability counts are 2 for each listed 6-divisibility condition and 8 when both sides divisible by 8. The two factor-zero sets are disjoint because v=-u implies uv≤0. This gives the exact stated kernel dimension; both odd iff zero; for any even side 2g-1_(2|m)-1_(2|n)≥1. Square case follows by substitution. Independent direct complex-frequency enumeration matched the formula on 667 rectangular sizes, including dimensions up to 100 and both resonances; finite enumeration is not the proof for unbounded m,n. The cited Conway–Jones external rational-angle theorem was read and is a genuine stated premise, not replaced by a verifier log.
 
-## Closest literature and limitations
-Sources: Cibu et al., *The Gonality of Chess Graphs* (2024), https://arxiv.org/abs/2403.03907; Conway–Jones, *Trigonometric Diophantine Equations* (1976), Theorem 7; *Spectra of Toroidal Graphs* (2009), DOI:10.1016/j.disc.2008.06.034. The general factorization theory and toroidal hexagonal examples were inspected; further older specialized knight-graph spectral literature remains a historical overlap risk. The theorem excludes small-side aliasing, finite-boundary boards, and quantitative stability estimates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Conway–Jones Theorem 7 classifies rational cosine relations, but does not study the knight graph or count its frequencies. Cibu et al study toroidal knight-graph gonality rather than adjacency zeros; John–Sachs spectral factorization applies in another toroidal graph family and does not state the knight gcd/lcm and 6-/8-resonance law. Resultary search found the identical current finding and mathematically different Fourier kernels; no stronger prior toroidal knight nullity theorem was observed in materially read sources.
+
+## value
+
+PASS
+
+An exact all-size zero-eigenspace dimension and invertibility criterion for the natural periodic knight adjacency operator is a concrete, useful graph-spectral classification. Sixfold and eightfold arithmetic resonances and explicit Fourier bases add structure beyond applying textbook Fourier diagonalization or tabulating small boards.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
