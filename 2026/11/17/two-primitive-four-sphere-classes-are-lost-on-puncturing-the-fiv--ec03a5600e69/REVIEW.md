@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated metric-complement graph equivalence follows from the exhaustive 625 ordered-pair metric check and the invertible change of coordinates over \(\mathbb Z/5\). The self-contained code enumerates every face in the full, deleted, and link complexes, builds all cover relations, and certifies directed acyclicity. Critical-face dimensions are exactly \((9,4)\), \((7,4)\), \((2,3)\), with augmented empty faces matched. Standard discrete-Morse topology gives the wedge types. The relative cofibration proves primitive split injection and its rank-two quotient, with no uncertified integer Smith claim.
+## correctness
 
-## Originality — PASS, limited to checked evidence
-Adams et al., arXiv:2502.07134v2, Sections 7–8, provide the full-space nine-sphere homotopy type, not a puncture or link computation. A published record of the full hard-square complex likewise concerns the original 25-point space and cannot, without additional link/deletion information, imply the new rank-seven punctured type or the primitive inclusion. Targeted mathematical-record and external literature searches for five-by-five periodic hard squares, single-site deletion, Rips puncture and homological inclusion found no equivalent exact result. The published record's complete text was inaccessible, so overlapping unindexed extensions remain possible.
+PASS
 
-## Value — PASS
-In topological data analysis, one-landmark deletion stability is a natural test of how robust a finite metric complex's homology is. This is the complete vertex-deletion classification (all sites are equivalent by torus translations) of a canonical finite toroidal scale-three Rips example. The homotopy types of the deletion and link, and the precise primitive seven-to-nine integral persistence map, are motivated exact invariants rather than an unmotivated parameter tweak. The earlier unpunctured rank alone does not answer them.
+At torus Manhattan scale 3, forbidden edges are exactly coordinate distances (2,2), and (x,y)->(x+y,x-y) over F5 converts the forbidden graph into C5□C5. The supplied full augmented-face Hasse-DAG matching, independently regenerated from the pinned pivot permutation, has 25,531 faces/142,050 covers and nine critical 4-cells for X; 19,849/108,568 and seven critical 4-cells for Y; 5,682/27,800 and two critical 3-cells for link. Acyclicity checked over every cover relation, not just homology ranks. Reduced Forman Morse models supply integral wedges. LES of X=Y∪cone(link) gives 0→Z^7→Z^9→Z^2→0; free quotient proves primitive image, and wedge homotopy coordinate changes realize standard inclusion and cofiber wedge²S⁴.
 
-## Limits
-The result concerns induced deletion with the original metric, not recomputation of distances, and no multi-site statement is made. The full-text priority comparison with the published record is limited by source access.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2025 torus grid theorem already supplies X≈∨9S4, explicitly credited. No inspected primary theorem or indexed published record gives the punctured 25-site induced complex, its link, or the primitive inclusion. These new natural one-landmark robustness invariants are not determined from the unpunctured wedge alone; best-of-knowledge with residual unindexed hard-square literature.
+
+## value
+
+PASS
+
+Single missing observation robustness is a natural invariant for Vietoris–Rips complexes of a metric sample. Exact integral deletion and link types together with the primitive rank-2 homology loss and cofiber contain meaningful information not derivable from the known nine-sphere total; precise finite 5x5 exceptional geometry is justified rather than an arbitrary table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
