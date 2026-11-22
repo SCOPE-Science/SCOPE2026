@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof in `RESULT.md` is an analytical proof for every integer \(k\ge1\), not an extrapolation of finite experiments. The earlier entropy and intrinsic-ergodicity results used are identified by exact theorem numbers and source.
+## correctness
 
-The standalone Python 3 standard-library program `check.py` was run directly from the same package folder and printed:
+PASS
 
-`VERIFY_OK exact_phase_convolutions=252 finite_tail_checks=65 coboundary_tests=8313`
+Reyes establishes unique maximal entropy and log2/N entropy for the code 0^m1^(km). A stationary two-sided iid fair marker construction induces uniformly random phase U and correctly generates junctions 10; gaps have geometric P(M=m)=2^-m. At phase a, I_0=1 iff S>=kT+a for iid geometric T,S; summing gives q_a and the finite cyclic convolution gives claimed C_(N,r). Bernoulli mixing plus exponential tail localization proves exponential lag convergence. Inside a generator progress j, R=min(kj,NM-j) increases N-1 for 0 and decreases 1 for 1, and concatenates at zero: R_{n+1}-R_n=N I_n-1. R<=kM and geometric block tails give all finite moments. Conditional mixing of endpoints gives the explicitly stated subsequence limits. Verified fractions for N=2..12, every phase/residue and independent finite word coboundary checks; no finite-to-infinite extrapolation.
 
-Checks: exact rational evaluation for every phase and residue when \(2\le N\le22\), including the normalization and closed correlation formula; independently truncated double-geometric enumeration for \(2\le N\le11\) with a proven omitted-mass bound; and precise integer verification of generator-by-generator height jumps and multi-step telescoping for \(2\le N\le18\). All necessary files are contained in the package.
+## originality
 
-Limits: finite checks cannot prove a result for infinitely many parameters, stochastic independence, ergodic maximality, or convergence in law. Those statements rely on the explicit inverse coding, Reyes' maximal-entropy uniqueness, Bernoulli mixing, finite geometric sums, and exponential integrability proven in `RESULT.md`. The originality survey has a historical-priority residual risk. Independent validation is not performed.
+PASS
+
+The uniform-phase iid-marker MME representation is already demonstrated in the same-system published zeta theorem and generic Bernoulli-modulo-periodicity is older; the additional explicit conditional q_a, long-lag covariance constants, Lp count coboundary and lattice limit laws survive source-to-claim comparisons.
+
+## value
+
+PASS
+
+A natural invariant measure of a recently studied nonsofic shift has explicit persistent oscillatory correlations despite positive entropy; a nonnegative unbounded-but-all-moments transfer explains tight count fluctuations and zero asymptotic variance, a substantive dynamical distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
