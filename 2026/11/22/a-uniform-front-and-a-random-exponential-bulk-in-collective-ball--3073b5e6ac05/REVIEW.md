@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+
+The complete claim uses one regenerative experiment and a precisely specified exponential speed ensemble. Inter-return durations are exactly the reciprocal speed maximum; the tail order is \(t^{-N}\), giving the sharp finite-mean boundary. Normalized occupation over a cycle yields an independent uniform phase and an explicit reciprocal-maximum tilt, hence the exact uniform leftmost position. Maximum-concentration estimates plus an integrable inverse-second-moment bound give an \(L^1\) vanishing speed tilt; the law of large numbers and a bounded-Lipschitz argument prove the tagged and random-empirical scaling. The finite diagnostic checker agrees with the exact survival and uniform-front formulas and with large-population exceedance and first-moment predictions. Critical computations were reconstructed from the standalone `checker.py` file. The analytic proof, not Monte Carlo, supports the infinite limit.
+
+## Originality — PASS, qualified
+
+The source paper arXiv:2611.16733 studies one ballistic particle and explicitly proposes the many-particle extension. The closely related arXiv:2512.00440 treats collective Brownian resetting and already establishes random Gaussian-mixture structure; this is an important precedent, not a proof of the present exponential-speed result. Classical renewal theory supplies the stationary occupation step and is not claimed as novel. The complete arXiv:2504.13501v4 HTML including supplement S8.2 was inspected and contains the **exact same excursion survival function and finite mean threshold** (S96–S98): these features are credited prior results, not new contributions. That study terminates at target arrival and reports search-time statistics, without a corresponding stationary empirical particle profile. Multiple searches of published mathematical findings for collective ballistic resetting, exponential speeds and random stationary bulk gave no equivalent result. Closest records concerned Brownian first-passage gas tails, Gaussian mixture stationary profiles and Poisson-reset velocity processes; none logically implies the ballistic exponential bulk without the new model-specific calculation. Publication priority remains subject to independent literature review.
+
+## Value — PASS
+
+The model answers a concrete many-particle stationary-profile extension raised in recent first-passage-resetting work. It separates a uniformly distributed single front from the nearly immobile bulk, and supplies the full non-self-averaging distribution of the number of particles that move beyond the natural logarithmic resolution. The finite-mean cutoff already identified in ballistic first-passage work is not proposed as novel. These are physically interpretable spatial-population statistics, not merely a single evaluated integral or a rephrasing of the renewal formula. The result is limited to exponential speeds and an ordinary-time stationary observation.
+
+Self-review: passed. Independent audit: not yet performed.
