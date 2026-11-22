@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T16:49:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS, limited to the claim as a true special case. Projected coordinate normals have length Lq=sqrt(1-1/(3q)), Monge normals length 2. The nonnegative Z=(C-rLq·1)/(2r) has mixed slacks ≥1, and the dual tent weights u_j=min(2j,q-j),v_j=min(j,2(q-j)) give sum Z≥2 floor(q²/3). Positive interior weights force equality in every Monge slack; complementary coordinate zeros reduce equality to two scalar hinge/quantile minimizations. The resulting center set has dimension 2 exactly when 3|q, 0 otherwise; given tangent-facet strata follow by counting zeros. More decisively independently specialized two published all-rectangular formulas to p=3: (p²q²-p²-q²+gcd(p,q)²)/6=4 floor(q²/3), and center dimension gcd(3,q)-1. Verified this identity exactly for q=4..100 and it follows for all q by three residue classes. Thus the mathematical formulas are correct, though already proved more generally.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct18 universal radius r_{p,q}=[pq√(1-1/pq)+(p²q²-p²-q²+g²)/6]^{-1}; all center cube dim g-1 for g=gcd(p,q); tangent facets pq+1-g+e."
+        ],
+        "reasoning": "Set p=3: g=1 unless q≡0(mod 3), in which case g=3; (9q²-9-q²+g²)/6=4floor(q²/3). For g=1 inradius unique, contacts 3q; for g=3 2-cube contacts 3q-2 to 3q by 0..2 endpoint parameters. This implies all advertised radius/uniqueness/tangency distinctions.",
+        "searches": [
+          "Resultary: 3xq normalized Monge polytope Euclidean incenter period three nonsquare rectangle three rows",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-greatest-common-divisor-law-for-euclidean-inballs-and-center-c--f4e4e7c33724/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gcd-controlled-euclidean-inballs-of-rectangular-monge-polytopes--3e50eb77bbfb/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-greatest-common-divisor-law-for-euclidean-inballs-and-center-c--f4e4e7c33724/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gcd-controlled-euclidean-inballs-of-rectangular-monge-polytopes--3e50eb77bbfb/RESULT.md",
+        "https://arxiv.org/abs/2311.07522",
+        "Resultary query Resultary: 3xq normalized Monge polytope Euclidean incenter period three nonsquare rectangle three rows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oct18 full theorem contains all p,q>=2 without excluding p=3. For p=3 the original claim explicitly q>=4 and agrees in every claimed case; exact rational algebraic reduction is recorded."
+        ],
+        "reasoning": "The stronger October theorem directly implies the November final claim for every allowed q. No priority chronology or authorship inference beyond documented publication dates is needed.",
+        "searches": [
+          "Resultary: 3xq normalized Monge polytope Euclidean incenter period three nonsquare rectangle three rows",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-greatest-common-divisor-law-for-euclidean-inballs-and-center-c--f4e4e7c33724/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct18 RESULT.md defines exactly normalized nonsymmetric rectangular Monge with the same adjacent inequality sign and intrinsic Frobenius metric; Oct25 uses opposite Monge sign but says column reversal is an isometry."
+        ],
+        "reasoning": "The ternary classification is a mathematical specialization p=3 of the exact same object. Reversing columns in Oct25 yields equal polytope under a Euclidean isometry; parameter names and alternate tent proof do not change the statement.",
+        "searches": [
+          "Resultary: 3xq normalized Monge polytope Euclidean incenter period three nonsquare rectangle three rows",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-greatest-common-divisor-law-for-euclidean-inballs-and-center-c--f4e4e7c33724/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gcd-controlled-euclidean-inballs-of-rectangular-monge-polytopes--3e50eb77bbfb/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Oct18 RESULT.md explicitly provides full all-center increments U_i,V_j and endpoint contact counts, not just a numerical table; Oct25 provides exact transport-support characterization for every p,q."
+        ],
+        "reasoning": "The known table/formula is stronger than any q-specific census; the proposed all-q center formulas are alternate parameterizations of a previously completely characterized incenter cube, no novel invariant remains.",
+        "searches": [
+          "Resultary: 3xq normalized Monge polytope Euclidean incenter period three nonsquare rectangle three rows",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-greatest-common-divisor-law-for-euclidean-inballs-and-center-c--f4e4e7c33724/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gcd-controlled-euclidean-inballs-of-rectangular-monge-polytopes--3e50eb77bbfb/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL decisive stronger prior coverage. Published 2026-10-18 all-rectangular normalized Monge Frobenius inball theorem states exact r_{p,q}, all centers an affine (gcd(p,q)-1)-cube and facet contacts pq+1-g+e. For p=3, g=1 or3, its denominator becomes 3qLq+4floor(q²/3), its center locus point or 2-cube, and its contact counts 3q or 3q-2+e; this exactly covers the proposed final claim for all q>=4, despite a different parameterization. A second 2026-10-25 all-rectangular theorem independently confirms radius and gcd-dimension coverage. There is no unproved new remainder to repair.",
+      "reasoning": "FAIL decisive stronger prior coverage. Published 2026-10-18 all-rectangular normalized Monge Frobenius inball theorem states exact r_{p,q}, all centers an affine (gcd(p,q)-1)-cube and facet contacts pq+1-g+e. For p=3, g=1 or3, its denominator becomes 3qLq+4floor(q²/3), its center locus point or 2-cube, and its contact counts 3q or 3q-2+e; this exactly covers the proposed final claim for all q>=4, despite a different parameterization. A second 2026-10-25 all-rectangular theorem independently confirms radius and gcd-dimension coverage. There is no unproved new remainder to repair.",
+      "residual_risks": [
+        "No scientific priority ambiguity: all-rectangular October 18 theorem covers the November three-row claim; no attempted salvage by adding certificates or disclaimers.",
+        "The prior full theorem itself was independently read for coverage, not assumed from similarity of titles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: direct strict generalization; decisive O failure",
+          "evidence": [
+            "2026-10-18 statement all p,q>=2; r_{p,q}^{-1}=pqL+(p²q²-p²-q²+g²)/6, centers dim(g-1), contact pq+1-g+e."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-greatest-common-divisor-law-for-euclidean-inballs-and-center-c--f4e4e7c33724/RESULT.md",
+          "material_read": "Full RESULT.md Finding, full proof sections 1-5, exact center parametrization, normalized Frobenius facet system, all contact counts",
+          "method": "GitHub connector fetch_file full primary RESULT.md, independently algebraically specialized",
+          "title": "A greatest-common-divisor law for Euclidean inballs and center cubes of rectangular Monge polytopes",
+          "trigger": "Exact same polytope including three rows, all q, full radius and contact theorem"
+        },
+        {
+          "assessment": "COVERING for inradius and unique-vs-positive-dimensional center; prior first source supplies the exact contacts",
+          "evidence": [
+            "2026-10-25 r_{p,q}, g dimension, exact transport-support characterization; reflection isometric sign convention."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gcd-controlled-euclidean-inballs-of-rectangular-monge-polytopes--3e50eb77bbfb/RESULT.md",
+          "material_read": "Full RESULT.md Finding, proof and exact gcd evaluation, transport support and dimension",
+          "method": "GitHub connector full primary source read",
+          "title": "Gcd-controlled Euclidean inballs of rectangular Monge polytopes",
+          "trigger": "Independent same all-rectangular coverage"
+        },
+        {
+          "assessment": "Supplies irredundant facet system, not standalone inball novelty",
+          "evidence": [
+            "Coordinate and adjacent Monge facet normals are a common input to the prior and new proofs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.07522",
+          "material_read": "Theorem 5.3 attribution and public record description; full text not reread in this run",
+          "method": "Primary arXiv record and citations in both full earlier results",
+          "title": "The structure and normalized volume of Monge polytopes",
+          "trigger": "Facets used by both source and prior"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL AS AN ORIGINAL CONTRIBUTION. Exact metric incenter and contact counts are natural objects, but the claimed new three-row period-three uniqueness, radius, center parallelogram and all contact strata are direct p=3 consequences of a known all-p,q theorem and complete cube/contact parametrization published 2026-10-18. The bespoke dual tents offer an alternate proof of an already-covered special case, not a separately motivated result beyond that theorem. Computational reproducibility and a correct specialization alone do not establish a fresh valuable finding.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-greatest-common-divisor-law-for-euclidean-inballs-and-center-c--f4e4e7c33724/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gcd-controlled-euclidean-inballs-of-rectangular-monge-polytopes--3e50eb77bbfb/RESULT.md",
+    "https://arxiv.org/abs/2311.07522",
+    "Resultary query Resultary: 3xq normalized Monge polytope Euclidean incenter period three nonsquare rectangle three rows"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No global literature novelty guarantee, nor publisher/expert certification; acceptance is a bounded mathematical assessment.",
+    "Review applies only to exact frozen source tree and explicitly stated hypotheses; checker logs are corroboration and cannot substitute for mathematical proof."
+  ],
+  "residual_risks": [
+    "No scientific priority ambiguity: all-rectangular October 18 theorem covers the November three-row claim; no attempted salvage by adding certificates or disclaimers.",
+    "The prior full theorem itself was independently read for coverage, not assumed from similarity of titles."
+  ],
+  "schema_version": 1
+}
