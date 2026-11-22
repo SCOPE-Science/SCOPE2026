@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "A full exact block inverse proves almost-sure nonsingularity; the leading entries are a Gaussian product reciprocal versus an independent Gaussian square reciprocal. The product-normal logarithmic small-ball expansion and half-normal square small-ball expansion, together with O(R^-1) remainder tails, prove the two sharp operator-norm asymptotics. Normal inverse moments and Gaussian polynomial integrability give both if-and-only-if moment thresholds. A standalone rational checker passes 2,258 assertions, supplementary to the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sifuentes et al., Theorems 3 and 4, bound the inverse and condition number using norms of nullspace projections but do not state exact Gaussian inverse-norm exceedance probabilities.",
+        "Chen and Dongarra, doi:10.1137/040616413, abstract gives bounds on condition numbers of a fully Gaussian rectangular matrix, not a fixed corank-one singular matrix with a single random rank completion."
+      ],
+      "reasoning": "The deterministic rank-completion inverse formulas are broader algebraically, but do not themselves provide probabilistic tail prefactors and sharp moment classes. Full Gaussian matrices and independent random projection studies involve non-equivalent matrix laws. A stronger publication with equivalent tail asymptotics cannot be excluded beyond searched sources.",
+      "searches": [
+        "random rank perturbations rank deficient matrix symmetric positive semidefinite versus nonsymmetric gaussian rank completion conditioning inverse moments heavy tails",
+        "Sifuentes Greengard Gimbutas Gaussian rank one completion condition number distribution inverse moments symmetric",
+        "rank deficient A=diag(0,I), inverse of A+pp^T vs A+pq^T, sharp inverse condition tail moments"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1401.3068v1 (full PDF text and relevant rendered pages)",
+      "doi:10.1111/stan.12267 (open-access article introduction and product density)",
+      "doi:10.1137/040616413 (abstract)",
+      "doi:10.1016/j.crma.2015.10.019 (abstract/intro extract)",
+      "doi:10.1137/0114046 (metadata and abstract only)",
+      "Published result: Exact R^-1 tail for Haar rank-one Sylvester projections (summary and claim scope)",
+      "Published result: Sharp real-complex inverse-moment thresholds for two-row Gaussian Hankel matrices (summary and claim scope)",
+      "Published result: Exact failure probability and infinite-mean tails for Gaussian indefinite Nyström corrections (summary and claim scope)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sifuentes et al. prove almost-sure invertibility and give a block inverse; their section 4.2 calls the conditioning probabilistic but does not evaluate the two Gaussian tails or their ratio.",
+        "Springer and Thompson (1966) and Nadarajah and Pogany (2015) concern scalar product distributions, and identify the independent-normal product structure relevant to one completion.",
+        "The symmetric completion instead contains a squared null-coordinate and requires controlling all inverse blocks to upgrade its scalar law to an operator-norm law."
+      ],
+      "reasoning": "Although the deterministic inverse and scalar product law are established ingredients, deriving both precise operator-norm tail constants for arbitrary fixed positive range spectra and comparing the moment cutoffs requires a separate random-block analysis. The published ingredients make the result natural and limit any novelty claim to this synthesis; they do not, as inspected, already state its final claim.",
+      "searches": [
+        "Sifuentes et al. arXiv:1401.3068v1: equation (17), Theorems 3-4, sections 4.2 and 7",
+        "product of two standard normal variables Bessel K0 density near zero",
+        "random rank deficient matrix rank one perturbation Gaussian symmetric PSD nonsymmetric inverse norm tail"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sifuentes et al. arXiv:1401.3068v1, equation (17), is an exact deterministic block-inverse relation for general random rank completions.",
+        "Nearby published findings treat inverse tails for Haar-Sylvester projections, Gaussian Hankel matrices, and indefinite Nyström corrections, all different random objects."
+      ],
+      "reasoning": "The singularity mechanism uses one Gaussian nullspace coordinate twice for pp^T but two independent coordinates for pq^T. The searched alternatives address other random projections or sketches; none of their reported statements yields this particular two-model matrix-completion comparison. The common rank-one inverse identity is explicitly credited rather than claimed novel.",
+      "searches": [
+        "Sharp inverse norm tails for Gaussian symmetric versus nonsymmetric rank one nullspace completion of singular matrices; positive semidefinite rank completion has R^{-1/2} tails versus independent left right R^{-1} log R",
+        "randomized rank one completion inverse norm distribution symmetric update vs independent two-sided gaussian perturbation product normal",
+        "\"rank deficient\" \"rank one\" \"Gaussian\" \"inverse\" \"tail\" condition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published scientific findings reviewed did not report a matching table or exact exceedance constant for these two completion laws."
+      ],
+      "reasoning": "These searches reduce observed duplication risk; an absent search hit is not proof of novelty. The result is an analytic distributional classification, not a replacement for an existing numerical table.",
+      "searches": [
+        "Sharp inverse norm tails for Gaussian symmetric versus nonsymmetric rank one nullspace completion of singular matrices; positive semidefinite rank completion has R^{-1/2} tails versus independent left right R^{-1} log R",
+        "rank-completion Gaussian inverse-norm tail comparison",
+        "\"random rank one\" \"singular\" \"inverse\" \"heavy tail\""
+      ]
+    },
+    "rationale": "No equivalent rank-completion symmetric-versus-independent inverse-norm tail comparison was located in the inspected primary rank-completion and Gaussian-product literature and related published mathematical findings. Sifuentes et al. provide the deterministic inverse ingredient; the independent Gaussian product density is classical. The new scientific content is the quantified matrix-norm tail reversal and complete fractional-moment separation for arbitrary positive range restrictions. The priority claim is qualified by unindexed literature and by the fact that some statistical ingredients are standard.",
+    "residual_risks": [
+      "Older or unindexed papers may analyze these exact rank-completion distributions under different language; they were not exhaustively accessible.",
+      "The deterministic inverse formula and scalar Gaussian product laws are prior results; this claim does not present them as new.",
+      "Springer and Thompson full text and some statistically relevant articles were not inspected beyond available bibliographic material.",
+      "Indexed bibliographic summaries do not replace reading every full scientific result; the most similar hits involve different matrix objects."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides deterministic inverse formula and probabilistic conditioning motivation, but no claimed exact Gaussian tail-law comparison",
+        "evidence": "Equation (17) block inverse; Theorems 3-4 bounds; section 4.2 and conclusion discuss high-probability conditioning and stabilization.",
+        "identifier_or_url": "https://arxiv.org/pdf/1401.3068",
+        "material_read": "Full nine-page arXiv v1 text, particularly equations (3), (17), Theorems 3-4, sections 4.2 and 7; equation pages also inspected as rendered images",
+        "method": "Open full preprint PDF, inspect extracted pages and page images 3-4, search terms distribution, Gaussian, moment",
+        "title": "Randomized methods for rank-deficient linear systems",
+        "trigger": "Same rank-completing update pq^T and condition-number question"
+      },
+      {
+        "assessment": "Identifies the scalar Gaussian product density, not matrix-completion inverse-norm comparison",
+        "evidence": "Section 2.1 formula for the density in terms of K_0, reducing to K_0(|z|)/pi for independent standard normals.",
+        "identifier_or_url": "https://doi.org/10.1111/stan.12267",
+        "material_read": "Open-access article introduction and section 2.1 density statement, including historical references",
+        "method": "Read openly available full-text HTML of the distributional reference",
+        "title": "The basic distributional theory for the product of zero mean correlated normal random variables",
+        "trigger": "Possible equivalence through scalar product-normal small ball"
+      },
+      {
+        "assessment": "Fully Gaussian matrix condition numbers, not inverse of fixed singular A plus rank-one Gaussian updates; full text not read",
+        "evidence": "Abstract bounds condition-number tails for a rectangular iid real Gaussian matrix.",
+        "identifier_or_url": "https://doi.org/10.1137/040616413",
+        "material_read": "Published abstract and stated bounds",
+        "method": "Review accessible bibliographic page and abstract",
+        "title": "Condition Numbers of Gaussian Random Matrices",
+        "trigger": "Broader possible condition-number tail coverage"
+      },
+      {
+        "assessment": "Scalar Gaussian product distribution, not matrix completion; limited access does not certify whole-document noncoverage",
+        "evidence": "Abstract states exact distribution of correlated normal products, published online December 21, 2015.",
+        "identifier_or_url": "https://doi.org/10.1016/j.crma.2015.10.019",
+        "material_read": "Publication abstract and first-page text available from author-circulated extract; full publisher text was not accessible",
+        "method": "Review publisher record and available introductory extract",
+        "title": "On the distribution of the product of correlated normal random variables",
+        "trigger": "Possible exact product-normal law containing the scalar intermediate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "367d4212-442f-4687-ad77-d60a6839f09b",
+  "value": {
+    "rationale": "The natural choice between symmetry-preserving pp^T and independent pq^T completion has an unbounded high-threshold inverse-amplification tail ratio and distinct sharp fractional moment classes, even though both updates restore full rank almost surely. This quantifies a substantive numerical stability tradeoff for arbitrary fixed corank-one positive semidefinite systems; it is not merely a parameter substitution. No finite-threshold condition-number ordering is asserted.",
+    "status": "PASS"
+  }
+}
