@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The defining recursion reduces ternary outputs to products of sorted binary blocks. Cutting at each `10` transition proves a converse for all nonnegative contents; stars and bars gives the exact image counts, and a deterministic-counter argument proves the language classification and nonregularity. Rational series and singularity analysis follow algebraically. Two independent programs directly test the literal mapping and a different recurrence method, with limitations stated in `RESULT.md` and `VERIFICATION.md`.
+
+**Originality — PASS against inspected literature.** Defant–Kravitz (arXiv:1809.09158) proves a general preimage counting algorithm, not this uniform Parikh-class output language or rational image enumerator. Campbell–Rampersad (arXiv:2604.25811) introduces the motivating complexity framework but restricts its detailed analysis to binary words and tortoise. The existing ternary tortoise-image characterization covers a different operation with a different output language and growth rate. Search under hare-image, stack-sorting range, Parikh-class fibers, descents and generating functions disclosed no equivalent theorem. The main residual risk is an unindexed or implicit earlier specialization of general fertility results; this review cannot certify historical priority.
+
+**Value — PASS.** One-pass images are a basic inverse/range question for stack sorting and are necessary to understand the expressive power and information loss of such maps. This exact classification gives a sharp content-dependent phase transition, distinguishes a deterministic nonregular output language from rational counting growth, and quantifies exponential image compression in the smallest nonbinary alphabet. These statements are not merely a finite sample or an arbitrary choice of parameters.
+
+Self-review: passed. Independent audit: not yet performed.
