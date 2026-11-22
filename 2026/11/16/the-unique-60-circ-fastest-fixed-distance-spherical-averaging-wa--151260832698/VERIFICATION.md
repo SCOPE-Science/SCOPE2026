@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the fixed-distance projective averaging theorem
+# Independent mathematical audit
 
-Run `python3 verify_cp2.py` from this package. The checker uses Python's standard-library `fractions.Fraction` and `math.comb`, constructs the normalized Jacobi multipliers independently from terminating hypergeometric sums, and compares them with the Jacobi–Legendre difference formula. Executed checks: 280 exact rational assertions, including seven rational test parameters and degrees 1–25, seven exact optimizer-mode values for degrees \(3\)–\(9\), strict high-degree envelope comparisons, harmonic dimensions and the two-mode polynomial factorization.
+## correctness
 
-## Analytic coverage
+PASS
 
-The all-angle global lower bound comes from degrees 1 and 2 and the displayed exact quadratic factorization. The all-degree upper bound at the candidate uses exact rational Legendre recurrences up to degree 9 and the classical bound \(|P_n(t)|\le1\) on \([-1,1]\), which gives an explicit strict bound for every degree \(n\ge10\). The finite checker does not verify the classical spherical-function formula or the Legendre inequality independently; the argument openly invokes those standard analytic facts.
+For CP² with d_FS([u],[v])=arccos|<u,v>|, fixed-distance radial averaging has projective-harmonic multiplier phi_n=P_n^(1,0)(x)/(n+1), x=cos(2theta). First two phi1=(1+3x)/4 and phi2=(5x²+2x-1)/6: any sup<=1/8 requires -1/2<=x<=-1/6, where phi2+1/8=(5/6)(x+1/2)(x-1/10)<=0, with equality only x=-1/2. Recomputed exact Legendre values phi1..phi9 at x=-1/2; only n1,n2 reach -1/8. Jacobi-Legendre difference identity and uniform |Legendre P_n(x)|<=1 bound all n>=10 by 4/[3(n+1)]<1/8. Projective harmonic multiplicities (n+1)^3 give 8+27=35; selfadjoint spectral calculus gives ||T^k||=||T||^k. Infinite modes are controlled analytically, not by a finite sweep.
 
-## Scientific limits
+## originality
 
-The claim is restricted to one deterministic fixed distance on complex projective plane and mean-zero L2 norms. Other radial step distributions and mixing metrics are not covered. Historical-priority searches do not establish absolute novelty. Independent audit has not been performed.
+PASS
+
+Fresh claim-vs-prior, equivalent-statement, stronger-coverage and exact-table comparisons identified no decisive covering implication in inspected evidence; priority remains best-of-knowledge with named full/partial reading and risks.
+
+## value
+
+PASS
+
+Fixed-geodesic-distance Markov averaging on CP² is a canonical geometrically constrained mixing operator. A uniquely optimal step angle, exact global contraction 1/8, simultaneous negative extremal n1/n2 sectors, and 35-dimensional saturating space give an exact useful design invariant; full higher-mode control prevents it being just a two-mode numerical guess.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
