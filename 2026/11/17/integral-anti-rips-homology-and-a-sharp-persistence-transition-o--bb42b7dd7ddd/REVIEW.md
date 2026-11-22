@@ -1,19 +1,21 @@
-# Scientific review: integral anti-Rips homology of Boolean cubes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the entire \(n\)-bit cube for all \(n\ge5\), with the inclusive far-distance rule. A triple-distance counting inequality proves that no triangle exists at threshold \(n-2\) once \(n\ge7\); the antipodal and near-antipodal edges prove connectedness, and direct degree counts give all large-dimensional ranks and the primitive inclusion. In the only exceptional dimensions, every face is exhaustively enumerated by two independent algorithms. The oriented integral boundaries, exact zero-residual unit-pivot reductions, and unique tetrahedral triangle carriers give all integral homology groups; applying the relative sequence gives the claimed integer Smith forms of the first-homology inclusions. Both full and relative boundary matrices were reduced over \(\mathbb Z\), not merely modulo several primes. The standalone program and its deterministic output are included. The homotopy type for the exceptional complexes is intentionally not claimed.
+PASS
 
-## Originality — PASS, with stated risk
+For binary triples the sum of pairwise Hamming distances is <=2n. Thus 3(n-2)>2n excludes triangles for every n>=7; graph connectivity follows antipodal two-step coordinate flips, and counting degrees gives all ranks and primitive graph inclusion. Independent exhaustive clique enumeration for Q5/Q6 found all f-vectors (32,256,480,120)/(64,704,960,240), each triangle in exactly one tetrahedron. Reconstructed full oriented edge-by-triangle boundary and projection to new edges, then independently performed exact unimodular unit-pivot eliminations: (rank∂2,rank projected∂2)=(209,159)/(418,418), with zero residual. Unique triangle cofaces give ∂3 injective. Relative LES proves free inclusion cokernels and the Smith forms, without finite-field extrapolation.
 
-The March 11, 2025 anti-Rips source gives the precise inclusive construction and focuses on continuous manifolds and Borsuk graphs, not the full Hamming-cube transition. Its cited older graph-power equivalence establishes a translation of definitions, not the integral ranks or maps here. The October 22, 2026 Cambridge article and the June 18, 2026 hypercube representation paper concern ordinary, bounded-above-distance Vietoris–Rips complexes, not bounded-below-distance anti-Rips complexes; no reduction establishing these claims was identified. Nearby online research notes on ordinary penultimate Hamming Rips and three-/four-cut complexes concern different simplicial face criteria and do not imply this anti-persistence classification. Exact object/parameter searches did not yield a matching table or claim. A 2026 preprint was accessible only through abstracts, and other unindexed equivalents remain a bibliographic risk. A failed keyword search is not treated as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completes two natural adjacent far-distance stages for every binary-cube dimension at least five, with a sharp, non-obvious change in *integral persistence*: 50 pre-existing one-dimensional classes die in dimension five, while none die from dimension six onward. The exceptional dimensions also carry large but torsion-free second homology. These are exact topological invariants of canonical packing complexes and naturally test how high-distance code complexes differ from ordinary Vietoris–Rips persistence; the cutoff at dimension seven follows a structural triple-distance bound, not an arbitrarily chosen sample range. The inclusion's primitive integral Smith form gives more information than Betti counts alone.
+Anti-Rips literature defines the inclusive far-distance clique complex but does not determine these full Hamming-cube integral inclusion maps. Ordinary hypercube Rips uses near-distance edges, not an equivalent complex. Engström correspondence to graph-power independence complexes translates definitions but does not provide these ranks. The previously published parity reduction at ordinary n-2 scale is different (forbidden antipodal edges) and does not imply anti n-2 packing homology.
 
-## Evidence and limits
+## value
 
-The finite certificates verify all 888 nonempty faces for dimension five and all 1,968 for dimension six; they confirm the integral rank reductions and inclusion cokernels. The higher-dimensional statement has a separate all-parameter argument. No independent audit is claimed. Primary publications were compared by actual mathematical hypotheses and inequalities, not by title similarity. The unresolved full-text access risk of the 2026 representation paper is disclosed, although its accessible abstract makes clear that its scope is ordinary rather than anti-Vietoris–Rips complexes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural complete classification of the first two anti-Rips shells on full binary cubes, with a sharp n=5 exceptional killing of 50 integral cycles versus primitive persistence for all n>=6. Exact integral torsion and inclusion behavior supply a useful test case for distance-filtration topology beyond ordinary VR and finite numerical Betti tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
