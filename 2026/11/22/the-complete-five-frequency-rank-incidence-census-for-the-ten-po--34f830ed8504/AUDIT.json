@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Two distinct complete exact-integer algorithms returned 0,0,0,240,6640,56624 ranks, spanning all 252^2 pairs. The modular method is mathematically exact over Q(zeta_10): every k<=5 cyclotomic determinant has four coordinates bounded by k!<=120, and four distinct primitive tenth roots in F_401 force a polynomial of degree <=3 to vanish coefficientwise; 401>240 lifts zero to Z. The second method evaluates actual determinants modulo Phi_10 in Z and tests all relevant sizes. The first checker verifies all orbit profiles and the iff rank-three subgroup criterion on each pair, and the subgroup-forward statement has a Vandermonde proof. No extrapolation or floating-point inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Delvaux--Van Barel report TW470 (2006), sections 3 and 6, constructs maximal rank-deficient blocks and Hamming-number bounds, not all fifth-order incidence counts at cyclic order ten.",
+        "The order-twelve five-frequency census (published-finding corpus id 2026/11/16/SCOPE-complete-fifth-order-fourier-rank-incidence-on-the-twelve-cycle--db3ff8f3dd64) and order-fifteen analog (2026/11/16/SCOPE-exact-three-dimensional-loss-and-the-complete-five-frequency-fou--c7f8e777d742) are separate cyclic groups; their actual RESULT.md statements specify other index universes."
+      ],
+      "reasoning": "Structural low-rank constructions can account for subgroup obstructions, but do not imply the present all-pairs numeric rank distribution. Fixed-order results at 12 and 15 cannot be substituted for order 10, and none supplies a general formula that forces this table.",
+      "searches": [
+        "published-finding corpus semantic: exact rank defect enumeration 5 by 5 minors Fourier matrix cyclic group 10",
+        "published-finding corpus semantic: cyclic Fourier order ten singular minors size four five all",
+        "Web: Delvaux Van Barel Fourier matrix submatrices rank deficient blocks 2008 pdf",
+        "Web: cyclic Fourier 10 5 x 5 minors rank full spark uniformly distributed theorem paper"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1110.3548",
+      "https://www.academia.edu/50129059/Rank_deficient_submatrices_of_Fourier_matrices",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-complete-order-10-full-spark-classification-for-harmonic-fourier--579f4b382450",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-complete-fifth-order-fourier-rank-incidence-on-the-twelve-cycle--db3ff8f3dd64",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-exact-three-dimensional-loss-and-the-complete-five-frequency-fou--c7f8e777d742",
+      "https://arxiv.org/abs/2608.22119",
+      "https://doi.org/10.1016/j.laa.2007.05.009"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The existing order-ten row-spark result implies only the known 20 five-row full-spark sets, consistent with one row orbit of size 20; it does not count rank-three instances among the remaining row masks.",
+        "The present rank-three subgroup criterion determines a two-dimensional kernel precisely for 240 ordered pairs; the closest 2011 paper describes a four-row exceptional singularity, and the low-rank-block constructions do not supply the complete five-row table."
+      ],
+      "reasoning": "The new rank-incidence statement is strictly stronger than an existence criterion for singular columns for each row, but neither the existence criterion nor the cited general construction implies the exact 240/6640/56624 distribution without further analysis. The already-known 20 full-spark row sets are credited, not claimed.",
+      "searches": [
+        "published-finding corpus: order 10 harmonic frame five row five column erasure incidence affine orbit rank defects",
+        "GitHub full RESULT.md: complete order-10 full-spark classification",
+        "Web: Full Spark Frames arxiv 1110.3548",
+        "Web: Rank-deficient submatrices of Fourier matrices Delvaux Van Barel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest order-ten public full-spark classification (https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-complete-order-10-full-spark-classification-for-harmonic-fourier--579f4b382450) classifies row sets satisfying full spark, but RESULT.md gives no per-row count of singular column choices or rank-three classification.",
+        "Alexeev--Cahill--Mixon arXiv:1110.3548, section on harmonic frames, gives order-ten four-by-four counterexample rather than central five-by-five rank incidence."
+      ],
+      "reasoning": "The exact new assertion specifies rank and multiplicity for every five-row/five-column pair; a yes/no full-spark classification is its existential projection and cannot determine 240 rank-three versus 6640 rank-four pairs. Transposition and DFT conjugation were included in the comparison. No equivalent full census identified.",
+      "searches": [
+        "published-finding corpus semantic: ten point discrete Fourier matrix five by five submatrix rank distribution 240 rank-three 6640 rank-four 56624 rank-five",
+        "published-finding corpus semantic: order 10 harmonic frame five row five column erasure incidence affine orbit rank defects",
+        "Web: order ten Fourier matrix minor ranks 5 5 characteristic singular 2026",
+        "Web: \"56624\" Fourier minors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public order-ten full-spark record gives a table of uniformly distributed row counts and full-spark row counts at each cardinality; it does not give rank-three/rank-four incidence.",
+        "The accessible order-twelve and order-fifteen RESULT.md records explicitly report rank distributions at those orders, with differing totals, not order ten."
+      ],
+      "reasoning": "Direct searched totals and the published row-spark table were compared at the statement level. None of the retrieved databases or exact tables supplies the nine order-ten five-row incidence profiles or all 63,504 ranks. Search failure alone is not a novelty proof.",
+      "searches": [
+        "published-finding corpus semantic: ten point discrete Fourier matrix five by five submatrix rank distribution 240 rank-three 6640 rank-four 56624 rank-five",
+        "published-finding corpus semantic: composite DFT 2 times 5 cyclic Fourier matroid rank five all 252 row masks",
+        "Web: \"6640\" Fourier minors rank 10",
+        "Web: \"56624\" Fourier minors"
+      ]
+    },
+    "rationale": "The principal same-order predecessor provides an existential full-spark classification, not rank incidence or all column-set multiplicities. Original all-pairs rank-three/four/five counts and nine affine profiles are not entailed by that theorem; another two published full fifth-order tables are for orders 12 and 15. Structural rank-block constructions do not give this exact table. Bounded published-finding corpus, accessible own-ledger, primary and internet comparisons found no dominating prior statement; the unresolved possibility of an unindexed equivalent census is retained.",
+    "residual_risks": [
+      "Unindexed or differently termed enumeration of order-ten five-by-five Fourier minors may exist; searched titles and numeric aliases do not exclude it.",
+      "A 2026 order-ten principal-minor norm paper was located by abstract but its full preprint text was not accessible; its described principal-only scope does not currently imply all independent pairs.",
+      "The related 2007 Delvaux--Van Barel journal version was accessible by abstract and the earlier report by report-text transcription, not a separate page-by-page journal inspection."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING precise five-by-five incidence; establishes motivation and one smaller witness",
+        "evidence": "Alexeev--Cahill--Mixon, arXiv:1110.3548 (first 2011-10-17), manuscript page 14 explicitly gives rows {0,1,3,4} and columns {0,1,2,6}.",
+        "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+        "material_read": "Introduction and Section 2 Fourier-frame full-spark discussion; order-ten four-by-four counterexample on manuscript page 14",
+        "method": "Open PDF text and inspect a page image",
+        "title": "Full Spark Frames",
+        "trigger": "Foundational earliest verified public archived source and order-ten non-full-spark exception"
+      },
+      {
+        "assessment": "NOT_COVERING all order-ten central minor ranks; supplies structurally related existence constructions",
+        "evidence": "Delvaux--Van Barel, K.U. Leuven report TW 470 (2006), treats rank-one partitions, Hamming numbers and prime-power sharp bounds.",
+        "identifier_or_url": "https://www.academia.edu/50129059/Rank_deficient_submatrices_of_Fourier_matrices",
+        "material_read": "Report text, including Sections 1, 3 and 6 and definitions of maximal low-rank blocks and Hamming numbers",
+        "method": "Full-text HTML transcription of report",
+        "title": "Rank-deficient submatrices of Fourier matrices",
+        "trigger": "Potential broader rank-deficiency framework"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: full-spark row-set classification, not rank incidence across all column sets or rank-three locus",
+        "evidence": "That result identifies uniformly distributed full-spark row sets and exceptions, and reports cardinality-five 20 full-spark row sets; no fifth-order rank distribution.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-complete-order-10-full-spark-classification-for-harmonic-fourier--579f4b382450",
+        "material_read": "Entire publicly accessible RESULT.md with finding, proof, verification, limitations and references",
+        "method": "Public repository raw source read",
+        "title": "Complete order-10 full-spark classification for harmonic Fourier row sets",
+        "trigger": "Same-order, same Fourier matrix and exact row masks"
+      },
+      {
+        "assessment": "NOT_COVERING: cyclic order twelve, distinct Fourier matrix",
+        "evidence": "Its rank-three/four/five totals are 3,888/109,008/514,368 among 627,264 different pairs.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-complete-fifth-order-fourier-rank-incidence-on-the-twelve-cycle--db3ff8f3dd64",
+        "material_read": "Finding, scope, proof opening and relationship to prior work in RESULT.md",
+        "method": "Public repository text read",
+        "title": "Complete fifth-order Fourier rank incidence on the twelve-cycle",
+        "trigger": "Exact same minor size and analogous incidence invariant"
+      },
+      {
+        "assessment": "NOT_COVERING: cyclic order fifteen, not order ten",
+        "evidence": "Its principal novelty includes rank two, impossible in the certified ten-point census.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-exact-three-dimensional-loss-and-the-complete-five-frequency-fou--c7f8e777d742",
+        "material_read": "Finding, assumptions and proof opening and relationship to prior work in RESULT.md",
+        "method": "Public repository text read",
+        "title": "Exact three-dimensional loss and the complete five-frequency Fourier rank census at order fifteen",
+        "trigger": "Another central five-frequency Fourier rank census"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34f830ed-8504-469b-978e-7e4af8b8c96d",
+  "value": {
+    "rationale": "At exactly half-sampling of the ten-point Fourier matrix, the rank determines the recoverable number of five spectral coefficients. The complete 63,504-case census quantifies loss of one versus two independent Fourier directions, identifies the precise subgroup pattern behind the deepest failures, and gives every one of nine canonical row-set conditioning-independent rank profiles. This is a motivated natural complete finite invariant, not an arbitrary slice or a renaming of the binary full-spark criterion.",
+    "status": "PASS"
+  }
+}
