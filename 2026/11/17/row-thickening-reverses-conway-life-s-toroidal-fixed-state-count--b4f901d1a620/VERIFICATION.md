@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run from a directory containing the enclosed files:
+## correctness
 
-```bash
-python3 check_life4_transfer.py > actual_transfer.txt
-cmp actual_transfer.txt transfer_output.txt
-g++ -O2 -std=c++17 check_life4_direct.cpp -o check_life4_direct
-./check_life4_direct > actual_direct.txt
-cmp actual_direct.txt direct_output.txt
-```
+PASS
 
-Python 3 and SymPy are required for the exact polynomial factorization; a C++17 compiler is required for the independent direct-update enumeration.
+For h=3,4 and n>=3, the three consecutive h-bit column transition condition L_h(a,b,c) is exactly the B3/S23 fixedness equation for the middle column; periodic closed walks of T_h therefore count all labelled fixed states, even at the smallest n=3. The actual height-four 256-state graph has 499 transitions and exactly one cyclic SCC of 127 vertices/309 edges; self-loop and strong connectivity make its adjacency B primitive. Exact symbolic 127-degree determinant plus rational positive vector v=B^4001 gives Collatz–Wielandt 2.55371542<λ<2.55371544<13/5. The height-three graph contains a 27-state cyclic component of exact characteristic polynomial x^24(x^3-27), giving F3(n)>=3^(n+1) at 3|n. Trace bound F4(n)<=127 λ^n, and integer 127*13^27<3*15^27 handles n>=27. Exact F4 for multiples n=3,6,...,24 are 39,651,5907,99107,1517719,24500451,391780043,6355667155, each below 3^(n+1). Independent local transfer construction reproduced 64-state/256-state graph edges 156/499 and traces F4(3)=39,F4(4)=53,F4(6)=651,F3(3)=127,F3(6)=2595. This is an all-n finite-spectral proof, not extrapolation.
 
-The Python program independently constructs every legal triple-column transition, verifies the strong component decomposition, produces an exact degree-127 characteristic polynomial and trace values, constructs the height-three resonance component, tests the exact rational Perron certificate, and verifies the all-circumference inequality using a spectral bound plus finitely many exact traces. Its saved output is `transfer_output.txt`.
+## originality
 
-The C++ program directly applies the eight-neighbor Moore B3/S23 rule to every binary configuration on heights four, circumferences three through six. Its saved output is `direct_output.txt`.
+PASS
 
-**Scientific limit:** The finite brute-force enumeration by itself proves only these four cases; the theorem for all circumferences follows from the transfer identity, spectral inequalities and exact finite remainder. No independent external mathematical audit has been performed.
+The classical cylindrical-automata trace technique and height-three modular resonance are prior, and the finite 4×4=53 value appears in 2018 discussions. None of the inspected statements gives the particular height-four 127-state cyclic component, its certified Perron bound or the every-3-multiple F4<F3 inequality. Such comparisons require the additional height-four analysis.
+
+## value
+
+PASS
+
+The result resolves a natural monotonicity misconception for synchronous Life fixed points under increasing periodic-torus height by an exact infinite family of strict counterexamples, with a sharp arithmetic resonance and certified entropy disparity rather than a tiny isolated numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

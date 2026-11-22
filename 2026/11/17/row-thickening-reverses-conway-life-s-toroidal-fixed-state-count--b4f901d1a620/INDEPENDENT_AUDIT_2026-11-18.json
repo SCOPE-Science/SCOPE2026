@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:08:38.373322Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For h=3,4 and n>=3, the three consecutive h-bit column transition condition L_h(a,b,c) is exactly the B3/S23 fixedness equation for the middle column; periodic closed walks of T_h therefore count all labelled fixed states, even at the smallest n=3. The actual height-four 256-state graph has 499 transitions and exactly one cyclic SCC of 127 vertices/309 edges; self-loop and strong connectivity make its adjacency B primitive. Exact symbolic 127-degree determinant plus rational positive vector v=B^4001 gives Collatz–Wielandt 2.55371542<λ<2.55371544<13/5. The height-three graph contains a 27-state cyclic component of exact characteristic polynomial x^24(x^3-27), giving F3(n)>=3^(n+1) at 3|n. Trace bound F4(n)<=127 λ^n, and integer 127*13^27<3*15^27 handles n>=27. Exact F4 for multiples n=3,6,...,24 are 39,651,5907,99107,1517719,24500451,391780043,6355667155, each below 3^(n+1). Independent local transfer construction reproduced 64-state/256-state graph edges 156/499 and traces F4(3)=39,F4(4)=53,F4(6)=651,F3(3)=127,F3(6)=2595. This is an all-n finite-spectral proof, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The existing width-three theorem supplies exact F3(n) and its 3-power resonance; no height-four state graph or spectral upper bound.",
+          "Temporal-period rigidity constrains 3-step returns, not the count comparison between spatial heights."
+        ],
+        "reasoning": "Width-three coverage is a premise but not sufficient; combined independent height-four Perron result yields new all-multiple reversal.",
+        "searches": [
+          "Game of Life three row four row torus fixed points height four height three n divisible three",
+          "Resultary A three-column resonance in Conway Life width-three fixed-state spectrum",
+          "Resultary period-three rigidity Life HighLife three row tori"
+        ]
+      },
+      "checked_sources": [
+        "actual RESULT.md 548b0f0d13d895baa4b255fc4ad666a689884890",
+        "actual check_life4_transfer.py b1c060859b237e8fee2f9782386f14c927ce86de",
+        "actual transfer_output.txt 6acd67444a707be44bd14529d0527f3a32a0f799",
+        "Jen 1988 DOI 10.1007/BF01221109",
+        "2018 ConwayLife Small Tori in B3/S23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic fixed-point trace existence theorem does not calculate its characteristic spectrum or compare h=3,4 in B3/S23.",
+          "Known height-three resonance gives only the lower F3 bound; a height-four upper spectral bound is independent and needed."
+        ],
+        "reasoning": "The all-n reversal is not a corollary of transfer-method existence alone or the height-three count alone; a new explicit 127-state height-four verification is essential.",
+        "searches": [
+          "Jen Cylindrical cellular automata DOI:10.1007/BF01221109",
+          "Game of Life three row four row torus fixed points height four height three n divisible three"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jen 1988 provides a general trace method for finite-width CA, not the explicit B3/S23 component comparison.",
+          "A 2018 ConwayLife square-torus census notes 4×4=53, matching independent recomputation but not strict all-3|n comparison."
+        ],
+        "reasoning": "No equivalent all-height-3/height-4 fixed-state inequality was located; transfer machinery and one finite data point are explicitly identified as prior.",
+        "searches": [
+          "Game of Life three row four row torus fixed points height four height three n divisible three",
+          "Jen Cylindrical cellular automata 1988",
+          "Life B3/S23 still-life counts small tori"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite 4×4 count 53 is known from a 2018 forum.",
+          "The checked 4×n values and 127-state transfer for all n are not contained in the inspected finite-square table."
+        ],
+        "reasoning": "A known isolated table entry does not mechanically imply the uniform n mod3 strict inequality; source theorem provides a parameter-wide spectral proof.",
+        "searches": [
+          "Game of Life three row four row torus fixed points height four height three n divisible three",
+          "ConwayLife small tori 2018 4 by 4 fixed state 53",
+          "Resultary 3 row Life trace"
+        ]
+      },
+      "rationale": "The classical cylindrical-automata trace technique and height-three modular resonance are prior, and the finite 4×4=53 value appears in 2018 discussions. None of the inspected statements gives the particular height-four 127-state cyclic component, its certified Perron bound or the every-3-multiple F4<F3 inequality. Such comparisons require the additional height-four analysis.",
+      "residual_risks": [
+        "Complete original Jen 1988 manuscript not verified/read; its generic method is clearly prior but specific tables might need priority follow-up",
+        "2018 online Life forum not read in full and may contain related tables",
+        "The huge degree-127 charpoly/Perron exact bounds were critically inspected in supplied code and output plus independent small traces; no independent recomputation of the full characteristic polynomial was completed"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Methodologically relevant and possible residual priority; indexed content describes general rule-to-transfer procedure, not this precise B3/S23 height comparison.",
+          "evidence": "Abstract explicitly states tr(A^n) method for arbitrary one-dimensional CA and closed forms for two-neighbor rules, with no height-four Life data in read material.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01221109",
+          "material_read": "Publisher abstract and substantial indexed excerpts of method/introduction/conclusion, not verified complete original 22-page PDF.",
+          "method": "Open-index/full-excerpt search; incomplete full-text access",
+          "title": "Cylindrical cellular automata",
+          "trigger": "Foundational method for fixed counts on periodic cylinders"
+        },
+        {
+          "assessment": "One known numerical entry, not a whole-document NOT_COVERING assertion.",
+          "evidence": "F4(4)=53 reproduces the known count; all multiples n=3,6,... rely on new transfer.",
+          "identifier_or_url": "https://conwaylife.com/forums/viewtopic.php?t=3383",
+          "material_read": "Indexed excerpt containing 4×4 count 53, not full thread.",
+          "method": "Historical search/excerpt",
+          "title": "Small Tori in B3/S23 (ConwayLife forum)",
+          "trigger": "Potential exact finite values for square torus Life"
+        },
+        {
+          "assessment": "Known exact height-three trace and 3-power component; no described four-row result.",
+          "evidence": "Published N_n=tr(B^n)+3^(n+1) 1_(3|n), a lower bound used but not sufficient for the reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-three-column-resonance-in-conway-life-s-width-three-fixed-stat--123f185b2261",
+          "material_read": "Published result summary (not full primary record).",
+          "method": "Resultary semantic comparison",
+          "title": "A three-column resonance in Conway Life width-three fixed-state spectrum",
+          "trigger": "Same height-three model and potentially dominating height results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves a natural monotonicity misconception for synchronous Life fixed points under increasing periodic-torus height by an exact infinite family of strict counterexamples, with a sharp arithmetic resonance and certified entropy disparity rather than a tiny isolated numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n>=3 divisible by3, periodic distinct Moore neighbor cells for h=3,4, B3/S23 one-step fixed states; no all-n monotonicity or oscillator count."
+  ],
+  "schema_version": 1
+}

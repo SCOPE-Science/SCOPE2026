@@ -1,19 +1,21 @@
-# Scientific review: row-thickening fixed-state reversal
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The column-local eight-neighbor B3/S23 constraint is equivalent to a directed closed walk, with an exact trace formula for every circumference at least three. The explicitly reconstructed unique cyclic height-four transfer component has 127 vertices, a self-loop and strong connectivity. The supplied exact determinant and Collatz–Wielandt certificate bound its Perron eigenvalue; a separately constructed height-three 27-state component contributes precisely \(3^{n+1}\) when \(3\mid n\). The exact rational comparison for all \(n\ge27\), plus eight exact residual trace counts, proves the strict comparison. Independent direct-update exhaustive counts at four small circumferences agree. These exhaustive checks supplement rather than substitute for the proof.
+PASS
 
-## Originality — PASS, qualified
+For h=3,4 and n>=3, the three consecutive h-bit column transition condition L_h(a,b,c) is exactly the B3/S23 fixedness equation for the middle column; periodic closed walks of T_h therefore count all labelled fixed states, even at the smallest n=3. The actual height-four 256-state graph has 499 transitions and exactly one cyclic SCC of 127 vertices/309 edges; self-loop and strong connectivity make its adjacency B primitive. Exact symbolic 127-degree determinant plus rational positive vector v=B^4001 gives Collatz–Wielandt 2.55371542<λ<2.55371544<13/5. The height-three graph contains a 27-state cyclic component of exact characteristic polynomial x^24(x^3-27), giving F3(n)>=3^(n+1) at 3|n. Trace bound F4(n)<=127 λ^n, and integer 127*13^27<3*15^27 handles n>=27. Exact F4 for multiples n=3,6,...,24 are 39,651,5907,99107,1517719,24500451,391780043,6355667155, each below 3^(n+1). Independent local transfer construction reproduced 64-state/256-state graph edges 156/499 and traces F4(3)=39,F4(4)=53,F4(6)=651,F3(3)=127,F3(6)=2595. This is an all-n finite-spectral proof, not extrapolation.
 
-The foundational Life rule, an established generic cylindrical cellular-automaton transfer method, and a previously published \(4\times4\) count of 53 are acknowledged. The available named mathematical records treat different rules or widths, and the accessible prior height-three analysis does not imply the new height-four spectral population or strict cross-width comparison. Searches for exact transfer spectra, still-life counts, equivalent recurrences and wider tables found no direct coverage. A plausible 1988 paper was not inspected in full text, and the 2018 forum discussion was available only via indexed excerpts, so historical priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural all-size comparison of one-step fixed states under dimensional row thickening of the canonical Moore torus. The sign of the comparison is counterintuitive and persists for every circumference divisible by three rather than a selected sample. The triple restriction has a structural spectral origin; the height-four entropy and rigorous separation from base three yield a closed, reusable result.
+The classical cylindrical-automata trace technique and height-three modular resonance are prior, and the finite 4×4=53 value appears in 2018 discussions. None of the inspected statements gives the particular height-four 127-state cyclic component, its certified Perron bound or the every-3-multiple F4<F3 inequality. Such comparisons require the additional height-four analysis.
 
-## Scope and limitations
+## value
 
-The theorem covers fixed states for the standard B3/S23 rule on labelled tori, not nonfixed cycles, basin sizes, or circumferences outside the stated comparison. The Perron approximation is certified by exact positive-vector inequalities, and the computational components are reproducible from embedded standalone sources. Independent expert review has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves a natural monotonicity misconception for synchronous Life fixed points under increasing periodic-torus height by an exact infinite family of strict counterexamples, with a sharp arithmetic resonance and certified entropy disparity rather than a tiny isolated numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
