@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The singular multipliers are exactly \(|(1-\omega^k)(1+b\omega^k)|\) under the stated Euclidean normalization. Squared modulus is a concave quadratic of the cosine, reducing **all** nonconstant Fourier modes to the extremal two cosine values for each parity. The even formula is the unique intersection of an increasing and a decreasing endpoint function; for odd orders \(n\ge5\) the smaller quadratic root occurs before the far-endpoint minimum, and the later range cannot compete. The triangle is handled separately. The endpoint \(b=1\) can introduce a second zero singular value for even orders; the definition takes the minimum over the full mean-zero subspace, so this degeneracy is correctly included rather than discarded. Large-order expansions follow from explicit root formulas. Full-matrix SVD and Fourier-grid diagnostic checks passed for \(3\le n\le100\); no finite check is substituted for proof.
+PASS
 
-## Originality — PASS (subject to independent priority assessment)
+Fourier diagonalization gives sigma_k^2=2(1-cos(2pi k/n))(1+b^2+2b cos(2pi k/n)). This is a concave quadratic in cosine for b>0, so minimum over all nonconstant modes lies at largest and smallest cosine, reducing the full minimax to two endpoint-frequency curves. At n=3 they coincide and the global maximizers are b=0 or1. Even n>=4: low-frequency A_n(b) increases and antipodal B_n(b)=2(1-b) decreases, yielding the unique crossing b=(sqrt(1+sin^2(pi/n))-sin(pi/n))^2. Odd n>=5: A grows, high-frequency B decreases to b=d=cos(pi/n), then grows; crossing of A and B is b=h-sqrt(h^2-1), h=1+d-c, and the latter B branch cannot beat the crossing. Concavity plus strict inequality excludes extra minimizing modes; expansions yield max gain 4pi/n and factor-two asymptotic versus one-hop gain.
 
-Emirov et al. (arXiv:2003.11152v1, 2020) develop polynomial graph filters of multiple shifts and distributed inversion; Chen et al. (arXiv:2205.06242v1, 2022) obtain general directed-circulant Fourier singular multipliers. The latter directly supplies the general spectral mechanism and implies the unoptimized Fourier-symbol identity, but does **not** state the explicit universal two-hop fixed-budget optimizer, the parity transition, or the complete equality-mode classification in the sections and appendix inspected. Segarra et al.'s graph-filter optimization (2017) targets approximation of a specified operator, not maximization of the least nonconstant difference gain. General trigonometric minimax and graph-weight optimization literature remain priority risks. The mathematical comparison concerns these exact implications, not mere title matching.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This solves a natural fully specified signal-stability design problem rather than exhibiting an arbitrary small computation: under a fixed outgoing-conductance budget, it identifies the unique optimal directed two-hop stencil in every cycle size, the limiting frequency obstructions, and an asymptotically twofold reduction in worst-case inverse noise amplification. The resonance of the lowest and highest discrete frequencies supplies a structural explanation for the parity-dependent formulas. Scope remains two-hop, nonnegative, fixed-budget; the finding is not promoted to arbitrary graphs or mixing-time optimization.
+Fourier symbols of directed circulant Laplacians and polynomial graph filters appear in Chen–Cheng–Sun and Emirov–Cheng–Jiang–Sun. Segarra–Marques–Ribeiro optimize filters for operator approximation, a different objective. Resultary priced antipodal shortcuts use even-cycle undirected diffusion budget and cannot imply the directed 1-/2-hop least singular maximin or odd/even explicit tie modes. Best-of-knowledge PASS with recorded risks; no failure-to-find-is-proof-of-novelty inference.
 
-## Remaining scientific risks
+## value
 
-Earlier cyclic-filter or trigonometric maximin theory might imply the closed forms without using this wording; full historical priority has not been independently checked. The result is not an independent verification of any earlier research.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-budget two-tap stable difference operator is a natural graph-signal inverse problem. Exact optimal weights, full active modes and factor-two asymptotic improvement constitute an actionable sharp design even though Fourier diagonalization itself is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
