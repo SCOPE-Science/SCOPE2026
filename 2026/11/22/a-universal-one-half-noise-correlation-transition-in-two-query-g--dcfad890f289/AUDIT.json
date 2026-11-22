@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Uniform Gaussian inversion gives eta*G -> Q on the compact square. A positive-definite 2-by-2 noise correlation matrix yields strict convexity of Q and its only candidate maximizing vertices; comparing 2M^2/(1+rho) and M^2/(1-rho^2) proves the universal threshold. For the Brownian bridge, m(t)=t(1-t)/2 and all reflected pairs have exact gain (1-d^2)^2/[16(1-d+2eta(1+rho))], strictly beaten by the endpoint/midpoint gain if 2eta(1+rho)(2rho-1)>1. The rational witness eta=1,rho=3/4 has gains 1/44 and at most 1/56. Standalone symbolic and rational checks reproduced these identities; finite checks are not treated as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Attia–Constantinescu (2020), sections on covariance-weighted OED and numerical experiments for advection–diffusion; general optimization framework, no particular two-query high-noise limit",
+        "Cai–Lam–Scarlett (2022), rate upper/lower bounds, independent Gaussian errors"
+      ],
+      "reasoning": "A general Bayesian design framework entails the covariance formula, which is explicitly credited as prior, but does not by itself state the sharp dichotomy in optimal query location, the universal half correlation, or the finite-noise symmetry exclusion. The new theorem specializes the framework with additional globally optimized consequences.",
+      "searches": [
+        "high measurement noise equicorrelated two sensor Gaussian process Bayesian quadrature correlation one half threshold collocated versus zero-covariance calibration reference endpoint",
+        "Optimal Experimental Design for Inverse Problems in the Presence of Observation Correlations",
+        "arXiv:2007.14476"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2007.14476",
+      "https://arxiv.org/abs/2202.10615",
+      "https://arxiv.org/abs/2112.01578",
+      "https://doi.org/10.1137/21M1418666"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 invariant-prior work addresses model symmetries rather than correlated query errors.",
+        "The 2022 noisy quadrature paper assumes independent errors in the relevant rate arguments.",
+        "The 2020 correlation-aware OED paper offers general covariance weighting and numerics, rather than the location-limit identity."
+      ],
+      "reasoning": "Independent-error optimal designs do not imply new positive-correlation layouts. Neither general correlated-error model formulas nor invariant-kernel arguments automatically imply the stated sharp global optimizer classification without the strict-convexity vertex comparison.",
+      "searches": [
+        "Bayesian quadrature nonnegative cross-covariance universal two-site large-noise optimal location noise correlation 1/2 phase transition",
+        "Goal-oriented quadrature unknown Gaussian integral correlated observation errors common-mode noise calibration",
+        "arXiv:2112.01578",
+        "arXiv:2202.10615"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2007.14476 develops covariance-aware experiment design with different model and no one-half two-site limit",
+        "arXiv:2202.10615 focuses on noisy integration rates with independent errors"
+      ],
+      "reasoning": "Information gain, Bayes posterior integral variance, and goal-oriented Gaussian sensor placement are equivalent under Gaussian conditioning. Those aliases were searched. The sources investigated do not supply the max-vertex classification as a theorem.",
+      "searches": [
+        "Brownian bridge integral two correlated Gaussian noises midpoint plus boundary point vs symmetric nodes sensor placement",
+        "Brownian bridge noisy kernel quadrature globally optimal two site symmetric independent measurement noise",
+        "arXiv:2007.14476",
+        "arXiv:2202.10615"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public mathematical-index entries concern Gaussian phase-unknown heat estimators, independent-node Brownian-bridge quadrature, or general correlated-error sensing; none tabulates this two-site integral design.",
+        "The independent-noise Brownian-bridge analytic formula is for zero off-diagonal error covariance; a correlated-erasure formula concerns missing values rather than noise covariance."
+      ],
+      "reasoning": "Neither matching finite-eta table nor an entry whose stated theorem contains the new universal high-noise phase or the exact rational Brownian witness was found. Absence in searches is not regarded as a proof of novelty.",
+      "searches": [
+        "pure-noise reference observation optimal design correlated Gaussian noise when signal covariance zero symmetry broken",
+        "correlated noise two point kernel quadrature Brownian bridge threshold symmetric asymmetric global optimum",
+        "Brownian bridge integral two observation correlated additive Gaussian noise optimal sensor sites pure noise endpoint control variate phase transition"
+      ]
+    },
+    "rationale": "The new conclusion is a global optimizer-location phase transition for two equicorrelated additive observation errors, plus a finite-noise exclusion of all reflection-symmetric Brownian-bridge designs. General correlated OED formulations and noisy quadrature rate theorems found in primary texts do not state or dominate this location-level theorem. Independent-error and erasure-based quadrature results cover scientifically different observation models. Priority risk from other goal-oriented correlated-noise literature remains.",
+    "residual_risks": [
+      "Historical novelty is best-knowledge, not exhaustively certified.",
+      "The invariant-prior preprint was not fully inspected, but its abstract does not identify the same objects or noise model.",
+      "No independent referee or formal proof validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General covariance-weighted OED methods, not the universal two-query high-noise vertex phase or exact Brownian witness",
+        "evidence": [
+          "Original public date July 28, 2020",
+          "Numerical experiments concern advection–diffusion sensor placement; no Brownian-bridge or half-correlation phase statement in inspected sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.14476",
+        "material_read": "Accessible arXiv rendered full text: introduction, design criterion and covariance sections, example sections, conclusion, and appendix coverage near the covariance-weighted formulation",
+        "method": "Read rendered arXiv content and searched within full text for Brownian bridge and phase terminology",
+        "title": "Optimal Experimental Design for Inverse Problems in the Presence of Observation Correlations",
+        "trigger": "Most plausible direct broader coverage of arbitrary correlated observation errors"
+      },
+      {
+        "assessment": "No fixed equicorrelated two-site location transition; rate bounds and independent-noise methods do not imply the new geometry",
+        "evidence": [
+          "Original public date February 22, 2022",
+          "Independent noise appears explicitly in its lower-bound formulation and appendices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+        "material_read": "Accessible arXiv rendered full text: introduction, main results, lower bound and independent-noise appendices, and query/noise assumptions",
+        "method": "Read full-text sections and searched within text for correlated noise, independent noise and design results",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Relevant noisy quadrature framework and potential stronger mean-square error coverage"
+      },
+      {
+        "assessment": "Priors invariant under domain transformations; not decisive for correlated-noise query geometry",
+        "evidence": [
+          "First public December 2, 2021",
+          "Full text not examined; residual potential related-work risk recorded"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.01578",
+        "material_read": "ArXiv abstract, submission history and paper scope",
+        "method": "Read accessible abstract and bibliographic page, not complete original PDF",
+        "title": "Invariant Priors for Bayesian Quadrature",
+        "trigger": "Potential reflection-symmetry restriction and implied symmetric optimal placements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dcfad890-f289-4f3d-843a-b857590b9da4",
+  "value": {
+    "rationale": "The exact universal correlation half-boundary changes high-noise globally optimal placement between a repeat maximum-signal observation and an otherwise uninformative noise-calibration location, independent of the specific continuous kernel. The finite-noise Brownian-bridge rational witness forbids every reflected optimal design and quantifies the gain. This is a physically interpretable sensor-geometry effect, not a known-table recomputation or a numerical coincidence; the claim expressly excludes the full finite-eta phase diagram.",
+    "status": "PASS"
+  }
+}
