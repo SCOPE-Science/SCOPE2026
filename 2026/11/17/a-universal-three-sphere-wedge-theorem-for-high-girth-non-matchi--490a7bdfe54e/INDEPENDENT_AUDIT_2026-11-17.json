@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:02:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The simplicial vertices of NM3(G) are graph edges and its faces are edge sets F with matching number <=2. In a girth>=6 host, a selected subgraph with matching <=2 cannot contain an odd cycle (the minimum odd cycle length is 7, containing at least three mutually disjoint edges), hence is bipartite; König converts the matching restriction into a cover by two graph vertices. For a spanning tree, leaf-edge deletion gives a cone link and inductively contractible NM3. For insertion e=ab into connected H, girth forbids alternative a-b walks of lengths 2,3,4. The link L_e is K_a union K_b, each a cone, and the exact intersection is M(H) union the simplex Δ(A union B), attached to M(H) at two disjoint simplices Δ(A), Δ(B). Nerve theorem gives M(H)≃H≃vee^{b(H)} S¹; the simplex bridge adds a circle, so K_a∩K_b≃vee^{b(H)+1}S¹ and L_e≃vee^{b(H)+1}S². Inductively NM3(H) is a wedge of S³ and hence 2-connected, so every attaching map from the S² link is nullhomotopic and insertion adds b(H)+1 copies S³. Summing previous cycle ranks 0..b-1 gives binomial(b+1,2) S³, including trees b=0, integrally. Independently enumerated simplicial faces and reduced Euler characteristic: cycles C6,C7,C8 each -1 (one S³); two six-cycles meeting at a vertex have b=2 and chi_tilde=-3; not a proof of arbitrary homotopy, which rests on CW link/attachment argument. Checked critical separation of an edge-based complex from vertex-based total-cut duals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published robust clique I3 of bipartite G has wedge sphere count binomial(b+1,2)-c4 and vertices V(G). Shan–Wang gives top-homology injection and Leray/reg algebra bounds for bipartite edge additions."
+        ],
+        "reasoning": "The bipartite robust I3 theorem applied to L(G) requires the line graph to be bipartite, usually false when G has degree>=3, and high girth G does not repair that. Top homology injection alone cannot imply integral homotopy wedge and counts for arbitrary G.",
+        "searches": [
+          "nonmatching complex graph matching number at most two high girth graph wedge three spheres cycle rank",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-sphere-wedge-theorem-for-robust-clique-complexes-of-all--8d06720b1a2b",
+          "https://arxiv.org/abs/2609.02621"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md at e56d09858c89b7e21229eff952d1aa93a0850e1d",
+        "Frozen checks/verify.py and checker output as computational context",
+        "Independent full face enumeration and reduced Euler characteristic of C6,C7,C8 and two C6 sharing one vertex",
+        "https://arxiv.org/abs/2609.02621",
+        "https://arxiv.org/abs/math/0410345",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cycle-rank-homology-of-total-three-cut-complexes-of-high-girth-g--9341d892cb0d/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-three-sphere-wedge-theorem-for-robust-clique-complexes-of-all--8d06720b1a2b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The present insertion link L_e is a wedge of b(H)+1 two-spheres and attaching each cone grows 3-sphere count by b(H)+1; old total-cut vertex complex can have same count but different face memberships."
+        ],
+        "reasoning": "A rank or upper bound on top homology does not imply simply connected attachment maps vanish, torsion-freeness or a wedge decomposition. The new two-cover/link argument is needed for the claimed exact integral homotopy type.",
+        "searches": [
+          "nonmatching complex graph matching number at most two high girth graph wedge three spheres cycle rank",
+          "https://arxiv.org/abs/2609.02621",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cycle-rank-homology-of-total-three-cut-complexes-of-high-girth-g--9341d892cb0d/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shan–Wang call this t-nonmatching complex NM_t(G), t=3. Total three-cut Alexander dual uses subsets S of V(G) with alpha(G[S])<=2, not edge subsets F of E(G) with matching number <=2."
+        ],
+        "reasoning": "Names and identical binomial multiplicities are not equivalent formulations without a vertex-to-edge simplicial isomorphism; line graphs change girth, so the direct robust-complex theorem does not qualify.",
+        "searches": [
+          "nonmatching complex graph matching number at most two high girth graph wedge three spheres cycle rank",
+          "https://arxiv.org/abs/2609.02621",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-cycle-rank-homology-of-total-three-cut-complexes-of-high-girth-g--9341d892cb0d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Heawood and Nauru/Pappus individual graph formulas agree with binomial ranks; Linusson–Shareshian–Welker treat bounded matching complexes of special complete graph hosts."
+        ],
+        "reasoning": "Special-instance numerical tables are corollaries of an all-graph claim, not a prior classification for every high-girth host; no complete all-host table was identified.",
+        "searches": [
+          "nonmatching complex graph matching number at most two high girth graph wedge three spheres cycle rank",
+          "https://arxiv.org/abs/math/0410345",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-integral-non-matching-homotopy-filtration-of-the-heawoo--8c61a8d39b4a"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Shan–Wang (2026) treat the same nonmatching construction under bipartite edge additions, proving top-homology injectivity and Leray bounds, not an exact all-high-girth integral wedge homotopy type in the accessible theorem description. Earlier complete-graph or complete-bipartite calculations yield special hosts but do not imply all high-girth graphs including nonbipartite ones. The Resultary total-three-cut dual and robust-clique results have the same binomial cycle-rank count but are complexes on vertices V(G), not edges E(G). The identification NM3(G)=I3(L(G)) does not transfer their girth/bipartite hypotheses because L(G) often contains triangles. Mere equality of sphere numbers cannot prove same objects. No broader same-object theorem was identified; a relevant newly posted 2026 primary paper was available as abstract/theorem description rather than full inspected text, so residual possibility of fuller coverage remains.",
+      "residual_risks": [
+        "The arXiv:2609.02621 same-complex primary paper was compared using its actual stated abstract/theorem scope, not fully inspected complete proof and appendices; stronger unobserved statements remain a material priority risk.",
+        "Small graph finite Euler characteristics corroborate only alternating ranks, not the full infinite-graph integral wedge conclusion; proof uses two-cover and homotopy pushout/attachment arguments.",
+        "No equivariant or natural identification, small-girth, disconnected graph, or matching threshold t>3 classification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No full-text NOT_COVERING asserted; scope as inspected is weaker on homotopy, but fuller theorem could affect originality",
+          "evidence": "Specific published summary says bipartite edge-addition injectivity H_(2t-3), maximal shifts and Leray; no displayed all-high-girth wedge formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.02621",
+          "material_read": "ArXiv abstract, named Theorems 2.1–2.3 and stated conclusions on homology injection, Leray and regularity; complete primary PDF text not fully inspected",
+          "method": "read public arXiv record and theorem-scope description",
+          "title": "Homology of non-matching complexes under edge additions and applications to their Stanley-Reisner ideals",
+          "trigger": "Exact same NM_t complex and potentially broader edge-addition theorem"
+        },
+        {
+          "assessment": "Different complex: I3-type vertex subsets versus nonmatching edge subsets",
+          "evidence": "Defines Gamma(G)={S subset V(G):alpha(G[S])<=2}; not NM3(G)={F subset E(G):nu(F)<=2}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cycle-rank-homology-of-total-three-cut-complexes-of-high-girth-g--9341d892cb0d/RESULT.md",
+          "material_read": "Full published RESULT.md including face definition, theorem, proof, and prior-work section",
+          "method": "read full GitHub published source",
+          "title": "Cycle-rank homology of total three-cut complexes of high-girth graphs",
+          "trigger": "Identical binomial sphere multiplicity and high-girth hypothesis could dominate via duality"
+        },
+        {
+          "assessment": "Different vertex-based robust clique construction and incompatible line-graph hypotheses",
+          "evidence": "Defines I3(G) on V(G) with binomial(b+1,2)-c4; G replaced by L(G) is nonbipartite when G has degree >=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-three-sphere-wedge-theorem-for-robust-clique-complexes-of-all--8d06720b1a2b/RESULT.md",
+          "material_read": "Entire published RESULT.md proof, formula, and scope",
+          "method": "read full GitHub published source",
+          "title": "A three-sphere wedge theorem for robust clique complexes of all connected bipartite graphs",
+          "trigger": "Strong all-bipartite exact I3 homotopy theorem and overlapping binomial count"
+        },
+        {
+          "assessment": "Cannot certify whole-document noncoverage; exact all-high-girth theorem not established by inspected scope",
+          "evidence": "Classical matching restriction studies broad concept but exact published sample families do not imply high-girth graph generality.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0410345",
+          "material_read": "Published abstract and bibliographic scope covering complete and complete-bipartite hosts; full primary article not read in this run",
+          "method": "abstract/scope-level comparison",
+          "title": "Complexes of graphs with bounded matching size",
+          "trigger": "Classical nonmatching complex family, possible exact tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A uniform integral homotopy classification with explicit sphere dimension and multiplicity for every connected girth>=6 graph is a significant structural result of matching-avoidance topology. The tree-to-cycle edge-insertion link suspension gives an interpretable inductive mechanism, not just an Euler-characteristic calculation, and includes nonbipartite graphs outside generic bipartite top-homology results. Exact all-girth object classification may be used by future work on Stanley–Reisner invariants and matching complexes; same numeric count for vertex complexes does not erase value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite connected simple graph, girth at least six, at least one edge, ordinary nonequivariant integral homotopy.",
+    "No statement for cycles of lengths 3–5 or higher matching threshold."
+  ],
+  "schema_version": 1
+}
