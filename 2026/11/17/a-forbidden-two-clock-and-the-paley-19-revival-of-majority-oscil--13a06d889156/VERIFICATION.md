@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks
 
-The finite claims are determined by the explicitly given complete Boolean state space, rather than extrapolating from sampled trajectories.
+# Independent mathematical audit
 
-To reproduce the full orbit census and natural geometric equivalence classes with Python 3, run:
+## correctness
 
-```sh
-python3 verify_functional.py
-```
+PASS
 
-The output is a single JSON line and should agree with `output_functional.json`, containing each order's residue set, complete temporal cycle counts, primitive entry-time distribution, sharp transient bound and affine-complement-time classes.
+For a proposed tournament period-two pair x,y, summing strict voting inequalities over changed 1-to-0 set A and 0-to-1 set B yields e(A,B)+e(B,A)-e(A,A)-e(B,B)>=|A|+|B|, but tournament arc counts make the left side (|A|+|B|-(|A|-|B|)^2)/2, impossible. For a regular tournament each class in a mixed fixed state would require at least 2ceil(k/2)+1 vertices, exceeding 2k+1 in total. The special Paley prime cases are finite, explicitly all 2^3+2^7+2^11+2^19=526472 labelled states. Separately written Python functional-graph enumeration from quadratic-residue adjacency recovered orbit counts p3 {1:2,3:2}, p7 {1:2,7:6}, p11 {1:2}, p19 {1:2,4:342,19:18}, and sharp entry depths 0,3,5,7. Independently generated affine-square/complement/temporal group orbit closures at p19 give exactly the four classes (0,period1,size2), (511,period19,size342), (3543,period4,size684), (5751,period4,size684). The finite exhaustive verification is not extrapolated to other primes.
 
-For a second, separately written implementation using individual C bit tests and iterate identities, run:
+## originality
 
-```sh
-cc -std=c11 -O2 -Wall -Wextra -pedantic verify_iterates.c -o verify_iterates
-./verify_iterates
-```
+PASS
 
-Its output should agree with `output_iterates.txt`. The C program checks every one of \(8+128+2048+524288=526472\) initial labelled configurations, separately computes minimal temporal periods and first-periodic-entry times, and verifies global iterate identities and their sharpness. The Python verifier independently traverses each functional graph, classifying paths and cycles. Both reconstruct the Paley arcs from quadratic residues instead of reading precomputed transition tables. Together they check that no omitted periods or transient branches remain in the four finite systems.
+General voting/threshold-dynamics papers and Paley tournament spectral/combinatorial studies do not give this exact p=19 attraction, primitive-period and symmetry classification. The universal no-two-cycle lemma is elementary structural context, not separately relied on as a nontrivial novelty claim. Jørgensen defines the Paley construction, while Benjamini et al. require undirected networks for their period-two restriction, hence cannot cover these oriented orbits. Goles 1985 is a plausible general threshold-automata precursor; full text was inaccessible through authorized access, so priority remains qualified.
 
-The general fixed-point and no-two-cycle lemmas are verified through their explicit tournament arc-count proofs in RESULT.md. Finite computational checks are not a replacement for those general arguments. The calculations certify only the specified finite Paley orders, not other prime powers, generic directed networks or an all-order asymptotic theorem.
+## value
+
+PASS
+
+The first canonical doubly-regular tournament sizes yield a complete exact recurrent/entry/symmetry classification, with all-consensus p=11 followed by period-four and period-nineteen oscillators at p=19. The finite cutoff and symmetry collapse are natural complete invariants, not isolated numerical experiments; no all-prime conjecture is presented as proved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
