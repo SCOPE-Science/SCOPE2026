@@ -1,19 +1,21 @@
-# Scientific review: sharp rooted-tree variation sensitivity of Euclidean ball projection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The anchored incidence matrix is invertible, its inverse columns are subtree indicators, and the Euclidean-ball projector has the radial tangent derivative \(R(I-uu^\top)/\|x\|_2\) outside. The symmetric rank-two eigenvalue identity produces the exact signed dual maximum. The uniform bound \(\|D^\top s\|_2^2\le\sum_v(1+d_v)^2\) is attained simultaneously at every vertex by alternating-depth signs. The root column then gives the largest subtree norm, completing the exact constant. Derivative integration gives a global bound and strict finite-pair nonattainment, while a boundary-approaching explicit tangent witness proves sharpness. The two extremal rooted-tree structures follow from exact integer child-count squares. Exhaustive and numeric checks in `verify.py` support, but do not replace, these steps.
+PASS
 
-## Originality — PASS, with a historical priority caveat
+The anchored rooted-tree difference operator D is invertible, and its inverse columns are indicators of rooted descendant subtrees. Exterior derivative of Euclidean projection equals R/||x||_2 (I-uu^T), whose induced D-l1 norm reduces via sign duality and the smaller rank-two eigenvalue to (s_v+sqrt(|T_v|)||D^T s||_2)/2. The alternating-depth sign vector simultaneously saturates each |s_v-sum_child s_w|<=1+d_v; the root column |T_r|=n yields exactly (1+sqrt(n sum(1+d_v)^2))/2. Integrating derivatives across any segment proves the global bound and strict nonattainment, and tangent boundary pairs approach it. The child-degree square identity S=3n-2+sum d_v^2 gives endpoint-rooted-path minimum 4n-3 and center-star maximum n^2+n-1. Independent signs/subtree checks on rooted path, star and branched examples reproduce the exact constants; finite diagnostics do not prove every rooted tree.
 
-The 2015 full-text tree-TV reference analyzes energy minimization with edge penalties, not the Lipschitz modulus of projection onto a global Euclidean ball in the anchored tree norm. Thele's 1974 and de Figueiredo–Karlovitz's 1967 radial results use the same norm for the radial ball and for sensitivity, so their known framework does not give the cross-norm rooted-tree formula. Previously indexed planar cross-norm Euclidean disk results likewise do not cover arbitrary finite rooted trees or the degree-square extremal law. Searches for radial projection, rooted graph TV and mixed-norm Lipschitz analogues found no directly dominating statement. Full access to two classical radial articles was unavailable, so independent historical priority checking is still advisable.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a natural exact stability coefficient for Euclidean clipping of graph signals under anchored total variation. The same operation is Euclidean-nonexpansive, but has a sharp all-tree instability governed only by child degrees: \(\Theta(n)\) for paths and \(\Theta(n^{3/2})\) for stars. The complete rooted-tree extremal classification, nonattainment of the sharp pairwise modulus, and explicit near-boundary witnesses distinguish the finding from a numerical example or a generic norm-equivalence bound.
+This is a sharp mixed-norm Euclidean radial projection constant for a natural rooted-tree BV norm, with global rigidity and extremal topology. Tree-total-variation optimization and classical same-Banach-norm radial projection do not state or imply the branching-count mixed-norm expression from their cited results. Originality PASS on inspected material, with archival risk for older projection articles.
 
-## Limitations and comparison risks
+## value
 
-The result is for real signals on finite, unweighted rooted trees, with centered Euclidean balls and the specified root anchor. It is neither a weighted-tree theorem nor a statement about the unanchored graph-TV seminorm. The proofs are analytical; the checker only covers finite diagnostics. The accessible material for the classical radial Banach-space papers was abstract/bibliographic level, which cannot exclude all alternative earlier formulations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Tree variation is a standard stability model for hierarchical signals. The theorem gives exact Lipschitz amplification of a ubiquitous Euclidean projection in that anisotropic norm and identifies the path/star topology gap from order n to n^(3/2), an informative structural stability classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

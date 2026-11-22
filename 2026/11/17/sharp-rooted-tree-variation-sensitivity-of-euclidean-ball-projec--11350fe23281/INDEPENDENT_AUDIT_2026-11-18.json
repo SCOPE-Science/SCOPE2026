@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:18:32.909900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The anchored rooted-tree difference operator D is invertible, and its inverse columns are indicators of rooted descendant subtrees. Exterior derivative of Euclidean projection equals R/||x||_2 (I-uu^T), whose induced D-l1 norm reduces via sign duality and the smaller rank-two eigenvalue to (s_v+sqrt(|T_v|)||D^T s||_2)/2. The alternating-depth sign vector simultaneously saturates each |s_v-sum_child s_w|<=1+d_v; the root column |T_r|=n yields exactly (1+sqrt(n sum(1+d_v)^2))/2. Integrating derivatives across any segment proves the global bound and strict nonattainment, and tangent boundary pairs approach it. The child-degree square identity S=3n-2+sum d_v^2 gives endpoint-rooted-path minimum 4n-3 and center-star maximum n^2+n-1. Independent signs/subtree checks on rooted path, star and branched examples reproduce the exact constants; finite diagnostics do not prove every rooted tree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kolmogorov-Pock-Rolínek develops convex optimization for tree TV with unary terms; classical same-norm radial projection can give universal estimates but not exact mixed norm."
+        ],
+        "reasoning": "The apparent broader subjects are methodological rather than a stronger theorem covering the precise unweighted Euclidean-ball/anchored-BV operator and rooted degree formula.",
+        "searches": [
+          "Resultary sharp radial retraction Lipschitz profiles",
+          "Alber metric generalized projection operators in Banach spaces",
+          "Kolmogorov Pock Rolinek 2015 tree total variation"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md / verify.py 045d5dd707651e376f32365b6fb5ba5f2163e8c6",
+        "Kolmogorov Pock Rolínek arXiv:1502.07770",
+        "de Figueiredo Karlovitz (1967) DOI:10.1090/S0002-9904-1967-11753-1",
+        "Thele (1974) DOI:10.1090/S0002-9939-1974-0328550-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tree-TV algorithms minimize regularized TV; radial retraction theorems are for the underlying Banach norm ball whereas here Euclidean projection is tested in a distinct anchored norm."
+        ],
+        "reasoning": "Neither yields (1+sqrt(nS))/2 or classifies extremal roots without the new rank-two/sign argument.",
+        "searches": [
+          "Kolmogorov Pock Rolínek total variation on a tree arxiv 1502.07770",
+          "Thele 1974 radial projection Banach spaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Invertible D identifies tree BV as l1 coordinates, while the target Euclidean ball becomes an ellipsoid, so classical l1 ball retractions are different operations."
+        ],
+        "reasoning": "After D-conjugation the problem is l1-Lipschitz projection onto an ellipsoid, not same-norm radial ball projection; no exact equivalent known in inspected sources.",
+        "searches": [
+          "Resultary rooted tree bounded variation norm Euclidean ball radial metric projection Lipschitz constant",
+          "radial retraction Lipschitz normed spaces Thele de Figueiredo Karlovitz",
+          "Kolmogorov Pock Rolinek total variation on tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Submitted S(T,r)=sum_v(1+d_v)^2; independently checked 2/4/5/6-node cases with exact S including path and star bounds; no preexisting exact branching-parameter table found."
+        ],
+        "reasoning": "Previous rooted-tree TV and radial-retraction constants do not tabulate this precise two-input norm; a general upper bound would not make the sharp and unattained formula redundant.",
+        "searches": [
+          "Resultary sharp rooted tree variation sensitivity Euclidean ball projection",
+          "rooted tree radial BV Lipschitz path star formula"
+        ]
+      },
+      "rationale": "This is a sharp mixed-norm Euclidean radial projection constant for a natural rooted-tree BV norm, with global rigidity and extremal topology. Tree-total-variation optimization and classical same-Banach-norm radial projection do not state or imply the branching-count mixed-norm expression from their cited results. Originality PASS on inspected material, with archival risk for older projection articles.",
+      "residual_risks": [
+        "Archival 1967/1974 primary full texts inaccessible in this execution; possible broader mixed-norm variant needs human priority check",
+        "Finite calculations were corroborating; global formula relies on derivative integration and tangent supremum",
+        "Nonattainment proof assumes strict inequality on nondegenerate segment almost everywhere, which is satisfied for exterior derivative"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_PROBLEM",
+          "evidence": "Tree TV energy minimization / algorithm; no Euclidean radial two-input mixed norm",
+          "identifier_or_url": "https://arxiv.org/abs/1502.07770",
+          "material_read": "Full accessible paper HTML introduction, problem setup and main optimization theorem material; no claimed complete appendix read",
+          "method": "Primary arXiv HTML",
+          "title": "Total variation on a tree, Kolmogorov Pock Rolínek (2015)",
+          "trigger": "Exact same tree variation graph setting"
+        },
+        {
+          "assessment": "LIMITED_ACCESS",
+          "evidence": "Same-norm Banach-ball radial projection setting; possible unindexed transferable results remain",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9904-1967-11753-1",
+          "material_read": "Bibliographic record and abstract-level reference only; full source not obtained",
+          "method": "Bibliography/abstract search",
+          "title": "On the radial projection in normed spaces, de Figueiredo and Karlovitz (1967)",
+          "trigger": "Potential stronger sharp Lipschitz radial projection theorem"
+        },
+        {
+          "assessment": "LIMITED_ACCESS",
+          "evidence": "Original projection in Banach norm, not verified as covering mixed metric",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1974-0328550-1",
+          "material_read": "Abstract and bibliographic material only, not full theorem proof",
+          "method": "Search/bibliography",
+          "title": "Some results on radial projection in Banach spaces, Thele (1974)",
+          "trigger": "Could imply universal or exact projection coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Tree variation is a standard stability model for hierarchical signals. The theorem gives exact Lipschitz amplification of a ubiquitous Euclidean projection in that anisotropic norm and identifies the path/star topology gap from order n to n^(3/2), an informative structural stability classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md / verify.py 045d5dd707651e376f32365b6fb5ba5f2163e8c6",
+    "Kolmogorov Pock Rolínek arXiv:1502.07770",
+    "de Figueiredo Karlovitz (1967) DOI:10.1090/S0002-9904-1967-11753-1",
+    "Thele (1974) DOI:10.1090/S0002-9939-1974-0328550-1"
+  ],
+  "disposition": "passed",
+  "limitations": "Finite unweighted rooted trees n>=2; anchored BV norm; Euclidean ball radius R>0 centered at zero only.",
+  "residual_risks": [
+    "Archival 1967/1974 primary full texts inaccessible in this execution; possible broader mixed-norm variant needs human priority check",
+    "Finite calculations were corroborating; global formula relies on derivative integration and tangent supremum",
+    "Nonattainment proof assumes strict inequality on nondegenerate segment almost everywhere, which is satisfied for exterior derivative"
+  ],
+  "schema_version": 1
+}
