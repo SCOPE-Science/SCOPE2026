@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2 and alpha>=0 with s<1, P=(t I+alpha 1^T)Q with t=1-s and Q column stochastic. The first factor has determinant t^(n-1) and adjugate t^(n-2)(I-alpha 1^T); the adjugate norm is separately convex in the stochastic columns, so a deterministic map attains its maximum. The only nonzero deterministic cases are permutations with norm t^(n-2)(1+s-2 min alpha) and rank-(n-1) maps with norm 2t^(n-2)max(1-alpha_k,alpha_k). Their maximum is exactly 2(1-min alpha)t^(n-2). A perturbation adding probability delta to the missing output yields invertible P_delta and the same limiting determinant-weighted inverse norm. The packaged standard-library checker passed 1253 direct rational-minor assertions; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goldberg, Journal of Research NBS 70B (1966), pp.157–158: the dimension n determinant bound involving common row minima and its permutation-plus-rank-one equality family.",
+        "Houache–Szehr–Zarouf, 20-page arXiv:2608.20217v1, Theorem 1.1: the global √(en) first-order asymptotic; not exact on the positive stochastic operator subcone.",
+        "Perturbation bounds on Markov stationary distributions, Thiede–Van Koten–Weare, arXiv:1410.1431, are about stationary distribution sensitivity, not adjugate of P."
+      ],
+      "reasoning": "The theorem supplies the exact upper bound 2(1-min alpha)(1-sum alpha)^(n-2). The general universal Schäffer inequality provides only a weaker n-dependent bound and no alpha profile. Goldberg bounds |det P| rather than ||adj P||, and its determinant maximizers are permutations, whereas the new adjugate maximum is witnessed by a rank-deficient map. Standard Dobrushin inequalities bound contraction on zero-total-mass vectors and do not imply the target absolute cofactor sum.",
+      "searches": [
+        "Schäffer 1970 norms determinants linear mappings l1 spaces inverse inequality",
+        "https://nvlpubs.nist.gov/nistpubs/jres/70B/jresv70Bn2p157_A1b.pdf",
+        "sharp cofactor sum bound stochastic matrix inverse adjugate minorization probabilities",
+        "Doeblin minorization stochastic matrix inverse determinant estimate cofactors"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.20217",
+      "https://pdfs.assets.alphaxiv.org/2608.20217v1.pdf",
+      "https://nvlpubs.nist.gov/nistpubs/jres/70B/jresv70Bn2p157_A1b.pdf",
+      "https://arxiv.org/abs/2601.19023",
+      "https://doi.org/10.1016/j.laa.2013.06.036",
+      "https://arxiv.org/abs/1410.1431"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goldberg (1966) proves |det P| ≤ (1-s)^(n-1) for a common minorant, with a permutation-type extremizer, but cannot by that inequality alone bound the nonzero adjugate of singular P.",
+        "Houache–Szehr–Zarouf (2026) studies a supremum over all norms and matrices with order sqrt(n), and does not specify nonuniform Markov minorants.",
+        "Visser (2026) concerns cofactors of matrices used to solve stationary-vector equations, structurally different from adj(P) of the transition matrix itself."
+      ],
+      "reasoning": "The new result has an exact optimizing class at rank n-1. Goldberg determinant equality instead requires an invertible permutation-type residual, and the sharp determinant value cannot be inserted into the inverse norm without a separate inverse estimate. The 2026 universal asymptotic is insufficient to recover either its absolute constant or its minorant parameter dependence. No tested primary statement therefore implies the theorem as a corollary.",
+      "searches": [
+        "https://nvlpubs.nist.gov/nistpubs/jres/70B/jresv70Bn2p157_A1b.pdf",
+        "https://pdfs.assets.alphaxiv.org/2608.20217v1.pdf",
+        "https://arxiv.org/abs/2601.19023",
+        "https://doi.org/10.1016/j.laa.2013.06.036"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Houache–Szehr–Zarouf, arXiv:2608.20217v1, Theorem 1.1 and introduction: asymptotics of optimal constants over arbitrary Banach norms, with no restricted Markov-minorization norm.",
+        "Goldberg 1966, Theorem 1: a bound on the determinant alone; absent adjugate absolute column-sum optimization.",
+        "Related finite Markov stationary-equilibrium adjugate work, arXiv:2601.19023v1, describes a different adjugate applied to stationary equations (abstract only)."
+      ],
+      "reasoning": "For invertible P, the functional equals |det P| ||P^{-1}||_1, not |det P| alone; the maximizing stochastic limit in the new theorem is rank n-1, hence its determinant is zero while the adjugate norm is maximal. This rules out identifying the target with the existing determinant-only problem. Neither the universal asymptotic Schäffer constant nor an inverse-group-resolvent estimate is equivalent to this sharp fixed-minorant finite-order supremum.",
+      "searches": [
+        "Schäffer determinant inverse norm inequality exact constant 2 independent n for coordinate sequence Banach spaces ell_1^n and ell_infinity^n; adjugate operator norm bound 2 via extreme points",
+        "sharp adjugate 1-norm column stochastic matrices with uniform Doeblin minorization all entries >=epsilon exact 2(1-epsilon)(1-n epsilon)^(n-2)",
+        "stochastic matrix cofactor column sum maximization, Doeblin rank-one refresh kernel and adjugate bound",
+        "Schäffer 1970 determinant inverse norm inequality sharp Markov positive operator subclass ell-one",
+        "adjugate Markov transition matrix determinant inverse norms probabilistic matrices sharp"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published index searches for the exact minorization-dependent expression, cofactor row/column sum aliases, and stochastic inverse condition numbers produced no exact formula in the compared records.",
+        "The closest public Markov sources provide stationary-distribution or ergodicity coefficients rather than the stated exact adjugate norm."
+      ],
+      "reasoning": "The exact symbolic profile, including the 2(1-a) factor and (1-s)^(n-2) power, did not appear in the checked literature or semantic record searches. This is a bounded search assessment, not a uniqueness theorem; a differently indexed table or historical cofactor bound is a residual risk.",
+      "searches": [
+        "adjugate Markov transition matrix determinant inverse norms probabilistic matrices sharp",
+        "cofactor bound stochastic matrices adjugate maximal absolute column sum",
+        "Doeblin minorization stochastic matrix inverse determinant estimate cofactors",
+        "determinant conditioned transition matrix adjugate cofactor l1 norm Markov chain Dobrushin coefficient extremal column stochastic rank n minus one"
+      ]
+    },
+    "rationale": "The nonuniform-minorant sharp adjugate norm and the matching invertible supremum were compared by mathematical implication with the unrestricted Schäffer asymptotic, Goldberg's exact stochastic determinant bound, and Markov-chain adjugate and contraction literature. These do not state or logically determine the exact cofactor column-sum extremum. The compact-finding-index similarity searches and own current/previous weekly claim screening showed no claim covering it; absence of a hit is not proof of uniqueness.",
+    "residual_risks": [
+      "An older equivalent theorem on norms of compound/adjugate stochastic matrices might be indexed under signed minors rather than Schäffer or Doeblin terminology.",
+      "Only an abstract was accessible for the 2026 stochastic-equilibria manuscript; its full text was not inspected.",
+      "General mathematical novelty requires independent bibliographic confirmation beyond these bounded searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source proves unrestricted asymptotic sharpness, not exact positive-stochastic operator norm with Doeblin vector.",
+        "evidence": "Theorem 1.1 on p.3 and introduction pp.2–3; no stochastic subclass formulated in inspected material.",
+        "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2608.20217v1.pdf",
+        "material_read": "Title, abstract, introduction, Theorem 1.1, source classification and opening of Section 2; PDF-wide targeted term searches for Markov/stochastic/adjugate.",
+        "method": "Direct lawful full-text PDF with visual page check and parsed PDF text.",
+        "title": "Schäffer's matrix inequality: the exact asymptotic constant",
+        "trigger": "The same determinant-times-inverse-norm functional in unrestricted finite Banach spaces."
+      },
+      {
+        "assessment": "Theorem 1 bounds determinants, not induced adjugate operator norms; the two extremal functions have different rank behavior.",
+        "evidence": "Theorem 1: determinant ≤ (1-c)^(n−1), with equality at a permutation-plus-common-mass matrix; no absolute cofactor column sum extremum.",
+        "identifier_or_url": "https://nvlpubs.nist.gov/nistpubs/jres/70B/jresv70Bn2p157_A1b.pdf",
+        "material_read": "All two journal pages 157–158, including both theorems and equality cases.",
+        "method": "Direct PDF parsed text and visual screenshots of both pages.",
+        "title": "Upper Bounds for the Determinant of a Row Stochastic Matrix",
+        "trigger": "Closest historical stochastic determinant bound under entry minima."
+      },
+      {
+        "assessment": "The stated objects are stationary distributions via an adjugate of stationary equations, not the norm of the classical adjugate of P. Full-text equivalence remains a low-to-moderate bibliographic risk.",
+        "evidence": "Abstract describes n principal minors for stationary eigenvector reconstruction; no optimization of ||adj P||_1 mentioned.",
+        "identifier_or_url": "https://arxiv.org/abs/2601.19023",
+        "material_read": "Abstract and metadata only; full manuscript unavailable in this retrieval.",
+        "method": "ArXiv and alternate article-page abstract comparison.",
+        "title": "Explicit formulae for stochastic equilibria",
+        "trigger": "Title and abstract describe adjugate-based formulas for general stochastic matrices."
+      },
+      {
+        "assessment": "The norm is a centered total-variation contraction coefficient, not the adjugate norm of the transition operator.",
+        "evidence": "The target coefficient is tau(T)=max_{i,j}(1/2)||row_i-row_j||_1, not a cofactor or determinant-inverse expression.",
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2013.06.036",
+        "material_read": "Available article content describing the exact coefficient of ergodicity, its extremizing distributions and graph-constrained problem.",
+        "method": "Article page text review.",
+        "title": "The minimum coefficient of ergodicity for a Markov chain with a given directed graph",
+        "trigger": "A plausible stronger sharp stochastic-matrix norm covering common minorants."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "86759932-069e-4197-af4f-2e13964a0cd9",
+  "value": {
+    "rationale": "A fixed nonuniform Doeblin vector is an intrinsic property of a finite Markov operator, and the adjugate norm is the natural determinant-weighted inverse stability functional. The theorem supplies the exact dimension- and minorant-dependent extremum with explicit rank-deficient extremizers and invertible approximations. The sharp uniform refresh profile 2(1-theta/n)(1-theta)^(n-2) shows exponential suppression absent for unmixed Markov operators. Its value is a natural all-orders sharp endpoint stability problem, not an arbitrary computed slice.",
+    "status": "PASS"
+  }
+}
