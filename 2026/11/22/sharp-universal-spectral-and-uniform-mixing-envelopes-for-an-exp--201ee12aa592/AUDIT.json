@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The copula density is a centered rank-one perturbation; its parameter bound follows from exact opposite score maxima. Its transition operator has one nonzero eigenvalue and the n-step density follows by induction. A strict derivative sign argument yields the unique root of the global shape optimization, with boundary and alpha=0 handled. The standalone numerical checker independently replayed arithmetic and kernel convolution; analytic proof, not finite sampling, establishes the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Longla (2024), Section 3, gives general eigenfunction formulas for symmetric square-integrable copula Markov chains and generic geometric mixing.",
+        "Longla (2026), Section 2, treats maximal correlation in different finite-dependent copula constructions; its operators are nilpotent, unlike the present nontrivial self-adjoint rank-one operator."
+      ],
+      "reasoning": "The general spectral formula subsumes the single-eigenvalue lag identity. It does not determine the supremum of this specific shape-constrained eigenvalue, the unique interior optimizer, or the simultaneous exact n-step uniform-density envelope. Those comprise the final claim beyond the generic spectral framework.",
+      "searches": [
+        "Exact sharp uniform Markov chain transition density convergence rate exponential-quadratic copula |delta| alpha squared g(u)g(v) maximum mixing spectral gap",
+        "maximal correlation exponentiated FGM copula mixing stationary chain",
+        "doi:10.1007/s00362-024-01559-9",
+        "doi:10.1007/s11749-026-01003-0"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2304.02231",
+      "https://doi.org/10.1016/j.spl.2023.109988",
+      "https://doi.org/10.1007/s00362-024-01559-9",
+      "https://doi.org/10.1007/s11749-026-01003-0",
+      "https://dspace.iiti.ac.in/bitstream/123456789/16598/1/TH_745_Swaroop_Georgy_Zachariah_2001241009.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General orthogonal-series theory implies powers of eigenvalues for Markov compositions; the preprint supplies the precise nonnegative copula domain.",
+        "The required residual optimization is B(alpha)=int g_alpha^2/(max|g_alpha|)^2, with a unique stationary point governed by D(s); this is proved separately here and is not fixed by either cited antecedent."
+      ],
+      "reasoning": "Combining prior formulas reduces the new question to a nontrivial real-parameter variational problem; it does not itself imply the sharp universal numerical constant, its unique attainment shape, or the equality cases at every lag. Thus the final claim is not presented as novel for its generic rank-one decomposition.",
+      "searches": [
+        "Zachariah Arshad Pathak 2023 2304.02231 exponential quadratic FGM copula maximum Rényi maximal correlation alpha 4.56756",
+        "Exact sharp uniform Markov chain transition density convergence rate exponential-quadratic copula |delta| alpha squared g(u)g(v) maximum mixing spectral gap",
+        "\"Zachariah\" \"Arshad\" \"Pathak\" mixing coefficient Markov",
+        "\"exponential quadratic\" copula \"maximal correlation\" \"mixing\"",
+        "doi:10.1007/s00362-024-01559-9 Theorem 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 preprint expresses the copula as a separable exponential perturbation and derives its admissible parameter interval and traditional concordance measures (Sections 2--3).",
+        "The shape-specific maximal correlation is the sole centered rank-one eigenvalue magnitude, but neither that full parameter optimization nor its unique optimizer appears in the inspected source material."
+      ],
+      "reasoning": "Equivalently, the claim optimizes the spectral norm of the rank-one Markov operator over every admissible exponential score shape. The source gives the score and its positivity limit, not the unique root equation or all-lag sharp envelope; simple restatement of the density is explicitly excluded from the claimed contribution.",
+      "searches": [
+        "Zachariah Arshad Pathak 2023 2304.02231 exponential quadratic FGM copula maximum Rényi maximal correlation alpha 4.56756",
+        "One mode rank-one separable perturbation copula operator eigenvalue g exp(alpha t(1-t)) and optimal mixing amplitude",
+        "arxiv:2304.02231",
+        "doi:10.1016/j.spl.2023.109988"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original 2023 paper Table 1 and the thesis Table 2.2 tabulate Spearman rho and Gini gamma, e.g. the largest displayed Spearman rho at alpha 3.8.",
+        "The target maximized invariant is HGR maximal correlation and uniform Markov transition-density deviation rather than the tabulated concordance measures."
+      ],
+      "reasoning": "Matching shape parameter or displayed correlation decimals is not matching a theorem. The exact root-defined value 0.632579805... and universal all-lag sharp mixing coefficient are distinct from the tabulated rank correlation, and no source table inspected lists them.",
+      "searches": [
+        "\"Zachariah\" \"Arshad\" \"Pathak\" \"maximal correlation\" copula",
+        "arxiv:2304.02231 Section 3 Table 1",
+        "IIT Indore thesis 2025 Chapter 2 Table 2.2",
+        "exponential quadratic copula rho mixing exact uniform density bound"
+      ]
+    },
+    "rationale": "The originating 2023 full preprint and 2025 thesis describe the exact copula and rank correlations but not the sharp spectral optimizer. General 2024/2026 mixing papers supply a broader operator principle without this unique shape-dependent bound; targeted literature and semantic searches found no equivalent result. Priority remains provisional.",
+    "residual_risks": [
+      "Broader spectral results already imply the rank-one lag identity; only the sharp familywise optimization is claimed new.",
+      "Semantic search output alone cannot prove noncoverage; the accessible relevant primary texts were also read.",
+      "The later dissertation was available as text, but page-image inspection was unavailable; future human priority review may find additional equivalent literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_MODEL_NOT_COVERING_TARGET_OPTIMUM",
+        "evidence": "Introduces C=uv+delta(1-exp(alpha u(1-u)))(1-exp(alpha v(1-v))), a piecewise admissible delta interval and Spearman/Gini results, but not HGR or a sharp uniform Markov lag envelope.",
+        "identifier_or_url": "https://arxiv.org/abs/2304.02231",
+        "material_read": "Full accessible preprint text; Sections 2 and 3, formulae (2.1)--(2.7), propositions on concordance and total positivity, Table 1, and subsequent application section",
+        "method": "Public full-text HTML extraction and section-by-section reading",
+        "title": "A new class of copulas having dependence range larger than FGM-type copulas",
+        "trigger": "Exact same score function, positivity range and parameter family"
+      },
+      {
+        "assessment": "BROADER_SPECTRAL_PRINCIPLE_BUT_NOT_SPECIFIC_OPTIMIZATION",
+        "evidence": "General lag-n copula and maximal-correlation formulas; no Zachariah score family or global exact alpha optimizer in inspected relevant sections.",
+        "identifier_or_url": "https://doi.org/10.1007/s00362-024-01559-9",
+        "material_read": "Full accessible article, introduction and Section 3 with Theorems 3.1--3.4, especially eigenvalue power and maximal correlation discussion",
+        "method": "Public open-access article HTML reading",
+        "title": "New copula families and mixing properties",
+        "trigger": "Potential dominating general theorem about spectral mixing for copula chains"
+      },
+      {
+        "assessment": "DIFFERENT_OPERATOR_CLASS",
+        "evidence": "Finite-dependent examples use different orthogonal functions and nilpotent operator structure, not this positive spectral-radius family.",
+        "identifier_or_url": "https://doi.org/10.1007/s11749-026-01003-0",
+        "material_read": "Accessible article, abstract and Sections 2.1.2, 4.2.2 and theorem statements on nilpotent Markov operators",
+        "method": "Public open-access article HTML reading",
+        "title": "Copulas, m-dependence, and Markov chains",
+        "trigger": "Closest newer general maximal-correlation copula analysis"
+      },
+      {
+        "assessment": "SOURCE_EXPANSION_NOT_COVERING_TARGET_OPTIMUM_IN_RELEVANT_CHAPTER",
+        "evidence": "Chapter 2 restates dependence and rank correlation table and concludes with an open question on asymmetric variants; no maximal-correlation or mixing discussion found by full-document term search.",
+        "identifier_or_url": "https://dspace.iiti.ac.in/bitstream/123456789/16598/1/TH_745_Swaroop_Georgy_Zachariah_2001241009.pdf",
+        "material_read": "Chapter 2 tables and relevant sections on source copula, conditional bivariate Rayleigh laws and conclusion; text extraction read, PDF visual page rendering unavailable (HTTP 403)",
+        "method": "Public parsed PDF text and targeted chapter search; attempted page image view",
+        "title": "Dependence and Uncertainty: A Copula-Based Framework",
+        "trigger": "Same investigator thesis could extend the family beyond the preprint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "201ee12a-a592-4489-a212-9b9b7b373b99",
+  "value": {
+    "rationale": "The originating family aims to model stronger dependence than classical FGM, while reported rho/gini do not measure its maximal nonlinear dependence or its temporal memory. The exact globally achievable HGR bound and all-lag sharp uniform-density envelope solve a natural familywise optimization and identify the unique most persistent admissible shape. No universal bounds outside this family are claimed.",
+    "status": "PASS"
+  }
+}
