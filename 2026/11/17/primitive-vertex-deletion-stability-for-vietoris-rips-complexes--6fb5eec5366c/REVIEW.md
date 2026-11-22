@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The bipartite incidence graph is four-cycle-free. After one-point deletion, the surviving-point Rips subcomplex is a simplex and the pure-line Rips subcomplex is a cone because any line not through the missing point meets every other line at a surviving point. The mixed-clique restriction produces a pair of contractible simplicial subcomplexes with intersection exactly the punctured incidence graph. Their natural Mayer–Vietoris comparison yields a suspension homotopy equivalence, and the cycle rank is \(q^3-q\). The integral comparison is a primitive injection by coordinate projection of graph cycle lattices, with cokernel rank \(q\). The standard-library finite checker independently verifies all radius-two simplices and relevant mod-two boundary ranks at orders \(2\) and \(3\). No finite result is extrapolated as proof.
+## correctness
 
-## Originality — PASS, with qualified priority
-The closest published complete-plane classification determines the full incidence graph's radius-two homotopy, but the text contains no one-point-deletion theorem, metric recomputation, or primitive inclusion calculation. Comparison of source hypotheses and conclusions shows that the new puncture classification and induced integral map are not logical consequences of the prior complete-plane homotopy statement alone. Public search and mathematical research-record searches found no statement covering this exact relative result. An unindexed equivalent puncturing argument remains possible; the underlying suspension technique is not new.
+PASS
 
-## Mathematical value — PASS
-Vertex loss is a canonical stability operation on sparse incidence data, and recomputing graph metrics can change the Rips complex nontrivially. Here deleting any incidence vertex changes the side-clique from a simplex to a non-simplex cone yet preserves an exact integral sphere-wedge pattern; moreover the rank drop is exactly the incidence degree minus one and creates no torsion. The new primitive map classifies which information survives across the deletion and is stronger than separate Betti counts. It is an infinite, self-contained structural comparison over every finite projective plane, not an arbitrary finite slice.
+For every finite projective plane q>=2, deleting one point leaves connected no-four-cycle incidence graph H; opposite-side radius<=2 cliques remain exactly incident pairs. All surviving point vertices form a simplex; line-side graph misses precisely the edges between q+1 lines formerly meeting at deleted point, but any other line is a cone vertex. The two cover subcomplexes are contractible and meet in H, hence VR<=2(H)≃ΣH≃∨^{q^3−q}S². Naturality of the same cover for G identifies H2 map with inclusion of integral graph cycle lattices. Its quotient injects into the free abelian coordinates of the q+1 deleted edges and has rank q, so the injection is primitive. Independent construction of PG(2,2),PG(2,3) gives 13/25 surviving vertices, 18/48 edges and cycle ranks 6/24. Every scale is inclusive with post-deletion graph distances; no claim about higher scales.
 
-## Scope and risks
-All existing finite projective planes are covered, but no plane existence is asserted. Later filtration thresholds, multiple deletions and general designs are outside scope. The checker handles orders two and three only; the uniform theorem rests on the full written argument. Priority cannot rule out unpublished work or unindexed notes; independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for recomputed-metric radius-two Rips homotopy after arbitrary point/line deletion and the primitive integral H2 comparison. The published 2026-10-04 complete-incidence theorem supplies K_G≃ΣG and q³ spheres, but does not imply the pure-line cone after deletion or naturality of graph cycle inclusion. Literature on clique graph powers and metric gluings gives techniques, not this exact primitive deletion formula.
+
+## value
+
+PASS
+
+A single deleted landmark is a natural stability perturbation of the highly symmetric point-line metric. The theorem specifies both exact loss q of integral generators and primitive nature of the induced map for all finite projective planes, including non-Desarguesian models; these data can inform filtration comparison and are not determined solely by the original Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
