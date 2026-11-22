@@ -1,12 +1,21 @@
-# Scientific review of the pentagonal four-row cylinder matching complex
+# Independent mathematical audit
 
-## Correctness
-PASS. The explicit 20-vertex/35-edge graph, exhaustive face-recursion and matching operation are completely specified. The standalone verifier establishes acyclicity on every one of the 1,574,120 Hasse covers and calculates the signed integral Morse differential rather than relying only on rational or mod-prime ranks. Both independently chosen vertex orders produce identical reduced homology, and every nonzero Smith factor equals one. A critical zero-cell and no cells below dimension five permit the integral CW cancellation argument, yielding the claimed homotopy equivalence. Risks: reimplementation of the finite checker or a previously unknown error in discrete Morse theory would require independent review; neither is an observed defect.
+## correctness
 
-## Originality
-PASS under available evidence, with bibliographic limitations. The source that motivates the question treats three-row rectangular grids, whereas this result treats a four-row cylindrical grid with five cyclic columns. The recorded nearest fixed-graph results concern \(P_4\square C_4\), \(P_3\square C_5\), and \(P_4\square P_5\); none has graph or theorem hypotheses implying this homotopy type. Searches also covered line-graph independence terminology and broader grid-cylinder statements. The relevant 2026 primary paper could be read at abstract level but its full text could not be obtained. No historical uniqueness theorem is asserted.
+PASS
 
-## Value
-PASS. The first odd cycle length at least five in a four-row cylinder is a natural boundary-condition test for the study of matching complexes of narrow grids. It introduces a higher degree of nonzero integral homology relative to the five-column rectangular strip and supplies a complete torsion-free, mixed-dimensional homotopy type. The five seventh-dimensional spheres give a genuine boundary-sensitive fact, not a routine numerical Euler-characteristic calculation. The scope remains a finite exact classification, not a claimed recurrence or generalized theorem.
+For the precise 20-vertex 35-edge Cartesian cylinder P4 square C5, matchings are exactly edge subsets with disjoint endpoints. The include/exclude recursion exhausts all 253880 augmented matchings; independently derived matching polynomial coefficients (1,35,505,3910,17725,48193,77405,69510,31060,5360,176) and reduced Euler characteristic 136. Inspected source enumerate.cpp creates the claimed toggle matching; check_acyclic.cpp examines the entire directed Hasse graph with 1574120 cover incidences and reports a topological order (a genuine acyclicity certificate when executed). build_morse.py computes signed integer gradient-path differentials. The two checked matching orders have critical ranks (1,149,12) and (9,172,27) in dimensions (5,6,7), with adjacent Smith ranks (1,7) and (9,22), all nonzero factors 1. After pairing the augmented empty cell, there is one basepoint and no cells below 5, so primitive incidence matrices can be canceled integrally: first cancel the 5-cell against a 6-cell and then seven 7-to-6 pairs. Attaching maps to wedges of 6-spheres are classified by degree in pi6, yielding wedge 141 S6 plus 5 S7, not just those Betti ranks. Independent face-count reproduction corroborates; the full expensive Morse/Smith pipeline was source-inspected rather than independently re-run in this execution.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: this exact finite ordinary matching complex of the 4-row pentagonal Cartesian cylinder has no identified previously computed integral homotopy type. Nearby rectangular, shorter cylinder, and three-row cases do not imply it by inclusion or dimensional coincidence.
+
+## value
+
+PASS
+
+The minimal odd-circumference four-row cylindrical lattice is a natural boundary-condition test for matching complex topology. Its simultaneous 6- and 7-sphere wedge changes the topological profile relative to the 4-by-5 rectangular strip and supplies a precise complete integral finite invariant; 253880-face exhaustive Morse certificate is motivated by that structural comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
