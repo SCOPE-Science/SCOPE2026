@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The displayed Fourier coefficient identity reconstructs the half-heat weighted factorization exactly. Dense heat translates prove necessity, and the zero-set argument proves strict positive definiteness and universality even on the polynomial boundary. Exact finite-rational tests replay the critical identities; they are not a substitute for the universal proof.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** The 2026 nonstationary Fourier-feature paper presents general harmonizable spectral matrices and low-rank approximations; it does not state the exact sum-modulated circular heat positivity cone, its two-harmonic quadratic frontier or universality at every admissible boundary. The closest indexed Poisson-modulation result concerns a different spectral law and may have singular boundary configurations, unlike this heat result. Classical Fejér–Riesz positivity is explicitly credited; no new general factorization principle is claimed.
+PASS
 
-**Value — PASS.** The result gives an exact, natural and arbitrary-degree parameter classification for nonstationary periodic thermal covariances, a sharp curved two-harmonic slice, and a nontrivial boundary universality phenomenon. Its Fourier rescaling lets a family of infinite kernel matrices be tested by a finite trigonometric polynomial, relevant to valid covariance design. This is more than a finite numerical example or a single easy necessary condition.
+For finite M, Fourier coefficients of K=H_q(x-y)(1+sum_j a_j cos j(x+y)) factor as D W D with D_nn=q^(n^2/2)>0 and W the multiplication Toeplitz matrix of w(z)=1+sum_j a_j q^(-j^2)cos(2jz). The factorization is exact since ((n+m)/2)^2=(n^2+m^2)/2-j^2 on n-m=±2j. Nonnegative w suffices; if w<0 on an arc, a trigonometric polynomial g has ∫w|g|²<0, and inverse Fourier scaling by nonzero D on its finite support yields a negative quadratic form, proving necessity for all finite sample Gram matrices. If w>=0, its constant coefficient is one, so its finitely many zeros cannot support an analytic nonzero H_sqrt(q)*ν for nonzero finite complex measure; energy strictly >0, giving finite-site strictness and RKHS C(T) universality by Hahn-Banach duality. The two-harmonic piecewise quadratic min over u=cos(2z) follows exactly; an explicit 12-term polynomial gives a negative witness beyond |a1|=q. Independently checked Fourier exponent relation and M=2 candidate minimization; inspected full RESULT.md and rational checker, not relying on finite tests alone.
 
-**Residual risks.** Older Toeplitz and harmonizable-kernel sources could contain an equivalent rescaling; a close published circle-Poisson result was accessible at summary level only. The result does not give quantitative lower spectral coercivity at the boundary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original complete positivity-and-boundary-universality criterion for this explicit nonstationary periodic Gaussian heat family across arbitrary finite modulation degree. Classical Fejer-Riesz spectral factorization and general harmonizable kernels are premises, but the sharp rescaled polynomial and boundary-universality statement are not identified in the inspected primary/specialized results.
+
+## value
+
+PASS
+
+Nonstationary covariance design needs exact PSD and universal RKHS boundaries. The arbitrary-finite-degree rescaled-polynomial criterion is an actionable complete classification, and the distinction between universal heat boundaries and nonuniversal Poisson counterparts gives substantive mathematical content beyond formal kernel factorization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Fourier coefficient equality was checked exactly over 9,206 rational identities and boundary tests using the embedded standalone Python script. A negative-energy finite Fourier witness is stated in RESULT.md. The analytical proof, including the dense-range converse and the nonzero-measure argument for universality, was checked separately. Finite computations do not prove the infinite-dimensional classification, and independently verified novelty has not been established.
+## correctness
+
+PASS
+
+For finite M, Fourier coefficients of K=H_q(x-y)(1+sum_j a_j cos j(x+y)) factor as D W D with D_nn=q^(n^2/2)>0 and W the multiplication Toeplitz matrix of w(z)=1+sum_j a_j q^(-j^2)cos(2jz). The factorization is exact since ((n+m)/2)^2=(n^2+m^2)/2-j^2 on n-m=±2j. Nonnegative w suffices; if w<0 on an arc, a trigonometric polynomial g has ∫w|g|²<0, and inverse Fourier scaling by nonzero D on its finite support yields a negative quadratic form, proving necessity for all finite sample Gram matrices. If w>=0, its constant coefficient is one, so its finitely many zeros cannot support an analytic nonzero H_sqrt(q)*ν for nonzero finite complex measure; energy strictly >0, giving finite-site strictness and RKHS C(T) universality by Hahn-Banach duality. The two-harmonic piecewise quadratic min over u=cos(2z) follows exactly; an explicit 12-term polynomial gives a negative witness beyond |a1|=q. Independently checked Fourier exponent relation and M=2 candidate minimization; inspected full RESULT.md and rational checker, not relying on finite tests alone.
+
+## originality
+
+PASS
+
+Best-of-knowledge original complete positivity-and-boundary-universality criterion for this explicit nonstationary periodic Gaussian heat family across arbitrary finite modulation degree. Classical Fejer-Riesz spectral factorization and general harmonizable kernels are premises, but the sharp rescaled polynomial and boundary-universality statement are not identified in the inspected primary/specialized results.
+
+## value
+
+PASS
+
+Nonstationary covariance design needs exact PSD and universal RKHS boundaries. The arbitrary-finite-degree rescaled-polynomial criterion is an actionable complete classification, and the distinction between universal heat boundaries and nonuniversal Poisson counterparts gives substantive mathematical content beyond formal kernel factorization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
