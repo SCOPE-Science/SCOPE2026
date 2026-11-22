@@ -1,0 +1,11 @@
+# Review: two-pass binary Markov scheduling
+
+**Correctness — PASS.** The two-pass path law and gap-conditional entropy identity yield the exact finite-chain formula and thermodynamic objective. Positive mutual-information power-series coefficients turn its second derivative into a strictly positive sum, with endpoint derivative signs proving unique minimization. A uniform rare-wall expansion at \(p\asymp\sqrt{1-\lambda}\) proves the leading optimizer and cost; finite enumeration independently checks the path identity. Finite numeric tests do not replace the limiting proof.
+
+**Originality — PASS (with priority risk).** The initiating Baule paper supplies exact Markov gap and KL formulas for arbitrary schedules and asymptotic geodesics for many rounds; the new result is not the formula itself but the unique optimal TWO-pass seed and its strong-correlation square-root law. Chen–Cong–Li supplies a general information-curve optimization and Lavenant–Zanella an information-profile calculus: both can implicitly specify optimizers, but the inspected material does not state the strict convexity, sharp one-half inequality, or the \(\sqrt f\) asymptotics for this Ising model. Targeted published-finding corpus and accessible historical claim searches had no statement-level match. A missed appendix specialization or an immediate but unstated consequence of a prior general theorem remains a genuine risk; absence of matches cannot prove global novelty.
+
+**Value — PASS.** Strongly correlated data are precisely where many-step geodesic approximations may fail at small step count. A unique finite-two-pass schedule and its sharp domain-wall scaling quantify an operational finite-depth design rule rather than a routine reparametrization. The result is for path-space relative entropy, not end-product quality.
+
+**Sources and scope:** Baule, arXiv:2611.07845v1 (full sections I–VI and relevant appendix inspected); Chen–Cong–Li, arXiv:2511.04647v2 (relevant full-text sections including main exact optimality theorem inspected); Lavenant–Zanella, arXiv:2510.25544v2 (full HTML sections 4–5 inspected). No claim of independent verification is made.
+
+Self-review: passed. Independent audit: not yet performed.
