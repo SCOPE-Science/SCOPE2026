@@ -1,0 +1,175 @@
+{
+  "correctness": {
+    "rationale": "Exact interval endpoint ordering gives a prefix nonneighbor set for each appended vertex. The signed independent-set sum satisfies Z_i=Z_(i-1)+s_i Z_(k_i), and greedy choice keeps all intermediates in {-1,0,1}. Mod-two invariance forces the final output to be 0 when N is even or ±1 when odd; the character diagonalization proves exact invertibility and odd-case inverse norm. The octahedral spectrum follows from a product formula with multiplicities 27,27,9,1. Standalone checker passed 996 cases plus the full 64-character boundary; finite checks are corroborative, not an all-order proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published squared-path zero criterion (2026 mathematical index, https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-seven-periodic-walsh-invertibility-and-sharp-multiplier-gaps-for--fc4afc5a48fd) applies only to one fixed power of a path, a strict subclass of interval graphs.",
+        "The published clique-windmill Fourier result (https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-parity-controlled-fourier-invertibility-and-sharp-endpoint-proje--4482b9215eb1) covers a family built from central cliques, not arbitrary interval representations.",
+        "An indexed graph-exclusion Fourier interpolation result (https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-graph-exclusion-fourier-interpolation-universal-invertibility-an--0cb9494a16e7) studies square Fourier matrices indexed by independent coordinate supports, a different operator and invertibility question."
+      ],
+      "reasoning": "The graph class here contains all finite interval graphs with arbitrary overlap patterns, including all path powers. A criterion for one fixed graph family cannot imply this universal statement without a graph-class reduction that was not present in the indexed source descriptions. The indexed interpolation matrix theorem cannot dominate the claim: matrix nonsingularity of restrictions is distinct from nonvanishing of the full Walsh transform of the support indicator.",
+      "searches": [
+        "Complete Fourier invertibility characterization for signed independence-set incidence convolution on interval graphs using number-of-independent-sets parity, greedy endpoint order recurrence",
+        "Perfect elimination ordering signed independence polynomial Fourier zeros chordal graphs interval graph zero free if independent set count odd",
+        "Walsh zero free signed independent set sums powers of paths k=3 order 15 recurrence",
+        "signed independence polynomial interval graph zero free parity all intervals"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1210.5561 (relevant full mathematical HTML)",
+      "arXiv:1410.4080 (relevant mathematical HTML and PDF pages)",
+      "doi:10.1002/net.3230120410 (publisher abstract only)",
+      "MathWorld Independence Polynomial (definitions/formulas)",
+      "public mathematical index entries: squared-path, clique windmill, graph-exclusion interpolation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Codara–D’Antona (arXiv:1210.5561), Lemma 2.2, derives the unsigned path-power recurrence; Sections 3–5 concern independent-subset posets and their edge numbers.",
+        "Codara–D’Antona (arXiv:1410.4080), Introduction and Sections 2–5, again focuses on unsigned generalized Fibonacci/Lucas enumerations.",
+        "Gupta–Lee–Leung, Networks 12 (1982), abstract, gives optimization methods for maximum independent sets, not the Fourier zero question.",
+        "The indexed squared-path theorem includes the k=2 special case, so that implication runs from a hypothetical universal interval theorem to its parity-based invertibility portion, not conversely."
+      ],
+      "reasoning": "Prior unsigned deletion recurrences are acknowledged as a proof ingredient and do not by themselves supply the adaptive signed boundedness lemma across all interval graphs. The reviewed indexed path/cycle results and interval-optimization results do not imply the full generality. The independent octahedral calculation establishes a sharp family boundary rather than a routine restatement of parity.",
+      "searches": [
+        "Complete Fourier invertibility characterization for signed independence-set incidence convolution on interval graphs using number-of-independent-sets parity, greedy endpoint order recurrence",
+        "All generalized Fibonacci cubes P_n^h Boolean independent-set convolution singular iff generalized Fibonacci number even, any h",
+        "Generalized Fibonacci and Lucas cubes arising from powers of paths and cycles 2014 Walsh transform",
+        "Efficient algorithms for interval graphs and circular-arc graphs signed partition function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The signed independence-set sum is the Walsh transform of an independent-set indicator, equivalently a multivariate hard-core partition function evaluated at vertex activities ±1. Codara–D’Antona arXiv:1210.5561, Sections 2–3, use unsigned counting rather than this zero/nonzero equivalence.",
+        "Wolfram MathWorld Independence Polynomial lists univariate independence polynomials, not arbitrary vertex-sign zero tests."
+      ],
+      "reasoning": "Searched the Fourier, signed independence-polynomial, hard-core and interval-scheduling terminologies. None of the inspected primary materials supplied the universal interval-graph parity equivalence or the sharp unit inverse norm. The signed recurrence uses a known deletion idea, while the simultaneous bounded-sign lifting is the claim under comparison; a different title alone is not evidence of novelty.",
+      "searches": [
+        "Complete Fourier invertibility characterization for signed independence-set incidence convolution on interval graphs using number-of-independent-sets parity, greedy endpoint order recurrence",
+        "Walsh transform of interval scheduling independent sets takes zero iff unweighted total number of schedules is even; octahedron K_{2,2,2} counterexample",
+        "interval graph signed independence polynomial Fourier zeros parity site weights plus minus one",
+        "\"interval graphs\" \"Walsh\" \"independent sets\" signed",
+        "interval graph signed independence polynomial ±1 parity zero Fourier transform"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Independence Polynomial lists examples including complete multipartite graphs, with ordinary single-variable specialization, not the full signed multivariate spectrum.",
+        "The 2012 and 2014 Codara–D’Antona papers tabulate generalized Fibonacci/Lucas independent-subset counts and Hasse-diagram edges, not a table of arbitrary interval-graph signed Walsh zeros."
+      ],
+      "reasoning": "An unsigned polynomial or counting table does not list signed Fourier multiplier values. Their parity is a computable input, but the equivalence between that parity and existence of a zero across all interval graphs requires the new constructive argument. Octahedral frequencies were computed independently in the attached proof and verifier.",
+      "searches": [
+        "Walsh Fourier spectrum of independent sets of interval graphs even number independent subsets zero",
+        "independence polynomial of octahedral graph K_2,2,2 signed Walsh transform",
+        "independence polynomial interval graphs table signed frequencies"
+      ]
+    },
+    "rationale": "The nearest dated primary literature proves unsigned enumerative recurrences for path powers, whereas the new result establishes a vertex-signed Fourier parity sufficiency for every interval graph, a sharp odd-case inverse norm, an explicit greedy construction and a noninterval boundary. Indexed signed Fourier path and windmill results are restricted special cases; no inspected source mathematically implies the all-interval statement. Public-index-only related items and unindexed equivalences remain historical risks.",
+    "residual_risks": [
+      "An unindexed signed hard-core/interval-scheduling theorem may give an equivalent parity lifting under different terminology.",
+      "Some closely related public-index items were available as scientific summaries, not complete proofs.",
+      "A 1982 interval-graph optimization article was accessible only at abstract/reference level, though the available subject matter did not present a decisive same-claim comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTEXT_ONLY; identifies the path-power counting recurrence and independent-set objects, not general interval signed Fourier zeros",
+        "evidence": [
+          "First posted 2012-10-19",
+          "Lemma 2.2 derives unsigned independent-set recurrence",
+          "Theorem 3.4 relates Hasse edges to generalized Fibonacci convolutions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1210.5561",
+        "material_read": "Introduction, Sections 2–3 including Lemma 2.2 and Theorem 3.4, later cycle discussion and article outline",
+        "method": "open-access full mathematical HTML rendered from preprint",
+        "title": "On the independent subsets of powers of paths and cycles",
+        "trigger": "earliest date-verified archive source and closest unsigned path-power enumeration"
+      },
+      {
+        "assessment": "CONTEXT_ONLY; no signed vertex-activity Walsh transform or interval-wide invertibility criterion found in material inspected",
+        "evidence": [
+          "First posted 2014-10-15; revision in 2015 is not used for dating",
+          "Path-power independent sets identified with generalized Fibonacci cubes",
+          "Main results describe Hasse diagram edge enumerations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.4080",
+        "material_read": "Abstract, full introduction and relevant independent-set, Hasse-counting and path-power sections, PDF pages 1 and 6",
+        "method": "open-access preprint mathematical HTML plus page images",
+        "title": "Generalized Fibonacci and Lucas cubes arising from powers of paths and cycles",
+        "trigger": "possible stronger revision of the closest source"
+      },
+      {
+        "assessment": "CONTEXT_ONLY, with access limitation; addresses maximum independent sets rather than signed convolution",
+        "evidence": [
+          "Winter 1982 journal metadata",
+          "Abstract states interval-graph maximum-independent-set algorithm"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/net.3230120410",
+        "material_read": "Publisher bibliographic metadata, abstract and references; article body inaccessible",
+        "method": "publisher abstract and reference list",
+        "title": "Efficient algorithms for interval graphs and circular-arc graphs",
+        "trigger": "general interval-graph independent-set optimization precedent"
+      },
+      {
+        "assessment": "CONTEXT_ONLY; ordinary one-variable specializations do not give signed interval-graph zero classification",
+        "evidence": [
+          "Defined as cardinality enumerator of independent sets",
+          "Lists graph families and unsigned polynomial formulas"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/IndependencePolynomial.html",
+        "material_read": "Definition, representative graph formulas and reference overview",
+        "method": "public mathematical reference page",
+        "title": "Independence Polynomial",
+        "trigger": "possibility of exact signed tables implying claim"
+      },
+      {
+        "assessment": "STRICT_SUBCLASS: squared paths only; the available statement cannot imply an arbitrary interval-graph theorem",
+        "evidence": [
+          "Indexed statement gives seven-periodic law for second powers of paths",
+          "No extension to general interval graphs stated in available material"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-seven-periodic-walsh-invertibility-and-sharp-multiplier-gaps-for--fc4afc5a48fd",
+        "material_read": "Title and publicly indexed mathematical summary only; full proof not accessible",
+        "method": "public mathematical discovery index; full-text route attempted but unavailable",
+        "title": "Seven-periodic Walsh invertibility and sharp multiplier gaps for squared-path independent sets",
+        "trigger": "closest indexed signed Fourier criterion"
+      },
+      {
+        "assessment": "STRICT_SUBCLASS; covered windmills but did not state a universal interval criterion",
+        "evidence": [
+          "Summary specifies clique windmill graphs",
+          "Study of endpoint projections is not a general interval-graph invertibility statement"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-parity-controlled-fourier-invertibility-and-sharp-endpoint-proje--4482b9215eb1",
+        "material_read": "Title and publicly indexed mathematical summary only",
+        "method": "public mathematical discovery index; full text not accessed",
+        "title": "Parity-controlled Fourier invertibility and sharp endpoint projection constants for clique windmills",
+        "trigger": "possible general graph family with parity cancellation"
+      },
+      {
+        "assessment": "DIFFERENT_OPERATOR; restriction/sampling matrix indexed by independent coordinate sets, not XOR convolution by all independent-set vectors",
+        "evidence": [
+          "Summary explicitly defines a Fourier matrix indexed by graph-independent coordinate supports",
+          "Its matrix inverse uses residual-graph independence polynomials"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-graph-exclusion-fourier-interpolation-universal-invertibility-an--0cb9494a16e7",
+        "material_read": "Title and publicly indexed mathematical summary only",
+        "method": "public mathematical discovery index; full text not accessed",
+        "title": "Graph-exclusion Fourier interpolation: universal invertibility and residual-graph independence polynomials",
+        "trigger": "possible broader universal Fourier theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fe19ffea-300a-43bb-b238-8fdd6c6d263d",
+  "value": {
+    "rationale": "A sharp, representation-independent parity criterion for independent-set Fourier invertibility over the entire graph class of interval graphs is a natural complete classification, with a linear-time singularity witness and exact odd-case conditioning. It strictly generalizes fixed path-power questions and supplies a meaningful all-graph-class boundary via the canonical noninterval octahedral graph. The result has potential utility for signed interval scheduling and Boolean deconvolution, without claiming stronger unproved projection bounds.",
+    "status": "PASS"
+  }
+}
