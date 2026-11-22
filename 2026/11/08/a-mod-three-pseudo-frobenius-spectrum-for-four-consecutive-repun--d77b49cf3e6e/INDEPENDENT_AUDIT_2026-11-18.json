@@ -1,0 +1,218 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T22:48:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For b>=2,n>=5 the semigroup is numerical since gcd(R_n,R_(n+1))=1. The exchange moves for {1,q=b+1,h=b²+b+1} terminate at the unique minimum-coin greedy form L(t). The exact generator identity R_(n+j)=a+c R_j for j=1,2,3 (c=(b−1)a+1) and L(t+1)−L(t) in {1,1−b} give strictly increasing W(t)=aL(t)+ct and Apéry(S,a)={W(t):0<=t<a}. For the semigroup order, an Apéry domination by a nonzero sum of non-a generators cannot wrap in t since L(u)<a<c and must yield a one-coin increase; conversely a one-coin increase gives direct domination. Hence maximal candidates lie in the terminal h-slab. With a mod h=0,1,q according to n mod 3, the complete maximal indices are (a−2,a−1), (a−3,a−2,a−1), and (a−q−2,a−1). Their W differences yield the claimed {F,F−1}, {F,F−1,F−2}, and {F,F−(R_(n+2)+1)} sets. Independent exact Dijkstra residue computation, independent of the repository checker, matched all Apéry representatives and PF sets in 270 generic residue inputs and 21 actual repunit instances. These finite tests support, but do not prove, the all-b,n statement. A sentence in the terminal-slab exposition describes the +1 screening too narrowly; the combined +1/+q inequalities, separately checked, deliver the correct complete candidate table.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu et al. Theorem 2.10 supplies a broad algorithmic Apéry representation and Theorem 3.4 supplies a specific divisible-multiplicity pseudo-Frobenius formula; neither theorem states arbitrary nondivisible four-term PF sets.",
+          "Branco–Colaço–Ojeda Theorem 6 and Proposition 29 treat the n-generator repunit semigroup of type n−1; for n>=5, this is not the present truncated four-generator semigroup.",
+          "The higher-base shifted-power result requires a multiple of h³−h+1 and offset system {1,h²−h+1,h³−h+1}, not the ordinary repunit offsets {1,b+1,b²+b+1}."
+        ],
+        "reasoning": "The general exact Apéry framework is stronger as a method but does not literally imply the explicit two nondivisible PF spectra without further carry/maximality deductions. Full-generator, weighted-power and 3-generator semigroups have different positive cones, and their type formulas cannot be transferred to deleted-generator truncations.",
+        "searches": [
+          "https://arxiv.org/pdf/2306.03459",
+          "https://arxiv.org/pdf/2306.10738",
+          "https://link.springer.com/article/10.1007/s00009-022-02233-w",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-pseudo-frobenius-spectra-of-a-higher-base-shifted-power-semigrou--49bf8137cffa/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2306.03459",
+        "https://arxiv.org/pdf/2306.10738",
+        "https://link.springer.com/article/10.1007/s00009-022-02233-w",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-pseudo-frobenius-patterns-of-four-consecutive-mersenne-generator--66773414e5c4/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-pseudo-frobenius-spectra-of-a-higher-base-shifted-power-semigrou--49bf8137cffa/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-ap-ry-and-pseudo-frobenius-laws-for-sparsified-repunit-tri--dd5454e0b3af/RESULT.md",
+        "https://arxiv.org/pdf/2209.13118",
+        "https://doi.org/10.1007/978-3-031-49218-1_2",
+        "Resultary: pseudo-Frobenius numbers type four consecutive repunit numerical semigroup generalized repunit truncated four generators Apéry mod 3",
+        "Resultary: repunits numerical semigroup length n n+1 n+2 n+3 pseudo Frobenius number two three",
+        "Resultary: numerical semigroup repunit pseudo Frobenius divided by 3 greedy Apéry rectangular representation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n≡0 modulo 3, a=R_n is divisible by R_3, so Liu et al. Theorem 3.4 covers PF={F,F−1}.",
+          "For b=2 and n≡1,2, the prior four-Mersenne formulas imply the assigned PF statement exactly, including the gap R_(n+2)+1.",
+          "For b>=3 and n≡1,2 the corresponding modulus h=b²+b+1 has remainders 1 or b+1, excluded by the divisible multiplicity hypothesis and not a corollary of the full n-generator theorem.",
+          "Komatsu discusses representation-count Frobenius numbers rather than the pseudo-Frobenius maximal Apéry order for the same four-term truncations."
+        ],
+        "reasoning": "Covers are determined by implication: the known n≡0 and b=2 cases have no independent novelty, while the b>=3 carry cases have an explicit terminal classification and unbounded PF separation not determined by the inspected prior results. A different implicit specialization of an unindexed general theorem remains a residual risk.",
+        "searches": [
+          "https://arxiv.org/pdf/2306.03459",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-pseudo-frobenius-patterns-of-four-consecutive-mersenne-generator--66773414e5c4/RESULT.md",
+          "https://link.springer.com/article/10.1007/s00009-022-02233-w",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-ap-ry-and-pseudo-frobenius-laws-for-sparsified-repunit-tri--dd5454e0b3af/RESULT.md",
+          "https://arxiv.org/pdf/2209.13118"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Mersenne theorem proves for a=2^m−1 the same PF={F,F−1,F−2} for m≡1 and PF={F,F−4(a+1)} for m≡2, and 4(a+1)=R_(m+2)+1. This is exact coverage of the b=2 special case, not a separate novel result.",
+          "Liu–Xin–Ye–Yin Theorem 3.4 assumes a divisible by h=b²+b+1; for a=R_n this is n≡0 (mod 3). Theorem 2.10 states general greedy Apéry representatives but not the other two maximal-index terminal classifications."
+        ],
+        "reasoning": "Exact equivalent formulations must use four ordinary repunits R_n..R_(n+3), not full length-n semigroups or different coin offsets. The previously published Mersenne b=2 theorem is a genuine equivalent restriction, while the b>=3 nondivisible branches remain uncovered by the inspected exact statements. No novelty is assigned to covered special cases.",
+        "searches": [
+          "Resultary: pseudo-Frobenius numbers type four consecutive repunit numerical semigroup generalized repunit truncated four generators Apéry mod 3",
+          "Resultary: repunits numerical semigroup length n n+1 n+2 n+3 pseudo Frobenius number two three",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-pseudo-frobenius-patterns-of-four-consecutive-mersenne-generator--66773414e5c4/RESULT.md",
+          "https://arxiv.org/pdf/2306.03459"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search located the exact self-mirror of the assigned finding (not counted as external priority), plus the older b=2 Mersenne theorem and other different repunit/shifted-power types.",
+          "The older Mersenne record is an exact case-table for b=2, n≡1,2 and hence defeats novelty for those cases. No inspected indexed table supplied the b>=3 spectra.",
+          "The sparsified triple <R_n,R_(n+2),R_(n+6)> gives a different two-nontrivial-generator Apéry coin system."
+        ],
+        "reasoning": "Exact coverage must be checked by formula and parameter inclusion. Earlier b=2 data were identified and credited. A negative result of remaining record search is only a limited priority screen, not evidence of exhaustive novelty.",
+        "searches": [
+          "Resultary: pseudo-Frobenius numbers type four consecutive repunit numerical semigroup generalized repunit truncated four generators Apéry mod 3",
+          "Resultary: repunits numerical semigroup length n n+1 n+2 n+3 pseudo Frobenius number two three",
+          "Resultary: numerical semigroup repunit pseudo Frobenius divided by 3 greedy Apéry rectangular representation",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-pseudo-frobenius-patterns-of-four-consecutive-mersenne-generator--66773414e5c4/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-ap-ry-and-pseudo-frobenius-laws-for-sparsified-repunit-tri--dd5454e0b3af/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives for the exact b>=3, n≡1 or 2 (mod 3) pseudo-Frobenius classifications and the complete uniform b-parameter formulation. Crucial newly identified prior coverage: an October 2026 published Mersenne four-generator theorem already gives every b=2 nondivisible branch with exactly the same gaps. Liu–Xin–Ye–Yin already give the n≡0 mod 3 branch at all b and the general greedy Apéry input. These covered special cases are explicitly excluded from the novelty attribution. Inspected sources do not establish the b>=3 nondivisible terminal spectra; search absence alone is not proof of priority. A remote, differently parameterized stronger theorem remains possible.",
+      "residual_risks": [
+        "Earlier b=2 nondivisible pseudo-Frobenius cases were already proved in the October 26 Mersenne result; no novelty may be assigned to them, although b>=3 remains outside that result.",
+        "The general Liu–Xin–Ye–Yin Apéry theorem and conventional Apéry maximal-element methodology could implicitly yield the classification in a stronger unlocated source, so historical priority remains qualified.",
+        "Full text of the 2024 generalized two-base triplet chapter was unavailable and authorized Oxford institutional access reported vpn_disconnected; the abstract alone cannot prove noncoverage.",
+        "No exhaustive literature-coverage guarantee and no independent external expert attestation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact n divisible by 3 branch and general Apéry groundwork are prior; no explicit arbitrary b>=3, nondivisible four-term pseudo-Frobenius classification found in the inspected theorem.",
+          "evidence": [
+            "Theorem 3.4 states multiplicity a=m(b^k−1)/(b−1); k=3 imposes h|a.",
+            "Theorem 2.10 supplies greedy Apéry coordinates without the present three-case terminal PF list."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03459",
+          "material_read": "Full open arXiv paper with detailed inspection of greedy Apéry Theorem 2.10, pseudo-Frobenius Theorem 3.4, assumptions and proofs, and related Section 7.",
+          "method": "Primary PDF full text and targeted page images read.",
+          "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+          "trigger": "Same affine generator family and published pseudo-Frobenius theorem for divisor cases."
+        },
+        {
+          "assessment": "Overlaps in F/genus and full-sequence results; does not state the nondivisible four-term PF classification.",
+          "evidence": [
+            "Theorem 3.5 gives greedy F/genus framework, not a three-class four-generator pseudo-Frobenius table."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.10738",
+          "material_read": "Full open preprint, especially Theorem 3.5, Frobenius/genus discussion and full repunit semigroup specialization.",
+          "method": "Primary PDF text and page image inspected.",
+          "title": "A Note on Generalized Repunit Numerical Semigroups",
+          "trigger": "Earlier same-author treatment of generalized repunit Frobenius formulas."
+        },
+        {
+          "assessment": "Full n-generator semigroup, not four-term truncation for n>=5.",
+          "evidence": [
+            "Theorem 6 gives n minimal generators; Proposition 29 derives type n−1. Removing generators changes the semigroup and order."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00009-022-02233-w",
+          "material_read": "Full publicly available HTML paper sections containing semigroup definition, Theorem 6 and Proposition 29.",
+          "method": "Full primary HTML article read with theorem-hypothesis comparison.",
+          "title": "The Frobenius Problem for Generalized Repunit Numerical Semigroups",
+          "trigger": "Strong prior paper deriving pseudo-Frobenius sets and numerical-semigroup type for repunit-type objects."
+        },
+        {
+          "assessment": "Decisive prior coverage of BOTH claimed nondivisible residue classes for b=2; those are not original in the assigned finding. Not a result for general b>=3.",
+          "evidence": [
+            "For m≡1 mod3 the existing PF set is {F,F−1,F−2}; for m≡2 it is {F,F−4(2^m)}; 4(2^m)=R_(m+2)+1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-pseudo-frobenius-patterns-of-four-consecutive-mersenne-generator--66773414e5c4/RESULT.md",
+          "material_read": "Entire published RESULT.md, including finding, Apéry proof, wrap inequalities, residue case table, exact PF formulas and limitations.",
+          "method": "Read full primary published mathematical text from GitHub.",
+          "title": "Pseudo-Frobenius patterns of four consecutive Mersenne generators",
+          "trigger": "Exact matching four consecutive repunit truncation at base b=2, earlier publication."
+        },
+        {
+          "assessment": "Different offsets and terminal divisibility; not a broader instance of the target family.",
+          "evidence": [
+            "Uses S=<a,ha+d,h²a+(h²−h+1)d,h³a+(h³−h+1)d> with h³−h+1|a, not the four ordinary repunit offsets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-pseudo-frobenius-spectra-of-a-higher-base-shifted-power-semigrou--49bf8137cffa/RESULT.md",
+          "material_read": "Entire published RESULT.md: parameterized generators, weighted coin-cost proof, maximality and boundary hypotheses.",
+          "method": "Full published mathematical primary text read via GitHub.",
+          "title": "Pseudo-Frobenius spectra of a higher-base shifted-power semigroup at terminal-offset multiples",
+          "trigger": "Four-generator semigroup with exact pseudo-Frobenius formulas and potentially broader parameters."
+        },
+        {
+          "assessment": "Different generator set {R_n,R_(n+2),R_(n+6)}, no coverage of four consecutive generators.",
+          "evidence": [
+            "The sparse triple deletes R_(n+1),R_(n+3) and uses offsets {1,b^4+b²+1}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-ap-ry-and-pseudo-frobenius-laws-for-sparsified-repunit-tri--dd5454e0b3af/RESULT.md",
+          "material_read": "Entire published RESULT.md, including precise three-generator family, explicit Apéry representation and PF proof.",
+          "method": "Full published primary mathematical source read.",
+          "title": "Exact Apéry and pseudo-Frobenius laws for sparsified repunit triples",
+          "trigger": "Very similar repunit coin and exact pseudo-Frobenius language."
+        },
+        {
+          "assessment": "Representation-count Frobenius quantities and Apéry machinery are not the four-term pseudo-Frobenius set classification.",
+          "evidence": [
+            "Definition of p-Frobenius concerns the number of representations, whereas pseudo-Frobenius numbers are maximal Apéry gaps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13118",
+          "material_read": "Full arXiv PDF, especially statements and examples defining generalized representation-count Frobenius quantities and shifted geometric generators.",
+          "method": "Primary PDF text and page image read.",
+          "title": "The Frobenius number for shifted geometric sequences associated with the number of solutions",
+          "trigger": "Primary work on geometric shifted generators, a possible dominating parametric Frobenius formula."
+        },
+        {
+          "assessment": "The abstract addresses generalized two-base triples a>b>1 and representation-count invariants, not a direct four-generator ordinary repunit theorem. Cannot assert whole-document noncoverage.",
+          "evidence": [
+            "The publicly described parameters require two bases >1 and only triple generators; full text not inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-49218-1_2",
+          "material_read": "Bibliographic title and public abstract only; lawful open full-text attempts failed; authorized institutional retrieval returned VPN disconnected.",
+          "method": "Public indexed abstract inspected; open/preprint alternatives attempted before authorized institutional access; no full-text access or workaround.",
+          "title": "p-Numerical Semigroups of the Triples of the Sequence (a^n−b^n)/(a−b)",
+          "trigger": "Plausible adjacent repunit literature and possible hidden general formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The semigroups generated by the first four consecutive repunits after a chosen length are a natural truncation of the classic repunit numerical-semigroup family, and pseudo-Frobenius type and gap spacing are standard structural invariants. The uniform exact mod-three 2/3/2 type law and especially the unbounded nonconsecutive gap R_(n+2)+1 expose a meaningful boundary phenomenon not determined for b>=3 by the published divisible and Mersenne special cases. The motivation is independent of finite verification and does not depend on promising a new broad theorem or an external application; the previously known b=2 and n divisible by 3 cases are credited.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2306.03459",
+    "https://arxiv.org/pdf/2306.10738",
+    "https://link.springer.com/article/10.1007/s00009-022-02233-w",
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-pseudo-frobenius-patterns-of-four-consecutive-mersenne-generator--66773414e5c4/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-pseudo-frobenius-spectra-of-a-higher-base-shifted-power-semigrou--49bf8137cffa/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-ap-ry-and-pseudo-frobenius-laws-for-sparsified-repunit-tri--dd5454e0b3af/RESULT.md",
+    "https://arxiv.org/pdf/2209.13118",
+    "https://doi.org/10.1007/978-3-031-49218-1_2",
+    "Resultary: pseudo-Frobenius numbers type four consecutive repunit numerical semigroup generalized repunit truncated four generators Apéry mod 3",
+    "Resultary: repunits numerical semigroup length n n+1 n+2 n+3 pseudo Frobenius number two three",
+    "Resultary: numerical semigroup repunit pseudo Frobenius divided by 3 greedy Apéry rectangular representation",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-mod-three-pseudo-frobenius-spectrum-for-four-consecutive-repun--d77b49cf3e6e",
+    "Frozen Git tree 47df50813f7dfb69d7ab4205b6c8b490cfa50b11"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each integer b>=2 and n>=5, S=<R_n,R_(n+1),R_(n+2),R_(n+3)> has PF={F,F−1} if n mod 3=0, PF={F,F−1,F−2} if n mod 3=1, and PF={F,F−(R_(n+2)+1)} if n mod 3=2. The n=0 mod3 branch is established prior literature and both n=1,2 mod3 branches at b=2 are already established in a previous Mersenne theorem; the surviving originality is for b>=3 in the two nondivisible branches and their uniform proof.",
+  "limitations": [
+    "Theorem only for ordinary b>=2, n>=5, and exactly four consecutive repunits.",
+    "The primitive greedy Apéry/Frobenius framework and the divisible n class are prior work, as are b=2 n≡1,2 Mersenne spectra.",
+    "Oxford chapter full-text unavailable due disconnected institutional VPN; no bypass attempted.",
+    "Repository verification logs are not proof; separately implemented finite tests are corroboration only.",
+    "Frozen public metadata has provenance and stale independent-audit status; public release cannot be declared safe."
+  ],
+  "residual_risks": [
+    "Earlier b=2 nondivisible pseudo-Frobenius cases were already proved in the October 26 Mersenne result; no novelty may be assigned to them, although b>=3 remains outside that result.",
+    "The general Liu–Xin–Ye–Yin Apéry theorem and conventional Apéry maximal-element methodology could implicitly yield the classification in a stronger unlocated source, so historical priority remains qualified.",
+    "Full text of the 2024 generalized two-base triplet chapter was unavailable and authorized Oxford institutional access reported vpn_disconnected; the abstract alone cannot prove noncoverage.",
+    "No exhaustive literature-coverage guarantee and no independent external expert attestation.",
+    "One expository terminal-slab statement describes the +1 criterion without mentioning all preliminary candidates; the subsequent combined +q filter is necessary, and the final table was independently checked."
+  ],
+  "schema_version": 1
+}

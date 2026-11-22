@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three auxiliary denominations \(1,b+1,b^2+b+1\) have a proved optimal greedy coin count: count-reducing or count-preserving replacements terminate at the unique greedy normal form. The resulting Apéry formula \(W(t)=aL(t)+((b-1)a+1)t\) is proved from strict monotonicity, rather than guessed from a finite table. A quantified one-step maximality criterion derives all possible Apéry-maximal indices in the last denomination-sized slab. Three residue cases yield the stated pseudo-Frobenius differences. The independent exact-integer Dijkstra checker confirms all Apéry representatives and pseudo-Frobenius values in 330 generic and 31 repunit instances. The checker is a cross-check; the infinite claim depends on the symbolic proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For b>=2,n>=5 the semigroup is numerical since gcd(R_n,R_(n+1))=1. The exchange moves for {1,q=b+1,h=b²+b+1} terminate at the unique minimum-coin greedy form L(t). The exact generator identity R_(n+j)=a+c R_j for j=1,2,3 (c=(b−1)a+1) and L(t+1)−L(t) in {1,1−b} give strictly increasing W(t)=aL(t)+ct and Apéry(S,a)={W(t):0<=t<a}. For the semigroup order, an Apéry domination by a nonzero sum of non-a generators cannot wrap in t since L(u)<a<c and must yield a one-coin increase; conversely a one-coin increase gives direct domination. Hence maximal candidates lie in the terminal h-slab. With a mod h=0,1,q according to n mod 3, the complete maximal indices are (a−2,a−1), (a−3,a−2,a−1), and (a−q−2,a−1). Their W differences yield the claimed {F,F−1}, {F,F−1,F−2}, and {F,F−(R_(n+2)+1)} sets. Independent exact Dijkstra residue computation, independent of the repository checker, matched all Apéry representatives and PF sets in 270 generic residue inputs and 21 actual repunit instances. These finite tests support, but do not prove, the all-b,n statement. A sentence in the terminal-slab exposition describes the +1 screening too narrowly; the combined +1/+q inequalities, separately checked, deliver the correct complete candidate table.
 
-The closest primary work is Liu--Xin--Ye--Yin, arXiv:2306.03459, whose Theorem 2.10 covers the greedy Apéry calculation for this generator family and whose Theorem 3.4 **already establishes** the divisible \(a\equiv0\pmod{b^2+b+1}\) type-two case. It does **not** give the two nondivisible terminal-slab classifications \(a\equiv1\) and \(a\equiv b+1\), with their types 3 and 2 and sharply different pseudo-Frobenius gaps. Their shorter note arXiv:2306.10738 calculates the Frobenius number and genus without these two classifications. Branco--Colaço--Ojeda classify pseudo-Frobenius sets for the full \(n\)-generator semigroup, not the four-term truncation for \(n\ge5\). Komatsu studies generalized representation-count Frobenius invariants, not the specified pseudo-Frobenius order spectrum. Published-paper and indexed research-record searches found no equivalent cross-parameter statement. Residual risk: an equivalent specialization may be unindexed or derivable from a more general greedy-Apéry theorem; a relevant two-base generalized-repunit chapter was accessible only at abstract level.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The type of a naturally truncated repunit numerical semigroup switches sharply between 2 and 3 according to the length modulo three. More surprisingly, its pseudo-Frobenius points are consecutive in two classes but can be separated by the unbounded explicit quantity \(R_{n+2}+1\) in the third. This addresses the natural invariant explicitly studied in the motivating literature, distinguishes truncations from full repunit semigroups, and supplies a complete classification rather than an arbitrary finite table or routine numerical improvement.
+Best-of-knowledge originality survives for the exact b>=3, n≡1 or 2 (mod 3) pseudo-Frobenius classifications and the complete uniform b-parameter formulation. Crucial newly identified prior coverage: an October 2026 published Mersenne four-generator theorem already gives every b=2 nondivisible branch with exactly the same gaps. Liu–Xin–Ye–Yin already give the n≡0 mod 3 branch at all b and the general greedy Apéry input. These covered special cases are explicitly excluded from the novelty attribution. Inspected sources do not establish the b>=3 nondivisible terminal spectra; search absence alone is not proof of priority. A remote, differently parameterized stronger theorem remains possible.
 
-## Limits and literature risks
+## value
 
-The Frobenius-number formula and the divisible case are prior results, not independent novelty. The proof covers only four consecutive ordinary repunits with \(n\ge5\). Exact computations support but do not establish universal conclusions. The related generalized two-base triple chapter's full text could not be reviewed, and scholarly literature cannot be claimed exhaustively indexed. There is no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The semigroups generated by the first four consecutive repunits after a chosen length are a natural truncation of the classic repunit numerical-semigroup family, and pseudo-Frobenius type and gap spacing are standard structural invariants. The uniform exact mod-three 2/3/2 type law and especially the unbounded nonconsecutive gap R_(n+2)+1 expose a meaningful boundary phenomenon not determined for b>=3 by the published divisible and Mersenne special cases. The motivation is independent of finite verification and does not depend on promising a new broad theorem or an external application; the previously known b=2 and n divisible by 3 cases are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
