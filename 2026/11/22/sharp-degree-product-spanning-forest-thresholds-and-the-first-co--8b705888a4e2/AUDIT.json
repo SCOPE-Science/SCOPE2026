@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact labelled-connector bijection (1) is proved for all b; union-find enumerates all finite coefficients for a=3,4,5 and independent edge-subset enumeration corroborates them; every low b sign is checked by exact integer arithmetic; monotonicity of P_a(b) and the strict ratio bound propagates to all b; the a>=6 reduction uses fully inspected published Theorem 1.3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu–Lu–Dong Theorem 1.3 proves strict degree-product bounds when minimum degree is at least one-third the graph order; it covers a>=6 at biclique order<=17.",
+        "Their negative examples are asymptotic or one explicit parameter, not the three exact width classifications."
+      ],
+      "reasoning": "The positive minimum-degree theorem is incorporated rather than treated as new. Its a>=6 coverage by itself does not rule out smaller-width early counterexamples, and its counterexample section supplies no iff cutoff for any of three widths.",
+      "searches": [
+        "arXiv:2611.18076v1 Theorems 1.3, 1.4",
+        "Stones 2014 full text Sections 4–5",
+        "Bencs Csikvari minimum degree product inequality spanning forests complete bipartite K3 14 K4 22 K5 31"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.18076v1 (full HTML)",
+      "doi:10.46298/dmtcs.1248 (full relevant sections)",
+      "doi:10.1016/j.disc.2012.10.026 (abstract and excerpt)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing example K_{3,14} plus positive general theorem do not by themselves rule out a smaller biclique with smaller shore 3–5.",
+        "Full-text 2014 Stones counts forests by h but neither asserts monotonicity of F/(a^b b^a) nor analyzes minimum violating order."
+      ],
+      "reasoning": "The new statement is stronger than a single known counterexample, weaker than no known all-parameter forest enumerator on object coverage, but incomparable in its degree-product inequality and global first-failure claim. The proof explicitly contributes sharp threshold reasoning; historical priority remains provisional.",
+      "searches": [
+        "arXiv:2611.18076v1 lines 65–83 and 235–262",
+        "sharp least complete bipartite graph counterexample spanning forest degree product conjecture 17 vertices",
+        "fixed-width complete bipartite forest number ratio monotonic threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Forest count equals the Tutte evaluation T_G(2,1); Stones gives forest-count algorithms for every biclique.",
+        "Wu–Lu–Dong show eventual violations for a fixed small shore but state no sharp iff threshold."
+      ],
+      "reasoning": "The count itself and a particular K_{3,14} violation are prior; a general exact counting algorithm is logically sufficient to compute any single finite value. Neither source establishes eventual strict increase of the degree-normalized forest count together with all three sharp thresholds.",
+      "searches": [
+        "smallest complete bipartite counterexample spanning forests product of degrees K3,14 17 vertices minimal",
+        "Wu Lu Dong 2026 spanning forests conjecture smallest order 17 complete bipartite counterexample",
+        "fixed-width complete bipartite forest number ratio monotonic threshold",
+        "arXiv:2611.18076v1, Theorem 1.3 and biclique example",
+        "Stones 2014, Theorems 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Stones 2014 reports an algorithm and prior calculations for all a,b<=50, including each finite threshold pair.",
+        "The certificate regenerates exact connector coefficients and verifies all finite comparisons without assuming tabulated counts."
+      ],
+      "reasoning": "The numerical finite boundary values are computable from the older algorithm, so they are not advertised as novel tabular discoveries. The all-unbounded-b inequalities and uniqueness across all widths require an additional monotonic proof plus minimum-degree reduction.",
+      "searches": [
+        "Stones 2014 Section 5.3 counts computed for all a,b<=50",
+        "spanning forest count K_{a,b} degree product sharp 3 by n threshold 14 uniqueness among bicliques"
+      ]
+    },
+    "rationale": "Wu–Lu–Dong already publish the K_{3,14} numerical witness and eventual fixed-width violation; Stones gives all-parameter counting algorithms. This theorem adds sharp all-b first-crossing iff thresholds for widths 3,4,5 and unique smallest biclique counterexample. Targeted research and semantic comparisons found no direct covering theorem; priority is not independently certain.",
+    "residual_risks": [
+      "Stones general algorithm and reported finite tables already determine individual threshold-point counts; the novelty is the infinite cutoff classification rather than fresh values.",
+      "Other unindexed historical first-crossing calculations could predate this claim.",
+      "Stark full text beyond accessible opening was not completely inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "KNOWN K_{3,14} value, eventual fixed-width violations and minimum-degree result; no three sharp finite-to-infinite thresholds or 17-vertex biclique minimality stated",
+        "evidence": [
+          "Theorem 1.3: strict bound for delta>=n/3, n>=7",
+          "Section 1 displays F(K_{3,14}) exactly and gives only an eventual inequality for fixed small shore"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.18076v1",
+        "material_read": "full online HTML: introduction, all main theorem statements, biclique example, proof of Theorem 1.3 in Section 3 and later bounds",
+        "method": "direct full-text inspection",
+        "title": "Upper bounds for the number of spanning forests of a graph",
+        "trigger": "same forest-degree inequality and exact K_{3,14} example"
+      },
+      {
+        "assessment": "strong prior all-parameter forest enumerator and finite computations through 50; not a degree-product threshold classification",
+        "evidence": [
+          "Theorems 2 and 3 count h-edge forests for arbitrary a,b,h",
+          "Section 5.3 states calculations for all biclique parameters <=50",
+          "No degree-product conjecture threshold comparison found in the paper"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/1248/pdf",
+        "material_read": "primary PDF pages 1, introductory and equivalence sections, Section 4 formulas, Section 5 implementation and concluding material",
+        "method": "read PDF text and visually inspected page 1",
+        "title": "Computing the number of h-edge spanning forests in complete bipartite graphs",
+        "trigger": "same biclique forest enumeration with any edge count"
+      },
+      {
+        "assessment": "does not directly address fixed a in {3,4,5} or the degree-product transition; not all of the article read",
+        "evidence": [
+          "abstract imposes growing smaller shore and near-balanced regime; differs from fixed-width thresholds"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2012.10.026",
+        "material_read": "author-uploaded abstract and public full-text opening inspected; source summary confirms a->infinity, b=o(a^{6/5})",
+        "method": "publication record and accessible author-uploaded text excerpt",
+        "title": "The asymptotic number of spanning forests of complete bipartite labelled graphs",
+        "trigger": "same objects and potential fixed-width asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8b705888-a4e2-4e32-9cd9-6085ee7e78e0",
+  "value": {
+    "rationale": "A natural sharp obstruction question for a recently refuted degree-product conjecture is completely decided at the first three admissible biclique widths, with no upper limit on larger shore, and the global first counterexample among all min-degree-three bicliques is characterized. The ratio monotonicity certificate gives a reusable mechanism and separates an existing example from a genuine sharp threshold.",
+    "status": "PASS"
+  }
+}

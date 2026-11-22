@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** An explicit bijection splits every unrooted spanning forest by its labelled right-shore connector vertices and enumerates the other vertices independently, giving an all-\(b\) exact formula for each fixed \(a\). The finite connector coefficients have a complete union–find enumeration certificate, cross-checked against independent literal edge-subset enumeration; exact integer inequalities certify every small \(b\). The analytic ratio lower bound proves the sign cannot reverse beyond the monotonicity starts. The separate uniqueness deduction for small-order bicliques correctly invokes the published strict minimum-degree theorem [1] for every \(a\ge6\). No finite experiment is used as an infinite proof.
+
+**Originality — PASS with priority risk.** Full substantive comparison with the posted [1] finds the witness \(K_{3,14}\) and eventual unbalanced violation already known, so neither is claimed new. The new precise assertions are the three sharp all-large-side iff boundaries and the unique minimum-order result within bicliques. The complete counting algorithms of [2] imply the required *finite* forest values, but do not establish the all-\(b\) thresholds or the minimum-order comparison. The author-supplied 2013 Stark article [3] provides a different asymptotic regime. Searches over alternative phrases and relevant earlier claims found no theorem asserting these sharp thresholds; absence in search is not a proof of novelty. More specialized historical enumerations may exist.
+
+**Value — PASS.** These three consecutive natural minimum-degree widths are the first nontrivial complete-bipartite cases of a recently refuted general degree-product conjecture. A uniform finite-coefficient representation and analytic monotonicity transform previously known particular counterexamples and general counting algorithms into three exact infinite thresholds, and identify the earliest obstruction in the whole biclique family. This sharp first-failure classification is not a routine restatement of the witness value.
+
+**Limits.** The scope is complete bipartite graphs, not all graphs; all-orders cutoffs are proved only for smaller shores three through five; priority needs independent assessment.
+
+Self-review: passed. Independent audit: not yet performed.
