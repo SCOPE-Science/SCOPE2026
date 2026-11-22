@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Circular Dirichlet spacing representation gives exact exponential coupling; event A is equivalent to a Gamma(2,1) sum exceeding n-2 independent exponentials. Beta differentiation yields \\(H_{n-1}/(n-1)\\); memoryless exponential shifts yield the entire finite increase-tail polynomial. Conditioned joint density of the competing maximum and overshoot converges pointwise to the normalized product \\(e^{-2x-e^{-x}}e^{-w}\\); Scheffe gives total-variation convergence. The possibility that an original constituent gap dominates is at most \\(2/H_{n-1}\\). Chernoff concentration, valid even after conditioning on a probability \\(\\asymp\\log n/n\\) event, removes normalization error. The marked Uniform split is exactly independent of the Gamma sum. Replayed script produced 83 deterministic finite/numerical assertions; these do not replace the analytic limit proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Earlier circular Bernoulli-thinning extreme law covers a deletion probability \\(\\varepsilon_n\\) with \\(\\varepsilon_n\\log n\\to\\tau\\), but at the single-deletion scale it has a degenerate no-change limit.",
+        "The gamma sliding-window theorem gives the maximal 2-spacing over all sites rather than a Palm-type conditional distribution."
+      ],
+      "reasoning": "Taking \\(\\varepsilon_n=1/n\\) in the thinning limit yields only stability tending to one. Neither that weak statement nor a maximum-of-all-windows limit gives the needed \\((\\log n)/n\\) rate, exact finite tail, or conditioned independent marks.",
+      "searches": [
+        "single uniformly deleted site from n iid circular uniform points, probability longest empty arc increases H_(n-1)/(n-1), conditional pre-deletion maximum minus log n negative log Gamma(2), increment exponential independent interior split uniform; distinguish independent Bernoulli thinning",
+        "uniform circular sample independent deletion longest gap merging gaps extremal poisson eps_n log n",
+        "arXiv:1508.00944v1 Theorem 1",
+        "arXiv:1405.6114v1 Corollary 1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1405.6114 (full text)",
+      "https://arxiv.org/pdf/1508.00944 (full text)",
+      "https://scispace.com/papers/on-convergence-of-the-coverage-by-random-arcs-on-a-circle-31eeukiwe8 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unconditioned Gumbel result: \\(nM_n-\\log n\\Rightarrow\\mathrm{Gumbel}\\).",
+        "Maximal k-spacing: \\(n\\max_i(D_i+\\cdots+D_{i+k-1})-\\log n-(k-1)\\log\\log n+\\log((k-1)!)\\Rightarrow\\mathrm{Gumbel}\\).",
+        "Current conditioning tilts the old maximum to \\(-\\log\\operatorname{Gamma}(2,1)\\) and produces an independent exponential increase."
+      ],
+      "reasoning": "The marginal Gumbel and all-window maximum statements do not imply the rare conditional law: one randomly selected merge is atypical and succeeds with probability only of order \\((\\log n)/n\\). Prior Bernoulli thinning gives a different averaging/limit, not this conditional triangular-array density.",
+      "searches": [
+        "leave-one-out sensitivity of maximal circular spacing under removing one uniform point, exact harmonic probability rare change and conditional exponential overshoot",
+        "Dirichlet(1) spacings merging a uniformly selected adjacent pair conditional maximal merged gap gamma(2) tilted Gumbel gap",
+        "single uniformly deleted site from n iid circular uniform points, probability longest empty arc increases H_(n-1)/(n-1), conditional pre-deletion maximum minus log n negative log Gamma(2), increment exponential independent interior split uniform; distinguish independent Bernoulli thinning",
+        "arXiv:1405.6114v1 pp. 1-6",
+        "arXiv:1508.00944v1 pp. 1-5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The single deletion merges two adjacent Dirichlet(1) spacings; it is a uniformly selected 2-spacing, not the maximum over all 2-spacings.",
+        "Neither primary text describes a leave-one-out rare-event conditional law."
+      ],
+      "reasoning": "A pointwise equivalence to a uniformly marked adjacent gap sum was used in the comparison. Existing extrema theorems maximize over all marked pairs and give a different extreme scale; their statements do not determine the probability or conditional marks when one pair is selected uniformly.",
+      "searches": [
+        "n uniform points on circle delete one uniformly random point probability longest gap increases harmonic H_{n-1}/(n-1)",
+        "leave-one-out sensitivity of maximal circular spacing under removing one uniform point, exact harmonic probability rare change and conditional exponential overshoot",
+        "Dirichlet(1) spacings merging a uniformly selected adjacent pair conditional maximal merged gap gamma(2) tilted Gumbel gap",
+        "arXiv:1405.6114v1 Sections 1-3",
+        "arXiv:1508.00944v1 Sections 1-2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Schlemm computes moments and the distribution of the ordinary maximum, not the full tail of a merge-induced increase.",
+        "No exact single-deletion increase-tail entry or table was located in inspected material."
+      ],
+      "reasoning": "The finite formula is not a reindexing of a table for the marginal maximum. Although expected increase also follows from known marginal means, the change-event probability, complete exponential-scale tail and conditioned marks involve the joint coupling before/after removal.",
+      "searches": [
+        "n uniform points on circle delete one uniformly random point probability longest gap increases harmonic H_{n-1}/(n-1)",
+        "conditional overshoot of largest spacing upon deleting uniformly random observation, extreme gap gamma tilted Gumbel exponential overshoot",
+        "random deletion of sample point maximal gap rare-event overshoot and independent uniform split",
+        "arXiv:1405.6114v1 moment formula",
+        "arXiv:1508.00944v1 k-spacing result"
+      ]
+    },
+    "rationale": "Full primary-text comparisons find marginal maximum or maximum-over-all-window results, not the conditioned single-site deletion event or its jointly independent Gamma/Exponential/Uniform marks. A related independent Bernoulli-thinning limit does not imply the first-order single-deletion change probability or its conditional marked law. Residual risk remains from older maximal-spacing literature.",
+    "residual_risks": [
+      "Classical maximum-spacing and coverage papers beyond the two inspected full texts might contain an implicit leave-one-out statement.",
+      "The 1981 Holst source was compared only by abstract, not by a full-text exclusion.",
+      "Independent historical priority assessment remains to be performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes unconditional maximal gap and Gumbel fluctuations; does not state single-deletion conditional law",
+        "evidence": [
+          "arXiv:1405.6114v1 p.1 lines 9-40",
+          "arXiv:1405.6114v1 pp.4-5 Theorem 2 and Corollary 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.6114",
+        "material_read": "Full six-page preprint: introduction, moments derivation, limiting theorem and references",
+        "method": "Read the open primary PDF, theorem/proof and cited scope; checked deletion/removal terms",
+        "title": "Limiting distribution of the maximal distance between random points on a circle: a moments approach",
+        "trigger": "Exact same circular Dirichlet spacing model and ordinary maximum"
+      },
+      {
+        "assessment": "Proves unconditioned maximum-over-all k-spacing limit, not the conditioned law for a uniformly chosen deleted vertex",
+        "evidence": [
+          "arXiv:1508.00944v1 pp.1-2 Theorem 1 and example k=2",
+          "arXiv:1508.00944v1 pp.3-5 proof of k-spacing limit"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.00944",
+        "material_read": "Full five-page preprint, including introductory theorem, exponential representation, gamma-window argument and final proof",
+        "method": "Read primary open PDF with equations (1), (4)-(7) and references; checked deletion/removal terms",
+        "title": "On the weak limit law of the maximal uniform k-spacing",
+        "trigger": "An adjacent merged gap is a two-spacing, so a maximal-two-spacing theorem could dominate the claim"
+      },
+      {
+        "assessment": "Plausible broad background; no claim that its full text was checked or ruled out",
+        "evidence": [
+          "Holst (1981), Annals of Probability 9, 648-655; abstract about largest spacing and arc coverage"
+        ],
+        "identifier_or_url": "https://scispace.com/papers/on-convergence-of-the-coverage-by-random-arcs-on-a-circle-31eeukiwe8",
+        "material_read": "Public abstract and bibliographic record only; original body not inspected",
+        "method": "Abstract-level scope comparison",
+        "title": "On Convergence of the Coverage by Random Arcs on a Circle and the Largest Spacing",
+        "trigger": "Classical random-circle maximal-spacing theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "046a6909-6bbc-4290-8874-0fabe1e3ba1e",
+  "value": {
+    "rationale": "Loss of one uniformly selected site is the natural leave-one-out failure mechanism for circular coverage or hash-ring load. Exact finite risk \\(H_{n-1}/(n-1)\\) is distinct from the unconditioned worst-hole mean; the sharp rare-event three-mark law resolves the severity, conditional baseline and failed-site location. This is a motivated joint extreme-value boundary phenomenon, not an arbitrary parameter slice or routine renaming of the all-window 2-spacing law.",
+    "status": "PASS"
+  }
+}
