@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:13:17.066975Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct incident original edges {u,v},{u,w}, midpoint values differ by (f_v-f_w)/2; for a simple graph each line-graph adjacency has precisely one common endpoint, including triangles. Coarea on real input f and linearity reduce the operator seminorm exactly to cut indicators, producing 1/(2|∂S|)sum_u s_u(d_u-s_u). Rewriting each wedge count as sum over crossing edges of h_u+h_v with h_u same-side degree proves the n-2 bound and equality iff each incident boundary vertex has all same-side neighbors. On a tree, each edge appears in d_u+d_v-2 wedges under the triangle inequality, and deleting a maximizer bridge gives equality. Small graph and cycle boundaries were checked. This is an all-graph analytic argument; diagnostics are finite only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. arxiv:1411.7414 develops graph-signal variation recovery; Yanagiya et al. arxiv:2407.10149 treat line-graph sampling with quadratic edge smoothness; Resultary tree descendant averaging changes both map and geometry."
+        ],
+        "reasoning": "General signal recovery or line-graph smoothness does not imply a sharp induced seminorm for this specific midpoint map; the map is not ancestor/descendant averaging.",
+        "searches": [
+          "arxiv:1411.7414 Signal Recovery on Graphs variation minimization",
+          "arxiv:2407.10149 Edge Sampling of Graphs edge smoothness",
+          "Resultary descendant averaging on rooted trees exact variation norm"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2407.10149 Proposition1 and line-graph smoothness discussion",
+        "arxiv:1411.7414 graph variation recovery",
+        "Resultary searches: arithmetic midpoint lift, tree descendant averaging"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The line-graph identity deg_L({u,v})=d_u+d_v-2 is preexisting but does not by itself yield the exact all-input quotient C(G), n-2 bound, tree extremizer, or graph cut criterion."
+        ],
+        "reasoning": "A degree formula alone is a combinatorial ingredient; coarea and wedge counting plus bridge witnesses are needed for exact inequalities.",
+        "searches": [
+          "Yanagiya arxiv:2407.10149 Proposition1 line graph degrees",
+          "Chen arxiv:1411.7414 graph variation difference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original line-graph edge-smoothness study arxiv:2407.10149 addresses edge signals and quadratic line-graph regularization; the operator here is arithmetic vertex midpoint lifting with output ℓ1 edge variation."
+        ],
+        "reasoning": "Equivalent wedge and cut operators were compared, including incidence/line-graph wording; the exact ℓ1 cut ratio was not among the inspected primary formulations.",
+        "searches": [
+          "Resultary arithmetic midpoint lift line graph total variation sharp cut coefficient trees",
+          "vertex-to-edge incidence averaging absolute variation wedge operator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary direct exact hit is the candidate 2026/11/17/SCOPE-sharp-graph-variation-transfer-by-arithmetic-edge-midpoint-lifti--f6b9ef04f972, not independent coverage; nearby edge-averaging entries concern endpoint generating radii, not this TV seminorm."
+        ],
+        "reasoning": "No known matching exact table, universal n-2 equality classification or tree cut formula in checked results; n<=5 direct enumeration is a new diagnostic, not prior literature.",
+        "searches": [
+          "Resultary arithmetic midpoint lift line graph total variation sharp cut coefficient trees",
+          "line graph edge midpoint TV cut matrix all finite simple graphs"
+        ]
+      },
+      "rationale": "Line-graph signal sampling and descendant averaging have similar nouns but different operators and norms. The exact vertex-midpoint-to-line-graph absolute edge-TV cut ratio, universal sharp equality condition and tree degree formula were not logically supplied by the inspected prior graph signal papers or Resultary analogues.",
+      "residual_risks": [
+        "A graph coarea/line-graph operator theorem in unindexed mathematical imaging literature may imply the identical cut formula.",
+        "Arbitrary weighted graphs, multigraphs and a full nonexpansive graph classification are not claimed; finite enumeration covers only n<=5."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BUT_DIFFERENT_NORM",
+          "evidence": "Line-graph degree d_u+d_v-2 and quadratic smoothness, no vertex-midpoint-TV exact cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.10149",
+          "material_read": "Primary PDF relevant line-graph graph-sampling and smoothness section, including page 3 Proposition 1",
+          "method": "primary PDF text and page screenshot",
+          "title": "Edge Sampling of Graphs: Graph Signal Processing Approach With Edge Smoothness",
+          "trigger": "Direct line-graph and edge-variation comparison"
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND_ONLY",
+          "evidence": "Recovery objective and graph shifts differ from the induced midpoint operator seminorm.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.7414",
+          "material_read": "Abstract, definitions and indexed synopsis; complete paper was not read in this run",
+          "method": "arXiv abstract and scientific comparison",
+          "title": "Signal Recovery on Graphs: Variation Minimization",
+          "trigger": "Earlier graph-TV framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact transfer coefficient for a natural vertex-to-edge data representation, quantifying how edge-midpoint lifting can amplify spatial variation. The tree formula and sharp first-amplification threshold give useful structural boundaries, rather than a mere restatement of line-graph degree identities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A graph coarea/line-graph operator theorem in unindexed mathematical imaging literature may imply the identical cut formula.",
+    "Arbitrary weighted graphs, multigraphs and a full nonexpansive graph classification are not claimed; finite enumeration covers only n<=5."
+  ],
+  "schema_version": 1
+}
