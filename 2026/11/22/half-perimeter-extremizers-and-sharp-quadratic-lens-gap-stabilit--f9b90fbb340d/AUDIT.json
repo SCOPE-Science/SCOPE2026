@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Exact prior unit-disk arc area formula independently reconstructed as a product-to-sum cosine difference. The derivative comparison uses strict monotonicity of x cot x to prove unique P=π maximum for every integer m≥3. The exact quadratic remainder is E_{π/2}(|s|)-m E_{π/m}(|s|)/(2 sin(π/m)); a two-term alternating Taylor bound combined with sin(π/m)≥2/m shows this is strictly positive for 0<|s|<1, and zero at |s|=0 or 1. Endpoint equality certifies optimality of G_m/π². Independent radial integration and symbolic checks in verify.py match the formulas; finite checks are not infinite proof. Degenerate endpoints and strict interior quantifiers are explicitly separated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full published hierarchy https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-strict-fixed-perimeter-area-hierarchy-of-regular-unit-disk-inter--fe63027f3294 proves exact A_m(P), A_2(P), monotone m at every fixed P and endpoint expansions. It does not state the common unique maximum over P or a globally sharp quadratic bound in P.",
+        "The full fixed-width Steiner phase result https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-sharp-steiner-area-phase-diagram-for-regular-disk-triangles--3d6ed11c0577 optimizes area plus outer offset under a width constraint, not A_m(P)-A_2(P) at variable perimeter."
+      ],
+      "reasoning": "The exact area formula and fixed-P hierarchy are stronger prior input information and are acknowledged, not represented as new. The new optimization couples m and variable P and requires a strict all-m trigonometric derivative comparison and a uniform alternating-series stability estimate. Existing fixed-width and fixed-P extremal statements do not provide the sharp perimeter-deficit inequality. There remains a priority risk that older full-profile formulas have been optimized independently.",
+      "searches": [
+        "published-finding corpus: intersection of three unit disks centered at equilateral triangle area deficit relative to same perimeter two-disk lens maximal at Reuleaux triangle",
+        "published-finding corpus: Reuleaux triangle optimizes reverse isoperimetric area gap for three equal disks, equilateral centers",
+        "published-finding corpus published full RESULT.md, strict fixed-perimeter area hierarchy of regular unit-disk intersections, 2026-11-08",
+        "published-finding corpus published full RESULT.md, sharp Steiner-area phase diagram for regular disk triangles, 2026-10-11"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.40291",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-strict-fixed-perimeter-area-hierarchy-of-regular-unit-disk-inter--fe63027f3294",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-sharp-steiner-area-phase-diagram-for-regular-disk-triangles--3d6ed11c0577",
+      "https://doi.org/10.1112/blms.70292",
+      "https://arxiv.org/abs/2602.19300"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Drach–Tatarko establishes area(K)>=area(L) and lens equality; it does not upper-bound the gap among regular shapes as perimeter varies.",
+        "The published hierarchy gives a fully explicit analytic formula for the gap, which is openly used as input; its theorem optimizes the index m for fixed P rather than the variable P for each m.",
+        "The new precise inequality G_m-Delta_m(P)>=(G_m/pi^2)(P-pi)^2 has the sharp coefficient fixed by endpoint equality, and the proof supplies all-m strictness via a separate uniform Taylor argument."
+      ],
+      "reasoning": "The prior exact-profile equality logically allows subsequent optimization but does not itself establish the new sharp envelope or its equality classification; these require a new all-m inequality. The novelty claimed is specifically this extra quantitative optimization, not the function values, disk geometry formulas, or strict positivity. A historical equivalent of the sharp envelope would supersede originality; no such statement was located in inspected close sources.",
+      "searches": [
+        "full arXiv HTML main theorem and proof, arXiv:2610.40291",
+        "full published published-finding corpus RESULT.md, 2026/11/8/fe63027f3294",
+        "full published published-finding corpus RESULT.md, 2026/10/11/3d6ed11c0577",
+        "Wiley 2026 theorem A and proof sections, DOI 10.1112/blms.70292"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Drach and Tatarko 2026, https://arxiv.org/abs/2610.40291, prove minimum-area lens; the proposed upper maximum-over-perimeter is a separate orientation of optimization.",
+        "The planar stability theorem https://doi.org/10.1112/blms.70292 controls Hausdorff distance near lens minima, not the present lens-excess maxima."
+      ],
+      "reasoning": "Changing from perimeter P to the symmetric coordinate s=(P-pi)/pi transforms the gap into a difference of cosines. This exact reparametrization is used in the new sharp inequality; identified lens-minimum and near-minimum formulations do not state its maximum or best upper stability envelope.",
+      "searches": [
+        "published-finding corpus: reverse-isoperimetric equal-perimeter lens area difference A3(P)-A2(P) global maximum and sharp quadratic control",
+        "published-finding corpus: sharp quadratic center-separation stability of maximum lens area gap three congruent disks Reuleaux shape delta center distance",
+        "web: quantitative reverse isoperimetric inequality lambda convex Reuleaux triangle lens deficit",
+        "web: area gap same perimeter lens Reuleaux triangle equilateral triple circular disk intersection maximize"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest explicit published record fe63027f3294 is an entire exact area profile A_m(P), not a table of sharp maximal excess or global quadratic stability constants.",
+        "Accessible own records included related unit-disk Steiner symmetrization and lens-area energy, neither the regular m-disk variable-perimeter excess nor the sharp inequality."
+      ],
+      "reasoning": "No inspected exact table/record of the pairs (m, G_m) or of the sharp coefficient G_m/pi^2 was identified. A negative query is not proof of historical absence; the novelty assessment rests on inspection of the closest full texts and the different implication direction.",
+      "searches": [
+        "published-finding corpus: equal-perimeter three-unit-circle Reuleaux area excess 1-sqrt(3)/2 unique maximum",
+        "published-finding corpus: reverse-isoperimetric equal-perimeter lens area difference A3(P)-A2(P) global maximum and sharp quadratic control",
+        "own current-week ledger: all finding claims and titles filtered for lens/Reuleaux/disk triangle/reverse isoperimetric"
+      ]
+    },
+    "rationale": "The closest public full text gives all A_m(P) values and fixed-perimeter m hierarchy, and this input is credited. No inspected published source states the uniform-in-m unique maximum at half-perimeter or the best global quadratic inequality in the *varying perimeter*; the proof requires additional all-m derivative and strict Taylor comparisons. This is a provisional same-model priority assessment and not an independence or uniqueness certification.",
+    "residual_risks": [
+      "The full exact area profile in the prior hierarchy provides an input from which optimization can be derived; novelty is narrowly restricted to the exact sharp variable-perimeter optimization and stability rather than any area expression.",
+      "The 1978 Kratky disk-intersection study was not inspected in full; older unstated optimization may exist.",
+      "The 2026 fixed-width Fodor paper was inspected at abstract level only.",
+      "Same-model review is not independent audit; no external priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the lens as minimizer at prescribed perimeter, not maximum regular-intersection gap; also primary MSC 52A30.",
+        "evidence": [
+          "arXiv 2610.40291v1, dated 2026-10-29",
+          "Main Theorem, §1; Theorem 2.5; Euclidean §3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.40291",
+        "material_read": "Open HTML rendered full text: abstract, definitions, main theorem, Euclidean proof §§2–3 including inradius comparison and equality statements.",
+        "method": "arXiv full-text HTML, including theorem 2.5 and theorem 3.2 discussion",
+        "title": "A complete solution to the reverse isoperimetric problem for λ-convex bodies",
+        "trigger": "Exact primary motivating theorem and lens comparison"
+      },
+      {
+        "assessment": "Provides the exact A_m(P) input and increasing-m area law; no optimization of A_m(P)-A_2(P) over P and no sharp quadratic envelope.",
+        "evidence": [
+          "Explicit formula A_m(P)=π-u-m sin(u/m)sin((π-u)/m)/sin(π/m)",
+          "Strict A_2(P)<A_3(P)<… for each fixed P"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-strict-fixed-perimeter-area-hierarchy-of-regular-unit-disk-inter--fe63027f3294",
+        "material_read": "Complete public RESULT.md including the finding, assumptions, full arc-geometry/area and monotonicity proof, verification and references.",
+        "method": "GitHub public file read of 2026/11/8/fe63027f3294/RESULT.md",
+        "title": "Strict fixed-perimeter area hierarchy of regular unit-disk intersections",
+        "trigger": "Closest exact-parameter and all-m prior theorem"
+      },
+      {
+        "assessment": "Different fixed-minimum-width parallel-body optimization; its Reuleaux endpoint regime does not imply variable-perimeter lens-gap stability.",
+        "evidence": [
+          "Three sharp regimes for area(T_{w,r}+tB), fixed w",
+          "References to Fodor et al 2602.19300 and older disk-polygon theory"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-sharp-steiner-area-phase-diagram-for-regular-disk-triangles--3d6ed11c0577",
+        "material_read": "Complete public RESULT.md including theorem, detailed fixed-width scalar optimization proof, verification and cited 2009 and 2026 antecedents.",
+        "method": "GitHub public file read of 2026/10/11/3d6ed11c0577/RESULT.md",
+        "title": "A sharp Steiner-area phase diagram for regular disk triangles",
+        "trigger": "Similar regular disk triangles and potential Reuleaux extremizer overlap"
+      },
+      {
+        "assessment": "Near-minimizer lens quotient/Hausdorff bound with unspecified sharp order; not the maximum-of-gap all-regular-m objective.",
+        "evidence": [
+          "Theorem A gives Hausdorff O(ε^{1/4}) from nearly minimal lens quotient",
+          "Authors explicitly do not claim optimal ε exponent"
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/blms.70292",
+        "material_read": "Open full-text HTML: abstract, introduction, theorem A and §2.2 beginning of area stability argument, including limitations on claimed exponents.",
+        "method": "Wiley full-text HTML, first published 2026-01-28",
+        "title": "Stability of reverse isoperimetric inequalities in the plane: Area, Cheeger, and inradius",
+        "trigger": "Potential dominating quantitative sharp inequality"
+      },
+      {
+        "assessment": "Fixed minimum width, not the equal-perimeter lens gap; limited full-text inspection noted as a residual risk.",
+        "evidence": [
+          "arXiv:2602.19300v1, 2026-02-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.19300",
+        "material_read": "arXiv abstract, bibliographic date and result description; not full paper.",
+        "method": "arXiv abstract page",
+        "title": "Pál's isominwidth inequality for ball convex bodies in planes of constant curvature",
+        "trigger": "Fixed-width competing extremality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f9b90fbb-340d-4424-b522-cc851e01aca4",
+  "value": {
+    "rationale": "A natural geometric gap measures how much more area a regularly faceted unit-ball intersection encloses than the universal equal-perimeter lens lower benchmark. Its sharp maximum and optimal stability rate are intrinsic optimization invariants, not arbitrary parameter slices. The new result identifies a common half-perimeter extremizer for every number of disks, sharp m-dependent gap constants and global quantitative stability with equality at the two degeneracies, supplying exact test cases for curvature-constrained stability and regular disk-polygon approximation. It is an exact finite-parameter-family classification rather than a broad all-configurations theorem.",
+    "status": "PASS"
+  }
+}
