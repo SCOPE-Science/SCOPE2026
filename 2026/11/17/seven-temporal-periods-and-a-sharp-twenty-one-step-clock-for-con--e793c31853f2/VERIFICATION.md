@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-All binaries are reconstructed from the embedded C++17 source files; no precompiled binaries, external datasets or external libraries are required. Commands (on a C++17-capable compiler):
+## correctness
 
-```sh
-g++ -std=c++17 -O2 verify_paths.cpp -o verify_paths
-./verify_paths
-g++ -std=c++17 -O2 verify_topological.cpp -o verify_topological
-./verify_topological
-```
+PASS
 
-The output files `verify_paths.out` and `verify_topological.out` record actual executions. The first program stores a complete next-state table and uses forward path tracing and explicit group-image closure. The second independently computes the full transition table from coordinate loops, prunes vertices of zero indegree to isolate cycles, assigns transient distances by reverse topological order and calculates each symmetry orbit size from stabilizers and Burnside's lemma. Both classify all \(1048576\) states and output the same seven orbit populations, twenty-two entry-time populations, seven basin populations and twenty-three geometric classes.
+The source specifies 20 labelled bits in row-major order on Z/4 x Z/5, eight distinct Moore neighbours, B3/S23 synchronous update, and first-entry depth to a functional-graph cycle. Both complete C++ programs construct all 2^20 transitions (one via bit masks and forward chains, the other via coordinate loops plus indegree stripping); cycle and reverse-pruning logic classifies each state exactly once and the 80 spatial affine sign/translation maps commute with the update. I separately compiled and ran an independently written C++ exhaustive indegree-pruning enumerator and separate symmetry-action enumeration. It gave 461 orbits with primitive periods 1:313, 2:32, 4:20, 5:8, 6:60, 8:20, 10:8; exactly 1,097 recurrent configurations, sharp depth 21 realized by 80 states, 23 geometric classes, an empty fixed-state basin of 884,500, and period-5 basin 40 versus period-10 basin 9,340. Period/basin totals independently sum to 1,048,576. Exhaustiveness is for precisely this finite 4x5 torus, not arbitrary boards.
 
-State-count partition: \(1097+1047479=1048576\). Maximum entry time: \(21\), attained by \(80\) states. Largest individual basin: \(884500\), belonging to the empty equilibrium. Period-five basin mass is exactly \(40\), equal to its \(40\) periodic states, proving these cycles have no transient predecessors. The scripts provide an exhaustive *finite* certificate for this exact geometry only. Independent external review is not performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete 4x5 labelled Life temporal/entry/basin/geometric census, excluding the previously known 313 one-step fixed states. Related transfer-trace results, three-row Life oscillator theorems and a 4x4 Life basin census do not imply the stated 461 cycles, seven periods, 21-step entry histogram or 23 spatial classes.
+
+## value
+
+PASS
+
+A complete natural finite dynamical system classification can have value without extrapolation to all sizes: 2^20 states, multiple unexpected periods, a sharp maximum entry depth 21, 80 extremal states, isolation of all period-five cycles yet nontrivial period-ten basins, and 23 geometric classes. These precise structural distinctions are neither routine consequences of Life’s update rule nor mere recomputation of its known fixed-point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

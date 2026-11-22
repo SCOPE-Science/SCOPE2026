@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:01:57.921948Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source specifies 20 labelled bits in row-major order on Z/4 x Z/5, eight distinct Moore neighbours, B3/S23 synchronous update, and first-entry depth to a functional-graph cycle. Both complete C++ programs construct all 2^20 transitions (one via bit masks and forward chains, the other via coordinate loops plus indegree stripping); cycle and reverse-pruning logic classifies each state exactly once and the 80 spatial affine sign/translation maps commute with the update. I separately compiled and ran an independently written C++ exhaustive indegree-pruning enumerator and separate symmetry-action enumeration. It gave 461 orbits with primitive periods 1:313, 2:32, 4:20, 5:8, 6:60, 8:20, 10:8; exactly 1,097 recurrent configurations, sharp depth 21 realized by 80 states, 23 geometric classes, an empty fixed-state basin of 884,500, and period-5 basin 40 versus period-10 basin 9,340. Period/basin totals independently sum to 1,048,576. Exhaustiveness is for precisely this finite 4x5 torus, not arbitrary boards.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fully read height-four transfer theorem proves F4(5)=313 and all-circumference one-step fixed counts, but explicitly excludes higher-period orbits and transients.",
+          "Other Resultary short-period records study 2/3-row tori, not full 4x5 state dynamics."
+        ],
+        "reasoning": "One-step fixed population and a transfer matrix for fixed states do not classify nonfixed periods 2/4/5/6/8/10, their basins or maximal entrance time. This is substantive new finite-state coverage.",
+        "searches": [
+          "2026/11/17/SCOPE-row-thickening-reverses-conway-life-s-toroidal-fixed-state-count--b4f901d1a620/RESULT.md",
+          "Resultary Conway Life temporal two rigidity three-row tori",
+          "exact 4x5 B3/S23 fixed 313"
+        ]
+      },
+      "checked_sources": [
+        "https://conwaylife.com/wiki/Bounded_grids",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-row-thickening-reverses-conway-life-s-toroidal-fixed-state-count--b4f901d1a620/RESULT.md",
+        "https://users.sussex.ac.uk/~andywu/downloads/papers/aw_thesis.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior full height-four fixed-state theorem implies precisely the p=1 entry (313 fixed points), and this component was explicitly credited in the source.",
+          "Wuensche 4x4 provides method/background rather than the target entries."
+        ],
+        "reasoning": "The prior fixed-state special case is covered and not counted as new. A full 4x5 basin/entry/geometry census is not a logical corollary of those fixed-state or smaller-torus statements.",
+        "searches": [
+          "Conway Life complete 4-by-5 attractors periods basin sharp 21",
+          "Wuensche 1996 attractor basins discrete networks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wuensche thesis Chapter 2 describes 345 basins for a different 4x4 torus, whereas source and separate enumeration are 4x5 with 461 cycles."
+        ],
+        "reasoning": "A labelled synchronous Life functional graph on 4x4 has 2^16 states, not the 2^20 states of 4x5; neither periodic orbit populations nor geometric action sets are equivalent. General finite-state methods do not supply the exact output.",
+        "searches": [
+          "Conway Game of Life four by five torus 4x5 461 attractor cycles temporal periods basin entry depth exact exhaustive",
+          "Wuensche Attractor Basins of Discrete Networks 4x4 Conway Life 345 basins 1996"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted web searches did not surface the exact full 4x5 461/23/21 table; ConwayLife pattern catalog is not a complete 4x5 functional graph table.",
+          "Finite state certificate is complete and explicit in the assigned package."
+        ],
+        "reasoning": "No matching table was found in the checked material; this is a bounded literature/database search, not a proof that unpublished tables or software lack the same counts.",
+        "searches": [
+          "\"4x5\" \"Game of Life\" attractors basins 461",
+          "\"4x5\" torus Conway Life cycle 21 transient 23",
+          "ConwayLife small tori B3/S23 census"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete 4x5 labelled Life temporal/entry/basin/geometric census, excluding the previously known 313 one-step fixed states. Related transfer-trace results, three-row Life oscillator theorems and a 4x4 Life basin census do not imply the stated 461 cycles, seven periods, 21-step entry histogram or 23 spatial classes.",
+      "residual_risks": [
+        "Unindexed hobbyist Life census or simulator output might independently contain exact 4x5 tables; targeted searches cannot prove absolute priority.",
+        "Only the 80 specified spatial group elements are classified; full 4x5 graph automorphism group is not separately proven to equal that group, nor is any extra group claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_FIXED_ONLY",
+          "evidence": "F4(5)=313 in prior exact list; explicitly no longer-period oscillators, transients or attractor basins.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-row-thickening-reverses-conway-life-s-toroidal-fixed-state-count--b4f901d1a620/RESULT.md",
+          "material_read": "Full RESULT.md, mathematical definition, transfer proof, exact F4(n) values and limitations",
+          "method": "Read actual published source text, compared observables and n=5 specialization",
+          "title": "Row thickening reverses Conway Life toroidal fixed-state count",
+          "trigger": "Same Life B3/S23 on height-four periodic tori; possible full target table"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_GRID",
+          "evidence": "345 basins on 4x4; 4x5 exact counts and transient histogram were not established by the material inspected.",
+          "identifier_or_url": "https://users.sussex.ac.uk/~andywu/downloads/papers/aw_thesis.pdf",
+          "material_read": "Accessible Chapter 2 text excerpts and figures for 4x4; large original PDF was not fully paged/read",
+          "method": "Searched actual thesis chapter text and specific 4x4 figures, not a whole-document negative claim",
+          "title": "Attractor Basins of Discrete Networks: Implications on Self-Organisation and Memory",
+          "trigger": "Primary early exact Life basin methodology and 4x4 data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete natural finite dynamical system classification can have value without extrapolation to all sizes: 2^20 states, multiple unexpected periods, a sharp maximum entry depth 21, 80 extremal states, isolation of all period-five cycles yet nontrivial period-ten basins, and 23 geometric classes. These precise structural distinctions are neither routine consequences of Life’s update rule nor mere recomputation of its known fixed-point count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/seven-temporal-periods-and-a-sharp-twenty-one-step-clock-for-con--e793c31853f2/RESULT.md",
+    "https://conwaylife.com/wiki/Bounded_grids",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-row-thickening-reverses-conway-life-s-toroidal-fixed-state-count--b4f901d1a620/RESULT.md",
+    "https://users.sussex.ac.uk/~andywu/downloads/papers/aw_thesis.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Potential bugs shared between source and independent code regarding bit order or neighbour convention remain a residual finite-certificate concern, although both match the explicit eight-offset rule.",
+    "Unindexed hobbyist Life census or simulator output might independently contain exact 4x5 tables; targeted searches cannot prove absolute priority.",
+    "Only the 80 specified spatial group elements are classified; full 4x5 graph automorphism group is not separately proven to equal that group, nor is any extra group claimed."
+  ],
+  "schema_version": 1
+}

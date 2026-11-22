@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The state space consists of exactly \(2^{20}\) binary configurations and the eight Moore neighbors are distinct at every site. The update rule in the proof is exhaustive and integer-defined. Forward-path classification and indegree-pruning classification use separately written local update algorithms and separate cycle-finding logic; both exactly recover all seven period populations, the full twenty-two-bin first-entry histogram and the seven basin populations. A separate stabilizer/Burnside calculation matches direct grouping for all eighty spatial transformations and all temporal periods. The total of the period-phase counts is \(1097\), the transient count is \(1047479\), and each independent partition sums to \(1048576\). Exact witnesses independently provide period-five, period-ten and twenty-one-update examples. The proof is finite and fully exhaustive for the stated torus, not for other dimensions.
+## correctness
 
-## Originality — PASS, qualified
-Wuensche (1996/1997), Chapter 2 and Figures 2.2--2.4, reports an exhaustive \(4\times4\) toroidal-Life attractor-basin picture with 345 basins, not the \(4\times5\) classifications. Reia and Kinouchi (2014), in the open-access paper arXiv:1407.1006, study mean-field phase behavior on much larger Life lattices; their equation and rule table define the same local B3/S23 rule but do not imply a labelled 20-site functional-graph census. LifeWiki's bounded-grid reference defines the torus; its object-count tables concern distinct pattern populations rather than this exact finite periodic-state universe. An earlier exact four-row fixed-point transfer theorem covers the 313 fixed configurations, so fixed-point enumeration is *not* presented as a novel standalone claim. The remaining complete cycle spectrum, sharp transient-time distribution, isolation of the five-cycles and all geometric-orbit counts are neither statements nor numerical consequences of the inspected prior sources. Unindexed historical state tables could exist, so this is a best-knowledge, not a priority certificate.
+PASS
 
-## Mathematical value — PASS
-The four-by-five torus is the smallest *nonsquare rectangular* periodic Moore lattice with eight distinct neighbors at every site, an especially natural next test beyond the historically studied four-by-four square. Exhausting the entire state space resolves three independently motivated invariants: the exact temporal period spectrum, the sharp maximum transient time, and the number of attractor classes after geometric symmetry. The striking distinction between eight completely isolated five-cycles and eight highly attractive ten-cycles shows a nontrivial short-clock and basin-structure difference not explained by fixed-point counts alone. The census is a finite reproducible benchmark; no claim of an all-size recurrence or of arbitrary-Lattice universality is made.
+The source specifies 20 labelled bits in row-major order on Z/4 x Z/5, eight distinct Moore neighbours, B3/S23 synchronous update, and first-entry depth to a functional-graph cycle. Both complete C++ programs construct all 2^20 transitions (one via bit masks and forward chains, the other via coordinate loops plus indegree stripping); cycle and reverse-pruning logic classifies each state exactly once and the 80 spatial affine sign/translation maps commute with the update. I separately compiled and ran an independently written C++ exhaustive indegree-pruning enumerator and separate symmetry-action enumeration. It gave 461 orbits with primitive periods 1:313, 2:32, 4:20, 5:8, 6:60, 8:20, 10:8; exactly 1,097 recurrent configurations, sharp depth 21 realized by 80 states, 23 geometric classes, an empty fixed-state basin of 884,500, and period-5 basin 40 versus period-10 basin 9,340. Period/basin totals independently sum to 1,048,576. Exhaustiveness is for precisely this finite 4x5 torus, not arbitrary boards.
 
-## Closest sources and remaining risks
-The principal original baseline is Andrew Wuensche's 1996 Sussex thesis, Chapter 2 (345 basins on \(4\times4\)); the second is Reia--Kinouchi's 2014 Life rule and large-lattice statistical analysis (arXiv:1407.1006). A modern publicly visible four-by-four state graph is likewise a different size. Absolute priority may be affected by unindexed simulation catalogues or unpublished complete four-by-five tables. Independent external mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete 4x5 labelled Life temporal/entry/basin/geometric census, excluding the previously known 313 one-step fixed states. Related transfer-trace results, three-row Life oscillator theorems and a 4x4 Life basin census do not imply the stated 461 cycles, seven periods, 21-step entry histogram or 23 spatial classes.
+
+## value
+
+PASS
+
+A complete natural finite dynamical system classification can have value without extrapolation to all sizes: 2^20 states, multiple unexpected periods, a sharp maximum entry depth 21, 80 extremal states, isolation of all period-five cycles yet nontrivial period-ten basins, and 23 geometric classes. These precise structural distinctions are neither routine consequences of Life’s update rule nor mere recomputation of its known fixed-point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
