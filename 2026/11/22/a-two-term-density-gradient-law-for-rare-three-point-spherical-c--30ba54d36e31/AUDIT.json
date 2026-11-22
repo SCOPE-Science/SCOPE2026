@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For positive normalized \\(C^2\\) spherical density f, the exact uniform finite-sample formula gives \\(M_\\varepsilon=9\\pi^2-4\\pi^2\\varepsilon^2+O(\\varepsilon^4)\\) after normal-coordinate normalization. The planar feasible-triple domain is characterized exactly as an outward parallel of a two-unit-disk lens, with mass \\(9\\pi^2\\) and second moment \\(T=15\\pi^2\\). Reanchoring gives cross-moment \\(T/4\\) times the identity; spherical point reflection kills odd perturbations. Integrated covariant Hessian and gradient terms yield \\(-\\frac{3T}{4}\\int f\\|\\nabla f\\|^2\\,dA\\). With the uniform geometric term this proves the \\(\\varepsilon^4\\) and \\(\\varepsilon^6\\) coefficients and \\(o(\\varepsilon^6)\\). All quantifiers and the strict positivity rigidity are explicit. Independent exact dipole and quadrupole test identities and standard-library lens integration agree with the proof; finite numerical checks are supportive, not logical substitutes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brauchart et al. admit nonuniform continuous densities but estimate the N-to-infinity weighted hole-radius expectation; their density functional is not the \\(\\varepsilon^6\\) gradient term.",
+        "Reznikov-Saff study growing sample covering radius; Fodor-Hug-Ziebarth study random circumscribed polytopes.",
+        "No inspected stronger theorem establishes all fixed-\\(N=3\\) nonuniform small-arc cap probability coefficients."
+      ],
+      "reasoning": "Large-sample asymptotic bounds, random-polytope shape approximation, and generic smooth small-ball Taylor expansions do not furnish the needed four-dimensional minimal-enclosing-disk shape moments and the resulting exact numerical coefficient. Such methods may be used to rederive it; residual priority risk remains, as method familiarity is not itself evidence for novelty.",
+      "searches": [
+        "arXiv:1512.07470 Proposition 2.1; Theorem 2.2",
+        "arXiv:1504.03029 covering radius theorems",
+        "arXiv:1409.8105 introduction/main theorem",
+        "Curvature and density-gradient correction in rare cluster minimum enclosing circle on Riemannian manifold.",
+        "Literature search: nonuniform sphere point covering radius tails density gradient correction"
+      ]
+    },
+    "checked_sources": [
+      "Bürgisser-Cucker-Lotz, arXiv:0712.2816 (exact uniform cap-coverage formula); original Miles result cited therein",
+      "Brauchart et al., arXiv:1512.07470 (nonuniform large-N proposition, uniform N-to-infinity cap statistics)",
+      "Reznikov-Saff, arXiv:1504.03029 (manifold covering radius asymptotics)",
+      "Fodor-Hug-Ziebarth, arXiv:1409.8105 (random circumscribed polytope)",
+      "spherecover public README, https://github.com/gmboquet/spherecover (finite-N uniform CDF and coverage duality)",
+      "Published nearby random-spherical-triangle, density, and curvature-gradient research records matched by search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A uniform-only identity can recover the curvature term \\(-4\\pi^2 I_3\\) at f constant but cannot determine the f-weighted gradient energy coefficient from a single fixed f.",
+        "Nonuniform large-N expectation asymptotics of Brauchart et al. involve inverse powers of the sampling density and different random variables.",
+        "The proposed second coefficient is independently checked against exact dipole and quadrupole spherical density families."
+      ],
+      "reasoning": "If one specializes the new claim to uniform f, it is indeed completely covered by Miles/Bürgisser-Cucker-Lotz; that specialization is not claimed as a new finding. Conversely, the general claim has a genuinely variable independent \\(D_3(f)\\) term and a sharp rigidity relation not derivable as a formal special case of those surveyed statements. No stronger published result was found that implies the specific general-density coefficient. Specialized point-process coarea/tube expansions remain an explicit unresolved historical-priority risk.",
+      "searches": [
+        "arXiv:0712.2816 Miles Eq.(3)",
+        "arXiv:1512.07470 Proposition 2.1 and proof Sec.4.1",
+        "arXiv:1504.03029 main theorems",
+        "spherecover README classical finite-sample uniform laws",
+        "Curvature and density-gradient correction in rare cluster minimum enclosing circle on Riemannian manifold."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Three points lying in some radius-epsilon cap is equivalent by antipodes to the sample covering radius being at least pi-epsilon; it is also the minimum enclosing spherical-cap radius at most epsilon.",
+        "Bürgisser-Cucker-Lotz/Miles and spherecover supply the full exact uniformly sampled special case; this is credited as prior, not novelty.",
+        "All equivalent event descriptions retain the new arbitrary-density \\(\\varepsilon^6\\) coefficient and its \\(D_3(f)\\) term."
+      ],
+      "reasoning": "These dual descriptions can change the threshold direction but not the sampling distribution. The known uniform coverage formula cannot by itself imply a coefficient that varies with the weighted gradient energy of f. Checked equivalent formulations under large empty cap, three-point geodesic enclosing radius, finite-sample sphere covering, and spherical Cech birth radius.",
+      "searches": [
+        "Nonuniform density three independent sphere points all contained in small spherical cap, two-term probability with density cubic integral and Dirichlet gradient energy.",
+        "Sharp small cap cluster probability three points on S2 spatially varying density two-term epsilon 4 epsilon 6 expansion 9 pi squared.",
+        "arXiv:0712.2816 Eq.(3)",
+        "arXiv:1512.07470 Sec.2",
+        "spherecover README: minimum enclosing cap CDF"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published comparison on three sphere-uniform chord vertices gives an area-tail singularity, not a cap-radius CDF.",
+        "Published curvature-gradient chord statistics concern planar ovals rather than density in spherical three-point clusters.",
+        "A finite-sample table does contain the uniform baseline, and it is not reclaimed."
+      ],
+      "reasoning": "Searched exact moment constants, the two-term functional, and adjacent random-geometric databases. No recovered existing table was found for the pair \\((9\\pi^2 I_3,-4\\pi^2 I_3-45\\pi^2 D_3/4)\\). Search failure is not proof of unique priority; the known uniform CDF is explicitly excluded from the new contribution.",
+      "searches": [
+        "Sharp small cap cluster probability three points on S2 spatially varying density two-term epsilon 4 epsilon 6 expansion 9 pi squared.",
+        "Nonuniform density three independent sphere points all contained in small spherical cap, two-term probability with density cubic integral and Dirichlet gradient energy.",
+        "Published research record: Sharp small-area law for three sphere-uniform Euclidean chord vertices",
+        "Published research record: The curvature-gradient term in polygonal boundary-chord statistics",
+        "spherecover README uniform CDF and source tests"
+      ]
+    },
+    "rationale": "Bürgisser-Cucker-Lotz/Miles determines the exact uniform special case and is fully credited. Brauchart et al. address nonuniform densities only in a large-N weighted-hole-radius expectation, not this fixed \\(N=3\\) local probability. Comparisons to the source statements and similar published results show no implied nonuniform \\(\\varepsilon^6\\) density-gradient coefficient. Historical priority is bounded, not guaranteed.",
+    "residual_risks": [
+      "Generic point-process kinematic or stochastic tube formulas could contain an equivalent density-gradient coefficient even if not indexed under small spherical cap clustering; further independent historical verification recommended.",
+      "Only the relevant statements and sections of longer primary publications were inspected; no claim of exhaustively reading every unrelated appendix.",
+      "Software repository publication date and all historical versions were not established; its uniform-only discussion does not change the current nonuniform comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS exact uniform baseline; does not supply varying-density \\(\\varepsilon^6\\) weighted-Dirichlet term. Its full finite-N uniform formula is stronger than uniform leading asymptotics but not the inhomogeneous claim.",
+        "evidence": [
+          "Equation (3) specializes to \\((1-\\cos\\varepsilon)^2(4+5\\cos\\varepsilon)/4\\) for \\(N=3\\), sphere dimension 2.",
+          "Sampling directions in that formula are invariant-uniform, whereas arbitrary f is essential to the asserted correction."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0712.2816",
+        "material_read": "arXiv PDF introductory definitions, formula (3), Theorem 1.1, surrounding uniform-cap probability derivation and parameter conventions",
+        "method": "Primary PDF text and rendered-page review",
+        "title": "Coverage processes on spheres and condition numbers for linear programming",
+        "trigger": "Exact same uniform three-point small-enclosing-cap probability via dual large-cap coverage"
+      },
+      {
+        "assessment": "Proposition 2.1 gives nonuniform large-sample weighted hole-radius expectations, and Theorem 2.2 treats large N uniform point sets. Neither implies the finite-\\(N=3\\) small-cap sixth-order probability or its rigidity.",
+        "evidence": [
+          "Proposition 2.1 uses N tending to infinity and integral of eta to power -2/d.",
+          "Theorem 2.2 concerns expected moments of hole radii for uniform independent points.",
+          "The same work lists 52A22 among primary MSC codes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1512.07470",
+        "material_read": "Title, abstract, pp. 1–5, Proposition 2.1, Theorem 2.2 and the proof of Proposition 2.1 on pp. 16–17",
+        "method": "Primary PDF text and rendered page 1",
+        "title": "Random Point Sets on the Sphere—Hole Radii, Covering, and Separation",
+        "trigger": "Same covering-radius object, positive continuous nonuniform densities, verified 52A22 primary classification"
+      },
+      {
+        "assessment": "Large-sample covering-radius asymptotics; different asymptotic variable, no fixed three-point nonuniform density-gradient expansion identified in inspected primary statements.",
+        "evidence": [
+          "Main statements study sampling size tending to infinity and expected covering behavior."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1504.03029",
+        "material_read": "Abstract, theorem statements and introduction discussing covering radius with growing sample size",
+        "method": "Primary PDF text and rendered page 1",
+        "title": "The covering radius of randomly distributed points on a manifold",
+        "trigger": "Closest manifold covering-radius asymptotic scope"
+      },
+      {
+        "assessment": "Studies circumscribed random-polytope volume and different sampling model, so does not directly determine three-point enclosing spherical cap tail.",
+        "evidence": [
+          "Subject/object is random convex-body approximation; no statement equating the sixth-order cluster tail to a gradient integral."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1409.8105",
+        "material_read": "Abstract, primary MSC classification, introduction and central theorem statements about convex body approximation",
+        "method": "Primary PDF text and rendered pages 1 and 3",
+        "title": "The volume of random polytopes circumscribed around a convex body",
+        "trigger": "Archive-period random convex geometry, primary 52A22 and nonuniform sampling"
+      },
+      {
+        "assessment": "Uniform point configuration formulas include the old exact baseline but no density-dependent two-term differential correction.",
+        "evidence": [
+          "README says N points scattered uniformly and describes classical large-cap closed-form laws.",
+          "Its statistical application is a uniformity null-model p-value, not a varying-density expansion."
+        ],
+        "identifier_or_url": "https://github.com/gmboquet/spherecover",
+        "material_read": "README coverage duality, method regime table, named formula/implementation components, uniformity-testing application",
+        "method": "Public project description/readme",
+        "title": "spherecover: finite-sample formulas for random spherical cap coverage",
+        "trigger": "Same finite-sample minimum-enclosing-cap statistic could dominate a naive rarity result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30ba54d3-6e31-4823-81fd-b358ced2e1e6",
+  "value": {
+    "rationale": "The maximal-empty-cap tail for exactly three directional observations is a natural geometric sampling statistic. The leading cubic mass functional measures clustering, while a previously undetermined next coefficient yields the independent weighted density-gradient energy after a universal curvature correction. Its sharp equality characterizes uniform directional sampling, and conditional cluster location selects the \\(f^3\\) sampling bias. The 4D enclosing-disk shape constant and cross-moment are not trivial substitutions into a textbook normalization; the result identifies an interpretable distinction among anisotropic smooth sampling models.",
+    "status": "PASS"
+  }
+}

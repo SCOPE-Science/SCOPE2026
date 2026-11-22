@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The claim is for exactly three independent surface-density samples on \(S^2\). The proof derives the known homogeneous cap-containment law with correct sphere-area normalization, evaluates the Euclidean feasible-pair lens moments exactly, and applies uniform \(C^2\) Taylor expansion in bounded normal coordinates. The first-order term cancels by a genuine spherical isometry, the second-order tensors follow from rotational and reanchoring symmetry, and integration by parts produces the precise negative weighted Dirichlet correction. The homogeneous \(\varepsilon^6\) term is calibrated by the exact global uniform law, without assuming an unjustified smooth moving boundary. The standalone checker reproduces independent angular and planar integral identities; finite numerical checks do not replace the proof.
+
+## Originality — PASS, subject to bounded-source priority
+The closest exact prior result is the uniform spherical cap coverage formula in Bürgisser--Cucker--Lotz/Miles. It determines \(F_0\) but makes no statement about arbitrary varying spatial sample densities and their negative sixth-order weighted-gradient correction. Brauchart et al. (arXiv:1512.07470) give large-sample hole-radius statistics, including a positive nonuniform-density weighted expectation, but not this fixed-three-point sixth-order probability law. Reznikov--Saff concerns another large-sample asymptotic, and Fodor--Hug--Ziebarth concerns random convex-body approximation. The public `spherecover` software treats uniform finite-sample laws rather than arbitrary-density gradients. Nearby published findings on random spherical caps, enclosing circles, and curvature-gradient effects were compared by mathematical implication, not just title. None of the examined statements gives this fixed-three-point nonuniform spherical cap coefficient or its rigidity identity. Residual risk: unindexed nonuniform point-process tube expansions may imply the formula without matching keywords.
+
+## Value — PASS
+The fixed-three-point maximal-empty-cap tail is a natural statistic of directional sampling, and the previous uniform exact law cannot distinguish an inhomogeneous sampling design. The new first coefficient measures cubic clustering density, while the sharp second coefficient measures the independent weighted spatial roughness functional. Their relation identifies a zero-gradient equality case uniquely as uniform sampling; conditional cluster locations follow the cubic density. The coefficient involves a nontrivial exact four-dimensional feasible-shape moment and a non-obvious curvature/density separation, not merely a normalization change or arbitrary parameter slice.
+
+## Limits and priority risk
+The law requires positive \(C^2\) densities, independent sampling, and a fixed dimension/tail regime. It neither asserts novelty of the classical uniform cap law nor extends to singular distributions. Some mathematical literature may remain unindexed or use different terminology; the priority decision is provisional. No independent audit is available.
+
+Self-review: passed. Independent audit: not yet performed.
