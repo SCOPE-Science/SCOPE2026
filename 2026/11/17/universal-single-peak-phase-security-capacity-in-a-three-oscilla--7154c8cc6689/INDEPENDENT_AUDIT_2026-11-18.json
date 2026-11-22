@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T20:04:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the three-oscillator sine-coupled triangle, node 3 gives b sinφ=sinψ, and injection node 1 gives P=sin(φ+ψ)+b sinφ, with φ,ψ≥0 in the strict security sector. For δ=φ+ψ, the unique principal solution is φ=atan(sinδ/(b+cosδ)); ψ=δ-φ. Differentiating the sine balance shows dφ/dδ,dψ/dδ>0; dP/dδ=cosδ+b cosφ dφ/dδ>0 for δ≤γ<π/2. The first active cap is δ=γ when b≤sinη/sin(γ-η), otherwise ψ=η. Substitution gives the two exact capacity formulas, continuity, strict increase then decrease and peak sinγ+sinη. The exact min-endpoint robust criterion follows unimodality. Every secure equilibrium has positive weighted cosine conductances, giving two strictly negative transverse Jacobian eigenvalues; a separate principal branch below π/2 shows stable locking beyond the tighter security bound at sufficiently large b. Independently checked phase balances and formula values for b=0.1,0.5,1,2,10 with γ=π/3, η=π/6; these samples corroborate only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bačić et al provide graph-general sufficient robustness conditions, and convex flow bounds; published Nov1 Resultary three-oscillator path result gives Braess-free stable-locking threshold for adding an edge."
+        ],
+        "reasoning": "Graph generality does not make a sufficient certificate a sharper closed necessary-and-sufficient security threshold. Path-completion stable locking is not uniform edgewise γ,η-limited safety; candidate additionally separates these properties at large b.",
+        "searches": [
+          "arXiv:2611.06466v1 Theorem 3",
+          "arXiv:2610.24595v1 Theorems 1–2",
+          "Resultary: Braess-free completion three-oscillator Kuramoto path"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE assigned RESULT.md pinned blob f70c4a65d05c2256873bad82c3498029040a7d07",
+        "arXiv:2611.06466v1 Section III",
+        "arXiv:2610.24595v1",
+        "Resultary 2026/11/1 537b87c6a811",
+        "DOI:10.1088/1367-2630/14/8/083036"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: sufficient robust locking and approximate necessary bounds. Candidate: exact Psec(b) with two sharp cap-limited branches, unique b*, finite secure coupling interval, and worst-endpoint rule despite persistent stable nonsecure locking."
+        ],
+        "reasoning": "The precise security inequality is a stronger conclusion than a general sufficient test and answers a different question from full locking threshold; no inspected result mathematically entails all three consequences.",
+        "searches": [
+          "arXiv:2611.06466v1 Section III",
+          "arXiv:2610.24595v1 Section II",
+          "Resultary Nov1 path completion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bačić et al arXiv:2611.06466v1 address general uncertain-edge phase-locking certificates, not this all-angle-pair analytic capacity; earlier three-oscillator path completion concerns ordinary locking not stricter edgewise security."
+        ],
+        "reasoning": "The underlying fixed-point equations are a specialization of general Kuramoto flows, but monotone two-cap admissibility and a strict peak of secured transfer are not equivalent to ordinary lock existence or a sufficient certificate.",
+        "searches": [
+          "Resultary: Kuramoto triangle exact edge security capacity nonmonotone coupling",
+          "arXiv:2611.06466 phase locking networks uncertain state-dependent couplings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table/formula of the two-cap b-dependent capacity was retrieved; closest previous results concern phase locking and other triadic harmonic models."
+        ],
+        "reasoning": "The candidate gives closed continuous parameter laws for 0<η<γ<π/2, not a finite numerical data table or small-instance search result.",
+        "searches": [
+          "Resultary: Kuramoto triangle edge phase security capacity uncertain coupling reentrant safe synchronization Braess",
+          "Resultary: single-peak phase security exact three oscillator"
+        ]
+      },
+      "rationale": "General phase-cohesiveness criteria and Braess-type locking are known, but this theorem concerns a distinct exact security threshold for edge-dependent caps and explicit one-edge weight variation, not generic existence of stable locks. Compared works state sufficient/approximate conditions rather than the exact all-cap pairs unimodal capacity.",
+      "residual_risks": [
+        "The full earlier arXiv:2610.24595 preprint was not completely inspected; exact specialized flow formulas elsewhere could affect priority.",
+        "No claim is made about switched coupling, dynamic safe invariance, stable equilibria outside the principal zero-winding secure sector, or larger graph universality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Sufficient certificates and bounds, not this exact necessary-and-sufficient triangle capacity and strict peak.",
+          "identifier_or_url": "https://arxiv.org/html/2611.06466v1",
+          "material_read": "Accessible full HTML treatment of uncertain couplings and edgewise phase cohesion, especially general sufficient criteria",
+          "method": "Primary open HTML mathematical text",
+          "title": "Phase Locking in Oscillator Networks with Uncertain and State-Dependent Couplings",
+          "trigger": "Highest potential published general edgewise security theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "General flow approximations and bounds not sufficient to certify exact candidate capacity absent reading full paper.",
+          "identifier_or_url": "https://arxiv.org/html/2610.24595v1",
+          "material_read": "Abstract and available theoretical statements; full HTML retrieval incomplete",
+          "method": "Open preprint attempt and source-claim comparison",
+          "title": "Linear Approximations Provide Rigorous Conditions for Phase Locking in Oscillator Networks and Power Grids",
+          "trigger": "Possible general necessary and sufficient flow framework"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": "Describes full phase locking, not additional strict γ,η edge caps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-braess-free-completion-of-a-three-oscillator-kuramoto-path-with--537b87c6a811",
+          "material_read": "Published mathematical finding and summary of optimal stable-locking threshold",
+          "method": "Resultary scientific search and implication comparison",
+          "title": "Braess-free completion of a three-oscillator Kuramoto path, with sharp equality cases",
+          "trigger": "Same triangle and variable third edge but different quantity"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Braess loss of locking on larger networks, not loss of strict security with continued stable locking on triangle.",
+          "identifier_or_url": "https://doi.org/10.1088/1367-2630/14/8/083036",
+          "material_read": "Accessible article statement and examples",
+          "method": "Primary article synopsis and comparison",
+          "title": "Braess’s paradox in oscillator networks, desynchronization and power outage",
+          "trigger": "Potential known nonmonotone network effect"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An edge can improve and then worsen secure power transfer while the network remains dynamically locked, a practically motivated distinction between synchronization and guaranteed phase-angle safety. The exact two-branch capacity, sharp switch and robust worst-endpoint guarantee classify a natural minimal network and are more than a sample instability witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive static weights; original phase-security limits 0<η<γ<π/2; equilibrium existence/stability modulo uniform phase only."
+  ],
+  "schema_version": 1
+}
