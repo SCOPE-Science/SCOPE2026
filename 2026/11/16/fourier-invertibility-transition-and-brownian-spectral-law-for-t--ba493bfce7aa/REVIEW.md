@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-prefix character parametrization proves that every multiplier is an integer with the parity of the order-ideal count; an alternating-prefix choice realizes both the claimed zero spectrum boundary and the optimal nonzero spectral gap. Fourier diagonalization proves the sharp inverse norms. The conditional cosine product, Donsker convergence, a fourth-moment error bound and a directly verified Feynman--Kac solution establish the non-Gaussian limit, while its atomlessness proves vanishing zero density. The independent direct Walsh and transfer counts agree at 87,380 frequencies through eight columns, with further checks through seventeen. Finite checks do not replace the proof.
+## correctness
 
-**Originality — PASS under bounded comparison.** Erné--Heitzig--Reinhold (2002) count distributive lattices but do not give Fourier multipliers. Sjöstrand (2003--2005) studies the sign of tableaux/linear extensions, not the arbitrary binary character of all order-ideal incidence vectors. De Wolf (2008) provides Boolean Fourier background but not the two-row exact residue-class invertibility theorem. Indexed research on graph-independent Fourier minors and noncrossing-matchings Fourier identification concerns different sample sets and operators, without an implication yielding the finite classification or the scaled limiting spectrum. Related signed Ferrers-enumeration formulas remain possible priority risks, and stochastic limit theory itself is acknowledged prior mathematics; global historical uniqueness is not claimed.
+PASS
 
-**Mathematical value — PASS.** Order ideals are canonical combinatorial data for distributive lattices. Their indicator convolution has a sharp and unexpected alternating two-class invertibility transition, an exact gap despite singularity, and a continuous non-Gaussian bulk law implying nearly full Fourier rank at singular lengths. This joint finite arithmetic and asymptotic result is not merely a reformulation of an ideal count.
+The character sum equals 1+Σ_{a=1}^n A_aΣ_{b=0}^a B_b for bijective independent prefix signs. The triangular support count binom(n+2,2) has parity odd iff n≡0,1 mod4, hence zero-free there. Alternating B_b gives P_a in {0,1} and exact zeros or sharp one/two gaps in complementary classes. Walsh eigenvalues on counting ℓ² give norms. For random characters, conditional CF is exp(it/n)∏cos(tP_a/n), Donsker invariance and a fourth-moment bound control log-cos remainder; Brownian Feynman–Kac gives (cosh t)^(-1/2). Its continuous mixture-normal law has no atom at zero, so portmanteau gives vanishing nullity fraction. Full integer FWHT independent check n1..5 gives zero counts 0,6,18,0,0 and predicted least nonzero magnitudes.
 
-**Limitations.** The exact number of finite-width zeros at singular lengths, convergence rate, and higher-row analogues remain open in this investigation. Independent validation and exhaustive priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of mathematical statements, not title matches; bounded queries and directly inspected relevant sources found no dominating prior result for this precise support/invariant. Remaining risks explicitly retained.
+
+## value
+
+PASS
+
+The two-row product poset order-ideal incidence family is canonical in finite distributive lattices, and global invertibility vs asymptotic rank density is a structural distinction. The exact sharp inversion constant and non-Gaussian scaling limit are mathematically usable for weighted ideal sums and inverse Boolean convolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

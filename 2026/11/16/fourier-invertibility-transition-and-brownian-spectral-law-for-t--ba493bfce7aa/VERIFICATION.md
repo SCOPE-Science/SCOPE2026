@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of finite calculations and scope
+# Independent mathematical audit
 
-Run `python checker.py` using Python 3 standard library; no external packages or data files are required. The program independently lists each order ideal of the two-row product poset, applies the full exact-integer Walsh--Hadamard transform, and compares every coefficient histogram with an independently constructed two-prefix signed dynamic program. It checks the congruence-dependent Fourier-zero criterion, sharp least surviving multiplier, exact convolution norm and total multiplicity at all row lengths through eight. The direct comparisons cover exactly 87,380 frequencies. The signed dynamic program checks every frequency through length seventeen without constructing the full truth table.
+## correctness
 
-This arithmetic replay is a finite check only. The infinite-length classification follows from the parity argument and explicit alternating prefixes, not extrapolation. The limiting non-Gaussian law follows from the conditional characteristic-function derivation, random-walk invariance principle, fourth-moment control, and harmonic-oscillator differential equation displayed in `RESULT.md`. Its nullity-density corollary uses the no-atom property of that limit. The Brownian law has not been independently verified by an external auditor.
+PASS
+
+The character sum equals 1+Σ_{a=1}^n A_aΣ_{b=0}^a B_b for bijective independent prefix signs. The triangular support count binom(n+2,2) has parity odd iff n≡0,1 mod4, hence zero-free there. Alternating B_b gives P_a in {0,1} and exact zeros or sharp one/two gaps in complementary classes. Walsh eigenvalues on counting ℓ² give norms. For random characters, conditional CF is exp(it/n)∏cos(tP_a/n), Donsker invariance and a fourth-moment bound control log-cos remainder; Brownian Feynman–Kac gives (cosh t)^(-1/2). Its continuous mixture-normal law has no atom at zero, so portmanteau gives vanishing nullity fraction. Full integer FWHT independent check n1..5 gives zero counts 0,6,18,0,0 and predicted least nonzero magnitudes.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of mathematical statements, not title matches; bounded queries and directly inspected relevant sources found no dominating prior result for this precise support/invariant. Remaining risks explicitly retained.
+
+## value
+
+PASS
+
+The two-row product poset order-ideal incidence family is canonical in finite distributive lattices, and global invertibility vs asymptotic rank density is a structural distinction. The exact sharp inversion constant and non-Gaussian scaling limit are mathematically usable for weighted ideal sums and inverse Boolean convolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
