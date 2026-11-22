@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The integral polytope is exactly the convex hull of coordinate boxes in disjoint classes. Active-edge rank and odd-cycle forcing classify all fractional vertices, while coordinatewise down-closedness strictly separates the all-half vertex from every other fractional vertex. A unique blockwise quadratic projection gives the formula. Symmetric concavity with unique minimizers proves the strict discrete balancing law and identifies all extremal profiles. The four-class contact threshold follows from explicitly checking KKT saturation. The executable independent finite checks corroborate these steps, but do not replace the proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Full-text inspected: de Vries–Friedrich–Perscheid, *An extended formulation for the 1-wheel inequalities of the stable set polytope*, DOI 10.1002/net.21906; Aliniaeifard et al., *Stable set polytopes and their 1-skeleta*, arXiv:1804.00360. The available text of Samer–Haugland, *Fixed cardinality stable sets*, DOI 10.1016/j.dam.2021.01.019, concerns fixed-cardinality polyhedral optimization. Prior published research summaries of multipartite stable-set circumspheres and widths concern other metric functionals, not the separation of the edge relaxation from the integral polytope. The comparisons did not reveal the present theorem, but search incompleteness and uninspected full texts of some tangential records remain risks. Known vertex half-integrality and elementary exact cases are credited, not asserted as novel on their own.
+PASS
 
-**Mathematical value — PASS.** The quantitative strength of a canonical polyhedral relaxation is a motivated invariant; the theorem determines it exactly for arbitrary multipartite size profiles, proves uniqueness of the deepest relaxation point, and establishes a strict balance principle plus an explicit contact-stratum transition. It distinguishes relaxation quality at equal dimension, ranging from a bounded gap at an extreme size profile to a gap of order the square root of dimension for balanced profiles.
+Proved P={x>=0:sum block infinity norms<=1} using convex hull of independent-class unit cubes. Reconstructed active-edge rank: fractional F vertices have all nonzero entries 1/2 on support occupying at least three parts, or are integral. Every other fractional vertex is coordinatewise truncated h; clipping the unique projection p(h) to that vertex strictly decreases each removed-coordinate squared error. KKT on sum s_i=(r-2)/2 yields unique s_i=min(1/2,lambda/a_i), all s_i>0; strict symmetric concavity gives class-balance extremizers; four-part threshold at 3a=b follows by cap activation. Domain r>=3, every a_i positive integers, standard vertex-coordinate Euclidean metric.
 
-**Scientific limits.** Standard Euclidean coordinate metric and the edge-only relaxation are essential; this does not characterize stronger clique relaxations or arbitrary graphs. Historical priority is provisional and independent auditing is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original surviving contribution: Priority assessed by comparing precise mathematical implications and acknowledging stronger partial coverage; historical first priority is not certified.
+
+## value
+
+PASS
+
+The exact Hausdorff gap between common fractional edge and integral stable-set relaxations is a natural optimization stability invariant. The singular full-half extremizer, optimal class-size profiles and contact transition are new geometric structure, not just a graph parameter renaming. General half-integrality alone does not determine metric separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

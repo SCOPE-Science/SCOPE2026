@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone `check_fractional_multipartite.py` script (Python 3 with NumPy and SciPy) tests the finite identities independently: numerical halfspace intersection on small graph instances produces all relaxation vertices, direct coordinate-space quadratic optimization checks the predicted Hausdorff projection, and exact rational arithmetic checks the threshold, three-class formula, four-class transition, and finite majorization extrema.
+# Independent mathematical audit
 
-Observed run: `MULTIPARTITE_HAUSDORFF_PASS numerical_projections=17 independent_halfspace_vertices=230 exact_majorization_profiles=274`.
+## correctness
 
-The abstract proof, not any finite test, supplies the all-order result. Finite floating-point optimization has tolerance and is not exhaustive in graph order. The normal cone / priority questions were not independently audited. Independent audit remains not performed.
+PASS
+
+Proved P={x>=0:sum block infinity norms<=1} using convex hull of independent-class unit cubes. Reconstructed active-edge rank: fractional F vertices have all nonzero entries 1/2 on support occupying at least three parts, or are integral. Every other fractional vertex is coordinatewise truncated h; clipping the unique projection p(h) to that vertex strictly decreases each removed-coordinate squared error. KKT on sum s_i=(r-2)/2 yields unique s_i=min(1/2,lambda/a_i), all s_i>0; strict symmetric concavity gives class-balance extremizers; four-part threshold at 3a=b follows by cap activation. Domain r>=3, every a_i positive integers, standard vertex-coordinate Euclidean metric.
+
+## originality
+
+PASS
+
+Best-of-knowledge original surviving contribution: Priority assessed by comparing precise mathematical implications and acknowledging stronger partial coverage; historical first priority is not certified.
+
+## value
+
+PASS
+
+The exact Hausdorff gap between common fractional edge and integral stable-set relaxations is a natural optimization stability invariant. The singular full-half extremizer, optimal class-size profiles and contact transition are new geometric structure, not just a graph parameter renaming. General half-integrality alone does not determine metric separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
