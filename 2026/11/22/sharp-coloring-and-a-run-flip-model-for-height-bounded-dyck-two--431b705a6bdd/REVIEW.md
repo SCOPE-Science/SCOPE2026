@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The argument uses the published exact Type-A single-deletion intersection criterion and proves that the sum of one-positions changes by a nonzero residue modulo semilength. The height-two Dyck/bit-string bijection is reversible; constant-block flips are exactly the allowed alternating intervals. The explicit \(n\)-clique proves tightness, and counts of degrees, edges, color-class sizes and an induced five-cycle have direct enumerative proofs. Independently written deck and bit-graph scripts passed over their stated finite ranges, including the direct descendant-set comparison through semilength eight.
+
+**Originality — PASS, with residual risk.** published-finding corpus semantic searches and materially inspected source statements distinguish published full-Dyck edge/max-degree work, unrestricted-alphabet clique/edge work, and general fixed-composition checksum coloring from the claimed height-two graph isomorphism and height-ceiling sharp coloring. The numerical edge formula matches an already published formula for a different graph and is explicitly not claimed as a new numerical identity. The new contribution is the structural reduction, sharp height-restricted coloring, exact class sizes and odd-hole boundary. Earlier equivalent graph models could exist but none was identified in searched sources.
+
+**Value — PASS.** This natural nested-parenthesis source has an explicit finite-state encoding and a multi-read deletion ambiguity graph. A sharp all-length codebook partition into \(n\) classes, with exact binomial class sizes at height two, is a meaningful structural answer; the odd hole shows that the global coloring/clique equality does not come from graph perfection. The maximum individual code size is not supplied, nor asserted.
+
+**Closest literature and limits.** Sala et al. (2016) motivates exact synchronization-code reconstruction, Cai et al. (2020) supplies the alternating-interval lemma. Relevant published full-Dyck and unrestricted-word edge/clique results were inspected. The checksum technique and edge-count expression have published antecedents. Full bibliographic uniqueness remains subject to unindexed literature. Finite verifiers do not prove the universal formula, and independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
