@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns one concrete Schur multiplier norm and its induced-subgraph consequences. The core singular values and transitivity yield \(\|C_n\|_\bullet=2(n-1)/n<2\). The weighted trace formula is independently reconstructed from the graph's depth partial isometries and core singular-value multiplicities; its normalization uses \(S=\sum u_k^2\) and the exact layer count \(15R^k\). The finite certificate is checked by the embedded standard-library script: thirteen symmetric rational dual matrices have matrix-square row-sum defects at most \(2/100000\), which rigorously controls their operator norms, and an exact-rational trace inequality yields a lower bound above \(20029/10000\). The strict inequality propagates to every \(n\ge15\) by induced-subgraph monotonicity. Finite diagnostics are not substituted for the universal proof: the only infinite quantifier is discharged by the explicit induced-subgraph embedding. The proof depends on the established general Schur trace formula, whose hypotheses and reduction are restated in RESULT.md.
+PASS
 
-## Originality — PASS, with residual priority risk
+Read the exact trace-class weighted Schur norm reduction in Levene Theorem 3.8, match its normalized branch populations to 13 rational symmetric tridiagonal blocks A_+, A_- and A_l (l=1..11). Recomputed the supplied 13 integer dual reflection matrices with independent BigInt rational fraction arithmetic; every H_B is symmetric and max row-sum norm of H_B²-I is 32867079/100000000000000 <2/100000. Thus ||H_B||op≤1+1/100000 and trace duality gives ||B||1≥tr(H_B B)/(1+1/100000). Independently evaluated all traces and strict rational comparison T>20029/10000*(1+1/100000)*S, yielding certified lower approx 2.002944900198419. Core norm is 2(n-1)/n. For all n>=15, induced subgraph compression inherits the strict bound. No exact norm or optimality assertion.
 
-The closest source is Levene, arXiv:2611.08419v1 (2026-11-05), Section 6: it reports precisely the \(J_{15}-I_{15}\), twelve-level, thousandfold-branching inequality only from uncertified numerical maximization, and says that its only proved productive core had a different tensor-product form. The present certificate closes that expressly acknowledged proof gap. The work does not claim to originate the tridiagonal formula, the definition of productivity, or the previously proven global half-line. Comparisons also cover Levene 2014 and the blocky-decomposition results of Beke et al. 2026. published-finding corpus searches, and the accessible local historical claims checked for the source, crown graph, productive-core terminology, factorization norm, and equivalent tree attachments, found no same implication. Numerical evidence in the source does not constitute a proof; nonetheless unknown independent certificates remain a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is not a free numerical example or a routine restatement of an optimization formula. The motivating article makes the exact crown-core cutoff \(n=15\) an explicit prospective new productive family but leaves its numerical evidence uncertified; the verified strict margin closes that gap and gives every \(n\ge15\) by a transparent structural transfer. The result extends the class of proven productive cores from a single tensor-product construction to the natural crown family, making the known interval-producing theorem applicable to each. It does not claim an optimal size threshold, a new global half-line theorem, or a better bound for the first interval.
+Previously published results already establish productivity of all crown cores n>=13 and even n>=12, using much taller or more highly branched trees. Their larger family coverage DOES cover the generic productivity corollary here. However, those facts do not imply the specific 1000-branch, height-12 strict norm bound >2.0029. Levene Section 6 explicitly left that exact parameter instance as an unproved numerical observation. The exact rational witness resolves that distinct well-motivated precise statement; originality PASS is limited to the fixed quantitative certificate, not the family productivity slogan.
 
-## Closest literature and limitations
+## value
 
-Primary: Levene (2026), Theorem 3.8, Proposition 5.5, Remark 5.6 and Section 6; the precise numerical observation is the point of comparison. Historical: Levene (2014), early small-norm classifications and path calculations. Structural: Beke et al. (2026), decomposition into blocky matrices. A broader unindexed finite spectral certificate could cover this result. No independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise finite height-12 thousand-ary certificate resolves an explicit unverified numerical example in the motivating primary paper and quantifies its margin above two. This narrowly targeted exact fact has mathematical value independent of now-known taller-tree generic productivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

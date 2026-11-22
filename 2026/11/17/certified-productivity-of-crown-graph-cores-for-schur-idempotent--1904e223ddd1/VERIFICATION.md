@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python verify_schur_productivity.py schur_productive_certificate.json` using Python 3. The checker depends only on the standard library and reads both attached exact data and the reconstructed rational operator blocks. It checks the thirteen matrices' dimensions, integer entries and symmetry, bounds each matrix-square defect with rational arithmetic, and proves a rational strict lower bound greater than \(20029/10000\). It does not use a numerical eigensolver, an external package, random sampling, or a timeout to prove anything.
+## correctness
 
-The graph-to-block identity and extension to every larger crown core are mathematical arguments in RESULT.md, not program assertions. A successful run verifies the finite premise needed by those arguments, rather than proving the external published reduction afresh. The independent audit status is not_performed.
+PASS
+
+Read the exact trace-class weighted Schur norm reduction in Levene Theorem 3.8, match its normalized branch populations to 13 rational symmetric tridiagonal blocks A_+, A_- and A_l (l=1..11). Recomputed the supplied 13 integer dual reflection matrices with independent BigInt rational fraction arithmetic; every H_B is symmetric and max row-sum norm of H_B²-I is 32867079/100000000000000 <2/100000. Thus ||H_B||op≤1+1/100000 and trace duality gives ||B||1≥tr(H_B B)/(1+1/100000). Independently evaluated all traces and strict rational comparison T>20029/10000*(1+1/100000)*S, yielding certified lower approx 2.002944900198419. Core norm is 2(n-1)/n. For all n>=15, induced subgraph compression inherits the strict bound. No exact norm or optimality assertion.
+
+## originality
+
+PASS
+
+Previously published results already establish productivity of all crown cores n>=13 and even n>=12, using much taller or more highly branched trees. Their larger family coverage DOES cover the generic productivity corollary here. However, those facts do not imply the specific 1000-branch, height-12 strict norm bound >2.0029. Levene Section 6 explicitly left that exact parameter instance as an unproved numerical observation. The exact rational witness resolves that distinct well-motivated precise statement; originality PASS is limited to the fixed quantitative certificate, not the family productivity slogan.
+
+## value
+
+PASS
+
+The precise finite height-12 thousand-ary certificate resolves an explicit unverified numerical example in the motivating primary paper and quantifies its margin above two. This narrowly targeted exact fact has mathematical value independent of now-known taller-tree generic productivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
