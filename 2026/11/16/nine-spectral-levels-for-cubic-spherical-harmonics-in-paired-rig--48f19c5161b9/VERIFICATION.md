@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the degree-three paired-lune spectrum
+# Independent mathematical audit
 
-## Analytical checks
-The complete proof is in `RESULT.md`. Its normalized radial beta-correlation identities, four-by-four characteristic polynomial, multiplicity sum, and core strict-ordering identity are reconstructed by `verification/symbolic_check.py` using exact SymPy expressions. The two positive correlations are explicitly calculated, rather than inferred from floating-point matrix diagonalization.
+## correctness
 
-## Direct Gram computation
-`verification/gram_check.py` independently constructs all harmonic cubic polynomials by projecting degree-three monomials via \(P\mapsto P-|x|^2\Delta P/[2(d+2)]\). It computes full-sphere and wedge-restricted moments via sphere beta moments and the regularized incomplete beta function, whitens a full Gram matrix and compares its entire spectrum to the explicit formula in dimensions \(3,4,5,6,7,8\). Every rank count agrees with \(d(d-1)(d+4)/6\); the largest absolute eigenvalue discrepancy observed was \(3.66\times10^{-15}\). The dimension-three test checks agreement with the known boundary specialization and is not included in the new claim.
+PASS
 
-## Reproduction
-From the unpacked artifact directory, execute:
+Probability-normalized angular θ for first two coordinates is independent of s=x1²+x2²~Beta(1,(d−2)/2) and transverse direction. The displayed transverse harmonic degrees j=0..3 give exhaustive orthogonal cubic decomposition; dimensions sum exactly to d(d−1)(d+4)/6. h(θ)=sign(cos2θ) has Fourier coefficients 2/π at ±2, zero at ±4 and −2/(3π) at ±6; hence T=I/2+K/π in indicated finite blocks. Exact beta moment correlations η0²=(d−2)/(3(d+2)), η1²=d/(2(d+2)) produce K0 4×4 eigenvalues ±(R_d±1)/3, K1 three-level 0,±sqrt(d/(d+2)), K2 ±1, K3=0. Block dimensions give zero multiplicity m+dim H3(m)=binom(d,3), and 4 simple outer branches, plus ±1/π of multiplicity d(d−3)/2, plus ±sqrt(d/(d+2))/π of multiplicity d−2. R_d monotone increasing with d and <sqrt7 yields strict order and sharp condition number. Independently diagonalized K0 in d=4,5,9 with max error 4.44e−16, a finite consistency check only. Boundary d=3 excluded because already covered by earlier pure-cubic quarter-lune result.
 
-```bash
-python verification/symbolic_check.py
-python verification/gram_check.py
-```
+## originality
 
-Dependencies: Python 3, SymPy, NumPy and SciPy. Both checks passed in the present package construction. They are checkers, not proof of an infinite claim in isolation. The all-dimensional argument uses symbolic identities and decomposition, and does not use finite enumeration to justify its universal part. No human or independent audit has been performed.
+PASS
+
+Best-of-knowledge PASS for d>=4 higher-dimensional exact paired-lune spectrum. Read full published d=3 quarter-lune result: parity can double its spectrum for d=3, which is intentionally excluded. General spherical Slepian method of Simons et al. gives eigenvalue formulation and numerical cap calculations on S² rather than these exact nine all-d sector levels. Other published cubic cap and octant masks and quadratic lune bands are different region/degree data. No exact higher-dimensional paired-lune coverage was found; full literature inventory remains bounded.
+
+## value
+
+PASS
+
+Natural exact Slepian concentration invariant: complete nine-level spectrum across all ambient dimensions gives sharp stable restriction to a half-area disconnected mask, shows a binomial(d,3) protected half-energy sector, and an explicit dimension-independent optimal conditioning law. The sector classification is more informative than a routine numerical eigenproblem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
