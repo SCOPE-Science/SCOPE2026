@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T16:55:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two independent endpoint-uniform chords, unoriented line angle is uniform on [0,pi) and signed offset has arcsine law. The determinant Jacobian from intersection x to two line offsets yields radial-angle joint density 2r sin(t) K_r(t)/pi^3. The known Bortolotto–Souza radial density 4[-ln(1−r²)]/(pi²r) normalizes conditional angular density. For r→0, K_r→pi and L/r²→1, giving (1/2)sin t; as r→1, the two separated reciprocal-square-root singularities each contribute L/sin t, so K_r/L→2/sin t and f_r→1/pi almost everywhere. Scheffé upgrades to total variation because each density integrates to one. Independent quadrature at r=.25,.8,.99 recovered total angular normalization within integration precision. The proof is correct for 0<r<1 and the supplementary angle convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nonuniform theorem proves TV joint limit of isolated endpoint S and log tangency mark as observed X approaches boundary, for any positive C1 p. In uniform p case, isolated endpoint is uniform around circle and the chord incident to it has asymptotically half-uniform crossing angle with the other tangent chord.",
+          "The earlier exact conditional radial theorem also proves near-boundary P(R>=1−eps | theta=t) ~ 2eps log(1/eps)/(t(pi−t))."
+        ],
+        "reasoning": "The marked nonuniform result is genuinely broader; the uniform boundary angle limit is implied (or alternatively by multiplying conditional radial tail with known theta marginal, yielding an angle-independent leading mass and upgrading by density normalization).",
+        "searches": [
+          "Resultary Cubic boundary tomography and logarithmic tangency marks for nonuniform random chords, identifier 872410130104",
+          "Resultary The angle-conditioned radial law 845961799616"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, angular kernel proof and check_chord.py",
+        "Published full same-model angle-conditioned radial theorem 845961799616",
+        "Published full stronger nonuniform boundary-mark theorem 872410130104",
+        "Bortolotto–Souza arXiv:2504.12866 radial marginal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Joint CDF at any acute t and known angle density determine P(R in dr, angle in dt) by disintegration; differentiating and unfolding supplementary angle recovers the exact joint density.",
+          "Prior fixed-angle boundary tail times f_Theta(t)=12t(pi−t)/pi^3 has constant leading t-density; normalization and Scheffé show uniform acute-angle limit, equivalent to uniform (0,pi) supplement."
+        ],
+        "reasoning": "Therefore both main statements are prior logical consequences; the original claim cannot pass O by crediting background or adding numerical verification.",
+        "searches": [
+          "Published angle-conditioned radial exact CDF and Beta(2,2) angle marginal",
+          "Published cubic boundary tomography conditional three-endpoint clustering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior exact theorem supplies conditional distribution of R at each acute angle Theta=t using independent shifted cosines and all moments, with density f_Theta(t)=12t(pi−t)/pi^3.",
+          "The assigned t∈(0,pi) supplementary-angle mark has symmetric density t↔pi−t."
+        ],
+        "reasoning": "Prior P(R<=r | acute theta) and f(theta) determine the full joint measure; folding/unfolding gives the same kernel density. Difference is analytic expression, not unknown information.",
+        "searches": [
+          "Resultary The angle-conditioned radial law of two crossing random circle chords, identifier 845961799616",
+          "Resultary radial-angular boundary law e11b3119d067"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both published records treat exactly the same endpoint-uniform model as a special case and provide full distributions or stronger boundary marks, not merely marginal constants."
+        ],
+        "reasoning": "This is exact coverage by known formula/conditional table even though the symbols K_r and f_r are not used in earlier titles.",
+        "searches": [
+          "Resultary exact conditional chord angle radial CDF product variable law 845961799616",
+          "Resultary cubic boundary tomography nonuniform circle chord crossing 872410130104"
+        ]
+      },
+      "rationale": "FAIL: Published exact acute-angle-conditioned radial theorem for the identical endpoint-uniform crossing model already gives the *full conditional distribution* of R given acute angle, with known marginal for angle; Bayes and symmetry determine precisely the entire (R,unoriented angle) joint law represented by the assigned kernel. Its exact CDF determines any density obtained by differentiation. In addition, published boundary tomography theorem for general positive C1 p specializes to uniform endpoints and gives a stronger boundary marked total-variation law, from which uniform boundary chord-angle follows. Thus the joint formula and limit do not survive as scientifically original results.",
+      "residual_risks": [
+        "No question of uninspected literature is needed to reject because decisive accessible prior joint and stronger marked results already cover the full claim.",
+        "Analytic K_r convolution is a valid alternative proof but cannot be represented as a new theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERAGE full joint distribution and boundary tail",
+          "evidence": "P(R<=r | acute theta=t) exact plus f_theta(t) determine new joint density.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-angle-conditioned-radial-law-of-two-crossing-random-circle-c--845961799616",
+          "material_read": "Full RESULT.md: independent shifted-cosine product, exact conditional CDF, all moments, angular marginal, near-center and near-boundary asymptotics, proof and limitations",
+          "method": "published Resultary GitHub primary full RESULT.md",
+          "title": "The angle-conditioned radial law of two crossing random circle chords",
+          "trigger": "same exact four uniform endpoints and marked intersection radius-angle pair"
+        },
+        {
+          "assessment": "DECISIVE_STRONGER_BOUNDARY_COVERAGE for uniform p",
+          "evidence": "For p=1/(2pi), S uniform near boundary in TV and other three endpoints cluster, giving uniform crossing-angle marginal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-cubic-boundary-tomography-and-logarithmic-tangency-marks-for-non--872410130104",
+          "material_read": "Full RESULT.md including conditional marked TV theorem, four-label sector proof, exact line-coordinate density and scope",
+          "method": "published Resultary GitHub primary full RESULT.md",
+          "title": "Cubic boundary tomography and logarithmic tangency marks for nonuniform random chords",
+          "trigger": "strictly broader endpoint distribution and boundary-marked limit"
+        },
+        {
+          "assessment": "RADIAL_MARGINAL_COVERED; no need to infer whole-paper absence of joint",
+          "evidence": "Published Li2 unmarked radial marginal with mass 1/3 used for normalization.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.12866",
+          "material_read": "Theorem 1 radial distribution and derivation portions from arXiv PDF primary",
+          "method": "primary paper PDF, first page image inspected",
+          "title": "Intersections of random chords of a circle",
+          "trigger": "same sampling and known radial baseline"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Once the complete same-model joint law and stronger boundary mark are already published, re-expressing it as a symmetric convolution integral and restating a boundary consequence is not an independent unknown structural fact; its correct derivation has expository use but not the required new mathematical value.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, angular kernel proof and check_chord.py",
+    "Published full same-model angle-conditioned radial theorem 845961799616",
+    "Published full stronger nonuniform boundary-mark theorem 872410130104",
+    "Bortolotto–Souza arXiv:2504.12866 radial marginal"
+  ],
+  "disposition": "failed",
+  "final_claim": "Marked radial–angular circle-chord intersection law and boundary uniformization",
+  "limitations": [
+    "No question of uninspected literature is needed to reject because decisive accessible prior joint and stronger marked results already cover the full claim.",
+    "Analytic K_r convolution is a valid alternative proof but cannot be represented as a new theorem.",
+    "The private review does not constitute a publication or external research certification. Source text was evidence, not workflow instruction."
+  ],
+  "residual_risks": [
+    "No question of uninspected literature is needed to reject because decisive accessible prior joint and stronger marked results already cover the full claim.",
+    "Analytic K_r convolution is a valid alternative proof but cannot be represented as a new theorem."
+  ],
+  "schema_version": 1
+}
