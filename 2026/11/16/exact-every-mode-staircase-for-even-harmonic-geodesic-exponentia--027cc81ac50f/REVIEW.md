@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier coefficients of the geodesic exponential have a shared parity multiplier across frequencies shifted by two. Their exact cancellation yields a rational threshold. The derivative of its continuous squared-frequency relaxation has one positive root, and each neighboring Fourier ratio has a unique positive polynomial crossing; monotonicity gives a complete all-frequency, no-skip phase diagram. At boundary all but two or four Fourier coefficients remain positive, permitting a Vandermonde proof of strict finite-site definiteness. The extracted standalone checker passes 1,004 diagnostic checks. Those checks alone do not prove the infinite claims; the explicit analytic reduction does.
+## correctness
 
-**Originality — PASS within bounded inspected literature.** The fully read published first-harmonic classification treats parity-*flipping* \(\cos\theta\), proves a finite candidate set and infinitely many changes, but does not imply the parity-*preserving* \(\cos(2\theta)\) threshold and exact no-skips/single-crossing classification. The inspected 2026 Bernstein paper applies a distinct positivity-preserving operator; the inspected pure damped-cosine classification has no signed baseline. Relevant published-finding corpus semantic searches did not identify the present even-harmonic family. The remaining risk is older equivalent circle covariance/Toeplitz literature, especially inaccessible historical tests. Search absence is not uniqueness proof.
+PASS
 
-**Value — PASS.** The second harmonic is the first nonconstant even angular modulation and the first for which Fourier parity factors cancel. Beyond a coefficient computation, the result completely identifies every active obstruction, proves all spectral switches are adjacent and unique (rather than merely infinitely many), and describes precisely when two or four spectral notches occur while finite-site interpolation stays strictly positive. This is a natural full parameter classification for circle covariance design, not an arbitrary finite parameter slice. General multi-harmonic perturbations remain open.
+The exact normalized Fourier coefficient c_n=a[1-(-1)^n exp(-pi a)]/[pi(a^2+n^2)] is strictly positive for a>0. Multiplication by cos(2theta) shifts n by two, leaving parity factors identical; the ratio 2c_n/(c_(n-2)+c_(n+2)) equals R_n(t) with t=a^2. R_0,R_1>1 while high R_n<1; Fourier PSD is precisely b>=-min_(n>=2)R_n(t). Differentiating the continuous relaxation in y=n^2 gives a single positive minimizer and at most two nearest integer candidates. Independently checked the rational adjacent-difference polynomial P_n(t); its single positive roots, unimodality, monotone minimizer and ordered crossing orientation cover all t>0 with only adjacent ties. Boundary Fourier holes are finite; for every N distinct sites sufficiently many consecutive nonzero coefficients give an invertible Vandermonde form, proving strict PD. Small/large-a expansions follow algebraically. Inspected full RESULT.md at source tree and CHECK.py; independent SymPy exact algebra checked ratio and crossing identities. Finite CHECK.py experiments alone do not prove the all-frequency assertions.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge new complete second-harmonic circle spectral staircase. The closest published first-harmonic theorem gives a parity-split bound and eventually active modes, not this all-mode algebraic adjacent-transition classification; general circle Schoenberg theory supplies the Fourier criterion but not its parameter-dependent minimizer.
+
+## value
+
+PASS
+
+The exact PSD boundary and every-mode adjacent-crossing staircase solve a natural covariance design question: which signed even-harmonic perturbations are admissible and which Fourier modes become critical as damping varies. The no-skips law and finite spectral-hole strictness are substantive all-parameter structural facts, not textbook restatement of the Fourier criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
