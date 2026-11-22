@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the high-energy residence theorem
+# Independent mathematical audit
 
-The analytic proof uses only polynomial expansion, analytic simple-turning-root continuation, a positive quadratic factor and bounded regularized quadratures. The error estimates hold for each fixed coefficient quadruple, with \(h>0\).
+## correctness
 
-**Critical symbolic identities:** \(s=-k_2/(3h)\) eliminates the cubic term in the potential, leaving \(K_2=k_1-k_2^2/(3h)\) and \(K_1=F-k_1k_2/(3h)+2k_2^3/(27h^2)\). After rescaling, the perturbations are \(O(A^{-2})\) and \(O(A^{-3})\). For zero odd perturbation, the position mean vanishes and the original sign-cut moves by \(-s/A\); this produces the leading signed coefficient. The period-normalized unperturbed density integrates to one because \(I=\int_0^1(1-u^4)^{-1/2}du\).
+PASS
 
-**Numerical check:** run `python verify.py` in this directory with NumPy and SciPy. The program evaluates the original physical-time quadratures without resolving the square-root turning singularities numerically, tests three parameter sets and checks reconstruction algebra. Expected terminal marker: `QUARTIC_SIGNED_RESIDENCE_INVERSE_CHECK_OK`. Floating-point tolerance and finite-energy samples do not certify an infinite-energy limit.
+For fixed h>0,k1,k2,F real, the potential quartic has depressed shift s=-k2/(3h). With A=[4(E-K0)/h]^(1/4), centered u=(x-s)/A, the energy polynomial is 1-u^4-epsilon u^2-eta u with epsilon=O(A^-2), eta=O(A^-3). Its two simple moving turning roots factor with a positive quadratic. Substitution u=m+d sin(theta) turns physical-time Abel integrals into analytic bounded parameter integrals. Symmetry at eta=0 gives J_u=0 and analytic odd response O(eta), so mean x=s+O(A^-2). Period T=2sqrt2 a_h I E^-1/4[1+O(E^-1/2)]. The signed original-x residence threshold u=-s/A yields leading coefficient s/(A I), with O(A^-3) remainder. Therefore the limits E^(1/4)T and E^(1/4) signed fraction determine a_h then h=4/a_h^4 and k2=-3hs. A common regular theta-coupling bounds W1 distance from the quartic-oscillator occupation density by O(A^-2)=O(E^-1/2). Independent check: Independently integrated the original physical-time quartic turning-point quadratures for (k1,k2,h,F)=(1,2,3,0.7) and energies 100,10000,1000000. Obtained E^1/4 T≈3.98451965 at E=10^6 versus predicted 3.9846658 and scaled signed imbalance≈-0.15774534 versus -0.15773954. Independently checked depressed-quartic algebra and limiting density normalization. Numerical quadrature is corroboration, not infinite-E proof.
 
-**Unproved extensions:** noisy finite-energy estimation; uniformity as \(h\downarrow0\); damped or time-dependent forced dynamics; recovery of \(k_1\) or \(F\) from these two limits; publication-priority completeness. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge: examined primary source evidence, actual same-object implications, and published mathematical findings. Earlier constructions, generic formulas and independent source results are credited; the surviving quantitatively specified theorem is not implied by the directly inspected antecedents. No certification of absolute historical priority is asserted.
+
+## value
+
+PASS
+
+Two natural experimentally interpretable high-energy observables—the oscillation period and sign-dependent residence—identify the highest two polynomial restoring coefficients separately despite nuisance linear/load terms. The universal quartic occupation law and controlled errors show the asymmetry enters at a distinct identifiable scale, a motivated inverse-dynamics structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

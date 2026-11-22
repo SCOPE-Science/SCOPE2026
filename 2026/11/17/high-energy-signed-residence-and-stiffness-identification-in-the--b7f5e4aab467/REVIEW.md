@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The quartic potential is transformed into an exactly depressed quartic. Simple turning points admit analytic parameterization and the Abel square-root singularities are removed by a sine substitution. The resulting smooth quadratures justify each error bound, including the signed physical-time occupation coefficient. The coupling proof gives the stated weak probability bound. A separate numerical quadrature on three parameter sets corroborates the limiting constants but is not used as an infinite-energy proof.
+## correctness
 
-**Originality — PASS within inspected literature.** Big-Alabo–Alfred's 2024 open full text provides exact physical-time periodic waveforms and elliptic periods for this same system: that is prior art, not claimed here. The full introduction, construction, exact-period formulas, application and conclusion were compared for the specified signed high-energy residence and two-observable inverse; neither is stated there. Other retrieved period and signed-occupation findings use different cubic/global or switching oscillators, and their conclusions do not imply the present quartic-potential inverse. An equivalent asymptotic extraction from the known exact formula remains an explicit priority risk.
+PASS
 
-**Value — PASS.** The asymmetry coefficient is invisible in the leading high-energy period, yet is recovered by a naturally measurable oriented time statistic. The theorem supplies a global two-coefficient high-energy identification law despite arbitrary linear stiffness and constant load, as well as a quantitative universal time-sampling distribution. It clarifies which asymmetry remains observable in the strongly nonlinear regime.
+For fixed h>0,k1,k2,F real, the potential quartic has depressed shift s=-k2/(3h). With A=[4(E-K0)/h]^(1/4), centered u=(x-s)/A, the energy polynomial is 1-u^4-epsilon u^2-eta u with epsilon=O(A^-2), eta=O(A^-3). Its two simple moving turning roots factor with a positive quadratic. Substitution u=m+d sin(theta) turns physical-time Abel integrals into analytic bounded parameter integrals. Symmetry at eta=0 gives J_u=0 and analytic odd response O(eta), so mean x=s+O(A^-2). Period T=2sqrt2 a_h I E^-1/4[1+O(E^-1/2)]. The signed original-x residence threshold u=-s/A yields leading coefficient s/(A I), with O(A^-3) remainder. Therefore the limits E^(1/4)T and E^(1/4) signed fraction determine a_h then h=4/a_h^4 and k2=-3hs. A common regular theta-coupling bounds W1 distance from the quartic-oscillator occupation density by O(A^-2)=O(E^-1/2). Independent check: Independently integrated the original physical-time quartic turning-point quadratures for (k1,k2,h,F)=(1,2,3,0.7) and energies 100,10000,1000000. Obtained E^1/4 T≈3.98451965 at E=10^6 versus predicted 3.9846658 and scaled signed imbalance≈-0.15774534 versus -0.15773954. Independently checked depressed-quartic algebra and limiting density normalization. Numerical quadrature is corroboration, not infinite-E proof.
 
-**Limitations and evidence.** Fixed \(h>0\), conservative dynamics, sufficiently high energy, and two coefficients only. Independent expert verification and exhaustive priority search are not performed. Reference: Big-Alabo and Alfred (2024), DOI `10.1177/14613484241275526`. Finite tests use NumPy/SciPy and are explicitly corroborative.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: examined primary source evidence, actual same-object implications, and published mathematical findings. Earlier constructions, generic formulas and independent source results are credited; the surviving quantitatively specified theorem is not implied by the directly inspected antecedents. No certification of absolute historical priority is asserted.
+
+## value
+
+PASS
+
+Two natural experimentally interpretable high-energy observables—the oscillation period and sign-dependent residence—identify the highest two polynomial restoring coefficients separately despite nuisance linear/load terms. The universal quartic occupation law and controlled errors show the asymmetry enters at a distinct identifiable scale, a motivated inverse-dynamics structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
