@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The exact inclusion-exclusion identity reduces every weight-at-most-three Walsh multiplier to eight or fewer explicit integer sums. The independent direct signed-incidence parity method checks the same complete 4,525-frequency width-ten domain; both agree on zero counts \(0,0,30\), all character values, and the fifteen half-turn orbit representatives. Identical complete tests establish weight-one/two counts at widths two, six and fourteen. The odd-width central-cell argument and odd-total cardinality argument close the claim that width ten is the first cubic-only case. No finite test is used as an infinite theorem.
+
+**Originality — PASS under bounded comparison.** The primary plane-partition sources establish enumeration and asymptotics, Dhand establishes rank-unimodality and Ferrers complement duality, and de Wolf supplies general Boolean Fourier methods. Full available texts of the closest published two-row Young-diagram results and the \(2\times3\times4\) boxed-plane-partition spectrum were compared. None states or implies the width-ten \(3\times10\) cellwise sparse cancellation census or its thirty triples. Differences were checked at object/coordinate/support level, not title similarity. The residual risk is an unindexed equivalent signed enumerator or specialized earlier table.
+
+**Value — PASS.** Sparse Walsh cancellation measures the first local Fourier blind spots of a natural Young-lattice incidence signal. The three-row family first exhibits cubic-only cancellation at the nontrivial width ten, with all thirty offending triples determined, and returns to quadratic cancellation at width fourteen. This is a concrete nonmonotone boundary distinguishing the first three singular widths and complements established two-row behavior; the finite result does not purport to solve general spectrum questions.
+
+Closest literature: Cohn–Larsen–Propp (1998), Ciucu (1998), Dhand (2013), de Wolf (2008), and the inspected published two-row and boxed-partition Fourier results listed in the main references. Access and indexing limitations affect historical priority only; no independent mathematical audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
