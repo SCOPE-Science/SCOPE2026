@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The claimed edge partition follows by exhausting the only two path-token move types and checking disjoint path membership. Every path has n distinct token-pair vertices and n-1 edges, and its unique base-wrap move closes an n-cycle. Each odd n-cycle forces at least one uncut edge, while parity lifting of a base cycle maximum cut attains the aggregate bound. The 0/odd edge bipartization equivalence is proved for arbitrary finite graphs. No infinite statement depends on enumeration; the checker explicitly verifies cycles for n=3..150 and independent optimal cuts for n=3..7.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general inequality in arXiv:2611.25153v1, equation (1), gives for k=2 the bound (n-2)MaxCut(C_n), which agrees with this theorem but does not give an upper bound.",
+        "The earlier spectral paper computes spectral radii and a distance-class quotient matrix, rather than graph cut counts.",
+        "published mathematical records matching token graph result concerns domatic number; matching maximum cut result concerns a different base graph."
+      ],
+      "reasoning": "Comparing implications shows that equality in the general parity-lift bound is the missing assertion for nonbipartite odd cycles; the explicit n-cycle edge partition supplies the new upper bound. No stronger directly applicable theorem was established in inspected material.",
+      "searches": [
+        "published mathematical records: Maximum cuts and bisections in Johnson graphs and triangular graph, token graphs of complete graphs",
+        "published mathematical records: Max Cut on Token Graphs by Alejandro-Soto Araujo Fabila-Monroy 2026",
+        "https://arxiv.org/html/2611.25153v1 sections 2 and 3",
+        "https://link.springer.com/article/10.1007/s40590-023-00583-3 sections 4 and 5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.25153v1",
+      "https://arxiv.org/html/2611.22830v1",
+      "https://doi.org/10.1007/s40590-023-00583-3",
+      "https://doi.org/10.1007/s00373-025-02953-2",
+      "https://arxiv.org/abs/2609.31991",
+      "Sharp three-domatic threshold for two-token cycle graphs",
+      "All minimum simple-path edge decompositions of cycle bouquets",
+      "Turan constants of Boolean edge shells on edge-transitive graphs",
+      "Odd-dominating edge cuts and the exact connectivity premium on triangular graphs",
+      "Independent-dominating-set polynomial of two-token complete bipartite graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 Max-Cut paper proves the parity-lift lower bound but not its tightness on odd cycles or an edge partition of F_2(C_n).",
+        "Rivera 2026-09-25 proves a packing-number lower bound on exactly the same graph; Rivera 2026-11-17 proves independence results.",
+        "The 2025 decomposition paper treats C_m square C_n instead of F_2(C_n)."
+      ],
+      "reasoning": "The new upper bound rests on a specific partition of token edges into n-2 odd cycles and is not a consequence of vertex packing or independence formulas. No valid implication from the inspected broader theorems to this edge partition was identified.",
+      "searches": [
+        "https://arxiv.org/html/2611.25153v1 equation (1), sections 2-4",
+        "https://arxiv.org/html/2611.22830v1 Theorem 1.1, sections 2-4",
+        "https://www.arxiv.symmetricfunctions.com/paper/2609.31991v1",
+        "https://link.springer.com/article/10.1007/s00373-025-02953-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An optimal bipartization of the token graph would be equivalent to its MaxCut formula because edge bipartization equals |E|-MaxCut.",
+        "The full published arXiv:2611.25153v1 discusses max-cut in token graphs, but only gives a general lower bound for cycles and exact results for other families."
+      ],
+      "reasoning": "The equivalent frustration-index and lifted parity-cut formulations were compared as statements, not just as matching titles. No matching all-order bipartization theorem was located; absence from search is not proof of priority.",
+      "searches": [
+        "published mathematical records: Exact maximum cut number of two-token graphs of odd cycles and cycle token graphs F_2(C_{2m+1})",
+        "web: \"maximum cut\" \"2-token graph\" \"cycle\"",
+        "web: \"maximum cut\" \"symmetric square\" \"cycle\" graph",
+        "web: \"2-token\" \"odd cycle\" \"frustration index\" max cut"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2611.22830v1 reports exact independence number and maximum independent-set classification for F_2(C_n); those are not maximum-cut values.",
+        "The available published spectral and packing results for the graph report different invariants."
+      ],
+      "reasoning": "Neither a known exact cut table nor a known n-cycle edge-decomposition table was located in these searches; the statement is not a mere recomputation of the cited known independence or packing data.",
+      "searches": [
+        "web: \"F_2(C_n)\" \"bipartite\" \"edge\" deletion",
+        "web: \"F2(Cn)\" \"n-2\" \"cycle\" decomposition",
+        "published mathematical records: Edge decomposition of two-token graph F_2(C_n) of the cycle into n-2 edge-disjoint cycles of length n",
+        "https://arxiv.org/html/2611.22830v1 introduction and sections 2-4"
+      ]
+    },
+    "rationale": "The two-token cycle edge partition and sharp maximum-cut upper bound are not implied by the available papers: the 2026-11-18 general parity lift gives precisely the lower bound but not its equality for odd cycles; 2026-09-25 packing and 2026-11-17 independent-set papers calculate unrelated vertex-set invariants. published mathematical records semantic checks and recoverable previous claims found no equivalent result. Remaining older-source priority risk is explicitly recorded.",
+    "residual_risks": [
+      "Older unindexed results under double vertex graphs, symmetric squares, or odd-cycle edge bipartization may imply or explicitly state the theorem.",
+      "The eligible motivating packing preprint could not be read in full; only abstract-level distinction was established.",
+      "Comparative novelty has not undergone independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the general parity-lift lower bound and unrelated exact families, but does not supply the odd-cycle matching upper bound or equal-length token edge decomposition.",
+        "evidence": [
+          "Equation (1) states m(F_k(G)) >= binomial(n-2,k-1) m(G).",
+          "Section 3 addresses complete graphs, triangular and Kagome patches, and random graphs rather than base cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.25153v1",
+        "material_read": "Primary HTML abstract and introduction, section 2 equation (1) and its proof, section 3 exact-family statements, and section 4 scope; posted 2026-11-18, later than the frozen 2026-11-15 anchor.",
+        "method": "Read available primary HTML including statements and proofs and compared coverage of base graph families and implications.",
+        "title": "Max-Cut on Token Graphs",
+        "trigger": "Directly matching objective and token construction"
+      },
+      {
+        "assessment": "Determines vertex independence, not maximum edge cuts or edge decompositions.",
+        "evidence": [
+          "Abstract gives the number of maximum independent sets and their correspondence with toroidal kings.",
+          "Section 1 describes distance levels of F_2(C_n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.22830v1",
+        "material_read": "HTML abstract, introduction, Theorem 1.1, and sections on level adjacency and maximum independent sets; posted 2026-11-17, later than frozen anchor.",
+        "method": "Read primary HTML and inspected main theorems and the graph-level description.",
+        "title": "Independent sets in the 2-token graph of a cycle and kings on the torus",
+        "trigger": "Exactly same graph and possible structural coverage"
+      },
+      {
+        "assessment": "Reports spectral quantities and distance-regular partitions, not maximum cut or cycle edge partition.",
+        "evidence": [
+          "Corollary 4.3 specifies the adjacency spectral radius of F_2(C_n).",
+          "Section 5 constructs distance-class quotient matrices."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40590-023-00583-3",
+        "material_read": "Open-access article HTML including sections 4-5 and Corollary 4.3 for F_2(C_n).",
+        "method": "Read open-access primary HTML and inspected cycle graph results and theorem descriptions.",
+        "title": "On the spectra and spectral radii of token graphs",
+        "trigger": "Earlier detailed treatment of token cycle graphs"
+      },
+      {
+        "assessment": "Concerns C_m square C_n rather than F_2(C_n), with no identified implication to this token decomposition.",
+        "evidence": [
+          "Article states C_k-decompositions of Cartesian products of cycles and its necessary divisibility conditions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00373-025-02953-2",
+        "material_read": "Open-access HTML abstract, introduction and cycle decomposition propositions.",
+        "method": "Read primary article and compared exact graph operators.",
+        "title": "Cycle Decompositions of Cartesian Products of Two Cycles",
+        "trigger": "Plausible dominating general cycle decomposition"
+      },
+      {
+        "assessment": "Its available explicit theorem is a vertex-packing lower bound for F_2(C_n), not an edge cut or edge-cycle partition; full text not confirmed.",
+        "evidence": [
+          "Original arXiv 2609.31991 abstract states rho(F_2(C_n)) >= floor(n(n-2)/10)+1, posted 2026-09-25."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.31991",
+        "material_read": "Publicly indexed abstract and first-post date only; attempted original arXiv abstract and HTML but primary full text not accessible.",
+        "method": "Read public abstract and date metadata through indexed academic listings; attempted primary arXiv URL.",
+        "title": "An improved lower bound for the packing number of the 2-token graph of the cycle",
+        "trigger": "Eligible recent same-object motivating source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c46a125d-b54b-46da-9625-332cacc38171",
+  "value": {
+    "rationale": "The 2026 token-graph maximum-cut literature supplies only the general parity-lift lower bound. The equal-length cycle decomposition proves that it is sharp for a natural nonbipartite infinite family, with a quantitative frustration index and an explicit optimal cut. This is a complete graph-family classification of edge optimization rather than an arbitrary small parameter case; it also exposes a global edge packing structure that is not implied by known packing or independence numbers.",
+    "status": "PASS"
+  }
+}
