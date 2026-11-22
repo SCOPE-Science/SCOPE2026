@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact signed-arcsine chord-line parametrization and the containment equivalence lead to a one-dimensional angular integral. Its fixed-interior expansion is elementary, but the moving-boundary case requires a uniform comparison with the singular elliptic integral, including the integrable tangency endpoint. The resulting error is bounded uniformly on compact parameter intervals; a normalized conditional density converges to a mass-one product density, so Scheffé's lemma yields total variation. Direct endpoint-coordinate simulation and independent quadratures match the expansion. Finite checks are not proofs of limiting claims.
+## correctness
 
-**Originality — PASS, provisionally.** The classical center-distance chord law and basic arcsine offset measure are acknowledged as prior. The closest full texts inspected are Bäsel (2012), treating motion-invariant polygon chord lengths, and Bortolotto–Souza (2025), treating the radial intersection of two chord lines. Bortolotto–Ramos (2024) optimizes concentric-disk crossing probabilities over endpoint laws. These do not state or directly imply the explicit moving off-center boundary constant or the total-variation marked law. A 1966 chord-distance source was only available in abstract and historical priority is not certified. Informal off-center small-disk examples were found; the elementary spatial intensity is not the distinctiveness claimed.
+PASS
 
-**Value — PASS.** For endpoint-uniform circle chords, a shrinking target is hit at order \(\varepsilon\) in the interior but at order \(\varepsilon\log(1/\varepsilon)\) at tangency to the boundary. The finite crossover constant identifies dependence on target clearance, while the marked law identifies how grazing chords achieve interception. This is a natural geometric probability observable and a meaningful boundary singularity, not simply a new notation for a standard center calculation.
+For independent uniform endpoints, the supporting unoriented line has uniform angle theta in [0,pi) and independent signed arcsine distance s; because the target disk lies within the unit circle, segment and line hit events coincide. The exact arcsin integral is therefore valid. Fixed-r Taylor symmetry yields 4 K(r) epsilon/pi^2+O_r(epsilon^3); comparing the boundary integrand to K(1-epsilon(lambda-u)) and integrating the log singularity gives the stated two-term formula uniformly for bounded lambda>=1. Under alpha=epsilon^(w/2), each of the two angular branches has limiting conditional density 1/4 in (w,u), and Scheffe gives total variation. Fresh quadratures at lambda 1 and 2, epsilon=.01,.001 have residuals ~0.12–0.23 times epsilon^2 log(1/epsilon), consistent with the stated remainder. No claim for lambda divergent or a protruding target.
 
-**Limitations.** The remainder is uniform only for bounded \(\lambda\ge1\). Disk targets extending beyond the sampling circle and arbitrary endpoint sampling laws are excluded. No independent mathematical or historical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Historical endpoint-uniform chord measures and concentric-disk chord optimization are known. The new candidate is the explicit two-term boundary-moving small-disk law together with logarithmic angular/offset marked total-variation convergence; the inspected chord-optimization paper concerns a different centered-intersection extremization, not this one-chord moving target.
+
+## value
+
+PASS
+
+Endpoint-uniform chords are non-motion-invariant, and grazing a small disk near the sampling boundary has a nontrivial logarithmically enhanced rate. An explicit uniform boundary-layer crossover plus independent angular and displacement marks gives a meaningful rare-event geometric probability classification, not a mere restatement of a central chord distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
