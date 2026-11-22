@@ -1,0 +1,15 @@
+# Scientific review: a single-crossing weak-restart phase diagram
+
+## Correctness — PASS
+The exact process has two oriented states and exponentially sticky reflecting outer walls. The inward-target value obeys a killing/survival Bernoulli boundary condition; the outward-wall value includes an independent exponential holding time. The first and second backward-moment systems in `RESULT.md` are solved directly. The fourth-degree susceptibility polynomial is exactly reconstructed, and its Bernstein coefficients have at most one sign change. Descartes' rule limits the number of interior sign transitions to one, while explicit endpoints and monotone rate functions prove existence and strictness. `check.py` runs the actual symbolic consistency and published-uniform-variance identity tests. The classification is local in restart rate; no assertion is made about the equality case beyond its vanishing linear term.
+
+## Originality — PASS, qualified
+The exact spatial, two-parameter, weak-restart *sign classification* and its uniqueness mechanism are not among the derived results in the inspected principal 2023 first-passage paper. That paper supplies model dynamics and the spatially uniform mean and variance, so those inputs are acknowledged as prior and are reproduced as checks, not claimed as findings. The 2022 and 2023 boundary-absorption studies concern different reflection or reaction mechanisms; the 2025 partly absorbing resetting study uses a half-line and potentially nonrenewal local-time resets, rather than this bounded two-sticky-wall model. The standard weak-restart moment criterion itself is known. Published comparison records on reactive Brownian intervals, active OU searching, and sticky-wall tumbling optimization do not imply the stated exact Bernstein single-crossing for this active model. Search and full-text inspection cannot exclude all unindexed equivalent calculations; this remains a real publication-priority risk.
+
+## Mathematical value — PASS
+The quantity answers whether occasional experimental re-initialization makes target detection faster or slower, given a specified fixed launch site. The previously studied uniform-start observable does not reveal the sharp adverse near-wall region; the structural theorem proves there can be *only one* positional reversal and identifies the sharp speed/reactivity boundary for its appearance. The result is a continuous phase classification over all positive physical parameters, not an arbitrary data slice or routine parameter substitution.
+
+## Closest literature and limits
+Closest: Jeon, Go, Kim, arXiv:2310.04016v1, Sections II–III and Appendix C, including known Eq. 113; Bressloff, arXiv:2209.07293v2 and arXiv:2302.01158v1, boundary-reactive transport; Bressloff, arXiv:2503.01304v1, half-line RTP resetting. The new proof does not establish any positive-rate global optimum or behavior at a neutral first-order boundary. A published exact general propagator could in principle be specialized to this model, so independent bibliographic review remains necessary before a publication-priority assertion.
+
+Self-review: passed. Independent audit: not yet performed.
