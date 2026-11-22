@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact Gram integration gives the normalized observed energy, equality in the amplitude optimization follows from a nonnegative square, and the full sinc range is proved by a unique critical point in its first negative lobe and a strict tail bound. The real-frequency alignment times establish the global-in-exterior-point objective, and explicit witnesses establish attainment, nonattainment and divergence at phase aperture \(\pi\). Continuum quantifiers and endpoint \(\varphi=\varphi_*\) are covered; numerical checks are not used as proofs.
+## correctness
 
-## Originality
-PASS relative to inspected evidence. Zhang [1] proves general location-dependent upper bounds for arbitrary sparse Fourier sums but not a coefficient-phase-constrained constant uniform over the entire exterior. The exact two-frequency research results [2,3] give sharp unrestricted evaluation factors **at fixed exterior points**, not the double extremum with a phase constraint, and their unrestricted maximizing phases need not respect the cone. Comparison of formulas confirms no implication of the sharp crossover or attainment classification without a separate constrained optimization. Searches for sector-constrained, sign-coherent and nonnegative-coefficient exponential extrapolation did not identify a result with this same statement. Residual risk is a classical coefficient-cone inequality outside the inspected sources.
+PASS
 
-## Mathematical value
-PASS. Phase-limited two-tone extrapolation has a natural interpretation as coherent harmonic superposition: a bounded relative phase prevents arbitrarily deep cancellation on the observation interval even with arbitrarily close frequencies. This theorem gives the exact uniform stability margin, finds a sharp aperture at which the extremal mechanism changes, and distinguishes finite-gap realizability from a nonattained collision limit. It is a complete parameter classification rather than a fixed numerical example or a mere restatement of the unrestricted leverage formula.
+With d=T|λ1−λ2|, energy u²+v²+2uv sinc(d)cosθ is exact and positive for d>0. Every fixed phase aligns at some exterior time. A completed square forces u=v for the supremum. Global sinc minimum is uniquely -ρ at tan d*=d* in (π,3π/2); sinc<1 at positive d. Thus min sinc(d)cosθ=min(-ρ,cosφ), giving both branches, exact crossing, finite-gap equality and near-collision nonattainment. At φ=π destructive near-collision drives the quotient unbounded. Bisection and sampled CHECK.py values are supplementary, not universal proof.
 
-## Sources and limitations
-[1] R. Zhang, *Optimal Extrapolation Bounds for Sparse Fourier Sums*, arXiv:2607.10501 (2026), first posted July 11, Theorem 1.1 and Section 5.3. [2] *Sharp exterior leverage for two arbitrary Fourier frequencies* (2026), full mathematical result. [3] *Sharp two-frequency exterior Fourier leverage and the quadratic collision defect* (2026), full mathematical result. The scope is two real frequencies, centered interval, nonzero coefficients, and a principal-phase cone. Historical novelty beyond the inspected sources remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The constrained global exterior phase-cone statement and sharp attainment crossover are not implied by the inspected fixed-location unrestricted Gram optimizations; best-of-knowledge PASS subject to classical cone inequalities not fully ruled out.
+
+## value
+
+PASS
+
+This is the exact uniform stability constant for naturally coherent two-tone superpositions; it resolves the full aperture range, quantifies divergence near antipodal phase, and identifies an attained finite-gap versus nonattained collision mechanism. The phase restriction and centered interval are substantive, not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
