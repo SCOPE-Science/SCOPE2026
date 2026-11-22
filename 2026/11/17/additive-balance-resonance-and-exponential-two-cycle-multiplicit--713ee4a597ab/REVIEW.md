@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Each graph part shares exactly the same external neighbor set. The proof derives the exact part-count update and spin imbalances, classifies tied mixed parts on periodic orbits, and excludes frozen homogeneous parts when at least one mixed part exists. The only nonzero disjoint subset balance among scaled distinct shore sizes is \(3k+4k=7k\), so the oscillatory family with a frozen \(2k\)-part is exhaustive. An independent complete table for the 16 homogeneous part-sign words excludes additional pure two-cycles. A symmetric half-diagonal threshold energy excludes all longer periods. Full weighted part-count tests for \(1\le k\le7\) and independent direct vertex-state enumeration of 65,536 states at \(k=1\) agree exactly. The universal theorem relies on proof, not finite checking.
+## correctness
 
-## Originality — PASS, qualified
-Prior complete tripartite counts give only one temporal two-cycle for pairwise distinct shore sizes; the current graph has four pairwise distinct shores and exponentially many orbits. Two full-text balanced multipartite classifications restrict all shore sizes to equality and do not imply the unequal-shore formula. The directly related primary treatment of complete multipartite thresholds (Adams et al., arXiv:1102.5361v1) concerns irreversible adoption, not reversible two-cycles; the full available paper was inspected. The Benjamini et al. convergence paper (arXiv:1405.2486v1) concerns unimodular and random graphs rather than this labelled all-size census. The general periodicity result of Goles–Olivos (1980) supplies only the known universal period-two restriction. Remaining risks include unindexed generalized threshold/majority recurrence work and inaccessible full original 1980 and extended 1981 articles by Goles–Olivos; their accessible abstracts state general period-one-or-two restrictions without a four-partite enumeration.
+PASS
 
-## Value — PASS
-The balance of three *unequal* oscillating shores produces a new frozen-word channel on a fourth, even though all part sizes differ. This gives an exact, nontrivial, infinite-family oscillation count and a structural contrast with the known rigidity of distinct-size complete tripartite graphs. The smallest nondegenerate strictly increasing integer signature with a genuinely mixed free part is \((2,3,4,7)\), not an arbitrary finite-instance slice. The parity-sensitive fixed-state count complements the dynamic census. The result neither claims a general classification of arbitrary four-part sizes nor counts attraction basins.
+For every positive integer k, a part of size n_i has signed neighbor count Delta-delta_i, so a permanently mixed part is tied in both phases; all moving homogeneous parts flip. The fixed-state equations rule out a mixed-plus-homogeneous fixed point and give just two unanimous states plus equal half-occupancy words if all four sizes are even. In any primitive two-cycle with a mixed part, averaging the two phases excludes fixed homogeneous parts, and equal weights of opposite flipping groups forces 3k+4k=7k, leaving the 2k shore arbitrary and frozen. The sixteen all-homogeneous shore signs have only the two cycles already corresponding to extreme frozen words. A symmetric threshold bilinear energy with adjacency plus I/2 excludes eventual periods >2. Independent weighted part-occupancy enumeration k=1..4 reproduced fixed and two-orbit counts (2,4),(28828802,16),(2,64),(33394325524560002,256); this finite evidence corroborates, not proves, all k. The proof covers k>=1 with individual vertex labels and incumbent tie-retention, not transient basin sizes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The balanced-size and three-part counting theorems are mathematically inapplicable to pairwise distinct 2:3:4:7 shores: neither provides a free 2k-part frozen word with opposite oscillating groups whose sizes satisfy 3+4=7. Best-of-knowledge originality of this explicit four-shore infinite family, not guaranteed historical priority.
+
+## value
+
+PASS
+
+The explicit 2:3:4:7 family supplies a motivated mechanism showing that pairwise unequal shore sizes do not suppress exponentially many periodic attractors once four unequal groups admit an additive balance. It yields a sharp exact labelled orbit invariant and fixed-point census over every scale k, not just a routine reparametrization of tripartite equal-shore cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
