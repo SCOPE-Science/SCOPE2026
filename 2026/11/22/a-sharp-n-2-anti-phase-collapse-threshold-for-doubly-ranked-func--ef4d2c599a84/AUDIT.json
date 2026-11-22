@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "At each finite even N, both transformed and arithmetic means of two pooled rank permutations are constant exactly when the second permutation is the complement of the first, because the logit score is strictly increasing and odd under rank complement. Reversal-count expectation has coefficient 2σ/√π per p–q pair; group combinatorics give Λ=∫h²/√π. Fixed-graph factorial moments show that at N²σ→c only disjoint inversions contribute; all factorial moments match Poisson(cΛ). First and second moments establish the other regimes. Gaussian overlap integration yields c(1+exp(-a²))/(4π). The finite checker using the actual verify.py passed 457 assertions; simulation is not mistaken for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jeong–Dytso–Cardone, arxiv:2105.03015, Section IV-A/B Theorem 2 and Appendix A: leading O(σ) permutation recovery error for fixed dimension, plus exact general formulas.",
+        "Decreusefond–Schulte–Thäle, arxiv:1406.5484, statements for Poisson approximation of rare U-statistics of binomial or Poisson point processes."
+      ],
+      "reasoning": "The first paper has a fixed-dimension limit; taking N→∞ after σ→0 does not yield the nonzero Poisson zero-atom at N²σ→c, nor the rank-score identity. Broad Poisson approximation theorems plausibly imply the rare-pair component via marked point-space encoding, but not the source-specific identity/power consequence. Novelty is therefore claimed for the combined statistical result, not the generic Poisson method.",
+      "searches": [
+        "Jeong Dytso Cardone 2105.03015 data permutation recovery simultaneous sample dimension and vanishing Gaussian noise Poisson number inversions",
+        "probability no rank swaps after additive gaussian noise variance c squared over n fourth Poisson probability exp mixing densities",
+        "arxiv:2105.03015v1",
+        "arxiv:1406.5484v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2306.14761",
+      "https://arxiv.org/abs/2105.03015",
+      "https://arxiv.org/abs/1406.5484",
+      "https://doi.org/10.2307/3213436",
+      "https://search.r-project.org/CRAN/refmans/runDRT/html/run_drt.html",
+      "published-finding corpus semantic query results for 7 actual queries listed in named check search fields"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meyer gives the definitions and ordinary two-stage testing procedure, not the probabilistic noise scaling or quantitative loss at separated Gaussian means.",
+        "Jeong–Dytso–Cardone treats ordering recovery, with n fixed for its small-noise limit, and does not discuss Meyer rank summaries, their exact coincidence or group-label testing.",
+        "General Poisson close-pair U-statistic literature may provide a short route to the marked inversion count once scores have been reduced to order inversions."
+      ],
+      "reasoning": "Meyer’s score definitions imply the finite exact cancellation by a further argument, but neither the critical probability nor growing-N phase trichotomy is a theorem of the source without substantial additional probabilistic analysis. The noisy permutation paper gives a limiting first derivative at fixed N, which is insufficient to exchange limits in the critical N²σ window. Existing generic Poisson theorems potentially dominate the stochastic mechanism but do not subsume the statistical aggregation conclusion. Residual risk explicitly remains.",
+      "searches": [
+        "Meyer 2306.14761 doubly ranked grouped functional rank score sufficient and mean antipodal antiphase two time points exact tied ranks",
+        "Jeong Dytso Cardone 2105.03015 data permutation recovery simultaneous sample dimension and vanishing Gaussian noise Poisson number inversions",
+        "Poisson limit Gaussian perturbation noisy ranks inversion count near identical permutations",
+        "arxiv:2306.14761v1",
+        "arxiv:2105.03015v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meyer arxiv:2306.14761 Section 3 eq. (3) defines score t_u=mean log[(r-1/2)/(N-r+1/2)], and t_a=mean rank; raw mode is a valid input. The paper presents no uniform anti-phase collapse event.",
+        "R package runDRT documentation https://search.r-project.org/CRAN/refmans/runDRT/html/run_drt.html confirms both scores and raw, preprocessed input options."
+      ],
+      "reasoning": "Opposite ranks force both transformations to the same constant, while strict logit monotonicity proves the converse; there is no separate score-rearrangement result in the inspected primary paper with equivalent content. This does not claim antisymmetry as a novel algebraic identity.",
+      "searches": [
+        "doubly ranked functional data average rank anti-phase opposite curves rank cancellation obstruction",
+        "functional rank tests anti-symmetric trajectories collapse group comparison",
+        "Meyer 2306.14761 doubly ranked grouped functional rank score sufficient and mean antipodal antiphase two time points exact tied ranks",
+        "arxiv:2306.14761v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest hit 2026/10/18/SCOPE-spatial-poisson-errors-and-the-sharp-exact-ordering-transition-f--97c75e627dc5 concerns exponential clock rankings under geometrically varying deterministic rates, a different model.",
+        "published-finding corpus 2026/10/18/SCOPE-two-poisson-obstruction-fields-at-the-sparse-Mallows-adjacent-ma--247901ff9feb is about Mallows disjoint adjacent swaps, not functional score aggregation.",
+        "published-finding corpus 2026/10/18/SCOPE-a-uniform-support-improvement-for-the-two-neighbour-boosted-rank--91454a575b34 is a rank estimator support bound."
+      ],
+      "reasoning": "No exact parameter table for the doubly ranked two-measurement collapse or its N^-2 threshold was returned by actual semantic searches. A failed search is not a proof of worldwide uniqueness; only concrete distinct claims were compared.",
+      "searches": [
+        "Poisson limit Gaussian perturbation noisy ranks inversion count near identical permutations",
+        "probability no rank swaps after additive gaussian noise variance c squared over n fourth Poisson probability exp mixing densities",
+        "functional Mann Whitney rank trajectories opposite phases zero power critical Gaussian noise threshold"
+      ]
+    },
+    "rationale": "The assessed source-specific result combines exact *simultaneous* constant-score equivalence for Meyer’s two summaries, a full three-regime N²σ threshold, a Poisson limiting law under fixed nonidentically distributed group laws, and a quantitative fixed-alternative power obstruction. Meyer defines the scores but does not give these results. Jeong–Dytso–Cardone develop noisy-permutation recovery and fixed-n small-noise errors but not this joint asymptotic theorem. General close-pair Poisson methods supply substantial non-new machinery; independent priority review is still necessary.",
+    "residual_risks": [
+      "Silverman–Brown full text was unavailable, so only its general subject and published abstract were verified; it may yield the Poisson inversion count through known methods.",
+      "The rank-complementarity identity is elementary once the two score definitions are known; novelty is the combined quantitative statistical phase transition, not this isolated identity.",
+      "Further historical studies of marked close-pair Poisson limits or noisy sorting may contain analogous crossover formulas not surfaced in accessible full texts.",
+      "No independent expert audit or independent experimental certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Score definitions match; no equivalent anti-phase threshold or Poisson collapse result found in examined full text.",
+        "evidence": [
+          "arxiv:2306.14761 Section 3 score formula; https://arxiv.org/abs/2306.14761"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.14761",
+        "material_read": "Full arXiv HTML, introduction and Section 3 including equations for the raw average rank and logit score and subsequent implementation discussion; inspected original result claims and concluding discussion.",
+        "method": "Opened full open-access arXiv article text and checked formulas and stated scope",
+        "title": "Doubly ranked tests of location for grouped functional data",
+        "trigger": "Defines both tested rank summaries and their intended two-sample procedure"
+      },
+      {
+        "assessment": "Establishes fixed-n small-noise first-order recovery error, but not a growing-N Poisson inversion law coupled to functional rank scores.",
+        "evidence": [
+          "arxiv:2105.03015 Section IV Theorem 2 and Appendix A; https://arxiv.org/abs/2105.03015"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.03015",
+        "material_read": "Full arXiv HTML, Section III and Section IV-A/B (Theorem 2), and Appendix A low-noise proof",
+        "method": "Opened full arXiv text and compared fixed-dimensional error expansion against the joint N²σ scaling",
+        "title": "Retrieving Data Permutations from Noisy Observations: High and Low Noise Asymptotics",
+        "trigger": "Nearest plausible direct coverage of noisy ordering flips"
+      },
+      {
+        "assessment": "Abstract rare-pair Poisson framework plausibly includes the stochastic component, not Meyer’s two score identities and power ceiling.",
+        "evidence": [
+          "arxiv:1406.5484 Section 7.1 and theorem discussions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.5484",
+        "material_read": "Full arXiv HTML, introduction/theorem descriptions and Section 7.1 on Poisson U-statistics",
+        "method": "Full-text arXiv HTML inspection of broad theorem scope and example",
+        "title": "Functional Poisson approximation in Kantorovich-Rubinstein distance with applications to U-statistics and stochastic geometry",
+        "trigger": "Broader theorem potentially covering rare marked pair inversions"
+      },
+      {
+        "assessment": "Cannot assign full-text NOT_COVERING; general close-pair mechanism may be included and priority risk is disclosed.",
+        "evidence": [
+          "Silverman–Brown (1978), Journal of Applied Probability 15, 815–825; https://doi.org/10.2307/3213436"
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3213436",
+        "material_read": "Publisher abstract and bibliographic information only; lawful full-text attempt did not yield readable article",
+        "method": "Publisher landing page, open-access search",
+        "title": "Short distances, flat triangles and Poisson limits",
+        "trigger": "Classical stronger close-distance Poisson results"
+      },
+      {
+        "assessment": "Both score options and raw input supported; no theorem about anti-phase collapse.",
+        "evidence": [
+          "https://search.r-project.org/CRAN/refmans/runDRT/html/run_drt.html"
+        ],
+        "identifier_or_url": "https://search.r-project.org/CRAN/refmans/runDRT/html/run_drt.html",
+        "material_read": "Package reference and usage/details including scoring expressions",
+        "method": "Read official package documentation",
+        "title": "runDRT: Run Doubly Ranked Tests",
+        "trigger": "Check original method permits raw unpreprocessed scores"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ef4d2c59-9a84-4c7f-a481-0504146832ba",
+  "value": {
+    "rationale": "The statistic transforms entire functional curves to single scalar ranks, so complete loss of group information on anti-phase curves is a direct failure boundary. The result gives an exact if-and-only-if loss event, a sharp N^-2 measurement-noise threshold, an explicit nonzero Poisson all-tie probability and a concrete 0.6322 power ceiling for separated smooth Gaussian groups. This quantitative boundary is useful for time-weighting and tie-handling decisions; no broader method performance claim is made.",
+    "status": "PASS"
+  }
+}
