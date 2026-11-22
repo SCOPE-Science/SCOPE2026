@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The all-F theorem follows from the four explicitly reproduced Kunz inequalities, the known exhaustive leaf partition, an injective four-branch coordinate map, exact fixed-F counting, and uniform quadratic lower bounds. The exceptional equality set is checked algebraically, not inferred from finite search. An independent Python implementation classifies effective generators directly from semigroup membership for all admissible Frobenius numbers from 3 through 299. The finite test only corroborates the infinite proof.
+
+**Originality — PASS, with bibliographic qualification.** Casas–Madrid–Rosales (2026) state the fixed-multiplicity/fixed-Frobenius internal-versus-leaf inequality as Conjecture 41; their unconditional Proposition 42 concerns a large-multiplicity regime and does not cover fixed multiplicity four for unbounded Frobenius number. A prior multiplicity-four result already supplies the four leaf families and an *injection at fixed genus*. Its injection changes Frobenius number. Both that prior result and older Kunz enumeration make the new exact fixed-F counts accessible through arithmetic, so those component formulas are **not asserted to be inherently novel**. The genuinely new reviewed claim is the Frobenius-preserving injection together with the all-F sharp two-to-one surplus and exact equality locus. A published exhaustive characterization or an unindexed theorem might imply this statement; priority is provisional.
+
+**Mathematical value — PASS.** The result settles an infinite fixed-multiplicity slice of a specifically posed two-invariant semigroup-tree conjecture, with an explicit structure-preserving correspondence and a quantitatively stronger inequality. A genus-preserving injection cannot simply be recycled, because genus and Frobenius are independent constraints; this one preserves the relevant invariant exactly.
+
+**Limits.** Multiplicity other than four is not covered. No simultaneous preservation of genus and Frobenius is asserted. The tests cannot substitute for the infinite proofs. Bibliographic priority remains conditional on unindexed and inaccessible literature.
+
+Self-review: passed. Independent audit: not yet performed.
