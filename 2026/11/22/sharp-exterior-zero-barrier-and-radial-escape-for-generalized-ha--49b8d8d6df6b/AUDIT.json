@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For all N>=2, exact integer coefficient identities express Q as alpha*C_N+(1-alpha)*C_{N-1} and yield two derivative recurrences. The Chebyshev-U derivative formula proves C_N and C_{N-1} have only simple unimodular roots; the recurrence excludes common roots. Phase-normalized boundary values then rule out unit-circle zeros for every 0<alpha<1. All finite roots move strictly outside at alpha=0, the extra degree-N-1 root begins at infinity, and continuous root count cannot change without a unit-circle crossing. The reciprocal recurrence gives exact first-order radial escape at alpha=1. Fu's compact-uniform kernel convergence plus strict polynomial exclusion proves local |s|<=t nonvanishing, only for non-endpoint alpha. The standalone Python checker passed 196 exact algebraic identities, 91 Chebyshev comparisons, 112 numerical root checks and 36 first-order velocities; no finite test is used to prove the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://msp.org/pjm/1980/89-1/pjm-v89-n1-p05-s.pdf: Fell treats loci for convex combinations of monic equal-degree polynomials under fixed-circle/line hypotheses, not this nonmonic consecutive-degree pencil.",
+        "https://arxiv.org/abs/2611.07480: the rational oblique polynomial Q_mn is palindromic of even degree and has exactly half of its roots inside the unit disk.",
+        "https://arxiv.org/abs/2505.20489: rational oblique slice s=t, not the vertex-limit polynomial of fixed t positive sections."
+      ],
+      "reasoning": "General convex-combination root-location theory is relevant but the closest inspected monic equal-degree theorem has incompatible leading-degree hypotheses and does not provide exterior exclusion for the present family. The strong rational-Hartogs palindromic positivity theorem concerns the different s=t reduction, and its equal interior/exterior root counts cannot dominate an exterior-only conclusion for the vertex polynomial. The claimed Bergman consequence is local to s/t, not a special case of the rational oblique count.",
+      "searches": [
+        "interlacing ultraspherical polynomials consecutive degrees self-inversive unit circle zeros convex mixture exterior polynomials",
+        "Bergman kernel rescaled singular vertex s=tv no zeros |v|<=1 gamma between 1 and 2",
+        "On the zeros of convex combinations of polynomials Fell 1980",
+        "https://msp.org/pjm/1980/89-1/pjm-v89-n1-p05-s.pdf",
+        "https://arxiv.org/abs/2611.07480",
+        "https://arxiv.org/abs/2505.20489",
+        "2026/11/16/SCOPE-universal-fixed-gap-condensation-of-rational-hartogs-bergman-ker--05187278d3cb"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.15406",
+      "https://arxiv.org/abs/2611.07480",
+      "https://arxiv.org/abs/2505.20489",
+      "https://msp.org/pjm/1980/89-1/pjm-v89-n1-p05-s.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-parity-controlled-real-zeros-of-generalized-hartogs-vertex-polyn--46a4566901e8",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-universal-fixed-gap-condensation-of-rational-hartogs-bergman-ker--05187278d3cb",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-fej-r-square-positivity-for-every-integer-slope-hartogs-diagonal--9edb3c31f9f5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2611.15406: Theorem 1.1 counts N-1 zeros in |v|<R_gamma, R_gamma>3, and Theorem 1.5 gives asymptotic concentration near |v|=1 as gamma tends to one. Neither precludes interior roots at every fixed gamma.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-parity-controlled-real-zeros-of-generalized-hartogs-vertex-polyn--46a4566901e8: for odd N only the negative real roots undergo the reported collision; no implication for every complex root.",
+        "https://arxiv.org/abs/2611.07480: rational diagonal result gives roots strictly inside and outside from reciprocity, not a sharp exclusion for P_delta."
+      ],
+      "reasoning": "Fu's zero-count and asymptotic angular concentration bounds allow roots with |v|<1 at fixed exponent and do not give a nonvanishing |v|<=1 core. The full-complex exclusion proved here adds a strict conclusion for every fixed non-endpoint exponent, and the exact radial speed is not a corollary of Fu's multiplicity lemma. The local kernel corollary follows from this added exclusion plus Fu's uniform section convergence; its convergence ingredient is explicitly cited.",
+      "searches": [
+        "Bergman kernel rescaled singular vertex s=tv no zeros |v|<=1 gamma between 1 and 2",
+        "Bergman kernel generalized Hartogs triangle H_gamma zeros near singular vertex limiting polynomial P_delta radial location asymptotics",
+        "https://arxiv.org/abs/2611.15406",
+        "https://arxiv.org/abs/2611.07480",
+        "2026/11/16/SCOPE-parity-controlled-real-zeros-of-generalized-hartogs-vertex-polyn--46a4566901e8",
+        "2026/10/11/SCOPE-fej-r-square-positivity-for-every-integer-slope-hartogs-diagonal--9edb3c31f9f5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2611.15406: Fu constructs P_delta and proves simple-or-one-double behavior, angular concentration, and fixed-delta root existence; no all-complex-root exterior theorem stated.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-parity-controlled-real-zeros-of-generalized-hartogs-vertex-polyn--46a4566901e8: complete classification only of negative real roots, including the alpha-dependent double collision."
+      ],
+      "reasoning": "Under delta^{-1}=N+alpha, Fu's P_delta is a positive multiple of the polynomial in the present result; this exact equivalence was checked. The identified real-zero classification constrains negative roots but does not control moduli of nonreal roots. The present assertion locates every complex zero, including the nonreal roots, relative to the unit circle and supplies sharp endpoint velocities, neither of which follows from those stated results. Generic degree-by-degree root enumeration cannot establish the all-N theorem.",
+      "searches": [
+        "Hartogs vertex polynomial P_delta all zeros exterior unit circle radial barrier zero-free disk 2026 Fu Gegenbauer",
+        "polynomial sum n (N+alpha-n) z^(n-1) zeros all outside unit disk Chebyshev derivative positive combinations",
+        "interlacing ultraspherical polynomials consecutive degrees self-inversive unit circle zeros convex mixture exterior polynomials",
+        "Fu 2026 vertex polynomial P_delta sum n(1-n delta) z^(n-1) all roots outside unit disk root-free inside",
+        "2026/11/16/SCOPE-parity-controlled-real-zeros-of-generalized-hartogs-vertex-polyn--46a4566901e8",
+        "Fu arXiv:2611.15406 Lemma 3.1 and Theorem 1.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-parity-controlled-real-zeros-of-generalized-hartogs-vertex-polyn--46a4566901e8: negative real-root phase diagram but no full complex unit-radius table.",
+        "https://arxiv.org/abs/2611.15406: exact low-degree example for gamma=sqrt(2), and general d-root count in a disk of radius R_gamma>3; not the all-degree exact inner radius."
+      ],
+      "reasoning": "No inspected indexed exact table or published closed formula provides the exterior/no-interior classification for all integers N and 0<alpha<1. The known specific examples and fixed-gap rational diagonal tables concern either isolated degrees or a different polynomial. Lack of a retrieved table alone does not establish novelty; the full-text comparisons above are essential.",
+      "searches": [
+        "Hartogs vertex polynomial P_delta all zeros exterior unit circle radial barrier zero-free disk 2026 Fu Gegenbauer",
+        "polynomial sum n (N+alpha-n) z^(n-1) zeros all outside unit disk Chebyshev derivative positive combinations",
+        "Fu 2026 vertex polynomial P_delta sum n(1-n delta) z^(n-1) all roots outside unit disk root-free inside",
+        "Bergman kernel generalized Hartogs triangle H_gamma zeros near singular vertex limiting polynomial P_delta radial location asymptotics",
+        "2026/11/16/SCOPE-parity-controlled-real-zeros-of-generalized-hartogs-vertex-polyn--46a4566901e8",
+        "2026/10/11/SCOPE-fej-r-square-positivity-for-every-integer-slope-hartogs-diagonal--9edb3c31f9f5",
+        "2026/11/16/SCOPE-universal-fixed-gap-condensation-of-rational-hartogs-bergman-ker--05187278d3cb"
+      ]
+    },
+    "rationale": "Full-text statement-by-statement comparison establishes that the main 2026 seed gives the limiting polynomial, root number and angular concentration but not strict |z|>1 for all complex roots at each fixed exponent, nor the endpoint velocities. The exact same-object public real-root classification handles only negative real roots; the rational oblique palindromic theorem studies a different section. The inspected 1980 convex-combination theory assumes equal-degree monic endpoints. No stronger result with matching domain and implications was located. The residual possibility of older unindexed general root-stability theory is disclosed.",
+    "residual_risks": [
+      "Older unindexed results on stable polynomials, self-inversive polynomials, and convex combinations of adjacent Chebyshev-derivative polynomials could imply the same exterior barrier; no absolute bibliographic uniqueness is certified.",
+      "Fixed-gap rational-Hartogs diagonal reports were compared at indexed statement level only; their different polynomial reduction makes coverage unlikely but the full texts were not all reviewed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Necessary source, no statement of strict exterior location of all vertex-polynomial roots or first-order radial endpoint velocities.",
+        "evidence": "Fu arXiv:2611.15406v1, equations (2.10)–(2.11), Lemmas 2.3/3.1, Theorems 1.1/1.5; 2026-11-11 public version.",
+        "identifier_or_url": "https://arxiv.org/abs/2611.15406",
+        "material_read": "Original 23-page PDF: introduction, complete polynomial definition and convergence Lemma 2.3, multiplicity Lemmas 3.1–3.2, proof of Theorem 1.1 and angular-concentration proof of Theorem 1.5.",
+        "method": "Compared actual coefficients, parameter range N<1/delta<=N+1, root-count statements, asymptotic bounds and lemmas.",
+        "title": "Bergman Kernel Zeros on Generalized Hartogs Triangles",
+        "trigger": "Identical vertex polynomial and direct kernel-section limit"
+      },
+      {
+        "assessment": "Covers number and multiplicity of negative real zeros, not the full modulus of nonreal zeros or the sharp endpoint velocity; does not imply current claim.",
+        "evidence": "Full published theorem counts one/two/zero real roots depending on parity and alpha and says remaining zeros are nonreal; it gives no |z|>1 bound for them.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-parity-controlled-real-zeros-of-generalized-hartogs-vertex-polyn--46a4566901e8",
+        "material_read": "Complete public RESULT.md, including full proof and stated limits.",
+        "method": "Matched Q_{N,alpha} coefficient by coefficient and compared negative-real, nonreal and unit-circle claims.",
+        "title": "Parity-controlled real zeros of generalized Hartogs vertex polynomials",
+        "trigger": "Exact same polynomial family; possible strong prior coverage"
+      },
+      {
+        "assessment": "Different polynomials, different sections and opposite root-count geometry; neither theorem dominates the exterior barrier.",
+        "evidence": "Deng–Fu arXiv:2611.07480v1, Theorem 1.1 and Corollary 3.3, 2026-11-05.",
+        "identifier_or_url": "https://arxiv.org/abs/2611.07480",
+        "material_read": "Original 15-page PDF: kernel formula, exact oblique Q_{m,n}, Section 3 Fejer positivity theorem and proof, reciprocal root-count consequence.",
+        "method": "Compared oblique s=t polynomial and its palindromic degree-2(m-n) structure to vertex-section s=tv polynomial of degree N-1.",
+        "title": "Bergman Kernel Zeros on Rational Hartogs Triangles",
+        "trigger": "Recent Fejer-square proof with strong rational-domain root coverage"
+      },
+      {
+        "assessment": "Does not establish complete exterior root location of the Fu vertex polynomial; its primary object is the rational oblique slice.",
+        "evidence": "Edholm–Mathew arXiv:2505.20489 and Math. Z. 313 (2026), first public 2025-05-26.",
+        "identifier_or_url": "https://arxiv.org/abs/2505.20489",
+        "material_read": "Open-access research article introduction, rational quotient construction, oblique palindromic polynomial results and main zero-producing assertions.",
+        "method": "Compared full rational-kernel geometric setup and s=t construction to fixed-t cusp limit.",
+        "title": "Arithmetic properties and zeros of the Bergman kernel on a class of quotient domains",
+        "trigger": "Earlier rational-Hartogs kernel and zero methods"
+      },
+      {
+        "assessment": "Provides general context and root-continuity language but not a stronger theorem with matching hypotheses or the claimed exterior conclusion.",
+        "evidence": "H. J. Fell, Pacific J. Math. 89 (1980), pp. 43–50, DOI:10.2140/pjm.1980.89.43.",
+        "identifier_or_url": "https://msp.org/pjm/1980/89-1/pjm-v89-n1-p05-s.pdf",
+        "material_read": "Original eight-page article, statements and arguments of Lemma 1, Theorems 1–3 and the degree/monicity hypotheses.",
+        "method": "Checked same-degree monic circle-root assumptions against our consecutive-degree nonmonic pencil and strict exterior rather than circle-preserving conclusion.",
+        "title": "On the zeros of convex combinations of polynomials",
+        "trigger": "General possible theorem dominating convex combinations of unimodular-root polynomials"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "49b8d8d6-df6b-4bcd-be78-59c7e99d7f0e",
+  "value": {
+    "rationale": "The natural singular-vertex rescaling of a recent Bergman kernel produces N-1 zeros; prior existence and angular concentration do not determine which side of the classical |s|=|t| scale every zero occupies. The theorem supplies an all-exponent, all-complex-root sharp exclusion barrier, with an exact nontrivial radial response at every endpoint root, and a rigorous zero-free local kernel core complementary to the known zero-producing region. This is a structural constraint on kernel zero geometry, not a small numerical enumeration or mere normalization check.",
+    "status": "PASS"
+  }
+}
