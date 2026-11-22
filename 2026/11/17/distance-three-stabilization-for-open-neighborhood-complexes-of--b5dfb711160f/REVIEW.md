@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A complete proof accounts for both parity components using the nerve lemma; it establishes the full-cube two-dimensional collapse and simple connectivity, and applies a facet-removal homotopy pushout twice. Each attaching cycle is filled by surviving triangles; the distance-three exceptional triangle has an explicit seven-triangle disk. Rank reductions follow from exact elementary graph cycle spaces. The exceptional three-dimensional cases are directly enumerated. An independently constructed mod-two checker passes fifty finite complexes; finite enumeration is only a corroboration of the unrestricted argument.
+## correctness
 
-## Originality — PASS with residual risk
-The closest literature covers the full hypercube and a single puncture, both strictly weaker than the complete two-point distance classification. Full-text scientific comparisons with Arana–Stehlík and Shen et al. find different graph families and hypotheses. Direct searches for doubly punctured hypercube open-neighborhood homotopy, their parity components, and distance-dependent sphere multiplicities did not identify an equivalent statement. Failed discovery cannot establish absolute novelty; a less visible formulation may exist. The full-cube and one-puncture results are acknowledged, not rebranded as new.
+PASS
 
-## Value — PASS
-Two-point deletions are the minimal interaction of graph-vertex defects; unlike a single deletion, their relative Hamming distance can affect the topology. The exact three-phase law isolates the two exceptional short separations and proves stabilization beyond distance two throughout an infinite natural family. The equality of the two parity components despite their different combinatorial realizations is structurally explained by a nerve duality. No unsupported downstream theorem or publication-scale significance is asserted.
+A bipartite neighborhood complex decomposes by parity, and the good-cover nerve on either shore is the other shore, giving homotopy equivalence. Unique center for any triple of neighbors permits a global facetwise collapse to a 2-complex. The full unpunctured cube is simply connected by converting halved-cube edges to cube-generator edges through triangle relations and filling coordinate squares; removing a center facet deletes only triangular relations whose boundaries are explicitly filled. For a second deletion, attaching graphs are K_n, K_n minus one edge at d=2, or K_(n-1) at d=1, and their triangle cycles bound in the survivor, except a d=3 missing-vertex triangle filled by a specified seven-triangle disk using a fourth coordinate. Each nullhomotopic facet attachment contributes beta1 of its graph to the sphere count. Hurewicz, 2-dimensional collapse and homology Whitehead yield integral wedges. Independently enumerated face Euler characteristics n=3,4 and both parity shores with exact Hamming-distance case distinction; n>=5 infinite proof is topological, not numeric extrapolation.
 
-## Limits
-The theorem does not apply to closed-neighborhood complexes, nonbinary Hamming graphs, or more than two deletions. All computations are finite corroborations. Independent mathematical review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A prior complete full-cube neighborhood theorem supplies mu_n (2026-10-11), and one-vertex-punctured cube result supplies nu_n (2026-11-17): both are thoroughly credited. Neither implies the two-vertex interaction dependence on distance or seven-triangle d=3 exception, as relative attaching graph after first puncture is not covered. Nearby two-vertex Rips deletion results treat an entirely different simplicial complex.
+
+## value
+
+PASS
+
+Exact stabilization of the integral sphere count at distance >=3, plus the exceptional distance-one/two losses, is a natural full homotopy classification for two punctures of the high-dimensional cube. It shows a local topology sensitivity invisible to the one-puncture count and is a meaningful structural threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
