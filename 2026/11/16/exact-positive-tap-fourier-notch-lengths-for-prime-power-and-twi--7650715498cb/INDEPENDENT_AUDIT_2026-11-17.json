@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:41:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-primitive-root zero set is precisely Φ_N divisibility. Splitting F(X) by exponent modulo q=p^(k-1), or q=2^(s-1)p^(k-1), and comparing last residue q-1 forces degree ≥pq−1 or ≥(2p−1)q−1. In the mixed case a strictly positive Φ_(2p) multiple below degree 2p−2 is impossible: reduce modulo Y^p+1 and compare the same-sign consecutive top coefficients b_(p−2), b_(p−1) with the alternating signs of Φ_(2p). H_p=(1+Y^p)Σ_(0..p−2)Y^j+(1/2)Y^(p−1)Φ_(2p) fills every coefficient positively; substitution X^q, residue filling and convolution with 1+X+...+X^m give all longer degrees and integral coefficients after scaling. Independently inspected verify.py and reproduced exact SymPy witness checks for sample N; these are corroboration only. N=2 and p=3 boundary obey formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tan–Zhang proves sharp diameter for nonnegative support without strict full support. Brunotte treats positive/nonnegative multiples, including quadratic cases, but complete specialist manuscript unavailable."
+        ],
+        "reasoning": "The global sparse theorem does not dominate a stricter full-support threshold. Brunotte is plausible for Φ_6 and an equivalence risk for all mixed exponents, not proven coverage; cannot declare excluded from abstracts alone.",
+        "searches": [
+          "Resultary semantic search: cyclotomic polynomial consecutive strictly positive coefficients primitive root all zero minimal degree prime powers twice prime powers",
+          "Tan–Zhang arXiv:2609.07646",
+          "Brunotte 2013 DOI 10.1007/s10998-013-2367-8"
+        ]
+      },
+      "checked_sources": [
+        "Original RESULT.md, its residue proof and verify.py at frozen blob e2f5fb2c368cb04384a42acf081722799f1ed95b",
+        "Steinberger 2012 DOI 10.37236/2755",
+        "Tan–Zhang 2026 arXiv:2609.07646",
+        "Brunotte 2013 DOI 10.1007/s10998-013-2367-8",
+        "Resultary semantic search: cyclotomic polynomial consecutive strictly positive coefficients primitive root all zero minimal degree prime powers twice prime powers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At N=6 strict minimum has five positive taps, unlike degree-optimal sparse nonnegative multiples; at N=p^k full consecutive positivity needs degree N−1."
+        ],
+        "reasoning": "General nonnegative degree claims do not imply strict positivity at every tap. Quadratic positive-multiple cases may overlap N=6; full Brunotte text required for definitive priority.",
+        "searches": [
+          "Tan–Zhang arXiv:2609.07646",
+          "Brunotte DOI 10.1007/s10998-012-7333-3",
+          "Brunotte DOI 10.1007/s10998-013-2367-8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steinberger bounds minimal degree for nonnegative potentially sparse Φ_N multiples, whereas every coefficient position from 0 through L is >0."
+        ],
+        "reasoning": "A sparse nonnegative multiple may contain missing powers, so its extremal degree cannot be substituted for the all-consecutive-positive tap length; however any general positive-multiple result requires comparing degree and support precisely.",
+        "searches": [
+          "Resultary semantic search: cyclotomic polynomial consecutive strictly positive coefficients primitive root all zero minimal degree prime powers twice prime powers",
+          "Steinberger 2012 DOI 10.37236/2755"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-family strict consecutive-positive tap-length table was located in checked results; sparse tables differ in allowed zeros."
+        ],
+        "reasoning": "The computation is an infinite arithmetic-family minimum rather than a finite database lookup; a hidden positive-multiple table remains a risk.",
+        "searches": [
+          "Resultary semantic search: cyclotomic polynomial consecutive strictly positive coefficients primitive root all zero minimal degree prime powers twice prime powers",
+          "Steinberger 2012 Electron. J. Combin. 19 P1"
+        ]
+      },
+      "rationale": "Best-of-knowledge: substantive comparison of the exact claim and implications with closest published scientific results, including generalizations and potential near-equivalences; residual priority risks explicitly retained.",
+      "residual_risks": [
+        "Brunotte 2012–2013 full texts remain inaccessible with Oxford VPN disconnected; exact all-prime exponent coverage may already appear there.",
+        "Numerical/sample coefficient tests establish only test cases, not the universal theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "does not require strictly positive coefficients in every intervening position",
+          "evidence": "Problem allows missing coefficients, unlike the present constraint.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.07646",
+          "material_read": "abstract and theorem statement about diameter of nonnegative cyclotomic multiples",
+          "method": "arXiv abstract inspection",
+          "title": "Sharp Diameter Bounds for Nonnegative Cyclotomic Multiples",
+          "trigger": "strongest sparse nonnegative comparison"
+        },
+        {
+          "assessment": "prior sparse/nonnegative degree does not by itself determine the strict threshold",
+          "evidence": "2012 theorem is for nonnegative coefficients, zeros permitted.",
+          "identifier_or_url": "https://doi.org/10.37236/2755",
+          "material_read": "available abstract and indexed relevant passages on nonnegative degree",
+          "method": "OA abstract/selected passage reading",
+          "title": "The Lowest-Degree Polynomial with Nonnegative Coefficients Divisible by the n-th Cyclotomic Polynomial",
+          "trigger": "original minimal-degree comparator"
+        },
+        {
+          "assessment": "inaccessible plausible prior, not asserted NOT_COVERING",
+          "evidence": "Oxford job 0e070f188057f0200435399a8f042636; complete text not read.",
+          "identifier_or_url": "https://doi.org/10.1007/s10998-013-2367-8",
+          "material_read": "publisher abstract only; no full manuscript; authorized Oxford request returned vpn_disconnected",
+          "method": "abstract reading and authorized access attempt",
+          "title": "On some classes of polynomials with nonnegative coefficients and a given factor",
+          "trigger": "plausible positive-multiple theorem with matching Φ_6"
+        },
+        {
+          "assessment": "possible partial overlap, full comparison unavailable",
+          "evidence": "Specialist nonnegative/positive multiples.",
+          "identifier_or_url": "https://doi.org/10.1007/s10998-012-7333-3",
+          "material_read": "abstract describing quadratic cases, no complete text",
+          "method": "abstract inspection",
+          "title": "Polynomials with nonnegative coefficients and a given factor",
+          "trigger": "positive multiple degree comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strictly positive consecutive impulse responses are a natural finite Fourier design constraint not captured by sparse nonnegative cyclotomic multiples. The exact minimal hardware length, for two infinite arithmetic period families, is a nontrivial constructive threshold with potentially reusable residue-divisibility obstruction; this is more than relabeling a known minimal support degree.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Original RESULT.md, its residue proof and verify.py at frozen blob e2f5fb2c368cb04384a42acf081722799f1ed95b",
+    "Steinberger 2012 DOI 10.37236/2755",
+    "Tan–Zhang 2026 arXiv:2609.07646",
+    "Brunotte 2013 DOI 10.1007/s10998-013-2367-8",
+    "Resultary semantic search: cyclotomic polynomial consecutive strictly positive coefficients primitive root all zero minimal degree prime powers twice prime powers"
+  ],
+  "disposition": "passed",
+  "final_claim": "For N=p^k the shortest consecutive strictly positive all-primitive-character-vanishing polynomial has N coefficients; for N=2^s p^k with p odd it has N-N/(2p) coefficients; every longer length has a positive integer witness.",
+  "limitations": "N must be a prime power or 2^s p^k with exactly one odd prime; primitive characters only, no dynamic range/noise bound; Brunotte full text unread.",
+  "residual_risks": [
+    "Brunotte 2012–2013 full texts remain inaccessible with Oxford VPN disconnected; exact all-prime exponent coverage may already appear there.",
+    "Numerical/sample coefficient tests establish only test cases, not the universal theorem."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "does not require strictly positive coefficients in every intervening position",
+      "evidence": "Problem allows missing coefficients, unlike the present constraint.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.07646",
+      "material_read": "abstract and theorem statement about diameter of nonnegative cyclotomic multiples",
+      "method": "arXiv abstract inspection",
+      "title": "Sharp Diameter Bounds for Nonnegative Cyclotomic Multiples",
+      "trigger": "strongest sparse nonnegative comparison"
+    },
+    {
+      "assessment": "prior sparse/nonnegative degree does not by itself determine the strict threshold",
+      "evidence": "2012 theorem is for nonnegative coefficients, zeros permitted.",
+      "identifier_or_url": "https://doi.org/10.37236/2755",
+      "material_read": "available abstract and indexed relevant passages on nonnegative degree",
+      "method": "OA abstract/selected passage reading",
+      "title": "The Lowest-Degree Polynomial with Nonnegative Coefficients Divisible by the n-th Cyclotomic Polynomial",
+      "trigger": "original minimal-degree comparator"
+    },
+    {
+      "assessment": "inaccessible plausible prior, not asserted NOT_COVERING",
+      "evidence": "Oxford job 0e070f188057f0200435399a8f042636; complete text not read.",
+      "identifier_or_url": "https://doi.org/10.1007/s10998-013-2367-8",
+      "material_read": "publisher abstract only; no full manuscript; authorized Oxford request returned vpn_disconnected",
+      "method": "abstract reading and authorized access attempt",
+      "title": "On some classes of polynomials with nonnegative coefficients and a given factor",
+      "trigger": "plausible positive-multiple theorem with matching Φ_6"
+    },
+    {
+      "assessment": "possible partial overlap, full comparison unavailable",
+      "evidence": "Specialist nonnegative/positive multiples.",
+      "identifier_or_url": "https://doi.org/10.1007/s10998-012-7333-3",
+      "material_read": "abstract describing quadratic cases, no complete text",
+      "method": "abstract inspection",
+      "title": "Polynomials with nonnegative coefficients and a given factor",
+      "trigger": "positive multiple degree comparator"
+    }
+  ]
+}

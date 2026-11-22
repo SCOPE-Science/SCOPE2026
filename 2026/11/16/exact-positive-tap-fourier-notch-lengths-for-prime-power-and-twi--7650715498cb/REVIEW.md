@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces primitive-character nulling to cyclotomic polynomial divisibility; monic substitution admits a residue-by-residue decomposition. For prime powers the last residue forces an entire \(p\)-coefficient block. For \(2^sp^k\), reduction modulo \(Y^p+1\) makes two adjacent positive coefficients contradict the required alternating cyclotomic pattern below degree \(2p-2\). The explicit construction is positive at every tap and divisible by the target polynomial; geometric-sum multiplication fills every greater length. Exact SymPy construction tests on 20 periods and a separate LP boundary stress test on nine periods corroborate the argument. No untested computational extrapolation is part of the proof.
+PASS
 
-## Originality — PASS relative to checked evidence
+The all-primitive-root zero set is precisely Φ_N divisibility. Splitting F(X) by exponent modulo q=p^(k-1), or q=2^(s-1)p^(k-1), and comparing last residue q-1 forces degree ≥pq−1 or ≥(2p−1)q−1. In the mixed case a strictly positive Φ_(2p) multiple below degree 2p−2 is impossible: reduce modulo Y^p+1 and compare the same-sign consecutive top coefficients b_(p−2), b_(p−1) with the alternating signs of Φ_(2p). H_p=(1+Y^p)Σ_(0..p−2)Y^j+(1/2)Y^(p−1)Φ_(2p) fills every coefficient positively; substitution X^q, residue filling and convolution with 1+X+...+X^m give all longer degrees and integral coefficients after scaling. Independently inspected verify.py and reproduced exact SymPy witness checks for sample N; these are corroboration only. N=2 and p=3 boundary obey formulas.
 
-Tan–Zhang (2026) and Steinberger (2012) solve the nonnegative-multiple optimization that permits sparse zeros. Their statements do not impose strict positivity at every intermediate exponent or yield the new length formula as a stated result. Reddy (2011) concerns sparse binary multiples. Brunotte's 2012 and 2013 works explicitly study positive multiples of real factors; the quadratic base cases may already be covered, but accessible abstracts do not identify this full mixed-prime-power length theorem. The complete Brunotte texts were inaccessible through available institutional access; exact priority cannot be certified. No comparable claim was identified among indexed harmonic-analysis and cyclotomic results, including the narrower dyadic-antipodal rigidity theorem. Search absence alone is not a proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-Exact primitive-mode rejection with no zero taps is a natural dense positive FIR design constraint distinct from unconstrained sparse positive measures. The theorem gives all feasible lengths for two infinite arithmetic families, explains their sharp arithmetic discontinuity, and provides reproducible positive-integer constructions of every allowed length. It is not a single numerical example or a restatement of the sparse diameter theorem.
+Best-of-knowledge: substantive comparison of the exact claim and implications with closest published scientific results, including generalizations and potential near-equivalences; residual priority risks explicitly retained.
 
-## Closest literature and limits
+## value
 
-The main closest direct prior article is Tan–Zhang, arXiv:2609.07646, which is about nonnegative and possibly sparse multiples. Steinberger provides an earlier two-prime nonnegative decomposition. Brunotte's positive-multiple methods represent a bibliographic risk (complete texts inaccessible). Scope excludes periods with two different odd prime divisors, coefficient-range optimization, and robustness optimization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Strictly positive consecutive impulse responses are a natural finite Fourier design constraint not captured by sparse nonnegative cyclotomic multiples. The exact minimal hardware length, for two infinite arithmetic period families, is a nontrivial constructive threshold with potentially reusable residue-divisibility obstruction; this is more than relabeling a known minimal support degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
