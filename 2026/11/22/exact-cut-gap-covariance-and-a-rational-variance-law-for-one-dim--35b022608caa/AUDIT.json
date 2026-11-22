@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "A cut after the i-th sorted site is present exactly when the intervening spacing exceeds the sum of its two predecessor and two successor gaps. Dirichlet spacing normalization cancels, giving a bounded stationary 4-dependent exponential-clock process. Explicit exact Gamma/exponential integrals yield cut intensity 7/54, mutually exclusive lags 1/2, joint probabilities 2071/90000 at lag 3 and 6389/324000 at lag 4. The exact covariance summation yields variance slope 5747/90000, which is strictly positive. The standard bounded finite-dependent CLT supplies the infinite normal limit. The delivered checker independently builds graphs and tests the cut criterion on complete gap-permutation families; finite tests supplement, not replace, analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "M. D. Penrose and J. E. Yukich, Ann. Appl. Probab. 11 (2001), DOI:10.1214/aoap/1015345393, abstract gives general CLT results for geometric graph statistics",
+        "Wade arXiv:math/0603559 gives explicit LLN for power-weighted edge functionals",
+        "Linderman et al. arXiv:1711.04712 discuss kNN connectivity and component density in general dimensions"
+      ],
+      "reasoning": "The generic component-count law of large numbers and CLT are already known, not claimed as new. Their abstract/general statements supply neither the explicit finite-dimensional pair cut probabilities at lags three and four nor the exact all-n variance and constants 7/54 and 5747/90000. The unavailable full text of the 2001 paper leaves possible implicit or explicit detailed coverage unresolved but does not show a dominating formula in accessible material.",
+      "searches": [
+        "k nearest neighbor graphs component count central limit theorem Penrose Yukich 2001",
+        "fixed k nearest neighbor geometric graph number of connected components linear density k two",
+        "randomized near neighbor graphs giant components applications in data science components theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0603559 (full accessible HTML inspected relevant sections)",
+      "arXiv:math/0603561 (full accessible HTML inspected relevant sections)",
+      "DOI:10.1214/aoap/1015345393 (abstract only; full article inaccessible)",
+      "arXiv:1711.04712 (abstract and available excerpt only)",
+      "Targeted exact-constant and conceptual scholarly literature searches; no exact-claim result located"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wade, arXiv:math/0603559, §§2.1 and 3.1, weighted sum of edge lengths and LLN",
+        "Penrose–Wade, arXiv:math/0603561, §§2.2 and 5, directed online nearest-neighbor length sums and moments",
+        "Penrose–Yukich 2001 title and abstract imply existence of some component CLT, not an exact finite-size expectation/variance"
+      ],
+      "reasoning": "The present claim is the joint package of deterministic five-gap cut criterion, exact expectation and finite-n covariance, and explicit positive variance coefficient. General laws of large numbers and CLTs only imply existence/asymptotic normality with unspecified constants. An online nearest-neighbor length moment has no algebraic implication for 2NN component indicators. If a full primary theorem gave an exact expression evaluating these constants, the originality judgment would require revision; no such statement was seen.",
+      "searches": [
+        "arXiv:math/0603559 nearest-neighbor component count versus power-weighted edge length",
+        "arXiv:math/0603561 nearest-neighbor graph online length moment versus two-neighbor components",
+        "DOI:10.1214/aoap/1015345393 component count central limit theorem exact constants"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:math/0603559 defines general nearest-neighbor-type graph functionals but evaluates weighted edge-length functionals, not 2-neighbor component moments",
+        "arXiv:math/0603561 analyzes online nearest-neighbor edge-length totals, a distinct directed temporal construction",
+        "DOI:10.1214/aoap/1015345393 abstract states general component-count CLTs without giving this rational cut characterization"
+      ],
+      "reasoning": "The exact model is the undirected union of both nearest-neighbor choices on the Euclidean line, equivalent after sorting to a five-gap cut test. Nearest-neighbor forests with one choice, mutual-nearest-neighbor graphs, online nearest-neighbor graphs, and random-link models have different edge rules. None of the examined available statements implies the exact two-choice five-gap event law.",
+      "searches": [
+        "one-dimensional two nearest neighbors components cut gaps 7/54",
+        "second-nearest-neighbor random point graph number of components rational exact variance",
+        "two-nearest-neighbor graph one dimensional connectivity boundaries exponential spacings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located scholarly table entry gave the exact two-nearest-neighbor component density or cut-covariance spectrum",
+        "arXiv:1711.04712 and the Journal of Applied Probability article present connectivity/component rates and simulations, but not the displayed rational one-dimensional values"
+      ],
+      "reasoning": "For k=2 on the line the constants are derived from two shared-clock joint exponential integrals, rather than inferred from a tabulated simulation estimate. Lack of a search hit alone does not establish priority; it is considered jointly with theorem-level coverage comparisons.",
+      "searches": [
+        "\"7/54\" \"nearest neighbor\" \"components\"",
+        "\"5747/90000\" \"nearest neighbor\"",
+        "two nearest neighbor random graph one dimensional exact variance table",
+        "geometric random graph component density one dimensional k 2 exact"
+      ]
+    },
+    "rationale": "Literature comparison and targeted database searches did not identify the explicit 1D undirected 2-nearest-neighbor five-gap cut criterion, all-n component variance or lag-covariance constants. The pre-existing generic component CLT is expressly credited and is not claimed as new. General limit theorems do not supply these exact constants as a statement-level implication. Residual historical-priority uncertainty is disclosed for an inaccessible potentially relevant primary article.",
+    "residual_risks": [
+      "The complete 2001 Penrose–Yukich paper was inaccessible. It might contain an explicit specialized 1D k=2 computation not visible in its abstract; external inspection is needed to resolve that possibility.",
+      "Search-based non-detection does not prove historical novelty; older monographs and independently published tables could contain equivalent cut calculations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_FINITE_CLAIM",
+        "evidence": "Power-weighted total edge length laws, with general nearest-neighbor functionals but no explicit pair-cut probability or finite component variance in inspected sections",
+        "identifier_or_url": "https://arxiv.org/abs/math/0603559",
+        "material_read": "Abstract, introduction, sections 2.1 and 3.1 from accessible full HTML",
+        "method": "Matched graph rule, quantity studied, and theorem scope against the two-nearest-neighbor component count",
+        "title": "Explicit laws of large numbers for random nearest-neighbour type graphs",
+        "trigger": "Closest historical general nearest-neighbor-type limit theory and 2006 archive anchor"
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_FINITE_CLAIM",
+        "evidence": "The directed online one-nearest-neighbor edge-length totals do not determine connected components of a fixed-sample 2NN graph",
+        "identifier_or_url": "https://arxiv.org/abs/math/0603561",
+        "material_read": "Abstract, introduction, sections 2.2 and 5 from accessible full HTML",
+        "method": "Compared sampling and edge insertion rule with fixed-sample undirected 2NN and resulting moments",
+        "title": "Limit theory for the random on-line nearest-neighbour graph",
+        "trigger": "Dirichlet/exponential spacing method for nearest-neighbor moment computations"
+      },
+      {
+        "assessment": "GENERAL_CLT_COVERED_EXACT_CONSTANTS_UNRESOLVED",
+        "evidence": "The accessible abstract credits a generic Gaussian limit for graph functionals. Full text was unavailable and cannot support a whole-document exclusion.",
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1015345393",
+        "material_read": "Title and abstract only; article full text inaccessible",
+        "method": "Compared described general CLT with fully quantified exact mean, variance and lag covariance",
+        "title": "Central limit theorems for some graphs in computational geometry",
+        "trigger": "Potentially dominating general component-count theorem"
+      },
+      {
+        "assessment": "GENERAL_COMPONENT_DENSITY_ONLY_IN_ACCESSED_MATERIAL",
+        "evidence": "The general fixed-k connected-component linear growth and high-dimensional numerical tables do not state exact 1D k=2 moment constants.",
+        "identifier_or_url": "https://arxiv.org/abs/1711.04712",
+        "material_read": "Public abstract, bibliographic details and accessible retrieved theorem excerpt on many connected components; complete paper not read",
+        "method": "Compared dimension, graph definition and general asymptotic density with explicit one-dimensional cut moments",
+        "title": "Randomized Near Neighbor Graphs, Giant Components, and Applications in Data Science",
+        "trigger": "Closest later kNN component-density and connectivity literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "35b02260-8caa-46a4-b723-94d73c7fcdb7",
+  "value": {
+    "rationale": "The connected-component count measures fragmentation of a natural sparse geometric proximity network. In the first nontrivial fixed 2NN case, the exact rational density, finite covariance structure and variance-to-mean ratio 2463/5000 quantify dependent breaks and strong underdispersion. These are reproducible model-specific benchmark quantities not determined by generic central limit theorems; their value does not rely on claiming that Gaussian convergence itself is novel.",
+    "status": "PASS"
+  }
+}
