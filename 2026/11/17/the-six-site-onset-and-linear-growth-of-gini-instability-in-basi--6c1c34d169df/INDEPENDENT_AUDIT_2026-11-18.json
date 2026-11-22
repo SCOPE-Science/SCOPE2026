@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T16:16:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Basic Chebyshev isotonic selector B_n(a)_i=(prefix maximum + suffix minimum)/2, the midpoint between least and greatest uniform-error isotonic fits is a true L∞ best approximation. On each strict input-rank chamber its Jacobian preserves constants, and global two-input Gini Lipschitz equals the maximum chamber Jacobian norm along line segments. Every Gini seminorm direction decomposes into nonnegative binary superlevel cuts, reducing each Jacobian norm to all nontrivial cuts modulo complements. Independently enumerated exactly 2+18+168+1800+22320 chamber/cut pairs for n=2..6 with rational arithmetic; sharp moduli 1,1,1,1,9/8. The explicit 6-input same-chamber witness gives 9/8. The all-n half-block perturbation gives lower floor(n²/4)/(2(n-2)), while positive row-stochastic Jacobians and cube maximum bound yield upper floor(n²/4)/(n-1). n>6 constants are bounded, not claimed exact.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026-11-17 weighted-L2 isotonic Gini record has four-site onset; Basic L∞ has six-site onset and 9/8 coefficient."
+        ],
+        "reasoning": "Gini stability bounds for weighted L2 isotonic and convex LS regression do not dominate or imply a coefficient for Basic L∞ selection. They use different optimization objectives and Jacobians.",
+        "searches": [
+          "Resultary: weighted isotonic least squares Gini amplification and sharp small sizes",
+          "https://web.eecs.umich.edu/~qstout/pap/StrictIso.pdf",
+          "https://arxiv.org/abs/1507.02226"
+        ]
+      },
+      "checked_sources": [
+        "https://web.eecs.umich.edu/~qstout/pap/StrictIso.pdf",
+        "https://arxiv.org/abs/1507.02226",
+        "https://arxiv.org/abs/1706.01852",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-gini-metric-amplification-by-weighted-isotonic-regression--262b37ec1bf0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "a=(0,1,2,5,4,3), h=(1,1,1,0,1,0) has G(h)=8 and G(DB·h)=9."
+        ],
+        "reasoning": "Uniform sup-norm nonexpansivity does not imply complete-pair Gini nonexpansivity, and generic row-stochastic bounds are too coarse to derive n=6 exact 9/8. The chamber/cut enumeration plus block witness provide additional mathematics.",
+        "searches": [
+          "Resultary: weighted isotonic least squares Gini amplification and sharp small sizes",
+          "https://web.eecs.umich.edu/~qstout/pap/StrictIso.pdf",
+          "https://arxiv.org/abs/1507.02226"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stout 2012 Section 2.1 explicitly defines Basic midpoint of prefix max/suffix min and distinguishes strict regression; Yang–Barber concerns L2 projection."
+        ],
+        "reasoning": "Basic midpoint Chebyshev/Avg L∞ selector is not strict limiting-Lp L∞ regression and not L2 projection. Searched Gini two-input Lipschitz stability of all variants, distinguishing selector and norm.",
+        "searches": [
+          "Resultary: Basic Chebyshev isotonic regression Gini variation two-input Lipschitz six site 9/8",
+          "https://web.eecs.umich.edu/~qstout/pap/StrictIso.pdf",
+          "https://arxiv.org/abs/1507.02226"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For n=2,3,4,5,6 computed maxima 1,1,1,1,9/8 from 2,18,168,1800,22320 cases."
+        ],
+        "reasoning": "All 24,308 eligible n<=6 chamber-and-binary-cut pairs were independently enumerated exactly; no inspected prior regression or Gini table gives this exact Basic selector sequence. Accessible Stout sections cover fitting algorithms, not complete-pair Gini constants.",
+        "searches": [
+          "Resultary: Basic Chebyshev isotonic regression Gini variation two-input Lipschitz six site 9/8",
+          "https://web.eecs.umich.edu/~qstout/pap/StrictIso.pdf",
+          "https://arxiv.org/abs/1507.02226"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty after comparing exact claims and implications, not title matches; the identified structural prior inputs are explicitly credited and all material access limits retained. No inspected earlier theorem implies this complete final claim.",
+      "residual_risks": [
+        "1971 Barlow–Ubhaya original full text not accessible in this run; historical priority risk is named rather than assumed novelty.",
+        "The 2012 primary author PDF was inspected in relevant formula section, not every page; unindexed Gini metric treatment remains a residual risk.",
+        "For n>=7 only linear upper/lower bounds are proven, not exact constants; strict/weighted/L2 selectors excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING formula and classical best approximation, NOT_COVERING inspected Gini sensitivity theorem",
+          "evidence": [
+            "Basic selector is midpoint of prefix maxima and suffix minima; strictly selected L∞ regression is different."
+          ],
+          "identifier_or_url": "https://web.eecs.umich.edu/~qstout/pap/StrictIso.pdf",
+          "material_read": "Primary full text PDF, abstract and Section 2.1 including exact Basic midpoint formula and comparison to strict selector",
+          "method": "Author-hosted OA PDF with page-image inspection",
+          "title": "Strict L∞ Isotonic Regression",
+          "trigger": "Same Basic selection formula in primary regression literature"
+        },
+        {
+          "assessment": "Different weighted least-squares selector; not established to imply Basic L∞ theorem",
+          "evidence": [
+            "Weighted least-squares Gini amplification first at four observations, unlike the submitted Basic six-site cutoff."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-gini-metric-amplification-by-weighted-isotonic-regression--262b37ec1bf0",
+          "material_read": "Search result summary and source statement, not full-text inspection; no whole-document novelty exclusion based on it",
+          "method": "Resultary semantic result and source metadata",
+          "title": "Gini-metric amplification by weighted isotonic regression",
+          "trigger": "Potential broader Gini stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Basic unweighted Chebyshev selector is a classical canonical isotonic fit, and its two-input complete-pair Gini stability is distinct from sup-norm approximation and ordinary adjacent total variation. The sharp first expansion at exactly six observations and unbounded order-n sensitivity matter for robust dispersion stability; finite exact cutoff plus analytic all-size bounds are mathematically motivated beyond code correctness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "1971 Barlow–Ubhaya original full text not accessible in this run; historical priority risk is named rather than assumed novelty.",
+    "The 2012 primary author PDF was inspected in relevant formula section, not every page; unindexed Gini metric treatment remains a residual risk.",
+    "For n>=7 only linear upper/lower bounds are proven, not exact constants; strict/weighted/L2 selectors excluded."
+  ],
+  "schema_version": 1
+}

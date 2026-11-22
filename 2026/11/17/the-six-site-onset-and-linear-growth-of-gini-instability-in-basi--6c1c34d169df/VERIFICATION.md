@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 verify_basic_gini.py` using Python 3's standard library. The checker uses integer operations for all 24,308 rank-permutation/cut evaluations, `fractions.Fraction` for their sharp quotients and exact rational perturbation witnesses, and no external dependencies.
+## correctness
 
-Expected output:
+PASS
 
-```text
-N=2 EXACT_GINI_LIPSCHITZ_MODULUS=1 CHAMBER_CUT_PAIRS=2
-N=3 EXACT_GINI_LIPSCHITZ_MODULUS=1 CHAMBER_CUT_PAIRS=18
-N=4 EXACT_GINI_LIPSCHITZ_MODULUS=1 CHAMBER_CUT_PAIRS=168
-N=5 EXACT_GINI_LIPSCHITZ_MODULUS=1 CHAMBER_CUT_PAIRS=1800
-N=6 EXACT_GINI_LIPSCHITZ_MODULUS=9/8 CHAMBER_CUT_PAIRS=22320
-GENERAL_DIMENSION_LOWER_WITNESSES_PASS_N6_TO30
-ALL_EXACT_CHAMBERS_AND_CUTS_PASS 24308
-STRICT_SIX_SITE_WITNESS_PASS
-```
+For Basic Chebyshev isotonic selector B_n(a)_i=(prefix maximum + suffix minimum)/2, the midpoint between least and greatest uniform-error isotonic fits is a true L∞ best approximation. On each strict input-rank chamber its Jacobian preserves constants, and global two-input Gini Lipschitz equals the maximum chamber Jacobian norm along line segments. Every Gini seminorm direction decomposes into nonnegative binary superlevel cuts, reducing each Jacobian norm to all nontrivial cuts modulo complements. Independently enumerated exactly 2+18+168+1800+22320 chamber/cut pairs for n=2..6 with rational arithmetic; sharp moduli 1,1,1,1,9/8. The explicit 6-input same-chamber witness gives 9/8. The all-n half-block perturbation gives lower floor(n²/4)/(2(n-2)), while positive row-stochastic Jacobians and cube maximum bound yield upper floor(n²/4)/(n-1). n>6 constants are bounded, not claimed exact.
 
-The proof in `RESULT.md` independently establishes why this finite enumeration covers **every** admissible local linear regime and nonzero perturbation for the sizes claimed. It also provides an analytic proof of the bounds for every larger size. Rational examples through size thirty corroborate that general formula; their finite range is not offered as an infinite proof.
+## originality
 
-No independent audit or external formal verification has been performed.
+PASS
+
+Best-of-knowledge novelty after comparing exact claims and implications, not title matches; the identified structural prior inputs are explicitly credited and all material access limits retained. No inspected earlier theorem implies this complete final claim.
+
+## value
+
+PASS
+
+The Basic unweighted Chebyshev selector is a classical canonical isotonic fit, and its two-input complete-pair Gini stability is distinct from sup-norm approximation and ordinary adjacent total variation. The sharp first expansion at exactly six observations and unbounded order-n sensitivity matter for robust dispersion stability; finite exact cutoff plus analytic all-size bounds are mathematically motivated beyond code correctness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

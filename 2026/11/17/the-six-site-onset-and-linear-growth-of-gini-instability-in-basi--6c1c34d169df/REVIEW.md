@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces the global two-input seminorm to all chamber Jacobians and then, using the sorted-gap decomposition, to indicator cuts. The complete finite exhaustive certificate evaluates exactly 24,308 cases in sizes two through six, and an explicit rational six-site witness attains the maximum. The all-dimensional lower and upper bounds are analytic and are not inferred from finite experiments.
+## correctness
 
-**Originality — PASS, qualified.** Basic Chebyshev isotonic regression itself is classical and explicitly described by Stout (2012). The new result concerns its sharp two-input complete-pair Gini modulus and the first failure of Gini nonexpansivity, not a newly introduced selector. Comparisons with Stout (2015, 2018), Yang–Barber (2017), and the examined mathematical results archive did not identify an equivalent or stronger statement. The 1971 Barlow–Ubhaya original could not be fully inspected, and historical priority is not independently established.
+PASS
 
-**Mathematical value — PASS.** The smallest possible dimension for strict Gini amplification and the exact first amplification factor are natural stability boundaries for a canonical shape-constrained approximation. An explicit family proves linear, unbounded instability in larger dimensions even while the same maps remain maximum-norm nonexpansive. This offers substantive information about metric choice in robustness questions.
+For Basic Chebyshev isotonic selector B_n(a)_i=(prefix maximum + suffix minimum)/2, the midpoint between least and greatest uniform-error isotonic fits is a true L∞ best approximation. On each strict input-rank chamber its Jacobian preserves constants, and global two-input Gini Lipschitz equals the maximum chamber Jacobian norm along line segments. Every Gini seminorm direction decomposes into nonnegative binary superlevel cuts, reducing each Jacobian norm to all nontrivial cuts modulo complements. Independently enumerated exactly 2+18+168+1800+22320 chamber/cut pairs for n=2..6 with rational arithmetic; sharp moduli 1,1,1,1,9/8. The explicit 6-input same-chamber witness gives 9/8. The all-n half-block perturbation gives lower floor(n²/4)/(2(n-2)), while positive row-stochastic Jacobians and cube maximum bound yield upper floor(n²/4)/(n-1). n>6 constants are bounded, not claimed exact.
 
-**Closest literature and limits.** Stout, *Strict L-infinity Isotonic Regression* (2012), documents the Basic/Avg map; Stout, arXiv:1507.02226 (2015), focuses on algorithms; Yang and Barber, arXiv:1706.01852 (2017), study a different least-squares projector. Exact Gini constants beyond six sites are not determined; only two-sided order-sharp bounds are proved. The conclusion applies to unweighted real chains and the Basic selector, not strict or weighted variants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty after comparing exact claims and implications, not title matches; the identified structural prior inputs are explicitly credited and all material access limits retained. No inspected earlier theorem implies this complete final claim.
+
+## value
+
+PASS
+
+The Basic unweighted Chebyshev selector is a classical canonical isotonic fit, and its two-input complete-pair Gini stability is distinct from sup-norm approximation and ordinary adjacent total variation. The sharp first expansion at exactly six observations and unbounded order-n sensitivity matter for robust dispersion stability; finite exact cutoff plus analytic all-size bounds are mathematically motivated beyond code correctness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
