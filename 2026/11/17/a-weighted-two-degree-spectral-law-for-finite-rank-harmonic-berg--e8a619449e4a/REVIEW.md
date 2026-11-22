@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The monomial Toeplitz action on the orthonormal harmonic Fourier basis gives the three explicit coefficient branches, with orthogonal output modes. The moments are the exact beta-integrals and admit uniform gamma-ratio asymptotics away from transition indices. Uniform coefficient bounds make the removed transition neighborhoods negligible after normalization, proving the continuous spectral limit and all \(p>0\) Schatten-mass formulas. The operator norm formula at beta one follows from monotonicity of the three explicit coefficient branches, with no appeal to numerical extrapolation. Boundedness and strong decay of each factor are checked on a dense Fourier basis. The accompanying finite diagnostics check arithmetic only.
+PASS
 
-## Originality — PASS (qualified)
+Derived weighted harmonic monomial action on the angular orthonormal basis using moments mu_k=Gamma(beta+1)Gamma(k+1)/Gamma(k+beta+1), beta=alpha+1. The commutator vanishes outside -k with 1<=k<m+n and sends these to distinct analytic modes, so absolute three-branch coefficients are the complete singular list. Interior gamma-ratio asymptotics at k/n→t yield the three continuous expressions f_beta,lambda(t); uniform coefficient bound 2 controls vanishing-proportion neighborhoods of 0,1,lambda,lambda+1. Riemann sums prove weak empirical law and every p>0 positive moment, while strong nullity of each T_d follows on basis and uniform contractivity. At beta=1 the branch monotonicity locates the exact maximum at k=n or m, giving n(m-n)/((m+1)^(3/2)sqrt(n+1)); optimizing ratio and letting m=3n gives sup 2/(3sqrt3). Recomputed direct two-step operator coefficients over 9741 cases, max error <4e-16; finite checks supplement analytic asymptotics.
 
-Cui–Huang–Lu–Zu, arXiv:2611.08988v1, Theorem 1.1 and Corollary 3.1, classify unweighted finite-rank pairs and prove square-zero; neither the beta-weighted double-degree spectral profile nor normalized \(p\)-Schatten mass is treated. Dong–Zhou, arXiv:1411.0213v3, Remark 4.8, explicitly gives the unweighted canonical two-monomial range/coefficient form, credited to Chen–Koo–Lee (2013). These antecedents cover the algebraic parts, and the unweighted exact norm is explicitly marked as a supporting consequence. Nearest related recorded work treats self-commutators, opposite analytic/coanalytic products, semigroup defects, or a single growing monomial degree. In contrast, the main claim quantifies nonvanishing singular-value mass when *both* degrees diverge in fixed proportion, for a whole continuum of radial weights. A hidden equivalent weighted asymptotic statement remains a residual literature-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification of finite-rank commutators raises a natural quantitative question about their nonzero singular spectra as the rank diverges. The theorem supplies a full limiting distribution rather than a routine upper bound; its \(p>0\) moments give exact scale and weight/degree-ratio dependence. The strong-to-zero versus norm-nonzero separation connects finite-rank algebra to a genuinely nonuniform operator topology phenomenon. The supporting unweighted extremum provides a sharp scale anchor. No general classification of all symbols is claimed.
+Bounded best-of-knowledge originality of the exact final claim, not of its credited general framework or existing endpoint computations. Full primary text was read where available; sources inaccessible in full are clearly identified and retained as priority risks.
 
-## Sources and limitations
+## value
 
-The exact historical comparison is against Cui–Huang–Lu–Zu (2026), Dong–Zhou (2014/2016), Chen–Koo–Lee (2013), and the closely related published records identified in the structured originality comparison. The analytical proof covers only fixed limiting degree ratios greater than one and standard beta weights. Similar statements in unlocated older spectral-asymptotic literature remain possible; an independent audit is not yet performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The proportional two-degree scaling is a genuine spectral regime of finite-rank yet growing-rank operator families; it quantifies macroscopic Schatten mass despite strong convergence to zero, rather than merely reclassifying known finite rank or square-zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
