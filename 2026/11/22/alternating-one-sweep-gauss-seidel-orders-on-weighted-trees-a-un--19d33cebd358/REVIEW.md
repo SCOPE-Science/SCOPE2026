@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The sweep identity follows from triangular splitting and an exact quadratic factorization. Bipartite parity eliminates odd fifth-order terms; tree uniqueness of common neighbors proves the weighted-wedge decomposition. The strictly positive wedge penalty for every non-bipartite order and the finite number of orders establish an honest small-coupling, not all-coupling, theorem. Standalone exact-rational checks cover 1590 finite orders. The combinatorial path count uses Euler zigzag numbers.
+
+**Originality — PASS, with residual priority risk.** The 2019 Xiao–Xiao–Sun full HTML preprint proves complexity bounds for symmetrized orders on a dense equicorrelated family, not a tree-wise exact one-sweep isotropic risk. The 2018 Gurbuzbalaban–Ozdaglar–Vanli–Wright public text compares random and fixed orders for rank-one perturbations, rather than the weighted-tree mixed-wedge formula. Standard red–black scheduling only supplies a practical ordering, not its unique weak-coupling expected-risk optimality. Related published mathematics on arrowhead ordering measures worst-case energy over more sweeps; a worst-case-ordering comparison cannot imply the trace-risk theorem. The direct comparison to that record was limited to its accessible summary because its repository content could not be opened.
+
+**Value — PASS.** Variable ordering affects numerical solvers and can be costly to optimize. Here an arbitrary weighted tree has a weight-independent optimal orientation at small coupling, and the exact local fourth-order gap quantifies the cost of violating it. The theorem covers all finite tree sizes and all strictly positive edge weights, as opposed to an isolated small matrix or table. It complements rather than replaces rate and parallel-scheduling analyses.
+
+**Closest literature and limitations.** See Xiao–Xiao–Sun (arXiv:1910.04366), Gurbuzbalaban et al. (arXiv:1803.08200), and Lee–Wright (arXiv:1607.08320). Finite-threshold estimates, stronger-coupling orderings, multiple epochs, non-trees and non-isotropic initial errors are unproved. Independent historical-priority and mathematical review remain to be performed.
+
+Self-review: passed. Independent audit: not yet performed.

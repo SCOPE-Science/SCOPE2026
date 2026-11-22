@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Exact triangular energy identity \\(R=\\lVert L\\rVert_F^2-\\lVert L(I-L)^{-1}L^{\\mathsf T}\\rVert_F^2\\), bipartite parity eliminates the \\(\\varepsilon^5\\) term, and unique-common-neighbor counting on trees yields the fourth-order mixed-edge-pair penalty. Positive weighted wedges and finite permutations give simultaneous strict small-coupling optimality; \\(N^2=0\\) gives an exact quartic for source–sink orders. Verified with full derivation and a reproduced 1590-order exact-rational suite; finite calculations do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1910.04366 studies cyclic and two symmetrized coordinate update methods, with worst-case lower bounds from an equicorrelated dense matrix (equation (25)), not the minimization over all fixed orders of one-sweep trace risk on weighted trees.",
+        "Cornell CS5220 stationary-iterations notes give the known red–black parallel scheduling construction without the isotropic risk criterion or the exact penalty.",
+        "Published red/black preconditioning literature reports that asymptotic performance may be worse for red–black in some settings; it concerns different contraction or preconditioner objectives."
+      ],
+      "reasoning": "General convergence-rate statements and standard coloring methods are not pointwise stronger theorems for this distinct one-epoch expectation objective. The finite-tree weak-coupling characterization is not implied by permission to use red–black scheduling.",
+      "searches": [
+        "literature search: \"Gauss Seidel optimal permutations small off-diagonal weakly coupled sparse path graph red black single sweep random initialization energy\"",
+        "literature search: \"colored Gauss-Seidel weak coupling exact optimal ordering tree coordinate descent expected objective trace fourth order red black\"",
+        "literature search: \"two symmetrized coordinate descent methods O(n2) slower than randomized arxiv\"",
+        "arXiv full-text search:1910.04366 full HTML, Sections 1–5, numerical experiment and appendix headings"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1910.04366v2 (relevant sections and method inspected)",
+      "https://arxiv.org/abs/1803.08200 (relevant theory and appendices inspected)",
+      "https://www.cs.cornell.edu/courses/cs5220/2020fa/lec/2020-10-27-stationary.html (red–black scheduling section)",
+      "https://arxiv.org/abs/1607.08320 (bibliographic abstract only; dense worst-case family)",
+      "https://academic.oup.com/imajna/article/39/3/1246/5060522 (open failed; arXiv abstract used)",
+      "Indexed published mathematical records on Gauss-Seidel path ordering, arrowhead risk, four-coordinate minibatch, RCGLS, weak coupling; summary-level scientific comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xiao et al. derive the Gauss-Seidel iteration matrix, but do not optimize \\(\\operatorname{tr}(M^{\\mathsf T}HM)\\) over all tree orderings with \\(\\mathbb E[x_0x_0^{\\mathsf T}]=I\\); their lower bound example is permutation-invariant.",
+        "Gurbuzbalaban et al. compare rate criteria on permutation-invariant full coupling, so their fixed-order statement cannot distinguish the two source–sink classes from other tree permutations.",
+        "The nearest arrowhead SCOPE summary concerns worst-case norm and finite horizons, and cannot be used to infer a trace-risk optimum or its local wedge penalty."
+      ],
+      "reasoning": "The proposed claim does not follow from an existing update-matrix representation alone: its proof requires the exact Frobenius risk factorization and tree wedge count. Even a theorem giving the same spectral radius for all orders would not determine the one-sweep isotropic expected energy. Historical certainty is limited by an inaccessible but plausibly related record.",
+      "searches": [
+        "arXiv full-text search:1910.04366: source update matrix in Section 2.1, worst-case construction and bounds in Sections 3–5",
+        "arXiv full-text search:1803.08200: fixed-order CCD and random permutations, equations (16), (21), Sections 3–4",
+        "public mathematical record search: \"Best fixed permutation of cyclic coordinate descent, tridiagonal quadratic and trace of the error propagation matrix\"",
+        "public mathematical record search: \"One-sweep red-black coordinate descent on path four nodes expected trace risk, strict penalty versus lexicographic sweep\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1803.08200 defines fixed-order CCD, RP-CD, and expected function suboptimality, but its analyzed Hessian is the permutation-invariant dense rank-one perturbation of identity (equations (16), (21)) rather than a weighted tree.",
+        "Indexed nearest item 2026/11/2/SCOPE-a-sharp-horizon-reversal-for-gauss-seidel-ordering-on-positive-d--13073edebfeb optimizes a worst-case energy norm for an arrowhead matrix; the proposed theorem optimizes an isotropic covariance trace risk on all weighted trees, including paths, and specifies a weak-coupling mixed-wedge expansion.",
+        "No equivalent exact two-color tree fourth-order trace-loss result emerged from the listed searches."
+      ],
+      "reasoning": "A worst-direction spectral norm or rank-one permutation-invariant convergence theorem does not determine the trace of the one-sweep quadratic-energy propagator, nor the exact quartic lost-wedge coefficient. Source–sink coloring itself is established scheduling practice; novelty is asserted only for the proved one-sweep stochastic-risk theorem, not for coloring.",
+      "searches": [
+        "public mathematical record search: \"Alternating permuted coordinate descent ordering weighted path weak offdiagonal coupling expansion fourth order expected objective isotropic startup Euler zigzag\"",
+        "public mathematical record search: \"Acyclic source-sink graph orientation path optimal initial covariance trace energy Gauss Seidel red black fourth order\"",
+        "literature search: \"one sweep Gauss Seidel ordering expected energy isotropic initialization alternating permutations Euler zigzag numbers\"",
+        "arXiv full-text search:1803.08200, sections 1–4 and Appendix E"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest indexed item 2026/10/25/SCOPE-path-graph-exact-sweeps-and-an-exact-nonlocal-coupling-defect-fo--136fcf9c3f36 is about RCGLS pathwise exact-conjugate sweeps, not standard Gauss-Seidel expected energy.",
+        "Nearest indexed item 2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f is about mini-batch inclusion coupling, not coordinate ordering."
+      ],
+      "reasoning": "The queried exact finite-stencil parameterization, mixed-wedge expression, and all-tree result do not coincide with the retrieved mathematical records or the accessible local historical claims. Database coverage does not establish mathematical uniqueness or priority.",
+      "searches": [
+        "public mathematical record search: \"Four-coordinate tridiagonal Gauss-Seidel one-sweep expected quadratic objective isotropic initial error: exact ten minimum-risk permutations among twenty-four and weight-independent optimal ordering\"",
+        "public mathematical record search: \"Gauss-Seidel four node path weighted quadratic exact minimal first sweep Frobenius residual loss among all permutations\"",
+        "literature search: \"four vertex path quadratic Gauss Seidel optimal ordering one sweep\""
+      ]
+    },
+    "rationale": "The examined primary papers and published mathematics cover long-run/fixed-versus-randomized order rates, dense rank-one Hessians, and known two-color scheduling, whereas the claim is the all-weighted-tree isotropic one-sweep risk extremum with a sharp local fourth-order gap and complete orientation classes. Close arrowhead source only available as indexed summary is an expressly retained priority risk.",
+    "residual_risks": [
+      "The full repository text of the highly relevant arrowhead ordering result was inaccessible; only the indexed scientific summary was read. A stronger unseen statement could alter priority or imply a special case.",
+      "A broad historical literature on sparse Gauss-Seidel and red–black relaxation exists; independent publication-priority checking remains appropriate.",
+      "Semantic and web search cannot demonstrate absence of equivalent formulations, and indexed coverage is incomplete.",
+      "The theorem only proves source–sink order optimality for a weight/tree-dependent sufficiently small positive coupling; the exact cutoff and larger-coupling optimizer classes were not determined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: analyzes different objectives and order families, not weighted-tree one-pass covariance trace optimum",
+        "evidence": [
+          "2019-10-10 first arXiv version verified from abstract page; 2021 version examined",
+          "Equicorrelated Hessian in its equation (25); update matrix in Section 2.1; symmetrized schedules in Section 2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1910.04366v2",
+        "material_read": "Abstract; Sections 1–2 (including the exact cyclic update matrix); Section 5.1 dense worst-case example and permutation-invariance remarks; targeted search of tridiagonal examples in Sections 7–8 and appendix headings",
+        "method": "full-text HTML text inspection with targeted searches for tridiagonal, trace, permutation, average",
+        "title": "Understanding Limitation of Two Symmetrized Orders by Worst-case Complexity",
+        "trigger": "Closest source on Gauss–Seidel ordering and related worst-case performance"
+      },
+      {
+        "assessment": "NOT_COVERING: fixed-order statements concern a permutation-invariant rank-one family, not a sparse weighted tree, order-specific fourth-order motif penalties or minimizer enumeration",
+        "evidence": [
+          "Equations (16) and (21) show full symmetric rank-one offdiagonal structure",
+          "Expected objective examined in Appendix E but no tree-specific ordering optimization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.08200",
+        "material_read": "Abstract; Sections 1–4, formulae for fixed-order and random-permutation methods; rank-one perturbation Hessian in equations (16) and (21); appendix references on expected quadratic suboptimality",
+        "method": "public extracted arXiv full text and targeted find for Hessian, random permutations, expected objective",
+        "title": "Randomness and Permutations in Coordinate Descent Methods",
+        "trigger": "Direct prior analysis of fixed versus randomized coordinate sweep orders under diagonal dominance"
+      },
+      {
+        "assessment": "COVERING_COLORING_NOT_CLAIM: explains red–black parallel scheduling, not sharp isotropic first-sweep risk optimality",
+        "evidence": [
+          "Red/black parts can be updated independently; no expectation-risk extremal theorem stated in inspected section"
+        ],
+        "identifier_or_url": "https://www.cs.cornell.edu/courses/cs5220/2020fa/lec/2020-10-27-stationary.html",
+        "material_read": "Red-Black Gauss-Seidel section and explanation of two-color independent updates",
+        "method": "HTML text inspection through indexed full page",
+        "title": "Stationary Iterations — Red-Black Gauss-Seidel",
+        "trigger": "Known common two-color ordering implementation that could dominate the apparent structural novelty"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT: summary describes worst-case energy norms and a horizon reversal; no direct trace-optimality claim visible",
+        "evidence": [
+          "Indexed summary gives one-sweep worst-direction balancing of couplings for arrowhead systems; not an isotropic trace objective"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-horizon-reversal-for-gauss-seidel-ordering-on-positive-d--13073edebfeb",
+        "material_read": "Semantic index title and summary only; full repository text not accessible",
+        "method": "public research-record title and abstract search; attempted public repository open failed",
+        "title": "A sharp horizon reversal for Gauss–Seidel ordering on positive-definite arrowhead systems",
+        "trigger": "High semantic similarity on finite-horizon ordering optimality and weighted stars"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "19d33ceb-d358-4e3e-97fb-381257fbba62",
+  "value": {
+    "rationale": "A natural numerical optimization design problem on sparse trees is solved for the full fixed finite-tree positive-weight class at weak coupling. The result identifies exactly which orders are best, quantifies how any incorrectly oriented pair of incident interactions hurts first-sweep expected energy, and yields a checkable arbitrary-size weighted formula and Euler zigzag path-order count. The contribution is not merely a renamed or standard graph-coloring criterion: it supplies risk optimality and a sharp coefficient.",
+    "status": "PASS"
+  }
+}
