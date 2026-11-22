@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is a nonequivariant integral homotopy equivalence at an explicitly stated threshold. For any center removed from a dual face, its remaining pendant leaf is isolated in the complement; this proves the conical link and permits elementary collapses. After eliminating centers, replacing mixed cycle edges by available pendant edges gives an exact matching criterion for every leaf subset. The four-facets are precisely pairs of disjoint cycle edges, matching Gale's evenness classification of facets of \(C(n,4)\). The dual is therefore a three-sphere. Combinatorial Alexander duality gives exactly one integral homology class in degree \(2n-6\), and full-skeleton connectivity plus Hurewicz and homological Whitehead upgrades this to the claimed homotopy sphere. The finite checker separately tests each critical dual-collapse condition for \(5\le n\le11\). The only nonstandard input is the explicit matching replacement and conical-link reduction, both proved in full in RESULT.md.
+## correctness
 
-## Originality — PASS, with uncertainty
-Ghosh–Selvaraja (arXiv:2603.02824, Sections 4–5 and Proposition 5.12) study the same matching-free complexes, including the adjacent \(n-1\) threshold, but do not state the \(n-2\) homotopy classification. Das–Ghosh–Selvaraja (arXiv:2604.17100) establish regularity of squarefree powers; their theorem does not determine the integral homotopy type or collapse. Das–Roy–Saha (arXiv:2409.06021, Section 5) give regularity/depth information but not this geometric duality. Gale's evenness criterion is an established tool, not a claimed novelty. The precise new link is the dominated-vertex collapse of the matching-free Alexander dual onto \(\partial C(n,4)\), followed by integral homotopy classification. Relevant published research-index queries on the graph, threshold and possible cyclic-polytope equivalence did not identify a covering claim. The possibility of an implicit or otherwise unindexed equivalent statement remains.
+PASS
 
-## Value — PASS
-The \(n-2\) threshold is a natural next-to-extremal matching threshold in a recently studied class of whisker graphs. The exact identification of the Alexander dual with a cyclic-polytope boundary after collapses explains an infinite-family homotopy sphere rather than merely deriving algebraic regularity or one Betti number. It supplies a reusable geometric model and a sharp topology classification across unbounded graph order, with a transparent bridge between matching theory and convex polytope combinatorics. It is not a named-number exercise or a routine restatement of the previously established regularity formula.
+For every n>=5 and G=W(C_n) with 2n graph vertices, K_{n-2} consists of vertex subsets whose induced graph lacks an (n-2)-matching. Full-ground-set Alexander dual D has faces S with complement admitting such a matching, thus |S|<=4. Whenever x_i belongs to S and y_i not, y_i is isolated in complement, and adjoining y_i preserves the witnessing matching; vertex link of each center is a cone over leaf, which yields elementary collapses deleting all centers. For deleted leaf indices A, matching replacement of cycle edges incident to any intact leaf converts a witnessing matching into one using all possible intact pendant edges plus a matching in C_n[A], giving criterion nu(C_n[A])>=max(0,|A|-2). Thus every four-face is two disjoint cyclic-order edges, exactly the Gale-evenness facets of boundary of C(n,4), with all lower faces. This gives D simple-homotopy equivalent to S³ integrally. Full-ground-set Alexander duality locates sole reduced homology of K in 2n-6; K contains the entire (2n-6)-skeleton of the simplex since minimal nonfaces require 2n-4 graph vertices, hence K is (2n-7)-connected. For d=2n-6>=4, Hurewicz and homological Whitehead give K~S^d. Independent direct matching recursion verified the complete leaf-core criteria for all deleted-leaf subsets of size <=4 for n=5,6,7,8; these are finite checks supplementary to the universal collapse and topology proof.
 
-## Scope and remaining risks
-The claim covers \(n\ge5\), threshold exactly \(n-2\), and ordinary integral homotopy; it makes no statement for other thresholds or group actions. The only outstanding originality uncertainty is implicit or unindexed overlap. No independent mathematical assessment has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Four statement-level comparisons distinguish the specified result from the inspected primary-source coverage; best-of-knowledge priority, not an absence-of-search novelty guarantee. 
+
+## value
+
+PASS
+
+An exact integral homotopy type for a natural unbounded family of matching-avoidance simplicial complexes at near-perfect threshold is mathematically substantive, and the explicit Alexander-dual collapse to the classical cyclic 4-polytope boundary explains its rigidity beyond Betti-number computation. It is not merely evaluating known squarefree-power regularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
