@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The theorem's exact graph is specified by an eighteen-cycle and nine chords. The closed-neighborhood binary matrix has an explicit rank/kernel certificate. A double-counting proof identifies all eighteen minimum solutions. Kernel-column independence and variance derive the whole odd-domination weight enumerator; exact center-set intersections and the sharp three-replacement mobility threshold are verified by full finite enumeration. Independently implemented Python and C++17 programs reproduce the results, including all \(262144\) labeled subsets and \(816\) triple projections. These certificates establish one finite graph, not an infinite classification.
+
+**Originality — PASS, with a specific unresolved priority risk.** The 2001, 2003 and 2005 Caro/Klostermeyer papers establish the definition, binary-neighborhood representation and general connectedness restrictions. The bare Pappus ordinary minimum-domination count of eighteen was already available and is not claimed separately as new. Their analyzed graph families and statements do not give the Pappus-specific affine solution spectrum \(18z^5+92z^9+18z^{13}\), its exact three-wise uniformity or the eighteen-center optimizer and mobility classification. Equivalent formulation, broader theorem, exact database and claim-versus-prior implications were compared individually. An unindexed parity-code table might still overlap. No uniqueness or independent priority certification is asserted.
+
+**Value — PASS.** The code's dimension, weight distribution, orthogonal-array strength and optimum exchange graph are mathematically motivated invariants of the canonical Pappus graph and help distinguish uniform pattern coverage from the inability to locally adjust minimum configurations. The geometric classification is not an arbitrary isolated count; the source graph and the parity monitoring problem arise naturally.
+
+**Known limitation.** The absence of connected odd-dominating sets follows from a previously known Eulerian constraint and bipartiteness and is not offered as separate novelty. The scope is limited to this explicitly labeled eighteen-vertex graph. Priority remains subject to expert literature review.
+
+Self-review: passed. Independent audit: not yet performed.
