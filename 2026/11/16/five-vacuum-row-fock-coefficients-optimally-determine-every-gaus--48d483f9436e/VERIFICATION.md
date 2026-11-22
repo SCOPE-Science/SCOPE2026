@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Proof dependencies: (i) unique trace-normalized quadratic for each nondegenerate filled ellipse; (ii) strict sign of the difference of normalized defining quadratics on the symmetric difference; (iii) invariance of domain for the dimension-five parameter manifold; (iv) positive-part convex supporting inequality; (v) coarea differentiation and the no-vanishing-traceless-quadratic lemma on the ellipse boundary; (vi) trigonometric orthogonality determining the unweighted Gram determinant. These steps are explicitly proved in `RESULT.md`.
+## correctness
 
-Numerical confirmation: run `python ellipse_moment_checker.py` with Python, `numpy`, and `scipy`. Three displaced noncircular ellipses were checked; every analytic boundary Gram agrees with finite differences of moment derivatives to better than \(5.1\times10^{-10}\) entrywise in the tested cases. Every smallest Gram eigenvalue was positive, the determinant lower bound held, and convex numerical recovery was within \(2.1\times10^{-7}\) in normalized parameter Euclidean norm. The expected terminal message is `GAUSSIAN_ELLIPSE_FIVE_MOMENT_TOMOGRAPHY_PASS cases=3`.
+PASS
 
-Limits: finite numerical checks cannot prove the universal theorem. The theorem is analytical and assumes a calibrated Gaussian density, a single nondegenerate ellipse and exact complex data. No independent audit has occurred.
+PASS. Work from the frozen RESULT.md: each full-dimensional unit-contrast ellipse has a unique trace-one normalized quadratic Q=s+b·X−XᵀAX, with tr A=1. Differences Q1−Q0 cancel the otherwise unobserved radial |X|² term, leaving precisely the five measured real Gaussian harmonic features (1,x,y,x²−y²,2xy). On the symmetric difference of interiors, (1_E1−1_E0)(Q1−Q0)>0, giving injectivity even when centers and anisotropy vary; same boundary implies identical normalized Q. The five-dimensional open ellipse parameter manifold cannot inject continuously into R^4 by invariance of domain. The convex positive-part potential F(θ)=∫(Qθ)+dγ has gradient the moment map for a nonempty ellipse; equality in its support inequality forces the same positivity set, so the data's minimizer is unique. Boundary coarea gives J=(2 sqrt(detA))^(−1)∫_0^{2π} ψψᵀ e^(−|X(φ)|²)/π dφ; a traceless harmonic quadratic cannot vanish on the entire ellipse unless zero, proving J positive definite. Independently expanding the angular Gram on principal axes gives det J≥R^12/[64(detA)^(13/2)]exp[−5(|c|+R/sqrt(λ_min A))²], including the stated constant. The inspected 2932-byte numerical checker uses finite differences on three noncircular ellipses, supporting only those examples, not the universal proof. No reconstruction for unions, unknown contrast or uniform noise condition number follows.
+
+## originality
+
+PASS
+
+Best-of-knowledge original residual scientific increment after explicitly excluding known prior coverage; exact historical priority is not certified. Material compared at the statement and implication level; finite or generic overlaps are acknowledged.
+
+## value
+
+PASS
+
+PASS. A five-dimensional natural aperture family is determined by exactly five calibrated Fock coefficients even though the radial second moment is missing; optimal count, global constructive convex inversion, positive boundary Gram and explicit degeneration-sensitive bound are substantial inverse-moment facts beyond textbook moment identities. The precise coefficient set matters for finite-rank Fock localization and cannot be obtained by blindly naming ellipse parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

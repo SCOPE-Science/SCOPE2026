@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:15:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Work from the frozen RESULT.md: each full-dimensional unit-contrast ellipse has a unique trace-one normalized quadratic Q=s+b·X−XᵀAX, with tr A=1. Differences Q1−Q0 cancel the otherwise unobserved radial |X|² term, leaving precisely the five measured real Gaussian harmonic features (1,x,y,x²−y²,2xy). On the symmetric difference of interiors, (1_E1−1_E0)(Q1−Q0)>0, giving injectivity even when centers and anisotropy vary; same boundary implies identical normalized Q. The five-dimensional open ellipse parameter manifold cannot inject continuously into R^4 by invariance of domain. The convex positive-part potential F(θ)=∫(Qθ)+dγ has gradient the moment map for a nonempty ellipse; equality in its support inequality forces the same positivity set, so the data's minimizer is unique. Boundary coarea gives J=(2 sqrt(detA))^(−1)∫_0^{2π} ψψᵀ e^(−|X(φ)|²)/π dφ; a traceless harmonic quadratic cannot vanish on the entire ellipse unless zero, proving J positive definite. Independently expanding the angular Gram on principal axes gives det J≥R^12/[64(detA)^(13/2)]exp[−5(|c|+R/sqrt(λ_min A))²], including the stated constant. The inspected 2932-byte numerical checker uses finite differences on three noncircular ellipses, supporting only those examples, not the universal proof. No reconstruction for unions, unknown contrast or uniform noise condition number follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gustafsson–He–Milanfar–Putinar, Inverse Problems 16 (2000), reconstruct planar polynomial domains from richer moment families; the degree-two mixed/radial moment is not eliminated in that general setup.",
+          "Di Dio arXiv:1907.00790 discusses general semialgebraic and Gaussian-mixture reconstruction, without identifying this five-real harmonic map in examined material."
+        ],
+        "reasoning": "General polynomial-sublevel recovery from all degree-two or higher moments does not entail injectivity from only these five nonradial, Gaussian-weighted data or the sharp Jacobian constant. Residual specialized moment literature may contain a reduction.",
+        "searches": [
+          "Gustafsson He Milanfar Putinar Reconstructing planar domains from their moments 2000",
+          "di Dio truncated moment semialgebraic Gaussian reconstruction 2019"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1088/0266-5611/16/4/312",
+        "https://arxiv.org/abs/1907.00790",
+        "https://arxiv.org/abs/1202.5841",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-minimal-hermite-moment-tomography-of-displaced-gaussian-localiza--1cecd3ec0ec2",
+        "https://arxiv.org/abs/1906.02964"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abreu–Dörfler arXiv:1202.5841 recovers disks from a Hermite eigenfunction assumption, different from observing vacuum-row coefficients.",
+          "Resultary displaced-ball theorem is lower-dimensional spherical geometry; the new free trace-zero anisotropy coordinates u,v are not parameterized there."
+        ],
+        "reasoning": "Neither cited eigenfunction condition nor spherical tomography logically forces the five-observation anisotropic-ellipse injectivity, global minimum, or sharp boundary-Gram lower bound; the sign-separation method itself is classical and is not credited as new.",
+        "searches": [
+          "Abreu Dörfler inverse problem localization operators Hermite eigenfunction disk 2012",
+          "Gustafsson planar moment reconstruction ellipse Fourier Fock"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Trace-one quadratic difference is measured by harmonic degree≤2 moments; the Fock matrix coefficients differ by known sqrt(j!) and conjugation.",
+          "Resultary ball tomography full RESULT.md (2026-11-16), 2d+1 real coefficients determine displaced balls only."
+        ],
+        "reasoning": "Ellipse geometry reduces to threshold sets of trace-fixed quadratics. Ball tomography is a related special geometry, not an equivalent theorem for freely anisotropic ellipses.",
+        "searches": [
+          "Gaussian weighted planar ellipse harmonic quadratic moments threshold uniqueness",
+          "Bargmann Fock Toeplitz localization ellipse vacuum-row finite coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same five-coefficient claim is indexed as the record under audit; an independently indexed full result treats displaced balls, not anisotropic planar ellipses.",
+          "No external table of five Gaussian-weighted ellipse coefficients or its determinant bound was encountered."
+        ],
+        "reasoning": "The searched finding corpus contains related geometry but no earlier equivalent exact Gaussian ellipse table. Missing a table in bounded results is not historical novelty proof.",
+        "searches": [
+          "Resultary Gaussian Fock ellipse five vacuum moments tomography",
+          "Resultary minimal Hermite moment tomography displaced localization balls"
+        ]
+      },
+      "rationale": "Best-of-knowledge original residual scientific increment after explicitly excluding known prior coverage; exact historical priority is not certified. Material compared at the statement and implication level; finite or generic overlaps are acknowledged.",
+      "residual_risks": [
+        "General Gaussian inverse-moment or shape-reconstruction theorem may have a low-degree ellipse corollary overlooked in bounded reading.",
+        "No uniform stability under high eccentricity, tiny Gaussian mass or uncalibrated phases; the explicit bound degenerates, as stated.",
+        "Finite numerical integrations cannot certify an all-ellipse theorem; the analytical sign and coarea proof carry it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General prior method overlaps sign-threshold reconstruction; exact five harmonic Gaussian data and bound not established by the examined theorem",
+          "evidence": "The mixed/radial moments required by the general moment array distinguish it from the proposed restricted feature set.",
+          "identifier_or_url": "https://doi.org/10.1088/0266-5611/16/4/312",
+          "material_read": "Available scholarly full-text rendering including reconstruction criteria and moment arrays, particularly theorem/corollary on polynomial positivity sets",
+          "method": "Read public article text and compared measured monomial families and domain weights",
+          "title": "Reconstructing planar domains from their moments",
+          "trigger": "Potential dominating polynomial-boundary moment theorem"
+        },
+        {
+          "assessment": "Related proof paradigm covers balls, not arbitrary anisotropic ellipses",
+          "evidence": "Ball input has center plus radius (2d+1 parameters), while ellipse adds independent quadratic-traceless degrees.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-minimal-hermite-moment-tomography-of-displaced-gaussian-localiza--1cecd3ec0ec2",
+          "material_read": "Complete available RESULT.md including theorem, positive-part reconstruction and boundary Jacobian",
+          "method": "Read source-result full text via GitHub exact content path",
+          "title": "Minimal Hermite moment tomography of displaced Gaussian localization balls",
+          "trigger": "Same Fock setting and convex inversion"
+        },
+        {
+          "assessment": "Access-limited: did not establish that the paper omits every equivalent low-degree corollary",
+          "evidence": "General Gaussian-weighted shape moment methods could implicitly encompass or motivate the specific special case.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.00790",
+          "material_read": "Available abstract and theorem-level summary, not a verified complete proof-to-proof comparison",
+          "method": "Open-access abstract/metadata check",
+          "title": "The multidimensional truncated Moment Problem: Shape and Gaussian Mixture Reconstruction from Derivatives of Moments",
+          "trigger": "Plausible general moment reconstruction dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A five-dimensional natural aperture family is determined by exactly five calibrated Fock coefficients even though the radial second moment is missing; optimal count, global constructive convex inversion, positive boundary Gram and explicit degeneration-sensitive bound are substantial inverse-moment facts beyond textbook moment identities. The precise coefficient set matters for finite-rank Fock localization and cannot be obtained by blindly naming ellipse parameters.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1088/0266-5611/16/4/312",
+    "https://arxiv.org/abs/1907.00790",
+    "https://arxiv.org/abs/1202.5841",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-minimal-hermite-moment-tomography-of-displaced-gaussian-localiza--1cecd3ec0ec2",
+    "https://arxiv.org/abs/1906.02964"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only one full-dimensional nondegenerate filled ellipse with unit contrast and known Gaussian/Fock convention; boundaries are null.",
+    "Fock vacuum-to-monomial calibration fixes the complex phase; no unions or noise-uniform inverse stability."
+  ],
+  "residual_risks": [
+    "General Gaussian inverse-moment or shape-reconstruction theorem may have a low-degree ellipse corollary overlooked in bounded reading.",
+    "No uniform stability under high eccentricity, tiny Gaussian mass or uncalibrated phases; the explicit bound degenerates, as stated.",
+    "Finite numerical integrations cannot certify an all-ellipse theorem; the analytical sign and coarea proof carry it."
+  ],
+  "schema_version": 1
+}
