@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The standalone `verify.py` uses only the Python 3 standard library. It evaluates the exact inclusion–exclusion count for every tested \(d,k\), calculates the prime-factor recurrence via coordinate-set partitions, and independently enumerates all Boolean subsets in dimensions one through four (up to ten vertices), testing all proper coordinate splits for the product condition. It also compares the four-, six-, and nine-vertex closed forms to the recurrence through dimension five.
+## correctness
 
-Run `python verify.py`; an assertion failure means a finite verification test failed. These exact finite checks corroborate the unrestricted algebraic proof and do not constitute an infinite proof or an independent specialist audit.
+PASS
 
-The structural premise — the coordinate-product characterization of Minkowski decomposition — is Theorem 1.1 and its proof in Higashitani–Padrol–Sanyal (arXiv:2605.22594). Its use is explicit. The asymptotic restriction is fixed \(k\), varying ambient dimension, conditioned on no constant coordinates. No external independent audit has been performed.
+PASS: For each Boolean subset every retained cube point is an exposed vertex, so vertex count is multiplicative under Cartesian product. The alternating coordinate-activity count is correct and a unique coordinate-factor theorem supports the partition recurrence. Merging factors raises the exponential base, while for fixed k the maximal two-factor F(a)+F(k/a) occurs at its smallest divisor p. Independently enumerated Boolean subsets in dimensions 2–4, checking decomposition by all coordinate bipartitions: D_{3,4}=6, D_{3,6}=12, D_{4,4}=28, D_{4,6}=176, D_{4,9}=48, agreeing with exact formulas. The large-d asymptotic relies on cited uniqueness theorem and analytically bounded collision/short-block tails, not finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.
+
+## value
+
+PASS
+
+The fixed-k, increasing-d sampling regime of coordinate-active Boolean polytopes has a natural intrinsic invariant (number of actual vertices) and reveals an arithmetic smallest-prime-factor phase in rare decomposability, distinct from high-density full-dimensional random polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

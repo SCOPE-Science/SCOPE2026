@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:14:31.660562Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md Steps 1–6: active-subset inclusion–exclusion, unique coordinate-block Cartesian factorization from Higashitani–Padrol–Sanyal, recurrence over unordered coordinate partitions, exponential separation and dominance of smallest-prime-divisor two-factor product.",
+        "Direct exhaustive coordinate bipartition testing for all 2-,3-,4-dimensional subsets of sizes 4,6,9 confirmed the three closed forms; source code recurrence inspected, not used as an infinite proof."
+      ],
+      "rationale": "PASS: For each Boolean subset every retained cube point is an exposed vertex, so vertex count is multiplicative under Cartesian product. The alternating coordinate-activity count is correct and a unique coordinate-factor theorem supports the partition recurrence. Merging factors raises the exponential base, while for fixed k the maximal two-factor F(a)+F(k/a) occurs at its smallest divisor p. Independently enumerated Boolean subsets in dimensions 2–4, checking decomposition by all coordinate bipartitions: D_{3,4}=6, D_{3,6}=12, D_{4,4}=28, D_{4,6}=176, D_{4,9}=48, agreeing with exact formulas. The large-d asymptotic relies on cited uniqueness theorem and analytically bounded collision/short-block tails, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bernoulli p fixed keeps exponentially many points; fixed-k polytopes have affine dimension <=k-1 as d grows, outside its full-dimensional condition."
+        ],
+        "reasoning": "The previous dominating parameter is probability p, not conditioning on exactly k; its exponent n[p²+(1-p)²]^(2^(n-1)) does not specialize by a fixed-k conditioning argument to current rate.",
+        "searches": [
+          "Resultary October 18 2026 rare-event Bernoulli Boolean polytopes full theorem; arxiv 2605.22594; Boolean relation enumeration literature search"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 2f5a93f83750258e79af9aef45f8ceac515da971, RESULT.md 3a044c4c42e8f1485ca354c82b52c487afc1307c, verify.py e70b88baea4c0c286f933a8496e35355d4e1356d",
+        "Higashitani–Padrol–Sanyal arxiv:2605.22594",
+        "Resultary full 2026/10/18 rare-event Bernoulli Boolean polytopes theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unique factorization is an essential cited hypothesis; neither cited full-dimensional random rare-event theorem nor geometry alone supplies B_k=2^p+2^(k/p)-4 prefactor and exponential rates."
+        ],
+        "reasoning": "The work is dependent on known deterministic factorization but adds combinatorial counts and sharp fixed-k large-d calculations; exact implication of these from previously inspected sources not established.",
+        "searches": [
+          "Higashitani Padrol Sanyal original factorization statement; Resultary 2026/10/18 full rare-event law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Higashitani–Padrol–Sanyal establishes unique coordinate Cartesian decomposition but does not state the presented cardinality-refined count in available statement. Resultary exact Bernoulli random-polytope theorem uses fixed retention probability and full dimension, not fixed k."
+        ],
+        "reasoning": "A general unique-factorization theorem gives the recurrence principle but not automatically the sharp fixed-cardinality arithmetic asymptotics without nontrivial enumeration and exponential competition.",
+        "searches": [
+          "Resultary fixed k Boolean polytope decomposition smallest prime asymptotic; Higashitani Padrol Sanyal arxiv:2605.22594; Boolean relation Cartesian product counting"
+        ]
+      },
+      "evidence": [
+        [
+          "Higashitani–Padrol–Sanyal establishes unique coordinate Cartesian decomposition but does not state the presented cardinality-refined count in available statement. Resultary exact Bernoulli random-polytope theorem uses fixed retention probability and full dimension, not fixed k."
+        ],
+        [
+          "Bernoulli p fixed keeps exponentially many points; fixed-k polytopes have affine dimension <=k-1 as d grows, outside its full-dimensional condition."
+        ],
+        [
+          "No checked pre-existing fixed-labeled-coordinate table for D_{d,4}, D_{d,6}, D_{d,9}; direct small-dimensional enumeration independently confirms formulas."
+        ],
+        [
+          "Unique factorization is an essential cited hypothesis; neither cited full-dimensional random rare-event theorem nor geometry alone supplies B_k=2^p+2^(k/p)-4 prefactor and exponential rates."
+        ]
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked pre-existing fixed-labeled-coordinate table for D_{d,4}, D_{d,6}, D_{d,9}; direct small-dimensional enumeration independently confirms formulas."
+        ],
+        "reasoning": "The three exact cases and general recurrence are not unmotivated known-table transcription; the explicit fixed-k asymptotic is the central structural content.",
+        "searches": [
+          "Resultary semantic fixed k indecomposable Boolean polytopes; Chen Guo 0/1-polytopes enumerations; arxiv 2605.22594"
+        ]
+      },
+      "rationale": "Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.",
+      "residual_risks": [
+        "Full primary text of Higashitani–Padrol–Sanyal was inaccessible (arXiv HTML and OA attempts failed; authorized institutional connection VPN disconnected); relying on the exact theorem statement as quoted and published abstract.",
+        "Unindexed combinatorial literature on prime Cartesian-product decompositions of binary relations could contain equivalent enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FACTORIZATION_THEOREM_SUPPORTS_PREMISE; possible uninspected enumeration",
+          "evidence": "The original abstract explicitly establishes orthogonal-summand uniqueness but does not provide fixed-k coefficient series.",
+          "identifier_or_url": "arxiv:2605.22594",
+          "material_read": "Original author/title/date and abstract stating unique decomposition and orthogonal Cartesian factors; full primary text not accessible in this run",
+          "method": "arXiv and OA search; authorized Oxford attempt",
+          "title": "Indecomposability of 0/1-polytopes",
+          "trigger": "required structural lemma for Boolean polytopes"
+        },
+        {
+          "assessment": "NOT_COVERING fixed vertex count",
+          "evidence": "This theorem conditions on full affine dimension and p-fixed Bernoulli retention, a disjoint asymptotic regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-rare-event-law-for-minkowski-decomposability-of-bernoulli--a5dcb777adc8/RESULT.md",
+          "material_read": "Complete RESULT.md assumptions, event decomposition, rate bounds and finite verification discussion",
+          "method": "GitHub full-file fetch",
+          "title": "Sharp rare-event law for Minkowski decomposability of Bernoulli Boolean polytopes",
+          "trigger": "potential stronger decomposability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "RESULT.md Steps 1–6: active-subset inclusion–exclusion, unique coordinate-block Cartesian factorization from Higashitani–Padrol–Sanyal, recurrence over unordered coordinate partitions, exponential separation and dominance of smallest-prime-divisor two-factor product."
+      ],
+      "rationale": "The fixed-k, increasing-d sampling regime of coordinate-active Boolean polytopes has a natural intrinsic invariant (number of actual vertices) and reveals an arithmetic smallest-prime-factor phase in rare decomposability, distinct from high-density full-dimensional random polytopes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 2f5a93f83750258e79af9aef45f8ceac515da971, RESULT.md 3a044c4c42e8f1485ca354c82b52c487afc1307c, verify.py e70b88baea4c0c286f933a8496e35355d4e1356d",
+    "Higashitani–Padrol–Sanyal arxiv:2605.22594",
+    "Resultary full 2026/10/18 rare-event Bernoulli Boolean polytopes theorem"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed k, d tends infinity, no growing-k uniformity and no affine full-dimensionality."
+  ],
+  "residual_risks": [
+    "Full primary text of Higashitani–Padrol–Sanyal was inaccessible (arXiv HTML and OA attempts failed; authorized institutional connection VPN disconnected); relying on the exact theorem statement as quoted and published abstract.",
+    "Unindexed combinatorial literature on prime Cartesian-product decompositions of binary relations could contain equivalent enumeration."
+  ],
+  "schema_version": 1
+}

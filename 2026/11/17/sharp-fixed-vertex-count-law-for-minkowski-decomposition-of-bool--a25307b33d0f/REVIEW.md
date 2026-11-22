@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Every selected Boolean point is an exposed polytope vertex; hence product factor cardinalities multiply. The known unique coordinate-split decomposition theorem gives the exact set-partition recurrence. The all-active array bound is obtained by a pair-collision union bound, and the strict exponential inequality \(F(ab)>F(a)+F(b)\), together with multinomial concentration, determines each factorization's sharp prefactor. The sum-of-powers optimization uniquely selects the smallest-prime-divisor factorization. Exact subset enumeration and an independently implemented recurrence cross-check the finite cases; enumeration is not used to infer the infinite theorem.
+## correctness
 
-**Originality — PASS, provisional priority.** Higashitani–Padrol–Sanyal supply the deterministic geometric factorization theorem, not the cardinality-refined enumeration. The closest published rare-event result studies fixed-density Bernoulli samples conditioned on full affine dimension, incompatible with fixed \(k\) as the cube dimension diverges. No equivalent counting law or stronger statement was identified in the checked source texts and searches. The possibility of prior Boolean-relation enumeration under different terminology remains a concrete bibliographic risk.
+PASS
 
-**Mathematical value — PASS.** The number of vertices is a canonical invariant which is multiplicative under Cartesian products; refining the decomposition census by that invariant is therefore structurally motivated. The theorem gives an exact all-dimension recurrence, a prime-versus-composite dichotomy, and sharp exponential constants across every fixed composite vertex cardinality. It characterizes a sparse geometric regime absent from existing fixed-density asymptotics, not an arbitrary finite enumeration.
+PASS: For each Boolean subset every retained cube point is an exposed vertex, so vertex count is multiplicative under Cartesian product. The alternating coordinate-activity count is correct and a unique coordinate-factor theorem supports the partition recurrence. Merging factors raises the exponential base, while for fixed k the maximal two-factor F(a)+F(k/a) occurs at its smallest divisor p. Independently enumerated Boolean subsets in dimensions 2–4, checking decomposition by all coordinate bipartitions: D_{3,4}=6, D_{3,6}=12, D_{4,4}=28, D_{4,6}=176, D_{4,9}=48, agreeing with exact formulas. The large-d asymptotic relies on cited uniqueness theorem and analytically bounded collision/short-block tails, not finite tests.
 
-**Limitations.** Counts retain labeled cube coordinates and exclude constant-coordinate embeddings. The \(d\to\infty\) limit fixes \(k\); no statement concerns full-dimensional or varying-density regimes. Historical-priority checks cannot exclude every unindexed equivalent formulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.
+
+## value
+
+PASS
+
+The fixed-k, increasing-d sampling regime of coordinate-active Boolean polytopes has a natural intrinsic invariant (number of actual vertices) and reveals an arithmetic smallest-prime-factor phase in rare decomposability, distinct from high-density full-dimensional random polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
