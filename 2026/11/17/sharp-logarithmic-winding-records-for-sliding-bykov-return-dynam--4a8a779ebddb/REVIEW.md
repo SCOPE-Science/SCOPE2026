@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact branch derivative rate \(\exp[-2\pi k/|\kappa|]\) is established in [1, equations (17)–(19), (23)]. The conformal measure, equivalent invariant measure, distortion and contraction inputs are established in [1, §5.4, Theorem B(c), Appendix C]. A complete derivation in RESULT.md gives wordwise distortion, quasi-Bernoulli cylinder comparability, uniform prefix-conditional tails, two-sided avoidance estimates, waiting-time bounds, and Borel–Cantelli records. No finite computation is substituted for an infinite-time proof. The invariant law is on the return Cantor set, not in ambient Lebesgue measure.
+## correctness
 
-**Originality — PASS within inspected evidence; priority provisional.** The full current source [1] proves countable symbolic dynamics, exponential inverse-branch geometry, dimension and measure existence but does not state a quantitative rare-winding record/waiting-time law. The earlier sliding Shilnikov source [2] covers analogous fractal structure for a different return map but not this return measure. Foundational CIFS literature [3] provides the general conformal framework, and generic dynamical extreme-value methods may recover the conclusion once the specific geometry is inserted. No inspected source was found directly making that system-specific implication with the coefficient \(|\kappa|/(2\pi s_U)\). This is a bounded novelty assessment, not a claim that all earlier mathematical literature has been exhausted.
+PASS
 
-**Mathematical value — PASS.** A natural observable, the greatest spiral-sheet index seen in a finite itinerary, is quantified for an invariant probability newly constructed in [1]. Both an almost-sure record law and uniform finite-horizon rare-branch survival estimates are obtained, linking the fractal dimension and the local linearization through a sharp coefficient. These address frequency and waiting-time questions absent from the source's structural classification.
+Under the stated SB/P hypotheses and fixed sufficiently small return section, the actual primary Cunha–da Silva equations (17),(18),(23) give inverse-branch derivative bounds a exp[−(2π/|κ|)k]≤|ψ_k'|≤b exp[−(2π/|κ|)k] with κ≠0, uniformly on the branch domain. Their Lemma 5.4 verifies C6 relative derivative Hölder control and uniform contractions. Summing log-derivative oscillations along contracting suffixes gives word-independent bounded distortion D. The s_U-conformal cylinder identity, quasi-multiplicativity p(uv)≈p(u)p(v) and boundedness of shift-pushforwards yield an invariant equivalent measure ν* with cylinders comparable by constants uniform in word length; this agrees with their Proposition C.4 uniqueness. Thus ν*{K0≥k}≈exp[−(2πs_U/|κ|)k] and the same conditional bound holds after any finite prefix. Iterating conditional avoidance gives the two finite-horizon powers and geometric bounds on mean first-hit time. Borel–Cantelli on dyadic horizons with thresholds (1±δ)log n/β establishes M_n/log n→1/β a.s., where β=2πs_U/|κ|. Source material explicitly checked for these nonstandard premises; no finite simulation was substituted. The law concerns invariant Cantor probability, not ambient Lebesgue initial data.
 
-The closest sources are Cunha–da Silva [1], Cunha–Novaes–Ponce [2], and Mauldin–Urbański [3]. Residual limitations include general extreme-value precedence, a section-dependent additive index convention, and a lack of assertions for typical ambient orbits or real elapsed time.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source arXiv:2611.01971 proves a sliding Bykov return countable conformal IFS, spiral-branch exponential derivative bounds, Hausdorff dimension, and existence/uniqueness of conformal-equivalent invariant measure; those structural ingredients are explicitly credited. The inspected Theorem B, Lemma 5.4 and Appendix C do not calculate μ* digit-tail exponent, finite-horizon rare-event avoidance bounds, mean first waiting time, exponential moments or a.s. maximal winding coefficient. General infinite-IFS/Gibbs extreme-value principles are plausible antecedents in abstract form; the submitted result verifies the system-specific bounded conditional tails and produces a sharp coefficient in the actual Filippov parameters. Searches identified no earlier identical Bykov-system digit record law. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+A return branch index records real spiralling sheets of a sliding Bykov system. Its sharp almost-sure maximum logarithmic growth and waiting-time exponential scale connect a geometric spiral contraction c=2π/|κ| with the fractal invariant-set dimension s_U. This supplies nontrivial quantitative statistics beyond symbolic coding/dimension alone, with strong uniform finite-horizon estimates. The result is natural and would help researchers quantify recurrence/records on the invariant Cantor set even absent a centered extreme-value distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
