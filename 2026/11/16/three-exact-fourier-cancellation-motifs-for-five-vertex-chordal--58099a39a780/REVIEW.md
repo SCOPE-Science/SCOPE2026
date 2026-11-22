@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The five-vertex statement is an exhaustive orbit-reduced signed count: there are 34 relabeling classes of the 1024 frequencies, and the exact 34-row certificate has precisely the three zero representatives stated. The order-six conclusion uses only the independently verified chordal count 18154, the independently verified fixed-edge incidence count 8524, and the elementary product expansion modulo four. A separate signed sum at mask 639 realizes the lower bound. Two different recognition tests (induced-cycle exclusion and simplicial deletion) and direct signed sums versus fast Walsh transform agree. Code includes complete finite quantification, not truncated search.
+PASS
 
-## Originality
+The chordal graph indicator is defined for every labelled simple graph over 2^(n choose 2) edge bits, with unnormalized Walsh sum. Exhaustive five-vertex enumeration of all 1024 graph masks gives 822 chordal graphs; 34 vertex-permutation frequency orbits include exactly three zero Walsh classes (representatives 28,31,185, sizes 30,30,60), total 120 zeros and rank 904. In six vertices 18154 chordal graphs with 8524 containing any specified edge; product expansion (-1)^{sum bits}=product(1-2x_e) gives W_6(S)=18154-2(8524)|S|=2 mod 4 for every frequency, and one witness S with mask 639 gives W_6=2, hence full rank and sharp inverse norm 1/2. Inspected two independent exact chordality recognizers (induced-cycle forbidden patterns and perfect elimination) and fast Walsh transform logic; independently enumerated all masks with an original PEO/Walsh implementation, reproducing 822,18154,120,0, witness 2, min magnitude 2 and Parseval.
 
-PASS under bounded comparison. Wormald (1985) treats enumeration of chordal graphs by clique statistics; those statistics may imply the elementary edge-parity component at six vertices but do not directly determine three nonisomorphic five-vertex signed-frequency cancellation patterns. Hébert-Johnson–Lokshtanov–Vigoda (2023) proves polynomial-time counting and sampling, not an explicit signed edge-frequency zero-locus. Chandran–Mathew (2011) treats a structural graph-power property. Searches against public mathematical records and related finite Fourier classifications found no statement covering the complete five-vertex zero orbits and the six-vertex sharp recovery transition. Wormald's full 1985 text was not accessible; unindexed tables remain a residual priority risk. No claim of absolute uniqueness is made.
+## originality
 
-## Value
+PASS
 
-PASS. Chordal graphs constitute a central hereditary graph class used in sparse elimination and probabilistic graph models, and Fourier cancellation describes exactly which edge-parity observables are lost by their counting convolution. The first exceptional order has an unexpectedly small three-motif obstruction, whereas the following even-cardinality order has no obstruction at all, as explained by a uniform modular law. This is a complete natural finite boundary and sharp recovery classification, not just an unrelated numerical count; no broader-order extrapolation is claimed.
+No checked prior enumerative counting paper supplies signed edge-subset Walsh orbit cancellation or the sharp five-to-six singularity transition; these are not determined by knowing only the total numbers of chordal graphs. Independent direct enumeration supplies the previously claimed character structure. Best-of-knowledge; indexed sources cannot rule out unreported precomputed transform tables.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The class of labeled chordal graphs is mathematically natural via perfect elimination/chordless-cycle properties. Complete five-vertex cancellation geometry and abrupt restoration of full invertibility at six vertices answer a meaningful exact spectral question about convolution on the complete edge cube; the sharp inverse gap and three graph motifs are neither mere unsigned table recitation nor a random arbitrary mask slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

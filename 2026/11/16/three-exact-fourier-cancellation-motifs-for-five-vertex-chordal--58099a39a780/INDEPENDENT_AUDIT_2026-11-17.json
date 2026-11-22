@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T10:54:08.409915Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 86c01f111ea652371c696a4f6f360bd2baf9d722",
+        "verify_cycles.py ea020e130117ec6a52c0c5b3cb634fa93eeb8851",
+        "verify_peo.cpp b43e6867ea51dad1fd02e555722ae34fca6999a4",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol274-esa2023/LIPIcs.ESA.2023.58/LIPIcs.ESA.2023.58.pdf"
+      ],
+      "rationale": "The chordal graph indicator is defined for every labelled simple graph over 2^(n choose 2) edge bits, with unnormalized Walsh sum. Exhaustive five-vertex enumeration of all 1024 graph masks gives 822 chordal graphs; 34 vertex-permutation frequency orbits include exactly three zero Walsh classes (representatives 28,31,185, sizes 30,30,60), total 120 zeros and rank 904. In six vertices 18154 chordal graphs with 8524 containing any specified edge; product expansion (-1)^{sum bits}=product(1-2x_e) gives W_6(S)=18154-2(8524)|S|=2 mod 4 for every frequency, and one witness S with mask 639 gives W_6=2, hence full rank and sharp inverse norm 1/2. Inspected two independent exact chordality recognizers (induced-cycle forbidden patterns and perfect elimination) and fast Walsh transform logic; independently enumerated all masks with an original PEO/Walsh implementation, reproducing 822,18154,120,0, witness 2, min magnitude 2 and Parseval.",
+      "residual_risks": [
+        "Only vertex orders five and six treated; the six-vertex congruence is not asserted for all n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wormald (1985) counts labeled chordal graphs, and Hébert-Johnson et al. (2023) give polynomial-time ordinary/omega-colorable counting.",
+          "Other Resultary graph Walsh classifications concern unicyclic, forests, triangle-free, and cographs, not chordal graphs."
+        ],
+        "reasoning": "The earlier more general-in-n unsigned counting algorithms do not determine graph-incidence signed sums for arbitrary edge patterns. They determine 822 and 18154 but not 120 zeros or parity of per-edge inclusion.",
+        "searches": [
+          "Walsh Fourier transform chordal labeled graphs five vertices zero characters graph edge subset six vertices modulo four",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol274-esa2023/LIPIcs.ESA.2023.58/LIPIcs.ESA.2023.58.pdf",
+          "https://doi.org/10.1007/BF02582944"
+        ]
+      },
+      "checked_sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol274-esa2023/LIPIcs.ESA.2023.58/LIPIcs.ESA.2023.58.pdf",
+        "https://doi.org/10.1007/BF02582944",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-first-nontrivial-walsh-cancellation-of-the-triangle-free-graph-p--7c28dbc5d996"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 Theorem 1 is a deterministic algorithm for numbers of omega-colorable chordal graphs using O(n^7) operations; its construction is a clique-tree/evaporation-sequence DP, not a Walsh character spectrum.",
+          "Six-vertex W(S)=2 mod4 additionally uses even single-edge incidence count 8524."
+        ],
+        "reasoning": "The generic dynamic program might be adapted to compute particular signed sums, but the published result does not supply the necessary signed table, zero motifs, or sharp special-frequency witness; new calculation is required.",
+        "searches": [
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol274-esa2023/LIPIcs.ESA.2023.58/LIPIcs.ESA.2023.58.pdf",
+          "https://doi.org/10.1007/BF02582944",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-first-nontrivial-walsh-cancellation-of-the-triangle-free-graph-p--7c28dbc5d996"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walsh multiplier equals signed enumeration over labeled chordal graphs and the eigenvalue of the edge-XOR convolution operator.",
+          "2023 Hébert-Johnson et al. Theorem 1 computes ordinary numbers of chordal graphs, not arbitrary character twists."
+        ],
+        "reasoning": "Convolution rank, pseudoinverse and multiplier gaps are consequences of the full signed Walsh census, whereas prior unsigned counting enumerations only determine the DC coefficient.",
+        "searches": [
+          "Walsh Fourier transform chordal labeled graphs five vertices zero characters graph edge subset six vertices modulo four",
+          "chordal graph signed edge-set evaluation Fourier transform perfect elimination order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A058862 lists ordinary chordal counts, not a Walsh table; Resultary returned same assigned record but no independent earlier table for chordal signed character orbits."
+        ],
+        "reasoning": "Known count table is not coverage of entire arbitrary-frequency signed transform; exhaustive character classification is distinct.",
+        "searches": [
+          "Walsh Fourier transform chordal labeled graphs five vertices zero characters graph edge subset six vertices modulo four",
+          "OEIS A058862 chordal labelled graphs 5 6 counts",
+          "chordal graph Walsh spectrum 5 vertices zero orbits"
+        ]
+      },
+      "rationale": "No checked prior enumerative counting paper supplies signed edge-subset Walsh orbit cancellation or the sharp five-to-six singularity transition; these are not determined by knowing only the total numbers of chordal graphs. Independent direct enumeration supplies the previously claimed character structure. Best-of-knowledge; indexed sources cannot rule out unreported precomputed transform tables.",
+      "residual_risks": [
+        "Wormald 1985 complete full text was not retrieved; its abstract and later primary paper cite the ordinary chordal-graph counting task.",
+        "An unindexed full Walsh table for the 2^10 and 2^15 edge cubes could cover the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering signed arbitrary edge-coordinate Walsh transform: theorem counts ordinary and omega-colorable chordal graphs.",
+          "evidence": "Theorem 1 gives exact ordinary chordal counts in polynomial time; no signed frequency classes.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol274-esa2023/LIPIcs.ESA.2023.58/LIPIcs.ESA.2023.58.pdf",
+          "material_read": "Full 17-page ESA 2023 proceedings PDF, introduction, Theorem 1, counting recurrences, tabular results, references",
+          "method": "Opened complete accessible paper; inspected page 2 image and text of theorem, algorithm and tables",
+          "title": "Counting and Sampling Labeled Chordal Graphs in Polynomial Time",
+          "trigger": "Strong published chordal counting result on identical graph family"
+        },
+        {
+          "assessment": "Insufficient full text to exclude hidden signed tables, retained as historical-priority risk; ordinary total-count coverage acknowledged.",
+          "evidence": "2023 ESA paper reports Wormald earlier ordinary count recurrence and asymptotic connectivity results.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02582944",
+          "material_read": "Accessible title/abstract and 2023 paper quotation on ordinary chordal counts, not full primary text",
+          "method": "Publisher/abstract metadata and 2023 primary citation",
+          "title": "Counting labelled chordal graphs (Wormald, 1985)",
+          "trigger": "Potential exact finite enumeration precedent"
+        },
+        {
+          "assessment": "Triangle-free graph support differs from chordal graph support, so neither Walsh table determines the other.",
+          "evidence": "Triangle-free n5 rank 874 vs chordal n5 rank 904.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-first-nontrivial-walsh-cancellation-of-the-triangle-free-graph-p--7c28dbc5d996",
+          "material_read": "Resultary scientific summary, different graph property and zero orbits",
+          "method": "Resultary semantic search and direct mathematical comparison",
+          "title": "First nontrivial Walsh cancellation of the triangle-free graph property",
+          "trigger": "Related labeled-graph Walsh study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol274-esa2023/LIPIcs.ESA.2023.58/LIPIcs.ESA.2023.58.pdf",
+        "verify_cycles.py",
+        "verify_peo.cpp"
+      ],
+      "rationale": "The class of labeled chordal graphs is mathematically natural via perfect elimination/chordless-cycle properties. Complete five-vertex cancellation geometry and abrupt restoration of full invertibility at six vertices answer a meaningful exact spectral question about convolution on the complete edge cube; the sharp inverse gap and three graph motifs are neither mere unsigned table recitation nor a random arbitrary mask slice.",
+      "residual_risks": [
+        "Finite at n=5,6 only; no claim for all orders or asymptotic behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Wormald 1985 full text not directly inspected; bounded best-of-knowledge novelty.",
+    "No general n classification."
+  ],
+  "schema_version": 1
+}
