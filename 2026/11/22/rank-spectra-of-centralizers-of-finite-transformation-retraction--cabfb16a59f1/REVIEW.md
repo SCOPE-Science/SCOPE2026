@@ -1,0 +1,11 @@
+# Scientific review — transformation-idempotent centralizer rank spectra
+
+**Correctness (PASS).** The commuting equation forces a unique root map and independent maps from nonroot inputs to target blocks. Ordinary image sizes follow from inclusion-exclusion on selected nonroot targets; idempotent images follow from choosing fixed image points. The two rank-two cases (two distinct root images, or one root plus one nonroot image) give the universal low-rank laws. A separate direct-composition checker agrees in all 22 tested small block profiles, for every coefficient. Finite evidence is not the infinite proof.
+
+**Originality (PASS, qualified by historical uncertainty).** The 2003 full-text centralizer-automorphism treatment describes rank-one/rank-two characteristic subsets but not these numerical complete rank distributions. The 2011 work addresses regularity. Dolinka–East's 2014/2015 complete text enumerates idempotents in a larger uniform-partition-preserving monoid rather than idempotents in the section-preserving centralizer of one idempotent, and does not give the proposed unequal-block image-rank spectra. The prior total centralizer size and root-preserving decomposition are not claimed as new. The earliest cited source is archival; historical uniqueness is not established, especially without a complete full-text comparison against some older transformation-centralizer literature.
+
+**Value (PASS).** Image rank is a canonical finite-semigroup invariant. The formulas classify every rank stratum for arbitrary unequal kernel profiles and for two natural classes (all centralizing transformations and their retractions). The low-rank block-profile rigidity and explicit rank-three counterexamples explain which information these invariants can and cannot detect. The same proof covers unbounded finite sets and supplies implementable exact counts, rather than a small numerical recomputation.
+
+**Boundaries.** Only the centralizer of one idempotent in a finite *full* transformation monoid is addressed. No result on regular-element spectra, arbitrary prescribed products, or simultaneous centralizers is asserted. Historical novelty remains subject to independent literature verification.
+
+Self-review: passed. Independent audit: not yet performed.
