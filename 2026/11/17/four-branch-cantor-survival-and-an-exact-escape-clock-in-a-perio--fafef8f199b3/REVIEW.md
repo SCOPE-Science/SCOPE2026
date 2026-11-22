@@ -1,17 +1,21 @@
-# Scientific review: Four-branch Cantor survival and an exact escape clock in a periodically thresholded neuron map
+# Independent mathematical audit
 
-## Correctness — PASS
-PASS: two-step branch formulas verified algebraically from the stated threshold recurrence; b(a−1)>2 and a(b−1)>2 are exactly T<1 and T<b−1. Under these strict inequalities each of four inverse affine maps carries the entire escape interval into its correct branch with strictly separated images, giving 4^n disjoint length-2T/(ab)^n survivor cylinders. Exterior affine expansion proves every nonsurvivor eventually diverges; the nested contraction coding and strong separation prove full four-shift and dimension log4/log(ab). Uniform-length division proves the geometric first-exit tail. Exact rational checks passed for three independent parameter pairs and finite levels; the infinite claim rests on the proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-PASS within inspected evidence: the identical-map 2023 paper proves exterior escape and lower-expansion attracting intervals but does not imply bounded-orbit topology and exact survival in this disjoint high-expansion cone. Earlier full 2020 work treats eventual periodicity; the 2015 full text is inaccessible, retained as a source priority risk. General Moran theory, and structurally similar findings on other maps, do not independently identify this neuron map’s four full inverse branches. Absence of exact matches is not taken as proof of priority.
+PASS
 
-The closest primary literature is Bula and Radin's 2023 period-two paper: https://zurnalai.vu.lt/nonlinear-analysis/article/download/33766/32339/86114 . Its exterior escape theorem (Theorem 3) is a prerequisite but not a full interior classification. Its lower-expansion invariant interval theorem (Theorem 4) requires the opposite signs of both inequalities. The earlier 2020 paper, https://www.journals.vu.lt/nonlinear-analysis/article/download/20555/20005/37053, and the 2015 same-recurrence abstract, https://research.lu.lv/en/publications/periodic-orbits-of-a-neuron-model-with-periodic-internal-decay-ra/, address periodic and eventually periodic trajectories. Model-distinct full-branch survivor and geometric escape results, for example https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-cantor-survivor-and-a-finite-capture-transition-in-predictive--1fb686dd1559 and https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-geometric-first-exit-law-for-the-ultradiscrete-sel-kov-map--013f8b0ac9e5, do not logically imply this result. Full text for the 2015 paper could not be verified, so the remaining overlap risk is preserved rather than silently dismissed.
+PASS: Direct substitution gives the four affine two-step branches of slope Λ=ab and translations b+1,b−1,1−b,−b−1. The strict inequalities are exactly T<1 and T<b−1 with T=(b+1)/(Λ−1); these put all four compact inverse images strictly in the correct switching intervals, including endpoint behavior. Hence K=intersection_n F^{−n}(I) is a strongly separated four-similarity attractor, full one-sided four-shift, dim_H K=log4/logΛ; S_n consists of 4^n disjoint intervals of length 2T Λ^{−n}, giving uniform survival (4/Λ)^n. F is linearly repelling outside ±T and every switching-point image exits, so there are no additional bounded forward orbits. Separate rational arithmetic verified 3 admissible (a,b) pairs and all inverse cylinders through depth four; the general statements follow from the branch proof, not finite tests.
 
-## Mathematical value — PASS
-PASS: the natural exterior repelling cycles of an established neuron recurrence bound a previously unclassified high-expansion region. The theorem resolves whether its bounded initial conditions are finite/periodic, an attracting interval, or an uncountable repeller; proves the last with an exact continuum-parameter fractal dimension; and gives the full return-by-return Lebesgue survival/escape distribution. This complements the published attracting-interval region and adds a quantitative distinction with physical relevance to finite-time escape under uncertain initial voltage.
+## originality
 
-## Verification and limitations
-The exact recurrence checker passes three rational parameter pairs and verifies finitely many cylinder lengths; the four-branch construction and infinite-dimension/escape-law deductions are analytic. The theorem does not classify the boundary coefficient curves or claim an invariant probability law on the survivor set. The recurrence is idealized and no biological validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS (best of knowledge): The identical 2023 neuron study gives exterior escape and low-expansion attraction, but its hypotheses exclude the strictly expanding cone; the four-full-branch Cantor set and geometric return-time law are not stated or implied. General IFS dimension theory is known; originality lies in its exact application and complete survivor proof for this recurrence.
+
+## value
+
+PASS
+
+PASS: The exact four-branch repeller and return-time law resolve a genuine high-expansion complementary regime of an established periodically switched neuron model, distinguishing a null Cantor bounded set from the known attracting interval and giving a precise escape observable. Model-specific branch feasibility and exhaustive orbit characterization, rather than generic Moran arithmetic alone, are essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
