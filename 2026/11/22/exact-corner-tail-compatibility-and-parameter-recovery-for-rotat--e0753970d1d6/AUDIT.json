@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For m>=3 and theta>0, all-r-coordinate lower-tail events have exact mass t(r-(r-1)t^theta)^(-1/theta). Every wrong-orientation event with at least two constrained coordinates contains either a lower/upper pair with mass O(t^(2+theta)) or an upper/upper pair with mass O(t^2). Numerator and conditional denominator therefore have the exact strictly positive coefficients stated in RESULT. The resulting edge odds are ratios of positive weights; square-cycle identities are necessary, and graph path-independence makes them sufficient and yields unique normalized weights and theta. The separate Python standard-library checker tests rational examples and exact finite-event probabilities, without treating finite checks as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fiebig–Strokorb–Schlather, arXiv:1405.6876, study realization of pairwise tail-correlation functions and associated convex polytopes.",
+        "Shyamalkumar–Tao, arXiv:1901.02157, study pairwise tail-dependence matrices and membership algorithms.",
+        "Pan–Nieto-Barajas–Craiu, arXiv:2403.12789v3 (2025), present a broader heterogeneous-parameter multivariate mixture, extending a 2024 bivariate version."
+      ],
+      "reasoning": "The unrestricted mixture is broader as a distribution class, but neither the pairwise matrix realization theorems nor the originating mixture formulas yield the stated exact directed conditional hypercube compatibility and unique inverse map for the natural common-parameter restriction. A generic full-density identifiability result also does not imply identifiability from these rare-event functionals.",
+      "searches": [
+        "\"tail dependence\" \"correlation polytope\" rotated mixture",
+        "arxiv:1405.6876 sections 1 and 6",
+        "arxiv:1901.02157 sections 1-2 and 6",
+        "\"multivariate\" \"rotated Clayton\" \"tail\" \"identifiability\" parameters"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.12789v1 (bivariate original 2024-03-19, full text read) and v3 (multivariate revision 2025-02-10, Sections 3–5 and conditional equation (8) read)",
+      "arXiv:1405.6876v2 (pairwise tail-correlation realization comparison)",
+      "arXiv:1901.02157v2 (pairwise TDM realization comparison)",
+      "MSC2020 62H05 classification: https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=62Hxx"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For any target corner the full-event first-order coefficient is one component weight times m^{-1/theta}, while the condition-on-all-but-one first-order coefficient is the sum of two neighbor weights times (m-1)^{-1/theta}.",
+        "A conditional mixture limit is a ratio of mixed event probabilities, not a fixed-weight linear combination of conditional component limits.",
+        "Neither prior pairwise matrix characterization specifies the neighbor-weight denominator or hypercube face consistency.",
+        "For m=3, theta=1, and all eight weights 1/8, the v3 linear mixture expression yields (1/8)*(3/2)^(-1)=1/12 but the actual conditional probability has first-order numerator t/24 and denominator t/8, hence tends to 1/3."
+      ],
+      "reasoning": "The 2025 source formula for the named conditional coefficient cannot imply the claimed result: its mixture-of-conditional-limits step omits orientation-dependent denominators. Directly expanding the full mixture numerator and denominator yields the correct law and an additional sharp all-dimensional inverse characterization. General pairwise tail-matrix results do not subsume these directed higher-order conditionals.",
+      "searches": [
+        "arxiv:2403.12789v3 equations (3), (5), (6), (8); m=3 example immediately below equation (8)",
+        "arxiv:1405.6876 pairwise tail correlation inequalities",
+        "arxiv:1901.02157 pairwise TDM realization",
+        "rotated Clayton mixture trivariate conditional tail coefficients sum opposite corners attenuation law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2403.12789v1 (2024) treats bivariate rotations; v3 (2025) sections 4–5 define multivariate rotations, the conditional tail observable in equation (3), and the linear mixture expression in equation (8).",
+        "The new observables are conditional rare-event ratios. Their directed edge odds are exact ratios of latent rotation weights, with all square holonomies equal to one."
+      ],
+      "reasoning": "Equivalently, positive directed edge odds must be an exact multiplicative one-form on the binary cube, with an orientation-independent opposite-edge sum. This is not the same statement as recovering mixtures from full densities, or observing unconditioned bivariate corner coefficients; no source with this exact parametric conditional characterization was located.",
+      "searches": [
+        "\"rotated Clayton\" \"identifiability\" \"conditional tail\" mixtures",
+        "\"copula\" \"corner tail\" \"cycle\" \"mixture weights\"",
+        "arxiv:2403.12789 sections 2-5",
+        "arxiv:2403.12789v1 Section 3 and v3 Sections 4-5 conditional tail definitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available articles discuss pairwise tail-matrix polytopes, conventional bivariate coefficients, and model fitting rather than tables of all directed conditional corner coefficients.",
+        "The explicit dimension-three incompatible edge table is derived from the new square criterion and not copied from a database."
+      ],
+      "reasoning": "This result does not assert a newly discovered abstract binary polytope or a numerical table. Its object is the exact inverse image of the directed conditional corner-tail array under one explicit parametric copula family. No published table for the same array was found.",
+      "searches": [
+        "\"rotated Clayton\" mixture \"cut polytope\" tail",
+        "\"rotated copulas\" \"Bell inequalities\" tail dependence",
+        "\"copula mixture\" \"conditional tail dependence\" \"posterior\" weights"
+      ]
+    },
+    "rationale": "The initial March 2024 paper presents bivariate rotated mixtures; its February 2025 multivariate revision defines the same conditional extreme-tail observable, but its component-weighted linear calculation is not generally valid because the denominator depends on the orientation weights. The new first-order conditional calculation, hypercube edge-sum and square-cycle conditions, and unique inverse recover the exact model-specific image. The concrete uniform three-dimensional example yields actual value 1/3 rather than the linear-expression value 1/12. Published general pairwise matrix realization results involve different observables; no covering inverse theorem was located. Priority remains qualified.",
+    "residual_risks": [
+      "The result uses a common Clayton parameter, whereas the originating paper permits parameters to vary by orientation.",
+      "A generic theorem on mixtures or exact graph odds might be adaptable in hindsight; no exact published implication for these conditioned-tail observables was identified.",
+      "Search and source inspections do not establish historical priority definitively; specialized unindexed work may exist.",
+      "The 2024 original contains the bivariate construction, while the first multivariate revision is dated February 2025; the reported source date follows the initial public arXiv record, not the later multivariate extension."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Bivariate mixture source, not a 2024 publication of the multivariate conditional compatibility claim.",
+        "evidence": [
+          "arXiv:2403.12789v1, posted 19 March 2024, Sections 3 and 4, equations (2)-(6)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.12789v1",
+        "material_read": "Full-text HTML sections 1-4: original bivariate construction, its four tail coefficients and weighted mixture formulas.",
+        "method": "Read explicit v1 two-dimensional formulas and distinguished source date from the later multivariate revision.",
+        "title": "Bivariate temporal dependence via mixtures of rotated copulas",
+        "trigger": "Initial published 2024 four-rotation Clayton model; determines eligible first-public source date."
+      },
+      {
+        "assessment": "Multivariate model appeared in revision dated 10 February 2025. Its linear component-weighted expression for multivariate conditional coefficients is contradicted by the direct mixture ratio (1/12 versus 1/3 in uniform m=3 case). Does not give cube-square compatibility or inverse theorem.",
+        "evidence": [
+          "arXiv:2403.12789v3, Section 4 equation (3) and Section 5 equation (8) with m=3 specialization; direct countercomparison 1/12 vs 1/3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.12789v3",
+        "material_read": "Full-text HTML introduction, Sections 3-5, explicit conditional definition equation (3), rotated multivariate components, mixture expression equation (8), m=3 specialization, and conclusion/appendix coverage.",
+        "method": "Compared exact numerator/conditioning-denominator limits and tested the printed expression at uniform m=3 weights and theta=1.",
+        "title": "Multivariate temporal dependence via mixtures of rotated copulas",
+        "trigger": "Closest primary full-text comparison: same multivariate rotated Clayton objects and all-other-coordinates conditional tail definition."
+      },
+      {
+        "assessment": "Relevant general realization geometry but not a direct covering conditional mixture-parameter theorem.",
+        "evidence": [
+          "arXiv:1405.6876v2 introduction and Sections 4-6 scope."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1405.6876v2",
+        "material_read": "Full-text HTML abstract and introduction, tail-correlation definitions, section structure and the geometric realization discussion.",
+        "method": "Compared object (pairwise symmetric tail correlation) with directed conditioning on all other extremes.",
+        "title": "The realization problem for tail correlation functions",
+        "trigger": "Potential stronger polyhedral characterization of tail-dependence restrictions."
+      },
+      {
+        "assessment": "Provides pairwise TDM/BCM realization tools, not the present directed cube-edge inverse result.",
+        "evidence": [
+          "arXiv:1901.02157v2 Sections 1-2 and 6."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1901.02157v2",
+        "material_read": "Full-text HTML introduction, precise pairwise coefficient definition, binary compatibility reduction, named parametric classes and conclusion.",
+        "method": "Checked whether the published realized object or parametrized constraints include rotated-Clayton all-other-extreme conditional coefficients.",
+        "title": "On tail dependence matrices: The realization problem for parametric families",
+        "trigger": "Possible dominating parametric tail-matrix compatibility criterion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e0753970-d1d6-40e0-b002-58d499284d03",
+  "value": {
+    "rationale": "The exact intrinsic image and inverse theorem gives model identifiability from a natural set of conditional extreme-risk observables alone, not from the full copula density. Common edge sums recover the tail parameter, and face tests reject locally plausible but globally incompatible conditional tails; the explicit m=3 witness demonstrates a meaningful falsifiable restriction. This is a complete parametric classification for a motivated high-dimensional extremal model and not a routine numerical recomputation.",
+    "status": "PASS"
+  }
+}
