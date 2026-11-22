@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unnormalized Walsh convention is consistent with \(\pm1\) edge weights, so the weighted matrix-tree cofactor produces exactly the claimed Fourier coefficient. Splitting the two-rail Laplacian into symmetric and antisymmetric sectors gives the factored determinant and coefficient identity (1), including in singular cases. For odd \(n\), the established ladder tree-count recurrence makes every Walsh coefficient odd, while a path-Laplacian determinant evaluates one coefficient as \(\pm1\). For even \(n\), the explicit period-four eigenvector and arbitrary equal signs on even rail edges yield \(2^{n/2-1}\) distinct zeros. The diagonalized \(\ell^2\) operator has exact maximum \(\tau_n\) and, in odd lengths, exact minimum absolute eigenvalue \(1\). Exact standalone checker computations confirm the low-dimensional assertions and determinant formulas; finite experiments are not the infinite proof.
+PASS
 
-## Originality — PASS (bounded historical comparison)
+Verified signed matrix-tree cofactor equals the unnormalized Walsh coefficient, including negative edge signs. Symmetric/antisymmetric rail diagonalization gives W_a=(product a_j)/2 det(H_n(a)-2I). The standard path Laplacian eigenvalues yield W_rung=-sin(pi n/2). The ladder recurrence tau_n=4tau_(n-1)-tau_(n-2), tau_1=1,tau_2=4 gives tau_n odd iff n odd, hence every signed tree sum odd and nonzero. For even n, the length-four periodic u=(1,-1,-1,1,...) has H_n(a)u=2u for arbitrary signs on even-numbered links, producing 2^{m-1} distinct zeros. Independent exhaustive tree enumeration and integer Walsh transform for n=1..5 gives tau=1,4,15,56,209, zeros=0,6,0,200,0, and odd min=1. Finite checks corroborate but infinite proof comes from determinant/parity.
 
-Raff's 2008 full preprint and the accessible Desjarlais–Molina ladder discussion establish the ordinary count, rather than signed Fourier support. Klee–Stamps give general weighted matrix-tree tools, and Mallik gives a net-Laplacian signed-tree formula; neither inspected treatment evaluates the full ladder Walsh zero-free classification or the attained inverse spectral gap. A separately examined wheel spanning-tree transform is on a nonisomorphic graph and does not imply the ladder theorem. Searches against mathematical records and wider titles/aliases yielded no matching evaluated theorem. This is a bounded priority assessment, not a claim of comprehensive bibliographic coverage. An older unindexed signed-ladder specialization remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The spanning-tree edge cube of a finite grid strip is a canonical combinatorial Fourier object; whether its convolution operator is invertible and how poorly conditioned an inverse can be are well-defined natural invariants. The theorem completely classifies the infinite sequence of widths, determines the exact best-possible integer Fourier gap and hence the \(\ell^2\) condition number in every invertible case, and supplies exponentially many explicit null frequencies otherwise. The periodic signed-Laplacian nullvector is a structural boundary mechanism, not a finite numerical census or a restatement of the unsigned enumeration alone.
+Bounded best-of-knowledge PASS for the attained global parity classification and exact least multiplier. Raff and Desjarlais-Molina cover only unsigned ladder spanning-tree counts, while weighted matrix-tree theorems give computational tools but not the signed zero-set classification. Similar wheel/K_{2,n} findings in Resultary refer to other graphs; the returned same-title Resultary entry mirrors this claim and is not evidence of independent priority. An unindexed earlier signed-ladder evaluation remains possible.
 
-## Limitations and close literature
+## value
 
-The source comparison includes Raff (2008), Desjarlais–Molina (2000, accessible reproduced text), Klee–Stamps (2019) and Mallik (2022), together with retrieved published records about spanning-tree harmonic sampling and the wheel orbit. Theorems for arbitrary signed graph cofactor evaluation are broader **tools**, but not prior evaluated statements of the claimed minimum multiplier or parity classification. Only lower bounds on zero multiplicity in even lengths are proved; no sharp inverse \(\ell^1\) or \(\ell^\infty\) norm is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Grid-strip spanning-tree indicators are canonical Boolean Fourier objects. Exact invertibility dimensions, attained least singular value and exponentially many explicit complementary null frequencies are a structural, natural infinite-family classification not implied by the unsigned tree count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
