@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Direct spectral solution of Landweber gives exact pixel-noise coefficients q^i u_ij/C. For each fixed r, off-diagonal ratios vanish at q^{-1} and q^{-3} rates, proving joint convergence to independent standard Gaussian scores. Lemma 3.4 bias upper bound is checked from scalar maximization, and its ratio to standard deviation vanishes. Selection coverage equals intersection of all r marginal covering events, giving (1-alpha)^r. The checker tests the matrix recurrence, Householder singular spectrum and finite-r Gaussian behavior; it is not substituted for the asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Batlle et al. calibrate multiple inverse-problem functionals jointly rather than describing this particular single-coordinate multi-time Landweber construction.",
+        "Blanchard et al. supply stopping-risk adaptation, not selected pixelwise interval coverage.",
+        "published-finding corpus covariance-spectrum findings compare eigenmodes/ranks, rather than time-indexed marginal inference."
+      ],
+      "reasoning": "General simultaneous calibration is a broader solution principle, but does not make the exhibited exact dependence construction or its limit a corollary of an identified prior theorem. Distinct coverage and risk objectives were compared by implication, not title.",
+      "searches": [
+        "simultaneous inverse problems confidence regions multiple functionals Batlle arxiv 2510.11708",
+        "Optimal adaptation for early stopping statistical inverse problems Blanchard Hoffmann Reiß arxiv 1606.07702",
+        "2026/11/8/SCOPE-sharp-rank-agnostic-covariance-loss-from-leading-singular-mode-l--be1d7356ed58",
+        "2026/11/2/SCOPE-a-sharp-covariance-rank-frontier-for-finite-step-landweber-itera--f4e7bf8f5d76"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.00882v1",
+      "https://arxiv.org/html/2510.11708v1",
+      "https://arxiv.org/pdf/1606.07702",
+      "2026/10/25/SCOPE-single-crossing-covariance-spectrum-and-moving-optimal-ranks-for--1ab03774ff37",
+      "2026/11/8/SCOPE-an-exact-all-iteration-rademacher-probing-frontier-for-two-spect--6a0f8dc079de",
+      "2026/11/8/SCOPE-sharp-rank-agnostic-covariance-loss-from-leading-singular-mode-l--be1d7356ed58",
+      "2026/11/2/SCOPE-a-sharp-covariance-rank-frontier-for-finite-step-landweber-itera--f4e7bf8f5d76"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original source equation (3.20) is fixed-index; equation (3.21) states independence from Y, avoiding this stopping vulnerability.",
+        "Batlle et al. discuss simultaneous confidence regions; does not imply existence or r-parameter rate for these particular Landweber filters.",
+        "Published published-finding corpus Landweber covariance results are about spectra and rank approximation, not confidence set peeking."
+      ],
+      "reasoning": "Neither marginal validity nor risk-optimal stopping directly implies a simultaneous failure construction. The present claim makes a quantitatively stronger, specific statement: for all r, fixed-index valid intervals computed from identical data can have selected coverage approaching (1-alpha)^r.",
+      "searches": [
+        "arxiv:2610.00882v1 equation (3.20) equation (3.21) data independent",
+        "arxiv:2510.11708 simultaneous coverage multiple functionals",
+        "arxiv:1606.07702 adaptive discrepancy stopping risks",
+        "2026/10/25/SCOPE-single-crossing-covariance-spectrum-and-moving-optimal-ranks-for--1ab03774ff37",
+        "2026/11/8/SCOPE-an-exact-all-iteration-rademacher-probing-frontier-for-two-spect--6a0f8dc079de",
+        "2026/11/8/SCOPE-sharp-rank-agnostic-covariance-loss-from-leading-singular-mode-l--be1d7356ed58",
+        "2026/11/2/SCOPE-a-sharp-covariance-rank-frontier-for-finite-step-landweber-itera--f4e7bf8f5d76"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact event is familywise failure of z-score tests at r time-indexed filters sharing one Gaussian dataset.",
+        "Known multiplicity warnings do not by themselves construct near-orthogonal standardized Landweber filters at one coordinate."
+      ],
+      "reasoning": "Checked aliases including optional stopping, multiple looks, post-selection marginal intervals, temporal Landweber Gaussian covariance. Generic union/multiple-testing theory predicts the limit once independence is known; the substantive spectral construction and quantitative approximation are additional.",
+      "searches": [
+        "Landweber data-driven adaptive stopping confidence interval coverage collapse noise dependent stopping selection bias Gaussian rotations multiple testing",
+        "arXiv 2610.00882 Landweber pixelwise confidence intervals independent data stopping first significance nominal coverage collapse multiple spectral scales",
+        "Landweber iterations repeated Gaussian significance looks same noisy data one pixel orthogonal modes stop first confidence exclusion",
+        "2026/10/25/SCOPE-single-crossing-covariance-spectrum-and-moving-optimal-ranks-for--1ab03774ff37",
+        "2026/11/8/SCOPE-an-exact-all-iteration-rademacher-probing-frontier-for-two-spect--6a0f8dc079de"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant exact coverage table or database of time-dependent Landweber z-score correlations was identified in the bounded published-finding corpus semantic search and publicly available primary articles."
+      ],
+      "reasoning": "The claim is an analytic family indexed by arbitrary r and q, not a single numeric tabulation; lack of database hits alone is not treated as novelty evidence.",
+      "searches": [
+        "Landweber first exclusion stopping confidence undercoverage (1-alpha)^r",
+        "Landweber temporal Gaussian orthogonal standardized covariance optional stopping",
+        "2026/10/25/SCOPE-single-crossing-covariance-spectrum-and-moving-optimal-ranks-for--1ab03774ff37",
+        "2026/11/8/SCOPE-an-exact-all-iteration-rademacher-probing-frontier-for-two-spect--6a0f8dc079de",
+        "2026/11/8/SCOPE-sharp-rank-agnostic-covariance-loss-from-leading-singular-mode-l--be1d7356ed58",
+        "2026/11/2/SCOPE-a-sharp-covariance-rank-frontier-for-finite-step-landweber-itera--f4e7bf8f5d76"
+      ]
+    },
+    "rationale": "The general difference between marginal and simultaneous inference is classical and is expressly not claimed as new. A full-read of the motivating 2026 source shows its stopping depends on known noise and operator only, unlike the adversarial observation-dependent first-exclusion rule. Earlier adaptive inverse-problem stopping treats risk, and simultaneous inverse-problem inference addresses other collections. No inspected source or searched published result proved the specific r-mode Landweber one-pixel covariance decoupling and limiting selected-coverage law; unindexed equivalent results remain a genuine priority risk.",
+    "residual_risks": [
+      "Historical multiple-testing literature could contain the same spectral example using alternative terminology.",
+      "Only bounded source examination and semantic search were possible; unindexed and inaccessible papers may exist.",
+      "The novelty is the explicit Landweber construction and limit, not the generic observation that multiple peeking harms coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves fixed-index coverage with observation-independent stopping, not joint covariance decoupling or adaptive first-exclusion selected coverage",
+        "evidence": "Equation (3.20) is marginal at chosen K; lines 286–289 explicitly say K(sigma) does not depend on observed Y. Section 3.6 states rSVD stopping computed offline.",
+        "identifier_or_url": "https://arxiv.org/html/2610.00882v1",
+        "material_read": "Section 3.1, Sections 3.3–3.6, Theorem 3.6, Lemma 3.4, equations (3.18),(3.20),(3.21), appendix covariance formulas",
+        "method": "Read full available arXiv HTML sections, including stopping-rule independence statement",
+        "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+        "trigger": "Directly supplies fixed-index pixelwise interval and regularization-bias bound"
+      },
+      {
+        "assessment": "NOT_COVERING for this claim: analyses adaptation/risk of discrepancy stopping, rather than Gaussian pixelwise post-selection simultaneous coverage",
+        "evidence": "Primary objective is oracle/adaptive error bounds; no statement of the r-scale single-pixel limit was identified in material examined.",
+        "identifier_or_url": "https://arxiv.org/pdf/1606.07702",
+        "material_read": "Abstract, main introductory stopping assumptions and first theorems, PDF pages 1–4; term searches for confidence intervals and coverage",
+        "method": "Read publicly accessible arXiv PDF text and page screenshot for sampled page",
+        "title": "Optimal adaptation for early stopping in statistical inverse problems",
+        "trigger": "Relevant classic data-driven stopping theory"
+      },
+      {
+        "assessment": "RELATED BROADER PRINCIPLE, NOT DIRECTLY COVERING: simultaneous inverse-problem calibration is known but its functionals are different targets, not r Landweber time-indexed versions of one coordinate",
+        "evidence": "Addresses guaranteed simultaneous coverage for multiple functionals; does not assert or imply the particular constructed Landweber Gaussian correlation convergence without additional derivation.",
+        "identifier_or_url": "https://arxiv.org/html/2510.11708v1",
+        "material_read": "Abstract, introduction, Sections 2 and 4 on multiple-functional test-inversion framework and simultaneous coverage",
+        "method": "Read primary full accessible arXiv HTML material",
+        "title": "Simultaneous Frequentist Calibration of Confidence Regions for Multiple Functionals in Constrained Inverse Problems",
+        "trigger": "Broader simultaneous confidence methodology could dominate the novelty"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8b8e9dd0-46ba-4633-b8df-f329aad94884",
+  "value": {
+    "rationale": "A pixelwise interval can remain individually calibrated at every iteration while observed-data-based selection can make its reported coverage arbitrarily small using no additional measurements. Exact spectral construction supplies a concrete boundary for when numerical uncertainty statements require joint/anytime-valid coverage, not just fixed-k covariance calculations. The target is practically motivated by proposed inverse-problem uncertainty quantification but the deliberately adversarial first-exclusion rule is explicitly distinguished from the original offline stopping design.",
+    "status": "PASS"
+  }
+}
