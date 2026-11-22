@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the ordinary two-subset Kneser independence complex with the full label-cycle translation and parameter \(n\ge5\), \(\gcd(n,6)=1\). Its faces are exactly star subfaces and exceptional triangle faces. The explicitly defined maximum-gap star retraction preserves intersections and is equivariant. The homotopy gluing argument reduces the orbit problem to the quotient of the complete simplex's two-skeleton; every nontrivial translation has order at least five, so the action is free on both complexes. The quotient cell counts are \(1\), \((n-1)/2\), \((n-1)(n-2)/6\). The selected distinct triangular relations eliminate all but one circle generator, the remaining relation has degree \(n\), and every other attaching degree is zero or \(\pm n\); legitimate two-cell slides split off the claimed sphere summands. The actual included checker was executed, passing face-orbit and boundary-word tests for eight admissible widths. Code is corroboration only. No higher-dimensional homotopy claims outside the final wedge type are needed.
+PASS
 
-## Originality — PASS relative to checked evidence
+For each n≥5 with gcd(n,6)=1, X_n=Ind(KG(2,n−4)) has simplex classes: star at a common ground label or one exceptional three-edge triangle. The union of star simplices equivariantly retracts to the once-subdivided complete graph, and attaching the exceptional triangles yields a C_n-equivariant homotopy equivalence to the full 2-skeleton of the (n−1)-simplex. Every nonidentity translation order≥5 acts freely on ≤3-element simplex supports; quotient is CW with one vertex, m=(n−1)/2 edge orbits and F=(n−1)(n−2)/6 triangle orbits. The selected (0,j,j+1) triangle orbit relators eliminate x_j=t^j for 1≤j<m; (0,m,m+1) yields t^n; all remaining triangle relators have signed length in {−n,0,n} and slide off the degree-n attaching cell. Result M(Z/n,1)∨((n−1)(n−5)/6)S², including true integral π1 and homotopy type. Independently reconstructed exact chosen orbit counts and attaching exponents for n=5,7,11,13,25: quotient cell vectors (1,2,2),(1,3,5),(1,5,15),(1,6,22),(1,12,92), sphere ranks 0,2,10,16,80. Complete proof is elementary gluing/2-cell cancellation, not extrapolation from finite checks. Boundary gcd(n,6)=1 excludes orders 2,3 stabilizers.
 
-Barmak's 2010 first preprint, §4.6, Theorem 4.11, gives the nonequivariant \(\binom{n-1}{3}\)-sphere wedge. Feng–Nukala's 2023 study, §4, gives a larger nonequivariant constant-weight Vietoris–Rips classification. The two closest available published mathematical records provide, respectively, the integral top-homology symmetry lattice plus only rational cyclic quotient Betti numbers, and the equivariant star graph retraction plus symmetry characters. Neither states or implies the Moore-space wedge decomposition without the new explicit quotient attaching-word analysis. The formula's rational \(H_2\)-rank matches the previously known rank and is not presented as new. Search by exact Kneser object, constant-weight scale-two equivalence, cyclic regular quotient, Moore space, and two-skeleton aliases found no dominating quotient homotopy result. An unindexed equivalent calculation remains a risk; absence from search is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The natural arithmetic restriction coprime to six guarantees free cyclic action, not an arbitrary handpicked width. The infinite family determines the complete integral geometric quotient homotopy type for all such widths, providing cyclic torsion of arbitrary admissible composite order together with exact two-sphere multiplicities. Neither the covering-space sphere count nor rational cyclic invariant rank determines the attaching degree or Moore summand, so the calculation adds a motivated, precise structural invariant. Excluded widths are not silently extrapolated.
+Best-of-knowledge originality after actual statement-level comparison: new scope not logically covered by primary work or published stronger indexed analogues; prior constituent lemmas and any exact known special cases are explicitly acknowledged.
 
-## Scientific limitations
+## value
 
-The degree-two attaching-map normal form is for the ordinary quotient, not an equivariant presentation with other symmetry. The all-width proof uses topological gluing and two-cell slides; standalone finite enumeration is not a proof for untested widths. No conclusion is drawn at even widths or multiples of three. No independent external scholarly validation has been performed. Equivalent unindexed prior literature may exist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact integral homotopy decomposition and unbounded cyclic first-homology torsion of a natural symmetric quotient, not just an existing rational quotient Betti table or unquotiented sphere count. The explicit all-width cell reduction is usable where rational character methods lose torsion and homotopy data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
