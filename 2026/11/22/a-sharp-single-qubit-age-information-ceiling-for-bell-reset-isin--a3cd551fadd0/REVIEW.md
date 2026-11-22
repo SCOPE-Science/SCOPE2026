@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The state reduction and probability model are explicit. The proof uses a strict entropy-chord inequality, computes the reset-age trigonometric sum exactly, and optimizes its unique cosine endpoint before characterizing equality in both inequalities. This establishes every quantifier and boundary: \(0<p<1\), \(J,\Omega,T>0\), the full family of odd-half-turn equality cases and the nonattained \(p\downarrow0\) ceiling. A separate four-dimensional unitary implementation agrees at thirty parameter assignments and twenty exact optimum assignments.
+
+**Originality — PASS, qualified.** The motivating 2026 study already derives the Bell-reset one-qubit reduced density matrix, identifies the Jensen gap as Holevo age information, and gives generic entropy bounds. Its sections on the two-qubit model, entropy, phase matching and appendices were compared with the precise proposed theorem. They do not state or imply a globally sharp fixed-\(p\) information ceiling and its complete equality conditions without performing a new optimization. The earlier resetting framework addresses general stationary mixtures and spectral resonances. Other close published results on concurrence, CHSH and gate-phase Fisher information concern different mathematical functionals and have no implication yielding this optimum. A potentially undiscovered or unindexed equivalent optimization remains a priority risk.
+
+**Value — PASS.** The motivating work proposes measuring age information locally in a stochastic-reset quantum circuit, making a sharp local-information ceiling and attainable coupling recipe directly relevant. The result improves the generic one-bit dimension bound to a model-specific maximum below one-third of a bit, classifies every equality case, and identifies a simple saturating local measurement. It is an exact benchmark for the ideal two-qubit device, without an unsupported claim of noise robustness or large-chain universality.
+
+**Limits.** The exact result is restricted to Bell-reset ideal two-spin transverse Ising gates with geometric reset ages; it is neither a new formula for the source's reduced states nor an independent audit of the source. The absolute upper endpoint in reset probability is a supremum only.
+
+Self-review: passed. Independent audit: not yet performed.

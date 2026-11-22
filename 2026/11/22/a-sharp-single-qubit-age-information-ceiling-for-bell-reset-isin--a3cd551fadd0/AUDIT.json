@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The same-source two-spin matrix is reconstructed by direct 4x4 evolution and partial trace; conditional qubit Bloch length is c sin²(mφ). The strict binary entropy chord bounds the gap by g(mu), the geometric trigonometric series uniquely maximizes mu at equal couplings and odd-half-turn gate phase, and g is strictly increasing on the physically reachable interval. Equality at every step establishes if-and-only-if optimality and a single σx readout. Reproducibility: 30 direct-matrix comparisons and 20 optimum cases from verify.py pass; finite tests supplement an analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The directly relevant Murauer et al. paper gives general dimension and age-entropy upper bounds and numerical Jensen-gap plots, but its explicit discussion and appendix do not derive the model-specific sharp optimized ceiling.",
+        "Public results titled \"Sharp asymptotic Bell ceiling and reset-rate selection in a two-spin Ising model\" concern a CHSH quantity, not age-dependent reduced entropies.",
+        "Public results titled \"A unique reset-rate optimum and resonant divergence for discrete-time qubit phase sensing\" concern Fisher information about a gate angle, not information about reset age."
+      ],
+      "reasoning": "A general one-bit Holevo dimension bound is strictly weaker than the sharp bound established here. CHSH and phase Fisher statements do not bound the age-Holevo Jensen gap by its claimed expression, and their optimizations do not determine all equality conditions in the present theorem.",
+      "searches": [
+        "quantum Ising entanglement Jensen gap age information unique reset-rate optimum resonance",
+        "Bell state reset two qubit transverse Ising single-site Jensen gap sharp maximum 0.3112781245 bits Holevo independent interaction optimized J equals Omega",
+        "quantum Ising Bell resetting universal upper bound 0.311 bit age information reduced entropy optimal coupling quarter period"
+      ]
+    },
+    "checked_sources": [
+      "Murauer et al., arXiv:2610.40638v1, full source mathematical content, sections III-IV and appendix B",
+      "Wald et al., Quantum 9 (2025) 1742, discrete-time reset framework and model",
+      "Public result: Sharp universal entanglement floor for parity-preserving Bell resetting (2026), stationary concurrence rather than Holevo age information",
+      "Public result: A unique reset-rate optimum and resonant divergence for discrete-time qubit phase sensing (2026), parameter Fisher information rather than reset-age Holevo",
+      "Public result: Sharp asymptotic Bell ceiling and reset-rate selection in a two-spin Ising model (2026), Bell CHSH rather than entropy Jensen gap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source provides the moment-independent reduced-state family, geometric kernel and Holevo definition. Its Eq. (53) bounds the age information by the age Shannon entropy and the local dimension but does not yield the sharp specific ceiling.",
+        "The 2025 discrete reset analysis provides a generic renewal identity. It has no specified two-coefficient Ising functional and no equality classification for the age-observable.",
+        "The closest published qubit-optimization results use stationary concurrence, Bell violation, state purity or phase Fisher information rather than the age-to-single-qubit Holevo functional."
+      ],
+      "reasoning": "Deriving the theorem from source identities still requires exploiting the strict chord inequality and maximizing the exact trigonometric mean, including ruling out every other coupling and phase. General dimension bounds or different quantum functionals neither subsume nor imply these sharp statements.",
+      "searches": [
+        "Holevo age information quantum stochastic resetting qubit exact maximum Jensen gap reset probability nonmonotonic Bell-state",
+        "reset age Holevo entropy stationary qubit phase rotation half turn geometric reset distribution entropy",
+        "quantum Ising entanglement Jensen gap age information unique reset-rate optimum resonance",
+        "Bell-reset qubit age Holevo information optimal coupling periodic phase measurement Jensen gap entropy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Murauer et al., arXiv:2610.40638v1, Eqs. (46)-(48) explicitly equate the Jensen entropy gap with the reset-age Holevo information, and Eq. (25) gives the conditional single-qubit state.",
+        "Wald et al., Quantum 9, 1742 (2025), formulate the discrete-time renewal-state mixture but do not provide the Bell-Ising Holevo optimization."
+      ],
+      "reasoning": "The equivalences Jensen gap = Holevo information = age-to-one-spin mutual information under the commuting conditional states were taken into account. The new statement is an equality-characterized all-coupling, fixed-p maximum, not an alternative naming of the established gap or a new derivation of the known conditional state.",
+      "searches": [
+        "resetting quantum two qubit Ising Bell pair age Holevo information gap monotonic reset probability resonance sharp maximum",
+        "stochastic resetting qubit age information Holevo optimal reset probability exact phase cycle geometric stationary",
+        "reset age Holevo entropy stationary qubit phase rotation half turn geometric reset distribution entropy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for the exact decimal 0.3112781245 in the resetting/Ising/Holevo context and for its analytic ceiling did not reveal a matching record.",
+        "The arXiv source reports entropy figures and general bounds, but no exact table covering the proposed all-parameter optimum."
+      ],
+      "reasoning": "An unsuccessful search is not proof of uniqueness. The finding is not a recomputation of a published table: it proves a continuous global optimization and complete equality cases; potential unpublished or unindexed duplication remains a residual risk.",
+      "searches": [
+        "Bell state reset two qubit transverse Ising single-site Jensen gap sharp maximum 0.3112781245 bits Holevo independent interaction optimized J equals Omega",
+        "quantum Ising Bell resetting universal upper bound 0.311 bit age information reduced entropy optimal coupling quarter period",
+        "Bell-reset qubit age Holevo information optimal coupling periodic phase measurement Jensen gap entropy"
+      ]
+    },
+    "rationale": "The closest inspected paper derives the same states and age-Holevo identity, but only generic bounds, numerical trends, and separate weak-reset examples; the new result is the globally sharp fixed-reset-probability Ising coupling optimum, equality set, and universal 0.311278-bit cap. Searches and implication comparisons found no covering result, subject to unindexed priority risk.",
+    "residual_risks": [
+      "Unindexed, newly circulated, or unexamined prior analyses could contain an equivalent optimization.",
+      "The 2025 reset paper was examined for its core model and renewal framework, not line-by-line across all sections; no claim of complete exclusion from all literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS forward reduced-state formulas and Holevo identity, NOT the new sharp fixed-p coupling maximum with all equality cases, as assessed by explicit mathematical comparison.",
+        "evidence": [
+          "Eqs. (10), (25)-(29), (46)-(48), (51)-(53), Appendix B; arXiv v1 first posted 2026-10-29."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.40638",
+        "material_read": "Full primary PDF: model and Bernoulli-age equations; Section III two-qubit reduced matrix and geometric sums; Section IV entropy/Jensen gap and its plots; Sections V-VI generic bounds; Appendix A weak-reset examples and Appendix B conditional-state spectra.",
+        "method": "Lawful full text HTML/PDF read with page-level inspection, equations and appendices examined.",
+        "title": "Entanglement diagnostics of stochastic-resetting steady states: theory and measurement on superconducting qubits",
+        "trigger": "Exact same Bell-reset two-spin Ising system and the identical Holevo/Jensen-gap observable"
+      },
+      {
+        "assessment": "General quantum-reset dynamics and resonance setting are earlier results; no Bell-Ising Jensen-gap information cap or strict equality cases in the material examined.",
+        "evidence": [
+          "Quantum 9, 1742 (2025), model and renewal laws (1)-(9); no occurrence of \"Holevo\" in the searchable PDF."
+        ],
+        "identifier_or_url": "https://doi.org/10.22331/q-2025-05-13-1742",
+        "material_read": "Abstract, introduction, definition of the state mixture and Bernoulli master equation in Section 2, and its stationary-state reset-age kernel.",
+        "method": "Lawful journal PDF text and first-page image inspected.",
+        "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+        "trigger": "General geometric-age renewal framework for quantum resetting and gate resonances"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a3cd551f-add0-40e6-9b78-feb91732aa07",
+  "value": {
+    "rationale": "The exact reset-age Holevo observable is introduced as a measurable single-spin diagnostic in an experimental two-qubit reset study. A globally sharp below-one-third-bit capacity, all attaining Ising couplings and gate phases, and an optimal one-spin σx readout provide a motivated exact benchmark and measurement recipe beyond the generic one-bit bound; the result makes no claim about noisy hardware or longer chains.",
+    "status": "PASS"
+  }
+}
