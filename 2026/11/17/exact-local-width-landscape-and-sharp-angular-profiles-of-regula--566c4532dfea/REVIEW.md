@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The object is the Euclidean directional-width function on the unit sphere of the zero-sum hyperplane. Non-two-level directions are eliminated by a strict outward-variance perturbation (including the zero-derivative case). At every two-level direction, a uniform block-ordering inequality gives an exact width formula for finite angular perturbations. A sharp zero-sum block inequality bounds all tangent variations and has an explicit equality construction. This proves strict local minimality, completeness, the binomial counts, and the sharp attained angular profile without using finite experiments as a substitute for proof. The standard-library checker directly replays all stated bounded checks.
+## correctness
 
-## Originality
-PASS with residual historical priority uncertainty. The closest directly inspected results are Har-Peled–Robson (2023, §1), which proves global widths and balanced minimizers; Gritzmann–Klee (1992, §4.1), which gives all complementary-face candidate heights; and Lacoste-Julien–Jaggi (2015, Appendix B.1), which cites Alexander's 1977 separation formula for the same heights. These results **already cover the partition widths** and are credited. They do not state the complete strict local landscape and the sharp finite-angle spherical lower envelope or its attained linear modulus. Published width-Lipschitz information concerns upper local variation, not the lower growth about each partition normal. Alexander's full 1977 article was not accessible; historical priority is not certified.
+PASS
 
-## Value
-PASS. A natural nonconvex optimization objective, simplex directional width, has exponentially many *strict* suboptimal local traps even though its global optimum is elementary. The exact angular profiles give the best possible first-order escape-growth constants at every trap and explicit neighborhoods of guaranteed local increase, not merely counts of stationary normals. This sharp local geometry is useful for assessing directional width optimization and stability, and is distinct from a table of known supporting-plane distances.
+For the regular simplex represented by coordinate vertices in the zero-sum subspace H_N, directional width is max u_i−min u_i. Any normalized direction with an intermediate coordinate can strictly decrease width by shifting that coordinate away from its mean while retaining range, so a local minimum must be two-level. A cut of size t yields width sqrt(N/[t(N−t)]). The tangent to a two-level normal has zero sums within both cut blocks; for angles θ<arctan(w/√2) cross-block order is fixed. Sharp zero-sum block bounds ||x||²≤r(r−1)(max x)² imply min over unit tangent v of max_high v−min_low v is 1/sqrt(max{t(t−1),s(s−1)}), attained by the one-exception vector in the larger block. Therefore exact finite-angle envelope is w cosθ+γ sinθ, giving strict local minima, and no others. An independent 7,329 integer zero-sum block probes and 4 partitions with 500 angular probes each corroborated the closed bound, not extrapolation. N≥3, oriented antipodes counted separately, open angle cutoff only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+BEST-OF-KNOWLEDGE PASS for all balanced/unbalanced strict local minimizers and sharp finite-angle envelopes. Known complementary-face distances and global balanced optimum are credited. The November 1 near-minimum-width tangent-polytope theorem already contains sharp first-order slope at globally minimizing balanced cuts, so this component is covered; its theorem does not classify all unbalanced strict traps nor provide the exact nonzero finite-angle profile at each.
+
+## value
+
+PASS
+
+The presence and quantitative sharpness of suboptimal local traps in a canonical simplex width optimization is relevant to nonconvex directional optimization. The complete every-dimension local landscape and attained finite-angle stability modulus, including unbalanced cuts excluded from prior near-global analyses, are natural exact geometric invariants with a clear mathematical use beyond the known global width.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
