@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full proof starts from the exact identity \(T_K=T_{\sqrt r}(I+\theta M_v)T_{\sqrt r}\), proved by the degree-\(\ell\) Poisson multipliers and the coordinate multiplication selection rule \(\ell\mapsto\ell\pm1\). Its weighted integral factorization is a pointwise identity for all \(d\ge2\). Because multiplication by latitude has essential range \([-1,1]\), density of spherical polynomials proves the cutoff and the sharp Loewner constants. Positive weight almost everywhere, even at the endpoint, and injectivity of all positive harmonic multipliers prove integral strict positivity against every nonzero finite complex measure; Hahn–Banach gives universality. For \(S^2\), magnetic-order Jacobi coefficients and Perron comparisons reduce the sharp finite-band condition to the largest Legendre zero. A rational supercritical polynomial witness proves actual failure, not merely a spectral heuristic. The saved `CHECKER.py` recomputes exact and numerical supporting identities. Numerical quadratures are corroborative only.
+## correctness
 
-## Originality — PASS with explicit residual risk
-The closest 2022 full paper by Buhmann–Jäger gives general sufficient conditions for axially symmetric positive-definite coefficient matrices; those results do not state this explicit Poisson-latitude cutoff, critical universality or Legendre-root diagnostic. The 2026 Jäger–Stallbauer deformation study motivates harmonic coupling; only its full public abstract could be inspected, leaving a material coverage risk. An indexed 2026 circle Poisson modulation result, inspected in its full theorem/proof, uses different sum-angle modulation and gives *singular* critical polygons, not universal critical kernels. The closest existing isotropic spherical Poisson harmonic classifications do not cover nonconstant-diagonal axial amplitudes. No absence-of-search-result claim is treated as proof of global novelty.
+PASS
 
-## Value — PASS
-A natural, concrete nonstationary spherical covariance family acquires a dimension-independent exact admissibility bound. Its boundary demonstrates a substantive separation between uniform spectral coercivity and universality/finite-site strict positivity, and the Legendre cutoff quantifies a genuine false-positive failure of any fixed finite harmonic diagnostic. The strictly positive-valued yet indefinite rational example is an explicit statistical-design warning. These consequences are not renamings of a general positivity criterion.
+Using the actual RESULT.md at the assigned Git tree, checked the Poisson harmonic multiplier r^l and the degree l±1 selection rule for latitude multiplication. Thus T_K=T_sqrt(r)(I+theta M_latitude)T_sqrt(r) exactly on harmonic polynomials and by bounded extension; dense Poisson range and essential range [-1,1] give the sharp iff PSD cutoff and optimal quadratic-form constants. At theta=±1 weight 1+theta t is positive a.e.; injectivity of Poisson spherical-harmonic moments for finite measures proves strict finite-site positivity and C(S^d) universality, not just L² positivity. On S² the zonal Legendre Jacobi block dominates all |m|>0 compressions, norm largest zero xi_(L+1); finite cutoff misses supercritical theta. The explicit r=1/4, epsilon=9/20 yields theta=9/8 and g=(1-t)^9 weighted normalized energy -1/80; 1-2epsilon=1/10>0. These are analytic infinite-dimensional proofs; the source checker only tests selected degrees and quadratures.
 
-## Closest literature and limitations
-Buhmann–Jäger (2022, DOI:10.1007/s00041-022-09913-x) inspected full text, §§2–4 and Theorem 3; Jäger–Stallbauer (2026, arXiv:2609.27419) inspected abstract only due to full-text access failure; 2026 published-finding corpus circle Poisson modulation RESULT.md inspected full text. The Emery–Jäger–Porcu (2024) axial spherical covariance survey was also only accessible as an abstract; equivalent specialization remains unresolved. Possible unindexed earlier nonstationary Poisson factorization or information in the inaccessible 2026 full manuscript remains a genuine originality risk. Scope is limited to first-order axial amplitude perturbations and the stated dimensions/parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact sharp amplitude-tilt PSD interval, endpoint finite-site universality, and Legendre-root cutoff are absent from the inspected general nonisotropic spherical criteria and differently structured indexed Poisson modulations; no stronger stated result was identified. Best-of-knowledge priority with material risk from uninspected full Jäger–Stallbauer and Emery–Jäger–Porcu manuscripts.
+
+## value
+
+PASS
+
+Exact sharp positive-definiteness region and critical universality for a natural nonstationary covariance are useful independent of general classifications; the finite-band false-positive threshold and explicit rational positive-valued counterexample illuminate numerical covariance certification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

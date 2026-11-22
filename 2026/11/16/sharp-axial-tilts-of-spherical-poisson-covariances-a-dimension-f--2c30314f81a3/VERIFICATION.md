@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact operator factorization follows from the Poisson semigroup multiplier \(s^\ell\) and the degree \(\ell\pm1\) coordinate selection rule. Bounded coordinate multiplication has essential spectrum \([-1,1]\), giving the analytic sharp cutoff on all finite configurations. The endpoint weight is positive except at a measure-zero pole; injectivity on every spherical harmonic gives integral strict positivity and \(C(S^d)\)-universality. The zonal Jacobi characteristic polynomial is Legendre, with magnetic-order comparison establishing the finite-band threshold on \(S^2\).
+## correctness
 
-Reproduce finite algebraic and quadrature checks with the exact embedded file `CHECKER.py` using `python3 CHECKER.py` (Python 3 standard library). Expected: `PASS: 28 rational Legendre/Jacobi/witness checks; 4 Poisson factorization quadratures`. The rational negative supercritical test equals \(-1/80\) and does not rely on floating-point data. Quadratures corroborate four fixed parameter pairs; they do not establish the all-dimensions analytic theorem.
+PASS
 
-Full texts of the motivating 2026 deformation manuscript and a related 2024 axial spherical covariance study could not be inspected, leaving a substantive priority-comparison risk. This verification is not independent or external certification.
+Using the actual RESULT.md at the assigned Git tree, checked the Poisson harmonic multiplier r^l and the degree l±1 selection rule for latitude multiplication. Thus T_K=T_sqrt(r)(I+theta M_latitude)T_sqrt(r) exactly on harmonic polynomials and by bounded extension; dense Poisson range and essential range [-1,1] give the sharp iff PSD cutoff and optimal quadratic-form constants. At theta=±1 weight 1+theta t is positive a.e.; injectivity of Poisson spherical-harmonic moments for finite measures proves strict finite-site positivity and C(S^d) universality, not just L² positivity. On S² the zonal Legendre Jacobi block dominates all |m|>0 compressions, norm largest zero xi_(L+1); finite cutoff misses supercritical theta. The explicit r=1/4, epsilon=9/20 yields theta=9/8 and g=(1-t)^9 weighted normalized energy -1/80; 1-2epsilon=1/10>0. These are analytic infinite-dimensional proofs; the source checker only tests selected degrees and quadratures.
+
+## originality
+
+PASS
+
+The exact sharp amplitude-tilt PSD interval, endpoint finite-site universality, and Legendre-root cutoff are absent from the inspected general nonisotropic spherical criteria and differently structured indexed Poisson modulations; no stronger stated result was identified. Best-of-knowledge priority with material risk from uninspected full Jäger–Stallbauer and Emery–Jäger–Porcu manuscripts.
+
+## value
+
+PASS
+
+Exact sharp positive-definiteness region and critical universality for a natural nonstationary covariance are useful independent of general classifications; the finite-band false-positive threshold and explicit rational positive-valued counterexample illuminate numerical covariance certification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
