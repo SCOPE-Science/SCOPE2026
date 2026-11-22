@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Exact scalar Gaussian conditioning gives the risk; strict concavity of the covariance potential and reflection prove global endpoint anchoring; a monotone stationary equation gives the unique sub-half-length gap. Explicit derivative and Taylor/implicit expansions prove noise monotonicity, high-noise shift, and the long-correlation crossover. A standalone deterministic script passed 20666 supplementary checks; finite tests are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Longi et al. (2020), §§2–6, optimizes sensor sets for spatial line-integral observations and evaluates entropy/information criteria; no one-dimensional stationary OU endpoint contrast integral theorem was identified.",
+        "Pronzato–Zhigljavsky, DOI:10.1137/18M1210332, abstract, addresses kernel-energy and point-evaluation design.",
+        "Published result “Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature” concerns multiple point readings and stratification (public summary, not inspected full text)."
+      ],
+      "reasoning": "General GP linear-functional conditioning covers computing a risk once positions are supplied, but contains no supplied theorem solving this constrained continuous global optimization or its long-correlation coupled noise scaling. Prior multiple point-observation designs are stronger sensing experiments, not stronger placement theorems for a forced contrast-only channel.",
+      "searches": [
+        "exponential kernel Gaussian process Bayesian quadrature derivative observation difference correlated endpoints optimal design",
+        "optimal design integral Ornstein Uhlenbeck process increment observation placement scalar contrast",
+        "\"linear functional observations\" \"Bayesian quadrature\" Gaussian process"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1812.08509",
+      "https://arxiv.org/abs/1704.00060",
+      "https://proceedings.mlr.press/v124/longi20a/longi20a.pdf",
+      "https://orca.cardiff.ac.uk/id/eprint/134338/",
+      "https://www.tandfonline.com/doi/full/10.1080/03610926.2019.1645855",
+      "https://doi.org/10.1103/PhysRevFluids.8.104302",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 quadrature weight paper develops posterior risk and local point-design optimality, not endpoint reduction for a single difference observation.",
+        "The 2020 sensor-placement full text analyzes multiple line measurements and does not identify this scalar exponential-kernel contrast experiment.",
+        "Wu–Aoi–Pillow (2017) discusses derivative-enhanced inference, which is not a fixed-noise finite contrast."
+      ],
+      "reasoning": "Neither a point-design extremum nor a general linear-Gaussian update determines the global location of a contrast sensor: covariance of the contrast with the integral changes sign under reflection, and variance depends on gap. The endpoint anchoring, single root, strict noise monotonicity and coupled scaling require additional arguments. No inspected prior theorem implies them.",
+      "searches": [
+        "\"Gaussian process\" \"pairwise difference\" \"integral\" \"optimal\" observations",
+        "\"contrast observations\" \"integrated\" \"Ornstein-Uhlenbeck\" design",
+        "\"difference observations\" \"Gaussian processes\" \"integral\" quadrature",
+        "exact optimal contrast pair for exponential kernel Bayesian quadrature boundary anchor noise variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Longi et al., PMLR 124 (2020), §2.1, proves linear-operator GP covariance setup for line-integral measurements; distinct objective and observation type.",
+        "Karvonen et al., arXiv:1812.08509, §2.1, eqs. (2)-(3), conditions on separately recorded point values."
+      ],
+      "reasoning": "A single noisy contrast is one scalar linear functional and is not equivalent to two individually recorded values. A derivative observation is a local small-gap limit; it cannot imply the finite-gap optimizer with fixed contrast noise. No inspected equivalent formulation gives the claimed global root or crossover.",
+      "searches": [
+        "stationary Ornstein Uhlenbeck integral observation one spatial difference sensor optimal pair location contrast quadrature",
+        "\"Ornstein-Uhlenbeck\" \"difference\" \"single observation\" \"integral\"",
+        "\"difference observations\" \"Gaussian processes\" \"integral\" quadrature"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A bounded search of published mathematical findings identified nearby OU point-measurement quadrature and line-sensor design records but no exact boundary-anchored contrast formula.",
+        "The inspected 2020 PMLR paper studies integrals along lines, not a difference of two field point values.",
+        "An exact concept-level search returned the published result on optimal OU full-value quadrature nodes as closest within the exponential-kernel integration class, with no exact single-contrast law in its available summary."
+      ],
+      "reasoning": "No matching exact formula, table, or dominating class theorem was found in inspected records. This is negative search evidence only, not proof that none exists.",
+      "searches": [
+        "stationary Ornstein Uhlenbeck integral observation one spatial difference sensor optimal pair location contrast quadrature",
+        "\"stationary Ornstein\" \"increments\" \"quadrature\" \"optimal\"",
+        "\"OU\" \"contrast-only\" \"sensor placement\" integral",
+        "Optimal single difference measurement X(v)-X(u) of integral of stationary Ornstein Uhlenbeck Gaussian process exponential covariance. Endpoint anchored unique gap with joint lengthscale noise crossover."
+      ]
+    },
+    "rationale": "Bounded published-record and primary-literature comparisons distinguish a single contrast channel from two point readings, derivative data and line-integral observations. No inspected primary statement or recoverable prior result implies the exact anchored optimizer and coupled noise–correlation law. Historical priority is not independently certified.",
+    "residual_risks": [
+      "Derivative-enhanced 2017 article full text was not available in the experimental HTML path.",
+      "The 2019 OU design full text was access-restricted; its abstract is not sufficient to rule out every specialized statement.",
+      "Related published OU optimal-node result could only be compared through a public summary, not its full proof.",
+      "Search is not a historical-novelty certification; an uninspected stronger theorem could subsume the contrast design."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FORMULA_NOT_COVERING_SPECIFIC_OPTIMUM",
+        "evidence": [
+          "Eq. (2) gives posterior integral variance for independently observed point values; §3.5 treats locally optimal point-design weights, not one scalar two-point contrast."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.08509",
+        "material_read": "Full accessible HTML, especially §§2.1 and 3.5 on posterior variance, point-value weights and local point optimization",
+        "method": "Section and theorem implication comparison",
+        "title": "On the Positivity and Magnitudes of Bayesian Quadrature Weights",
+        "trigger": "Direct Bayesian quadrature risk and observation-design overlap"
+      },
+      {
+        "assessment": "GENERAL_FUNCTIONAL_FRAMEWORK_NOT_EXACT_CONTRAST_RESULT",
+        "evidence": [
+          "§2.1 gives GP covariance under line-integral operators; §§3–6 optimize line-sensor configurations and illustrate spatial field reconstruction, not stationary OU integral from a difference of two point values."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v124/longi20a/longi20a.pdf",
+        "material_read": "10-page full PDF, especially §§1–3 and 6; pages 1 and 4 checked visually",
+        "method": "Read extracted paper text and inspect selected original page images; compared measurement operators and optimization criteria",
+        "title": "Sensor Placement for Spatial Gaussian Processes with Integral Observations",
+        "trigger": "Sensor placement with nonpoint Gaussian linear-functional data"
+      },
+      {
+        "assessment": "RELATED_GENERAL_THEORY_PRIORITY_RISK",
+        "evidence": [
+          "Abstract describes signed-measure kernel energy and design equivalences, not an explicit optimal exponential-kernel contrast."
+        ],
+        "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/134338/",
+        "material_read": "Institutional repository abstract and bibliographic metadata; full PDF not inspected",
+        "method": "Abstract-level comparison, limitation retained",
+        "title": "Bayesian quadrature, energy minimization, and space-filling design",
+        "trigger": "General kernel design and broader optimality equivalences"
+      },
+      {
+        "assessment": "INACCESSIBLE_FULL_TEXT_RESIDUAL_RISK",
+        "evidence": [
+          "arXiv confirms initial public submission 2017-03-31; abstract describes derivative observations rather than a contrast placement theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.00060",
+        "material_read": "arXiv abstract and submission history; experimental HTML rendering exposed no paper body",
+        "method": "Abstract-only comparison; no whole-document noncoverage claim",
+        "title": "Exploiting gradients and Hessians in Bayesian optimization and Bayesian quadrature",
+        "trigger": "Earliest dated derivative-enhanced BQ motivating source"
+      },
+      {
+        "assessment": "ACCESS_LIMITED_RESIDUAL_RISK",
+        "evidence": [
+          "Abstract targets prediction of complex OU processes via IMSPE and entropy for sample configurations; no contrast-only integral theorem in available excerpt."
+        ],
+        "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/03610926.2019.1645855",
+        "material_read": "Publisher abstract only; full page returned access denial",
+        "method": "Abstract-level scope comparison",
+        "title": "On the optimal designs for the prediction of complex Ornstein-Uhlenbeck processes",
+        "trigger": "OU optimal sampling theorem might dominate result"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVATION_SCOPE_WITH_RESIDUAL_FULLTEXT_RISK",
+        "evidence": [
+          "Summary concerns noiseless optimal point-sampling gaps and independently jittered stratification, not one noisy contrast measurement."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+        "material_read": "Public result summary only; full result page could not be retrieved",
+        "method": "Compare described point-node observation operator with present forced difference",
+        "title": "Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature",
+        "trigger": "Closest published exponential-kernel integration design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4b12abe1-fb91-4742-a1a5-84f4352758cb",
+  "value": {
+    "rationale": "Differential-only sensing is a natural restricted information channel in gradient/relative measurement. The exact global theorem states that one endpoint must be used, the second must be before the midpoint, and the maximum-separation contrast is entirely uninformative for the integral. It supplies a unique noise-calibrated gap and a complete long-correlation scaling curve from one-third to one-half. These are actionable geometric design boundaries, not merely a covariance rewrite or arbitrary tabulated case.",
+    "status": "PASS"
+  }
+}
