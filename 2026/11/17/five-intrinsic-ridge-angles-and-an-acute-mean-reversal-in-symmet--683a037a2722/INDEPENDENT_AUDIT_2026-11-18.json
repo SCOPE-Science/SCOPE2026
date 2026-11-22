@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T03:59:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Proof constructs explicit strictly positive except two zero coordinate witnesses for each pair n>=4; for n=3 diagonal/incidence pair forces further vanishing and is not a ridge. The row-sum tangent projection P=I-R*(RR*)^-1 R with RR*=nI/2 + 11^T/2 gives norm-squared DD (n-1)^2/n², off D/(2n²), and five unnormalized projected products 1/n²,-(n-1)/n²,1/n²,-(n-2)/(2n²),1/n². Interior angle cosine is minus normalized product. Counts DD C(n,2), DOinc n(n-1), DOnon C(n,2)(n-2), OOshared n C(n-1,2), OOdisjoint 3C(n,4), except DOinc removed for n=3. Exact arcsin convexity yields mean angle sign for n>=4 and n=3 formula positive. OOdisjoint weight 1-O(1/n) and +2/n² angle, OOshared weight 4/n and -1/n angle, hence n² random limit 2, mean -2, n³variance 4. Independent numerical checks across n=3,4,5,10,100,1000 and inspected exact fraction inverse Gram code for n=3..7 support but cannot prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1712.03129 main theorem describes vertices/linearity, not metric normal products",
+          "arXiv:1701.07719 concerns volume with prescribed diagonals, a different invariant and domain",
+          "Resultary other symmetric-edge and assignment angle spectra use different facet systems"
+        ],
+        "reasoning": "General vertex enumeration cannot determine metric projection Gram and angular class counts by itself. Fixed-diagonal volume formulas do not imply variable-diagonal Frobenius codim2 angular spectrum.",
+        "searches": [
+          "symmetric doubly stochastic polytope Frobenius intrinsic dihedral angles ridge spectrum mean angular reversal"
+        ]
+      },
+      "checked_sources": [
+        "Brualdi-Cao arXiv:1712.03129v1 full primary text",
+        "de Jong-Wulkenhaar arXiv:1701.07719 abstract and catalog (not full)",
+        "SCOPE frozen RESULT.md and check_symmetric_stochastic.py",
+        "Resultary symmetric stochastic/ridge semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brualdi-Cao arXiv:1712.03129 describes dimensions and vertices and allows odd-cycle half-integral vertices",
+          "Projected coordinate gradients need RR* inverse on symmetric matrices, which changes cosine signs and values",
+          "De Jong-Wulkenhaar prescribed diagonal volumes do not encode ridge angles"
+        ],
+        "reasoning": "Older combinatorial vertex and volume conclusions cannot imply the five intrinsic angle formulas or the n>=4 acute mean sign reversal without the new explicit projection and counts.",
+        "searches": [
+          "symmetric doubly stochastic polytope Frobenius intrinsic dihedral angles ridge spectrum mean angular reversal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brualdi-Cao arXiv:1712.03129 defines symmetric doubly stochastic convex body with variable diagonal",
+          "Coordinate facet normals must be projected to the row-sum tangent kernel, yielding distinct five product classes"
+        ],
+        "reasoning": "Compared symmetric Birkhoff/symmetric doubly stochastic terminology and correct variable diagonal, not fixed-trace/transportation section. Classical vertex structure does not state full intrinsic ridge-angle law.",
+        "searches": [
+          "symmetric doubly stochastic polytope Frobenius intrinsic dihedral angles ridge spectrum mean angular reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary index returned assigned exact result and other polytopes angular tables; no earlier same-family angle multiset matching five types"
+        ],
+        "reasoning": "Negative exact-table lookup is provisional, not proof of nonexistence of older tables.",
+        "searches": [
+          "symmetric doubly stochastic polytope Frobenius intrinsic dihedral angles ridge spectrum mean angular reversal"
+        ]
+      },
+      "rationale": "Brualdi-Cao classify symmetric stochastic matrix vertices and dimension, not pairwise Frobenius ridge dihedral angles. De Jong-Wulkenhaar compute volume of prescribed-diagonal slices rather than variable-diagonal ridge spectrum; only abstract was read for that source, so cannot claim a comprehensive noncoverage inspection. Resultary symmetric-edge/transportation angle calculations are different polytopes. No full same-object prior angle table located, qualified against unindexed sources.",
+      "residual_risks": [
+        "Full text of the plausible fixed-diagonal volume manuscript was not inspected; the accessible abstract cannot prove full-document absence of an angular corollary.",
+        "Any unindexed symmetric Birkhoff polytope ridge-angle derivation could reduce historical novelty.",
+        "Angle law depends on Frobenius metric, not upper-triangular coordinate norm or fixed-diagonal sections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical symmetric vertex decompositions, not the Frobenius ridge-angle spectrum",
+          "evidence": "Vertex/classification and dimension discussions",
+          "identifier_or_url": "arXiv:1712.03129v1, https://arxiv.org/abs/1712.03129",
+          "material_read": "Full accessible manuscript, including dimension/vertex theorems; no dihedral/angle matches in full text query",
+          "method": "primary arXiv full author text read",
+          "title": "Symmetric, Hankel-symmetric, and Centrosymmetric Doubly Stochastic Matrices",
+          "trigger": "Exact same symmetric stochastic object, plausible hidden facet result"
+        },
+        {
+          "assessment": "Different fixed-diagonal volume problem; whole-document absence of angle data NOT established from abstract, retained priority risk",
+          "evidence": "Abstract: asymptotic volumes of diagonal subpolytopes",
+          "identifier_or_url": "arXiv:1701.07719, https://arxiv.org/abs/1701.07719",
+          "material_read": "Abstract and theorem-level catalog description of fixed-diagonal volume; not full manuscript",
+          "method": "source abstract retrieved only",
+          "title": "The asymptotic volume of diagonal subpolytopes of symmetric stochastic matrices",
+          "trigger": "Closely named polytope, potential broader metric results"
+        },
+        {
+          "assessment": "Proof internally matches all five classes, finite checks supplementary; not prior originality evidence",
+          "evidence": "Projection equation and witness constructions",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/five-intrinsic-ridge-angles-and-an-acute-mean-reversal-in-symmet--683a037a2722",
+          "material_read": "Entire RESULT.md plus exact rational check_symmetric_stochastic.py and VERIFICATION.md",
+          "method": "actual fixed Git tree/blobs read",
+          "title": "Five intrinsic ridge angles and an acute-mean reversal in symmetric stochastic polytopes",
+          "trigger": "Source of finding, must check final claim and all proof components"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete intrinsic Frobenius ridge geometry of natural symmetric Birkhoff-like polytope, with sharp n=3 exception and rare acute ridges reversing the sign of an overwhelmingly obtuse angular law. The distinction between typical and mean angle matters for random ridge/metric curvature research; not merely facet counts or a negative tiny example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Brualdi-Cao arXiv:1712.03129v1 full primary text",
+    "de Jong-Wulkenhaar arXiv:1701.07719 abstract and catalog (not full)",
+    "SCOPE frozen RESULT.md and check_symmetric_stochastic.py",
+    "Resultary symmetric stochastic/ridge semantic search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For symmetric row-stochastic n-by-n nonnegative matrices with variable diagonal, Frobenius intrinsic metric, n>=4 all pairs of n(n+1)/2 coordinate facets are ridges and have exactly five explicitly counted dihedral-angle types; n=3 has nine ridges. Mean angle switches from obtuse n=3 to acute n>=4 although P(obtuse)->1 and scaled angle/mean/variance have limits 2/-2/4 respectively.",
+  "limitations": [
+    "Canonical variable-diagonal symmetric stochastic body only and n>=3; no full volume or curvature polynomial.",
+    "Fixed-diagonal volume source partially accessible; priority qualified against possible unindexed treatment."
+  ],
+  "residual_risks": [
+    "Full text of the plausible fixed-diagonal volume manuscript was not inspected; the accessible abstract cannot prove full-document absence of an angular corollary.",
+    "Any unindexed symmetric Birkhoff polytope ridge-angle derivation could reduce historical novelty.",
+    "Angle law depends on Frobenius metric, not upper-triangular coordinate norm or fixed-diagonal sections."
+  ],
+  "schema_version": 1
+}
