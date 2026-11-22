@@ -1,0 +1,15 @@
+# Scientific review: equidihedral ridge curvature of Van Kampen–Flores polytopes
+
+## Correctness — PASS
+For integers \(n\ge4\), the proof reconstructs the object in the inherited Euclidean metric, derives its polar as the zero-sum cube section, and exhaustively classifies polar edges by balanced signs and a movable zero coordinate. Polarity gives the exact ridge census. Adjacent polar-vertex inner products give every exterior angle, and the rank-one signed-vertex Gram determinant gives the common simplex ridge measure. The classical angle-weighted polyhedral Steiner formula completes the exact invariant. Central-binomial asymptotics and elementary arccosine estimates prove the common normalized limit. The standalone code checks every polar edge for \(4\le n\le8\), plus numerical large-order values; those experiments are not substituted for the infinite proof.
+
+## Originality — PASS, provisional priority
+The full primary text of Jevtić–Živaljević (2021), particularly the sections on maximal-volume Bier spheres and the median hypersimplex dual, identifies the object and its face duality but does not provide the exact Euclidean ridge measures, dihedral angles, second Steiner coefficient or parity-canceling asymptotic. The 2018 Jevtić–Timotijević–Živaljević full preprint covers opposite-simplex hulls but addresses their topology and realizability, not these metric curvatures. Two closely related available mathematical results were read completely: one computes covariance/isotropic constants of the same body; another computes the second intrinsic volume of the ordinary hypersimplex. Neither implies this claim: covariance does not fix the ridge curvature, and polarity does not preserve intrinsic volumes. Searches for signed-simplex, projected-crosspolytope, median-hypersimplex and Steiner aliases did not identify a stronger or equivalent formula. Residual risk: an unindexed classical formula or alternate projection representation could subsume the result.
+
+## Mathematical value — PASS
+The codimension-two Steiner coefficient is an intrinsic, geometrically motivated curvature invariant of a canonical polytope family. A complete census with a single congruence class of ridges is a nontrivial geometric rigidity statement despite different facet structures in odd and even orders. The explicit exact formula resolves that natural invariant for every dimension; the balanced odd/even leading law shows cancellation between a twofold disparity in ridge count and in exterior angle, clarifying the effect of parity beyond the already known volume formula.
+
+## Scope and limits
+The claim is restricted to canonical regular simplex generators with the induced Euclidean metric, integers \(n\ge4\), and the specified Steiner normalization. No statement is made for arbitrary affine images or unweighted unrelated hypersimplices. Historical priority cannot be guaranteed by searchable records alone; independent mathematical audit has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
