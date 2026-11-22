@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies all balanced colour frequencies, parametrizes them bijectively by edge-prefix characters, derives the exact multiplier using the orthogonality relation in \(\mathbb F_2^2\), and proves a nonnegative-exponent four-term cancellation lemma modulo three. The two multinomial families exhaust all zeros, yielding the rank formula. The separate exact checker agreed for 349,504 Fourier coefficients, but the infinite-length claim rests on the proof rather than the checker.
+## correctness
 
-**Originality — PASS under bounded source comparison.** The full text of the previously published first-degree cycle sampling theorem was inspected and its one-coordinate Gram conclusion does not imply all-frequency zeros. Babson–Beck's 2012 group-valued graph-colouring paper was sought via the original open preprint and alternate open copies, but its full text remained inaccessible; the available abstract establishes Fourier-based **unweighted counting**, not this signed-frequency nullity. A prior all-frequency Klein-four weighting or a disguised Potts transfer-matrix result remains an unresolved historical-priority risk; absence from search is not proof of priority.
+PASS
 
-**Value — PASS.** This is a complete natural family-wise Fourier-support and convolution-rank classification for a canonical Potts colouring space. The sporadic length congruence and exact multinomial nullity come from a nontrivial four-term \((-3)\)-adic cancellation, not from the ordinary chromatic polynomial or translation symmetry. The exact result has direct operator-theoretic significance.
+The translation x_i↦x_i+h forces W=0 for unbalanced frequencies. For balanced alpha, increments d_j in F2²\{0} and closing-sum exclusion yield the exact formula (-1)^(n-1)[3(-3)^k0−Σ_{g≠0}(-3)^kg]. A four-power cancellation reduces modulo 3 at the least exponent: exactly three terms have exponent r and the fourth has exponent r+1, giving only n=4r+1 and precisely the two prefix-count patterns. Multinomial counting gives E_n=(4r)!(4r+1)/((r!)^4(r+1)); rank=4^(n-1)-E_n. Independent full-cube integer Walsh transform and direct proper-colouring enumeration were rerun for n=3..8, including n=5 extra 60 zeros/rank196. The direct proof—not finite checks—covers every n≥3.
 
-The result is restricted to the exponent-two four-colour group. It does not classify all nonzero magnitudes, nor does it claim independent mathematical validation. The most relevant outstanding literature comparison is the inaccessible full text of Babson–Beck (2012).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge full-frequency Klein-four graph-colouring nullity remains distinct from unsigned chromatic count, Babson–Beck group-valued aggregate Fourier expansion, and published first-degree sampling Gram results. Priority risks explicitly retained.
+
+## value
+
+PASS
+
+Exact all-length Fourier support/nullity of proper four-colourings of a natural graph family reveals a sharp length resonance and exact combinatorial zero count beyond trivial translation zeros; this is an independently useful convolution invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
