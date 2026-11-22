@@ -1,0 +1,256 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T16:54:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/six-step-boundary-law-for-extraneous-zeros-of-antipodal-weighted--7ff06b29514d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/six-step-boundary-law-for-extraneous-zeros-of-antipodal-weighted--7ff06b29514d/CHECK.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/six-step-boundary-law-for-extraneous-zeros-of-antipodal-weighted--7ff06b29514d/VERIFICATION.md",
+        "/mnt/data/scope_worker02_run_20261119T164300Z/independent_checks.py"
+      ],
+      "rationale": "The normalized RKHS kernel has K_0=1 and K_r+K_-r takes the same value D=(1-r²)^(-beta)+(1+r²)^(-beta) at r and -r; therefore 1-(K_r+K_-r)/D is the exact nonzero orthogonal projection of 1 onto the two-evaluation nullspace, with F(0)>0. Clearing denominators at t=rz yields an even polynomial P=C(1-t²)^beta-(1+t)^beta-(1-t)^beta of degree 2 beta and no pole roots at t=±1. Multiplying by eps^beta as eps=1-r²→0 and isolating near t=±1 gives precisely beta roots in each cluster by root continuity and degree. At t=1-eps v, the analytic equation v^(-beta)-1+eps^beta[(2-eps v)^(-beta)-(2-eps)^(-beta)]=0 has exactly beta simple roots v_j=omega_j+O_beta(eps^(beta+1)) by implicit-function theory at beta-th roots of unity, so t_j=1-eps omega_j+O_beta(eps^(beta+2)); evenness yields the opposite cluster. Testing the true domain |t|<r, |t_j|²-r²=eps(1-2cos(2pi j/beta))+eps²+O_beta(eps^(beta+2)). At 6|beta the tangent index has strictly positive eps², hence is EXCLUDED. There are 2ceil(beta/6)-1 roots per cluster and N=4ceil(beta/6)-2 disk roots; subtracting exactly two prescribed simple real roots leaves the quartet-forming E=4(ceil(beta/6)-1). Beta=1 and beta multiples of 6 are handled without boundary misclassification. No uniformity as beta→infinity. Independent exact rational checks verified 504 projection-polynomial assertions for beta 1..28 at three eps values; a separate boundary contour winding computation verified N for beta 1..48 at eps=.004,.012 (96 cases), with every sampled phase increment under π. Those finite tests corroborate, rather than prove, the all-beta result. The actual frozen Git tree was reconstructed from the seven actual source blob identifiers.",
+      "residual_risks": [
+        "No explicit epsilon_beta bound is established; validity is asymptotic for fixed beta only.",
+        "Phase-winding tests sample the boundary finitely and do not themselves certify an exact count for every r or beta.",
+        "No extension to noninteger beta, nonsymmetric prescribed pairs, or r away from 1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weir Theorem 5.1 gives no extras for ALL zero sets when 0<alpha<=1 (beta=2..3): it covers those special cases but cannot cover beta>6 with extras.",
+          "October 11 result constructs, for every alpha>1 and N, SOME finite nonreal conjugate-invariant A with many REAL extras; does not conclude an exact number for A={-r,r}.",
+          "Felder–Le and Cheng–Mashreghi–Ross give general projection/extra-zero structural results, not the all-beta pair count."
+        ],
+        "reasoning": "Existing theorems cover frameworks, one-site threshold and some low-exponent zero-free regimes; none logically implies all conclusions under the exact symmetric near-boundary fixed-pair hypotheses without a new two-pole limit and tangency argument. The inaccessible 2026 preprint remains a technical-priority risk, not affirmative broader coverage.",
+        "searches": [
+          "Resultary semantic: weighted Bergman canonical divisors several zeros near boundary roots of unity first six step beta",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-arbitrarily-many-real-extraneous-zeros-from-finite-weighted-berg--7cb0246c0b46/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-dimension-six-onset-and-the-full-zero-staircase-for-hype--3a4155691ebe/RESULT.md",
+          "https://arxiv.org/abs/2609.36723",
+          "https://doi.org/10.1080/17476933.2021.1931850",
+          "https://msp.org/pjm/2003/208-1/pjm-v208-n1-p12-p.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://people.kth.se/~haakanh/publications/hed-zhu-cvta.pdf",
+        "https://arxiv.org/pdf/2105.01766",
+        "https://arxiv.org/pdf/math/0406369",
+        "https://arxiv.org/pdf/1912.05715",
+        "https://arxiv.org/pdf/1807.06341",
+        "https://msp.org/pjm/2003/208-1/pjm-v208-n1-p12-p.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-arbitrarily-many-real-extraneous-zeros-from-finite-weighted-berg--7cb0246c0b46/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-dimension-six-onset-and-the-full-zero-staircase-for-hype--3a4155691ebe/RESULT.md",
+        "https://arxiv.org/abs/2609.36723",
+        "https://doi.org/10.1080/17476933.2021.1931850"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-site Proposition 3 Hedenmalm–Zhu + general two-site projection identity yields the ingredients, but the one-site statement itself does not assert perturbative root separation/strict tangent sign under a second pole.",
+          "Weir 2003 Theorem 5.1 gives zero-free beta<=3 (alpha<=1) in any zero set; it does not imply beta>=7 extras or the beta=6,12,... tangent cases.",
+          "2026-10-11 source constructs finite A chosen in response to N with REAL extras; the proposed pair ±r instead yields only NONREAL extras and a fixed integer formula.",
+          "2026-10-25 hyperplane-ball scalar fibre result uses q=t/(1-u) and a difference quotient, not a two-kernel Gram projection."
+        ],
+        "reasoning": "No verified prior theorem entails the full final claim with the same quantifiers, object and boundary conventions. The claim goes beyond its textbook RKHS projection calculation through an exact two-cluster all-degree classification and second-order tangent exclusion. Still, the near-decoupling construction is close to known methods, and historical antecedents could exist.",
+        "searches": [
+          "https://people.kth.se/~haakanh/publications/hed-zhu-cvta.pdf",
+          "https://arxiv.org/pdf/2105.01766",
+          "https://arxiv.org/pdf/math/0406369",
+          "https://arxiv.org/pdf/1912.05715",
+          "https://arxiv.org/pdf/1807.06341",
+          "https://msp.org/pjm/2003/208-1/pjm-v208-n1-p12-p.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-arbitrarily-many-real-extraneous-zeros-from-finite-weighted-berg--7cb0246c0b46/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-dimension-six-onset-and-the-full-zero-staircase-for-hype--3a4155691ebe/RESULT.md",
+          "https://arxiv.org/abs/2609.36723"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projected canonical divisor is equivalent to a root-location theorem for even P=C(1-t²)^beta-(1+t)^beta-(1-t)^beta on |t|<r.",
+          "Hedenmalm–Zhu Proposition 3 analyzes one factor 1-((1-|a|²)/(1-conj(a)z))^beta; same angular condition but not the sum of two kernel poles.",
+          "Felder–Le Proposition 4.8 expresses general multi-point Shapiro–Shields functions through projections, but the exact ±r asymptotic count is not stated in inspected passages."
+        ],
+        "reasoning": "Neither changing the exponent to alpha=beta-2, nor Shapiro–Shields/canonical-divisor nomenclature makes the one-site formula an all-two-site theorem. The two-pole numerator and tangency error must be justified. The finite-check outcome is not novelty evidence.",
+        "searches": [
+          "Resultary semantic: Shapiro Shields Bergman space projection two antipodal zeros symmetric radius exact number extra zeros near boundary",
+          "Web: Shapiro Shields functions two symmetric opposite zeros near boundary extraneous Bergman zeros",
+          "https://people.kth.se/~haakanh/publications/hed-zhu-cvta.pdf",
+          "https://arxiv.org/pdf/2105.01766",
+          "https://arxiv.org/pdf/1912.05715"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The semantic corpus returns an exact duplicate bearing the same target record slug and 2026-11-08 date; this is the assigned record itself, not an independent earlier database entry.",
+          "The October 25 hyperplane-weighted-ball fibre table has 2(ceil(s/6)-1) scalar roots, but in a different kernel geometry, and does not classify this divisor.",
+          "No earlier exact two-antipodal count table was found in the examined primary results."
+        ],
+        "reasoning": "The absence of a distinct earlier table in the finite searches is weak supporting context only; the mathematical implication comparisons above carry the originality assessment. No independent database uniqueness certificate is claimed.",
+        "searches": [
+          "Resultary semantic: antipodal weighted polynomial extraneous zeros boundary six step law",
+          "Resultary semantic: Shapiro Shields Bergman space projection two antipodal zeros symmetric radius exact number extra zeros near boundary",
+          "Web: near boundary radial two point divisor extraneous zeros roots unity Bergman weighted",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-dimension-six-onset-and-the-full-zero-staircase-for-hype--3a4155691ebe/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precise all-integer, two-antipodal-site, boundary-near total/extraneous zero count and the excluding tangent-branch law, rather than for the known one-site root-of-unity criterion. Hedenmalm–Zhu Proposition 3 explicitly supplies the same beta>6 one-point threshold and angular inequality; Felder–Le supplies general multi-site projection theory; Weir supplies all-zero-set zero-freeness for alpha<=1. These cover ingredients and low-beta subcases but not, as quantified statements, the full two-cluster classification for A={-r,r}, including exact count, simplicity and nonreal quartet geometry. The October 11 finite-zero-set existential theorem has a different set quantifier and real extras; the October 25 hyperplane ball result has a different RKHS kernel. A same-date public copy of the target is the target itself, not independent precedence. Relevant original full texts/sections were read as detailed below; a 2026 relevant arXiv preprint was inaccessible, named as residual risk rather than failed as a shortcut. Historical priority remains qualified.",
+      "residual_risks": [
+        "The key one-point angular half-plane criterion and first exponent threshold were known in 1992; the new content is the two-point near-boundary geometry, not this criterion.",
+        "Older single-point or general canonical-divisor papers may contain an unindexed multipoint theorem equivalent under scaling; historical priority cannot be proven from finite searching.",
+        "Lin–Xu–Yu 2026 full arXiv text and lawful OA retrieval failed and authorized institutional access reported disconnected VPN; only the abstract plus a separate public derived proof were material read. Its exact internal lemmas are not certified noncovering.",
+        "Same-date public mirror of the target supplies no independent priority, and negative database searches are not novelty proofs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the one-point root-of-unity half-plane criterion and threshold beta>6. Does not state a two-prescribed-antipodal-point exact count or two-cluster perturbation. The shared one-point threshold is not newly claimed.",
+          "evidence": [
+            "Proposition 2: single-zero normalized extremal 1-((1-|a|²)/(1-conj(a) z))^(alpha+2)",
+            "Proposition 3: extra one-site roots iff omega^(alpha+2)=1 with Re omega>1/2, equivalent alpha>4",
+            "Proposition 4 describes a one-site boundary zero at a specified radius; no ±r pair"
+          ],
+          "identifier_or_url": "https://people.kth.se/~haakanh/publications/hed-zhu-cvta.pdf",
+          "material_read": "Accessible parsed full publisher-paper text, with detailed Propositions 2–5 and their arguments (especially pp.167–169); page-image fetch attempted but returned 404",
+          "method": "Full text from author-hosted PDF, with source-extracted equations and relevant proposition proofs; attempted image inspection",
+          "title": "On the Failure of Optimal Factorization for Certain Weighted Bergman Spaces",
+          "trigger": "1992 original one-prescribed-zero weighted Bergman extraneous-zero onset at alpha>4, same kernel exponent beta=alpha+2"
+        },
+        {
+          "assessment": "Gives the general projection/Gram framework and consequences of extra zeros, but does not derive the fixed-integer antipodal ±r cluster count or tangency sign.",
+          "evidence": [
+            "Lemma 3.2: independence of reproducing kernels for distinct prescribed points",
+            "Proposition 4.8: Shapiro–Shields function equals appropriate projection",
+            "Section 5, Theorem 5.5: adding already extraneous zeros to prescribed set can leave a function unchanged"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.01766",
+          "material_read": "Accessible 20-page arXiv full text searched by theorem terminology; studied Lemma 3.2, Proposition 4.8 and Section 5, with page 9 image",
+          "method": "Original arXiv full text and relevant page screenshot",
+          "title": "Analogues of Finite Blaschke Products as Inner Functions",
+          "trigger": "General finite prescribed zeros, Shapiro–Shields functions and extraneous zeros; could subsume two-point count"
+        },
+        {
+          "assessment": "Section 3 makes one-point extremal explicit and studies expansive multipliers; no exact two-antipodal-point all-beta root classification in inspected mathematical arguments.",
+          "evidence": [
+            "Section 3, equation (3-1), explicit single-zero extremal",
+            "Theorem 3.1 assumes one-point expansive multipliers to obtain boundary properties"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0406369",
+          "material_read": "Original nine-page arXiv full text; introduction, all of Section 3 and Section 4 inspected; page 5 image",
+          "method": "Original arXiv full text and page screenshot",
+          "title": "Curious properties of canonical divisors in weighted Bergman spaces",
+          "trigger": "1996 canonical divisor asymptotics could already cover multiple near-boundary zeros"
+        },
+        {
+          "assessment": "One-point example and kernel-determinant framework are general antecedents. No stated two-antipodal ±r six-step boundary count or all-branch tangent classification in the inspected results.",
+          "evidence": [
+            "Example 3.3 computes B1 from a single K_a and notes extra weighted Bergman zeros",
+            "Examples 3.4–3.5 incorporate an origin zero or a double zero at a; Proposition 3.6 establishes kernel-derivative span independence"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.05715",
+          "material_read": "Accessible 18-page arXiv text; Examples 3.3–3.5 and Section 3.2 inspected with page-10 screenshot",
+          "method": "Full text of relevant examples, direct page-image verification",
+          "title": "Inner functions in weighted Hardy spaces",
+          "trigger": "Finite kernel determinant constructions and concrete weighted Bergman examples might imply this exact two-point result"
+        },
+        {
+          "assessment": "Theorem 5.1 bounds possible locations of extra zeros abstractly, with no sharp integer-beta boundary count for two antipodal sites.",
+          "evidence": [
+            "Theorem 5.1: lower bound on |w| for any extra zero via operator norms",
+            "Section 6 discusses existence examples rather than exact ±r zero clusters"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.06341",
+          "material_read": "Original 43-page arXiv full text searched; Section 5 Theorem 5.1 and Proposition 5.2 inspected, as well as examples in Section 6; page-23 screenshot",
+          "method": "Original arXiv text and page screenshot",
+          "title": "Inner functions in reproducing kernel spaces",
+          "trigger": "Potential general extraneous-zero location bound dominating the proposed exact count"
+        },
+        {
+          "assessment": "Theorem 5.1 is an all-zero-set absence result for -1<alpha<=1 (beta<=3) and more general p; it overlaps the zero-free low-beta cases, but not beta>=7 with extras or full all-beta ±r count.",
+          "evidence": [
+            "Theorem 5.1: no extraneous zeros for 0<alpha<=1; introductory context also covers -1<alpha<=0",
+            "Single-point hypergeometric expression does not give the proposed two-site cluster formula"
+          ],
+          "identifier_or_url": "https://msp.org/pjm/2003/208-1/pjm-v208-n1-p12-p.pdf",
+          "material_read": "Accessible full journal PDF text, Introduction, single-point hypergeometric formula, Section 5 and Theorem 5.1; first scientific-page screenshot",
+          "method": "Journal-hosted full text and original page image",
+          "title": "Zeros of extremal functions in weighted Bergman spaces",
+          "trigger": "Full-paper treatment of prescribed-zero extremals, with a possibly dominating zero-free theorem"
+        },
+        {
+          "assessment": "For each alpha>1 and N it constructs SOME finite conjugation-invariant (not antipodal-real) prescribed set with at least N REAL extras. Does not imply the proposed exact nonreal count for the SPECIFIC pair ±r.",
+          "evidence": [
+            "Finding: existential finite set A outside real axis depending on N, with at least N real extras",
+            "No minimum |A|, no all-two-site classification, no simplicity claim"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-arbitrarily-many-real-extraneous-zeros-from-finite-weighted-berg--7cb0246c0b46/RESULT.md",
+          "material_read": "Entire public RESULT.md including quantifiers, proof, and limitations",
+          "method": "GitHub full text of earlier dated mathematical result",
+          "title": "Arbitrarily many real extraneous zeros from finite weighted-Bergman zero sets",
+          "trigger": "Closest previous public finite-zero-set result for all alpha>1"
+        },
+        {
+          "assessment": "A different holomorphic ball kernel with weight |z1|²; its exact scalar zero fibres share the sixth-root threshold but do not classify zero-based two-point projection F_{beta,r}.",
+          "evidence": [
+            "Kernel difference quotient ((1-q)^(-s)-1)/q, rather than two prescribed-site Shapiro–Shields projection",
+            "Exact scalar fibres q=1-exp(2pi ij/s), 0<6|j|<s, on a different space"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-dimension-six-onset-and-the-full-zero-staircase-for-hype--3a4155691ebe/RESULT.md",
+          "material_read": "Entire publicly available RESULT.md including scalar-zero equation and proof",
+          "method": "GitHub full published mathematical statement and proof",
+          "title": "A sharp dimension-six onset and the full zero staircase for hyperplane-weighted ball kernels",
+          "trigger": "Same sixth-root half-plane cut-off could be a disguised equivalent formula"
+        },
+        {
+          "assessment": "Abstract establishes an existential finite zero set causing wandering-property failure for every alpha>1, not the exact count for A={-r,r}. A broader uninspected technical lemma remains a documented risk.",
+          "evidence": [
+            "Main abstract is an existence theorem for SOME finite A, no fixed pair or count stated",
+            "Full-text access blocked; cannot assert absence from all interior lemmas"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.36723",
+          "material_read": "Public arXiv abstract and the full earlier-result derivation relying on this paper; attempts to retrieve original arXiv PDF and HTML failed; authorized institutional retrieval reported disconnected VPN, no full text claimed",
+          "method": "Abstract and related full public Resultary derivation; requested open text and institutional source, did not bypass authentication",
+          "title": "The Critical Value for the Beurling-Type Theorem in Weighted Bergman Spaces",
+          "trigger": "2026 closest contemporary finite-zero-set theorem, possible stronger coverage"
+        },
+        {
+          "assessment": "Small-disk wandering-property result does not directly imply a near-boundary exact extra-zero classification. Full text not claimed read.",
+          "evidence": [
+            "Abstract restricts positive wandering property to zero sets in a small disk about the origin"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/17476933.2021.1931850",
+          "material_read": "Published abstract and journal metadata, not full text",
+          "method": "Publisher abstract search",
+          "title": "Finite zero-based invariant subspaces of the shift operator on reproducing kernel spaces",
+          "trigger": "Possible general positive zero-set theorem dominating the two-point test"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://people.kth.se/~haakanh/publications/hed-zhu-cvta.pdf",
+        "https://arxiv.org/pdf/2105.01766",
+        "https://arxiv.org/pdf/math/0406369",
+        "https://arxiv.org/pdf/1912.05715",
+        "https://msp.org/pjm/2003/208-1/pjm-v208-n1-p12-p.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-arbitrarily-many-real-extraneous-zeros-from-finite-weighted-berg--7cb0246c0b46/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/six-step-boundary-law-for-extraneous-zeros-of-antipodal-weighted--7ff06b29514d/RESULT.md"
+      ],
+      "rationale": "Canonical zero-based extremals can acquire unintended roots, changing how a prescribed zero set identifies a shift-invariant subspace. Two distinct antipodal evaluation sites form the smallest symmetric multi-site geometry beyond the classical one-site framework. For this natural object, the theorem gives the COMPLETE near-boundary disk zero count at every integer kernel power, identifies exactly which exponents create new quartets and settles the delicate exponents divisible by six via an O(eps²) sign not determined by first-order root location. This is a motivated sharp invariant and boundary law rather than a parameter renaming or a numerical curiosity. Its mathematical worth is modest relative to full canonical-divisor theory, and no classification for arbitrary point sets/radii is claimed; independent exact finite classification is still a useful structural benchmark for later multi-point zero theory.",
+      "residual_risks": [
+        "The two-cluster asymptotic follows methods related to the prior one-site analysis; usefulness must be tied to the natural two-site complete classification, not claimed as a new universal mechanism.",
+        "No explicit minimal boundary radius or treatment of noninteger powers; practical use outside the near-boundary, integer-beta regime is limited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full assertion holds only for beta fixed before r tends to 1; no explicit r0(beta), noninteger-beta extension or full-r classification.",
+    "Finite independent contour and exact rational checks corroborate the analytical root/Gram proof; they are not universal proof or complete certified algebraic isolation.",
+    "Novelty is best-of-knowledge, with 1992 one-site criterion already known and inaccessible 2026 preprint details explicitly noted.",
+    "Scientific PASS is distinct from publication readiness; public-facing metadata sanitization has not been delivered."
+  ],
+  "schema_version": 1
+}
