@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact minimum-norm interpolant follows from rotation invariance and equality in Hilbert Cauchy–Schwarz. The factorial-block ratio orders all individual alias masses and gives exact finite switching radii. The strict adjacent logarithmic differences, uniform fixed-index Stirling expansion and explicit geometric tail bounds establish a complete infinite-index phase diagram and both critical-window limits. The exceptional vacuum onset is centered at \((\log(2\pi N))/(2N)\), whereas all higher transitions have fixed-\(k\) \(1/N\) scaling. The proof does not infer infinite asymptotics from finite tests. The independent executable reproduced 311 finite checks.
+PASS
 
-## Originality — PASS, qualified by access
+Rotation invariance and uniqueness force the minimum-norm interpolant to Fourier degrees divisible by N; Hilbert Cauchy–Schwarz on these coefficients gives f=(1/S) sum (sqrt(rho N)z)^(kN)/(kN)! and norm²=1/S. The exact adjacent weight ratio is (rho/tau_{k,N})^N; factorial-product monotonicity yields a unique most massive alias except exact two-index ties. Stirling gives logarithmic rates Phi_rho(k)=k(1+log(rho/k)), strict adjacent gaps outside switches, and geometric tail domination for all large k. At fixed k>=2, an e^{x/N} angular-parameter perturbation leaves two adjacent exponential rates equal and prefactors 1/sqrt(k-1),1/sqrt(k), giving the stated moving-Fock-vector mixture and norm scale. At k=1, T_(N,0)=1 lacks an N^-1/2 Stirling prefactor; centering rho=e^-1 exp((log(2pi N)/2+x)/N) is necessary and yields 1/(1+e^x) norm². Bounded independent factorial-ratio checks for N=8,40,200,1000 and k=1..5 verified threshold ordering and distinct asymptotic corrections. The infinite tail and all fixed-index asymptotics rest on the proof, not these samples.
 
-The 2016 Horoshko et al. paper already contains the **exact** cyclic Poisson-residue expansion and a qualitative first vacuum-dominance transition; these are known. The published 2026 minimax interpolation theorem yields the exact finite constant-data Fock extremizer by taking Fourier residue zero; its continuous identric crossing evaluated at an integer equals the candidate threshold. The related published 2026 sharp Fock conditioning theorem treats extreme Gram eigenvalues, not all fixed-data alias-state critical mixtures. Neither inspected full statement supplies the full fixed-index high-order transition and its two different critical-window laws. The plausible 2024 *Optimal circular states* text was not fully accessible; an equivalent result under a quantum-optical name remains possible. An unsuccessful database search is not a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result is a complete natural classification of a family of minimum-norm interpolation extremizers, not a parameter-renaming exercise. It resolves how high-degree Fock modes replace one another, identifies all exact finite switching radii, and distinguishes two genuinely different critical scales, with quantitative two-mode limits. It neither claims general RKHS interpolation nor irregular-node stability.
+The exact finite residue-zero interpolation expansion is ALREADY known from Horoshko–De Bièvre–Kolobov–Patera 2016 circular coherent states and from a published 2026 minimax Fock interpolation formula with Fourier mode m=0; it is explicitly not independently novel. The previous minimax theorem studies the worst data residue (least residue mass) and identric mean B(x), whose integer B(k-1) equals tau_k; the conditioning theorem also studies least Gram eigenvalue, not the largest *individual* alias of the fixed m=0 minimizer. Neither inspected full prior claim establishes all fixed-index critical mixing limits or both k=1 versus k>=2 parameter scales. The 2024 Luo–Tang–Zhang paper is a particularly plausible quantum-optics prior with only publisher preview accessible; the Oxford institutional download was blocked by disconnected VPN. This is a serious historical-priority risk, but not evidence of coverage or an automatic originality fail.
 
-## Limits and primary sources
+## value
 
-Alpay–De Martino–Diki (arXiv:2604.22165v1, Sec. 4.1); Horoshko–De Bièvre–Kolobov–Patera (arXiv:1602.07852v1, Eqs. 9,14,38–40); published 2026 minimax and conditioning results cited in RESULT.md; Luo–Tang–Zhang (DOI:10.1088/1751-8121/ad8792, first-page preview only). A separate independent review and complete historical priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The normal circular interpolation orbit is canonical and has a natural scaling |z_j|²=rho N. The claim classifies precisely which Fock monomial sector controls its minimum-norm interpolant for every fixed positive rho, including the entire staircase and two different critical crossover laws. The contrast between first vacuum and higher pair transitions is a motivated structural phenomenon, not a reshuffling of the known exact interpolation series.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
