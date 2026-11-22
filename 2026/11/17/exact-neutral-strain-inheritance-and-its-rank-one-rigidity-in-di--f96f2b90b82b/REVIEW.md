@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The strain-weight recursion is exactly common to all strains. Subtracting the weighted initial fraction times the total-state update proves a scalar linear recurrence with multiplier \(1-hd\) *at each node*. Physical invariance follows from the step bound. The subcritical scalar bound and critical normalized stable-mode contraction are analytically sufficient; reciprocal increments then give the claimed critical amplitude. Above threshold, an ordered subsolution/supersolution squeeze and uniqueness of the positive scalar fixed point establish global attraction. The converse uses the full open box of possible strain partitions, turning one-step share invariance into a row-eigenvector identity for all interior total states; this forces rank one. The attached checker passes the exact and numerical tests described in RESULT.md.
+PASS
 
-## Originality
+For strictly positive rank-one B=uw^T with identical strain dynamics, common recovery d, and the physical Euler step restriction, w^Tx^(r) is multiplied at each generation by the common positive factor 1-hd+h sum_i w_i u_i(1-z_i), preserving each weighted share. Subtraction of q_r times total equation cancels infection exactly and yields x_i^(r)-q_r z_i=(1-hd)^k initial discrepancy. For rho=w^Tu<d, scalar S decays geometrically; at rho=d, transverse profile errors are O(S^2), z_i/S->u_i/d and reciprocal S increments ->h sum_i w_i u_i^2/d, yielding k x_i^r ->q_r u_i/(h sum_i w_i u_i^2). For rho>d, monotone sub/supersolution iteration traps every nonzero total state at unique endemic z*. The all-interior initial-condition quantifier in the converse forces w^TM(z) proportional to w^T for every z, and varying z_i proves each row B_i proportional to w. Independently verified exact rational 2-node, 3-strain share identity for 16 generations, not a universal-time proof.
 
-**PASS within the inspected evidence.** The strongest same-model source, Gracy et al. (2023), supplies the general Euler competitive SIS equations and analyses convergence and equilibria; the examined theorem and model sections do not specify the fixed weighted strain share or the rigidity converse. The 2026 aligned rank-one result covers independent recovery-adjusted strain profiles and *excludes* the proportional case. The 2021 and 2023 multi-virus literature already knows that neutral equilibrium continua can occur, so that feature alone is not novel. The contribution assessed is the model-specific exact all-time decomposition, initialized selection, universal critical profile, and if-and-only-if contact-rank characterization. Uninspected relevant manuscripts and equivalent identities not indexed under epidemic terminology remain risks.
+## originality
 
-## Value
+PASS
 
-**PASS.** In identical-strain competition, existence of a continuum of endemic states does not determine which state a heterogeneous network selects from given infection data. The theorem identifies that state from one observable weighted initial fraction without integrating the nonlinear dynamics, quantifies every node's transient departure from it, and supplies the universal per-strain extinction amplitude at threshold. The necessity theorem proves rank one is the exact structural boundary for such a fixed positive weighted invariant across all states, rather than an arbitrary convenient example. These are meaningful complete classifications of a neutral population-dynamics regime, not an arbitrary finite parameter slice or mere restatement of standard local stability.
+Best-of-knowledge originality after actual mathematical implication comparisons with primary literature and published Resultary corpus; no located stronger theorem implies the entire exact final claim. Distinct known antecedents and historical risks are documented.
 
-## Closest literature and limits
+## value
 
-Primary: Gracy–Liu–Başar–Uribe, arXiv:2310.13853v1 (full source equations and result sections examined); related: Ye–Anderson–Liu arXiv:2111.07507 and Gracy et al. arXiv:2303.16457 (abstract-level comparison); published aligned rank-one competitive-bivirus result `567a29ac68ce` (complete RESULT text examined); product-hazard SIS critical result `c0fb1830567e` (scientific statement, proof opening and comparison read). Residual risks are unindexed/disparate mathematical treatments of multiplicative cocycles or neutral strain conservation, and full-text coverage of those two related preprints. Distinguish the deterministic discrete Euler model from nonlinear infection hazards or Markov epidemic chains. No independent mathematical validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The initial weighted shares explicitly select a point of a known neutral coexistence continuum, the exact all-time nodewise exchange mode decays at (1-hd)^k, and the converse characterizes precisely which positive contact matrices conserve such a share for all initial states. These are motivated invariants and a structural rigidity theorem, not another existence-only neutral equilibrium result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
