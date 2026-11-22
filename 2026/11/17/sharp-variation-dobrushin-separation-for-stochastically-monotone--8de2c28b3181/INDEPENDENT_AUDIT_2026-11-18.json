@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:17:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use differences d_k and monotone cumulative tails T_i(k) to obtain a nonnegative difference matrix a; its ℓ1 norm gives β=max_k(T_n(k)−T_1(k)). Any row-pair signed measure is the discrete derivative of c_0=c_n=0 with 0≤c_k≤β; maximizing half ℓ1 oscillation over the β-cube has at most floor(n/2) positive blocks, so δ≤floor(n/2)β. Endpoint rows imply δ≥β; interlaced odd/even rows mixed with uniform noise yield strictly positive sharp upper cases; (1−ε)I+εJ yields lower equality. β=0 and n=2,3 boundaries explicit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General cone-operator Dobrushin formula applies to oscillation, not path-adjacent variation.",
+          "Fill–Kahn 1109.6075 compares monotone Markov kernels and mixing ordering, not the exact dimension-dependent norm distortion of β versus δ."
+        ],
+        "reasoning": "Neither broader matrix cone theory nor Markov mixing comparisons supplied the precise ordered-edge norm formula and sharp positive extremizers in inspected statements.",
+        "searches": [
+          "sharp variation Dobrushin separation stochastically monotone Markov ordered variation beta(P) floor n/2",
+          "stochastically monotone finite Markov transition matrix variation contraction Dobrushin coefficient floor(n/2) ratio",
+          "Gaubert Qu 2014 Markov operators cones Hopf oscillation contraction"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1307.4649",
+        "https://arxiv.org/abs/1109.6075",
+        "https://arxiv.org/abs/2410.00472",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-two-sided-gini-dobrushin-comparison-for-finite-markov-op--1d3e22b7f004/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classic identity δ(P)=max pair-row half ℓ1 distance is prior.",
+          "For monotone P the difference transform a_{ik}=T_{i+1}(k)−T_i(k)≥0 yields β=max_k(T_n(k)−T_1(k); bounding δ/β requires an additional alternating-block cube optimization."
+        ],
+        "reasoning": "The sharp floor(n/2) and strictly positive interlaced-support witnesses do not follow by direct substitution into standard Dobrushin or Gini results; they use a distinct path-difference argument.",
+        "searches": [
+          "sharp variation Dobrushin separation stochastically monotone Markov ordered variation beta(P) floor n/2",
+          "stochastically monotone finite Markov transition matrix variation contraction Dobrushin coefficient floor(n/2) ratio",
+          "Fill Kahn monotone Markov operator variation contraction relative Dobrushin"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaubert–Qu arXiv:1307.4649 recovers standard oscillation / Dobrushin coefficient.",
+          "Full published Gini–Dobrushin RESULT.md uses G(x)=∑_{i<j}|x_i−x_j|, not V(x)=∑|x_{i+1}−x_i|."
+        ],
+        "reasoning": "Adjacent path variation is a distinct seminorm from total-variation distance on distributions and complete-pair Gini. Dobrushin identity alone cannot give exact β and their sharp ratio without exploiting ordered tail monotonicity.",
+        "searches": [
+          "sharp variation Dobrushin separation stochastically monotone Markov ordered variation beta(P) floor n/2",
+          "stochastically monotone finite Markov transition matrix variation contraction Dobrushin coefficient floor(n/2) ratio",
+          "Markov stochastic monotone tail differences adjacent variation oscillation coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full closest Resultary Gini comparison gives factor floor(n²/4)/(n−1) for all Markov matrices with Gini seminorm.",
+          "Audited result gives floor(n/2) under monotonicity for the ordered variation norm; these constants and admissible classes are different."
+        ],
+        "reasoning": "No exact ordered variation–oscillation coefficient table located in Resultary queries; self-title hits must not count as independent antecedents; absence of exact result is not proof.",
+        "searches": [
+          "sharp variation Dobrushin separation stochastically monotone Markov ordered variation beta(P) floor n/2",
+          "stochastically monotone finite Markov transition matrix variation contraction Dobrushin coefficient floor(n/2) ratio",
+          "A sharp two-sided Gini Dobrushin comparison for finite Markov operators"
+        ]
+      },
+      "rationale": "The novel comparison is ordered adjacent-signal variation β(P) versus the classical Dobrushin oscillation δ(P) under stochastic monotonicity, with exactly floor(n/2) gap and positive-kernel extremizers. The prior Gaubert–Qu and Fill–Kahn results address general Dobrushin formulas and monotone chain comparison, while the related exact Resultary Gini theorem uses a complete-pair seminorm, not adjacent variation.",
+      "residual_risks": [
+        "Older monotone-chain variation-diminishing literature might imply a similar sharp factor in a different norm notation.",
+        "Fill–Kahn and Kamihigashi–Stachurski full texts not independently read in full; broad conclusions based on stated main objects only.",
+        "n=2,3 coincidence depends on the total order; no reversibility-constrained sharpness claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source proves/reports Dobrushin coefficient identity; inspected statements do not give the adjacent-signal-variation sharp ratio",
+          "evidence": [
+            "arXiv:1307.4649 (2013); author manuscript abstract and Introduction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.4649",
+          "material_read": "Original arXiv abstract and open author-manuscript beginning/introduction describing Hopf oscillation and total-variation duality",
+          "method": "Compared precise seminorm and state-space geometry",
+          "title": "Dobrushin’s ergodicity coefficient for Markov operators on cones",
+          "trigger": "Strong general setting that could subsume all finite Markov stability constants"
+        },
+        {
+          "assessment": "No claim of whole-document exclusion; main accessible statement is chain comparison rather than exact ordered variation operator norm",
+          "evidence": [
+            "arXiv:1109.6075 (2011)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.6075",
+          "material_read": "Original arXiv abstract, bibliographic statement and theorem-scope context; not full manuscript",
+          "method": "Compared object (monotone chain) but different measured coefficient",
+          "title": "Comparison inequalities and fastest-mixing Markov chains",
+          "trigger": "Prior stochastically monotone chains and comparison inequalities"
+        },
+        {
+          "assessment": "Distinct seminorm and constraint: even its sharp constant is floor(n²/4)/(n−1), versus floor(n/2) here for monotone P",
+          "evidence": [
+            "RESULT.md Finding and variation definitions"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-two-sided-gini-dobrushin-comparison-for-finite-markov-op--1d3e22b7f004/RESULT.md",
+          "material_read": "Full Resultary RESULT.md including exact Gini norm, main formula, extremizers, comparison and limits (blob 231e8a2112da1986c0dbf671b14e84c402923140)",
+          "method": "Read and compared all-pairs Gini variation with adjacent variation",
+          "title": "A sharp two-sided Gini–Dobrushin comparison for finite Markov operators",
+          "trigger": "Closest exact same Dobrushin comparison in published mathematical corpus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two standard but genuinely distinct stability criteria for ordered stochastic averaging can differ by a sharp dimension-growing factor even when kernels have every entry strictly positive. The classification of optimal distortion and first separating dimension n=4 is a natural reusable caution for transferring mixing estimates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires stochastic monotonicity and finite total order; not an inequality on arbitrary partial orders or arbitrary P.",
+    "Dobrushin identity is credited as classical; new part is ordered-variation comparison and exact sharpness.",
+    "Finite exact rational examples do not exhaust all monotone stochastic matrices.",
+    "Older monotone-chain variation-diminishing literature might imply a similar sharp factor in a different norm notation.",
+    "Fill–Kahn and Kamihigashi–Stachurski full texts not independently read in full; broad conclusions based on stated main objects only.",
+    "n=2,3 coincidence depends on the total order; no reversibility-constrained sharpness claimed."
+  ],
+  "schema_version": 1
+}

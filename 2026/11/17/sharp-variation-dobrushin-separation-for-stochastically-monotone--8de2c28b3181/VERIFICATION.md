@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the sharp ordered-variation comparison
+# Independent mathematical audit
 
-The complete proof in `RESULT.md` establishes the theorem for every integer \(n\ge2\). The standalone `checker.py` is an independent finite-instance corroboration using rational arithmetic, not an exhaustive proof over the continuous family of all stochastic matrices.
+## correctness
 
-Run `python3 checker.py` in this directory. The completed execution returned:
+PASS
 
-```
-EXACT_SHARP_ALL_DIMENSIONS_N2_TO32_AND_THREE_SMOOTHINGS_PASS 93
-EXACT_LOWER_EQUALITY_POSITIVE_KERNELS_PASS 62
-EXACT_MONOTONE_RANDOM_KERNEL_BOUND_CHECKS_PASS 1320
-ALL_ORDERED_MARKOV_COEFFICIENT_CHECKS_PASS
-```
+Use differences d_k and monotone cumulative tails T_i(k) to obtain a nonnegative difference matrix a; its ℓ1 norm gives β=max_k(T_n(k)−T_1(k)). Any row-pair signed measure is the discrete derivative of c_0=c_n=0 with 0≤c_k≤β; maximizing half ℓ1 oscillation over the β-cube has at most floor(n/2) positive blocks, so δ≤floor(n/2)β. Endpoint rows imply δ≥β; interlaced odd/even rows mixed with uniform noise yield strictly positive sharp upper cases; (1−ε)I+εJ yields lower equality. β=0 and n=2,3 boundaries explicit.
 
-The checker computes exact ordered tails and row-pair total variation. It checks \(n=2,\ldots,32\) for all sharp examples and 1320 exact-rational mixtures of increasing deterministic maps. The proof of the universal comparison is the combinatorial vertex argument, not these samples. This verification does not cover arbitrary partially ordered state spaces, non-monotone matrices, or independent scientific priority.
+## originality
+
+PASS
+
+The novel comparison is ordered adjacent-signal variation β(P) versus the classical Dobrushin oscillation δ(P) under stochastic monotonicity, with exactly floor(n/2) gap and positive-kernel extremizers. The prior Gaubert–Qu and Fill–Kahn results address general Dobrushin formulas and monotone chain comparison, while the related exact Resultary Gini theorem uses a complete-pair seminorm, not adjacent variation.
+
+## value
+
+PASS
+
+Two standard but genuinely distinct stability criteria for ordered stochastic averaging can differ by a sharp dimension-growing factor even when kernels have every entry strictly positive. The classification of optimal distortion and first separating dimension n=4 is a natural reusable caution for transferring mixing estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

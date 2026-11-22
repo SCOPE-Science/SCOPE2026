@@ -1,11 +1,21 @@
-# Review of sharp variation–Dobrushin separation
+# Independent mathematical audit
 
-**Correctness — PASS.** The difference-conjugation formula exactly identifies the ordered-variation norm with the largest endpoint-row tail gap. For every pair of stochastically ordered rows, the signed row difference is the discrete derivative of a bounded nonnegative tail-gap sequence; an elementary cube-vertex argument bounds its total-variation norm by \(\lfloor n/2\rfloor\) times the maximum gap. Disjoint interlaced-support probability rows realize this extremum, and mixing with a uniform-row kernel makes every entry positive without changing the ratio. The identity-plus-uniform matrix attains the lower bound. All quantifiers, the zero-norm case, and the low-dimensional boundary are explicit. Rational checks corroborate but do not prove the infinite family.
+## correctness
 
-**Originality — PASS, qualified.** Related primary references establish stochastic monotonicity, Markov comparison theory, Dobrushin's oscillation coefficient and order-sensitive probability metrics. Inspected material did not assert the sharp finite-dimensional norm comparison on **input function variation** or the strictly positive interlaced sharpness construction. The nearest published comparison concerns ordered *probability distributions* rather than this BV operator norm. A published equivalent in older or unindexed work cannot be ruled out; negative search hits alone are not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The result gives the optimal distortion between two canonical stability tests for ordered Markov operators, with a sharp dimension growth law and a first nontrivial dimension. The discrepancy persists with strict positivity, so positive entries alone cannot reconcile adjacent-variation and oscillation mixing bounds. This quantifies a structural limitation on transferring ergodicity estimates between function seminorms rather than an arbitrary matrix computation.
+Use differences d_k and monotone cumulative tails T_i(k) to obtain a nonnegative difference matrix a; its ℓ1 norm gives β=max_k(T_n(k)−T_1(k)). Any row-pair signed measure is the discrete derivative of c_0=c_n=0 with 0≤c_k≤β; maximizing half ℓ1 oscillation over the β-cube has at most floor(n/2) positive blocks, so δ≤floor(n/2)β. Endpoint rows imply δ≥β; interlaced odd/even rows mixed with uniform noise yield strictly positive sharp upper cases; (1−ε)I+εJ yields lower equality. β=0 and n=2,3 boundaries explicit.
 
-**Closest prior material and limits.** Fill–Kahn (arXiv:1109.6075) compares stochastically monotone chains; Gaubert–Qu (arXiv:1307.4649) characterizes Dobrushin's coefficient; Kamihigashi–Stachurski (arXiv:2410.00472 and arXiv:2409.19874) work with order-sensitive distributional metrics. The theorem requires a finite total order and does not treat reversibility-constrained sharpness or general posets. Historical-priority risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novel comparison is ordered adjacent-signal variation β(P) versus the classical Dobrushin oscillation δ(P) under stochastic monotonicity, with exactly floor(n/2) gap and positive-kernel extremizers. The prior Gaubert–Qu and Fill–Kahn results address general Dobrushin formulas and monotone chain comparison, while the related exact Resultary Gini theorem uses a complete-pair seminorm, not adjacent variation.
+
+## value
+
+PASS
+
+Two standard but genuinely distinct stability criteria for ordered stochastic averaging can differ by a sharp dimension-growing factor even when kernels have every entry strictly positive. The classification of optimal distortion and first separating dimension n=4 is a natural reusable caution for transferring mixing estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
