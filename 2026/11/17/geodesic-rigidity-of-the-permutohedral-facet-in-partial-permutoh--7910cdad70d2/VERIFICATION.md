@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,5 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification scope
-The analytical verification is self-contained in RESULT.md: compute the normal-fan walls; check the two completion couplings, their marginals, and the strict inequality at insertion edges; apply the Wasserstein triangle inequality and a reduced in-facet adjacent-label sorting path. No numerical certificate is needed for the infinite statement. Finite diagnostics conducted during exploration are supplementary and do not establish the theorem. Independently verify the normal-fan wall classification and the completion coupling before citing this as independently established.
+
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Actual frozen Git tree confirms RESULT and the normal-fan edge classification: adjacent occupied numerical-value swaps have Euclidean length sqrt2; rank edges inserting the smallest occupied value have cost t=n−k+1. For each rank-k vertex, uniform completion over missing labels defines a probability on the top facet. Swaps couple at cost sqrt2; inserting t admits a coupling of mean cost at most j/sqrt2 strictly below edge length t≥j+1. W1 triangle inequality bounds any ambient path below by the facet Coxeter distance; a path departing the facet incurs strict slack. Independently checked exact graph adjacency and shortest path equality for (m,n)=(2,2),(3,3),(3,4),(4,4), up to 65 vertices and 2080 endpoint pairs; finite tests are corroboration only.
+
+## originality
+
+PASS
+
+Searched Resultary for partial-permutohedron weighted edge geodesics and reviewed Heuer–Striker and Behrend primary full texts: prior results classify faces, vertices, edge lengths, not the strongest strict ambient geodesic rigidity for all full-rank endpoints. A polytope-graph result under another alias remains conceivable.
+
+## value
+
+PASS
+
+Exact global non-shortcut and all-geodesic confinement is a structural polytope-metric theorem not entailed by vertex/edge enumeration; the transport completion is reusable as a geodesic obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
