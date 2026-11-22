@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytical check uses the exact determinant formula \(V=D|z-h|/6\), the normalized latitude density, the bound \(p_\varepsilon/\varepsilon\le6/D\) and the integrable inverse-distance identity. A separate deterministic quadrature of the projected-sphere Coulomb potential at transverse radii \(0,1/4,1/2,4/5,19/20\) yielded \(\pi/2\) to numerical quadrature accuracy. The inverse-distance transform identity is established in the proof rather than entrusted to these calculations.
+## correctness
 
-Execution: `python check_nearflat_tetra.py` using `requirements.txt` (NumPy). The provided script integrates over the fourth point exactly in latitude and samples only three first vertices, providing a lower-variance check of the rare event. With 1,500,000 triples and the fixed seed, completion message `SPHERE_TETRA_SMALL_VOLUME_UNIFORM_CHORD_OK` was observed. At \(\varepsilon=0.0001\), estimated \(\Pr(E_\varepsilon)/\varepsilon\) was 9.2860 (analytical limit \(3\pi\)), and weighted chord mean was 1.0134 (analytical limit one). Slower convergence is expected because of near-collinear first-three-point events; the checker tests finite approximations only.
+PASS
 
-No independent audit or formal verification is represented. Unavailability of the complete Miles (1971) text is a historical-priority limitation, not a mathematical proof gap.
+For four independent surface-uniform points on S², Euclidean unsigned tetrahedral volume is D|n·P4−h|/6, D the triangle cross-product length from the first triple. Projected-sphere inverse-distance potential equals π/2 for every line meeting the unit ball; conditioning on the first two points yields E(D⁻¹|P1,P2)=π/(2ℓ), where ℓ has original density ℓ/2; thus E(D⁻¹)=π/2. The fourth latitude is uniform on [−1,1]. Dividing its interval probability by ε gives pointwise 6/D with integrable universal bound 6/D, hence P(V≤ε)~3πε and a joint weak limit of the first triple tilted by 2/(πD), followed by circle-arclength uniform P4. Reweighting the first chord ℓ/2 by π/(2ℓ) and 2/π gives limiting constant chord density 1/2 on (0,2); permutation exchangeability gives all six edges. The argument explicitly handles measure-zero collinear triples and boundary |h|=1, and asserts weak not total-variation convergence for the unmarked points. Inspected the full RESULT proof and attached Monte Carlo checker path; the latter is empirical corroboration, not a proof.
+
+## originality
+
+PASS
+
+Miles 1971 broadly determines scalar random-simplex volume moments, so the 3π ε leading term is normalization and not claimed standalone novelty. The new observable is the conditional JOINT geometric law and uniform edge marginal. Importantly, a separate same-date Resultary theorem on exact marked near-coplanar rejection sampling yields the unmarked weak limit as its marginal and expressly attributes that unmarked limit to earlier work; its priority order is not established from dates alone. No older accessible paper was shown to cover the joint limit, but a direct Miles 1971 original manuscript comparison was blocked by institutional VPN access. Best-of-knowledge originality PASS with this precise priority risk.
+
+## value
+
+PASS
+
+Conditioning on vanishing Euclidean volume radically changes every edge chord marginal from density ℓ/2 to a uniform law on (0,2), with a full explicit inverse-area tilted joint configuration. This is a natural marked rare-event geometry statement and not a routine scalar moment identity; it is useful as a limiting geometric sampling law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

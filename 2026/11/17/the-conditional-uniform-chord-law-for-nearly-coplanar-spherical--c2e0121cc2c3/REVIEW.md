@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact latitude disintegration gives the conditional small-volume probability and a deterministic \(6/D\) domination. The nonstandard inverse-distance lemma is proved using the projected-sphere disk density and a Fourier–Bessel identity. It yields \(\mathbb E[D^{-1}]=\pi/2\), which normalizes the joint weak limit. Exchangeability and the known original chord density give the uniform conditional edge law. The embedded reproducibility program independently evaluates the fourth-point latitude integral and tests the constants numerically.
+## correctness
 
-**Originality — PASS, provisionally.** Miles (1971) studied this spherical simplex volume distribution via all scalar moments. Thus even the exact scalar near-zero probability could be implied by earlier moment completeness: that is **not** the new contribution. The assessed joint conditional four-vertex shape law and uniform-edge consequence carry additional information absent from inspected volume-only records. Brauchart et al. (arXiv:1512.07470) analyze a different large-sample random sphere polytope regime; MathWorld also only tabulates scalar moments. Relevant published-finding corpus entries on conditional near-maximal simplex volume, unconditioned spherical polytope edge lengths, origin visibility and larger-dimensional maximal volumes have different hypotheses or observables. Complete Miles full text was inaccessible, leaving a genuine historical-priority risk.
+PASS
 
-**Value — PASS.** Near-coplanarity of inscribed random tetrahedra is a natural exceptional shape event. Its full limiting configuration is an explicit coarea-biased law, and every chord length has the unexpectedly simple uniform limit despite having increasing linear density without conditioning. This provides a useful exact benchmark for rare geometric degeneracies, beyond a narrowly chosen numerical invariant.
+For four independent surface-uniform points on S², Euclidean unsigned tetrahedral volume is D|n·P4−h|/6, D the triangle cross-product length from the first triple. Projected-sphere inverse-distance potential equals π/2 for every line meeting the unit ball; conditioning on the first two points yields E(D⁻¹|P1,P2)=π/(2ℓ), where ℓ has original density ℓ/2; thus E(D⁻¹)=π/2. The fourth latitude is uniform on [−1,1]. Dividing its interval probability by ε gives pointwise 6/D with integrable universal bound 6/D, hence P(V≤ε)~3πε and a joint weak limit of the first triple tilted by 2/(πD), followed by circle-arclength uniform P4. Reweighting the first chord ℓ/2 by π/(2ℓ) and 2/π gives limiting constant chord density 1/2 on (0,2); permutation exchangeability gives all six edges. The argument explicitly handles measure-zero collinear triples and boundary |h|=1, and asserts weak not total-variation convergence for the unmarked points. Inspected the full RESULT proof and attached Monte Carlo checker path; the latter is empirical corroboration, not a proof.
 
-**Limits.** No finite-threshold closed form, error estimate, higher-dimensional generalization, independent validation or comprehensive historical originality guarantee is provided. The numerical code corroborates but does not prove the statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Miles 1971 broadly determines scalar random-simplex volume moments, so the 3π ε leading term is normalization and not claimed standalone novelty. The new observable is the conditional JOINT geometric law and uniform edge marginal. Importantly, a separate same-date Resultary theorem on exact marked near-coplanar rejection sampling yields the unmarked weak limit as its marginal and expressly attributes that unmarked limit to earlier work; its priority order is not established from dates alone. No older accessible paper was shown to cover the joint limit, but a direct Miles 1971 original manuscript comparison was blocked by institutional VPN access. Best-of-knowledge originality PASS with this precise priority risk.
+
+## value
+
+PASS
+
+Conditioning on vanishing Euclidean volume radically changes every edge chord marginal from density ℓ/2 to a uniform law on (0,2), with a full explicit inverse-area tilted joint configuration. This is a natural marked rare-event geometry statement and not a routine scalar moment identity; it is useful as a limiting geometric sampling law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
