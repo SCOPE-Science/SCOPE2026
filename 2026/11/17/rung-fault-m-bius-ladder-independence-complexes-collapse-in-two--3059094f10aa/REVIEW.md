@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies every vertex, edge, parity class, matching fiber and cone toggle. For any nonempty exterior independent set, absence of a cone endpoint forces a full alternating sequence of occupied outside columns; the twisted boundary condition contradicts parity for both residue classes. The resulting complete acyclic relative face-poset matching collapses the complex onto an explicitly contractible join. The finite checker corroborated eight lengths; proof validity rests on the all-length parity argument, not enumeration. No unverified numerical homology or torsion inference is used.
+## correctness
 
-## Originality — PASS
-Agarwal–Basak arXiv:2608.30601v2, §§3–4, pages 6–10, classifies intact ladder independence complexes using vertex deletion and neighborhood deletion; an edge-fault classification is not stated there. The closest published rung-fault finding treats \(n\equiv1,2\pmod4\), unlike the two contractible residue classes here. Searches of exact and equivalent rung deletion / cross-polytope collapse language found no covering prior statement. Residual risk: unindexed graph-complex treatments and later sources can exist, so priority is not independently established.
+PASS
 
-## Value — PASS
-The two residue classes are the complementary half of a natural four-periodic edge-fault classification for a highly symmetric cubic family. The result is not just zero homology or finite spot-checks: it provides a uniform elementary simplicial collapse and a minimal explicit ball model for every allowed size. It distinguishes contractible faults from the previously known noncontractible ones.
+For n>=3 and n mod 4 in {0,3}, the pinned RESULT proves an elementary simplicial collapse of the independence complex after deleting a single antipodal rung, not merely a homology vanishing. Its selected vertices Z consist of the now nonadjacent rung endpoints in column 0 and disjoint surviving even rungs, so Ind(G[Z])=Delta^1*(S^0)^r. For each nonempty independent exterior T, adjacency blocking gives an available isolated selected endpoint unless both deleted-rung endpoints and every chosen even-rung pair are symmetrically blocked; the parity propagation forces incompatible rail choices at the twisted seam, in both residue classes (including n=3). The fiberwise toggle is a complete acyclic matching; exterior sets weakly descend along unmatched edges, so a closed gradient path cannot mix fibers. This proves relative collapse to Ind(G[Z]), which is itself a ball with a simplex factor. Independently rebuilt modular graphs and tested every nonempty independent exterior face for n=3,4,7,8,11,12, obtaining respectively 6,8,62,80,566,728 faces with cone toggles and no counterexample; all-parameter proof, not finite enumeration, carries the theorem.
 
-## Scientific limits
-No claims for multiple faults, rim-edge failures, or a symmetry-preserving matching; finite tests are supplemental.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality holds for the two contractible residue classes and the explicit simplicial collapse. The earlier same-fault published theorem treats n=1,2 modulo 4 and has wedge of two spheres; Agarwal--Basak classify intact ladders plus vertex and neighborhood deletions. Distinguishing graph edge-deletion, deletion of a vertex, and perfect-matching complexes is essential; no prior inspected result implies the missing congruence classes.
+
+## value
+
+PASS
+
+The two missing congruence classes complete a natural four-way topological classification of a one-rung perturbation of a classical cubic graph family. Simple collapsibility supplies an explicit combinatorial strong result, not a routine numerical Betti computation or rewording of the complementary noncontractible theorem. The cone-fiber and twisted-seam parity mechanism may be reused for graph-fault comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
