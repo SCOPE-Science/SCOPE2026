@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Full continuum proof: reflection density f(a,d)=2(a+d)phi(a+d); past A term 1/sqrt(2pi); integrated independent future max excess with Gaussian I_b/K_b identities; exact covariance c(s); conditional two-point projection; strictly one derivative sign change at 16/21. Standalone verifier passes 27 quadrature, algebra and boundary checks. No inference from finite sampling to global theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grill-Valko-Munos arXiv:1901.04884v1, full 10-page paper, targets adaptive full-value path-max search complexity.",
+        "Riedel arXiv:1911.05272v1, accessible full paper, conditions trajectories on the maximum or argmax, not vice versa.",
+        "Bisewski et al. arXiv:1705.06567, full paper, target is crossing-probability discretization, not one-bit Bayes MSE."
+      ],
+      "reasoning": "Full-value adaptive search complexity, reverse conditional Brownian trajectory moments, and barrier-crossing probabilities do not imply a universal single-sign posterior mean/risk or the optimal fixed time. Different targets and observation sigma-algebras prevent straightforward coverage.",
+      "searches": [
+        "Brownian maximum Brier risk one sign bit endpoint timing Bayes estimator optimal time",
+        "Riedel Brownian maximum conditional path single sign observation",
+        "Optimistic Optimization of a Brownian arxiv 1901.04884",
+        "Mean and Variance of Brownian Motion with Given Final Value Maximum and ArgMax arxiv 1911.05272"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1705.06567v1, full preprint v2 material",
+      "arxiv:1901.04884v1 full preprint",
+      "arxiv:1911.05272v1 full open-access HTML",
+      "published maximum–endpoint result 2026/10/4",
+      "published cyclic-bridge result 2026/10/26",
+      "arxiv:1902.06126 abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Endpoint result assumes symmetry of increments and tests g(S) at the *terminal* position S=W_1, yielding precisely the new formula evaluated at s=1, not a bound at all s.",
+        "Cyclic-bridge result assumes zero-sum, cyclically invariant increments, yielding Cov(bridge maximum,B_t)=Var(B_t)/2, whereas free BM is unpinned and our observable is sign(B_t).",
+        "Bisewski crossing probabilities/Grill adaptive full observations/Riedel reverse extrema conditioning are distinct claims."
+      ],
+      "reasoning": "The earlier endpoint identity neither controls sign(W_s) for s<1 nor yields a time derivative. Bridge maximum–position covariance cannot recover the free-Brownian maximum–sign law; even with Gaussian bridge covariance, different extremal path laws intervene. The inspected published papers do not state a result that logically implies the entire timing optimization.",
+      "searches": [
+        "Published theorem and proof at 2026/10/4/SCOPE-reversal-and-sign-symmetry-force-a-half-variance-maximum-endpoin--5e8da51794ea/RESULT.md",
+        "Published theorem and proof at 2026/10/26/SCOPE-cyclic-bridge-maximum-position-duality-without-sign-symmetry--43b9344c4101/RESULT.md",
+        "arxiv:1705.06567 full preprint",
+        "arxiv:1901.04884 full preprint",
+        "arxiv:1911.05272 accessible full manuscript"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact claim equivalently minimizes Var(M)-Cov(M,sign(W_s))^2 over 0<s<=1; Gaussian joint-extremum formulas alone do not supply optimized covariance.",
+        "Published maximum-endpoint identity, 2026/10/4/SCOPE-reversal-and-sign-symmetry-force-a-half-variance-maximum-endpoin--5e8da51794ea, establishes only Cov(M,sign(W_1))=1/sqrt(2*pi)."
+      ],
+      "reasoning": "The endpoint odd-transform theorem agrees with the new result at s=1, but to get the sharp interior rule one needs the distinct joint law of the intermediate drawdown and future maximum, and a new global time comparison. No inspected equivalent nonterminal sign statement was found.",
+      "searches": [
+        "Brownian running maximum sign observation optimal 16/21 time Bayes risk",
+        "Brownian maximum sign measurement risk optimal single time",
+        "Brownian motion extremum maximum optimal one-bit placement sign threshold sixteen over twenty one",
+        "Brownian running maximum sign observation optimal 16/21 time Bayes risk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact 16/21 running-maximum sign sensor or risk formula returned by the cited actual searches.",
+        "Compared the mathematical target against prior claims on Brownian occupation integrals, cubic Brownian path integrals and Brownian-bridge two-sign quadrature; none estimates the running maximum of free Brownian motion from a single sign."
+      ],
+      "reasoning": "Searched both exact constants and stochastic-functional/observation aliases. Distinct prior targets and pinned bridge structure cannot give the present free-Brownian maximum MSE by simple parameter substitution; negative searches alone are not proofs of novelty.",
+      "searches": [
+        "Brownian maximum sign measurement risk optimal single time",
+        "Brownian running supremum maximum estimation from sign of Brownian position at single time t exact optimal t 16/21 quantized measurement",
+        "Brownian maximum sign one-bit occupation quantization sensor (claim and alias comparison)"
+      ]
+    },
+    "rationale": "Published-record and recoverable prior-claim comparisons found no theorem controlling the interior-time sign-to-maximum mixed moment and its unique 16/21 timing optimum. The maximum-endpoint identity dominates only the s=1 specialization. Full primary texts address distinct statistical objectives, as detailed below. Historical priority is qualified, not certified.",
+    "residual_risks": [
+      "Earlier equivalent Gaussian one-bit maximum regression or extreme-value time-design theorem could exist under unsearched terminology.",
+      "Aksenov et al. 2019 full text was not accessible; its summary-level target is different, but whole-document noncoverage is not asserted.",
+      "Independent verification and comprehensive historical-priority certification are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: its estimand is Brownian crossing probability and relative threshold-grid discretization bias, not a one-bit conditional-maximum MSE",
+        "evidence": "Introduction pp.1–3 defines w(b)=P(M>b), beta_T(b), threshold-dependent grids, Theorems 1–2; arXiv v1 posted 2017-05-18.",
+        "identifier_or_url": "https://arxiv.org/pdf/1705.06567",
+        "material_read": "Full 30-page searchable preprint available; introduction, principal theorem statements, method and listed applications reviewed",
+        "method": "arXiv full PDF text plus page-one rendered inspection",
+        "title": "Controlling the time discretization bias for the supremum of Brownian motion",
+        "trigger": "Earliest time-grid literature on Brownian suprema and nonuniform sampling"
+      },
+      {
+        "assessment": "NOT_COVERING: studies adaptive full-value queries to return an approximate maximizer/maximum, rather than a single fixed sign-only posterior MSE and its exact optimum",
+        "evidence": "Abstract and method describe adaptive full function evaluations, order log^2(1/epsilon) query complexity; first public arXiv 2019-01-15.",
+        "identifier_or_url": "https://arxiv.org/pdf/1901.04884",
+        "material_read": "Full 10-page original arXiv text available; introduction, observation model, principal theorem and experimental details inspected",
+        "method": "arXiv PDF full text; first page visually inspected",
+        "title": "Optimistic optimization of a Brownian",
+        "trigger": "Most directly related maximum estimation with carefully chosen observation times"
+      },
+      {
+        "assessment": "NOT_COVERING: conditioning path values on known extrema is reverse to estimation of extrema from an observed intermediate sign",
+        "evidence": "Study states moments of W(t) conditional on close, max, argmax; includes joint terminal-value/maximum reflection density but no sign-optimal sensor time.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1911.05272",
+        "material_read": "Full accessible manuscript in ar5iv HTML, introduction and conditional-extrema sections inspected",
+        "method": "Open-access ar5iv primary full text and search for sign/timing statements",
+        "title": "Mean and variance of Brownian motion with given final value, maximum and argmax",
+        "trigger": "Gaussian extrema joint distributions could dominate the proposed covariance calculation"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: exact terminal s=1 sign covariance is known; nonterminal time dependence and strict optimum are not covered",
+        "evidence": "Theorem E[M g(S)]=(1/2)E[S g(S)] for odd terminal g, where S is the full endpoint sum; no formula for g(W_s) for s<1.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-reversal-and-sign-symmetry-force-a-half-variance-maximum-endpoin--5e8da51794ea",
+        "material_read": "Complete accessible RESULT.md, theorem/hypotheses and proof",
+        "method": "Complete public theorem and proof read",
+        "title": "Reversal and sign symmetry force a half-variance maximum–endpoint law",
+        "trigger": "Published stronger odd-transform endpoint identity potentially covers sign observation"
+      },
+      {
+        "assessment": "NOT_COVERING: zero-sum cyclic bridge law and position covariance, not free Brownian maximum–sign regression",
+        "evidence": "Theorem Cov(M,S_k)=Var(S_k)/2 assumes sum of increments zero a.s.; Brownian bridge example Cov(M_B,B_t)=t(1-t)/2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-cyclic-bridge-maximum-position-duality-without-sign-symmetry--43b9344c4101",
+        "material_read": "Complete accessible RESULT.md with proof and Brownian-bridge corollary",
+        "method": "Complete public theorem and proof read",
+        "title": "Cyclic-bridge maximum–position duality without sign symmetry",
+        "trigger": "Intermediate-position maximum covariance may suggest a reduction"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT but summary concerns full-value Kalman/state estimation rather than a maximum from a sign bit",
+        "evidence": "arXiv:1902.06126; no inspected full text; retained as residual historical risk.",
+        "identifier_or_url": "https://arxiv.org/abs/1902.06126",
+        "material_read": "Title and abstract/metadata only; full text not obtained",
+        "method": "Open-access/arXiv attempts; summary-level comparison",
+        "title": "Optimal measurement times for a small number of measures of a Brownian motion over a finite period",
+        "trigger": "Title suggests direct Brownian sampling-time optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "10a2261b-11b9-46f5-abaf-75217741cf6f",
+  "value": {
+    "rationale": "One-bit constrained maximum estimation is a natural optimal sensor-design problem. The sharp unique 16/21 observation improves expected squared loss by 8.816456943886...% over terminal sign, and resolves the entire continuum of deterministic sampling times and all sign decoders. The target and invariant have independent motivation from Brownian extrema and low-bandwidth computation; not a predetermined arbitrary special case. Restricted to zero-threshold one-bit observation.",
+    "status": "PASS"
+  }
+}
