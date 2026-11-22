@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every complex two-plane meets the determinant-zero cubic variety nontrivially; rank-at-most-two norm comparison gives the universal bound. For the explicit equilateral pencil, three exact phase relations give triangle inequalities for the singular values, which imply capped \(p\)-power masses for \(p\le1\). Convexity establishes the sharp upper bound, including \(q=\infty\), and an exact rank-two witness attains it. The ninth index is separately computed. Supplementary finite diagnostics are not treated as an infinite proof.
+## correctness
 
-## Originality
-**PASS, with publication-priority risk.** The motivating 2026 paper and the earlier 2020–2021 Schatten Gelfand papers concern real matrices and do not directly give the complex penultimate index. The earlier real size-three penultimate result has the same scalar constant but employs real-field subspace geometry and is not a theorem for the complex-linear setting. The orthogonal-tensor literature treats related rank-one approximation geometry without the claimed exact quasi-Schatten complex width. Searches for complex 3-by-3 Schatten penultimate widths, equilateral diagonal pencils, and the exact eighth number did not identify a direct equivalent or dominating source. A differently phrased pre-existing complex width result remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The eighth Gelfand number is the first nontrivial terminal width beyond the universal ninth-index value of a canonical Schatten embedding. The exact complex-field formula over the entire quasi-Banach exponent regime, with a concrete extremizing plane and a sharp terminal gap, is a natural precise invariant rather than an arbitrary numeric instance. Its proof exhibits a field-sensitive algebraic-geometric mechanism absent from real determinant sign arguments; it does not solve general complex matrix dimensions or all exponents.
+PASS. For any complex two-plane F of 3x3 matrices, determinant det(sA+tB) is a homogeneous cubic on CP1, hence has a projective root (or vanishes identically). This yields a nonzero rank≤2 matrix, with Schatten ratio ≥2^(1/q-1/p) for 0<p<q≤infty. In the explicit complex plane span{I,diag(1,ζ,ζ²)}, singular values |a+bζ^j| satisfy the exact equilateral linear relation and all triangle inequalities for arbitrary COMPLEX a,b. For 0<p≤1, p-power subadditivity caps each normalized w_j=s_j^p/Σs^p at 1/2; convexity of t^(q/p) on the capped simplex yields norm ratio ≤2^(1/q-1/p), with q=infty from the same cap. I-U has singular values (0,√3,√3) and achieves equality. A one-dimensional identity subspace gives c9=3^(1/q-1/p). Proof depends essentially on algebraically closed complex field and on p≤1; supplementary finite coefficients cannot replace the universal inequality.
 
-## Limitations and closest literature
-The original real-field work by Prochno (2026), Hinrichs–Prochno–Vybíral (2020), and Prochno–Strzelecki (2021) and the orthogonal-tensor theorem of Li et al. (2017) are the closest inspected sources. The distinction between a complex-linear two-plane and a real-linear two-plane is essential. No independence or external certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. The relevant Prochno 2026 and Hinrichs/Prochno/Vybíral and Prochno/Strzelecki articles explicitly formulate real-matrix Schatten widths, offering asymptotics or the terminal value. A real 3x3 numerical coincidence does not by itself imply the all-complex two-plane norm bound or the complex projective determinant-root argument. Published Resultary two-row / first-drop complex theorems address different matrix dimensions or indices. No verified older theorem directly supplies this exact complex c8 across every 0<p≤1 and q>p; unknown complex-width literature remains a risk.
+
+## value
+
+PASS
+
+PASS. The eighth Gelfand number is the first nontrivial penultimate complex width at the smallest size with a cubic determinant. Sharp equality across a continuum of quasi-Banach exponents, explicit minimizer and a strict final-index drop are natural exact geometric invariants, not an arbitrary sampled matrix or mere routine numeric calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
