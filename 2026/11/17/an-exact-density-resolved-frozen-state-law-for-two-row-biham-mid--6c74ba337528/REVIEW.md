@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A one-full-update fixed configuration cannot contain a moved car: a moved eastbound car's vacated site cannot be restored as eastbound in the same update, and the analogous conclusion holds for northbound cars. The two-row geometry forbids exactly the columns (N,0) and (0,N), leaving seven columns, and the east blocking condition yields a seven-state weighted transfer. The explicitly reconstructed determinant proves the bivariate trace identity, with exact spectral and inclusion–exclusion derivations of the asymptotic statements. Independent direct simulation exhausts lengths 3–7, and a standalone symbolic checker recomputes the determinants and longer counts. Limits: finite simulation alone is not the all-size proof; the transfer identity is.
+## correctness
 
-## Originality — PASS, qualified
-Inspected primary full-text sources on the original BML model (1992), intermediate phases (2004), jamming probability at high density (2005), and bounds on frozen obstructions on square tori (2006). They study dynamical phases, blocking paths, density thresholds, or square-grid extremality, not the exact bivariate frozen-state enumeration on width-two periodic tori. The closest published mathematical-record hit concerns the dynamics of one car of each type and does not imply a full, variable-population fixed-state generating function. Searches for exact two-row transfer, stationary partition function, cubic growth base, and alternative terminology identified no stronger implication. Unindexed tables or undiscovered preprints remain genuine historical-priority risks; search absence is not proof of uniqueness.
+PASS
 
-## Value — PASS
-The finite-width BML stationary-state ensemble is a natural, exactly solvable boundary benchmark for a canonical driven two-species exclusion system whose jamming behavior depends strongly on geometry. The bivariate census resolves every species population and circumference, not just an arbitrary numerical sample. The result shows that completely occupied states are exponentially negligible inside the frozen ensemble and that a typical frozen configuration retains a positive exact density of vacancies: it distinguishes statistical prevalence within the frozen set from the much harder basin-dependent jamming problem.
+PASS. Frozen claim covers exactly the labelled 2×n periodic east-then-north Biham–Middleton–Levine rule for n≥3. If an east car moves, no subsequent north update can restore its former east occupancy; hence full-update fixedness forces no east move and, next, no north move. Two-row north obstruction excludes exactly (N,0),(0,N) from the nine vertical pairs, leaving seven columns. The edge constraint forbids an empty successor row after E; the weighted 7×7 transfer trace counts each cyclic labelled configuration once, with weight u per east car and v per north car. Independently constructed the seven-by-seven SymPy matrix from this predicate, computed det(I-zT), and verified exact symbolic identity with (1-uz)[1-(1+u+u²+2uv+v²)z+(u+u²+u³+2uv−uv²)z²−u³z³]. Independent traces yield physical n=3..7 totals 148,777,4097,21620,114107. The unweighted characteristic polynomial x³(x−1)(x³−6x²+4x−1) gives isolated λ in (5.278039,5.278040); smaller other-root moduli prove dominant growth. Inclusion–exclusion of east-only (4), north-only (2^n), and fully occupied (4^n), with three singleton intersections, proves mixed-vacancy J_n−4^n−2^n−1. Analytic perturbation of the dominant simple root at u=v=e^s gives occupied fraction and variance O(n), hence vacancy concentration at approximately 0.152713299756. Direct original verify/transfer.py and verify/brute.cpp source were read; the independent algebra, not only captured logs, checks the certificate. n=1,2 coefficients are formal transfer, and uniform sampling among fixed states is not a random-initial-condition dynamical statement.
 
-## Scope and limitations
-The result concerns fixed configurations on two-row periodic strips, not eventual freezing from random starts or higher-width dynamics. All displayed spectral data were derived and checked from the provided seven-state transfer. Historical priority is qualified by the limits of published indexing and source accessibility. Independent external audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS at best-of-knowledge priority only. Classical BML papers concern phase transitions, jamming and large square/nonslim strips; this exact two-row all-circumference joint fixed-point polynomial, cubic entropy and vacancy law are not directly implied. A published three-row counterpart uses 18 columns and a product of quartics rather than a general width theorem subsuming two rows. The two-row computation and density resolved fixed ensemble are genuine distinct statements; an unindexed specialized strip table remains a priority risk. No historical uniqueness certificate is claimed.
+
+## value
+
+PASS
+
+PASS. A width-two fully periodic exclusion automaton has a natural nontrivial exact fixed-state population by two conserved species, not a renamed textbook recurrence. The seven-state transfer produces an interpretable entropy and an exact vacancy fraction in the stationary ensemble, distinguishing jammed configuration counts from attraction probabilities. The exact bivariate polynomial is a reusable baseline for finite-width traffic and obstruction models; classification is exhaustive for the stated natural width and all n≥3. Scope does not include wider tori or global phase transitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

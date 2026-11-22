@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Frozen claim covers exactly the labelled 2×n periodic east-then-north Biham–Middleton–Levine rule for n≥3. If an east car moves, no subsequent north update can restore its former east occupancy; hence full-update fixedness forces no east move and, next, no north move. Two-row north obstruction excludes exactly (N,0),(0,N) from the nine vertical pairs, leaving seven columns. The edge constraint forbids an empty successor row after E; the weighted 7×7 transfer trace counts each cyclic labelled configuration once, with weight u per east car and v per north car. Independently constructed the seven-by-seven SymPy matrix from this predicate, computed det(I-zT), and verified exact symbolic identity with (1-uz)[1-(1+u+u²+2uv+v²)z+(u+u²+u³+2uv−uv²)z²−u³z³]. Independent traces yield physical n=3..7 totals 148,777,4097,21620,114107. The unweighted characteristic polynomial x³(x−1)(x³−6x²+4x−1) gives isolated λ in (5.278039,5.278040); smaller other-root moduli prove dominant growth. Inclusion–exclusion of east-only (4), north-only (2^n), and fully occupied (4^n), with three singleton intersections, proves mixed-vacancy J_n−4^n−2^n−1. Analytic perturbation of the dominant simple root at u=v=e^s gives occupied fraction and variance O(n), hence vacancy concentration at approximately 0.152713299756. Direct original verify/transfer.py and verify/brute.cpp source were read; the independent algebra, not only captured logs, checks the certificate. n=1,2 coefficients are formal transfer, and uniform sampling among fixed states is not a random-initial-condition dynamical statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published three-row Resultary theorem provides an 18-state transfer and two quartic factors for 3×n, which is not a universal width-m transfer and does not specialize to 2×n.",
+          "Angel–Holroyd–Martin treats high-density dynamical freezing in different large-domain settings."
+        ],
+        "reasoning": "The three-row obstruction is a different vertical cyclic constraint; there is no implication via m=3→m=2 substitution. Dynamics/jamming bounds alone do not determine weighted fixed-state microstate polynomial.",
+        "searches": [
+          "two row Biham Middleton Levine traffic fixed points frozen states generating polynomial seven state transfer two by n torus vacancy",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-stationary-state-zeta-and-density-law-on-the-three-row-bml--d6e35ac448e7",
+          "https://arxiv.org/abs/math/0504001"
+        ]
+      },
+      "checked_sources": [
+        "Git source tree 16ec0e39f4b81eaf7814b8f869b9982146a3b3bd and RESULT blob 69a85fab671518690ea60d289b562a4da6f23cfe",
+        "Frozen source verify/transfer.py sha 6025606e560f5ffb9cd4a7813119fbaee5f6ea53; verify/brute.cpp sha c65ae1516ab8c831a84bf7d75b585059eb1a5eaf",
+        "Independent direct symbolic transfer determinant and traces",
+        "two row Biham Middleton Levine traffic fixed points frozen states generating polynomial seven state transfer two by n torus vacancy",
+        "https://arxiv.org/html/cond-mat/9206001v1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-stationary-state-zeta-and-density-law-on-the-three-row-bml--d6e35ac448e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-row transfer yields cubic x³−6x²+4x−1 and a specific eigenvalue derivative; the three-row source has quartic growth 11.8929... and different row combinatorics.",
+          "Original traffic papers do not state the stationary transfer matrix or any all-n trace identity."
+        ],
+        "reasoning": "Neither an exact three-row analogue nor high-density jamming theory logically yields the two-row generating polynomial. Generic transfer-matrix methods are known; the seven-state reduction and evaluated invariant are the surviving finite-width mathematical contribution.",
+        "searches": [
+          "two row Biham Middleton Levine traffic fixed points frozen states generating polynomial seven state transfer two by n torus vacancy",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-stationary-state-zeta-and-density-law-on-the-three-row-bml--d6e35ac448e7",
+          "https://arxiv.org/abs/cond-mat/9206001"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1992 primary BML model: deterministic parallel east step followed by parallel north step, studied dynamical traffic transitions.",
+          "A stationary configuration in the two-row model is a periodic word over seven vertically admissible columns with adjacent east blockers."
+        ],
+        "reasoning": "The aliases 'jammed', 'stationary', 'absorbing', 'frozen' and 'zero-velocity' may mean fixed states only if motion is zero; asymptotic jam probabilities for random initial configurations are not equivalent to exact weighted fixed-point counts.",
+        "searches": [
+          "two row Biham Middleton Levine traffic fixed points frozen states generating polynomial seven state transfer two by n torus vacancy",
+          "https://arxiv.org/html/cond-mat/9206001v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sampled 1992/2004 model papers discuss dynamical patterns rather than a seven-state 2×n joint enumeration; the accessible published three-row table gives 1686,19988,... for m=3.",
+          "Independent 2×n counts are 148,777,4097,21620,114107 for n=3,...,7, with a symbolic all-n determinant."
+        ],
+        "reasoning": "No consulted exact table supplies these 2×n bivariate coefficients or their analytic vacancy concentration. Failure to locate one is only a bounded-priority check.",
+        "searches": [
+          "two row Biham Middleton Levine traffic fixed points frozen states generating polynomial seven state transfer two by n torus vacancy",
+          "https://arxiv.org/abs/cond-mat/0402351",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-stationary-state-zeta-and-density-law-on-the-three-row-bml--d6e35ac448e7"
+        ]
+      },
+      "rationale": "PASS at best-of-knowledge priority only. Classical BML papers concern phase transitions, jamming and large square/nonslim strips; this exact two-row all-circumference joint fixed-point polynomial, cubic entropy and vacancy law are not directly implied. A published three-row counterpart uses 18 columns and a product of quartics rather than a general width theorem subsuming two rows. The two-row computation and density resolved fixed ensemble are genuine distinct statements; an unindexed specialized strip table remains a priority risk. No historical uniqueness certificate is claimed.",
+      "residual_risks": [
+        "No exhaustive archival census of older BML strip studies, theses or unindexed exact generating-function tables.",
+        "Equality of the transfer traces was independently checked for algebraic polynomial, not every original C++ direct-state enumeration; the all-n proof uses the stated blocking equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes original model and dynamical jamming study; no 2×n fixed-point joint polynomial in inspected main text.",
+          "evidence": "Traffic phase behavior on finite periodic grids is the focus, not seven-column trace enumerators.",
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/9206001v1",
+          "material_read": "Accessible main article text: model updates and phase-transition discussion",
+          "method": "Read arXiv HTML full paper sections",
+          "title": "Self Organization and a Dynamical Transition in Traffic Flow Models",
+          "trigger": "Defining same alternating two-species traffic rule"
+        },
+        {
+          "assessment": "Three-row width-specific theorem is not broader than two-row theorem.",
+          "evidence": "Three-row column admissibility has 18 symbols and quartic factors; cannot specialize numerical row height to two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-stationary-state-zeta-and-density-law-on-the-three-row-bml--d6e35ac448e7",
+          "material_read": "Full published RESULT.md: finding, 18-state transfer, determinant factorization, proof and limitations",
+          "method": "Read raw GitHub scientific result in full",
+          "title": "Exact stationary-state zeta and density law on the three-row BML torus",
+          "trigger": "Same exact fixed-state statistic on nearby strip height"
+        },
+        {
+          "assessment": "Not used to justify whole-document exclusion; narrower priority risk remains.",
+          "evidence": "Study concerns coexisting dynamical phases/geometry and aspect ratios.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0402351",
+          "material_read": "Accessible metadata/summary and cited contextual discussion, not independently inspected complete article text",
+          "method": "Bibliographic and abstract-level comparison",
+          "title": "Geometric structure of coexisting phases found in the Biham-Middleton-Levine traffic model",
+          "trigger": "Same model, unusual aspect ratios"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A width-two fully periodic exclusion automaton has a natural nontrivial exact fixed-state population by two conserved species, not a renamed textbook recurrence. The seven-state transfer produces an interpretable entropy and an exact vacancy fraction in the stationary ensemble, distinguishing jammed configuration counts from attraction probabilities. The exact bivariate polynomial is a reusable baseline for finite-width traffic and obstruction models; classification is exhaustive for the stated natural width and all n≥3. Scope does not include wider tori or global phase transitions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only labelled n≥3 width-two full-step fixed states; excludes random-start jamming and all transients.",
+    "Absolute historical priority cannot be guaranteed by bounded literature/record search."
+  ],
+  "schema_version": 1
+}
