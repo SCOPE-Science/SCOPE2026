@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exposure derivative reduces to a real exponential polynomial. Multiplying its first derivative by a positive exponential gives a linear plus a linear-times-exponential term with a second derivative vanishing at most once. Two Rolle arguments bound the number of positive critical points, including the zero at the origin, and the separate single-mode proof is complete. Four exact rational interval enclosures certify the required alternating signs for the positive two-mode witness. The theorem does not rely on finite experiments to establish the universal ceiling.
+
+**Originality — PASS on inspected evidence.** The 2014 full-text flare study's Section III.2, its Eq. (4), and methodology concern two-exponential *fitting* and flare energy, not the ratio of integrated signal to square-root exposure length or two different local optimizers of that ratio. The 2024 CHEOPS/TESS study's abstract motivates time resolution but its full text could not be read; it cannot be used for a whole-document exclusion claim. The monoexponential optimal-acquisition literature establishes a different lower-component case. Related mathematical results for D-optimal time points and delayed double-Bateman peaks concern different objectives. The generalized exponential-polynomial zero bound is known; the delimited mathematical content is the sharp realizable two-maximum phenomenon for this specific positive model and objective. Historical priority is provisional.
+
+**Value — PASS.** A non-monotonic choice of finite exposure duration is operationally meaningful for a two-timescale transient under a specified noise model: one-dimensional local numerical optimization can find the inferior peak even while the measured flux falls monotonically. The complete upper bound and exact positive example establish the smallest number of exponential components at which this ambiguity arises. This is a theorem about idealized signal design, not an instrument prescription.
+
+Source-access risk: full text of the 2024 motivating work was not retrieved. Other risks: unlocated antecedents applying general exponential-sum theory to precisely this objective, and instrument-specific noise terms excluded by hypothesis.
+
+Self-review: passed. Independent audit: not yet performed.
