@@ -1,0 +1,23 @@
+# Scientific review: exact fixed-basis positivity and moment feasibility
+
+## Correctness — PASS
+
+The statement and proof concern unrestricted real core matrices with fixed full-column factor bases and positive quadrature weights. If the nonnegative matrix has strictly positive total mass, its spatial and velocity marginals are nonzero and nonnegative members of the corresponding factor spaces. Normalizing the velocity marginal gives a necessary reduced moment-polytope membership condition. Conversely, tensoring any feasible nonnegative spatial vector with any normalized nonnegative velocity vector realizing the target barycenter constructs an exact rank-one matrix satisfying mass and momentum. Closed convex core constraints and coercive strict convexity establish existence and uniqueness of the least-square correction, not its explicit form. The support bound follows from the rank of the polytope's affine constraint matrix; for a single velocity-space orthogonality constraint, all vertices are exactly feasible singletons and opposite-sign pairs. The one-new-direction repairs follow by the constructive witness. The three-node example has exact attained interval \([-2/3,2/3]\), while the full velocity hull is \([-1,1]\). The actual supplied verifier passed the example, exact-rational formulas, and independently implemented whole-core-versus-factor LP feasibility tests. These finite tests are supporting evidence; the full proof does not depend on sampling.
+
+## Originality — PASS, subject to historical priority risk
+
+Kormann, Nazarov and Wen (2026, arXiv:2606.31662v1) identify feasibility and existence of the positive, mass-and-momentum corrected fixed-rank core as an outstanding theoretical concern. Their positivity quadratic program and the statement of its possible infeasibility do not give a complete if-and-only-if criterion, independent factor LP tests, codimension-one attainable moment hull, or minimal one-direction feasibility completion. Einkemmer, Ostermann and Scalone (arXiv:2206.09374) construct conservative dynamical low-rank evolution and preserve moment equations for compatible states; this does not solve existence of a nonnegative fixed-basis core for arbitrary target moments. Searchable mathematical results about nonnegative truncated SVD, positive semidefinite Lyapunov integration, and reduced Galerkin cone laws concern distinct feasible sets and do not imply the kinetic moment-polytope equivalence. The product-of-marginals proof and basic feasible support lemma are classical general tools; a previously published fixed-factor positivity/moment feasibility theorem with equivalent implications could supersede the present application. No exhaustive priority or independent comparison is claimed.
+
+## Value — PASS
+
+The motivating numerical correction is a quadratic program whose solver cannot manufacture feasibility. The theorem completely decides whether feasibility holds for any prescribed positive mass and momentum, gives two small LP pretests, supplies a rank-one witness, proves a finite sharp moment hull for codimension-one velocity bases, and identifies a minimal rank-space enrichment route when a physically valid mean is missed. The three-velocity obstruction matters particularly because the factor space already contains constant and velocity functions, yet still cannot realize some physically admissible means with a nonnegative distribution. This is a meaningful structural feasibility and design result, not merely a renaming of a general linear-program test.
+
+## Closest literature and limits
+
+- K. Kormann, M. Nazarov, J. Wen, *Positivity-preserving dynamical low-rank methods for the Vlasov equation*, arXiv:2606.31662v1, Sections 4 and Conclusion, 2026-06-30; https://arxiv.org/abs/2606.31662.
+- L. Einkemmer, A. Ostermann, C. Scalone, *A robust and conservative dynamical low-rank algorithm*, arXiv:2206.09374, 2022; https://arxiv.org/abs/2206.09374.
+- L. Einkemmer, I. Joseph, *A mass, momentum, and energy conservative dynamical low-rank scheme for the Vlasov equation*, J. Comput. Phys. 443 (2021), 110495; https://doi.org/10.1016/j.jcp.2021.110495 (abstract-level comparison only).
+
+No guarantee is given for cellwise moments, energy, an entrywise numerical positivity floor, exact prescribed core rank, numerical stability/accuracy, or an already restricted norm-bounded correction set. Classical convex geometry could independently contain broader formulations; this is a specifically motivated fixed-basis kinetic-feasibility formulation. The work was checked in the self-review, not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
