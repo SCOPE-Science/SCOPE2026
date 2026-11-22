@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T23:52:40.848580Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Affine Boolean truth tables map under s=1−2y and orthogonal Walsh H to unit ℓ1-ball: P_m={1/2·1−1/2 H z:||z||_1≤1}, and ||y−(1−H z)/2||²=(n/4)||w−z||². KKT projection gives exact signed soft-threshold z and distance n/4∑min(|w_a|,τ)², plus active support simplex face (|A|−1). For binary y Parseval ||w||₂=1, hence ||w||₁≤√n; comparison with radial w/L gives max distance≤(√n−1)/2. Even m has explicit bent quadratic with flat |w|=1/√n attaining bound; equality in Cauchy–Schwarz iff bent, with all n active coordinates and facet projection. Distinct bent vertex residuals force strict variance for nonvertex combinations. Odd m cannot attain because integer Walsh sums cannot equal irrational 2^(m/2). Independent full enumeration m2,m3,m4 matches max squares .25,.5625,2.25 and bent counts 8,0,896; all m claim analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full affine-codebook random-access theorem optimizes worst-coordinate success probability and proves unique uniform mixture at bent inputs, but not Euclidean nearest point for arbitrary real y or the Euclidean Hausdorff constant.",
+          "Full crosspolytope projection prior gives the soft-threshold map in isolation, but not the Walsh transform of RM(1,m) or the condition that cube farthest inputs are exactly bent."
+        ],
+        "reasoning": "No single inspected broader prior result includes all assumptions/conclusions of the claimed Euclidean metric. The known affine decoder at bent has same probability support as one Euclidean projected point but objective is ℓ∞ coordinate success, not ℓ2 distance.",
+        "searches": [
+          "Resultary 2026-11-02 sharp affine-codebook random access and bent rigidity",
+          "Resultary 2026-10-11 exponent-invariant cross-polytope projection",
+          "Oblaukhov arxiv:1912.10811"
+        ]
+      },
+      "checked_sources": [
+        "Full Resultary 2026-11-02 affine-codebook random-access RESULT.md Git SHA 80124c382659ea0b12c7bea9f95329847a9a1467",
+        "Full Resultary 2026-10-11 crosspolytope projection RESULT.md Git SHA cea7ff1d9cc86d11d105266ccf7cd2bfc2f43d3b",
+        "Ziegler 2001 Hadamard crosspolytope chapter excerpt",
+        "Duchi et al ICML 2008 DOI:10.1145/1390156.1390191 publisher abstract",
+        "Oblaukhov arxiv:1912.10811 abstract",
+        "Potapov arxiv:2303.16547 bent Walsh theory"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Random-access theorem proves minimax (1+1/sqrt(n))/2 and bent-only worst input, and unique uniform encoder; it does not assert squared Euclidean residual or all-input nearest faces.",
+          "Crosspolytope prior supplies τ soft threshold for generic ℓ1 ball, Hadamard prior supplies affine realization, and bent theory supplies Parseval-flatness; additional exact norm bound and strict residual variance are needed for the full statement."
+        ],
+        "reasoning": "Strong conceptual overlap explicitly credited; do not claim inventing ingredients. The new all-input metric decoder is a mathematical conjunction with its own useful invariant, not a routine numeric substitution alone.",
+        "searches": [
+          "Full Resultary 2026-11-02 affine-codebook random access RESULT.md",
+          "Resultary 2026-10-11 exponent-invariant cross-polytope projection RESULT.md",
+          "Ziegler 2001 Hadamard cross-polytope",
+          "Duchi et al 2008"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ziegler identifies Hadamard codeword polytopes with regular cross-polytopes; Duchi gives generic Euclidean ℓ1-ball soft threshold; Oblaukhov gives bent Hamming deep holes, a different distance.",
+          "The novel combined formula is an affine Walsh-code metric statement including exact residual and active face for all y and strict nonvertex-maximizer proof."
+        ],
+        "reasoning": "The individual projection algorithm and crosspolytope isometry are prior and not independently claimed new. The precise code-specific farthest bent geometry follows only after additional Parseval/Cauchy-Schwarz and residual strictness arguments.",
+        "searches": [
+          "Resultary search: first order Reed Muller codeword polytope Euclidean projection Walsh l1 cross polytope bent function Hausdorff",
+          "Ziegler The 0/1-Borsuk Problem 2001 Hadamard cross-polytopes",
+          "Duchi et al 2008 Efficient Projections onto the l1-Ball"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known tables list 8 and 896 bent functions for m=2,4 and Hamming covering radius properties; these are not all-received-real-vector ℓ2 projection/distance tables or exact cubical face loci.",
+          "Generic ℓ1 projection formula was published earlier including soft threshold (Duchi 2008 and Resultary Oct 11) but only solves the code problem after Walsh crosspolytope identification and exact bent Hausdorff extremality."
+        ],
+        "reasoning": "Not a novel Walsh transform, bent existence/count, or projection algorithm; new claim is the natural complete Euclidean decoding invariant of the RM code convex hull.",
+        "searches": [
+          "Resultary exact Walsh Euclidean codeword projection and bent corners",
+          "Oblaukhov 2019 metric regularity Reed Muller codes",
+          "Potapov 2023 bent spectra"
+        ]
+      },
+      "rationale": "Best-of-knowledge original code-specific Euclidean projection and nearest-face classification for all real received vectors plus sharp even-m cubical Hausdorff geometry with exactly bent maximizers. Walsh cross-polytope realization, ℓ1 soft threshold, and bent flatness are explicitly prior facts; their synthesis into the exact codeword-hull Euclidean metric with all-input projection and all-maximizer rigidity survives direct comparison.",
+      "residual_risks": [
+        "An equivalent Euclidean codebook approximation theorem might be indexed under random-access or convex-distance terminology; not ruled out absolutely.",
+        "Bent extremality and unique mixture already known for a different objective; claim must not be marketed as a new bent characterization in isolation.",
+        "Exact odd-m Hausdorff maximum not provided; no false inference that odd-m bound is attained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different optimization: coordinate-minimum success vs Euclidean hull proximity; only bent mixture support overlaps",
+          "evidence": "It optimizes min_x signed correlation under arbitrary mixtures, not nearest point in ℓ2 for arbitrary received real y.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-affine-codebook-random-access-and-rigidity-of-bent-worst-c--7628acdda7d2/RESULT.md",
+          "material_read": "Entire published RESULT.md Finding, assumptions, construction, bent upper bound, unique encoder, scope",
+          "method": "Fetched full GitHub source, Git blob 80124c382659ea0b12c7bea9f95329847a9a1467",
+          "title": "Sharp affine-codebook random access and rigidity of bent worst-case inputs",
+          "trigger": "Strong same-codebook bent extremizer theorem"
+        },
+        {
+          "assessment": "Covers thresholding of abstract crosspolytope, not RM Walsh code Hausdorff claim",
+          "evidence": "Projection onto B1 is soft-threshold, no Boolean sign-vector Walsh bounds or bent-maximizer characterization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41/RESULT.md",
+          "material_read": "Entire full RESULT.md and proof sections 1–4 including soft threshold and active coordinate set",
+          "method": "Fetched full published GitHub file, Git blob cea7ff1d9cc86d11d105266ccf7cd2bfc2f43d3b",
+          "title": "Exponent-invariant cross-polytope projection and its sharp Lipschitz threshold",
+          "trigger": "Existing complete ℓ1-ball projection formula"
+        },
+        {
+          "assessment": "Crosspolytope realization credited; unverified whether chapter contains related metric table",
+          "evidence": "Hadamard vectors form crosspolytope vertices, but no read statement of soft-threshold decoding for arbitrary y.",
+          "identifier_or_url": "https://doi.org/10.1007/3-540-45506-X_10",
+          "material_read": "Accessible chapter descriptions/attributed regular crosspolytope example near p.170; complete licensed publisher full text not independently confirmed",
+          "method": "Used bibliographic text and accessible mathematical excerpt; no full-text noncoverage claim",
+          "title": "The 0/1-Borsuk Problem — G. M. Ziegler",
+          "trigger": "Primary known Hadamard code convex geometry"
+        },
+        {
+          "assessment": "Provides generic algorithm and optimization, not RM-specific exact cube Hausdorff geometry",
+          "evidence": "2008 projection onto B1 is a known ingredient; no claim of historical novelty for τ.",
+          "identifier_or_url": "https://doi.org/10.1145/1390156.1390191",
+          "material_read": "Publisher full abstract and method summary plus Google-authored public entry; not full conference paper read",
+          "method": "Opened official ACM publication and compared its projection problem",
+          "title": "Efficient projections onto the ℓ1-ball for learning in high dimensions — Duchi et al",
+          "trigger": "Primary standard soft-threshold projection source"
+        },
+        {
+          "assessment": "Discrete code nearest Hamming distance not the Euclidean convex hull of codewords",
+          "evidence": "Bent functions as discrete worst-case words known, but convexity can substantially change distances.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.10811",
+          "material_read": "ArXiv abstract and quoted relevant Hamming metric discussion, not complete proof",
+          "method": "Published prior literature search",
+          "title": "On metric regularity of Reed-Muller codes — Oblaukhov",
+          "trigger": "Plausible older bent deep-hole theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete exact Euclidean convex decoder for arbitrary real received vectors and minimal projection-face structure on the canonical RM(1,m) codeword polytope is a natural useful metric/geometric invariant, and the sharp even-dimensional Hausdorff and bent-only farthest-locus add nontrivial global classification. Known Walsh crosspolytope, soft-threshold and bent facts are credited, not independently sold as discoveries. Unlike generic single-ingredient reformulation, the all-input metric decoding rule and global extremal proof address a concrete natural object and a different objective than prior random-access coding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact Hausdorff sharp formula only for even m≥2; odd m strict upper bound with no exact maximum claimed. Arbitrary real inputs admit full projection formula for every m≥2.",
+    "Known soft-threshold and bent Walsh-flatness precede audited result; no independent human certification and equivalent obscure Euclidean formulation may exist."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact identity \(P_m=\mathbf1/2-HB_1^n/2\) and orthogonality \(H^{\mathsf T}H=nI\) reduce the claimed projection to Euclidean projection onto the unit \(\ell_1\) ball. The soft-threshold KKT conditions give a unique optimum for every real input, and the residual norm gives the stated squared-distance formula. At binary inputs Parseval and Cauchy–Schwarz yield the cube-wide bound; explicit quadratic bent functions saturate it for every even \(m\). Equality forces Walsh flatness, while distinct bent vertices have distinct projection residuals, excluding nonvertex maxima. The facet claim uses strict positivity of every thresholded Walsh coordinate in bent cases. The exact checker exhausts 16, 256, and 65,536 binary input tables and independently confirms KKT conditions. The only unproved extension is the exact odd-\(m\) Hausdorff maximum, which is explicitly excluded.
+PASS
 
-## Originality — PASS (priority provisional)
+Affine Boolean truth tables map under s=1−2y and orthogonal Walsh H to unit ℓ1-ball: P_m={1/2·1−1/2 H z:||z||_1≤1}, and ||y−(1−H z)/2||²=(n/4)||w−z||². KKT projection gives exact signed soft-threshold z and distance n/4∑min(|w_a|,τ)², plus active support simplex face (|A|−1). For binary y Parseval ||w||₂=1, hence ||w||₁≤√n; comparison with radial w/L gives max distance≤(√n−1)/2. Even m has explicit bent quadratic with flat |w|=1/√n attaining bound; equality in Cauchy–Schwarz iff bent, with all n active coordinates and facet projection. Distinct bent vertex residuals force strict variance for nonvertex combinations. Odd m cannot attain because integer Walsh sums cannot equal irrational 2^(m/2). Independent full enumeration m2,m3,m4 matches max squares .25,.5625,2.25 and bent counts 8,0,896; all m claim analytic.
 
-Searches covered affine-codeword and Hadamard cross-polytopes, Euclidean nearest convex mixtures, Walsh thresholds, cubical deep holes, bent functions, and both current published records and accessible same-family claims. Ziegler's known cross-polytope realization is explicitly credited; Oblaukhov addresses discrete Hamming metric complements; Potapov addresses Walsh spectra and bent counts. The closest published affine-codebook random-access theorem has a coordinatewise worst-success objective. It coincides with the Euclidean projection mixture on bent inputs, but does not supply the projection formula or residual/nearest-face classification for all real inputs. No exact convex Euclidean decoding formula or entire-cube Hausdorff/extremizer classification was located. The ingredients are classical, so an equivalent result under alternative terminology remains a concrete priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Euclidean distance from the full cube to a canonical, full-dimensional error-correcting-code polytope measures the loss incurred by convexifying discrete codewords. The theorem computes that invariant for an infinite family; moreover it supplies the exact nearest-face map for every received real vector and a sharp geometric characterization of deep holes as bent vertices projecting onto facets. It separates convex Euclidean decoding from known Hamming covering-radius statements and identifies the face dimension of all maximizers. This is a natural geometric invariant and complete projection law, not a renamed Hamming covering radius or an arbitrary finite slice.
+Best-of-knowledge original code-specific Euclidean projection and nearest-face classification for all real received vectors plus sharp even-m cubical Hausdorff geometry with exactly bent maximizers. Walsh cross-polytope realization, ℓ1 soft threshold, and bent flatness are explicitly prior facts; their synthesis into the exact codeword-hull Euclidean metric with all-input projection and all-maximizer rigidity survives direct comparison.
 
-## Closest literature and limitations
+## value
 
-Oblaukhov (2019 preprint), Potapov (2023 preprint), Ziegler (2001 Hadamard-polytope geometry), and published affine random-access record 7628acdda7d2 were compared at the level of objectives and mathematical implications. Earlier equivalent convex-geometric work is possible. The exact Hausdorff value for odd Boolean dimensions is not established. Independent priority and proof validation remain desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete exact Euclidean convex decoder for arbitrary real received vectors and minimal projection-face structure on the canonical RM(1,m) codeword polytope is a natural useful metric/geometric invariant, and the sharp even-dimensional Hausdorff and bent-only farthest-locus add nontrivial global classification. Known Walsh crosspolytope, soft-threshold and bent facts are credited, not independently sold as discoveries. Unlike generic single-ingredient reformulation, the all-input metric decoding rule and global extremal proof address a concrete natural object and a different objective than prior random-access coding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
