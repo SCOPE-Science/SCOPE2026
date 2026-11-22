@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For k>=2 every collision among four overlapping k-mers forces a period 1, 2 or 3 on a length k+j interval; with 11 forbidden these yield exactly 13 exceptional contexts (six near-long-zero, four alternating, three periodic 001). Their charged probabilities are derived from the uniform global order; the reversed alternating pair cancels in every stationary two-state source. Exact Markov weights give a positive p^k term and a negative [p(1-p)]^{k/3} residue-dependent term; the k=1 boundary is enumerated separately. The sharp sign phase follows from p^3 compared to p(1-p), and the maximal-entropy simplification from the golden-ratio equation. The included standard-library checker independently enumerated 6752 contexts for k<=13 at five rational parameters and checked all 13 exceptional patterns through k=80, including the golden-mean specialization. Conditions, quantifiers, normalization and finite-computation limits are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golan--Shur: general iid formula scales its finite-size correction by a fixed alphabet factor as k grows, with no 3-residue modulation",
+        "Zheng--Kingsford--Marçais: random minimizer density estimate under independently uniform letters"
+      ],
+      "reasoning": "The known charged-context lemma extends algorithmically to arbitrary context distributions, but does not itself compute their weighted period-1 and period-3 collisions or compare their decay rates. These cited theorems are not stronger in the Markov-source direction.",
+      "searches": [
+        "arxiv:2410.16968 Theorem 3.1 and Proposition 2",
+        "PMC8248892 §2.3 and Theorem 3",
+        "published-finding corpus expected density random minimizers stationary Markov golden mean shift no adjacent ones k mer window two random order"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2410.16968 full text: Lemma 1, Theorem 3.1",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8248892/ §2.3",
+      "https://doi.org/10.1089/cmb.2024.0483 open text",
+      "published-finding corpus: 2026/10/12/SCOPE-exact-two-width-pareto-frontier-for-binary-three-mer-minimizer-o--3dea66faf639",
+      "published-finding corpus: 2026/10/12/SCOPE-two-switch-optimality-for-biased-binary-two-mer-minimizers-at-th--fd91e6950180"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A related lexicographic minimizer result gives 2-step plateaus for a fixed deterministic order at the golden-mean source, not the expectation over random total orders",
+        "Golan--Shur Theorem 3.1 assumes a uniform iid source and proves a constant prefactor independent of k for w<=k",
+        "New result predicts a Markov sign transition and a residue-three law at p=1/phi"
+      ],
+      "reasoning": "Substituting alphabet size or a k-mer relabeling into the known iid formula cannot enforce 11 avoidance or create the two different periodic spectral scales. The lexicographic claim does not imply random-order average. The elementary charge identity is credited and the claimed advance is only the weighted exact evaluation and sharp phase.",
+      "searches": [
+        "published-finding corpus run constrained minimizer random permutations density golden mean two adjacent k-mers asymptotic",
+        "arxiv:2410.16968 Lemma 1, Theorem 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2410.16968, Lemmas 1–2 and Theorem 3.1: per-context charge and iid uniform full-alphabet averaging",
+        "Zheng et al., PMC8248892 §2.3: randomized order and independent random symbols"
+      ],
+      "reasoning": "A Markov source weighted by p and 1-p is not equivalent to uniform iid block weights: its legal words exclude 11, and the return patterns of 001 and 000 have competing growth bases. No searched statement gives this all-k weighted density or the phase threshold.",
+      "searches": [
+        "golden mean shift exact expected density random minimizer width 3 random k-mer order cubic period residue k modulo three",
+        "periodic three-mer collisions random order minimizers on no adjacent ones shift symbolic dynamics",
+        "\"random minimizer\" \"Markov chain\" \"k-mers\" density",
+        "\"expected density\" minimizers \"golden mean shift\"",
+        "arxiv:2410.16968 §§2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus hits on 2026/10/12 concern iid-biased k=2 order optimization and binary three-mer Pareto frontiers, neither a general Markov no-11 sampling distribution",
+        "Golan--Shur explicit tables cover uniform iid sources"
+      ],
+      "reasoning": "No matching exact table or computational record was found for the Markov family. Lack of an indexed record alone is not proof of novelty; explicit statement-level comparisons above are decisive for inspected material.",
+      "searches": [
+        "golden mean shift exact expected density random minimizer width 3 random k-mer order cubic period residue k modulo three",
+        "golden mean source random minimizer density phi periodic correction order width three",
+        "\"random minimizer\" \"constrained\" \"source\" density",
+        "arxiv:2410.16968 Tables and Theorem 3.1"
+      ]
+    },
+    "rationale": "The primary complete text of arXiv:2410.16968 proves generic charged-context identities and explicit densities for iid uniform full shifts; it does not state the Markov source formula or its sharp threshold at the maximal-entropy source. Zheng et al. 2020 also explicitly analyze iid sources, and Yu 2024 studies different hash/filter effects. A related previous claim fixes a lexicographic order instead of averaging uniform global orders, yielding an unrelated parity phenomenon. Searches of published-finding corpus for Markov golden-mean random minimizers and period-three corrections located optimized orders under iid sources, not equivalent or stronger results. The new theorem has a nontrivial parametric phase boundary and does not simply rename a cited result. Unindexed priority is an explicit risk.",
+    "residual_risks": [
+      "An unindexed Markov-weighted minimizer formula could have priority despite the explicit published-finding corpus and literature comparisons",
+      "A random fixed global hash order has a source-almost-sure density that need not equal the expectation over random orders; the theorem deliberately claims only the latter",
+      "The phase crossover is an asymptotic eventual sign statement for each fixed p, not a uniform-in-p sign bound at finite k"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the credited generic charge calculation, but analyzes iid uniform-alphabet inputs and does not evaluate the stationary forbidden-11 Markov family",
+        "evidence": "First public arXiv 2024-10-22; Sections 2–3 and Theorem 3.1 explicitly specify iid σ-ary weighting",
+        "identifier_or_url": "https://arxiv.org/abs/2410.16968",
+        "material_read": "Substantial online full-text HTML, introduction and §§2–3, charged-context Lemma 1, Proposition 1, Theorems 3.1–3.2 and discussion of repeated k-mers",
+        "method": "Open-access text rendered on arXiv abstract page",
+        "title": "Expected Density of Random Minimizers",
+        "trigger": "Closest direct theorem for expected density of uniform random k-mer orders"
+      },
+      {
+        "assessment": "Random binary or alphabetic iid source; asymptotic bounds are not an all-k constrained Markov formula",
+        "evidence": "Published 2020-07-13; §2.3 states two independent randomness sources and iid character input",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8248892/",
+        "material_read": "Open-access article introduction and §2.3, including the duplicate-context lemma and density theorem",
+        "method": "PMC full-text HTML",
+        "title": "Improved design and analysis of practical minimizers",
+        "trigger": "Foundational primary work on charged contexts and random-order minimizer density"
+      },
+      {
+        "assessment": "Contrasts hash/learned filter orders on repetitive material; does not cover the Markov-source all-k density",
+        "evidence": "First published 2024-04-30; focus on Gaussian convolution filters, categorical sequencing and relative minimizer density",
+        "identifier_or_url": "https://doi.org/10.1089/cmb.2024.0483",
+        "material_read": "Publisher open-access full-text abstract, introduction and minimizer-density discussion",
+        "method": "Open full-text publisher HTML",
+        "title": "On Minimizers and Convolutional Filters: Theoretical Connections and Applications to Genome Analysis",
+        "trigger": "Potentially broader randomized hashing/filter formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b5294b8-3307-4df3-918a-184b9285f63b",
+  "value": {
+    "rationale": "The one-parameter stationary Markov family is a natural correlated-input model for minimizer sketching when adjacent 1s are disallowed. The exact expected sampling cost reveals a genuinely qualitative change: for sticky-zero sources the finite-k excess is positive, for more alternating sources it is eventually negative, and the canonical maximum-entropy source lies precisely at the phase boundary with an exact three-residue law. This is a motivated source-dependent performance invariant and a structural collision-pattern theorem, not a single arbitrary finite computation or mere parameter substitution. No claim about optimal minimizers or real genomic calibration is made.",
+    "status": "PASS"
+  }
+}
