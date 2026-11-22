@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness (PASS).** The three-class subspace is exactly invariant by base regularity, including for disconnected bases. The corner resolvent gives a three-pole spectral amplitude with strictly alternating residue signs; their zero sum proves a finite-size uniform-in-time bound. The central pole asymptotic and the explicit early time \(\pi/\sqrt n\) give a matching limit \(4r^2\). The classical layer forward equations and integrating-factor estimate yield the stated probability independently of a probabilistic mixing conjecture. Full-graph and reduced calculations agree in 33 independently generated tests; finite checks corroborate but do not establish the infinite-family proof.
+
+**Originality (PASS on examined evidence; historical priority provisional).** The closest available work concerns general continuous-time quantum walks on trees (Farhi–Gutmann), static adjacency/exciton spectra (Scholes), and suppression by deliberately enhanced root couplings in trees (Vieira–Amorim). Generic equitable reductions, star-graph oscillations, and hub transport are established background. None of the inspected statements establishes the fixed-degree Mycielskian's sharp *uniform-in-time* \(4r^2/n\) original-layer ceiling together with the graph-independent classical counterpoint. The latter is a statement of non-implication in those models, not a claim to have exhausted every prior source. Residual risks include an unlocated equivalent calculation for symmetric three-layer graphs and the possibility of deducing the sharp constant from a general uninspected result.
+
+**Value (PASS).** At the level of a whole spatial layer, classical dynamics achieves a positive occupation fraction while a coherent unit-hopping excitation remains suppressed by inverse system size *for every observation time*. The theorem holds for all fixed-degree regular network families, not just one small graph, and identifies a sharp transport penalty and an explicit attaining time useful as a benchmark for network coherent-versus-incoherent transport.
+
+The result is restricted to pure adjacency evolution and fixed \(r\), and independent validation has not been completed.
+
+Self-review: passed. Independent audit: not yet performed.
