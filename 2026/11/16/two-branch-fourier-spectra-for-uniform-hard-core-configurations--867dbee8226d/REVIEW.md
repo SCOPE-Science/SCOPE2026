@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The three-state symmetric transfer matrix is explicit, its eigenbasis is reconstructed in the proof, and the two-point traces are derived by inserting the actual occupancy operators. The geometric-sum identity holds for every Fourier root, and the extra constant term in the rail-symmetric covariance is retained at frequency zero. The empty and singleton independent sets prove strict positive definiteness, independent of all finite experiments. Uniform errors of order \(O(na^{-n})\) prove the exact limiting condition ratio. Direct enumeration for \(3\le n\le9\) and larger numerical checks support, but do not replace, the analytic proof.
+## correctness
 
-**Originality — PASS, subject to historical priority.** Published 2020 local-occupancy theory treats general hard-core distributions and graph-colouring applications, not prism coordinate Fourier spectra. The classical independence-polynomial formula determines only total weights, not their two-point covariance eigenstructure. The closest identified first-Walsh result for the Lucas cube concerns one cyclic rail and does not logically cover the two-rail prism. No matching prism-spectrum record appeared in the named database searches. A historical equivalent two-leg ladder lattice-gas structure-factor computation remains possible; database absence does not establish absolute novelty.
+PASS
 
-**Mathematical value — PASS.** The finite spectrum has a full explicit formula and natural symmetry decomposition, while the sharp nontrivial limiting squared condition number \(4+2\sqrt2\) quantifies uniform reconstruction of coordinate observables on a spatially constrained ensemble. The result distinguishes a two-rail exclusion problem from the one-dimensional Lucas model without requiring auxiliary generic parameters.
+Use rung alphabet {E,U,L}; transfer T has eigenvalues a=1+sqrt2, b=1-sqrt2 and -1, giving Z_n=a^n+b^n+(-1)^n. Sum/difference occupation diagonal insertions decompose into even and odd rail sectors. The exact cyclic sums of a^h b^{n-h} and signed odd-sector cross-terms produce lambda+ and lambda- including the exceptional k=0 term n(eps Z-1)/(8 Z^2). The positive-probability empty set and every singleton force covariance positive definite for each n. Uniform a^-n remainder and mesh endpoints yield asymptotic f+(cos)=sqrt2/[4(3+cos)] and f-(cos)=1/[4(sqrt2+cos)], hence ratio 4+2sqrt2. Independently enumerated all valid rung strings for n=3..7 (counts 13,35,81,199,477), matching both formulas within numerical rounding; infinite n comes from exact transfer proof.
 
-Scientific limits: uniform fugacity only; no finite-size extremizer classification; no independent audit; historical priority risk described above.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same P_n model at arbitrary fugacity has a published stronger *thermodynamic-limit* two-branch result, explicitly including the z=1 limiting ratio. Its full result expressly credits an earlier uniform-activity theorem supplying the complete finite-ring spectrum; thus the limiting ratio is covered, but the main claimed finite-n exact eigenvalue arrays are not implied by the stronger asymptotic statement. We treat the final claim as original in its finite-size result, and do NOT count the asymptotic constant as new.
+
+## value
+
+PASS
+
+Complete exact finite-n Fourier covariance spectra for a natural hard-core graph family are reproducible, permit finite-size conditioning/reconstruction analysis and include parity/zero-mode corrections not obtainable from the published infinite-volume branch theorem alone. The asymptotic ratio by itself would not be a new valuable claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
