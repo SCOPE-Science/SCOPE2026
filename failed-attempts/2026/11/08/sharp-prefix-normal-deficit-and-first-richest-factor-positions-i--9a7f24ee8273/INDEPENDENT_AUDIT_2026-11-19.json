@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T17:45:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/sharp-prefix-normal-deficit-and-first-richest-factor-positions-i--9a7f24ee8273/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/sharp-prefix-normal-deficit-and-first-richest-factor-positions-i--9a7f24ee8273/verifiers/verify_digital.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/sharp-prefix-normal-deficit-and-first-richest-factor-positions-i--9a7f24ee8273/verifiers/verify_direct.py"
+      ],
+      "rationale": "Reconstructed exact 0->01,1->00 substitution and d_(2j)=0,d_(2j+1)=1-d_j; the 4-block formula (0,1,0,d_j) and parity analysis yield M(2k)=k-L(k), L(2k)=k-M(k), M(2k+1)=k+1-L(k+1), L(2k+1)=k-M(k). Comparing with prefix F gives all four stated base-four D recurrences including D(4t+3)=D(t+1)+d_t. The r-step D(n)<=r proof handles t+1=4^(r-1) via D(4^(r-1))=1 and d_(4^(r-1)-1)=0. N_r=4N_(r-1)+1 produces D(N_r)=r and closed F,L,M. For N_r=4K+1, explicit W_N(4t+s) formulas and induction show W_N(i)<W_N(N) for every i<N; the witness is globally richest. The finite-prefix contradiction uses r>len(v). Independently built valuation bits and prefix sums verify all D recurrences to n=4999, factor extrema directly through n=299 over a length-10001 segment, sharp envelope and unique first positions through r=6. Finite checks are corroboration, not infinite proof.",
+      "residual_risks": [
+        "The checker is not a formal proof; unrestricted claims rest on elementary substitution/induction reconstruction, not empirical cutoff.",
+        "The published factor extrema are computed over factors in an infinite fixed point, with both start parities available; bounded sample alone does not establish this."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier all-prefix theorem: Delta(N)=floor(log_4(3N/2+1)), first threshold 2m_r, unique maximal-excess factor at length/start m_r, full carry proof.",
+          "Parreau–Rigo–Rowland–Vandomme, Remark 42, Proposition 47, Lemmas 49–54, produce period-doubling abelian extremal-weight recurrences (identifying max/min counts through its 2-block coding)."
+        ],
+        "reasoning": "The earlier exact all-prefix theorem states Delta(2m_r)=r, where m_r=(4^r-1)/3, and UNIQUELY at this first threshold the factor starting at a=m_r and having length ell=m_r realizes excess r. For any i<m_r, the length-m_r window ending at i+m_r<2m_r belongs to this prefix and therefore cannot have excess r. Standard period-doubling max/min-factor recurrences (Parreau et al., and direct substitution parity analysis) give M(m_r)-F(m_r)=r. Consequently the earlier theorem directly implies the submitted first-maximizer assertion. Its Delta(N) formula also implies unbounded prefix-relative excess and hence the absence of any finite prefix-normal repair. The finite-prefix theorem is stronger on the location/threshold information, while the 2015 max/min recurrences dominate numerical data; the submitted induction is an alternative proof, not new mathematical coverage.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/ed113a71aad3e55cfea728ab44ffdf65edcdbc13/2026/11/2/SCOPE-exact-prefix-normal-defect-and-rigid-carry-thresholds-of-period--c42486f2efd9/RESULT.md",
+          "https://ericrowland.github.io/papers/A_new_approach_to_the_2-regularity_of_the_l-abelian_complexity_of_2-automatic_sequences.pdf",
+          "Resultary semantic search first-richest position for the period doubling word and paperfolding"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/ed113a71aad3e55cfea728ab44ffdf65edcdbc13/2026/11/2/SCOPE-exact-prefix-normal-defect-and-rigid-carry-thresholds-of-period--c42486f2efd9/RESULT.md",
+        "https://ericrowland.github.io/papers/A_new_approach_to_the_2-regularity_of_the_l-abelian_complexity_of_2-automatic_sequences.pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8219218/",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3/RESULT.md",
+        "https://github.com/Resultary/2026/commit/ed113a71aad3e55cfea728ab44ffdf65edcdbc13",
+        "https://github.com/SCOPE-Science/SCOPE2026/commit/72b99dab5b0b9dec651cb7e0b217e2f71db0a6f5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source earlier theorem states: at N=2(4^r-1)/3, the only factor realizing excess r has a=ell=(4^r-1)/3.",
+          "The submitted proof and independently verified factor extremum show M(m_r)-F(m_r)=r.",
+          "Git file commit histories show earlier source 2026-11-08 20:01:35 UTC, assigned source 2026-11-08 20:46:23 UTC."
+        ],
+        "reasoning": "The earlier exact all-prefix theorem states Delta(2m_r)=r, where m_r=(4^r-1)/3, and UNIQUELY at this first threshold the factor starting at a=m_r and having length ell=m_r realizes excess r. For any i<m_r, the length-m_r window ending at i+m_r<2m_r belongs to this prefix and therefore cannot have excess r. Standard period-doubling max/min-factor recurrences (Parreau et al., and direct substitution parity analysis) give M(m_r)-F(m_r)=r. Consequently the earlier theorem directly implies the submitted first-maximizer assertion. Its Delta(N) formula also implies unbounded prefix-relative excess and hence the absence of any finite prefix-normal repair. Hence complete logical coverage applies even without matching words; chronology additionally establishes public priority.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/ed113a71aad3e55cfea728ab44ffdf65edcdbc13/2026/11/2/SCOPE-exact-prefix-normal-defect-and-rigid-carry-thresholds-of-period--c42486f2efd9/RESULT.md",
+          "https://github.com/Resultary/2026/commit/ed113a71aad3e55cfea728ab44ffdf65edcdbc13",
+          "https://github.com/SCOPE-Science/SCOPE2026/commit/72b99dab5b0b9dec651cb7e0b217e2f71db0a6f5",
+          "https://ericrowland.github.io/papers/A_new_approach_to_the_2-regularity_of_the_l-abelian_complexity_of_2-automatic_sequences.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 2026/11/2 all-prefix Delta(N) theorem defines the same excess W_ell(a)-F(ell), maximized over factors contained in first N symbols. At N=2m_r its unique attaining pair is (a,ell)=(m_r,m_r).",
+          "On Infinite Prefix Normal Words, Definitions 1–2, defines maximal factor count F_w^1 and prefix count P_w and the prefix-normal equality."
+        ],
+        "reasoning": "The earlier first threshold uniqueness is exactly the submitted earliest-position statement after fixing ell=m_r and using D(m_r)=r; prior authors need not phrase it as a richest factor. It is not an independent new position invariant.",
+        "searches": [
+          "Resultary semantic search: period-doubling word 0→01 1→00 first occurrence of richest maximum-one factor at index (4^r−1)/3 unique earliest, prefix normal deficit",
+          "Resultary semantic search: period doubling prefix-normal defect sharp logarithmic deficit all-length recurrence first maximal factor positions",
+          "https://github.com/Resultary/2026/blob/ed113a71aad3e55cfea728ab44ffdf65edcdbc13/2026/11/2/SCOPE-exact-prefix-normal-defect-and-rigid-carry-thresholds-of-period--c42486f2efd9/RESULT.md",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8219218/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Resultary exact all-N threshold formula and unique witness are a theorem, not merely a table.",
+          "Parreau et al. Remark 42 identifies their span Delta_12(n)+1 as the period-doubling abelian complexity; Proposition 47 proves recurrence relations, Section 6.2 gives min/max weight tools."
+        ],
+        "reasoning": "A direct exact theorem covers the location (m_r,m_r) and threshold 2m_r, and published exact recurrence data cover factor-weight extremal values. An OEIS absence or differently indexed table cannot restore novelty.",
+        "searches": [
+          "Resultary search for period-doubling prefix-normal defect and rigid carry thresholds",
+          "Resultary search for sharp factor first positions and period-doubling",
+          "https://github.com/Resultary/2026/blob/ed113a71aad3e55cfea728ab44ffdf65edcdbc13/2026/11/2/SCOPE-exact-prefix-normal-defect-and-rigid-carry-thresholds-of-period--c42486f2efd9/RESULT.md",
+          "https://arxiv.org/abs/1405.3532"
+        ]
+      },
+      "rationale": "A stronger, actually previously committed published Resultary theorem explicitly gives the unique (start,length)=(m_r,m_r) witness at the first prefix-normal defect threshold 2m_r, for every r. Coupled with published extremal factor-weight recurrences, this directly proves the purportedly distinguishing first-richest-factor rigidity and all numerical assertions. Public Git commits show the covering result at 2026-11-08T20:01:35Z, preceding the assigned RESULT first commit at 20:46:23Z that day. This is decisive earlier prior coverage, not merely a similar title, matching parameter, or failed search. No independent novel residual established.",
+      "residual_risks": [
+        "The exact all-length numerical D recursion may not be written in the same syntactic four-case form in prior literature; it is a routine derivation from the established factor extrema and explicit prefix counts, not a substantive new result.",
+        "Commit timestamps establish repository chronology, not a guarantee about all possible independent private drafts.",
+        "Unindexed literature could contain additional equivalent formulations; this is not needed for the negative originality decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY_COVERS_SUBMITTED_EARLIEST_POSITION_AND_PREFIX_REPAIR",
+          "evidence": [
+            "Finding Delta(N)=floor(log4(3N/2+1)); Steps 2-4 exact threshold and unique (a,ell)=(m_r,m_r)",
+            "Git commit ed113a71... 2026-11-08T20:01:35Z"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/ed113a71aad3e55cfea728ab44ffdf65edcdbc13/2026/11/2/SCOPE-exact-prefix-normal-defect-and-rigid-carry-thresholds-of-period--c42486f2efd9/RESULT.md",
+          "material_read": "Complete RESULT.md finding, definitions, five proof sections, verification, scope, comparison and references. In particular Step 2 carry inequality and Steps 3–4 unique (m_r,m_r) attainability at threshold N=2m_r.",
+          "method": "Read full primary repository RESULT.md through pinned public GitHub file",
+          "title": "Exact prefix-normal defect and rigid carry thresholds of period-doubling prefixes",
+          "trigger": "Resultary semantic search surfaced a same-object theorem explicitly claiming unique first threshold witness"
+        },
+        {
+          "assessment": "STRONGLY_COVERS_NUMERICAL_FACTOR_EXTREMA_NOT_BY_ITSELF_EARLIEST_LOCATION",
+          "evidence": [
+            "Remark 42 p=g(y), and Delta_12+1 is abelian complexity of period-doubling fixed point",
+            "Proposition 47 and Lemmas 49–54 provide max/min-count recurrence framework"
+          ],
+          "identifier_or_url": "https://ericrowland.github.io/papers/A_new_approach_to_the_2-regularity_of_the_l-abelian_complexity_of_2-automatic_sequences.pdf",
+          "material_read": "Introduction and sections 6, 6.1–6.2, Remark 42, Proposition 47, Lemmas 49–54 and proof passages; inspected PDF page images 33–34, plus relevant parsed text. Did not claim every page was inspected.",
+          "method": "Lawful public author PDF, text plus web PDF screenshots of pages 33 and 34",
+          "title": "A new approach to the 2-regularity of the ℓ-abelian complexity of 2-automatic sequences",
+          "trigger": "Potentially stronger all-length period-doubling max/min and abelian complexity recurrences"
+        },
+        {
+          "assessment": "COVERS_DEFINITIONS_AND_GENERAL_ABEILAN_RELATIONS",
+          "evidence": [
+            "Definition 1 gives F_w^1 and P_w; Definition 2 characterizes prefix normality; §5.2 relates abelian complexity and prefix-normal forms"
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8219218/",
+          "material_read": "Full accessible HTML introductory definitions and §5.2 including lemma 7 and paperfolding/Thue–Morse cases; not entire paper.",
+          "method": "Lawful public PMC HTML, sections 1, 2, and 5.2",
+          "title": "On Infinite Prefix Normal Words",
+          "trigger": "Foundational definitions of infinite prefix-normal defect and relation with abelian complexity"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_WORD",
+          "evidence": [
+            "Its morphism/valuation describes ordinary paperfolding, not 0->01,1->00 fixed point"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3/RESULT.md",
+          "material_read": "Entire published RESULT.md including proof and limitations",
+          "method": "Full public GitHub primary result",
+          "title": "Unbounded prefix-normal defect of the ordinary paperfolding word",
+          "trigger": "Resultary matching topic with analogous construction for a different classical automatic word"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/ed113a71aad3e55cfea728ab44ffdf65edcdbc13/2026/11/2/SCOPE-exact-prefix-normal-defect-and-rigid-carry-thresholds-of-period--c42486f2efd9/RESULT.md",
+        "https://ericrowland.github.io/papers/A_new_approach_to_the_2-regularity_of_the_l-abelian_complexity_of_2-automatic_sequences.pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8219218/"
+      ],
+      "rationale": "The subject is natural and the theorem mathematically correct, but no independently unknown natural exact fact survives: the position-rigidity and no finite prefix repair are direct consequences of an earlier stronger all-prefix threshold theorem, and the all-length numeric extrema are already provided via published period-doubling abelian-complexity recurrences with routine subtraction. Re-presenting these facts with a different induction and two finite verification programs is reproducibility, not new mathematical value. No separate motivated structural lemma or novel boundary classification remains to rescue the claim.",
+      "residual_risks": [
+        "A substantively new arbitrary-length first-maximizer classification might be valuable, but is neither claimed nor proved in this package.",
+        "The decision does not deny the intrinsic utility of the already published theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the period-doubling fixed point d of 0→01,1→00, the prefix-normal deficit D(n)=M(n)-F(n) obeys D(0)=0,D(4t)=D(t),D(4t+1)=D(t)+1,D(4t+2)=D(t),D(4t+3)=D(t+1)+d_t; for r>=1 max_{1<=n<4^r}D(n)=r, with N_r=(4^r-1)/3 satisfying F=L=(N_r-r)/3 and M=(N_r+2r)/3; the globally first length-N_r maximum-one factor starts at N_r; no finite prefix v makes vd prefix normal.",
+  "limitations": [
+    "The independent checker tests only finite prefixes; the universal proof rests on mathematical derivation and induction, not bounded computation.",
+    "The observed earlier covering Resultary result first public commit precedes the assigned source by 44 minutes 48 seconds on 2026-11-08; timestamps are specific to checked Git histories.",
+    "Publication not ready solely due public-file provenance-sanitization / intake requirements; scientific verdict itself is complete.",
+    "Source files are quoted/read-only scientific evidence; no new correction or claimed certification of Lean/expert channels."
+  ],
+  "schema_version": 1
+}
