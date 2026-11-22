@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The signal model, noise normalization and squared known-template SNR are explicit. The two-point same-bin probability is (1-d/h)_+, giving the exact phase integral B(T,h) through a nonnegative Fubini argument. Both rational pieces and their derivatives join at h=T. Each derivative has exactly one admissible positive root on its side, with root-location inequalities selecting a unique global optimum for every r>0. Substituting its stationary equations gives the efficiency, 1/3 junction and asymptotics. The included checker passed 3713 finite assertions, separate from the analytic universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Macquart 2014 §4 optimizes the number of sky fields based on event-rate versus sensitivity; Belanger 2013 gives likelihood analysis for arbitrary transients without this exposure-duration optimizer"
+      ],
+      "reasoning": "These are broader in instrument/detection scope but optimize different criteria and do not algebraically imply the universal closed-form crossing at read-noise variance equal to background variance over one event. Generic statistical decision theory under Gaussian noise specifies the filter but no exposure-design solution.",
+      "searches": [
+        "stellar astronomical transient boxcar sampling optimum exposure time read noise phase averaged overlap matched filter",
+        "https://arxiv.org/abs/1406.5790",
+        "https://arxiv.org/abs/1303.7408"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1088/0004-6256/138/3/956",
+      "https://arxiv.org/abs/1303.7408",
+      "https://arxiv.org/abs/1406.5790",
+      "https://arxiv.org/abs/1505.04285",
+      "https://doi.org/10.1017/pasa.2014.27"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Macquart survey optimum is N_fields, governed by luminosity slope and slew time; here the variable is exposure width at fixed pulse and noise statistics",
+        "Law et al. controls background and read noise but does not phase-average finite top-hat pulse energy, whereas the new integral explicitly produces both branches"
+      ],
+      "reasoning": "Neither a formula for field count nor a practical minimum-background exposure yields the stated crossover and efficiency as a logical special case. The proof uses a distinct exact same-bin probability and two-branch optimization.",
+      "searches": [
+        "phase averaged integrated rectangular transient squared matched-filter SNR sky variance proportional exposure read noise crossover R squared equals background variance times pulse duration",
+        "https://doi.org/10.1017/pasa.2014.27",
+        "https://arxiv.org/abs/1505.04285"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Conditional Gaussian matched-filter noncentrality is signal-energy-over-noise; averaging unknown grid phase yields a triangular same-bin overlap kernel, explicitly derived here",
+        "No matched result from named scientific searches gave this piecewise optimizer"
+      ],
+      "reasoning": "Matched-filter, integrate-and-dump, phase-jittered rectangular sampling, and photon-plus-read-noise formulations were compared. The classical matched-filter identity provides the conditional score, but not the random-phase exposure-width optimum; no retrieved exact equivalent was found.",
+      "searches": [
+        "phase averaged integrated rectangular transient squared matched-filter SNR sky variance proportional exposure read noise crossover R squared equals background variance times pulse duration",
+        "\"optimal integration time\" \"top hat\" transient read noise",
+        "\"optimal exposure\" \"pulse width\" \"readout noise\" phase",
+        "published-finding corpus semantic search: partial bin overlap random phase event duration exposure cadence average squared pulse 1/3 boundary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest published-finding corpus published record concerns a three-transit weather-reliability phase threshold, not exposure integration with independent read noise",
+        "Other nearest published-finding corpus records concern different imaging, optical spectroscopy or transient timing objectives"
+      ],
+      "reasoning": "No published table/database found for the precise piecewise optimizer or the 1/3 crossover efficiency; the absence of a match is evidence of non-detection, not proof of global uniqueness.",
+      "searches": [
+        "astronomical optical box transit pulse optimal continuous exposure time read noise exact formula",
+        "published-finding corpus semantic search: astronomical optical box transit pulse optimal continuous exposure time read noise exact formula",
+        "https://doi.org/10.1088/0004-6256/138/3/956"
+      ]
+    },
+    "rationale": "A literature-led fixed-event, random-grid-phase optimization is mathematically different from field-of-view survey-yield optimizations and fixed-cadence observing plans. Actual published-finding corpus and indexed-publication searches found no equivalent closed-form global optimum; full accessible Macquart primary text was compared by objective and parameter dependence. The new scalar crossover and exact efficiency are not directly implied by the published neighboring claims, though the underlying conditional matched-filter SNR is standard. Historical priority remains provisional, particularly where primary full text was unavailable.",
+    "residual_risks": [
+      "The 2009 optical-transient article was not accessible in full: an equivalent formula in unseen sections remains possible.",
+      "The 2013 likelihood paper and the 2015 exposure paper were inspected through indexed sections/abstracts, not complete accessible full text.",
+      "Standard matched-filter theory contains the conditional SNR identity; specialized exposure-design applications elsewhere may already contain the exact phase-average formula.",
+      "No literature search establishes absolute historical novelty or independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Frame-count and observational event-rate analysis visible; no exact phase-average squared-SNR exposure crossover in inspected material, but lack of full text remains a priority risk",
+        "evidence": [
+          "2009-08-14 publisher publication date; indexed Section 2.3 on finite CCD frames and coaddition, source turn336719search1 and turn490218search0"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/0004-6256/138/3/956",
+        "material_read": "Publisher-indexed abstract and excerpt on multiple-frame confirmation and frame coaddition; full article could not be read",
+        "method": "Publisher-indexed text and first-publication metadata",
+        "title": "Frequency Limits on Naked-Eye Optical Transients Lasting from Minutes to Years",
+        "trigger": "Frame-width, transient duration, and coadded-frame sensitivity are direct neighboring issues"
+      },
+      {
+        "assessment": "Optimizes likelihood-based detection procedures for general transient searches, rather than the specific mean squared known-template SNR versus one exposure width",
+        "evidence": [
+          "First arXiv submission 2013-03-29; indexed abstract/source turn490218academia38 and text turn336719search2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.7408",
+        "material_read": "Author abstract and indexed paragraph on analysis granularity and transient timescales; no full-text proof comparison",
+        "method": "Arxiv abstract and publisher-indexed section text",
+        "title": "On Detecting Transient Phenomena",
+        "trigger": "Possible general likelihood formulation that could dominate a matched-filter optimization"
+      },
+      {
+        "assessment": "Addresses event yield across field pointings, luminosity functions and slewing; does not solve the fixed-pulse random-grid-phase known-template SNR problem or its noise crossover",
+        "evidence": [
+          "First arXiv 2014-06-23; publisher full text §1-5 turn785549view1 and lines 495-513, turn729726view2 at 588, 688, 756"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.5790",
+        "material_read": "Accessible Cambridge full-article HTML: abstract, introductory scope, §2 time scales, §3 detection rate, §4 optimized number of fields, and discussion",
+        "method": "Cambridge full-text HTML, sections and matched passages",
+        "title": "Optimization of Survey Strategies for Detecting Slow Radio Transients",
+        "trigger": "Directly plausible archival survey exposure-time optimization"
+      },
+      {
+        "assessment": "Uses fixed exposure strategy to become sky-noise dominated and maintain spatial dithering; lacks transient uniform-phase overlap and the exact one-pulse variance crossover",
+        "evidence": [
+          "arXiv first submission 2015-05-16 turn490218academia36; publisher §§3.2, 3.4, 8 turn490218search3 and turn200311search0"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.04285",
+        "material_read": "Publicly indexed paper abstract, §3.2 integration-time passages, §3.4 observing strategy, and §8 summary; arXiv PDF full text could not be fetched",
+        "method": "Publisher-indexed full sections and arXiv abstract",
+        "title": "Observing Strategy for the SDSS-IV/MaNGA IFU Galaxy Survey",
+        "trigger": "Exposure length versus background accumulation and detector read noise"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0dd54e4b-63d9-4e5a-b051-320ca72d6ccc",
+  "value": {
+    "rationale": "The pulse width T is the intrinsic resolution scale of a transient campaign, while R^2 and νT are independently interpretable detector noise budgets. The exact iff crossover tells an observer whether exposures shorter or longer than an event have maximal expected matched-filter information, rather than relying on a vague sky-dominated heuristic. The sharp 1/3 junction and small/large read-noise limits quantify unavoidable phase-smearing and readout tradeoffs. This is a natural complete design classification under explicit constraints, not an arbitrary parameter slice; it does not claim real-world false-alarm or survey-yield optimality.",
+    "status": "PASS"
+  }
+}
