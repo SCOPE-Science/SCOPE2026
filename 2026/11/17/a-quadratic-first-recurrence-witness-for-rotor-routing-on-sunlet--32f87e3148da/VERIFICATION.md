@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python verify.py` (standard-library-only). The output in `verification_output.txt` is from this concrete package. Verify integer flow conservation, rotor-arrow placement and candidate times for all sizes \(3\le n\le500\). Independent microscopic iteration matches the analytic first-entry formula for \(3\le n\le60\), checking no unicycle occurs earlier. A separate exhaustive loop checks all \(3^n\) labelled rim-rotor initial conditions with the chip initially at rim zero for \(3\le n\le8\). The count of all configurations tested in this finite census is \(3^3+\cdots+3^8\), not an all-size exhaustive proof.
+## correctness
 
-The all-parameter argument is given in `RESULT.md`: conservation of a proposed firing odometer at every vertex; least action for the walk stopped at the first visit to the opposite rim site; final rotor arrows funnel to a unique two-cycle at that site; and the standard rotor unicycle recurrence theorem. These are the sufficient analytic ingredients independent of computation. No exact global maximum beyond the enumerated sizes is established.
+PASS
+
+For each n the explicit firing counts (3d−1,d) on the left and (3d,d) on the right, with parity-dependent vertex-zero counts, give a conservation vector leaving one chip at c=ceil(n/2), and terminal rotor arrows form a single c–c-leaf cycle. A first-excess-firing argument bounds actual counts by the certificate; zero discrepancy outside a deficient set makes that set rotor-closed, contradicting all terminal arrows outside c flowing to c. Thus the actual first hit of c has exactly the predicted sum n²−ceil(n/2). Before that hit, chip cannot belong to the frozen c↔c-leaf cycle, so is not recurrent; on hitting, the terminal unicycle criterion proves recurrence. Independent direct simulation for n=3,4,5,6,7,8,10,20,50 reproduces times 7,14,22,33,45,60,95,390,2475; these samples are not the all-n proof. Upper bound invokes known general O(|E|diam) lock-in, not a claimed exact all-state maximum.
+
+## originality
+
+PASS
+
+Best-of-knowledge O PASS with concrete primary statements compared against the full claim and retained residual priority risks; inaccessible abstracts are not treated as conclusive NOT_COVERING. 
+
+## value
+
+PASS
+
+Determining a constructive sharp-order delay on the naturally cyclic 1-leaf corona, rather than only trees or bare cycles, identifies a concrete rotor-stack obstruction to rapid lock-in. The witness is an all-size quadratic lower bound matched to a general order upper bound and has clear exploration/rotor dynamics significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
