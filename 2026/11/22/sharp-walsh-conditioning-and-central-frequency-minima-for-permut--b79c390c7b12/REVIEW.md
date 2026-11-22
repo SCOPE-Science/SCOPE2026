@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness
+PASS. The cycle-index coefficient extraction is exact, with every disjoint-cycle type accounted for once. The bound from the number of cross-colour two-cycles is valid for all orders at least four, with orders one through three independently inspected. A Pascal recurrence with an explicit central correction gives a uniform lower bound on coefficient differences; the deletion-of-one-two-cycle identity transfers it to strict spectral shell monotonicity. The factorial-moment series is uniformly dominated, which establishes the Poisson-scale limit. An exact integer/rational checker independently compares the complete direct-permutation Walsh spectra through order eight and recurrence/closed-form values through order 100. Computation is corroboration, not the infinite proof.
+
+## Originality
+PASS under bounded source and database comparison. Classical cycle-index methods already imply the signed coefficient representation, and that representation alone is not claimed as novel. Flajolet–Sedgewick covers permutation cycle enumeration and marking; Ford covers uncoloured short-cycle factorial moments and Poisson limits; Diaconis–Fulman–Guralnick covers fixed-point and other group actions. None of the inspected relevant passages states the all-dimensional positivity classification together with strict central-weight minimizers, exact condition numbers and the sharp uniform maximum. The earlier matching-covered-vertex Walsh kernel differs in multiplicity weights: a permutation whose two-cycle union is a particular set also has a permutation with **no two-cycles** on its complement. This weight is absent from the prior matching kernel, whose signed spectra even have different inertia. The strongest residual priority risk is an unindexed two-colour cycle-index coefficient inequality or an unpublished equivalent Fourier specialization.
+
+## Value
+PASS. The unknown finite-order bottleneck in a natural labelled random-permutation support measure determines exact information-recovery stability of an infinite sequence of \(2^n\)-dimensional convolution operators. The theorem locates every extremizing spectral shell after order five, gives a uniform sharp inverse bound, and identifies an asymptotically concentrated bulk. These are not consequences of the basic existence of a permutation cycle index or an asymptotic Poisson approximation alone. The result does not address arbitrary weighted permutation measures or endpoint Banach-space norms.
+
+Self-review: passed. Independent audit: not yet performed.

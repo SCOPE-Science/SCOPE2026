@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The two-sort labelled cycle expansion changes only the weight of cross-colour transpositions and exactly yields exp(-2uv)/(1-u-v). Positivity is certified by 1-2P(X odd) >= 1-2EX with EX=k(n-k)/(n(n-1)). The coefficient table recurrence has an explicit central correction; an induction from n=4,5,6 gives D_{n,k}>=2/3 through the centre, including the even-row correction bounded by 2^j/j! <= 2/3 for j>=4. Deleting the two-cycle incident to a newly toggled vertex gives Lambda_{n,k}-Lambda_{n,k+1}=2k!(n-k-1)!D_{n-2,k}, strictly positive below the centre when n>=6. The falling-factorial moment expansion has terms uniformly bounded by 2^r/r!, proving the limit by dominated convergence. Complete direct permutation-Walsh enumeration through n=8 and a second exact coefficient recurrence through n=100 passed 8554 checks. Small n=1,2,3,4,5 cases and the singular n=2 exception were addressed separately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Sedgewick, Analytic Combinatorics, Chapters II–III, contains cycle-index and marked-cycle generating functions covering the unsigned enumeration framework.",
+        "Ford, Cycle type of random permutations: A toolkit, arXiv:2104.12019, sections 1–3 discuss exact cycle-count moments and asymptotic Poisson phenomena."
+      ],
+      "reasoning": "These broader counting identities provide the ingredients for deriving the character formula, but the inspected results do not state the frequency-by-frequency strict inequality nor the all-order sharp uniform recovery constant. The result is explicitly limited to uniform permutations and length-two cycle supports.",
+      "searches": [
+        "\"permutations\" \"two-cycle\" \"positive definite\" Fourier convolution",
+        "Fourier Walsh transforms of permutations by support of 2-cycles transpositions, positive definite invertible convolution Boolean cube dimension-free spectral gap condition number",
+        "Fourier Krawtchouk spectra random permutation transposition support"
+      ]
+    },
+    "checked_sources": [
+      "P. Flajolet and R. Sedgewick, Analytic Combinatorics, 2009, Chapters II–III, official edition https://algo.inria.fr/flajolet/Publications/AnaCombi/anacombi.html",
+      "K. Ford, Cycle type of random permutations: A toolkit, arXiv:2104.12019 (submitted 2021-04-24), sections 1–3",
+      "P. Diaconis, J. Fulman, R. Guralnick, On fixed points of permutations, arXiv:0708.2643 (submitted 2007-08-20)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet–Sedgewick yields the signed EGF by a straightforward sign modification, but its inspected marked-cycle treatment contains no proof of the coefficient-difference positivity induction.",
+        "The previously reported matching-covered-vertex result counts each matching once; here each matching is weighted by permutations with no two-cycles on the complement, so the Fourier kernels and signs are not equivalent.",
+        "The published short-cycle Fourier sampling result concerns a nonabelian standard Fourier block on the symmetric group, not an abelian Boolean vertex-support convolution."
+      ],
+      "reasoning": "Identical terms such as transposition, matching and Fourier do not imply the same operator. General random cycle-count factorial moments can imply the Poisson-scale limit, not the exact all-order inequalities and exceptional small dimensions without additional work. A possible unstated signed cycle-index specialization remains the principal residual risk.",
+      "searches": [
+        "permutation small cycle supports two-cycle incidence vertex sets signed character weights exact spectral inversion 2-cycles",
+        "Fourier Krawtchouk spectra random permutation transposition support, exact condition number and asymptotic e^(1/2)",
+        "random permutation 2-cycle edge crossing sets signed expectation Walsh Fourier positivity bounded below 1/3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The signed two-sort cycle EGF exp(-2uv)/(1-u-v) is an exact equivalent formulation of the multiplier coefficient sequence and is derived from classical cycle marking; the coefficient representation itself is expressly excluded from the originality claim.",
+        "Ford, arXiv:2104.12019, gives general random cycle statistics and short-cycle Poisson behavior, not the finite-dimensional central-minimum theorem in its inspected sections."
+      ],
+      "reasoning": "Compared the kernel under 2-cycle support, signed cross-colour transposition count, and coefficient-extraction formulations. The classical EGF implies the exact multiplier formula, but obtaining the sharp shell-minimum and uniform condition-number theorem requires the nontrivial coefficient-difference induction. The comparison does not claim priority certification.",
+      "searches": [
+        "\"two-cycles\" \"Walsh\" permutation Fourier",
+        "\"exp(-2uv)\" permutation 2-cycles bivariate generating function",
+        "\"cross transpositions\" permutation generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An online integer-sequence-style search with the initial candidate values did not identify a matching stated theorem; no negative database result is treated as proof of uniqueness.",
+        "The exact coefficient sequences from orders one through eight were independently recomputed using direct permutation enumeration and the EGF coefficient recurrence."
+      ],
+      "reasoning": "Compared the mathematical objects, not just the integer sequences; a table of multiplier coefficients would not alone settle the strict inequalities for every order. Exact tabulation is treated as an auxiliary verification, not a novelty argument.",
+      "searches": [
+        "\"2, 12, 72, 384, 2832, 23040\" permutations",
+        "permutation small cycle supports two-cycle incidence vertex sets signed character weights exact spectral inversion 2-cycles",
+        "Boolean convolution of the set of vertices in 2-cycles of a uniform permutation; Walsh multipliers exp(-2uv)/(1-u-v); central Fourier minimizer"
+      ]
+    },
+    "rationale": "The coefficient-generating function and finite-cycle factorial moments are specializations of classical permutation-cycle tools and are not claimed as new. The candidate addition is strict all-order central-weight minimization for n>=6, complete positive-definiteness, the exact condition number in each dimension and the sharp uniform value three. The read relevant literature passages treat uncoloured cycle counts, marked cycle EGFs, or fixed point sets rather than this exact two-colour signed kernel and the sharp Walsh inequalities. A matching-covered-vertex Walsh kernel lacks the weighting by permutations of the complement without 2-cycles and hence cannot by itself imply the asserted positivity. No equivalent result appeared in the bounded source/database comparisons. Historical priority remains an explicit risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible signed two-sort cycle-index coefficient inequality may imply the sharp central-frequency theorem even if not stated as a Walsh-spectrum result.",
+      "Searches and primary text inspections are bounded; failure to find exact coverage cannot certify literature uniqueness.",
+      "Theorems about different support statistics or Fourier operators cannot be treated as direct coverage without a new explicit equivalence proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_COVERAGE_NOT_COMPLETE_CLAIM",
+        "evidence": "Classical labelled cycle exponential formulas and cycle-marking operators support the generating function; the inspected portions did not provide strict signed two-colour central frequency minima or the sharp global condition number.",
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/AnaCombi/anacombi.html",
+        "material_read": "Cycle-construction and exponential-formula sections in Chapters II and III; marked cycle count constructions and coefficients in the openly available electronic book",
+        "method": "Read chapter excerpts of publicly available full PDF text and the official public electronic edition announcement; extracted the combinatorial cycle-marking equations",
+        "title": "Analytic Combinatorics",
+        "trigger": "Primary archive-era source for exact permutation-cycle marking and labelled combinatorial species"
+      },
+      {
+        "assessment": "GENERAL_MOMENT_COVERAGE_NOT_SHARP_SPECTRAL_CLASSIFICATION",
+        "evidence": "Short-cycle moments and Poisson approximations concern uncoloured counts. The inspected material does not establish signed two-colour Fourier shell-monotonicity or a dimension-independent optimal condition-number maximum.",
+        "identifier_or_url": "https://arxiv.org/abs/2104.12019",
+        "material_read": "Openly available article body, introduction and cycle statistics / factorial-moment sections, including Sections 1 and 3",
+        "method": "Read source full HTML sections and located cycle moment and asymptotic discussions",
+        "title": "Cycle type of random permutations: A toolkit",
+        "trigger": "Closest broadly covering primary literature on random short cycles, exact moments, and asymptotic Poisson behavior"
+      },
+      {
+        "assessment": "DIFFERENT_STATISTIC",
+        "evidence": "Fixed-point sets (cycles of length one) and permutation actions are different from the set of vertices lying in exactly length-two cycles; no implication to the signed crossing-two-cycle spectrum was found in the examined material.",
+        "identifier_or_url": "https://arxiv.org/html/0708.2643v1",
+        "material_read": "Accessible full HTML article introduction and topical section descriptions covering fixed-point and permutation actions",
+        "method": "Read relevant article passages and contrasted the defined statistics",
+        "title": "On fixed points of permutations",
+        "trigger": "Adjacent permutation support-statistics literature with potential specializations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b79c390c-7b12-41a8-95de-2f799c9d8a37",
+  "value": {
+    "rationale": "The frequency-wise strict central extremum identifies the precise most ill-conditioned Fourier modes in a natural exponentially growing random-permutation support model, beyond the classical counting and pointwise Poisson limits. The exact condition number at every dimension and its globally sharp uniform maximum three show recovery remains stable as dimension grows, while its full eigenvalue bulk concentrates at a distinct value. This is an all-dimensional structural stability theorem rather than a single small-order computation or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
