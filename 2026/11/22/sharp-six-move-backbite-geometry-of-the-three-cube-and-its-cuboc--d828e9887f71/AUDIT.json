@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Direct graph-theoretic bijection: an induced forest in the line graph corresponds to a linear forest in Q3; seven surviving edges force a spanning Hamiltonian path and size-five FVS. Two independent exhaustive standalone scripts derived from different state representations replayed successfully, enumerate all 72 states, every edge transition and all 72-source BFS distances, plus 48 cube automorphisms. These checks prove exact finite assertions; no extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kazazi arXiv:2610.05068 Theorem 1.1 assumes a spanning squared Hamiltonian path, impossible for the triangle-free Q3.",
+        "published-finding corpus 2026/11/2 SCOPE-frozen-and-mobile-hamiltonian-paths-under-face-switches-in-the-f--8ab7875eea24 studies Q4 and fixed square-face switches, not Q3 backbites."
+      ],
+      "reasoning": "The available general theorem does not cover the graph by its hypotheses and even where applicable would not give exact metric or orbit shells. Adjacent works on Q4 or other graphs have different state spaces.",
+      "searches": [
+        "published-finding corpus: Hamiltonian paths of cube graph Q3 8 vertex Gray codes one-edge exchange 1-edge replacement connected components reconfiguration",
+        "published-finding corpus: three cube Hamiltonian paths edge rerouting 6 steps slide reconfiguration Gray codes",
+        "Web: \"cube\" \"Pósa rotation\" Hamilton paths diameter"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/0508094",
+      "https://doi.org/10.1371/journal.pone.0238322",
+      "https://arxiv.org/abs/2610.05068",
+      "https://www.mdpi.com/1999-4893/11/9/140",
+      "https://mathworld.wolfram.com/HamiltonianPath.html",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-frozen-and-mobile-hamiltonian-paths-under-face-switches-in-the-f--8ab7875eea24",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-p-sa-rotation-geometry-of-hamiltonian-paths-in-the-herschel-grap--06a0c18dfe7a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Oberdorf et al. 2005 contains a worked 20-state transition network for a 3x3 2-dimensional grid, not 2x2x2 box.",
+        "Kinney et al. 2020 count 144 oriented box paths without a reconfiguration distance spectrum.",
+        "Kazazi 2026 treats general reachability; Q3 is outside its squared-path sufficient condition.",
+        "published-finding corpus closest exact-graph neighborhoods: SCOPE-the-klein-graph-hidden-in-heawood-backbite-dynamics--2d160a5ca231 (Heawood), SCOPE-p-sa-rotation-geometry-of-hamiltonian-paths-in-the-herschel-grap--06a0c18dfe7a (Herschel)."
+      ],
+      "reasoning": "Known definitions and counts imply neither existence of a six-step path between each pair of Q3 walks nor lower bounds, all-source shell profiles, or invariance of diametral pairs under adding five nonlocal moves at 48 states. The new finite exhaustive proof supplies those missing implications.",
+      "searches": [
+        "published-finding corpus: 72 Hamilton paths cube Q3 edge-replacement graph 4-regular diameter six 144 transitions",
+        "published-finding corpus: minimum feedback vertex set of cuboctahedral graph, Hamilton paths of cube, token jumps swaps reconfiguration",
+        "Web: \"backbite\" \"2x2x2\" Hamiltonian walks",
+        "Full text arXiv:cond-mat/0508094 Section II; full text PLOS DOI 10.1371/journal.pone.0238322 Methods; full text arXiv:2610.05068 Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 72 Hamiltonian path count is already known (Kinney et al., PLOS ONE 2020, Methods); the new metric is on those states.",
+        "Kazazi arXiv:2610.05068 states backbites coincide in reachability with general Hamiltonian-path flips, not their adjacency or exact pair distances."
+      ],
+      "reasoning": "The cuboctahedral FVS formulation is equivalent to the Q3 Hamilton-path formulation; it is deliberately treated as the SAME claim. The primary novelty is not the FVS number or the path count but the sharp uniform six-move metric and unchanged 144 diametral pairs after adding 120 moves.",
+      "searches": [
+        "published-finding corpus: three-cube Q_3 Hamiltonian paths 72 under Posa rotations backbite 4-regular self centered diameter 6 three symmetry orbits",
+        "published-finding corpus: 2x2x2 box compact polymer path backbite reconfiguration graph 72 configurations diameter 6",
+        "Web: \"3-cube\" \"backbite\" Hamiltonian paths",
+        "Web: \"backbite\" \"2x2x2\" Hamiltonian walks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram MathWorld Hamiltonian Path table includes 72 paths for Q3, the known count only.",
+        "Kinney et al. 2020 full text explicitly counts 144 oriented 2x2x2 space-filling curves."
+      ],
+      "reasoning": "The exact 72 path count is covered in standard sources, and it is not claimed novel. Neither the exact-count table nor 2020 path corpus includes the 144 diametral pairs, 3 orbit shells, or the sharp slide-versus-jump metric identified here.",
+      "searches": [
+        "published-finding corpus: cuboctahedral L(Q_3) minimum feedback vertex set five, 72 configurations, token sliding four regular diameter six",
+        "Web: 2x2x2 lattice walk backbite distance diameter six",
+        "Web: \"cuboctahedral graph\" \"feedback vertex set\" decycling number",
+        "MathWorld Hamiltonian Path count for hypercube Q_n"
+      ]
+    },
+    "rationale": "The exact Q3 path count (144 oriented=72 unoriented) and classical backbite are explicitly credited to earlier sources. Full 2005, 2020 and 2026 primary papers were compared by hypotheses and implications; neither gives the uniform sharp metric, three orbit shells, or invariance of all 144 diametral pairs after 120 extra jumps. Targeted published-finding corpus/primary searches returned no exact coverage. Incomplete historical priority, including Mansfield 1982 full text, remains a disclosed risk.",
+    "residual_risks": [
+      "Original Mansfield 1982 backbite paper was not inspected in full; exact small-lattice case might have precedent.",
+      "Semantic index coverage and public searchable primary literature cannot establish absolute historical priority.",
+      "The 72-path count and the backbite definition are previous results and explicitly excluded from novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same move but exhibits 20 walks on 3-by-3 planar square lattice, not the 72 paths on the 3-dimensional cube; no all-source three-cube distances",
+        "evidence": "Section II explains backbite, Fig. 3–4 depict 3-by-3 square grid and its 20-state graph; arXiv initial submission 2005-08-03.",
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0508094",
+        "material_read": "Full arXiv HTML text, introduction, Section II backbite rule, 3-by-3 square-grid transition example, ergodicity discussion",
+        "method": "Read public arXiv full text (not merely abstract or listing)",
+        "title": "Secondary Structures in Long Compact Polymers",
+        "trigger": "Original publicly dated 2005 backbite sampler and lattice ergodicity discussion"
+      },
+      {
+        "assessment": "Counts the known 144 oriented walks (72 unoriented) and uses them as substitution templates; does not state exhaustive 72-state backbite shortest-path shells or comparison with single-edge flips",
+        "evidence": "Methods: prerequisite exact enumeration of 144 2x2x2 lattice SFCs, and explicit backbite operation; published 2020-08-31.",
+        "identifier_or_url": "https://doi.org/10.1371/journal.pone.0238322",
+        "material_read": "Complete PLOS HTML manuscript, introduction, Methods backbite/end attacks, Details of nest and replace, lines explicitly counting 144 oriented 2x2x2 walks",
+        "method": "Read publicly accessible primary full-text HTML and relevant methods subsections",
+        "title": "Crossing complexity of space-filling curves reveals entanglement of S-phase DNA",
+        "trigger": "Exact same 2-by-2-by-2 cube object, known count and backbite simulations"
+      },
+      {
+        "assessment": "Theorem 1.1 guarantees connectivity if graph contains square of spanning path; this entails triangles, but cube Q3 is triangle-free. General equivalence in reachability does not give same edge sets or exact metrics. Does not imply sharp six-state metric",
+        "evidence": "Theorem 1.1 requires spanning P8^2; Observation 2.1 describes endpoint backbites; sections 1–7 do not enumerate Q3.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.05068",
+        "material_read": "Full arXiv HTML paper, introduction, Theorem 1.1, its conditions, preliminary backbite/edge-flip equivalence, later section descriptions",
+        "method": "Read primary full-text HTML and compare theorem hypotheses to cube Q3",
+        "title": "Connectivity of the reconfiguration graph of Hamiltonian paths",
+        "trigger": "Recent directly relevant general Hamilton-path backbite theorem"
+      },
+      {
+        "assessment": "Concerns Hamiltonian cycles and two-edge switches on arbitrary graphs, not the exact single-edge Hamiltonian-path flip graph of Q3",
+        "evidence": "The problem and main complexity theorem require Hamiltonian cycles and cycle-preserving 2-switches.",
+        "identifier_or_url": "https://www.mdpi.com/1999-4893/11/9/140",
+        "material_read": "Public full-text HTML introduction, problem definitions, main complexity result",
+        "method": "Read publisher open HTML",
+        "title": "Complexity of Hamiltonian Cycle Reconfiguration",
+        "trigger": "Nearby Hamiltonian reconfiguration complexity result for alternate move"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d828e988-7f71-4c45-9c70-1033a9df096e",
+  "value": {
+    "rationale": "For minimum decycling placements on the canonical cuboctahedral graph, optimal configurations are compact cube-spanning walks. The sharp six-step reversible local bound, three orbit-dependent distance profiles, and persistence of the same 144 extremal pairs despite an 83-percent edge increase under nonlocal moves quantify genuine mobility and robustness beyond the previously enumerated set count. Canonical small-cube baseline for larger-dimensional sampling and constrained-reconfiguration problems.",
+    "status": "PASS"
+  }
+}
