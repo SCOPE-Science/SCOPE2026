@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:52:49.474377Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two Gaussian densities of unit mass and strictly Loewner-comparable positive covariance forms A,B (d>=3), Gaussian Fourier evaluation yields I=2exp(-S)(cosh Q+cos H), S=(A+B)/2 quadratic, Q=(A-B)/2 positive definite quadratic, H linear center difference. The measured logarithmic jets obey L2=−S−H²/4 and L4=Q²/4−H⁴/96; hence M=S+H²/4 and T=4L4=Q²−R² where R=H²/sqrt(24) is PSD rank at most one. In d>=3, Q+R is positive definite and Q−R has ≥d−1>=2 positive directions (possibly one negative or one zero); both are irreducible real quadratics and distinct if R!=0. Polynomial unique factorization determines their factors up to reciprocal scale/exchange. A nonzero multiple of full-rank Q plus rank-one R has rank≥d−1>=2, so the rank≤1 constraint forces scale=1; exchanging factors would make R negative. R=0 is handled by unique positive definite square root of T. Then H², S and the unordered covariance pair recover uniquely, modulo center sign, common translation and component exchange. Complete derivative data through 4 determine L2,L4; nothing relies on full intensity. Independently expanded the proposed planar Q1,R1 and Q2,R2 with SymPy and verified exactly Q1²−R1²=Q2²−R2². Choosing S2 to align M gives distinct positive definite planar covariance pairs with identical quartic data; the n-dimensional order-two example keeps S,H fixed and varies Q. The general proof is algebraic; a finite SymPy identity is not a proof of uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blomenhofer et al. obtain GENERIC identifiability of centered Gaussian mixtures from raw degree-six moments represented by sums of cubes of quadratic forms.",
+          "Agostini et al. work with original-mixture moments of homoscedastic models, not phaseless Fourier-intensity jet with arbitrary ordered covariances and unknown center difference."
+        ],
+        "reasoning": "Stronger in some parameter ranges but different measured statistic, center assumptions, generic versus global quantifier, and order; neither dominates the claimed order-four autocorrelation theorem.",
+        "searches": [
+          "Blomenhofer Casarotti Michałek Oneto 2023 centered Gaussian mixture sums cubes quadratics identifiability",
+          "Agostini Améndola Ranestad homoscedastic Gaussian mixture moments"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-four-jet-phaseless-reconstruction-of-two-unequal-width-iso--6ab3a2280cc5",
+        "https://doi.org/10.1112/blms.12871",
+        "https://doi.org/10.1007/s10208-020-09469-6",
+        "https://arxiv.org/abs/2606.22951",
+        "Resultary Gaussian phaseless fourth jet semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If the intensities of the full distributions were known, that would generally contain more data and cannot alone establish identifiability from FOUR derivatives.",
+          "The d>=3 theorem uses the new factorization and rank-one PSD rigidity; d2 obstruction shows the rank hypothesis is indispensable."
+        ],
+        "reasoning": "Published general Gaussian identifiability does not imply the precise finite-jet phaseless reconstruction theorem; its uniquely factorable quartic proof is a substantive new claim.",
+        "searches": [
+          "Gaussian mixture Fourier phase retrieval finite jet global identifiability ordered covariance rank-one",
+          "anisotropic autocorrelation characteristic function fourth Taylor Hessian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The isotropic published theorem identifies arbitrary two scalar variances from fourth intensity jets in d>=2, with a 1D obstruction.",
+          "The present covariance matrices are arbitrary symmetric SPD with A−B SPD, and d>=3 is required for irreducibility of Q−R, with explicit d2 obstruction."
+        ],
+        "reasoning": "The isotropic theorem is a genuine specialization in model class (though d2 behaves differently); it does not assert or logically entail the anisotropic d>=3 theorem.",
+        "searches": [
+          "Resultary anisotropic ordered two Gaussian phaseless Fourier intensity fourth jets",
+          "Resultary sharp four-jet phaseless two unequal-width isotropic Gaussian packets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact literature table or database classifying all possible anisotropic ordered covariance pairs by the fourth Fourier-intensity jet located.",
+          "Exact 2D witness consists of Q1=u²+v²,R1=3u²/5 and Q2=4u²/5+5v²/4,R2=3v²/4, with the verified equality of T."
+        ],
+        "reasoning": "The planar obstruction is a symbolic family of genuine Gaussian pairs, not a known finite numerical table or a reparametrization of the isotropic 1D counterexample.",
+        "searches": [
+          "Resultary two Gaussian fourth jet quartic anisotropic fourth cumulant rank-one matrix",
+          "arXiv:2606.22951 kurtosis normal variance mean mixtures"
+        ]
+      },
+      "rationale": "PASS for full anisotropic strictly Loewner-ordered Gaussian pairs in all d>=3 with finite PHASELESS fourth jet and sharp planar counterexample; lower-dimensional isotropic published theorem and ordinary mixture moments do not imply this higher-rank unique factorization claim.",
+      "residual_risks": [
+        "Relevant autocorrelation/cumulant factorization literature under different terminology could predate the rigidity theorem.",
+        "Strict Loewner order is material: incomparable covariances not covered; no quantitative stability under noise.",
+        "The planar d2 witness refutes order-four identification, not identifiability from higher jets or complete intensity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS isotropic cases only; cannot imply noncommuting/anisotropic Loewner model",
+          "evidence": "The isotropic argument recovers scalar variance using λmin of the quadratic jet, unlike the present fourth-quartic factorization",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-four-jet-phaseless-reconstruction-of-two-unequal-width-iso--6ab3a2280cc5",
+          "material_read": "complete Resultary RESULT.md including feasibility criterion, two-dimensional reconstruction, one-dimensional counterexample",
+          "method": "Original complete online text; reviewed relevant introduction, claims and proof sections",
+          "title": "Sharp four-jet phaseless reconstruction of two unequal-width isotropic Gaussian packets",
+          "trigger": "closest published same data and 2-components model"
+        },
+        {
+          "assessment": "NOT_COVERING because generic raw sixth-order moment observations of centered Gaussians differ from global phaseless fourth autocorrelation jet",
+          "evidence": "The paper identifies sums of cubes of quadratic forms and discusses d=3 (degree 6), not differences of squared quadratics from Fourier magnitude",
+          "identifier_or_url": "https://doi.org/10.1112/blms.12871",
+          "material_read": "full accessible article HTML, introduction, Theorem 1.1/Corollary 1.3 and connection to raw centered Gaussian moments",
+          "method": "Original complete online text; reviewed relevant introduction, claims and proof sections",
+          "title": "Identifiability for mixtures of centered Gaussians and sums of powers of quadratics",
+          "trigger": "broader Gaussian-mixture identifiability theorem"
+        },
+        {
+          "assessment": "DIFFERENT raw-moment observation and equal covariances, not arbitrary ordered anisotropic pair in intensity data",
+          "evidence": "Homoscedastic moments allow data inaccessible from even autocorrelation jets",
+          "identifier_or_url": "https://doi.org/10.1007/s10208-020-09469-6",
+          "material_read": "full accessible article HTML, model assumptions and moment identifiability statements",
+          "method": "Original complete online text; reviewed relevant introduction, claims and proof sections",
+          "title": "Moment Identifiability of Homoscedastic Gaussian Mixtures",
+          "trigger": "same 2-component mixture and fourth moments may dominate"
+        },
+        {
+          "assessment": "LIMITED comparator: forward kurtosis of scalar mixing; no accessible proof of identical global phaseless reconstruction",
+          "evidence": "Forward fourth cumulant is not an inverse uniqueness claim; no whole-paper noncoverage assertion",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22951",
+          "material_read": "arXiv abstract/accessible research summary only",
+          "method": "Abstract available; full text not read",
+          "title": "The kurtosis of normal variance–mean mixtures",
+          "trigger": "nearby kurtosis and quartic normal-mixture computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A global recovery theorem from a finite phaseless intensity jet for a motivated anisotropic two-Gaussian model is a substantial structural inverse result. The exact d3 factorization threshold and explicit sharp d2 ambiguity explain the role of covariance ordering, unlike a mere parameter fit, and demonstrate a mathematically meaningful boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-four-jet-phaseless-reconstruction-of-two-unequal-width-iso--6ab3a2280cc5",
+    "https://doi.org/10.1112/blms.12871",
+    "https://doi.org/10.1007/s10208-020-09469-6",
+    "https://arxiv.org/abs/2606.22951",
+    "Resultary anisotropic and isotropic Gaussian fourth-jet search"
+  ],
+  "disposition": "passed",
+  "limitations": "Unit component masses, strictly Loewner-ordered SPD covariances and d>=3; no unequal mixture weights, incomparable covariances or noise stability. In d2 the obstruction is only to order-four jets, not to full intensity.",
+  "residual_risks": [
+    "Relevant autocorrelation/cumulant factorization literature under different terminology could predate the rigidity theorem.",
+    "Strict Loewner order is material: incomparable covariances not covered; no quantitative stability under noise.",
+    "The planar d2 witness refutes order-four identification, not identifiability from higher jets or complete intensity."
+  ],
+  "schema_version": 1
+}
