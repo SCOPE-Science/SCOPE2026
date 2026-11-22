@@ -1,0 +1,15 @@
+# Scientific review: local tie favoritism on the Herschel graph
+
+## Correctness — PASS
+The precise eleven-vertex adjacency and rule are fully specified. The finite domain contains exactly 2048 labelled binary configurations for each intervention subset. Direct trajectory tracing and independently implemented indegree peeling both enumerate all eight policies and agree on the full entrance-time/least-period populations, individual orbit-basin-size frequencies, consensus basins and maximal entrance times. The edge-preserving permutations prove that the three intervention hubs are equivalent under the induced symmetric group. Replaying `python scripts/build_census.py` confirms the embedded `certificates/census.json`. Exhaustiveness, not finite sampling, proves the claim within its precise finite domain.
+
+## Originality — PASS, qualified
+The incumbent-tie Herschel census is already known and only contributes the comparison row for no bias; it does not imply the three nontrivial intervention classes. The 2015 Aledo–Martínez–Valverde survey establishes the general discrete graph dynamics setting, and Gärtner–Zehmakan's 2017 work investigates global majority tie favoritism mostly on tori. Zehmakan (2024) treats incumbent and random ties on general graphs and related consensus questions, but the inspected sections do not give this graph's localized eight-policy response. Closest accessible published mathematical summaries about consensus gains under edge deletion change the *graph*, not selected tie policies; they do not imply these counts. Searches for the exact combination of graph, rule aliases, basins and numeric vectors found no covering record. This is best-knowledge priority, not proof of historical uniqueness: old unpublished computations and unindexed documents remain possible.
+
+## Value — PASS
+A localized deterministic preference for opinion 1 might naively be thought to promote convergence. Here the favored consensus basin strictly grows (501, 567, 624, 672), but total consensus strictly shrinks (1002, 852, 795, 763), with a nonmonotone primitive two-cycle count and a sharp final relaxation change. Every possible intervention on the graph's only even-degree sites is covered; the phenomenon is a reproducible finite counterexample to a natural assumption about intervention effects, rather than an arbitrary sample or relabeling of the no-bias census.
+
+## Closest literature and limits
+Aledo, Martínez, Valverde, *Parallel Dynamical Systems over Graphs and Related Topics* (2015), DOI: https://doi.org/10.1155/2015/594294. Gärtner and Zehmakan, *(Biased) Majority Rule Cellular Automata* (2017), https://arxiv.org/abs/1711.10920. Zehmakan, *Majority opinion diffusion: when tie-breaking rule matters* (2024), DOI: https://doi.org/10.1007/s10458-024-09651-y. The verified result is finite and has not been generalized to other networks. Historical priority and all mathematics still merit independent review.
+
+Self-review: passed. Independent audit: not yet performed.
