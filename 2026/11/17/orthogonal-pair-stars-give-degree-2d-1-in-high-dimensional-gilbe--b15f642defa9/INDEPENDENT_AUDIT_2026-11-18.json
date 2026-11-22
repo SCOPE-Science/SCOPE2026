@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:07:21.583806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1/2<p<1, θ=2p−1 in (0,1), integer d>=3, set k=2(d−1), a=k^{p−1}, b=sqrt(1−a²), x_{i,±}=a e0±b ei, source -e0, and all unit outgoing sinks. Unit vectors satisfy sum x_i=k^p e0, so weighted equilibrium and star degree k+1=2d−1 hold. Every sink subset I of size j has squared vector-sum j²k^{θ−1}+s(I)(1−k^{θ−1}), where s(I) counts singly-selected orthogonal pairs and is bounded by min(j,k−j). For j<=k/2, concavity of j^θ and the threshold k^θ(2^{-θ}−1/2)>=1 establish maximal subset norm²<=j^{1+θ}; for j>=k/2 the convexity inequality t^{θ−1}−1>=(1−θ)(1−t) and k^θ> =4/(1−θ) establish the same. For any finite single-source admissible network with strictly concave p-power cost, a cycle-free oriented tree competitor may be chosen, and pairing each edge with its downstream sink subset yields calibration j_e^p||z_e||>=sum_{i∈S_e}<x_i,z_e>; telescoping sums along paths yield cost>=k+k^p. The constructed star has exactly k+k^p cost, proving GLOBAL optimality (not merely stationary). Independent recomputation of maximal subset inequality for admissible p=.7,.75,.85,.9 and even k=116,64,42,44 respectively corroborates. The stated high-d threshold is sufficient, not claimed sharp; finite subsets cannot certify the universal parameters without this analytic bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Gilbert arborescence theorems quantify when a given star is optimal and cover a larger class of networks, but do not assert existence of this degree profile.",
+          "Cherkashin gives d+1 for p>=1/2; Teplitskaya identifies bounds on large-d maximal branching as an open question."
+        ],
+        "reasoning": "The broader criterion is a premise and cannot provide an existential lower bound without the new spherical-code configuration; the earlier existential construction yields a weaker degree.",
+        "searches": [
+          "Resultary semantic search: Gilbert Steiner high dimensional branching degree 2d-1 orthogonal antipodal pair stars",
+          "arXiv:2611.03403",
+          "arXiv:2507.13532",
+          "arXiv:0909.4270"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.03403",
+        "arXiv:2507.13532",
+        "arXiv:0909.4270"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior d+1 existence result does not yield 2d−1; the general Volz subset criterion has exponentially many conditions on any candidate star.",
+          "The present exact j,s(I) identity and two elementary inequalities bound every one of these subsets and calibrate all competing trees."
+        ],
+        "reasoning": "The source construction is an explicit new application satisfying a strict degree improvement, not a consequence of the old criterion until its new inequalities are established.",
+        "searches": [
+          "Resultary semantic search: Gilbert Steiner high dimensional branching degree 2d-1 orthogonal antipodal pair stars",
+          "arXiv:0909.4270",
+          "arXiv:2507.13532"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Volz et al express global star optimality via inequalities for every sink subset, equivalently a vector-valued calibration.",
+          "Cherkashin constructs degree d+1, not 2d−1, in the same high-dimensional branching setting."
+        ],
+        "reasoning": "The new contribution is the orthogonally paired vectors and their all-subset power-bound verification, not a restatement of the pre-existing general calibration criterion.",
+        "searches": [
+          "Resultary semantic search: Gilbert Steiner high dimensional branching degree 2d-1 orthogonal antipodal pair stars",
+          "arXiv:0909.4270",
+          "arXiv:2507.13532"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit sufficient k thresholds and finite examples p=.7,k=116; p=.75,k=64; p=.85,k=42; p=.9,k=44 are constructive checks.",
+          "No published dimension table or theorem locating an identical 2d−1 orthogonal-pair star was found in Resultary semantic comparison."
+        ],
+        "reasoning": "Finite configurations support existence in sampled dimensions; the theorem supplies a dimension-uniform existential construction, not merely a known table recomputation.",
+        "searches": [
+          "Resultary semantic search: Gilbert Steiner high dimensional branching degree 2d-1 orthogonal antipodal pair stars"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the explicit asymptotic 2d−1 star-degree lower bound at every fixed p in (1/2,1). Cherkashin’s general degree d+1 construction is strictly weaker; Volz et al supply a universal star optimality criterion but no such paired orthogonal feasible configuration; Teplitskaya lists high-dimensional degree improvement as a current problem. Unindexed previously known orthogonal-pair constructions remain a priority risk, heightened by lack of institutional full text.",
+      "residual_risks": [
+        "A more recent or unindexed optimal-star construction might already give 2d−1 or stronger.",
+        "Volz original full article could not be read through authorized Oxford because VPN disconnected; source proof reproduces sufficient calibration independently, but literature priority cannot be certified.",
+        "Only 1/2<p<1 and sufficiently large d are proved; the endpoint p=1/2 has different asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analytic all-subset and global calibration argument supports stated range",
+          "evidence": "Subset norm identity; j<=k/2 and j>=k/2 cases; tree telescoping k+k^p bound.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/orthogonal-pair-stars-give-degree-2d-1-in-high-dimensional-gilbe--b15f642defa9/RESULT.md",
+          "material_read": "Complete RESULT.md and standalone verify.py source",
+          "method": "GitHub frozen blobs eee7d13e3044d80720f004a36659fcfc40689711 and 132e877cd0e7a263a7c99c0514308fa82fd4897b",
+          "title": "Assigned orthogonal-pair Gilbert–Steiner RESULT.md",
+          "trigger": "Assigned theorem"
+        },
+        {
+          "assessment": "Reported d+1 construction is weaker; full hidden stronger statements remain a residual risk",
+          "evidence": "The submitted theorem explicitly compares d+1 to 2d−1.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.13532",
+          "material_read": "ArXiv abstract and cited theorem descriptions; complete full text not independently read",
+          "method": "Web scholarly search and assigned literature comparison",
+          "title": "On branching points in the Gilbert–Steiner problem",
+          "trigger": "Same branching-degree question and weaker benchmark"
+        },
+        {
+          "assessment": "A general criterion is used as a lemma, but full-document novelty coverage cannot be excluded on snippets",
+          "evidence": "Explicit all-subset calibration derivation in submitted RESULT.md establishes the particular star without needing an unverified priority assertion.",
+          "identifier_or_url": "https://arxiv.org/abs/0909.4270",
+          "material_read": "Public abstract/source cited Corollary 3 and proof premise; full text could not be obtained",
+          "method": "OA/arXiv attempt then authorized institutional retrieval, vpn_disconnected",
+          "title": "The Gilbert Arborescence Problem",
+          "trigger": "Direct underlying global star criterion"
+        },
+        {
+          "assessment": "Supports the open high-d branching degree motivation",
+          "evidence": "Question 1.2 asks for maximal degree behavior at fixed p>1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.03403",
+          "material_read": "Public arXiv summary and referenced Question 1.2, Theorem 1.3; full primary text not independently read",
+          "method": "Web scholarly search and direct source comparison",
+          "title": "Open problems from the Length Optimization event at MDS 2026",
+          "trigger": "Motivation and stated open high-dimensional degree question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit family of globally optimal branched transport networks nearly doubling the previously exhibited linear-in-d degree is a natural response to a stated open high-dimensional Gilbert–Steiner question. The proof is not a local angle/stationarity condition: it supplies all-subset inequalities and a global calibration. Even as a lower bound without optimality of coefficient two or endpoint cases, it provides a consequential geometric construction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2611.03403",
+    "arXiv:2507.13532",
+    "arXiv:0909.4270",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/orthogonal-pair-stars-give-degree-2d-1-in-high-dimensional-gilbe--b15f642defa9/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Existential lower bound, not an upper bound or unique minimum or sharp d-threshold.",
+    "Finite subset checks only corroborate proof; arbitrary competing flow global optimality requires the calibration and cycle-removal reduction.",
+    "A more recent or unindexed optimal-star construction might already give 2d−1 or stronger.",
+    "Volz original full article could not be read through authorized Oxford because VPN disconnected; source proof reproduces sufficient calibration independently, but literature priority cannot be certified.",
+    "Only 1/2<p<1 and sufficiently large d are proved; the endpoint p=1/2 has different asymptotics."
+  ],
+  "schema_version": 1
+}
