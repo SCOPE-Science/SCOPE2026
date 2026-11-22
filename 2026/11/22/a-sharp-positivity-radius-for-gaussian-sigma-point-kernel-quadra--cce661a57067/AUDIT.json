@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The two-orbit Gram equations and positive Schur complement yield exact weights for every d>=2 and all positive scales. A strict derivative inequality shows the scalar F is globally increasing, with endpoint limits 0 and infinity, so one and only one positivity cutoff exists. Asymptotic analysis follows by small-s expansion; flat-kernel weights follow by Taylor expansion. Independent full-Gram finite computations pass 3,774 assertions. Domain boundaries, numerical limitations and absence of higher-dimensional generic positivity are stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fully Symmetric Kernel Quadrature provides general algebraic orbit reduction and explicitly mentions negative origin weight",
+        "2019 positivity theorem is stated for univariate locally optimal node sets"
+      ],
+      "reasoning": "The broad 2018 orbit framework directly covers computing the weights but does not provide the exact positivity interval, proof of uniqueness, or critical-radius dimension law; these require separate scalar analysis. The 2019 positivity result requires different univariate design hypotheses, not this arbitrary multivariate radius.",
+      "searches": [
+        "DOI:10.1137/17M1121779 full text section 3 and 4.3",
+        "DOI:10.1007/s11222-019-09901-0 full text section 3",
+        "fully symmetric kernel quadrature Gaussian kernel negative origin weight kernel quadrature threshold dimension"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1504.05994v1",
+      "https://tskarvone.github.io/pdf/KarvonenSarkka2018-fss.pdf",
+      "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+      "A one-crossing positivity diagram for symmetric three-node Gaussian kernel quadrature (2026-11-02)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 same-object prior: exact design, orbit framework, and qualitative negative central weight",
+        "This proof establishes the global inequality for the derivative of log F, root existence/uniqueness and high-d asymptotic not stated in the prior text"
+      ],
+      "reasoning": "Existing general formula for solving orbit systems implies the new elementary weight expressions after specialization, so those expressions alone are not treated as independently novel. The proposed new result is the exact positivity iff radial condition with single crossing and sharp dimension law; it is a mathematically stronger quantitative characterization than an observed high-dimensional negativity or a general solution algorithm.",
+      "searches": [
+        "Gaussian RBF Bayesian quadrature weights 0 plus minus lambda unit coordinate vectors unique positivity cutoff logarithmic radius",
+        "Bayesian quadrature Gaussian kernel sigma nodes symmetric axes negative central weight",
+        "arXiv:1504.05994v1 sections II, IV",
+        "DOI:10.1137/17M1121779 section 4.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Standard unscented sigma point sets have a center and two nodes per axis",
+        "Same orbit design and Gaussian measure already appear in Karvonen--Särkkä (2018), page A710"
+      ],
+      "reasoning": "Signed coordinate permutation reduces Bayesian quadrature to a two-weight system; this is equivalent to an exact Gaussian radial basis kernel interpolatory integration rule. The known node geometry and qualitative negative central weights are prior. The new implication is strict one-crossing for all shapes and the sharp threshold/asymptotic.",
+      "searches": [
+        "Gaussian process quadrature sigma point center weight negative dimension Gaussian measure 2d+1 axes exact critical radius positive",
+        "Gaussian RBF Bayesian quadrature weights 0 plus minus lambda unit coordinate vectors unique positivity cutoff logarithmic radius",
+        "arXiv:1504.05994v1 section II-B",
+        "DOI:10.1137/17M1121779 section 4.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest abstracted three-node Gaussian-kernel sign classification integrates the uniform distribution on [-1,1] in dimension one; it changes central sign in the shape parameter",
+        "No located table reports this all-d Gaussian-target threshold or its logarithmic asymptotic"
+      ],
+      "reasoning": "A 1D uniform-target table and general fully symmetric orbit matrix are not an exact database of the multidimensional Gaussian-target critical radius. Nonappearance in retrieval is not a uniqueness or novelty proof.",
+      "searches": [
+        "Gaussian process quadrature sigma point center weight negative dimension Gaussian measure 2d+1 axes exact critical radius positive",
+        "fully symmetric kernel quadrature Gaussian kernel negative origin weight kernel quadrature threshold dimension",
+        "Gaussian kernel Bayesian quadrature symmetric cross polytope 2d+1 points origin coordinate axes weights positivity negative threshold",
+        "Gaussian measure kernel cubature cross polytope center weight sign Gaussian quadrature weights",
+        "Abstracted research finding A one-crossing positivity diagram for symmetric three-node Gaussian kernel quadrature (2026-11-02)"
+      ]
+    },
+    "rationale": "Direct same-object 2018 prior already establishes orbit reduction and notes negative center weights; these are credited and not asserted novel. Its section 4.3 lacks the all-radius iff positivity theorem, unique crossing proof and sharp sqrt(log d) radius law. 2015 foundational GP quadrature and 2019 univariate positivity theory do not imply those statements. Abstracted research search found a distinct 1D uniform-measure Gaussian quadrature threshold. The mathematically new claim is a quantitative sharpening of a documented numerical stability question; publication-priority and special-case-easiness risks remain.",
+    "residual_risks": [
+      "2018 general orbit formulas may enable easy rediscovery of the present special case; novelty rests on the previously unstated global sign boundary and its asymptotic, not on the node geometry or kernel quadrature definition.",
+      "Unindexed alternative sigma-point and radial basis quadrature derivations might contain the same threshold.",
+      "The full 2018 work was inspected; no independent subject expert has adjudicated publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides kernel quadrature/sigma-point foundations and polynomial-kernel moment-rule correspondence, but not all-radius Gaussian-kernel sign classification",
+        "evidence": [
+          "arXiv:1504.05994v1 dated 2015-04-22",
+          "Section II-B equation (17) gives 2d+1 sigma-point geometry",
+          "Squared exponential kernel and GP quadrature formulas in II-D/IV"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1504.05994v1",
+        "material_read": "Full arXiv HTML, sections II-B, II-D, IV-A, IV-B and IV-D, including explicit 2d+1 unscented points and kernel choices",
+        "method": "Viewed rendered HTML main text, equations, geometry and references",
+        "title": "On the relation between Gaussian process quadratures and sigma-point methods",
+        "trigger": "Earliest archived Gaussian-kernel sigma-point and Gaussian integration framework"
+      },
+      {
+        "assessment": "Already states this exact design and negative center weight in high dimension and gives general orbit linear algebra. It neither states nor proves a unique all-parameter radius threshold, logarithmic high-dimensional scaling, or flat-limit bridge as one theorem. Thus setup and qualitative negativity are not claimed novel.",
+        "evidence": [
+          "2018 SIAM J. Sci. Comput. 40(2) A697-A720, DOI 10.1137/17M1121779",
+          "Section 4.3, page A710 shows same 0 and ±lambda e_j design, dimension-independent optimal generator, explicitly notes negative origin weight",
+          "Section 3 reduces orbit weights to a small system"
+        ],
+        "identifier_or_url": "https://tskarvone.github.io/pdf/KarvonenSarkka2018-fss.pdf",
+        "material_read": "Author full-text PDF, section 2, section 3 full symmetry reduction and section 4.3, page A710; visually checked PDF page",
+        "method": "Read PDF text and inspected rendered page A710",
+        "title": "Fully Symmetric Kernel Quadrature",
+        "trigger": "Direct same-object comparison: fully symmetric origin plus signed axes with Gaussian kernel/measure"
+      },
+      {
+        "assessment": "Treats general Bayesian weights, one-dimensional total-positivity/local-optimality sufficiency, and magnitude bounds; no exact multivariate center-axis Gaussian scale classification",
+        "evidence": [
+          "2019 Statistics and Computing 29 1317-1333, DOI 10.1007/s11222-019-09901-0",
+          "Section 3 states principal constructive positivity result for univariate locally optimal designs"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+        "material_read": "Open-access full HTML abstract, sections 1-4 including statement of main positivity result in section 3 and analytical scope",
+        "method": "Read full article HTML, mathematical definitions and theorem statements",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Potential stronger positivity theorem covering multivariate Gaussian center-axis nodes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cce661a5-7067-48cc-ac09-4d059ee98106",
+  "value": {
+    "rationale": "The origin/axis Gaussian sigma-point rule is a standard fully symmetric multivariate quadrature architecture. A known practical high-dimensional sign instability is now classified across all dimensions/radii/kernel and integration widths by a unique exact safe-radius condition, with a sharp sqrt(log d) scaling. Positivity affects meaningful nonnegative-data interpretation and perturbation amplification. The classification is a motivated complete family boundary, not a toy isolated computation; it does not imply minimax accuracy or numerical conditioning.",
+    "status": "PASS"
+  }
+}
