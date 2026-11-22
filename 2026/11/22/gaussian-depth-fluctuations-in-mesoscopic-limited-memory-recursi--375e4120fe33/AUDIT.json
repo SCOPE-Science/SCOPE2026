@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Uniform ancestry-chain representation is exact, including integer window cap. Nonincreasing potential increments give a pathwise martingale plus nonnegative error. A each-boundary-crossed-at-most-once argument bounds total error by O_beta(log n). Conditional jump variance tends to 1/3; martingale CLT and optional isometry prove the Gaussian and variance laws. An independent exhaustive finite check passed 973 tests; infinite proof does not depend on finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1002/rsa.20391",
+        "https://luc.devroye.org/devroye-fawzi-fraiman-sarrt-2012.pdf"
+      ],
+      "reasoning": "The scaled-attachment paper assumes parent index floor(i X_i) with an i.i.d. proportion X_i and obtains logarithmic depths; this is not the deterministic shrinking relative interval of size i^beta. Standard martingale CLT is broader methodology, but does not by itself prove the state-dependent error bound and constants. An unindexed general Markov renewal theorem remains a real risk.",
+      "searches": [
+        "depth of last vertex in recent-attachment tree normal limit variance 2/(3(1-beta))",
+        "central limit theorem absorption time state-dependent uniform downward jumps sublinear width",
+        "mesoscopic random recursive trees second order fluctuation vertex depth Gaussian",
+        "Depth properties of scaled attachment random recursive trees central limit"
+      ]
+    },
+    "checked_sources": [
+      "Angel et al. arxiv:2510.18856 v1 full-text model/theorems/ancestry",
+      "Devroye–Fawzi–Fraiman DOI 10.1002/rsa.20391 accessible PDF beginning and main theorem sections",
+      "Kuba–Wagner DOI 10.37236/409 published abstract (limited inspection)",
+      "Published mathematical result entries by title/abstract for closest tree-depth findings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2510.18856v1",
+        "https://doi.org/10.1002/rsa.20391",
+        "2026/11/8/SCOPE-gaussian-fluctuations-of-the-leaf-versus-vertex-depth-gap-in-rec--b6cfcc92dbd6",
+        "2026/11/8/SCOPE-a-uniform-brownian-distance-field-limit-for-bernoulli-recursive--494c72361216",
+        "2026/11/2/SCOPE-sharp-conditional-depth-variance-envelope-in-deterministic-weigh--314e1aeb4e66"
+      ],
+      "reasoning": "Primary first-order D_n/n^(1-beta) convergence alone does not determine its n^((1-beta)/2) Gaussian fluctuation or exact centering. The fixed two-lag Gaussian result treats constant window size, and uniform recursive-tree leaf-depth averages use full-history attachment. These are non-implications by differing hypotheses/observables, not merely by title or matching parameter.",
+      "searches": [
+        "central limit theorem newest vertex depth limited memory recursive tree mesoscopic j(n)=n-n^beta Gaussian",
+        "Gaussian depth fluctuations recent-window uniform recursive tree n^(1-beta)",
+        "\"Evolution of recursive trees with limited memory\" depth central limit",
+        "mesoscopic random recursive trees second order fluctuation vertex depth Gaussian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2510.18856v1",
+        "https://arxiv.org/html/2510.18856"
+      ],
+      "reasoning": "The claim can be reformulated as a CLT for the absorption time of a decreasing Markov chain whose jump at state ell is uniform on {1,...,1+floor((ell-1)^beta)}. The motivating source uses that ancestry representation, but its inspected statements concern first-order bounds. No equivalent second-order result was identified; this is not asserted as an exhaustive absence.",
+      "searches": [
+        "central limit theorem newest vertex depth limited memory recursive tree mesoscopic j(n)=n-n^beta Gaussian",
+        "uniform backward ancestor jump chain window floor((label-1)^beta)+1 hitting time Gaussian asymptotic 2/(3(1-beta))",
+        "\"Evolution of recursive trees with limited memory\" depth central limit",
+        "random decreasing Markov chain hitting time central limit theorem uniformly distributed jump 1..x^alpha"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record summaries for uniform-recursive-tree leaf versus vertex depth and two-predecessor Bernoulli trees; no precise matching table located"
+      ],
+      "reasoning": "The sought invariant is an infinite-size normal limit with a nontrivial centering/variance, not a finite tabulation. The nearest records address other parent laws and other observables. Failure of tabular search is not independent novelty evidence.",
+      "searches": [
+        "mesoscopic limited-memory random recursive tree newest vertex depth CLT n^(1-beta) Gaussian",
+        "Euler--Maclaurin centering 2 sum 1/(floor(k^beta)+2) depth in finite memory recursive trees",
+        "Angel Bhamidi Donderwinkel Maitra Sakanaveeti mesoscopic depth Gaussian",
+        "polynomial recent-window random recursive trees newest vertex depth central limit"
+      ]
+    },
+    "rationale": "Same model primary source gives first-order mesoscopic depth and height; no second-order centered newest-depth Gaussian law in inspected material. Logarithmic-depth scaled-attachment CLT does not imply a result for age-window jumps. Published research-record comparisons did not find an implication. Residual historical general-first-passage priority risk recorded.",
+    "residual_risks": [
+      "A generic but presently unindexed state-dependent renewal/hitting-time CLT might imply this precise specialization.",
+      "Published published mathematical records are searched semantically, so not all publications or old literature are independently certified noncovering.",
+      "The accessible Kuba–Wagner document was not inspected in full; it is a lower-ranked plausible model-equivalence risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides first-order depth/height and structural regimes; inspected material does not state second-order Gaussian limit for newest-vertex depth or the explicit variance/rounding control",
+        "evidence": [
+          "https://arxiv.org/abs/2510.18856",
+          "arxiv:2510.18856v1 (2025-10-21)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.18856",
+        "material_read": "Accessible full-text model definition, main results, mesoscopic-depth ancestry analysis, concluding questions and references",
+        "method": "Compared parent-window normalization, quantifiers, depth/height claims and ancestor-chain calculations",
+        "title": "Evolution of recursive trees with limited memory",
+        "trigger": "Exactly the same polynomial-window growth model and first-order mesoscopic depth"
+      },
+      {
+        "assessment": "Multiplicative age-scaling does not include recent-parent uniform interval of width i^beta; no direct implication of present claim",
+        "evidence": [
+          "https://doi.org/10.1002/rsa.20391",
+          "https://luc.devroye.org/devroye-fawzi-fraiman-sarrt-2012.pdf"
+        ],
+        "identifier_or_url": "https://luc.devroye.org/devroye-fawzi-fraiman-sarrt-2012.pdf",
+        "material_read": "Definitions, abstract and theorem statements on depth/height of scaled-attachment trees in beginning sections of accessible PDF",
+        "method": "Compared parent-law assumption iX_i, logarithmic depth scale, and Gaussian theorem hypotheses with polynomial backward windows",
+        "title": "Depth properties of scaled attachment random recursive trees",
+        "trigger": "Broad recursive-tree depth central limit literature cited by motivating paper"
+      },
+      {
+        "assessment": "No evidence that the general bijection hypotheses include this window-dependent model; limited inspection cannot rule out specializations",
+        "evidence": [
+          "https://doi.org/10.37236/409"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v17i1r137",
+        "material_read": "Published abstract and bibliographic description only; no whole-document noncoverage asserted",
+        "method": "Compared ordinary increasing-tree bijection setting with the nonexchangeable recent-window restriction",
+        "title": "On the Distribution of Depths in Increasing Trees",
+        "trigger": "Known exact ordinary recursive-tree depth distributions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "375e4120-fe33-4304-aea3-7451e2e9b238",
+  "value": {
+    "rationale": "This provides a complete second-order fluctuation law and exact polynomial variance coefficient for natural newest-vertex depths under every fixed mesoscopic memory exponent, explicitly handling deterministic floor-rounding corrections. First-order polynomial depth estimates cannot yield these quantified uncertainty statements, which matter for restricted-information network growth.",
+    "status": "PASS"
+  }
+}
