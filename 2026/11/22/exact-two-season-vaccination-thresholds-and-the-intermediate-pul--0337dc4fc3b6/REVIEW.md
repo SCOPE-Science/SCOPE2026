@@ -1,0 +1,15 @@
+# Mathematical assessment
+
+## Correctness — PASS
+The claim has two precisely separated parameter domains. For every \(T>h>0\), \(H>L>0\), \(\delta>0\), and fixed nonnegative hazard budget, a positive renewal representation proves strict convexity over periodic vaccination measures. The adjoint product \(Q=SP\) gives both a necessary exchange condition and sufficient global certificate. The complete single-pulse boundary \(M_0=\log\min\{H/x,x/L\}\) follows from two exact derivatives at the transmission-season jump. Under \(x>\sqrt{HL}\), direct forward and backward trajectory matching gives the mixed pulse-plus-continuous optimizer, and strict monotonicity of \(M(y)\) proves uniqueness of its time allocation through \(M_1\). Both branches satisfy the global first-variation inequality, not merely stationarity. The analytic proof handles all admissible real parameters, including equality endpoints; the embedded exact-arithmetic and numerical checker is independent supporting reproducibility, not an exhaustive proof.
+
+## Originality — PASS, bounded by inspected literature
+Gavish and Katriel, *Optimal Vaccination for Contagious Diseases with Seasonal Transmission* (2026, Theorem 10 and Fig. 9), derive a general qualitative pulse/continuous support structure and exhibit the same two-season example numerically, but specifically leave finite-budget single-pulse conditions and the intermediate optimal pulse mass unevaluated. Their companion *Optimal Regulation in a Time-Periodic Environment: Insights from a Simple Model* (2026) contains convexity and optimality tools, not the exact branch endpoints and pulse mass in this vaccination instance. Doutor et al. (2016) optimize a different pointwise epidemiological criterion. These prior general results do not logically supply the explicit budget and pulse-mass classification without further nonlinear boundary matching and inequality work. A 2014 seasonal vaccination article by Onyango and Müller could not be fully compared; its abstract describes a different allocation criterion. Equivalent unpublished or unindexed calculations remain a residual historical-priority risk.
+
+## Value — PASS
+The exact finite-budget transition replaces a numerical supply cutoff in the motivating model by a parameter-dependent closed formula and gives the previously missing intermediate vaccination intensity and pulse mass. It distinguishes the budget range where an instantaneous campaign is globally optimal from a nontrivial range requiring combined campaign and ongoing vaccination. This is a reusable exact benchmark for periodic vaccine-allocation codes and for mathematical comparisons of seasonal hazard budgets; it is not an epidemiological field prediction.
+
+## Limits
+The middle-phase formula is asserted only when \(x>\sqrt{HL}\), only up to \(M_1\). No result is asserted for larger budgets or physical fixed-dose counts; finite checker samples do not establish the theorem. The source priorities above follow the material actually examined, not a proof that no equivalent derivation has ever appeared.
+
+Self-review: passed. Independent audit: not yet performed.
