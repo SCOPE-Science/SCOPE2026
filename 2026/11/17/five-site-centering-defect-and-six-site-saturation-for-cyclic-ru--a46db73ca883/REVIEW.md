@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator is well-defined for all stated dimensions, including the repeated-neighbor convention at two sites. Its strict-order chamber matrices give all local linearizations and hence the global Lipschitz constant by translation equivariance and continuity. The universal \(\sqrt3\) bound follows from the fact that a coordinate can serve at most three windows. For dimensions four and five, the standalone standard-library verifier enumerates all 24 and 120 permutations respectively and uses exact rational Schur-complement tests for the inequality \(\|Q_nS Q_n\|_2^2\le2\). Witnesses attain the bound at four and five sites; an explicit pattern with two triply selected columns attains \(\sqrt3\) for all dimensions at least six. No unproved extrapolation from a finite computation is used.
+## correctness
 
-## Originality — PASS, qualified
-The closest published scientific record, *Arithmetic saturation of the Lipschitz amplification of cyclic running medians*, concerns ordinary uncentered \(\ell_p\) perturbation norm; the centered seminorm here is not a direct special case and has a strictly different five-site outcome (\(\sqrt2\) rather than \(\sqrt3\)). The published BV-threshold result studies adjacent-edge variation, not centered Euclidean geometry. Full primary material by Maragos and Schafer and by Little and Jones was inspected for the relevant median/filter and variation properties. Public record summaries for the two closest findings were available, but full documents were not; an unrecognized equivalent computation remains a significant historical-priority risk. No claim of independently established novelty or completeness of the literature is made.
+PASS
 
-## Mathematical value — PASS
-The mean-centered distance is intrinsic to translation-equivariant filtering, since additive baseline shifts are immaterial. The result determines its sharp nonlinear stability in every dimension, identifies the first dimension where the local threefold replication ceiling is attainable, and isolates an exact centering-induced loss at five sites. This distinction is useful when stability is measured after removal of a global baseline, and cannot be inferred merely from one-input smoothing or uncentered norm bounds.
+On every strict-input-order chamber, median T_n selects one coordinate per output row; because T_n(x+c1)=T_nx+c1, exact global quotient Lipschitz norm equals maximum ||Q_n S Q_n|| across finitely many selector matrices. Each column j is selected by at most three output windows (n≥4), giving universal √3 upper bound. At n=2 the three-entry multiset repeats one neighbor twice, so median swaps the two values and quotient norm is 1; at n=3 every window is the whole triple, output is constant and centered norm 0. At n=4 and 5 the original exact rational certificate enumerates 24 and 120 strict orders (12 and 60 selectors) and verifies 2Q_n−Q_nSᵀQ_nSQ_n PSD for every selector; independently enumerated all 12/60 and computed maximal squared norms exactly 2, with source strict-chamber witnesses. At n≥6 explicit distinct base points produce selector column1 at outputs0..2 and column4 at outputs3..5; h=e1−e4 has mean zero, ||h||²=2, ||S h||²=6 and output mean zero, so √3 attained by nearby same-chamber input pairs. Independent selector enumeration at n=6 yields maximal squared norm 3; finite numerical eigenvalues corroborate source exact rational PSD only, not the infinite n≥6 witness proof.
 
-## Scientific boundaries
-Only finite uniform cycles, the single three-point median, real signals, and unweighted centered Euclidean distance are proved. The finite small-size certificate and uniform construction have different evidentiary roles. Historical priority remains qualified; independent review was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: prior same-operator calculations use uncentered ℓp and cyclic total variation, while the mean-centered Euclidean quotient has a genuine five-site defect (√2 versus ordinary √3) and first achieves √3 at six sites. The prior full articles were inspected for norms and quantifiers.
+
+## value
+
+PASS
+
+The sharp dimension at which a natural nonlinear local median filter saturates centered Hilbert perturbation amplification is a concrete sensitivity threshold. The first centering defect at five sites distinguishes quotient geometry from ordinary ℓ2 and BV, a mathematically motivated stability invariant with exact all-n answer. This is neither a renaming nor a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
