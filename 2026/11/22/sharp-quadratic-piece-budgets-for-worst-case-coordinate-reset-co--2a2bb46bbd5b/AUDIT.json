@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact absorbing coordinate-reset dynamics gives J=||x||_2^2+beta||x||_inf^2. For every valid max-of-m quadratic upper envelope, basis diagonal values plus pigeonhole and Rademacher sign averaging force ratio >=(1+beta)/(1+beta/r), even with arbitrary off-diagonal entries. Balanced partition pieces attain equality and satisfy every explicit co-complete graph Bellman LMI because rho^2(1+beta)=beta. The upper envelope ratio uses s<=min(1,r t) and is maximized at t=1/r. All integer n,m and 0<rho<1 are proved analytically; the 132 rational, 71,991 assignment and off-diagonal sign checks corroborate, not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ahmadi and Jungers (2015), arXiv:1504.03761, Thm. 1 and Sec. 1.1: arbitrarily large stability certificate complexity for some switched systems, without this performance objective.",
+        "Ninite et al. (2026), arXiv:2602.04310, Sec. 5.2: De Bruijn asymptotic non-conservativeness and Sec. 5.3: relative-error algorithms, without a finite exact bound for the reset family."
+      ],
+      "reasoning": "Broader Lyapunov complexity obstructions and graph asymptotic approximation guarantees do not imply either an optimal finite-size multiplicative constant or attainment by a balanced m-node graph for the specified system. The lower bound applies to all max-of-m quadratics regardless of graph.",
+      "searches": [
+        "sharp tradeoff m quadratic pieces approximating max coordinate squared norm ∥x∥∞² factor ceil(n/m) rank-one switched optimal control",
+        "pointwise maximum of m quadratic Lyapunov bounds robust switched coordinate reset modes exact n/m approximation",
+        "Ninite Banse Berger Jungers two-level diagonal reset system quadratic cost minmax graph certificate n branches exact rank one",
+        "https://arxiv.org/abs/1504.03761"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.04310",
+      "arxiv:2607.15055",
+      "arxiv:1504.03761",
+      "2026/11/8/SCOPE-unique-ordered-switching-for-minimax-diagonal-actuator-schedulin--12cb26166ffd",
+      "2026/10/26/SCOPE-spectrally-optimal-scalar-feedback-for-fully-observed-quadratic--4e27f751ca0b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.04310 establishes graph validity and numerical optimization formulations. It does not state the pigeonhole/sign-average universal lower bound, balanced-block attainment, or sharp gamma formula.",
+        "arXiv:2607.15055 develops controlled min-max combinations; not an implication for the restricted autonomous max family.",
+        "arXiv:1504.03761 proves a qualitative no-uniform-complexity stability result on other families."
+      ],
+      "reasoning": "Existing general certificate soundness implies only that the explicit graph is a valid bound once its LMIs are checked; it cannot establish optimality among all m-piece quadratic envelopes. The independent basis-vector pigeonhole and sign-average lower bound supplies that strict new assertion.",
+      "searches": [
+        "path complete control switched linear system min-max quadratic upper bound exact scalar state graph complexity strict improvement over common quadratic Lyapunov",
+        "2026 Ninite Banse Berger Jungers path-complete optimal control coordinate projection reset matrices exact minimax m quadratic forms approximation ratio ceil(n/m) rho",
+        "sharp graph node count relative approximation switched linear systems rank-one coordinate projection value squared infinity norm quadratic template",
+        "https://arxiv.org/abs/2602.04310",
+        "https://arxiv.org/abs/2607.15055",
+        "https://arxiv.org/abs/1504.03761"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ninite et al. (2026), arXiv:2602.04310, Theorem 1 and Sec. 5: general max-of-quadratics graph certificates; no coordinate-reset closed-form optimum in inspected sections.",
+        "Ninite et al. (2026), arXiv:2607.15055, Secs. 4-6: robust feedback and graph min-max bounds rather than the autonomous relative-error frontier."
+      ],
+      "reasoning": "Equivalent max-of-quadratics, co-complete Bellman and ellipsoidal intersection formulations were compared. Those frameworks define admissible objects but do not provide the sharp integer-block lower bound under all quadratic cross-terms. No directly equivalent theorem was found.",
+      "searches": [
+        "path complete control switched linear system min-max quadratic upper bound exact scalar state graph complexity strict improvement over common quadratic Lyapunov",
+        "Ninite Banse Jungers path-complete switched control two diagonal rank-one reset matrices exact value max quadratics two node factor two common Lyapunov quadratic gap",
+        "2026 Ninite Banse Berger Jungers path-complete optimal control coordinate projection reset matrices exact minimax m quadratic forms approximation ratio ceil(n/m) rho",
+        "https://arxiv.org/abs/2602.04310",
+        "https://arxiv.org/abs/2607.15055"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible published-record searches returned no coefficient table or standard exact benchmark for the formula with n,m and rho.",
+        "Closest source arXiv:2602.04310 has a numerical 2-state switched example with different dense matrices, not an all-dimension coordinate reset table."
+      ],
+      "reasoning": "The theorem gives a continuum of contraction values and every integer pair 1<=m<=n, not a lookup of finitely enumerated cases. Search nonmatches are risk indicators, not a proof of uniqueness.",
+      "searches": [
+        "2026 Ninite Banse Berger Jungers path-complete optimal control coordinate projection reset matrices exact minimax m quadratic forms approximation ratio ceil(n/m) rho",
+        "sharp graph node count relative approximation switched linear systems rank-one coordinate projection value squared infinity norm quadratic template",
+        "max of m positive definite quadratic forms majorizing norm square plus infinity norm square pigeonhole lower bound signed vectors",
+        "\"intersection of m ellipsoids\" \"cube\" distortion n/m",
+        "\"max of quadratics\" \"infinity norm\" \"approximation\" \"ellipsoids\""
+      ]
+    },
+    "rationale": "The exact n,m,rho minimax value-overestimation frontier, all-quadratic lower bound by signed supports, and matching finite co-complete graph are not asserted by the inspected motivating theorem, controlled extension, or earlier qualitative stability complexity obstruction. Actual semantic database and primary-literature searches found no equivalent or dominating quantitative theorem; novelty remains best-knowledge rather than independently certified.",
+    "residual_risks": [
+      "Exact formula may have an unindexed equivalent in ellipsoidal approximation, norm approximation, or switched control literature.",
+      "Published mathematical search is semantic and does not guarantee complete coverage; independent priority check has not been performed.",
+      "The source controlled extension addresses broader template classes that are outside the present max-only theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework is directly applicable and cited. It lacks this exact coordinate-mode sharp piece-budget classification in inspected relevant sections.",
+        "evidence": [
+          "Definition 3 specifies incoming edges for co-complete graphs; Theorem 1 identifies max upper envelopes; Eq. (19) gives P_alpha >= Q+A_i^T P_beta A_i; Sec. 5.3 discusses generic relative-error scale."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.04310",
+        "material_read": "Full accessible HTML sections 1-5 including Definitions 1-3, Theorem 1 proof, Example 2, Secs. 5.1-5.3, and Sec. 7 outline; relevant matrix LMIs and relative error discussion.",
+        "method": "Primary arXiv HTML section and theorem inspection, with corresponding original PDF inspected for theorem statement.",
+        "title": "A Path-Complete Approach for Optimal Control of Switched Systems",
+        "trigger": "Original construction of path-complete upper bounds for exogenous switched quadratic costs."
+      },
+      {
+        "assessment": "More general controlled min-max policy formulation does not report a sharp autonomous max-of-m quadratic coordinate-reset ratio.",
+        "evidence": [
+          "Sec. 5 designs feedback-plus-graph inequalities; Sec. 6 uses numerical two-state and building examples; conclusion names conservatism/complexity as future work."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.15055",
+        "material_read": "Full accessible arXiv HTML introduction, graph-bound sections, section 5 LQR formulation, section 6 synthetic numerical example, and conclusion.",
+        "method": "Primary arXiv HTML inspection of relevant sections and exact searches for rank-one and coordinate-reset formulations.",
+        "title": "Robust Optimal Control of Arbitrarily Switched Systems: A Path-Complete Framework",
+        "trigger": "Later, potentially broader treatment of performance bounds and graph templates by the same authors."
+      },
+      {
+        "assessment": "Qualitative stability-complexity impossibility for other systems, not a fixed-family quantitative finite max-of-quadratics approximation frontier.",
+        "evidence": [
+          "Abstract proves arbitrarily high complexity for stability certificates with two matrices; Sec. 1.1 explains hierarchy complexity, without current performance ratio."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.03761",
+        "material_read": "Original abstract, Sec. 1 definitions, statement of main result, and Sec. 1.1 complexity motivation; Theorem 4 formulation.",
+        "method": "Primary arXiv HTML inspection with direct max/min quadratic and complexity text comparisons.",
+        "title": "Lower Bounds on Complexity of Lyapunov Functions for Switched Linear Systems",
+        "trigger": "Known strong general coverage on minimum numbers of max/min quadratic Lyapunov pieces."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a2bb46b-bd5b-4317-b898-733948ef44f1",
+  "value": {
+    "rationale": "The precise number of quadratic pieces is the intrinsic graph design budget in path-complete performance certification. The result gives a fully sharp finite n,m,rho cost-versus-accuracy frontier, integer plateaus, a high-persistence lower bound that can grow with n/m, and an LMI-feasible graph attaining the optimum. This is a motivated structural graph-certificate benchmark, not a mere numerical table or renaming of a general certificate theorem; it claims no benefit for arbitrary dynamics or practical runtimes.",
+    "status": "PASS"
+  }
+}
