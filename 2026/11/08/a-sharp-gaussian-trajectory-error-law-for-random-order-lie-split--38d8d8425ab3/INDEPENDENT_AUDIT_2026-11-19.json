@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T00:55:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The correct local Taylor coefficients give M_±(h)=E(h)±h²[A,B]/2+O(h³) in every finite-dimensional norm. An exact noncommutative subset expansion about E=e^{h(A+B)} bounds all ≥2 perturbation terms by O(n²h⁴ exp(O(nh²)))=O(h²) uniformly in signs and higher-order single-step terms by n O(h³)=O(h²). Hence the exact product error equals (h²/2)Σ ε_j E^{n-j}[A,B]E^{j-1}+O(h²) uniformly. Dividing by h^(3/2), the remainder vanishes and the coefficient array is bounded O(sqrt(h)); its independent centered signs satisfy the Cramér–Wold/Lindeberg CLT with covariance (1/4)∫vec(e^{(T-s)C}Ke^{sC})vec(...)^T ds, including singular support. Orthogonality gives the exact leading Frobenius second moment; an O(h²) L² remainder contributes o(h³). Invertible matrix exponentials show positivity iff K≠0; commuting generators yield exact equality for every path. Sign symmetry and local cancellation also give O(h²) mean difference. For oscillator A=[[0,1],[0,0]], B=[[0,0],[-1,0]], C is skew and K=diag(-1,1), so G(s) has squared Frobenius norm 2 for all s and T=1 gives exactly 1/2. Independently recomputed covariance by a 4-vector/16-second-moment transfer rather than executing submitted check.py, including a nonnormal matrix pair: oscillator normalized risks n=8,16,32,64 were 0.5072623814,0.5035147300,0.5017415971,0.5008687525, while the integral is 0.5; for a nonnormal pair the integral trace was 9.11305153335 and direct exact second-moment transfer converged toward it. Finite checks corroborate but do not prove the all-n statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berger (1984), Introduction and Theorems IV/VI, §§5–6, studies products with leading centered increments at scale n^(-1/2), plus stochastic Lie–Trotter limits. Setting that leading noise to zero yields the deterministic zeroth-order limit and does not directly identify the n^(3/2) rescaled defect.",
+          "Chen–Huang–Kueng–Tropp (2021), Theorems 1–2 and Appendix D, give single-realization qDRIFT concentration and specific multinomial CLT lower examples, not the fair Lie-reversal covariance integral.",
+          "Resultary 2026-10-18 and 2026-11-02 compute sharp centered Gaussian commutator laws for paired implicit backward-Euler/resolvent methods on positive-semidefinite symmetric matrices, whose exact scheme differs."
+        ],
+        "reasoning": "The general 1984 stochastic-matrix-product results and 2021 martingale concentration are stronger in some directions but do not directly state or imply the precise n^(3/2) defect distribution and equality of its Frobenius second moment for this particular independent exact-exponential scheme. An augmented or asymptotic perturbation reduction from Berger remains plausible; it is a priority risk rather than an assumed theorem.",
+        "searches": [
+          "Berger 1984 central limit theorem products random matrices stochastic Lie Trotter",
+          "Concentration for random product formulas qDRIFT Chen Huang Kueng Tropp",
+          "randomized operator splitting independent order per time block 3/2 strong convergence exact covariance CLT",
+          "https://www.researchgate.net/publication/243126729_Central_limit_theorem_for_products_of_random_matrices",
+          "https://journals.aps.org/prxquantum/pdf/10.1103/PRXQuantum.2.040305",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-commutator-fluctuations-and-a-finite-krylov-silence-tes--11f672e802ff/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-commutator-central-limit-law-for-balanced-randomized-backward--171902a77c86/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0910.4145",
+        "https://quantum-journal.org/papers/q-2019-09-02-182/pdf/",
+        "https://journals.aps.org/prxquantum/pdf/10.1103/PRXQuantum.2.040305",
+        "https://www.researchgate.net/publication/243126729_Central_limit_theorem_for_products_of_random_matrices",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-commutator-fluctuations-and-a-finite-krylov-silence-tes--11f672e802ff/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-commutator-central-limit-law-for-balanced-randomized-backward--171902a77c86/RESULT.md",
+        "https://doi.org/10.1137/23M155147X",
+        "https://arxiv.org/abs/2109.07987",
+        "https://arxiv.org/abs/2109.13798"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang Algorithm 2 gives mixed-state trace-error bounds O(K delta_t^3) from averaged local order; Childs §2 explicitly displays the O(lambda^3) averaged local defect but evaluates quantum-channel quality.",
+          "Chen et al. Appendix D derives CLTs for commuting qDRIFT gate-count fluctuations and otherwise proves concentration bounds; not the noncommuting forward/reverse Lie product covariance.",
+          "The earlier paired implicit splitting theorem has random h^(3/2) fluctuation about a mean with deterministic O(h) bias, and a vector-dependent covariance; replacing resolvents with matrix exponentials and proving a full matrix risk equality is not among its asserted conclusions."
+        ],
+        "reasoning": "Mean/quantum-channel accuracy alone never fixes the variance or law of individual trajectories. Prior implicit methods strongly motivate the perturbative argument but give neither a theorem for arbitrary nonnormal real A,B with exponential factors nor a Gaussian law centered at the exact deterministic evolution with a sharp positive-iff-noncommuting matrix Frobenius constant. The difference is a statement/implication comparison, not a claim of methodological novelty.",
+        "searches": [
+          "randomized Lie splitting forward reverse order normal distribution CLT strong convergence rate 3/2 commutator",
+          "randomized operator splitting independent order per time block 3/2 strong convergence exact covariance CLT",
+          "https://arxiv.org/abs/0910.4145",
+          "https://quantum-journal.org/papers/q-2019-09-02-182/pdf/",
+          "https://journals.aps.org/prxquantum/pdf/10.1103/PRXQuantum.2.040305",
+          "https://www.researchgate.net/publication/243126729_Central_limit_theorem_for_products_of_random_matrices",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-commutator-fluctuations-and-a-finite-krylov-silence-tes--11f672e802ff/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-commutator-central-limit-law-for-balanced-randomized-backward--171902a77c86/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang (2009) Algorithm 2 and Childs–Ostrander–Su (2019), §2 equations (9)–(13), average both local orders and obtain cancellation at O(h^3); neither states a limit distribution for the full random product.",
+          "The 2026 implicit splitting theorem uses randomized resolvent pairs and estimates h^(-3/2) centered state error, with a Krylov silence criterion; its matrices, scheme, centering and deterministic bias are different."
+        ],
+        "reasoning": "Random fair Lie order, randomized product formula, balanced operator-pair ordering and centered commutator noise are possible aliases. Matching h^(3/2) and the propagated commutator is not enough for equivalence: implicit-resolvent results concern state vectors and O(h) mean bias; the target is full matrix trajectory error about e^{TC} with O(h^2) bias for arbitrary real matrices. The self-indexed Resultary copy with identical 2026-11-08 record ID is the same claim, not independent prior art.",
+        "searches": [
+          "randomized Lie splitting random order central limit theorem strong error gaussian limit commutator h 3/2",
+          "random order product formula mean squared commutator stochastic error asymptotic variance Lie-Trotter",
+          "Resultary semantic query: Gaussian central limit theorem random forward reverse Lie Trotter product formula trajectory error covariance commutator sharp squared error",
+          "https://arxiv.org/abs/0910.4145",
+          "https://quantum-journal.org/papers/q-2019-09-02-182/pdf/",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-commutator-fluctuations-and-a-finite-krylov-silence-tes--11f672e802ff/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The final claim is a functional asymptotic Gaussian law and integral covariance for every fixed finite-dimensional matrix pair, not a finite catalogue invariant.",
+          "The oscillator coefficient 1/2 is a concrete specialization obtained from orthogonality of e^{t(A+B)} and the squared Frobenius norm ||[A,B]||_F²=2; it is not standalone evidence of novelty."
+        ],
+        "reasoning": "No exact database or numerical table could logically settle the all-matrix result. Searches yielded related formulas and the identical self-indexed target, but no independently published table of the general propagated-commutator covariance; this is a specific inapplicability, not an assertion that search failure proves novelty.",
+        "searches": [
+          "randomized Lie Trotter splitting exact covariance oscillator shear 1/2",
+          "random order product formula mean squared commutator stochastic error asymptotic variance Lie-Trotter",
+          "Resultary semantic search: randomized splitting random product asymptotic Gaussian fluctuations from centered order two Lie commutator error"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Zhang Algorithm 2 and Childs–Ostrander–Su §2 precede the fair forward/reverse Lie algorithm, its local commutator cancellation on averaging, and its mean-order benefit. Berger proves general near-identity random-matrix product CLTs, including stochastic Lie–Trotter formulas, and closely related 2026 published results give h^(3/2) commutator Gaussian covariance for *paired implicit Euler*, with deterministic O(h) bias and restricted positive-semidefinite matrices. The inspected statements do not imply the asserted full random-matrix Gaussian defect and exact Frobenius risk for independent explicit exponential forward/reverse products at h^(3/2) scale: this requires the separate centered-error expansion around e^{T(A+B)}. No exact dominating coverage identified, but general stochastic product CLTs may imply it under an as-yet-unworked reduction; priority is not certified.",
+      "residual_risks": [
+        "Berger (1984) or another general stochastic product-array central limit theorem may subsume the result after an augmented-state or second-order expansion not explicitly resolved in this review.",
+        "The 2026 implicit pairing theorem uses essentially the same Gaussian commutator mechanism; assessing mathematical novelty of this exact exponential specialization is closer than its different integrator title suggests.",
+        "A specialist pre-2026 randomized geometric integrator or probabilistic numerical analysis treatment may already prove the exact trajectory-level formula; searchable abstracts alone cannot exclude this.",
+        "The exact h^(3/2) coefficient in the oscillator example is not a standalone originality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior algorithm and ensemble mixed-state O(delta_t^3) local error; no matrix-valued single-trajectory CLT or sharp covariance/risk identity",
+          "evidence": [
+            "§II Algorithm 2 chooses product order uniformly and independently; average U_sigma = exp(-iH delta_t)+O(delta_t^3), based on trace-distance estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0910.4145",
+          "material_read": "Full accessible arXiv HTML text, §II Lemma 1 and Algorithm 2, equations (9), and §III lower bounds",
+          "method": "Read HTML theorem, operator formulas, proof and quantitative conclusions",
+          "title": "Randomized Algorithms and Lower Bounds for Quantum Simulation",
+          "trigger": "Earlier independent fair random-order Lie product, exact same two-order scheme in its two-factor instance"
+        },
+        {
+          "assessment": "Proves cancellation in averaged local formula and bounds on channel simulation; no Gaussian limit or exact Frobenius risk for a realized matrix product",
+          "evidence": [
+            "§2 equations (9)–(13) display the commutator and mean cancellation; equation (7) is a bound on averaged-channel diamond distance."
+          ],
+          "identifier_or_url": "https://quantum-journal.org/papers/q-2019-09-02-182/pdf/",
+          "material_read": "Full 20-page open-access journal PDF: Introduction, §2 power of randomization especially equations (9)–(13), §§3–4 randomized product bounds, conclusions",
+          "method": "PDF text and visual page 4 inspection",
+          "title": "Faster quantum simulation by randomization",
+          "trigger": "Same forward/reverse randomized Lie product and weak/channel order cancellation"
+        },
+        {
+          "assessment": "qDRIFT samples random Hamiltonian terms and provides concentration and commuting examples; not a fair reversed-order exact-exponential commutator Gaussian theorem",
+          "evidence": [
+            "Theorems 1–2 give qDRIFT high-probability/trace error bounds; Appendix D uses a multinomial CLT for specially constructed (including commuting) Hamiltonians."
+          ],
+          "identifier_or_url": "https://journals.aps.org/prxquantum/pdf/10.1103/PRXQuantum.2.040305",
+          "material_read": "Full 27-page open-access PDF including Theorems 1–2, martingale concentration arguments in §§II–III and Appendix D multinomial CLT examples",
+          "method": "Read PDF text, section/theorem comparisons and visual page 3 inspection",
+          "title": "Concentration for Random Product Formulas",
+          "trigger": "Potential stronger single-realization product theorem and central-limit analysis"
+        },
+        {
+          "assessment": "Strong precursor to random matrix CLTs, but its explicit stochastic diffusion scale n^(-1/2) differs from the h² centered local commutator with n^(-3/2) final fluctuation; indirect reductions remain a material risk",
+          "evidence": [
+            "Introduction factors D_{i,n}=I+A_i/sqrt(n)+B_i/n+o(1/n) with mean A_i=0; §6 stochastic Lie–Trotter product formulas concern finite-noise stochastic limits."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/243126729_Central_limit_theorem_for_products_of_random_matrices",
+          "material_read": "Full author-uploaded HTML-transcribed 1984 paper, Introduction, product expansion Theorems IV and VI in §5, Example III and stochastic product formulas/Theorems VIII–X in §6",
+          "method": "Author-uploaded full-text HTML and theorem comparisons with scaling",
+          "title": "Central limit theorem for products of random matrices",
+          "trigger": "Plausible general dominating stochastic matrix-product and Lie–Trotter limit theorems"
+        },
+        {
+          "assessment": "Same random balanced pair principle, but applies to symmetric PSD implicit resolvents; total numerical error retains O(h) deterministic bias; does not cover exact exponential full matrix theorem",
+          "evidence": [
+            "Finding states h^(-3/2)(X_N-E X_N) converges to N(0,K_T) for implicit resolver products and compares to independent sampling; its leading continuum bias is O(h)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-commutator-central-limit-law-for-balanced-randomized-backward--171902a77c86/RESULT.md",
+          "material_read": "Entire published RESULT.md, including model assumptions, statement, proof, main examples and limitations",
+          "method": "GitHub connector exact published source-file reading",
+          "title": "A commutator central limit law for balanced randomized backward-Euler splitting",
+          "trigger": "Close earlier same scaling and commutator Gaussian covariance"
+        },
+        {
+          "assessment": "Restricted symmetric PSD implicit paired resolvent scheme with vector-specific silence test, not the full nonnormal real explicit-exponential matrix risk; proof strategy may adapt readily",
+          "evidence": [
+            "Finding centers X_N at m_N, which is only e^(-LH)x0+O(h), and classifies zero covariance through C H^k x0=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-commutator-fluctuations-and-a-finite-krylov-silence-tes--11f672e802ff/RESULT.md",
+          "material_read": "Entire published RESULT.md, including pair decomposition, centered martingale remainder, CLT, Krylov zero test and example",
+          "method": "GitHub connector exact published source-file reading",
+          "title": "Gaussian commutator fluctuations and a finite Krylov silence test for paired implicit splitting",
+          "trigger": "Highly related earlier h^(3/2) covariance and noncommutation test"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fundamental numerical-analysis question is whether a randomized first-order splitting whose ensemble mean has second-order accuracy is second-order for a single realization; the result proves no, generically its RMS defect is sharp h^(3/2). The matrix-wide nonzero-if-and-only-if commutator criterion, explicit propagated covariance and exact Frobenius risk coefficient quantify the distinction for arbitrary finite-dimensional real matrices without stability assumptions; the harmonic oscillator supplies a natural concrete benchmark. The fact is not merely a small numerical improvement or a renamed finite example, while the old random-order algorithm and basic CLT/commutator techniques are explicitly credited as prior. No optimality among randomized schemes or extension to infinite-dimensional problems follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For arbitrary fixed real square matrices A,B, fixed T>0 and independent fair order choices at each step h=T/n, the product of exact forward/reversed Lie exponentials has h^(-3/2) matrix error converging in distribution to (1/2)∫_0^T e^{(T-s)(A+B)}[A,B]e^{s(A+B)} dW_s. Its vectorized covariance is the corresponding quarter integral of outer products and its scaled mean squared Frobenius error converges to the quarter integral of squared propagated commutator norms, strictly positive iff [A,B]≠0. E(P_n)-e^{T(A+B)}=O(h²), and the indicated oscillator pair has sharp risk 1/2 for T=1.",
+  "limitations": [
+    "Only fixed finite-dimensional real matrices, fair independent signs, fixed T and exact exponentials.",
+    "The Gaussian matrix law may be singular; no componentwise independence claim.",
+    "Neither dimension-uniform nor unbounded-operator, nonlinear-flow, long-time or finite-step distributional rate result is proved.",
+    "The independent check is numerical finite-grid corroboration, not an exhaustive all-dimensional proof.",
+    "Best-of-knowledge literature limitations and close predecessor implicit Gaussian commutator results are retained in originality residual_risks."
+  ],
+  "schema_version": 1
+}
