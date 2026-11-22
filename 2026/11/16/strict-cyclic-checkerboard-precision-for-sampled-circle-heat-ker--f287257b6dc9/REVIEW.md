@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier spectrum is obtained by exact DFT aliasing and Poisson summation. The Jacobi product supplies strictly positive scalar and factors. A single factor has an exact aliased inverse kernel, and the radial cyclic convolution lemma is proved by a finite-arc intersection formula, covering the endpoint and all even doubled-cycle lengths. Absolute summability of factor parameters proves convergence and preserves strict radial decrease by isolating a strict finite prefix and a tail with a strict zero-vs-neighbor gap. Folding from the doubled cycle resolves odd-cycle sign frustration and proves the strict theorem for every integer size and positive time. The standalone checker passes 39,574 finite consistency assertions, not an infinity proof. Independent checking of the critical argument is warranted.
+## correctness
 
-## Originality — PASS under documented historical-priority uncertainty
-The closest same-object source, Borovitskiy et al. (arXiv:2006.10160), constructs the circular squared-exponential covariance via a theta series but does not classify its finite-grid inverse sign. Da Costa et al. (arXiv:2302.10623) analyze an intrinsically geodesic Gaussian, a different covariance that may be indefinite. Belton et al. (arXiv:2006.16213) analyze broader total positivity without stating this all-size cyclic heat precision implication in their inspected text. A previously recorded circular Matérn order-two theorem shares the qualitative complete signed conditional-dependence conclusion, but concerns polynomial-decay rather than Gaussian Fourier weights and does not logically subsume this theorem. Searches against relevant prior statements, related finite-cycle databases and Fourier/theta literature found no exact equivalent. Classical cyclic total positivity and interpolation theory remain non-negligible priority risks; the check supports a provisional claim, not a certification of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-For a natural infinitely smooth Gaussian process covariance, the exact zeros and signs of its inverse determine conditional independence and signed partial correlations. Establishing a complete, strictly nonlocal conditional graph for *every* sampling size and heat time is a meaningful qualitative structural theorem, and parity makes the odd-cycle case nontrivial. A direct theta-product proof supplies a reusable strict circular inverse-kernel mechanism. This is not merely numerical inversion or a coefficient reparametrization.
+The discrete Fourier eigenvalues n*sum_h exp(-t(r+nh)^2) are strictly positive. Poisson summation and the Jacobi triple product factor their inverse multiplier into summable reciprocal (1+a z)(1+a z^-1) factors with 0<a<1. Their even-2n-cycle inverse coefficients are exactly (-1)^j(a^j+a^(2n-j))/((1-a^2)(1-a^(2n))), with strictly positive, strictly radially decreasing twisted amplitudes; the centered cyclic-ball intersection formula proves monotonicity is preserved under convolution and a finite strict prefix plus the l1-small infinite tail keeps strictness. Folding from 2n to n gives (-1)^j(a_j+(-1)^n a_(n-j)), which has precisely the shorter-distance parity even on odd n. Boundary n=2 and the antipodal distance are included. This is an analytic argument for every real t, not an inference from numerical logs. Independent 240-digit Fourier-inversion checks across n=2..12, t in {0.1,0.5,2,5,10} corroborated all 55 matrices; precision must be high because extreme t is ill-conditioned.
 
-## Scope and residual risks
-No generalization beyond equispaced one-dimensional circular heat samples has been proved. No sharp inverse-entry magnitudes or asymptotic decay are asserted. Full historical priority versus specialized cyclic variation-diminishing literature awaits independent scrutiny. Numerical tests cannot certify all real parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The heat theta covariance in Borovitskiy et al. and classical Jacobi product are known ingredients, but neither the inspected main/circle appendix material nor related cyclic Poisson-kernel and geodesic Gaussian claims supplies the strict all-n inverse sign conclusion for these Gaussian spectral weights. The precise sign law and its odd-cycle folding are the compared final claim, not the theta representation. Cyclic total-positivity and variation-diminishing variants may conceal a general equivalent implication, so priority remains best-of-knowledge only.
+
+## value
+
+PASS
+
+Signs and exact nonzeros of a precision matrix determine every conditional edge and its partial-correlation sign, a natural structural invariant of an infinitely smooth periodic Gaussian process. Exact uniformity for every n and t, including frustrated odd cycles, is not numerical or merely a change of parameters; the doubled-cycle strict-convolution mechanism is reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T10:48:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The discrete Fourier eigenvalues n*sum_h exp(-t(r+nh)^2) are strictly positive. Poisson summation and the Jacobi triple product factor their inverse multiplier into summable reciprocal (1+a z)(1+a z^-1) factors with 0<a<1. Their even-2n-cycle inverse coefficients are exactly (-1)^j(a^j+a^(2n-j))/((1-a^2)(1-a^(2n))), with strictly positive, strictly radially decreasing twisted amplitudes; the centered cyclic-ball intersection formula proves monotonicity is preserved under convolution and a finite strict prefix plus the l1-small infinite tail keeps strictness. Folding from 2n to n gives (-1)^j(a_j+(-1)^n a_(n-j)), which has precisely the shorter-distance parity even on odd n. Boundary n=2 and the antipodal distance are included. This is an analytic argument for every real t, not an inference from numerical logs. Independent 240-digit Fourier-inversion checks across n=2..12, t in {0.1,0.5,2,5,10} corroborated all 55 matrices; precision must be high because extreme t is ill-conditioned.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Da Costa et al. use geodesic squared-distance Gaussian rather than positive spectral heat; cyclic Poisson has geometric rather than Gaussian spectral decay"
+        ],
+        "reasoning": "Neither kernel parameterizes the Gaussian heat Fourier weights; no stronger theorem there yields the asserted all-size strict sign.",
+        "searches": [
+          "https://arxiv.org/abs/2302.10623",
+          "Resultary: cyclic Poisson covariance precision sign changes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2006.10160",
+        "https://arxiv.org/abs/2302.10623",
+        "Resultary: circulant heat kernel covariance inverse checkerboard sign all n circle Jacobi theta conditional dependence",
+        "https://arxiv.org/pdf/2006.10160"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known heat covariance spectrum and Jacobi triple product alone do not state the strict inverse sign; supplied proof uses additional radial-convolution strictness and odd-cycle folding"
+        ],
+        "reasoning": "Classical spectral formula + product requires nontrivial strict preservation/folding arguments; no explicit covering theorem found.",
+        "searches": [
+          "https://arxiv.org/pdf/2006.10160",
+          "https://arxiv.org/abs/2302.10623"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borovitskiy et al. circle theta covariance, Example 3 and circle appendix; assigned RESULT.md doubled-cycle sign formula"
+        ],
+        "reasoning": "The theta representation is identical covariance, not an explicit precision sign classification; traditional Pólya-frequency results could hide an implication not located.",
+        "searches": [
+          "Resultary: circulant heat kernel covariance inverse checkerboard sign all n circle Jacobi theta conditional dependence",
+          "https://arxiv.org/pdf/2006.10160"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned package supplies all-n analytic inequality and 39,574 reported finite checks; no prior table of exactly these inverse signs appeared in compared records"
+        ],
+        "reasoning": "Not a finite-parameter census; finite checks are corroboration, not originality evidence for the infinite claim.",
+        "searches": [
+          "Resultary: circle heat checkerboard inverse signs",
+          "https://arxiv.org/pdf/2006.10160"
+        ]
+      },
+      "rationale": "The heat theta covariance in Borovitskiy et al. and classical Jacobi product are known ingredients, but neither the inspected main/circle appendix material nor related cyclic Poisson-kernel and geodesic Gaussian claims supplies the strict all-n inverse sign conclusion for these Gaussian spectral weights. The precise sign law and its odd-cycle folding are the compared final claim, not the theta representation. Cyclic total-positivity and variation-diminishing variants may conceal a general equivalent implication, so priority remains best-of-knowledge only.",
+      "residual_risks": [
+        "Possible older cyclic totally positive or Gaussian cardinal-interpolation inverse sign theorem under different language not fully excluded",
+        "High-condition-number numerical matrix inversions cannot replace the analytic all-t proof",
+        "No claim for irregular sites or geodesic Gaussian kernels"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives covariance/spectral family; checked portions do not give all-n precision sign theorem",
+          "evidence": "Circle Example 3 and circle appendix",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.10160",
+          "material_read": "Main circle covariance example and circle appendix/theta spectral construction; corresponding PDF pages inspected",
+          "method": "arXiv primary PDF",
+          "title": "Matérn Gaussian processes on Riemannian manifolds",
+          "trigger": "Same circular squared-exponential kernel and theta formula"
+        },
+        {
+          "assessment": "Different intrinsic squared-distance model, not the positive heat spectral kernel",
+          "evidence": "Kernel definition and stated positive-definiteness question",
+          "identifier_or_url": "https://arxiv.org/abs/2302.10623",
+          "material_read": "Title, abstract and identified intrinsic-geodesic kernel definition",
+          "method": "arXiv primary record",
+          "title": "The Gaussian kernel on the circle and spaces that admit isometric embeddings of the circle",
+          "trigger": "Similar Gaussian circle terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Signs and exact nonzeros of a precision matrix determine every conditional edge and its partial-correlation sign, a natural structural invariant of an infinitely smooth periodic Gaussian process. Exact uniformity for every n and t, including frustrated odd cycles, is not numerical or merely a change of parameters; the doubled-cycle strict-convolution mechanism is reusable.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2006.10160",
+    "https://arxiv.org/abs/2302.10623",
+    "Resultary: circulant heat kernel covariance inverse checkerboard sign all n circle Jacobi theta conditional dependence",
+    "https://arxiv.org/pdf/2006.10160"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n>=2 and all t>0, the inverse covariance of evenly spaced circle heat-kernel samples has strict sign (-1)^shortest_cyclic_distance at every entry; all off-diagonal Gaussian conditional dependencies are present.",
+  "limitations": [
+    "Possible older cyclic totally positive or Gaussian cardinal-interpolation inverse sign theorem under different language not fully excluded",
+    "High-condition-number numerical matrix inversions cannot replace the analytic all-t proof",
+    "No claim for irregular sites or geodesic Gaussian kernels"
+  ],
+  "residual_risks": [
+    "Possible older cyclic totally positive or Gaussian cardinal-interpolation inverse sign theorem under different language not fully excluded",
+    "High-condition-number numerical matrix inversions cannot replace the analytic all-t proof",
+    "No claim for irregular sites or geodesic Gaussian kernels"
+  ],
+  "schema_version": 1
+}
