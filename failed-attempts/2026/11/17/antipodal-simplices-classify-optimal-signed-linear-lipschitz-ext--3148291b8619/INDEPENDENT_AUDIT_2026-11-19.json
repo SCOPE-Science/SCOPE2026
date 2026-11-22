@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T15:49:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The extension is constant-preserving precisely when signed weights sum to one; the operator norm is max(1,Phi(w)/R). Testing distance cones gives Phi>=max_i Dw_i>=average_i Dw_i=c_n; uniform weights attain c_n. Equality forces Dw=c_n 1, and cyclic second differences give 2w_i=w_(i+m)+w_(i+m+1) for odd n=2m+1, hence uniformity via a maximum principle and gcd(m,2m+1)=1. For even n=2m they force antipodal equality; increasing the value of a distance-cone potential at the antipode of a negative coefficient by 1 preserves graph-edge Lipschitz constraints and contradicts optimality. Conversely any nonnegative antipodal pair weights have constant distance mean m/2 and attain Phi=c_n. Metric iff R>=diam/2, optimizer set full-dimensional and compact for R>c_n by continuity and finite-dimensional norm coercivity. This is a complete analytic proof, not a claim based on finite integer dual enumeration n<=12.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete product-cycle proof classifies all signed optimal coefficients by odd-factor uniform and even-factor antipodal marginals, proves forced positivity via distance cone perturbation, and establishes optimizer dimension jump; setting aside the k>=2 correlation theorem, its single-factor argument is the candidate claim.",
+          "Classical 2016/2018 papers establish extension/random-projection framework but not the candidate equality cases."
+        ],
+        "reasoning": "Although the displayed product theorem assumes at least two factors, its proof contains all the one-dimensional lemmas and phase structure needed for this target. Mathematical proof coverage, rather than identical theorem parameter range, is decisive in this audit. Relative order on 2026-11-17 is unknown.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215",
+          "arXiv:1609.01450",
+          "arXiv:1801.07533"
+        ]
+      },
+      "checked_sources": [
+        "cycle graph signed linear Lipschitz extension minimizers antipodal simplex optimal radius equality classification",
+        "unit cycle optimal signed Lipschitz center simplex antipodal pair earlier than Nov 17 2026",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215",
+        "arXiv:1609.01450",
+        "arXiv:1801.07533",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215",
+        "https://arxiv.org/pdf/1609.01450",
+        "https://arxiv.org/pdf/1801.07533"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Product source proof Step 2 positivity argument: choose a diameter partner for a negative weight and perturb a distance cone; this remains valid for one cycle.",
+          "Step 3 cyclic second difference: odd uniform and even antipodal symmetry; these are precisely candidate necessary/sufficient minimizing weight constraints.",
+          "The product proof Step 4 establishes full-dimensionality of the optimizer polytope at R>c via uniform strict slack, also valid k=1."
+        ],
+        "reasoning": "Together the published lemmas prove k1 from identical assumptions, while older averaging proves the value. Therefore the one-factor result is mathematically covered; same-day ordering creates priority uncertainty but not an independently established novelty claim.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215",
+          "arXiv:1609.01450",
+          "arXiv:1801.07533"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cycle one-center is a signed Kantorovich–Rubinstein minimax problem, while the product-cycle source studies the identical signed one-point extension objective on Cartesian products of unit cycles.",
+          "The product theorem requires k>=2 and n_i>=3, but its proof isolates exactly the one-factor distance matrix second-difference and positivity argument that yield the candidate k=1 classification."
+        ],
+        "reasoning": "The k>=2 statement does not literally admit k=1 as a parameter; nevertheless the published proof contains the k=1 equality classification as an explicit auxiliary ingredient, leaving no independently new one-factor argument.",
+        "searches": [
+          "cycle graph signed linear Lipschitz extension minimizers antipodal simplex optimal radius equality classification",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215",
+          "arXiv:1609.01450"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Product-cycle publication explicitly states each odd marginal is uniform and each even marginal is antipodally symmetric for every signed optimum, with c_i=floor(n_i^2/4)/n_i; its one-factor proof establishes the exact simplex necessity and positivity.",
+          "A previously published regular-polygon snowflake result also covers the optimal value via general transitive-metric averaging, but not by itself the equality set."
+        ],
+        "reasoning": "The target equality formulas and optimizer geometry are present in the stronger product-cycle work at the level of its one-coordinate proof, even though no separate k=1 theorem title is supplied.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215",
+          "cycle graph signed linear Lipschitz extension minimizers antipodal simplex optimal radius equality classification"
+        ]
+      },
+      "rationale": "Covered by published mathematical stronger result or proof; this is scientific originality rejection, not a claim that the theorem is false.",
+      "residual_risks": [
+        "The product theorem and candidate were both published on 2026-11-17; precise within-day precedence and intellectual dependence were not determined.",
+        "The product theorem formal statement requires k>=2. Rejection is based on the actual source proof covering the same one-factor lemmas, not a false claim of a literal k=1 theorem specialization.",
+        "The optimal value alone is already covered by general vertex-transitive averaging and is not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the candidate one-factor lemmas and complete signed optimization in its proof, although formal theorem parameter is k>=2",
+          "evidence": "Step3 explicitly gives even 2v(a)-2v(a+m)=0 and odd 2v(a)-v(a-m)-v(a+m)=0; Step2 proves nonnegativity of optimal signed weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215",
+          "material_read": "Entire published RESULT.md including k>=2 theorem, Step1 signed KR norm, Step2 forced positivity, Step3 one-factor marginal distance equations, Step4 polytope dimension and phase, relationship and limits",
+          "method": "GitHub connector full blob reading in Resultary/2026",
+          "title": "Optimal signed Lipschitz extensions on Cartesian products of cycles",
+          "trigger": "Closest stronger signed-classification theorem for cycle graph metrics"
+        },
+        {
+          "assessment": "Framework for general one-point extension operators, not the cycle equality classification",
+          "evidence": "States KR/random projections and their relationship to linear Lipschitz extensions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.01450",
+          "material_read": "Introduction, notions of K-random projections and Theorems 2.14–2.15 in full 21-page arXiv PDF",
+          "method": "Direct open full PDF, extracted mathematical statements and rendered page",
+          "title": "Linear extension operators between spaces of Lipschitz maps and optimal transport",
+          "trigger": "General linear extension and signed transport correspondence"
+        },
+        {
+          "assessment": "Provides general existence rather than explicit signed optimizer simplex classification",
+          "evidence": "Theorems and sections focus on doubling subsets and linear extension constructions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.07533",
+          "material_read": "Introduction and Sections 3–4, especially existence theorem construction, in 18-page arXiv PDF",
+          "method": "Direct public full-text PDF and rendered introductory page",
+          "title": "Linear Lipschitz and C1 extension operators through random projection",
+          "trigger": "Potential general optimal extension theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Classifying *all* optimizing signed extension operators is a natural nontrivial equality-case problem beyond the previously known homogeneous-metric optimal value: the parity-dependent singleton versus growing simplex and sharp radius-dependent full-dimensional transition are substantive geometric structure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "cycle graph signed linear Lipschitz extension minimizers antipodal simplex optimal radius equality classification",
+    "unit cycle optimal signed Lipschitz center simplex antipodal pair earlier than Nov 17 2026",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215",
+    "arXiv:1609.01450",
+    "arXiv:1801.07533",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215",
+    "https://arxiv.org/pdf/1609.01450",
+    "https://arxiv.org/pdf/1801.07533",
+    "Source Git blob 109bd39bf676da70a5b9b391311371794bbbcd01 for RESULT.md",
+    "Local independent exact finite/symbolic validation as described in correctness rationale"
+  ],
+  "disposition": "failed",
+  "final_claim": "For all graph cycles C_n, n>=3, minimizers of the signed Lipschitz-free one-center norm are uniquely uniform for odd n and exactly the antipodal probability simplex for even n; the full optimal linear one-point extension set undergoes a sharp radius-dependent transition.",
+  "limitations": [
+    "The product theorem and candidate were both published on 2026-11-17; precise within-day precedence and intellectual dependence were not determined.",
+    "The product theorem formal statement requires k>=2. Rejection is based on the actual source proof covering the same one-factor lemmas, not a false claim of a literal k=1 theorem specialization.",
+    "The optimal value alone is already covered by general vertex-transitive averaging and is not credited as new.",
+    "Publication withheld for operational-provenance sanitization, not mathematical proof failure.",
+    "The immutable assigned Git snapshot was read; no repository files edited by this audit."
+  ],
+  "residual_risks": [
+    "The product theorem and candidate were both published on 2026-11-17; precise within-day precedence and intellectual dependence were not determined.",
+    "The product theorem formal statement requires k>=2. Rejection is based on the actual source proof covering the same one-factor lemmas, not a false claim of a literal k=1 theorem specialization.",
+    "The optimal value alone is already covered by general vertex-transitive averaging and is not credited as new."
+  ],
+  "schema_version": 1
+}
