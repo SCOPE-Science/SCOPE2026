@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact section normalization from coarea is 2^n f_S(0)/(n-1)!; independent Laplace Fourier inversion yields c_n P_n/D_n with c_n=2^(n-1)/(n-1)!. The numerator is polynomial by alternating Vandermonde divisibility. Pair-sum residues prove gcd(P_n,D_n)=1. Homogenization D_n-c_n z P_n is primitive and linear in z, proving absolute irreducibility by Gauss lemma. Top-degree hyperplane factors and opposite-sign parity distinguish all 2^n components. A real open graph patch in each orthant forces Zariski density. 250 exact and independent convex-hull section tests passed, but only the proof establishes the infinite-family result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berlow et al. (2022), Corollary 5.7, bounds the degree by half the central-section vertex count; here this yields at most n(n-1)/2.",
+        "Brandenburg–Meroni (2024), sections 2–3, provides the general sign-chamber and translated-body framework but does not list these exact cross-polytopal degrees."
+      ],
+      "reasoning": "The general upper bound is not equality: cancellation of rational denominator factors is possible in general. The nonzero residues prove exact attainment for all orthants, and the signed homogeneous factor comparison establishes component distinctness. No inspected broader theorem asserts these consequences.",
+      "searches": [
+        "\"intersection bodies of polytopes\" degree bound centrally symmetric cross polytope",
+        "\"cross-polytope\" \"algebraic boundary\" \"intersection body\" Fourier",
+        "\"intersection body\" \"cross polytope\" irreducible hypersurfaces orthants"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2110.05996",
+      "https://link.springer.com/article/10.1007/s13366-022-00621-7",
+      "https://link.springer.com/article/10.1007/s10801-024-01328-9",
+      "https://arxiv.org/abs/2606.07163",
+      "https://mariebrandenburg.github.io/projects/intersection-buddies/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022: upper bound on component degrees and finitely many rational regions, not proof of equality in the cross-polytope case.",
+        "2024: translation and convexity classification, no exact denominator-pole classification.",
+        "2026: Fourier integral and extremal restricted sections, no irreducible algebraic-boundary count."
+      ],
+      "reasoning": "The new claim is n>=4, all 2^n signed branches and exact degree binomial(n,2), rather than the known n=3 special case or the known Fourier integral. A published formula for the section volume alone does not algebraically force the reduced denominator degree without excluding cancellations; the residue certificate supplies that exclusion.",
+      "searches": [
+        "\"intersection body\" \"cross-polytope\" \"degree\" components",
+        "restricted hyperplane sections cross polytope arxiv 2606.07163",
+        "Berlow Brandenburg Meroni Shankar algebraic boundary central section irreducible"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Berlow et al., Section 5 (2022): piecewise rational central-section functions and algebraic-degree bound; no cross-polytope all-dimensional degree statement in the inspected full text.",
+        "Brazitikos–Pandis, arXiv:2606.07163, sections 2 and 5: the identical Laplace-Fourier integral is used for restricted-section volume extrema, not polynomial irreducibility.",
+        "A related existing three-dimensional octahedral calculation covers n=3 but not the asserted n>=4 family."
+      ],
+      "reasoning": "The Fourier formula and general polynomial-piece construction are equivalent as underlying methods and are credited; neither gives the exact all-n denominator coprimality and signed component degrees without an additional nonzero-residue argument.",
+      "searches": [
+        "\"intersection body\" \"cross-polytope\" \"algebraic boundary\" components",
+        "\"cross-polytope\" \"central sections\" \"density\" Laplace variables",
+        "cross polytope intersection body algebraic boundary exactly 2^n irreducible hypersurfaces each degree binomial(n,2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published 2022 paper Section 6 contains a cube component table (dimensions 2–5), not a cross-polytope table.",
+        "The project supplementary descriptions list algorithms and cube examples; no exact 16-cell sextic or n-dimensional cross-polytope classification was located."
+      ],
+      "reasoning": "Examples and a general algorithm do not imply that the exact cross-polytope values have already been tabulated. The present n=4 consequence gives 16 irreducible sextics; an unindexed computation could still duplicate it.",
+      "searches": [
+        "\"intersection body\" \"four-dimensional cross-polytope\" algebraic boundary",
+        "16-cell cross-polytope intersection body degree 6 components",
+        "MathRepo intersection bodies cross polytope degree table"
+      ]
+    },
+    "rationale": "General semialgebraicity and component degree bounds were established in 2021/2022; the present result sharpens them to exact degree binomial(n,2) and exactly 2^n distinct irreducible components for every n>=4. The 2024 translation paper and the 2026 restricted-section study do not state these exact all-dimensional degrees. The Fourier integral itself is known; the novel asserted part is noncancellation, irreducibility and the global degree classification. Searches found relevant but noncovering cross-polytope section face spectra and an already-known 3D specialization. Unindexed equivalents remain possible.",
+    "residual_risks": [
+      "Unindexed classical exact cross-polytope section formulas or unpublished algebraic simplifications might already imply the degree statement.",
+      "Supplementary source-code collections were not exhaustively examined; the accessible project description is not whole-code evidence.",
+      "Independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_CLASSIFICATION",
+        "evidence": "Corollary 5.7 bounds degree using the section vertex count; Section 6 treats cubes rather than arbitrary-dimensional cross-polytopes.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s13366-022-00621-7",
+        "material_read": "Full accessible HTML Introduction; sections 2, 5, 6, particularly Proposition 5.5, Theorem 5.6, Corollary 5.7, centered cube examples and degree table",
+        "method": "Primary open-access HTML read by sections and targeted search for cross-polytope/octahdron terms",
+        "title": "Intersection Bodies of Polytopes",
+        "trigger": "Same construction, main algebraic-boundary/degree framework"
+      },
+      {
+        "assessment": "DOES_NOT_STATE_EXACT_CROSSPOLYTOPE_DEGREES",
+        "evidence": "Focus on translation dependence and convexity, with general polynomial pieces; no cross-polytope exact degree family.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10801-024-01328-9",
+        "material_read": "Full accessible HTML abstract, introduction/results and sections 2–3 on component equations, chamber arrangement, translations",
+        "method": "Primary open-access HTML read by sections and term search",
+        "title": "Intersection bodies of polytopes: translations and convexity",
+        "trigger": "Possible follow-up stronger theorem on same algebraic boundary"
+      },
+      {
+        "assessment": "PARTIAL_METHOD_OVERLAP_NOT_BOUNDARY_COVERAGE",
+        "evidence": "Equation (2.3) and Section 5 Fourier inversion give section volume, with main objectives extrema under a constraint; no degree or irreducibility theorem in the inspected relevant results.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.07163",
+        "material_read": "Open-access 40-page PDF, introduction (pp 1–4), restricted-section section starting p 28, Fourier integral and theorem statements (pp 28–29)",
+        "method": "Read extracted PDF text and inspected actual page images",
+        "title": "Restricted Hyperplane Sections of the Cross-Polytope and the Simplex",
+        "trigger": "Exact same central-section integral in recent primary literature"
+      },
+      {
+        "assessment": "NO_LISTED_CROSSPOLYTOPE_DEGREE_TABLE",
+        "evidence": "Supplementary examples emphasize cubes and general algorithms; no all-d cross-polytope component-degree table in the descriptions.",
+        "identifier_or_url": "https://mariebrandenburg.github.io/projects/intersection-buddies/",
+        "material_read": "Public project description and supplementary material description",
+        "method": "Read accessible HTML descriptions; did not claim to inspect every software notebook",
+        "title": "Hyperplane Sections of Polytopes project description",
+        "trigger": "Associated mathematical supplemental computations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "27eb6be2-6fa6-459e-a334-1675b458400b",
+  "value": {
+    "rationale": "The all-dimensional exact degree and component count are structural invariants of a canonical geometric-tomography body, with a concrete dimension-four classification. Exact sharpness of a nontrivial published upper degree bound requires a genuine uniform noncancellation proof; the result is neither a single arbitrary finite computation nor a restatement of the known Fourier integral.",
+    "status": "PASS"
+  }
+}
