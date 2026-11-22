@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The sine-sum eigenpair calculation directly yields all d distinct eigenvalues of H; their signs and Sylvester inertia follow for all d and full-rank B. The least coefficient eigenvalue gives the necessary and sufficient universal PSD shift. Binary supermask PSD forces all columns equal by the e1-ej null-vector argument. A positive invertible geometric split family has arbitrarily small relative truncation error but fixed negative inertia. Standalone test script returned VERIFY_OK 1870; finite tests do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ochiai et al. (2014), Sec. 2.1, analyze a special class of anti-triangular matrices with a diagonal eigenvalue property; their displayed Cesaro and binomial matrices have nonbinary weights and different eigenvalues.",
+        "Sra (2014), Section 3.2, gives the discrete Brownian covariance kernel but no Gram-product completion theorem.",
+        "published-finding corpus: 2026/10/25/SCOPE-indefinite-rank-growth-and-a-sharp-svd-sign-transition-in-parall--3faab1da76ad"
+      ],
+      "reasoning": "General symmetric matrix congruence and PSD mask principles enable parts of the proof, but neither the Ozaki source nor the inspected structured-matrix papers state a stronger result that includes all the numerical split-product claims. The parallel integrator record concerns low-rank SVD rank-growth, not a triangular coefficient Gram mask.",
+      "searches": [
+        "anti-diagonal truncated Ozaki Gram multiplication symmetric matrix positive semidefinite loses positivity inertia negative eigenvalues floor(d/2) staircase Hankel mask",
+        "fast Ozaki truncated matrix multiplication Gram product A transpose A triangular retained split outer products spectral inertia indefinite every split depth exact sine eigenvalues diagonal repair",
+        "positive semidefinite preservation of Ozaki splitting in Gram matrix multiplication sample covariance triangular truncation",
+        "arxiv:1403.6797v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.03158v1",
+      "https://arxiv.org/abs/1411.4107",
+      "https://arxiv.org/html/1403.6797v1",
+      "https://journals.sagepub.com/doi/10.1177/10943420241313064 (contextual public page; no full-text noncoverage claim)",
+      "published-finding corpus records: 2026/10/11/SCOPE-sharp-positivity-restricted-triangular-truncation-in-dimension-t--93bae48b8121, 2026/10/25/SCOPE-indefinite-rank-growth-and-a-sharp-svd-sign-transition-in-parall--3faab1da76ad, 2026/11/8/SCOPE-exact-inertia-and-rank-of-early-conjugate-gradient-lyapunov-iter--c3670a16fcc2, 2026/11/2/SCOPE-sharp-positivity-and-damping-frontier-for-an-oracle-bernoulli-co--fba62600f9ec"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carson and Ma provide the schedule and normwise/componentwise accuracy bounds, without cone-preservation claims.",
+        "Sra provides the Brownian covariance eigenvalue formula and hence |lambda(H_d)| using H_d^2=M under reversal.",
+        "Ochiai et al. treat special diagonal-property anti-triangular matrices, not all binary supermasks of H_d."
+      ],
+      "reasoning": "The source schedule is triangular in split indices rather than a Schur entrywise truncation of an already formed PSD matrix. Sra gives the spectrum of the squared coefficient matrix via the Brownian min kernel, so eigenvalue magnitudes are prior implied; his paper does not state the ideal Gram split-product no-go, signed inertia transfer and optimal coefficient-diagonal repair. No inspected source covers the combined split-product numerical theorem.",
+      "searches": [
+        "fast Ozaki truncated matrix multiplication Gram product A transpose A triangular retained split outer products spectral inertia indefinite every split depth exact sine eigenvalues diagonal repair",
+        "positive semidefinite preservation of Ozaki splitting in Gram matrix multiplication sample covariance triangular truncation",
+        "arxiv:2611.03158v1",
+        "arxiv:1411.4107",
+        "arxiv:1403.6797v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carson and Ma (2026), Eq. (5): C_d sums products indexed by r+s<=d+1.",
+        "Sra (2014) Proposition 3.2 diagonalizes the Brownian min kernel M; direct algebra shows H_d^2 is a reversed M.",
+        "published-finding corpus closest: 2026/10/11/SCOPE-sharp-positivity-restricted-triangular-truncation-in-dimension-t--93bae48b8121"
+      ],
+      "reasoning": "The square spectrum is already implied by Sra; we do not claim independent novelty for magnitudes alone. The full numerical claim additionally concerns signed inertia of every full-rank Gram split surrogate, sharp additive diagonal coefficient repair, and universal binary-mask completion rigidity, none established for this product schedule by the compared results.",
+      "searches": [
+        "anti-diagonal truncated Ozaki Gram multiplication symmetric matrix positive semidefinite loses positivity inertia negative eigenvalues floor(d/2) staircase Hankel mask",
+        "Carson Ma 2611.03158 Adaptive accuracy-driven splitting Ozaki matrix multiplication Gram PSD indefinite",
+        "staircase Hankel matrix H_{ij}=1 for i+j <= d+1 eigenvalues sin inverse inertia",
+        "fast Ozaki truncated matrix multiplication Gram product A transpose A triangular retained split outer products spectral inertia indefinite every split depth exact sine eigenvalues diagonal repair",
+        "arxiv:2611.03158v1",
+        "arxiv:1411.4107"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ranked findings returned Schur truncation on 3x3 PSD matrices (2026/10/11/SCOPE-sharp-positivity-restricted-triangular-truncation-in-dimension-t--93bae48b8121) and Lyapunov-CG inertia (2026/11/8/SCOPE-exact-inertia-and-rank-of-early-conjugate-gradient-lyapunov-iter--c3670a16fcc2), not the r+s<=d+1 split-product Gram surrogate.",
+        "Own accessible current-week ledger claims: 128 recoverable finding claims, none mentioning Ozaki, arxiv:2611.03158, triangular Gram splits or the equivalent coefficient mask."
+      ],
+      "reasoning": "The 3x3 Schur mask acts on entries of a given PSD matrix, whereas this theorem masks outer products before summation. The Lyapunov-CG record concerns a different iterative method. Search is evidence of nonoverlap in available records, not a proof of global uniqueness.",
+      "searches": [
+        "Carson Ma 2611.03158 Adaptive accuracy-driven splitting Ozaki matrix multiplication Gram PSD indefinite",
+        "staircase Hankel matrix H_{ij}=1 for i+j <= d+1 eigenvalues sin inverse inertia",
+        "anti-diagonal binary staircase Hankel coefficient mask H_{rs}=1 if r+s<=d+1 sharp positive semidefinite Gram repair eigenvalue alternating sin",
+        "universal positive semidefinite binary split product mask retain all products necessary sum of rank one pieces"
+      ]
+    },
+    "rationale": "Carson and Ma provide the triangular product schedule but not its Gram cone structure. Sra already implies the squared coefficient spectrum; that part is credited and not offered as an independently novel spectral observation. The combined ideal split-product Gram inertia, sharp universal diagonal repair, binary completion no-go, and small-relative-error obstruction was not found in inspected literature or accessible records; priority risk is stated explicitly.",
+    "residual_risks": [
+      "The simple signed staircase spectrum is mathematically close to classical Brownian kernel and could appear explicitly in older numerical linear algebra references.",
+      "No global literature search or independent priority certification can exclude an unindexed equivalent split-product PSD theorem.",
+      "Formal split vectors have no bit-extraction realizability assumption; the result must not be read as an actual hardware-output counterexample."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the triangular schedule and accuracy but not its Gram PSD spectrum or mask rigidity",
+        "evidence": [
+          "Equation (5) has r+s<=d+1",
+          "Table 1 counts d(d+1)/2 retained products",
+          "Sections 3-5 analyze normwise/componentwise error and block LU"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.03158v1",
+        "material_read": "Sections 2-5, including Algorithm 2, equation (5), error bounds (2)-(8), splitting rules and numerical experiments",
+        "method": "Full lawful open-access HTML inspected; searched for Gram and positive semidefinite",
+        "title": "Adaptive accuracy-driven splitting in Ozaki matrix multiplication and application to block LU factorization",
+        "trigger": "Identical triangular product schedule and qualifying primary MSC65F05"
+      },
+      {
+        "assessment": "Its Brownian min-kernel spectrum subsumes squared eigenvalue magnitudes; it neither treats Ozaki Gram truncation nor universal binary completion",
+        "evidence": [
+          "Proposition 3.2 diagonalizes M=[min(i,j)]",
+          "Our coefficient H satisfies H^2=J M J",
+          "Proposition 2.1 concerns a Cesaro stochastic matrix with eigenvalues alternating reciprocals"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.4107",
+        "material_read": "Full accessible arXiv text, including Proposition 2.1 and Section 3.2 Proposition 3.2",
+        "method": "Accessible HTML/text rendering inspected with formula comparisons",
+        "title": "Explicit diagonalization of an anti-triangular Cesaro matrix",
+        "trigger": "Closest plausible preexisting anti-triangular eigenvalue and Brownian spectral result"
+      },
+      {
+        "assessment": "Matrix families have Cesaro/binomial weights and special diagonal-eigenvalue property; do not state the Ozaki triangular Gram coefficient claim",
+        "evidence": [
+          "Examples (2.3)-(2.4) have nonbinary row-dependent weights",
+          "Definition 2.3 identifies a special eigenvalue property not claimed for arbitrary 0-1 staircase masks"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1403.6797v1",
+        "material_read": "Abstract and Sections 1 and 2.1, definitions, examples (2.3)-(2.4), and structure of main characterizations",
+        "method": "Full-text original HTML reviewed at relevant definitions, examples, and theorem setup",
+        "title": "Eigenvalue problem for some special class of anti-triangular matrices",
+        "trigger": "General anti-triangular spectral theory possibly covering the staircase matrix"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d194b44-5558-400c-a941-a2bc1f6ba186",
+  "value": {
+    "rationale": "Exact all-depth sensitivity of Gram/covariance structure to a natural triangular product schedule distinguishes PSD feasibility from accurate elementwise or normwise matrix multiplication. The minimal uniform coefficient correction and no-partial-product mask result give a complete algebraic design boundary, not a merely isolated failure example. Interpretation is restricted to exact-arithmetic surrogate and does not promise an accurate production repair.",
+    "status": "PASS"
+  }
+}
