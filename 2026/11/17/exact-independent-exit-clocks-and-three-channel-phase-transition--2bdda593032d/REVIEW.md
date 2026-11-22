@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original map is reduced on the relevant quadrant to one explicitly invertible affine branch. Each required sign condition in the first three iterates is included. The resulting bounded polygon has the exact area \(\alpha^2c(t)\); clipping by the two third-step exit conditions yields the two intersection areas \(d(t)\) and \(h(t)\). Explicit vertex lists and shoelace formulas treat every parameter interval and match continuously at boundaries. The inverse sends the entire survivor polygon into the open quadrant, establishing the all-time inverse similarity and its area factor. The uniform-affine Jacobian argument then proves that the elapsed first-exit time and destination channel are independent, with the exact joint probabilities. The 94-parameter exact-rational checker is corroboration, not a proof of the infinite statement.
+PASS
 
-## Originality — PASS within inspected evidence
+On Q2 the map is affine with matrix A=[[-1,-1],[1,-1]], determinant 2. The six signed constraints for 0,1,2 visits give the exact bounded P_t. Direct rational halfplane clipping at t=1/10,1/3,1/2,3/4,1,3/2,2,3 verified c(t), below-cut area d(t), simultaneous exit area h(t), including switch boundaries. The proof shows A^{-1}(P_t) lies in Q2 throughout t>0, so S_{3+k}=q+alpha A^{-k}P_t for every k; area halves. Constant affine Jacobian maps conditional uniform survivors to the same exit polygon, yielding independence of clock and channel with probabilities 2^-k e_j/c. The finite checks corroborate exact rational branch formulas, not the all-k proof.
 
-The originating Cima–Gasull–Mañosa–Mañosas paper states the qualitative map and focal structure. An exact prior study already gives the Q2 survival area and geometric first-exit **time marginal** for a normalized negative-affine slice. Those claims are prior and are explicitly excluded from the new contribution. The new result splits first exits into all three possible other quadrants and classifies exact piecewise-rational channel probabilities throughout the two-parameter fixed-point regime. The closest positive-affine published record instead uses arclength on a different graph, while another survivor record follows a repelling three-cycle. None implies the new joint law. Unindexed equivalent calculations remain a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The transient exit direction is a natural observable distinguishing behavior after the same dwell time near a repelling focus. Its exact probabilities reveal strong selection regimes, a genuine three-channel region, and an internal change of algebraic branch at \(t=3/4\). A scalar exit-time marginal alone cannot answer that motivated question. The result is exact, self-contained and parameter-uniform over a natural cone; it does not claim global basin dynamics.
+PASS best-of-knowledge: the earlier exact single-quadrant survivor theorem contains the geometric first-exit time marginal, and Cima et al. established qualitative dynamics. Those parts are credited. The assigned contribution is the full two-parameter distribution of exit destination (three channels and t=1/3,3/4,2 transitions) and independence from clock for the *planar area* sampling law. The positive-offset arclength return-section result and three-cycle branch law are different observables and do not imply the new joint distribution.
 
-## Closest work and limitations
+## value
 
-Cima et al., arXiv:2410.01052v1 and arXiv:2503.02411v1, and three cited publicly accessible related records were compared at the level of claims and implications. The original author's graph and entropy results, the prior Q2 geometric duration law, the arclength phase-selection law on a finite image graph, and a prescribed three-cycle survival-area theorem all differ from the new destination-channel problem. The model, initial distribution and first-exit convention are essential. Independent mathematical and publication-priority audit remain pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The new channel-resolved exit distribution identifies which basin boundary a typical transient leaves and shows a nonobvious exact decoupling of exit time from destination across a parameter cone. Three geometrically motivated phase thresholds replace a known scalar escape law with a complete, useful conditional exit classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
