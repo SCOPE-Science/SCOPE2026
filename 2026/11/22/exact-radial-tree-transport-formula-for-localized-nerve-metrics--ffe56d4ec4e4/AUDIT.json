@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All pair classes are explicitly and exhaustively checked: center-to-shell, distinct shells, same shell, shell-to-outside, center-to-outside, outside-to-outside. The ultrametric identity \\(d(x,y)=\\max\\{d(m,x),d(m,y)\\}\\) for distinct radii and the within-shell bound establish the lengths. The trunk \\(H(t)\\) is strictly increasing; each shell dendrogram has nonnegative edges and the required leaf height \\(L(t)\\). The rooted-tree edge-flow formula for optimal transport proves the equality for all probability weights and all centers. The checker independently verifies all pair costs and two independently solved LPs in 3,960 generated instances, and exhibits a four-point non-ultrametric obstruction. The general proof does not depend on the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Tabaghi–Wang, arXiv:2210.12288v2, Theorem 2.1 gives tree Wasserstein edge sums and studies approximation of the ordinary input transport distance by learned ultrametric trees.",
+        "Skandalis–Valette, arXiv:2601.16859v1, Corollary 1.3 gives the established tree-flow mass-cut formula."
+      ],
+      "reasoning": "These broader tree-transport theorems apply once a cost is known to be a tree metric; they do not establish that the specially constructed localized nerve cost is such a metric. The actual novelty is proving this missing hypothesis by the shell tree.",
+      "searches": [
+        "Wasserstein stability of nerve maps finite ultrametric exact localized cost tree decomposition transportation tree earth mover",
+        "McCabe Perea localized nerve map metric ultrametric tree transport exact formula optimal transport",
+        "ultrametric optimal transport Wasserstein tree formula sum edge lengths absolute mass difference dendrogram"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.15938v1 §§1–3, 5",
+      "arXiv:2601.16859v1 §§1, 4",
+      "arXiv:2210.12288v2 §§1–3",
+      "Indexed semantic results: ultrametric Hilbert distortion, heat-flow transport amplification, distance-aware ultrametric color refinement",
+      "Web searches for localized nerve costs combined with ultrametrics and tree-Wasserstein formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "McCabe–Perea §3 proves pseudometricity and a \\(3r\\) Wasserstein comparison, not the tree realization.",
+        "Chen–Tabaghi–Wang §2 provides the exact tree transportation formula but no connection to McCabe–Perea costs.",
+        "A four-point non-ultrametric line cost fails the four-point test, demonstrating that the localized pseudometricity theorem alone cannot imply a tree structure."
+      ],
+      "reasoning": "Known tree-flux transport plus the newly established radial-tree realization implies the claimed formula. Neither prior ingredient independently or jointly implies the radial realization without the novel shell algebra, so the proposed finding is not a quoted corollary of either paper.",
+      "searches": [
+        "McCabe Perea localized nerve map metric ultrametric tree transport exact formula optimal transport",
+        "Wasserstein stability of nerve maps finite ultrametric exact localized cost tree decomposition transportation tree earth mover",
+        "radial shell ultrametric dendrogram tree pseudometric min tent kernel distance cost nerve map"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McCabe–Perea, arXiv:2611.15938v1 §3, Lemma 3.2, expresses the cost as a pullback of a Wasserstein metric on an auxiliary space, not as an edge-weighted tree pseudometric.",
+        "Semantic research search returned related finite ultrametric metric-space and transport norm results but no formula for this localized cost."
+      ],
+      "reasoning": "The target statement is equivalent to a center-dependent tree realization of \\(c_m\\) plus an all-probability tree cut formula, not to the bare fact that \\(c_m\\) is a pseudometric. The auxiliary Wasserstein pullback in the source is not a tree realization.",
+      "searches": [
+        "\"Wasserstein Stability of the Nerve Map\" \"localized cost\" \"ultrametric\"",
+        "localized transport metric c_m min kernel distance plus 2r kernel gap ultrametric tree metric four point exact optimal transport dendrogram",
+        "radial shell ultrametric dendrogram tree pseudometric min tent kernel distance cost nerve map"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected database hits address Hilbert distortion of ultrametrics, Wasserstein amplification on graph heat flows, and ultrametric colour refinement, without a displayed cost matrix or table asserting the radial-tree formula.",
+        "Direct comparison of the original cost definition against the new radial trunk and shell distances gave symbolic equality in all five exhaustive cases."
+      ],
+      "reasoning": "The claim concerns all finite ultrametrics and all probability weights, rather than a numerical invariant in an existing table; no database entry examined implies the identity.",
+      "searches": [
+        "weighted nerve map localized transportation exact formula finite ultrametric tree edge mass",
+        "localized transport metric c_m min kernel distance plus 2r kernel gap ultrametric tree metric four point exact optimal transport dendrogram",
+        "\"Wasserstein Stability of the Nerve Map\" \"localized cost\" \"ultrametric\""
+      ]
+    },
+    "rationale": "The motivating paper defines the localized cost and its transport metric but supplies an auxiliary Wasserstein-space pullback, not an exact radial tree decomposition. Known dendrogram and tree transport results give the edge-flow identity but cannot, without the new radial-shell calculation, identify this distinct localized cost as a tree pseudometric. Full relevant sections of the three most plausible primary sources were inspected; semantic database and web searches found no statement covering this exact all-measures all-centers formula. This is evidence-based originality with residual unindexed-source risk.",
+    "residual_risks": [
+      "An equivalent construction may exist in literature not indexed by the searched services or using a substantially different formulation.",
+      "The two transport background papers cover the known tree-flux ingredient; priority is asserted only for its conjunction with the new radial local-cost realization.",
+      "The proof treats finite ultrametrics only; general metric cost may fail tree representability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same cost and stability uses, but does not assert the finite-ultrametric radial-tree representation or its max-of-tree-cut formula",
+        "evidence": [
+          "arXiv:2611.15938v1, lines 233–260 and 308–350 of accessible HTML, definition of c_m and known comparison bounds",
+          "No occurrence of ultrametric-specific realization in inspected text"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.15938v1",
+        "material_read": "Introduction and related work; §3 definitions of k_r, c_m and d_L^r; Lemma 3.2 and its proof; Proposition 3.3; Theorem 3.4 and surrounding proof; experimental cost discussion",
+        "method": "Read accessible full HTML main body and compared the displayed definitions and theorem implications against the claimed tree representation",
+        "title": "Wasserstein Stability of the Nerve Map",
+        "trigger": "Introduces exactly the localized nerve transportation cost studied here"
+      },
+      {
+        "assessment": "Provides the established exact tree mass-cut formula, but no radial decomposition for the nerve-localized pseudometric",
+        "evidence": [
+          "arXiv:2601.16859v1, Corollary 1.3 explicitly gives the tree edge-imbalance formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.16859v1",
+        "material_read": "Abstract, §1 Introduction, Theorems 1.1–1.2, Corollary 1.3, discussion of tree case and graph transportation",
+        "method": "Read accessible full HTML relevant sections and checked the scope of its transport formula",
+        "title": "On the transportation cost norm on finite metric graphs",
+        "trigger": "Potential general transport theorem dominating the tree-cut calculation"
+      },
+      {
+        "assessment": "Addresses ordinary W1 approximations via ultrametric trees and quotes the tree-cut formula, not a radial exact representation of the localized nerve cost",
+        "evidence": [
+          "arXiv:2210.12288v2, Theorem 2.1 and §1 problem statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.12288v2",
+        "material_read": "Abstract, §1, §2 tree Wasserstein theorem, §3 methodological statement, relevant terminology",
+        "method": "Read accessible full HTML relevant sections and contrasted approximate ordinary transport with exact localized nerve cost",
+        "title": "Learning Ultrametric Trees for Optimal Transport Regression",
+        "trigger": "Potential preexisting ultrametric-tree reduction for all transportation costs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ffe56d4e-c4e4-43ca-92ce-ce5062ad86a5",
+  "value": {
+    "rationale": "The new metric of McCabe–Perea is a natural stability invariant for weighted topology/nerve constructions. On every finite ultrametric, the theorem converts an outer maximum of inner transportation linear programs into exact explicit tree-cut sums for all weights and all scales, exposing its hierarchical geometry and supporting exact repeated comparisons without transport optimization. This is a structural theorem for a broad class, not an isolated small table or normalization. The non-ultrametric four-point obstruction shows the special hypothesis matters.",
+    "status": "PASS"
+  }
+}
