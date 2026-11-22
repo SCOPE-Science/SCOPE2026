@@ -1,0 +1,179 @@
+{
+  "correctness": {
+    "rationale": "Four sample maps from the stated pre-update estimator yield an exact four-moment transfer whose unit determinant is -h(3h²+3uh+u-1). A quadratic energy with exact drift 2F(h,u)e² is positive in e,t throughout the stable range and positive also in d unless u=1/2; independent row-replacement recurrences close the endpoint. Failure of universal mean-square convergence at or beyond the unique root follows from the covariance transfer spectral-radius argument and rank-one spanning; a positive covariance eigenmatrix gives exponential witnesses above the root. Symbolic and 675 exact rational one-step checks in verify.py corroborate all algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1901.08669v1; Qian–Qu–Richtárik: arbitrary subset inclusion laws, expected smoothness, general sufficient complexity bound; no two-row exact covariance frontier identified in inspected theorem and appendix",
+        "arxiv:1902.00071; Gazagnadou–Gower–Salmon: fixed-size minibatch SAGA step-size bounds, not variable-size correlated designs",
+        "arxiv:2610.39537v1; Algorithm 1, Theorem 3.2, Proposition 3.4: residual-tracker estimator and SAGA/JacSketch correspondence, general sufficient step conditions",
+        "2026/11/8/SCOPE-sharp-mean-square-stability-frontier-for-rank-one-residual-track--aa3a11255837; exact full RESULT.md: uniform singleton any number of identical rows; excludes empty/full batches",
+        "2026/10/12/SCOPE-exact-all-component-count-mean-square-stability-of-saga-on-ident--2f3e8a3114f6; exact full RESULT.md: uniform singleton identical SPD components; no joint subset correlation parameter"
+      ],
+      "reasoning": "Arbitrary-sampling analyses have wider eligible subset distributions but establish sufficient rates and step sizes, not a sharp if-and-only-if stability region and its correlation monotonicity. Fixed-size minibatch results do not cover these variable-size distributions. The all-component-count exact theorem contains n=2 but only the u=0 sampling specialization; these broader-looking hypotheses do not imply the proposed full-u conclusions.",
+      "searches": [
+        "SAGA two components both-or-neither sampling stability vs singleton importance sampling",
+        "empty or full minibatch two-row variance reduced stochastic gradient deterministic sampling correlation stability frontier",
+        "arxiv:1901.08669 arbitrary sampling SAGA full-text Theorem 3.1",
+        "arxiv:1902.00071 mini-batch SAGA"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.39537v1; Algorithm 1, Theorem 3.2, Proposition 3.4: residual-tracker estimator and SAGA/JacSketch correspondence, general sufficient step conditions",
+      "arxiv:1901.08669v1; Qian–Qu–Richtárik: arbitrary subset inclusion laws, expected smoothness, general sufficient complexity bound; no two-row exact covariance frontier identified in inspected theorem and appendix",
+      "arxiv:1902.00071; Gazagnadou–Gower–Salmon: fixed-size minibatch SAGA step-size bounds, not variable-size correlated designs",
+      "2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1; exact full RESULT.md: sampler has exactly one index with unequal marginals; cannot vary joint inclusion at fixed marginal 1/2",
+      "2026/11/8/SCOPE-sharp-mean-square-stability-frontier-for-rank-one-residual-track--aa3a11255837; exact full RESULT.md: uniform singleton any number of identical rows; excludes empty/full batches",
+      "2026/10/13/SCOPE-exact-mean-square-stability-cutoff-for-two-component-saga-on-ide--7115b8c3d980; exact full RESULT.md: iid one-index, same normalization after factor two, u=0 only",
+      "2026/10/12/SCOPE-exact-all-component-count-mean-square-stability-of-saga-on-ident--2f3e8a3114f6; exact full RESULT.md: uniform singleton identical SPD components; no joint subset correlation parameter"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.39537v1; Algorithm 1, Theorem 3.2, Proposition 3.4: residual-tracker estimator and SAGA/JacSketch correspondence, general sufficient step conditions",
+        "arxiv:1901.08669v1; Qian–Qu–Richtárik: arbitrary subset inclusion laws, expected smoothness, general sufficient complexity bound; no two-row exact covariance frontier identified in inspected theorem and appendix",
+        "arxiv:1902.00071; Gazagnadou–Gower–Salmon: fixed-size minibatch SAGA step-size bounds, not variable-size correlated designs",
+        "2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1; exact full RESULT.md: sampler has exactly one index with unequal marginals; cannot vary joint inclusion at fixed marginal 1/2",
+        "2026/11/8/SCOPE-sharp-mean-square-stability-frontier-for-rank-one-residual-track--aa3a11255837; exact full RESULT.md: uniform singleton any number of identical rows; excludes empty/full batches",
+        "2026/10/13/SCOPE-exact-mean-square-stability-cutoff-for-two-component-saga-on-ide--7115b8c3d980; exact full RESULT.md: iid one-index, same normalization after factor two, u=0 only",
+        "2026/10/12/SCOPE-exact-all-component-count-mean-square-stability-of-saga-on-ident--2f3e8a3114f6; exact full RESULT.md: uniform singleton identical SPD components; no joint subset correlation parameter"
+      ],
+      "reasoning": "The NEW claim fixes both row marginals and expected cost, varies only subset correlation, and establishes the unique sharp robust mean-square threshold h*(u), strictly decreasing with u. The source gives the iteration and sufficient bounds; singleton sharp results yield h*(0)=1/sqrt3 but not h*(1/4) or h*(1/2), nor the full correlation curve. Consequently the new theorem is not a corollary of the displayed exact prior statements. Alternative unindexed second-moment treatments may still exist.",
+      "searches": [
+        "residual tracking Kaczmarz arbitrary subset two identical rows empty full minibatch joint inclusion probability exact stability",
+        "correlated random subsets zero singleton full sample equal marginals residual tracking Kaczmarz exact mean square stability 3h^2+3uh+u-1",
+        "Xie Qi Han Theorem 3.2 and Proposition 3.4",
+        "Qian Qu Richtarik SAGA arbitrary sampling Theorem 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.39537v1; Algorithm 1, Theorem 3.2, Proposition 3.4: residual-tracker estimator and SAGA/JacSketch correspondence, general sufficient step conditions",
+        "arxiv:1901.08669v1; Qian–Qu–Richtárik: arbitrary subset inclusion laws, expected smoothness, general sufficient complexity bound; no two-row exact covariance frontier identified in inspected theorem and appendix",
+        "2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1; exact full RESULT.md: sampler has exactly one index with unequal marginals; cannot vary joint inclusion at fixed marginal 1/2",
+        "2026/10/13/SCOPE-exact-mean-square-stability-cutoff-for-two-component-saga-on-ide--7115b8c3d980; exact full RESULT.md: iid one-index, same normalization after factor two, u=0 only",
+        "2026/10/12/SCOPE-exact-all-component-count-mean-square-stability-of-saga-on-ident--2f3e8a3114f6; exact full RESULT.md: uniform singleton identical SPD components; no joint subset correlation parameter"
+      ],
+      "reasoning": "The objective and state recurrence are an exact scalar specialization of residual-tracking SAGA/JacSketch with same per-row inclusion marginals. The u=0 singleton point reduces, after the source normalization, to the known singleton sharp threshold. However u>0 permits simultaneously absent or simultaneous two-row updates, changing the second-moment map; none of the inspected singleton theorems implies its cubic-in-step determinant or strict correlation-ordering theorem.",
+      "searches": [
+        "residual tracking Kaczmarz arbitrary subset two identical rows empty full minibatch joint inclusion probability exact stability",
+        "SAGA correlated Bernoulli subset sampling two components step threshold 3 alpha squared 3 alpha u u minus 1",
+        "SAGA JacSketch two identical components correlated Bernoulli selection exact critical step sqrt(17)-1 over 8",
+        "published-finding corpus: SAGA / JacSketch / residual-tracking identical scalar components, correlated Bernoulli subsets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1; exact full RESULT.md: sampler has exactly one index with unequal marginals; cannot vary joint inclusion at fixed marginal 1/2",
+        "2026/11/8/SCOPE-sharp-mean-square-stability-frontier-for-rank-one-residual-track--aa3a11255837; exact full RESULT.md: uniform singleton any number of identical rows; excludes empty/full batches",
+        "2026/10/13/SCOPE-exact-mean-square-stability-cutoff-for-two-component-saga-on-ide--7115b8c3d980; exact full RESULT.md: iid one-index, same normalization after factor two, u=0 only",
+        "2026/10/12/SCOPE-exact-all-component-count-mean-square-stability-of-saga-on-ident--2f3e8a3114f6; exact full RESULT.md: uniform singleton identical SPD components; no joint subset correlation parameter",
+        "Searches returned other exact singleton or covariance results but no exact parameterized u family with (sqrt(17)-1)/8 independent-inclusion endpoint."
+      ],
+      "reasoning": "The relevant existing exact results and database records were read at claim level and their assumptions compared. Their exact constants are for a different sampling law, although the u=0 boundary is already covered and is not claimed separately. No catalogued exact all-parameter table was found; incomplete indexing is a remaining risk.",
+      "searches": [
+        "residual tracking Kaczmarz arbitrary subset two identical rows empty full minibatch joint inclusion probability exact stability",
+        "correlated random subsets zero singleton full sample equal marginals residual tracking Kaczmarz exact mean square stability 3h^2+3uh+u-1",
+        "SAGA JacSketch two identical components correlated Bernoulli selection exact critical step sqrt(17)-1 over 8",
+        "published-finding corpus search: exact two-row mini-batch covariance and threshold"
+      ]
+    },
+    "rationale": "The exact strictly decreasing stability frontier over correlated subset distributions at fixed per-row inclusion probability is not implied by the source sufficient bounds or inspected exact singleton-only theories. The known singleton u=0 case is explicitly identified as prior work. Reviewed all accessible relevant source material and original published results; unindexed specialization remains a risk.",
+    "residual_risks": [
+      "Unindexed papers or theses may contain an equivalent exact two-component arbitrary-subset covariance calculation.",
+      "The conclusion is model-specific and is not a universal optimality claim for all stochastic linear solvers.",
+      "Independent historical priority verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the algorithm but does not present the same exact correlation-dependent two-row threshold in inspected material",
+        "evidence": [
+          "arxiv:2610.39537v1; Algorithm 1, Theorem 3.2, Proposition 3.4: residual-tracker estimator and SAGA/JacSketch correspondence, general sufficient step conditions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.39537",
+        "material_read": "Accessible arXiv HTML: algorithm, assumptions, Theorem 3.2 and Proposition 3.4, discussion of sampling rules",
+        "method": "Full accessible HTML reading of the relevant claims and algorithm with explicit specialization of its estimator",
+        "title": "Efficient variance reduction for randomized Kaczmarz methods via residual-tracking control variates",
+        "trigger": "Source defines precisely the estimator, broad subset sampling, and sufficient convergence theory"
+      },
+      {
+        "assessment": "Allows arbitrary subsets but the analyzed implications are sufficient bounds, not this sharp necessary-and-sufficient two-row curve",
+        "evidence": [
+          "arxiv:1901.08669v1; Qian–Qu–Richtárik: arbitrary subset inclusion laws, expected smoothness, general sufficient complexity bound; no two-row exact covariance frontier identified in inspected theorem and appendix"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.08669",
+        "material_read": "Accessible HTML: algorithm and Theorem 3.1 general step/rate, and relevant appendix derivation",
+        "method": "Read mathematical setup and the sufficient rate theorem; checked whether it supplies an exact stability necessity",
+        "title": "SAGA with Arbitrary Sampling",
+        "trigger": "Potential broad covering theorem for all correlated subsets"
+      },
+      {
+        "assessment": "Fixed-size sampling differs from empty/full mixed batching at equal expected cardinality; no implication of full-u threshold",
+        "evidence": [
+          "arxiv:1902.00071; Gazagnadou–Gower–Salmon: fixed-size minibatch SAGA step-size bounds, not variable-size correlated designs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.00071",
+        "material_read": "Accessible HTML: fixed-size b-nice sampling and relevant step-size results",
+        "method": "Compared sample cardinality and claims rather than only the method name",
+        "title": "Optimal mini-batch and step sizes for SAGA",
+        "trigger": "Possible minibatch sampling coverage"
+      },
+      {
+        "assessment": "Covers unequal singleton probabilities, excludes correlated subset laws of positive probability of size zero or two",
+        "evidence": [
+          "2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1; exact full RESULT.md: sampler has exactly one index with unequal marginals; cannot vary joint inclusion at fixed marginal 1/2"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1/RESULT.md",
+        "material_read": "Complete publicly accessible RESULT.md, including exact state matrices and determinant proof",
+        "method": "Direct statement/implication comparison with singleton-only unequal-marginal model",
+        "title": "Sharp sampling-imbalance frontier for two-row residual-tracking Kaczmarz",
+        "trigger": "Same residual-tracker and two-row geometry"
+      },
+      {
+        "assessment": "Already implies u=0, which is acknowledged; not positive correlation parameter",
+        "evidence": [
+          "2026/11/8/SCOPE-sharp-mean-square-stability-frontier-for-rank-one-residual-track--aa3a11255837; exact full RESULT.md: uniform singleton any number of identical rows; excludes empty/full batches"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-mean-square-stability-frontier-for-rank-one-residual-track--aa3a11255837/RESULT.md",
+        "material_read": "Complete publicly accessible RESULT.md, including exact four-moment matrix and sharp-root proof",
+        "method": "Compared sample-space support and exact threshold at two rows",
+        "title": "Sharp mean-square stability frontier for rank-one residual-tracking Kaczmarz",
+        "trigger": "Same row geometry and sharp mean-square stability"
+      },
+      {
+        "assessment": "Equivalent to u=0 after factor-of-two step rescaling; no u>0 joint inclusion",
+        "evidence": [
+          "2026/10/13/SCOPE-exact-mean-square-stability-cutoff-for-two-component-saga-on-ide--7115b8c3d980; exact full RESULT.md: iid one-index, same normalization after factor two, u=0 only"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/13/SCOPE-exact-mean-square-stability-cutoff-for-two-component-saga-on-ide--7115b8c3d980/RESULT.md",
+        "material_read": "Complete accessible RESULT.md with Lyapunov proof",
+        "method": "Compared matrix update, normalization, and iid singleton sampling",
+        "title": "Exact mean-square stability cutoff for two-component SAGA on identical quadratics",
+        "trigger": "Equivalent SAGA normalization on two identical scalar components"
+      },
+      {
+        "assessment": "General in component count and dimension but requires uniform singleton sampling, therefore does not imply the correlated-subset frontier",
+        "evidence": [
+          "2026/10/12/SCOPE-exact-all-component-count-mean-square-stability-of-saga-on-ident--2f3e8a3114f6; exact full RESULT.md: uniform singleton identical SPD components; no joint subset correlation parameter"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-exact-all-component-count-mean-square-stability-of-saga-on-ident--2f3e8a3114f6/RESULT.md",
+        "material_read": "Complete accessible RESULT.md: algorithm, theorem and exact moment/energy proof",
+        "method": "Matched all-object assumptions and compared singleton versus correlated subset sampling",
+        "title": "Exact all-component-count mean-square stability of SAGA on identical positive-definite quadratics",
+        "trigger": "Broad identical-component SPD result could dominate two-row exact case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8f68962e-d292-4be0-8b0c-9c3656b84f3a",
+  "value": {
+    "rationale": "At fixed inclusion marginals 1/2 and one sampled row on average, only changing whether row inclusions are negatively or positively correlated shifts the sharp robust mean-square stepsize ceiling by a factor ~2.52, even with identical perfectly coherent rows. An exact full-parameter stability boundary isolates a nontrivial sampling-design dependence that existing marginal-only sufficient conditions can obscure, and supplies reproducible exact comparison tests.",
+    "status": "PASS"
+  }
+}
