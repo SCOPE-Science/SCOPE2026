@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T13:51:41.904826Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md e1814464e8c01b5008a958b935c991fa71241101",
+        "Assigned theta_allperiod_check.py 65fd848319b3f780a4fb9a56313badf2f5af5d7c",
+        "Independent direct phase enumeration of (1,2,3) periods four through six"
+      ],
+      "rationale": "Assign every vertex its unique firing phase mod p. For each phase configuration its allowable residual chip count is u_v in [0,a_v-1], with a_v the number of neighbors firing immediately before that vertex, so its number of time-zero microscopic states is exactly product_v a_v. Choosing these predecessors gives a functional digraph whose every directed cycle has length divisible by p. In a theta graph no two vertex-disjoint directed cycles exist; the unique directed cycle uses two complete terminal-to-terminal arms, in one of two orientations; the remaining arm has exactly its L_i acyclic pointing-to-terminal choices. The p global phase choices cancel temporal rotation, and unique single firing forces least period p. Independent exhaustive phase counts on theta(1,2,3) yield four period-4 and two period-5 temporal orbits and zero period-6, agreeing with formula. No general counting assertion relies on this finite sample.",
+      "residual_risks": [
+        "Phase-state bijection assumes nonnegative integer chip counts and synchronous update; no result asserted for transient or higher-firing activity sectors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prisner and Jiang are cited for possible periods/vertex activity rather than an exact labelled temporal orbit census; complete multipartite critical single-pass result concerns a different graph."
+        ],
+        "reasoning": "Distinguish unweighted existence of a p-cycle from weighted multiplicities: three path lengths contribute to opposite cycle coefficients. Broader chip-firing classification may imply count after further nontrivial enumeration; inaccessible 1992 source is a priority risk.",
+        "searches": [
+          "parallel chip firing graph theta minimal activity primitive period orbit counts temporal firing phases divisibility lengths",
+          "Prisner Parallel Chip Firing on Digraphs 1994 Lemma 6.7 Proposition 6.8",
+          "arxiv:1003.0943"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1003.0943",
+        "https://arxiv.org/abs/cond-mat/0601267",
+        "https://doi.org/10.1016/0304-3975(92)90316-8",
+        "https://content.wolfram.com/uploads/sites/13/2018/02/08-5-5.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Divisibility p|L_j+L_k implies an admissible oriented cycle but does not by itself determine the L_i distinct in-tree orientations nor initial chip configurations."
+        ],
+        "reasoning": "The result supplements established cycle-length existence with a new exact multiplicity. A stronger theorem counting all functional orientations might imply it; no conclusive full-text comparison to Bitar-Goles was possible.",
+        "searches": [
+          "parallel chip firing graph theta minimal activity primitive period orbit counts temporal firing phases divisibility lengths",
+          "Bitar Goles 1992 Parallel chip firing games on graphs",
+          "Prisner 1994 parallel chip firing period cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Functional parent-orientation enumeration equivalently counts activity-one phase states; this is not merely the classical period divisibility criterion."
+        ],
+        "reasoning": "Searched firing phases, minimal activity, period multiplicities and theta graph functional graph aliases; no fully inspected identity equating earlier counts for all p>=4 was located.",
+        "searches": [
+          "parallel chip firing graph theta minimal activity primitive period orbit counts temporal firing phases divisibility lengths",
+          "theta graph functional digraph oriented cycle chip firing orbit counts minimal activity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published period-three single-pass counting results concern p=3 and are disclaimed; the sampled table (1,2,3) p=4,5 is generated independently, not presented as complete prior table."
+        ],
+        "reasoning": "No inspected source provides a parameter-wide theta(a,b,c) p>=4 orbit table; failed retrieval is not a novelty certificate.",
+        "searches": [
+          "parallel chip firing graph theta minimal activity primitive period orbit counts temporal firing phases divisibility lengths",
+          "primitive orbit counts parallel chip firing theta graph each vertex once"
+        ]
+      },
+      "rationale": "Classical theta cycle-length divisibility supplies existence, while the exact length-weighted orbit multiplicity across all p>=4 requires counting phase-dependent microscopic chip heights and directed parent forests. Source 3-cycle formula concerns a different p and is excluded.",
+      "residual_risks": [
+        "Bitar-Goles original full text inaccessible; it might contain a functional-digraph count that subsumes the formula",
+        "Historical period-three enumeration only deliberately excluded; some broader unpublished theta census could exist"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports existence aspect; whole-source NOT_COVERING is not justified without complete reading",
+          "evidence": [
+            "Classical cycle-divisibility existence and phase construction credited"
+          ],
+          "identifier_or_url": "https://content.wolfram.com/uploads/sites/13/2018/02/08-5-5.pdf",
+          "material_read": "Lemma 6.7/Proposition 6.8 locations and content described in assigned RESULT.md; original full PDF not independently read in this run",
+          "method": "Compare source theorem as cited and the stated application in assigned proof",
+          "title": "Parallel Chip Firing on Digraphs",
+          "trigger": "Closest classic firing-phase/period criterion"
+        },
+        {
+          "assessment": "Inaccessible plausible source alone does not reject best-of-knowledge novelty; explicit priority risk retained",
+          "evidence": [
+            "Bitar and Goles 1992, Theoretical Computer Science 92, 291-300"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(92)90316-8",
+          "material_read": "Accessible bibliographic record and abstract information only; full 1992 original unavailable",
+          "method": "Compared bibliographic scope and source disclosure against exact theta formula",
+          "title": "Parallel chip firing games on graphs",
+          "trigger": "Plausible earlier exact orbit census"
+        },
+        {
+          "assessment": "General periodicity framework not by itself the length-weighted theta count",
+          "evidence": [
+            "Jiang 2010 discusses firing rates and periods; exact target multiplicities not established by inspected material"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.0943",
+          "material_read": "Title, abstract and assigned discussion of per-vertex firing activity; not a complete new full-text inspection",
+          "method": "Compared periodicity criterion versus quantitative orbit count",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "General period theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact one-activity theta orbit cardinality for every admissible p>=4",
+        "Three-cycle divisibility interference with opposite-arm weights"
+      ],
+      "rationale": "A complete all-period exact enumeration on a natural rank-two graph tests how three competing cycles contribute to periodic chip dynamics. The opposite-arm length weighting distinguishes existence from microscopic temporal multiplicity, and yields a compact arithmetic graph fingerprint with potential use in studies of synchronous firing orbit statistics.",
+      "residual_risks": [
+        "Only the minimal-activity sector is counted, not total periodic orbits or basins."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "At most one arm may have length one, ensuring a simple graph",
+    "No result about periods with multiple firings per vertex or transients",
+    "Historical Bitar-Goles 1992 priority risk explicitly unclosed"
+  ],
+  "schema_version": 1
+}
