@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Proved existence/uniqueness for every n≥2 and positive a,b,T by positive definite K and Lyapunov integral. Projector-block inversion gives an exact covariance, and the previously known OU current identity then yields the rank-two antisymmetric A with a pointwise 2D flux image and exactly computed ±i eigenvalue pair. Heat balance follows from the Stratonovich formula and h_i=-(AK)_ii, with entropy production verified both via bath rates and a positive quadratic current expression. A three-bath parameterization is explicitly positive on epsilon strictly between zero and one quarter, preserves sum=3 and sum of squares=6 and hence fixes eigenvalues, while sigma diverges as the reciprocal of epsilon. A standalone standard-library exact-rational verifier independently solved 36 Lyapunov systems and checked current, spectrum polynomial, heat, and entropy; the proof rather than finite tests provides the general claim. Risks: no bound on currents in a more general network, and no zero-temperature limiting dynamics are claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonetto–Lebowitz–Lukkarinen 2003, arxiv:math-ph/0307035, sections 1–2, use an underdamped nearest-neighbor crystal and self-consistently selected interior reservoirs.",
+        "Defaveri–Olivares–Anteneodo 2021, arxiv:2111.01332, sections II–III, use all-to-all spring coupling but two Langevin baths at the terminal sites and an inertial oscillator array.",
+        "The graph-matched active-forcing public result https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-graph-matched-active-forcing-a-two-temperature-gaussian-law-and--8e5fbca71c6f uses temporally correlated/graph-correlated active forcing instead of independently heated coordinates.",
+        "The three-coordinate feedback public result https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-dissipation-reversals-in-a-three-coordinate-linear-feedbac--729fdc9bb6c2 uses a different drift architecture."
+      ],
+      "reasoning": "The strongest broad mathematical framework (general Lyapunov/OU solvability) is acknowledged and used; by itself it does not assert the joint, all-positive-parameter low-rank statement or the sharp thermodynamic nonidentifiability family. The physically closest all-to-all oscillator paper does not have independently thermostatted coordinates, and its underdamped two-endpoint conclusions do not imply the asserted arbitrary bath heat-vector formula.",
+      "searches": [
+        "all-to-all harmonic network Gaussian baths exact probability current eigenvalues temperature variance one pair rotational modes",
+        "harmonic mean field Langevin multi-temperature rank two irreversible Onsager current",
+        "Brownian gyrator three oscillator harmonic network three heat reservoirs steady heat current circulation reversals exact phase boundaries",
+        "arxiv:math-ph/0307035 sections 1–2",
+        "arxiv:2111.01332 sections II–III",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-graph-matched-active-forcing-a-two-temperature-gaussian-law-and--8e5fbca71c6f",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-dissipation-reversals-in-a-three-coordinate-linear-feedbac--729fdc9bb6c2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math-ph/0307035",
+      "https://arxiv.org/pdf/0710.3735",
+      "https://arxiv.org/pdf/1610.02976",
+      "https://arxiv.org/pdf/2111.01332",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-universal-two-temperature-multiplier-for-bipartite-skew-ornstein--68bc5baaf3bc",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-graph-matched-active-forcing-a-two-temperature-gaussian-law-and--8e5fbca71c6f",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-dissipation-reversals-in-a-three-coordinate-linear-feedbac--729fdc9bb6c2",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-inverse-spectrum-dissipation-and-anisotropy-frontier-for-p--862d45a61789"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2016 Zia general OU identity gives an antisymmetric covariance-drift commutator. Applied to the special K here, substantial further projector algebra recovers our explicit tensor; the general commutator identity is not new.",
+        "2007 Filliger–Reimann torque formula has precisely two heat baths and two degrees of freedom, and by itself does not control a three-plus-bath fixed-temperature-moment cost.",
+        "The planar inverse-spectrum public result https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-inverse-spectrum-dissipation-and-anisotropy-frontier-for-p--862d45a61789 fixes two-dimensional Gaussian spectra and noise anisotropy but not the present n-coordinate complete-graph multibath model."
+      ],
+      "reasoning": "A known sufficient algebraic technique is not confused with prior publication of its all-parameter consequences. Even granting all earlier general formulas, the stated heat-vector identities and fixed mean/variance unbounded entropy while preserving the two nonzero A-eigenvalues need an additional specific calculation and the explicit positivity-constrained three-temperature family. No inspected source contains this consequent statement; the possibility of an unlocated specialized corollary is retained as a risk.",
+      "searches": [
+        "All-to-all coupled multibath Brownian gyrator thermal circulation rank two, one collective rotational mode, entropy production harmonic-to-arithmetic temperature contrast",
+        "Unbounded entropy production at fixed mean and variance of multiple bath temperatures and fixed probability angular momentum singular value in Brownian gyrator networks",
+        "all-to-all harmonic network Gaussian baths exact probability current eigenvalues temperature variance one pair rotational modes",
+        "arxiv:1610.02976 p.2 formula (7)",
+        "arxiv:0710.3735 p.3 formula (7)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-inverse-spectrum-dissipation-and-anisotropy-frontier-for-p--862d45a61789"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zia et al., 2016, arxiv:1610.02976, p.2, derive the general linear Gaussian angular-momentum matrix as the antisymmetric part of the drift-covariance product.",
+        "Filliger and Reimann 2007, arxiv:0710.3735, pp.1–3, give a planar two-temperature gyrator, not a complete-graph all-bath rank theorem.",
+        "Published bipartite skew Ornstein–Uhlenbeck result https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-universal-two-temperature-multiplier-for-bipartite-skew-ornstein--68bc5baaf3bc treats antisymmetric inter-group drift and a universal two-bath multiplier, unlike the symmetric harmonic drift here."
+      ],
+      "reasoning": "A convention change between probability angular momentum and A merely rescales or transposes the antisymmetric tensor and is already known. Those general identities determine a covariance in principle but do not state the rank-two **pointwise flux plane**, explicit all-bath heat/entropy formula, or fixed-first-two-moment unbounded-dissipation family. The last properties require the distinct complete-graph projector calculation and a positive-temperature nonlinear family; no equivalent theorem was identified.",
+      "searches": [
+        "Fully connected overdamped harmonic Langevin network with n independent heat baths has an exact rank-two integrated probability-current matrix proportional to temperature differences, independent of number of baths",
+        "All-to-all coupled multibath Brownian gyrator thermal circulation rank two, one collective rotational mode, entropy production harmonic-to-arithmetic temperature contrast",
+        "overdamped Langevin complete graph different temperatures antisymmetric covariance circulation rank two",
+        "arxiv:1610.02976 pp. 2–3, equations (7)–(10)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-universal-two-temperature-multiplier-for-bipartite-skew-ornstein--68bc5baaf3bc"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published research records under flux rank, all-site thermal transport, fixed-moment dissipation and their synonyms produced related rather than exact table/theorem entries.",
+        "No computed covariance or flux table in the inspected primary texts is a complete-graph all-thermostatted arbitrary-n formula."
+      ],
+      "reasoning": "Neither a finite graph table nor a numerical scan could dominate the quantified statement for all integer dimensions at least two and all positive real parameters. No exact previously published tabulation of the defined all-site heat/current tensor family was identified in the bounded evidence; absence from an index is not asserted as proof of novelty.",
+      "searches": [
+        "Fully connected overdamped harmonic Langevin network with n independent heat baths has an exact rank-two integrated probability-current matrix proportional to temperature differences, independent of number of baths",
+        "Gaussian Langevin complete graph harmonic potential temperature-dependent heat flow exact formula weighted arithmetic harmonic means",
+        "Unbounded entropy production at fixed mean and variance of multiple bath temperatures and fixed probability angular momentum singular value in Brownian gyrator networks",
+        "arxiv:0710.3735 pp.1–3",
+        "arxiv:2111.01332 pp.1–2"
+      ]
+    },
+    "rationale": "Compared claims and hypotheses with the primary 2007 two-coordinate gyrator, the 2016 general OU angular-momentum theorem, the 2003 multi-thermostat nearest-neighbor harmonic crystal, and the 2021/2022 two-terminal all-to-all inertial model. The general Gaussian commutator formula is expressly identified as prior work: the claimed new scientific content is its arbitrary-n, fully heated complete-graph rank-two specialization with exact reservoir heat/entropy law and an explicit fixed-first-two-temperature-moments family with unbounded entropy at a constant circulation eigenvalue pair. Bounded searched public record results were compared by implication; none examined contains or directly establishes this entire parameter-specific thermodynamic theorem. Priority remains subject to unindexed equivalent specializations.",
+    "residual_risks": [
+      "General linear Gaussian theory makes this solvable in principle; a previously unnoticed published all-to-all multibath specialization may already compute the same consequences.",
+      "Semantic research-record retrieval and bounded full-text searches do not certify priority or independence.",
+      "Only first portions of the longer 2003 and 2021 comparison papers were read; their appendices may contain relevant formulas not explicitly indexed, though their clearly different model definitions limit direct implication.",
+      "The physical interpretation of heat requires the specified overdamped equal-mobility Stratonovich convention; other thermostats and bond-resolved heat definitions are outside scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different inertial phase-space chain with nearest-neighbor springs and interior bath temperatures selected by self-consistency; does not establish complete-graph overdamped all-temperature current rank, entropy formula or fixed-moment divergence.",
+        "evidence": [
+          "arxiv:math-ph/0307035v1, public 17 July 2003, pp. 1–5, sections 1–2, equations (2.3)–(2.13)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math-ph/0307035",
+        "material_read": "Full-length source introduction, sections 1 and 2 model/equations and displayed Lyapunov stationary covariance in text pages 1–5.",
+        "method": "Read PDF text lines 0–244 and the model/rate hypotheses; compared state vector, coupling graph and interior bath protocol.",
+        "title": "Fourier’s Law for a Harmonic Crystal with Self-consistent Stochastic Reservoirs",
+        "trigger": "A classical system with a separate Langevin reservoir at every site might dominate an arbitrary all-site temperature result."
+      },
+      {
+        "assessment": "Establishes a planar two-bath torque, not an all-dimensional complete-graph rank-two plane or fixed-moment dissipation divergence.",
+        "evidence": [
+          "arxiv:0710.3735v1, public 19 October 2007, equations (1)–(7), pp. 1–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0710.3735",
+        "material_read": "Page 1 introduction and model; pages 2–3 Fokker–Planck current and torque formula, conclusions and parameter assumptions.",
+        "method": "Inspected displayed PDF pages 2 and 3, plus parsed text from the 4-page source.",
+        "title": "The Brownian gyrator: a minimal heat engine on the nano-scale",
+        "trigger": "Foundational exact two-bath gyrator could already cover current and heat identities."
+      },
+      {
+        "assessment": "General Gaussian commutator/NESS framework is prior and is explicitly credited. The paper does not state the rank-two fully connected multibath reduction or the fixed-mean-and-variance unbounded-entropy construction.",
+        "evidence": [
+          "arxiv:1610.02976, public October 2016, section II, equations (4)–(8); section III, equation (10)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1610.02976",
+        "material_read": "Pages 1–3, including definitions of angular momentum, covariance-drift commutator, two-time correlations and the Gaussian two-temperature example.",
+        "method": "Read text and displayed PDF pages 2 and 3; compared general matrix identity versus claimed specialized network heat/entropy and fixed-moment family.",
+        "title": "Manifest and Subtle Cyclic Behavior in Nonequilibrium Steady States",
+        "trigger": "General probability angular momentum for linear Gaussian models is the closest potential broader-coverage theorem."
+      },
+      {
+        "assessment": "Inertial system with only two thermally connected endpoints; not an overdamped network with N independent bath temperatures.",
+        "evidence": [
+          "arxiv:2111.01332v2, 9 November 2021, section II equations (2)–(5), section III equations (11)–(15)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2111.01332",
+        "material_read": "Pages 1–2, model section II and heat-transport section III including endpoint thermostat equations and Green function.",
+        "method": "Inspected PDF displayed pages 1 and 2 and parsed pp. 1–2; compared reservoir placement and state dimensions.",
+        "title": "Heat conduction in chains of non-locally coupled harmonic oscillators: mean-field limit",
+        "trigger": "Its fully connected harmonic graph matches the potential topology and could cover arbitrary thermal transport."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "18ed8005-00fa-47cd-a1c4-491778d9eb17",
+  "value": {
+    "rationale": "The question asks how many distinct irreversible circulation channels arise from arbitrarily many thermal reservoirs on a dense harmonic network, and whether fixed circulation strength measures energetic irreversibility. Exact rank-two collapse of the entire pointwise current field, an explicit complete-graph bath heat/entropy law, and the constructive failure of any entropy-production bound at fixed first two temperature moments and fixed nonzero integrated-circulation eigenvalues answer physically motivated structural questions. The fixed-moment counterfamily is not a mere renaming or numerical curiosity; it proves that a natural observable of macroscopic nonequilibrium rotations can underdetermine thermodynamic cost without varying the mean or variance of the bath ensemble. Scope is restricted to this natural uniform-coupling solvable family; no general network claim is made.",
+    "status": "PASS"
+  }
+}
