@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The rectangle Fourier transform factorizes exactly. Two controlled endpoint expansions recover the leading axis contribution and the oscillatory Fresnel boundary-layer correction; a fixed interior arc contributes only \(O(R^{-4})\). The key nonstandard step is uniform-in-phase dominated convergence after scaling the endpoint by \(R^{-1/2}\), combined with averaging a nonstationary sine-square at frequency \(\asymp\sqrt R\). It yields an honest little-o remainder for arbitrary real radii. The exact liminf uses positivity of the leading coefficient and infinitely many simultaneous rational/continued-fraction approximations for the reverse inequality. Direct numerical quadrature is a supplementary sanity check, not an infinite proof.
+PASS
 
-## Originality
+The Fourier transform of 1_{[-a,a]x[-b,b]} is the exact product 4 sin(a xi_1)sin(b xi_2)/(xi_1 xi_2). On the circle the quadrant integral reduces to 64/R^4 times a singular but integrable trigonometric product. A fixed interior arc contributes O(R^-4). Near each axis, integrating sin^2(bR theta)/theta^2 gives the O(R^-3) term; subtracting the frozen sin^2(aR) term leaves a boundary layer theta=x/sqrt(R). Uniform-in-phase dominated convergence of the coefficient functions, together with nonstationary oscillatory averaging of sin^2(b sqrt(R)x), yields the Fresnel correction of order R^-7/2. Explicit integrals of (1-cos ax^2)/x^2 and sin(ax^2)/x^2 each equal sqrt(pi*a/2), giving the recorded 8sqrt(2pi) coefficients and little-o remainder for every fixed a,b>0 and arbitrary real R. Rescaled bounded subsequences force both axial sine phases to zero; rational exact matching or continued-fraction approximants for b/a give the upper liminf, so the sharp constant is 8sqrt(2pi)(sqrt a+sqrt b). Independent direct Simpson quadrature at radii 376.991 for a=b=1 and 530.929 for a=1,b=sqrt2 gave rescaled error about -0.184 and -0.125, respectively; this is bounded numerical corroboration, not proof.
 
-**PASS relative to inspected primary evidence, with historical-priority risk.** The 1997 polyhedra paper gives a square Fourier formula and order bounds; the 1998 planar convex-body paper gives enhanced square decay estimates along integer radii, but its relevant Lemma 3.12(ii) is one-sided and supplies no limiting constant. The 2003 theorem and the November 2026 motivating paper concern universal decay bounds rather than an exact rectangle-specific two-term expansion. The prior research-index searches uncovered geometric Fourier-zero, spherical harmonic and finite Fourier rectangle findings, but no equivalent all-radius formula or sharp arbitrary-aspect-ratio liminf. Related older diffraction literature remains a stated residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The known sharper-than-generic square decay along resonant radii motivates computing its *sharp nonzero coefficient*; the answer is not a generic \(R^{-3}\) estimate, a numerical fit, or a merely rescaled special square. The theorem addresses all rectangles, including irrational aspect ratios whose axes cannot resonate exactly, and distinguishes the universal oscillatory \(R^{-3}\) profile from the strictly positive \(R^{-7/2}\) resonance floor. It supplies a complete sharp asymptotic invariant for a natural convex Fourier-transform model.
+PASS best of knowledge for the all-aspect-ratio two-term oscillatory expansion and liminf. Earlier polygon and convex-domain Fourier mean-decay papers establish base product formulas, R^-3 generic rates and certain square resonant upper bounds; the inspected specific statements do not identify this R^-7/2 exact constant uniformly over all real radii. Priority from older diffraction or polyhedral Fourier-asymptotics remains a risk.
 
-## Closest literature and remaining limitations
+## value
 
-The main comparisons are Brandolini–Colzani–Travaglini (1997), Brandolini–Rigoli–Travaglini (1998, Lemma 3.12), Brandolini–Hofmann–Iosevich (2003), and Iosevich–Merlo–Mourgoglou (2026, Theorem 1.1). Earlier optical/diffraction equivalents and uninspected translated literature could overlap. The theorem is parameterwise, planar, and not a general polygonal or higher-dimensional statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classical rectangle/square Fourier decay identifies exceptional near-resonant angular averages, but rate bounds do not give the unavoidable positive second-order floor. A complete all-real-radius two-term expansion and exact lower envelope for every fixed aspect ratio quantify the sharp resonance obstruction rather than merely improving a generic O(R^-3) bound. Rational and irrational aspect ratios share a surprising exact constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
