@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T09:53:43.355010Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Mycielski edges give A:(B,Bprime), Aprime:(B,w), B:(A,Aprime), Bprime:(A,w), w:(Aprime,Bprime). For class counts x=(p,q,r,s,z), each unselected class is dominated iff an adjacent class count is positive. Exchanging one guard of an adjacent class yields exactly the same occupancy security test as original vertex-by-vertex quantifiers because each class consists of true neighborhood twins. With <=5 guards and a,b>=4 any nonapex occupancy >=4 is impossible; z=0 forces p=r=2 and q+s=1; z=1 forces p,r>=1, both p+q,r+s>=2, except the single boundary fill case p=3,a=4 or r=3,b=4. The budget forces the four ordinary apex profiles and two boundary profiles, and direct substitution proves all surviving exchanges. Each pattern yields the binomial labelled count. A separately written original-graph adjacency/bitset enumerator checked ALL subsets of size 0..5 at seven parameter pairs (4,4),(4,5),(5,4),(5,5),(4,6),(6,4),(5,6), finding no sub-five secure sets, exactly 6/7/8 expected profiles and total counts 804,1330,1330,2225,2046,2046,3435; finite checks corroborate, not replace, the unlimited proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary complete multipartite polynomial theorem explicitly requires all cross-part edges; the target Mycielskian contains induced C5 w-A_prime-B-A-B_prime-w, so is not complete multipartite.",
+          "Resultary chain-graph theorem covers bipartite chain graphs and their scalar secure domination number, while the target has an induced odd cycle and a five-class shadow/apex structure.",
+          "Bhutani et al. Theorem 3.3 establishes gamma_s(mu(K_{m,n}))=5 for m,n>=4 and shows one five-guard witness; it omits the complete-minimizer census.",
+          "Nayana--Iyer 2022/2023 publisher abstract states generalized Mycielskians of paths and cycles, with bounds for general G; its full manuscript was inaccessible in this run."
+        ],
+        "reasoning": "Neither the polynomial for complete multipartite graphs nor the chain-graph theorem can be specialized to the target graph. General bounds and existence of one optimal configuration do not imply the number or necessary-and-sufficient shapes of every optimum. An inaccessible operator paper retains an explicit residual risk; the accessible abstract does not establish decisive coverage.",
+        "searches": [
+          "Resultary semantic: secure domination number and enumerations of minimum sets in Mycielskian graphs and generalized Mycielskians",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-secure-domination-number-of-connected-chain-graphs--558922dcbbe9/RESULT.md",
+          "https://doi.org/10.3233/JIFS-223326",
+          "https://arxiv.org/abs/2512.23989"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.17897",
+        "https://sunore.co.za/wp-content/uploads/2017/03/Burger-AP-Questions-Mathematicae-2016.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-secure-domination-number-of-connected-chain-graphs--558922dcbbe9/RESULT.md",
+        "https://doi.org/10.3233/JIFS-223326",
+        "https://doi.org/10.1007/s13226-022-00331-9",
+        "https://arxiv.org/abs/2512.23989",
+        "https://combinatorialpress.com/jcmcc-articles/volume-113/co-secure-domination-in-mycielski-graphs/",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-minimum-secure-dominating-sets-in-mycielskians-of-complete--9e4cf738522c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bhutani et al. Theorem 3.3: scalar gamma_s=5, with one witness {v1,v2,v_{m+1},v_{m+2},w}; no enumeration/necessity of all optimum profiles.",
+          "Burger et al. Proposition 2 and Proposition 3 characterize gamma_s=2 and 3 using spanning certificates; Proposition 4 and Corollary 1 state existence of a minimum secure dominating set whose guards all defend, not the full collection when gamma_s=5.",
+          "Resultary complete multipartite theorem applies only to complete multipartite graph edges; the target has an induced odd 5-cycle and thus fails the domain."
+        ],
+        "reasoning": "Scalar optimum size + one witness cannot determine all optima. A generic structural property of minimum sets does not imply exact eight-profile enumeration without further nontrivial specialization and counting. The assigned theorem supplies the missing equivalence and combinatorial classification; the six generic and two a=4/b=4 exceptions are not previously established by these implications.",
+        "searches": [
+          "https://arxiv.org/abs/2603.17897",
+          "https://sunore.co.za/wp-content/uploads/2017/03/Burger-AP-Questions-Mathematicae-2016.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-secure-domination-number-of-connected-chain-graphs--558922dcbbe9/RESULT.md",
+          "Web: On minimum secure dominating sets of graphs Burger de Villiers van Vuuren 2016 full text",
+          "Resultary semantic: secure domination number and enumerations of minimum sets in Mycielskian graphs and generalized Mycielskians"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhutani et al. arXiv:2603.17897, Definition 1.1 and Section 3.2, uses the same outside-vertex -> adjacent defender -> dominating swap quantifiers.",
+          "Burger et al. 2016 pp.189-202 defines ordinary secure domination and supplies general external-private-neighbor structure plus complete gamma_s<=3 characterizations, but not a five-guard census for this Mycielskian.",
+          "The assigned five-class profile is an exact quotient by equal-neighborhood twin classes, not a different notion of co-secure, secure-total or simultaneous security."
+        ],
+        "reasoning": "The five classes A,A_prime,B,B_prime,w of the ordinary Mycielski construction yield the same security definition as the principal primary source. The occupancy reduction is an equivalent formulation of each candidate set, but neither prior complete primary source supplies the eight admissible profile list or the labelled count. Menon--Chithra uses a set-wise security inequality with different quantifiers; co-secure domination reverses attack/guard quantifiers.",
+        "searches": [
+          "Resultary semantic: secure dominating sets Mycielskian complete bipartite K_{a,b} all minimum configurations enumeration exact labeled count",
+          "Resultary semantic: secure domination polynomial Mycielski graph Kmn minimum sets multiplicity true twins",
+          "Web: secure domination Mycielskians complete bipartite graph number minimum secure dominating sets classification 2025 2026",
+          "https://arxiv.org/abs/2603.17897",
+          "https://sunore.co.za/wp-content/uploads/2017/03/Burger-AP-Questions-Mathematicae-2016.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first Resultary hit is the same assigned record, not independent prior art; other retrieved published records concern different domination variants or graph families.",
+          "Bhutani et al. full text Section 3.2 gives the scalar theorem, not the M(a,b) coefficient polynomial or the eight profile table.",
+          "Independent direct enumeration of seven labelled Mycielskians yielded 804, 1330, 1330, 2225, 2046, 2046 and 3435 optima for (a,b)=(4,4),(4,5),(5,4),(5,5),(4,6),(6,4),(5,6); these are confirmations, not pre-existing catalogue entries."
+        ],
+        "reasoning": "No exact indexed predecessor table or generating function was found. A negative search is not proof of novelty. Similar numerical values could occur in unindexed datasets or full-text sources, which remain possible historical-priority risks.",
+        "searches": [
+          "Resultary semantic: secure dominating sets Mycielskian complete bipartite K_{a,b} all minimum configurations enumeration exact labeled count",
+          "Web: secure domination polynomial Mycielski graph complete bipartite minimum secure dominating sets exact enumeration",
+          "Web: secure domination Mycielskians complete bipartite graph number minimum secure dominating sets classification 2025 2026",
+          "https://arxiv.org/abs/2603.17897"
+        ]
+      },
+      "rationale": "The complete all-minimizer classification and labelled counting polynomial on ordinary Mycielskians of K_{a,b}, a,b>=4, are not supplied by the earlier scalar minimum theorem or by the inspected generic secure-domination and different-family theorems. Full primary text of Bhutani--Christiana--Ulrickson and Burger--de Villiers--van Vuuren, and full relevant Resultary mathematical records, were compared by mathematical implication. This is best-of-knowledge priority, not proof of historical firstness; one older generalized-Mycielskian paper remained accessible at abstract level only because protected full text required a disconnected VPN.",
+      "residual_risks": [
+        "Historical priority is not provable by finite Resultary and web searches; older unindexed optimum-count tables may exist.",
+        "Nayana--Iyer 2022/2023 full text unavailable after open/arXiv searches and a VPN-disconnected authorized retrieval; accessible abstract is not a whole-document noncoverage certificate.",
+        "The assigned result is a specialized minimum-layer enumeration, not a polynomial for every set size.",
+        "A published Resultary hit matching this title is the same assigned record, not independent prior art."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3.3 gives minimum five for both shore sizes >=4 and explicitly omits necessity, displaying one witness. It does not classify or count every minimum set. It is credited as prior minimum-size theorem.",
+          "evidence": [
+            "https://arxiv.org/abs/2603.17897, full rendering lines 248-269, especially Theorem 3.3 and proof lines 258-269"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.17897",
+          "material_read": "Complete accessible arXiv full-text rendering, including definitions, Sections 1 through 5, Section 3.2 Theorems 3.2-3.3 and theorem proof, bibliographic context",
+          "method": "Read the rendered arXiv primary paper from title/abstract through bibliography, inspecting theorem and witness rather than relying on abstract",
+          "title": "On the Secure Domination of Mycielskian Graphs",
+          "trigger": "Exactly same ordinary Mycielskian, base graph K_{m,n}, security quantifiers and known scalar optimum"
+        },
+        {
+          "assessment": "Provides general external-private-neighbor characterization, gamma_s 1/2/3 graph classes, and existence of all-defenders minimum set for minimum degree>=2; no enumeration of gamma_s=5 optimum configurations in target Mycielskians. These general facts are prior and not claimed novel.",
+          "evidence": [
+            "https://sunore.co.za/wp-content/uploads/2017/03/Burger-AP-Questions-Mathematicae-2016.pdf, printed pp.189-202 Sections 2-4, Propositions 2-4, Corollary 1"
+          ],
+          "identifier_or_url": "https://sunore.co.za/wp-content/uploads/2017/03/Burger-AP-Questions-Mathematicae-2016.pdf",
+          "material_read": "Complete 14-page lawful author-hosted PDF in parsed text and relevant page images; Sections 2-4, Propositions 1-4, tables and conclusion",
+          "method": "Read PDF text through concluding references and inspected original page screenshots of title page and structural figure",
+          "title": "On minimum secure dominating sets of graphs",
+          "trigger": "Plausibly broader 2016 structural treatment of all minimum secure dominating sets, same quantifiers"
+        },
+        {
+          "assessment": "Target Mycielskian not complete multipartite (contains induced C5); no direct mathematical specialization.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c/RESULT.md, graph-family hypothesis and three support cases"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c/RESULT.md",
+          "material_read": "Complete Resultary RESULT.md: finding, proof, polynomial, assumptions, verification, prior-work comparison",
+          "method": "Retrieved and read the full published mathematical source file by GitHub connector",
+          "title": "Secure domination polynomial of complete multipartite graphs",
+          "trigger": "General full-cardinality secure-domination polynomial might dominate the target enumeration if its graph class includes the operator"
+        },
+        {
+          "assessment": "Covers bipartite chain graphs rather than their nonbipartite Mycielskians; only scalar minimum, not all minimizers.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-secure-domination-number-of-connected-chain-graphs--558922dcbbe9/RESULT.md, assumptions and boxed formula"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-secure-domination-number-of-connected-chain-graphs--558922dcbbe9/RESULT.md",
+          "material_read": "Complete Resultary RESULT.md: main theorem, leaf-twin reduction, general lower/upper bounds, and references",
+          "method": "Retrieved and read full published result by GitHub connector",
+          "title": "Exact secure domination number of connected chain graphs",
+          "trigger": "Related scalar secure-domination for base family including complete bipartite graphs"
+        },
+        {
+          "assessment": "Abstract identifies paths and cycles and general scalar bounds; it does not establish target all-minimizer table. Full-text priority remains a real access risk.",
+          "evidence": [
+            "https://journals.sagepub.com/doi/10.3233/JIFS-223326, abstract (published online December 16, 2022)"
+          ],
+          "identifier_or_url": "https://doi.org/10.3233/JIFS-223326",
+          "material_read": "Publisher bibliographic record, full abstract and cited-source listing only; full paper not retrieved",
+          "method": "Searched for arXiv/preprint and lawful OA copy; protected institutional retrieval reported VPN disconnected; no retry or bypass",
+          "title": "On secure domination number of generalized Mycielskian of some graphs",
+          "trigger": "Older paper with matching operator and ordinary secure domination; plausible general result or appendix might imply the special case"
+        },
+        {
+          "assessment": "Abstract studies a different security condition quantified over all selected subsets X, rather than one attacked outside vertex with one adjacent guard; no direct same-parameter implication established.",
+          "evidence": [
+            "https://ideas.repec.org/a/spr/indpam/v54y2023i4d10.1007_s13226-022-00331-9.html, exact abstract definition"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13226-022-00331-9",
+          "material_read": "Metadata and complete abstract only; explicit inequality-style set security definition",
+          "method": "Read scholarly abstract through RePEc and bibliographic metadata; compared definitions",
+          "title": "Secure domination of some graph operators",
+          "trigger": "Older paper involving generalized Mycielskians and a similarly named security parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is a natural graph operator applied to a classical two-parameter extremal family, and the invariant is the complete set of optimal one-move-defensible guard placements. The result resolves a genuine structural classification absent from the known scalar optimum gamma_s=5: six general profile types, two exact shore-size-four exceptions, and exact labelled multiplicities for the full infinite a,b>=4 regime. The count quantifies redundancy and boundary effects not derivable from one optimum witness. It neither relies solely on a verifier nor claims a paper-sized downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2603.17897",
+    "https://sunore.co.za/wp-content/uploads/2017/03/Burger-AP-Questions-Mathematicae-2016.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-secure-domination-number-of-connected-chain-graphs--558922dcbbe9/RESULT.md",
+    "https://doi.org/10.3233/JIFS-223326",
+    "https://doi.org/10.1007/s13226-022-00331-9",
+    "https://arxiv.org/abs/2512.23989",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/exact-minimum-secure-dominating-sets-in-mycielskians-of-complete--9e4cf738522c"
+  ],
+  "disposition": "passed",
+  "final_claim": {
+    "disposition": "passed",
+    "original_scope": "For ordinary Mycielskians of K_{a,b}, all integers a,b>=4, exact five-class occupancy classification of every size-five secure dominating set: six unconditional profiles and size-four shore exceptional profiles; exact labelled count M(a,b) and gamma_s=5, the latter already known.",
+    "reason": "The exact five-class criterion, all eight profiles and binomial count survive, no new research-file edit needed. The earlier minimum-size theorem is expressly credited; originality attaches to the complete minimizer classification and labelled census, qualified by accessible-literature limitations.",
+    "title": "Exact minimum secure dominating sets in Mycielskians of complete bipartite graphs"
+  },
+  "limitations": [
+    "Only ordinary Mycielskians of complete bipartite K_{a,b} with a,b>=4; not all-cardinality secure domination polynomial or other operators.",
+    "Independent exhaustive vertex tests cover seven finite pairs and cannot by themselves establish all a,b.",
+    "General original paper arXiv:2603.17897 supplies known scalar minimum.",
+    "Authorized Oxford full-text retrieval for Nayana--Iyer 2022/2023 was blocked by disconnected VPN; abstract restriction to paths/cycles does not prove the rest of manuscript lacks all relevant statements.",
+    "Historical priority remains qualified, with no fabricated independence or external certification.",
+    "Publication not_ready is a public metadata/privacy transport blocker, not a negative scientific axis."
+  ],
+  "schema_version": 1
+}
