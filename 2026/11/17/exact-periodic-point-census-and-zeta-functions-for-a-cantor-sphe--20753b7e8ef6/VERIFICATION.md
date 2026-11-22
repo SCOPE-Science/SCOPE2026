@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the exact periodic census
+# Independent mathematical audit
 
-The proof of the all-parameter and all-period claim is the torus-kernel/Burnside/itinerary argument in `RESULT.md`. Its only external mathematical premise is the specified conjugacy and Fatou classification of Fletcher and Martin, arXiv:2611.08773v1, Section 6.
+## correctness
 
-Run `python3 verify.py` to repeat finite, exact modular tests. The checker treats a point on the torus as a pair of residues modulo a sufficiently fine integer grid; it tests whether multiplication followed by an optional coordinate reflection returns either the same point or its simultaneous negative, and identifies the two points of each pillow class. For eleven small expansion/reflection examples, these direct classes match the determinant formula. It also checks each symbolic word for five parameter pairs and periods through eight, and checks Möbius inversion divisibility.
+PASS
 
-Observed standard output:
+Fletcher–Martin Proposition 6.3(i) identifies J(f) with the two-symbol shift times S² and the angular maps descend from y->dy and y->m(y1,-y2) on R²/(2Z) with pillow involution y~-y. A word w with r inner branches gives A=Q diag(1,(-1)^r), Q=d^{n-r}m^r. Pillow fixed classes are (ker(A-I) union ker(A+I))/+-; Burnside gives half the sum of determinant moduli, Q²+(-1)^r. Sum over binomially many words cancels sign for n>=1 giving D^n. Original Theorem 1.1/6.1 implies only infinity adds an extra periodic Fatou point, so total D^n+1 and the stated rational Artin-Mazur zeta. Independently enumerated torus pillow classes Q=3: 10 orientation preserving, 8 reflection, and n=3 d=2 m=3 weighted sum 13³. The global conjugacy is an inspected published premise, not re-proved by this audit.
 
-```text
-VERIFY_OK modular_pillow_instances=11 binary_words=2550 primitive_n_up_to=8
-EXAMPLE_d2_m3 fixed_J_n_1_to_5 [13, 169, 2197, 28561, 371293]
-FINITE_CHECK_ONLY proof_of_all_periods_is_analytical
-```
+## originality
 
-The finite checks do not certify infinitely many words, higher dimensions, or the existence of the global quasiregular map. The exact infinite theorem follows from the proof in `RESULT.md`. Independent audit has not been performed.
+PASS
+
+Full Fletcher–Martin Theorem 1.1, Section 6 and Proposition 6.3 establish the same geometric model and entropy log D, but their fixed-point discussion establishes density, not counts. The exact branched-pillow correction and cancellation yield distinct-point periodic census and zeta; a topological-entropy identity alone does not imply the fixed-point counts. General torus endomorphism formula is a standard ingredient, but the two-branch application is not a recorded numerical table. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+A full all-iterate periodic-point census and zeta for a newly constructed dimension-three uniformly quasiregular map is a naturally useful exact dynamical invariant; the parity correction documents how branched covers alter naive degree counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
