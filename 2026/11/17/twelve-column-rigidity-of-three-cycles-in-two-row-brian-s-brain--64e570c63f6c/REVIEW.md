@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Three-periodic site histories have exactly four forms, and eight-incidence local birth conditions are necessary and sufficient. The exact 256-pair transfer graph (199 active vertices, 346 edges) decomposes into two simple 12-cycles and one loop as its only cyclic components. Its trace therefore proves the result for every circumference at least three. An independently defined complete three-time update checker corroborates the graph; exhaustive original dynamics confirms circumferences three through six and an explicit length-12 oscillator. No inference from finite tests to infinity is used.
+## correctness
 
-## Originality
-PASS, with historical-priority risk. The 1996 Brain rule descriptions and archived graph methods do not state this sharp two-row period-three rigidity; the related existing three-row enumeration uses a different incidence graph and cannot imply these counts. Database searches for alternate names, period-three tori, and resonant finite strips did not locate an equivalent or stronger all-circumference statement. The original 1996 active essay remains inaccessible, and other unindexed texts may exist.
+PASS
 
-## Value
-PASS. This is a complete natural classification of the first possible nontrivial temporal period of a classic refractory automaton. The 12-column spatial locking, constant number of active configurations, and zero period-three spatial entropy are structurally different from positive-growth regimes reported for wider strips. The exact incidence convention explains why the narrow torus is a genuine special dynamical boundary rather than an arbitrary finite census.
+A three-periodic Brian’s Brain site has exactly four possible full histories: silent or firing in one phase modulo 3; firing and refractory transitions force this. For 2-by-n periodic Moore neighbors with eight offset incidences counted separately, the explicit six-term local N_{r,t} rule is necessary/sufficient even at n>=3. Independent enumeration of the 16 column types, 256 ordered-pair transfer states and all 4096 triples gave 199 incident vertices and 346 directed edges. Every cyclic strongly connected component is exactly a single silent loop or one of two directed simple 12-cycles, each internal indegree/outdegree one; all other vertices are transient. A closed length-n walk exists only on those cycles, yielding #Fix(F_n^3)=1+24*[12|n] for all n>=3; the only temporal fixed point is silent, so primitive 3-cycles count (24/3)=8 when 12|n. Crucially the infinite-n conclusion is the finite transfer-graph decomposition, not testing just a finite set of n.
 
-## Limits
-No result is claimed for longer temporal periods, attraction probabilities, or the distinct-neighbor convention. The historical-priority assessment is qualified, and no independent external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-circumference period-three classification on 2-by-n Moore strip with duplicated offsets appears distinct from classical generic cellular automata graph approaches and a published 3-row Brian’s Brain transfer census; the original 1996 active essay was not readable and retains a residual priority risk.
+
+## value
+
+PASS
+
+Classifies all occurrences of the first nontrivial temporal oscillator period in a canonical three-state refractory automaton across infinitely many circumferences. The 12-column spatial locking, constant 8 oscillator orbits for n divisible 12 and zero period-three spatial entropy are natural and mathematically surprising compared with wider-strip positive-entropy regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
