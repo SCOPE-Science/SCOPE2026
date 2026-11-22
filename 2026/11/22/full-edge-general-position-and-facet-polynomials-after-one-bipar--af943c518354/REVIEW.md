@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Every length-three geodesic in a one-edge-deleted biclique joins the endpoints of the deleted edge and passes through a unique pair of nonexceptional shore indices. This gives the complete forbidden-triple system and the \(A\times B\) obstruction. The all-set and facet formulas follow from exhaustive disjoint choices of the two stars and all permitted interior edges; the maximum and spectrum statements follow from \(a+b-ab\le1\). The standalone direct shortest-path enumerator confirms every coefficient through the twenty-four-edge case; a distinct combinatorial program checks symbolic coefficients for six cases. Neither finite check is used to infer the general theorem.
+
+**Originality — PASS, provisional.** Full mathematical material in the 2021 foundational edge-general-position article and 2023 extremal article was examined for the exact objects, quantities, and possible reductions. The 2022 generalization studies a different condition. A directly inspected published crown-graph result concerns deletion of a full perfect matching and a scalar optimum, not the present single-deletion facet or all-set polynomial. The relevant research search and existing accessible result claims found no implication of either closed polynomial. Search does not prove historical uniqueness; unindexed or differently worded exact classifications remain a risk.
+
+**Mathematical value — PASS.** The edge-general-position complex of \(K_{m,n}\) is a full simplex. Removing one edge changes its metric and generates a complete family of geodesic triple obstructions: this is an intrinsically motivated stability comparison, not an arbitrary parameter slice. The exact facet classification proves an exponential increase in maximal configurations and shows an unbounded missing-cardinality interval even though maximal and maximum cardinalities differ greatly. The all-set polynomial allows every size distribution to be recovered without further enumeration.
+
+**Limitations.** Exactly one deleted edge, \(m,n\ge3\); no assertion about larger deleted matchings. Publication priority is provisional; external independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
