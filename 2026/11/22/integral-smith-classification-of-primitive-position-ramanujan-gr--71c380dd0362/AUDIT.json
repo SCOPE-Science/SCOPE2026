@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "For every exact prime power the known Ramanujan formula determines an explicit integer block decomposition. At exponent one it is pI_(p-1)-J_(p-1); at higher exponent it is p^(e-1) times pI_p-J_p in h=p^(e-2)(p-1) disjoint blocks. Determinantal divisors give their complete Smith factors integrally, including zeros. Chinese-remainder factorization is an integer permutation/tensor identity; tensoring unimodular transformations and sorting local prime valuations gives every global invariant factor. Independent SymPy Smith computations matched 39 moduli, but the proof, not the finite test, establishes all integers n. Boundaries n=1 and p=2 are explicitly handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published complete full-circulant Smith theorem gives rank phi(n) at all n and local p^{e-1}(pI_p-J_p) blocks repeated p^{e-1} times.",
+        "The new matrix instead has only p^{e-2}(p-1) such local blocks at e>=2 and is nonsingular exactly for squarefree n.",
+        "Published divisor-indexed Gram and reduced-divisor matrix Smith theorems explicitly restrict scope to divisor indices."
+      ],
+      "reasoning": "The stronger-looking all-modulus theorem for the full circulant is not stronger under unit principal-submatrix restriction: Smith invariants are not invariant under deletion of rows and columns. The present rank drops at nonsquarefree n; the exact new torsion group requires separately computed local block multiplicities and CRT assembly. Its numerical formula agrees with the full-circulant nonzero factors when n is squarefree; this special coincidence is acknowledged rather than presented as a wholly unrelated theorem.",
+      "searches": [
+        "Ramanujan sum circulant c_m(a-b) integral Smith normal form all composite m elementary divisors",
+        "Smith invariants of Ramanujan-sum convolution matrix primitive Fourier projection cyclic group",
+        "Ramanujan sums circulant integral cokernel, p^e block pI-J",
+        "2026/10/25/SCOPE-complete-smith-form-of-ramanujan-sum-convolution-circulants--0bffd4ff77aa",
+        "2026/11/2/SCOPE-smith-normal-form-of-the-reduced-divisor-indexed-ramanujan-matri--3189e6142132",
+        "2026/11/8/SCOPE-smith-invariant-factors-of-the-divisor-indexed-ramanujan-gram-ma--1831f22124b8"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1201.1060",
+      "https://doi.org/10.1007/s00013-021-01643-8",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-complete-smith-form-of-ramanujan-sum-convolution-circulants--0bffd4ff77aa",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-smith-normal-form-of-the-reduced-divisor-indexed-ramanujan-matri--3189e6142132",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-smith-invariant-factors-of-the-divisor-indexed-ramanujan-gram-ma--1831f22124b8",
+      "https://repository.essex.ac.uk/9703/1/TelloniWilliams-SmithFormsCirculants.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For n=p^e with e>=2, the published full convolution matrix has rank phi(p^e), whereas the unit submatrix has rank p^{e-2}(p-1)^2, a strict drop.",
+        "Fowler–Garcia–Karaali supplies prime-power identities and CRT-type tensor tools, which are used as premises, but does not claim the integral unit-indexed Smith classification.",
+        "Schlage-Puchta computes a determinant for a different divisor-indexed matrix. Telloni–Williams deals with polynomial circulants and not this restriction."
+      ],
+      "reasoning": "The proposed theorem follows by a new combination of classical Ramanujan identities and local integer Smith analysis of the unit restriction. Its key nonsquarefree rank and lattice statement cannot be read off from eigenvalues or invariant factors of the unrestricted matrix; a genuine new principal-block calculation is required. A broader unindexed general theorem could still imply it.",
+      "searches": [
+        "Unit-indexed principal submatrix of Ramanujan sum circulant, rows columns reduced residues coprime to modulus, integer Smith normal form rank and cokernel",
+        "Ramanujan sum circulant c_m(a-b) integral Smith normal form all composite m elementary divisors",
+        "Smith invariants of Ramanujan-sum convolution matrix primitive Fourier projection cyclic group",
+        "2026/10/25/SCOPE-complete-smith-form-of-ramanujan-sum-convolution-circulants--0bffd4ff77aa",
+        "2026/11/2/SCOPE-smith-normal-form-of-the-reduced-divisor-indexed-ramanujan-matri--3189e6142132",
+        "2026/11/8/SCOPE-smith-invariant-factors-of-the-divisor-indexed-ramanujan-gram-ma--1831f22124b8",
+        "2026/10/11/SCOPE-consecutive-fourier-bands-minimize-primitive-row-frame-potential--d824c1a982ba"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fowler–Garcia–Karaali arXiv:1201.1060 Sections 2–3 treats divisor-indexed supercharacter tables and basic prime-power Ramanujan sums, not this unit-by-unit difference Gram Smith classification.",
+        "The full published convolution circulant theorem has full rank phi(n), while this principal submatrix has rank R_n<phi(n) whenever n is nonsquarefree.",
+        "Related published divisor-indexed tables have dimensions tau(n) or tau(n)-1, rather than phi(n)."
+      ],
+      "reasoning": "The equivalent Fourier-frame formulation uses vectors indexed by units and frequencies restricted to units. In the full circulant, rows/columns range over all residues, while in the divisor table rows/columns are divisors. Neither identifies the integral Smith invariants for the principal unit submatrix; in fact the nonsquarefree ranks differ from the full circulant.",
+      "searches": [
+        "Unit-indexed principal submatrix of Ramanujan sum circulant, rows columns reduced residues coprime to modulus, integer Smith normal form rank and cokernel",
+        "Smith invariants of Ramanujan-sum convolution matrix primitive Fourier projection cyclic group",
+        "Smith normal form Ramanujan sum matrices indexed units differences c_n(a-b) rank primitive submatrix",
+        "Ramanujan sum matrix restricted to coprime residue classes determinant rank Smith normal form"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed result or published mathematical table provides the complete unit-principal-submatrix factors, free rank, and squarefree invertibility criterion for all n.",
+        "Exact direct Smith computations for 39 specific moduli were performed; these numerical lists are new finite checks, not a proof of prior absence."
+      ],
+      "reasoning": "A finite Smith table, full-residue table, or divisor-indexed table would not by itself imply the all-modulus formula; no exact unit-indexed all-modulus table was located. Negative search evidence is limited to the named queries and inspected sources.",
+      "searches": [
+        "Unit-indexed principal submatrix of Ramanujan sum circulant, rows columns reduced residues coprime to modulus, integer Smith normal form rank and cokernel",
+        "Ramanujan sum circulant c_m(a-b) integral Smith normal form all composite m elementary divisors",
+        "Ramanujan sums unit group determinant principal submatrix Smith",
+        "2026/10/25/SCOPE-complete-smith-form-of-ramanujan-sum-convolution-circulants--0bffd4ff77aa",
+        "2026/11/2/SCOPE-smith-normal-form-of-the-reduced-divisor-indexed-ramanujan-matri--3189e6142132",
+        "2026/11/8/SCOPE-smith-invariant-factors-of-the-divisor-indexed-ramanujan-gram-ma--1831f22124b8"
+      ]
+    },
+    "rationale": "Three directly relevant published Smith classifications and foundational Ramanujan primary papers were compared by exact indexing, dimensions, prime-power local blocks, and claim implication. No inspected source yields the all-modulus unit-by-unit difference Gram Smith form; full circulants have different nonsquarefree rank and divisor-indexed matrices are distinct. The result uses classical identities and known Smith reductions, and equivalent coverage in unindexed general literature is a residual risk.",
+    "residual_risks": [
+      "An unindexed previous theorem about arbitrary induced submatrices of Ramanujan convolution could imply this result.",
+      "The prime-power Smith computation is elementary and shares methods with the published full circulant theorem; priority of the resulting natural restricted classification requires future independent literature assessment.",
+      "The squarefree specialization has numerically identical nonzero Smith factors to the full circulant; novelty lies principally in the all-modulus unit-restriction rank/torsion law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical arithmetic premises verified; no integral Smith form for the unit-by-unit difference Gram matrix",
+        "evidence": [
+          "Eq. (3.1) is the needed prime-power Ramanujan identity.",
+          "Section 3 treats Kronecker products of divisor-indexed supercharacter tables rather than the unit-principal-submatrix SNF."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1201.1060",
+        "material_read": "Full source opened; introduction, Sections 2–3 (prime-power evaluation, supercharacter tables, Kronecker products) and document-wide Smith term search examined",
+        "method": "Full PDF text, page-image inspection for source identity, and section-specific reading",
+        "title": "Ramanujan sums as supercharacters",
+        "trigger": "Foundational arithmetical formulas and supercharacter table/CRT identities"
+      },
+      {
+        "assessment": "Full n-by-n residue-indexed convolution; not the unit-principal-submatrix; rank phi(n) differs at nonsquarefree n",
+        "evidence": [
+          "Its theorem gives rank phi(n) and n−phi(n) zero factors, while unit restriction has rank R_n and phi(n)−R_n zero factors.",
+          "The local block decomposition uses p^{e−1} blocks, versus only p^{e−2}(p−1) units blocks at e>=2."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-complete-smith-form-of-ramanujan-sum-convolution-circulants--0bffd4ff77aa",
+        "material_read": "Entire published RESULT.md including theorem, assumptions, all proof steps, verification, prior-work discussion and limitations",
+        "method": "Public theorem and full proof reading",
+        "title": "Complete Smith form of Ramanujan-sum convolution circulants",
+        "trigger": "Closest directly matching Ramanujan difference kernel with full integral Smith classification"
+      },
+      {
+        "assessment": "Index set consists of positive divisors greater than one; distinct from units and does not cover unit difference matrix",
+        "evidence": [
+          "The theorem uses dimensions tau(n)−1 and entries c_d(e), not dimensions phi(n) and entries c_n(a−b)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-smith-normal-form-of-the-reduced-divisor-indexed-ramanujan-matri--3189e6142132",
+        "material_read": "Entire published RESULT.md including formula and local presentation proof",
+        "method": "Full original theorem/proof reading",
+        "title": "Smith normal form of the reduced divisor-indexed Ramanujan matrix for every modulus",
+        "trigger": "Possible more general integer Ramanujan Smith classification"
+      },
+      {
+        "assessment": "The Gram uses a square divisor-indexed table, unlike a unit-restricted Fourier Gram",
+        "evidence": [
+          "Rows and columns index divisors and the Gram has size tau(n), with determinant n^{tau(n)} and no free rank, unlike the present matrix."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-smith-invariant-factors-of-the-divisor-indexed-ramanujan-gram-ma--1831f22124b8",
+        "material_read": "Entire published RESULT.md including object definition, prime-power pivot rules, and prior-work discussion",
+        "method": "Full original theorem/proof reading",
+        "title": "Smith invariant factors of the divisor-indexed Ramanujan Gram matrix",
+        "trigger": "Gram title could conceal an equivalent unit-frequency Gram"
+      },
+      {
+        "assessment": "Divisor-indexed determinant, not integral Smith classification of unit differences",
+        "evidence": [
+          "The matrix indexes divisors; a determinant cannot determine all Smith invariants of a different principal submatrix."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00013-021-01643-8",
+        "material_read": "Open full-text theorem and relevant sections on divisor indexing and determinant",
+        "method": "Publisher full-text reading",
+        "title": "A determinant involving Ramanujan sums and So’s conjecture",
+        "trigger": "Published determinant theorem plausibly covers a Ramanujan matrix at all moduli"
+      },
+      {
+        "assessment": "Polynomial circulant families over a polynomial coefficient ring, not the unit-indexed arithmetic principal submatrix",
+        "evidence": [
+          "Class of full circulant polynomial matrices is not invariant under primitive-position deletion."
+        ],
+        "identifier_or_url": "https://repository.essex.ac.uk/9703/1/TelloniWilliams-SmithFormsCirculants.pdf",
+        "material_read": "Open PDF opening and main polynomial-circulant statement and scope",
+        "method": "Public PDF inspection",
+        "title": "Smith forms of circulant polynomial matrices",
+        "trigger": "Potential broader integral Smith theorem for circulants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "71c380dd-0362-4b47-a54f-88395594f31b",
+  "value": {
+    "rationale": "The unit positions form the canonical primitive sampling subset of a cyclic Fourier system. Determining when its integer Gram loses rational rank is a natural and nontrivial reconstruction question: nonsingularity is exactly squarefreeness. The complete invariant factors, free cokernel rank and torsion structure go materially beyond the known full-circulant spectrum and unrestricted Smith data; the result is an all-modulus structural classification, not a small sample or arbitrary unmotivated cutoff.",
+    "status": "PASS"
+  }
+}
