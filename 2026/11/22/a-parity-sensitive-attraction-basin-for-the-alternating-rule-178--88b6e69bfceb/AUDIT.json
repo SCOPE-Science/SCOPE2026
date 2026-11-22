@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Every initial wall persists. The bounded intervals between walls erode by two, producing a permanent missing wall for even initial interior runs; zero boundary runs erode one-sided, and one boundary runs form a permanent defect precisely at even lengths at least four. These mechanisms prove a necessary and sufficient all-length basin language. A run decomposition gives the exact generating function; partial fractions yield Fibonacci/Lucas formulas and parity asymptotics. An independent finite functional-graph enumeration of 524280 states for lengths 3..18 and exact arithmetic recurrence through length100 agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Inokuchi–Sato (2000) PDF pages 55–56, Lemma 3.80, Proposition 3.81 and Theorem 3.82: fixed/period-two structures and Fibonacci attractor count but no initial-to-attractor basin enumeration.",
+        "Fukś, Solvable cellular automata, Rule 178 entry: explicit time-step coordinate formula for the infinite rule; no exact bounded path alternator-basin series or parity constants on the inspected page.",
+        "Kuhlman et al. (2011): all synchronous bi-threshold attractors are fixed points or two-cycles, without fixed-boundary individual basin populations."
+      ],
+      "reasoning": "The prior general dynamical constraints and pointwise iterate formulas do not directly provide the exact selected-orbit basin population. The new contribution is a boundary-specific run-language classification and renewal generating function, not a reproof of the general period restriction. A further unindexed derivation from the more general iterator remains a historical risk.",
+      "searches": [
+        "\"rule 178\" \"attraction basin\" limit cycles configurations",
+        "S Inokuchi T Sato 2000 CA 178 basin attraction sizes",
+        "Fukš solvable cellular automata Rule 178 explicit iterate formula"
+      ]
+    },
+    "checked_sources": [
+      "Inokuchi and Sato (2000), doi:10.5109/13492, pp55–56",
+      "Kuhlman et al. (2011), arXiv:1108.2974v1",
+      "Fukś, Solvable cellular automata, Rule 178 entry",
+      "Exact relaxation shells and a logarithmic typical clock for cyclic Rule 178 (public 2026 result)",
+      "Ballistic ascent transport and exact extinction shells in sequential bi-threshold paths (public 2026 result)",
+      "OEIS exact sequence searches and related source-index comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full RESULT.md of published cyclic Rule 178 exact-relaxation-shell study: temporal entry C_n(t) and primitive-cycle total on periodic C_n; no path zero-boundary selected basin.",
+        "Full RESULT.md of published sequential bi-threshold path study: in-place left-to-right scans force all configurations to zero, whereas the present parallel rule supports 2-cycles.",
+        "Inokuchi–Sato (2000) Theorem 3.82 total orbit recurrence does not specify which of the 2^n initial words flow into the spatially alternating orbit."
+      ],
+      "reasoning": "The selected basin B_n is not a consequence of knowing the number of period-two attractors, their possible periods, or the maximal transient. Other close exact formulas count different networks, timing statistics, or asynchronous rules. Determining this basin requires a new boundary-condition criterion and an independent count.",
+      "searches": [
+        "exact relaxation shells logarithmic typical clock cyclic Rule 178",
+        "ballistic ascent transport exact extinction shells sequential bi-threshold paths",
+        "rule 178 fixed boundary alternating attractor basin"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Inokuchi and Sato 2000 Section 3.35 defines the same elementary local Boolean rule and both zero boundaries; Lemma 3.80 item 2 identifies periodic states, Theorem 3.82 counts two-cycle orbits and maximal transient, not any particular orbit attraction basin.",
+        "Kuhlman et al. arXiv:1108.2974 identifies the same local update as a (1,3) synchronous bi-threshold network."
+      ],
+      "reasoning": "Rule 178 is equivalent to the synchronous closed-neighborhood up-threshold-one/down-threshold-three model. Exact preperiodic attraction to a selected fully alternating two-cycle is a stronger and distinct population than the older periodic-orbit count. No alias with this basin result was found.",
+      "searches": [
+        "\"Rule 178\" \"basin of attraction\" periodic fixed boundary",
+        "fixed zero boundary Rule 178 largest alternating two-cycle attraction basin odd monochromatic runs exact rational generating function",
+        "two-threshold synchronous path rule 178 basin initial words odd interior runs even boundary runs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The first exact basin counts calculated independently are 7, 12, 21, 34, 57, 92, 152, 244 for lengths 3–10; those exact initial values and the boundary Rule 178 interpretation did not yield an identified covering table.",
+        "OEIS search returns unrelated Wythoff-row tables containing subsequences, not a matching dynamical population statement."
+      ],
+      "reasoning": "No indexed exact table with this full data and attribution was identified. Absence of a database match is not by itself proof of originality; substantive primary-text comparisons above are decisive for the qualified assessment.",
+      "searches": [
+        "site:oeis.org \"7, 12, 21, 34, 57, 92\"",
+        "\"7,12,21,34,57,92,152,244\" cellular automaton",
+        "Rule 178 fixed boundary alternating attractor basin Fibonacci Lucas sequence parity"
+      ]
+    },
+    "rationale": "Inokuchi–Sato (2000) supplies exact fixed-boundary Rule 178 two-cycle counts and run erosion but not the specific alternator basin count; the cyclic Rule 178 transient-census study and sequential bi-threshold path study differ in boundary or update, and Fukś infinite-line iterates require a nontrivial finite-boundary run-language calculation. The closed basin series and parity-dependent asymptotic were not covered by the inspected claims, with acknowledged unindexed-priority risk.",
+    "residual_risks": [
+      "A not-indexed earlier exact Rule 178 alternating basin enumeration may exist.",
+      "The full fixed-boundary 2000 paper has several local erosion identities; extracting this population via additional symbolic counting is possible, but the inspected theorem does not state or imply its exact size without such work.",
+      "Fukś all-time iterator formula may admit a distinct derivation of the basin language; no covering exact basin count was located in the inspected source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_SELECTED_BASIN; covers all periodic attractors and their total count, not their individual preperiodic attraction population",
+        "evidence": [
+          "Page 55 gives two-cycle word criterion; page 56 gives Fibonacci recurrence for their number and sharp maximal transient m−2; neither gives the alternating attractor basin generating function."
+        ],
+        "identifier_or_url": "https://doi.org/10.5109/13492",
+        "material_read": "Original open PDF, specifically Section 3.35 printed pages 55–56 with Lemma 3.80, Proposition 3.81 and Theorem 3.82",
+        "method": "Full relevant primary section read and visual pages inspected",
+        "title": "On limit cycles and transient lengths of cellular automata with threshold rules",
+        "trigger": "Exact same fixed-boundary Rule 178 local rule, plausible direct antecedent"
+      },
+      {
+        "assessment": "NOT_COVERING; cyclic temporal-entry shells versus present zero-boundary selected basin",
+        "evidence": [
+          "The cyclic result explicitly scopes n≥3 cyclic configurations and counts first-entry times C_n(t); it has no fixed-zero path basin formula."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-relaxation-shells-and-a-logarithmic-typical-clock-for-cycl--b1a85fec924d",
+        "material_read": "Complete RESULT.md proof, theorem, verification, prior-work and reference sections",
+        "method": "Read public full-text research result",
+        "title": "Exact relaxation shells and a logarithmic typical clock for cyclic Rule 178",
+        "trigger": "Same rule and exact dynamical statistics, but periodic boundaries"
+      },
+      {
+        "assessment": "NOT_COVERING; in-place sequential sweep, unlike simultaneous updates, and all paths die at zero",
+        "evidence": [
+          "Sequential result has F_n(x)=0 for every initial input after at most n sweeps; present synchronous system has exponentially many two-cycle attractors."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-ballistic-ascent-transport-and-exact-extinction-shells-in-sequen--2d6ad6be9642",
+        "material_read": "Complete RESULT.md including local recurrence and exact extinction-shell formulas",
+        "method": "Read public full-text research result",
+        "title": "Ballistic ascent transport and exact extinction shells in sequential bi-threshold paths",
+        "trigger": "Same graph and thresholds, potentially equivalent update"
+      },
+      {
+        "assessment": "STRONGER_GENERAL_CONTEXT_BUT_NO_DIRECT_SELECTED_BASIN_COUNT",
+        "evidence": [
+          "The formula describes a coordinate after an arbitrary time from an infinite initial configuration; the page does not state the fixed-boundary selected-orbit language or its generating function."
+        ],
+        "identifier_or_url": "https://lie.ac.brocku.ca/~hfuks/solvableca.html",
+        "material_read": "Rule 178 explicit coordinate iterate formula and site introduction",
+        "method": "Read public mathematical formula listing",
+        "title": "Solvable cellular automata, Rule 178 iterate entry",
+        "trigger": "Potential stronger all-time formula of the same local rule"
+      },
+      {
+        "assessment": "NOT_COVERING; general fixed/two-cycle restriction, no selected path basin count",
+        "evidence": [
+          "First public arXiv version dated 2011-08-15; abstract states synchronous only fixed and two-cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+        "material_read": "ArXiv abstract, main claimed synchronous period restriction and source date",
+        "method": "Read public abstract and theorem overview",
+        "title": "Bifurcations in Boolean Networks",
+        "trigger": "Original bi-threshold network model and generalized periods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "88b6e69b-fceb-4bb8-a846-0ac50c5e219f",
+  "value": {
+    "rationale": "The most spatially alternating Rule 178 oscillator is a canonical recurrent target. Its exact attraction probability measures the global selection of a specific orbit, rather than counting attractors. A nontrivial boundary-sensitive forbidden-run language yields an explicit full-length rational generating function and two distinct parity constants, proving exponential rarity of this oscillator amid overwhelmingly oscillatory initial states. This naturally motivated basin invariant is not given by the prior total-orbit and transient counts.",
+    "status": "PASS"
+  }
+}
