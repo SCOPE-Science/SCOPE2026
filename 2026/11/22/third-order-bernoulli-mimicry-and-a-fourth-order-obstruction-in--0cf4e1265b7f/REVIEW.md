@@ -1,0 +1,19 @@
+# Scientific assessment: third-order Bernoulli mimicry and fourth-order obstruction
+
+## Correctness — PASS
+
+The source's conditional update table gives the conditional spin polynomial displayed in RESULT.md. Conditional independence across sites reduces output-spin moments to products of those polynomials under fair independent input. Walsh monomial orthogonality proves the adjacent correlation \(uv/2\) and the two-step correlation \(v^2/4\) for every ring of at least five sites, with the explicitly calculated four-site and three-site exceptions. On \(v=0\), global spin-flip symmetry kills odd moments; all second moments vanish; and the four-point expansion has one surviving even-cardinality index subset on every ring of length at least five and on the line, or four survivors on length four. These give the exact three-wise independence and fourth-order witness, hence the full fair-product stationarity classification. Exact rational enumeration independently checked 2,082 cases in the standalone script, but finite tests are not relied on as an infinite proof.
+
+## Originality — PASS within inspected evidence
+
+Muñoz--Nuño (2026) introduce the exact two-parameter rule and analyze small cyclic rings, including a three-site stationary formula implying the \(p+r=1\) anomaly and a finite four-site transition matrix. Those small-size statements are credited rather than claimed as new. The published published-finding corpus detailed-balance/Ising law for the **same** rule covers the reversible parameter line \(p=1/2\), not the off-reversible \(r=1/2\) line's exact three-wise independence, four-site parity coefficient, or all-size nonpreservation of the fair product law. The published published-finding corpus deterministic elementary-rule dependency census covers different (deterministic) dynamics and does not imply the sitewise-randomized output law. Coe--Ahnert--Fink (2008) address temporal randomness criteria, and Lemoy--Mozeika--Seki (2013/2014) analyze a different thermal-majority parameterization and stationary one-/two-point diagnostics. Searches of named aliases, Bernoulli invariance, higher-order correlations, stochastic rules and the overlapping primary text did not identify a stronger statement establishing this theorem; hidden equivalences remain a priority risk.
+
+## Mathematical value — PASS
+
+The theorem identifies a sharp, infinite-family probabilistic camouflage mechanism: three-site observations show **exactly** iid fair bits for every value of one nontrivial rule parameter, but four-site observations reveal an explicit positive dependence of order \((2p-1)^4\). It also gives a complete, parameter-sharp all-circumference answer to the natural invariant-measure question for the fair Bernoulli law, with precise exceptional ring lengths. Both the hierarchy and the infinite-lattice case go beyond a single small transition-matrix computation. The fact is natural for quantifying spatial dependence under synchronous stochastic local rules, rather than an arbitrary numerical slice.
+
+## Closest literature and limitations
+
+Muñoz and Nuño, arXiv:2603.27799 (first public 2026-03-29), Table 2 and Section 4; published published-finding corpus research *A sharp reversible line and odd--even correlation law for a two-parameter probabilistic cellular automaton*; published published-finding corpus research *Exact dependence phases of elementary cellular-automaton Bernoulli images*; Coe, Ahnert and Fink, EPL 84 (2008), 50005; Lemoy, Mozeika and Seki, arXiv:1311.4388 (2013), Journal of Physics A 47 (2014), 105001. The four-spin witness concerns one update of fair initial data only, not general mixing or all stationary laws. The original three-ring special line is already implicit in previous work. Historical priority from less indexed higher-order correlation studies is unresolved. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
