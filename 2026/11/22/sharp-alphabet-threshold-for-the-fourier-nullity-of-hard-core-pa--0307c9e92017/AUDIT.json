@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "By finite-group character orthogonality, each occupied coordinate contributes exactly q-1 or -1, leading to \\(P_i=P_{i-1}+a_iP_{i-2}\\). Modulo the alphabet-size indeterminate Q this reduces to the six-periodic sequence 1,0,-1,-1,0,1. At \\(n=3k+1\\), the coefficient of Q equals (-1)^k times the number t of trivial characters at positions 1,4,...,3k+1, as shown by differentiating the multiaffine path independence polynomial at -1 and factoring the left/right segments. If P_n(q)=0 at \\(q\\ge k+2\\), integer root divisibility implies q divides \\(t<q\\), so t=0; the recurrence then forces P_n=0. Character counts yield the exact nullity. The explicit length-3 block transition yields the exceptional polynomial \\(Q(Q-k-1)(Q-1)^{k-1}\\), proving sharpness. Code reproduces all zero patterns through length 16 for selected valid alphabets and independent direct character sums.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hare–Saunders arxiv:1608.03522, pp. 1–4, concern (a,b) pairs in random binary Fibonacci trees",
+        "Codara–D’Antona arxiv:1210.5561 full HTML, path independent-set cardinality and edge counts",
+        "published-finding corpus binary cycle first-zero claim fa45e67a-7896-4dbd-8b3e-cace42e19b0e"
+      ],
+      "reasoning": "The binary random-recurrence tree counts can cover zero counts of signed binary paths but have no variable alphabet-order parameter or the root-divisibility classification for all finite abelian alphabets. A binary cycle first-zero degree is not a high-alphabet path kernel classification. The compared indexed results do not imply the claimed theorem.",
+      "searches": [
+        "published-finding corpus: Generalized Fibonacci cube group convolution q-ary hard-core strings exact Fourier rank nullity for alphabet q at least n/3; no adjacent nonzero coordinates",
+        "published-finding corpus: Fibonacci cube finite abelian convolution Fourier nullity period three",
+        "web: q-ary Fibonacci strings no adjacent nonzero symbols counting independent set word"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1210.5561",
+      "arxiv:1402.6377",
+      "arxiv:1608.03522",
+      "OEIS A305573",
+      "published-finding corpus: 2026/11/8/SCOPE-graph-exclusion-fourier-interpolation-universal-invertibility-an--0cb9494a16e7",
+      "own-ledger: fa45e67a-7896-4dbd-8b3e-cace42e19b0e",
+      "own-ledger: d4ce773b-ebb6-4052-8ad2-278299ed547b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own ledger fa45e67a-7896-4dbd-8b3e-cace42e19b0e gives binary cycle first zero support, not this q-ary path result",
+        "Own ledger d4ce773b-ebb6-4052-8ad2-278299ed547b concerns binary rooted-tree order ideals",
+        "published-finding corpus graph-exclusion Fourier interpolation is a distinct restriction operator",
+        "arxiv:1210.5561 enumerates path independent sets but not their character sums"
+      ],
+      "reasoning": "Neither the earlier claim domains nor the inspected source theorems provide an implication proving the exact q-ary Fourier kernel or the counterexample at \\(q=k+1\\). The present conclusion is not a corollary of those outcomes without the new integer-polynomial derivative and root-divisibility argument.",
+      "searches": [
+        "published-finding corpus: sharp length threshold q k+2 zero coordinates positions 1 4 7 path hard-core Fourier multiplier",
+        "published-finding corpus: Walsh Fourier rank of Fibonacci cube path no adjacent one independent sets, random Fibonacci zero frequencies",
+        "web: Fourier transform independent set hard core path character zero"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Codara–D’Antona 2012 (arxiv:1210.5561), Section 3: independent-set counts and edge enumeration",
+        "Azarija et al. 2014 (arxiv:1402.6377), Sections 1–3: forbidden-word cube isomorphisms",
+        "published-finding corpus indexed graph-exclusion Fourier interpolation, id 2026/11/8/SCOPE-graph-exclusion-fourier-interpolation-universal-invertibility-an--0cb9494a16e7"
+      ],
+      "reasoning": "The relevant objects are related, but the algebra being inverted differs: an indexed Fourier interpolation submatrix is not counting convolution on the full alphabet power. The cited Fibonacci-cube combinatorics does not calculate all group-character multipliers. No matching complete high-alphabet character-zero criterion was found.",
+      "searches": [
+        "published-finding corpus: independent set indicator of paths q-ary alphabet without adjacent nonzero, Fourier rank exact for q > length divided by three",
+        "web: Fourier transform of independent set indicators path finite abelian alphabet character zeros rank q-ary Fibonacci",
+        "web: spectral rank convolution indicators hard-core configurations finite abelian groups paths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A305573 records random Fibonacci (1,1) pair counts 1,5,27,152,...",
+        "Hare–Saunders 2016 arxiv:1608.03522, related random Fibonacci tree depth counts"
+      ],
+      "reasoning": "The binary small-alphabet zero-count sequence is explicitly documented and is not claimed as new. The current theorem classifies every zero character for \\(q\\ge k+2\\) and gives the sharp q-threshold; those data are not captured by the univariate OEIS entry.",
+      "searches": [
+        "web: \"1, 5, 27, 152, 879, 5181\" sequence",
+        "web: signed Fibonacci continuants zero number sign sequences 1 5 27 152",
+        "published-finding corpus: Fibonacci cube finite abelian convolution Fourier nullity period three"
+      ]
+    },
+    "rationale": "The closest checked sources count Fibonacci-cube vertices/edges, study forbidden-substring graph isomorphisms, or analyze binary random Fibonacci paths. The result instead exactly classifies the kernel of counting convolution over every finite abelian group for \\(q\\ge k+2\\) and proves the alphabet threshold sharp. Bounded published-finding corpus and historical-claim searches identified no dominating implication. Equivalence might exist under alternative signed hard-core/transfer-matrix terminology.",
+    "residual_risks": [
+      "Alternative algebraic terminology (signed hard-core partition functions, transfer matrices) may hide an equivalent result.",
+      "The 37-page random-Fibonacci preprint was not read in full; its binary results are not by themselves a high-alphabet statement.",
+      "Published indexing is incomplete and the independent audit is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts independent-set families and Hasse edges; does not calculate the q-ary Fourier zero set",
+        "evidence": "Sections 3–5, Theorem 3.4, weighted combinatorial convolution is a Fibonacci-sequence count, not group convolution",
+        "identifier_or_url": "https://arxiv.org/abs/1210.5561",
+        "material_read": "Entire accessible arXiv HTML text, especially definitions and Sections 2–5",
+        "method": "Read theorem statements, proof sections and Fourier/convolution searches",
+        "title": "On the independent subsets of powers of paths and cycles",
+        "trigger": "Same independent-set path objects"
+      },
+      {
+        "assessment": "Object-level geometry and word-pattern isomorphisms; no group convolution rank or alphabet threshold",
+        "evidence": "Theorems 2.1, 2.2, 3.1 classify forbidden-word graph geometry",
+        "identifier_or_url": "https://arxiv.org/abs/1402.6377",
+        "material_read": "Accessible full text including Sections 1–3 and statements through appendices",
+        "method": "Read theorem statements and arguments about forbidden strings, autocorrelation and cube isomorphism",
+        "title": "On Isomorphism Classes of Generalized Fibonacci Cubes",
+        "trigger": "Closest forbidden-pattern hypercube family"
+      },
+      {
+        "assessment": "Strong relevance to binary return/zero counts; no verified all-q signed hard-core kernel or sharp alphabet threshold in inspected portion",
+        "evidence": "Definitions 1.1–1.5 and Theorems 1.7–1.8 address random Fibonacci tree counts",
+        "identifier_or_url": "https://arxiv.org/pdf/1608.03522",
+        "material_read": "Pages 1–4, including introduction, named (a,b) pair counts and main theorem outline; remaining pages not fully inspected",
+        "method": "PDF extracted text and page image examined",
+        "title": "On (a,b) Pairs in Random Fibonacci Sequences",
+        "trigger": "Potential exact database equivalence for the binary signed recurrence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0307c9e9-2017-43b1-be4c-ef0225d67c13",
+  "value": {
+    "rationale": "The support of admissible local-exclusion words is a canonical q-ary Fibonacci/generalized hard-core family, so exact convolution recoverability is a natural character-theoretic invariant. The sharp threshold \\(q\\ge k+2\\) yields a complete zero-character geometry and closed nullity for all k, with the boundary disproved at every smaller adjacent alphabet \\(q=k+1\\). This is an all-length structural classification, not a routine restatement of Fibonacci counts or an arbitrary finite sample; no claim of a general-graph theorem is made.",
+    "status": "PASS"
+  }
+}
