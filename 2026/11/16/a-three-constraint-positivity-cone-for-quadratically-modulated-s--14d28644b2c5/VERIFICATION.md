@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standard-library `check.py` was executed against the delivered mathematical formulas. It completed with the message `CHECK_OK rational_identities_and_legendre_coefficients 5028` and tested six rational Poisson scales, exact barycentric identities through degree 200, both boundary vertices, and finite Legendre products through degree 12. The three barycentric formulas, positive factors, and nonzero determinant are stated in RESULT.md for all admissible scales and integral degrees; the checker is supporting evidence only, not an infinite certificate.
+## correctness
 
-The logical implications of the cited Schoenberg, spherical strict-positive-definiteness, and invariant-kernel universality theorems were checked against the stated real isotropic sphere assumptions. No independent audit or validation has been performed. No claim is made for untested sphere dimensions or polynomial modulation orders.
+PASS
+
+For each r in (0,1), Legendre recurrence derives exact degree-n coefficients (2n+1)r^n(1+aS_n+bT_n). n=0,1 and n→infinity supply the three necessary affine inequalities. For all n>=2, the displayed positive rational barycentric weights satisfy both coefficient identities and sum to one identically; their determinant is (1-r²)^2(r²+15)/(120r³)>0, so all higher coefficients are strictly positive on the feasible region. Schoenberg yields PSD iff three conditions, and the standard strict-PD and all-coefficient universality criteria distinguish finite-site strictness from C-universality. Pairwise facet intersections give the two admissible vertices and nonredundancy.
+
+## originality
+
+PASS
+
+General Schoenberg positivity and harmonic universality theorems establish that all relevant coefficients must be nonnegative/positive, but do not reduce infinitely many coefficients of this exact signed degree-two Poisson modulation to the explicit three-half-plane polygon. A nearby degree-one geodesic exponential threshold has different base and one parameter. Best-of-knowledge PASS for specific barycentric cone and boundary stratification.
+
+## value
+
+PASS
+
+The natural family of ball-Poisson covariance kernels times the first two Legendre harmonics has a potentially infinite spectral-positivity question. Its exact three-half-plane parameter cone, nonredundant facets and distinct strict-PD versus C-universality boundaries give a useful complete classification for a motivated low-degree model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

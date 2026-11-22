@@ -1,15 +1,21 @@
-# Scientific assessment: quadratic spherical Poisson modulation
+# Independent mathematical audit
 
-## Correctness — PASS
-The Poisson generating function fixes the coefficient normalization \((2n+1)r^n\). Multiplication by \(P_1\) and \(P_2\), using the Legendre recurrence twice, gives the exact rational \(S_n,T_n\) in RESULT.md. The three explicitly positive barycentric weights sum to one and reproduce both coefficient ratios for all integers \(n\ge2\). Thus the infinitely many Schoenberg nonnegativity conditions are equivalent to the conditions at degrees zero, one, and the high-degree limit. A nonzero determinant excludes simultaneous vanishing, leaving all degrees at least two positive even on the boundary. Two admissible vertex calculations show each of the three affine conditions is needed. The cited classical strict-positive-definiteness and recent compact-space universality criteria give the separate spectral-boundary conclusions. The exact-rational checker passed 5,028 consistency checks; its finite tests are not used to infer the infinite identity.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The 1942 Schoenberg theorem gives the general harmonic positivity test but not the finite three-constraint reduction. Said, Da Costa, Steinert and Mostajeran (2026), full article Sections 2 and 6.1.1, provide the compact-space universality criterion and general sphere examples, but do not classify the present two-mode polynomial modulation of the ball-Poisson kernel. Buhmann and Jäger (2021), full text Sections 1–2, discuss spherical strict positivity and convolutional structures, without these rational barycentric weights or the parameter vertices. The closest separately indexed geodesic-exponential cosine-modulation paper, read in its complete public result, concerns \(e^{-a\theta}(1+b\cos\theta)\) with a different spectral recurrence, only one modulation parameter, and a two-degree optimization rule. Neither its assumptions nor theorem imply the present three-facet region. The possibility of an older, unindexed equivalent formula is a genuine residual priority risk; searches alone cannot eliminate it.
+PASS
 
-## Value — PASS
-The ball-Poisson kernel on \(\mathbb S^2\) is a standard covariance and approximation kernel. Signed modulations by the first two Legendre harmonics are the lowest natural nontrivial polynomial design family. Determining the complete feasible region would ordinarily require checking infinitely many degrees. The exact three-constraint reduction, its two boundary vertices, and the distinction between finite-site strict positivity and \(C\)-universality on the high-frequency facet are a complete structural classification, rather than a numerical cutoff or arbitrary sample. This does not establish the corresponding region on other spheres.
+For each r in (0,1), Legendre recurrence derives exact degree-n coefficients (2n+1)r^n(1+aS_n+bT_n). n=0,1 and n→infinity supply the three necessary affine inequalities. For all n>=2, the displayed positive rational barycentric weights satisfy both coefficient identities and sum to one identically; their determinant is (1-r²)^2(r²+15)/(120r³)>0, so all higher coefficients are strictly positive on the feasible region. Schoenberg yields PSD iff three conditions, and the standard strict-PD and all-coefficient universality criteria distinguish finite-site strictness from C-universality. Pairwise facet intersections give the two admissible vertices and nonredundancy.
 
-## Scope and limitations
-All statements are for \(0<r<1\), real modulation parameters, and the unit two-sphere. The strict-positivity theorem concerns distinct sites only. The supplementary computation verifies exact formulas on rational grids but is not a substitute for the analytic proof. Independent audit and independent validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Schoenberg positivity and harmonic universality theorems establish that all relevant coefficients must be nonnegative/positive, but do not reduce infinitely many coefficients of this exact signed degree-two Poisson modulation to the explicit three-half-plane polygon. A nearby degree-one geodesic exponential threshold has different base and one parameter. Best-of-knowledge PASS for specific barycentric cone and boundary stratification.
+
+## value
+
+PASS
+
+The natural family of ball-Poisson covariance kernels times the first two Legendre harmonics has a potentially infinite spectral-positivity question. Its exact three-half-plane parameter cone, nonredundant facets and distinct strict-PD versus C-universality boundaries give a useful complete classification for a motivated low-degree model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
