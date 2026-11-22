@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "All n>=3: Kirchhoff trace identity yields a strictly convex sum of edge reciprocal costs; explicit two-parity candidate is feasible. Alternating partial-sum rational multipliers satisfy KKT stationarity and complementary slackness, and the four factorized numerator identities give strict positivity at every interior vertex. A Bregman identity with these multipliers establishes the exact nonnegative global excess and uniqueness. The proof does not infer infinite cases from 126807 finite/symbolic verifier assertions; the general polynomial factors are derived analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi, §5.1, optimizes a tree edge-conductance vector with single equality total conductance budget; its path solution uses varying magnitudes across positions, unlike locally stochastic alternating levels",
+        "Durastante–Gnazzo–Meini 2026 §5.2 explicitly attributes the unconstrained fixed-sparsity reversible Kemeny minimization SDP to Patel et al.; it optimizes perturbations, not a closed path formula"
+      ],
+      "reasoning": "General convexity and a semidefinite numerical formulation supply a way to compute each case but do not algebraically determine the closed all-order parity law without further analysis. The earlier global-budget tree resistance theorem changes the feasible set: it permits per-vertex outbound conductance exceeding one and yields a different optimizer. These are substantial nearby results and may facilitate independent derivations; they do not directly subsume the explicit theorem stated.",
+      "searches": [
+        "\"Kemeny\" \"path\" \"optimal\" \"transition probabilities\"",
+        "Ghosh Boyd Saberi 2008 minimizing effective resistance graph path graph budget weights degree constraints",
+        "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "https://link.springer.com/article/10.1007/s10543-026-01152-6"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+      "https://motion.me.ucsb.edu/pdf/2014b-apb-conference.pdf",
+      "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+      "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://arxiv.org/html/0909.2636v1",
+      "https://link.springer.com/article/10.1007/s10543-026-01152-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd–Diaconis–Sun–Xiao prove SLEM-minimal edge weight one-half for every path, a different objective; the new claim shows strict Kemeny suboptimality at even orders",
+        "Patel–Agharkar–Bullo give general Kemeny minimization formulations; their stated theorems establish convexity and SDP feasibility, not which row stochastic path vertex constraints bind or their explicit dual values",
+        "Ghosh–Boyd–Saberi formula for trees is reused, but their optimality comparisons impose global sum of edges equal to one"
+      ],
+      "reasoning": "The new mathematical content is a full solution of a particular strongly coupled vertex-capacity convex program with sign-certified dual multipliers and an exact global loss decomposition. The SLEM theorem does not imply the Kemeny parity distinction. The global-budget resistance theorem does not imply the local stochastic feasible optimum. The general convex SDP yields an implicit definition, not the explicit classification as a stated published result. Publication priority is qualified, not proven absolute.",
+      "searches": [
+        "https://stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+        "https://motion.me.ucsb.edu/pdf/2014b-apb-conference.pdf",
+        "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Doyle 2009 §The seek time identifies spectral/resolvent Kemeny formulations, but no path-design classification",
+        "Patel–Agharkar–Bullo §III establishes general constrained reversible Kemeny SDP, not an explicit alternating path solution"
+      ],
+      "reasoning": "The resistance trace and stationary-hitting-time versions are mathematically the same objective up to a normalization convention, and the general published convex SDP covers the exact feasible class numerically. Its existence does not alone state the explicit alternating two-level optimizer, complete equality case, or positive factored local-capacity multipliers. A pre-existing closed path solution would cover this claim even with different terminology; targeted searches and inspected sections did not reveal one.",
+      "searches": [
+        "\"Kemeny\" \"path\" \"optimal\" \"transition probabilities\"",
+        "\"Kemeny\" \"birth and death\" \"optimal\" transition",
+        "https://arxiv.org/html/0909.2636v1",
+        "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant 2014/2015 surveillance papers describe numerical SDP design and illustrative networks, without a tabulation of the all-size finite path weights",
+        "The closest resistance-allocation published path figures concern single global budgets rather than row-stochastic degree budgets"
+      ],
+      "reasoning": "No matching table of all-n parity weights or critical positive local-capacity multipliers was found in the searched primary material. Failed retrieval is not proof of nonexistence; unindexed specialist design tables remain a real residual priority risk.",
+      "searches": [
+        "minimum Kemeny constant symmetric birth-death chain on path uniform invariant distribution alternating transition probabilities exact parity",
+        "optimal sum of effective resistances on path graph with constraints sum incident edge conductances at each vertex no more than one",
+        "https://www.annualreviews.org/content/journals/10.1146/annurev-control-071520-120123"
+      ]
+    },
+    "rationale": "Inspected primary SLEM path proof, reversible Kemeny convex/SDP papers, tree total-resistance optimization, and current later literature. The known numerical convex problem includes the same feasible class, but neither it nor the global-total-budget formula states the two-level parity law, sharp all-size value, complete optimizer uniqueness, or explicit positive local-capacity loss identity. The comparison is of implications, not titles; priority remains qualified because unindexed formula equivalents could exist.",
+    "residual_risks": [
+      "Older specialist work may already solve this exact vertex-capacity path subcase using alternate Markov chain or A-optimal network language.",
+      "The broad Patel SDP computes individual instances of the same program; we claim only the explicit complete closed-form classification, not novel convexity or feasibility.",
+      "The Ghosh resistance cut identity is a crucial published premise, not a novel lemma.",
+      "No independent expert literature-priority or mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The optimizer is for the spectral radius, not Kemeny trace; new even-order Kemeny preference differs",
+        "evidence": [
+          "Revised July 2004; abstract establishes half-edge SLEM optimum; model defines symmetric stochastic tridiagonal P"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+        "material_read": "Abstract, model assumptions, statement of all-half SLEM optimality, and proof argument (including page images of introduction and dual argument)",
+        "method": "Open-access primary PDF text and rendered page inspections",
+        "title": "Fastest mixing Markov chain on a path",
+        "trigger": "Exactly identical class of symmetric path stochastic kernels; possible dominating result"
+      },
+      {
+        "assessment": "Contains general convex/SDP formulation and numerical surveillance examples, not closed finite-path parity optimizer",
+        "evidence": [
+          "Theorem 4 and Problem 5; conclusions propose graph-topology refinements"
+        ],
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-apb-conference.pdf",
+        "material_read": "Problem 3 and Problem 5 constrained reversible Kemeny formulations, application comparisons and conclusions; page image of formulation and definitions",
+        "method": "Open-access primary PDF text and rendered page inspection",
+        "title": "Robotic surveillance and Markov chains with minimal first passage time",
+        "trigger": "Earlier mathematically identical Kemeny optimization problem"
+      },
+      {
+        "assessment": "General Kemeny-convex optimization is known and overlaps the underlying optimization problem; no explicit all-size path optimizer seen",
+        "evidence": [
+          "Problem 1, Theorem 4, Problem 2, and model with prescribed edge sparsity"
+        ],
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "Sections on stationary reversible design, constraints, convexity, SDP, weighted Kemeny; explicit exact path term search returned no match; inspected representative pages",
+        "method": "Open-access primary PDF text, section and page inspection",
+        "title": "Robotic surveillance and Markov chains with minimal weighted Kemeny constant",
+        "trigger": "Full journal counterpart and main prior general result"
+      },
+      {
+        "assessment": "Exact weighted tree resistance formula applies, but its optimizing program uses one global sum budget, not separate per-vertex stochastic constraints; no parity optimizer for those constraints",
+        "evidence": [
+          "Equation (5) tree resistance cut sum; §5.1 constraint 1^Tg=1"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Sections 2.3–2.4 on tree and pseudoinverse formulas, 4 and 5.1 on optimization constraints, section 6 path extremality, PDF page images",
+        "method": "Open-access primary PDF text and rendered page inspection",
+        "title": "Minimizing effective resistance of a graph",
+        "trigger": "Tree resistance objective identical to Kemeny trace up to factor; potentially stronger optimizer"
+      },
+      {
+        "assessment": "Defines zero-diagonal Kemeny convention and trace invariant; no edge-allocation path solution",
+        "evidence": [
+          "arXiv v1 2009-09-14 21:09:01 UTC; §The seek time"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0909.2636v1",
+        "material_read": "Submission history, section The seek time, mean first passage and resolvent interpretation",
+        "method": "Primary arXiv version-1 HTML",
+        "title": "The Kemeny constant of a Markov chain",
+        "trigger": "Normalization and exact earliest verifiable first public date of focal Kemeny source"
+      },
+      {
+        "assessment": "Confirms Patel et al. broad prior, pursues small-norm perturbations; no explicit all-size path solution encountered",
+        "evidence": [
+          "§5.2 says original fixed-pattern minimum Kemeny SDP is known, with separate new perturbation objective"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-026-01152-6",
+        "material_read": "Abstract, §§1,5.2, summary, references 22–25 and cited SDP comparison",
+        "method": "Publisher full-text open HTML",
+        "title": "Kemeny's constant minimization for reversible Markov chains via structure-preserving perturbations",
+        "trigger": "Newest related published study and citations of possible dominating results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b937fa7e-415e-4dcb-94a1-74982bda4ebc",
+  "value": {
+    "rationale": "A natural constrained Markov design optimization receives an explicit all-order complete answer and an exact performance-gap certificate, rather than another generic SDP restatement. The parity-sensitive conflict between spectral worst-mode mixing and mean stationary-target time is structural and rigorously quantified. The gain at even n is small at large n and no practical magnitude is exaggerated.",
+    "status": "PASS"
+  }
+}
