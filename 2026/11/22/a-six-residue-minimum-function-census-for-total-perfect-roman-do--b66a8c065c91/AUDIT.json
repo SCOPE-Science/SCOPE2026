@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md proof steps 1-4",
+      "verify_prism_tpr.cpp exact trace/potential/degree-certificate coefficient verification",
+      "independent_bruteforce.cpp exhaustive original-graph verification"
+    ],
+    "rationale": "The 81-state de Bruijn transfer represents TPRDF constraints exactly. Bellman-Ford yields integral nonnegative reduced costs; zero-cost SCCs are simple 3- and 6-cycles; one-cost returns have only length 5 modulo 6. The determinant-trace identity shows D(t)^(d+1) Phi_d(t) is polynomial of degree at most 81d+9 for d=0,1,2,4; verifying lengths 1..345 proves the explicit rational coefficient identities for all n. Independent direct ternary exhaustive enumeration of C_n square K2 for 3<=n<=7 matches all minima and multiplicities. Both packaged programs were compiled and run.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2023 article Sections 2-5 gives general order bounds, complexity, and tree cases",
+        "Published open-ladder study describes P_2 square P_n, not C_n square K_2",
+        "2022 DOI 10.1155/2022/1957027 states ordinary perfect-Roman Cartesian-product bounds"
+      ],
+      "reasoning": "General order bounds and calculations with missing closing edges give neither the exact six-residue cyclic weight nor the number of minimum cyclic labelings; endpoint closure changes exact one-defender and totality constraints.",
+      "searches": [
+        "\"Total Perfect Roman Domination\" Almulhim 2023 full text",
+        "total perfect Roman domination of ladder graphs Cartesian product K2 path exact minimum and functions",
+        "\"total perfect Roman domination\" grid graph cartesian product paths"
+      ]
+    },
+    "checked_sources": [
+      "A. Almulhim, Symmetry 15(9), 1676, 2023, DOI 10.3390/sym15091676",
+      "Almulhim, Akwu, Al Subaiei, Journal of Mathematics 2022, 1957027, DOI 10.1155/2022/1957027",
+      "Published research-record summary for open-ladder TPRDF optimum enumeration",
+      "Research-record searches for circular ladder, cyclic prism and total perfect Roman domination"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Defining article asserts neither a cyclic-prism all-order formula nor optimizer counts",
+        "Perfect-Roman article does not impose positive-induced minimum degree",
+        "Open two-row ladder removes wraparound edges and its own reported optimum counts differ from the cyclic case"
+      ],
+      "reasoning": "None of those specific statements logically entails the new theorem. In particular a TPRDF may cease to be valid upon edge deletion or addition because zero vertices must have exactly one 2-neighbor; therefore an open-ladder theorem cannot simply be applied after closing the ends.",
+      "searches": [
+        "Almulhim 2023 DOI 10.3390/sym15091676 Definition 1 and Sections 2-5",
+        "Almulhim et al 2022 DOI 10.1155/2022/1957027 Cartesian products",
+        "Exact total perfect Roman domination and minimum-function multiplicities on ladder graphs (published 2026-11-02)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2023 DOI 10.3390/sym15091676 defines exactly one 2-neighbor for each zero and positive-induced minimum degree >=1",
+        "No exact cyclic-prism function/minimizer equivalent was identified among retrieved research records"
+      ],
+      "reasoning": "The exact same definition and graph C_n square K2 were compared, including the alternative term circular ladder; other variants are not equivalent.",
+      "searches": [
+        "\"total perfect Roman domination\" \"prism\" \"circular ladder\"",
+        "\"total perfect Roman domination\" \"C_n\" \"K_2\"",
+        "total perfect Roman dominating functions on circular ladder prism graphs C_n square K_2 optimal value count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved research records on open ladders, unique-response Roman cyclic prisms and perfect-edge domination, but no identical six-residue TPRDF prism table",
+        "No identified published all-order numeric database of the exact minimizing-function counts"
+      ],
+      "reasoning": "A finite table matching the first few values would not establish coverage of the all-order formula; no exact table or equivalent closed-form classification was located.",
+      "searches": [
+        "C_n square K2 total perfect Roman domination minimum 4n/3 and number of minimum labelings mod six",
+        "TPRDF prism cylindrical ladder parity one-label polynomial",
+        "\"total perfect Roman domination\" \"prism\" \"circular ladder\""
+      ]
+    },
+    "rationale": "The accessible 2023 defining article covers general results and trees, not cyclic prisms. The 2022 Cartesian-product paper uses the strictly weaker perfect-Roman condition without totality, so bounds there do not imply total-perfect counts. A published open-ladder exact calculation has different boundary edges; its minimum functions do not imply the six-residue cyclic-prism census. No published-result record found asserting or dominating the same cyclic-prism statement. Remaining priority risk from incomplete historical indexing and unavailable full text is expressly acknowledged.",
+    "residual_risks": [
+      "Published open-ladder record full text not retrievable during comparison; read only the indexed statement",
+      "Some older articles and unindexed theses may not be covered by searches",
+      "No independent expert priority assessment"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No theorem covering cyclic-prism minima or optimum counts in the accessible full document",
+        "evidence": [
+          "Definition 1 is the same exact-one-defender plus totality condition",
+          "Main focus: graphs with maximum invariant, NP-completeness, and relation to perfect domination; no prism/ladder title or theorem"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2073-8994/15/9/1676",
+        "material_read": "Accessible full HTML including definition, theorem statements, main sections and conclusions",
+        "method": "Direct reading and keyword checks for prism, ladder and Cartesian",
+        "title": "Total Perfect Roman Domination",
+        "trigger": "Defining 2023 primary source for exact invariant"
+      },
+      {
+        "assessment": "Different invariant; ordinary perfect Roman domination omits the totality constraint",
+        "evidence": [
+          "Abstract defines PRDF with unique 2-neighbor for zeros only",
+          "Upper bound for Cartesian products cannot imply exact total-perfect minimum-function multiplicities"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2022/1957027",
+        "material_read": "Abstract and accessible full-text transcript opening sections, not certified full-page inspection",
+        "method": "Comparison of definitions and the explicitly advertised Cartesian-product bounds",
+        "title": "The Perfect Roman Domination Number of the Cartesian Product of Some Graphs",
+        "trigger": "Plausible Cartesian product study with cycle factors"
+      },
+      {
+        "assessment": "Open ladder P_2 square P_n does not directly imply cyclic prism C_n square K2; residual full-text priority risk",
+        "evidence": [
+          "Summary reports open-ladder formula 2n-2floor(n/3)",
+          "Adding wraparound horizontal edges changes the local exact-one count and totality feasibility"
+        ],
+        "identifier_or_url": "Exact total perfect Roman domination and minimum-function multiplicities on ladder graphs (published 2026-11-02; title-indexed scientific record)",
+        "material_read": "Semantic index summary and reported theorem statement only; direct full text unavailable",
+        "method": "Compare graph family and boundary effects at the theorem-statement level",
+        "title": "Exact total perfect Roman domination and minimum-function multiplicities on ladder graphs",
+        "trigger": "Same invariant on closely related open two-row ladders"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b66a8c06-5c91-4587-9ef5-7e713986eec0",
+  "value": {
+    "rationale": "The theorem determines a sharp all-order domination parameter and the exact multiplicities of minimum defensive configurations on a fundamental family of cubic symmetric graphs, including a nontrivial congruence-class lower-bound failure and constant/linear/quadratic/quartic changes in optimizer counts. Rational certificate supplies a structural explanation and a reusable finite-state counting method, beyond a routine small-graph evaluation.",
+    "status": "PASS"
+  }
+}
