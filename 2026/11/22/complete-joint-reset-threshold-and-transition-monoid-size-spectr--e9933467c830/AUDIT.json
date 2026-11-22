@@ -1,0 +1,166 @@
+{
+  "correctness": {
+    "rationale": "All 256 maps of a labeled four-state set are encoded bijectively by base-four integers; their full ordered square has 65,536 elements. BFS from the identity through composition with both generators enumerates precisely all word transformations, so vertex count is exact transition monoid size and shortest distance to any constant map is exact reset threshold. Independent Python computes monoid closure with tuple maps and reset depths using a separate 15-subset BFS; both agree cell-for-cell with the 179-row CSV. Independent symmetry conjugation checks produce exactly two 48-element orbits at reset depth nine, with monoid sizes 128 and 145. All computations were replayed from the delivered standalone files. The proof covers every pair with no inference to larger n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Szykuła, Synchronizing Automata: Open Problems, arXiv:2608.24245, introduction and §§1.1, 2.7 (first public 2026-08-25).",
+        "East–Egri-Nagy–Mitchell, Enumerating Transformation Semigroups, arXiv:1403.0274, §§3 and 5.3.",
+        "Gonze–Gusev–Gerencsér–Jungers–Volkov, On the Interplay Between Babai and Černý’s Conjectures, arXiv:1704.04047, abstract and introductory full-text discussion.",
+        "Kisielewicz–Kowalski–Szykuła, Experiments with Synchronizing Automata, arXiv:1607.04025, introduction and §3."
+      ],
+      "reasoning": "Szykuła 2026 treats general n and shortest reset lengths but does not parameterize by generated monoid cardinality. Gonze et al. study automata whose monoid is the entire full transformation monoid (requiring three generators in degree four), not the binary monoid sizes up to 176. East et al. enumerate *all* transformation semigroups up to degree four, much broader in semigroup types, but their size/rank listings do not retain a prescribed ordered pair and the associated shortest word inducing a constant map; neither joint frequency nor two extremal generator orbits follows from the published tables without new generator-level enumeration.",
+      "searches": [
+        "Joint reset threshold syntactic complexity transition monoid 4 states distribution 2026",
+        "Binary 4-state synchronizing automata transition semigroup monoid size 176 maximum 145 reset threshold 9 exact",
+        "Four-state binary complete automata 179 distinct reset threshold and transition monoid cardinality pairs, two extremal symmetry orbits"
+      ]
+    },
+    "checked_sources": [
+      "Szykuła, Synchronizing Automata: Open Problems, arXiv:2608.24245, introduction and §§1.1, 2.7 (first public 2026-08-25).",
+      "East–Egri-Nagy–Mitchell, Enumerating Transformation Semigroups, arXiv:1403.0274, §§3 and 5.3.",
+      "Gonze–Gusev–Gerencsér–Jungers–Volkov, On the Interplay Between Babai and Černý’s Conjectures, arXiv:1704.04047, abstract and introductory full-text discussion.",
+      "Kisielewicz–Kowalski–Szykuła, Experiments with Synchronizing Automata, arXiv:1607.04025, introduction and §3.",
+      "The binary four-state adversarial synchronization hierarchy collapses at level three, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-the-binary-four-state-adversarial-synchronization-hierarchy-coll--26f0d000ed59",
+      "Complete four-state classification for maximal synchronizing-word state complexity, https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-complete-four-state-classification-for-maximal-synchronizing-wor--fec59e9b5337",
+      "Complete reset-threshold spectrum for eight-state circular defect-one automata, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-reset-threshold-spectrum-for-eight-state-circular-defec--d2476f0a726f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Szykuła, Synchronizing Automata: Open Problems, arXiv:2608.24245, introduction and §§1.1, 2.7 (first public 2026-08-25).",
+        "East–Egri-Nagy–Mitchell, Enumerating Transformation Semigroups, arXiv:1403.0274, §§3 and 5.3.",
+        "Gonze–Gusev–Gerencsér–Jungers–Volkov, On the Interplay Between Babai and Černý’s Conjectures, arXiv:1704.04047, abstract and introductory full-text discussion.",
+        "Kisielewicz–Kowalski–Szykuła, Experiments with Synchronizing Automata, arXiv:1607.04025, introduction and §3.",
+        "The binary four-state adversarial synchronization hierarchy collapses at level three, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-the-binary-four-state-adversarial-synchronization-hierarchy-coll--26f0d000ed59",
+        "Complete four-state classification for maximal synchronizing-word state complexity, https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-complete-four-state-classification-for-maximal-synchronizing-wor--fec59e9b5337"
+      ],
+      "reasoning": "The prior maximal four-state reset threshold nine establishes the existence and numerical upper bound only, not that its 96 labeled realizations split exactly 48/48 by monoid sizes 128/145. Semigroup order/rank distributions alone do not determine minimum generator-word length to a constant map; different ordered generating pairs of a fixed transformation semigroup can have different word metrics. Full-transformation-monoid reset bounds do not apply since cardinality 256 is unattainable with two generators in this four-state domain. Earlier exact state-complexity-12 findings count states in the DFA recognizing reset words, not distinct induced transformations. Thus none of the inspected stated results implies the new 179-cell histogram or sharp 31-element drop.",
+      "searches": [
+        "Exact joint histogram of generated transformation monoid size (order) and shortest reset-word length for all 65536 four-state binary automata; reset length nine occurs with monoid order 128 or 145 (48 each), never 176",
+        "Binary four-state complete automata 179 distinct reset threshold and transition monoid cardinality pairs, two extremal symmetry orbits",
+        "Binary 4-state synchronizing automata transition semigroup monoid size 176 maximum 145 reset threshold 9 exact",
+        "\"Cerny automaton\" \"transformation monoid\" cardinality four states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Szykuła, Synchronizing Automata: Open Problems, arXiv:2608.24245, introduction and §§1.1, 2.7 (first public 2026-08-25).",
+        "East–Egri-Nagy–Mitchell, Enumerating Transformation Semigroups, arXiv:1403.0274, §§3 and 5.3.",
+        "Gonze–Gusev–Gerencsér–Jungers–Volkov, On the Interplay Between Babai and Černý’s Conjectures, arXiv:1704.04047, abstract and introductory full-text discussion.",
+        "Available indexed entries returned closely related but different four-state transition-system and reset-language studies; no source stated a 179-cell (reset length, monoid size) joint distribution."
+      ],
+      "reasoning": "Alternative formulations use transformation-semigroup order, syntactic transformation monoid size, shortest rank-one product, or reset threshold, all referring to the same pair of invariants for a complete semiautomaton. In the inspected full papers, the combination is not stated; full transformation monoid results require a monoid of cardinality 256 on four states, but a two-letter generator pair reaches at most 176. Search nonretrieval is only best-knowledge evidence, not uniqueness proof.",
+      "searches": [
+        "Exact joint histogram of generated transformation monoid size (order) and shortest reset-word length for all 65536 four-state binary automata; reset length nine occurs with monoid order 128 or 145 (48 each), never 176",
+        "Binary four-state complete automata 179 distinct reset threshold and transition monoid cardinality pairs, two extremal symmetry orbits",
+        "Transformation semigroup size 145 128 four-state Černý slow-reset automata",
+        "\"transition monoid\" \"reset threshold\" \"four states\" \"145\"",
+        "\"transition monoid\" \"reset threshold\" \"size\" binary automata enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "East–Egri-Nagy–Mitchell, Enumerating Transformation Semigroups, arXiv:1403.0274, §§3 and 5.3.",
+        "Kisielewicz–Kowalski–Szykuła, Experiments with Synchronizing Automata, arXiv:1607.04025, introduction and §3.",
+        "The binary four-state adversarial synchronization hierarchy collapses at level three, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-the-binary-four-state-adversarial-synchronization-hierarchy-coll--26f0d000ed59",
+        "Complete four-state classification for maximal synchronizing-word state complexity, https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-complete-four-state-classification-for-maximal-synchronizing-wor--fec59e9b5337",
+        "Complete reset-threshold spectrum for eight-state circular defect-one automata, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-reset-threshold-spectrum-for-eight-state-circular-defec--d2476f0a726f"
+      ],
+      "reasoning": "The detailed degree-four semigroup tables in East et al. concern conjugacy/isomorphism classes by order and rank and therefore cannot assign reset lengths to individual ordered generator pairs. Indexed entries reporting a four-state adversarial game outcome, a synchronizing-word-language minimal DFA state count, and an eight-state restricted reset threshold spectrum have different measured random variables. No exact table with columns (reset_length,monoid_size,count) across all 65,536 labeled binary automata was found; unindexed historical datasets remain an explicit risk.",
+      "searches": [
+        "Exact joint histogram of generated transformation monoid size (order) and shortest reset-word length for all 65536 four-state binary automata; reset length nine occurs with monoid order 128 or 145 (48 each), never 176",
+        "Binary four-state complete automata 179 distinct reset threshold and transition monoid cardinality pairs, two extremal symmetry orbits",
+        "Transformation semigroup size 145 128 four-state Černý slow-reset automata",
+        "Joint reset threshold syntactic complexity transition monoid 4 states distribution 2026",
+        "joint transition monoid size reset threshold 4 state 2 letter automata classification table"
+      ]
+    },
+    "rationale": "The candidate is the exact joint 179-cell distribution of labeled generator-pair reset thresholds and generated monoid cardinalities. The latest full-text synchronization survey gives neither joint cardinality nor small-generator extremal orbit census. Existing degree-four semigroup size/rank tables forget prescribed generator lengths; available reset-threshold tables forget generated monoid size. Prior results on full transition monoids concern a different algebraic class. Direct claim-versus-implication comparison and indexed research searches did not identify this table. The known maximum reset length nine is excluded from the originality claim. An unindexed equivalent generator-level dataset remains a priority risk.",
+    "residual_risks": [
+      "Equivalent unindexed generator-pair datasets or unpublished four-state tables could contain these exact numbers.",
+      "Closest indexed four-state studies were compared at published result/abstract level, not all appendices; no claim of publication-priority certification.",
+      "Finite mathematical classification is exact for four states and two letters only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports naturality of reset threshold and complete automata; no monoid-size-conditioned four-state tabulation in read sections. Other untouched portions not used to assert document-wide absence.",
+        "evidence": [
+          "arXiv:2608.24245, §1.1 and §2.7, August 25, 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+        "material_read": "First-public timestamp, full-text introduction, definitions in §1.1, algorithms and average reset thresholds in §§2.6–2.7",
+        "method": "Rendered arXiv article full-text sections read directly",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "Primary recent synchronization survey and earliest dated lead"
+      },
+      {
+        "assessment": "The enumerated objects are transformation semigroups without the ordered generating pairs and constant-map word metric; direct published results do not imply the new coupled histogram. Exhaustive separate tabulation cannot rule out additional unindexed datasets.",
+        "evidence": [
+          "arXiv:1403.0274, §§3.2, 5.3, Table/Figure 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.0274",
+        "material_read": "Introduction, closure algorithm, §3 minimal generators, §5.3 degree-four census and size/rank tables",
+        "method": "Rendered arXiv preprint full-text, reading algorithms, full relevant degree-four discussion and checking for synchronization terms",
+        "title": "Enumerating Transformation Semigroups",
+        "trigger": "Most relevant possible dominating degree-four transformation-semigroup classification"
+      },
+      {
+        "assessment": "Studies generated monoid exactly equal to the full transformation monoid; its quantified class does not contain any two-letter four-state pair, and its bounds are not a joint distribution.",
+        "evidence": [
+          "arXiv:1704.04047, §1 and abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.04047",
+        "material_read": "Abstract and full-text background/overview of full transformation monoids and reset thresholds",
+        "method": "Rendered arXiv article; relevant object definitions and main-result statements inspected",
+        "title": "On the Interplay Between Babai and Černý’s Conjectures",
+        "trigger": "Directly couples reset lengths and transformation monoids in stronger setting"
+      },
+      {
+        "assessment": "Tests reset lengths and bounds over small automata but no corresponding transition-monoid-size joint distribution in the inspected sections.",
+        "evidence": [
+          "arXiv:1607.04025, §§2–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1607.04025v1",
+        "material_read": "Introduction, §2 and §3 experimental methods and reset-length claims",
+        "method": "ArXiv HTML full-text sections, including automated search for monoid terminology",
+        "title": "Experiments with Synchronizing Automata",
+        "trigger": "Possibly dominant exhaustive small-state reset-threshold experiments"
+      },
+      {
+        "assessment": "Indexed statement counts game-winning thresholds, not reset length conditioned on transformation monoid size. Unread appendices remain a limited priority risk.",
+        "evidence": [
+          "Published mathematical research index: game-winning counts 51,520, 25,360, 22,384; different statistic"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-the-binary-four-state-adversarial-synchronization-hierarchy-coll--26f0d000ed59",
+        "material_read": "Indexed public title and scientific theorem summary only",
+        "method": "Indexed-record abstract-level comparison; full text not inspected",
+        "title": "The binary four-state adversarial synchronization hierarchy collapses at level three",
+        "trigger": "Same labeled 65536 automata domain in mathematical research index"
+      },
+      {
+        "assessment": "Classifies minimal-DFA state complexity of reset-word language, not count of induced transformations nor its joint reset-depth census.",
+        "evidence": [
+          "Published mathematical research index: maximum language state complexity 12, distinct invariant"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-complete-four-state-classification-for-maximal-synchronizing-wor--fec59e9b5337",
+        "material_read": "Indexed public title and theorem summary only",
+        "method": "Indexed-record abstract-level comparison; full text not inspected",
+        "title": "Complete four-state classification for maximal synchronizing-word state complexity",
+        "trigger": "Same four-state automaton and terminology state complexity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e9933467-c830-4f92-afb0-d5df738a9d06",
+  "value": {
+    "rationale": "The two independently natural invariants measure distinct structural resources: reset time and transformation-monoid diversity. The complete joint spectrum is not determined by known reset-threshold or monoid-size marginal results; it shows a sharp 31-element decline in maximum monoid size at the slowest attainable reset threshold, and distinguishes the 96 slowest automata into two explicit algebraic symmetry types. This exact natural small-state boundary is useful as a reference for structural conjectures about algebraic richness versus synchronization delay; it makes no unsupported large-state claim.",
+    "status": "PASS"
+  }
+}
