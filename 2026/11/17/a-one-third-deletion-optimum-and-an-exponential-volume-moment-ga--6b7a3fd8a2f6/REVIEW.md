@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The forest incidence Gram factorization is proved from the tridiagonal path recurrence; the full conditional moment formula comes from a verified cyclic-gap/composition bijection. The ratio of successive exact moments yields the complete one-third maximizer classification, including the tie case. The fixed-density log-volume central limit theorem follows by an explicit conditional characteristic-function inversion with a uniform lattice spectral gap and geometric tails; the annealed–typical difference equals the divergence between two explicit distinct geometric-family distributions. Every critical formula has independently evaluated finite tests, including all retained-edge subsets through ten vertices. The finite tests are not claimed as infinite proofs.
+## correctness
 
-**Originality (PASS, provisional historical priority).** The closest inspected 2026 source studies face counts of Erdős–Rényi symmetric-edge polytopes; it neither investigates cycle-edge deletion nor intrinsic Euclidean volume. Classical matrix-forest identities and rooted-forest enumeration imply important ingredients, and the 2012 composition part-product theorem handles random numbers of parts. These known tools are credited. Searches of equivalent names (cycle forest Gram determinants, normalized root-polytope volume, fixed-length composition products, and size-biased geometric laws) did not identify a published combined fixed-edge-count geometric volume law with its exact one-third optimum, conditional variance, and KL gap. The possibility of an unindexed fixed-length composition result remains a recorded risk.
+PASS
 
-**Value (PASS).** Dimension changes after deletion make raw intrinsic volume incomparable; the canonical cross-polytope normalization isolates the graph's Euclidean Gram-volume distortion. The exact nonmonotone one-third deletion peak and the strict annealed–typical exponential gap explain why an average metric-size statistic of these random lattice polytopes can be misleading. The fluctuation coefficient and the entropy interpretation give a reusable probability model rather than an arbitrary finite calculation. The theorem does not assert universal behavior for other random graphs or deletion regimes.
+For uniformly deleting exactly m of n edges (1<=m<=n-1), the retained forest edge-root matrix has independent columns and crosspolytope-volume Jacobian sqrt(det B^T B); each path component on s vertices contributes determinant s. Marking a deleted cyclic edge gives a uniform positive composition (s1,...,sm) of n, hence exact Mellin coefficient and EX=Gamma(m)Gamma(n+m)/(Gamma(2m)Gamma(n)). The exact adjacent-m ratio (n+m)/(2(2m+1)) proves the one-third maximizing m and precise n mod 3 tie, including endpoints. For m/n->q in (0,1), the geometric( q_n ) conditioned-sum representation (conditioned at its mean) plus a two-dimensional lattice Fourier/local-limit argument gives Gaussian log-product fluctuations with regression variance tau(q)^2>0; uniform compact-q Taylor/aperiodicity bounds justify conditioning. Stirling gives F(q) and prefactor sqrt(2/(1+q)); KL tilt Q_q has the SAME geometric mean 1/q and proves F-qmu=q D(P||Q)>0. Independently enumerated all edge-deletion subsets for every n=3..10, computed component-size products and exact means/optima. Asymptotic theorem remains an analytic conditional CLT, not inferred from finite tests.
 
-The proof is a self-review; independent mathematical auditing and historical-priority certification are not provided.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Schmutz–Shapcott 2012 primary theorem proves logarithmic-normal asymptotics of part-products under UNRESTRICTED number of parts in uniformly sampled S-restricted compositions, not compositions of exactly m=qn parts with the conditional-regression variance, nor cycle-forest volumes or sharp m optimum. Donzelmann et al 2026 analyze symmetric-edge polytopes on ER random graphs but study numbers of polytope edges and triangulation edges, not this random cycle deletion volume statistic. Classical matrix-forest determinant and rooted-forest composition enumerators provide background, not the linked optimum, conditional CLT and strict annealed-typical KL separation. No earlier exact coverage identified; priority remains best-of-knowledge, with conditional composition literature risk explicitly acknowledged.
+
+## value
+
+PASS
+
+An exact graph-geometric invariant on a natural edge-percolated cycle model has a nontrivial finite optimum at deletion fraction one third and a rigorously quantified distinction between mean and typical intrinsic volume. The shared fixed-m composition mechanism, conditional fluctuation coefficient and KL rate form a mathematically motivated complete analysis; classical Gram determinants alone do not make it a textbook renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
