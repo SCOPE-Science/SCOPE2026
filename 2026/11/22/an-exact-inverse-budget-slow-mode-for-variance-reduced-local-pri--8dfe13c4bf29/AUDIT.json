@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Conditional variance-reduction unbiasedness holds for every stored table, and the affine gradient makes the first moment a closed deterministic recurrence. Exact local geometric sums yield H and K and the unique zero-sum fixed point. On that invariant space, M tends to a semisimple projector and first-order perturbation is similar to the positive weighted graph Laplacian; this gives the sharp spectral radius. The stochastic two-component two-agent trajectory and exact sample variance are reconstructed, with 3,840 exact-rational trajectory assertions, 144 exhaustive sampling-mean cases and 960 supplementary numerical spectral assertions passing. No inference of mean-square convergence is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2407.02689 Algorithm 3 is a different primal–dual outer map with general complexity analysis.",
+        "arXiv:2210.04757 Algorithm 1 is gradient tracking, not the LED graph-mixed-primal/dual-residual map.",
+        "arXiv:2302.00620 Appendix A has a graph-only transformed comparison matrix with spectral modulus sqrt(lambda), not the exact curvature-weighted mean matrix."
+      ],
+      "reasoning": "The closest broader primal–dual and local-gradient results provide convergence/communication bounds or structurally different updates. Their theorems, as inspected, do not imply the exact coefficient lambda_min_positive(T^{1/2}(I-W)T^{1/2}) as an explicit first-moment spectral limit or exact stochastic two-agent equality. Remaining overlap with unpublished specialist spectral work is acknowledged.",
+      "searches": [
+        "multiple local updates decentralized primal dual quadratic exact slow eigenvalue generalized graph Laplacian inverse curvature diagonal tau",
+        "LPDVR 2610.41927 stochastic variance reduction primal dual multiple local steps degenerate deterministic quadratic inner-loop over solving slower graph Laplacian eigenvalue",
+        "arxiv:2210.04757 full text Algorithm 1",
+        "arxiv:2601.03442 abstract"
+      ]
+    },
+    "checked_sources": [
+      "Liu, Bastianello, Xu and Ho, arXiv:2610.41927, 2026: Algorithm 1 equations (3)-(6), Theorem 3 and Section VI-B",
+      "Alghunaim, arXiv:2302.00620, 2023: LED Algorithm 1 equations (3a)-(3c), Appendix A equations (40)-(44), convergence results",
+      "Yang, Yildirim and Feng, arXiv:2407.02689, 2024: decentralized Algorithm 3 equations (5), Section 4.2",
+      "Nguyen, Alghunaim, Yuan and Uribe, arXiv:2210.04757, 2022: local gradient-tracking Algorithm 1 and main rate statements",
+      "Wang and Wang, arXiv:2601.03442, 2026: abstract and arXiv metadata only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 of arXiv:2610.41927 bounds expected squared errors with alpha of order 1/tau; the new exact first moment is studied for fixed alpha and does not imply source mean-square convergence.",
+        "LED arXiv:2302.00620 already covers deterministic update identities, so the contribution does not assert a new algorithm.",
+        "The stochastic witness has positive one-round sample variance at tau=2, yet its expected mean disagreement is exactly lambda[1-(1-lambda)/tau]^{t-1}."
+      ],
+      "reasoning": "There is genuine implication overlap on the update and generic unbiasedness, both ceded. The assessed sharp graph-Hessian spectral asymptotic and exact finite-budget stochastic equality are not stated or obtained as corollaries of inspected prior convergence estimates, which lack the needed sharp constants and fixed-alpha regime.",
+      "searches": [
+        "\"multiple local updates\" \"dual\" \"1/tau\" \"slower\" strongly convex",
+        "arxiv:2610.41927 full text Algorithm 1 and Theorem 3",
+        "arxiv:2302.00620 full text LED Algorithm 1 Appendix A",
+        "arxiv:2407.02689 full text Algorithm 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.00620 Algorithm 1 is exactly the full-gradient special case for beta=1/tau; this equivalence is acknowledged and not claimed novel.",
+        "arXiv:2610.41927 Algorithm 1 adds table-based variance reduction; conditional unbiasedness on quadratic gradients gives an exact mean recursion."
+      ],
+      "reasoning": "An equivalent older deterministic LED iteration was found and fully compared. That prior equivalence covers the algorithmic identity and generic mean inheritance, but the older analysis does not report the exact curvature-weighted first-moment slow eigenvalue across arbitrary connected SPD networks, nor the all-budget example with nonzero SAGA sampling variance. The new claim is only that quantitative spectral and work law.",
+      "searches": [
+        "LPDVR fixed inner gradient stepsize local steps tau inverse dual feedback spectral radius approaches one weighted Laplacian",
+        "LPDVR exact quadratic same curvature tau multiple local steps step size 2/L independent tau and network",
+        "arxiv:2302.00620 full text LED Algorithm 1 Appendix A",
+        "arxiv:2407.02689 full text Algorithm 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual searches of published mathematical claims and literature produced relevant generic primal–dual and distributed gradient-tracking rates but no exact LPDVR/LED tau-asymptotic spectrum with component-gradient-table sampling.",
+        "The closest related claims concern gradient-tracking eigenvalue thresholds and primal–dual splitting, not this finite-sum mean error operator."
+      ],
+      "reasoning": "This is not an indexed finite enumeration or a known exact table entry. A failed search cannot prove uniqueness, and the record comparison supplies only positive best-knowledge noncoverage evidence.",
+      "searches": [
+        "LPDVR fixed inner gradient stepsize local steps tau inverse dual feedback spectral radius approaches one weighted Laplacian",
+        "local primal dual network mixing spectra fixed curvature arbitrary local centers positive definite mixing",
+        "LPDVR redundant local updates zero Hessian factor slow rate mixing matrix tau",
+        "\"LPDVR\" \"spectral\" \"quadratic\" 2026"
+      ]
+    },
+    "rationale": "Closest original algorithm is prior LED, which is explicitly credited; the genuine two-component SAGA-style stochastic estimator is later, and no inspected primary source or current indexed exact claim gives the particular fixed-local-step stochastic-mean spectral coefficient or its sharp every-budget noisy witness. Equivalence and remaining coverage risks are explicitly compared, rather than inferring novelty from a title or a failed query.",
+    "residual_risks": [
+      "LED is the exact-gradient specialization; its broader unpublished or independently stated quadratic spectral analyses could contain an equivalent result.",
+      "Generic linear primal–dual or SAGA calculations could recover the theorem after a further derivation; no exhaustive priority claim is possible.",
+      "The relevant 2026 DIGing work was assessed from its abstract, not its complete text; it is methodologically distinct but remains a literature-access limitation.",
+      "First-moment convergence is not mean-square convergence, especially when the fixed alpha lies outside published stochastic sufficient bounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source defines the 2026 stochastic algorithm and a sufficient stepsize shrinking with tau, but does not derive the fixed-alpha quadratic first-moment spectral coefficient or the exact all-budget stochastic example",
+        "evidence": [
+          "Algorithm 1 uses beta=1/tau, resets tables, performs x+=W phi and y+=y+(I-W)phi",
+          "Strong-convexity analysis bounds a matrix of squared-error inequalities under alpha=O(1/tau), not the exact first-moment operator at fixed alpha"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.41927",
+        "material_read": "Accessible full-text rendering: problem assumptions, Algorithm 1 equations (3)–(6), conditional gradient estimator, Section VI-B Theorem 3 and rate comparison; submission metadata",
+        "method": "Read algorithm and theorem statements and compare matrix-level implications",
+        "title": "Variance Reduction for Decentralized Stochastic Optimization with Multiple Local Updates",
+        "trigger": "Exact same table estimator, local dual feedback and claimed linear convergence"
+      },
+      {
+        "assessment": "The earlier deterministic iteration already contains beta=1/tau and is credited; Appendix A diagonalizes a graph-only transformed comparison matrix, not the exact curvature-weighted stochastic-mean error operator. The published convergence rates do not state the claimed sharp tau-asymptotic eigenvalue or stochastic witness",
+        "evidence": [
+          "LED equations (3a)-(3c) coincide with the source stochastic update when the estimator is the full gradient",
+          "Appendix A equation (40) treats a graph-only comparison matrix, whereas the new operator depends on the inverse local curvatures"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.00620",
+        "material_read": "Full-text rendering: Section 2 Algorithm 1, Section 4 rates, Appendix A graph decomposition and comparison matrix and its spectral analysis",
+        "method": "Algebraically identify exact-gradient special case and compare the Appendix A eigenproblem to the new mean-error operator",
+        "title": "Local Exact-Diffusion for Decentralized Optimization and Learning",
+        "trigger": "Prior exact-gradient algorithm with identical local steps, graph mixing and dual update"
+      },
+      {
+        "assessment": "Related but distinct outer iteration: Algorithm 3 carries the local primal endpoint directly into the next round and applies graph correction through a separate dual update; it is not algebraically the LED/LPDVR W-mixed primal map and does not state the claimed weighted eigenvalue",
+        "evidence": [
+          "Algorithm 3 lines 296–303 give its primal continuation and dual correction",
+          "Section 4 discusses complexity rates rather than this exact spectral limit"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.02689",
+        "material_read": "Accessible full-text rendering: decentralized Section 4.1, Algorithm 3, Section 4.2 and related LED discussion",
+        "method": "Compare inner-loop gradient step, outer primal mixing and dual-ascent map",
+        "title": "Accelerating Distributed Optimization: A Primal-Dual Perspective on Local Steps",
+        "trigger": "Earlier primal-dual multiple-local-step scheme might dominate exact-gradient specializations"
+      },
+      {
+        "assessment": "Distinct gradient-tracking method, with qualitatively relevant communication discussion but no implication of the specific LED/LPDVR curvature-weighted exact rate",
+        "evidence": [
+          "Algorithm 1 updates tracking variables using gradient differences rather than the dual residual accumulation y+=y+(I-W)phi"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.04757",
+        "material_read": "Accessible full-text rendering: Introduction, Section II Algorithm 1 and main rate discussion",
+        "method": "Compare the gradient tracking auxiliary state to local primal-dual multiplier and note lack of exact stochastic finite-sum first-moment law",
+        "title": "On the Performance of Gradient Tracking with Local Updates",
+        "trigger": "Prior theory and empirical results address added local gradient work in decentralized networks"
+      },
+      {
+        "assessment": "Paper explicitly studies DIGing using performance-estimation arguments, unlike the present primal–dual SAGA table; full-text coverage remains an access/priority risk",
+        "evidence": [
+          "Abstract describes DIGing and a two-local-update acceleration regime, not the stated weighted spectral equation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.03442",
+        "material_read": "ArXiv abstract and submission history only; full paper not inspected",
+        "method": "Abstract-level algorithm identity check",
+        "title": "Local Updates in Distributed Optimization: Provable Acceleration and Topology Effects",
+        "trigger": "Possibly relevant sharp claims about topology-dependent local-step count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8dfe13c4-bf29-49de-9405-965c57b55ed5",
+  "value": {
+    "rationale": "The natural local-work versus communication tradeoff has a sharp, structurally interpretable coefficient given by the smallest positive curvature-weighted Laplacian eigenvalue. A genuinely random two-agent finite-sum instance establishes strict slowdown for every added local step and a quadratic component-gradient penalty, providing exact implementation guidance rather than generic local-drift rhetoric. The value does not depend on asserting unproved mean-square robustness.",
+    "status": "PASS"
+  }
+}
