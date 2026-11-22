@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3 the run grammar is derived from private domination witnesses; constructive moves cover mixed singleton/double runs and all all-singleton gap cases, while the only remaining 1100 cyclic words are frozen for n>=8. The n=3,4 exceptions are checked. Executed exhaustive checker verifies all cycle lengths 3..18; independent finite-state checker proves the all-length recurrence has only the four 1100 states.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beaton, arXiv:2411.02300, Theorems 3.4, 3.6, 3.7 and the Section 4 questions; connectivity for trees/split graphs and an isolated configuration for matching-joined graphs, not cycle family.",
+        "Published published-finding corpus 2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9, RESULT.md read in full; it optimizes an edge-isolation predicate under arbitrary vertex replacement rather than inclusion-minimal domination under expansion/contraction."
+      ],
+      "reasoning": "The four isolated minimum isolating sets are obtained from size-ceiling(n/4) configurations with gaps four; the present frozen configurations have paired 1-runs, size n/2 and are inclusion-minimal dominating. Neither the feasible-set family nor the move relation is shared, so the coincident four-periodic counts are not implications. Beaton matching-joined examples have additional intralayer edges and do not identify the cycle states.",
+      "searches": [
+        "published-finding corpus: minimal domination cycle frozen independent components generalized token sliding",
+        "published-finding corpus: R(C_n) minimal dominating sets cycle 4k isolated configurations",
+        "Web: reconfiguration graph minimal domination expansion contraction of cycles exact diameter 2024"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2411.02300",
+      "https://arxiv.org/abs/2112.04448",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=68R10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Beaton Theorem 3.7: matching-joined graph M(G,H) with internal degrees, not simple cycle; only proves at least one isolate for those graphs.",
+        "Adaricheva et al. Theorem 5: Hamilton path iff cycle order not multiple four in the add/delete graph on all dominating sets.",
+        "published-finding corpus isolating-sets theorem: exactly four frozen minimum isolation sets for lengths divisible by four; each min isolating set has size n/4, not n/2, and arbitrary replacement allowed."
+      ],
+      "reasoning": "Beaton generalities supply a model and motivate studying cycles but no implication giving the four phases or eliminating other frozen states. The TAR Hamilton-path result does not imply inclusion-minimal expansion/contraction isolation. The isolating result has a completely different feasibility predicate and state count, so no strong implication or reduction has been established. Direct new proof independently establishes every claimed boundary.",
+      "searches": [
+        "arxiv:2411.02300 Section 3 Theorem 3.7 cycle adjacency implication",
+        "arxiv:2112.04448 Theorem 5 Hamilton dominating graph cycle n mod4",
+        "Published published-finding corpus 2026/11/2 minimum isolating sets cycles 4-period theorem full RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Iain Beaton, arXiv:2411.02300, Definition 1.1 and Sections 3–4, full 13-page PDF read; model matches exactly, no all-cycle frozen-vertex theorem found.",
+        "Adaricheva et al., arXiv:2112.04448, Theorem 5, full 13-page PDF read; concerns Hamilton paths for all dominating sets under add/remove."
+      ],
+      "reasoning": "Equivalent terminology includes minimal (inclusion-minimal) domination reconfiguration, generalized token sliding, expansion/contraction, frozen/isolated configurations and a period-four run. The known all-dominating TAR graph is not isomorphic to the graph here: it has many nonminimal states, whereas a TAR edge cannot directly join two distinct inclusion-minimal sets.",
+      "searches": [
+        "published-finding corpus: Beaton 2024 expansion contraction reconfiguration minimal dominating sets of cycles four isolated vertices periodic 1100",
+        "published-finding corpus: minimal dominating sets cycle isolated vertices 1100 expansion contraction",
+        "Web: \"minimal dominating sets\" \"expansion\" \"contraction\" \"cycles\" \"isolated\"",
+        "Web: \"R(C_n)\" minimal dominating reconfiguration Beaton 2024 cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus indexed ID 2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9 (full RESULT.md inspected).",
+        "Other near indexed ID 2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc concerns VC/Littlestone dimension, not the expansion/contraction reconfiguration graph.",
+        "Own ledger latest available 2026-11_week3 p0001 g000116, 116 recoverable preceding claim/title records checked for overlap."
+      ],
+      "reasoning": "No indexed exact freeze table or claim for inclusion-minimal cycle domination under the specified move rule appeared. This is an evidence-limited statement, not a database completeness or mathematical uniqueness proof.",
+      "searches": [
+        "published-finding corpus: Beaton minimal dominating sets expansion contraction graph girth cycle paths conjecture counterexample",
+        "published-finding corpus: minimal dominating sets cycle isolated vertices 1100 expansion contraction",
+        "published-finding corpus: R(C_n) minimal dominating sets cycle 4k isolated configurations"
+      ]
+    },
+    "rationale": "New all-cycle exact classification for the expansion/contraction minimal domination state space, with a direct run proof; relevant primary and indexed comparisons address different graphs, predicates or transitions. Unindexed historical equivalents remain possible.",
+    "residual_risks": [
+      "A historical or unindexed equivalent classification may exist under minimal-domination and generalized-token-move terminology.",
+      "An exact computational classification is not a claim that the non-isolated states form one component."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines target model, proves tree/split connectedness and matching-joined isolation, treats C5, but no all-cycle classification; no dominance of this claim.",
+        "evidence": [
+          "arxiv:2411.02300; Definition 1.1; Theorem 3.7; Section 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2411.02300",
+        "material_read": "Full-text sections 1–4, specifically Definition 1.1, Theorems 3.4, 3.6, 3.7 and Section 4 open problems; the PDF contains 13 pages.",
+        "method": "Full arXiv PDF text and visually checked page 2.",
+        "title": "Reconfiguration graphs for minimal domination sets",
+        "trigger": "Introduces exactly the expansion/contraction model and lists general connectivity and isolated-state results."
+      },
+      {
+        "assessment": "All dominating sets under token add/remove and Hamilton paths, not isolated inclusion-minimal sets under expansion/contraction.",
+        "evidence": [
+          "arxiv:2112.04448; Theorem 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2112.04448",
+        "material_read": "Full 13-page arXiv PDF text, especially Definition of D(H), Theorem 5, graph operations and cycle sections; visually checked page 3.",
+        "method": "Full arXiv PDF text and visual page check.",
+        "title": "Hamilton Paths in Dominating Graphs of Trees and Cycles",
+        "trigger": "A superficially matching modulo-four cycle threshold in domination reconfiguration."
+      },
+      {
+        "assessment": "Optimizes isolating sets of size ceiling(n/4) under arbitrary one-vertex exchange; neither the feasible-state predicate nor permitted transitions matches the present claim.",
+        "evidence": [
+          "published-finding corpus ID 2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9/RESULT.md",
+        "material_read": "Complete RESULT.md including definitions, proof, verification, relationship to prior work and limitations.",
+        "method": "Read-only public repository file fetch.",
+        "title": "A four-periodic reconfiguration theorem for minimum isolating sets on cycles",
+        "trigger": "Exact four-periodic isolated-set count on cycles in a closely named reconfiguration setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34f7e0c6-5559-4df6-a8c4-ca2ce19c3ebe",
+  "value": {
+    "rationale": "Directly answers a natural mobility obstruction question for inclusion-minimal dominating sets in the recently proposed expansion/contraction model on every cycle, not an arbitrary finite specimen. Identifies the exact four frozen phases and sharp period-four threshold and gives a legal relocation witness for every other state. Does not claim global connectivity of the remaining graph.",
+    "status": "PASS"
+  }
+}
