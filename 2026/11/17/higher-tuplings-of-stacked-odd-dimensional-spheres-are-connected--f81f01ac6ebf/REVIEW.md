@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof defines the high-dimensional boundary sphere and the exact tupling, counts all complementary hyperedge pairings at each facet, and proves the replacement incidence graph is connected using the Johnson graph on \(r\)-subsets. The initial Kneser graph is connected by one-element exchanges. Graph Euler characteristic then gives the exact integral wedge rank for all \(r\ge3\), without extrapolating from finite tests. Direct enumerations of 1,428 labeled stacked complexes at \(r=3,N=10\), 144 at \(r=4,N=11\), and 11 at \(r=5,N=12\) corroborate the formula.
+## correctness
 
-## Originality — PASS, with limits
-The 2025/2026 foundational article proves a general connectivity lower bound but no stacked-sphere tuple rank. An earlier exact result for \(r=2\) has been explicitly excluded from the new claim; it does not itself imply the all-\(r\ge3\) classification. The 2026 multipartite tuple-graph result treats different input complexes and does not supply a stacking operation theorem. The relevant literature and semantic record searches did not identify a stronger covering theorem. An unindexed hypergraph-matching or stacked-face result remains a bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-This is a closed two-parameter infinite-family homotopy classification of higher tuplings of natural triangulated spheres, identifying an explicit uniform connected incidence replacement. It strengthens the qualitative general connectivity bound and exhibits combinatorially large, location-independent increases in the fundamental-group rank. It is not merely a new finite tabulation or relabeling of the \(r=2\) statement, because the argument works for arbitrary hyperedge size and the resulting ranks grow combinatorially in \(r\).
+A facet of a (2r−1)-sphere contains exactly 2r vertices, so each r-tuple simplex has dimension <=1. For the initial boundary of a 2r-simplex the tuple graph is KG(2r+1,r), connected through Johnson one-swap moves and shared disjoint neighbor, with V=binom(2r+1,r), E=(r+1)/2·V. Stacking F deletes exactly binom(2r,r)/2 old complementary-pair edges, adds binom(2r,r−1) new vertices and r·binom(2r,r) new edges. The replacement bipartite graph is connected: neighboring old r-subsets of F share the new vertex indexed by their r−1 element complement; the old Johnson graph is connected. Therefore no deleted edge disconnects a component and the new vertices attach. Euler rank increment (r−1)/2·binom(2r+1,r) proves the formula integrally without finite extrapolation. Independently rebuilt all tuple graph edges for r=3 through two stackings (V35,E70, beta36; V50,E120,beta71; V65,E170,beta106) and r=4 through one stacking (V126,E315,beta190 to V182,E560,beta379).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge for exact r>=3 stacked-sphere family. Lesh–Schreiner–Wahl defines the functor and proves a weak Cohen–Macaulay connectivity lower bound; at dimension 2r−1 Theorem A yields only wCM dimension 0, not actual connectedness or exact integral graph circle rank. A different published stacked three-sphere formula treats the r=2 double and shows five loops per stacking. The r>=3 formula is a genuine higher-r extension, not a renaming of the r=2 case; no searched dominating formula was found.
+
+## value
+
+PASS
+
+PASS: determining if a natural tuple construction preserves connectivity under arbitrary facet stacking and computing its exact fundamental-group rank across all dimensions is a motivated structural theorem, including a local connectivity-preserving replacement gadget. It separates the exact topology from the weak general connectivity bound. Every stacking adds a natural, nontrivial binomial count of loops independent of stacking history.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
