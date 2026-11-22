@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Exact gamma normalization yields identity (1); cyclic Bernoulli transfer-matrix enumeration yields the joint CDF (2)–(4); a local exponential expansion with an integrable two-dimensional bound yields sqrt(n)Cov(A,B)→sqrt(pi) including the essential 1/2 Jacobian. The gamma-normalization correction is O(log^2 n/n), and exact exponential order statistics give covariance −1/81 at n=3. The included checker verifies exact combinatorial identities, rational boundary arithmetic and numerically the asymptotic trend; numerical agreement is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2015 paper proves a marginal weak limit for sliding sums using Watson (1954), not a mixed covariance between a maximum and adjacent-minimum maximum.",
+        "General Poisson/run theorems give rare-event counts and first-order limits, while the displayed limit concerns an order n^-1/2 residual covariance of two extremes and a separate gamma-normalization correction."
+      ],
+      "reasoning": "Even the joint independence of limiting Gumbels would not imply the n^-1/2 residual cross-covariance or the eventual reversal of the normalized variables. An explicit joint-CDF expansion and uniform-integrability proof are required.",
+      "searches": [
+        "web: maximal uniform k spacing Mijatovic Vysotsky pdf 1508.00944",
+        "web: Poisson approximations for runs and patterns of rare events",
+        "web: Arratia Goldstein Gordon two moments suffice Poisson approximation 1989"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1508.00944 (full text)",
+      "doi:10.1186/2195-5832-1-5 (HTML body)",
+      "doi:10.1111/j.2517-6161.1965.tb00602.x (publisher summary)",
+      "published-finding corpus record 2026/11/8/SCOPE-one-negative-covariance-window-for-two-nested-uniform-spacing-ex--66b375add4dc",
+      "published-finding corpus record 2026/10/26/SCOPE-exact-positive-dependence-and-slow-decorrelation-of-the-largest--a4f2c9f76454"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 main theorem gives a Gumbel limit for a maximum of k consecutive spacing sums; its proof has no second-order covariance statement.",
+        "Johnson–Fu treat run-count probability approximations, not mixed high-order extreme-value covariance.",
+        "The nearest registered circular-scan result treats minimum *span* of k consecutive points, a different small-gap event."
+      ],
+      "reasoning": "Marginal Gumbel convergence and broad Poisson approximation are too weak logically to force the positive n^-5/2 coefficient, while the n=3 negative covariance follows a different exact ordered-exponential calculation. No cited result implies both through a direct substitution.",
+      "searches": [
+        "arXiv:1508.00944, Theorem 1 and proof pp. 2–5",
+        "Johnson–Fu 2014, Introduction/approximation sections, https://doi.org/10.1186/2195-5832-1-5",
+        "published-finding corpus: circular spacing maximum adjacent minimum exact joint law Bernoulli no consecutive ones"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact event B≤v is absence of adjacent Bernoulli successes; the joint event with A≤u is a truncated-exponential cyclic run law. The closest uniform-spacing records concern largest-gap versus Greenwood or exceedance counts, not this local two-gap maximum.",
+        "Mijatović and Vysotsky, arXiv:1508.00944, pp. 2–4, treat maxima of sums of consecutive gaps."
+      ],
+      "reasoning": "The statistic max of neighboring minima is not a maximal k-spacing (sum of consecutive gaps), an exceedance count, or a Greenwood dispersion statistic. The covariance rate and finite negative case cannot be read off from the marginal Gumbel theorem.",
+      "searches": [
+        "published-finding corpus: uniform Dirichlet spacings maximum gap and maximum adjacent pair minimum covariance negative to positive eventually n^5/2 constant",
+        "published-finding corpus: largest spacing and largest two consecutive gaps minimum covariance correlation extreme spacings",
+        "web: joint independent Gumbel maxima minimum of adjacent exponential spacings different window lengths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned closest records include 2026/10/26/SCOPE-exact-positive-dependence-and-slow-decorrelation-of-the-largest--a4f2c9f76454, 2026/11/8/SCOPE-one-negative-covariance-window-for-two-nested-uniform-spacing-ex--66b375add4dc and 2026/10/12/SCOPE-first-signed-finite-size-correction-for-rare-circular-scan-clust--01f619f9c5ed; their statements concern other statistics."
+      ],
+      "reasoning": "No exact table or finding with this functional pair and the sqrt(pi) covariance constant was recovered. Absence from the searched index alone is not evidence of global uniqueness.",
+      "searches": [
+        "published-finding corpus: negative small n positive asymptotic covariance longest spacing best pair of adjacent spacings max minimum cyclic Dirichlet gamma sqrt pi",
+        "published-finding corpus: Cov(max_i E_i, max_i min(E_i,E_{i+1})) sqrt n tends sqrt pi",
+        "web: longest run large spacings consecutive minimum Gumbel exponential"
+      ]
+    },
+    "rationale": "Compared claim implications and dual formulations with actual indexed results and primary texts. Closest 2015 maximal k-spacing theorem concerns sliding sums and marginal Gumbel convergence; nearby records study threshold counts and Greenwood variance rather than max-of-neighbor-minima. No checked source establishes the signed normalization effect and sharp sqrt(pi) n^-5/2 mixed-covariance law.",
+    "residual_risks": [
+      "Uninspected historical works on extrema of consecutive high-gap runs or bivariate spacing maxima might contain an equivalent second-order formula.",
+      "Generic extreme-value theory gives first-order laws; exhaustive historical priority cannot be certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: maximizes sums of consecutive gaps, with marginal weak limit; the requested statistic maximizes adjacent minima and studies mixed covariance",
+        "evidence": [
+          "arXiv:1508.00944, eq. (1), Theorem 1 and pp. 2–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.00944",
+        "material_read": "All five PDF pages, including Theorem 1, Watson reduction, proofs, and references; page images 2–3 checked",
+        "method": "Full text extraction plus page-image inspection",
+        "title": "On the weak limit law of the maximal uniform k-spacing",
+        "trigger": "Directly overlapping extreme-spacing theory and exponential normalization"
+      },
+      {
+        "assessment": "NOT_COVERING the specific mixed continuous extreme covariance; provides relevant general run approximation context",
+        "evidence": [
+          "Johnson–Fu, 2014, introduction and definitions of pattern counts"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/2195-5832-1-5",
+        "material_read": "Accessible full HTML article, introduction and run/pattern approximation setup",
+        "method": "Article body inspection",
+        "title": "Approximating the distributions of runs and patterns",
+        "trigger": "Cyclic Bernoulli adjacency run event in the exact joint CDF"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY; potential residual historical priority risk because the full paper was not inspected",
+        "evidence": [
+          "Pyke 1965 journal description"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+        "material_read": "Accessible journal summary and bibliography; full text not established",
+        "method": "Publisher abstract/summary",
+        "title": "Spacings",
+        "trigger": "Classical exponential representation of uniform spacings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "948cba0b-2188-4578-be79-807f294c1e3c",
+  "value": {
+    "rationale": "The two statistics quantify distinct natural extreme spacing properties (one exceptionally empty arc versus two jointly long adjacent arcs). Exact negative finite-sample dependence contrasts with an eventually positive, sharply quantified residual despite asymptotic weak independence. The result identifies a structural normalization-versus-rare-overlap competition rather than a renamed marginal extreme law; no unproved finite transition uniqueness is advertised.",
+    "status": "PASS"
+  }
+}
