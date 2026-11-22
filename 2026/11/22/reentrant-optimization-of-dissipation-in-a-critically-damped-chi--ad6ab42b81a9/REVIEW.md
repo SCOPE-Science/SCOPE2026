@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The exact stationary translational heat flux follows from the critically damped linear-response kernel \(u e^{-u}\) and the chiral orientational correlation \(e^{-du}\cos(\Omega u)\), yielding the rational function of \(w=1+d\) and \(t=\Omega^2\). The global maximum classification is established using strict concavity of the derivative numerator, a directly verified exact Sylvester resultant, strict convexity of the unique positive sextic root, rational sign witnesses, and endpoint analyses. Implicit differentiation establishes the leading onset and large-frequency laws. The supplied stand-alone checker reproduced the symbolic identities, rational witnesses and 137 analytical/numerical checks; these checks are supplementary to the proof. The angular phase at \(d=0\) and the definition of translational heat are explicit.
+
+## Originality — PASS, qualified
+D. Frydel's 2022 study (arXiv:2211.02082, publicly available full text inspected) establishes the active heat-flow framework and the achiral resonant rate. Olsen and Löwen (arXiv:2405.14326, full text inspected) establish the chiral orientation correlation and optimize free-space diffusion, not this confined oscillator's bath heat. Later arXiv:2511.18361 concerns inertial free motion and arXiv:2604.05722 reports harmonic-trap spatial statistics, not the exact global heat-optimum bifurcation in the material inspected. Searches for corresponding resolvent, resonant dissipation, persistence and chiral reentrant formulas found related work but not an equivalent or dominating statement. The exact stationary flux is a direct linear-response calculation; the assessed addition is the complete global maximizer classification with a first-order jump and continuous later onset. Prior implicit coverage by a general linear-response optimization analysis remains a genuine risk, and independent priority review is outstanding.
+
+## Mathematical value — PASS
+Translational dissipated active power is a meaningful quantity of energetic design for active particles in a confining harmonic trap. The theorem proves an exact and non-monotone switching of the optimal persistence as chirality changes, with separate discontinuous and continuous transition laws, and a temperature-invariant objective. The boundary \(d=0\) and the competing interior maximum are both physical, so the optimization cannot be settled by a routine monotonicity argument. The result is restricted to critical mechanical damping; it is not a claim about full thermodynamic cost or nonlinear systems.
+
+## Residual limitations
+The orientation-driving energetic cost is excluded. In parameter ranges with boundary optimum, a strictly positive angular-diffusion constraint gives a supremum rather than an attained maximum. No independent experimental or publication-priority assessment has been performed; potentially related general linear-response literature may still contain an implied special case.
+
+Self-review: passed. Independent audit: not yet performed.
