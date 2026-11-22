@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on one persistent uniform phase yields Q_m=(1/P)∫(1-h(theta)/W)^m dtheta. Translated circular interval overlap h has exact plateau heights a=max(0,W+ell-P), b=min(W,ell), plateau phase-lengths |P-W-ell|, |W-ell| and two linear ramps; direct integration proves the full formula with all boundary cases. Endpoint dominance yields positive missed-phase floor, order 1/m critical law and geometric law; a=c_+/m near critical yields the stated crossover. Jensen strict convexity for m>=2 proves uniquely optimal full-phase randomization. The model is exact with no unproved infinite inference; 668 supplementary computational assertions checked from packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Siegel and Holst, doi:10.2307/3213488, abstract concerns uniformly located random arcs of random sizes and total-circle coverage",
+        "Michel et al. doi:10.1121/10.0025545 reports empirical duty-cycle comparisons at 50%, 33%, 25%"
+      ],
+      "reasoning": "General random-covering ideas can supply conditioning, but the inspected classic abstracts fix uniform full-circle arc locations or coverage of the entire circle, not restricted arc starts and missed detection of a single common unknown phase. No inspected stronger result yielded the exact finite-m law or all three asymptotic phases. Inaccessible historical sections remain priority risk.",
+      "searches": [
+        "Periodic animal vocalization phase and listening intervals repeated with independent uniform timing errors exact probability of at least one call",
+        "Random coverage of circle arcs restricted uniform start positions finite n expected uncovered phase threshold when support plus arc length spans circle",
+        "circular scan statistic random arcs restricted start uniform arc missed point probability random phase",
+        "Siegel Holst 1982 covering circle random arcs random sizes abstract independent uniformly placed"
+      ]
+    },
+    "checked_sources": [
+      "https://archimer.ifremer.fr/doc/00886/99790/109885.pdf",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.5579",
+      "https://doi.org/10.1121/10.0009752",
+      "https://doi.org/10.2307/3213488"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Michel et al. 2024, https://archimer.ifremer.fr/doc/00886/99790/109885.pdf, Methods II.C.1 subsamples multiple fixed phases separately, with phase constant over cycles",
+        "Balantic and Donovan 2019, https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.5579, Methods §§2.1–2.3 and Appendix 2 optimize hourly site-level effort",
+        "Siegel and Holst 1982, https://doi.org/10.2307/3213488, abstract studies full-circle uniform random arc placement"
+      ],
+      "reasoning": "A mathematical corollary could cover the result even with different notation. The Michel empirical estimates and fixed-phase design imply neither an iid start distribution nor the exact phase-overlap integral. Balantic–Donovan forecasts hourly nonperiodic presence and optimizes across species; neither its p-star iteration nor sample schedule fixes a persistent periodic target phase. The classic full-circle location case gives W=P, for which no phase transition exists. The new theorem therefore is not obtained as a special case of the inspected statements; priority is provisional outside inspected materials.",
+      "searches": [
+        "Uniform bounded independent jitter in periodic duty cycle recorders exact blind phase floor, polynomial critical detection, exponential recovery and finite-period randomization",
+        "Periodic animal vocalization phase and listening intervals repeated with independent uniform timing errors exact probability of at least one call",
+        "Random coverage of circle arcs restricted uniform start positions finite n expected uncovered phase threshold when support plus arc length spans circle",
+        "acoustic periodic calling regular duty cycle randomized schedule aliasing uniform jitter detection probability phase",
+        "Balantic Donovan 2019 temporally adaptive acoustic sampling maximize detection across suite species full text",
+        "Siegel Holst 1982 covering circle random arcs random sizes abstract independent uniformly placed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Michel et al., doi:10.1121/10.0025545, Methods II.C fixes phases across cycles rather than independently randomizing them",
+        "Balantic and Donovan, doi:10.1002/ece3.5579, Methods §2.1 uses forecast-dependent hourly vocalization rather than one shared periodic phase"
+      ],
+      "reasoning": "Equivalences include an uncovered target point by independent arcs whose starting angles are iid uniform on a proper subarc; conditional capture is the overlap of two translated arcs. Full-circle iid arcs are a special endpoint W=P only. Reviewed acoustic references do not assert the restricted-arc overlap distribution or its critical laws.",
+      "searches": [
+        "Uniform bounded independent jitter in periodic duty cycle recorders exact blind phase floor, polynomial critical detection, exponential recovery and finite-period randomization",
+        "Periodic animal vocalization phase and listening intervals repeated with independent uniform timing errors exact probability of at least one call",
+        "acoustic periodic calling regular duty cycle randomized schedule aliasing uniform jitter detection probability phase",
+        "periodic survey windows random phase target periodic calls duty cycle covering circle exact detection gaps"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Michel 2024 experimental tables list sampling fractions/listening periods, not a formula indexed by independent uniform jitter span",
+        "The random-circle-coverage literature located in search considers gap counts/full coverage rather than the present shared-phase miss statistic"
+      ],
+      "reasoning": "No located table enumerates the finite-m probability, the sharp W=P-ell transition, or the critical window. Such absence of a located table is not proof of novelty; this check compares the actual quantities and coverage of located results.",
+      "searches": [
+        "Uniform bounded independent jitter in periodic duty cycle recorders exact blind phase floor, polynomial critical detection, exponential recovery and finite-period randomization",
+        "Periodic animal vocalization phase and listening intervals repeated with independent uniform timing errors exact probability of at least one call",
+        "Random coverage of circle arcs restricted uniform start positions finite n expected uncovered phase threshold when support plus arc length spans circle",
+        "circular scan statistic random arcs restricted start uniform arc missed point probability random phase"
+      ]
+    },
+    "rationale": "Search and inspected-literature comparison did not reveal the exact restricted-start uniform-jitter shared-phase non-detection law or its positive-floor/inverse-effort/geometric trichotomy. Michel et al. evaluate fixed recurrent sampling phases, Balantic–Donovan optimize adaptive schedules with hourly vocal availability, and classical full-circle random-arc coverage asks different questions. The independence-conditioning identity and Jensen inequality are routine and are not claimed novel; the evaluated formula, boundary and crossover are the claim. Best-knowledge, not certified historical priority.",
+    "residual_risks": [
+      "Older random-circle coverage may contain an unstated broader result reducing to the restricted-arc finite formula; full text of Siegel and Holst (1982) not inspected.",
+      "Rand et al. 2022 accessible abstract but not complete full text; no directly covering statement visible.",
+      "The exact profile is elementary overlap geometry and may be implicit in prior sampling theory despite no located equivalent presentation.",
+      "The model omits drift, dropped calls, false-positive identification, energy costs and physical overlap budgets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING because its finite set of alternative phases is held fixed across successive cycles, not drawn independently; empirical metric comparisons are not the finite-m restricted-offset probability",
+        "evidence": "Methods II.C.1 describes listening period L, cycle period Tc, fixed phase r and averaging over r; results compare empirical seasonal patterns and call rates",
+        "identifier_or_url": "https://archimer.ifremer.fr/doc/00886/99790/109885.pdf",
+        "material_read": "Full-text PDF parsed abstract, Introduction, Methods II.C, Results III, Discussion IV, Conclusion V; original public date printed as 9 April 2024",
+        "method": "Read searchable full-text paragraphs and section definitions; page-image screenshot unavailable (HTTP 403); text reviewed, not visual figures",
+        "title": "Effects of duty cycle on passive acoustic monitoring metrics: The case of blue whale songs",
+        "trigger": "Primary motivating duty-cycle experiment with recurring listening periods and phase averaging"
+      },
+      {
+        "assessment": "NOT_COVERING; hourly forecasts and multispecies sampling-effort allocation differ from a shared fixed periodic call phase and iid uniformly restricted start offsets",
+        "evidence": "Methods §2.1 updates schedule daily using hourly logistic-model vocal availability; Appendix 2 compares within-hour allocation",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.5579",
+        "material_read": "Open-access full-text Introduction, Methods §2.1 algorithm, Results/Discussion, Appendix 2",
+        "method": "Read full-text sections and compared equations for vocalization probability and cumulative capture",
+        "title": "Temporally adaptive acoustic sampling to maximize detection across a suite of focal wildlife species",
+        "trigger": "Adaptive wildlife recording schedules might dominate randomized timing comparisons"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_RISK but accessible abstract reports applied protocol comparisons rather than exact independent-jitter phase law",
+        "evidence": "Rand et al. 2022 is cited in Michel discussion as differing duty-cycle effects by call duration and behavior",
+        "identifier_or_url": "https://doi.org/10.1121/10.0009752",
+        "material_read": "Abstract and bibliographic information only; full text not verified",
+        "method": "Title, abstract and citation comparison",
+        "title": "Effects of duty cycles on passive acoustic monitoring of southern resident killer whale occurrence and behavior",
+        "trigger": "Alternative acoustic duty cycle reference with rhythm effects"
+      },
+      {
+        "assessment": "NOT_DECISIVELY_INSPECTED; full-circle independent uniform-arc placements and full-coverage/gap quantities differ but a stronger general theorem may subsume the overlap result",
+        "evidence": "Siegel and Holst (1982) abstract describes random arcs with uniformly distributed positions and random sizes; current theorem has restricted positions and a fixed common point phase",
+        "identifier_or_url": "https://doi.org/10.2307/3213488",
+        "material_read": "Publisher abstract/bibliographic details; complete source not accessible in inspected channels",
+        "method": "Compared precise arc placement, target event, and quantifiers given in abstract",
+        "title": "Covering the circle with random arcs of random sizes",
+        "trigger": "Classical random-arc coverage is the closest mathematical generalization, may contain stronger integral formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92794e4c-c1f9-4b30-ba9e-53d623c808ac",
+  "value": {
+    "rationale": "A quantitative duty-cycle aliasing blind spot motivates the restricted phase window: identical listening lengths and re-randomization over cycles can either permanently fail for a positive fraction of persistent call phases, attain only 1/m improvement at exact coverage, or attain exponential reliability. Exact finite probabilities, a sharp worst-case distinction and near-critical scaling supply actionable benchmark insights for choosing whether a recorder needs full-period timing variation. Such qualitative risk-regime distinction is not a mere normalization/type check; no field calibration is asserted.",
+    "status": "PASS"
+  }
+}
