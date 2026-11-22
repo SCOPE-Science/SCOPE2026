@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For natural stationary initialization, invariant beta-mixture M-blocks yield exact p_k. A shared-uniform coupling contracts on the M^2 scale. Factorial moments split widely spaced and clustered starts; each extra close start costs q^(k-M) and the total close-cluster error is O(M^(beta+3) log n/n), hence a point-process Poisson limit. A vanishing boundary run and tau_M ->0 yield continuous Gumbel. The standalone rational checker passes 936 assertions but does not prove limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Roquain–Schbath (2007) derives Chen–Stein errors for rare-word families in stationary Markov chains.",
+        "The model here has coupling rate exp(-kappa t/M^2), which degenerates with memory."
+      ],
+      "reasoning": "A uniform bound in a changing chain and the exact n-M growth interplay are required; the available abstract does not state such uniformity. A quantitative broader theorem might subsume this and remains a named risk.",
+      "searches": [
+        "finite-memory Pólya contagion triangular array long-run rare burst Poisson Gumbel memory increases n",
+        "Poisson clumping longest run Mth order Polya contagion Markov urn exact q",
+        "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/improved-compound-poisson-approximation-for-the-number-of-occurrences-of-any-rare-word-family-in-a-stationary-markov-chain/A55C6A230DE3454F67D8CB65C87A7499"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.18452v1",
+      "https://drum.lib.umd.edu/bitstreams/24b9367d-d820-4c7d-978d-7c7cf4b024e0/download",
+      "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C3B5A694CDFF993F8C769CD78754DF61/S0001867800002202a.pdf/success_run_statistics_defined_on_an_urn_model.pdf",
+      "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/poisson-approximation-for-the-nonoverlapping-appearances-of-several-words-in-markov-chains/0B153D8373656D2DA0CF4BAF0EC935E6",
+      "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/improved-compound-poisson-approximation-for-the-number-of-occurrences-of-any-rare-word-family-in-a-stationary-markov-chain/A55C6A230DE3454F67D8CB65C87A7499"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Motivating arXiv equation (45) is an exact model specification but no limiting longest-run law.",
+        "Previous Gaussian threshold-graph edge theorems depend on aggregate indicator covariances, not extreme run starts.",
+        "Stationary Markov Poisson word theory addresses related counts but no verified uniform-in-M limit."
+      ],
+      "reasoning": "Neither aggregate Gaussian graph fluctuations nor finite-length beta-mixture block probabilities alone imply the growing-M extreme theorem; our additional shared-uniform coupling and cluster estimate handle the degenerating mixing scale. Full 2001 and 2007 papers not inspected; a decisive stronger bound could change this assessment.",
+      "searches": [
+        "longest run of successes finite-memory Pólya contagion urn sequence max run rare-events Poisson intensity",
+        "Pólya threshold graph finite memory Markov urn stationary distribution correlation central limit",
+        "https://arxiv.org/html/2603.18452v1",
+        "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/poisson-approximation-for-the-nonoverlapping-appearances-of-several-words-in-markov-chains/0B153D8373656D2DA0CF4BAF0EC935E6",
+        "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/improved-compound-poisson-approximation-for-the-number-of-occurrences-of-any-rare-word-family-in-a-stationary-markov-chain/A55C6A230DE3454F67D8CB65C87A7499"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A long run is a zero-then-many-ones word; the result is equivalently a Poisson process of its starts in an order-M chain with M increasing.",
+        "2001 stationary Markov words paper treats nonoverlapping counts over a finite alphabet."
+      ],
+      "reasoning": "Fixed-M longest-run laws follow standard word-count Poisson methods, but the statement here changes M and state-space size with n, gives explicit gamma-ratio critical window, and proves vanishing lattice width.",
+      "searches": [
+        "growing finite-memory Polya urn longest success run extreme value Gumbel with memory length M_n increasing, centering logarithm n minus (beta+1) log M",
+        "longest run in random threshold graph finite-memory Pólya urn growing M, nonlattice Gumbel limit",
+        "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/poisson-approximation-for-the-nonoverlapping-appearances-of-several-words-in-markov-chains/0B153D8373656D2DA0CF4BAF0EC935E6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concern Gaussian edge counts or triangle count fluctuations for finite memory, not a longest-run extreme; one general Gumbel calibration result concerns exponential maxima.",
+        "The 2026 original source covers consensus and graph degree/spectrum."
+      ],
+      "reasoning": "No searched exact formula table or same parameterized growing-M run result was returned. Failed search alone is not a proof of novelty; novelty assessment also compares problem variables and implications.",
+      "searches": [
+        "growing finite-memory Polya urn longest success run extreme value Gumbel with memory length M_n increasing, centering logarithm n minus (beta+1) log M",
+        "finite-memory Pólya contagion triangular array long-run rare burst Poisson Gumbel memory increases n",
+        "longest run in random threshold graph finite-memory Pólya urn growing M, nonlattice Gumbel limit",
+        "https://arxiv.org/html/2603.18452v1"
+      ]
+    },
+    "rationale": "The 2026 motivating paper gives the precise finite-memory graph process and consensus, not growing-memory streak extremes. Classic fixed-kernel Markov rare-word theory supplies methodological context but inspected accessible statements do not imply the explicit triangular-array bound and continuous centering without new uniform mixing. Older records on memory-dependent graph edge and triangle Gaussian fluctuations are different statistics. Unindexed or inaccessible stronger Markov word results are a residual priority risk.",
+    "residual_risks": [
+      "The full 2001 and 2007 general rare-word approximation papers were not available for complete theorem-and-constant comparison; stronger general quantitative results could cover a wider or identical range.",
+      "The memory exponent beta+3 is sufficient and not optimized.",
+      "Any unindexed or unpublished equivalent triangular-array analysis could change priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "defines the stationary finite-memory predictor and studies graph spectra, centrality and consensus; not the growing-memory longest consecutive universal-vertex streak limit",
+        "evidence": [
+          "arXiv:2603.18452v1, Section 4.2.2 equation (45), submitted 2026-03-19"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.18452v1",
+        "material_read": "complete accessible HTML of Sections 2–5, especially Section 4.2.2 equation (45), discussion, conclusion and references",
+        "method": "read original arXiv HTML full text",
+        "title": "Pólya Thresholds Graphs",
+        "trigger": "precisely matched finite-memory graph growth and parameter model"
+      },
+      {
+        "assessment": "supplies predecessor model and stationary behavior; no matching growing-M Gumbel theorem located in inspected material",
+        "evidence": [
+          "Alajaji and Fuja, IEEE Transactions on Information Theory 40 (1994) 2035–2041"
+        ],
+        "identifier_or_url": "https://drum.lib.umd.edu/bitstreams/24b9367d-d820-4c7d-978d-7c7cf4b024e0/download",
+        "material_read": "open institutional preprint PDF relevant model and stationary-law pages including PDF pages 18 and 20, with visual page inspection",
+        "method": "open-access PDF full paper and page images",
+        "title": "A Communication Channel Modeled on Contagion",
+        "trigger": "original finite-memory Pólya contagion Markov model cited by motivating source"
+      },
+      {
+        "assessment": "uses nonexpiring classical Pólya reinforcement; the finite-memory triangular array in this result is a different model",
+        "evidence": [
+          "Makri et al., Advances in Applied Probability (2007), classical urn run formulation"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C3B5A694CDFF993F8C769CD78754DF61/S0001867800002202a.pdf/success_run_statistics_defined_on_an_urn_model.pdf",
+        "material_read": "accessible full PDF introduction, model definitions and early theorems, visually inspected first pages",
+        "method": "open-access original PDF with page images",
+        "title": "Success run statistics defined on an urn model",
+        "trigger": "plausible direct prior work on extreme success runs in Pólya urns"
+      },
+      {
+        "assessment": "general fixed stationary finite-alphabet Markov word-count Poisson work; no accessible statement of a growing-state-space Pólya-memory triangular Gumbel centering. Full-text implication remains a priority risk",
+        "evidence": [
+          "Chryssaphinou et al. (2001), DOI:10.1017/S096354830100476X; abstract states stationary finite-alphabet Markov chain"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/poisson-approximation-for-the-nonoverlapping-appearances-of-several-words-in-markov-chains/0B153D8373656D2DA0CF4BAF0EC935E6",
+        "material_read": "publisher abstract, scope, metadata and bibliography; full paper inaccessible in this inspection",
+        "method": "publisher original abstract",
+        "title": "Poisson Approximation for the Non-Overlapping Appearances of Several Words in Markov Chains",
+        "trigger": "strong potential prior coverage of rare runs in Markov chains"
+      },
+      {
+        "assessment": "a general stationary-Markov Chen–Stein approximation, not directly the growing-M explicit limit under the stated slow mixing; quantitative bounds could subsume portions after nontrivial specialization",
+        "evidence": [
+          "Roquain and Schbath (2007), DOI:10.1239/aap/1175266472"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/improved-compound-poisson-approximation-for-the-number-of-occurrences-of-any-rare-word-family-in-a-stationary-markov-chain/A55C6A230DE3454F67D8CB65C87A7499",
+        "material_read": "publisher abstract and bibliography; full PDF not fully read",
+        "method": "publisher original abstract",
+        "title": "Improved compound Poisson approximation for the number of occurrences of any rare word family in a stationary markov chain",
+        "trigger": "strong general bound on overlapping rare-word counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f292dbea-3fb6-463c-b24a-fce2fccf8374",
+  "value": {
+    "rationale": "The length and temporal positions of successive universal-vertex arrivals form a natural extreme-growth statistic in Pólya threshold graphs. The theorem identifies an explicit parameter-dependent critical streak length and a continuous law qualitatively different from fixed-M lattice oscillations. The stated uniform-in-M mixing and rarity scales are structural and cannot be read from graph edge-count Gaussian results.",
+    "status": "PASS"
+  }
+}
