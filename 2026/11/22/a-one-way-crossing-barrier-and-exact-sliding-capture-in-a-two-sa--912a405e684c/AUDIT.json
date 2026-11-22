@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The entire-family crossing obstruction follows from mutually exclusive positivity/negativity intervals for the exact switching normals 1-y and a+y. Both affine half-plane systems are saddles. At a=-5/4,d=-7/4 exact explicit solutions give left and right upper-to-lower flight times 6log(phi) and 4log(phi) with strictly correct half-plane location; both contact normals are opposed. The Filippov tangent field equals (6y²-5y-2)/(9-8y); sign analysis yields exactly one globally attracting root on y<1. The standalone SymPy checker validates each nonstandard identity; its finite interior samples are only diagnostics. Tangencies and sliding cycles are outside the no-crossing scope.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Llibre–Valls (2021), Theorem 3, DOI 10.3390/sym13071128: no crossing limit cycles for two linear Hamiltonian saddles",
+        "Phatangare–Masalkar–Kendre (2024), arXiv:2407.15163, Introduction/Proposition 1.1: nonexistence results for Hamiltonian saddle and center pairings"
+      ],
+      "reasoning": "The present right coefficient matrix has trace 1, so a theorem requiring two Hamiltonian saddles does not subsume it. The nilpotent-center plus saddle setup likewise does not contain this two-saddle system. Their distinct model hypotheses do not imply the exact benchmark sliding classification or flight clocks.",
+      "searches": [
+        "piecewise linear Hamiltonian saddle and nonhamiltonian saddle opposite orientation nonexistence of crossing periodic orbits",
+        "Limit Cycles of Planar Piecewise Differential Systems with Linear Hamiltonian Saddles 2021 theorem 3",
+        "Limit cycles of piecewise smooth differential systems with nilpotent center and linear saddle arxiv:2407.15163"
+      ]
+    },
+    "checked_sources": [
+      "García et al., Axioms 2023 12(4):342, DOI 10.3390/axioms12040342, publisher full HTML relevant sections",
+      "Llibre and Valls, Symmetry 2021 13(7):1128, DOI 10.3390/sym13071128, published theorem/proof extracts",
+      "Phatangare, Masalkar and Kendre, arXiv:2407.15163 (2024), public abstract/introduction/Prop. 1.1",
+      "Indexed mathematical comparison: three-zone Hamiltonian switching-cycle stability and two-zone focus crossing-period regimes are inapplicable"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "García et al. (2023), Section 4: the displayed parameter example is described as an algebraic limit cycle and the family as attaining the at-most-one upper bound",
+        "García et al. (2023), equations (36) and (37): normal speeds are 1-y and a+y, which enforce mutually exclusive crossing directions",
+        "Llibre–Valls (2021) explicitly restrict their two-zone nonexistence theorem to Hamiltonian saddles on both sides"
+      ],
+      "reasoning": "The original paper states a contrary existence conclusion for its example, rather than a stronger theorem implying our no-crossing conclusion. Its level-matching equations are only necessary for geometric arc linkage. The exact normal signs and forward flight times invalidate the identification as a Filippov crossing cycle; this does not invalidate its upper-bound proof.",
+      "searches": [
+        "\"García\" \"Llibre\" \"Pérez\" \"limit cycles\" 2023 \"false\" piecewise polynomial first integral",
+        "\"Limit Cycles of Polynomially Integrable Piecewise Differential Systems\" \"crossing\" \"sliding\"",
+        "two-zone Filippov piecewise linear system left (2x-y+1,3x-2y+1) right (x/2+y+a,x+y/2+d) no crossing periodic orbit sliding region"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "García et al. (2023), equations (36)–(38), Sec. 4, DOI 10.3390/axioms12040342: matching first-integral contact equations, not normal orientation",
+        "Same paper, Sec. 1: excludes cycles containing a sliding segment and specifies the Filippov convention"
+      ],
+      "reasoning": "One-way-crossing/nonperiodicity could alternatively be phrased as the absence of any pair of opposed transverse passages or as the incompatibility of the two forward flight directions. The consulted source presents level-set matching instead and asserts a cycle, so it does not supply the equivalent dynamical assertion.",
+      "searches": [
+        "\"Limit Cycles of Polynomially Integrable Piecewise Differential Systems\" \"crossing\" \"sliding\"",
+        "two-zone Filippov piecewise linear system left (2x-y+1,3x-2y+1) right (x/2+y+a,x+y/2+d) no crossing periodic orbit sliding region",
+        "Filippov pseudoequilibrium (5-sqrt(73))/12 discontinuous saddle-saddle system golden ratio flight times"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The model parameters and upper/lower contact values are explicitly printed in García et al. (2023), Figure 6 and Sec. 4",
+        "No consulted indexed claim/table explicitly classified the crossing normals and sliding root for these matrices"
+      ],
+      "reasoning": "The contact coordinates themselves are prior data, not novel. The new assertions are their exact forward-time orientation, the one-way restriction for every forcing parameter and the Filippov sliding dynamics. Failure to find a matching indexed row is not proof of absolute novelty.",
+      "searches": [
+        "García Llibre Pérez del Río Pérez-González 2023 Limit Cycles Polynomially Integrable Piecewise Differential Systems Example 4 nonexistence crossing due to opposite normal velocities no algebraic limit cycle",
+        "Filippov pseudoequilibrium (5-sqrt(73))/12 discontinuous saddle-saddle system golden ratio flight times",
+        "\"10.3390/axioms12040342\" \"erratum\" correction"
+      ]
+    },
+    "rationale": "The origin article matches polynomial first integrals and claims that its exact two-saddle affine example realizes a crossing limit cycle, but the interface-normal signs show one-way crossings for all parameters. Its algebraic closed loop is traversed from upper to lower contact on both sides and is not a positive-time Filippov cycle. The 2021 two-Hamiltonian-saddles nonexistence theorem excludes a different (trace-zero on both sides) class, while the 2024 nilpotent-center/saddle study addresses different half-plane dynamics. Scientific overlap was checked by implication, with publication-priority residual risk.",
+    "residual_risks": [
+      "Some highly relevant historical full texts and any unpublished corrections were not exhaustively inspected; priority is provisional.",
+      "The 2023 model may have later author-supplied errata or a nonstandard orbit convention not visible in the consulted publication; the article itself explicitly states the Filippov convention.",
+      "No independent mathematical reviewer has assessed these conclusions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original level-set matching is geometrically valid, but displayed closed arcs have incompatible forward-time orientations under Filippov convention",
+        "evidence": "Section 1 defines Filippov and excludes sliding cycles; Sec. 4 gives exact matrices and claims one limit cycle at (gamma,theta)=(-2,1)",
+        "identifier_or_url": "https://doi.org/10.3390/axioms12040342",
+        "material_read": "Full online relevant Introduction, Section 4 and equations (36)–(38), including parameter conversion, contact values, and Figure 6 description",
+        "method": "Inspected publisher HTML mathematical equations and proof/existence discussion; independently substituted into exact normal components and integrated branch flows",
+        "title": "Limit Cycles of Polynomially Integrable Piecewise Differential Systems",
+        "trigger": "Identical two-zone affine matrices, first integrals and asserted limit cycle at gamma=-2 and theta=1"
+      },
+      {
+        "assessment": "Not covering: the right trace is one, so it is non-Hamiltonian",
+        "evidence": "Theorem 3 addresses two linear Hamiltonian saddles; the right eigenvalues here are 3/2 and -1/2",
+        "identifier_or_url": "https://doi.org/10.3390/sym13071128",
+        "material_read": "Publisher-indexed detailed theorem statements and mathematical proof excerpts, especially Theorem 3 and its two-Hamiltonian-saddle hypotheses; complete full article not independently retrieved",
+        "method": "Compared explicit theorem hypotheses and section excerpts returned by publisher search result to eigenvalues and trace of the candidate field",
+        "title": "Limit Cycles of Planar Piecewise Differential Systems with Linear Hamiltonian Saddles",
+        "trigger": "Potential dominating general nonexistence theorem for discontinuous two-zone saddle systems"
+      },
+      {
+        "assessment": "Not covering: replaces one half-plane affine saddle with a nilpotent center/degenerate center",
+        "evidence": "Its model family and Proposition 1.1 classify center–saddle and Hamiltonian cases, not the specific two affine saddles here",
+        "identifier_or_url": "https://arxiv.org/abs/2407.15163",
+        "material_read": "Accessible public text: abstract, introduction, Proposition 1.1 and associated model classes; did not inspect all later sections",
+        "method": "Read repository-hosted full-text rendering of the introductory material and mathematical conditions",
+        "title": "Limit cycles of piecewise smooth differential systems with nilpotent center and linear saddle",
+        "trigger": "Potential same switching geometry and crossing/sliding distinction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "912a405e-684c-48d5-b088-42e822cec3b8",
+  "value": {
+    "rationale": "The source presents an exact matched algebraic loop as a limit cycle and uses it to demonstrate sharpness of an upper bound. The new one-way barrier shows that no true crossing cycle exists anywhere in that particular two-parameter family and identifies the source of the geometric/dynamical mismatch. Exact competing flight times and an attracting Filippov pseudoequilibrium diagnose the alternative fate of its benchmark arcs. Such a structural counterexample is pertinent to correct existence proofs for nonsmooth polynomially integrable systems and is not a trivial numerical recomputation.",
+    "status": "PASS"
+  }
+}
