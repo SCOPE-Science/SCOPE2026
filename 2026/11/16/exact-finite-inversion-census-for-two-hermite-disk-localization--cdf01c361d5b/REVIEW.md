@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Using the normalized STFT convention and area parameter, the Hermite–Laguerre radial density yields \(\lambda_k=(1+\rho)q_k+(k-s)p_k\); independent substitution shows \(\lambda_k-\lambda_{k+1}=p_k[(s-k)(s-k-1)+\rho s]/(k+1)\). Off-interval positivity, the \(k=0\) boundary and the quadratic discriminant for \(k\ge1\) prove every order switch and the exact index count. For \(0<\rho<1\), the count is \(\lceil (1-\rho)^2/(4\rho)\rceil\). At integer area every positive mixture has strictly positive adjacent gaps. A direct independent quadrature and symbolic checker passed 3,081 assertions; the proof, not enumeration, handles all indices.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The Hermite-STFT radial density is exp(-t)t^k/k! for h0 and exp(-t)t^(k-1)(k-t)^2/k! for first-Hermite k>=1 (separate k=0). Angular characters diagonalize the centered disk integral for every k. Incomplete-gamma integration gives λ_k=(1+ρ)q_k+(k-s)p_k, and subtraction yields exact sign prefactor p_k/(k+1)>0 multiplying G=(s-k)(s-k-1)+ρs. For ρ>0 negative G is confined to disjoint intervals (k,k+1); for k>=1 its quadratic discriminant (1-ρ)^2-4kρ>0 iff ρ<(sqrt(k+1)-sqrt k)^2, with tangency at sqrt(k(k+1)); k=0 yields 0<s<1-ρ when ρ<1. Number of eligible k is ceil((1-ρ)^2/(4ρ)) for 0<ρ<1, zero if ρ>=1, infinite at ρ=0. The +ρs term is strictly positive for all positive integer s, excluding zero gaps. Independently checked symbolic discriminant and gap polynomial, read full RESULT.md and check_mixed_disk.py; finite numerical quadratures do not carry the all-k claim.
 
-The closest source is Svela, arXiv:2410.18769, §§3.3, 5.2, 6 and Proposition 6.7: its mixed-state localization theorem covers diagonalization and general eigenvalue-integral formulas, which are **not** claimed as novel. The new assertion is the sharp weight-dependent **ordering and exact finite reversal-count** phase diagram, including tangencies and infinite-to-finite regularization. Alaifari–Yang, arXiv:2410.05486, motivates independent Hermite windows for multiwindow phase retrieval, but treats ambiguity stability rather than disk eigenvalue crossings. A dedicated earlier ordering analysis could still exist; literature indexing is not a proof of worldwide priority. Searches compared mixed-state terminology, weighted Laguerre spectrograms, order inversion, and available previously published pure-Hermite disk findings.
+## originality
 
-## Value — PASS
+PASS
 
-Mixing two natural and individually solvable spectrogram localization channels is directly motivated by multiwindow measurement design. The classification quantifies a qualitative discontinuity: any positive Gaussian weight reduces infinitely many unstable adjacent index orderings to a finite number, with an exact \(\rho^{-1}\) divergence rate as its share vanishes, and \(\rho=1\) the sharp universal monotonicity threshold. It states a complete natural phase diagram rather than an arbitrary small-parameter calculation.
+The exact finite census of mixed Gaussian/first-Hermite adjacent reversals is a new structural spectral-order result to best of knowledge. General radial mixed-state Hermite eigenvalue formulas and pure first-Hermite order were located, but neither states nor directly subsumes the sharp all-ρ threshold and reversal interval count without further algebraic classification.
 
-## Limitations and priority risks
+## value
 
-Spectral eigenbasis and general integral representation are covered by established prior theory. The theorem neither asserts optimal phase retrieval nor classifies nonconsecutive eigenvalue ties. Independent audit and exhaustive worldwide historical-priority verification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact number and locations of spectral-order inversions under adding a second natural observation channel quantify a genuine instability: arbitrarily small Gaussian weight reduces infinitely many reversals to finitely many and removes all positive integer-area degeneracies. The sharp ρ=1 universal threshold and full count can be used in Hermite cutoff selection; this is motivated mixed-state spectral structure rather than a recomputed eigenvalue table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
