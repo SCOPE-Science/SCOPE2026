@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain contains 4096 labelled binary configurations of the simple 5-regular icosahedral graph. An explicit 30-edge construction and its independent hard-coded edge-list implementation yield matching update tables and full attraction counts. An additional direct neighborhood-sum argument proves every cap equilibrium has only itself as a predecessor, independent of any enumeration. The first program proves \(F^{7}=F^{5}\) by checking every input and exhaustively counts fixed states, unordered two-cycles, all basins, cap states and sharp entrance times. The independent implementation checks graph isomorphism, all 120 automorphisms, the seven geometric classes and each orbit's basin. The delivered 82-row quotient certificate sums to 4096. Every claimed finite quantifier is checked, with no inference from sampling.
+PASS
 
-Residual correctness risks: the executable verification and proofs have not received independent expert validation; users should rerun both scripts and inspect the finite certificate. This is a complete finite proof, not an infinite generalization.
+On the specified 12-vertex, 30-edge, degree-5 icosahedral pole/two-staggered-ring graph, neighbor-only synchronous majority is F(x)_v=1 iff popcount(x & N(v))≥3. An independently implemented complete enumeration of all 4096 binary states checked pointwise F^7=F^5; found exactly 14 fixed states, 156 primitive unordered two-cycles, first-periodic-entry histogram (326,986,984,1080,480,240), and basins 16×2,60×4,60×6,20×14 for cycles, unanimous 1586 each, cap fixed 1 each. A second full spatial-automorphism orbit computation found the 120 graph automorphisms and seven temporal-cycle symmetry classes of sizes 6,10,20,30,30,30,30; all population-pair and weight-class counts matched. The manuscript also proves cap nonnucleation symbolically: the ten prescribed neighbor inequalities force pole inputs (1,0), A+B=5, ring equalities and all top-ring ones, so the only cap predecessor is itself. All 4096 inputs are the COMPLETE finite mathematical domain; the exhaustive certificate is a legitimate finite proof, not sampling.
 
-## Originality — PASS, qualified
+## originality
 
-The strongest classical implication checked is eventual period at most two for every finite symmetric threshold system (Goles–Olivos); it does not determine exact multiplicities, basin counts, isolated stable fixed states, a first-entry bound or an icosahedral group-orbit census. The complete Agur–Fraenkel–Klein (1988) fixed-point paper was inspected and concerns cyclic self-inclusive three-bit majority, not the icosahedral five-neighbor rule. The directly inspected Benjamini et al. arXiv:1405.2486v1 preprint analyzes unimodular and random graph behavior, not the fixed 12-vertex graph. The published dodecahedral majority result uses the 20-vertex dual graph; duality does not conjugate majority updates. Published icosahedral excitation counts use a different three-state update. Directed searches of mathematical records, icosahedral-majority phrases and OEIS did not find the stated census. An inaccessible original 1980 full text and unindexed literature leave genuine priority risk.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge original: exact complete icosahedral binary majority orbit, basin, entrance-time and seven-symmetry census together with isolated cap proof is not implied by general period-two threshold theorems or by censuses of different graphs or update rules. This natural finite complete classification has 4096 states exhaustively verified. Full Goles–Olivos primary access and unindexed prior exact enumerations remain explicit risks.
 
-The icosahedral graph is the unique planar 5-regular 12-vertex Platonic graph, making it a canonical finite testbed for odd-degree, tie-free majority dynamics. The exact atlas reveals a nontrivial basin decomposition, with 12 strictly stable but isolated balanced equilibria, two very large consensus basins and seven geometrically inequivalent classes of oscillation. These structural features are not consequences of a universal period-two bound and permit exact benchmarking of convergence, initial-vote sensitivity and symmetry reduction. The task is a natural complete classification, not an arbitrarily sliced or merely numerical invariant; its limited finite scope is stated plainly.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary icosahedral graph and synchronous degree-five majority are canonical, not arbitrarily selected. Exact sharp five-step relaxation, 12 dynamically isolated nonunanimous cap equilibria, sharply resolved 156 temporal cycles in seven geometric symmetry types and full attraction probabilities provide useful exact graph dynamics and distinguish general period-two theory from detailed quantitative behavior. The entire finite natural invariant is fully enumerated and independently reproducible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-This verification describes the exact finite-state computations used in the result, not an independent audit. The exhaustive domain is all 4096 labelled binary states of the 12-vertex icosahedral graph. `check_finite.py` is standard-library-only; `check_symmetry.py` requires NetworkX 2.8 or newer (the successful recorded replay used 3.6.1). Run them in the same directory. Both were executed successfully from the actual delivered source contents, generating the included output logs and 82-row state-orbit certificate.
+## correctness
 
-The first checker builds the graph from two poles and two five-cycles, derives integer masks, constructs the full 4096-entry deterministic transition map, and checks every point of the claimed \(F^{7}=F^{5}\) identity. It explicitly enumerates fixed points, normalized primitive two-cycles, all first-entry times and the basin partitions; it checks that the 12 closed-neighborhood states are exactly the nonunanimous fixed states and have singleton basins.
+PASS
 
-The second checker starts from an independently specified 30-edge graph and a different direct voting routine. It compares that graph with the canonical built-in icosahedral graph, enumerates all 120 automorphisms, checks equivariance on every state, enumerates the seven temporal-cycle symmetry classes, and independently recomputes entrance/basin histograms. It also writes all 82 geometric state-orbit representatives to `state_orbits.csv`; state-orbit sizes total 4096 and the seven geometric cycle-class sizes total 156.
+On the specified 12-vertex, 30-edge, degree-5 icosahedral pole/two-staggered-ring graph, neighbor-only synchronous majority is F(x)_v=1 iff popcount(x & N(v))≥3. An independently implemented complete enumeration of all 4096 binary states checked pointwise F^7=F^5; found exactly 14 fixed states, 156 primitive unordered two-cycles, first-periodic-entry histogram (326,986,984,1080,480,240), and basins 16×2,60×4,60×6,20×14 for cycles, unanimous 1586 each, cap fixed 1 each. A second full spatial-automorphism orbit computation found the 120 graph automorphisms and seven temporal-cycle symmetry classes of sizes 6,10,20,30,30,30,30; all population-pair and weight-class counts matched. The manuscript also proves cap nonnucleation symbolically: the ten prescribed neighbor inequalities force pole inputs (1,0), A+B=5, ring equalities and all top-ring ones, so the only cap predecessor is itself. All 4096 inputs are the COMPLETE finite mathematical domain; the exhaustive certificate is a legitimate finite proof, not sampling.
 
-Limitations: exhaustive correctness is for the 12-vertex icosahedral graph under this one synchronous rule only. A passed script is a reproducible finite proof conditional on ordinary Python integer/combinatorial semantics, not a formal external or expert certification. Historical priority remains qualified by an inaccessible relevant 1980 article. No independent mathematical audit has been conducted.
+## originality
+
+PASS
+
+Best-of-knowledge original: exact complete icosahedral binary majority orbit, basin, entrance-time and seven-symmetry census together with isolated cap proof is not implied by general period-two threshold theorems or by censuses of different graphs or update rules. This natural finite complete classification has 4096 states exhaustively verified. Full Goles–Olivos primary access and unindexed prior exact enumerations remain explicit risks.
+
+## value
+
+PASS
+
+The ordinary icosahedral graph and synchronous degree-five majority are canonical, not arbitrarily selected. Exact sharp five-step relaxation, 12 dynamically isolated nonunanimous cap equilibria, sharply resolved 156 temporal cycles in seven geometric symmetry types and full attraction probabilities provide useful exact graph dynamics and distinguish general period-two theory from detailed quantitative behavior. The entire finite natural invariant is fully enumerated and independently reproducible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
