@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The quotient of the infinite strip by the row-swapping glide gives precisely the Möbius ladder and its shortest-path metric. For every radius at least two the infinite-strip Rips complex is contractible by dominated-column deletions. At \(n\ge3r\), edge lifts are unique; the only potential triangular winding at \(n=3r\) is impossible because its three maximum-horizontal-length edges would preserve row whereas a deck generator swaps it. Flagness lifts all higher simplices and yields a regular contractible cover, establishing an integral \(K(\mathbb Z,1)\) homotopy type. Explicit graph-loop lifting proves the persistence surjectivity assertion. Exhaustive finite tests reconstruct all metric and lifting conditions in twelve stable samples, with exact mod-two ranks for two strict-lower-bound samples.
+## correctness
 
-## Originality
-**PASS, subject to residual publication risk.** The closest indexed cyclic fiber theorem computes \(K_m\square C_n\) and differs at the critical equality \(n=3r\). Its full result and proof were compared: the Cartesian-product distance and unflipped cyclic row cause exactly the triangles excluded here. The indexed circular-prism classification covers only untwisted scale two, and the indexed twisted square-grid theorem concerns two wide periodic directions and radius two. Primary studies of Möbius ladders address independence and perfect-matching complexes, while torus-grid Rips results address untwisted two-dimensional grids. Statement-level checks found no implication of the present all-radius, equality-inclusive result. Searches do not establish exhaustive priority, and unindexed equivalent work remains a risk.
+PASS
 
-## Mathematical value
-**PASS.** The two-parameter classification resolves the natural stable graph-metric Rips range for a basic twisted cubic graph family, with a distinct boundary transition from its untwisted counterpart. The deck-winding obstruction explains the topology structurally, and the same covering identifies stable integral persistence maps and a rank-\(n\) first-homology kernel. This is neither a parameter rename nor a finite table-only computation.
+PASS: Reconstructed the deck quotient L/(i,a)~(i+n,1-a), with strip shortest-path distance |i-j|+row indicator; for r>=2 each finite full strip Rips complex collapses by successive left-column domination. Since n>2r, each downstairs Rips edge has a unique lift; since 3r<=n, a winding triangle would require three horizontal length-r edges at n=3r preserving row, contrary to the deck flip. All cliques lift, yielding a regular Z-cover by a contractible complex and hence K(Z,1)~S1. Stable r-to-s inclusions induce identity on the same deck group. At r=1 Euler count 3n-2n+1=n+1 and a rung-closed half-rim loop maps to a primitive generator, kernel rank n. Verified compatible triangle lifts for (n,r)=(6,2),(7,2),(9,3),(10,3),(12,4); finite checks do not establish the general argument.
 
-## Scope and limitations
-The radius must be integral, at least two, and at most one third of the half-order; nothing is proved for later radii or continuous metric graphs. Computations corroborate rather than substitute the uniform proof. The closest metric-gluing article was compared at the level of its accessible mathematical scope, not claimed to exclude every possible specialized formulation. Independent mathematical assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the complete unbounded r>=2 and n>=3r stable interval classification; scale-two S1 and scale-one kernel are already proven in stronger published Oct25 and Nov1 records and are explicitly credited. The new portion is all r>=3 with sharp equality n=3r and stable persistence maps; neither previous scale-two proof nor untwisted prism threshold implies it.
+
+## value
+
+PASS
+
+PASS: An all-r family of graph-metric Rips complexes has a sharp twist-dependent stability boundary, including the critical equality where an untwisted ladder exhibits a higher-dimensional sphere wedge; the persistent first-homology generator is identified. This resolves a motivated geometric covering phenomenon beyond a single finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
