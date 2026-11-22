@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(\alpha+\beta=2\) and strictly positive \(\mu\), exact summation gives scalar logistic mass evolution and an exact normalized cyclic replicator–mutator equation. The strict simplex entropy derivative is \(-\mu(\sum_i1/p_i-9)\) and proves global convergence to the uniform frequency. The skew generator has square \(-I/3\) on the zero-sum plane; the quadratic remainder is \(O(\lVert u\rVert^2)\), making the logarithmic amplitude correction integrable. Consequently the de-rotated exponentially rescaled amplitude converges to a **nonzero** vector. Orthogonal mass/composition splitting gives the three exact positive asymptotic norm constants. The accompanying exact rational identity tests and numerical diagnostics check transcription, not infinite proof. A potential subtlety—trajectories on the simplex boundary—is addressed by strictly positive inward mutation for every nonzero initial population.
+PASS
 
-## Originality — PASS within inspected evidence
+Correctness PASS. Summing the exact balanced May–Leonard equations (alpha+beta=2) gives logistic S'=S(1-S), S>0 for nonzero nonnegative starting data. On the simplex, p_i'=-(alpha-1)S p_i(p_{i+1}-p_{i+2})+mu(1-3p_i). Entropy H=-sum log(3p_i) has exact H'=-mu(sum 1/p_i-9), strictly negative outside p=e, and mutation pushes boundary states immediately interior, yielding global frequency convergence. Writing u=p-e, B_i=-(u_(i+1)-u_(i+2))/3, B²|E=-I/3 and u'=-3mu u+(alpha-1)S Bu+(alpha-1)S N(u), N quadratic. For nonzero u, logarithmic radial slope -3mu+O(||u||) yields an integrable correction and a positive limit L=lim exp(3mu t)||u||. Removing exact rotation R=exp((alpha-1) B tau) gives convergent nonzero vector v with error O(exp(-3mu t)); restore O(exp(-6mu t)). Orthogonal split x-e=(S-1)1/3+S u gives the sharp crossover at mu=1/3, with S0=1 and p0=e correctly exceptional. Six independently chosen rational configurations checked mass/frequency/entropy identities exactly, not finite proof of globality.
 
-The original Jaramillo–Mrad–Stepien paper proves equilibrium and Hopf classifications, not the all-initial-data phase-corrected exponential limit or the full-population two-rate crossover. Mobilia and Toupo–Strogatz already analyze global mutation on the normalized zero-sum probability simplex, which is a time-rescaled special case when the total mass is identically one. This is explicitly **prior**; the assessed statement adds exact logistic-mass coupling for arbitrary total initial mass and the nonzero rotating asymptotic profile with sharp \(\mu=1/3\) crossover. Closest semantic database records concern symmetric competition, mutation-free critical cycles, or forward-Euler maps, none of which implies the two-channel continuous-time law. The possibility that older general perturbation theory or an unindexed ecological analysis already contains the precise global crossover is a genuine remaining risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem answers a naturally motivated gap between local stabilization of coexistence and the long-time observable relaxation of all three population densities. A single neutral competition surface admits two independently testable mechanisms (resource-total recovery and mutation-driven composition mixing), and their exact crossover provides a nontrivial global dynamical classification across every positive mutation rate. Nonvanishing of the rotating amplitude is essential and excludes a merely formal eigenvalue computation. This is not presented as a new convergence criterion for the previously known normalized zero-sum game.
+Originality PASS best-of-knowledge. Jaramillo–Mrad–Stepien introduced linearly mutated May–Leonard, calculated local eigenvalues and Hopf features; normalized zero-sum RPS replicator-mutator dynamics with S=1 are known. A published stronger symmetric-competition entropy gradient covers alpha=beta=1, which makes the rotation vanish, but not alpha≠beta on the balanced skew-symmetric competition line, nor the general two-clock nonzero asymptotic vector and mu=1/3 rate transition. The known slice is credited and does not cover the asymmetric general theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Value PASS. The exact global convergence and nonvanishing rotating asymptotic profile separate total population recovery from composition mixing, exposing a sharp parameter threshold at which the dominant error mechanism switches. This quantifies a non-gradient cyclic ecology flow using a clear entropy and interaction picture, beyond routine local eigenvalue analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

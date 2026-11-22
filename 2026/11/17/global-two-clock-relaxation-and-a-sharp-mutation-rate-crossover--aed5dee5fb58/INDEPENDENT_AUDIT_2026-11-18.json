@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T04:56:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Correctness PASS. Summing the exact balanced May–Leonard equations (alpha+beta=2) gives logistic S'=S(1-S), S>0 for nonzero nonnegative starting data. On the simplex, p_i'=-(alpha-1)S p_i(p_{i+1}-p_{i+2})+mu(1-3p_i). Entropy H=-sum log(3p_i) has exact H'=-mu(sum 1/p_i-9), strictly negative outside p=e, and mutation pushes boundary states immediately interior, yielding global frequency convergence. Writing u=p-e, B_i=-(u_(i+1)-u_(i+2))/3, B²|E=-I/3 and u'=-3mu u+(alpha-1)S Bu+(alpha-1)S N(u), N quadratic. For nonzero u, logarithmic radial slope -3mu+O(||u||) yields an integrable correction and a positive limit L=lim exp(3mu t)||u||. Removing exact rotation R=exp((alpha-1) B tau) gives convergent nonzero vector v with error O(exp(-3mu t)); restore O(exp(-6mu t)). Orthogonal split x-e=(S-1)1/3+S u gives the sharp crossover at mu=1/3, with S0=1 and p0=e correctly exceptional. Six independently chosen rational configurations checked mass/frequency/entropy identities exactly, not finite proof of globality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published global entropy gradient assumes symmetric competition A=A^T; balanced May–Leonard with alpha+beta=2 and alpha!=beta is not symmetric."
+        ],
+        "reasoning": "Symmetric-gradient theorem intersects only alpha=beta=1 and cannot dominate the asymmetrically rotating composition behavior. Known local May-Leonard stability is weaker than asserted global profile.",
+        "searches": [
+          "Resultary 2026/11/1/SCOPE-a-mass-frequency-entropy-gradient-for-symmetric-competition-with--3d969009a4de",
+          "arXiv:2210.04342"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.04342",
+        "arXiv:1502.03370",
+        "arXiv:0912.5179",
+        "Resultary/2026 2026/11/1 symmetric competition gradient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Hopf/eigenvalue formulas at e reveal linear decay rates; entropy globality and nonvanishing interaction-picture limit are independent proof steps."
+        ],
+        "reasoning": "A local eigenvalue crossover at 3mu=1 alone does not establish positive global asymptotic amplitudes and exact norm limits; the new global theorem survives with its known normalized special case excluded from originality.",
+        "searches": [
+          "Jaramillo-Mrad-Stepien 2023 original sections III-V",
+          "Toupo-Strogatz arXiv:1502.03370",
+          "Resultary symmetric competition theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original May–Leonard system matches the assigned ODE exactly; setting S=1 converts p to a normalized zero-sum RPS replicator–mutator."
+        ],
+        "reasoning": "Existing normalized RPS results apply only on invariant S=1 (one clock) and do not imply full mass-frequency mixed coefficients for arbitrary S0>0.",
+        "searches": [
+          "arXiv:2210.04342",
+          "arXiv:1502.03370",
+          "Resultary: May Leonard balanced alpha plus beta 2 mutation rotating profile"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact tabulation of nonzero vector v and mixed amplitude sqrt(C²/3+L²) was found in inspected sources."
+        ],
+        "reasoning": "An asymptotic two-rate competition, not a finite database count; pre-existing equilibrium/stability charts alone do not give initial-data-dependent global constants.",
+        "searches": [
+          "Resultary: May Leonard balanced mutation rate crossover 1/3 two clock",
+          "arXiv:0912.5179"
+        ]
+      },
+      "rationale": "Originality PASS best-of-knowledge. Jaramillo–Mrad–Stepien introduced linearly mutated May–Leonard, calculated local eigenvalues and Hopf features; normalized zero-sum RPS replicator-mutator dynamics with S=1 are known. A published stronger symmetric-competition entropy gradient covers alpha=beta=1, which makes the rotation vanish, but not alpha≠beta on the balanced skew-symmetric competition line, nor the general two-clock nonzero asymptotic vector and mu=1/3 rate transition. The known slice is credited and does not cover the asymmetric general theorem.",
+      "residual_risks": [
+        "A literature theorem for all positive-mutation asymmetric zero-sum replicator dynamics with joint logistic-mass asymptotics might not be indexed.",
+        "The result only applies to exact balanced alpha+beta=2; no off-balance rate assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pre-existing local/global-bifurcation context; no full global rotating two-clock profile found in material read",
+          "evidence": "Original mass model, stable coexistence and local eigenspectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.04342",
+          "material_read": "Accessible primary PDF including model, equilibrium, stability and local bifurcation discussion (pp.1,4–8)",
+          "method": "Primary PDF page screenshot and equation/theorem inspection",
+          "title": "Dynamics of a linearly-perturbed May–Leonard competition model",
+          "trigger": "Identical mutated competition ODE with alpha+beta=2"
+        },
+        {
+          "assessment": "Normalized-S=1 dynamics background, not arbitrary logistic mass",
+          "evidence": "Known global mutation of RPS composition.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.03370",
+          "material_read": "Accessible abstract and equations as described in source literature; full text not inspected in this execution",
+          "method": "arXiv search, original model correspondence",
+          "title": "Nonlinear Dynamics of the Rock-Paper-Scissors Game with Mutations",
+          "trigger": "Normalized replicator-mutator correspondence"
+        },
+        {
+          "assessment": "Assumes A symmetric; nontrivial asymmetric May–Leonard cannot satisfy hypothesis, and no rotating profile is given",
+          "evidence": "Theorem arbitrary positive symmetric A, explicit excludes cyclically asymmetric alpha!=beta.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-mass-frequency-entropy-gradient-for-symmetric-competition-with--3d969009a4de",
+          "material_read": "Full published RESULT.md read, including theorem, assumptions, exact gradient proof and limitations",
+          "method": "Connected GitHub source file read",
+          "title": "A mass–frequency entropy gradient for symmetric competition with global mutation",
+          "trigger": "Stronger all-dimensional global gradient result might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Value PASS. The exact global convergence and nonvanishing rotating asymptotic profile separate total population recovery from composition mixing, exposing a sharp parameter threshold at which the dominant error mechanism switches. This quantifies a non-gradient cyclic ecology flow using a clear entropy and interaction picture, beyond routine local eigenvalue analysis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Limit vector v is implicit in initial state rather than a closed elementary formula.",
+    "No generalization to asymmetrically unbalanced competition or zero mutation."
+  ],
+  "schema_version": 1
+}
