@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The theorem covers all integer 1<=p<=q and all h>=0 and distinguishes K_2, stars and two nonsingleton classes. Exact orthogonal Laplacian projectors give cross, within-class and diagonal formulas. The RKL2 Legendre representation bounds r in [1/6,1] over [0,5], and r strictly decreases for t>=5; the factored within-small-class offdiagonal is first to turn negative for p>=2. For stars the hub root lies between 5 and 45/8, strictly before any leaf-pair sign loss; all other entries are nonnegative until then. K_2 reduces to scalar r. The eigenvalue p+q yields the exact 2-norm stability threshold. A standard-library-only rational verifier replayed from this package passed 52755 finite assertions. These calculations support but do not replace the analytic all-size proof; independent audit is not performed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tan–Aslam–Bertozzi 2025, theorem on periodic/Neumann 1D heat: https://arxiv.org/html/2507.17062v2",
+        "Tan–Aslam–Bertozzi 2026, Sections 3–4, notes failure of general 2D monotonicity: https://arxiv.org/html/2611.16238v1",
+        "Published Taylor complete-multipartite analysis uses distinct polynomial: https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79/RESULT.md"
+      ],
+      "reasoning": "The 1D grid theorem does not apply to complete bipartite graphs except special small coincidences. Polynomial positivity depends on the cubic coefficient: the Taylor RK3 formula uses 1/6 and cannot dominate the RKL2 coefficient 1/15. Existing RK4 and theta-method complete-bipartite results use distinct rational/polynomial filters and cannot imply this RKL2 range.",
+      "searches": [
+        "stabilized Runge Kutta Legendre complete bipartite graph heat Markov stochastic endpoint nonnegativity sharp stars versus non singleton parts",
+        "positive numerical heat propagator Legendre third-degree polynomial graph Laplacian full characterization arbitrary class sizes bicliques",
+        "Runge Kutta Legendre two stage three stage graph diffusion positivity K_1_n nonregular graphs"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.16238v1 (primary full HTML, first public 2026-11-12)",
+      "arxiv:2507.17062v2 (full HTML; original v1 2025-07-22)",
+      "2026/10/25/SCOPE-reentrant-endpoint-positivity-of-three-stage-rkl2-on-a-minimal-m--3730497a7f20 (public full RESULT.md)",
+      "2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79 (public full RESULT.md)",
+      "2026/10/26/SCOPE-only-complete-biregular-bicliques-attain-rk4-positivity-up-to-sp--791f3f83ae88 (indexed theorem abstract; RK4 not RKL2)",
+      "2026/11/8/SCOPE-sharp-positivity-horizons-for-the-theta-method-on-complete-bipar--b76cdd4675ef (indexed theorem abstract; theta method not RKL2)",
+      "Meyer–Balsara–Aslam JCP 2014 abstract (full article not read)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The birth-chain theorem computes r(h) and offdiagonal nilpotent terms, but does not have Laplacian eigenvalues 0,p,q,p+q: https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-reentrant-endpoint-positivity-of-three-stage-rkl2-on-a-minimal-m--3730497a7f20/RESULT.md",
+        "The Taylor multipartite theorem explicitly assumes r3(t)=1-t+t²/2-t³/6 and derives different roots: https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79/RESULT.md",
+        "The source 2026 maximum principle is restricted to the 1D semidiscrete heat equation, with different graph geometry: https://arxiv.org/html/2611.16238v1"
+      ],
+      "reasoning": "The present claimed 15/[2(p+2q)] cutoff follows from the RKL2 within-small-part entry q h²(1/2-(p+2q)h/15), absent from the cited RKL2 birth-chain and RK-Taylor analyses. The star cutoff r(t)=-1/q is not their case. Their broader algorithmic stability properties do not imply entrywise positivity on every bipartite complete graph.",
+      "searches": [
+        "three-stage RKL2 1-z+z²/2-z³/15 all complete bipartite graphs K_p,q exact positivity threshold 15/(2(p+2q)) hub diagonal stars",
+        "RKL2 graph diffusion symmetric complete bipartite spectral norm stability vs entrywise nonnegative alpha 5.806 biclique",
+        "three stage RKL2 Runge Kutta Legendre polynomial 1+z+z^2/2+z^3/15 positivity heat complete bipartite K_pq"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Three-stage RKL2 has r(t)=1-t+t²/2-t³/15 (arxiv:2611.16238; published birth-chain RKL2 RESULT).",
+        "The nearest RKL2 published record studies a three-state directed pure-birth generator with nonreentrant assumptions violated, not a reversible complete bipartite Laplacian: https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-reentrant-endpoint-positivity-of-three-stage-rkl2-on-a-minimal-m--3730497a7f20/RESULT.md"
+      ],
+      "reasoning": "Graph-heat endpoint positivity is equivalently Markov stochasticity of the completed polynomial in the symmetric zero-row-sum generator. The directed three-state RKL2 result exhibits two disjoint positivity windows and neither includes nor implies the present all K_{p,q} sharp single-interval formula. Exact formula/aliases search found no equivalent published-finding corpus record.",
+      "searches": [
+        "three-stage RKL2 1-z+z²/2-z³/15 all complete bipartite graphs K_p,q exact positivity threshold 15/(2(p+2q)) hub diagonal stars",
+        "RKL2 graph diffusion symmetric complete bipartite spectral norm stability vs entrywise nonnegative alpha 5.806 biclique",
+        "positive numerical heat propagator Legendre third-degree polynomial graph Laplacian full characterization arbitrary class sizes bicliques",
+        "\"RKL2\" \"complete bipartite\" numerical heat positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published result identifiers: 2026/10/25/SCOPE-reentrant-endpoint-positivity-of-three-stage-rkl2-on-a-minimal-m--3730497a7f20",
+        "2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79",
+        "2026/10/26/SCOPE-only-complete-biregular-bicliques-attain-rk4-positivity-up-to-sp--791f3f83ae88",
+        "2026/11/8/SCOPE-sharp-positivity-horizons-for-the-theta-method-on-complete-bipar--b76cdd4675ef"
+      ],
+      "reasoning": "No matching published-finding corpus theorem/table for three-stage RKL2 on arbitrary unit K_{p,q} was returned. The closest table of multipartite thresholds is for Taylor RK2/RK3/RK4. Negative search alone is not a proof of novelty; the available closest mathematical statements were checked for implications.",
+      "searches": [
+        "three-stage RKL2 1-z+z²/2-z³/15 all complete bipartite graphs K_p,q exact positivity threshold 15/(2(p+2q)) hub diagonal stars",
+        "stabilized Runge Kutta Legendre complete bipartite graph heat Markov stochastic endpoint nonnegativity sharp stars versus non singleton parts",
+        "positive numerical heat propagator Legendre third-degree polynomial graph Laplacian full characterization arbitrary class sizes bicliques"
+      ]
+    },
+    "rationale": "Full-text comparison with Tan–Aslam–Bertozzi 2026 and 2025 found maximum-principle claims for specified one-dimensional finite-difference grid heat problems, not complete bipartite graph Laplacians. Two closely relevant publicly available mathematical findings were read in full: the three-state RKL2 birth-chain positivity theorem uses a nonsymmetric nilpotent-style generator and gives disconnected windows, while the complete multipartite RK-Taylor study uses third-order coefficient 1/6 rather than the RKL2 1/15. Neither statement implies the exact biclique/star three-case classification. Targeted published-finding corpus queries and web searches did not identify an equivalent or dominating theorem. Priority risk remains for nonindexed specialist sources.",
+    "residual_risks": [
+      "The original 2014 RKL2 paper was available only as an abstract in the inspected material; its full text has not been checked. Method definition and general stability are prior art.",
+      "Unindexed publications or theses on positivity of stabilized RK polynomials on complete bipartite networks could establish equivalent sharp formulas.",
+      "The result is mathematically same-model reviewed, not independently audited; search nonmatches do not establish absolute historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Method and 1D split-grid maximum-principle result; no complete-bipartite sharp threshold claimed.",
+        "evidence": "arXiv:2611.16238v1 (first posted 2026-11-12), sections 3–4, especially Remark 4.3.",
+        "identifier_or_url": "https://arxiv.org/html/2611.16238v1",
+        "material_read": "ArXiv full HTML: Sections 3.1, 4.1, Remark 4.3, RKL2 polynomial/energy discussion, main abstract and references.",
+        "method": "Read full freely accessible arXiv HTML, compared polynomial normalization, graph classes and theorem assumptions.",
+        "title": "Fully Explicit Stabilized Runge–Kutta Methods for Allen–Cahn and Cahn–Hilliard Dynamics",
+        "trigger": "Recent primary literature proposing RKL2 stabilized time stepping and maximum-principle results."
+      },
+      {
+        "assessment": "Monotone stability proved for one-dimensional constant-coefficient heat operator with periodic/Neumann boundary, not arbitrary graph Laplacians.",
+        "evidence": "arXiv:2507.17062v2, Section 5.1 Eq. (18), Theorem 7.",
+        "identifier_or_url": "https://arxiv.org/html/2507.17062v2",
+        "material_read": "ArXiv full HTML: Section 5 including spatial discretization and Theorem 7, plus abstract and Section 3.",
+        "method": "Read lawful OA primary manuscript HTML and matched exact 1D central-difference hypotheses.",
+        "title": "Explicit monotone stable super-time-stepping methods for finite time singularities",
+        "trigger": "Foundational earlier monotonicity theorem cited by motivating paper."
+      },
+      {
+        "assessment": "Directed pure-birth generator with reentrant windows; does not classify symmetric complete bipartite heat matrices.",
+        "evidence": "2026/10/25/SCOPE-reentrant-endpoint-positivity-of-three-stage-rkl2-on-a-minimal-m--3730497a7f20",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-reentrant-endpoint-positivity-of-three-stage-rkl2-on-a-minimal-m--3730497a7f20/RESULT.md",
+        "material_read": "Full published RESULT.md, including theorem, exact generator, sign calculations, minimality proof.",
+        "method": "Fetched file by exact public GitHub repository path and compared generator and numerical thresholds.",
+        "title": "Reentrant endpoint positivity of three-stage RKL2 on a minimal Markov chain",
+        "trigger": "Same three-stage RKL2 polynomial and Markov positivity wording in top published-finding corpus hits."
+      },
+      {
+        "assessment": "Deals with Taylor cubic coefficient 1/6 rather than RKL2 coefficient 1/15; neither its explicit bounds nor its proofs imply the new positivity cutoffs.",
+        "evidence": "2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79/RESULT.md",
+        "material_read": "Full published RESULT.md including precise polynomial definitions, all-partition theorem, proofs and references.",
+        "method": "Fetched complete file by exact public GitHub repository path, compared cubic coefficients and derived entry signs.",
+        "title": "Exact positivity radii and an order-three reversal for Taylor Runge–Kutta diffusion on complete multipartite graphs",
+        "trigger": "Same graph family and an apparently broader degree-three stability polynomial result."
+      },
+      {
+        "assessment": "Introduces the general stabilized method; originality of the algorithm itself is not claimed. Complete text not compared and remains a priority risk.",
+        "evidence": "https://laro.lanl.gov/esploro/outputs/journalArticle/A-stabilized-Runge-Kutta-Legendre-method-for-explicit/9916369160203761",
+        "identifier_or_url": "https://doi.org/10.1016/j.jcp.2013.08.021",
+        "material_read": "Bibliographic abstract and summary only, plus its mathematical definition as reproduced in full arXiv paper 2611.16238.",
+        "method": "Reviewed publicly accessible Los Alamos repository abstract; the full 2014 article was not inspected.",
+        "title": "A stabilized Runge–Kutta–Legendre method for explicit super-time-stepping of parabolic and mixed equations",
+        "trigger": "Original publication of the RKL2 family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "096a0ea2-2672-47ba-80a5-965b05793188",
+  "value": {
+    "rationale": "A recent RKL2 maximum-principle study establishes results on fixed one-dimensional grid heat problems and cautions that monotonicity need not extend to two-dimensional structures. A complete sharp positivity threshold over all sizes of the natural complete-bipartite family is a structural benchmark, with different first-failure mechanisms for stars and nonsingleton parts and quantified losses from energy stability. The exact threshold, rather than one negative example or a small gain, can guide step selection and reveal the limits of scalar stability for nonnegative diffusion states. Its restriction to uniform graph weights and endpoint matrices is explicit.",
+    "status": "PASS"
+  }
+}
