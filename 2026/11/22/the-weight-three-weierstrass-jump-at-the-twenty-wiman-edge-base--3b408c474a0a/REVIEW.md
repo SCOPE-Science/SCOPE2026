@@ -1,0 +1,11 @@
+# Mathematical review: canonical Weierstrass jump on the Wiman–Edge base locus
+
+**Correctness — PASS.** The canonical linear system is the restriction of the six-dimensional anticanonical system of the quintic del Pezzo surface. The formal implicit-function recursion is valid at the representative point because the displayed partial derivative is a unit. The complete six-by-six determinant factors exactly as \((4\varphi^2-105)(4\varphi^2+3)^3/62208\); the second factor vanishes only on excluded singular fibers. At the special smooth parameters, the exhaustive lower-jet minor tests, together with explicitly nonzero order-three, order-five, and order-seven witnesses, prove the exact sequence \((0,1,2,3,5,7)\). The transitive curve automorphism action transports it to all twenty points. The included exact verifier independently replays the algebraic identities, but this is not independent scholarly validation.
+
+**Originality — PASS (provisional).** Candelas et al. (arXiv:1206.4961) calculate the pencil and its twenty marked points; Dolgachev–Farb–Looijenga (2018) classify their group orbit. Material sections and text searches in these two complete sources did not yield a canonical Wronskian or gap-sequence condition \(4\varphi^2=105\). The exact claim and equivalent formulations were compared against available mathematical records and no covering result was identified. The complete 1981 Edge paper was unavailable, so prior publication of an equivalent special canonical-jet computation is a real residual risk; search absence is not proof of novelty.
+
+**Mathematical value — PASS.** The base locus is an intrinsic, complete twenty-point orbit present on every smooth member, not a chosen ad hoc finite subset. The jump identifies a natural smooth geometric isomorphism class by an exact equation and determines each point's canonical gaps and contribution to the global ramification divisor. It complements global geometric descriptions by a genuinely finer local canonical invariant.
+
+Limitations: the result does not determine Weierstrass points off the base locus, does not extend to singular fibers or positive characteristic, and remains subject to historical and independent mathematical review.
+
+Self-review: passed. Independent audit: not yet performed.
