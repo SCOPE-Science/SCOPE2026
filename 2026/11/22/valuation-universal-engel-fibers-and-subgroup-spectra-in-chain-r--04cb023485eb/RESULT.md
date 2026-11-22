@@ -1,0 +1,110 @@
+# Valuation-universal Engel fibers and subgroup spectra in chain-ring affine groups
+
+## Finding
+
+Let \(R\) be a finite commutative chain ring of ideal length \(m\geq1\) with residue field of order \(q\geq2\). Set \(U=R^\times\), \(G=R^+\rtimes U\), and use the commutator \([x,y]=x^{-1}y^{-1}xy\). For the right Engel words \(W_1(X,Y)=[X,Y]\) and \(W_k(X,Y)=[W_{k-1}(X,Y),Y]\) at each integer \(k\geq2\), the theorem determines every ordered target fiber, every fixed-right-argument Engelizer size and its complete size multiset, and the exact stabilization depth. All these data depend **only** on \((q,m)\), not the isomorphism type or characteristic of \(R\).
+
+Put \(\nu(0)=m\), and for nonzero \(a\in R\), set \(\nu(a)=i\) when \(a\in\mathfrak m^i\setminus\mathfrak m^{i+1}\). Define the counts of units \(u\) with \(\nu(u-1)=i\) by
+\[
+c_i=\begin{cases}(q-2)q^{m-1},&i=0,\\ (q-1)q^{m-i-1},&1\leq i<m,\\1,&i=m.\end{cases}
+\]
+For \(i,j\in\{0,\ldots,m\}\), put \(\rho_k(i,j)=\min\{m,(k-1)i+\min(i,j)\}\). For every \(t\in R\), the number of ordered pairs \((X,Y)\in G^2\) satisfying \(W_k(X,Y)=(t,1)\) is **exactly**
+\[
+\boxed{F_k(t)=q^m\sum_{i=0}^{m}\sum_{j=0}^{m}c_ic_jq^{\rho_k(i,j)}\mathbf 1_{\{\nu(t)\geq\rho_k(i,j)\}}.}
+\]
+The fibers over group elements with nonidentity multiplier are empty. The formula is valid for all \(m\geq1\), all prime-power \(q\), all \(k\geq1\) and all \(t\), including characteristic two. It yields \(\sum_{t\in R}F_k(t)=|G|^2\).
+
+For a *fixed right argument* \(Y=(b,v)\), let \(E_k(Y)=\{X\in G:W_k(X,Y)=1_G\}\). This is a subgroup. Put \(i=\nu(v-1)\), \(h=\nu(b)\), \(s=\min\{m,(k-1)i\}\), \(d=\min\{m,ki\}\), and
+\[
+r=\max\{0,\min(i,m-s)-h\}.
+\]
+With \(H_0=(q-1)q^{m-1}\) and \(H_r=q^{m-r}\) for \(1\leq r\leq m\), its precise order is
+\[
+\boxed{|E_k(Y)|=q^d H_r.}
+\]
+The **complete size multiset** is obtained by taking the displayed size, for each \((i,h)\), with multiplicity \(c_iD_h\), where \(D_h=(q-1)q^{m-h-1}\) for \(h<m\), and \(D_m=1\). Different strata can have the same size, so multiplicities of equal sizes are added. These multiplicities sum to \(|G|\).
+
+The eventual word-value law has a sharp dichotomy:
+
+* For \(q=2\), the image of \(W_k\) is precisely \(\mathfrak m^{\min(k,m)}\), embedded as translations. Thus \(W_m\) is identically the identity and, if \(m\ge2\), no smaller depth has this property. At the preceding depth the nonidentity probability is \(1/4\) if \(m\ge3\), and \(3/8\) if \(m=2\).
+* For \(q>2\), every \(W_k\) is surjective onto the translation subgroup, and the distribution stabilizes **first** at \(k=m+1\). At every \(k\ge m+1\),
+\[
+\boxed{\Pr(W_k=(t,1))=\frac{q-2}{(q-1)q^m}+\frac{\mathbf1_{\{t=0\}}}{q-1}.}
+\]
+For \(m\ge2\), the total-variation distance between the depth-\(m\) law and this limiting law is exactly \((q-2)/q^2\); for \(m=1\), the corresponding distance between depths one and two is \((q-2)/(q(q-1))\).
+
+In particular, the different affine groups of \(\mathbb Z/8\mathbb Z\) and \(\mathbb F_2[t]/(t^3)\) have identical entire right-Engel value laws and Engelizer-size spectra, although their abelianizations are not isomorphic.
+
+## Assumptions and scope
+
+A finite commutative chain ring is a finite commutative ring with identity whose ideals form a chain. Its maximal ideal is \(\mathfrak m=(\pi)\), and \(\mathfrak m^m=0\), \(\mathfrak m^{m-1}\neq0\). Every ideal is a power of \(\mathfrak m\) and \(|\mathfrak m^i|=q^{m-i}\). We allow fields (\(m=1\)), equicharacteristic and mixed-characteristic rings, and all prime-power residue sizes.
+
+An element \((x,u)\in G\) acts on \(R\) as \(z\mapsto uz+x\), with multiplication \((x,u)(y,v)=(x+uy,uv)\). The left argument \(X\) and right argument \(Y\) of the word are independent uniformly chosen elements of this **group**, not its full affine transformation monoid or the affine Lie algebra. The depth \(k\) counts occurrences of the repeated right argument. The set of outputs lies in \(R^+\times\{1\}\).
+
+The number \(q\) is a prime power; none of the formulas assumes that \(R\) is a field or that the additive group and multiplier group have coprime orders. In fact, the interesting nilpotent-depth regime occurs for noncoprime semidirect products.
+
+## Proof
+
+**1. The iterated commutator identity.** Direct inversion of \((x,u)\) gives
+\[
+[(x,u),(y,v)]=\bigl(u^{-1}v^{-1}((1-v)x+(u-1)y),1\bigr).
+\]
+For a translation \((a,1)\), its commutator with \((y,v)\) equals \(((v^{-1}-1)a,1)\). Inductively,
+\[
+W_k((x,u),(y,v))=\bigl((v^{-1}-1)^{k-1}u^{-1}v^{-1}((1-v)x+(u-1)y),1\bigr).
+\tag{1}
+\]
+The units \(u^{-1}v^{-1}\) and \((-v^{-1})^{k-1}\) do not affect the generated ideal or fiber cardinalities. For \(k=1\), the zeroth power acts as the identity, even when \(v=1\).
+
+**2. Exact fiber rank and unit-shell counts.** Fix \(u,v\). The map from the two independent translation variables \((x,y)\in R^2\) to the right side of (1) is an additive group homomorphism. Its image is the ideal generated by \((v-1)^k\) and \((v-1)^{k-1}(u-1)\). Their valuations are, with truncation at \(m\), \(ki\) and \((k-1)i+j\). Therefore the image is precisely \(\mathfrak m^{\rho_k(i,j)}\). Each of its \(q^{m-\rho_k(i,j)}\) elements has exactly \(q^{m+\rho_k(i,j)}\) preimages in \(R^2\). No assertion about linear independence or a chosen uniformizer is required.
+
+For units, the shell \(\nu(u-1)=0\) has size \(|U|-|1+\mathfrak m|=(q-2)q^{m-1}\); for \(1\le i<m\), the shell has size \(|1+\mathfrak m^i|-|1+\mathfrak m^{i+1}|=(q-1)q^{m-i-1}\); and \(u=1\) is the unique shell \(i=m\). Summing over all choices of \(u,v\), taking the indicator that \(t\) lies in the image, proves the claimed exact formula. Summing the fibers over \(t\) returns \((q^m|U|)^2\) because each pair has exactly one output.
+
+**3. Fixed-right-argument subgroup and its order.** Fix \(Y=(b,v)\). Write \(s=\min\{m,(k-1)i\}\). By (1), the Engel condition for \(X=(x,u)\) is equivalent to
+\[
+(v-1)^k x=(v-1)^{k-1}(u-1)b.
+\]
+The homomorphism \(x\mapsto(v-1)^kx\) has kernel of cardinality \(q^d\). Its image is \(\mathfrak m^d\). If \(s<m\), division by the ideal factor \((v-1)^{k-1}\) **as an ideal congruence**, not as a ring unit, shows that an \(x\) exists exactly when \((u-1)b\in\mathfrak m^{\min(i,m-s)}\). Equivalently, \(\nu(u-1)\ge r\). When \(s=m\), every pair \((x,u)\) works, and the same formula has \(d=m,r=0\). Thus allowable multipliers form \(1+\mathfrak m^r\) for \(r\ge1\), of size \(q^{m-r}\), and all of \(U\) for \(r=0\), of size \(|U|\). Each allowable multiplier has exactly \(q^d\) compatible translations \(x\), proving the formula.
+
+For subgroup closure, define \(\Phi_Y(x,u)=(v-1)^{k-1}((1-v)x+(u-1)b)\). Direct expansion, using the commutativity of \(R\), gives the crossed-homomorphism identity
+\[
+\Phi_Y((x,u)(x',u'))=\Phi_Y(x,u)+u\Phi_Y(x',u').
+\]
+Hence its kernel \(E_k(Y)\) is a subgroup of \(G\). The formula for the multiset follows by counting right arguments in the two independent valuation shells. This proof shows subgroup closure without falsely claiming that every Engelizer is normal or that all have the same order.
+
+**4. The depth transition.** If \(q=2\), every unit is congruent to one modulo \(\mathfrak m\). For \(k\ge1\), every output in (1) lies in \(\mathfrak m^k\). For \(k<m\), choosing \(v\) with \(\nu(v-1)=1\), and \(u\) with \(\nu(u-1)=1\), makes the image exactly \(\mathfrak m^k\). Consequently the support is \(\mathfrak m^{\min(k,m)}\), with first identity depth \(m\) (for fields \(m=1\), the group is abelian already). If \(m\ge3\), at depth \(m-1\) the only nonzero-output contribution has \(\nu(v-1)=1\), which has probability \(1/2\); its conditional image is the socle \(\mathfrak m^{m-1}\), and half that ideal's elements are nonzero. This gives \(1/4\). For \(m=2\), direct inspection of the three possible unit-valuation pairs giving a socle image yields \(3/8\).
+
+If \(q>2\), the set \(\{v:\nu(v-1)=0\}\) comprises a fraction \((q-2)/(q-1)\) of all units, and for each such \(v\), (1) is uniform on the full translation group regardless of \(k,u\). Every other \(v\) has \(i\ge1\), so for \(k\ge m+1\), \((v^{-1}-1)^{k-1}=0\). These alternatives give the displayed mixture law. At \(k=m\) for \(m\ge2\), the sole additional nonzero-output class is \(i=1,j=0\), whose image is the socle; multiplying its unit-pair probability by the nonzero fraction \(1-1/q\) yields the total-variation gap \((q-2)/q^2\). The nested ideal-mixture expression shows the laws strictly change at all earlier depths: an \(i=1,j=0\) contribution changes ideal support from \(\mathfrak m^{k-1}\) to \(\mathfrak m^k\), while no contributions expand support. For \(m=1\), direct comparison of the first commutator and the stationary second law gives \((q-2)/(q(q-1))\). This proves sharpness.
+
+**5. Nonisomorphic examples.** The two chain rings \(\mathbb Z/8\mathbb Z\) and \(\mathbb F_2[t]/(t^3)\) have \((q,m)=(2,3)\). Their affine groups have distinct abelianizations, respectively \(C_2^3\) and \(C_4\times C_2\), but the formulas established above depend only on \((q,m)\); hence all their displayed invariants coincide. The distinguishing abelianization computation follows from \(G'=\{((u-1)a,1):u\in U,a\in R\}\) and the unit-group structures of the two rings.
+
+## Verification
+
+The dependency-free script `verify.py` implements affine-group multiplication and inverses, then directly evaluates every right Engel word by repeated group commutators. It independently enumerates each prescribed target fiber and every fixed-right-argument Engelizer cardinality. It tests cyclic rings \(\mathbb Z/p^m\mathbb Z\), truncated polynomial rings \(\mathbb F_p[t]/(t^m)\), and the quadratic residue extension \(\mathbb F_4[t]/(t^m)\), in sixteen complete cases (including nonisomorphic rings with equal \((q,m)\)). All checks pass, including every pair in a group of size \(500\) at depths one through four. Execute `python3 verify.py` from the artifact directory. The captured run is `verification_output.txt` and ends in `VERIFY_OK`.
+
+Illustrations: for \((q,m)=(2,3)\), the exact identity probabilities at depths one, two and three are respectively \(11/32,3/4,1\). For \((q,m)=(3,2)\), they are \(5/27,4/9,5/9\), and remain \(5/9\) thereafter. These are not estimates. Finite exhaustive tests corroborate but do not replace the all-parameter proof.
+
+## Relationship to prior work
+
+Caranti, Dalla Volta and Sala (first public 2005-10-08, arXiv:math/0510166) establish a foundational affine-group/radical-ring correspondence, with primary MSC `20B10`. Their Theorem 1 classifies abelian regular subgroups, not the right Engel word-map fibers of \(R^+\rtimes R^\times\). It motivates study of such affine group actions and supplies the archival point of entry, not the claimed fiber formula.
+
+Erfanian and Farrokhi (2013) prove bounds on finite-group \(2\)-Engel identity probabilities and discuss Engelizers as subgroups in suitable metabelian groups. That known subgroup-closure fact is *not* claimed independently as new here; the contribution is the exact valuation-indexed order of every fixed-argument Engelizer across all lengths and all depths, plus complete prescribed nonidentity fibers.
+
+Earlier results on abelian-by-involution groups determine all-depth Engel-word probability laws for complement \(C_2\), and on coprime abelian-by-abelian extensions show a stabilized right-Engel law. Both cover valid special cases but do not imply the depth-dependent valuation strata when the affine multiplier group shares prime factors with the additive translation group. A published conjugacy/character census for finite-chain-ring affine groups determines the first commuting probability and class sizes; it does not state or directly yield the all-depth Engel laws or the fixed-right-argument subgroup-size spectrum. Kasai (2026) works with this same affine group over principal ideal rings, but establishes an obstruction to cross-commuting nonabelian families through common centralizers, not iterated Engel target fibers. Its elementary commutation criterion is compatible with the first step of (1) and is credited as such. Work on Engel maps for \(\operatorname{SL}_2\) over local rings concerns a different, nonmetabelian family.
+
+A closely related calculation for the *two-dimensional affine Lie algebra* over chain rings determines **additive Lie** Engel fibers, not group-valued word maps or subgroup Engelizers. The present claim does not transfer its formula unchanged: ring multipliers here are constrained to \(u\in R^\times\), and the group commutator is not the Lie bracket. The distinction between the additive Lie and discrete group laws is explicit; no priority is claimed for their shared valuation-counting technique.
+
+## Limitations
+
+The formula assumes a finite **commutative chain** ring and the particular affine group \(R^+\rtimes R^\times\). It need not hold for arbitrary finite local rings, noncommutative rings, nonunit multipliers, all affine groups of higher dimension, or other metabelian semidirect products. The Engelizer-order formula determines sizes and subgroup existence but not subgroup conjugacy classes or complete subgroup embeddings. Ring-independence refers to the two specified distributions, not to the groups' isomorphism types. Historical priority may be obscured by alternative formulations in the older literature on metabelian group word maps. No exhaustive claim is made about all publications. The script only enumerates the stated finite cases; unrestricted validity follows from the proof.
+
+## References
+
+1. A. Caranti, F. Dalla Volta and M. Sala, *Abelian regular subgroups of the affine group and radical rings*, arXiv:math/0510166, first public 2005-10-08, https://arxiv.org/abs/math/0510166.
+2. A. Erfanian and M. Farrokhi D. G., *On the probability of being a 2-Engel group*, *International Journal of Group Theory* 2(4) (2013), 31–38, https://doi.org/10.22108/IJGT.2013.2836; open full text https://www.researchgate.net/publication/288650599_On_the_probability_of_being_a_2-Engel_group.
+3. L. Putignano and M. Vannacci, *Comparing word probabilities in finite groups*, arXiv:2610.23100v1 (2026), https://arxiv.org/abs/2610.23100.
+4. A. Roy and A. Singh, *Surjectivity of Engel Words on SL2(O) and PSL2(O2)*, arXiv:2606.18880 (2026), https://arxiv.org/abs/2606.18880.
+5. *Higher Engel word laws stabilize on coprime abelian-by-abelian groups*, available mathematical result, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-higher-engel-word-laws-stabilize-on-coprime-abelian-by-abelian-g--e403ecfc96e0.
+6. *Exact Engel-word laws and inverse signatures for finite abelian-by-involution groups*, available mathematical result, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-engel-word-laws-and-inverse-signatures-for-finite-abelian--80896cf141a5.
+7. *Conjugacy and ordinary character spectra of affine groups over finite chain rings*, available mathematical result, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-conjugacy-and-ordinary-character-spectra-of-affine-groups-over-f--0a4181d7ad6d.
+8. K. Kasai, *Cross-Commuting Nonabelian Squares in Affine Groups over Finite Commutative Principal Ideal Rings*, arXiv:2604.02063v1 (2026), https://arxiv.org/abs/2604.02063.
