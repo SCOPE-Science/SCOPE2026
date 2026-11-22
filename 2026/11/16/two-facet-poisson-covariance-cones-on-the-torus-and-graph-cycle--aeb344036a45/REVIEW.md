@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Uniformly absolutely convergent Poisson Fourier series yield the exact shifted-frequency coefficient formula. The only potentially nonpositive multipliers are the same-sign and opposite-sign mixed quadrants; their two inequalities imply strictly positive axial and constant multipliers. Vandermonde inversion proves finite-site strictness along either nonvertex facet. At the vertex, the surviving axial modes give precisely the bipartite incidence equations, whose rank is \(V_G-c_G\). Rational exact checks of the coefficient formulas and small Gram ranks passed. Critical assumptions are \(0<r,s<1\), unrestricted real modulations, and pairwise distinct sites for strictness.
+## correctness
 
-## Originality
-PASS relative to compared accessible sources and indexed claims. The 2015 product-circle paper proves a general Fourier-support strictness criterion (Theorem 5.1), and the 2026 compact-kernel paper gives a general universality criterion. The strictness and universality principles are credited, not presented as new. Neither paper states the two exact parameter half-spaces or the apex arbitrary-site cycle-rank nullity. The closest indexed circle-Poisson modulation result treats a **nonstationary one-circle** covariance; its positive-type threshold and regular-polygon degeneracies do not imply this stationary two-torus wedge or its bipartite cycle law. Related full text of that indexed result was not retrieved, leaving an acknowledged comparison risk.
+PASS
 
-## Mathematical value
-PASS. The model is a minimal bivariate harmonic coupling of a standard stationary separable covariance with two independent diagonal directions. The complete feasible cone is an exact, natural two-parameter classification; its unique vertex converts a two-dimensional stationary kernel into a sum of one-dimensional kernels. This yields a sharp distinction between full Fourier universality, finite-site strictness, and graph-controlled finite-site singularity, including the exact nullity for every sampling geometry. These are structural boundaries rather than arbitrary finite enumerations.
+Absolute Fourier summability allows termwise harmonic shifts. For mn>0 and mn<0, Fourier coefficient ratios are H+=1+(aU+bV)/2 and H-=1+(aV+bU)/2. Adding H±≥0 gives a+b≥-4/(U+V), which enforces strictly positive axial and zero coefficients for all r,s in (0,1); Bochner therefore gives necessity/sufficiency of the wedge. At a nonvertex facet one full open mixed quadrant remains positive; successive Vandermonde inversions over distinct x then y show all distinct-site Gram matrices positive, though omitted frequencies preclude universality. At vertex a=b=-2/(U+V), only coordinate-axis Fourier support survives: each site coefficient nullvector has row and column group sums zero, the unoriented incidence matrix of a bipartite graph, with rank V-c and nullity E-V+c. Independent rational check r=1/2,s=1/3 gives U=37/6,V=13/6,a=-6/25, Hx=4/5, Hy=3/5,H0=23/25, and 2×2 grid nullity 1; this does not prove all real parameters.
 
-## Scope, closest literature, and risks
-The result does not classify higher-harmonic couplings or general anisotropic stationary kernels. Equivalent statements could occur in older bivariate covariance literature; no global absence claim follows from searching. The already-known general positivity/support and universality theorems are treated as ingredients, not novelty. The standalone checker is supplementary, not a proof of an infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The compact-group positivity/universality and generic Fourier-support strictness criteria are already known. Original contribution judged to be the explicit two-affine-inequality parameter region and sharp transition to an arbitrary-configuration graph-cycle Gram nullity formula.
+
+## value
+
+PASS
+
+The exact PSD parameter domain distinguishes universal interior from strictly PD nonuniversal facets, while the special vertex has a geometrically interpretable cycle-rank singularity for any finite site pattern. This gives a sharp kernel-design boundary and explicit degeneracy classification, rather than just reasserting Bochner.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
