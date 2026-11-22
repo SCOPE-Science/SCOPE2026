@@ -1,0 +1,11 @@
+# Scientific review: catenary diameter and rare-chord transition
+
+**Correctness — PASS.** The reduction from all pairs to a chord with an endpoint uses simultaneous comparisons of horizontal and vertical separations. The one-variable stationarity function has only one possible interior local maximum. Strict monotonicity of the normalized comparison at each fixed fractional contact parameter yields the unique global switch, and nondegenerate local integration proves the two sharp probability exponents, the explicit coefficients, the transition window, and conditional limiting region. The supplied code runs independent deterministic numerical checks; no finite test is offered as an infinite proof.
+
+**Originality — PASS (provisional historical priority).** Rojas, arXiv:1401.2660 (2014), derives the classical catenary via an extremal metric; Coll–Harrison (2014) prove catenary ratio characterizations. Neither inspected text states or implies the diameter switch, the sharp arclength-uniform chord tails, or the \(O(\varepsilon)\) crossover. Related published results on near-diameter chords of round cylinders, polytopes, and convex ovals do not specialize to this finite, one-dimensional catenary arc with boundary-to-interior extremizers. Searches by exact object, farthest-point aliases, critical aspect, and random-chord asymptotics found no decisive coverage. Older and unindexed sources may exist, so independent priority review remains necessary.
+
+**Value — PASS.** The catenary is a canonical geometric shape. A unique nontrivial span identifies a first-order global change in its farthest-point geometry, and this creates a sharp shift in a natural rare-chord exponent from \(2\) to \(3/2\). The explicit crossover and conditional geometry resolve the singular vicinity of the switch rather than supplying a routine numerical approximation of the diameter.
+
+**Limitations.** The result concerns symmetric finite arcs with independent arclength-uniform sampling, not coordinate-uniform sampling or arbitrary catenary fragments. The decimal evaluations are diagnostic approximations. There is no independent mathematical audit or exhaustive historical priority certificate.
+
+Self-review: passed. Independent audit: not yet performed.
