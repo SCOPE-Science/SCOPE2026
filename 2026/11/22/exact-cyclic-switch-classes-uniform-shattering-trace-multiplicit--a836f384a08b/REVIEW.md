@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The cyclic-gap polynomial counts completions exactly. For any prescribed support labeling, feasible switch totals are the full even interval from its number of cyclic label changes to the sum of gap-wise maxima. Extremizing those two bounds independently gives the exact cardinality-only shattering test. The matroid polynomial follows directly; standard matroid shellability gives the topological corollary. The online upper bound is by hypothesis count and the lower bound is realized by independent blockwise switch-location threshold trees avoiding the closing edge. The five-vertex adaptive witness is explicit. An independent enumeration script checks all supports through eleven vertices and finite online values through ten. These computations are corroboration, not an infinite proof.
+
+## Originality
+PASS on evidence inspected, with explicit priority uncertainty. The closest public result for linear exact-switch words has an excluded endpoint pair and a different dense-side rank; the cyclic classification does not follow by plugging its parameters into the linear theorem. General bounded-interval results explain much of the low-switch VC scaling, so that scaling is not separately new. Johnson studies translates of one fixed word, and Ghazi et al. obtain abstract closure bounds; the prior circular two-block record uses pair-separation predicates rather than the present labeled vertex-coordinate predicates. The specific all-parameter cyclic uniform-matroid criterion and exact trace multiplicity product were not found already stated. Priority search cannot establish uniqueness; alternate circular arc and sign-change terminology is a residual risk.
+
+## Value
+PASS. Exact switching budgets are a natural finite-state model of piecewise-constant binary labelings, and closing the line changes the shattering matroid by removing its unique parallel endpoint class while adding a sharp dense-side capacity restriction. The result provides the full support enumerator, not merely a dimension, and an exact multivariate trace-completion mechanism useful for predicting all membership patterns under a fixed change budget. The logarithmic adaptive/static divergence on the same highly symmetric uniform-matroid shattering complex is structural, not just a tiny finite gain. Homotopy consequences are identified as standard consequences rather than separate inventions.
+
+## Closest literature and limitations
+The most comparable source is *Endpoint-parallel shattering matroids of exact-transition binary words*, which has a linear path rather than a cycle. The public circular two-block partition result concerns different pair queries. The full Johnson text was examined for its translate-based definition of VC dimension, and the full Ghazi et al. HTML text for its general online-closure statements. Classical union-of-intervals VC bounds are not claimed as new. The precise finite online dimension for arbitrary \((n,k)\) and independent historical priority remain open.
+
+Self-review: passed. Independent audit: not yet performed.
