@@ -1,0 +1,11 @@
+# Scientific review: Grassmannian comparison shattering
+
+**Correctness — PASS.** The all-order bound follows from an explicit hereditary reduction to complete four- and six-position support enumerations, followed by the degree-sum graph argument. The matching-with-one-extra-edge witness family is constructively shattered for all sizes with two possible one-descent cut placements. Independent Python and C++17 implementations return the same complete support counts at orders two through eight. The six-position adaptive tree has 31 internal questions and 32 independently checked one-descent leaf witnesses; the 58-concept cardinality upper bound excludes depth six. All quantifiers, the binary query orientation, and the special order-two case were checked.
+
+**Originality — PASS within accessible evidence.** Gil–Tomasko's 2021 first-public Grassmannian source counts and studies these permutations, but not pair-comparison shattering. Menon–Singh's 2022 continuation treats pattern avoidance, not adaptive query complexity. Published comparisons for unrestricted orders, one-axis single-peaked orders, alternating permutations, and decreasing-layer permutations concern materially different concept sets or give only non-sharp upper coverage. No inspected full primary statement yields the present all-order exact formula. Historical priority remains provisional because unindexed or older inaccessible material may exist.
+
+**Value — PASS.** The exact VC dimension for every order is a structural statement about a classical constrained permutation class, not an isolated census. The proof converts local forbiddance at four and six positions into an all-size obstruction, and the independently certified six-position online tree establishes a strict two-unit learning-theoretic gap. Both connect pattern-restricted permutations to model-theoretic/online shattering in a way not implied by the classical enumeration.
+
+**Scope and limitations.** The small obstruction certificates are exhaustive finite computations, supplemented by a mathematical reduction that covers all orders. No exact online formula for arbitrary order or all-order support-enumeration polynomial is claimed. Independent external validation and exhaustive historical priority certification have not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
