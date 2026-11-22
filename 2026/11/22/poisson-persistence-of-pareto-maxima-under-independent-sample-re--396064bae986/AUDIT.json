@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For each k retained labels, the 2n-k distinct vectors are independent and exchangeably labelled, and a retained vector is maximal in both samples precisely when maximal in their union, giving the exact hypergeometric law. In dimension two, descending-coordinate ordering yields independent Bernoulli(1/j) second-coordinate records, validating the polynomial and variance. A refreshed label has two independent replacement positions; restricting with either many shared competitors or many independently refreshed competitors bounds double maximality by O_d(log(n)^{2d-2}/n^2). Summing gives the uniform negligible-error bound. The fixed-d rare-retention Poisson law follows by marking and classical maxima variance, and the planar uniform TV result uses finite-population Bernoulli coupling and the improved Poisson-Stein bound. The standalone exact checker passed 194, 172, and 12 finite assertions. Infinite claims follow from proofs and published moment inputs, not finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bai–Devroye–Hwang–Tsai, pp. 1–4: single-cloud maxima, mean/variance expansions and Berry–Esseen estimates, no two-cloud persistence theorem in the inspected sections.",
+        "Hwang–Tsai–Chen, sections 1–2 and theorem exposition: k-dominance modifies the partial order on a single cloud; it does not refresh labels.",
+        "Dynamic skyline database maintenance addresses computing updated frontiers, a different claim from the exact stochastic overlap distribution."
+      ],
+      "reasoning": "Moment bounds for M_N are genuinely broader as asymptotic inputs to the proof, but a bound on single-cloud M_N does not imply the exact hypergeometric persistence law or the refreshed-label error. Neither inspected primary work states the marked two-cloud rare-retention Poisson threshold; possible all-purpose marked-record process results remain a nonzero risk.",
+      "searches": [
+        "Maxima in Hypercubes Bai Devroye Hwang Tsai PDF theorem 1 variance",
+        "Threshold phenomena k-dominant skylines Hwang Tsai Chen PDF",
+        "dynamic skyline maintenance probabilistic maximal points after updates",
+        "joint skyline maxima noisy sample stability"
+      ]
+    },
+    "checked_sources": [
+      "Bai, Devroye, Hwang and Tsai, Maxima in Hypercubes (2005), https://luc.devroye.org/max-d-cube.pdf",
+      "Barndorff-Nielsen and Sobel, On the distribution of the number of admissible points in a vector random sample (1966), Theory Probab. Appl. 11:249–269",
+      "Hwang, Tsai and Chen, Threshold phenomena in k-dominant skylines of random samples (arXiv:1111.6224, first version 2011)",
+      "Díaz and Golin, The Expected Number of Maximal Points of the Convolution of Two 2-D Distributions (2019), DOI:10.4230/LIPIcs.APPROX-RANDOM.2019.35",
+      "Papadias et al., Progressive Skyline Computation in Database Systems (2005)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact conditional statement P|(K,M)~Hypergeom(N,M,K) introduces jointly shared vectors and labelling absent from the one-sample random maxima statistic of the 1966 and 2005 works.",
+        "The rare-retention law couples the single-sample maxima concentration to random retained labels, and the planar total-variation bound additionally controls maxima persisting *after* replacement.",
+        "The 2011 k-dominance threshold concerns a different dominance relation, not a two-time matching of labels."
+      ],
+      "reasoning": "The reviewed prior laws imply the benchmark marginal M_N mean, variance and 2D record probabilities, but not by themselves the double-sample identity or the quantitative refreshed-label rarity. The new claim's implications for rare persistence are not the one-sample CLT or the k-dominance zero–infinity transition.",
+      "searches": [
+        "doi:10.1002/rsa.20053",
+        "arxiv:1111.6224",
+        "Barndorff-Nielsen Sobel admissible points vector random sample 1966",
+        "intersection skyline points two correlated independent samples",
+        "random thinning records selected core skyline"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The planar skyline after first-coordinate sorting equals a classical sequence of second-coordinate upper records; Barndorff-Nielsen–Sobel (1966) provides the original one-sample framework.",
+        "The two-sample shared-point event is exactly the intersection of maximal points of a union sample with a random marked core; this observation is proved, not treated as evidence of historical novelty."
+      ],
+      "reasoning": "The single-sample record equivalence supplies the marginal M_N law but does not determine a joint original/refreshed label overlap without specifying shared labels and the refreshed-label contribution. A generic independently thinned record sequence has a different model unless embedded in the exact 2n-k shared-union coupling.",
+      "searches": [
+        "common Pareto maximal points two dependent samples shared retained labels",
+        "noise sensitivity of Pareto maxima under resampling",
+        "stochastic skyline persistence after independent full-vector replacement",
+        "one-sample maximal records independent indicators"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical one-sample mean and variance formulas are reproduced with explicit credit, not claimed new.",
+        "Direct finite checker enumerates sample-rank configurations; it verifies rather than imports the proposed two-sample core distribution."
+      ],
+      "reasoning": "No matching full two-sample law or table was found in the compared accessible literature. A finite table for ordinary Pareto maxima would not imply the labelled refresh coupling. Search absence is a scoped evidentiary statement, not proof of unique priority.",
+      "searches": [
+        "two-sample persistent Pareto skyline exact hypergeometric pgf q/(2-q) search",
+        "Pareto maxima stochastic deletion insertion overlap distribution tables",
+        "admissible points vector random sample shared sample intersection"
+      ]
+    },
+    "rationale": "The final result concerns persistent labels across two correlated iid product samples, with an exactly hypergeometric retained core, sharp rare-retention Poisson limit and uniform planar Poisson-TV approximation. The strongest inspected classical sources treat one-sample extrema, single-sample hypercube maxima CLTs, or altered k-dominance rather than shared-label persistence. Specific general thinning and record-process results could imply components; priority is not proven by negative search, and the documented remaining risk is not known decisive coverage.",
+    "residual_risks": [
+      "Potential stronger overlap theorems in general random-record, marked point-process or partial-order antichain literature not found by the searched aliases.",
+      "Only the abstract was read for the 2019 noisy-convolution study, so a whole-document noncoverage claim is not justified; model-level difference is explicit.",
+      "Some older publication full-text access was intermittent; no independent comprehensive historical-priority certification has been obtained."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical single-sample mean/variance estimates used directly; no two-sample shared-label persistence result identified in material read",
+        "evidence": [
+          "eqs. (1)-(3) in the article; pp. 1–2 identify the single-sample count K_n and its expectation and variance"
+        ],
+        "identifier_or_url": "https://luc.devroye.org/max-d-cube.pdf",
+        "material_read": "Full abstract, introduction, pp. 1–3 including exact expectation (1), variance asymptotic (3), and theorem 1 statement; PDF text searched for overlap and thinning",
+        "method": "Author-hosted full-text PDF, textual reading and page-image inspection",
+        "title": "Maxima in Hypercubes",
+        "trigger": "Same uniform product-cloud maximal points in arbitrary fixed dimension and required variance bound"
+      },
+      {
+        "assessment": "One-sample order-record identities; not an inspected two-time refresh overlap theorem",
+        "evidence": [
+          "1966 article, Theorems 2.2 and 2.3 on one random vector sample; single-sample dependence is explicitly credited"
+        ],
+        "identifier_or_url": "https://m.mathnet.ru/links/c4da4be81939f1b3092c1f57d18d3494/tvp624.pdf",
+        "material_read": "Accessible page images and theorems 2.2–2.3 on one-sample admissible point distributions; the PDF mirror later gave an intermittent access error",
+        "method": "Public primary PDF text and page screenshots on initial access",
+        "title": "On the distribution of the number of admissible points in a vector random sample",
+        "trigger": "Earliest directly relevant classical record/maxima theory"
+      },
+      {
+        "assessment": "Changes dominance order for a single sample, so its threshold does not imply the current two-sample, same-criterion refresh persistence law",
+        "evidence": [
+          "arXiv:1111.6224v1 dated 2011-11-27; abstract and Section 1 contrast k-dominant and full-dominant skylines"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1111.6224",
+        "material_read": "Full abstract and pp. 1–3 definitions, introduction and threshold statements; text searched for update/refresh",
+        "method": "Public arXiv full-text PDF and page-image inspection",
+        "title": "Threshold phenomena in k-dominant skylines of random samples",
+        "trigger": "Closest paper with skyline threshold in title"
+      },
+      {
+        "assessment": "Studies marginal maxima of noisy convolution distribution, not the same-label overlap between original and independently refreshed samples; limited material read and remains a minor coverage risk",
+        "evidence": [
+          "Díaz–Golin 2019 abstract defines perturbation through convolution and expected marginal maximal count"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.APPROX-RANDOM.2019.35",
+        "material_read": "Open-access abstract and problem definition",
+        "method": "Publication abstract and linked open-access description",
+        "title": "The Expected Number of Maximal Points of the Convolution of Two 2-D Distributions",
+        "trigger": "Potential probabilistic noise perturbation coverage"
+      },
+      {
+        "assessment": "Algorithmic update handling rather than the stochastic two-sample overlap distribution",
+        "evidence": [
+          "2005 ACM Transactions on Database Systems discussion of constrained skyline maintenance after deletions"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/220225024_Progressive_Skyline_Computation_in_Database_Systems",
+        "material_read": "Available discussion of maintained skyline sets under deletions and insertions; not a probability analysis",
+        "method": "Accessible publication extract",
+        "title": "Progressive skyline computation in database systems",
+        "trigger": "Potential stronger dynamic skyline theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "396064ba-e986-4f30-bd45-6851c8ef1f6a",
+  "value": {
+    "rationale": "The durability of a multidimensional Pareto frontier under independent full-vector refresh is a natural performance/reliability quantity. The exact hypergeometric conditional distribution connects measurable retained labels to an observable union skyline; the universal q/(2-q) survival fraction is distinct from the raw data retention fraction q. The critical q_n~(log n)^(1-d) Poisson persistence law determines when any original maximal labels survive, and uniform planar total variation provides a usable finite-size approximation. These are motivated statistical invariants and structurally sharp transitions, not a finite recomputation or an arbitrary slice.",
+    "status": "PASS"
+  }
+}
