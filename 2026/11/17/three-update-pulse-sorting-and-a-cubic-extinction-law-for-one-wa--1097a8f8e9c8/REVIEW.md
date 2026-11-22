@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local update equations give \(F^2_i=2a_i+m_i\) and \(F^3_i=2m_i+m_{i+1}\), where the markers are separated by at least three sites. The recurrent image and one-site translation follow algebraically. The three-state suffix machine counts the marker number in every cyclic input, and its matrix characteristic polynomial gives the exact extinction formula. Sharp witnesses cover every ring length, and Möbius inversion supplies the primitive-orbit counts. Two standalone integer-only implementations have been executed: one verifies all 243 local windows and complete initial-state spaces through length ten, and the other enumerates all states through length twelve. These runs agree with the formulas. Finite runs are not used as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+The original directed successor-only three-state map gives F^2_i=2a_i+m_i and F^3_i=2m_i+m_{i+1}, with m_i identifying 001/201 triples. Marker exclusion within distances 1 and 2 forces separated 12-pulses. On this entire image F=S; translation equivariance proves F^4=SF^3 and sharp entry cutoff three with explicit witnesses, all n>=3. The 3-state suffix transfer matrix Q(z) has characteristic polynomial lambda^3-3lambda^2+2-2z and a unique closed itinerary per cyclic word. Its z=0 roots 1,1±sqrt3 give E_n exactly and the primitive period count follows from binary gap-3 shift and Möbius inversion. Independent direct enumeration of all 3^n inputs for n=3..8 reproduced pulse histograms and trace at z=0,1,2,3 (E_3=21, E_8=3105), with witnesses at each n; inspected check_exact.py and check_direct.cpp. Finite checks corroborate but the local identities, cyclic matrix trace and Möbius argument prove the all-length statements.
 
-Fisch, Gravner and Griffeath (1993) define the classical excitation model, not this exact oriented-ring law. Fisch and Gravner (1995) treat symmetric line neighborhoods, including periodic-boundary numerics; their one-dimensional theorems do not imply the one-neighbor directed formula. Gravner, Lyu and Sivakoff (2016) treat simple undirected graphs; their comparison and graph covering results do not give the one-way factorization or extinction polynomial. Existing mathematical record searches were compared at the level of their mathematical assumptions and conclusions, not just titles. The earlier Greenberg–Greene–Hastings article could be inspected only at abstract level. Unindexed or unpublished equivalent priority remains a residual risk, and priority is not claimed as absolute.
+## originality
 
-## Value — PASS
+PASS
 
-A ring of unidirectionally coupled excitable elements is a canonical feed-forward periodic network. The theorem identifies a uniform sharp time at which all interactions reduce to a rigid shift, a complete initial-state pulse-number distribution, a closed extinction formula, and primitive-period counts. The simultaneous coexistence of a constant-time sorting bound and an exponentially small extinction basin is structurally informative, rather than an isolated finite-state count. No result is asserted for undirected or branched networks.
+Best-of-knowledge originality: the exact claim is not mechanically implied by inspected primary or published related theorems. Previously established GH pulse motion or the existence of spatial periodic objects does not determine how each of 3^n initial words maps after precisely three steps, nor the transfer polynomial. Conversely the present pulse-marker reconstruction explicitly supplies that missing map, not merely a rewording of ordinary wave periodicity. See explicit access and indexing risks; unsuccessful search is not proof of priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A sharp uniform three-update synchronization cutoff and exact initial-state-to-pulse transfer/cubic extinction law give nontrivial dynamical and enumerative invariants of a natural directed excitable ring. The full basin count and pulse-frequency polynomial are neither a generic GH definition nor merely the count of already-periodic trains; they can be used to compare relaxation and survival laws across networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
