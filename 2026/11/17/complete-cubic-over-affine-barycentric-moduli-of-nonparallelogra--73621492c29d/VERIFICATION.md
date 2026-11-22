@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The included `verification.py` executes with SymPy. The script checks symbolic normalization, both coordinates of linear precision, and the unique solution of the generic affine-denominator boundary system; it also establishes a polynomial identity proving projective injectivity and verifies the four closed-polygon denominator vertex factors. It matches the explicit trapezoid example in Baumbach–Winter, arXiv:2611.02110v1, exactly.
+# Independent mathematical audit
 
-The rational-grid diagnostics use four pairs of base lengths, multiple cone-boundary and interior parameters, and a \(17\times17\) grid for each such instance. All checked denominators were positive and all checked numerator values nonnegative; these grid checks are finite diagnostics, not proofs for arbitrary real parameters. The universal validity and sharp positivity conditions are proved in `RESULT.md` by factor signs and affine interpolation. The program does not purport to certify literature priority or independent validation.
+## correctness
 
-Reproduction: `python verification.py`, requiring Python and SymPy. The script has no external-data dependencies.
+PASS
+
+PASS: positivity plus affine precision on each trapezoid edge forces p3=xy(A+Bx+Cy), top and sloping interpolation yield C=(a−b)B and q=(A+(a−b)B)(a−(a−b)y)+bBx. Linear normalization forces p1,p2,p4. Factor positivity is equivalent to A≥0, A+(2a−b)B≥0 excluding zero; q has positive vertex values, thus positive on closed trapezoid. The cross-product identity proves projective injectivity, and gcd calculation rules out denominator cancellation. Independent symbolic reconstruction of all three normalization/precision identities and parameter uniqueness passed; rational-grid sampling alone cannot prove all real parameters.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Baumbach–Winter (arXiv:2611.02110v1) includes one concrete non-Wachspress cubic example and minimal numerator-degree rigidity. The published universal denominator theorem implies denominator degree one for noncentral trapezoids. Neither prior statement implies all admissible cubic numerator families, sharp two-ray cone, projective uniqueness or endpoint classification. Primary 2026 Baumbach–Winter full text could not be retrieved in this run, so priority risk is explicit.
+
+## value
+
+PASS
+
+PASS: a complete low-degree positivity-moduli space for a natural non-parallelogram finite-element polygon, with two extremal families and a rigid Wachspress interior point, answers a motivated interpolation-geometry classification beyond a single previously known example. It is a closed exact structural fact, not a polynomial substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

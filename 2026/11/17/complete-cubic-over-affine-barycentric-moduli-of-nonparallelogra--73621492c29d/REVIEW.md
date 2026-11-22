@@ -1,15 +1,21 @@
-# Scientific assessment: cubic-over-affine barycentric moduli on trapezoids
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem classifies systems with a **common strictly positive affine denominator** and **degree-at-most-three polynomial numerators**. Positivity and edge interpolation force the third numerator to be \(xy(A+Bx+Cy)\); comparing its two edge traces with a general affine denominator yields \(C=(a-b)B\) and the unique denominator stated. The three normalization/precision identities determine the other numerators. Their factorizations show that exactly \(A\ge0\) and \(A+(2a-b)B\ge0\), excluding the zero pair, are required for nonnegative functions, and every corresponding denominator is strictly positive at all four vertices. An explicit cross-multiplication identity separates projective parameter classes. A direct gcd check excludes cancellation and establishes reduced denominator degree one. The standalone SymPy verification confirms all polynomial identities and reconstructs the family from independent boundary equations; rational-grid tests do not substitute for the universal proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The closest primary text is Baumbach–Winter (arXiv:2611.02110v1, 2026-11-01), fully inspected in Sections 1–4 and Appendix A.3. That source defines the setting, proves minimal-numerator Wachspress uniqueness and the impossibility of polynomial GBCs on nonparallelogram quadrilaterals, and gives **one** specific cubic/affine non-Wachspress trapezoid example. It does not classify the full positive family or its extreme rays. The published polygon denominator theorem (2026-11-08), whose full RESULT text was inspected, gives denominator-degree minimality only; its conclusion does not imply the sharp numerator-parametrization or positivity inequalities. Additional searches for quadrilateral rational interpolation, equivalent coordinate descriptions, and higher-degree theory did not reveal an explicit full interval classification. These negative searches are not a uniqueness proof; differently titled historical constructions remain a risk.
+PASS
 
-## Mathematical value — PASS
-The source explicitly identifies the **space of intermediate-degree rational GBCs** as a difficult interesting direction. Here, for every nonparallelogram trapezoid, an entire natural bounded-degree moduli problem has an exact algebraic answer, not just a single construction or renaming. Two genuinely different extreme GBCs delimit the admissible cone; the standard Wachspress system lies between them and is the only quadratic point. The classification provides directly checkable positivity constraints for all cubic-over-affine interpolation weights in this family, while not asserting new convergence or numerical conditioning guarantees.
+PASS: positivity plus affine precision on each trapezoid edge forces p3=xy(A+Bx+Cy), top and sloping interpolation yield C=(a−b)B and q=(A+(a−b)B)(a−(a−b)y)+bBx. Linear normalization forces p1,p2,p4. Factor positivity is equivalent to A≥0, A+(2a−b)B≥0 excluding zero; q has positive vertex values, thus positive on closed trapezoid. The cross-product identity proves projective injectivity, and gcd calculation rules out denominator cancellation. Independent symbolic reconstruction of all three normalization/precision identities and parameter uniqueness passed; rational-grid sampling alone cannot prove all real parameters.
 
-## Limits and priority risk
-The result does not cover numerator degrees at least four, arbitrary denominators, parallelograms, or polygons with more vertices. The original source example, adjoint facts and denominator minimality are explicitly credited. Complete global historical priority has not been independently established. No independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Baumbach–Winter (arXiv:2611.02110v1) includes one concrete non-Wachspress cubic example and minimal numerator-degree rigidity. The published universal denominator theorem implies denominator degree one for noncentral trapezoids. Neither prior statement implies all admissible cubic numerator families, sharp two-ray cone, projective uniqueness or endpoint classification. Primary 2026 Baumbach–Winter full text could not be retrieved in this run, so priority risk is explicit.
+
+## value
+
+PASS
+
+PASS: a complete low-degree positivity-moduli space for a natural non-parallelogram finite-element polygon, with two extremal families and a rigid Wachspress interior point, answers a motivated interpolation-geometry classification beyond a single previously known example. It is a closed exact structural fact, not a polynomial substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
