@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof gives a complete chain from Cayley--Hamilton for traceless Hermitian two-by-two matrices, through the exactly normalized cosine profile and determinant-to-singular-value identity, to strict convexity/concavity of angular power averages. It establishes every quantified real exponent and both boundary equality classes; no numerical extrapolation is used. The standard-library checker passed 512 exact rational moment checks and 24 finite numerical integral comparisons. The exact fourth-moment specialization provides an easily replayed independent consequence.
+## correctness
 
-**Originality — PASS, qualified.** The primary source arXiv:2610.04844v2 introduces the functional and proves general bounds (Theorems 18 and 23), but its relevant inspected sections do not prove the full determinant profile, the fixed-Frobenius extremizers at every exponent, or their reversal at the critical exponent. The closest identified public research records address the rank-one \(\(p=2\)\) profile (identifier 846b702b24b7) and unitary finite-spectral \(\(p=2\)\) behavior (identifier f6644dc86b39). These include boundary special cases, which are credited, but do not entail the full theorem on invertible nonnormal traceless matrices for variable \(p\). Search noncoverage is not a priority certificate; inaccessible full texts and older equivalent formulations remain risks.
+PASS
 
-**Mathematical value — PASS.** The new \(L^p\)-Cartesian radius has a natural fixed-Hilbert--Schmidt shape question in the first nontrivial matrix class. An exact dependence on determinant modulus, sharp endpoint characterizations and a sharp phase reversal at \(\(p=2\)\) complete that small-dimensional problem and give a usable calibration for the general operator inequalities. The result is intentionally restricted to traceless complex two-by-two matrices; it does not address arbitrary dimension or general two-by-two trace.
+For complex traceless 2x2 T=H+iK, writing traceless Hermitian parts as Pauli vectors gives ||H cos(theta)+K sin(theta)||_op^2=a cos^2(theta)+b sin^2(theta)+2c sin(theta)cos(theta), with F^2=2(a+b) and |det T|^2=(a-b)^2+4c^2 by Cayley–Hamilton. This is (F^2/4)(1+rho cos(2theta-phi)), rho=2|det T|/F^2<=1, proving the exact Lp angular formula for all real p>=1. Evenness plus strict concavity of t^(p/2) for p<2 and strict convexity for p>2 proves strict monotonicity in rho (except p=2), with sharp normal (rho=1) and nilpotent (rho=0) endpoints. The p=4 identity omega^4=F^4/16+|det T|^2/8 was independently checked for noncommuting Pauli parts a=6,b=13,c=1 (moment=775/8, F^2=38, |det|^2=53). This finite exact test does not prove all p.
 
-**Verification limits.** Finite diagnostics are not a substitute for the analytical proof. Full linked pages for two public related records were inaccessible. No independent audit was commissioned or performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The reviewed primary Lp-Cartesian-radius paper gives universal comparisons with the ordinary numerical radius, not a trace-zero 2x2 invariant classification or the exchange of extremizers at p=2 for fixed Frobenius norm. Related rank-one and unitary L2 special cases cover only boundary observations; they do not imply the full varying-determinant p profile. Best-of-knowledge priority only.
+
+## value
+
+PASS
+
+A complete two-parameter exact classification for a natural operator radius, including sharp normal/nilpotent equality cases, a universal critical p=2 reversal and perturbative determinant response. The one-parameter family of nonnormal matrices is not covered by universal bounds; precise extremal data is useful when analyzing sharp Cartesian radius inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

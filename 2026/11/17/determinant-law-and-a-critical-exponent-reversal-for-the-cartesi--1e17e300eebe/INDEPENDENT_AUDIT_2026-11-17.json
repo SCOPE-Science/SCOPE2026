@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T21:54:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For complex traceless 2x2 T=H+iK, writing traceless Hermitian parts as Pauli vectors gives ||H cos(theta)+K sin(theta)||_op^2=a cos^2(theta)+b sin^2(theta)+2c sin(theta)cos(theta), with F^2=2(a+b) and |det T|^2=(a-b)^2+4c^2 by Cayley–Hamilton. This is (F^2/4)(1+rho cos(2theta-phi)), rho=2|det T|/F^2<=1, proving the exact Lp angular formula for all real p>=1. Evenness plus strict concavity of t^(p/2) for p<2 and strict convexity for p>2 proves strict monotonicity in rho (except p=2), with sharp normal (rho=1) and nilpotent (rho=0) endpoints. The p=4 identity omega^4=F^4/16+|det T|^2/8 was independently checked for noncommuting Pauli parts a=6,b=13,c=1 (moment=775/8, F^2=38, |det|^2=53). This finite exact test does not prove all p.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem18 supplies 1/2||H^2+K^2||<=omega_Cart,2^2<=||H^2+K^2||; Theorem23 supplies c_p omega(T)<=omega_Cart,p<=omega(T). Rank-one overlap is confined to p=2."
+        ],
+        "reasoning": "Generality in operator dimension does not imply the detailed 2x2 fixed-F sharp determinant law. p=2 flatness is consistent with the broader L2 material; reversal and nonnormal interpolating profile are not stated or forced by its bounds.",
+        "searches": [
+          "Audeh et al Theorems 18 and 23 and Proposition 24; Resultary rank-one Cartesian overlap; Resultary finite-spectral unitary p2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.04844v2",
+        "https://arxiv.cnoctave.top/pdf/2610.04844",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-rank-one-overlap-profile-for-the-l-2-cartesian-numerical-r--846b702b24b7",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/determinant-law-and-a-critical-exponent-reversal-for-the-cartesi--1e17e300eebe/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Universal omega(T) inequalities and rank-one p=2 do not assert that at fixed F the normal and nilpotent extremes swap roles at p=2 or yield the (p-2)rho^2/16 response."
+        ],
+        "reasoning": "The new theorem follows from exact reduction to an averaged scalar power; broad inequalities give neither strict determinant monotonicity nor equality classifications under fixed F.",
+        "searches": [
+          "Audeh Theorem23 and source RESULT.md normalization at p=1,2,4; Resultary rank-one record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Audeh et al define omega_Cart,p as the same angular Lp norm; their Theorem23 compares it to classical omega(T), not F and determinant."
+        ],
+        "reasoning": "The scalar p-th moment is exactly the same functional under their definition; passing from omega(T) inequalities to a determinant-ratio classification at fixed F requires independent Pauli/Hermitian reduction and strict convexity in rho.",
+        "searches": [
+          "Resultary: traceless two by two matrices Lp Cartesian numerical radius determinant sharp normal nilpotent critical exponent p=2",
+          "Audeh et al arXiv:2610.04844v2 Definitions and Theorems 18,23"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Audeh paper discusses sharp global constants and examples but has no traceless determinant table; rank-one special endpoint belongs to p=2; independent p=4 rational identity reproduced."
+        ],
+        "reasoning": "No exact matrix table or database in checked materials gives this continuous rho,p profile; sample p-values and code verification are diagnostics, not exhaustive novelty evidence.",
+        "searches": [
+          "Resultary L2 Cartesian radius rank-one overlap query; arXiv:2610.04844 searches for traceless, determinant, normal/nilpotent",
+          "Frozen verify.py finite rational and angular checks"
+        ]
+      },
+      "rationale": "The reviewed primary Lp-Cartesian-radius paper gives universal comparisons with the ordinary numerical radius, not a trace-zero 2x2 invariant classification or the exchange of extremizers at p=2 for fixed Frobenius norm. Related rank-one and unitary L2 special cases cover only boundary observations; they do not imply the full varying-determinant p profile. Best-of-knowledge priority only.",
+      "residual_risks": [
+        "All-p determinant formula could be implicit in unindexed numerical-radius specialization; priority not guaranteed.",
+        "Scope restricted to complex traceless 2x2 matrices and finite p>=1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE_NOT_FULL_PROFILE",
+          "evidence": "Universal c_p comparison to numerical radius; no trace-zero determinant classification or fixed-F reversal.",
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2610.04844",
+          "material_read": "Full PDF relevant introduction, Definition, Theorems 18 and 23, Proposition 24 and surrounding arguments; title screenshot",
+          "method": "Read 19-page OCR-text PDF and checked page screenshot",
+          "title": "Audeh, Kittaneh, Moradi, Sahoo, The L²-Cartesian Numerical Radii of Hilbert Space Operators",
+          "trigger": "Defines exact functional and all-exponent general bounds"
+        },
+        {
+          "assessment": "SPECIAL_CASE_PRIORITY",
+          "evidence": "p=2 rank-one overlap does not settle p-ne2 or full traceless family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-rank-one-overlap-profile-for-the-l-2-cartesian-numerical-r--846b702b24b7",
+          "material_read": "Published result summary, not original complete proof",
+          "method": "Read semantic indexed summary only",
+          "title": "Exact rank-one overlap profile for the L²-Cartesian numerical radius",
+          "trigger": "Potential matching nilpotent endpoint"
+        },
+        {
+          "assessment": "PROOF_RECONSTRUCTED",
+          "evidence": "Pauli quadratic form and determinant invariant furnish the exact formula and strict p=2 threshold.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/determinant-law-and-a-critical-exponent-reversal-for-the-cartesi--1e17e300eebe/RESULT.md",
+          "material_read": "All Finding/Proof/Assumptions/Verification sections in pinned RESULT.md",
+          "method": "Read pinned Git blob and independently checked even angular p4 moment",
+          "title": "Frozen traceless Cartesian radius RESULT.md",
+          "trigger": "Complete candidate theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete two-parameter exact classification for a natural operator radius, including sharp normal/nilpotent equality cases, a universal critical p=2 reversal and perturbative determinant response. The one-parameter family of nonnormal matrices is not covered by universal bounds; precise extremal data is useful when analyzing sharp Cartesian radius inequalities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All-dimensional operator statements not claimed; complex 2x2 traceless and p finite >=1 only.",
+    "Historical originality best-of-knowledge, not certified."
+  ],
+  "schema_version": 1
+}

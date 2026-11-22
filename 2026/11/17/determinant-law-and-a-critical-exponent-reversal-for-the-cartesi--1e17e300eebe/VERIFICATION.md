@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the directory containing `verify.py`. The checker uses only the Python standard library. It must print successful exact-rational and numerical checks, with no exceptions.
+# Independent mathematical audit
 
-The proof does not depend on the output of this checker. Directly verify that every traceless Hermitian two-by-two matrix has square equal to half its squared trace times the identity; expand the rotated real part to get mean \(F^2/4\) and cosine amplitude \(|\det T|/2\). Check \(0\le\rho\le1\) from the two singular values. Then integrate the powers for the exact formula; strict convexity/concavity of the scalar power gives all \(p\)-dependent inequalities and equality classes. For \(p=4\), independent expansion gives \(\omega_{\mathrm{Cart},4}(T)^4=F^4/16+|\det T|^2/8\).
+## correctness
 
-The checker verifies rational matrix angular moments for integer-even exponents and supports the invariant angular formula numerically at odd exponents. It does not certify all real \(p\), historical novelty, or an independent external review.
+PASS
+
+For complex traceless 2x2 T=H+iK, writing traceless Hermitian parts as Pauli vectors gives ||H cos(theta)+K sin(theta)||_op^2=a cos^2(theta)+b sin^2(theta)+2c sin(theta)cos(theta), with F^2=2(a+b) and |det T|^2=(a-b)^2+4c^2 by Cayley–Hamilton. This is (F^2/4)(1+rho cos(2theta-phi)), rho=2|det T|/F^2<=1, proving the exact Lp angular formula for all real p>=1. Evenness plus strict concavity of t^(p/2) for p<2 and strict convexity for p>2 proves strict monotonicity in rho (except p=2), with sharp normal (rho=1) and nilpotent (rho=0) endpoints. The p=4 identity omega^4=F^4/16+|det T|^2/8 was independently checked for noncommuting Pauli parts a=6,b=13,c=1 (moment=775/8, F^2=38, |det|^2=53). This finite exact test does not prove all p.
+
+## originality
+
+PASS
+
+The reviewed primary Lp-Cartesian-radius paper gives universal comparisons with the ordinary numerical radius, not a trace-zero 2x2 invariant classification or the exchange of extremizers at p=2 for fixed Frobenius norm. Related rank-one and unitary L2 special cases cover only boundary observations; they do not imply the full varying-determinant p profile. Best-of-knowledge priority only.
+
+## value
+
+PASS
+
+A complete two-parameter exact classification for a natural operator radius, including sharp normal/nilpotent equality cases, a universal critical p=2 reversal and perturbative determinant response. The one-parameter family of nonnormal matrices is not covered by universal bounds; precise extremal data is useful when analyzing sharp Cartesian radius inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
