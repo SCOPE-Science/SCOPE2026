@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "An exact constant-coefficient ODE gives the unique attracting equilibrium. Symbolic independent algebra confirms its derivative factorization Q(x^p)/(x^2(1+x^p)^2) with discriminant q[q(p-1)^2-4p], including positive roots, all endpoints, unique threshold-crossing counts, and the critical non-sign-changing tangent. Root expansion yields square-root splitting and integration yields a three-halves height gap. The freshly authored standalone verify.py passed 21,781 supplementary assertions (finite tests are not the proof). All oxygen interpretations explicitly require positive predicted concentration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Williams et al. DOI 10.5194/bg-21-1961-2024 Discussion (full HTML) explicitly says mixing also supplies fresh organic material to deep waters for remineralization, but its equations measure oxygen flux and do not adopt a Hill mixing-dependent sink.",
+        "Große et al. DOI 10.5194/bg-13-2511-2016 accessible journal abstract uses detailed HAMSOM-ECOHAM simulation to study physical and biological drivers rather than an analytic Hill-p steady-state classification; full text not inspected.",
+        "Daewel et al. DOI 10.1038/s43247-022-00625-0 accessible abstract and introduction describe simulation of wind wakes, production and oxygen, without proving a universal mixing-response threshold.",
+        "published-finding corpus SCOPE-a-sharp-exchange-rate-optimum-for-an-unequal-loss-two-box-tracer--89b160aaa5b3 studies an initial-value two-box tracer with fixed distinct loss rates and maximization at a fixed time, not a mixing-induced Hill sink."
+      ],
+      "reasoning": "The candidate is neither implied by the measured oxygen-flux physics nor by a model with loss rates fixed independently of mixing. Broader environmental models are scientifically related but not known to contain this algebraic law as an explicit or deducible special case; access-limited full texts are documented separately.",
+      "searches": [
+        "published-finding corpus: Two turning points reentrant oxygen deficit from competition between nutrient-stimulated respiration and vertical ventilation with Hill exponent p",
+        "published-finding corpus: two-layer oxygen budget fixed surface concentration deep layer oxygen consumption dependent on mixing intensity nonmonotone",
+        "Web: \"mixing\" \"oxygen\" \"non-monotonic\" \"nutrient\" respiration threshold",
+        "Web: \"oxygen deficit\" \"saturating\" \"mixing\" \"non-monotonic\""
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.5194/bg-21-1961-2024",
+      "https://doi.org/10.1038/s41467-024-47548-2",
+      "https://doi.org/10.5194/bg-13-2511-2016",
+      "https://doi.org/10.1038/s43247-022-00625-0",
+      "https://doi.org/10.1073/pnas.2318329121",
+      "published-finding corpus record 2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb",
+      "published-finding corpus record 2026/11/2/SCOPE-a-sharp-exchange-rate-optimum-for-an-unequal-loss-two-box-tracer--89b160aaa5b3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Williams et al. 2024, full HTML, discussion at https://bg.copernicus.org/articles/21/1961/2024/bg-21-1961-2024.html distinguishes oxygen supply and organic remineralization; this is motivation, not a proof of p>1, q>4p/(p-1)^2.",
+        "Rippeth et al. 2024 DOI 10.1038/s41467-024-47548-2 abstract reports mixed-layer oxygen maxima and upward/downward flux, not a cooperative-consumption closure.",
+        "Martinez-Corral et al. 2024 DOI 10.1073/pnas.2318329121 proves an input-output Hill sharpness barrier, but neither its object nor conclusion includes dividing saturating consumption by mixing and classifying the resulting oxygen response.",
+        "Prior private accessible claims e.g. 8f9df18c-8511-4b84-98cd-b28e55ab402c address layered oxygen viability with Gaussian depth deficit, not variation of deep oxygen in mixing intensity."
+      ],
+      "reasoning": "These prior results do not imply the claim merely because they mention oxygen, mixing, or Hill saturation. The exact discriminant theorem and all crossing statements must be reconstructed using the specified combined sink and exchange equation. Full historical priority, including generic quotient-bifurcation lemmas, is not certified.",
+      "searches": [
+        "Web: vertical mixing alleviates autumnal oxygen deficiency in the central North Sea",
+        "Web: Offshore wind farms are projected to impact primary production and bottom water deoxygenation in the North Sea",
+        "published-finding corpus: oxygen deficit reentrant environmental remediation ventilation enhanced biological oxygen demand saturating response",
+        "Web: \"Hill\" \"two extrema\" \"parameter\" saturating divided by input"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The proposed oxygen deficit is (r0/K)[1/x+q*x^(p-1)/(1+x^p)], equivalently the net consumption divided by mixing intensity; its derivative has a quadratic sign polynomial in z=x^p.",
+        "published-finding corpus candidate SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb describes two separate Streeter–Phelps outfalls and a downstream spatial sag, not a parameterized steady vertically mixed oxygen reservoir.",
+        "The search found Martinez-Corral et al. (2024) DOI 10.1073/pnas.2318329121, which establishes thermodynamic sharpness of the Hill response, not the demand/mixing quotient or its turning points."
+      ],
+      "reasoning": "Reciprocal dilution, net-demand/mixing balance, and sign changes of a Hill-type elasticity were considered as aliases. The generic Hill function and elementary quadratic discriminant are prior mathematical tools. No inspected statement provides the exact complete steady-oxygen phase diagram as a special case; a general unpublished quotient theorem remains a possible priority risk.",
+      "searches": [
+        "published-finding corpus: Sharp threshold 4p/(p-1)^2 in a steady oxygen balance with mixing k and cooperative Hill stimulated biological consumption r(k)=r0+r1 k^p/(K^p+k^p); exactly two stationary oxygen concentrations and three oxygen threshold crossings",
+        "published-finding corpus: Mixing oxygen transport versus saturating demand analytic discriminant unique critical condition four p over p minus one squared",
+        "Web: \"4p/(p-1)^2\" \"Hill\" threshold nonlinear",
+        "Web: \"Hill\" \"1/x\" \"nonmonotonic\" \"saturation\" exponent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result classifies a continuum of real-valued mixing rates and Hill exponents; it is not a natural finite enumeration or database table.",
+        "No exact same-model parameter table was present among the relevant published-finding corpus summaries; the closest oxygen-sag record concerns spatially separated outfalls."
+      ],
+      "reasoning": "A known finite lookup table would not by itself cover this all-positive-real analytic phase diagram. Conversely, lack of a table is not evidence of newness; direct analytic implication is tested in the other checks.",
+      "searches": [
+        "published-finding corpus: deep ocean dissolved oxygen diapycnal mixing nutrient stimulated respiration nonmonotone minimum maximum oxygen quadratic saturating mixing",
+        "published-finding corpus: sharp oxygen decline threshold nutrient-enhanced respiration mixing intensity two turning points threshold eight",
+        "Web: \"4p\" \"(p-1)^2\" \"Hill\" oxygen transport"
+      ]
+    },
+    "rationale": "Published mixing-oxygen work describes coupled oxygen and biological processes, and established Hill functions/related oxygen-sag or exchange-rate mathematics are acknowledged. Inspected materials and actual published-finding corpus searches did not identify a dominating statement giving the exact complete Hill-p steady exchange/consumption phase boundary or its global three-crossing law; generic mathematical equivalence remains residual risk.",
+    "residual_risks": [
+      "No global historical priority certificate; generic Hill quotient optimization or fold theory could imply this targeted classification without the environmental language.",
+      "Full Rippeth, Große, Daewel and two highly related published-finding corpus record texts were not inspected; relevant material only was read.",
+      "Published empirical studies do not validate the assumed incremental consumption Hill law or its parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates two opposite processes but has no Hill-p demand closure or exact phase boundary in the inspected article.",
+        "evidence": [
+          "Discussion: a vertical oxygen flux can alleviate deficiency and transport fresh organic material to be remineralized in deep water.",
+          "Published article webpage reports public discussion started 2023-06-26; final published 2024-04-17."
+        ],
+        "identifier_or_url": "https://bg.copernicus.org/articles/21/1961/2024/bg-21-1961-2024.html",
+        "material_read": "Full HTML article: abstract, introduction, physical flux equations, methods, findings, discussion, limitations and references, particularly discussion of additional remineralization at the end of section 4.",
+        "method": "Reading accessible article HTML from published publisher site.",
+        "title": "Vertical mixing alleviates autumnal oxygen deficiency in the central North Sea",
+        "trigger": "Primary literature explicitly notes both ventilation and mixing-borne organic material that increases oxygen demand."
+      },
+      {
+        "assessment": "Abstract covers measured fluxes, not the proposed phenomenological mixing-driven respiration function; full-document noncoverage is not certified.",
+        "evidence": [
+          "Open abstract describes deep-water oxygen deficit, a subsurface oxygen maximum and upward/downward fluxes sensitive to mixing and structure."
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41467-024-47548-2",
+        "material_read": "Publisher and institutional abstracts and citation metadata; primary full text not accessible via the attempted HTML fetch.",
+        "method": "Search results and university repository article record; primary full HTML request returned access error.",
+        "title": "The deepwater oxygen deficit in stratified shallow seas is mediated by diapycnal mixing",
+        "trigger": "Another direct empirical study of mixing and oxygen transport in the same physical environment."
+      },
+      {
+        "assessment": "Numerical ecosystem modelling is a related mechanism but the inspected abstract does not assert the exact Hill-p mixing-response phase diagram; coverage risk remains.",
+        "evidence": [
+          "Abstract identifies a complex physical/biological interplay, productivity, benthic consumption, and stratification as drivers."
+        ],
+        "identifier_or_url": "https://bg.copernicus.org/articles/13/2511/2016/",
+        "material_read": "Publisher article webpage with full detailed abstract, metadata and references; complete XML/PDF not read.",
+        "method": "Accessible published HTML abstract; XML retrieval attempt returned unsupported content type.",
+        "title": "Looking beyond stratification: a model-based analysis of the biological drivers of oxygen deficiency in the North Sea",
+        "trigger": "Plausible broader numerical oxygen ecosystem model."
+      },
+      {
+        "assessment": "Numerical wind-wake coupled ecosystem response, without apparent analytic fixed-surface Hill sink threshold; no full-document noncoverage assertion.",
+        "evidence": [
+          "Abstract reports changes in primary production and decreases in oxygen under wind-wake alterations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s43247-022-00625-0",
+        "material_read": "Open HTML abstract and introduction in publisher record; not all supplementary simulation details read.",
+        "method": "Accessible publisher HTML abstract/introduction.",
+        "title": "Offshore wind farms are projected to impact primary production and bottom water deoxygenation in the North Sea",
+        "trigger": "Mixing perturbations can change production and low oxygen."
+      },
+      {
+        "assessment": "Explicitly confirms Hill family is established; theorem is about microscopic input–output sharpness, with no steady mixing oxygen or three-level-crossing statement in material read.",
+        "evidence": [
+          "Its abstract states Hill functions bound input-output response sharpness in thermodynamic equilibrium models."
+        ],
+        "identifier_or_url": "https://doi.org/10.1073/pnas.2318329121",
+        "material_read": "Open indexed abstract, significance and discussion summaries; whole proof not read.",
+        "method": "Public open indexing of abstract and selected discussion.",
+        "title": "The Hill function is the universal Hopfield barrier for sharpness of input–output responses",
+        "trigger": "Check stronger general Hill-function mathematics."
+      },
+      {
+        "assessment": "Concerns number of spatial oxygen sags from two outfalls as separation varies; no verified overlap with steady Hill-p mixing condition, but full-document implication not ruled out.",
+        "evidence": [
+          "The record describes two Streeter–Phelps outfalls and critical downstream-source strength, versus our single well-mixed deep box."
+        ],
+        "identifier_or_url": "2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb",
+        "material_read": "published-finding corpus semantic result summary and title only; full GitHub record link was inaccessible.",
+        "method": "published-finding corpus record returned in semantic search; direct full text link failed.",
+        "title": "Reentrant double-sag regimes for two separated biochemical oxygen-demand sources",
+        "trigger": "Closest published-finding corpus record by oxygen and reentrance language."
+      },
+      {
+        "assessment": "Different finite-time transient tracer problem with loss parameters independent of exchange, rather than mixing-induced Hill respiration.",
+        "evidence": [
+          "Its summary establishes one finite optimal exchange for tracer reaching a second compartment."
+        ],
+        "identifier_or_url": "2026/11/2/SCOPE-a-sharp-exchange-rate-optimum-for-an-unequal-loss-two-box-tracer--89b160aaa5b3",
+        "material_read": "published-finding corpus semantic result title and summary only; full record link inaccessible.",
+        "method": "published-finding corpus semantic search and failed direct GitHub access.",
+        "title": "A sharp exchange-rate optimum for an unequal-loss two-box tracer",
+        "trigger": "published-finding corpus near match in exchange-rate response."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b9c987c6-c5ba-46c4-82ce-e186b451ef49",
+  "value": {
+    "rationale": "Shelf-sea observations explicitly establish that mixing ventilates bottom waters while also supplying organic material for remineralization, generating a concrete competing-mechanism mathematical question. The theorem provides a necessary-and-sufficient all-parameter criterion, explicit turning locations, exact three-crossing oxygen-threshold windows, and universal critical onset exponents; the motivated phase boundary is useful even though the precise sink law is uncalibrated.",
+    "status": "PASS"
+  }
+}
