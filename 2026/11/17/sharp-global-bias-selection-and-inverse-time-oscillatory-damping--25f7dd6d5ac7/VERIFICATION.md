@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` with SymPy and SciPy. The code verifies the exact four-cycle polynomial identities, product-law identity, the quadratic center-manifold invariance equation, and the symbolic angular integral for the leading quartic energy drift. For positive biases 0.5 and 2, it integrates representative positive interior trajectories and tests agreement with the predicted inverse-time coefficient to the stated finite-horizon tolerance.
+## correctness
 
-Successful observed output:
+PASS
 
-`VERIFY_OK exact_four_cycle=3 exact_product_law=1 center_manifold=1 quartic_average=1 finite_decay_examples=2`
+The simplex sum and positivity follow from the exact homogeneous replicator vector field. With s=u1+u3-u2-u4, x=u1-u3, y=u2-u4, C=(1-s^2)/4 and d(log(product_i u_i))/dt=a s^2 exactly. For a>0 the product lower bound confines every interior trajectory to a compact positive simplex set; LaSalle reduces omega limits to s=0; there s-dot=-(a+2)xy and (x,y) is a nonzero rotation unless x=y=0, hence the maximal invariant subset is U. For -1<a<0 a positive product limit would imply interior precompactness and force convergence to U, contradicting strictly submaximal initial product and monotone decrease, so product->0 and min_i u_i->0. For a>0, eigenvalues -a/4, ±i(a+2)/4; the quadratic center-manifold invariant polynomial h_2=4(a+2)^2(x^2-y^2)/D - 4a(a+2)xy/D (D=a^2+4(a+2)^2) has zero invariance residual. The quartic radial drift angular average is -a(a+2)^2/(2D), positive damping; periodic normal-form transform yields dot Z=-beta Z^2+O(Z^(5/2)), hence tE->1/beta. The unique strong stable manifold is the invariant x=y=0 line; all other interior orbits exponentially track the center manifold. SymPy independently checked the exact h_2 identity and angular mean; two integrations to T=6000 exhibited finite-time approach, not proof of the asymptotic claim.
 
-The computer program does not prove global attraction, LaSalle's invariance conclusion, center-manifold existence, or convergence of the inverse-time limit. Those require the separately written analytic proof in `RESULT.md`. A numerical sample neither establishes an infinite-time limit nor excludes hidden invariant sets. Independent validation has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the closest directly model-matched 2026 paper supplies the vector field and center spectrum, whereas available material does not establish this exact global-in-time homogeneous sign-of-bias and sharp inverse-time coefficient. Important unresolved historical priority risk: full text of that model-matched article was not accessible; no unsupported assertion that the unread whole article is non-covering.
+
+## value
+
+PASS
+
+A genuinely nonlinear center-spectrum question left open by oscillatory finite-time plots is settled globally by a model-specific product Lyapunov identity; the exact universal original-time 1/t amplitude and identified exceptional faster-decay invariant line sharpen the dynamical classification. Negative-bias extinction provides the opposing sharp sign regime. These are structural, mathematically motivated results and not a textbook restatement of imaginary eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
