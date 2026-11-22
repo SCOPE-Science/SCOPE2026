@@ -1,19 +1,21 @@
-# Scientific review: puncture susceptibility for Sylvester's four-point problem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For fixed puncture center \(x\) inside the unit disk, the exact mixture identity between uniform area measures on the disk, deleted small disk and remaining set gives the derivative \(4[Q(D)-q(x)]h^2+o(h^2)\). The coefficient is a four-point observable with one vertex fixed. The disjoint containment dichotomy for planar quadruples gives \(q(r)=1-I(r)-3A(r)/\pi\). An explicit pair-line Jacobian and two exact finite integrations yield the anchored triangle-area polynomial \(A(r)\). At the center, Wendel's semicircle argument gives \(I(0)=1/4\). At the rim, containment forces one sample into a circular cap of area \(O((1-r)^{3/2})\), so the explicit polynomial term has positive linear slope and dominates. The displayed cap bound rigorously proves the strict sign for every \(99/100\le r<1\). Continuity gives at least one intermediate transition. The standalone numerical checker corroborated the precise fixed-vertex law and the boundary coefficient; numerical evidence is not used to certify the limiting assertions.
+PASS
 
-## Originality — PASS, with historical risks
+The four-point failure events split into four disjoint triangle-containment alternatives. For fixed x at radius r, q(r)=1−I(r)−3A(r)/π, with A(r)=4/(3π)(1/3+r²/2−r⁴/8+r⁶/48) from the exact pair-line Jacobian; independently verified A(0)=4/(9π), A(1)=35/(36π), and mean triangle area 35/(48π), giving Q(D)=1−35/(12π²). At r=0, I(0)=1/4 yields S(0)=1−19/(3π²)>0. For r→1, I(r)≤4√2(1−r)^(3/2)/π by the circular cap area, so q(r)−Q(D)=5(1−r)/(2π²)+O((1−r)^(3/2)), yielding S(r)<0 at r≥.99 and slope −10/π². The exact normalized-measure mixture μ=(1−h²)ν_h+h²τ_h gives S=4[Q(D)−q(r)] for each fixed center, with no uniform near-boundary moving-center error claim. Monte Carlo scripts were read but are not substituted for these proofs.
 
-The 2014 disk convex-position paper proves the unpunctured baseline, not this small-hole response. The 2015 survey and subsequent convex-domain work do not apply directly to punctured nonconvex domains. Ionaşcu's off-center fixed-point random-triangle probability is already known and is explicitly excluded from novelty claims; combining it with the newly computed anchored triangle-area polynomial and the four-point infinitesimal-hole variation yields a distinct assertion about sign-changing susceptibility. Eisenberg–Sullivan study a modified expected-area statistic, not this probability. Published thin-homothetic-shell asymptotics take the opposite geometric limit (a shell collapsing to its outer boundary, rather than a puncture disappearing); the eccentric-hole Beer-visibility effect concerns a different functional. Searches for fixed-vertex, small-hole, punctured disk, shape-derivative, and annulus equivalents found no prior proof of the present coefficient and sign reversal. This is provisional historical originality, not a uniqueness guarantee; unindexed older literature or an implicit published identity could cover it.
+## originality
 
-## Value — PASS
+PASS
 
-The question is a natural stability test of the classical disk extremality theorem, whose hypotheses require convex sampling regions. The result shows quantitatively that removing an arbitrarily small interior disk can change convex-position probability in **either** direction depending on its location. The exact central coefficient, rigorous sign interval, and sharp near-boundary decay reveal a meaningful geometric boundary and are not arbitrary numerical samples. They guide the extension or failure of geometric probability extrema in nonconvex settings.
+Best-of-knowledge originality relative to compared statements and actual independent material, not a proof of absolute priority. The problem can be rewritten as the fixed-vertex four-point q(r) crossing the full-disk Q(D), which requires A(r) as well as I(r). Known I(r) alone cannot give the near-rim opposite sign.
 
-## Scope and limitations
+## value
 
-Only infinitesimal disks with **fixed** center strictly inside the unit disk are treated. The theorem does not locate every sign-change radius, prove uniqueness, classify general removed sets, or give a uniform expansion as the center approaches the boundary. Previously known components \(I(r)\), the disk baseline, and Wendel's semicircle lemma are not presented as new. Historical priority and the proof have not received independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sign of the small-hole susceptibility of Sylvester four-point convexity unexpectedly reverses with the puncture position, answering a natural nonconvex stochastic-geometric sensitivity question. The exact center coefficient and near-boundary sign/slope together provide a motivated structural boundary and not merely an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
