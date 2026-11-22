@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional Gaussian/Rayleigh integration gives E exp(-s/T). With Y=1/m-1/T, F(s)=E exp(sY)-1 is strictly convex with F(0)=0, negative initial right derivative (possibly minus infinity) by strict Jensen, and positive exponential divergence because P(T>m+δ)>0; hence one positive crossing. J(s)=E[T^-1 exp(sY)]-1/m is strictly convex, positive at both ends and negative at the crossing, hence has exactly two zeros giving a strict trough and peak. Direct curvature of exp(-s/t) proves support bounds. Compact Taylor expansion proves weak-variance constants. All differentiations at s>0 remain integrable even for divergent E(1/T). A standalone deterministic checker passed 6,800 assertions, not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published finding “A unique Brownian first-passage crossover for every static diffusivity mixture” is about threshold absorption of a path, not the spatial endpoint of a freely moving path stopped at independent time.",
+        "Published finding “Exactly one cumulative crossing and two density crossings for heterogeneous Brownian first passage” again concerns first-passage time distributions rather than Rayleigh endpoint-radius tails.",
+        "The 2025 arXiv preprint includes broad randomization of settling and diffusion parameters but studies density shape/tail classes, not the full arbitrary-law fixed-mean comparison."
+      ],
+      "reasoning": "The indexed first-passage comparators have a different conditional kernel (an error-function absorption tail versus an exponential endpoint-radius tail). No reduction from first passage to the claimed three event-scale landmarks was identified. The 2011 and 2025 dispersal papers give physically related kernels without the target distribution-free crossing and extrema theorem in inspected main text.",
+      "searches": [
+        "two dimensional Brownian diffusion stopped at arbitrary positive random retention time fixed mean versus deterministic time unique radial-distance crossover in survival probability [indexed results search]",
+        "single crossing Brownian first-passage heterogeneous diffusivity [indexed results search]",
+        "parameter variability can produce heavy tails in spatial distribution of settling organisms arxiv:2509.16385",
+        "2010 animal mediated seed dispersal retention time stochastic crossing planar diffusion theorem single threshold distance gamma"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/j.1365-2435.2010.01747.x",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3237446/",
+      "https://arxiv.org/abs/2509.16385",
+      "Published mathematical study: A unique Brownian first-passage crossover for every static diffusivity mixture",
+      "Published mathematical study: Exactly one cumulative crossing and two density crossings for heterogeneous Brownian first passage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cousens et al. 2010 (DOI:10.1111/j.1365-2435.2010.01747.x) provide ecological model background and discuss path–release independence; they do not claim a theorem about radial tail signs.",
+        "Guttal et al. 2011 (DOI:10.1371/journal.pone.0028447), main text through “Generality of results” and supporting-information list, establishes qualitative and numerical LDD benefits with parametric retention. Its spatial-density crossover does not logically force a unique probability-tail crossing across all positive retention laws.",
+        "Gordillo and Greenwood (arXiv:2509.16385) give a comprehensive family of stopped-Brownian densities and tail asymptotics; no general matched-arithmetic-mean crossing and two-extrema classification appears in the examined full article."
+      ],
+      "reasoning": "Previously reported long-distance enhancement is not the new claim. The claimed contribution is simultaneous universal quantification: exactly one sign reversal of a cumulative radial probability relative to an equal-mean deterministic retention, exactly one negative trough and positive peak, a nonasymptotic support bracket, and three weak-heterogeneity constants. The main-text prior statements do not entail these counts or asymptotics; supplement access is explicitly recorded as a risk.",
+      "searches": [
+        "Guttal Bartumeus Hartvigsen Nevai 2011 retention time variability supplementary text S9 analytical tail threshold probability distribution",
+        "Guttal 2011 retention time variance gamma distribution absolute measure dispersal critical distance unique crossing",
+        "2025 Gordillo Greenwood settling random rate Brownian radial probability density unique crossing",
+        "indexed Brownian first passage single crossover versus stopped endpoint radial survival"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guttal et al. 2011 DOI:10.1371/journal.pone.0028447 discusses gamma retention-time distributions and deposition kernels; it also treats the absolute tail count but does not state the arbitrary-law strict crossing/extrema result in accessible main text.",
+        "Gordillo and Greenwood arXiv:2509.16385 derives planar stopped-diffusion radial density mixtures and their asymptotic tails; its full text does not compare to equal-mean deterministic retention.",
+        "The identity |B_T|^2/(4κT) ~ Exp(1) links the claim to Laplace transforms of the reciprocal retention time, but requires the matched arithmetic mean of T rather than E(1/T)."
+      ],
+      "reasoning": "Equivalent parametrizations by a=s/(4κ), exponential-mixture survival and random Brownian variance were examined; a shape-matched exponential-mixture comparison at a fixed arithmetic mean is the target. A density crossing or moment/kurtosis statement does not imply uniqueness of a radial cumulative-tail crossing, two extrema, or their weak-variance limits.",
+      "searches": [
+        "random stopping time planar Brownian radial survival exp(-r^2/(4DT)) fixed mean one crossing",
+        "For planar Brownian motion with positive random independent stopping/seed retention time T of fixed mean m, the radial final displacement tail crosses the deterministic-time counterpart exactly once [indexed results search]",
+        "mean preserving spread diffusion time exponential inverse times unique crossing tail random retention seed dispersal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2011 article Figure 2 compares selected variance-dependent dispersal kernels; no table of a unique cumulative-tail crossing and its two extrema for every positive retention law was located in the accessible article.",
+        "The indexed nearest seed-related findings in available own ledgers concern wind-speed/flight-time optima and two-wind spatial density modality, neither this retention law."
+      ],
+      "reasoning": "This is an infinite-distribution structural theorem rather than a finite catalogue; relevant continuous kernel tables and the accessible closest full texts were inspected for an already-tabulated equivalent, not merely exact matching numbers. The separately hosted 2011 supplemental Text S9 remains unavailable as a residual comparison risk.",
+      "searches": [
+        "Seed dispersal Brownian movement random gut passage stopping time unique crossover threshold radial tail universal bound and variability [indexed results search]",
+        "Laplace scale mixtures exponentials single crossing of survival functions constant mean heterogeneous settling times [indexed results search]",
+        "random scale mixtures exponential survival fixed mean unique crossing exp(-x / random scale) exp(-x/mean) [literature search]",
+        "animal dispersal retention variability arbitrary distribution unique crossover radial tail 2 dimensional diffusion [literature search]"
+      ]
+    },
+    "rationale": "The inspected full-text ecological sources describe general kernel construction, Gamma-varied retention, spatial-density crossing or long-distance asymptotics. None states or implies the distribution-free fixed-mean radial cumulative crossing with two unique extrema and universal weak-variation scales; the nearest indexed one-crossing results concern first passage instead. The 2011 supplementary Text S9 remains a specific unresolved priority risk, and no exhaustive novelty certification is claimed.",
+    "residual_risks": [
+      "Separate Text S9 PDF supplement to Guttal et al. (2011) could not be opened; accessible main text provides a closely related parametric and numerical analysis.",
+      "A more general variation-diminishing exponential-mixture theorem may exist under another mathematical terminology and could cover the result; targeted searches did not identify a decisive prior statement.",
+      "Theoretical endpoint-radius law only; no independent priority confirmation or species-specific empirical calibration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTEXT_ONLY",
+        "evidence": "Review explains movement/release convolution models, empirical retention time heterogeneity and modeling limits; no fixed-mean radial survival crossover theorem.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1365-2435.2010.01747.x",
+        "material_read": "Full openly accessible HTML article, including introduction, state-of-play, and modelling passages on independent movement and release",
+        "method": "Read complete accessible HTML material and compared the objective and quantifiers",
+        "title": "Towards better prediction of seed dispersal by animals",
+        "trigger": "Earliest motivating review of the movement–retention mechanism and model boundaries"
+      },
+      {
+        "assessment": "RELATED_NOT_SAME_CLAIM_IN_ACCESSIBLE_MAIN_TEXT",
+        "evidence": "Main paper numerically describes a critical spatial density distance under variable Gamma retention and studies an optimized absolute LDD measure; not an exact any-law one-crossing/two-extrema radial cumulative-tail theorem. Supplemental Text S9 is linked but not separately retrievable.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3237446/",
+        "material_read": "Main article, sections Methods and Results, Kurtosis and thickness of tail, Retention time variability and an absolute measure of LDD, Generality of results, supporting-information list",
+        "method": "Read full accessible PMC HTML at sections describing model, Gamma law, critical density distance and absolute LDD",
+        "title": "Retention Time Variability as a Mechanism for Animal Mediated Long-Distance Dispersal",
+        "trigger": "Near-identical physical model and explicit threshold for long-distance dispersal"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "Random-parameter density mixtures and tail classes are considered, but no general equal-mean deterministic-time radial-tail crossover or two-extrema classification is stated.",
+        "identifier_or_url": "https://arxiv.org/abs/2509.16385",
+        "material_read": "Full arXiv HTML sections on randomized settling rates, randomized diffusivity, kernel calculations and radial-density tail behavior",
+        "method": "Read directly available arXiv full HTML text and compared matched-mean comparator versus tail-classification statements",
+        "title": "Parameter variability can produce heavy tails in a model for the spatial distribution of settling organisms",
+        "trigger": "Recent primary full text on the same planar stopped-diffusion endpoint laws"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e3449f4-c878-42e3-9a50-ea4e603eaf2d",
+  "value": {
+    "rationale": "The result supplies a global sign and extrema classification of an ecologically meaningful radial exceedance probability independent of the entire shape of the positive retention-time law. Earlier use of kurtosis and selected gamma kernels cannot rule out multiple distance reversals for an arbitrary multimodal/long-tailed retention law; this theorem does. It also locates the crossover between support-based physical scales and gives universal weak-heterogeneity extrema and crossover scales. This is a substantive distribution-free structural benchmark rather than a reparametrized or single-number exercise.",
+    "status": "PASS"
+  }
+}
