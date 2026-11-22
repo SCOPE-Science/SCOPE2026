@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "Modal congruence identifies the free symmetric coordinates and groups every column by eigenvalue product. Each group has at most min(r,m_mu) rank. The explicit real modal starts z_i^(k)=(2^(2^(i-1)))^k create pairwise distinct unordered-pair nodes and Vandermonde group ranks; temporal Vandermonde inversion separates all groups when H>=s. This proves equality in all dimensions, including repeated, zero and negative eigenvalues. Polynomial minors prove genericity; small kernel perturbations prove ambiguity among positive-definite candidates; geometric-spectrum counts yield the sharp ceil(n/2) budget. CHECKER.py independently reproduced 643 finite-field design-rank comparisons on 63 rational-spectrum families but is not treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "van Waarde et al., arXiv:2002.01023, treats input/Hankel collective excitation",
+        "Gosea and Gugercin, JSC 2022, treat frequency-domain quadratic transfer function fitting",
+        "Berkane et al., arXiv:2312.10684, estimate unknown states from known quadratic-output matrices"
+      ],
+      "reasoning": "These broader-looking works are not stronger coverage: they change the sampled object, the known/unknown variables, or the excitation mechanism. None supplies the maximum rank over physically rank-one trajectory starts for fixed autonomous F.",
+      "searches": [
+        "quadratic regression deterministic linear dynamical system eigenvalues products Vandermonde multiple trajectories",
+        "quadratic form identification deterministic linear dynamics multiple initial conditions eigenvalue products rank one observability",
+        "Veronese rank-one observable symmetric tensor power diagonal system minimal sensors",
+        "https://arxiv.org/abs/2002.01023",
+        "https://doi.org/10.1007/s10915-022-01771-5",
+        "https://arxiv.org/abs/2312.10684"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.03401",
+      "https://arxiv.org/abs/1610.00063",
+      "https://arxiv.org/abs/2002.01023",
+      "https://doi.org/10.1007/s10915-022-01771-5",
+      "https://arxiv.org/abs/2312.10684",
+      "https://arxiv.org/abs/1812.03565"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baltussen et al. Eq (6): full rank of d quadratic regressors is required; more trajectories/excitation may be needed",
+        "Zhou: minimum unrestricted output count equals maximum geometric eigenvalue multiplicity",
+        "Zhou conclusion: structured input/output cases remain separate",
+        "Tu and Recht: process-noise-excited LQR evaluation, unlike autonomous deterministic fixed-policy regression"
+      ],
+      "reasoning": "The exact prior implication is a necessary r>=max m_mu condition via unrestricted lifted observability. It does not assert that r rank-one quadratic-start sensors achieve equality, nor the max rank sum min(r,m_mu) for subcritical r. The new Vandermonde proof establishes both while respecting the structured domain.",
+      "searches": [
+        "https://arxiv.org/abs/2611.03401",
+        "https://arxiv.org/abs/1610.00063",
+        "https://arxiv.org/abs/2002.01023",
+        "https://doi.org/10.1007/s10915-022-01771-5",
+        "https://arxiv.org/abs/2312.10684",
+        "https://arxiv.org/abs/1812.03565"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Symmetric-square lift has eigenvalues lambda_i lambda_j, with m_mu-dimensional eigenspaces",
+        "Zhou, arXiv:1610.00063, handles unrestricted output matrices, not rows on the rank-one Veronese cone"
+      ],
+      "reasoning": "Equivalent lifted observability makes the lower bound classical, but leaves a distinct structured sufficiency question. The proof constructs rank-one output rows explicitly and computes every intermediate r rank, not merely the minimum sensor count.",
+      "searches": [
+        "single trajectory quadratic regression LQR matrix identifiability pairwise products eigenvalues observability Kronecker Lyapunov matrix data",
+        "quadratic form identification from trajectory x_t = A^t x_0 eigenvalue products distinct observability lifted system",
+        "policy evaluation LQR least squares single trajectory rank eigenvalues products quadratic features identifiability",
+        "https://arxiv.org/abs/2611.03401",
+        "https://arxiv.org/abs/1610.00063"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct comparison of the motivating regression and related control/observability articles found no table of exact product multiplicities or counts"
+      ],
+      "reasoning": "The result is an all-dimensional structural formula, not a finite table or reconstruction from known listed cases. No exact database or table that determines the claimed rank curve was identified; absence is not proof of novelty.",
+      "searches": [
+        "quadratic regression deterministic linear dynamical system eigenvalues products Vandermonde multiple trajectories",
+        "rank-one structured observability sensors symmetric-square lifted linear map eigenvalue multiplicity minimal experiments"
+      ]
+    },
+    "rationale": "The closest direct 2026 primary paper imposes a generic rank condition without solving the spectral-constrained design problem. Zhou 2016 proves the output-count lower bound for unrestricted linear output maps of a lifted system, but does not prove its sufficiency with each sensor restricted to a rank-one symmetric outer product of an actual initial state. The explicit simultaneous structured construction and full rank curve as trajectory count varies are not implications of the unrestricted statement alone. Other inspected works have different data regimes or inverse targets. Residual risk: an uncatalogued structured-output cyclicity result may already contain the theorem.",
+    "residual_risks": [
+      "Classical generalized cyclicity with Veronese-constrained outputs or algebraic observability could subsume this constructive rank statement in an unindexed reference.",
+      "The motivating paper uses a known-model Riccati setting; this theorem concerns the free symmetric quadratic regression, not full model-constrained value-function identifiability.",
+      "The proof does not characterize joint optimization over horizons shorter than the number of distinct eigenvalue products."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives rank requirement, but no exact maximum rank, spectral-product multiplicities, or restricted-sensor trajectory count",
+        "evidence": [
+          "Section 2.2, equation (6), requires rank n(n+1)/2 and names extra trajectories or initial states when deficient",
+          "LQR approximation section treats Riccati iterations and rollout truncation, not modal multiplicity rank classification"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.03401",
+        "material_read": "Abstract; Sections 1, 2.1, 2.2 including equation (6) and following rank statement; main contributions and LQR analytic context",
+        "method": "Read the accessible arXiv HTML primary text, including the full quadratic regression setup",
+        "title": "Policy Iteration over Terminal Cost Functions: From LQR to MPC",
+        "trigger": "Primary motivating publication explicitly requiring full-rank quadratic-value regression and suggesting further initial states"
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP: unrestricted linear output rows of a symmetric-square lifted system yield the multiplicity lower bound, but not sufficiency when all rows must be attainable as quadratic rank-one initial-state tensors; no explicit simultaneous construction or all-r rank under this restriction",
+        "evidence": [
+          "Minimal number of unrestricted outputs equals largest geometric multiplicity",
+          "Conclusion separately proposes extension to structural restrictions on system input/output matrices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.00063",
+        "material_read": "Abstract, introduction, main controllability/observability statements and output parametrization, concluding section on structured sensors",
+        "method": "Inspected the accessible primary arXiv HTML including the stated observability corollary, unrestricted output parametrization, and concluding structured-sensor caveat",
+        "title": "Minimal Inputs/Outputs for a Networked System",
+        "trigger": "Most dangerous potential implication from classical lifted-system observability and maximal eigenvalue multiplicities"
+      },
+      {
+        "assessment": "NOT_COVERING: characterizes excitation of linear input/state Hankel trajectories, not quadratic-value regressors along fixed autonomous dynamics with product collisions",
+        "evidence": [
+          "Collective persistency concerns an input-driven linear system and multiple data records"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.01023",
+        "material_read": "Introduction, state-space formalization, description of the extension to multiple input-driven data sets and examples",
+        "method": "Read full accessible arXiv text, focusing on type of regressors and excitation hypotheses",
+        "title": "Willems' Fundamental Lemma for State-space Systems and its Extension to Multiple Datasets",
+        "trigger": "Potentially dominating collective excitation theorem for multiple trajectories"
+      },
+      {
+        "assessment": "NOT_COVERING: bivariate transfer-function interpolation of input-output data, not the exact modal-restart rank of a fixed unknown symmetric quadratic value matrix",
+        "evidence": [
+          "Formulation uses transfer functions of linear systems with quadratic output and frequency-domain samples"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10915-022-01771-5",
+        "material_read": "Open-access full text: abstract, introduction, quadratic-output system definition, transfer-function barycentric formulation, and numerical experiment setup",
+        "method": "Read accessible publisher HTML passages in the formulation, method, and examples to compare the inverse problem and data type",
+        "title": "Data-Driven Modeling of Linear Dynamical Systems with Quadratic Output in the AAA Framework",
+        "trigger": "Quadratic-output system identification can imply related quadratic feature conditions"
+      },
+      {
+        "assessment": "NOT_COVERING: state x is unknown and quadratic sensor C is given; here the state trajectories are chosen and the quadratic-form coefficient P is unknown",
+        "evidence": [
+          "Model outputs are y_h=x^T C_h x/2+d_h^T x with known C_h; goal is reconstructing x"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.10684",
+        "material_read": "Abstract; introduction, quadratic sensor equation (1), literature discussion, and observer-immersion goal",
+        "method": "Read accessible primary arXiv HTML",
+        "title": "State Estimation for Linear Systems with Quadratic Outputs",
+        "trigger": "Classical quadratic-output observability might dominate the theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: stochastic white-noise driven trajectory and sample-complexity estimation, not exact deterministic rank versus independent initial-state count",
+        "evidence": [
+          "Section 2 uses Gaussian white-noise excitation and asymptotic statistical sample complexity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.03565",
+        "material_read": "Abstract; introduction and Section 2 policy-evaluation mathematical setup and noise assumptions",
+        "method": "Read accessible primary arXiv HTML",
+        "title": "The Gap Between Model-Based and Model-Free Methods on the Linear Quadratic Regulator: An Asymptotic Viewpoint",
+        "trigger": "On-policy LQR value identification from a single trajectory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e833ce0-d871-4993-b36b-e557fa07474f",
+  "value": {
+    "rationale": "The primary quadratic terminal-value fitting formulation needs independent quadratic regressors and expressly leaves how many new initial conditions are needed unresolved. The exact spectral-product multiplicity is an experimentally meaningful, computable sharp trajectory-count invariant; the stable distinct-eigenvalue geometric family shows a persistent rank deficit invisible to ordinary linear cyclicity. A direct nonnegative and constructive design is given. This is not only a rephrasing of generic d-sample counting, and its r-dependent rank formula quantifies partial information.",
+    "status": "PASS"
+  }
+}
