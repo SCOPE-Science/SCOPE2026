@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification and scope
-Run `python3 verify_torus4x7.py` with Python 3.10 or later; no nonstandard packages or network calls are required. The script constructs the graph with \(28\) vertices and \(56\) edges and enumerates all \(96{,}433\) faces (the empty face included). Matching A produces \(48{,}214\) pairs with critical dimensions \(-1,0,5,5,6\) and has signed Morse boundary \((0,0)\). Matching B independently produces \(48{,}211\) pairs with five critical five-faces, four critical six-faces, and a rank-three, primitive integral boundary. Both check acyclicity on the complete oriented Hasse diagram, with \(623{,}476\) cover relations. The recorded stdout in `verification_output.txt` ends in `TORUS_4X7_TWO_FIVE_SPHERES_ONE_SIX_SPHERE_PASS`.
+# Independent mathematical audit
 
-The proof of integral homotopy type depends on a standard discrete-Morse equivalence plus the standard Hurewicz theorem for a four-connected wedge. The finite computations are exhaustive for this graph only. Repeating with an independent implementation or mathematically auditing the code has not occurred; this is an exact self-review, not independent validation.
+## correctness
+
+PASS
+
+The graph is the Cartesian C4 x C7, with 28 vertices and 56 edges. Independent column-state enumeration independently obtained 96,433 faces including empty, with cardinality counts (1,28,322,1988,7266,16464,23786,22540,14602,6748,2198,448,42) and reduced Euler characteristic -1. I independently reconstructed the exact 28-vertex priority-toggle matching: 48,214 disjoint pairs on 96,432 nonempty faces, critical cells one 0-cell, two 5-cells, one 6-cell; all 623,448 nonempty Hasse covers topologically sort (623,476 including the 28 empty-to-vertex covers). Signed gradient projection of the critical 6-cell boundary to both critical 5-cells yields the integer vector (0,0), not merely mod-p zero. Forman produces a CW model whose five-skeleton is S5 wedge S5. pi5 of that simply connected wedge equals integral H5 by Hurewicz, so zero-degree attaching map is null, giving S5 wedge S5 wedge S6. Exhaustiveness is finite only for this exact 4-by-7 torus.
+
+## originality
+
+PASS
+
+The Euler characteristic of the precise doubly-periodic hard-square grid was determined by Jonsson, but a signed alternating count does not determine separate integral Betti groups or a wedge homotopy equivalence. Open/cylindrical square-grid independence-complex theorems and other torus sizes do not imply this 4-by-7 exact homotopy. The current record is already mirrored under the same November 17 Resultary identifier; that same snapshot is not counted as independent historical priority.
+
+## value
+
+PASS
+
+Integral homotopy type for a naturally specified minimal rectangular torus is a useful exact topological invariant beyond a known Euler count. The mixed adjacent degrees 5 and 6 and zero attaching map distinguish it from a single-dimension wedge and can anchor future periodic hard-square comparisons, while no all-sizes claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The vertex and edge definitions are explicit and periodic in both coordinates. The executable proof exhaustively constructs all \(96{,}433\) independent faces, all \(623{,}476\) covering relations, and complete matchings. Acyclicity is checked on every edge of the full oriented Hasse graph; the first matching leaves a vertex, two critical five-cells and one critical six-cell. Its exact signed recursive Morse boundary is \((0,0)\). Hurewicz identifies the two attaching degrees with the homotopy class because the five-skeleton is four-connected, proving the integral wedge. The independent second matching gives a primitive rank-three boundary and the same Betti numbers. Remaining computational risk is implementation error in the enumeration or reduction; readable source, redundant matching, and exact integer arithmetic mitigate but do not establish independent certification.
+## correctness
 
-## Originality: PASS relative to inspected evidence
-Jonsson 2006 treats the exact doubly periodic graph class but supplies Euler-characteristic information, not its full homotopy type. Bousquet-Mélou–Linusson–Nevo 2007 treat open/cylindrical grids, and Adamaszek 2012 and Okura 2019 likewise do not provide this exact toric classification. Other explicitly published square-torus cases concern \(4\)-by-\(4\), \(5\)-by-\(5\), or \(5\)-by-\(6\), not \(4\)-by-\(7\); a seven-cycle categorical product is mathematically different from the Cartesian torus graph. No inspected full text or accessible published exact-match record implies the two fifth spheres and one sixth sphere. An unindexed or otherwise inaccessible equivalent classification remains a publication-priority risk; no claim of exhaustive global novelty is made.
+PASS
 
-## Mathematical value: PASS
-The coprime \(4,7\) torus is a natural test case for the classical negative-activity hard-square problem. Its classical alternating independent-set count \(\widetilde\chi=-1\) conceals three independent homology classes in two dimensions; an integral homotopy classification is strictly stronger than that index. The mixed-dimensional answer gives a concrete boundary to any inference from the coprime alternating-count phenomenon to a single-sphere homotopy type, and distinguishes this case from previously studied neighboring square-torus examples. No general infinite-family theorem is claimed or required for the exact natural finite object.
+The graph is the Cartesian C4 x C7, with 28 vertices and 56 edges. Independent column-state enumeration independently obtained 96,433 faces including empty, with cardinality counts (1,28,322,1988,7266,16464,23786,22540,14602,6748,2198,448,42) and reduced Euler characteristic -1. I independently reconstructed the exact 28-vertex priority-toggle matching: 48,214 disjoint pairs on 96,432 nonempty faces, critical cells one 0-cell, two 5-cells, one 6-cell; all 623,448 nonempty Hasse covers topologically sort (623,476 including the 28 empty-to-vertex covers). Signed gradient projection of the critical 6-cell boundary to both critical 5-cells yields the integer vector (0,0), not merely mod-p zero. Forman produces a CW model whose five-skeleton is S5 wedge S5. pi5 of that simply connected wedge equals integral H5 by Hurewicz, so zero-degree attaching map is null, giving S5 wedge S5 wedge S6. Exhaustiveness is finite only for this exact 4-by-7 torus.
 
-## Closest literature and limits
-Primary sources are Jonsson (2006), Bousquet-Mélou–Linusson–Nevo (2007), Adamaszek (2012), and Okura (2019); their exact scope is compared in `RESULT.md`. All proofs apply only to the stated finite graph. Publication priority and independent validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Euler characteristic of the precise doubly-periodic hard-square grid was determined by Jonsson, but a signed alternating count does not determine separate integral Betti groups or a wedge homotopy equivalence. Open/cylindrical square-grid independence-complex theorems and other torus sizes do not imply this 4-by-7 exact homotopy. The current record is already mirrored under the same November 17 Resultary identifier; that same snapshot is not counted as independent historical priority.
+
+## value
+
+PASS
+
+Integral homotopy type for a naturally specified minimal rectangular torus is a useful exact topological invariant beyond a known Euler count. The mixed adjacent degrees 5 and 6 and zero attaching map distinguish it from a single-dimension wedge and can anchor future periodic hard-square comparisons, while no all-sizes claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
