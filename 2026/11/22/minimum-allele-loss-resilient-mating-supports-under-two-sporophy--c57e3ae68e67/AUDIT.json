@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For all \\(k\\ge2\\) the edge-cover bound is \\(\\lceil k/2\\rceil\\); \\(k\\le3\\) cannot have two surviving distinct diploid types after any allele deletion. COD \\(k=4\\) is impossible by disjoint-edge vertex count. The DOMCOD \\(k=4\\) triple lemma forces exactly 23,24,34 and at least two of 12,13,14, giving exactly three optimal sets of size five. At \\(k=5\\) any three-genotype covering set leaves at most one survivor after some allele deletion; path 12,23,34,45 provides a four-genotype DOMCOD construction. COD \\(k=5\\) needs a factor-critical five-vertex graph, min degree≥2 and at least five edges, with exactly the twelve labeled five-cycles attaining equality. For even \\(k\\ge6\\) use three-or-more disjoint pairs; for odd \\(k\\ge7\\) use r disjoint pairs plus one edge to the last label, so at least two disjoint types survive every allele deletion. The finite checker exhaustively confirms \\(2\\le k\\le6\\) (12,494 assertions) and constructions through \\(k=60\\); the analytic argument proves all k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1997 original models three S-locus incompatibility systems and stochastic allele frequency/duration, as documented in its published abstract: https://doi.org/10.1093/genetics/147.2.835",
+        "The 2014 full article evaluates mate availability and population survival in spatial simulations for SSI models, varying S-allele counts: https://doi.org/10.1002/ece3.963",
+        "The broader graph-theory factor-critical property is relevant only to codominant edges on odd allele sets: https://en.wikipedia.org/wiki/Factor-critical_graph"
+      ],
+      "reasoning": "A theorem computing population viability or expected compatible mate frequencies does not logically impose guaranteed existence of a compatible cross after every adversarial deletion of all carriers of one allele. A general factor-critical graph theorem can cover the codominant five-label support, which is explicitly treated as known, but does not impose the pollen dominance orientation rule; no inspected broader theorem gives the k=4 DOMCOD three-architecture classification. Full 1997/1998 text not examined, so possible broader unlocated results remain a stated risk.",
+      "searches": [
+        "For allele labeled diploid self-incompatibility genotypes removing all pairs containing any S-allele still allows reciprocal or directed compatible mating, minimum number genotype types dominance pollen versus codominance",
+        "Five S allele dominance hierarchy in pollen and codominance stigma four heterozygote types robust deletion compatibility",
+        "Sporophytic incompatibility allelic dominance mating graph maximum realized seed set small populations",
+        "Fault tolerant heterozygote genotype compatibility minimum genetic diversity for compatible cross after S-allele loss"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1093/genetics/147.2.835",
+      "https://doi.org/10.1111/j.1558-5646.2009.00686.x",
+      "https://doi.org/10.1002/ece3.963",
+      "https://en.wikipedia.org/wiki/Factor-critical_graph",
+      "https://doi.org/10.1111/j.1558-5646.1998.tb05134.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schierup et al. 1997 models dominance in pollen and codominance in stigma, and drift-driven allele loss: https://doi.org/10.1093/genetics/147.2.835",
+        "Schoen and Busch 2009 model frequency-dependent dominance evolution; they consider genotype frequencies and compatible matings, not all carriers deleted: https://doi.org/10.1111/j.1558-5646.2009.00686.x",
+        "Thrall et al. 2014 simulate spatial plant persistence and mate limitation rather than quantify a worst-case deterministic minimal genotype set: https://doi.org/10.1002/ece3.963",
+        "Classical factor-critical graphs already imply that COD on five labels needs a five-cycle: https://en.wikipedia.org/wiki/Factor-critical_graph"
+      ],
+      "reasoning": "The 2014 spatial model takes three S-alleles as sufficient for the possibility of pre-deletion mating, a different quantifier from retaining mating after any whole-allele deletion. The previously specified biological phenotype rules alone do not yield the extremal genotype-support counts without an additional quantified combinatorial theorem; stochastic-frequency statements do not imply worst-case deletion guarantees. Factor-criticality does entail the COD five-cycle piece, so it is a comparison baseline and not relied on for originality. The remaining directed four-allele and five-allele sharp results, together with the all-k match to the edge-cover bound, are not subsumed by any specifically inspected statement. Inaccessible original full texts create residual but not a demonstrably decisive unresolved comparison given their published stochastic-dynamics scope.",
+      "searches": [
+        "Self-incompatibility allelic loss robust mating genotype minimal set four alleles five genotypes pollen dominance stigma codominance",
+        "Single S allele extinction robust outcrossing network minimum genotype varieties codominant pollen dominance",
+        "For allele labeled diploid self-incompatibility genotypes removing all pairs containing any S-allele still allows reciprocal or directed compatible mating, minimum number genotype types dominance pollen versus codominance",
+        "Five S allele dominance hierarchy in pollen and codominance stigma four heterozygote types robust deletion compatibility",
+        "Self-incompatibility genotype sets after deleting any one allele pairwise compatibility fault tolerant matching cycle",
+        "Self-incompatibility mate-availability genotype-loss tolerance five-cycle codominant pollen minimal factor critical",
+        "five cycle deletion vertex perfect matching minimal factor critical graph odd cycle characterization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schoen and Busch 2009 full-text methods define S-locus pollen/stigma genotype expression and models of selection, not robustness to removal of every genotype containing a specified allele: https://doi.org/10.1111/j.1558-5646.2009.00686.x",
+        "The five-label COD condition is the standard factor-critical graph property: deleting any vertex leaves a perfect matching: https://en.wikipedia.org/wiki/Factor-critical_graph"
+      ],
+      "reasoning": "Under COD, genotype edges form a five-vertex factor-critical graph, so the five-cycle minimizer is not independently new. Under pollen-dominant/stigma-codominant SSI, a donor edge is accepted when its dominant lower-rank allele is absent from the recipient edge; compatible pairs may overlap a recessive allele. Thus an undirected matching/factor-critical formulation is not equivalent to the directed four-label and five-label conditions. The full comparative thresholds are not obtained by simply renaming factor-critical graphs.",
+      "searches": [
+        "Self-incompatibility allelic loss robust mating genotype minimal set four alleles five genotypes pollen dominance stigma codominance",
+        "Single S allele extinction robust outcrossing network minimum genotype varieties codominant pollen dominance",
+        "Self-incompatibility genotype sets after deleting any one allele pairwise compatibility fault tolerant matching cycle",
+        "Self-incompatibility mate-availability genotype-loss tolerance five-cycle codominant pollen minimal factor critical"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 1997 model description enumerates model classes, not exhaustive minimal genotype sets under deletion: https://doi.org/10.1093/genetics/147.2.835",
+        "The 2009 full paper reports dominance phenotypes, equilibrium frequency simulations and selected empirical hierarchy diagrams, not the proposed minimal-support table: https://doi.org/10.1111/j.1558-5646.2009.00686.x",
+        "The 2014 paper tabulates population simulation outcomes, not adversarial deletion minima: https://doi.org/10.1002/ece3.963"
+      ],
+      "reasoning": "These inspected documents neither give the vector of exact minima (impossible,5,4,ceil(k/2)) for pollen dominance nor list all four-allele minimum genotype supports. General graph descriptions of five-cycles are explicitly credited as known. Search failure alone is not presented as uniqueness or novelty proof.",
+      "searches": [
+        "Self-incompatibility allelic loss robust mating genotype minimal set four alleles five genotypes pollen dominance stigma codominance",
+        "Single S allele extinction robust outcrossing network minimum genotype varieties codominant pollen dominance",
+        "For allele labeled diploid self-incompatibility genotypes removing all pairs containing any S-allele still allows reciprocal or directed compatible mating, minimum number genotype types dominance pollen versus codominance",
+        "Fault tolerant heterozygote genotype compatibility minimum genetic diversity for compatible cross after S-allele loss",
+        "Sporophytic incompatibility allelic dominance mating graph maximum realized seed set small populations"
+      ]
+    },
+    "rationale": "The inspected 2009 full study treats the selection and evolution of pollen/stigma-specific allele dominance, and the inspected open 2014 study treats stochastic viability and allele richness. Neither states the adversarial genotype-deletion minimum support law. The 1997 origin paper establishes SSIcod/SSIdomcod phenotypes and simulates allelic turnover, as confirmed in its accessible abstract; full text was not available, so residual priority risk is expressly retained. The known factor-critical characterization supplies the five-cycle COD subcase but cannot imply the directed DOMCOD four- and five-allele cutoffs. Relevant indexed plant–pollinator coextinction and diploid viability-selection results involve different objects, hypotheses and quantified outcomes. The distinct proposed cross-model threshold survives the completed comparisons on a qualified best-knowledge basis.",
+    "residual_risks": [
+      "The original 1997 Schierup et al. article and the 1998 Vekemans et al. mate-availability paper could not be examined in full; their abstracts and citation scope alone do not exclude obscure appendices.",
+      "Broader matching or directed-graph extremal formulations could contain an equivalent specific theorem under different terminology.",
+      "Biological pollen dominance need not form a strict shared total order across actual populations, so the result is only for the precisely stated idealized model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model classes and drift/selection questions directly pertinent, but abstract only supports a stochastic allele-dynamics scope. No whole-document NOT_COVERING conclusion is asserted.",
+        "evidence": [
+          "Published 1 October 1997; SSIcod, SSIdom, SSIdomcod models; stationary distribution, allelic dynamics via stochastic simulation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/genetics/147.2.835",
+        "material_read": "Publisher date, bibliographic metadata and complete accessible abstract; not full article",
+        "method": "Publisher abstract page, public bibliographic index, and open-access/PDF access attempts; full text remained unavailable",
+        "title": "Evolutionary Dynamics of Sporophytic Self-Incompatibility Alleles in Plants",
+        "trigger": "Closest original SSIcod/SSIdomcod model, same S-locus and pollen dominance/codominance assumptions"
+      },
+      {
+        "assessment": "Primary work on mate availability and selection remains a plausible historical risk; no whole-document exclusion is claimed.",
+        "evidence": [
+          "Older fecundity-selection framework; exact genotype-support robustness after allele loss was not established from available material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1558-5646.1998.tb05134.x",
+        "material_read": "Bibliography and indexed abstract only; no full text",
+        "method": "Bibliographic/publisher search and open-access article/PDF attempts",
+        "title": "Mate Availability and Fecundity Selection in Multi-Allelic Self-Incompatibility Systems in Plants",
+        "trigger": "Older direct treatment of mate availability and fecundity selection; possible mathematical overlap"
+      },
+      {
+        "assessment": "Models evolution of modifier-mediated dominance, mating-frequency selection, and equilibrium behavior; no minimization over genotype-support sets after worst-case allele removal identified.",
+        "evidence": [
+          "First online 29 July 2009; studies genotype-frequency recurrences, pollen/stigma dominance modifiers, frequency-dependent reproductive selection."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1558-5646.2009.00686.x",
+        "material_read": "Accessible full HTML: abstract, introduction, basic assumptions and phenotype table, numerical population-genetic methods, results and conclusion",
+        "method": "Read substantive full primary HTML, including methods defining expressed pollen/stigma genotypes, genotype-frequency update and frequency-dependent selection regimes",
+        "title": "The Evolution of Dominance in Sporophytic Self-Incompatibility Systems. II. Mate Availability and Recombination",
+        "trigger": "Same tissue-specific dominance and compatible-mate modeling, plausible dominance-related coverage"
+      },
+      {
+        "assessment": "Reports model-dependent population survival and mate frequencies, not exact cardinality or all-allele-loss genotype supports; differs from the deterministic adversarial loss condition.",
+        "evidence": [
+          "2014 paper varies S-allele richness and mating systems, calculates reproductive mate availability in finite spatial simulations; model is not worst-case genotype-support optimization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.963",
+        "material_read": "Full open-access PDF pages including abstract, model specification and computational results; pages 1, 3, 4 examined visually",
+        "method": "Inspect PDF page images and extracted primary text describing simulated random genotypes, number of alleles, spatial donors and population outcomes",
+        "title": "Life History Mediates Mate Limitation and Population Viability in Self-Incompatible Plant Species",
+        "trigger": "Applied ecological consequences of S-allele richness, compatible mates and persistence"
+      },
+      {
+        "assessment": "Covers COD five-label five-cycle property. Not a theory of directed compatible crosses between genotype pairs that may share recessive alleles.",
+        "evidence": [
+          "Factor-critical iff every one-vertex-deleted graph has a perfect matching; five-cycle is an example."
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Factor-critical_graph",
+        "material_read": "Definition, characterization by perfect matchings after any vertex deletion, and odd-cycle examples",
+        "method": "Read standard graph theory description; directly compare graph statement with COD and the directed DOMCOD predicate",
+        "title": "Factor-critical graph (classical matching theory)",
+        "trigger": "Potential stronger framework covering codominant after-single-allele-deletion matching condition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c57e3ae6-8e67-4b24-a955-00a7ff9b1b44",
+  "value": {
+    "rationale": "S-allele diversity under bottlenecks and mate limitation is a biologically motivated discrete-resilience problem. The exact minimum number of heterozygote types required to retain any compatible cross after losing every carrier of one S-allele is a natural support invariant. The sharp k=4 feasibility gap between pollen dominance and complete codominance, the k=5 difference in exact budgets, and the k≥6 equivalence to basic edge coverage are structural boundaries, not arbitrary tables. The result isolates what dominance adds to support resilience while explicitly disclaiming population viability guarantees.",
+    "status": "PASS"
+  }
+}
