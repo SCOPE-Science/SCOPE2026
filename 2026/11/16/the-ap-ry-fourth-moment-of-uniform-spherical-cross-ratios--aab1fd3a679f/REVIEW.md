@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The spherical cross-ratio/chordal identity and uniform squared half-chord law are independently derivable from stereographic geometry and rotation invariance. Every three of the four edges form a forest, so leaf integration establishes three-wise independence for the selected log-chord variables; it is not assumed for cycles. Funk--Hecke and an explicit Legendre integration by parts give the normalized eigenvalues \(-1/[2\ell(\ell+1)]\). Since the log kernel is square-integrable, its fourth power is trace-class; the four-cycle product equals its trace. Exact rational partial fractions then give \(5/16-\zeta(3)/4\), and the multinomial fourth-moment expansion gives \(12-6\zeta(3)\). Script checks support each computable step. Numerical tests do not prove any infinite assertion.
+PASS
 
-## Originality
+Stereographic factors cancel and Y is a signed sum of four centered log half-chord distances. A single squared half-chord is Uniform(0,1), giving E[X]=0, E[X²]=1/4, E[X⁴]=9/16. Any proper subset of the four cycle edges is a forest: leaf integration against rotationally invariant vertices makes each triple independent. The centered log-chord kernel K is Hilbert-Schmidt with spherical-harmonic eigenvalue -1/(2l(l+1)) for l>=1 and multiplicity 2l+1 from Funk-Hecke/Legendre integration. Thus the nonzero mixed four-edge moment is trace T^4=sum (2l+1)/(16l^4(l+1)^4)=5/16-zeta(3)/4; rational partial fractions and fourth-power multinomial expansion give E[Y⁴]=12-6*zeta(3), variance1. Independently recomputed partial fractions and high-precision ζ3 values. Validity depends on uniform spherical S2 samples and the specified cross-ratio pairing, not four circle points.
 
-**PASS, relative to material inspected.** Marshall--Martin (arXiv:2611.07670v1) gives the full spherical cross-ratio density, two exact logarithmic moments (mean and variance), and the observation of non-joint independence, but no explicit fourth logarithmic moment, four-edge spectral trace, or Apéry evaluation. The full density does logically determine the fourth moment *as a quadrature*, so the genuine new content is nontrivial **closed evaluation and the source of the connected correction**, not the existence of that expectation or a new density. Martin (arXiv:1807.06202v1) treats the distinct circle model. Related published random spherical-overlap cumulant work addresses different functions of spherical pairs and does not give this logarithmic four-cycle value. Relevant prior-record semantic searches and source/statement comparisons found no equal or stronger explicit evaluation. A classical Green-kernel cycle computation could conceivably recover the constant; that remains the principal priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The source expressly identifies mean and variance and notes the four-length dependency; the next natural scalar diagnostic is the fourth moment, which detects the first dependence correction not captured by any proper edge subset. The explicit non-Gaussian kurtosis \(9-6\zeta(3)\) and exact connected four-cycle value clarify *why* the independent-edge prediction fails. The spherical harmonic trace is reusable for cycle-correlations of rotationally invariant log kernels, without claiming a broader classification. This is not just a numerical integral or a parameter substitution: the closed value comes from a nontrivial spectral and combinatorial reduction.
+Marshall-Martin 2026 primary full text supplies a complete planar distribution, E log|Z|=0, Var log|Z|=1 and observation that the four logarithms are not jointly independent. That full distribution formally determines moments by integration, so the existence of the fourth moment is not new; the asserted novelty is the nontrivial exact Apéry evaluation and four-cycle spectral identification, neither explicitly stated/evaluated in the inspected primary text. Martin 2018 samples circle rather than sphere. A classical spherical Green-kernel fourth-cycle identity might imply this result, remaining a genuine priority risk.
 
-## Closest literature and limitations
+## value
 
-The full distribution in Marshall--Martin is stronger information about the law, but it does not itself perform the Apéry-value evaluation; the earlier circle distribution is inapplicable. No independent priority certification has been performed. The result is restricted to four independent uniform sphere points and the specified cross-ratio convention. Finite numerical checks do not certify all moments or other geometries.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fourth moment is the first natural higher log-cross-ratio diagnostic after known mean and variance, exactly where four-cycle dependence appears despite any three edges being independent. The explicit positive ζ3 correction and kurtosis are precise nontrivial values potentially reusable for probabilistic calculations; the spectral trace provides conceptual mechanism rather than unevaluated quadrature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
