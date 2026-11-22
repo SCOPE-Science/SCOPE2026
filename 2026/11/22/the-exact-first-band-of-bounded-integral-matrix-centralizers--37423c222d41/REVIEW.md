@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness (PASS).** Starting from the elementary parametrization of a nonscalar \(2\times2\) commutant, the proof derives an exact two-integer count and the lower bound \(C_H(A)\ge2HS+2S+1\). This forces \(S=g=1\) throughout the natural first band \([2H,4H]\), giving a necessary-and-sufficient primitive-gcd condition. Möbius inversion yields the exact finite count, and a uniformly bounded arithmetic-progression error plus the absolutely convergent series \(\sum\mu(r)/r^3\) proves the claimed \(O(1/H)\) distributional error. Exhaustive direct counts and independent finite sieve calculations validate the parametrization and thresholds but are not the infinite proof. The proof gives no law above \(4H\).
+
+**Originality (PASS, with residual risk).** Afifurrahman–Wicaksono [1] give the pointwise \(2\times2\) bounded-centralizer formula, but do not state the ensemble's exact first-band count or its limiting cumulative distribution. Chapman–Mudgal [2] give total commuting-pair counts (a first moment) rather than the relevant probability law. Mudgal [3] bounds arbitrary-set commuting-pair probabilities but supplies no precise lower band. Published-index searches for commutants, equivalent first-band primitive-gcd expressions, and stronger general distributions found no covering result. A yet-unindexed equivalent derivation cannot be excluded.
+
+**Mathematical value (PASS).** The thresholds \(2H\) and \(4H\) arise intrinsically from the first and second possible values of the lattice parameter \(S\), not from an arbitrary narrow numerical slice. The theorem exactly classifies the first nontrivial commutant-cardinality stratum, which contains limiting mass \(1/(4\zeta(3))\), and determines a sharp quadratic lower edge for a natural arithmetic statistic. Existing pointwise formulas or first-moment asymptotics do not supply this distribution without the additional geometric arithmetic sieve.
+
+**Main limits.** No later-band or full limiting law is asserted, the entry box is symmetric, and the result has not undergone independent mathematical audit. Closest sources are [1] arXiv:2611.11287v1, [2] arXiv:2504.15839v1, and [3] DOI 10.1007/s00209-026-04097-2.
+
+Self-review: passed. Independent audit: not yet performed.
