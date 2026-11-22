@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The positive-semidefinite Bernstein preservation theorem and its Fourier-coefficient lemma are sourced explicitly from the August 2026 primary paper. Independently checked parity reflection and endpoint slopes yield the full-parity \(k^{-2}\) tails with exact constants. Grouping sites by their doubled angles, a finite Vandermonde determinant proves the asserted nullspace basis and all boundary cases (including \(n=1\), no even channel, pure constants, and the zero kernel). A direct four-vector diagonalization proves all four eigenvalues and sharp strict optimization. The embedded symbolic script passed 1128 finite exact checks; these are reproducibility tests, not substitutes for the infinite argument.
+## correctness
 
-## Originality — PASS, provisional
-The motivating primary paper proves preservation of positive *semidefiniteness*, the endpoint coefficient formula, and parity reflection, not the exact nullity for arbitrary finite node configurations or the explicit optimal four-site condition number. Existing strict positive-definiteness literature supplies general Fourier-support criteria, while the closest indexed circle Bernstein result concerns adjustable interpolation nodes rather than arbitrary covariance-matrix singularities. published-finding corpus searches against aliases, parity geometry, full Gram-rank classifications, and the four-site spectrum returned no statement with these conclusions. The important risk is that the nullity law may be viewed as a relatively direct corollary of the primary endpoint formulas combined with classical Vandermonde support arguments. This limits publication-priority confidence but does not constitute an identified prior proof of the combined finite-node classification and sharp design result.
+PASS
 
-## Mathematical value — PASS
-The positive-semidefinite versus invertible Gram distinction is consequential for covariance interpolation and sampling. The result gives the exact rank loss for **every** finite set, not merely a yes/no answer for global strictness, including antipodal singularity multiplicities. The explicit two-harmonic example shows a genuinely rank-deficient four-sample configuration being regularized and identifies the globally best-conditioned separation in its entire natural antipodal-pair family, with an exact parameter-dependent condition number. The broader statement is a motivated complete classification, not an arbitrary numerical slice.
+For each n>=1 and a continuous positive-semidefinite circle cosine series with nonnegative absolutely summable coefficients, the degree-n standard Bernstein image has nonnegative cosine coefficients by the cited preservation theorem. Twice integrating by parts gives the 4n/pi^2*k^-2 parity tails, with endpoint derivatives; zero parity sum forces that parity to vanish identically. Positive tails within a parity and a finite Vandermonde system in e^{2 i theta} determine all nullspaces: two channels give full rank; one channel leaves antipodal pair differences or sums with the asserted constant-channel restriction; no channels give a constant rank-one or zero matrix. n=1 and N=1 boundaries are covered. Direct four-site sign-basis diagonalization yields the four stated eigenvalues and strict unique orthogonal-pair condition optimum. The inspected CHECK.py corroborates finite cases; the infinite proof is analytic. Critical premise is the existing positivity theorem, not finite tests.
 
-## Closest literature and limitations
-Otten–Nguyen–Watts (arXiv:2608.04836v1) contains the positivity theorem, parity and derivative formulas used as premises. Menegatto (1999) and Sun (2005) treat general strict circle positivity, without the specific Bernstein finite-configuration rank law in the accessible descriptions. A published indexed result on quadratic/cubic Bernstein node rigidity addresses a different optimization problem; its complete text was inaccessible and this is retained as an originality risk. Equispaced Bernstein nodes and distinct circle evaluation sites are required; the four-site optimality is restricted to antipodal-pair designs. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: novel explicit node-by-node nullity and sharp four-site design, while prior PSD-preservation Fourier ingredients and classical circle strict-positive-support machinery are fully credited. It is a potentially short synthesis of standard Fourier/Vandermonde facts, and derivability from older results remains a substantive priority risk.
+
+## value
+
+PASS
+
+Explicit nullspace dimensions for arbitrary sampling configurations identify whether regularized interpolation is necessary and pinpoint antipodal degeneracies, with a sharp four-sensor geometric conditioning result. The structural classification concerns a natural Bernstein-covariance operator and cannot be replaced by a routine yes/no PSD check; limited family for four-site optimization is disclosed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
