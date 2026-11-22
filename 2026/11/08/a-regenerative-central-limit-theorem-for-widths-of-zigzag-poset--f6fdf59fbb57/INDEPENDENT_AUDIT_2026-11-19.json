@@ -1,0 +1,213 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T00:12:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-regenerative-central-limit-theorem-for-widths-of-zigzag-poset--f6fdf59fbb57/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-regenerative-central-limit-theorem-for-widths-of-zigzag-poset--f6fdf59fbb57/check.py",
+        "https://arxiv.org/html/1511.08479v3"
+      ],
+      "rationale": "The final result concerns the alternating fence Z_n (n>=2) in standard ambient Euclidean coordinates. Complementing the even coordinates of its order polytope transforms every alternating order inequality into y_i+y_(i+1)<=1, and is an affine Euclidean isometry onto the chain/stable-set polytope of a path. The latter is integral because the path is bipartite; its Gaussian support is the maximum-weight independent set, with exact last-vertex recursion M_i=max(M_(i-1),M_(i-2)+G_i) and nonnegative increments D_i=(G_i-D_(i-1))_+. The plus and minus recursions jointly represent H_n=h_K(G)+h_K(-G), and H_n=||G|| W_n with the norm independent of direction. Each sign recursion forgets the past upon a Gaussian of opposite sign; the stationary two-sided solution is unique. The exact fixed-point CDF satisfies F(t)=E Phi(t+D), c=E D^+ is positive and strictly smaller than 1/sqrt(2pi). Synchronous finite/stationary coupling disagrees only through an initial same-sign Gaussian run, giving E|H_n-2cn|<=4/sqrt(2pi), and E||G||=sqrt(2) Gamma((n+1)/2)/Gamma(n/2). Regeneration of both coordinates at each sign pattern (-,+) yields iid marked cycles under its occurrence/Palm law, mean cycle length 4, exponentially tailed lengths and finite moments; this supplies a joint renewal-reward CLT for H_n and Q_n=sum G_i^2, with a finite-initialization remainder bounded in L^2. Gaussian integration by parts for the Lipschitz homogeneous support function proves the exact identity Cov(H_n,Q_n)=E H_n, hence the limiting covariance 2c. Expansion H_n/sqrt(Q_n) shows the spherical fluctuation variance tau^2-2c^2, equal to (1/4) E[cycle reward sum_i(X_i-2c-c(G_i^2-1)) squared]. The identity Var(H_n)=n Var(W_n)+(n-a_n^2)(E W_n)^2 proves convergence of actual variances, not just weak convergence. A positive-probability length-two cycle has nonconstant adjusted reward a+b-c(a^2+b^2)-2c, proving strict positive variance. Independent scratch calculations checked exact stable-set support for all path sizes 2..10 on eight random normal-weight instances each, the complete coordinate map on all binary vectors for n<=7, and a separate 10,000-draw n=1024 simulation: c_hat=0.30753023, mean W=19.6912814, Var(W)=0.0630421, Cov(H,Q)/E H=0.98622. These small/Monte Carlo checks corroborate the analytical proof; they are not infinite certificates.",
+      "residual_risks": [
+        "The joint renewal-reward theorem is used as a standard probabilistic theorem, not independently formalized in Lean.",
+        "Finite support enumeration and Monte Carlo do not prove infinite-n assertions or rigorously certify displayed decimal variance.",
+        "Limit assumes standard Gaussian direction and full ambient Euclidean metric; no result for other measures or higher-dimensional projections."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foss et al Theorem 1.1 assumes iid edge weights on every directed j<k pair, whereas the assigned optimization has repeated/shared vertex weights on fixed adjacent path geometry; its random-angle normalization is absent.",
+          "Kabluchko et al Theorems 3.6–3.7 give Gaussian cube and Gumbel simplex/crosspolytope random-width limits, not path stable-set polytopes.",
+          "Gamarnik et al Theorem 2 addresses first-order nonnegative-weight optima in random sparse graphs; its cycle corollary is also a first-order limit.",
+          "Shonkwiler–Theis analyzes a polytope affinely/isometrically identifiable with the same zigzag family but does not give Haar-width fluctuations."
+        ],
+        "reasoning": "Broad probabilistic and geometric theorems do not subsume the full claim simply by shared terminology. A general renewal-reward CLT is a proof ingredient, but applying it to the coupled signed recursion and carrying the common Euclidean Gaussian radius is additional nontrivial structure; no accessible source provides a dominating theorem yielding that explicit geometric result without substantial specialized work.",
+        "searches": [
+          "web query: Foss Konstantopoulos Logachov Mogulski maximal path weights independent edge renewal CLT pdf",
+          "web query: random weights maximum independent set path regenerative process asymptotic normal central limit",
+          "https://arxiv.org/html/2011.09981v3",
+          "https://arxiv.org/html/1511.08479v3",
+          "https://arxiv.org/abs/math/0309441",
+          "https://epubs.siam.org/eprint/KDF2FGIFAMTEXDAGYRI7/full"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1901.07443v2",
+        "https://arxiv.org/html/2403.07181v4",
+        "https://arxiv.org/abs/math/0309441",
+        "https://arxiv.org/html/2011.09981v3",
+        "https://arxiv.org/html/1511.08479v3",
+        "https://epubs.siam.org/eprint/KDF2FGIFAMTEXDAGYRI7/full",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-tilted-spectrum-and-gaussian-peak-clearance-fluctuations-i--47e0fbbf6b45/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-poisson-cover-contacts-and-universal-boundary-area-of-zigzag-ord--ca89a2e1c883/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The present claim determines W_n-2c sqrt n converging in law to N(0,tau²-2c²), with positivity and variance convergence; prior fixed-point results determine first-order means only.",
+          "The independent-edge last-passage theorem cannot be applied verbatim with shared vertex weights, and none of the prior Gaussian-width theorems includes the chain polytope of a path.",
+          "The earlier same-polytope clearance Gaussian limit concerns a different distribution and observable, so does not imply spherical-direction widths."
+        ],
+        "reasoning": "The mean-scale coefficient and dynamic program could be inferred from standard optimization theory, but the full paired-recursion normal law and corrected variance, including exact positivity and finite-n mean bound, are not mechanical consequences of the inspected claims. These distinctions establish best-of-knowledge additional content, with residual risk of undiscovered exact path-optimization literature.",
+        "searches": [
+          "https://arxiv.org/html/1511.08479v3 §3 Theorems 3.6-3.7",
+          "https://arxiv.org/html/2011.09981v3 §1 Theorem 1.1 and §2-3",
+          "https://arxiv.org/abs/math/0309441 Theorem 2, Corollary 3",
+          "https://epubs.siam.org/eprint/KDF2FGIFAMTEXDAGYRI7/full §2-3",
+          "published Resultary zigzag peak-clearance and Poisson cover-contact RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Order and chain polytopes of alternating fences are Euclidean-isometric by complementing even coordinates, making weighted stable sets in paths an equivalent model.",
+          "Coons–Sullivant Theorem 1.9 computes the Ehrhart h* polynomial; Petersen–Zhuang Theorem 1.1 and 4.2 compute Eulerian/order-polynomial recurrences, not Gaussian direction widths.",
+          "Resultary returned the same title/record as the item under audit; no independent implication from self-publication."
+        ],
+        "reasoning": "All relevant aliases were compared at the level of their random variable and probability measure. Gaussian path maximum weighted independent set recursion is a valid equivalent expression for the numerator, but none of the inspected prior same-object findings states its two-sign spherical fluctuation law, limiting variance or exact radial correction.",
+        "searches": [
+          "Resultary query: zigzag poset width random permutations regenerative central limit theorem alternating fence poset width asymptotic variance renewal",
+          "web query: random maximum weight independent set path gaussian weights CLT regenerative central limit theorem",
+          "web query: width random direction zigzag order polytope chain polytope Gaussian limit variance",
+          "https://arxiv.org/html/1901.07443v2",
+          "https://arxiv.org/html/2403.07181v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published zigzag clearance result has explicit unrelated asymptotic variance 24/pi^4-2/pi^2 under interior uniform sampling.",
+          "The 2026 zigzag boundary-area result has exact Area/Volume=n(2+sqrt2) and cover-contact Poisson(1), neither an exact width distribution or its CLT.",
+          "No retrieved exact tabulation of spherical Gaussian width limiting variance for the path stable-set polytope was found."
+        ],
+        "reasoning": "The claim is an all-dimensional stochastic limit, not one table entry. Tables of Ehrhart, f-vector, cover contacts, clearance moments, and area/volume do not determine a Haar-random support-function width law. Absence from retrieved sources is an explicit limitation, not proof of novelty.",
+        "searches": [
+          "Resultary query: width of random zigzag posets fence posets random natural permutations central limit theorem longest alternating subsequence regenerative process",
+          "web query: fence poset order polytope width stochastic central limit theorem Gaussian weights",
+          "web query: zigzag order polytope random projection width CLT",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-tilted-spectrum-and-gaussian-peak-clearance-fluctuations-i--47e0fbbf6b45/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-poisson-cover-contacts-and-universal-boundary-area-of-zigzag-ord--ca89a2e1c883/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass after direct comparison of mathematical implications. The prior same-body zigzag papers concern Ehrhart or interior-coordinate observables, and the previously published zigzag peak-clearance CLT applies to Lebesgue-uniform interior random points, not support widths in a uniformly random spherical direction. Classical path independent-set optimization/fixed points and generic regenerative CLTs are credited, but the exact coupled positive/negative Gaussian reward law, finite-size mean numerator bound, positive fluctuation variance and radial subtraction sigma^2=tau^2-2c^2 for these polytopes were not established by the inspected sources. Earlier regular-polytope width CLTs treat different vertex systems. The semantic search also returns the same finding under its own published copy on 2026-11-08; this is the identical record being audited and not independent prior coverage. The negative search evidence is not proof of uniqueness; an unindexed equivalent random-path optimization CLT is a genuine residual priority risk.",
+      "residual_risks": [
+        "A probabilistic paper on iid vertex-weight maximum independent sets on deterministic paths may contain an equivalent two-sign regenerative CLT under unfamiliar terminology.",
+        "General renewal-reward CLTs give a method, and an unpublished treatment might already include the necessary radial delta covariance; the present search is not exhaustive priority proof.",
+        "Published same 2026-11-08 result appears in Resultary and is the identical record under audit, not evidence of independently prior mathematics.",
+        "No complete bibliometric/independent expert historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes Ehrhart h-star via canonical shelling and alternating permutation swap statistics, not random Euclidean projection-width law",
+          "evidence": [
+            "§1.3 Theorem 1.9: h*(t)=sum over alternating permutations t^swap; §2 theorem proof via canonical triangulations; no Gaussian passage in HTML search"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1901.07443v2",
+          "material_read": "Accessible arXiv HTML, introduction and Section 1 definitions, Theorem 1.9, Section 2 shelling construction and proof, conclusion; searched text for Gaussian/projection",
+          "method": "Full open preprint HTML, inspected named theorem and proof passages; full-text term search",
+          "title": "The h-star polynomial of the order polytope of the zig-zag poset",
+          "trigger": "Exact same alternating fence order-polytope family and potential preexisting geometric formula"
+        },
+        {
+          "assessment": "Eulerian/order polynomial and alternating-permutation recurrences, not Gaussian sphere-width distributions",
+          "evidence": [
+            "Theorem 1.1 recurrences G_(n+1)(p,q,x) and U_(n+1)(s,t); Theorem 4.2 generating identity; no projection/Gaussian hits"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.07181v4",
+          "material_read": "Full HTML abstract and introduction, Theorem 1.1, §4.1 and Theorem 4.2 generating-function recurrences; searched projection/Gaussian",
+          "method": "ArXiv lawful full HTML, direct theorem inspection and term searches",
+          "title": "Zig-zag Eulerian polynomials",
+          "trigger": "More recent same-poset paper, potentially hidden alternate statistic"
+        },
+        {
+          "assessment": "First-order optimum-density fixed-point results for sparse random graph ensembles and cycles, but not a coupled signed Gaussian spherical-width CLT or the radial correction",
+          "evidence": [
+            "Theorem 2 is a limit I_w(n,r)/n under F_w nonnegative and random regular/Poisson sparse graphs; Corollary 3 extends first-order values to n-cycle"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0309441",
+          "material_read": "Accessible arXiv text abstract, Theorem 2, Corollary 3 and the cycle extension/limit argument in §§3–5; inspected nonnegative vertex weights and random-graph hypotheses",
+          "method": "ArXiv accessible preprint text with mathematical statement and proof search",
+          "title": "Maximum Weight Independent Sets and Matchings in Sparse Random Graphs. Exact Results using the Local Weak Convergence Method",
+          "trigger": "Potentially dominating fixed-point theory for random maximum-weight independent sets"
+        },
+        {
+          "assessment": "Assumes mutually independent edge weights on all ordered pairs, a model unlike shared iid vertex weights on a fixed path. Techniques general, but no direct spherical-width or joint Gaussian radius theorem",
+          "evidence": [
+            "§1 explicitly v_(j,k) mutually iid on complete directed line; Theorem 1.1 gives local/integro-local maximum-path limits under those assumptions; Lemma 2.10 is its regenerative structure"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2011.09981v3",
+          "material_read": "Accessible full HTML introduction, independent edge-weight model §1 and Theorem 1.1, §2 cycle construction and §3 compound renewal proof and conclusions",
+          "method": "ArXiv lawful full HTML; checked equations (1.1)–(1.2), Theorem 1.1 and renewal Lemma 2.10",
+          "title": "Limit theorems for the maximal path weight in a directed graph on the line with random weights of edges",
+          "trigger": "Closest regenerative central/local limit theorem that might imply the fluctuation law"
+        },
+        {
+          "assessment": "Gaussian projection CLT for regular cube and Gumbel laws for simplex/crosspolytope; zigzag path independent-set polytopes are neither among the bodies nor corollaries in the statements",
+          "evidence": [
+            "Theorem 3.6 cube variance (pi-3)/pi, Theorem 3.7 simplex and crosspolytope Gumbel limits; §1 definition of random projection width"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1511.08479v3",
+          "material_read": "Accessible full HTML abstract and introduction, §3.1-3.3; inspected Theorems 3.6 and 3.7 and Gaussian support reduction",
+          "method": "Open arXiv HTML with theorem comparison",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Directly relevant Gaussian projection width and normalization literature"
+        },
+        {
+          "assessment": "Identifies an affine coordinate model and gives interior uniform sampling/chord-length statistics; does not state random one-dimensional spherical projection width CLT",
+          "evidence": [
+            "§3 identifies the R=1 confined polygon polytope with zigzag order and chain bodies; introduction advertises direct uniform sampling and vertex-distance expectations; no Gaussian/width/central limit search hits"
+          ],
+          "identifier_or_url": "https://epubs.siam.org/eprint/KDF2FGIFAMTEXDAGYRI7/full",
+          "material_read": "Open full article, abstract, introduction, §§2–3 polytope identification and overview of theorems; searched width, Gaussian and central limit throughout",
+          "method": "Accessible publisher full HTML, named sections and full-text searches",
+          "title": "Direct Sampling of Confined Polygons in Linear Time",
+          "trigger": "2026 primary full-text source identifying exactly the same zigzag order/chain polytope as a confined-polygon moment body"
+        },
+        {
+          "assessment": "Describes Lebesgue-uniform interior-point peak-clearance B_m with its transfer-operator CLT; not Haar-direction support-function width of a fixed polytope",
+          "evidence": [
+            "Finding defines B_m=sum of coordinate slack under interior uniform X; variance 24/pi^4-2/pi^2 per peak with sqrt(m) scaling, unlike spherical projection width O(1) fluctuations"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-tilted-spectrum-and-gaussian-peak-clearance-fluctuations-i--47e0fbbf6b45/RESULT.md",
+          "material_read": "Complete published RESULT.md including theorem, assumptions, spectral proof and limitations",
+          "method": "GitHub connected file read",
+          "title": "Exact tilted spectrum and Gaussian peak-clearance fluctuations in zigzag order polytopes",
+          "trigger": "Previously published finding on the same polytopes and an apparently Gaussian observable"
+        },
+        {
+          "assessment": "Contains exact boundary area/volume ratio and Poisson law for cover contacts in random linear extensions; neither supplies random projection width law",
+          "evidence": [
+            "Finding states E X_n=1 and Area(boundary)/Volume=n(2+sqrt2); proof uses linear extensions/Volterra operators and no Haar directional support CLT"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-poisson-cover-contacts-and-universal-boundary-area-of-zigzag-ord--ca89a2e1c883/RESULT.md",
+          "material_read": "Complete published RESULT.md including theorem, proof and scope",
+          "method": "GitHub connected file read",
+          "title": "Poisson cover contacts and universal boundary area of zigzag order polytopes",
+          "trigger": "More recent same-family published geometric result and possible stronger invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/1511.08479v3",
+        "https://arxiv.org/html/1901.07443v2",
+        "https://epubs.siam.org/eprint/KDF2FGIFAMTEXDAGYRI7/full"
+      ],
+      "rationale": "This is a natural fixed family of full-dimensional Euclidean 0/1 polytopes linked to order/chain polytopes and maximum-weight independent sets on paths. The metric random-direction width is a substantive geometric invariant: its mean grows as sqrt(n), but its centered fluctuations tend to a nondegenerate normal law of constant variance. The regenerative characterization yields an exact positive variance not mechanically available from the h*-polynomial, volume or a generic mean independent-set recursion. The -2c² radial-normalization correction is structurally necessary when converting iid Gaussian objectives to Haar-uniform directions; it changes the limiting variance. The explicit finite-n mean numerator error provides quantitative control. These are mathematically motivated asymptotic geometry statements, not isolated numerical computations. No elementary closed form, universality over all posets, or higher-dimensional projections is asserted.",
+      "residual_risks": [
+        "A general known normalized Gaussian path-optimum theorem could reduce novelty/value if later found; the claims here remain a useful precise specialization if not mechanically subsumed.",
+        "No sharp Berry–Esseen rate or elementary variance constant is established; such additional refinements were not required for this self-contained theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No external Lean or expert attestation; unchanged in VERIFICATION.md.",
+    "No certified numeric enclosure for c or sigma²; quoted approximations only.",
+    "Originality is best of knowledge and subject to unindexed vertex-weight path CLT equivalences.",
+    "Only one-dimensional uniformly random Euclidean projections and alternating fence posets, n>=2."
+  ],
+  "schema_version": 1
+}

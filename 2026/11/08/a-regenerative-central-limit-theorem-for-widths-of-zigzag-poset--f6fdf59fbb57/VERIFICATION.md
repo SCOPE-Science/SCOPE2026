@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-19.md",
+      "INDEPENDENT_AUDIT_2026-11-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python check.py` with Python 3 and NumPy/SciPy in the same directory. The checker enumerates every independent-set vertex of path graphs through ten vertices and compares the resulting maximum with the dynamic recursion on seeded Gaussian samples. It separately tests the coordinate-complement order/chain isometry on all binary patterns through eight vertices, uses a positive quadrature scheme to approximate the stationary fixed-point distribution, simulates 16,000 spherical widths in 512 dimensions, and numerically checks the exact Gaussian Stein covariance identity.
+## correctness
 
-The successfully executed checker emitted:
+PASS
 
-`ZIGZAG_WIDTH_CHECKS_PASSED c= 0.307510818 n= 512 sample_width_mean= 13.928111 sample_width_var= 0.062792 gaussian_stein_ratio= 0.9976`
+The final result concerns the alternating fence Z_n (n>=2) in standard ambient Euclidean coordinates. Complementing the even coordinates of its order polytope transforms every alternating order inequality into y_i+y_(i+1)<=1, and is an affine Euclidean isometry onto the chain/stable-set polytope of a path. The latter is integral because the path is bipartite; its Gaussian support is the maximum-weight independent set, with exact last-vertex recursion M_i=max(M_(i-1),M_(i-2)+G_i) and nonnegative increments D_i=(G_i-D_(i-1))_+. The plus and minus recursions jointly represent H_n=h_K(G)+h_K(-G), and H_n=||G|| W_n with the norm independent of direction. Each sign recursion forgets the past upon a Gaussian of opposite sign; the stationary two-sided solution is unique. The exact fixed-point CDF satisfies F(t)=E Phi(t+D), c=E D^+ is positive and strictly smaller than 1/sqrt(2pi). Synchronous finite/stationary coupling disagrees only through an initial same-sign Gaussian run, giving E|H_n-2cn|<=4/sqrt(2pi), and E||G||=sqrt(2) Gamma((n+1)/2)/Gamma(n/2). Regeneration of both coordinates at each sign pattern (-,+) yields iid marked cycles under its occurrence/Palm law, mean cycle length 4, exponentially tailed lengths and finite moments; this supplies a joint renewal-reward CLT for H_n and Q_n=sum G_i^2, with a finite-initialization remainder bounded in L^2. Gaussian integration by parts for the Lipschitz homogeneous support function proves the exact identity Cov(H_n,Q_n)=E H_n, hence the limiting covariance 2c. Expansion H_n/sqrt(Q_n) shows the spherical fluctuation variance tau^2-2c^2, equal to (1/4) E[cycle reward sum_i(X_i-2c-c(G_i^2-1)) squared]. The identity Var(H_n)=n Var(W_n)+(n-a_n^2)(E W_n)^2 proves convergence of actual variances, not just weak convergence. A positive-probability length-two cycle has nonconstant adjusted reward a+b-c(a^2+b^2)-2c, proving strict positive variance. Independent scratch calculations checked exact stable-set support for all path sizes 2..10 on eight random normal-weight instances each, the complete coordinate map on all binary vectors for n<=7, and a separate 10,000-draw n=1024 simulation: c_hat=0.30753023, mean W=19.6912814, Var(W)=0.0630421, Cov(H,Q)/E H=0.98622. These small/Monte Carlo checks corroborate the analytical proof; they are not infinite certificates.
 
-This marker is a reproducibility observation, not an external proof certificate. The theorem's infinite-dimensional statements depend on the explicit stationary coupling, finite-mean regeneration, Gaussian integration by parts and deterministic radial-variance identity given in RESULT.md. The approximate variance \(0.0627\) was explored by Monte Carlo; it is not a rigorously enclosed constant. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass after direct comparison of mathematical implications. The prior same-body zigzag papers concern Ehrhart or interior-coordinate observables, and the previously published zigzag peak-clearance CLT applies to Lebesgue-uniform interior random points, not support widths in a uniformly random spherical direction. Classical path independent-set optimization/fixed points and generic regenerative CLTs are credited, but the exact coupled positive/negative Gaussian reward law, finite-size mean numerator bound, positive fluctuation variance and radial subtraction sigma^2=tau^2-2c^2 for these polytopes were not established by the inspected sources. Earlier regular-polytope width CLTs treat different vertex systems. The semantic search also returns the same finding under its own published copy on 2026-11-08; this is the identical record being audited and not independent prior coverage. The negative search evidence is not proof of uniqueness; an unindexed equivalent random-path optimization CLT is a genuine residual priority risk.
+
+## value
+
+PASS
+
+This is a natural fixed family of full-dimensional Euclidean 0/1 polytopes linked to order/chain polytopes and maximum-weight independent sets on paths. The metric random-direction width is a substantive geometric invariant: its mean grows as sqrt(n), but its centered fluctuations tend to a nondegenerate normal law of constant variance. The regenerative characterization yields an exact positive variance not mechanically available from the h*-polynomial, volume or a generic mean independent-set recursion. The -2c² radial-normalization correction is structurally necessary when converting iid Gaussian objectives to Haar-uniform directions; it changes the limiting variance. The explicit finite-n mean numerator error provides quantitative control. These are mathematically motivated asymptotic geometry statements, not isolated numerical computations. No elementary closed form, universality over all posets, or higher-dimensional projections is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
