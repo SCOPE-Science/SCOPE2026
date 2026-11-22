@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global bound uses an explicitly centered test vector with edge-difference squares equal to all purchasing prices. The displayed solution exhausts the budget and has that vector as an eigenvector. A reflection-sector decomposition proves that its eigenvalue is the simple Fiedler eigenvalue; equality in the global Rayleigh bound forces every independent edge weight uniquely. Exact rational algebra and independent spectral comparisons replayed from `verify.py` support the critical identities, while the all-parameter proof is analytic. The scope includes all \(m\ge2\) and all positive paired prices, bridge price and budget.
+PASS
 
-## Originality — PASS on examined evidence
+For every m>=2 and c_i,d,B>0 the centered vector x with hubs +/-sqrt(d)/2 and reflected leaves +/-[sqrt(c_i)+sqrt(d)/2] has norm square K and squared edge differences exactly the purchasing prices. Hence Rayleigh gives lambda2<=B/K for ANY independently weighted feasible competitor, asymmetric or with zero conductances. The proposed weights spend B, are positive, and satisfy Lx=(B/K)x. In the reflection-even orthogonal-to-constants space the nonzero Rayleigh quotients are at least min(w_i)>B/K. In the odd sector the positive eigenvector v yields the exact ground-state sum-of-squares yT(M-lambda I)y=sum_i w_i*v_h*v_i*(y_i/v_i-y_h/v_h)^2; every coefficient is positive, so lambda=B/K is the simple lowest odd eigenvalue. Therefore it is the simple Fiedler eigenvalue. Equality in the fixed-vector Rayleigh bound forces each pendant rate independently by its leaf equation and the bridge by a hub equation, proving global uniqueness. The m=2 example gives K=83/2 and lambda=200/83. Independent separately written Fraction/numpy checker verified 252 exact rational budget, eigenvector, energy and spectral instances for m=2..8; finite checks are not the all-parameter proof.
 
-Sun et al. [1] establish the general weighted Laplacian and semidefinite optimization framework, not this evaluated heterogeneous price formula. Richter and Rocha [3], Theorems 1 and 3, treat absolute connectivity and eigenvectors of unpriced double brooms; uniform-cost special cases are explicitly prior. Fiedler [2] treats absolute tree connectivity under a uniform sum of weights. A previously available double-star classification with one uniform price for all spokes on each side covers the constant-price specialization but does not imply the independent arbitrary reflected price-vector assertion. No identified published/indexed claim gives the full square-root law and unique optimizer for arbitrary \(c_i\) under reflection. Remaining risks include equivalent unindexed literature and lack of the full text of Fiedler [2].
+## originality
 
-## Value — PASS
+PASS
 
-In heterogeneous infrastructure, the same physical topology admits arbitrarily many different paired purchasing costs. The theorem supplies a closed-form, globally unique resource allocation for any number of distinct pendant cost groups and an independent backbone price, making both conductances and the resulting optimal connectivity directly computable. The nontrivial inverse-square-root uplift of the cheaper edges and the enforced coupling to central-bridge price are structural properties, not a renaming of the uniform-price double-star result. No claim is made for unpaired costs or general trees.
+Best-of-knowledge PASS for the heterogeneous reflected price-vector closed form and unique independent-edge allocation, not for the general fastest-mixing SDP dual, uniform-cost double brooms, homogeneous two-side-price double stars, or general tree-embedding method. Primary Sun/Boyd/Xiao/Diaconis establishes arbitrary linear costs as a general SDP and dual embedding, without this evaluated vector-price family. Richter/Rocha computes unit-priced double-broom absolute connectivity. Göring/Helmberg/Wappler establish general optimal embedding/separator/dimension theory, not the explicit all-pair-price optimization. The most relevant fully inspected published mathematical finding has two constant pendant price classes, not unequal prices across mirrored pairs. No implication from those special classes produces a formula for all c_i. Fiedler 1990 full text was not accessible (only the published uniform-price abstract, and authorized retrieval blocked by disconnected VPN); this is a stated risk, not an automatic originality failure.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
 
-## Sources and limits
+PASS
 
-Primary inspected sources: [1] Sun et al., SIAM Review 48 (2006), especially the semidefinite dual, optimality conditions and examples; [3] Richter and Rocha, 2014 open preprint, especially the definition, Theorems 1 and 3, and embedding discussion. The abstract of Fiedler [2] was checked but its full text was not accessible. Comparison included uniform-price double-star and arbitrary-price single-star cases. Finite numerical experiments are supporting evidence, never an infinite proof.
+The object is a natural fixed-topology network design problem (algebraic connectivity of a two-hub tree) with actual heterogeneity: m independent positive paired acquisition prices, an independent bridge price, independent rates on 2m+1 edges, and no imposed symmetry on competitors. The exact B/K and all-edge unique allocation give a directly usable optimal design and a structural inverse-square-root law that cannot be read off from the known homogeneous-price double-star theorem. Showing uniqueness among asymmetric competitors and simple Fiedler eigenvalue adds substantive rigidity. The result is a complete natural classification for reflected pair prices, not an arbitrary finite slice or generic SDP restatement; no general unrelated downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
