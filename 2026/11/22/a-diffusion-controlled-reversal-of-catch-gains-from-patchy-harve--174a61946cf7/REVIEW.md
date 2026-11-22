@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The Neumann steady equation's linearization is invertible at its strictly positive homogeneous equilibrium; the implicit-function theorem gives the analytic branch. Strictly decreasing per-capita recruitment ensures uniqueness of positive steady states by a maximum-ratio argument. Dividing the stationary equation by biomass and using Neumann integration by parts and strict Jensen convexity proves the all-amplitude stock inequality. The eigenfunction expansion yields exact second-order mean stock and catch coefficients. An algebraic sign comparison gives the unique single-mode diffusion threshold. The standalone checker verifies rational simplification and finite numerical examples. Computations are not substituted for the functional analytic proof.
+
+## Originality — PASS (literature-bounded)
+The source paper of Aye and Bock has the identical biomass operator and homogeneous equilibrium, but its principal results concern homogeneous stability, finite-time optimal control and adjoint conditions. The assessed claim is a fixed-average-effort stationary allocation theorem, nonperturbative mean stock inequality, complete quadratic spectral multiplier and sharp single-mode diffusion switch. Hilborn et al. (2024) explicitly report a qualitatively similar biomass/catch tradeoff and dependence on movement in an age-structured simulation. That qualitative idea is **not** claimed as original. Ding and Lenhart (2009) and Kurata and Shi (2008) optimize related but different spatial harvest models; the exact formulas here do not follow directly from their published statements. Residual priority risk: the formulas could be subsumed by older perturbative reaction–diffusion sensitivity results not identified in the inspected material.
+
+## Value — PASS
+Spatial allocation under a fixed total effort budget is a natural resource-management comparison. The result separates stock protection from sustainable aggregate catch, gives the exact sign and magnitude of their first nonzero responses, supplies a dispersal threshold tied to habitat mode length, and holds an additional all-amplitude biomass bound. These are meaningful diagnostics beyond a numerical demonstration of spatial gradients. They are not direct predictions for real fisheries.
+
+## Closest literature and limitations
+Aye–Bock, arXiv:2610.08374v1 (full PDF examined); Hilborn–Fitchett–Hampton–Ovando, DOI 10.1007/s12080-024-00596-2 (open full text, especially model and fixed-effort results examined); Ding–Lenhart, DOI 10.1111/j.1939-7445.2008.00033.x (online main results examined); Kurata–Shi, DOI 10.1007/s00245-007-9032-7 (relevant full primary paper text examined, page image unavailable); Neubert, DOI 10.1046/j.1461-0248.2003.00493.x (abstract). Excludes finite-amplitude catch optimality, effects of model calibration and claims beyond the analytical local regime. A broader historic equivalent formula remains possible and requires independent checking.
+
+Self-review: passed. Independent audit: not yet performed.
