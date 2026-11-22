@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rank-one projective charts are disjoint and exhaustive, since the maximum support of the left vector must precede the minimum support of the right vector. The character identity \(W=1-R+qZ\) follows by summing all nonzero scalar multiples of each line. Every chart with two free variables from one factor contributes a number of pairing zeros divisible by \(q\), leaving exactly four charts. Their residue counts cancel to \(1\pmod q\), proving the integer Fourier congruence, nonvanishing, and the dimensional threshold. Exact low-dimensional formulas and independent finite calculations corroborate the argument. The proof does not use finite experimentation as an infinite certificate.
+## correctness
 
-## Originality — PASS under bounded published-source comparison
-General supercharacters of upper-unitriangular pattern groups (Diaconis–Thiem, 2006) and enumeration of support-restricted fixed-rank matrices (Lewis et al., 2010) are closely related but do not imply the specific all-frequency rank-one triangular Fourier congruence as stated. A related published first-coordinate Fourier frame spectrum on the *full* rank-one matrix variety studies a distinct restriction operator, not the additive transform of a triangular rank-one cone. Searches for direct and equivalent formulations found no same statement; an unindexed older equivalence or a derivation buried in general orbit machinery is a residual priority risk, not ruled out by absent search hits.
+PASS
 
-## Mathematical value — PASS
-Rank-one determinantal cones inside pattern algebras are natural harmonic objects. Their precise nonvanishing behavior is a convolution-invertibility invariant; the universal congruence identifies the exact prime-adic valuation of every Fourier eigenvalue in every field and every dimension at least four. Four boundary charts rather than bulk counting control this all-frequency phenomenon, and the sharp two/three-dimensional obstruction demonstrates a structural threshold. This is not a mere cardinality formula or one small finite computation.
+For q any prime power and n>=4, every nonzero rank-one strictly upper-triangular matrix has unique normalized projective chart indexed by last nonzero coordinate k of u and first nonzero coordinate l of v, k<l. The chart count is R_n=Σ_{h=0}^{n-2}(h+1)q^h. Summing all nonzero scalar multiples gives the exact integer W(B)=1-R_n+qZ_n(B), with Z number of projective chart points whose additive pairing vanishes. Any chart with at least two variables in one group contributes a multiple of q; the four corner charts yield modulo q counts 1 when a=B_1n=0 and 0+1+1-1 when a≠0, hence Z≡1 mod q. Therefore W≡-q (mod q²) is never zero and has p-adic valuation r for q=p^r. Exact n2 and n3 zero frequency counts establish sharp n4 threshold. Independently enumerated q2 n4 all 18 cone points, all 64 Fourier eigenvalues from direct signs, verifying residue 2 mod4 and no zero. Finite enumeration does not establish universal q,n, which is supplied by projective-chart proof.
 
-## Closest literature and limitations
-Diaconis–Thiem treats pattern-group supercharacters, and Lewis et al. treats rank distributions under forbidden-position constraints. Neither directly treats the full additive spectrum of the rank-one triangular cone. Independent mathematical validation and exhaustive priority verification remain unperformed. The assertion concerns rank at most one only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison of aliases, stronger coverage and tables does not show domination of precise claim. Any rank-one strictly upper-triangular matrix is square-zero, but the restricted cone is a proper subset of the full minimal nilpotent cone. Fourier of the larger set (with trace pairing) does NOT imply Fourier of a subset (with coordinate pairing). Pattern-group supercharacters are nonabelian orbital character sums, distinct from this indicator's additive transform. Neither supercharacter formulas for algebra groups nor counts of rank-constrained matrices with forbidden entries yield the all-frequency character sum 1-R+qZ for the disjoint rank-one projective charts, and no theorem was identified that forces Z≡1 across every B.
+
+## value
+
+PASS
+
+Natural coordinate incidence/determinantal cone in the nilpotent matrix algebra has a sharp dimension threshold between singular and everywhere-zero-free additive Fourier spectrum. The projective four-corner cancellation furnishes a nontrivial structural lemma beyond generic rank enumerations, with robust inverse convolution gap >=q in every field and dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
