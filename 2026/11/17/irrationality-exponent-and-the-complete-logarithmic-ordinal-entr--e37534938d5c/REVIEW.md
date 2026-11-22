@@ -1,15 +1,21 @@
-# Review of the logarithmic ordinal-entropy spectrum theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for the raw order-\(n\) Shannon entropy of an irrational rotation under the uniform phase law. Its proof is complete: sorting patterns correspond bijectively to rotation gaps; a convergent denominator \(q\) bounds every gap after \(q\) observations by \(3/q\); a rational-grid coupling for \(n\le Q/4\) bounds the entropy by \(\log q+h(2n/Q)+(2n/Q)\log n\), where \(Q\) is the next denominator. These complementary inequalities fix both logarithmic endpoints, including the unbounded-partial-quotient and infinite-irrationality-exponent cases. The gap-splitting entropy increment is at most \(\log2\), establishing that the entire cluster set is the interval between the endpoints. The continued-fraction approximation identity used is standard and its hypothesis is verified. The standalone numerical checker passed, but is not substituted for this analytic proof.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-The closest quantitative record, *Fibonacci staircase and sharp entropy-defect oscillation for golden-rotation ordinal patterns* (2026-10-26), computes an exact entropy profile at a single quadratic irrational; it implies the exponent-two case only for that slope. *Sharp logarithmic regularity spectrum of Sturmian cohomological transfers* (2026-10-11) already identifies the same irrationality exponent from the **largest rotation gap**, but its invariant is the oscillation of transfer functions, not the Shannon entropy of all gaps. It does not state or prove the matching upper information bound for near-rational rotation phases or the complete Shannon cluster interval. Cheng--Ospina--Vinhage--Zhai (arXiv:2405.11137v1, Section 5.1) state the general three-gap frequency tables and the polynomial slow-entropy result; those tables provide known input but their exact gap formulas are not the asserted all-irrational logarithmic Shannon classification. Avhale--Diehl--Velankar--Verri (arXiv:2508.19955v1) discuss classical and global permutation-entropy measures, not the irrationality-exponent formula. Searches of the indexed mathematical findings and targeted conventional literature identified no full equivalent or stronger result. This is qualified originality: unknown historical frequency-entropy work could already contain an equivalent asymptotic theorem.
+PASS
 
-## Mathematical value — PASS
-The result finds the exact arithmetic quantity recoverable from the finite-order information growth of a simple zero-entropy dynamical system: the lower normalized Shannon exponent is \(1/(\mu(\alpha)-1)\), while the upper one is always one. It classifies every irrational rotation, distinguishes Diophantine exponent-two from Liouville behaviour, and determines the **whole** intermediate spectrum rather than an isolated asymptotic bound. The sampling observable is a natural classical permutation-entropy statistic, not an arbitrary arithmetic slice; the contribution is an asymptotic conclusion that is not stated by the classical gap tables themselves.
+For standard irrational rotation and Lebesgue-uniform initial phase, discontinuities of sorting n real orbit representatives are the n cuts -j*alpha mod 1. Between cuts the permutation is constant, and each gap gives a distinct linear ordering, so raw H_n is exactly Shannon entropy of the n gap lengths. For successive continued-fraction denominators q,Q, the q points are within 1/Q of a permuted q-grid, so for n>=q every gap <=1/q+2/Q<=3/q and H_n>=log(q/3). For n<=Q/4, each observed cut lies within delta=n/(qQ) of a q-grid boundary; outside a set of measure <=2n/Q, the pattern is determined by the grid cell. Entropy chain rule yields H_n<=log q+h(2n/Q)+(2n/Q)log n. On subsequences with log q/log Q->theta<1 choose n=floor(Q/(log Q)^2) to match H=log q+O(1); convergent denominators n=q yield limsup ratio 1. Continued-fraction identity mu=1+limsup log Q/log q establishes lower endpoint 1/(mu-1). Each added cut splits only one gap, increasing H by <=log 2; normalized adjacent jumps tend 0, so the full cluster set fills the closed interval. Independently computed golden rotation gap entropies for n=11,40,150,250 in ordinary arithmetic, confirming H/log n near 1 without claiming proof.
 
-## Limits and closest literature
-All statements are for the standard increasing-real-coordinate order and uniform initial phase. The proof does not address noisy observations, global/nonconsecutive permutation entropy, ordinary metric entropy, arbitrary conjugacy, or larger classes of interval exchanges. In particular, the gap-frequency input and the irrationality-exponent identity are classical, and the closely related largest-gap exponent was previously published. Uninspected historical work on exact Sturmian factor frequencies and block Shannon entropy remains an originality risk; mathematical correctness was assessed from the explicit argument, not a finite experiment. Independent review and reproduction by another researcher are not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality after searches for identical and stronger implications, exact records, primary material, and same-object aliases; relevant previous methods are acknowledged. The statement for all irrational exponents including Liouville cluster [0,1] is not a corollary of the cited single-slope or different-invariant results. Known gap data are credited; historical Sturmian block-entropy priority remains a risk.
+
+## value
+
+PASS
+
+The result determines what arithmetic invariant a standard finite-order permutation-entropy measurement sees in a zero-Kolmogorov-entropy system: sharp liminf and the entire interpolation interval in terms of irrationality exponent, including Liouville slopes and exponent-two slopes. It is a natural all-irrational infinite classification, rather than an arbitrary finite calculation or a relabeling of slow entropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof's fundamental identities are the exact representation of order-\(n\) ordinal probabilities by \(n\) circular gap lengths, the estimates \(H_n\ge\log(q/3)\) for \(n\ge q\) and \(H_n\le\log q+h(2n/Q)+(2n/Q)\log n\) for \(n\le Q/4\), and the continued-fraction identity expressing the irrationality exponent through consecutive denominators. The real-variable entropy argument establishes both extreme limits; insertion of one new rotation phase point changes Shannon entropy by no more than \(\log2\), giving the entire accumulation interval.
+## correctness
 
-Running `python verify.py` from this directory with Python 3 and `mpmath` at 90-digit precision returned the terminal marker `VERIFY_OK: ordinal cells 20 custom fraction denominator 24005, finite entropy bounds and normalized ratios`. The script checked a near-rational slope and golden-mean slope, with entropy bounds on selected finite orders and exhaustive ordinal-signature checks for orders 2 through 11. This diagnostic is noncertifying: finite tests do not check all irrational slopes or establish any infinite limit. Those conclusions depend on the analytic argument in `RESULT.md`.
+PASS
 
-No independent mathematical audit has been performed. Novelty relative to any unindexed or inaccessible historical results remains unverified beyond the documented comparisons.
+For standard irrational rotation and Lebesgue-uniform initial phase, discontinuities of sorting n real orbit representatives are the n cuts -j*alpha mod 1. Between cuts the permutation is constant, and each gap gives a distinct linear ordering, so raw H_n is exactly Shannon entropy of the n gap lengths. For successive continued-fraction denominators q,Q, the q points are within 1/Q of a permuted q-grid, so for n>=q every gap <=1/q+2/Q<=3/q and H_n>=log(q/3). For n<=Q/4, each observed cut lies within delta=n/(qQ) of a q-grid boundary; outside a set of measure <=2n/Q, the pattern is determined by the grid cell. Entropy chain rule yields H_n<=log q+h(2n/Q)+(2n/Q)log n. On subsequences with log q/log Q->theta<1 choose n=floor(Q/(log Q)^2) to match H=log q+O(1); convergent denominators n=q yield limsup ratio 1. Continued-fraction identity mu=1+limsup log Q/log q establishes lower endpoint 1/(mu-1). Each added cut splits only one gap, increasing H by <=log 2; normalized adjacent jumps tend 0, so the full cluster set fills the closed interval. Independently computed golden rotation gap entropies for n=11,40,150,250 in ordinary arithmetic, confirming H/log n near 1 without claiming proof.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality after searches for identical and stronger implications, exact records, primary material, and same-object aliases; relevant previous methods are acknowledged. The statement for all irrational exponents including Liouville cluster [0,1] is not a corollary of the cited single-slope or different-invariant results. Known gap data are credited; historical Sturmian block-entropy priority remains a risk.
+
+## value
+
+PASS
+
+The result determines what arithmetic invariant a standard finite-order permutation-entropy measurement sees in a zero-Kolmogorov-entropy system: sharp liminf and the entire interpolation interval in terms of irrationality exponent, including Liouville slopes and exponent-two slopes. It is a natural all-irrational infinite classification, rather than an arbitrary finite calculation or a relabeling of slow entropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
