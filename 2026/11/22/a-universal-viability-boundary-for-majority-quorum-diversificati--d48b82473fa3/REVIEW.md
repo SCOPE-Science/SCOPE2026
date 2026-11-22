@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The precise model specifies odd cohort size, binary common environmental state, conditional independence, mirrored type survivals, and a strict majority. The proof establishes reflection, a Bernoulli pivotal-event formula, and a constant per-word likelihood ratio after complementary outcomes; the latter gives an exact positive-factor comparison for every admissible integer. It handles both strict regimes and the equality boundary without continuity extrapolation. The standalone exact-rational tests returned 11303 passed assertions.
+
+**Originality — PASS, with remaining historical-priority risk.** Source and statement searches compared the all-size one-season majority-quorum allocation to classical and modern bet-hedging, Poisson-binomial, and committee-accuracy work. The closest materials investigate long-run geometric fitness, continuous phenotype responses, varying jury size or fixed expert grouping. Their reported objectives do not imply the mirrored two-type one-season majority optimum. Several archival results and searchable texts were not available in entirety; independent literature validation is still needed.
+
+**Value — PASS.** The sharp, size-independent decision boundary separates complete specialization from maximal diversification under a biologically interpretable majority founder threshold, despite equal marginal survival probabilities for both phenotypes. The exact neutral case where every allocation has probability one-half and the exact adjacent-gap identity give useful structural guidance for model comparison and reproducibility. No ecological management efficacy is claimed.
+
+**Closest work and limits.** Seger and Brockmann (1987), Simons (2011), Svardal et al. (2011), and Haaland et al. (2018) supply the general short-term versus long-term risk context; Ben-Yashar and Danziger (2014) study a different committee-composition objective. The finite quorum choice, equal environmental frequencies, perfect phenotype interchange, and conditional independence remain essential. Earlier unindexed probability literature may contain an equivalent coefficient identity.
+
+Self-review: passed. Independent audit: not yet performed.
