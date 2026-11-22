@@ -1,15 +1,21 @@
-# Scientific assessment: exact area and dual-edge geometry of the Chavarriga–Llibre–Sorolla quartic oval
+# Independent mathematical audit
 
-## Correctness — PASS
-For every real \(0<a<1/4\), completing the square yields the correct positive-\(x\) oval, and the two branch difference yields a genuine Euclidean slice integral. The elliptic reduction is established by an explicit substitution and the standard reductions of sine moments. Strict nesting holds slice by slice. The logarithmic coefficient and finite constant follow from the two-term complete-elliptic expansions in NIST DLMF §19.12. A separate shear-adjusted unit-disk limit proves the other endpoint coefficient. The polynomial cofactor identity and several numerical integral comparisons were reproduced from the included `check.py`; such computations are cross-checks, not infinite proofs.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-The 2019 open preprint by Alberich-Carramiñana, Ferragut and Llibre (arXiv:1906.10171) establishes the known CLS family and its phase portrait; its relevant full-text sections and full-text term search contain no evaluation of its enclosed area or two endpoint scalings. The 2022 open preprint by Gasull and Giacomini (arXiv:2210.15803) gives the exact quartic and establishes uniqueness of the limit cycle, but its relevant Case 5 and theorem concern existence/classification rather than the object-specific elliptic area, logarithmic correction, strict area nesting, or endpoint domain shapes. Known analogous area results for the Filiptsov family concern a different quartic. General special-function formulas supply a method, not the already-evaluated object-specific conclusion. The 2004 original Chavarriga–Llibre–Sorolla article was found bibliographically but its full text was not accessible, leaving a genuine residual uncertainty; no claim of exhaustive publication priority is made.
+PASS
 
-## Mathematical value — PASS
-The area enclosed by an isolated planar limit cycle measures the size of its distinguished periodic boundary in the original physical phase plane. The exact strictly monotone map between parameter and area provides a complete quantitative geometric bifurcation coordinate. Its \(4/(3a)+\log a-1-\log16\) divergence, including the finite logarithmic constant, and its linear disappearance with coefficient \(4\sqrt2\pi\) describe two structurally different endpoint degenerations. The differing normalized parabolic-lens and disk limits explain these rates. These constants are neither qualitative restatements of an oval existence result nor parameter-renamed table entries.
+I reconstructed f=(xy+1/2)^2+x(1-x+a x²), the actual bounded branch interval r±=(1±sqrt(1−4a))/(2a), and vertical height 2sqrt((x−1−ax²)/x). Substitution z=ax and a standard sine-square elliptic reduction yields precisely 4β^(3/2)[(2−m)E−2(1−m)K]/(3a), with parameter m not elliptic modulus. For increasing a the positive heights and admissible interval strictly shrink, proving nesting. DLMF singular expansions K~log(4/sqrt(1−m)), E=1+(1−m)(log(4/sqrt(1−m))−1/2)/2+... produce 4/(3a)+log(a)−1−log16+O(a|log a|); with δ=1/4−a the exact shear-normalized U,V interior approaches U²+V²≤1, whose Jacobian gives 4sqrt(2)πδ. Independently expanded the actual polynomial cofactor to zero and integrated five nontrivial a-values against the elliptic expression at >40-digit precision. The known 2004 existence theorem is explicitly assumed; a regular algebraic oval is not proven to be isolated from just a cofactor check.
 
-## Scope and uncertainties
-Only \(0<a<1/4\), the specified coordinates, the specified quartic oval, and Euclidean enclosed area are covered. Neither endpoint is asserted to retain a periodic orbit. The original 2004 paper's inaccessible full text and possible unindexed equivalent asymptotics remain the principal priority risks. The included checker does not certify an infinite statement independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original quantitative geometry of a known 2004 quartic algebraic cycle: existence and uniqueness of the algebraic oval are prior, but the exact Euclidean area map, sharp logarithmic correction and collapse coordinates were not obtained from inspected primary accounts. Unavailable original 2004 full text remains a specific priority risk.
+
+## value
+
+PASS
+
+The enclosed area and its normalized degeneration are natural geometric invariants of a canonical algebraic limit cycle. The strict monotone area coordinate, genuine logarithmic finite correction, and two different limiting shapes supply more than a routine substitution or re-labeling. This exact quantitative endpoint information could be used when comparing bifurcating algebraic cycles or area-based measures in the classical family; it is not already mechanically supplied by the existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
