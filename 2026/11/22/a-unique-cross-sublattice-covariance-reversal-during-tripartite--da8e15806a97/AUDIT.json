@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "The specified edge-clock generator is obtained directly from the ab/n, ac/n, bc/n eligible-pair rates. Its fluid drift, martingale bracket, Gaussian fluctuation SDE, uniform-integrability argument and Lyapunov covariance solutions are derived explicitly. The sign numerator has derivative 3(4-y^3)/y^4 and exactly one nontrivial positive root. A symbolic checker reconstructs the Jacobian/noise and proves the covariance ODE exactly; an independent finite-state CTMC checker confirms 12 independent finite-parameter propagations and convergence. The n->infinity claim is proved using martingale FCLT hypotheses, not inferred from finite tests. No claim covers the terminal jamming window.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kurtz density-dependent process limit applies and covers the Gaussian-limit mechanism, which is explicitly credited as prior.",
+        "Three-block generator yields Jacobian -u(I+11^T), noise u^2(I+11^T), and two independent mode variances with distinct temporal decays.",
+        "Penrose-Sudbury (2005) full PDF, Theorems 7, 10 on uniformly bounded-degree graphs and Theorem 11 for one-dimensional dimer variance; nonapplicable to degree 2n classwise covariance on K_{n,n,n}."
+      ],
+      "reasoning": "The general stochastic approximation does not supply the evaluated model-specific cross-class covariance or its unique positive root; obtaining that contrast requires a particular nonlinear adsorption generator, modal Lyapunov solution and monotonicity analysis. The core CLT itself is not claimed original; the remaining specialization could be judged routine and is acknowledged as a priority/value risk.",
+      "searches": [
+        "published-finding corpus: density dependent Markov chain diffusion covariance random sequential adsorption complete tripartite",
+        "web: Kurtz 1971 density dependent Markov chains central limit theorem original full text pdf",
+        "web: random sequential dimer deposition complete multipartite graph kinetics Gaussian fluctuations class occupancy",
+        "web: exact and approximate results for deposition and annihilation processes on graphs Penrose Sudbury"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/0103582 (full rendered text)",
+      "doi:10.1007/s00894-013-2031-5 (full HTML)",
+      "doi:10.1137/0402034 (abstract only)",
+      "doi:10.1016/0304-4149(78)90020-0 (abstract only)",
+      "published-finding corpus:2026/11/2/SCOPE-the-sharp-7-8-random-edge-matching-ratio-on-dense-complete-tripa--38fa8766b226 (indexed summary only)",
+      "previously documented accessible claims checked for overlap",
+      "arxiv:math/0503519 (main theorem statements and relevant sections of full PDF)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier complete-tripartite result states a deterministic fluid limit and asymptotic efficiency, which does not by itself determine the second-order covariance sign.",
+        "Fusco et al. full text uses diffusing lattice dimers; Cieśla-Barbasz uses continuum adsorbates.",
+        "Kurtz is a general valid inference tool, not evidence of the explicit unique crossover already being tabulated."
+      ],
+      "reasoning": "A law of large numbers cannot imply a covariance limit without fluctuation analysis; distinct models do not dominate this graph-specific second-order statement. The closest inaccessible exact-same-object full text leaves an explicit nonzero residual priority risk; no whole-document NOT_COVERING assessment is asserted for it.",
+      "searches": [
+        "published-finding corpus: The sharp 7/8 random-edge matching ratio on dense complete tripartite graphs deterministic fluid initial classes equal residual fraction sublinear fluctuation",
+        "published-finding corpus: balanced complete tripartite random sequential dimer adsorption time dependent occupancy covariance sign reversal Gaussian fluctuation",
+        "web: random sequential adsorption dimers on finite graphs Pippenger 1989 full text PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Occupied counts are n minus vacant counts, so their cross-class covariance is identical, an equivalence incorporated in the search.",
+        "Search hits include 7/8 matching-ratio fluid limit but no indexed explicit transient cross-class covariance law."
+      ],
+      "reasoning": "The occupancy-vacancy complement and random feasible-edge matching representation are exact model equivalences. Their recorded published statements concern means/efficiency or terminal adsorption, not the finite-time 1/n-normalized covariance function. Search failure alone is not treated as novelty proof.",
+      "searches": [
+        "published-finding corpus: balanced complete tripartite random sequential dimer adsorption time dependent occupancy covariance sign reversal Gaussian fluctuation",
+        "published-finding corpus: K n n n greedy matching classwise vacant vertex covariance crossover 1.347345",
+        "web: random sequential adsorption complete multipartite dimers site class covariance transient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite-time covariance table or function of the same complete-tripartite model in examined results; only matching-ratio fluid and related terminal-class laws appeared.",
+        "Actual model-specific finite-state Markov propagation at n=4,8,12,16 independently trends to the derived limiting covariance at t=0.2, 1 and 2."
+      ],
+      "reasoning": "The expression is an infinite-size finite-time limit, not a finite enumerated table. Finite CTMC calculations alone establish consistency, not originality; checked indexed records by model, time convention and observable.",
+      "searches": [
+        "published-finding corpus: random greedy matching balanced complete tripartite graph terminal unmatched asymptotic log n three groups",
+        "published-finding corpus: finite-time CLT covariance of class counts random greedy matching multipartite exponential",
+        "web: complete tripartite graph random dimer sequential adsorption central limit Gaussian vacancy covariance"
+      ]
+    },
+    "rationale": "The new claim is the closed finite-time cross-part covariance and its one-and-only-one sign change for a naturally balanced tripartite RSA process. Accessible previously documented claims and indexed research were compared at the level of the observable, normalization, and implication. The closest same-graph earlier paper treats first-order fluid matching efficiency; the general CLT methodology is credited. This PASS is best-knowledge only, without independent historical-priority validation, and explicitly retains unavailable-source risks.",
+    "residual_risks": [
+      "The same-object indexed 7/8 matching-ratio paper full text was inaccessible, so it cannot be certified not to contain a related second-order calculation.",
+      "Pippenger (1989) full text was not accessible; only abstracts and metadata could be checked.",
+      "The exact result is a specialized application of standard Gaussian density-dependent Markov theory; the precise covariance-sign computation rather than the CLT itself is the proposed distinct contribution.",
+      "Unindexed or alternate terminology could conceal equivalent calculations; independent priority audit has not been performed.",
+      "Finite-time RSA covariance in other graph limits may have similar sign effects not exposed by the indexed terminology; no priority proof is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different model: deposition with diffusion on a square lattice; no three labeled blocks, complete-tripartite generator or limiting cross-class Gaussian covariance. Not covering the new statement.",
+        "evidence": [
+          "arXiv v1 posted 2001-03-28",
+          "Model: nearest-neighbor dimers diffuse on periodic square lattice; sections II and IV describe coverage and vacancy populations, section VI gives finite-rate diffusion conclusions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0103582",
+        "material_read": "Full rendered arXiv text, introduction; sections II-IV; section V outcomes and section VI conclusion, including physical geometry and accepted event rules",
+        "method": "Full-text HTML inspection of model, observations, results and conclusions",
+        "title": "Random sequential adsorption and diffusion of dimers and k-mers on a square lattice",
+        "trigger": "Archive-era primary study of dimer adsorption kinetics and vacancy dynamics"
+      },
+      {
+        "assessment": "Continuum surface simulations of trimer/hexamer adsorbates; density variance in boxes, not the analytical cross-class covariance of edge dimers on a dense tripartite network. Not covering.",
+        "evidence": [
+          "Published 2013-11-06",
+          "Its density-fluctuations section studies particle-count variance on two-dimensional collectors, with different kinetics and spatial observable"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00894-013-2031-5",
+        "material_read": "Full HTML sections Introduction, Model, kinetics, density fluctuations, density autocorrelation and Summary",
+        "method": "Article full-text comparison of substrate, particles and observables",
+        "title": "Random sequential adsorption of trimers and hexamers",
+        "trigger": "Open-access RSA primary paper with actual density fluctuations"
+      },
+      {
+        "assessment": "Abstract emphasizes large-girth regular graphs and tree-like approximations, not present dense complete tripartite class covariance; NOT a whole-document exclusion. The inaccessible full paper is a residual risk.",
+        "evidence": [
+          "SIAM Journal on Discrete Mathematics 2 (1989), 393-401",
+          "Publisher abstract: graph vertex and edge adsorption with dynamic occupation probabilities, chiefly high-girth graphs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0402034",
+        "material_read": "Publisher and institutional abstracts, graph assumptions and publication metadata; complete paper unavailable during bounded retrieval",
+        "method": "Abstract and metadata inspection; institutional PDF request returned access denial",
+        "title": "Random Sequential Adsorption on Graphs",
+        "trigger": "Foundational graph RSA paper; explicitly treats edge occupancy"
+      },
+      {
+        "assessment": "The general Gaussian approximation is credited and not claimed new; the work does not itself state the specialized covariance sign transition. Direct applicability creates an originality/value risk if the specialization is viewed as routine.",
+        "evidence": [
+          "T. G. Kurtz (1978), Stochastic Processes and their Applications 6, 223-240",
+          "Standard density-dependent Markov process diffusion approximation applies to the explicitly displayed generator"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0304-4149(78)90020-0",
+        "material_read": "Abstract and bibliographic material; publisher full text unavailable",
+        "method": "Compare general theorem statement to explicit three-part specialization",
+        "title": "Strong approximation theorems for density dependent Markov chains",
+        "trigger": "Dominating general functional LLN/CLT method for density-dependent Markov jump processes"
+      },
+      {
+        "assessment": "Summary reports deterministic three-population fluid limit and sharp matching efficiency, neither covariance matrix nor positive-to-negative transient correlation. Full text not read; equivalent second-order formula remains a named residual risk.",
+        "evidence": [
+          "Indexed record ID: 2026/11/2/SCOPE-the-sharp-7-8-random-edge-matching-ratio-on-dense-complete-tripa--38fa8766b226",
+          "Summary says fluid-limit and 7/8 efficiency, worst class-size ratio 2:1:1; not a demonstrated whole-document negative"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-sharp-7-8-random-edge-matching-ratio-on-dense-complete-tripa--38fa8766b226",
+        "material_read": "Public indexed title and complete returned summary; full GitHub result page denied retrieval",
+        "method": "Compared fluid-limit/efficiency claim in search summary against new centered finite-time fluctuation claim",
+        "title": "The sharp 7/8 random-edge matching ratio on dense complete tripartite graphs",
+        "trigger": "Same graph and random feasible-edge matching dynamics, potential broad earlier coverage"
+      },
+      {
+        "assessment": "Theorems 7 and 10 require uniformly bounded maximum degree, whereas K_{n,n,n} has maximum degree 2n; Theorem 11 exact variance concerns the integer line, not three dense color classes. Does not cover the new limiting cross-class covariance formula or its time sign switch. The general CLT theme is credited.",
+        "evidence": [
+          "Theorem 7 page 12: maximum degree at most a fixed D, and total occupied-site normal approximation",
+          "Theorem 10 page 14: uniformly bounded-degree graph sequences",
+          "Theorem 11 page 14: one-dimensional exact variance 4t exp(-4t) for dimer RSA"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0503519",
+        "material_read": "Full arXiv PDF, introduction and process definition, complete main results section 2 including Theorems 7-11 and the normal approximation discussion, with page images of pages 3, 11, 12, 14",
+        "method": "Compared edge arrival law, graph degree assumptions, total-versus-cross-class observables and exact variance formulas",
+        "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+        "trigger": "Same class of dimer RSA on graphs, covariance and normal approximation results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "da8e1580-6a97-4073-b87e-1e768c0c6529",
+  "value": {
+    "rationale": "Cross-sublattice temporal covariance is a natural observable for multicomponent irreversible dimer deposition. Every accepted event initially removes sites from two components together, while late competition creates anticorrelation. The calculation establishes a unique, parameter-free switch under a fully symmetric deposition rule and supplies an explicit three-mode Gaussian benchmark, which is structurally distinct from a mean coverage formula or a routine finite-state enumeration. A competing earlier same-graph result studies matching efficiency, not the reported second-order observable in its accessible claim.",
+    "status": "PASS"
+  }
+}
