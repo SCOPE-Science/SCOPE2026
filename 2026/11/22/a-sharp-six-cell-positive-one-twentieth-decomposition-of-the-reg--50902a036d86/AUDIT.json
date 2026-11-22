@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Every segment pair intersection and endpoint split is computed in Q(sqrt(5)) using exact rational arithmetic; exact halfedge traversal yields 171 planar vertices, 390 edges, 221 faces, 220 bounded cells, a twelve-value exact area spectrum and total normalized area one. The six chosen distinct face indices have exact shoelace sum 1/20 of the total. Exhaustive nondecreasing multiset search of up to five among all twelve positive classes visits 6186 prefixes with no target; positivity makes all pruning valid, proving impossibility of any smaller union. The standalone checker is embedded; only one finite decagon is claimed. A separate exact size-six class-multiset sweep yields only (4,8,11,11,11,11) and (7,8,10,11,11,11), whose choices count 8,778,000 by binomial coefficients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huber A401643 formula gives a(10)=20 only as a signed fact, not a positive-support bound.",
+        "Inoue and Watanabe arXiv:2610.22970 consider four regions cut out by two intersecting congruent diagonals, not the full diagonal arrangement."
+      ],
+      "reasoning": "Neither the all-n signed area-lattice denominator theorem nor the two-diagonal rational-area theorem implies the six-cell positive realization and exact lower bound; any broader prior positive theorem with a support bound would cover it, but none was found in accessible material.",
+      "searches": [
+        "area lattice regular n-gon positive signed decompositions positive decagon 10 one twentieth",
+        "minimum number elementary cells area 1/(2n) decagon diagonal arrangement",
+        "area lattice regular decagon all diagonals positive six faces 1/20 signed cell decomposition",
+        "regular polygon all-diagonal cell subset sum positive 1/a(n) minimum support",
+        "arXiv:2610.22970 main theorem area rationality"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A401643",
+      "https://doi.org/10.5281/zenodo.23841077 (full text inaccessible)",
+      "https://arxiv.org/abs/2610.22970"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A401643: a(n) is a maximum k with 1/k expressible as signed sum and positive realizability is an open general question.",
+        "arXiv:2610.22970: four resulting pieces of a two-chord cut versus the 220 faces of the simultaneous complete diagonal arrangement."
+      ],
+      "reasoning": "A signed sum with negative coefficients can have substantial cancellation and does not construct a disjoint positive union. The 4-region theorem has a different input complex, and the existing OEIS nonagon positive example is a different polygon.",
+      "searches": [
+        "OEIS A401643 signed versus positive formulation",
+        "arXiv:2610.22970 two congruent diagonals rational unions",
+        "Felix Huber A401643 positive union of 1/20 decagon six elementary diagonal cells"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A401643 (https://oeis.org/A401643) defines signed area fractions and asks separately for 0/1 unions.",
+        "Closest indexed regular-decagon reports address M-curvature, Wigner caustics, or decagonal line-incidence fields, not all-chord cell subsets."
+      ],
+      "reasoning": "The target is an unsigned six-face subset-sum with a sharp minimality theorem. Signed scalar combination, arbitrary linear combinations in the area lattice and different decagonal invariants are not equivalent to this target.",
+      "searches": [
+        "regular decagon all diagonals arrangement 1/20 area positive union six minimal cells",
+        "area lattice regular n-gon positive signed decompositions positive decagon 10 one twentieth",
+        "Felix Huber A401643 positive union of 1/20 decagon six elementary diagonal cells",
+        "web: \"1/20\" \"decagon\" \"diagonals\" \"union of cells\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A401643 records a(10)=20 but only supplies a positive 18-cell construction for n=9.",
+        "The indexed decagon reports are not a table of 220 elementary cell areas or a support-size distribution."
+      ],
+      "reasoning": "OEIS gives a signed denominator sequence, not the twelve area classes or exact minimum positive-cell count. A pre-existing unindexed or full-note table cannot be ruled out due to inaccessible full Zenodo report.",
+      "searches": [
+        "regular decagon all diagonals arrangement 1/20 area positive union six minimal cells",
+        "exact face area spectrum ten sided regular polygon diagonals",
+        "regular decagon diagonal cell area spectrum twelve classes positive decomposition",
+        "OEIS A401643 examples n=10 positive union",
+        "https://oeis.org/A401643"
+      ]
+    },
+    "rationale": "Huber A401643 determines the largest signed area denominator for a regular decagon (20) but expressly leaves positivity open generally and illustrates only a nonagon positive case. Its signed equality does not imply a six-cell unsigned witness or minimum. Inoue–Watanabe classify a four-region arrangement from two congruent diagonals; it does not contain the simultaneous 45-segment arrangement or the exact support-size cutoff. Targeted published-record and literature searches yielded no equivalent or dominating statement. The full Huber Zenodo report could not be inspected, leaving explicit, material priority uncertainty. The exact two-pattern equality classification is likewise not a consequence of the signed formula.",
+    "residual_risks": [
+      "Full text of Huber Zenodo 23841077 was inaccessible, so a decagon-specific construction in it cannot be excluded; exact priority remains provisional.",
+      "Unindexed computations or small-polygon reference tables may have the same six-cell result.",
+      "No independent audit performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides context and a(10)=20, not the six-cell unsigned decagon decomposition or minimality.",
+        "evidence": [
+          "Sequence formula for 2*n when even non-power of 2; specifically n=10 gives 20.",
+          "Comment states positive realization remains open in general.",
+          "Example is n=9 positive union of 18 cells."
+        ],
+        "identifier_or_url": "https://oeis.org/A401643",
+        "material_read": "Sequence statement, signed/positive comment, formula, references and nonagon example as indexed in full page text",
+        "method": "Web indexed full-page search retrieval",
+        "title": "OEIS A401643",
+        "trigger": "Exact original signed-area-lattice question and denominator 20 for a decagon"
+      },
+      {
+        "assessment": "Different geometric domain (two diagonal chords, four regions); no full 220-cell decagon or six-cell subset minimum statement.",
+        "evidence": [
+          "Title, abstract, introduction and main theorem specify two intersecting congruent diagonals.",
+          "First arXiv posting 2026-10-16."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.22970",
+        "material_read": "Introduction, main theorem, object definitions and area-ratio classifications of the primary open-access mathematical text",
+        "method": "Accessible arXiv primary text and bibliographic verification",
+        "title": "Rational Area Profiles of Regular Polygons Cut by Two Congruent Diagonals",
+        "trigger": "Recent paper on related rational area partitions of regular polygons"
+      },
+      {
+        "assessment": "No verified full-text exclusion. Retained as material historical-priority risk; accessible OEIS record does not give the six-cell decagon result.",
+        "evidence": [
+          "OEIS links this report as Zenodo publication on 2026-10-31.",
+          "OEIS currently describes positive 1/a(n) representability as an open general problem."
+        ],
+        "identifier_or_url": "https://doi.org/10.5281/zenodo.23841077",
+        "material_read": "Bibliographic title, date and summary as cited in OEIS; full Zenodo text not accessible",
+        "method": "DOI and Zenodo landing and API attempts; indexed OEIS link inspected",
+        "title": "The Area Lattice of a Regular Polygon: Rational Fractions and Signed Cell Decompositions",
+        "trigger": "Most plausible possible full-text overlap for the same geometric area-lattice question"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "50902a03-6d86-421e-9773-95a303a064d6",
+  "value": {
+    "rationale": "The 2026 area-lattice problem distinguishes signed realizations from positive unions; this finding solves the first small even non-prime-power decagon case and determines an exact six-cell cutoff, supported by a complete 220-cell/12-value area census. It gives a natural finite exact support theorem rather than an arbitrary subset sum or a routine rewrite of the signed denominator formula; no all-n resolution is claimed. The equality patterns and count give a complete classification of minimal positive solutions.",
+    "status": "PASS"
+  }
+}
