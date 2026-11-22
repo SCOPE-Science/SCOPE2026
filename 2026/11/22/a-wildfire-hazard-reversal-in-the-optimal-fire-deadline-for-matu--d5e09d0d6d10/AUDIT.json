@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The expected seed stock follows from integrating constant post-maturity seed production against independent exponential viability loss. Fubini/layer-cake yields \\(\\mathbb E[B(\\min(F,T))]\\) as an exponential integral and \\(\\mathbb E[\\min(F,T)]=(1-e^{-\\mu T})/\\mu\\). The derivative numerator \\(Q\\) has a single turning point at \\(\\frac{(\\mu+\\delta)m}{\\delta}\\), is initially positive and tends to minus infinity, so \\(J\\) has exactly one finite global maximum; the explicit bracket follows by rearrangement. At the root \\(g_T=-\\delta\\ell<0\\), \\(H\\) is strictly increasing and negative, so \\(g_\\mu>0\\), \\(g_\\delta<0\\), and \\(g_m>0\\); implicit differentiation proves all comparative statics. Boundary and asymptotic formulas follow by direct limit and bracket. All positive parameters are quantified, not inferred from sampling. The standalone independent formula and deterministic checker returned 91,091 passing checks; finite tests do not certify continuous-domain proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reed (1986), inspected pp. 3, 12, 28, 37, 41, optimizes discounted timber revenue jointly with protection spending and rotation age under stochastic destruction; the objective is not the seed-release-rate ratio.",
+        "The Boshuizen 1997 accessible abstract covers very general repairable-system replacement rules and age-dependent reward structures; only its abstract and bibliographic information were available, so a strong abstract-level not-covered assertion is not made."
+      ],
+      "reasoning": "A general replacement/rotation theorem may imply the existence or single crossing under special hypotheses, but does not provide evidence of the explicit hazard reversal, unique bracket, and all limiting cases jointly. General problem inclusion alone is not a proof of statement implication; historical originality remains provisional because the inaccessible full Boshuizen text could contain relevant specializations.",
+      "searches": [
+        "forest rotation hazard wildfire complete salvage optimal cutting age higher fire risk delaying harvest paradox",
+        "wildfire stochastic destruction rotation age optimal harvesting hazard comparative statics opposite direction",
+        "Reed, Protecting a Forest Against Fire: Optimal Protection Patterns and Harvest Policies (1986) https://dspace.library.uvic.ca/bitstreams/39de63d2-fe04-4abf-8600-e594f79b8bc9/download",
+        "Boshuizen, A replacement model with general age-dependent failure rates (1997) doi:10.1016/S0378-3758(97)83639-7"
+      ]
+    },
+    "checked_sources": [
+      "McCarthy, Possingham and Gill (2001), doi:10.1046/j.1365-2664.2001.00617.x",
+      "Enright et al. (1998), doi:10.1046/j.1365-2745.1998.00312.x",
+      "Lamont and Enright (2000), doi:10.1046/j.1442-1984.2000.00036.x",
+      "Reed (1986), UVic open research report https://dspace.library.uvic.ca/bitstreams/39de63d2-fe04-4abf-8600-e594f79b8bc9/download",
+      "Renewal reward background https://www.randomservices.org/random/renewal/Reward.html",
+      "Boshuizen (1997), doi:10.1016/S0378-3758(97)83639-7 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "McCarthy et al. allow prescribed burning and stochastic fire but maximize demographic persistence through a stochastic dynamic program rather than a single-cohort viable-seed-release rate.",
+        "Reed studies optimized forest protection and discounted timber proceeds; the old Weibull power-yield forestry claim concerns a distinct unbounded reward and salvage constraint.",
+        "The derived exact critical equation and derivative signs require the saturating seed stock and equal salvage at both types of fire; they are not a direct numerical corollary of reported fire intervals."
+      ],
+      "reasoning": "The claim is stricter than merely the existence of an optimal fire interval: uniqueness, a global positive root bracket, all-three strict comparative statics, and disappearance of finite optimum at two degenerate boundaries. Neither source states this conjunction, nor does its cited result directly imply it without new model-specific derivations. A hidden general renewal-result implication is retained as a risk, not asserted impossible.",
+      "searches": [
+        "stochastic premature fire planned burn optimal interval seed production canopy serotiny mathematical monotonic wildfire hazard",
+        "serotinous shrub controlled burn deadline competing exponential unplanned fire seed maturation saturation cumulative viable seeds per expected cycle length unique fire age",
+        "doi:10.1046/j.1365-2664.2001.00617.x",
+        "doi:10.1046/j.1365-2745.1998.00312.x"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The ordinary renewal-reward ratio of mean reward to mean cycle length is classical; it does not by itself establish the specific unique-root or the sign of differentiation in the wildfire hazard.",
+        "McCarthy et al. (2001) use finite-state stochastic dynamic programming with stand-density and time-since-fire states; their reward and decision problem differ."
+      ],
+      "reasoning": "The precise equivalent problem is a planned age-replacement deadline preempted by an exponential failure, with the same saturating payoff after failure or elective replacement. Checked for this equivalent formulation, including age-replacement terminology. Classical reward-ratio formulas overlap only with the setup, not the new global comparative-statics statement; this is a remaining broader-literature risk.",
+      "searches": [
+        "serotiny optimal fire interval stochastic wildfire hazard optimal prescribed burn timing expected seed output renewal reward",
+        "age replacement policies reward accumulated production stochastic failure planned renewal maximum reward rate unimodal monotone hazard",
+        "doi:10.1046/j.1365-2664.2001.00617.x",
+        "https://www.randomservices.org/random/renewal/Reward.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Enright et al. (1998) report simulated optimal population-growth intervals under varying fire intervals and seedbank viability, but not a continuous deadline root for exponential first wildfire.",
+        "Lamont and Enright (2000) report biological parameter ranges and simulations for serotiny; neither an exact symbolic threshold table nor the present hazard derivative appears in the material examined."
+      ],
+      "reasoning": "Parameter summaries, numerical fire-management tables and empirical growth optima need not entail this scalar analytic optimizer. The inspected primary texts do not contain a table or equation matching its root or global comparative statics. No claim is made to have searched every historical table.",
+      "searches": [
+        "serotinous seed bank optimal prescribed fire interval constant wildfire hazard maturation seed viability loss",
+        "optimal fire interval stochastic wildfire scheduled controlled burn maturity delay canopy seed survival seed yield per unit time monotonic hazard",
+        "doi:10.1046/j.1365-2745.1998.00312.x",
+        "doi:10.1046/j.1442-1984.2000.00036.x"
+      ]
+    },
+    "rationale": "The inspected applied primary papers specify different management objectives (population growth, persistence, and costly timber protection) and do not give the new strict increase of the optimal prescribed-fire deadline with constant wildfire hazard for the explicitly normalized maturing/exponentially depleting canopy seed stock, nor its unique finite-root and zero-decay transition. The renewal-reward identity itself is standard, and no novelty is claimed for it. A compared Weibull-fire power-value forestry result addresses a salvage boundary, rather than a saturating post-maturity seed bank with equal release at any fire. General age-replacement theory creates a residual historical priority risk; full historical coverage is not claimed.",
+    "residual_risks": [
+      "A general replacement-reward theorem not located in full text may imply a model-specialized conclusion; priority is provisional.",
+      "The Reed (1986) scanned report was only inspected on multiple representative pages; no unexamined-page exclusion is claimed.",
+      "Some older applied-fire literature and the full Boshuizen (1997) article were not fully accessible.",
+      "Shared renewal-reward identity and calculus alone are not newly claimed contributions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different stochastic population-persistence control problem; not a statement of the present continuous-time seed-release-rate comparative statics",
+        "evidence": "Optimized management of an age- and density-structured population under stochastic burning using dynamic programming.",
+        "identifier_or_url": "https://doi.org/10.1046/j.1365-2664.2001.00617.x",
+        "material_read": "Full accessible HTML article: abstract, modelling assumptions, management policies, numerical results, discussion and appendix",
+        "method": "Direct substantive reading and statement-to-claim comparison",
+        "title": "Using stochastic dynamic programming to determine optimal fire management for Banksia ornata",
+        "trigger": "Closest biological elective-burning plus unplanned-fire decision problem and first precisely dated motivating publication"
+      },
+      {
+        "assessment": "Underlying seedbank biology and computed growth optima, but no identical stochastic deadline-ratio theorem",
+        "evidence": "Population-growth simulations vary fire intervals, serotiny and seed longevity.",
+        "identifier_or_url": "https://doi.org/10.1046/j.1365-2745.1998.00312.x",
+        "material_read": "Full accessible HTML article: methods, results and discussion, including seed production, viability and interval sensitivity",
+        "method": "Direct substantive reading and statement comparison",
+        "title": "The ecological significance of canopy seed storage in fire-prone environments: a model for non-sprouting shrubs",
+        "trigger": "Age of reproductive maturity, seed viability, and changing fire regimes are central premises"
+      },
+      {
+        "assessment": "Background model; no exact optimizer for the defined reward rate",
+        "evidence": "Describes serotiny, age to first seed reproduction, and annual seed losses.",
+        "identifier_or_url": "https://doi.org/10.1046/j.1442-1984.2000.00036.x",
+        "material_read": "Full accessible HTML article: introduction, model overview, tabulated biological parameters and discussion",
+        "method": "Direct substantive reading",
+        "title": "Adaptive advantages of aerial seed banks",
+        "trigger": "Canopy seed stock retention and declining viability"
+      },
+      {
+        "assessment": "The inspected material concerns discounted timber-profit rotation and protection expenditure; residual risk for uninspected pages",
+        "evidence": "The report defines expected net present revenue and optimal active fire protection as decisions rather than a canopy viable-seed-release/time ratio.",
+        "identifier_or_url": "https://dspace.library.uvic.ca/bitstreams/39de63d2-fe04-4abf-8600-e594f79b8bc9/download",
+        "material_read": "Scanned report: title page and representative introduction, objective, Pontryagin analysis, appendix and figure descriptions (pages 3, 12, 28, 37, 41); no full searchable text",
+        "method": "Visual inspection of primary document pages; not full-document not-covering certification",
+        "title": "Protecting a Forest Against Fire: Optimal Protection Patterns and Harvest Policies",
+        "trigger": "General forest rotation under wildfire hazard may dominate the new claim"
+      },
+      {
+        "assessment": "Covers renewal rate principle; not the specified hazard comparative static and maturation-loss transitions",
+        "evidence": "Classical asymptotic reward equals mean reward over mean interarrival time for iid renewal cycles.",
+        "identifier_or_url": "https://www.randomservices.org/random/renewal/Reward.html",
+        "material_read": "Full online treatment of reward pairs, renewal reward theorem and age replacement examples",
+        "method": "Direct substantive reading of formulae and examples",
+        "title": "Renewal Reward Processes",
+        "trigger": "The mean reward divided by mean cycle length is a known general theorem"
+      },
+      {
+        "assessment": "Unresolved possible broad coverage; no claim of full-text negative inspection",
+        "evidence": "Abstract announces optimal replacement rules for repairable systems with age-dependent failures and rewards.",
+        "identifier_or_url": "https://doi.org/10.1016/S0378-3758(97)83639-7",
+        "material_read": "Publisher abstract, metadata, keywords and cited-paper list only; primary full text not accessible",
+        "method": "Abstract-level comparison, not a whole-document exclusion",
+        "title": "A replacement model with general age-dependent failure rates",
+        "trigger": "A general policy theorem could subsume the age-replacement formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d5e09d0d-6d10-41e5-a105-2bdf54430443",
+  "value": {
+    "rationale": "Fire-regime choices for serotinous plants must balance immaturity risk and the aging loss of viable canopy-stored seeds. The exact policy reveals a mathematically sharp and potentially surprising direction: increasing competing wildfire hazard raises the unique idealized elective-fire deadline, despite greater premature-fire frequency; viability decay reverses this effect. The result also separates the two necessary mechanisms (maturation and viability loss) from their degenerate limits and gives an explicit deadline bracket and measurable benchmark. This is not merely the generic renewal-reward formula. Its limits prevent treating the proxy as a demographic or management recommendation.",
+    "status": "PASS"
+  }
+}
