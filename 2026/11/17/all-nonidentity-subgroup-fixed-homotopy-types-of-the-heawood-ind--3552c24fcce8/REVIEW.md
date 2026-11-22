@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The finite domain is exactly all nonidentity subgroups of the 336-element full automorphism group of the Heawood graph. Enumeration from arbitrary adjoined generators is exhaustive by subgroup generation; 413 subgroups form 23 conjugacy classes. The fixed-orbit PL model follows from equality of barycentric coordinates on every vertex orbit. Every recorded elementary simplicial collapse removes a ridge in exactly one current facet. The remaining two-dimensional cases are classified by checked surface links, edge multiplicities, Euler characteristic, and precise subcomplex intersections; neither an Euler characteristic nor mod-two homology is substituted for a homotopy proof. The verifier checks all asserted class-weighted totals.
+## correctness
 
-**Originality: PASS relative to the evidence searched.** The closest published Heawood independence-complex results establish its ordinary six-sphere wedge, the 168-collineation rational third-homology representation, and minimal induced-subcomplex homology carriers. Their claims concern the whole complex, homology character, or induced vertex supports, not the simultaneous geometric fixed spaces of 412 arbitrary nonidentity subgroups. Barmak's foundational independence-complex paper and Tsukuda's incidence construction do not evaluate these subgroup-fixed spaces. An unindexed or differently termed equivalent fixed-locus table remains a risk.
+PASS
 
-**Value: PASS.** This is a natural complete finite classification on the smallest thick rank-two spherical building's incidence graph. Noncyclic subgroup-fixed spaces and the mixed homotopy type \(S^1\vee S^2\) cannot be read off from the nonequivariant wedge of six three-spheres or the ordinary homology character. All six homotopy types have explicit complete subgroup frequencies, providing reproducible comparison data for equivariant topology of independence complexes.
+Exact group generation from 168 GL_3(F2) collineations and 168 polarity compositions gives 336 automorphisms; subgroup-adjoining closure is exhaustive because every finite subgroup has a generating sequence. 413 subgroups split into 23 classes. Fixed barycentric coordinates are constant on each vertex orbit, giving a PL orbit-face model with all orbit unions independent. The inspected certificate code enumerates 22 nontrivial representatives, tests every elementary collapse at deletion, checks sphere surfaces by edge incidence and connected cycle vertex links/Euler characteristic, checks two spheres meeting in exactly a filled triangle and the extra-edge sphere-circle case. Independently generated all 413 subgroups and classified all 22 representative fixed orbit complexes via exact mod-2 chain ranks, reproducing weighted ranks: 21 H2^2;14 H1+H2;42 H1^2;17 reduced H0;301 zero;17 empty. The independent F2 ranks are corroboration, not an integral homotopy proof; inspected collapses/surface gluing supply integral types.
 
-**Limits.** The result is not an infinite-family theorem; it does not determine the entire genuine equivariant homotopy type or normalizer representations. Exhaustive publication priority and independent mathematical review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge substantive comparison with exact mathematical statements and implications, not matching wording. An equivalent formulation would be the 22 conjugacy classes of subgroup orbit-independent-set complexes under all graph collineations and point-line dualities, not the subcomplex of individually fixed vertices. Previously recorded ambient Heawood homotopy, homology carriers and point-line building topology are different topological objects/invariants.
+
+## value
+
+PASS
+
+A complete geometric fixed-space atlas for all symmetries of the canonical Heawood independence complex is a natural finite classification. The nontrivial appearance of S2∨S1 and S2∨S2 despite ambient ∨6 S3 is meaningful equivariant information; it is not recoverable solely from the ambient homotopy type or rational characters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
