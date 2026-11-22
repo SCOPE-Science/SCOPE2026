@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The graph and face predicate are fixed exactly; enumeration covers all 33-vertex subsets satisfying the predicate, and a separate cyclic transfer computation confirms the full 732,802-face cardinality profile. Two complete ascending/descending acyclic Morse matchings are independently reconstructed in the bundled checker, including all 5,573,766 Hasse incidences. Each matching leaves one critical zero-cell, eighteen critical six-cells, and sixteen critical seven-cells. Both exact signed \(18\times16\) boundary matrices reduce integrally by fifteen unimodular unit pivots with no nonzero residual entries; their Smith invariants are all one. Dimension-six attaching maps of seven-cells are determined by these matrices, yielding \(\bigvee^3S^6\vee S^7\). All verification code and its matrices are embedded.
+## correctness
 
-## Originality (PASS against checked material)
-The nearest work is Antolín Camarena and Carnero Bravo, *Homotopy type of the independence complex of some categorical products of graphs* (arXiv:2307.12401; Theorem 23(c), Question 24). It gives a two-degree restriction and raises integral torsion-freeness, but does not compute these ranks or eliminate Moore-space summands for \(C_{11}\times K_3\). Carnero Bravo's subsequent *On independence complexes of graph products* (arXiv:2505.06457) treats products with a path factor. Comparable exact calculations at cycle lengths seven, eight, and ten do not imply this eleven-cycle case. Searches under categorical/tensor/direct-product, independence/clique-complement, and 33-vertex circulant terminology found no equivalent result. An unindexed equivalent computation is the remaining bibliographic risk.
+PASS
 
-## Value (PASS)
-This resolves a particular 33-vertex case of an explicitly published integral-torsion question and gives a complete nonequivariant homotopy type, including the two sphere multiplicities, beyond the known two-degree constraint. The eleven-cycle is the next length in the \(3r+2\) subfamily after the eight-cycle and thus is structurally motivated rather than an arbitrary graph. This finite determination neither proves the conjecture for all lengths nor yields an asymptotic formula.
+The graph is exactly 33 vertices with 66 categorical-product edges and all independent face sets were exhaustively reconstructed (732802 including empty). An independent eight-state cyclic transfer count reproduces each of the 16 face-size coefficients. Independent native Python reconstruction, not execution of opaque source code, built both ascending and descending stage matchings: each has 366383 pairs and unmatched faces in dimensions -1:1, 0:1, 6:18, 7:16. For each, a complete Kahn sort of the 732802-face directed Hasse graph validated acyclicity over 5573766 incidences. Recursion from signed simplicial boundaries rebuilt both 18×16 Morse matrices with the same entries as the supplied JSON certificate. Independent SymPy integer Smith normal form yielded exactly fifteen unit entries and one zero for both. The acyclic Morse CW model has no cells in dimensions 1–5, so its 6-skeleton is a bouquet of 18 S6. By π6(∨18S6)=Z18 and unimodular degree-one cancellation, 15 six/seven-cell pairs cancel, leaving ∨3 S6 ∨ S7; integral torsion vanishes. This proves exactly the finite C11 × K3 statement, not a family theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original as an exact integral non-equivariant homotopy classification at the previously unlisted cycle length 11. Primary 2023/2024 article only constrains homology to degrees 6 and 7 while allowing torsion; 2025 paper covers path factors. Earlier published exact C7,C8,C10 cases and all-color C7 theorem do not cover C11 or imply its Smith data. Self-identical indexed copy excluded from priority evidence; no mathematically covering predecessor located.
+
+## value
+
+PASS
+
+This is the next natural 3r+2 cycle-length instance after C8 for the explicit integral torsion question in Antolín Camarena–Carnero Bravo (2023/2024), and it gives the exact previously undetermined homotopy type of a canonical 33-vertex categorical graph product. The two sphere multiplicities and absence of Moore summands are natural integral invariants not forced by the degree-support theorem or by m=7,8,10. A complete 732802-face finite classification is mathematically substantive without needing a general theorem; scope is correctly bounded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
