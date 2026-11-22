@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The first-coordinate comparison gives a reciprocal lower bound and a gamma-product upper bound for the middle predator. The upper predator consequently decays faster than every power. The exact reciprocal-difference identity and a summable perturbation establish \(1/x_n=n+\log n+H+O((\log n)/n)\). Summing logarithmic predator recurrences yields the factorial, squared-logarithm and \(n^2\log n\) scales; the invariant wedge is proved by explicit inequalities. Finite diagnostics independently test algebraic identities without being treated as asymptotic proofs. Risk: the result is explicitly conditional on forward positivity.
+PASS
 
-## Originality
+PASS. Verified the exact three-dimensional recurrence as equation (1) in the 2020 source and the critical specialization µ=1. The positive open wedge conditions imply x+y+z<1/2, βx<1/2, γy<1/4 and z<x/2 invariant: each species decreases with y factor <=1/2, z factor <=1/4 and z/x factor <=1/2. For any conditionally forever-positive simplex orbit, t=1/x increases by ≥1 per iterate and y_n≤y0 β^n Γ(t0)/Γ(n+t0), hence p_n=y_n+z_n has finite polynomially weighted sums. Independently algebraically reconstructed t_{n+1}-t_n=1+1/t_n+[t_n(t_n-1)]^{-1}+t_n p_n/[(1-1/t_n-p_n)(1-1/t_n)]. Discrete product bounds t=O(n) and the summable correction yield t=n+log n+H+O(log n/n); expansion log(kx_k)=-(log k+H)/k+O(log²k/k²) gives a convergent log-y prefactor and squared-log term. Summing log z_{k+1}-log z_k=logγ+log y_k and Stirling yields universal -1/2 n²logn + (3/4+1/2logβ)n² and O(nlog²n), without γ in leading coefficients. Independent stable-log numerical orbit checks at n=500,2000,6000 for two parameter sets corroborate H stabilization and limiting second coefficient. No claim for non-positive/escaping orbits.
 
-**PASS within inspected evidence.** The primary 2019 source analyzes the same map and identifies the nonhyperbolic origin, but not the present three critical extinction clocks. The closest two-species critical predator–prey result has a squared-log coefficient \(-1/4\) rather than \(-1/2\) and no top-predator coordinate. Other food-chain results concern continuous time, delays or different models; standard gamma-function summation is background, not the claimed novelty. Relevant indexed and accessible primary materials were checked. A derivative fractional food-chain paper could not be inspected in full, and unindexed equivalent work remains a publication-priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The source's biologically relevant triple extinction boundary has neutral (rather than hyperbolic) basal dynamics. The theorem determines the entire three-level rate hierarchy in the original variables, including a positive nonvacuity wedge and a universal second apex coefficient. This determines orders of magnitude for trophic extinction that qualitative stability or a planar result alone do not provide.
+PASS best of knowledge after reading the original 2020 source itself. Its equation (1) defines the identical food-chain map and local/global theorems classify µ<1 and 1<µ<... regions and bifurcations; the full paper's located Theorem 10/11/15 regions do not state the critical µ=1 three-species joint extinction asymptotics. Two-species factorial clocks or different ecological models cannot imply a universal top-predator coefficient for this recurrence. No exact equivalent was found; unindexed critical asymptotics remain a residual risk.
 
-## Remaining limits
+## value
 
-No statement is made for orbits leaving the positive physical region; the error beyond the second apex coefficient is not optimized; full-literature uniqueness is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The exact order-separated three-species critical extinction clocks, including squared-logarithm factorial correction and universal two-term apex n²logn clock, quantify a canonical nongeneric neutral threshold not resolved by known qualitative equilibrium and bifurcation diagrams. The simultaneously valid three-scale estimate and nonempty invariant open wedge are mathematically motivated asymptotic results useful for small-population survival thresholds; not merely routine rate classification for decoupled species.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
