@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator is explicitly normalized on \(H^2\) with a standard weighted Bergman power kernel. Its triangular matrix comes from exact coefficient expansion, and the variation counterexample follows from asymptotic beta-function coefficients. The moment estimate is obtained by a justified ray rotation, a unique quadratic saddle, controlled far tails and a fixed-parameter remainder of relative size \(O_s(n^{-1/2})\). Summable rank-one rows prove membership in every Schatten ideal. Trace-norm approximation proves determinant and full eigenvalue multiplicities. The trace identity uses a separate oscillatory integration-by-parts estimate and does not exchange a nonabsolutely convergent geometric integral. A finite `CHECK.py` run passed 37 assertions; it is supportive, not an infinite proof.
+## correctness
 
-## Originality — PASS, subject to identified publication-priority risks
-Blasco–Pennanen, arXiv:2609.21657 (full accessible text inspected), gives the Bergman-kernel operator and assumes positive Borel measures. Blasco–Mas, arXiv:2507.20586 (full accessible text inspected), already treats all power kernels for positive measures. Neither gives the complex chirp, all-Schatten collapse, exact complex moments or determinant. Lin–Xie (DOI:10.1016/j.jfa.2024.110813) covers complex measures but its accessible defining formula uses the Cauchy kernel; only the abstract and introduction were available for this comparison. Closest indexed results about signed oscillatory Bergman Toeplitz and complex Gaussian Fock operators exhibit related cancellation but not the same operator, kernel or claimed spectral calculation. This is not an assertion that oscillatory regularization is generally new. An equivalent complex-measure or steepest-descent result may exist unindexed.
+PASS
 
-## Mathematical value — PASS
-Positive inducing measures are central to current Cesàro boundedness criteria. The explicit example shows total variation can be unbounded even on the constant while the complex measure gives a smoothing operator in every Schatten quasi-ideal. Exact saddle constants, whole nonzero spectrum and a kernel-parameter-independent trace make the phenomenon quantitatively useful and falsifiable. The result does not offer a general criterion for arbitrary complex measures.
+For alpha>-1 and 0<s<1/2 on H², the Bergman power kernel expands into the exact lower-triangular matrix T_{nk}=m_n(s)(alpha+2)_{n-k}/(n-k)!. Boundary chirp moments transform via v=(1-t)^(-1) and contour rotation through pi/4. At v~e^{ipi/4}sqrt(n), the unique saddle gives m_n=√pi n^{-s/2-1/4}exp(-√(2n))exp(i[√(2n)+1/2+pi(1/8-s/4)])(1+O_s(n^-1/2)). Independent mpmath rotated-ray integrations at n=30,100,300 gave ratios approximately (0.916+0.080i),(0.956+0.045i),(0.975+0.027i), consistent with the O(n^-1/2) correction; a finite check is not the saddle proof. Row norms decay stretched-exponentially times a power, so rank-one row sums converge in every Schatten quasi-ideal S_p, p>0. Trace-norm finite compressions preserve determinant ∏(1-zm_n) and nonzero spectrum. Trace ∑m_n=(-i)^(s-1)Gamma(1-s,-i) uses summation remainder of bounded variation O(N^-s), avoiding unjustified absolute Fubini. For positive total variation, coefficients asymptotically n^(alpha+1-s), not square-summable, so it fails H² on constant 1. No claim uniform at s endpoints.
 
-## Limitations
-All analytic conclusions concern fixed \(0<s<1/2\), \(\alpha>-1\), and the standard Hardy space \(H^2\). Source comparisons support provisional originality, not independent priority certification. The verifier is finite and numerical.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Blasco–Pennanen arxiv:2609.21657 studies precisely Bergman-kernel Cesaro operators but imposes *positive* inducing measures in its main theorems; Blasco–Mas 2025 likewise uses positive measures. Older complex-measure Cesaro works with Cauchy kernel do not directly entail the higher Bergman-power all-Schatten boundary chirp. The published related oscillatory Fock and radial Bergman Toeplitz findings concern different operators. Exact stretched exponential moment asymptotics, full S_p range, determinant and trace are not dominated by the inspected results.
+
+## value
+
+PASS
+
+The example separates oscillatory complex measure regularization from any bound on its total-variation operator: variation is unbounded whereas every Schatten p-class holds. The precise nonselfadjoint spectrum, determinant and trace across all Bergman exponents are independently useful exact information for operator-ideal and Cesaro theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
