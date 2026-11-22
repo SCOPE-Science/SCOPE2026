@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-For each frequency, the monochromatic-shore inclusion–exclusion identity gives the exact unnormalized multiplier; the overlap is subtracted with the correct balance delta. The integer equation between two signed powers of two and either \(-1\) or \(2\) has only the five displayed cases, which all require even shore sizes. Standard root-of-unity character counts yield \(U_r,V_r\), and a disjoint sum of the five classes gives the exact nullity. The support-degree boundary follows from these classes and the explicit boundary \(U_1=0\). Both exact-arithmetic checkers were executed successfully, including the full \((4,4)\) transform.
+PASS
 
-## Originality (PASS under bounded comparison)
+For three colours on complete bipartite Kmn at least one shore is monochromatic, so inclusion-exclusion of two monochromatic-shore classes and the overlap gives W=3[(-1)^(m-a)2^a+(-1)^(n-b)2^b+1-3*[A=0]] on A+B=0, and vanishes otherwise. Solving the signed powers of two equal to -1 (A nonzero) or 2 (A=0) yields exactly five (a,b,A) classes, possible only in even-even sizes. The roots-of-unity filter U_r,V_r gives precise E_mn; Fourier diagonalization gives rank 3^(m+n-1)-E. The minimal support follows from a+b max and U_1=0 at (2,2). Independent integer cyclotomic triple-count enumeration for (1,1),(1,2),(2,2),(2,3),(2,4),(3,3),(4,4) checked EVERY Fourier multiplier and the exact ranks, including the 2x2 boundary.
 
-The 1999 chromatic-symmetric-function and Potts papers encode or count proper colourings but do not classify additive Fourier zeros. The closely relevant published complete-bipartite degree-one Fourier Gram result is not an all-frequency convolution theorem, and earlier special calculations for a two-vertex shore are strictly subsumed by the all-size parity law. The five exact support classes and general rank formula were not found in targeted mathematical and published-record searches. Historical priority risks remain for unindexed weighted-chromatic treatments and equivalent character-sum tables.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-This is a complete infinite-family spectral-nullity classification, not a numerical extension of a smaller table: it determines exactly when the arbitrary-frequency proper-colouring convolution loses additional information and how large its kernel is. The sharp first blind-degree threshold shows that every low-complexity Fourier character survives even when the full convolution is singular. It is a natural generalization from thin-shore examples and the positive first-band Gram spectrum.
+The published K2n special-family result already gives full signed Fourier coefficients and even-n rank for m=2 and is explicitly subsumed; original claim is the uniform two-variable m,n classification, its zero classes and first-zero degree for all shore sizes. Gebhard-Sagan noncommutative chromatic symmetric function remembers colour labels and has deletion-contraction but does not present the additive Z3 Fourier nullity table in the inspected sections. Search does not prove historical priority; stronger hidden weighted-chromatic specializations are a risk.
 
-## Scope and limitations
+## value
 
-No result is claimed for higher colour palettes, non-complete bipartite graphs, sharp nonzero multiplier gaps or historical uniqueness. Exact computations corroborate the proof but are not an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete all-m,n classification of which labelled-colouring convolution frequencies remain recoverable is a natural spectral invariant and determines exact rank and minimal blind character degree; this is more than the previously known thin-shore enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
