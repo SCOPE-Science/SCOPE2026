@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gaussian covariance is \(1+a r^{2m}+r^{4m}\), and the distributional logarithmic-potential identity yields the stated planar zero density with factor \(1/(4\pi)\). Differentiation in \(x=2m\log r\) reduces the entire radial critical-point problem to \(h_a(x)=1/m\). The exact derivative comparison is affine in \(\cosh x\), proving the unique negative-radius-logarithm maximum and at most two further stationary points. The peak-height calculation gives the one and only threshold \(4m^2(u-1)^3=4u^3-1\). The tangency and \(m^{-2/3}\) law follow by nondegenerate Taylor expansion. Endpoint conditions, coefficient variance normalization, the origin, and the distinction between area and radial density were checked. `CHECK.py` passed 149 finite assertions; these are not substituted for the global argument.
+## correctness
 
-## Originality — PASS with bounded priority risk
-The starting expected-density formula is classical, not claimed new. Kiro–Nishry's covariance-kernel framework includes the requisite intensity formula, but its inspected statements concern zero-count and variance estimates, not the sharp global one- or two-annulus count and cubic variance threshold. Kawada's 2026 paper treats iid dense polynomial coefficients and limiting radial zero counts; it does not assert this sparse finite-degree peak bifurcation. Comparisons with published mathematical records about deterministic Fock intensities, two-ring Fock localization, and Gaussian spectrogram zeros concern different quantities; none of the inspected statements directly supplies the all-degree threshold. Searches for the equivalent three-atom exponential-family variance formulation and parameter equation identified no decisive stronger theorem. This is not a proof of publication priority: older specialized trinomial or exponential-family work could contain the same classification.
+PASS
 
-## Mathematical value — PASS
-The model is the minimal three-term Gaussian analytic polynomial capable of a tunable split of its expected zero cloud into two annular density peaks. The exact one-versus-two ring classification holds for *all* integers \(m\ge2\) and positive middle variances, including the degenerate boundary. The unexpectedly simple cubic in \((a/4)^{2/3}\), the square-root fold, and the sharp \(m^{-2/3}\) critical shift give a reproducible structural benchmark for lacunary random-polynomial zero geometry. The classification is not merely a substitution into the known covariance formula: the global critical-point count and all-degree threshold require the separate monotonicity and critical-value arguments.
+For m>=2 and a>0, the standard complex Gaussian logarithmic potential gives expected planar density (4pi)^(-1)Delta log(1+a*r^(2m)+r^(4m)). Independent differentiation yields exactly rho=2m²/(pi*r²)*(a cosh x+2)/(a+2cosh x)^2 with x=2m log r, including rho->0 at r->0/infinity and expected total degree 2m. Derivative in x of log rho equals h_a(x)-1/m; independently verified its rational hyperbolic derivative identity. The sign of h_a prime reduces to one affine comparison in cosh x, allowing at most one local maximum on x>0. For a>4 its positive hump has height H(a)=2(t²-1)^(3/2)/sqrt(4t^6-1), t=(a/4)^(1/3), increasing strictly from 0 to 1; equality to 1/m has exactly one u=t²>1 solving 4m²(u-1)^3=4u^3-1. Below/on/above threshold there are zero/one tangency/two positive-x derivative roots; the unique negative-x maximum persists, so the one-to-two strict radial maxima classification holds. The tangency is cubic shoulder not peak; nondegenerate fold follows from second and parameter derivatives. The asymptotic m^(-2/3) follows from the defining cubic. Numerical root checks are supportive only; the sign derivation handles the full real radius domain.
 
-## Relationship and limitations
-Kiro–Nishry, *Fluctuations for zeros of Gaussian Taylor series* (2021), DOI 10.1112/jlms.12457; Kawada, *Universal Radial Laws for Random Polynomials* (2026), arXiv:2610.11324; classical Edelman–Kostlan expected-zero identity. Only expected planar intensity is covered, not realizations or radial-count density. There remains a possible overlooked equivalent classification in older literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the Edelman–Kostlan formula is classical but the sharp number-of-annular-maxima threshold for the variance-tuned three-monomial ensemble is a nontrivial new modality statement absent from inspected comparable Gaussian-zero and deterministic Fock peak papers. Historical special sparse-ensemble literature could contain an equivalent and remains a residual priority risk.
+
+## value
+
+PASS
+
+A natural three-coefficient Gaussian analytic ensemble has a sharp transition from one to two annular peaks in its expected zero density. The exact all-degree algebraic threshold, cubic shoulder, square-root fold and asymptotic m^(-2/3) displacement quantify nontrivial geometry beyond application of the known general intensity identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

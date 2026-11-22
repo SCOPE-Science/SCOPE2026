@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical finding
+# Independent mathematical audit
 
-The analytic proof is in `RESULT.md`. It independently derives the correct planar-area normalization and reduces all nonzero radial critical points to the sign equation \(h_a(x)=1/m\), where \(h_a'\) is controlled by an affine function of \(\cosh x\). It establishes the number and nature of the extrema for all integer degrees \(m\ge2\) and middle variances \(a>0\), including the tangency boundary.
+## correctness
 
-Run `python CHECK.py` using only the Python standard library. The code compares independent formulas for the expected intensity, finite-differences the exact derivative of the logarithmic profile, tests the cubic critical equation and tangent condition, samples strictly subcritical and supercritical stationary root counts, and checks large-degree scaling. The actual saved candidate replay passed 149 numerical assertions. These checks do not prove an all-parameter theorem; that follows from the exact sign argument.
+PASS
 
-No computer-assisted proof system or independent audit was used. The outcome is a self-review only; publication priority and independent correctness review remain open. The result concerns the expected planar density and does not imply a typical sample has one or two rings.
+For m>=2 and a>0, the standard complex Gaussian logarithmic potential gives expected planar density (4pi)^(-1)Delta log(1+a*r^(2m)+r^(4m)). Independent differentiation yields exactly rho=2m²/(pi*r²)*(a cosh x+2)/(a+2cosh x)^2 with x=2m log r, including rho->0 at r->0/infinity and expected total degree 2m. Derivative in x of log rho equals h_a(x)-1/m; independently verified its rational hyperbolic derivative identity. The sign of h_a prime reduces to one affine comparison in cosh x, allowing at most one local maximum on x>0. For a>4 its positive hump has height H(a)=2(t²-1)^(3/2)/sqrt(4t^6-1), t=(a/4)^(1/3), increasing strictly from 0 to 1; equality to 1/m has exactly one u=t²>1 solving 4m²(u-1)^3=4u^3-1. Below/on/above threshold there are zero/one tangency/two positive-x derivative roots; the unique negative-x maximum persists, so the one-to-two strict radial maxima classification holds. The tangency is cubic shoulder not peak; nondegenerate fold follows from second and parameter derivatives. The asymptotic m^(-2/3) follows from the defining cubic. Numerical root checks are supportive only; the sign derivation handles the full real radius domain.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the Edelman–Kostlan formula is classical but the sharp number-of-annular-maxima threshold for the variance-tuned three-monomial ensemble is a nontrivial new modality statement absent from inspected comparable Gaussian-zero and deterministic Fock peak papers. Historical special sparse-ensemble literature could contain an equivalent and remains a residual priority risk.
+
+## value
+
+PASS
+
+A natural three-coefficient Gaussian analytic ensemble has a sharp transition from one to two annular peaks in its expected zero density. The exact all-degree algebraic threshold, cubic shoulder, square-root fold and asymptotic m^(-2/3) displacement quantify nontrivial geometry beyond application of the known general intensity identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
