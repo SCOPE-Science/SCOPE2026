@@ -1,15 +1,21 @@
-# Review of the near-maximal boundary-triangle inradius law
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The main domain is every fixed nondegenerate Euclidean parent triangle under three independent, uniform perimeter samples. The strict maximal-inradius argument localizes all small deficits at the three original vertices. The six positive first-order loss rates are derived from an exact area/perimeter calculation; independent coordinate finite differences confirm them. Each of eight corner routes has a three-dimensional linearized simplex with volume \(\varepsilon^3/(6\prod\lambda)\), and the six label permutations cancel the denominator \(6\). Uniform local remainder bounds justify dominated convergence. Factored route weights give limiting independence, and convergence of the rescaled conditional densities in \(L^1\) gives total variation. A Maclaurin/AM–GM chain gives the exact global minimum \(64/27\), attained only for equilateral triangles. The numerical checker passed for three non-similar shapes. No finite simulation was used as proof of a limit.
+## correctness
 
-## Originality
-**PASS, with residual historical risk.** The closest accessible archival geometrical-probability sources discuss two area-uniform points in a triangle (Tong–Ahmadi–Pan, 2013) or Gaussian vertex triangles and shape spaces (Edelman–Strang, 2015). Their accessible public HTML texts were inspected through abstracts, section reviews and targeted checks; their stated results do not address three arclength-uniform points on one fixed triangle and the near-maximal inradius tail. Indexed 2026 results on circular inradii, host-boundary triangle areas, and maximal area triangles were compared by full claims; their hypotheses/observables do not imply this inradius-tail coefficient or the route law. Searches may miss older literature, especially implicit multivariate small-ball arguments; priority remains provisional. The novelty claim excludes elementary inradius identities and ordinary first-order Taylor expansion.
+PASS
 
-## Value
-**PASS.** The host incircle is a canonical extremal object, and the probability of a three-point random inscribed triangle almost reproducing it is a natural precise geometric rarity. The closed formula distinguishes parent triangle shapes; the sharp equilateral minimizer is a complete all-triangle extremal comparison, not an arbitrary numeric slice. Independent corner-side choices and a universal conditional simplex law explain the rarity mechanism and provide a marked distribution that a scalar tail cannot reveal. The result is restricted to this natural sampling model and does not imply a general random-polygon theorem.
+The host triangle is the unique inradius-maximizing inscribed triangle: an r-disk in a contained triangle must coincide with unique host incircle and force all three tangency support lines. Near-maximal sample triples thus localize at distinct host corners. Each of six inward motions has positive linear loss: at vertex A toward B, lambda=r(s-c)/(bc), and toward C lambda=r(s-b)/(bc). The eight local arclength charts have loss sum(lambda_i t_i)+O(||t||²); positive slopes give a uniformly bounded rescaled simplex. Six sample permutations cancel simplex volume 1/3!, yielding K=P^-3 product_i(sum_routes 1/lambda_i), equivalent to the announced abc/semiperimeter formula. Conditional route probabilities factor and scaled coordinates converge in total variation to uniform three-simplex by L1 convergence of densities. Writing u=(s-a)/s etc, p=uv+uw+vw, q=uvw, G=(p-q)^3/(8q²); Maclaurin/AM-GM yield G>=64/27 with equilateral equality.
 
-## Scientific limits
-Independent audit and exhaustive historical verification have not occurred. Limit statements are pointwise for fixed nondegenerate parent triangles; neither simultaneous degeneration nor the full inradius distribution is determined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result is for N=3 independent arclength-uniform points on fixed triangular boundary and the near-host-incircle upper tail. Full Resultary prior boundary-triangle work computes expected hull area for all N, or N->infinity maximal triangle area, not this inradius rare-event law; cyclic circle inradius distribution is a different support geometry. The inspected Edelman–Strang random-triangle paper treats normal/Gaussian angle-space law rather than a fixed triangular host. Best-of-knowledge originality with residual possibility of an earlier general corner-cone rare-event theorem.
+
+## value
+
+PASS
+
+Sharp near-extremal endpoint probability, its explicit continuous shape coefficient and equilateral optimizer, and a marked total-variation simplex/independent-route limit form a natural nontrivial geometric probability theorem. The inradius observable is geometrically distinct from area/perimeter; complete local-tail classification for any triangle is worthwhile despite a three-point finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

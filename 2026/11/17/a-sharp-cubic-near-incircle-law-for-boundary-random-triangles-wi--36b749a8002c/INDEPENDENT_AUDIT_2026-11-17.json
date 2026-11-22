@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:55:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The host triangle is the unique inradius-maximizing inscribed triangle: an r-disk in a contained triangle must coincide with unique host incircle and force all three tangency support lines. Near-maximal sample triples thus localize at distinct host corners. Each of six inward motions has positive linear loss: at vertex A toward B, lambda=r(s-c)/(bc), and toward C lambda=r(s-b)/(bc). The eight local arclength charts have loss sum(lambda_i t_i)+O(||t||²); positive slopes give a uniformly bounded rescaled simplex. Six sample permutations cancel simplex volume 1/3!, yielding K=P^-3 product_i(sum_routes 1/lambda_i), equivalent to the announced abc/semiperimeter formula. Conditional route probabilities factor and scaled coordinates converge in total variation to uniform three-simplex by L1 convergence of densities. Writing u=(s-a)/s etc, p=uv+uw+vw, q=uvw, G=(p-q)^3/(8q²); Maclaurin/AM-GM yield G>=64/27 with equilateral equality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/10/18 theorem gives normalized expected convex-hull AREA for N>=3, not inradius distribution or marked route law",
+          "2026/11/8 theorem gives N->infinity maximum AREA asymptotics and two-moment inversion, not fixed N=3 near-inradius upper endpoint"
+        ],
+        "reasoning": "Neither stronger-looking all-N area expectation nor N-asymptotic maximal area bounds the inradius near its maximum sharply, since observables and limit regimes differ.",
+        "searches": [
+          "Resultary 2026/10/18 exact finite-sample area boundary random triangles",
+          "Resultary 2026/11/8 stochastic envelope largest area from N boundary points",
+          "general boundary polytope random hull local corner law"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and check_inradius.py source; independent finite-difference corner slopes verified for equilateral, scalene and right triangles",
+        "Direct independent K_T/G_T calculations for three host geometries; G_equi=64/27",
+        "Full primary-result comparisons in 2026/10/18, 2026/11/8 and cyclic inradius 2026/10/25",
+        "Resultary semantic searches on boundary-triangle inradius, area, circumradius and corner tails"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-N expected area theorem does not imply the distribution of inradius for N=3",
+          "The cyclic inradius theorem has near-equilateral upper tail of order epsilon, whereas fixed triangular host yields epsilon^3",
+          "The proposed total-variation mark law requires three independent corner charts that those prior theorems do not treat"
+        ],
+        "reasoning": "Explicit premise/outcome comparison shows prior statements do not logically imply the K_T constant or independent side-choice/simplex mark law for this model.",
+        "searches": [
+          "Full Resultary 2026/10/18 RESULT.md",
+          "Full Resultary 2026/11/8 RESULT.md",
+          "Resultary 2026/10/25 cyclic inradius full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/25 cyclic model uses 3 points on one circle with upper tail linear at radius1/2, distinct from fixed triangle three-corner cubic tail",
+          "Edelman–Strang normal-vertex triangle model uses a different probability measure"
+        ],
+        "reasoning": "Equivalent formulations include incircle-radius deficit for an inscribed triangle of a fixed polygon and the three-corner local cone limit. Neither searched cyclic nor Gaussian-model formula is equivalent through simple parameter substitution.",
+        "searches": [
+          "Resultary: boundary random triangle inradius near maximal parent incircle cubic law",
+          "Random Triangle Theory with Geometry and Applications arXiv:1501.03053",
+          "Resultary 2026/10/25 full inradius random cyclic triangle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/18 exact corner law for circumradii describes a SMALL-radius event for other observable",
+          "No comparable tabulated K_T, G_T, or marked simplex route distribution found"
+        ],
+        "reasoning": "There is no located exact database table for this upper inradius tail over all host triangles; finite sample numerics do not establish novelty.",
+        "searches": [
+          "Resultary: exact inradius probability boundary triangular polygon three points",
+          "Resultary: corner law circumradius random polygon triangles",
+          "Google/web: three random points triangle perimeter inradius upper tail asymptotic"
+        ]
+      },
+      "rationale": "The result is for N=3 independent arclength-uniform points on fixed triangular boundary and the near-host-incircle upper tail. Full Resultary prior boundary-triangle work computes expected hull area for all N, or N->infinity maximal triangle area, not this inradius rare-event law; cyclic circle inradius distribution is a different support geometry. The inspected Edelman–Strang random-triangle paper treats normal/Gaussian angle-space law rather than a fixed triangular host. Best-of-knowledge originality with residual possibility of an earlier general corner-cone rare-event theorem.",
+      "residual_risks": [
+        "An unindexed general local-cone geometric probability theorem could contain this corner coefficient as a special case; not ruled out by semantic searches.",
+        "No quantitative convergence rate or uniformity for degenerating parent triangles is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the inradius upper tail or marked near-incircle limit",
+          "evidence": "Finding is E[area(H_N)]/area(T) explicit, whereas present result is P(inradius(T_3)>r-epsilon) with power 3",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-finite-sample-area-and-sharp-shape-order-for-boundary-rand--69daac1de0bc/RESULT.md",
+          "material_read": "Entire RESULT.md: theorem, conditional multinomial area formula, Schur ordering, proof and limitations",
+          "method": "GitHub connector complete source file",
+          "title": "Exact finite-sample area and sharp shape order for boundary-random triangles",
+          "trigger": "Exact same host and uniform perimeter model"
+        },
+        {
+          "assessment": "Different observable, N->infinity limit, and corner loss functional",
+          "evidence": "Normalized maximal area deficit N(1-H_N/A) has hypoexponential limit, not fixed-N upper-tail inradius law",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-stochastic-envelope-and-two-moment-shape-inversion-for-m--7f674d2377d7/RESULT.md",
+          "material_read": "Entire RESULT.md: N-asymptotic area maximum, proof, two-moment shape inversion",
+          "method": "GitHub connector complete source file",
+          "title": "A sharp stochastic envelope and two-moment shape inversion for maximal triangles sampled on triangular boundaries",
+          "trigger": "Same arclength sampling and vertex-corner localization"
+        },
+        {
+          "assessment": "Its Gaussian/angle random triangles are not established as a direct implication of the current arclength-perimeter law; priority risk remains",
+          "evidence": "Sampling is from normal random vertex coordinates and shape space, rather than 3 iid points on the sides of a deterministic triangle",
+          "identifier_or_url": "https://arxiv.org/abs/1501.03053",
+          "material_read": "PDF cover/abstract and introductory probabilistic model; full document not independently read",
+          "method": "arXiv PDF first-page screenshot and context",
+          "title": "Random Triangle Theory with Geometry and Applications",
+          "trigger": "Plausible triangle-probability monograph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp near-extremal endpoint probability, its explicit continuous shape coefficient and equilateral optimizer, and a marked total-variation simplex/independent-route limit form a natural nontrivial geometric probability theorem. The inradius observable is geometrically distinct from area/perimeter; complete local-tail classification for any triangle is worthwhile despite a three-point finite sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed nondegenerate host T only; no simultaneous collapse or nonuniform sampling.",
+    "Numerical probabilities at epsilon>0 are only diagnostics, not asymptotic proof."
+  ],
+  "schema_version": 1
+}
