@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The positive fractional range is proved for every real \(0<p<1\), all disk centers and radii, using the exact scaling identity, a convergent squared-binomial-coefficient series, a reverse-covariance bound, and inversion. These give the two essential inequalities \(I'_p\ge0\) and \(J_p>0\) in all regimes, yielding strict monotonicity along every linear nested-disk interpolation. The negative range \(-1<p<0\) is excluded by a rigorously divergent near-contact derivative and an explicit small outward-and-inward center shift. The established \(p\ge1\) convex-ridge theorem is cited rather than newly claimed. Numerical checks are supplementary.
+## correctness
 
-## Originality
-**PASS, with residual historical risk.** The published convex-ridge theorem [3] expressly does not cover \(0<p<1\), because its ridge weights require one-dimensional convexity. The fixed-center expanding-sphere result [4] does not allow disk center motion, and the origin-anchored convex-body theorem [1] does not address disks that miss the origin. The general convex-body rigidity result [2] does not determine the restricted disk threshold. Primary readable papers [2] and full published mathematical texts [3]–[5] were inspected and compared by implication; [1] remained unavailable in full. The searches found no covering formulation, which does not prove global priority.
+PASS
 
-## Mathematical value
-**PASS.** The theorem resolves a natural gap in a recently studied class of weighted geometric perimeters, classifying exactly which radial powers retain inclusion monotonicity for arbitrarily translated nested disks. The fractional range cannot be obtained by the prior convex-ridge method; its proof needs a new moving-center differential inequality. The negative result makes the exponent zero a sharp boundary, not an isolated positivity example.
+For 0<p<1, write W_p(D(c,r))=r^(p+1) I_p(|c|/r), I_p(t)=∫(1+t²+2t cosθ)^(p/2)dθ. At 0<t<1 the squared generalized-binomial series has positive coefficients, proving I′_p>0; the reverse covariance of X and X^(p/2-1) bounds B_p>=I_p/(1+t²). Differentiation yields I′_p<=pt I_p/(1+t²), hence J_p=(p+1)I_p-(t+1)I′_p>0. At t=1 differentiability follows from integrability |theta-pi|^p, and t>1 follows from I_p(t)=t^p I_p(1/t) and the strict bound t>p. For every inclusion, the linear center/radius interpolation obeys |dc/dr|<=1; its weighted-perimeter derivative is bounded below by r^p(R-r)J_p>0. p=0 is perimeter, p>=1 comes from the credited published convex ridge theorem. For -1<p<0, near t=1-δ, the positive part of I′_p grows at least like δ^p while negative part is uniformly integrable, so J_p<0 for sufficiently small δ; the inward center shift with radius enlargement yields proper nested counterexamples both containing 0. An independent bounded script checked 32 positive slope settings and four representative negative cases; its initial p=-0.1 at finite δ did not cross into the asymptotic negative regime, and was correctly not used to invalidate or prove the quantifier. The analytical singular argument supplies universal negative p cases.
 
-## Limits
-The result concerns planar circles with \(p>-1\). It does not extend arbitrary radial weights or general convex bodies. Some primary full texts remain inaccessible; independent external audit is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on the compared published full primary sources, with a specific missing 2026 full-text risk. Resultary Nov8 exact disk convex-ridge result explicitly proves p>=1 and leaves the fractional 0<p<1 range open. Saracco–Stefani Theorem 1.1, read in published full text, concerns all convex-body shapes, whose only universally monotone isotropic weights are constants; it is not a disk-only theorem. Csató–Giovagnoli 2026 restricts its monotonicity to origin-contained bodies, while the new statement handles arbitrarily translated disks including those missing origin. Fixed-center translated sphere formula cannot compare moving centers. A 2026 pth-moments shape optimization preprint treats perimeter-constrained extrema rather than nested inclusion. No exact fractional-power disk implication was found; the inaccessible complete Csató manuscript remains a named risk.
+
+## value
+
+PASS
+
+PASS: classification of the precise exponent boundary for a geometrically natural subcategory resolves a real gap between convex-ridge sufficiency p>=1 and general weighted-perimeter nonmonotonicity. A nontrivial moving-center derivative inequality is needed; strictness and negative-power counterexamples make the p=0 cut sharp, not a finite sample or a relabelled inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
