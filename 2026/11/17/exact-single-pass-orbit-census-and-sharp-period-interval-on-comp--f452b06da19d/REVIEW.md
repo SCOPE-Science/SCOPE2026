@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is confined to periodic configurations with exactly one firing per vertex during the least period and exactly one chip per edge. The graph-independent phase lemma follows from summing individual firing thresholds at the first firing, then uses the preceding-round-neighbor condition to obtain an if-and-only-if reconstruction. On complete multipartite graphs all firing rounds belong to unique parts; a proper cyclic part word and ordered nonempty blocks give a unique chip configuration. Multiplicity counting proves the Stirling-weighted census. The no-gap interval follows from cyclic separation and the minimum-degree Hamilton-cycle criterion applied to feasible selected part sizes. Both proofs address all positive part sizes and all periods; there is no inference from a finite enumeration to an infinite assertion. Two independent standalone programs count the same nine small graph cases, including all 20,814 critical-chip distributions.
+## correctness
 
-## Originality — PASS, qualified
-Jiang's arXiv:1003.0943, Section 4 and discussion, establishes period existence through constructions on complete multipartite graphs and explicitly gives a period-five state for \(K_{2,2,1}\). The paper's inspected relevant sections do not count the full critical-mass single-pass sector; the proposed contribution identifies all \(40\) labelled period-five states (eight temporal cycles), and supplies the all-parameter Stirling-weighted count and sharp interval. Scully–Jiang–Zhang describe which firing patterns can occur, but their inspected results do not imply the enumerative formula without a new phase-allocation and multiplicity analysis. The two-part special case of the same sector was already available and is **not** claimed to be new here. Goles–Prisner's source-reversal connection is explicitly acknowledged; its full article could not be read, so a related earlier formulation remains a priority risk. Searches of indexed mathematical claims and published literature did not identify direct covering results, but negative searches do not establish global novelty.
+PASS
 
-## Mathematical value — PASS
-This resolves a natural finite-energy orbit-enumeration question left open by mere period-existence constructions. The example singled out in the primary 2010 paper changes from one exhibited period-five state to a complete count of 40 and eight temporal orbits. The full theorem exposes the precise role of largest-part imbalance and produces every period in a sharp contiguous interval for all multipartite graphs with at least three parts. This extends beyond repeating the bipartite formula: odd periods, complete-multipartite cyclic words and an all-size sharp existence criterion enter essentially.
+At mass |E| and with each vertex firing exactly once in its least period, summing its firing-threshold inequalities over vertices forces each graph edge's endpoints to have distinct firing rounds and forces the unique initial load x(v)=d(v)-#neighbors with earlier firing times. A predecessor-phase neighbor is required to prevent early firings, including the last-to-first wrap. Conversely a surjective phase assignment satisfying the independent firing round and predecessor-neighbor conditions reconstructs a periodic single-pass state uniquely. On K_{n_i} each round belongs to one part, and proper cyclic part words plus ordered nonempty vertex partitions yield trace(B(z)^T) coefficients times products k_i! S(n_i,k_i). Capacity k_i<=floor(T/2), T<=N and T<=2(N-M) are necessary; choose k_i<=min(n_i,floor(T/2)) for every T in [r,min(N,2(N-M))], and Dirac's theorem on selected complete multipartite graph gives Hamilton cyclic label word, proving sufficiency. Independent full nonnegative-chip state evolution agrees exactly with independent formula for (1,1,1), (2,2,1), (2,2,2), (3,2,1), including C_{K2,2,1}(5)=40 and counts at all feasible periods. Finite checks corroborate the general phase and no-gap proofs, not substitute for them.
 
-## Closest literature and limits
-Primary source: Jiang (2010), arXiv:1003.0943 (complete multipartite period construction). Additional relevant sources: Scully, Jiang and Zhang (2013/2014) on periodic firing patterns; Goles and Prisner (2000) on source reversal (abstract available, full text inaccessible). The source-reversal mechanism is not asserted new. The proof concerns only already recurrent, critical-chip, single-pass configurations; it does not count all chip-firing attractors or transients. Independent mathematical verification and full historical priority checking have not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS specifically for all-period labelled state counts by Stirling-weighted proper cyclic part words and sharp no-gap interval for r>=3. Goles–Prisner already proves orientation/chip correspondence at mass |E|, Jiang studies attainable periods, and the published complete-bipartite r=2 formula has only even alternating periods. Those precedents cover methods/special cases, not the r>=3 exact labelled census and odd periods.
+
+## value
+
+PASS
+
+Exact temporal-orbit census for a natural critical-energy, single-pass sector of multipartite parallel chip firing is a substantive combinatorial invariant: it identifies all possible least periods without gaps, counts each labelled state rather than a mere witness, and explains odd-period behavior absent in the bipartite special case. The 40 period-five states of K2,2,1 is a natural motivating benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

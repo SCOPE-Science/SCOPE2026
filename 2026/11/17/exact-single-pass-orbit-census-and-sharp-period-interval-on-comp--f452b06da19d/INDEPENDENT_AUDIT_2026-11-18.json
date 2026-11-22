@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:47:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-single-pass-orbit-census-and-sharp-period-interval-on-comp--f452b06da19d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-single-pass-orbit-census-and-sharp-period-interval-on-comp--f452b06da19d/check_dynamics.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-single-pass-orbit-census-and-sharp-period-interval-on-comp--f452b06da19d/check_formula.py",
+        "Independent direct chip state enumeration versus cyclic Stirling formula, /mnt/data/scope06_20261118T0234Z_work/extra_checks.py"
+      ],
+      "rationale": "At mass |E| and with each vertex firing exactly once in its least period, summing its firing-threshold inequalities over vertices forces each graph edge's endpoints to have distinct firing rounds and forces the unique initial load x(v)=d(v)-#neighbors with earlier firing times. A predecessor-phase neighbor is required to prevent early firings, including the last-to-first wrap. Conversely a surjective phase assignment satisfying the independent firing round and predecessor-neighbor conditions reconstructs a periodic single-pass state uniquely. On K_{n_i} each round belongs to one part, and proper cyclic part words plus ordered nonempty vertex partitions yield trace(B(z)^T) coefficients times products k_i! S(n_i,k_i). Capacity k_i<=floor(T/2), T<=N and T<=2(N-M) are necessary; choose k_i<=min(n_i,floor(T/2)) for every T in [r,min(N,2(N-M))], and Dirac's theorem on selected complete multipartite graph gives Hamilton cyclic label word, proving sufficiency. Independent full nonnegative-chip state evolution agrees exactly with independent formula for (1,1,1), (2,2,1), (2,2,2), (3,2,1), including C_{K2,2,1}(5)=40 and counts at all feasible periods. Finite checks corroborate the general phase and no-gap proofs, not substitute for them.",
+      "residual_risks": [
+        "Counts exclude transient states and every multi-firing periodic cycle; period 1 and r=2 excluded.",
+        "The phase lemma overlaps prior source-reversal framework and is not treated as a new independent general theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known possible-period theorems and source-reversal invariance can support existence mechanisms, but full exact weights of every labelled periodic initial state require separate enumeration."
+        ],
+        "reasoning": "Even if sharp period support were implicit in a broader existence theorem, the full C_G(T) Stirling trace formula is not a stated or deduced enumeration in read primary source.",
+        "searches": [
+          "critical mass single pass parallel chip firing complete multipartite labelled orbit counts sharp period interval Stirling numbers",
+          "Jiang 2010 arxiv:1003.0943",
+          "Goles Prisner 2000",
+          "Scully Jiang Zhang 2013 firing patterns"
+        ]
+      },
+      "checked_sources": [
+        "critical mass single pass parallel chip firing complete multipartite labelled orbit counts sharp period interval Stirling numbers",
+        "https://www.academia.edu/443526/Source_Reversal_and_Chip_Firing_on_Graphs",
+        "https://arxiv.org/abs/1003.0943",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-critical-mass-single-pass-chip-firing-waves-on-complete-bipartit--5d0d866a2ce8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Goles–Prisner implies critical-mass periodic states arise from graph orientations, but orientation equivalence by itself lacks multiplicity of phase classes and all-orbit label weights; bipartite theorem not r>=3."
+        ],
+        "reasoning": "The audited theorem refines known dynamics and counts a strictly more general multipartite family with odd phases.",
+        "searches": [
+          "Goles Prisner 2000 Theorem 4.3 & 4.5",
+          "Jiang 2010",
+          "Resultary bipartite single-pass",
+          "critical mass single pass parallel chip firing complete multipartite labelled orbit counts sharp period interval Stirling numbers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goles–Prisner maps periodic critical-mass chip configurations to orientations; the 2-partite closed form 2(k!)² S(m,k)S(n,k) has alternating even phases."
+        ],
+        "reasoning": "Complete multipartite r>=3 with multicolor cyclic successor condition is not an equivalent parameter renaming of the bipartite alternating case.",
+        "searches": [
+          "critical mass single pass parallel chip firing complete multipartite labelled orbit counts sharp period interval Stirling numbers",
+          "Goles Prisner Source Reversal and Chip Firing 2000 Theorem 4.3",
+          "Resultary Critical-mass single-pass chip-firing waves on complete bipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jiang gives a period-five example on K_{2,2,1}; the new enumeration gives 40 labelled states/eight time orbits. Published bipartite count for r=2 has a different period support and cannot directly yield odd-period counts."
+        ],
+        "reasoning": "No exact r>=3 all-parameter table or trace/Stirling enumeration in checked original sources.",
+        "searches": [
+          "critical mass single pass parallel chip firing complete multipartite labelled orbit counts sharp period interval Stirling numbers",
+          "Resultary critical-mass single-pass complete bipartite",
+          "K2,2,1 40 period five census",
+          "Jiang 2010 arxiv:1003.0943"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS specifically for all-period labelled state counts by Stirling-weighted proper cyclic part words and sharp no-gap interval for r>=3. Goles–Prisner already proves orientation/chip correspondence at mass |E|, Jiang studies attainable periods, and the published complete-bipartite r=2 formula has only even alternating periods. Those precedents cover methods/special cases, not the r>=3 exact labelled census and odd periods.",
+      "residual_risks": [
+        "The full Jiang 2010 and Scully–Jiang–Zhang papers were not inspected; exact support or related formal phase lemmas might already be known.",
+        "The Goles–Prisner source-reversal phase correspondence is explicit prior art and not asserted novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior covers orientations, some period bounds, and uniqueness of acyclic orientation, not Stirling/multipartite all-period state counts",
+          "evidence": [
+            "Theorem 4.3/Corollary 4.3 and Theorem 4.5; no labelled multipartite orbit census"
+          ],
+          "identifier_or_url": "https://www.academia.edu/443526/Source_Reversal_and_Chip_Firing_on_Graphs",
+          "material_read": "Transcribed full article (nine pages) including Proposition 3.4, Theorem 4.1, Corollary 4.3, Theorem 4.5 and proofs",
+          "method": "Read full HTML transcribed article, theorem statements and proofs",
+          "title": "Source Reversal and Chip Firing on Graphs",
+          "trigger": "The exact same mass |E| chip-firing dynamics and source-reversal relation"
+        },
+        {
+          "assessment": "Important residual priority risk for period-support part, not used to assert full-text noncoverage",
+          "evidence": [
+            "Known existence of period five on K2,2,1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.0943",
+          "material_read": "Abstract and externally visible description of its complete multipartite period results; full mathematical paper not read",
+          "method": "Abstract/references only",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Complete multipartite period existence and K2,2,1 example"
+        },
+        {
+          "assessment": "Not covering r>=3; special two-shore alternation versus three-plus-shore proper cyclic words",
+          "evidence": [
+            "Even least period 2k, 2(k!)² Stirling products"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-critical-mass-single-pass-chip-firing-waves-on-complete-bipartit--5d0d866a2ce8",
+          "material_read": "Published abstract in Resultary search with exact r=2 Stirling formula",
+          "method": "Resultary abstract; mathematical comparison of graph family and parity",
+          "title": "Critical-mass single-pass chip-firing waves on complete bipartite graphs",
+          "trigger": "Nearest known exact mass-and-phase census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-single-pass-orbit-census-and-sharp-period-interval-on-comp--f452b06da19d/RESULT.md",
+        "https://www.academia.edu/443526/Source_Reversal_and_Chip_Firing_on_Graphs",
+        "https://arxiv.org/abs/1003.0943"
+      ],
+      "rationale": "Exact temporal-orbit census for a natural critical-energy, single-pass sector of multipartite parallel chip firing is a substantive combinatorial invariant: it identifies all possible least periods without gaps, counts each labelled state rather than a mere witness, and explains odd-period behavior absent in the bipartite special case. The 40 period-five states of K2,2,1 is a natural motivating benchmark.",
+      "residual_risks": [
+        "Does not address multi-fire cycles, all masses or basin sizes; value is deliberately confined to a complete and motivated sector."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Counts exclude transient states and every multi-firing periodic cycle; period 1 and r=2 excluded.",
+    "The phase lemma overlaps prior source-reversal framework and is not treated as a new independent general theorem.",
+    "The full Jiang 2010 and Scully–Jiang–Zhang papers were not inspected; exact support or related formal phase lemmas might already be known.",
+    "The Goles–Prisner source-reversal phase correspondence is explicit prior art and not asserted novel.",
+    "Does not address multi-fire cycles, all masses or basin sizes; value is deliberately confined to a complete and motivated sector."
+  ],
+  "schema_version": 1
+}
