@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The complete map on all \(3^{12}=531441\) labelled states was enumerated. The C++ functional-graph indegree elimination and separately structured Python memoized trajectory classification agree on every one of the 52 joint transient-period classes. Exact cycle counts are periods 1, 3, 4, 7, 10, 11 with 1, 4768, 294, 1012, 504, 8 cycles respectively. The maximum first-periodic entry is ten updates, attained by 64 inputs: 32 in the period-three basin and 32 in the period-eleven basin. The Python program checks the three-excitations-per-vertex pattern on all eight eleven-cycles and eight explicit graph automorphisms whose action on one eleven-cycle reaches all eight eleven-cycles. Directly replayable codes and captured outputs are supplied. Full enumeration, not a partial simulation, supports the finite conclusion.
+PASS
 
-## Originality
+The specified 24 undirected edges define a 12-vertex degree-four graph. Encoding s=sum_i x_i 3^i enumerates exactly 531441 configurations, with every successor computed by synchronous 1->2, 2->0, 0->1 iff an excited neighbor. For a functional graph, Kahn indegree-zero stripping leaves precisely the periodic vertices; reversing removed order gives tau(s)=1+tau(Fs) and p(s)=p(Fs). I inspected actual chvatal_enum.cpp, chvatal_independent.py, their saved census data, and all 13 source blobs in the frozen tree. Independently built and ran an original C++17 full successor/indegree/period/delay program over all 531441 configurations. It reproduced all six primitive cycle counts (1:1,3:4768,4:294,7:1012,10:504,11:8), 27693 periodic states, all 52 joint table rows exactly, maximal entry 10 and 64 maximizers (32->3,32->11), and all eight 11-cycle representatives (11084,11085,11163,11167,15440,15441,15519,15523). Independent explicit automorphism images from source code preserve all 24 edges and map the first eleven-cycle into all eight distinct cycles. Each vertex fires exactly thrice on each eleven-cycle. Since the computation exhausts a precisely finite state space, unlike sample trajectories this is a complete proof conditional only on reproducible small integer programs and edge specification. Independently reconstructed Git tree from actual 13 blob identities matches SHA 52d309d62ad3eb77eb4bf69c10e38f928290e819.
 
-**PASS, qualified.** Gravner–Lyu–Sivakoff's general Theorem 3 concerns conservative initial cycle integrals and asymptotic excitation activity; Doba's complete article gives the maximum cycle-density criterion and reports an eleven-period trajectory for a **different graph**. Hence the occurrence of an eleven-cycle in an excitable network, the update rule, and broad finite-graph activity criteria are prior art. Neither inspected primary work gives the exact Chvátal temporal orbit counts, the transitive automorphism orbit of its eight period-eleven cycles, or the class-by-class entry times. The static Chvátal-graph table counts Hamiltonian cycles, not GHCA temporal cycles. Searches for graph-name, parameter, and equivalent dynamical formulations did not identify the exact census. An unindexed earlier equivalent remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The Chvátal graph is a canonical small extremal graph of chromatic number four without triangles; exact excitation behavior tests how its nontrivial cycle structure supports recurrent waves. The equality of all eight eleven-cycles modulo graph symmetry is structural information beyond a numeric orbit count, and the two-period split of maximally delayed initial states is a distinguished basin-boundary phenomenon. The result is limited to this one graph but supplies a complete, reproducible dynamical benchmark, not a textbook deduction or a known-table recomputation.
+The all-state period and first-entry-time census, orbit counts and automorphism transitivity for the exact labelled Chvatal graph under synchronous threshold-one 3-state Greenberg-Hastings dynamics were not established by inspected earlier graph-theory or general excitation results. General cycle-density/activity theorems determine activity or synchrony conditions, but not the 52-class joint basin census, eight spatially transitive 11-cycles, or sharp 10-step entry split. The published Resultary entry matching this record is the same finding and not an earlier independent theorem. An unindexed numerical census remains a real residual historical-priority risk.
 
-## Boundaries and literature
+## value
 
-The conclusion is a computer-assisted fixed-graph classification. No inference is made about universal chromatic thresholds or every 4-regular graph. Model first-posting evidence: arXiv:1610.07320v1, 2016-10-24. Closest full-text comparisons: Gravner, Lyu and Sivakoff, *Annals of Applied Probability* 28 (2018), pp.3324–3357; Doba, *Complex Systems* 27 (2018), pp.101–126. Graph identity: Chvátal (1970) and the MathWorld graph entry. The original 1970 article was not inspected in full, and global historical novelty cannot be guaranteed. Independent human or external validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Chvatal graph is the canonical smallest triangle-free four-regular four-chromatic graph; its dense yet triangle-free circuits make excitation-wave structure nontrivial. The result supplies the exact first-entry/period census for all 531441 initial states, automorphism classification of period-eleven temporal oscillations and a sharp two-period extremal transient split. The symmetry orbit is more than a raw cycle count and the complete reproducible basin statistics give a mathematically motivated, self-contained benchmark for activity and stabilization on an extremal graph. These are not consequences of the prior general activity theorems, nor a known static graph table. The result does not claim a universal theorem for all regular graphs; its natural complete finite classification meets the same value bar as other exact fixed-graph dynamical invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
