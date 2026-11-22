@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The barycentric fixed-support reduction gives an explicit affine inverse on every fixed face. Every admissible edge orbit across two ground transitive orbits is an equivariant bijection, counted by the stabilizer normalizer quotient; admissible internal edge orbits are exactly fixed-point-free equivariant involutions. All such edge orbits consume whole ground orbits, so compatibility is exactly position-disjointness. The face polynomial follows by paired-position counting. For two regular orbits, the model is the graph \(K_{s,s}\) and \(k\) isolated vertices (or just \(k\) isolated vertices when \(s=0\)); its integral homology is immediate. The standalone program independently reconstructs 15 finite actions and compares full admissible edge-orbit lists, compatible subsets and face polynomials. The mathematical proof—not the tests—covers every finite group and action.
+## correctness
 
-## Originality — PASS relative to inspected literature
-The published complete-graph matching-complex cycle-type theorem is recovered when the group is cyclic; the published involution classification is already included and is not claimed as new. Their theorems are strictly weaker in quantified subgroup generality; the noncyclic model has a new invariant, the **number of nontrivial involutions in the full normalizer quotient**. In the two-regular-orbit family, \(C_2\times C_2\) yields \(K_{3,3}\) and four isolated points, including four essential circles; the cyclic fixed-space theorem has no case with three internal matching choices per orbit. Wachs's survey covers ordinary multigraph inflations and homology representations, not pointwise fixed spaces for arbitrary subgroups. The Shareshian–Wachs primary article concerns ordinary connectivity/torsion, not the claimed structural fixed model. Search and primary-source comparison cannot guarantee priority against unindexed earlier work.
+PASS
 
-## Value — PASS
-The structure formula computes actual geometric fixed complexes for every finite permutation group using only finite transitive-set orbit types and stabilizer normalizers, reducing the original graph's potentially quadratic edge set to a weighted orbit-level model. It gives a closed face polynomial and a complete infinite-family integral homotopy calculation for two regular orbits. Its new qualitative distinction is that multiple involutions create essential one-dimensional fixed homotopy, whereas the cyclic and odd-order cases do not. Distinct groups of equal order can have different fixed-space Betti numbers, providing a natural reason to compute the precise invariant.
+Every geometric fixed point has barycentric coefficients constant on edge H-orbits; positive edge-orbits must separately be matchings. A usable edge orbit crossing two transitive ground orbits must be graph of an equivariant bijection, existing exactly for isomorphic H/L sets, with |N_H(L)/L| choices. A usable internal edge-orbit is precisely a nonidentity equivariant fixed-point-free involution. Occupied ground-orbit positions disjoint iff compatible. This gives the exact join model; pairing j positions contributes m!/(2^j j!(m-2j)!)(wz)^j(1+sz)^(m-2j). Two regular orbits give K_(s,s) plus |H| isolates, H_1 rank (s-1)^2 and H_0 reduced rank |H| for s>=1. Independent V4 double-regular orbit edge enumeration found 10 model vertices (six internal, four cross), H_1=Z^4, H_0~=Z^4.
 
-## Closest literature and residual risk
-The cyclic and involution fixed-space papers were read in full (their published RESULT.md texts). The relevant Sections 1 and 8 of Wachs's survey and the introduction and ordinary-homology statements in Shareshian–Wachs were inspected. The overlap is the fixed-support idea, the cyclic/single-involution cases, and ordinary matching-complex methods, not arbitrary-subgroup normalizer-involution classification. Residual risk: equivalent descriptions may occur in unindexed equivariant matching/partition-poset literature. Higher-multiplicity model homotopy is deliberately left open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published cyclic-cycle and individual-involution fixed-space theorems furnish special group actions and the standard fixed-support reduction, but do not classify general arbitrary subgroups simultaneously or s>=2 internal colors; arbitrary equivariant orbit-bijection/involution normalizer factorization is not an immediate result of these special-case formulas. Other normalizer-weighted bipartite chessboard work uses K_(A,B), not complete-graph internal edges. Best-of-knowledge original structural extension, with a stated unindexed-priority risk.
+
+## value
+
+PASS
+
+A natural uniform PL classification of fixed spaces of matching complexes under all finite group actions, including an exact f-polynomial and a noncyclic two-orbit topological discriminator. Normalizer quotient and involution count are motivated intrinsic group-action parameters; C4 and V4 have equal order but contrasting fixed topologies. Useful for equivariant topology and symmetry-sensitive chain computations, without claiming all higher homotopy classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

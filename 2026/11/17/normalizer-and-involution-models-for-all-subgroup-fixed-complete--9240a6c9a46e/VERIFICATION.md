@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Use a standard Python 3 interpreter and run `python verify_orbit_matching.py`. The program has no nonstandard dependencies, reconstructs full permutation subgroups, enumerates all original graph-edge orbits, checks each orbit's matching property, independently constructs equivariant-bijection and equivariant-involution candidates, compares their actual edge sets, then enumerates all compatible collections and checks the predicted polynomial coefficient by coefficient.
+# Independent mathematical audit
 
-The final successful output is `ALL_ORBIT_TYPE_MATCHING_CHECKS_PASS cases=15 enumerated_faces=377`. Covered cases include transitive actions, regular groups \(C_3,C_4,C_2\times C_2,S_3\), disjoint nonisomorphic orbit types, and fixed points. The complete output is included in `verification_output.txt`.
+## correctness
 
-The claimed infinite all-finite-group PL theorem is proved mathematically by orbit projection, equivariant maps and barycentric coordinates; this finite suite is corroboration, not an exhaustive test of all finite groups. The first-Betti formula for two regular orbits is the Euler-rank formula for the graph \(K_{s,s}\), not a numerical extrapolation. The theorem does not classify all homotopy types of \(B_{m,w,s}\) for \(m\ge3\), and publication priority has not been independently adjudicated.
+PASS
+
+Every geometric fixed point has barycentric coefficients constant on edge H-orbits; positive edge-orbits must separately be matchings. A usable edge orbit crossing two transitive ground orbits must be graph of an equivariant bijection, existing exactly for isomorphic H/L sets, with |N_H(L)/L| choices. A usable internal edge-orbit is precisely a nonidentity equivariant fixed-point-free involution. Occupied ground-orbit positions disjoint iff compatible. This gives the exact join model; pairing j positions contributes m!/(2^j j!(m-2j)!)(wz)^j(1+sz)^(m-2j). Two regular orbits give K_(s,s) plus |H| isolates, H_1 rank (s-1)^2 and H_0 reduced rank |H| for s>=1. Independent V4 double-regular orbit edge enumeration found 10 model vertices (six internal, four cross), H_1=Z^4, H_0~=Z^4.
+
+## originality
+
+PASS
+
+Published cyclic-cycle and individual-involution fixed-space theorems furnish special group actions and the standard fixed-support reduction, but do not classify general arbitrary subgroups simultaneously or s>=2 internal colors; arbitrary equivariant orbit-bijection/involution normalizer factorization is not an immediate result of these special-case formulas. Other normalizer-weighted bipartite chessboard work uses K_(A,B), not complete-graph internal edges. Best-of-knowledge original structural extension, with a stated unindexed-priority risk.
+
+## value
+
+PASS
+
+A natural uniform PL classification of fixed spaces of matching complexes under all finite group actions, including an exact f-polynomial and a noncyclic two-orbit topological discriminator. Normalizer quotient and involution count are motivated intrinsic group-action parameters; C4 and V4 have equal order but contrasting fixed topologies. Useful for equivariant topology and symmetry-sensitive chain computations, without claiming all higher homotopy classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
