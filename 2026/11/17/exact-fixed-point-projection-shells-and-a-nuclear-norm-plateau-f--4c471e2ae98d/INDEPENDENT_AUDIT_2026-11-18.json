@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:54:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read RESULT.md blob 5b93c8c64a722d1d110d46afd4ce97f7c00d10d5 and both exact/auxiliary verifiers. Formula (5) gives nonnegative hollow X with each row and column sum 1 even k=1,n. On positive positions P-X equals u_i+u_j with potentials u_F=-(k+2)/(2D), u_M=k/(2D); on every zero allowed cell P-X<=u_i+u_j. Therefore <P-X,Y-X><=0 for every feasible Y and strict Euclidean projection uniqueness follows; exact squared norm produces f_n(k). Direct differentiation yields f_n increasing on 0..n; k=n-1 impossible, k=n-2 transpositions and f(n)-f(n-2)=2. Convexity under Birkhoff decomposition gives the unique full-body Frobenius farthest point. Conjugation-average of any hollow feasible X is U=(J-I)/(n-1); restriction of P-U to 1-perp has singular values |lambda+1/(n-1)|, at most n/(n-1) with all equal only at P=I, proving Schatten formula and finite-p uniqueness. For 1<p<infinity strict convexity gives U; operator-norm equality requires vanishing skew part and U; trace-nuclear equality for I-X requires PSD, equivalent to X symmetric, producing affine dimension n(n-3)/2. Independent rational KKT implementation checked all permutations n=3..6; does not replace n-general inequalities. No claim for spectral farthest-point uniqueness or continuous-body gap.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bouthat–Mashreghi–Morneau-Guérin arXiv:2310.14043 Theorem 4.1 gives max_{P in B}||A-P|| for a fixed center A, not max_{P in B} min_{X in D}||P-X||.",
+          "Resultary 2026/10/18 Löwner-ellipsoid result encloses D, not projections into D; even-permutation polytope deletes parity classes, not fixed-point diagonal support."
+        ],
+        "reasoning": "The minimax quantifier order and target set differ: bounding balls around fixed centers and a minimum-volume ellipsoid of D do not imply nearest-face optimizers of each P. The even-permutation Hausdorff theorem has a different subset of B and cannot be specialized by renaming.",
+        "searches": [
+          "Schatten Chebyshev radius Birkhoff polytope arXiv 2310.14043",
+          "Resultary: exact Löwner ball two-class isotropic contacts derangement matching polytopes 2026/10/18",
+          "Resultary: sharp Schatten Hausdorff separation Birkhoff even-permutation polytopes 2026/11/17"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2209.11319",
+        "https://arxiv.org/pdf/2306.11910",
+        "https://arxiv.org/pdf/2310.14043",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-l-wner-ball-and-two-class-isotropic-contacts-of-derangemen--eeae40a3d5d5",
+        "Resultary semantic search: derangement polytope zero diagonal Birkhoff face exact Frobenius projection fixed point shells Schatten nuclear nearest symmetric distance Hausdorff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Directly read 2026/10/18 prior full RESULT: every derangement P has ||P-U||_F²=n(n-2)/(n-1); it gives an outer ball and isotropic contacts, not ||I-U|| nor per-k face projections.",
+          "arXiv:2310.14043 gives maximum distance to B from arbitrary A, reversing the present nearest-face minimization."
+        ],
+        "reasoning": "The old fixed derangement-to-center radius is numerically different from the present identity-to-face Hausdorff radius. Neither contains the exact universal KKT projection formula or nuclear nearest-point locus.",
+        "searches": [
+          "Resultary: derangement Löwner ellipsoid 2026/10/18 complete RESULT.md",
+          "arXiv:2310.14043 Theorem 4.1 and §5 full-body radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnston–Kayll–Palmer arXiv:2209.11319 pp.1-2 identifies crown graph perfect matchings; Torres arXiv:2306.11910 fractional bipartite matching polytope theorem."
+        ],
+        "reasoning": "These references establish the same objects, not the Euclidean projection map. The relevant equivalences are restricted transportation polytope, crown graph perfect-matching face, and forbidden diagonal assignment matrices; none of the inspected sources states f_n(k).",
+        "searches": [
+          "zero diagonal doubly stochastic nearest matrix projection fixed point count",
+          "Resultary: derangement face fixed-point projection shell synonyms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical rencontres numbers binom(n,k)*!(n-k) are established, but no cited table supplies squared distances f_n(k), vertex gap two or the symmetric nearest-point dimension."
+        ],
+        "reasoning": "The number of vertices per shell is old inclusion-exclusion; the metric shell value and endpoint optimizer family are separate geometry, not recomputation of a known numerical table.",
+        "searches": [
+          "derangement distance shell fixed point count binomial derangements table",
+          "fractional matching polytopes exact Schatten nuclear optimizer classification"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality; four explicit comparisons and actual primary-source material inspections below. The old fixed derangement-to-center radius is numerically different from the present identity-to-face Hausdorff radius. Neither contains the exact universal KKT projection formula or nuclear nearest-point locus.",
+      "residual_risks": [
+        "Best-of-knowledge priority: unindexed zero-diagonal transportation projection theorem could already give f_n(k) or nuclear locus.",
+        "The squared gap 2 is explicitly only for permutation vertices; distances for arbitrary Birkhoff points are continuous.",
+        "For p=inf, not all farthest Birkhoff points are classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_METRIC_CLAIM",
+          "evidence": [
+            "Perfect matching counts/ratio are studied; no projection-to-polytope or Schatten optimizer statement in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.11319",
+          "material_read": "Abstract, introduction and pp.1-2, matching-count statements and identification K_n,n minus a diagonal matching",
+          "method": "Original arXiv full-text PDF text + rendered page",
+          "title": "Deranged matchings: proofs and conjectures",
+          "trigger": "Same crown-graph perfect matchings and derangement counting"
+        },
+        {
+          "assessment": "OBJECT_EQUIVALENCE_NOT_DISTANCE_CLASSIFICATION",
+          "evidence": [
+            "Provides support-face H-representation; normality and integrality do not give Euclidean nearest points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.11910",
+          "material_read": "Abstract, §2 including Definition 2.7, preliminary bipartite fractional equality and scope of normality theorem",
+          "method": "Original arXiv PDF and rendered p.3",
+          "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+          "trigger": "Exact fractional matching polytope representation"
+        },
+        {
+          "assessment": "DIFFERENT_QUANTIFIER_DIRECTION",
+          "evidence": [
+            "Chebyshev radius max-distance from a fixed center to whole B, not Hausdorff to hollow face."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.14043",
+          "material_read": "Abstract; §§2.3-2.4 and 3-4 including Proposition 3.1 and Theorem 4.1 on bounding radius",
+          "method": "Original arXiv PDF text and rendered p.4",
+          "title": "On the Geometry of the Birkhoff Polytope. II. The Schatten p-norms",
+          "trigger": "Schatten norms of the same ambient Birkhoff polytope"
+        },
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_METRIC_TASK",
+          "evidence": [
+            "External enclosing ellipsoid and isotropic mixture are not directional projections onto the face."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-l-wner-ball-and-two-class-isotropic-contacts-of-derangemen--eeae40a3d5d5",
+          "material_read": "Entire public RESULT.md with formula, proof, limitations and references",
+          "method": "Connected GitHub raw text full scientific RESULT",
+          "title": "Exact Löwner ball and two-class isotropic contacts of derangement matching polytopes",
+          "trigger": "Previously published same hollow matching face"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The crown-graph perfect-matching polytope is a canonical restrictive face of the Birkhoff polytope. A full vertex-to-face metric spectrum, exact worst-case Hausdorff separation across Schatten norms, sharp discrete separation of the first two assignment classes and a nontrivial nuclear optimizer polytope are natural reusable geometry; this is not only a restatement of derangement counting or an enclosing radius.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2209.11319",
+    "https://arxiv.org/pdf/2306.11910",
+    "https://arxiv.org/pdf/2310.14043",
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-l-wner-ball-and-two-class-isotropic-contacts-of-derangemen--eeae40a3d5d5",
+    "Resultary semantic search: derangement polytope zero diagonal Birkhoff face exact Frobenius projection fixed point shells Schatten nuclear nearest symmetric distance Hausdorff"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n>=3, the distance from permutation P with k fixed points to hollow bistochastic face D_n is squared k+k(k+2)/(n+k^2-2); all allowed k give distinct shells, the unique Frobenius and finite Schatten-p farthest Birkhoff point is I, the first vertex squared gap is 2, d_H^{S_p}=n(n-1)^{1/p-1}, and I has exactly the symmetric hollow bistochastic matrices as nearest points in nuclear norm.",
+  "limitations": [
+    "Best-of-knowledge priority: unindexed zero-diagonal transportation projection theorem could already give f_n(k) or nuclear locus.",
+    "The squared gap 2 is explicitly only for permutation vertices; distances for arbitrary Birkhoff points are continuous.",
+    "For p=inf, not all farthest Birkhoff points are classified.",
+    "Scientific PASS is a qualified assessment rather than bibliographic priority proof, third-party attestation or authority to publish; status transport is separate."
+  ],
+  "residual_risks": [
+    "Best-of-knowledge priority: unindexed zero-diagonal transportation projection theorem could already give f_n(k) or nuclear locus.",
+    "The squared gap 2 is explicitly only for permutation vertices; distances for arbitrary Birkhoff points are continuous.",
+    "For p=inf, not all farthest Birkhoff points are classified."
+  ],
+  "schema_version": 1
+}

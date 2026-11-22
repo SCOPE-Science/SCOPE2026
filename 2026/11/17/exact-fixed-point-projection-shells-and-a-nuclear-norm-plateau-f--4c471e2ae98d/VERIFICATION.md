@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_derangement_projection.py` with a standard Python 3 installation. It reconstructs all permutations in dimensions 3 through 7, constructs the exact rational nearest-point candidate, checks its row and column sums, diagonal constraints, entrywise nonnegativity, squared-distance identity, and exact row/column-potential inequalities on every available off-diagonal matrix entry. It checks all fixed-point shell counts via the inclusion-exclusion formula and the exact squared gap of 2 between the largest two permutation-vertex shells. The completed run printed:
+## correctness
 
-```
-DERANGEMENT_PROJECTION_PASS exhaustive_permutations= 5910 exact_KKT=PASS vertex_gap_squared=2
-```
+PASS
 
-If NumPy and SciPy are installed, run `python3 independent_scipy.py` from the same directory. It computes numerical Euclidean projections using independent constrained optimization for 18 permutations covering all attainable fixed-point counts at orders 3 through 6 and checks 870 permutation singular-value bounds. The completed run printed:
+Read RESULT.md blob 5b93c8c64a722d1d110d46afd4ce97f7c00d10d5 and both exact/auxiliary verifiers. Formula (5) gives nonnegative hollow X with each row and column sum 1 even k=1,n. On positive positions P-X equals u_i+u_j with potentials u_F=-(k+2)/(2D), u_M=k/(2D); on every zero allowed cell P-X<=u_i+u_j. Therefore <P-X,Y-X><=0 for every feasible Y and strict Euclidean projection uniqueness follows; exact squared norm produces f_n(k). Direct differentiation yields f_n increasing on 0..n; k=n-1 impossible, k=n-2 transpositions and f(n)-f(n-2)=2. Convexity under Birkhoff decomposition gives the unique full-body Frobenius farthest point. Conjugation-average of any hollow feasible X is U=(J-I)/(n-1); restriction of P-U to 1-perp has singular values |lambda+1/(n-1)|, at most n/(n-1) with all equal only at P=I, proving Schatten formula and finite-p uniqueness. For 1<p<infinity strict convexity gives U; operator-norm equality requires vanishing skew part and U; trace-nuclear equality for I-X requires PSD, equivalent to X symmetric, producing affine dimension n(n-3)/2. Independent rational KKT implementation checked all permutations n=3..6; does not replace n-general inequalities. No claim for spectral farthest-point uniqueness or continuous-body gap.
 
-```
-INDEPENDENT_SLSQP_PASS cases 18 max_entry_error 4.55e-15
-SPECTRAL_CHECKS_PASS permutations 870 singular_bounds=PASS nuclear_locus=PASS
-```
+## originality
 
-The complete infinite-dimensional-family proof is the analytical feasibility and optimality certificate and the Schatten norm spectral inequality given in `RESULT.md`. These finite computations neither certify historical novelty nor constitute an independent mathematical audit. The spectral-norm farthest-point set beyond the identity is not classified.
+PASS
+
+Best-of-knowledge originality; four explicit comparisons and actual primary-source material inspections below. The old fixed derangement-to-center radius is numerically different from the present identity-to-face Hausdorff radius. Neither contains the exact universal KKT projection formula or nuclear nearest-point locus.
+
+## value
+
+PASS
+
+The crown-graph perfect-matching polytope is a canonical restrictive face of the Birkhoff polytope. A full vertex-to-face metric spectrum, exact worst-case Hausdorff separation across Schatten norms, sharp discrete separation of the first two assignment classes and a nontrivial nuclear optimizer polytope are natural reusable geometry; this is not only a restatement of derangement counting or an enclosing radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
