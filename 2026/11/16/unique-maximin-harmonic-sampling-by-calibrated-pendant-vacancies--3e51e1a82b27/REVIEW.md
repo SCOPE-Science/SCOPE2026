@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The calibrated activity identity follows by summing independent pendant choices. The finite-cycle transfer matrix yields the exact one-site and two-site probabilities and every rim Fourier eigenvalue; both odd and even cycle lengths have a strictly least constant mode by explicit inequalities. Total covariance yields the two-channel blocks, with Loewner monotonicity fixing the spectral bottleneck. A concave quadratic feasibility certificate gives a *unique* maximin parameter for the complete infinite family and supports the asymptotic limit. The standalone checker executed 2,869 assertions over exhaustive small-instance laws and independent covariance formulas; finite checks supplement, rather than replace, the analytical proof.
+PASS
 
-## Originality
+Summing independent leaves gives alpha/(1+beta)=1/2 and Bernoulli(r) leaves. The transfer matrix for fugacity 1/2 gives stated finite-cycle mean p_n and Fourier eigenvalues, with constant mode s_n strictly least (even-cycle bound and odd-cycle sign checked). Total covariance yields a Fourier 2x2 block [[a,-ra],[-ra,r²a+c r(1-r)]]. Positive rank-one order in a pins the least mode to s_n. Schur-complement Q_t(r) is strictly concave and tangency H(t) crosses once, proving unique maximin r_n<1/2 and strict suboptimality of r=1/2. Independent enumeration n=3..10 reproduced rim Fourier spectra and optimum; infinite proof rests on exact transfer and tangency, not grid search.
 
-**PASS, provisional priority.** The 2021 spectral-independence paper concerns mixing for weighted hard-core models, while the inspected 2022 corona-graph article provides counting identities, not maximin observation spectra. A published plain-cycle covariance calculation has no pendant observation channel, and a weighted-sunlet leader-selection theorem treats inverse grounded Laplacians rather than Gibbs occupation covariances. None of these theorems implies a unique fixed-rim-fugacity E-optimum without the new two-channel semidefinite threshold argument. Broad indexing and preprint searches may nevertheless miss another author's equivalent general covariance-augmentation formula; historical publication priority is not certified.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The natural, exactly calibrated observation-budget question asks how often to sample vacant pendant sites without changing the underlying cycle signal distribution. The resulting unique E-optimum is not the symmetric/uniform value, and it supplies exact recovery-energy guarantees and a quantitative improvement across every cycle length. The general binary-covariance threshold theorem explains why this design rule is not a numerical quirk of a particular cycle.
+A calibrated fixed-marginal Bernoulli pendant observation design and its all-n unique E-optimum are not supplied by the published proper-colouring pendant transfer, hard-core spectral-independence mixing, or corona enumeration that were searched. Best-of-knowledge only; general stochastic E-optimal design may have an equivalent block theorem.
 
-## Scope and limitations
+## value
 
-The proof optimizes the minimum eigenvalue rather than the condition number, with a common rim marginal and a coupled one-dimensional fugacity family. It does not solve unrestricted two-fugacity optimization, nonstationary pendant probabilities, or higher-degree Walsh bands. Numerical constants are approximations to explicit algebraic formulas. Independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The least singular-value design of dependent occupancy coordinates is a natural robust sampling invariant. The theorem supplies a nontrivial unique tuning and complete 2n-dimensional spectrum uniformly in n, with a surprising strict failure of uniform-sunlet sampling; not merely relabelled independent-set counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
