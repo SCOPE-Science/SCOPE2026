@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact objective is a direct application of Zwierzyński's published fourfold-similarity ratio. Strict elimination of the minor coordinate uses two verified polynomial identities, one stronger only when a half-width in that factor is at least the short semiaxis. Differentiation gives a single possible positive critical value of the squared major-axis coordinate and a complete equality classification. The proof separately demonstrates that all optimizing axial points satisfy the nondegeneracy requirements. The package contains a standard-library numerical and exact-arithmetic checker; its finite tests do not substitute for the analytical proof.
+PASS
 
-## Originality
+Fourfold pedal theorem gives sigma=∏_sides dist(P,line)/∏_vertices |P-v|, strictly positive over open rectangle. For a>=b>0, one long-side denominator factor increases with y² and the other satisfies R_h(y)^2-(1-y²/b²)^2 R_h(0)^2=b^4 Ht[2H+6-(H+2)t]>0 for y≠0, yielding strict axial reduction. There f(s)=B(A-s)/[s²+2(B-A)s+(A+B)²], s=x², derivative sign (s-A)²-B(4A+B). The optimum shifts from s=0 to s=A-sqrt[B(4A+B)] exactly when (a/b)^2>2+sqrt(5). At equality s=0 is unique. Explicit pedal feet and the symmetry of intermediate polygons ensure axial maximizing points are admissible, so the global upper bound is attained. Independently reproduced the polynomial y-elimination and f derivative identities by exact symbolic algebra; source finite checker inspected, not assumed sufficient as infinite proof.
 
-PASS, with residual priority risk. The primary fourfold-pedal theorem covers similarity and a general distance ratio but does not optimize that ratio over nonsquare rectangles. The tangential-polygon corollary applies to squares and other circumscribed polygons, not nonsquare rectangles. The full open-access Blažek–Pech article concerns the *first*-pedal-quadrilateral area, and the other checked triangle literature addresses different polygon classes. Searched published research findings and accessible prior claims did not include this rectangular fourth-iterate threshold. Equivalent results hidden in older classical geometric literature cannot be excluded by these searches alone.
+## originality
 
-## Value
+PASS
 
-PASS. The new result supplies an exact classification of global optimizers for a natural geometric dynamical operation, including a sharp closed-form symmetry-breaking aspect ratio and the associated area loss. It reveals that the center fails to maximize the return scale in sufficiently elongated rectangles, beyond the incircle case handled in the motivating paper.
+Zwierzyński's general four-step similarity and product-of-distances formula are prior inputs. The interior rectangular global optimization, unique equality set and sharp one-to-two optimizer aspect threshold are not present in the inspected general theorem or first-step quadrilateral literature, and are not obtained by its incircle-center corollary because a nonsquare rectangle is not tangential.
 
-## Limits
+## value
 
-Only interior, perpendicular, fixed-point, four-iterate pedal constructions on rectangles are claimed. The theorem is not a new proof of the general iteration theorem and gives no exterior classification. No independent mathematical audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The aspect threshold sqrt(2+sqrt5) determines a genuine symmetry-breaking geometry of an iterated pedal map, with exact optimal points and scale. This natural shape family tests where a widely applicable similarity formula has nontrivial optimized geometry; far more than simply reprinting the formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
