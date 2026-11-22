@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:14:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From actual Gaussian four-line RESULT.md and CHECK.py: Gaussian integration reduces STFT zeros to entire exponential sum with covariance 2e^-δ²(cosh u+k cosh3u); Edelman–Kostlan density δ²/π d²log/du². Independently symbolic checked derivative cubic P_k(tanh²u), endpoint positivity P(0)>0,P(1)>0, discriminant -16384 k^3(3k−1)^6(27k²+18k−1), special k=1/3 positivity and double root z*=1/√3 at k*=(2√3−3)/9. Sign continuity then gives no other roots and one/two pairs of extrema. Central V_k(0)<0 throughout; matched derivative fold ∂kP=∂z²P yields z±=z*±√(2(k*−k))+O(k*−k). δ*≈0.608777 with angular frequency gap 2δ*. This concerns expected zero intensity, not individual realization peaks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2609.18689 abstract treats stationary colored noise with function-valued spectral density, not explicitly four atoms.",
+          "SCOPE prior three-line expected intensity theorem has central symmetry-breaking bifurcation, not outer saddle-node with central max preserved."
+        ],
+        "reasoning": "General covariance identities cover construction of intensity; they do not by themselves give the k*= (2√3−3)/9 sign/root threshold. Inaccessible full-text spectral example is a genuine residual comparison risk.",
+        "searches": [
+          "Zeros of the Spectrogram of Colored Noise Escudero Koliander Romero 2026",
+          "four-line Gaussian spectrogram zero saddle node threshold STFT Bargmann"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.18689",
+        "https://arxiv.org/abs/math/0007030",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-saddle-node-threshold-for-four-line-gaussian-spectrogram-z--e383da0630fc/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cubic P_k(z) derivative, P(0)>0,P(1)>0, disc_z P=-16384 k^3(3k−1)^6(27k²+18k−1), one interior double root at k*.",
+          "Three-line prior transitions from one central maximum to a central minimum with side peaks; four-line preserves strict central maximum."
+        ],
+        "reasoning": "The three-line theorem and general Kac–Rice/Edelman–Kostlan identity do not imply the four-line cubic root-count threshold or the outer fold coefficient without a new nonstandard algebraic reduction.",
+        "searches": [
+          "three line Gaussian spectrogram zero modal bifurcation Resultary",
+          "four-line Gaussian spectrogram zero saddle node threshold STFT Bargmann"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General GAF formula ρ=(1/4π)Δ log K is classical; 4-line covariance is a two-cosh exponential family."
+        ],
+        "reasoning": "An equivalent wording is curvature of log(cosh u+k cosh3u) as a function of u and exponential-family variance; its full cubic stationary classification is a separate special computation.",
+        "searches": [
+          "four-line Gaussian spectrogram zero saddle node threshold STFT Bargmann",
+          "Edelman Kostlan log covariance Gaussian analytic zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby five-tone deterministic STFT and three-line random spectrogram records concern other models and no exact four-line threshold table."
+        ],
+        "reasoning": "The continuous δ>0 exact discriminant classification is not an enumeration of a finite numerical table; no matching exact threshold located in checked published records.",
+        "searches": [
+          "Gaussian spectrogram four atomic spectral line zeros exact threshold table",
+          "four-line Gaussian spectrogram zero saddle node threshold STFT Bargmann"
+        ]
+      },
+      "rationale": "The new portion is the exact four-line modal root classification with a persistent central maximum, outer saddle-node threshold and square-root fold, not the general Gaussian analytic zero-intensity identity.",
+      "residual_risks": [
+        "The closely relevant Escudero–Koliander–Romero 2026 primary PDF could not be read; available abstract concerns function-valued colored spectral density; an equivalent discrete-atom specialization outside the abstract remains possible. Authorized Oxford attempt required disconnected VPN.",
+        "Generic Edelman–Kostlan covariance/intensity identity is classical and not claimed original.",
+        "Four fixed independent equal-power lines; not a statement about single-realization maxima, arbitrary line powers, or continuous spectral densities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSSIBLE_GENERAL_COVERAGE_UNRESOLVED",
+          "evidence": [
+            "No complete source-level comparison to all examples or appendices could be performed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.18689",
+          "material_read": "Abstract and bibliographic information; full text not accessible",
+          "method": "arXiv/OA and authorized institutional retrieval (VPN disconnected)",
+          "title": "Zeros of the Spectrogram of Colored Noise",
+          "trigger": "same STFT Gaussian zero intensity and colored spectral density"
+        },
+        {
+          "assessment": "GENERAL_METHOD_KNOWN",
+          "evidence": [
+            "Expected zeros from log covariance not originally due to current theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0007030",
+          "material_read": "Available bibliographic/theorem description of standard GAF identity; no claim of full monograph inspection",
+          "method": "literature identification and comparison with known formula",
+          "title": "Zeros of Gaussian Analytic Functions",
+          "trigger": "general logarithmic covariance zero-intensity formula"
+        },
+        {
+          "assessment": "DIFFERENT_FOLD_GEOMETRY",
+          "evidence": [
+            "Three-line pitchfork-type central transition versus four-line outer saddle-node."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3",
+          "material_read": "Published Resultary theorem summary of three-line modality",
+          "method": "Resultary record comparison",
+          "title": "Exact modal bifurcation of three-line Gaussian spectrogram zeros",
+          "trigger": "direct nearest published finite-line result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first symmetric four-atomic Gaussian spectral model has a mathematically distinct outer saddle-node with a persistent central expected-zero-density maximum, an algebraic sharp threshold and fold scaling, separating it from the three-line pitchfork mechanism. Exact mode topology is a motivated singularity/phase-diagram fact, not just a generic covariance differentiation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.18689",
+    "https://arxiv.org/abs/math/0007030",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-saddle-node-threshold-for-four-line-gaussian-spectrogram-z--e383da0630fc/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No deterministic-spectrogram maxima conclusion and no arbitrary-weight extension. Close 2026 colored-noise primary full text could not be accessed.",
+    "The closely relevant Escudero–Koliander–Romero 2026 primary PDF could not be read; available abstract concerns function-valued colored spectral density; an equivalent discrete-atom specialization outside the abstract remains possible. Authorized Oxford attempt required disconnected VPN.",
+    "Generic Edelman–Kostlan covariance/intensity identity is classical and not claimed original.",
+    "Four fixed independent equal-power lines; not a statement about single-realization maxima, arbitrary line powers, or continuous spectral densities."
+  ],
+  "residual_risks": [
+    "The closely relevant Escudero–Koliander–Romero 2026 primary PDF could not be read; available abstract concerns function-valued colored spectral density; an equivalent discrete-atom specialization outside the abstract remains possible. Authorized Oxford attempt required disconnected VPN.",
+    "Generic Edelman–Kostlan covariance/intensity identity is classical and not claimed original.",
+    "Four fixed independent equal-power lines; not a statement about single-realization maxima, arbitrary line powers, or continuous spectral densities."
+  ],
+  "schema_version": 1
+}
