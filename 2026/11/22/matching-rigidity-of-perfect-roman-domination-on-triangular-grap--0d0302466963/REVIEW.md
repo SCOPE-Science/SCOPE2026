@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The vertex-to-root-edge identification gives an exact necessary-and-sufficient characterization of eligible zeros in terms of root degree zero versus degree one. The degree-sum inequality and the neighboring-even-cardinality argument strictly eliminate every nonmatching label-two support. A discrete strictly convex quadratic has a unique integer optimum and factorial matching count. Two genuinely different exhaustive algorithms and an explicit construction validator were executed with the included outputs; no finite test is used as the infinite proof.
+
+**Originality — PASS (with residual priority risk).** Direct searches addressed standard perfect Roman domination on triangular/Johnson and complete line graphs, perfect edge Roman domination of complete graphs, ordinary Roman domination, and equivalent matching formulations. The 2019 and 2023 standard-parameter sources give general complexity/enumeration information, not this exact family classification. The related existing triangular-graph ordinary Roman result uses the weaker at-least-one-two condition; its sharp minimum does not imply the claim. The 2024 edge version on the same root cliques adds a stronger condition that the entire label sum in a zero's neighborhood equals two. Its complete-graph assertion therefore does not cover the standard exactly-one-two parameter. The PDF mathematical display was not fully readable; this priority risk is recorded rather than silently dismissed.
+
+**Value — PASS.** A canonical infinite family of dense line graphs has a sharply different standard perfect-Roman optimum from ordinary Roman domination; the geometry is rigid at every order, determined entirely by matchings of a fixed size, and the exact number of optimal placements is closed form. The zero-label support is a complete bipartite cut between matched and unmatched root vertices. This yields structural insight and an exact benchmark rather than a small single-instance computation.
+
+**Limits.** The result is for \(n\ge3\), and the stronger total-neighbor-weight definition is deliberately not conflated with the stated one. Publication priority and the proof have not been independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
