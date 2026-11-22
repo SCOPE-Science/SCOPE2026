@@ -1,19 +1,21 @@
-# Review of the intrashore-bond majority census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact four-coordinate updates follow directly from the three neighborhood types. The argument partitions all recurrent states into uniform and mixed opposite-shore cases, then exhausts both parity regimes using only strict-majority and tie conditions. Each mixed-shore state forces the first-shore count to exactly half, leading to the fixed-or-swap classification; every labelled orbit is counted with the correct temporal factor. The two independent programs passed explicit enumeration for 53 graphs (1,024,064 labelled states) and weighted signature enumeration for 1,681 parameter pairs. The proof, not the finite data, establishes all sizes.
+PASS
 
-## Originality
+Exact update on special bits u,v, number t among a−2 ordinary first-shore bits and k among b opposite-shore bits is determined by M(k+v,b+1,u),M(k+u,b+1,v), the b-neighbor majority for t, and a-neighbor majority for k using S=t+u+v. Since any block either retains every bit or becomes uniform, this is an exact labelled-state reduction. Recurrent mixed B must remain mixed and have S=a/2; even b forces k=b/2 and swaps the special bits while fixing ordinary bits, yielding the binomial fixed/cycle formulas; odd b forces AND/OR and only a=4 gives new fixed states. Uniform B recurrence gives two consensus fixed states plus one opposite-shore two-cycle. Independent direct labelled-vertex checker and independent weighted signature checker code inspected; separately reran representative exact direct enumerations. Stirling yields T_{2m,2m}∼16^m/(4πm).
 
-PASS, with historical risk. The classical general theorem bounds eventual periods but not orbit multiplicities. The 2014 majority-dynamics preprint addresses infinite/random graphs, not this edge-insertion census. The most closely related published comparison deletes a cross-partition edge and has exactly one primitive two-cycle for every size; inserting an intrapartition edge yields an exponentially growing binomial family. A result for three-state excitation on the same graph concerns another dynamics and invariant. Attempts to access the 1980 original through lawful sources were unsuccessful, leaving the possibility of an unindexed earlier exact formula. No stronger known statement identified here implies the claimed recurrence conversion.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result gives a two-parameter infinite-graph-family orbit classification for a natural minimal perturbation of a complete bipartite network, and identifies a previously unforced mechanism: one added edge pairs exponentially many pre-existing equilibria into oscillations while preserving the total recurrent population. The exceptional four-vertex shore creates new equilibria instead. These are structural parameter-sensitive effects, not numerical samples or routine substitutions.
+General Goles–Olivos eventual period-≤2 result and later majority-network work do not give this exact graph-perturbation orbit census. The strongest relevant published Resultary result fully read instead deletes an existing cross-shore edge and has exactly one two-cycle, so does not entail the growing binomial two-cycle response caused by an added intrashore bond. Another published three-state excitation model has a different update. Full original 1980 paper remains inaccessible because institutional VPN is disconnected; residual priority uncertainty named, not treated as scientific failure.
 
-## Limits
+## value
 
-The classification assumes shores at least three, one intrashore bond, synchronous binary open-neighborhood majority and inertia on ties. It does not count attraction basins or resolve historical priority conclusively.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimal symmetry-breaking of a standard complete bipartite majority network yields a natural two-parameter infinite family, with a structural dichotomy: exponentially many balanced equilibria pair into oscillations for even-even shores, while an exceptional size-four shore creates equilibria for odd opposite size. This complete parameter-sensitive dynamical response is not a textbook consequence of knowing periods are at most two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
