@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The open-neighbor degree is exactly \(2n-2\), yielding the exact fixed-cell threshold pair \(r_i+c_j\ge n+1\) at a one and \(r_i+c_j\le n-1\) at a zero. These inequalities force nested row supports, unique sorted Ferrers form and the two corner conditions. The bijection adding a zero row plus one initial occupied column on nonempty rows and the complement-transpose involution split the full stable shape set into two equinumerous classes at each size; the base consists of two shapes. Orbit-stabilizer gives the labelled formula. Independent exhaustive direct simulations for all 66,064 boards of orders two through four and exact shape checks through order eight support—but are not used as substitutes for—the proof. The proof and required code are embedded.
+
+## Originality — PASS, with residual historical-priority risk
+Searches of exact square-rook majority fixed points, Ferrers partitions, equivalent two-color majority C-colorings and published mathematical records found finite comparisons and different classifications but not this statement. The closest available rook/Shrikhande census computes 302 for order four only; a complete \(K_3\square K_n\) time-census holds one factor fixed at three. The equivalent two-color internal coloring is explicitly addressed: the recent Cartesian-product C-coloring paper optimizes the maximum number of colors, whereas the claim counts *all* two-color equilibria modulo a specified group and identifies their Ferrers geometry. General threshold-period theorems imply no such orbit classification. The reviewed scope is the all-order \(2^n\) class formula and its structural proof, not the already known order-four value. Indexed search does not prove uniqueness; older unindexed results could contain the theorem.
+
+## Value — PASS
+The square rook graphs are canonical product and line graphs and have strong row/column symmetries. The invariant counts equilibrium orbits under those symmetries; it is not an arbitrary slice chosen only for easy computation. A complete natural classification of all stable two-color boards, the exact \(2^n\) law and the labelled factorial sum explain how global binary majority restrictions reduce an exponentially large configuration space to a structured class family. The self-contained integer-partition recurrence is usable for exact enumeration at larger orders. No claim is made about two-cycles or transient lengths.
+
+Self-review: passed. Independent audit: not yet performed.
