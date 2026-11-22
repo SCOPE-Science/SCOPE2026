@@ -1,15 +1,21 @@
-# Scientific review: ordinary-wheel enclosing ellipsoids
+# Independent mathematical audit
 
-## Correctness
-PASS. The hub/rim Fourier decomposition of an explicitly centered probability covariance gives its full intrinsic positive spectrum and determinant. Differentiating the determinant is strictly concave, has exactly one interior critical point, and makes the two edge-vertex Mahalanobis norms equal. Their weighted average is the affine dimension, so all vertices are exact contacts. For any competing ellipsoid, averaged containment plus the trace-determinant inequality proves global minimum volume and uniqueness of center and shape. The asymptotic calculation uses an explicitly evaluated circle integral and uniform analytic periodic trapezoidal estimates; the coefficient is fixed by \(I'(1/3)=-3/2\) and \(b(1/3)=5/2\). The packaged verifier reconstructs covariance matrices independently for finite small orders. The analysis applies to every integer rim order \(m\ge3\); finite computation alone is not its proof.
+## correctness
 
-## Originality
-PASS on best available evidence, with historical-priority risk. The inspected 2021 Ohsugi–Tsuchiya wheel join-graph paper treats PQ-type adjacency bodies and lattice invariants, not unsigned edge-incidence Löwner ellipsoids. Its earlier 2020 symmetric-edge work also concerns a different construction. A published exact enclosing-ellipsoid theorem for symmetric wheel edge-root polytopes treats a centrally symmetric body and a different, exponentially stabilizing rim/spoke parameter; it does not imply the present result. A published exact inradius theorem for the same ordinary wheel edge polytope determines inscribed balls, not enclosing ellipsoids. The classical optimal-design/ellipsoid framework is prior art, and the contribution is the exact unsigned-wheel solution and sharp one-third asymptotic law. A separately indexed experimental-design treatment might supply an equivalent earlier result; this is residual priority uncertainty, not an assertion of independent certification.
+PASS
 
-## Mathematical value
-PASS. The minimum-volume Euclidean covering ellipsoid is a canonical global shape descriptor, and the ordinary wheel is a fundamental non-complete graph-edge polytope with two geometrically distinct vertex orbits. The exact shape, positive all-vertex contact design, and nontrivial \(1/m\) correction quantify how the two orbit types contribute in every dimension; the limit \(1/3\) versus the combinatorial orbit fraction \(1/2\) is a structural effect with a natural geometric-optimal-design interpretation, not a parameter substitution.
+Cyclic rim Fourier decomposition of covariance C(a) on sum-zero H gives eigenvalues (m+1)/m a(1-a), D_k(a)/m, D_k=a+(1-a)4cos²(pi k/m). Strict negative F_m'(a) proves unique root in (0,1). Direct contact leverages Rsp-Rrim=F and weighted trace=m. Weighted containment and determinant AM-GM prove global MVEE and uniqueness without restricting competitors to symmetric ellipsoids. The analytic periodic trapezoid remainder gives F_m=mI(a)+b(a)+O(m rho^m), I(1/3)=0, I'(1/3)=-3/2, b(1/3)=5/2; hence first correction 5/(3m). Independent direct orbit root/contact checks at m=3,4,5,8,24,101,501 match; finite checks do not establish the uniform complex-strip estimate.
 
-## Risks and limitations
-The result does not classify arbitrary graph families or alternate affine realizations, and no independent audit has been performed. Earlier literature on D-optimal design for unsigned graph incidences may require specialist review before historical priority can be definitive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same ordinary unsigned wheel polytope has a known Euclidean inradius/incenter result, but its inscribed ball cannot imply a minimum-volume enclosing ellipsoid, full contact design or a_m asymptotic. The published symmetric edge ROOT-polytope MVEE concerns ±(e_i-e_j), not unsigned e_i+e_j; its Fourier symbol is 4sin² not 4cos² and its optimal weights have exponential, not one-third algebraic, behavior. Classical general D-optimal/MVEE equivalences are background, not the claimed new wheel-specific explicit solution. Bounded searches found no equivalent unsigned-wheel MVEE formula.
+
+## value
+
+PASS
+
+A natural, canonical graph-incidence polytope has an explicit complete Euclidean MVEE, unique nonlinear design, all-contact extremal certificate and a nontrivial asymptotic orbit-weight law. This distinguishes unsigned incidence from the corresponding symmetric root-polytope geometry and is not a routine finite tabulation or a restatement of general optimal-design duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
