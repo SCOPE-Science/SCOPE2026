@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For a linear word, two deleted positions yield the same descendant exactly when they lie in the same maximal constant run. Deleting a double run always stays legal; deleting an interior singleton violates the receiver cap precisely if equal flanking run symbols merge to length at least three. The four-state weights enumerate the middle run upon appending its right neighbor, with q-2 non-repeating and one repeating symbol. For min degree, with k double runs, b surviving singleton deletions, t invalid singletons, and e double endpoint runs: d=k+b, n=2k+b+t, t<=2k-e, b>=2-e imply n<=4d-2. Constructive run words meet equality at every n, and at n=4h-2 equality forces double endpoints and exactly two invalid singleton runs per adjacent pair of doubles; symbol choices count q(q-1)^(h-1). Max degree n iff all runs singleton. The packaged exhaustive checker reproduces local, transfer and direct methods for 115544 admissible words; finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni–Kiyavash Section V works with binary (d,k) zero-run restrictions, not a q-ary common maximum-two source-and-receiver run cap.",
+        "Liu–Xing–Zhang analyze DNA constraints and error-correcting code constructions, focusing on length-of-runs constraints with ell at least three in their constructions.",
+        "The published run-pattern theorem provides a general unfiltered deletion collision criterion."
+      ],
+      "reasoning": "General source or code constraints do not dominate the target: the output-side validity filter and per-source degree distribution are not recovered from source cardinalities, deletion pattern counts or codebook-size bounds. Source restrictions and required quantities differ.",
+      "searches": [
+        "arxiv 1211.3128 constrained sources deletion code run-length restrictions exact minimum degree",
+        "restricted one-deletion sphere size qary run length at most 2 polynomial number of words with each degree",
+        "2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be",
+        "arxiv:1211.3128",
+        "arxiv:2307.00221"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2307.00221",
+      "https://arxiv.org/pdf/1211.3128",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be/RESULT.md",
+      "2026/10/13/SCOPE-exact-single-deletion-optima-for-the-2-infty-rll-source-through--b6865f2f1099",
+      "2026/11/8/SCOPE-exact-composition-deletion-sphere-laws-and-three-alphabet-regime--4b52d54dc239"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 DNA code paper does not calculate the size spectrum of filtered one-deletion outputs.",
+        "The 2012 non-asymptotic deletion-code analysis does not calculate this bilateral constraint degree, and its run restriction differs.",
+        "The public deletion-pattern theorem proves unfiltered sphere estimates and collision criteria, not validity-filtered one-deletion enumerators."
+      ],
+      "reasoning": "From ordinary one-deletion run count r, a further nontrivial count of invalid singleton deletions is needed; the present run-gap indicator supplies it. A separate finite-state transfer then yields a universal rational enumerator and a tight extremal argument; none of the inspected source statements imply the resulting exact minimum or equality census without new structural work.",
+      "searches": [
+        "Run-length at most two q-ary words distinct single deletion descendants that also avoid triple letter, minimum sphere size ceiling (n+2)/4, finite-state rational generating function",
+        "arxiv 2307.00221 run-length-limited homopolymer DNA codes single deletion survivor constrained sphere",
+        "arxiv:2307.00221",
+        "arxiv:1211.3128",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be/RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For the ordinary one-deletion channel distinct descendants equal the number of source runs (Liron–Langberg and published deletion-pattern work).",
+        "The reviewed exact collision-threshold publication counts all deletion descendants and has no condition excluding triple-run received words.",
+        "Targeted semantic searches returned no stated bilateral run-two filter and exact full-degree law."
+      ],
+      "reasoning": "The survivor operation equals the unfiltered run representatives minus exactly those deletions creating a triple. The excluded set varies with two neighboring run lengths and whether their letters coincide; this filter is not a mere relabeling or equivalence to an unfiltered sphere count.",
+      "searches": [
+        "Run-length at most two q-ary words distinct single deletion descendants that also avoid triple letter, minimum sphere size ceiling (n+2)/4, finite-state rational generating function",
+        "Constrained one-deletion balls words avoiding length three runs q-ary, minimum legal deletion output count",
+        "same maximum run length two both sender and receiver one deletion surviving sphere degree formula arbitrary q and bivariate generating function",
+        "length n qary no three equal one deletion remains no three count min degree spectrum",
+        "2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finite codebook optimum for a binary (2,infinity) RLL source through length eleven concerns maximizing pairwise disjoint deletion balls, not enumerating legal retained outputs per word.",
+        "Composition-read deletion results concern deletion of an observation from a multiset of overlapping reads, not symbol deletion from a word.",
+        "The compared published claims describe different deletion operations or different constrained-source languages; no equivalent all-length q-ary survivor-degree table was identified."
+      ],
+      "reasoning": "There is no identified table or database of the full q-ary all-n survivor-degree histogram or of minimum-degree extremizers for this symmetric run-two condition. A negative search is not proof of priority.",
+      "searches": [
+        "Single deletion limited to remaining homopolymer free no triple runs enumerate sphere degrees",
+        "number of valid single-deletion outputs avoiding 000 and 111 source also avoiding 000 111 minimum degree ceil((n+2)/4)",
+        "2026/10/13/SCOPE-exact-single-deletion-optima-for-the-2-infty-rll-source-through--b6865f2f1099",
+        "2026/11/8/SCOPE-exact-composition-deletion-sphere-laws-and-three-alphabet-regime--4b52d54dc239"
+      ]
+    },
+    "rationale": "The checked published and primary works address unfiltered deletion outputs, different run-length-limited input languages, DNA code constructions, or deletion of multiset observations. The new statement counts, for every individual source, only one-letter-deletion outputs that themselves obey the same run-two condition; it derives a four-state all-length distribution and sharp minimum with equality census. In particular the known ordinary number-of-runs law cannot alone determine the local output-filter losses or their joint distribution. No matching implication was established; residual priority risk is explicitly retained.",
+    "residual_risks": [
+      "An earlier unindexed theorem may study filtered one-deletion degrees under both-sided run-length-two constraints.",
+      "General transfer matrix theory can rederive the rational GF once the new local deletion filter is identified; methodological familiarity alone does not establish claim coverage.",
+      "The full text of every historical deletion-channel paper was not inspected.",
+      "Finite exhaustive verification does not certify any untested infinite claim; those rely on the included proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant motivation and constraints; does not supply the survivor-filtered one-deletion spectrum for cap two",
+        "evidence": [
+          "Introduction motivates homopolymer run-length constraints; later constructions and conclusions give code construction and bounds, not count every legal retained deletion output."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2307.00221",
+        "material_read": "First public version metadata, introduction, code construction section, final discussion, and selected full-page renderings",
+        "method": "Open-access arXiv PDF text and page images",
+        "title": "Codes with Biochemical Constraints and Single Error Correction for DNA-Based Data Storage",
+        "trigger": "Same DNA run-length constraints and one-error correction"
+      },
+      {
+        "assessment": "Different binary (d,k) input language and code bounds; no all-q degree distribution under bilateral run-two restriction",
+        "evidence": [
+          "Section V restricts runs of zeros between singleton ones and derives non-asymptotic bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+        "material_read": "Introduction, run-length-limited channel Section V and rendered pages",
+        "method": "Open-access arXiv PDF text and page images",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Foundational constrained deletion-channel reference"
+      },
+      {
+        "assessment": "Counts unrestricted deletion spheres and collision thresholds; output cannot be rejected for violating a shared run limit",
+        "evidence": [
+          "Its main exact collision threshold compares deletion patterns and unrestricted descendant counts; it expressly defines deletions without a constrained receiver."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be/RESULT.md",
+        "material_read": "Complete RESULT.md including theorem, proof, relationship to literature, and limitations",
+        "method": "Public repository full-text fetch",
+        "title": "Exact run-pattern collision thresholds and short-deletion extremal counts",
+        "trigger": "Closest public theorem counting one-deletion descendant patterns"
+      },
+      {
+        "assessment": "Known unfiltered deletion combinatorics; unresolved full-paper priority remains",
+        "evidence": [
+          "Published collision-threshold record credits earlier run-pattern upper bounds to Liron and Langberg."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+        "material_read": "Prior-work treatment within the full published collision-threshold finding; source title and abstract search only",
+        "method": "Secondary comparison plus arXiv bibliographic evidence, not a full primary reading",
+        "title": "A Characterization of the Number of Subsequences Obtained via the Deletion Channel",
+        "trigger": "Ordinary run-count and deletion-pattern antecedent cited by closest publication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bf9864c1-08ef-4616-8e1f-02b032aa30e2",
+  "value": {
+    "rationale": "A receiver required to retain the same physical run-length constraint changes the one-deletion read graph and the number of distinct admissible outputs in ways not captured by the ordinary deletion-run formula. The exact all-length local-degree spectrum, tight minimum degree, and rigidity/count of sharp minimizers at a complete congruence family provide a motivated structural statistic for constrained channel robustness and deletion-read ambiguity, rather than an arbitrary short numerical slice or a routine restatement of a known unfiltered sphere.",
+    "status": "PASS"
+  }
+}
