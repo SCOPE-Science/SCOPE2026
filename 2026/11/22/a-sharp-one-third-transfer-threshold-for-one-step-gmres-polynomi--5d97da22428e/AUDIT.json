@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The fitted coefficient is the Rayleigh quotient of H=sym(T^{-1}) after y=Tb, and attainable independently by training/test vectors. The exact residual identity gives all-pairs nonexpansion iff M<=2m; extremal-eigenvector construction proves necessity. H=(I+C_n(t))/2 with standard KMS Toeplitz C; a Poisson-kernel integral gives strict spectral bounds yielding t<=1/3 and long-path constant/alternating vectors show sharp failure above 1/3. Explicit H2 and H3 spectra give 2/3 and sqrt(3sqrt2-4) boundaries, including equality. A fully rational two-site amplifier and a standalone checker with 961 passing assertions verify key identities without treating finite tests as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2502.18317: Theorem 4.1 requires A=Z Lambda Z^-1, whereas every nontrivial T_n(t) is a Jordan block.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-anisotropic-two-step-gmres-stagnation-frontier-for-a-three--20723474f61a: title and full RESULT.md address two-step same-RHS GMRES stagnation, not frozen one-step cross-RHS transfer.",
+        "https://epubs.siam.org/doi/abs/10.1137/0915029: available abstract discusses adaptive GMRES/poly hybrid convergence for all starting vectors, not this fixed-polynomial residual transfer criterion."
+      ],
+      "reasoning": "General GMRES theory ensures the fitted residual does not grow on its OWN RHS, not after reuse. Theorem 4.1 of Embree et al. has a false hypothesis on the defective T_n(t). The two-step stagnation theorem quantifies a different Krylov space and one RHS; it cannot establish or dominate the one-step independent-pair threshold. Full Joubert text is not available and the abstract cannot rule out an implicit related result; its uncertainty is recorded.",
+      "searches": [
+        "Polynomial preconditioning multiple right-hand sides, Kac Murdock Szego matrix, Rayleigh quotient of symmetric inverse, uniform residual monotonicity",
+        "fixed one-step GMRES polynomial random training right hand side and arbitrary deployment right hand side worst-case growth",
+        "fixed minimal residual parameter trained on one vector applied another vector worst-case amplified"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.00552v1",
+      "https://arxiv.org/abs/2502.18317",
+      "https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-anisotropic-two-step-gmres-stagnation-frontier-for-a-three--20723474f61a",
+      "https://epubs.siam.org/doi/abs/10.1137/0915029",
+      "https://onlinelibrary.wiley.com/doi/10.1002/nla.70116"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2611.00552v1: Sections 4-5, setup polynomial once on random vector then reuse; no all-vector safety theorem.",
+        "https://arxiv.org/abs/2502.18317: Theorem 4.1 proves a diagonalizable-case transfer estimate; not applicable to T_n(t), t>0.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-anisotropic-two-step-gmres-stagnation-frontier-for-a-three--20723474f61a: exact 3-site weighted GMRES(2) stationarity criterion concerns two optimal steps on identical RHS.",
+        "https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/: supplies classical ingredients but not an algorithmic transfer conclusion."
+      ],
+      "reasoning": "The new statement is an iff for every n, b and c, including sharp t=1/3, with n2/n3 boundary comparison and explicit witnesses. A result for each training RHS only does not imply the stronger all-training/all-deployment norm bound. Even exact knowledge of the KMS symbol requires the independent-coefficient inequality M<=2m to reach the transfer theorem. Related two-step same-RHS claims are not algebraically interchangeable with a frozen scalar polynomial on another RHS.",
+      "searches": [
+        "Fixed one-step GMRES scalar inverse reused across different right-hand sides on bidiagonal unit triangular Jordan shift, Kac Murdock Szego Toeplitz symmetric inverse spectrum, all-dimension coupling threshold one third for residual nonexpansion",
+        "GMRES stationary degree zero transfer between training and test vectors on unit bidiagonal triangular matrices: 1/3 dimension-uniform threshold, dimension two 2/3, dimension three sqrt(3sqrt2-4)",
+        "Polynomial preconditioning multiple right-hand sides, Kac Murdock Szego matrix, Rayleigh quotient of symmetric inverse, uniform residual monotonicity",
+        "fixed one-step GMRES polynomial random training right hand side and arbitrary deployment right hand side worst-case growth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2611.00552v1: Section 5 defines and freezes a GMRES polynomial from a single RHS.",
+        "https://arxiv.org/abs/2502.18317: Sections 1.1, 2, 4, Theorem 4.1; RHS transfer bounds for diagonalizable matrices.",
+        "https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/: the Toeplitz correlation matrix has entries t^|i-j|."
+      ],
+      "reasoning": "Equivalent language includes the degree-zero GMRES approximate inverse, stationary one-step minimum-residual relaxation, cross-RHS polynomial generalization, and an inverse-numerical-range Rayleigh ratio. Exact finite-dimensional criterion M<=2m is proved here rather than identified in these inspected sources.",
+      "searches": [
+        "Fixed one-step GMRES scalar inverse reused across different right-hand sides on bidiagonal unit triangular Jordan shift, Kac Murdock Szego Toeplitz symmetric inverse spectrum, all-dimension coupling threshold one third for residual nonexpansion",
+        "GMRES stationary degree zero transfer between training and test vectors on unit bidiagonal triangular matrices: 1/3 dimension-uniform threshold, dimension two 2/3, dimension three sqrt(3sqrt2-4)",
+        "GMRES(1) reused polynomial one right hand side other right hand side residual growth Jordan block threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/: known matrix, inverse and spectral properties; no cross-RHS fit/deployment table.",
+        "https://arxiv.org/html/2611.00552v1: numerical tables compare ILU factor solvers on PDE/SuiteSparse tests; no exact threshold t=1/3 or finite n=2,3 transfer table."
+      ],
+      "reasoning": "The standard KMS spectrum and factorization are known and credited. The assessed object is a universal inequality over two independently selected right-hand sides whose critical parameter is inferred from the extremal inverse-Rayleigh ratio; no exact covering table was found in the inspected mathematical and experimental sources. Absence from a search index is not proof of originality.",
+      "searches": [
+        "Fixed one-step GMRES scalar inverse reused across different right-hand sides on bidiagonal unit triangular Jordan shift, Kac Murdock Szego Toeplitz symmetric inverse spectrum, all-dimension coupling threshold one third for residual nonexpansion",
+        "Polynomial preconditioning multiple right-hand sides, Kac Murdock Szego matrix, Rayleigh quotient of symmetric inverse, uniform residual monotonicity",
+        "Kac Murdock Szego inverse Toeplitz extreme eigenvalues (1+r)/(1-r) finite n"
+      ]
+    },
+    "rationale": "The primary 2026 ILU study constructs and reuses a GMRES polynomial but does not give the sharp all-pairs scalar transfer threshold. The full Embree et al. study treats polynomial reuse and has an explicit diagonalizability assumption in its eigenvector transfer bound, inapplicable to the defective triangular family. The classical Kac–Murdock–Szegő matrix and symbol bounds are acknowledged as prior mathematical ingredients; their known spectrum alone does not state the independent training/deployment residual criterion. Related published two-step same-right-hand-side GMRES and ideal affine-Jordan polynomial optimizations impose different constraints. Searches did not locate a covering statement; residual priority risks are explicit.",
+    "residual_risks": [
+      "An earlier unindexed statement could characterize all-pair contraction of reused minimum-residual steps or use equivalent accretive inverse language.",
+      "Classical Toeplitz and Kac–Murdock–Szegő spectral bounds are known; priority is asserted only for their precise fixed-polynomial transfer application and thresholds, not for the spectrum.",
+      "Only the abstract of Joubert (1994) could be inspected; its full text may contain a related general fixed-polynomial bound. The result is not claimed to exclude this possibility.",
+      "The original motivating work uses higher polynomial degrees in practice; this degree-zero analysis is a safety boundary for the simplest case, not a validated high-degree performance prediction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The fixed polynomial is constructed once and reused; no dimension-uniform degree-zero transfer threshold stated in inspected full text",
+        "evidence": "Section 5, equations (3) and paragraph on single random RHS and reuse; Section 4 on nilpotent triangular factors and nonnormal transients; MSC 65F10.",
+        "identifier_or_url": "https://arxiv.org/html/2611.00552v1",
+        "material_read": "Full available HTML: abstract, Sections 1–5 with exact construction in 4–5, method comparisons, conclusions and appendices structure",
+        "method": "Full-text HTML reading with internal section navigation",
+        "title": "A comparison of parallel iterative methods for ILU triangular solves",
+        "trigger": "Direct motivating publication; same triangular factor and frozen random-RHS GMRES polynomial"
+      },
+      {
+        "assessment": "General polynomial transfer is developed; sharp one-step defective-Jordan all-pair threshold not stated, and the close spectral transfer bound assumes diagonalizability",
+        "evidence": "Theorem 4.1 explicitly assumes A diagonalizable; Algorithm 1 reuses trained polynomial, Sections 4 examples show transfer sensitivity.",
+        "identifier_or_url": "https://arxiv.org/abs/2502.18317",
+        "material_read": "Full accessible arXiv text: Sections 1–6; especially Theorems 2.1/2.3, Sections 2.3, 4, Theorem 4.1, numerical transfer failures and Section 6",
+        "method": "Read full article HTML-text rendering including formulas and theory/experiment distinction",
+        "title": "Polynomial Approximation to the Inverse of a Large Matrix",
+        "trigger": "Closest known primary polynomial-transfer theory for multiple RHS"
+      },
+      {
+        "assessment": "Classical Toeplitz facts provide proof ingredients and are not represented as new",
+        "evidence": "Equations (1)–(3) and discussion of AR(1) correlation matrices and their eigenvalues.",
+        "identifier_or_url": "https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/",
+        "material_read": "Complete exposition, displayed matrix, determinant, inverse, SPD properties, factorization and references",
+        "method": "Direct HTML full text",
+        "title": "What Is the Kac–Murdock–Szegö Matrix?",
+        "trigger": "Exact Toeplitz coefficient matrix obtained from symmetrized triangular inverse"
+      },
+      {
+        "assessment": "Two successive minimization steps on the same residual; not frozen degree-zero one-step polynomial tested on independent RHS",
+        "evidence": "RESULT.md Finding and Proof steps 1–5: existence of a stalled same-RHS GMRES(2) residual when uv exceeds ratio-dependent threshold.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-anisotropic-two-step-gmres-stagnation-frontier-for-a-three--20723474f61a",
+        "material_read": "Entire RESULT.md: theorem, hypotheses, elimination proof, examples, limitations and references",
+        "method": "Read public primary result file, comparing claim quantifiers and optimization spaces",
+        "title": "Sharp anisotropic two-step GMRES stagnation frontier for a three-site bidiagonal system",
+        "trigger": "Closest previously published weighted Jordan GMRES claim"
+      },
+      {
+        "assessment": "Different adaptive hybrid convergence framework by abstract; residual possibility of a wider theorem in full text is retained",
+        "evidence": "Abstract: hybrid restarted GMRES/polynomial convergence from all starts iff restarted GMRES convergence; it does not display a cross-RHS one-step t threshold.",
+        "identifier_or_url": "https://epubs.siam.org/doi/abs/10.1137/0915029",
+        "material_read": "Publisher title, abstract, algorithm and MSC; full primary text not accessible",
+        "method": "Publisher abstract only, explicitly not classified as complete noncoverage",
+        "title": "A Robust GMRES-Based Adaptive Polynomial Preconditioning Algorithm for Nonsymmetric Linear Systems",
+        "trigger": "Older broad polynomial-preconditioning and all-starts convergence result might dominate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5d97da22-428e-4d51-86b0-3b2bd3dbe080",
+  "value": {
+    "rationale": "A polynomial generated from a single random right-hand side and reused without dot products is precisely the operational motivation of the recent triangular ILU solver study. The theorem answers a natural all-right-hand-side robustness question: transfer safety is uniform only below sharp coupling 1/3, while a fitted GMRES polynomial can improve its training residual yet increase a second residual. The difference from the sharp size-2 and size-3 cutoffs explains why testing tiny triangular systems is misleading. This is a complete structural classification for a minimal family, not an arbitrary isolated parameter computation; degree-zero scope is explicit.",
+    "status": "PASS"
+  }
+}
