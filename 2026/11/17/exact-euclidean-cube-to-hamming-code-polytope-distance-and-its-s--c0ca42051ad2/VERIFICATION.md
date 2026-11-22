@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the Hamming codeword-polytope distance
+# Independent mathematical audit
 
-The exact supporting-plane certificate is \((n+3)\langle e_i-y^{(i)},z\rangle=6z_i-2\operatorname{wt}(z)\le0\) for every codeword \(z\). Equality occurs only at zero and weight-three words containing \(i\). All prescribed projection coordinates and the convex combination have rational values. Its squared residual norm is \(4/(n+3)\).
+## correctness
 
-The standard-library `hamming_hull_checker.py` was executed and produced:
+PASS
 
-```
-HAMMING_HULL_EXACT_PASS finite=(n,codewords,noncode_vertices,face_equalities): [(3, 2, 6, 6), (7, 16, 112, 28), (15, 2048, 30720, 120)]  sampled: [(31, 2000), (63, 2000), (127, 2000)]
-```
+The full-rank Hamming parity-check columns h_j enumerate F2^m\{0}; every nonzero syndrome is a unique single-bit correction, and nonzero codewords have weight≥3. For fixed i, other n−1 coordinates pair under h_j+h_k=h_i; 0 and the (n−1)/2 weight-three codewords containing i form affinely independent simplex. Their strictly positive mixture y has y_i=(n−1)/(n+3), y_j=2/(n+3). Residual r=e_i−y gives (n+3)r·z=6z_i−2wt(z)≤0 for every codeword z, equality exactly on simplex. Projection normal inequality and ||r||²=4/(n+3) prove all m; translations by codewords map all noncode vertices. Distinct noncode corners have distinct projection residual patterns and strict variance excludes nonvertices. Independent exact support for all codewords m=2,3,4 and all i verified; not a proof for arbitrary m.
 
-The independently formulated `hamming_numeric_projection.py`, requiring NumPy and SciPy, was executed and produced:
+## originality
 
-```
-HAMMING_NUMERIC_QP_PASS: [(3, 2, 0.6666666666666667, 5.551115123125783e-17), (7, 16, 0.4000000000000015, 4.218847493575595e-15)]
-```
+PASS
 
-The numerical solver directly minimizes squared Euclidean distance over weights on all codewords. It was tested only for lengths three and seven. Exact exhaustive codeword checks were performed only at lengths three, seven and fifteen; the remaining tests were samples. No finite run proves the infinite-family theorem. The proof depends on the elementary code minimum distance, the projection variational inequality and residual variance, each displayed explicitly in `RESULT.md`. An independent mathematical audit has not been performed.
+Best-of-knowledge non-implied exact Euclidean cube-to-Hamming-code convex-hull distance for all m>=2 and full farthest-corner/unique nearest-simplex-face classification; perfect Hamming correction, code translation symmetry and parity-check triple structure are credited ingredients.
+
+## value
+
+PASS
+
+The Euclidean convex distance from the full cube to a standard perfect Hamming codeword hull, and the full farthest-point and projection-face geometry, are natural coding-polytope approximation invariants distinct from ordinary discrete Hamming covering radius. Exact all-length formula 2/sqrt(n+3) and simplex dimension (n−1)/2 would be useful for geometric decoding and relaxations; not a recomputed familiar table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

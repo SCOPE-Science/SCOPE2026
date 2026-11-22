@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The unique projection is exhibited as an explicit convex combination of zero and all weight-three codewords through one coordinate. The weight-three minimum-distance property gives a global exposing inequality with the exact equality face; the Euclidean projection condition and strict convexity prove optimality and uniqueness. Codeword reflection supplies every noncode vertex. A residual-variance identity rules out every nonvertex cube point, and the distance follows exactly. The arbitrary-dimension argument does not depend on finite computation. Scope: unweighted Euclidean metric, binary Hamming check columns, \(m\ge2\).
+## correctness
 
-## Originality: PASS, priority provisional
-Kashyap (2006) covers general codeword-polytopes, face symmetries and minimal-codeword connections but not the exact Hamming cube-to-hull distance, exposed nearest-point simplices or full deep-hole classification in its inspected sections. Gensheimer et al. (arXiv:1901.03240, 2019) analyze single parity-check-polytope projection, not projection onto the simultaneous Hamming codeword hull. Coregliano–Jeronimo–Jones (arXiv:2112.09221, 2021) treat LP code-size bounds and associated hierarchies. An equivalent formulation as a Talagrand-style convex distance at binary inputs was searched for explicitly. No stronger encompassing theorem or published exact Hamming-code table was identified in the inspected material and focused published-finding corpus/literature searches, but absence of search matches is not an exhaustive priority certificate. The exact claim remains subject to historical specialist review.
+PASS
 
-## Mathematical value: PASS
-The full Hamming-code family is an infinite, canonical class of high-dimensional binary polytopes. Its exact geometric covering error and complete deep-hole classification relate discrete perfect decoding radius one to convex relaxation radius \(2/\sqrt{n+3}\), an asymptotically vanishing factor. The explicit relatively open simplex faces of dimension \((n-1)/2\) provide structural information about nearest-point geometry, not merely a numerical evaluation.
+The full-rank Hamming parity-check columns h_j enumerate F2^m\{0}; every nonzero syndrome is a unique single-bit correction, and nonzero codewords have weight≥3. For fixed i, other n−1 coordinates pair under h_j+h_k=h_i; 0 and the (n−1)/2 weight-three codewords containing i form affinely independent simplex. Their strictly positive mixture y has y_i=(n−1)/(n+3), y_j=2/(n+3). Residual r=e_i−y gives (n+3)r·z=6z_i−2wt(z)≤0 for every codeword z, equality exactly on simplex. Projection normal inequality and ||r||²=4/(n+3) prove all m; translations by codewords map all noncode vertices. Distinct noncode corners have distinct projection residual patterns and strict variance excludes nonvertices. Independent exact support for all codewords m=2,3,4 and all i verified; not a proof for arbitrary m.
 
-## Evidence, closest literature and limits
-Exact/rational symbolic checks passed for all codewords in lengths 3, 7 and 15, with further sampled conditions in lengths 31, 63 and 127. A separately implemented quadratic-program solve matched lengths 3 and 7. Neither finite test is substituted for the analytical proof. Priority risks include alternative formulations through convex distance, codeword-polytope projections, or coding-theoretic pseudoweight terminology. No independent audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge non-implied exact Euclidean cube-to-Hamming-code convex-hull distance for all m>=2 and full farthest-corner/unique nearest-simplex-face classification; perfect Hamming correction, code translation symmetry and parity-check triple structure are credited ingredients.
+
+## value
+
+PASS
+
+The Euclidean convex distance from the full cube to a standard perfect Hamming codeword hull, and the full farthest-point and projection-face geometry, are natural coding-polytope approximation invariants distinct from ordinary discrete Hamming covering radius. Exact all-length formula 2/sqrt(n+3) and simplex dimension (n−1)/2 would be useful for geometric decoding and relaxations; not a recomputed familiar table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

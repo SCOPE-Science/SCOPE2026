@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T23:52:40.848562Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full-rank Hamming parity-check columns h_j enumerate F2^m\\{0}; every nonzero syndrome is a unique single-bit correction, and nonzero codewords have weight≥3. For fixed i, other n−1 coordinates pair under h_j+h_k=h_i; 0 and the (n−1)/2 weight-three codewords containing i form affinely independent simplex. Their strictly positive mixture y has y_i=(n−1)/(n+3), y_j=2/(n+3). Residual r=e_i−y gives (n+3)r·z=6z_i−2wt(z)≤0 for every codeword z, equality exactly on simplex. Projection normal inequality and ||r||²=4/(n+3) prove all m; translations by codewords map all noncode vertices. Distinct noncode corners have distinct projection residual patterns and strict variance excludes nonvertices. Independent exact support for all codewords m=2,3,4 and all i verified; not a proof for arbitrary m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kashyap covers code polytope facial combinatorics and binary linear code symmetry; perfect Hamming syndrome classes yield the unique coordinate correction but not projection residual values.",
+          "LP hierarchy code-size bounds and single-check decoders do not provide exact Euclidean projections onto the true convex hull."
+        ],
+        "reasoning": "No inspected source supplies a stronger arbitrary-linear-code Euclidean projection theorem that would imply these exact Hamming values; not conflating a one-check relaxation with P_m.",
+        "searches": [
+          "Kashyap 2006 full code geometry PDF",
+          "Resultary query: convex distance Hamming code polytope deep-hole nearest point exactly simplex face Hausdorff",
+          "Coregliano Jeronimo Jones 2021 LP hierarchy linear codes"
+        ]
+      },
+      "checked_sources": [
+        "Kashyap 2006 code_geometry.pdf full available text and page screenshot",
+        "Gensheimer et al arxiv:1901.03240 abstract/domain",
+        "Coregliano Jeronimo Jones arxiv:2112.09221",
+        "Resultary 2026-11-17 simplex-code 15-bit census and Hamming family searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior generic codeword-polytope geometry permits equality-face and translation arguments but not the universal Euclidean projection formula at a syndrome-one vertex, which requires the min-weight-three support certificate.",
+          "The separate simplex-code 15-bit spectrum is for the dual code and not Hamming code C_m; its 13 shells do not imply equal two-level Hamming cube distance."
+        ],
+        "reasoning": "The new certificate uses all nonzero parity-check columns, weight3 pairs and strict residual distinguishability; no prior read result logically entails its explicit exact value.",
+        "searches": [
+          "Kashyap 2006 codeword polytope",
+          "Gensheimer et al 2019 single parity-check convex projection",
+          "Resultary nearby simplex-code 15-bit shells"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kashyap discusses the true codeword hull and code-translations as general polytope symmetries, not the all-Hamming Euclidean Hausdorff metric.",
+          "Gensheimer et al compute projection onto ONE parity-check polytope (a relaxation), not onto intersection of all checks or the Hamming codeword convex hull."
+        ],
+        "reasoning": "Euclidean convex distance from a noncode vertex to P differs from nearest discrete codeword distance one and is not implied by classical perfect-code covering radius.",
+        "searches": [
+          "Resultary search: Hamming code polytope Euclidean Hausdorff distance cube convex hull projection simplex face",
+          "Kashyap 2006 On the Convex Geometry of Binary Linear Codes",
+          "Gensheimer et al arxiv:1901.03240 parity check projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact database/table of all Hamming-code cube-corner distances, the farthest count 2^n−2^{n−m} and the (n−1)/2-simplex projection faces was found among inspected source statements."
+        ],
+        "reasoning": "This is an all-dimension theorem, not a recomputation of small-code tables; unsuccessful search is not a proof of novelty.",
+        "searches": [
+          "Resultary: Hamming codeword convex hull Euclidean 2/sqrt(n+3)",
+          "Kashyap full primary document",
+          "arxiv:1901.03240"
+        ]
+      },
+      "rationale": "Best-of-knowledge non-implied exact Euclidean cube-to-Hamming-code convex-hull distance for all m>=2 and full farthest-corner/unique nearest-simplex-face classification; perfect Hamming correction, code translation symmetry and parity-check triple structure are credited ingredients.",
+      "residual_risks": [
+        "Older hidden exact Hamming-code Euclidean convex-distance computation remains possible; searches are not novelty proof.",
+        "Independently checked support inequalities for m2,3,4, not all m; all m from minimum code weight and paired columns."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "True code hull and symmetry known; same all-dimension Euclidean Hausdorff computation not stated in read sections",
+          "evidence": "Gives convex geometry of codes and codeword translations, not supporting residual 4/(n+3) and face F_i.",
+          "identifier_or_url": "https://ece.iisc.ac.in/~nkashyap/Papers/code_geometry.pdf",
+          "material_read": "Primary OA PDF 2006, extracted text and reviewed sections on code polytopes, faces, symmetry and parity-check code representations; visually inspected PDF first page",
+          "method": "Read full available PDF material, searched Hamming, Euclidean projection and closest-point terminology",
+          "title": "On the Convex Geometry of Binary Linear Codes — N. Kashyap",
+          "trigger": "Exact convex-hull codeword polytope precursor"
+        },
+        {
+          "assessment": "Explicitly the parity-check polytope relaxation, not the full multi-check Hamming code hull",
+          "evidence": "One parity constraint is strictly weaker than the Hamming codeword hull for general m.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.03240",
+          "material_read": "ArXiv abstract and stated projection object, not full document proof",
+          "method": "Compared projection domain from accessible paper abstract",
+          "title": "A Reduced-Complexity Projection Algorithm for ADMM-based LP Decoding — Gensheimer et al",
+          "trigger": "Closely named code-polytope projection literature"
+        },
+        {
+          "assessment": "Dual 16-word simplex code, not 2048-word Hamming [15,11,3] code",
+          "evidence": "That distance census does not imply the full Hamming family whose m4 polytope is much larger.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-thirteen-exact-euclidean-corner-distance-shells-of-the-binary-15--34a08530a1b5",
+          "material_read": "Indexed full summary/title and exact code parameters",
+          "method": "Resultary semantic search",
+          "title": "Thirteen exact Euclidean corner-distance shells of the binary [15,4,8] simplex-code polytope",
+          "trigger": "Potential table match at length 15"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Euclidean convex distance from the full cube to a standard perfect Hamming codeword hull, and the full farthest-point and projection-face geometry, are natural coding-polytope approximation invariants distinct from ordinary discrete Hamming covering radius. Exact all-length formula 2/sqrt(n+3) and simplex dimension (n−1)/2 would be useful for geometric decoding and relaxations; not a recomputed familiar table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "For standard unpunctured [2^m−1,2^m−m−1,3] binary Hamming codes only, m≥2, true convex hull not independent check relaxations.",
+    "All-m structural proof not certified by finite tests; separate no nonvertex farthest locus uses strict residual variance."
+  ],
+  "schema_version": 1
+}
