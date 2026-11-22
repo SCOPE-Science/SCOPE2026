@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python checker.py` in an environment with the Python dependencies listed in `requirements.txt`.
+## correctness
 
-The checker uses exact symbolic identities to reconstruct all four normalized add/subtract equations of the proof. It confirms that for \(r=16/5\), the scalar two-cycle is strictly positive and has exact second-iterate multiplier \(4/25\). It solves the two polynomial coupled period-two equations at \(c=d=10^{-4}\) for both sharpness orientations and verifies residuals below \(10^{-45}\), distinct positive coordinates inside \((0,1)^2\), and both multipliers strictly inside the unit circle.
+PASS
 
-The universal absence statement is proved by AM–HM inequalities and the nonsingular difference matrix; the numerical examples test only particular small positive couplings. The proof's sharpness uses the implicit-function theorem and does not depend on a finite grid. Full independent audit and exhaustive literature priority checks have not been performed.
+For every strictly positive least-period-two orbit, positivity of prey x forces 0<x_i<1. Adding the normalized prey and predator update equations yields S_x<2(a−1)/a and S_y<2(b+d−1)/b. Arithmetic-harmonic inequalities imply R_x>a when a≤3 and R_y>b when b+d≤3, including weak endpoints because c,d>0. Subtracting yields (R_x−a)Δx=cΔy and (R_y−b)Δy=−dΔx, whose strictly positive determinant (R_x−a)(R_y−b)+cd forces Δx=Δy=0. At a or b just above 3, scalar f_r(u)=ru(1−u) has hyperbolic attracting primitive two-cycle for 3<r<1+sqrt(6), which continues by IFT to small c=d>0 while the other coordinate stays logistic fixed at 1/2. Inspected actual checker.py confirms normalized identities symbolically; external independent SymPy symbolic subtraction reproduced them. The theorem does not require global positive-quadrant invariance.
+
+## originality
+
+PASS
+
+The accessible 2024 same-map coupled-logistic research treats local fixed point stability and flip bifurcations; these cannot by themselves rule out an arbitrary disconnected strictly positive primitive two-cycle. The older 2018 applied-mathematics paper may contain more global bifurcation analysis; no lawful public full text was obtainable and authorized institutional access reported vpn_disconnected, making it a named priority risk rather than automatic failure. Related Resultary plankton exclusion theorems have different predator equations and neither imply the exact coordinatewise rectangle a≤3,b+d≤3. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+A sharp two-coordinate universal exclusion region for all positive states is a meaningful global restriction beyond local bifurcation calculations, with explicit hyperbolic existence arbitrarily near either parameter boundary. It explains which numerical 2-cycle observations require threshold exceedance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
