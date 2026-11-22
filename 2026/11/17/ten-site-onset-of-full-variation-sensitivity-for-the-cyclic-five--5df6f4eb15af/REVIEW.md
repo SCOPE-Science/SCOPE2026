@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The map is globally continuous piecewise-affine, with each derivative a five-local coordinate selector. Its edge-difference path representation charges each input edge at most five times, giving the universal bound. The quotient variation unit ball has interval-indicator extreme points, forcing a strict \(\lfloor n/2\rfloor\) cap below ten sites. Exact integer and rational witnesses settle each \(10\le n\le19\); two explicitly localized selection interfaces furnish every \(n\ge20\). The finite checks were performed using the accompanying standalone checker. The proof is limited to cyclic five-point medians on real sequences.
+## correctness
 
-**Originality — PASS, provisional historical priority.** Classical median-filter literature treats morphological representations, smoothing of individual signal variation, and statistical risk. Published three-point results do not determine the five-point first-saturation threshold. A related large-cycle five-point bound holds at lengths \(n\ge16\), leaving precisely the finite dimension threshold and lengths \(10\le n\le15\) as the central new contribution. The new proof does not claim the known universal coefficient or sufficiently large-cycle equality as original. Searches of the available record and relevant literature did not identify this ten-site cutoff. The full text of one older directly relevant median-smoothing note was not accessible, so priority is not certified.
+PASS
 
-**Value — PASS.** Five-point median filtering is a standard robust local denoiser; a two-signal variation norm measures sensitivity of the output jumps to input changes, which one-input variation contraction does not control. Knowing the **exact smallest** cycle at which full fivefold sensitivity occurs closes a natural stability-threshold problem and supplies finite worst-case perturbations rather than asymptotic derivative evidence. This natural cutoff is not an arbitrary parameter slice; it precisely separates the impossible and attainable full-amplification regimes.
+Median order chambers select exactly one of five local input coordinates, and a given input difference edge enters at most five output edge paths; piecewise affine integration proves Λ_n≤5. On the cyclic variation quotient, extreme difference vectors correspond to cyclic step indicators; their selected images are binary and have at most 2⌊n/2⌋ jumps, proving Λ_n≤⌊n/2⌋ below ten (Λ_5=0). Exact independent Fraction arithmetic reconstructs all ten published n=10..19 witnesses and five longer n=20,21,31,101,200 universal-gadget instances; each realizes ratio 5. The explicit two-interface gadget and unchanged rank selections prove all n≥20 analytically, not by extrapolating five tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS within the explicitly narrow threshold scope: the earlier exact radius-r two-input BV theorem proves 2r+1 only for n≥8r, hence r=2 only n≥16. It does not assert sharpness at 10≤n≤15 or prove the impossibility n≤9. Earlier radius-one median findings concern width three and different cutoff; no exact prior 10-site threshold appeared in actual Resultary search. Historical unpublished stability studies remain a qualified risk.
+
+## value
+
+PASS
+
+PASS: the smallest cyclic sample size allowing maximal instability is a natural finite-size invariant of the five-point median, not an arbitrary slice. The obstruction below ten and explicit sharp witnesses above ten give a complete threshold, making the exact missing 10–15 boundary useful for nonlinear-filter sensitivity and sample-size design. No claim that the already-known universal factor 5 itself is new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
