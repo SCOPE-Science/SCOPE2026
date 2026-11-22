@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The necessity proof is based on an exact Fourier coefficient formula, two independent Cesàro-mean rigidity arguments for the extreme and central nodes, and a finite-order classification of a circle rotation orbit. The sufficiency proof explicitly checks the zeroth coefficient and both parity classes of positive Fourier coefficients for every integer input and output frequency. The inequalities rely on \(\pi^2>9\) and \(4\pi^2>24\). The standalone finite checker reproduced 6,240 coefficients and a negative excluded-grid coefficient; its finite range is corroboration only.
+## correctness
 
-## Originality
-**PASS relative to checked literature and accessible prior results.** Otten–Nguyen–Watts prove positivity for equispaced grids at arbitrary degree, not the classification of free interior nodes. The closest published free-node classification covers degrees two and three and expressly leaves degrees four and higher unclassified; its degree-three continuum does not imply the isolated degree-four solutions. Searches for degree-four five-node positive-definite Bernstein interpolation and equivalent cosine-positive sampling recovered no theorem with the two-grid result. This is a best-knowledge overlap assessment, not proof of absolute novelty.
+PASS
 
-## Mathematical value
-**PASS.** A natural, previously unresolved first five-node interpolation problem has a complete classification rather than a single example. Its answer displays an unexpected arithmetic transition: the entire flexible cubic one-parameter family collapses to precisely two admissible quartic grids, one nonuniform. The exact root-of-unity obstruction identifies why positivity fails on every other symmetric grid, and the endpoint coefficient rigidity excludes all asymmetric grids.
+PASS: A direct 4-fold integration by parts gives exact endpoint cosine coefficient formula for every polynomial degree <=4 and k>=1. For even m=2j, positivity at arbitrarily large odd k forces v_j=cos(2jc)-cos(2ja)>=0. Geometric-series Cesaro mean v_j->0 and nonnegativity imply mean-square->0; exponential orthogonality then forces c=pi-a under strict ordering. With symmetric a,c, odd m and even k coefficients are -288 cos(mb)/(k pi)^4, so all odd multiples cos((2j+1)b)<=0; mean-square argument forces b=pi/2. Remaining exact formulas reduce coefficient positivity to cos((4j+2)a)>=-1/2. The orbit e^{2ia}(e^{4ia})^j cannot fit closed 4pi/3 arc unless root order q<=3; strict 0<a<pi/2 leaves pi/4, pi/6, pi/3, and pi/6 excluded at m=6 by negative C0=-2/5. Source 6,240 finite coefficient comparisons and independent numerical crosscheck corroborate analytical all-k result.
 
-## Closest literature and limitations
-Relevant source: *Preservation of Positive-Definiteness by Bernstein Operators on the Circle*, arXiv:2608.04836, Theorem 1.2, sections 1–2, and the endpoint coefficient formula. Closest free-node study: *Quadratic rigidity and cubic node freedom for positive-definite Bernstein interpolation on the circle*, 2026, complete RESULT.md read. The theorem assumes strict node ordering and fixed endpoints, and does not extend to higher degree or strict positive definiteness. An older unlocated equivalent interpolation criterion remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge: targeted Resultary, relevant published research and primary mathematical comparisons did not show claim coverage; overlap and residual risks separately specified.
+
+## value
+
+PASS
+
+PASS: A natural complete classification over all ordered interior nodes at the first degree where the prior continuous cubic admissible family collapses to isolated options; the unique nonuniform survivor can be used for positive-definite covariance-preserving polynomial interpolation, while the Fourier rigidity proof explains the boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

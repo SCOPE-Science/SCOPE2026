@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification scope
 
-The proof's checkable algebra is the degree-four endpoint identity for cosine coefficients. It is derived through integration by parts from exact polynomials, followed by analytic positivity inequalities. Its necessity uses Cesàro convergence of elementary trigonometric sequences and the maximal-gap property of roots of unity. These are infinite statements proved in RESULT.md, not extrapolated from data.
+# Independent mathematical audit
 
-Run `python3 CHECK.py` using the Python 3 standard library to regenerate 6,240 finite coefficient comparisons for the two admissible grids and verify the degree-four forbidden-grid example. The checker separately expands the Bernstein polynomial from sampled values and evaluates its endpoint derivatives. It checks the predicted closed expressions independently of the analytical argument and is not an exhaustive search over all real node locations.
+## correctness
 
-No independent mathematical audit has been performed. No external certification is claimed.
+PASS
+
+PASS: A direct 4-fold integration by parts gives exact endpoint cosine coefficient formula for every polynomial degree <=4 and k>=1. For even m=2j, positivity at arbitrarily large odd k forces v_j=cos(2jc)-cos(2ja)>=0. Geometric-series Cesaro mean v_j->0 and nonnegativity imply mean-square->0; exponential orthogonality then forces c=pi-a under strict ordering. With symmetric a,c, odd m and even k coefficients are -288 cos(mb)/(k pi)^4, so all odd multiples cos((2j+1)b)<=0; mean-square argument forces b=pi/2. Remaining exact formulas reduce coefficient positivity to cos((4j+2)a)>=-1/2. The orbit e^{2ia}(e^{4ia})^j cannot fit closed 4pi/3 arc unless root order q<=3; strict 0<a<pi/2 leaves pi/4, pi/6, pi/3, and pi/6 excluded at m=6 by negative C0=-2/5. Source 6,240 finite coefficient comparisons and independent numerical crosscheck corroborate analytical all-k result.
+
+## originality
+
+PASS
+
+PASS, best-of-knowledge: targeted Resultary, relevant published research and primary mathematical comparisons did not show claim coverage; overlap and residual risks separately specified.
+
+## value
+
+PASS
+
+PASS: A natural complete classification over all ordered interior nodes at the first degree where the prior continuous cubic admissible family collapses to isolated options; the unique nonuniform survivor can be used for positive-definite covariance-preserving polynomial interpolation, while the Fourier rigidity proof explains the boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
