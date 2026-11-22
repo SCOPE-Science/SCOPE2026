@@ -1,19 +1,21 @@
-# Scientific review: interior Fourier leverage transition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The three-tone Gram matrix is diagonal in the orthogonal basis \(1\), \(\cos(dt)-\operatorname{sinc}d\), \(\sin(dt)\), yielding the stated exact evaluation norm. The removable collision expansion through order four follows from entire factorial series and rational division. The cubic is negative through \(1/2\), strictly increasing thereafter, and has one root in \((0.645,0.646)\). The quartic coefficient at that root is negative by the exact division remainder \(-4R/5\). The analytic implicit-function theorem then yields the unique small positive critical-gap branch and the stated square-root and gain laws. The standalone exact-rational and independent Gram checks execute successfully, but computational samples do not substitute for this proof.
+PASS
 
-## Originality
+For each d>0, the real orthogonal basis {1,cos(dt)-sinc d,sin(dt)} in averaged L²([-1,1]) yields the exact positive Gram formula L_d(x)=1+(cos(dx)-sinc d)²/A_d+sin²(dx)/B_d, A_d=(1+sinc(2d))/2-sinc² d, B_d=(1-sinc(2d))/2. Expanding convergent even analytic series in q=d² gives L_d(x)=9/4(5y²-2y+1)-3P(y)q/280+Q(y)q²/78400+O(q³), y=x², P=175y³-115y²+9y-5 and Q=11025y⁴-12180y³-1530y²+2028y+145. P is negative on [0,1/2] and strictly increasing on [1/2,1], has a unique zero y0≈0.645997059498281; x0=sqrt(y0)≈0.803739422635397. Exact polynomial identity Q=(63y-141/5)P-4/5(6675y²-3246y-5) makes Q(y0)<0. Hence sign changes at x0, where quartic suppression is strict. The implicit-function theorem applied to derivative wrt q produces a unique positive local maximizer q*(y)∝(y0-y) with square-root d* onset; the second derivative is negative at the branch. Independent SymPy polynomial identity/root checks and 8 rational Taylor/96 Gram finite tests corroborate but do not supply analytic uniqueness.
 
-**PASS against the inspected literature, not certified publication priority.** Zhang (2026), arXiv:2607.10501, §5.3, bounds sparse-Fourier **exterior** leverage but does not state the signed **interior** collision-opening transition. The published *Sharp endpoint Nikolskii constant for symmetric three-tone Fourier sums* supplies the same orthogonal basis and handles only endpoint evaluation; its conclusion at \(|x|=1\) cannot give the present interior algebraic threshold or bifurcating branch. Erdélyi (2016), Theorem 2.3, gives a generic trigonometric exponential-sum pointwise norm inequality rather than the exact splitting geometry. Classical Legendre interpolation gives the collision-limit value but not the effect of opening a gap. A separately known exact sharp midpoint norm concerns a global optimum at \(x=0\), not the interior transition at \(x\approx0.803739\). Relevant published-record searches for aliases, interior Christoffel functions, and local frequency splitting did not reveal a dominating theorem. Differently indexed exact Gram perturbation literature remains a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The natural inverse problem is worst-case noise amplification when evaluating a three-tone sparse Fourier reconstruction at a point within the observation window as the frequencies emerge from an unresolved cluster. The algebraic transition divides measurement points where a small physical frequency separation worsens amplification from those where it improves it; the critical fourth-order cancellation and square-root emerging optimal gap give a nontrivial local phase diagram. This goes beyond reporting an isolated Taylor coefficient, while avoiding an unsupported global-optimality assertion.
+The matched literature has exterior general Fourier leverage, one fixed endpoint, and one fixed midpoint gap optimum. It does not imply the new exact interior x-dependent sign-change radius, quartic critical behavior, or square-root emergence of a near-zero optimal gap.
 
-## Limitations and closest material
+## value
 
-The claim is only local near a triple collision and for equally spaced frequencies under averaged Lebesgue \(L^2\) observation. It does not settle the unrestricted frequency-gap optimum, arbitrary nonsymmetric triples or off-interval prediction. The closest mathematical writings inspected were Zhang, arXiv:2607.10501 (full accessible HTML including §5.3), the complete published symmetric three-tone endpoint proof, and Erdélyi, arXiv:1602.02315 (Theorem 2.3 and its proof). An older exact identity may still exist outside indexed terminology; independent mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Evaluation leverage is a natural exact invariant in Fourier least-squares stability, particularly as three frequencies collide. An explicit interior spatial phase boundary, negative critical quartic coefficient, and emerging square-root optimal frequency gap describe a nontrivial bifurcation not inferable from endpoint or exterior estimates. The theorem is intentionally local and pointwise, not an unsupported global optimizer claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
