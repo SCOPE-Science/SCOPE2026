@@ -1,0 +1,19 @@
+# Scientific review: nonbinary exact-two adjacent-swap sphere extremizers
+
+## Correctness — PASS
+
+The claim is about exactly two ordered, possibly overlapping adjacent swaps, including identity exchanges of equal letters. The support partition proves the local formula for every word: one identity output, \(\binom r2-a\) disjoint active swaps, \(2(a-p)\) triple rotations with distinct letters, \(h\) nonadjacent-endpoint changes, and \(s\) single-effective-swap outputs. Changed-coordinate support distinguishes the classes. Applying the formula to all-active edges yields an exact deficit equal to the number of overlapping palindromic triples, hence to the count of `abab` factors. With inactive edges the exact deficit is a nonnegative expression, zero only with one inactive edge and no `aba` factor. These arguments prove the maximum and both complete equality classes for all \(q\ge3\); a period-three word witnesses attainability. A two-state extension recurrence counts class A, and a split at the unique repeat gives the class B convolution, including the ternary Fibonacci-plus-linear count. The standalone verifier constructs every two-swap output set for 79,073 tested words and checks the general formula and the nonbinary census. Computation is not substituted for the all-length proof.
+
+## Originality — PASS with explicit prior-result boundary
+
+A previously recorded radius-two **at-most-two** successive-swap theorem provides an exact center-by-center larger-ball formula and classifies its maximizing words, including a previously known binary extremal result. Its nonbinary maxima require all length-three factors to use distinct symbols, so those equality cases and that larger-ball optimum do not imply the present exact-two maximizing family or its labeled enumeration. The present result adds the two-step-only support analysis, identifies the isolated-palindrome and single-equal-pair equality mechanisms, and obtains a distinct generalized Fibonacci recurrence and convolution. Kovačević–Kiah–Goyal, arXiv:2509.06692, treats disjoint swaps; Ataba–Zabokritskiy, arXiv:2611.02192, develops sequential-swap code locality without this optimizer census. Related publicly indexed results on cyclic triple bursts and constrained swap graphs have different operators. The at-most-two formula is closely related and might support an implicit derivation; this remains the principal originality risk. No claim of priority is made for the at-most-two ball law or binary results.
+
+## Value — PASS
+
+The exactly-two-operation ambiguity of a sequence differs from its radius-two metric ball because some one-swap outcomes cannot be realized in exactly two steps without equal-letter swaps or local palindromes. The sharp nonbinary optimizer classification explains which words fully exploit this difference, going beyond the narrower distinct-triple extremizers of the larger ball. An all-length labeled census, with a ternary Fibonacci-plus-linear population, gives a natural structural invariant relevant to fixed-error synchronization coding and word-swap graphs. These exact natural extremal classes are not an arbitrary parameter slice or an isolated small enumeration. No code-capacity, higher-error, or independent-audit claim is made.
+
+## Literature and limitations
+
+Primary relevant manuscripts: Kovačević, Kiah and Goyal, *Bounds on Codes Correcting Adjacent Transpositions*, arXiv:2509.06692 (first submitted September 8, 2025); Ataba and Zabokritskiy, *Concatenation Locality under Successive Adjacent Transpositions*, arXiv:2611.02192 (first submitted November 1, 2026). A previously recorded larger-ball formula was compared by its exact claim, not re-audited. Related public research-index summaries were read as summaries rather than as proof of whole-document noncoverage. An unindexed equivalent census or an implicit consequence in a broader theorem remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
