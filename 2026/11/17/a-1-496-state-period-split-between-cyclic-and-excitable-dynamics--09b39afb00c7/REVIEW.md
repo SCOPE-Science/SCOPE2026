@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Both update rules and their color encoding are explicit, with the 18-edge representation cross-checked by an explicit permutation against the standard Frucht LCF representation. The independent cycle algorithms process every one of the 531,441 possible state codes (indegree peeling versus memoized path tracing) without trajectory sampling or time limits. Their exact eight-cell joint matrix, all primitive-orbit counts and maximum transient depths agree. The proof explains why the algorithms terminate, why the unpeeled vertices are precisely the cycles and why all back-propagated least periods are exact. A named mismatch witness also directly exhibits the eight-versus-four split. Code replay verified against the embedded outputs.
+## correctness
 
-**Originality — PASS under the stated accessible-literature comparison, with historical risk.** An earlier Petersen/prism joint-period classification already found an eight-versus-four split on the highly symmetric Petersen graph. That prior phenomenon is credited and limits the originality claim: the new result is a complete census on an asymmetric graph, not the first-ever period splitting of this type. The closest publicly available Frucht result is a **GHM-only** complete orbit census (21-step maximum); it cannot imply a CCA/GHM cross-tabulation. The closest paired-model result proves equality of eventual periods on *complete bipartite graphs*, which excludes this cubic graph. The 2016 general-graph work establishes circulation, synchronization and excitation-rate statements, not this graph's primitive-period pair counts. The 1993 foundational paper treats infinite-lattice excitable dynamics rather than this finite joint table. Searches for direct Frucht CCA/GHM joint-period equivalences, period-eight/four mismatches and a `1496` count found no direct prior classification; lack of search hits is not a uniqueness proof. Residual risk: an unindexed earlier finite comparison may exist.
+PASS
 
-**Mathematical value — PASS.** The comparison is motivated by the basic relationship between two canonical excitable-media cellular automata and by an exact pointwise equality previously established for bicliques. The smallest standard asymmetric cubic graph provides a natural testing ground with no symmetry quotient masking initial-state-level differences. The exact 1,496-configuration exceptional basin is a fully classified failure of period equivalence on a graph with **trivial automorphism group**, contrasting the earlier 4,800 discrepancies on the 120-automorphism Petersen graph. Thus symmetry is not needed for this dynamical split; the result is a complete canonical asymmetric-graph test rather than merely a selected initial-state example. The theorem is a natural complete finite classification, without claiming universality or a minimum counterexample.
+The 12-vertex labeled graph and both synchronous threshold-one maps are precisely defined; the two complete transition programs independently classify every one of 3^12=531441 states by functional-graph decomposition, with no trajectory cutoff. I separately implemented the transition and active-path cycle classifier in optimized C++ from the displayed 18 edges and recomputed the entire joint matrix: (1,1):52563, (3,3):282990, (4,4):62952, (5,5):90432, (6,6):24636, (7,7):12840, (8,8):3532, (8,4):1496; sum 531441. Distinct orbit lengths are exactly least periods because cycle traversal closes at its first repeated state. The LCF conjugacy and explicit period-eight/four witness are supplied; auxiliary orbit and depth totals rely on the inspected exhaustive code rather than a second independent full depth replay.
 
-**Limitations.** No characterization for general cubic graphs, no graph-order minimality, no explanation of 1,496 by a closed structural parameter, and no historically exhaustive literature proof are claimed. The computation is exhaustive for one graph rather than an infinite-family theorem. The two verifiers are differently coded but are not independent external mathematical audits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty is the complete joint CCA/GHM initial-state period census on the asymmetric Frucht graph, not the already reported Petersen period-eight/four phenomenon, nor the GHM marginal Frucht period table.
+
+## value
+
+PASS
+
+The Frucht graph is a canonical asymmetric cubic graph; its absence of spatial automorphisms tests whether the paired-model period discrepancy seen on symmetric Petersen networks requires symmetry. The exact 1496-class exceptional basin and complete cross-tab are a natural finite classification of two standard dynamical rules. The graph and joint invariant are motivated independently of the computed number; no unsupported generality is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

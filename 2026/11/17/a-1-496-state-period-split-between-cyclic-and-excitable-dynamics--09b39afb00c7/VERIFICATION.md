@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Two standalone C++17 programs, `verify_memory_walk.cpp` and `verify_indegree_peel.cpp`, verify the entire state space using graph descriptions and graph algorithms that differ. Their outputs, `memory_walk_output.txt` and `indegree_peel_output.txt`, are embedded and were reproduced from these exact source files. A C++17 compiler is the only required executable dependency. The programs do not need external data files or any private resource.
+## correctness
 
-The first program builds the Frucht graph using a 12-cycle plus LCF offsets and memoizes first-return paths. The second creates the exact 18-edge representation and uses indegree peeling; it additionally checks the explicit label-isomorphism, exact eight-class joint distribution, both primitive-cycle populations and both sharp first-entry depths. All 531,441 initial configurations are examined in each program. The two approaches therefore independently test the central cross-period claim without relying on an estimated distribution or finite sample.
+PASS
 
-A direct witness under the edge-list labels starts at code `4234`, is CCA-periodic with least period eight immediately, and has GHM first periodic entry at update two into a least-period-four orbit. Its CCA states, one cycle in order, are `4234,199214,286560,427458,121345,203258,439785,171624`. Its GHM states through one full recurrence are `4234,201401,459333,132213,4219,201395,459333`.
+The 12-vertex labeled graph and both synchronous threshold-one maps are precisely defined; the two complete transition programs independently classify every one of 3^12=531441 states by functional-graph decomposition, with no trajectory cutoff. I separately implemented the transition and active-path cycle classifier in optimized C++ from the displayed 18 edges and recomputed the entire joint matrix: (1,1):52563, (3,3):282990, (4,4):62952, (5,5):90432, (6,6):24636, (7,7):12840, (8,8):3532, (8,4):1496; sum 531441. Distinct orbit lengths are exactly least periods because cycle traversal closes at its first repeated state. The LCF conjugacy and explicit period-eight/four witness are supplied; auxiliary orbit and depth totals rely on the inspected exhaustive code rather than a second independent full depth replay.
 
-These checks establish a complete exact finite classification of this one graph. They do not certify historical priority, claims for other graphs, or independent external mathematical validation.
+## originality
+
+PASS
+
+Best-of-knowledge novelty is the complete joint CCA/GHM initial-state period census on the asymmetric Frucht graph, not the already reported Petersen period-eight/four phenomenon, nor the GHM marginal Frucht period table.
+
+## value
+
+PASS
+
+The Frucht graph is a canonical asymmetric cubic graph; its absence of spatial automorphisms tests whether the paired-model period discrepancy seen on symmetric Petersen networks requires symmetry. The exact 1496-class exceptional basin and complete cross-tab are a natural finite classification of two standard dynamical rules. The graph and joint invariant are motivated independently of the computed number; no unsupported generality is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

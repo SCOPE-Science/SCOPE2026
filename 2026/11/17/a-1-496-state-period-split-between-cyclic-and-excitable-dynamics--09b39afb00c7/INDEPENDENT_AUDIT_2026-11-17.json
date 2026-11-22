@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T11:15:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/verify_indegree_peel.cpp",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/verify_memory_walk.cpp"
+      ],
+      "rationale": "The 12-vertex labeled graph and both synchronous threshold-one maps are precisely defined; the two complete transition programs independently classify every one of 3^12=531441 states by functional-graph decomposition, with no trajectory cutoff. I separately implemented the transition and active-path cycle classifier in optimized C++ from the displayed 18 edges and recomputed the entire joint matrix: (1,1):52563, (3,3):282990, (4,4):62952, (5,5):90432, (6,6):24636, (7,7):12840, (8,8):3532, (8,4):1496; sum 531441. Distinct orbit lengths are exactly least periods because cycle traversal closes at its first repeated state. The LCF conjugacy and explicit period-eight/four witness are supplied; auxiliary orbit and depth totals rely on the inspected exhaustive code rather than a second independent full depth replay.",
+      "residual_risks": [
+        "Absolute priority of a previously unindexed finite Frucht CCA/GHM census cannot be excluded.",
+        "Independent C++ replay confirmed period pairs but did not independently recompute maximum first-entry counts.",
+        "Generic general-graph 2016 primary full text was not obtained during this run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general-graph paper describes synchronization/activity, not exact period pairs; biclique pointwise equality applies only to K_{a,b}."
+        ],
+        "reasoning": "A circulation criterion or synchronization/activity classification does not numerically imply the exact joint least-period table on a non-bipartite 12-vertex cubic graph.",
+        "searches": [
+          "arXiv:1610.07320",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/AUDIT.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/SLOGAN.txt",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-petersen-specific-period-doubling-between-cyclic-and-refractory--85df9829d668/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df/RESULT.md",
+        "https://arxiv.org/abs/1610.07320"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Frucht GHM period-four basin has size 64448, while the new joint table partitions it as 62952 matching plus 1496 mismatching."
+        ],
+        "reasoning": "The GHM-only marginal cannot determine which 1496 states have CCA period eight. Petersen has different graph and biclique equality fails to cover Frucht.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-petersen-specific-period-doubling-between-cyclic-and-refractory--85df9829d668/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Petersen joint theorem counts 4800 period-(8,4) states; the Frucht GHM-only theorem counts only the GHM marginal."
+        ],
+        "reasoning": "Eventual least periods, basin cross-tabs and primitive orbit periods use identical definitions; graph isomorphism/relabeling does not send the Petersen graph to the Frucht graph and GHM marginals do not determine paired periods.",
+        "searches": [
+          "Resultary semantic query: CCA Greenberg Hastings joint eventual least period Frucht graph asymmetric Petersen cubic graph exact census",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-petersen-specific-period-doubling-between-cyclic-and-refractory--85df9829d668/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Frucht GHM census exists, and a different 10-vertex Petersen/prism joint table exists."
+        ],
+        "reasoning": "No retrieved Frucht joint table supplies the 1496 count. Its mismatch must be independently computed across common starting configurations; search absence is not proof of absolute priority.",
+        "searches": [
+          "Resultary semantic query: CCA Greenberg Hastings joint eventual least period Frucht graph asymmetric Petersen cubic graph exact census",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-petersen-specific-period-doubling-between-cyclic-and-refractory--85df9829d668/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty is the complete joint CCA/GHM initial-state period census on the asymmetric Frucht graph, not the already reported Petersen period-eight/four phenomenon, nor the GHM marginal Frucht period table.",
+      "residual_risks": [
+        "Absolute priority of a previously unindexed finite Frucht CCA/GHM census cannot be excluded.",
+        "Independent C++ replay confirmed period pairs but did not independently recompute maximum first-entry counts.",
+        "Generic general-graph 2016 primary full text was not obtained during this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP_ONLY",
+          "evidence": "GHM marginal 64448 period-four basin and 21-step max, no CCA comparisons",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374/RESULT.md",
+          "material_read": "Finding, full 74-class entrance/period census, proof, code verification and limitations",
+          "method": "full RESULT.md read through the read-only repository connector",
+          "title": "A twenty-one-step excitation transient on the asymmetric Frucht graph",
+          "trigger": "same graph and GHM rule"
+        },
+        {
+          "assessment": "NONCOVERING_DIFFERENT_GRAPH",
+          "evidence": "4800 Petersen mismatches, 40 free spatial orbits; no Frucht classification",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-petersen-specific-period-doubling-between-cyclic-and-refractory--85df9829d668/RESULT.md",
+          "material_read": "Full joint period tables, proofs and symmetry refinement",
+          "method": "full RESULT.md read through the read-only repository connector",
+          "title": "Petersen-specific period doubling between cyclic and refractory excitation dynamics",
+          "trigger": "same pair of rules; period-eight/four already known"
+        },
+        {
+          "assessment": "INAPPLICABLE_GRAPH_FAMILY",
+          "evidence": "All complete bipartite graphs only; Frucht not complete bipartite",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df/RESULT.md",
+          "material_read": "Full all-biclique theorem and proof",
+          "method": "full RESULT.md read through the read-only repository connector",
+          "title": "Matched eventual periods but different transient clocks for three-state excitable dynamics on bicliques",
+          "trigger": "potential stronger pointwise equivalence"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION",
+          "evidence": "Qualitative circulation/activity scope; no full-text exclusion inference",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Accessible abstract describing model definitions and limiting activity; full paper retrieval not achieved",
+          "method": "web indexed abstract; paper full text not obtained",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "general arbitrary-graph comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/AUDIT.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7/SLOGAN.txt",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-petersen-specific-period-doubling-between-cyclic-and-refractory--85df9829d668/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df/RESULT.md",
+        "https://arxiv.org/abs/1610.07320"
+      ],
+      "rationale": "The Frucht graph is a canonical asymmetric cubic graph; its absence of spatial automorphisms tests whether the paired-model period discrepancy seen on symmetric Petersen networks requires symmetry. The exact 1496-class exceptional basin and complete cross-tab are a natural finite classification of two standard dynamical rules. The graph and joint invariant are motivated independently of the computed number; no unsupported generality is claimed.",
+      "residual_risks": [
+        "Absolute priority of a previously unindexed finite Frucht CCA/GHM census cannot be excluded.",
+        "Independent C++ replay confirmed period pairs but did not independently recompute maximum first-entry counts.",
+        "Generic general-graph 2016 primary full text was not obtained during this run."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Absolute priority of a previously unindexed finite Frucht CCA/GHM census cannot be excluded.",
+    "Independent C++ replay confirmed period pairs but did not independently recompute maximum first-entry counts.",
+    "Generic general-graph 2016 primary full text was not obtained during this run."
+  ],
+  "schema_version": 1
+}
