@@ -1,12 +1,21 @@
-# Scientific review: two-cycle near-maximum matching avoidance
+# Independent mathematical audit
 
-## Correctness — PASS
-For all \(n,m\ge6\), each of the four auxiliary cycle complexes is a sphere by the published cyclic-polytope identification. The face-decomposition uses the exact additivity of matching numbers on disjoint components; it exhausts all cases. Two Mayer--Vietoris sequences compute the intersection, and naturality proves the sole potentially troublesome connecting map is an isomorphism. The final integral exact sequence yields ranks two and one in adjacent degrees, with no possible torsion. Five direct mod-two chain computations independently confirm the pattern, but the proof alone provides the integral and infinite quantifiers.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest primary source, Shan--Wang (2026-09-02), has the one-cycle cyclic-polytope input and edge-addition/Leray consequences, not these two-component homology groups. The Holmsen--Lee vanishing theorem cannot supply the rank-two lower-degree group, and complete(-bipartite) graph classifications address different graph families. Searches in published mathematical research records for non-matching complexes of disjoint cycles, near-maximum thresholds, equivalent bounded-matching formulations, and stronger general graph coverage revealed no statement determining the integral two-cycle groups. The proof does use standard Mayer--Vietoris machinery, so an implicit corollary in other work is a real remaining risk.
+PASS
 
-## Value — PASS
-This is an infinite, natural, parameter-free classification for the first nontrivial disconnected cycle family one step below its maximum matching number. Unlike the single-cycle sphere case it has two distinct nonzero adjacent degrees, and it determines the lower group's exact rank and integral torsion-freeness beyond previously known vanishing bounds. It includes both even and odd cycles. No stronger homotopy splitting is asserted.
+Reconstructed the forbidden-matching inequality x+y<=s-2 and exact union K=(A*Delta2) union (C*D) union (Delta1*B) with A=NM_(a-1)(C_n), C=NM_a(C_n), B=NM_(b-1)(C_m), D=NM_b(C_m). Single-cycle cyclic-polytope theorem gives A,B spheres dimensions 2a-5,2b-5 and C,D dimensions 2a-3,2b-3; all length>=6 keep them positive-dimensional and A->C/B->D are null by connectivity. Mayer–Vietoris for P,R and Q gives H_(2s-8)(R)->H_(2s-8)(P) an isomorphism by naturality on A*B, not zero. The long exact sequence then leaves Z² in degree 2s-6 and Z in 2s-5, with no torsion. Independently enumerated full GF2 simplicial boundaries for (6,6),(6,7),(7,7) and recovered the specified Betti ranks in their only positive degrees. Infinite integral result rests on Mayer–Vietoris, not finite sampling.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known cyclic-polytope result identifies nonmatching complexes of ONE cycle, but not their disconnected two-cycle near-maximum threshold. The inclusion-map naturality produces a new exact two-degree integral homology formula for both parities and arbitrary lengths. No earlier two-cycle formula or implication from general bounds found.
+
+## value
+
+PASS
+
+The first nontrivial disconnected-cycle threshold one below the maximum is a natural graph-family parameter. Its exact parity-uniform two-degree torsion-free integral homology complements known single-cycle spheres and general Leray bounds, with a nontrivial naturality map essential to the answer. This is independently usable for future nonmatching-complex decomposition work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
