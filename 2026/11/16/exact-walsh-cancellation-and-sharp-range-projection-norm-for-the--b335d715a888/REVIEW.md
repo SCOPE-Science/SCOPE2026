@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is the 24-edge incidence cube of the open \(4\times4\) grid. Cut-space gauge reduction is valid because each perfect matching meets each vertex exactly once and the connected grid has a 15-dimensional cut space; it reduces the spectrum to precisely 512 signed sums. The 36 matching chord codes and the fully enumerated spectrum histogram are reproduced by the self-contained matching-recursion/transform verifier and an independent fraction-free Kasteleyn determinant implementation. Both reproduce Parseval, the least nonzero magnitude four, and the inverse-transform absolute sum 3698. Fourier diagonalization and the standard kernel norm equality then prove rank, inverse norm and sharp endpoint constant. The published determinant method is used as known prior theory; no infinite-size claim is inferred from finite experiments.
+PASS
 
-## Originality — PASS under bounded comparison
+The 4×4 open grid has exactly 36 perfect-matchings; each star meets any matching once. Connected-grid star masks span 15-dimensional cut space in F2^24, giving 512 representatives for the nine chord indices (7,9,11,14,16,18,21,22,23). Independently enumerating all 36 tilings and their distinct nine-bit chord codes reproduced the entire reduced absolute histogram 0:233,4:177,8:72,12:12,16:6,20:2,24:8,32:1,36:1. Therefore 233*2^15=7,634,944 zeros, rank=9,142,272, least nonzero multiplier=4, condition=9. The nine-bit inverse Walsh transform of the nonzero indicator has sum of absolute coefficients=3698, yielding l1=l∞ sharp projection norm 1849/256. Direct edge-inclusion counts 6/12/18 each on eight edges show precisely eight corner-incident singleton Walsh zeros; certificate chord codes, histograms and two source checker approaches inspected. Finite scope is complete exactly at 4×4.
 
-The precise contribution is the evaluated complete signed-multiplier spectrum for the \(4\times4\) square, the classification of its eight singleton Fourier zeros, and the exact range-projection norm \(1849/256\). Kenyon's accessible full exposition supplies the weighted dimer determinant and local statistics, not that explicit Fourier histogram. A four-by-four signed-determinant illustration supplies the 36-count but not the 233-of-512 zero census or endpoint norm. Cohn--Kenyon--Propp's accessible abstract addresses variational limits; its full document was not read, so its absence of a finite table is not certified. Related published numerical records for the 4-by-6 torus and complete-graph perfect matchings concern different objects; other independently described results cover three-row strips and Aztec diamonds, not this square and invariant. Novelty remains a bounded best-knowledge judgment, not exhaustive historical certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The open \(4\times4\) square is a canonical planar dimer benchmark with 36 tilings and a nontrivial nine-cycle Fourier gauge quotient. Beyond the familiar tiling count, the exact 233/512 zero fraction determines which signed dimer observations can be inverted, while the sharp endpoint norm quantifies the amplification of the canonical recoverable component. The eight corner-edge cancellations identify a concrete first-support boundary. This is a natural complete invariant computation with direct use in checking finite signed partition functions, not a random parameter slice.
+Bounded PASS for the exact full 512-gauge-class Walsh signed-dimer histogram and projection constant on the canonical open 4×4 square. Kasteleyn weighted determinant and 36 tiling count are prior, but inspected sources do not provide the 233 zeros, eight edge cancellations or 1849/256 norm. Unindexed finite signed partition tables remain a risk.
 
-## Limitations and closest prior literature
+## value
 
-This calculation does not classify larger grids or establish an independent validation. Its principal prior mechanism is the weighted Kasteleyn determinant as discussed in Kenyon (2003); the related 2000 Cohn--Kenyon--Propp work and an accessible detailed four-by-four determinant illustration were also examined to their stated material scope. Unindexed signed-dimer tables and uninspected full texts remain priority risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 4×4 domino square is a canonical finite planar dimer object with 36 tilings and a nontrivial nine-cycle signed-observation quotient. The complete 233-of-512 zero census and 1849/256 optimal endpoint norm quantify invertibility and robust projection, and eight corner edges mark the sharp first cancellation support. A natural complete exact invariant, not an arbitrary slice; no larger-grid theorem asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
