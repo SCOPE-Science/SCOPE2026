@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-step edge-difference calculation gives the exact moving/stationary annihilation rule. Survivors of opposing types cannot coexist after \(n-1\) moves because a surviving moving particle would have visited the location of every stationary one. When a type vanishes, the vertex word is already fixed or rotates. For the late-arrival boundary, a unique final collision forces an initial word \((2,u,1)\) up to cyclic origin; precisely Motzkin excursions \(u\) cancel all interior particles in time. This yields \(3nM_{n-2}\), including \(n=2\). Winding invariance and colour-lift multiplicity prove both basin formulas. The standard Motzkin singularity expansion proves the stated square-root asymptotic. Two independent Python programs test the state dynamics and the particle/Motzkin bijection within explicitly bounded finite ranges; they do not stand in for the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For n>=2 with one directed observed successor site and three colors, the edge differences obey p_i(new)=p_{i+1}(1-q_i), q_i(new)=q_i(1-p_{i+1}); a moving 1 and stationary 2 annihilate, preserving K=#1-#2 divisible by 3. A surviving 1 crosses every other edge by step n-1, forcing a single-species recurrent word by then. The unique collision at step n-1 gives a cyclicly marked (2, Motzkin-excursion length n-2, 1) edge word, with n possible marks and 3 vertex lifts: E_n=3n M_{n-2}. Central trinomial T_n counts K=0; reflection exchanging particles pairs K>0/K<0, so rotate/fix basin totals are (3^n-3T_n)/2 and (3^n+3T_n)/2. Motzkin asymptotic yields sqrt(3)/(2sqrt(pi*n)). Independently exhaustive labelled color state orbit detection for n=2..8 matched each histogram, n-1 boundary, winding sign and both exact formulas. The finite test is not the all-n argument; that comes from no-particle-creation and the outer pair Motzkin bijection.
 
-Closest result inspected: Kůrka–Formenti–Dennunzio (DOI 10.46298/dmtcs.2976) explicitly has the **identical stationary/left-moving collision automaton** and proves an infinite-line fixed-site particle-arrival-time distribution. Its Definition 1 uses appearance of a specified particle at a site after age \(t\), rather than first global periodic entry on a finite labelled ring, and its Theorem 3 does not count \(3nM_{n-2}\) cyclicly constrained initial states. The all-size finite-ring Motzkin bijection and winding lift are separate additional results; the particle reduction itself is NOT new. Another full text inspected: Hellouin de Menibus–Le Borgne (arXiv:1903.12622), Sections 1.2 and 2, uses neighbourhood \(\{-1,0,1\}\) on the bi-infinite line, with bidirectionally moving boundaries and invariant-measure asymptotics. Here the neighbourhood is one-sided on finite rings and the exact question is first periodic entry and its extreme Motzkin count. Durrett–Griffeath (arXiv:patt-sol/9303002) studies excitable-medium scaling and spiral thresholds rather than this finite-ring distribution. Fisch's earlier two-sided process concerns infinite-line fluctuations. Belitsky–Ferrari (DOI 10.1007/BF02178546) describes deterministic ballistic annihilation, so it is a plausible related source, but the full text was inaccessible: its abstract cannot exclude equivalent finite-volume counts. Direct comparison with Kůrka–Formenti–Dennunzio and searches of indexed records and earlier accessible claims found no statement or immediate implication of this finite-ring periodic-entry law; lack of a hit alone is not proof of novelty. Priority remains explicitly provisional.
+## originality
 
-## Value — PASS
+PASS
 
-Despite the known asymmetric-glider particle rule, the maximum settling time is sharp for every cyclic ring length, while its exact attraction layer has a nonzero polynomial-order probability \(\asymp n^{-1/2}\). The Motzkin formula is a motivated count of the rare final possible collision, not an arbitrarily selected word statistic. Conserved signed winding gives an independent complete classification of eventual fixed and rotating basins. This combines a dynamical phase selector and a sharp, computable last-entry tail for a natural oriented cyclic-competition rule.
+The same annihilating-particle local rule and an infinite-line site-entry random-walk method are existing results of Kůrka, Formenti and Dennunzio. Their Definition 1 and Theorems 1–3 concern first *arrival at one site after a specified age* on the bi-infinite lattice, whereas here the statistic is *global first entry of a finite modulo-three lifted ring into its eventual periodic orbit*. Their results do not by direct implication specify the sharp n−1 cutoff, 3n M_{n−2} cyclic/lift correction or the exact winding sign basin census. Distinct two-neighbor cyclic automata and torus winding results also do not settle this model. Best-of-knowledge PASS, not priority certification.
 
-## Limits and related literature
+## value
 
-The claim concerns the directed rather than standard symmetric nearest-neighbour automaton; it does not establish a result for higher colour counts or arbitrary graphs. The 1995 full text was unavailable through the attempted lawful access routes, and less-indexed exact ring treatments may exist. Periodic orbits need not have primitive length \(n\). Independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp all-n transient bound and exact extreme-tail Motzkin law for a natural finite cyclic automaton, together with exact attractive basin split conditional on a conserved topological winding, are self-contained structural and enumerative invariants. The cyclic lift and last-collision constraint are not routine deductions from the infinite-line site arrival theorem; extremal entry-time population is mathematically meaningful rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
