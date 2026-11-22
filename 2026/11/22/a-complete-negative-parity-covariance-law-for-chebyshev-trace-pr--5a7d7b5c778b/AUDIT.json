@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each n>=2 and 1<=j,k<=n, sine diagonalization proves exact reflected kernel 2T_m(A)_{ab}=1_{|a-b|=m}-1_{a+b=m}-1_{a+b=2(n+1)-m}. Independent Rademacher fourth moments reduce covariance to 4 sum_{a<b} matrix-entry products. Difference-pair count n-m, reflection-pair count 2 floor((m-1)/2), and exactly two equal-parity cross-degree reflection pairs establish diagonal n-1 or n-2, same-parity offdiagonal -2, other parity 0. The two blocks have eigenvalues 1,n+1 and 0,n with the claimed multiplicities; exact sine sums identify the deterministic polynomial null combination. Exact integer/rational verifier rerun succeeded at 216224 kernel entries, 9454 pair covariances, 203 exhaustive sign-space covariances for n<=8, and 9454 matrix identity entries. These are finite checks; infinite-n validity rests on the analytic identities. Boundaries and scaling explicitly stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hallman (2021), https://arxiv.org/abs/2101.00325, evaluates a Chebyshev polynomial quadratic form using a product identity and fewer matrix-vector operations.",
+        "Hallman–Troester (2021), https://arxiv.org/abs/2103.10516, establishes general multilevel stochastic trace estimation and variance/cost bounds.",
+        "Han et al. (2017), https://arxiv.org/abs/1606.00942, provides stochastic Chebyshev spectral-sum estimators."
+      ],
+      "reasoning": "The general Rademacher fourth-moment identity applies to arbitrary symmetric matrices, but it does not tabulate or prove the specialized path reflected-kernel pair counts. The algorithms and bounds in the inspected Chebyshev trace literature do not imply exact negative cross-degree covariance constants for these paths without a substantive additional structural calculation.",
+      "searches": [
+        "\"Chebyshev matrix polynomials path adjacency reflections Toeplitz hankel Rademacher covariance\"",
+        "\"trace Chebyshev matrix polynomial path graph sine basis boundary reflections degree offdiagonal stochastic variance\"",
+        "\"Complete negative-parity covariance law Chebyshev trace probes finite paths covariance -2 same parity n-1 n-2\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2101.00325",
+      "https://arxiv.org/abs/2103.10516",
+      "https://erhallma.math.ncsu.edu/papers/hallman2021multilevel.pdf",
+      "https://arxiv.org/abs/1606.00942",
+      "https://doi.org/10.1002/nla.1811"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A related known cycle calculation yields covariance n times the indicator of equal degrees or complementary degrees; a cycle has periodic rather than Dirichlet-reflected boundaries.",
+        "The inspected full Hallman and Hallman–Troester papers establish operations and general variance tools rather than this path-specific covariance spectrum."
+      ],
+      "reasoning": "The cycle claim concerns different boundary conditions and positive complementary-degree aliasing; it neither contains nor reduces to the path law of negative correlations for every distinct same-parity pair. General algorithms do not imply the tabulated constants without performing the boundary-reflection analysis. The candidate is therefore different in statement and proved implication, not merely wording or parameters.",
+      "searches": [
+        "\"cyclic Chebyshev aliasing reentrant two-level trace design boundary Rademacher probe cycle T_j\"",
+        "\"Chebyshev T_j path Toeplitz Hankel reflection covariance eigenvalue zero path\"",
+        "\"path graph\" \"Chebyshev\" \"trace estimator\" covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Path sine eigenangles cos(s pi/(n+1)) imply a reflected Toeplitz-minus-Hankel kernel; the covariance arises from Frobenius inner products of strictly upper-triangular portions.",
+        "Noschese–Pasquini–Reichel (2013), https://doi.org/10.1002/nla.1811, studies tridiagonal Toeplitz spectra and polynomial Krylov bases, without the same sign-probe covariance statement in inspected material."
+      ],
+      "reasoning": "An equivalent theorem could be phrased as parity blocks of a quadratic-form Gram matrix, a discrete sine-transform reflection identity, or a closed Toeplitz/Hankel off-diagonal inner-product table. Comparing the actual objects and implications found underlying spectral tools, but no inspected theorem whose conclusion gives this full degree-by-degree covariance, block spectrum, coefficient-risk law and exact null direction. A historical equivalent remains possible.",
+      "searches": [
+        "\"Chebyshev T_j path Toeplitz Hankel reflection covariance eigenvalue zero path\"",
+        "\"Dirichlet tridiagonal Chebyshev trace moments Hutchinson path graph exact covariance parity negative correlations\"",
+        "\"Chebyshev polynomial\" \"path adjacency\" matrix entries",
+        "\"path graph\" \"Chebyshev\" \"trace estimator\" covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching precomputed degree-by-degree path covariance table was found in the actual searched literature and indexed result summaries.",
+        "The eigenstructure is explicitly derived from two constant-offdiagonal parity blocks; no external numerical tabulation is needed."
+      ],
+      "reasoning": "An existing tabulation of reflected path Chebyshev matrix entries or their squared off-diagonal Gram matrix would cover the result even if it never mentions stochastic trace estimation. Searches did not establish such coverage, but indexing incompleteness precludes treating absence of hits as uniqueness proof.",
+      "searches": [
+        "\"Rademacher quadratic forms Chebyshev T_j path graph tridiagonal constant negative covariance parity finite\"",
+        "\"randomized sign quadratic form 1/2 path adjacency Chebyshev polynomial full covariance matrix parity\"",
+        "\"Chebyshev Hutchinson path normalized adjacency covariance negative two same parity all degrees n trace\""
+      ]
+    },
+    "rationale": "Full-text comparisons with the primary stochastic Chebyshev papers, the earlier framework and tridiagonal Toeplitz literature expose standard tools but no already-stated all-degree path-specific negative parity covariance theorem. General Rademacher covariance and finite-sine identities alone do not directly state the combined exact moment table, covariance spectrum, coefficient-risk formula and null mode. A distinct cycle covariance uses positive complementary-degree aliasing and does not dominate this statement. Historical mathematical equivalence remains a qualified risk, not a proven absence.",
+    "residual_risks": [
+      "An older Toeplitz-plus-Hankel, discrete sine transform or orthogonal polynomial inner-product theorem could imply the exact table without referencing Hutchinson estimation.",
+      "The available literature searches and inspections are not an independent novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General product-identity acceleration, not the finite-path covariance classification",
+        "evidence": "The stated main result halves matrix-vector products for z^T p_n(A) z; no path-specific signed pair-count covariance formula was located in inspected sections.",
+        "identifier_or_url": "https://arxiv.org/pdf/2101.00325",
+        "material_read": "Abstract, method/problem setting, Chebyshev product-identity derivation, evaluation algorithm and paper conclusions",
+        "method": "Full-text PDF inspection and focused term/location checks",
+        "title": "Faster Stochastic Trace Estimation with a Chebyshev Product Identity",
+        "trigger": "Same Chebyshev polynomial quadratic forms and shared random trace probes"
+      },
+      {
+        "assessment": "Closest stochastic variance source; supplies general decomposition and bounds, not this path-wide signed covariance table",
+        "evidence": "The method combines Chebyshev approximation and Hutchinson-style random trace levels and analyzes total variance rather than the exact degree-parity spectrum for half-adjacency of a path.",
+        "identifier_or_url": "https://erhallma.math.ncsu.edu/papers/hallman2021multilevel.pdf",
+        "material_read": "Introduction, multilevel method and assumptions, variance/cost allocation, relevant numerical sections and conclusion",
+        "method": "Lawful complete author-PDF text/visual inspection and targeted searches",
+        "title": "A Multilevel Approach to Stochastic Trace Estimation",
+        "trigger": "Multilevel cross-degree covariance and stochastic trace variance allocation"
+      },
+      {
+        "assessment": "Generic trace-estimation framework; no same finite-path covariance theorem in inspected material",
+        "evidence": "The main theorems concern stochastic approximation of matrix-function spectral sums, rather than exact pairwise covariance across first n Chebyshev degrees for a Dirichlet path.",
+        "identifier_or_url": "https://arxiv.org/pdf/1606.00942",
+        "material_read": "Problem, stochastic trace formulation, approximation and variance-related results, numerical context",
+        "method": "Full-text lawful arXiv PDF inspection with focused term searches",
+        "title": "Approximating Spectral Sums of Large-scale Matrices using Stochastic Chebyshev Approximations",
+        "trigger": "Earlier stochastic Chebyshev trace framework potentially covering the same moments"
+      },
+      {
+        "assessment": "Supplies the related sine-diagonalization setting but no Rademacher trace covariance table in inspected material",
+        "evidence": "Exact tridiagonal Toeplitz eigenstructure is classical; applying it to all offdiagonal sign-probe cross moments requires the separate reflected-kernel pair counts in the new proof.",
+        "identifier_or_url": "https://doi.org/10.1002/nla.1811",
+        "material_read": "Author-provided full text sections on spectra, Chebyshev/Krylov bases, applications and conclusions",
+        "method": "Lawful author full-text web reading and section-level searches",
+        "title": "Tridiagonal Toeplitz Matrices: Properties and Novel Applications",
+        "trigger": "Potentially stronger tridiagonal Toeplitz/Chebyshev identity source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5a7d7b5c-778b-43b2-bf15-53f5dccb5824",
+  "value": {
+    "rationale": "The canonical Dirichlet path is a natural sparse numerical-analysis benchmark for stochastic polynomial trace estimates. The exact full-degree covariance and risk for arbitrary coefficients establish systematic negative same-parity dependence, a one-dimensional zero-variance Chebyshev combination, and exact covariance eigenstructure, all relevant to designing shared-probe or multilevel estimators. These are complete structural statements for every path order, not an arbitrary finite slice or a claim of runtime acceleration.",
+    "status": "PASS"
+  }
+}
