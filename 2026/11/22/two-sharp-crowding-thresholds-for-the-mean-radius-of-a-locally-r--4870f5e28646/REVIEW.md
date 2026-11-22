@@ -1,0 +1,9 @@
+# Review of the mean-radius crowding classification
+
+**Correctness (PASS).** The proof starts from the published two-phase stationary flux law, integrates the liquid and gas first spatial moments in explicit coordinates, checks total mass normalization, and factors the exact derivative in the gas-interface root. The factor's monotonicity proves the entire three-case global classification and boundary values, without relying on finite enumeration. Independent coordinate quadrature in `verify_spread.py` reproduced 199 test assertions. It does not prove dynamical selection or microscopic validity.
+
+**Originality (PASS, qualified).** Grange's primary manuscript contains the stationary profiles and a reset-rate optimum for the dense half-width, but not the mean-absolute-position-versus-crowding trichotomy. The closest available transport study compares two *different coexisting branches* at fixed crowding and optimizes their distance versus reset rate; the other related study optimizes dense half-width for generalized liquid flux. Neither provides the claimed absolute mean radius thresholds when crowding alone varies over the full admissible droplet regime. No search can rule out all equivalent or unindexed prior statements. A simple derivation from published profiles is acknowledged.
+
+**Value (PASS).** The whole cloud's mean absolute position is a natural spatial localization observable. Its response can disagree qualitatively with the shrinking droplet boundary despite fixed liquid mass, resolving a meaningful question about spatial spreading as gas motility changes. The exact thresholds \(3/2\) and \(7/3\) distinguish three experimentally interpretable global regimes, not merely a perturbed special case. The result is restricted to the specified stationary continuum model.
+
+Self-review: passed. Independent audit: not yet performed.
