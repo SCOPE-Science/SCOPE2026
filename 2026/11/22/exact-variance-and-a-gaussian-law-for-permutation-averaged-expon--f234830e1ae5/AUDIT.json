@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Uniform gamma-beta ratio gives mean 1/2, variance 1/12 per pair. Direct exponential-integral quadrature produces the projection q and ζ in (0,1/24); distinct shared-index edge pairs have covariance exactly ζ. Counting all pair intersections yields the finite sample variance. With B fixed the tagged-edge graph has bounded dependency degree, overlapping common edges of independent matchings are O_p(1), and higher cumulants vanish after Gaussian scaling; B→∞ uses U-statistic CLT and an L² matching-remainder bound. Boundary N=2 checked explicitly, rate λ cancels. The included standalone checker completed 54 assertions, including independently randomized matching simulations. Numerical checks corroborate but do not prove asymptotic limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karagrigoriou et al. (2023), eqs. (10)–(13), examine the specific ratio and B=50 permutation average but give a fixed-d single pairing asymptotic statement and simulation charts.",
+        "Papasotiriou (2021) thesis Chapter 2, especially inspected PDF pp. 104,118,121,123, concerns the same test and null simulation plots."
+      ],
+      "reasoning": "The 2023 paper is strongest coverage for the defined statistic and its implementation, but does not supply the finite B variance equation or joint Gaussian limit under same-data reuse; these are not immediate consequences of its individual-statistic theorem without handling shared-index covariances. The 2021 predecessor is not represented as wholly inspected. A broad generic U-statistic theorem supplies methodological machinery, not a computed ratio-specific constant.",
+      "searches": [
+        "Web primary: https://www.mdpi.com/2227-9091/11/10/169 sections 3.1–3.4",
+        "Web: Karagrigoriou Papasotiriou Vonta 2023 exponentiality test random permutations variance",
+        "Published-record search: Karagrigoriou Papasotiriou Vonta exponentiality tail test 50 random permutations matchings pairing average 2021 asymptotic covariance variance"
+      ]
+    },
+    "checked_sources": [
+      "https://www.mdpi.com/2227-9091/11/10/169",
+      "https://dspace.lib.ntua.gr/xmlui/handle/123456789/53900",
+      "https://www.openarchives.gr/aggregator-openarchives/edm/ntua/000011-123456789_53900",
+      "https://en.wikipedia.org/wiki/U-statistic",
+      "https://en.wikipedia.org/wiki/Mean_absolute_difference",
+      "Published mathematical records searched for all four alternate descriptions; top named closest IDs are recorded in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known uniform distribution of one exponential pair ratio implies single-matching variance 1/(6N), but does not determine covariance between pairings sharing observations.",
+        "The derived cross-pair covariance ζ and overlapping-matching count yield explicit irreducible variance and the numerical factor 19.6599 at B=50.",
+        "General Monte Carlo conditional-variance and U-statistic theorems explain algebraic structure but do not evaluate this kernel-specific constant."
+      ],
+      "reasoning": "The novelty claim is restricted to the exact variance, evaluated projection constant and dependent-matching asymptotic law of this specific published baseline, not the gamma-beta identity, total variance, incomplete U-statistic concept or generic Gaussian limit theorem.",
+      "searches": [
+        "Published-record search: Karagrigoriou Mavrogiannis Papasotiriou Vonta 2023 tail exponentiality test R(d,n) extreme threshold Gamma two sum independent Exp rare pairs binomial Poisson crossover log n log log n",
+        "Web primary: article Theorem 1 and Eq. (12) https://doi.org/10.3390/risks11100169",
+        "Web predecessor: https://dspace.lib.ntua.gr/xmlui/handle/123456789/53900"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The statistic is the incomplete degree-two U-statistic formed by random perfect matchings; its complete-matching conditional mean is the complete U-statistic. Classical Hoeffding projections apply.",
+        "A nearby published result on exponential Gini mean difference and sample variance concerns UNNORMALIZED sample Gini mean difference and sample variance, not h(x,y)=|x-y|/(x+y) or B re-pairings."
+      ],
+      "reasoning": "Alternative terminology includes normalized pairwise contrast, relative absolute difference, incomplete U-statistic, Rao-Blackwellization under pairing design. Search did not identify the precise kernel-specific finite-B covariance, integral constant and corresponding fixed-B CLT. The generic method is prior knowledge, not novel by itself.",
+      "searches": [
+        "Published-record search: variance of complete pairwise Gini-type relative differences kernel |X-Y|/(X+Y) exponential U-statistic asymptotic normal variance 0.06346913119",
+        "Web: relative difference statistic abs difference divided by sum exponential distribution U statistic variance independent matching",
+        "Web: absolute difference divided by sum exponential U statistic covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A nearby published ranked-spacing Gini–Greenwood result is a spacing-based Gini–Greenwood statistic, not this positive-sample ratio kernel.",
+        "The published 2023 tables report Monte Carlo standard deviations at positive quantile thresholds and empirical sizes, not exact all-N zero-threshold B-permutation variance."
+      ],
+      "reasoning": "No exact lookup table or record of ζ=0.0158672827997 or the 50-pairing ratio 0.39319849 was found in actual queried sources. Failed searches are not interpreted as proof of global novelty.",
+      "searches": [
+        "Published-record search: random randomly matched exponential pairs relative contrast U statistic ratio abs difference to sum variance optimal permutations 0.380814787",
+        "Published-record search: mean normalized absolute difference independent exponential matched pairs conditional variance 50 permutations",
+        "Web: Karagrigoriou permutations variance exponentiality 2022 2023"
+      ]
+    },
+    "rationale": "The full publicly accessible 2023 article defines the paired-ratio statistic and B=50 random re-pairings, and its Theorem 1 is for the individual fixed-threshold statistic. The assessed novelty is an exact finite-N variance and CLT for repeated re-pairings of the SAME dataset at the natural zero-threshold baseline, including a kernel-specific projection constant and sharp B=50 variance ratios. The earlier open 2021 thesis covers the underlying test and simulations but its materially inspected Chapter 2 portions do not give the claimed formula. General incomplete U-statistic and Rao-Blackwell tools are credited rather than presented as new. Both private prior claims and current semantic research records were searched. Priority uncertainty remains for inaccessible book chapter and synonymous statistics.",
+    "residual_risks": [
+      "The 2022 CRC Press precursor chapter was not available in full, and might contain stronger pairing analysis.",
+      "The older thesis was materially inspected in relevant sections, not comprehensively compared line-by-line in Greek.",
+      "Synonymous normalized pairwise difference U-statistics may have appeared in other literature; no global uniqueness proof is claimed.",
+      "The zero-threshold result does not cover the positive/adaptive thresholds important for the published tail test."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the single pairing and repeated pairing statistic and studies it by simulation; no exact finite-N B-dependent exponential-null variance, ζ integral, or B-dependent asymptotic law in inspected material",
+        "evidence": [
+          "Equation (10): average selected pairwise ratios; Eq. (11): h; Eq. (12): B-permutation average; Theorem 1: fixed-d CLT for individual paired statistic; Figures 4–9 include zero threshold."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/risks11100169",
+        "material_read": "Full open-access HTML, especially background, Sections 3.1, 3.2.1–3.2.3, 3.3, 3.4 and Theorem 1",
+        "method": "Read exact displayed equations (10)–(13), explanations of re-pairing and B=50 and numerical tables in online full text",
+        "title": "An Exponentiality Test of Fit Based on a Tail Characterization against Heavy and Light-Tailed Alternatives",
+        "trigger": "Same statistic and explicitly recommended B=50 permutations, including zero-threshold figures"
+      },
+      {
+        "assessment": "Predecessor test and simulated sampling distributions are present; the specific B-dependent exact variance and dependent matching CLT were not found in inspected portions; remainder and associated 2022 book precursor retain priority risk",
+        "evidence": [
+          "Repository posting date 2021-09-28T11:24:22Z; Chapter 2.4 proposed test and Chapter 2.6 empirical distributions; rendered pages 104, 118, 121, 123."
+        ],
+        "identifier_or_url": "https://dspace.lib.ntua.gr/xmlui/handle/123456789/53900",
+        "material_read": "Repository record, table of contents, PDF text sections Chapter 2 on the proposed statistic and visible pages 104, 118, 121, 123",
+        "method": "Read PDF extracted text and inspected rendered page screenshots of charts, critical-value table and sampling distributions",
+        "title": "Non Parametric Test for the Exponential Distribution",
+        "trigger": "Earlier publicly posted primary predecessor thesis of same test, before 2023 paper"
+      },
+      {
+        "assessment": "Material not available for a full-content comparison; uncertainty disclosed; not counted as independently read",
+        "evidence": [
+          "Reference 18 of Karagrigoriou et al. (2023)."
+        ],
+        "identifier_or_url": "Karagrigoriou, Papasotiriou and Vonta (2022), CRC Press chapter, pp.25–38",
+        "material_read": "Bibliographic reference and discussion in 2023 open article only; full text not obtained",
+        "method": "Searched title and author combinations for open versions",
+        "title": "Goodness of fit exponentiality test against light and heavy tail alternatives",
+        "trigger": "Plausible 2022 primary predecessor explicitly listed in 2023 paper"
+      },
+      {
+        "assessment": "General nondegenerate U-statistic CLT covers projection component; does not calculate normalized pair kernel ζ or fixed B matching noise and its calibration coefficient",
+        "evidence": [
+          "Projection U_N and its leading variance 4ζ/N are an application of classical U-statistic theory."
+        ],
+        "identifier_or_url": "Hoeffding (1948), Annals of Mathematical Statistics 19, 293–325",
+        "material_read": "General theorem known; specific full paper not inspected in this run",
+        "method": "Compared the complete U-statistic structure and credited general asymptotic machinery",
+        "title": "A Class of Statistics with Asymptotically Normal Distribution",
+        "trigger": "Potential stronger general theorem that includes complete-pair mean"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f234830e-1ae5-4f70-b29a-ddf5fbbccedd",
+  "value": {
+    "rationale": "The original implementation recommends 50 random re-pairings specifically to control random pairing variability, yet the same dataset is reused and the repeats are dependent. The exact all-N variance quantifies the irreducible floor, establishes that 50 pairings capture exactly 98% of the removable matching variation, and identifies a non-obvious ~0.3932 one-pairing variance fraction and hypothetical ~19.66-fold independence calibration error. This is a natural zero-threshold baseline explicitly plotted in the source, a meaningful quantitative design and calibration law rather than arbitrary slice. Does not assert positive-threshold effects or that original calibrations are wrong.",
+    "status": "PASS"
+  }
+}
