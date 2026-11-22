@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The normalized identity starting block gives mean Ritz node mu. The Hermite interpolant is the tangent 2/mu-x/mu^2. The exact two-level identity A=(a+b)I-ab A^(-1) reduces the residual matrix to alpha A^(-1)+beta I, and constant sign-vector norm gives the centered samplewise estimator identity. Scalar differentiation, factorization and a multiplicity extremum establish all strict and equality boundaries. An exact-rational standalone checker enumerates 8184 sign vectors over 84 parameterized matrix configurations; the analytic proof handles all n and s.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2611.18864 Theorem 2.8 gives the correction matrix",
+        "https://arxiv.org/abs/1603.05988 gives other mechanisms of variance increases under deflation"
+      ],
+      "reasoning": "The source treats arbitrary spectra algorithmically and gives a general variance formula but does not assert global variance monotonicity, a worst-case amplification factor, or an exact two-level phase diagram. Its general formulation supplies the estimator, not a stronger risk comparison that subsumes this quantitative classification. Existing deflation theory does not imply a multiplicity-seven boundary for the different correction.",
+      "searches": [
+        "Global Lanczos with stochastic error correction for trace estimation of matrix functions Rinelli Simunec Vermeiren",
+        "one step global Lanczos Hermite residual inverse trace Hutchinson variance can increase by dimension squared spiked matrix",
+        "global Lanczos Hermite stochastic error correction trace estimation two eigenvalues exact variance"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.18864",
+      "https://arxiv.org/abs/1603.05988",
+      "https://arxiv.org/abs/2205.01736",
+      "https://arxiv.org/abs/1507.07227"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2611.18864 Sections 2.6, 3.1, 4.1 establish the general method and generic noise variance",
+        "https://arxiv.org/abs/2205.01736 studies a different Krylov-aware estimator"
+      ],
+      "reasoning": "The new statement mathematically specializes the general method, but goes beyond the conclusions it provides: there is no general bound in the cited source yielding the sharp two-level worst ratio or the reversal threshold by direct instantiation. The samplewise scaling from the minimal polynomial, subsequent sharp global optimization and exact all-sign cancellation are explicit new conclusions. Generic unbiasedness and the classical sign-variance formula are acknowledged prior facts.",
+      "searches": [
+        "global Lanczos GLHutch one Ritz node inverse trace two distinct eigenvalues Rademacher variance ratio (1 - ab / mu squared) squared",
+        "Global Lanczos with stochastic error correction for trace estimation of matrix functions Rinelli Simunec Vermeiren",
+        "stochastic correction Hermite interpolation approximate inverse trace variance exact rank one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2611.18864 Sections 2.6, 3.1 and 4.1 formulate residual and general variance",
+        "https://arxiv.org/abs/1603.05988 studies inverse-trace deflation, not the same Hermite interpolant",
+        "https://arxiv.org/abs/2205.01736 uses randomized block Krylov subspaces"
+      ],
+      "reasoning": "Two-point spectra are also described as rank-one-spiked systems when one multiplicity equals one, or as degree-two minimal-polynomial matrices. The samplewise affine error law is checked under all those formulations. None of the inspected original texts stated the sharp one-node GLHutch amplification/cancellation classification.",
+      "searches": [
+        "one-step global Lanczos Hermite correction Hutchinson matrix inverse exactly zero variance when square of mean spectral value equals product eigenvalues, sharp dimension seven variance inflation",
+        "global Lanczos GLHutch one Ritz node inverse trace two distinct eigenvalues Rademacher variance ratio (1 - ab / mu squared) squared",
+        "two eigenvalue spectrum inverse trace Hermite interpolation centered mean variance ratio Rademacher probes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record semantic search returned one-probe stochastic Lanczos on star Laplacians (2026-11-02), which is not full-size Hermite correction",
+        "Published-record search returned a finite-dimensional Hutchinson condition-number variance envelope (2026-10-12), which does not evaluate the GLHutch residual"
+      ],
+      "reasoning": "No exact table or previously published specialized result giving dimension seven, the interval (9/2,8), or ratio 625/576 was identified. A failed search does not certify uniqueness; the two closest substantive families address other estimators.",
+      "searches": [
+        "one-step global Lanczos Hermite correction Hutchinson matrix inverse exactly zero variance when square of mean spectral value equals product eigenvalues, sharp dimension seven variance inflation",
+        "rank-one spike Rademacher trace inverse correction variance inflation 625/576 one-step Hermite polynomial tangent",
+        "rank-one spike Rademacher trace inverse correction variance inflation 625/576 one-step Hermite polynomial tangent"
+      ]
+    },
+    "rationale": "The examined 2026 global-Lanczos paper proves a general correction representation and a general Rademacher variance identity, but does not give the special two-point minimal-polynomial scalar reduction, exact multiplicity-dependent risk phase, first amplification dimension seven, or the all-probe exact cancellation contrast. Those specific phase boundaries do not follow from the cited results merely as a substitution of displayed constants; their derivation requires the two-eigenvalue algebra and a sharp optimization over positive contrast and multiplicities. Related deflation and randomized Krylov estimators do not give an identical estimator or a theorem implying these boundaries. Searches found no matching result; historical priority remains subject to external verification.",
+    "residual_risks": [
+      "Generic earlier control-variate and interpolation literature could have independently derived the same two-point algebra; searches do not prove historical uniqueness.",
+      "One related diagonal-interpolation paper was available for scope comparison at abstract level rather than a complete method inspection.",
+      "The result is for a narrow one-node, two-level, exact-inverse Rademacher setting; no broader performance claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the comparator and residual, but does not establish the two-level samplewise identity or sharp dimension and contrast thresholds",
+        "evidence": "Equations (2.12)-(2.13), (3.3), (4.1)-(4.2); arXiv original submission 2026-11-13; MSC2020 65F60",
+        "identifier_or_url": "https://arxiv.org/abs/2611.18864",
+        "material_read": "Full text: introduction; global block Lanczos, Gauss quadrature and error representation in Sections 2.2-2.6; stochastic estimators in Section 3; proposed correction in Section 4; experiments and conclusions in Section 5",
+        "method": "Read accessible HTML full text, comparing the mathematical expressions for the estimator, its stated variance law and claimed improvements",
+        "title": "Global Lanczos with stochastic error correction for trace estimation of matrix functions",
+        "trigger": "Direct motivating method: exact one-node full-size Hermite residual and correction"
+      },
+      {
+        "assessment": "Addresses variance of eigenmode deflation rather than one-node global Lanczos tangent correction; no stronger theorem subsuming dimension-seven formula",
+        "evidence": "arXiv:1603.05988",
+        "identifier_or_url": "https://arxiv.org/abs/1603.05988",
+        "material_read": "Accessible arXiv HTML body, including inverse-trace deflation formulation, variance arguments, and results sections",
+        "method": "Compared spectral deflation construction, exact trace term, and variance assumptions with fixed one-step Hermite correction",
+        "title": "Deflation as a Method of Variance Reduction for Estimating the Trace of a Matrix Inverse",
+        "trigger": "Variance increasing after an ostensibly helpful deterministic correction"
+      },
+      {
+        "assessment": "Different randomized block-Krylov correction; no implication of the present scalar error law",
+        "evidence": "arXiv:2205.01736",
+        "identifier_or_url": "https://arxiv.org/abs/2205.01736",
+        "material_read": "Accessible full-text introduction and method sections describing randomized Krylov deflation and residual probing",
+        "method": "Compared the randomized basis and residual operator against the deterministic full-size Lanczos Hermite tangent",
+        "title": "Krylov-aware stochastic trace estimation",
+        "trigger": "Potentially dominating Krylov plus Hutchinson correction"
+      },
+      {
+        "assessment": "A distinct diagonal-pattern interpolation method; inaccessible full methods are a nonzero historical-priority risk, not evidence of whole-paper noncoverage",
+        "evidence": "arXiv:1507.07227 abstract (original 2015-07-26)",
+        "identifier_or_url": "https://arxiv.org/abs/1507.07227",
+        "material_read": "Title and full abstract only",
+        "method": "Compared stated estimator inputs and goals with exact full-size one-node global Lanczos residual",
+        "title": "Estimating the Trace of the Matrix Inverse by Interpolating from the Diagonal of an Approximate Inverse",
+        "trigger": "General approximate-inverse interpolation could overlap with variance-correction claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2dcf9faa-d8a8-4dbe-98ba-712ceb156738",
+  "value": {
+    "rationale": "The new global Lanczos source motivates stochastic correction as a variance reduction. The exact n=7 onset of variance regression, optimal contrast and 625/576 witness, arbitrary-dimension worst-case factor, and opposite zero-variance contrast, together with Frobenius-norm improvement in the variance-inflation example, give a concrete algorithm-selection boundary for a natural two-spectrum matrix class. This is structurally different from generic unbiasedness or an unmotivated special matrix computation, and makes no runtime or broad-spectrum extrapolation.",
+    "status": "PASS"
+  }
+}
