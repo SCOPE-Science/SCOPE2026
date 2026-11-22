@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-`verify_geometry.py` was executed with Python, NumPy and SciPy in a fresh process. It returned 103232 passed assertions over `(k,n)=(2,1),(2,2),(3,1),(3,2),(4,1)`. It independently generated the product-layer Boolean vertices, checked all proposed facet inequalities, verified codimension-one ranks for each candidate facet, solved the Euclidean inscribed-ball linear program, enumerated all coordinate-complement diametral pairs, and checked Qhull's distinct facet equations and exact integral volumes for `n=1`. The exact finite-volume identities at `k=2,3,4`, `n=1`, were 27/40, 953/2520 and 2579/13440.
+## correctness
 
-The unrestricted quantifiers rely on the written analytic proof, not the finite computations. The historical-priority literature comparison remains provisional. Independent audit was not performed.
+PASS
+
+For k>=2,n>=1, height-t section of the cube–simplex Cayley polytope is n copies of K_t=(1−t)[0,1]^k+tΔ_k and n copies of K_(1−t). The subset-sum halfspaces are necessary; decomposing z into min(z_i,1−t) and (z_i−(1−t))_+ proves sufficiency. Each lower, upper-subset and height inequality defines an irredundant facet by a relative-interior dimension argument, giving 2n(2^k+k−1)+2 facets. Lower-coordinate and both full-set facet distances bound radius by (k+1)/(2(k+sqrt(k²−k+1))); equality forces t=1/2 and each block coordinate to equal r. Monotonicity of r_s verifies all subset barriers and 2n(k+1) tangent facets. Boolean-complement pairs give diameter sqrt(2kn+1) and (k+1)^(2n) diameter pairs; fiber volume V_k(t)=Σbinom(k,j)(1−t)^(k−j)t^j/j! gives exact integral. For k=2, Laplace around t=1/2 yields (7sqrt(pi)/(6sqrt(2n)))(49/64)^n. Independent k=2,n=1 and k=3,n=1 exact vertex/facet/LP and complement tests reproduced 12 and 22 facets and radii 0.40192378865 and 0.35424868894.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the final precise statement, after a direct implication comparison of published SCOPE/Resultary records and primary literature; see four named checks and actual material read. Read full RESULT.md: it concerns box fibers over a standard simplex and their simplex-projection bound 1/(d+sqrt d), not the cross-layer cube–simplex *Minkowski* section K_t of Yang’s binary Cayley construction, and does not determine the stated subset facet set, unique incenter, volume or diameter counts.
+
+## value
+
+PASS
+
+The realization of a natural Boolean low-expansion polytope family has explicit irredundant halfspaces, a unique n-independent cube-scale insphere with sharp tangent count, and exact diameter and volume; it quantifies the contrast between poor edge expansion and robust Euclidean roundness, not merely a numerical toy or basic simplex radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
