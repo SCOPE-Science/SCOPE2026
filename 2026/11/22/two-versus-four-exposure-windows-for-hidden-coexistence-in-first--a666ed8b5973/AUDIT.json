@@ -1,0 +1,166 @@
+{
+  "correctness": {
+    "rationale": "For each site-availability table with all four cells positive and independent equal-rate exponential arrival clocks, conditional race enumeration gives A_j=u F_j-q F_j^2/2 and B_j=v F_j-q F_j^2/2. When u differs from v, ratios of the first two cause contrasts yield z=e^{-rT}, and explicit nonsingular linear inversions recover q,u,v and the table. When u=v, consecutive increments form c z^(j-1)+e z^(2(j-1)) with positive c,e and Hankel determinant ce(z-z^2)^2>0. Four windows recover z from the unique positive root of z+z^2=S, then recover the table. Two exact positive rational models with z=1/2 and 3/5 have identical cause-label laws at the first three deadlines but different fourth-window laws and opposite latent covariance signs. The fractions were independently recomputed from the observation law; check.py passed exact assertions and 19,419 randomized numerical inversions. The numerical checks do not substitute for the universal algebraic argument. Strict positivity and equal rates are indispensable to the stated domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Plonka and Tasche, Prony methods for recovery of structured functions (doi:10.1002/gamm.201410011), explains recovery of sampled exponential sums.",
+        "The balanced increments are a positive two-exponential sum whose nodes are constrained to z and z^2, so the four-window inversion is an application of classical Hankel theory."
+      ],
+      "reasoning": "A general Prony theorem logically covers the four-window reconstruction method, and the source explicitly credits that fact. The combined assertion also proves a two-window shortcut when marginal occupancy differs and a sharp three-window failure with opposite latent association signs. The inspected general recovery survey does not state that combined ecological claim. Avoid claiming the Hankel identity itself is novel.",
+      "searches": [
+        "Prony method reconstruction exponential sums 2 components four equispaced samples recurrence Hankel determinant theorem",
+        "\"finite mixture\" \"exponential\" \"four\" \"Prony\" moments identifiability",
+        "identifiability Prony harmonic exponential mixture nodes z z squared three samples"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/ece3.70031",
+      "https://doi.org/10.1111/2041-210X.14338",
+      "https://doi.org/10.1002/ece3.9104",
+      "https://doi.org/10.1111/2041-210X.12985",
+      "https://doi.org/10.1080/02664763.2021.1881453",
+      "https://doi.org/10.1080/02664763.2023.2231174",
+      "https://doi.org/10.1002/gamm.201410011"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nakashima et al. (2024) Methods 2.1 Eq. (3) multiply separate species likelihood contributions under their independence treatment; source does not construct a 2x2 correlated latent presence inverse (doi:10.1002/ece3.70031).",
+        "Ferry et al. (2024) Methods 2.1 uses recurrent event hazard modeling conditional on prior observations, not a single first-consumer cause label at controlled deadlines (doi:10.1111/2041-210X.14338).",
+        "Chambert et al. (2018) studies misidentification and confirmatory observations (doi:10.1111/2041-210X.12985); Lonsinger (2022) studies occupancy closure errors (doi:10.1002/ece3.9104).",
+        "Classical Prony reconstruction yields four-window sufficient algebra, not the sharp two-window unbalanced case and three-window sign-flip counterexample (doi:10.1002/gamm.201410011)."
+      ],
+      "reasoning": "Each closest statement is compared by implications, not title. Their data models either provide exact times/recurrent events, assume independent latent occupancies, use confirmatory detections, assess bias via simulations, or establish general exponential mixture reconstruction. None of the inspected portions implies the full 2/4 sharp-window result together with sign-indeterminate three-window evidence. Broad cure-mixture literature is not fully excluded; priority remains provisional.",
+      "searches": [
+        "Nakashima Hashizume Kanda 2024 interspecific competition time to detection occupancy identifiability correlation",
+        "species occupancy competitor first arrival two monitoring windows recover co-occurrence dependence",
+        "current status data with two competing risks and time-dependent missing failure types",
+        "species occupancy competing first arrival correlated joint occupancy identifiable timed windows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two-species resource use under competing first arrivals is a latent-binary cure-mixture current-status model, but correlated availability is its specific four-cell parameterization (doi:10.1002/ece3.70031).",
+        "Current-status competing-risk research studies source-specific subdistributions with uncertain/missing failure types (doi:10.1080/02664763.2021.1881453; doi:10.1080/02664763.2023.2231174)."
+      ],
+      "reasoning": "Compared the actual observation map: exact cause-specific endpoint probabilities at T,2T,3T,4T and the discrete four-cell latent availability table with equal conditional rates. General competing risks allow many latent bivariate laws not identifiable without restrictions; the present conclusion is explicitly conditional on a particular mixture. No inspected current-status abstract specifies the sharp 2/4 rule or opposite-sign three-horizon alias. Full texts of the two current-status papers were not accessible, which remains a priority risk.",
+      "searches": [
+        "first arrival winner only competing risks latent correlated occupancy species joint occurrence identifiability two censored horizons",
+        "two species occupancy independent conditional exponential encounter equal rates first winner count horizon inverse",
+        "\"competing risks\" \"two inspection times\" identification cure fraction correlated frailty",
+        "\"current status\" \"cure\" \"two time points\" identifiability \"exponential\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed research about four single-visit dynamic occupancy, anonymous two-habitat second moments, and count-only Markovian availability was retrieved; the stated first-consumer endpoint competition experiment is different in both data and latent parameters.",
+        "No source inspected reported the exact rational three-window alias (9/40,129/400,147/400) with covariance signs -801/10000 and 3439/65536."
+      ],
+      "reasoning": "The precise rational witness and conditional winner-data inversion are absent from the inspected indexed summaries and retrieved published source text. This is evidence against direct duplication in checked material only, not an exhaustive uniqueness claim. A different table or alias can be mathematically equivalent even with different numbers, which was addressed by comparing observation maps.",
+      "searches": [
+        "two survey duration winner-only ecological first-arrival data exactly identifies correlated occupancy and shared exponential encounter rate; symmetric marginal occupancy requires four horizons",
+        "four exposure horizons competing risks exponential mixture two species cooccurrence presence first-arrival identifiability",
+        "\"first arrival\" \"two species\" \"identifiable\" exponential competing risks occupancy",
+        "\"two exponential\" \"three samples\" ambiguous \"four samples\" identifiable"
+      ]
+    },
+    "rationale": "The combined sharp two-versus-four fixed-window identifiability law and explicit three-window opposite-association alias for a two-species first-consumer resource model was not located in inspected papers or indexed mathematical research. It is not claimed that all individual algebraic tools are new: the positive four-window exponential reconstruction is a Prony/Hankel specialization. Nakashima et al. (2024) treat time-to-detection with independent species and competitor censoring, whereas this theorem admits arbitrary joint presence and retains only endpoint winner labels. Recurrent-event, misidentification occupancy, and general current-status competing-risk literatures differ in the precise observations/hypotheses; broad historical priority is provisional.",
+    "residual_risks": [
+      "The parametric current-status competing-risk papers and misidentification occupancy paper were not fully readable in the accessed representations; a stronger uninspected result could subsume part or all of the special-case theorem.",
+      "Classical Prony/structured exponential-sum identification directly covers the four-window algebra; novelty is restricted to the exact ecological observation law, the balanced-versus-unbalanced minimal window distinction, and the three-window opposite-association witness.",
+      "The theorem holds for exact population probabilities and identical exponential rates only. Finite-sample noise can make the inversion ill-conditioned near marginal balance and small Hankel determinants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related ecology and parametric censored events; no published sharp two-versus-four fixed-horizon correlated-occupancy identification established in inspected sections.",
+        "evidence": [
+          "Methods §2.1 defines independent-species TTD likelihood and records rival use as censoring; §2.2 defines competition and unique functional contribution indices."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.70031",
+        "material_read": "Publisher full HTML, Abstract, Introduction, Methods 2.1-2.3, including equations (1)-(7), and results opening.",
+        "method": "Read accessible primary publisher text and compared the latent occupancy likelihood and first-arrival observation form.",
+        "title": "A statistical approach to assess interspecific consumptive competition and functional redundancy in ephemeral resource uses using camera traps",
+        "trigger": "Closest motivating first-consumer ecology formulation; possible direct coverage of competing-race identification."
+      },
+      {
+        "assessment": "Uses repeated observations and time-varying interaction hazard; does not state the coarse first-consumer latent-presence inverse theorem.",
+        "evidence": [
+          "Methods §2.1 models species B hazard after observed species A; §2.2 compares first-event methods."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.14338",
+        "material_read": "Publisher full HTML Abstract, Introduction and Methods 2.1-2.2 including recurrent hazard equation and simulation design.",
+        "method": "Read publisher model summary and methodology.",
+        "title": "Introducing recurrent event analyses to assess species interactions based on camera-trap data",
+        "trigger": "Recurrent events may dominate first event sampling; check mathematical implication and observational scope."
+      },
+      {
+        "assessment": "Demonstrates closure-related estimation biases using simulations, not exact confounding of opposite latent association under winner-only exposure windows.",
+        "evidence": [
+          "Methods §2.1 simulates avoidance, aggregation and independence; Abstract reports closure-related bias."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.9104",
+        "material_read": "Publisher full HTML Abstract, Introduction and Methods 2.1-2.2.",
+        "method": "Read primary article methods and simulation setup.",
+        "title": "Co-occurrence models fail to infer underlying patterns of avoidance and aggregation when closure is violated",
+        "trigger": "Ecological association sign and sampling coarsening; directly relevant value boundary."
+      },
+      {
+        "assessment": "Confirmatory species identity observations and misidentification correction; no source evidence of competing first arrival by multiple deadlines, with body-access risk noted.",
+        "evidence": [
+          "Abstract explicitly emphasizes confirmatory data to improve identification."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12985",
+        "material_read": "Publisher abstract, bibliographic record and linked-method overview; article body not available in retrieved HTML.",
+        "method": "Read abstract and checked available body access, not assumed complete.",
+        "title": "Two-species occupancy modelling accounting for species misidentification and non-detection",
+        "trigger": "Potential wider two-species identifiability coverage."
+      },
+      {
+        "assessment": "Directly related statistical family, but precise observational equivalence cannot be ruled out without the unavailable full text.",
+        "evidence": [
+          "Abstract identifies missing failure types, parametric MLE and monitoring-time simulations rather than a published fixed four-horizon analytic threshold."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/02664763.2021.1881453",
+        "material_read": "Abstract, public citation and method overview; open-access PMC full text access yielded a browser challenge.",
+        "method": "Inspected the available PubMed and journal extracts; attempted lawful open-access full text.",
+        "title": "Current status data with two competing risks and missing failure types: a parametric approach",
+        "trigger": "Possible broader identifiable parametric current-status competing-risk model."
+      },
+      {
+        "assessment": "A plausible general statistical comparator that remains a historical priority risk; its missing-cause mechanism differs from the fully cause-labeled experiment.",
+        "evidence": [
+          "Available introduction concerns missing failure type and time-dependent missingness."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/02664763.2023.2231174",
+        "material_read": "Abstract, Introduction search extract, and bibliographic details; full open-access PMC page was not reachable.",
+        "method": "Inspected accessible indexed text and tried lawful full text from publisher and repository.",
+        "title": "Current status data with two competing risks and time-dependent missing failure types",
+        "trigger": "Expanded current-status model with identifiability keywords."
+      },
+      {
+        "assessment": "Classical four-sample exponential-sum reconstruction is acknowledged and is not claimed original; no source evidence of the two-vs-four ecological threshold or exact opposite-association alias.",
+        "evidence": [
+          "Abstract describes Prony reconstruction of structured exponential sums from equispaced sampled data."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/gamm.201410011",
+        "material_read": "Publisher abstract and indexed exposition of exponential-sum Prony recovery; full published paper not inspected.",
+        "method": "Compared explicit recurrence against known general Prony statement and cited that coverage.",
+        "title": "Prony methods for recovery of structured functions",
+        "trigger": "Potential broader coverage of the two-exponential four-window Hankel inverse."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a666ed8b-5973-4252-98e0-dbdba160f86b",
+  "value": {
+    "rationale": "This is a motivated exact monitoring-design classification for species competing for ephemeral ecological resources, not an arbitrary numerical slice. It determines the sharp number of winner-label-only exposure durations needed to recover a hidden two-species association; an exact counterexample proves that three durations can be observationally identical even with one model indicating species avoidance and the other aggregation. Four suffice for every strictly positive table, and two suffice generically, which is useful for deciding when coarse recording can reveal ecological co-occurrence without exact timestamps. The restriction to constant identical exponential encounter rates and the lack of finite-sample precision analysis are explicitly acknowledged; no empirical significance or downstream conservation policy is assumed.",
+    "status": "PASS"
+  }
+}
