@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+All definitions and quantifiers are explicit (odd dimension, positive integer capacities, standard lattice, positive integral dilation). The linear cyclic adjacent-sum matrix has determinant two and image equal to the even-coordinate-sum sublattice. Deleting a zero coordinate reduces the integral vertex problem to a bipartite path. Therefore at most one fractional vertex exists. Brion localization of its tangent cone gives a parity-filtered nonnegative orthant and an analytic even-minus-odd contribution exactly equal to \(2^{-d}\). Integral-vertex cone contributions are polynomial in the dilation and cancel. For the alternating pattern, the explicit all-tight solution gives both the sharp feasibility threshold and odd-parity condition. Sixteen exact-arithmetic finite checks corroborate but do not prove the general statement. External mathematical input: Brion's vertex-cone identity.
+
+## Originality — PASS (provisional priority)
+The exact unit-capacity parity constant was already known and is explicitly credited: *Exact parity degree and minimal quasiperiod of odd cyclic block polytopes*, which includes \(2^{-d}\) at block size one. That is not the arbitrary-positive-integer RHS theorem: varying the RHS changes existence of the exceptional corner and can collapse the period to one. The 2026 Zhou source gives dimension generating functions and the cyclic one-dilation trace, not a dilation-period phase diagram. The earlier alternating study likewise concerns a different phase convention and does not contain the complete weighted periodicity classification. The claimed advance is **not** a new parity-filter method, but a necessary-and-sufficient all-capacity criterion together with the explicit sharp alternating regime. Historical risk: the weighted specialization could be implicit in broader vector-partition or graph-matching calculations beyond the inspected documents.
+
+## Mathematical value — PASS
+Exact Ehrhart quasiperiod and its coefficient amplitude are natural arithmetic invariants, and the answer changes sharply as the capacities vary. A nonconstant-in-parameters family exhibits complete period collapse alternating with an exactly quantified parity anomaly. The result fully classifies all positive integer capacity choices on an odd cycle rather than checking a few instances. It supplements recent work concentrating on counts at fixed dilation and is a reusable weighted-graph counterpart to the known uniform odd-cycle law. The source proof technique generalizes, but the new parameter-phase classification requires the all-tight feasibility and lattice-index analyses.
+
+## Closest literature and limitations
+The strongest overlap is the public 2026 unit-capacity block theorem; its explicit \(a=1\) discrepancy is already \(2^{-d}\). The claim does **not** assert novelty of that special case. Hamano–Hibi–Ohsugi (2018) treats unit-capacity fractional stable sets. The complete polynomial part is not claimed. No independent audit has been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
