@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The no-local-maximum criterion is an exact iff for weak connectivity. Counting valley permutations yields the conditioning event and independent fair placement bits. The ordered interior gap values and outer gaps remain independent of their rank permutation by symmetry of Dirichlet spacings. The exact second moments use the directly integrated minimum-gap survival function (1-mt)^n and standard Dirichlet moments. Conditional Lindeberg applies to weighted independent fair bits, with maximum gap O_P(log n/n), n times squared-gap sum converging to 2, and negligible outer boundary term. An independently implemented rational checker enumerates n=2..9 rank permutations and integrates the full moment vector through exponential order-statistic increments; every case passed. This finite code is corroboration only, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eppstein–Paterson–Yao, https://www.ics.uci.edu/~eppstein/pubs/EppPatYao-DCG-97.pdf, sections 2, 3 and 9: reciprocal-pair roots, component bounds, and expected component count in square",
+        "Penrose–Wade, https://arxiv.org/pdf/math/0603561, sections 2.2 and 5: total power-weighted directed nearest-neighbor length",
+        "Linderman et al., https://pmc.ncbi.nlm.nih.gov/articles/PMC7480951/, §1.2: typical component scaling and sparse randomized constructions"
+      ],
+      "reasoning": "The inspected results are for different statistics (edge-length moments, generic component counts or two-dimensional/component regimes). Even if those results bound or characterize connectivity rates, they do not yield the bivariate root rank and spatial midpoint limit or the exact finite bivariate moments.",
+      "searches": [
+        "web: nearest neighbor graph connected one dimensional random points components local maxima",
+        "web: distribution number connected components nearest neighbor graph 1 dimensional uniform points spacings peaks connectivity probability",
+        "web: nearest-neighbor graph connected gaps random interval probability",
+        "published-finding corpus: Penrose Wade 2006 Limit theory for the random on-line nearest neighbour graph conditional connectivity nearest neighbor"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math/0603561",
+      "https://www.ics.uci.edu/~eppstein/pubs/EppPatYao-DCG-97.pdf",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7480951/",
+      "published-finding corpus record c9d68f2da8c6, summary only",
+      "published-finding corpus record 58929be679e6, summary only",
+      "published-finding corpus record f51047a8a8b8, summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eppstein–Paterson–Yao state every weak component has one reciprocal pair, but neither its rank under rare connectivity nor conditional spatial midpoint asymptotics",
+        "Penrose–Wade provide ordinary length expectations and variances, which do not imply conditional root-location moments",
+        "Related published-finding corpus records concern reciprocal-pair counts and their edge lengths, not conditioning on a single full-size component"
+      ],
+      "reasoning": "A theorem only about the number of components, total graph edge length, or count/length covariance cannot determine conditional joint root-pair rank and coordinate laws. Here the crucial additional structure is the independent endpoint placement of all ordered interior gaps under connectivity plus its weighted conditional CLT. A broader general result on conditional nearest-neighbor forest shape could in principle subsume this theorem, but none was identified in materially inspected sources.",
+      "searches": [
+        "published-finding corpus: random one dimensional nearest neighbor graph connected iff interpoint gap lengths are V-shaped, binomial location of root two-cycle, connectivity probability 2^(n-2)/(n-1)!",
+        "published-finding corpus: exact conditional binomial root of connected one-dimensional nearest neighbor graph uniform points Gaussian position",
+        "web: nearest neighbor graph connected gaps random interval probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest record 2026/10/26/SCOPE-exact-fragmentation-length-covariance-in-an-interval-nearest-nei--c9d68f2da8c6: component-count versus total edge length, not root position",
+        "published-finding corpus closest record 2026/11/8/SCOPE-exact-count-length-coupling-of-mutual-nearest-neighbor-pairs-on--58929be679e6: count and total length of reciprocal pairs",
+        "Penrose–Wade arXiv:math/0603561v1, section 2.2: directed edge-length moments"
+      ],
+      "reasoning": "Equivalent graph descriptions include connected 1-nearest-neighbor forest, unique mutual-neighbor two-cycle and valley-shaped interior spacing ranks. The count–length and generic component descriptions do not determine the two-coordinate conditional Gaussian law. No exact equivalent statement was found among the examined results; negative search does not prove uniqueness.",
+      "searches": [
+        "published-finding corpus: conditional connectivity uniform 1D nearest neighbor graph unique mutual nearest neighbor root midpoint rank Gaussian fluctuations",
+        "published-finding corpus: connected nearest neighbor forest single 2-cycle location central limit theorem root position n uniform points",
+        "web: nearest neighbor unimodal spacings random points connected",
+        "web: nearest neighbor mutual binomial connected one dimensional"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/11/8/SCOPE-exact-mutual-nearest-neighbor-component-law-in-symmetric-random--f51047a8a8b8 concerns iid symmetric edge lengths on the complete graph, a different model",
+        "published-finding corpus record 2026/10/27/SCOPE-exact-negative-motif-length-covariance-in-the-circular-nearest-n--d272683b84c8 concerns a circle and count/length covariance",
+        "No inspected literature table enumerates conditional root-pair rank/spatial midpoint moments or joint Gaussian covariance"
+      ],
+      "reasoning": "Available exact counts and tables concern expected numbers of components, separate length moments or different random-link models. The finite rank distribution follows from valley-permutation enumeration, but these database hits do not entail the new conditional spatial fluctuation.",
+      "searches": [
+        "published-finding corpus: nearest neighbor random interval single component probability 2^(n-2)/(n-1)! binomial minimum gap central location",
+        "published-finding corpus: exact conditional binomial root of connected one-dimensional nearest neighbor graph uniform points Gaussian position",
+        "web: one-dimensional nearest neighbour graph conditional on connected location of mutual nearest neighbours"
+      ]
+    },
+    "rationale": "The accessible primary papers establish nearest-neighbor graph component structure, typical component counts, and graph length moments, but do not state the rare-connectivity conditional rank/physical midpoint joint law or its two-dimensional Gaussian fluctuation covariance. Published mathematically similar findings on numbers and lengths of reciprocal pairs do not imply it. Full text of two closest earlier primary papers and a later open article was materially inspected. Search and access limitations are explicitly retained; priority is not independently certified.",
+    "residual_risks": [
+      "Historical priority is not certified by failed title/semantic searches; a broader uninspected theorem could imply this result.",
+      "Two most relevant published scientific index hits could not be inspected in complete original form; their searchable summaries address different statistics.",
+      "Eppstein paper has an earlier publication year than the dated manuscript; the chosen source date refers precisely to the verified 2006 arXiv primary source, not an invented earlier calendar day."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different observable: total weighted directed edge lengths; no conditional connectivity root-location law in inspected theorem statements",
+        "evidence": [
+          "arXiv math/0603561v1 dated 2006-03-23, p.1 abstract and MSC 60D05; pp.7–8 Theorem 2.3 and p.12 spacing discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0603561",
+        "material_read": "Title, abstract, main results §§1–2 (including §2.2), spacing framework §4.2 and discussion of length moments",
+        "method": "Primary paper inspected in accessible full text, with relevant sections, page screenshot and term searches",
+        "title": "Limit theory for the random on-line nearest-neighbour graph",
+        "trigger": "Same one-dimensional uniform nearest-neighbor graph and Dirichlet spacing techniques"
+      },
+      {
+        "assessment": "Structural bi-root property and 2D expected component count; no 1D rare-connectivity conditional bivariate rank-position Gaussian theorem in inspected results",
+        "evidence": [
+          "Section 2: each weak component has a unique 2-cycle; Theorem 2: mean number of components for random square; §9 open component-distribution questions"
+        ],
+        "identifier_or_url": "https://www.ics.uci.edu/~eppstein/pubs/EppPatYao-DCG-97.pdf",
+        "material_read": "Definition and component properties §2, probabilistic random component discussion §3, conclusions §9 and theorem references",
+        "method": "Primary manuscript full text with page screenshot, targeted find and section reading",
+        "title": "On Nearest-Neighbor Graphs",
+        "trigger": "Nearest-neighbor reciprocal two-cycles and components might dominate claim"
+      },
+      {
+        "assessment": "Typical many-component scaling and randomized construction, not the extremely rare fully connected 1D 1-NN root-pair position",
+        "evidence": [
+          "§1.2 Theorem 1.1 asserts linear expected component count for fixed k; §1.3 treats randomized near-neighbor giant components"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7480951/",
+        "material_read": "Abstract, introduction §§1.1–1.3 and statements on fixed k components",
+        "method": "Open full-text HTML read and targeted section searches",
+        "title": "Randomized near-neighbor graphs, giant components and applications in data science",
+        "trigger": "Stronger modern component-distribution/nearest-neighbor connectivity coverage"
+      },
+      {
+        "assessment": "Reported exact covariance between component count and sum of distinct-edge lengths, not the conditional root rank/midpoint theorem; unresolved full-text priority risk",
+        "evidence": [
+          "Indexed summary: covariance tends to -139/2700; full-text access failed"
+        ],
+        "identifier_or_url": "2026/10/26/SCOPE-exact-fragmentation-length-covariance-in-an-interval-nearest-nei--c9d68f2da8c6",
+        "material_read": "Search-index scientific title and summary only; full text inaccessible",
+        "method": "published-finding corpus semantic record, attempted full text at returned publication URL",
+        "title": "Exact fragmentation-length covariance in an interval nearest-neighbor graph",
+        "trigger": "Same interval nearest-neighbor graph; possible hidden implication"
+      },
+      {
+        "assessment": "Indexed claim concerns count and aggregate reciprocal-pair length, including their joint CLT; a different law from rank and spatial midpoint under full connectivity",
+        "evidence": [
+          "Indexed summary: count–length covariance (64n+105)/(2700(n+1)); full-text access failed"
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-exact-count-length-coupling-of-mutual-nearest-neighbor-pairs-on--58929be679e6",
+        "material_read": "Search-index scientific title and summary only; full text inaccessible",
+        "method": "published-finding corpus semantic record, attempted full text at returned publication URL",
+        "title": "Exact count–length coupling of mutual nearest-neighbor pairs on an interval",
+        "trigger": "Same 1D mutual nearest-neighbor motif; potential stronger result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ba659e0e-3387-4f10-96a5-a34b22a8cf06",
+  "value": {
+    "rationale": "The full-size connected component is a canonical rare event in 1-nearest-neighbor spatial clustering. The reciprocal pair is the unique root of its two in-directed branches. Its exact rank law, finite rank–coordinate moments and genuinely correlated joint Gaussian fluctuations reveal both topological and spatial localization at a scale that ordinary component counts or lengths cannot provide. The conditional midpoint variance asymptotic to 1/(2n) quantifies a non-obvious doubling of the familiar 1/(4n) central order-statistic variance scale; the dimensionless correlation tends to 1/sqrt(2). These are motivated natural geometric invariants, not arbitrary parameter tuning.",
+    "status": "PASS"
+  }
+}
