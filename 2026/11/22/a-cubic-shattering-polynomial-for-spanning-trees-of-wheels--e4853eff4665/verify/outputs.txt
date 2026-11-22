@@ -1,0 +1,27 @@
+$ python3 verify/check_wheel.py
+n= 3 coefficients= [1, 6, 15, 12]
+n= 4 coefficients= [1, 8, 28, 48, 28]
+n= 5 coefficients= [1, 10, 45, 110, 140, 60]
+n= 6 coefficients= [1, 12, 66, 208, 387, 384, 124]
+n= 7 coefficients= [1, 14, 91, 350, 847, 1260, 1008, 252]
+n= 8 coefficients= [1, 16, 120, 544, 1612, 3152, 3872, 2560, 508]
+n= 9 recurrence-automaton agreement
+n= 10 recurrence-automaton agreement
+n= 11 recurrence-automaton agreement
+n= 12 recurrence-automaton agreement
+five-rim facets: {5: 60, 4: 5} witness: 180
+WHEEL_SHATTERING_CHECKS_PASS
+
+$ python3 verify/check_symbolic.py
+det(I-tT)= -t**3*z**2 + 4*t**2*z**2 + 2*t**2*z - 4*t*z - t + 1
+WHEEL_TRANSFER_DETERMINANT_PASS
+
+$ g++ -std=c++17 -O2 -Wall -Wextra verify/check_wheel.cpp -o /tmp/research02_wheel_checker && /tmp/research02_wheel_checker
+n=3 : 1 6 15 12
+n=4 : 1 8 28 48 28
+n=5 : 1 10 45 110 140 60
+n=6 : 1 12 66 208 387 384 124
+n=7 : 1 14 91 350 847 1260 1008 252
+n=8 : 1 16 120 544 1612 3152 3872 2560 508
+n=9 : 1 18 153 798 2790 6714 10959 11376 6336 1020
+WHEEL_CPP_CHECKS_PASS
