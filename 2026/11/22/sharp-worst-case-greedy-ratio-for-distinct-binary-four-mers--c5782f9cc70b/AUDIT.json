@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For all 65535 nonempty binary four-mer sets, exact Hamiltonian-path overlap DP yields the true optimal superstring length. The published endpoint-overlap lemma and an explicit minimum-compression recursion enumerate every ordered maximum-overlap Greedy tie. Reversal and complementation reduce to exactly 16959 representatives. Standalone exact-integer C++17 verification of the complete finite domain finds maximum 17/11 and one representative orbit; direct literal-word recursion independently certifies the maximizing example, and explicit length-17 Greedy and optimal length-11 witnesses meet lower-bound length.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General 2015 maximum ratio at most 2 does not imply at most 17/11 for binary input.",
+        "The 2026 article derives exact 9/5 for strings of length three over unrestricted alphabets and other constructions at longer length; none supplies a binary length-four global optimum."
+      ],
+      "reasoning": "An upper bound of 2 cannot imply the sharp value 17/11; a length-three exact bound or a long-string example has different domain. The current global maximum over every subset is a stronger finite alphabet classification.",
+      "searches": [
+        "Greedy Conjecture for Strings of Length 4 Kulikov Savinov Sluzhaev 2015",
+        "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already Chukhin Kulikov Mihajlin Smal arxiv 2608.20018",
+        "all input set sizes binary four-mers greedy longest ratio 17/11 bound proof"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.20018",
+      "https://cpm.cs.helsinki.fi/cpm15/26_Kulikov.pdf",
+      "https://doi.org/10.1007/978-3-319-19929-0_26",
+      "https://doi.org/10.4230/LIPIcs.CPM.2022.12"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior binary length-three optimum is 10/7, whereas the claimed domain is length four.",
+        "An earlier binary length-eighty construction gives ratio > 2 but makes no length-four upper claim.",
+        "The CPM 2015 bound of 2 is strictly weaker than 17/11.",
+        "Previous eight-word examples certify only a lower bound of 17/11 for the full domain."
+      ],
+      "reasoning": "The full-domain upper bound and precisely-four equality classification do not follow from small-cardinality examples or weaker general upper bounds. In particular, the complementary 9-to-16-size cases require independent exhaustive checking.",
+      "searches": [
+        "sharp binary three-word greedy-superstring ratio and all equality cases",
+        "an 80-bit binary counterexample to the factor-two greedy superstring bound",
+        "Greedy Conjecture for Strings of Length 4 CPM 2015",
+        "arxiv:2608.20018"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A binary four-mer input is exactly a set of distinct edges of the binary order-three de Bruijn graph; Hamiltonian overlap-path optimization is the exact unrestricted superstring objective.",
+        "Chukhin et al. (2026) give the endpoint-overlap invariant, but their explicit extremal ratio is for length-three inputs.",
+        "The 2015 four-word-length presentation states a bound of 2, rather than 17/11."
+      ],
+      "reasoning": "Equivalent names include maximal-overlap greedy shortest common superstring, greedy assembly of binary four-mers, and longest result under adversarial tie-breaking; none of the inspected results evaluates the extremal ratio over every subset of the sixteen four-mers.",
+      "searches": [
+        "exact worst approximation ratio greedy shortest common superstring arbitrary subset of sixteen binary four-mers 17/11",
+        "binary length-four substrings all 65535 subsets global sharp ratio 17/11 maximum overlap greedy",
+        "arxiv:2608.20018",
+        "DOI:10.1007/978-3-319-19929-0_26"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The earlier complete sixteen-read deck benchmark is one particular input subset, and cannot control the worst ratio on arbitrary proper subsets.",
+        "A previous eight-word example identifies ratio 17/11 for four eight-word masks but does not certify that no nine-to-sixteen-word mask beats it."
+      ],
+      "reasoning": "A finite benchmark, small-cardinality enumeration or de Bruijn shortest-cover table is not an implication of this global exact Greedy worst-case theorem. Searches did not locate a complete equivalent all-65535-mask table; search failure alone is not proof of priority.",
+      "searches": [
+        "binary length-four substrings all 65535 subsets global sharp ratio 17/11 maximum overlap greedy",
+        "full binary length four de Bruijn edge set maximum overlap greedy superstring output spectrum lengths from 19 to 27 including all tie resolutions",
+        "greedy reconstruction full order four kmer spectrum longest greedy output 27 genome assembly"
+      ]
+    },
+    "rationale": "No inspected published claim, relevant database result, or accessible prior local finding implies the sharp global 17/11 approximation constant and exactly four equality inputs for all 65535 binary four-mer subsets. The 2015 general upper bound 2 is weaker, the August 2026 exact length-three general-alphabet result applies to a different input word length, and a previous eight-word finite result gives an example but does not bound input sizes nine through sixteen. All relevant qualifiers have been compared; residual risk is an unindexed equivalence or inaccessible detailed 2015 proceedings text.",
+    "residual_risks": [
+      "Unindexed equivalent finite binary-four-mer greedy census cannot be eliminated by bibliographic searching.",
+      "The full 2015 proceedings chapter text was not accessible; comparison used the published abstract and entire public 18-slide presentation.",
+      "Exhaustive finite proof depends on correct implementation of exact recurrence and its published endpoint-overlap lemma; independent external audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the endpoint-overlap lemma; the stated exact extremal ratio applies to length three with arbitrary alphabet, not every subset of binary four-mers.",
+        "evidence": "The article gives 9/5 at input length three and describes ratio-two constructions at longer lengths; it does not state 17/11 for binary four-mers.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.20018",
+        "material_read": "Article main text sections 1 through 5, including the definition of Greedy, endpoint-overlap lemma in section 2 and subsequent constructions.",
+        "method": "Read accessible arXiv HTML full text and checked its definitions, proven bounds and reductions.",
+        "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+        "trigger": "Exact 2026 greedy bounds and endpoint reduction potentially imply the claim."
+      },
+      {
+        "assessment": "Gives a universal ratio-two upper bound, not the sharp binary special case.",
+        "evidence": "The displayed length-four guarantee is at most 2; does not imply at most 17/11.",
+        "identifier_or_url": "https://cpm.cs.helsinki.fi/cpm15/26_Kulikov.pdf",
+        "material_read": "Accessible entire 18-slide conference presentation, including theorem/summary slides; inspected PDF page screenshots.",
+        "method": "Read and inspected full public conference slides and accessible proceedings abstract; full chapter text unavailable.",
+        "title": "Greedy Conjecture for Strings of Length 4",
+        "trigger": "Exact same input word length might contain stronger result."
+      },
+      {
+        "assessment": "It optimizes Eulerian repairs, not adversarial tie resolutions in maximum-overlap greedy shortest-common-superstring.",
+        "evidence": "Eulerian graph optimization asks for different edges/tours; it does not determine greedy approximation ratios.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+        "material_read": "Accessible abstract and research overview for the Eulerianization problem.",
+        "method": "Read primary-source overview and compared the graph optimization object.",
+        "title": "Making de Bruijn Graphs Eulerian",
+        "trigger": "de Bruijn four-mer assembly could supply equivalent reconstruction criterion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c5782f9c-c70b-4928-b5f6-30de3120bfbf",
+  "value": {
+    "rationale": "Binary four-mer inputs are a canonical natural finite-alphabet read family (all subsets of exactly 16 possible reads). The sharp universal adversarial Greedy approximation ratio and equality classification give an exact performance guarantee for string/spectrum assembly, not obtainable from the previous eight-read example or the general ratio-two theorem. It is a complete natural finite extremal classification rather than an arbitrary small parameter check.",
+    "status": "PASS"
+  }
+}
