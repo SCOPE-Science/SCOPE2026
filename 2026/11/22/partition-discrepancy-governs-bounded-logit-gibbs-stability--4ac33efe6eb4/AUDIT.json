@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Equations (4)-(9) derive the exact Jacobian maximum using sign-extreme vectors and exactly attainable two-level logit odds. Convex integration gives the global upper bound, and perturbing interior approximations to every boundary maximizer gives the sharp lower bound for every R>0. R=0 is treated separately. Equation (10) gives a strict rational-integer reduction gap. The standard-library checker passed 10,099 supplementary comparisons; finite checking is not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2309.02413, Lemma 5.2 depends on a fixed base probability vector and bounds finite displacement in a Hilbert ball",
+        "arXiv:2510.23012, Theorem 1 controls identical input and output lp norms globally"
+      ],
+      "reasoning": "The closest stronger-looking finite-Hilbert-distance bound provides a subset-mass envelope at fixed base. Applying it locally is relevant prior theory; to derive (1) one must still determine the exact attainable subset odds under biased score-diameter restrictions and optimize over subsets, with a separate NP-hard equality classification. The paper does not give that classification.",
+      "searches": [
+        "Cohen Fausti 2024 sharp total variation Hilbert metric tanh theorem 5.1",
+        "softmax sensitivity finite logit range total variation sharp Lipschitz parity threshold",
+        "softmax Lipschitz constant infinity 1 4 q(1-q) 2021 paper"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1704.00805",
+      "arXiv:2010.02558",
+      "arXiv:2309.02413",
+      "arXiv:2510.23012"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1704.00805, Proposition 4 gives an upper bound in l2",
+        "arXiv:2010.02558, Section 3 addresses bounded score values and robustness but not sharp probability-map sensitivity",
+        "arXiv:2309.02413, Lemma 5.2 gives fixed-base finite Hilbert-ball TV comparisons",
+        "arXiv:2510.23012, Propositions 1-2 treat matched-lp norms and global all-logit domains"
+      ],
+      "reasoning": "A fixed-base local Jacobian estimate follows from established formulas, so that component is not claimed as novel. The new statement is the global constrained mixed norm, exact balanced-subset saturation transition, parity specialization, and NP-hard exact saturation decision, which neither individual inspected theorem nor its direct fixed-base corollary states.",
+      "searches": [
+        "arxiv softmax Lipschitz constant infinity to l1 norm bounded logits 2020",
+        "weighted softmax logits bounded diameter operator norm infinity to one partition",
+        "softmax restricted bounded logits exact Lipschitz variation l infinity to l1 sensitivity Gibbs prior"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1704.00805, Proposition 4: Euclidean Lipschitz bound",
+        "arXiv:2309.02413, Theorem 5.1 and Lemma 5.2: finite Hilbert-to-total-variation displacement",
+        "arXiv:2510.23012, Theorem 1: matched-norm sharp global softmax constant"
+      ],
+      "reasoning": "Aliases considered: Gibbs/Boltzmann/logit response, exponential tilting, total-variation derivative, Hilbert projective distance. The source equations yield the general Jacobian/finite displacement ingredients but not the full prior-weight-and-budget optimization and exact decision threshold.",
+      "searches": [
+        "softmax sharp Lipschitz infinity to one norm bounded logits stability Gibbs prior",
+        "softmax Jacobian operator infinity one norm class count upper bounded differences",
+        "exponential tilt of positive probability vector exact local total variation derivative restricted Hilbert projective ball"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical search hits involving softmax rounding concern stochastic couplings, not the deterministic two-input mixed-norm map",
+        "Published records on weighted polytope projections and weighted partition discrepancies treat different nonlinear or linear operators"
+      ],
+      "reasoning": "Searches covered weighted and unweighted logits, mixed operator norms, subset-sum saturation, parity, and Gibbs/Hilbert aliases. Similar keywords and parity alone do not imply the present statement. No exact coefficient or equivalent table for this weighted restricted operator was found among returned results.",
+      "searches": [
+        "weighted softmax probability map sharp infinity-to-one Lipschitz coefficient restricted bounded logit diameter baseline weights subset sums",
+        "exponential tilt of positive probability vector exact local total variation derivative restricted Hilbert projective ball",
+        "parity threshold for odd dimension softmax robustness from uniform logits bounded logit contrast",
+        "subset partition computational hardness for exact sharp Lipschitz of weighted Gibbs softmax",
+        "finite logit range softmax mixed norm Jacobian norm and total variation",
+        "Cohen Fausti Hilbert metric total variation probability simplex logit bounded Gibbs sharp derivative subset sums probability mass"
+      ]
+    },
+    "rationale": "The inspected closest papers establish log-sum-exp gradient stability, bounded-logit motivations, global matched-norm softmax constants, or finite Hilbert-to-total-variation bounds. Cohen-Fausti Lemma 5.2 is especially close and its fixed-base implication is credited. No inspected item states or implies without additional global weighted-subset optimization the exact restricted mixed-norm coefficient, uniform parity threshold, and exact integer saturation hardness together. Unindexed equivalent statements remain a residual risk.",
+    "residual_risks": [
+      "A more general older probability-simplex variation theorem may present an equivalent restricted sharp modulus as an implicit corollary.",
+      "Finite score-diameter restrictions and the exact subset-partition saturation decision were not located in the inspected literature; discovery cannot establish exhaustive priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes Euclidean contraction ingredients; does not give weighted finite-diameter mixed-norm sharp coefficient",
+        "evidence": [
+          "Proposition 4 Euclidean Lipschitz coefficient lambda",
+          "Proposition 2 Hessian of log-sum-exp"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1704.00805",
+        "material_read": "PDF introduction, entropy-gradient formulation, Section V Proposition 4 and its derivative proof on pp. 3 and 6-7",
+        "method": "Full-text passage inspection and rendered PDF page",
+        "title": "On the Properties of the Softmax Function with Application in Game Theory and Reinforcement Learning",
+        "trigger": "Foundational gradient and Lipschitz softmax theory"
+      },
+      {
+        "assessment": "Studies bounding logits and robustness, but not a sharp mixed-norm Gibbs map constant",
+        "evidence": [
+          "Section 3 discusses finite logits and the role of bounded activations"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2010.02558",
+        "material_read": "PDF abstract and Sections 1 and 3, especially pp. 1 and 3 on logit magnitude and Lipschitz motivation",
+        "method": "Full-text passage inspection and rendered PDF page",
+        "title": "Constraining Logits by Bounded Function for Adversarial Robustness",
+        "trigger": "Direct motivation for bounded score vectors"
+      },
+      {
+        "assessment": "Closest general finite-distance bound; derivative yields a fixed-base sensitivity estimate, but no restricted weighted-score global optimization or exact partition-hardness threshold",
+        "evidence": [
+          "Theorem 5.1, inequality (39)",
+          "Lemma 5.2, formula (41) involving subset mass"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.02413",
+        "material_read": "PDF Introduction and Section 5.1, Theorem 5.1, Lemma 5.2 and proofs on pp. 24-25",
+        "method": "Full-text passage inspection and rendered PDF pages 24-25",
+        "title": "Hyperbolic contractivity and the Hilbert metric on probability measures",
+        "trigger": "Potentially dominating sharp total-variation theory"
+      },
+      {
+        "assessment": "Sharp same-norm global coefficient 1/2, not a mixed infinity-to-one norm over weighted finite-diameter scores",
+        "evidence": [
+          "Theorem 1 matched lp Lipschitz bound",
+          "Appendix A.2 norm-one/infinity Jacobian row sums"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2510.23012v1",
+        "material_read": "PDF Theorem 1, Proposition 2 on p. 5 and Appendix A.2 proof on p. 14",
+        "method": "Full-text passage inspection and rendered PDF pages 5 and 14",
+        "title": "Softmax is 1/2-Lipschitz: A tight bound across all lp norms",
+        "trigger": "Recent strongest-looking sharp softmax Lipschitz theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4ac33efe-6eb4-4d1b-8cb2-2818c7b2b8b5",
+  "value": {
+    "rationale": "The natural object is a Gibbs choice map with bounded score spread and arbitrary prior weights. Formula (1) gives its exact perturbation budget in total variation, the parity threshold (3) identifies when a finite range loses any robustness improvement, and the PARTITION reduction shows exact saturation certification is computationally nontrivial for general priors. These are structural claims beyond a bare Jacobian rederivation; no application-level robustness improvement is asserted.",
+    "status": "PASS"
+  }
+}
