@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For x=3u, G(u)=3u^3-u is a 3-adic isometry and gives exactly 3 roots to each target multiple of 9 at levels k≥2. For x=±(1+3u), the outputs are ±(-2+27u²(u+1)); exactly nine input lifts correspond to each u mod 3^(k-3). Hensel gives one root in each simple residue ball for t≡0 or 2 mod3; u=3v gives 9v²(1+3v), and v↦v√(1+3v) is an isometric bijection, so the critical count is 3Q_(m-2)(t/9) for m≥3 with explicit small cases m=1,2. Quadratic root valuations then give all fibers, maxima and exact maximizing targets. Standalone verify.py was replayed: 29,773 target comparisons including full enumeration k=1..9 and selected independent root lifts k=10..14. Infinite proof does not rely on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "1991 Bremser–Gomez-Calderon, Theorem 5, https://www.academia.edu/48986625/Value_sets_of_Dickson_polynomials_over_Galois_rings",
+        "Shang 2023 Theorem 1.1 and §§2–4, https://arxiv.org/html/2310.20226v1",
+        "2026 public value-set note RESULT.md (retrieved as complete published text)",
+        "2026 public ternary Dickson first-hit note RESULT.md (retrieved as complete published text)"
+      ],
+      "reasoning": "The 1991 Theorem 5 assumes f(x)^2≠4 a^d modulo p for the target; for p=d=3,a=1 it applies only to outputs y=0 mod3, and thus does not cover exceptional y=±2 mod3. Its Theorem 11 supplies estimates. Shang proves a best general nonpermutation image bound, not any individual fiber profile. The 2026 image theorem proves exactly the 13-class image, which is acknowledged as prior; its statement and proof supply no count of critical square-root multiplicities. The 2026 depth theorem concerns iterates and cannot imply a target-by-target one-step map count.",
+      "searches": [
+        "\"Value sets of Dickson polynomials over Galois rings\" pdf Bremser Gomez Calderon 1991",
+        "\"Bremser\" \"Gomez-Calderon\" \"Value sets\" pdf downloadable",
+        "\"Dickson\" \"X^3-3X\" modulo 3 powers image fiber cardinality",
+        "The exact fiber multiplicity distribution for cubic Dickson x^3 - 3x over 3^k, two maximizing targets and parity alternation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2103.09119",
+      "https://arxiv.org/html/2310.20226v1",
+      "https://www.academia.edu/48986625/Value_sets_of_Dickson_polynomials_over_Galois_rings",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-prime-power-value-sets-of-a-frobenius-minus-linear-polynom--8ac73addd4cb",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-first-hit-depth-distribution-for-the-cubic-dickson-map-mod--24093f02440f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1991 Theorem 5 nonzero discriminant condition; Theorem 11 bounds for d divisible by p",
+        "2026 value-set result: proof treats critical ball only as a subset of the simple branch image and explicitly excludes full fiber census",
+        "2026 first-hit result: valuation-based orbit-depth polynomial rather than one-step preimage map",
+        "New proof: 3-adic analytic conjugacy H(v)=v sqrt(1+3v), giving exact counts 9+27Q and parity-dependent two maximum targets"
+      ],
+      "reasoning": "The prior all-target image classification cannot logically yield preimage sizes from the image set alone, and the first-hit profile is invariant under redistribution of one-step preimages among same-depth vertices. The 1991 preimage theorem omits exactly the singular classes. The new theorem gives all target values, includes the omitted classes, and makes an extremal parity claim not implied by the statements inspected.",
+      "searches": [
+        "exact value set and fiber cardinality Dickson polynomial D_3(x,1) = x^3 - 3x modulo powers of 3, singular p-adic branch",
+        "The exact fiber multiplicity distribution for cubic Dickson x^3 - 3x over 3^k, two maximizing targets and parity alternation",
+        "\"Value sets of Dickson polynomials over Galois rings\" 1991 theorem preimage",
+        "Full-text material: 2026 prime-power image result, 2026 first-hit result, 1991 Theorems 5 and 11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 2026-10-25 first-hit-depth record id 2026/10/25/SCOPE-exact-first-hit-depth-distribution-for-the-cubic-dickson-map-mod--24093f02440f",
+        "published-finding corpus 2026-11-02 value-set record id 2026/11/2/SCOPE-exact-prime-power-value-sets-of-a-frobenius-minus-linear-polynom--8ac73addd4cb",
+        "https://arxiv.org/abs/2103.09119"
+      ],
+      "reasoning": "The Chebyshev form is D_3(X,1)=2T_3(X/2); the Frobenius-minus-linear form is X^3-3X. These equivalences were searched directly. The 2026 first-hit work counts iterative hitting depth, while the 2026 value-set work describes attained targets but explicitly not fiber counts. Neither is a one-step all-target preimage classification.",
+      "searches": [
+        "exact value set and fiber cardinality Dickson polynomial D_3(x,1) = x^3 - 3x modulo powers of 3, singular p-adic branch",
+        "Chebyshev T_3 maps residues modulo 3^k image 13 times power of 3, fibers",
+        "Dickson polynomial D3 x^3-3x values modulo powers of 3 image size fibers",
+        "\"x^3-3x\" \"number of solutions\" mod 3^k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus leading exact-image and iteration-depth records as above"
+      ],
+      "reasoning": "No exact fiber table or formula for this cubic at all ternary prime powers was located. A negative database search is supporting context, not proof of priority.",
+      "searches": [
+        "cubic x^3-3x 3-adic value distribution square roots Hensel critical points",
+        "Frobenius minus linear p=3 3-adic square root multiplicity singular critical branch root count",
+        "\"x^3 - 3x\" \"modulo\" \"powers of 3\" roots"
+      ]
+    },
+    "rationale": "Published image-set classifications and first-hit dynamical profiles do not determine target-wise one-step fiber multiplicities. The specifically relevant 1991 Galois-ring theorem for preimages excludes the two critical output residues modulo three, and the later bound is an image-cardinality estimate. A new square-root normal-form root count proves the exceptional-branch multiplicities and sharp parity-switch extrema; remaining risks are explicitly disclosed.",
+    "residual_risks": [
+      "The 1991 article was accessed as a complete public text transcription with imperfect mathematical typography; a typeset copy might reveal an unstated relationship, although the nonexceptional restriction and exceptional-only bounds are legible.",
+      "Equivalent uncatalogued formulas or later works could exist; lack of database hits does not establish uniqueness.",
+      "The 2026 image theorem contains the same Hensel decomposition, but not the critical square-root multiplicity formula; the novel assertion is exact fibers and maximal collisions, not the image."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FINITE_FIELD_ONLY",
+        "evidence": "Theorem 1.4 and §§1–2 use F_q; they do not classify modulo 3^k for k>1.",
+        "identifier_or_url": "https://arxiv.org/abs/2103.09119",
+        "material_read": "Complete publicly rendered introduction, Theorems 1.2 and 1.4, §2 preliminaries and assumptions",
+        "method": "Open arXiv HTML text and compare stated domain and theorem hypotheses",
+        "title": "Residue sums of Dickson polynomials over finite fields",
+        "trigger": "Dickson polynomial finite-field image and collision context"
+      },
+      {
+        "assessment": "NOT_COVERING_FIBERS",
+        "evidence": "Theorem 1.1 gives M(p^r) and §3 uses generic nonpermutation upper bounds; no N_k(y) or one-step cubic preimage counts.",
+        "identifier_or_url": "https://arxiv.org/html/2310.20226v1",
+        "material_read": "Introduction, Theorem 1.1, lifting lemmas in §2, proof in §3, Theorem 4.1 and bibliography",
+        "method": "Read original arXiv HTML full text and inspect main results and exceptions",
+        "title": "Value sets of non-permutation polynomials over the residue class rings of integers",
+        "trigger": "2023 residue-ring lifting and image-size estimates"
+      },
+      {
+        "assessment": "NONEXCEPTIONAL_ONLY_AND_BOUNDS",
+        "evidence": "Theorem 5 requires [g_d(x,a)]^2 not congruent 4a^d mod p. The present nonzero output classes have y^2=4 mod3; Theorem 11 provides only bounds for d divisible by p.",
+        "identifier_or_url": "https://www.academia.edu/48986625/Value_sets_of_Dickson_polynomials_over_Galois_rings",
+        "material_read": "Publicly transcribed complete 1991 article, pp.240–250; especially Introduction, Theorem 5 pp.244–245, Lemmas 9–10 and Theorem 11 pp.247–250",
+        "method": "Read page-segmented full-text transcription and evaluate Theorem 5 hypothesis at p=d=3,a=1; math OCR may be imperfect",
+        "title": "Value sets of Dickson polynomials over Galois rings",
+        "trigger": "Same polynomial family, ring setting, stated preimage formula"
+      },
+      {
+        "assessment": "IMAGE_ONLY_NOT_FIBERS",
+        "evidence": "The thirteen classes modulo 81 and cardinalities are explicitly covered. Step 4 gives the two simple Hensel image branches, but it only places the critical branch inside an attained output set and states no fiber census.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-prime-power-value-sets-of-a-frobenius-minus-linear-polynom--8ac73addd4cb",
+        "material_read": "Complete published RESULT.md including Step 4 and Limitations",
+        "method": "Read the full published research note and compare conclusion and analytic branch arguments",
+        "title": "Exact prime-power value sets of a Frobenius-minus-linear polynomial",
+        "trigger": "Exact p=3 image and possible full-fiber overlap"
+      },
+      {
+        "assessment": "DYNAMICS_NOT_FIBERS",
+        "evidence": "The proof counts time until fixed points 0,2,-2 using valuations; it contains no classification of N_k(y) for arbitrary target y.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-first-hit-depth-distribution-for-the-cubic-dickson-map-mod--24093f02440f",
+        "material_read": "Complete published RESULT.md including full proof and limitations",
+        "method": "Read full published record and compare target-wise root counting with orbit-depth statistics",
+        "title": "Exact first-hit depth distribution for the cubic Dickson map modulo powers of three",
+        "trigger": "Same map at same prime and all k"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a4218d5c-4f84-484b-b684-4b8c2a9c7009",
+  "value": {
+    "rationale": "A natural and previously omitted quantity in the same singular 3-adic cubic is the exact cardinality of each preimage. The result distinguishes overlapping Hensel-simple and critical square-map contributions, provides a complete target-wise infinite classification (not a finite table), and derives sharp two-target maxima that alternate by parity of the modulus exponent. The image count alone cannot provide these data and the precise worst-collision invariant is motivated by nonuniformity of singular residue maps.",
+    "status": "PASS"
+  }
+}
