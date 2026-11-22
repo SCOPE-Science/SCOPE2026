@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact B-series local error h^3 delta H checked symbolically; Eg=1/6 and Var(g)=1/180 exactly; small-step contractions and martingale functional CLT give the Gaussian error process; exact scalar product-moment formulas yield positive limit of h^-5 MSE; reciprocal-affine cancellation follows from H=f^4(1/f)''/2. The included verifier executed successfully. Process interpolation is of nodal errors, and scalar cancellation applies only off poles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eisenmann et al. arXiv:2607.18928 abstract/sections 3,5,7 provide L2 error-rate and algebraic-stability results, but no identified Gaussian trajectory law or exact nonzero scalar asymptotic constant",
+        "Bochacik et al. arXiv:2404.19059 full text focuses on different implicit randomized RK2 schemes, convergence upper bounds and stability regions",
+        "D. Jin arXiv:2506.08937 studies asymptotic error distributions for stochastic differential equations with Stratonovich noise, not independently randomized stages for a deterministic ODE"
+      ],
+      "reasoning": "Upper root-MSE bounds and samplewise A-stability do not imply a nondegenerate Gaussian error distribution, sharp lower bound, or reciprocal-affine cancellation class. Broader general CLT technology is used as a tool; no exact stronger result for this tableau was identified.",
+      "searches": [
+        "web: \"Eisenmann\" \"Jans\" \"Kruse\" \"Podhaisky\" \"central limit\" SDIRK",
+        "web: \"randomized\" \"SDIRK\" \"Gaussian limit\" 2026",
+        "web: \"Convergence and stability of randomized implicit two-stage Runge Kutta schemes\" asymptotic distribution central limit"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.18928v1; primary HTML Sections 3 and 5 and abstract, accessed 2026-11-16 UTC",
+      "arXiv:2404.19059; earlier randomized implicit RK2 full parsed text, accessed 2026-11-16 UTC",
+      "arXiv:1701.03444; older randomized explicit RK error-bound paper, abstract and bibliography",
+      "arXiv:2506.08937; asymptotic-error distribution for stochastic RK with SDE driving, abstract",
+      "published-finding corpus public mathematical records: random SDIRK sign-loss probability and antithetic explicit RK Gaussian law, summaries",
+      "Additional indexed mathematical claims involving randomized RK stochastic fluctuation limits, inspected for scientific implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary paper order 2.5 in L2 bounds an error norm, and the third-order moments are satisfied only in expectation; a CLT with covariance is a strictly more specific distributional assertion",
+        "published-finding corpus large-step SDIRK sign-reversal record describes fixed-step products, not h→0 discretization-noise fluctuations",
+        "Other implicit randomized RK2 results establish stability classes and convergence rates; neither property determines exact scalar MSE constant or zero-noise vector fields"
+      ],
+      "reasoning": "The literature contains ingredients such as a third-order local expansion and standard martingale limit theory, but the exact leading B-series random functional, propagated finite-time covariance, and matching positive scalar lower bound require a method-specific derivation absent from the compared statements. A general textbook CLT is a proof instrument rather than a source that explicitly implies the full method-specific claim without computation.",
+      "searches": [
+        "web: \"Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit\" \"sharp\"",
+        "web: randomized Runge Kutta CLT asymptotic error autonomous ODE stratified randomized",
+        "published-finding corpus: randomized singly diagonally implicit Runge Kutta Eisenmann Jans Kruse Podhaisky scalar positivity threshold negative real axis sign preservation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary arXiv:2607.18928v1, sections 3 and 5, uses A(x)=[[x,0],[1-2x,x]], b=(1/2,1/2), x uniform on [1/2,1], and independent stages",
+        "published-finding corpus record Unique antithetic stage pairing and a Hessian-only Gaussian error law for randomized Runge–Kutta integration concerns paired explicit RK, not the present two-stage implicit SDIRK tableau",
+        "arXiv:2404.19059 uses randomized semi-implicit and theta-style RK schemes with different stage equations"
+      ],
+      "reasoning": "Gaussian limits for other randomized Runge–Kutta methods are not equivalent to the new fixed-tableau coefficient H and covariance. The method-specific two-stage implicit stage equations and independent law are essential. No identified equivalent formulation computes this covariance.",
+      "searches": [
+        "published-finding corpus: randomized singly diagonally implicit Runge Kutta Eisenmann Jans Kruse Podhaisky sharp strong order 2.5 Gaussian central limit numerical solution covariance linearized flow",
+        "published-finding corpus: two stage randomized implicit Runge Kutta B series leading third order fluctuation fprime squared f minus half second derivative",
+        "web: randomized Runge Kutta method central limit theorem discretization error 2.5 2026 stochastic implicit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned the sign-loss/Poisson window for the same SDIRK (record 2026/11/2/SCOPE-sharp-sign-loss-probability-and-poisson-critical-window-for-rand--119cb032c3ba), a different large-step positivity question",
+        "published-finding corpus returned antithetic explicit-RK Gaussian law (record 2026/11/8/SCOPE-unique-antithetic-stage-pairing-and-a-hessian-only-gaussian-erro--ed6af91e7d5b), different stage family",
+        "No previously identified result with the method-specific tableau and covariance expression was found among the inspected scientific records"
+      ],
+      "reasoning": "Direct searches for the exact variance 1/180 and vector field H returned no matching table/claim. A database partition or negative search alone does not prove novelty; the mathematical statement comparisons above supply the substantive reason.",
+      "searches": [
+        "published-finding corpus: central limit theorem scalar Dahlquist randomized SDIRK uniform half to one root mean square 2.5 asymptotic error normal variance 1/180",
+        "published-finding corpus: stochastic order 5/2 sharpness autonomous smooth random implicit Runge Kutta reciprocal affine vector field cancellation",
+        "web: \"randomized\" \"SDIRK\" \"Gaussian limit\" 2026"
+      ]
+    },
+    "rationale": "The motivating 2026 publication gives a root-MSE upper rate and algebraic stability, not the computed Gaussian limiting covariance and sharp positive scalar coefficient. Earlier randomized implicit RK schemes differ, as does the closest published antithetic explicit RK fluctuation result. Actual published mathematical-record and literature searches found no covering assertion. Full-text access limitations and possible uncatalogued analogues are explicitly recorded.",
+    "residual_risks": [
+      "The full primary 2026 HTML became intermittently inaccessible after Sections 3 and 5 were read; an uninspected subsection could conceivably discuss limiting distributions.",
+      "Complete files for the closest related published antithetic explicit RK record were inaccessible; its public summary describes a mathematically different method, but a full-text comparison remains a priority risk.",
+      "Equivalent stochastic modified-equation or martingale invariance-principle statements not indexed by the queries may exist.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE OF SCHEME AND UPPER BOUND; no directly observed covering Gaussian limit or exact sharp coefficient; inaccessible portions leave a documented priority risk",
+        "evidence": [
+          "arXiv:2607.18928v1 21 Jul 2026, Section 3 tableau and \\(\\mathbb E[\\xi(1-\\xi)]=1/6\\); Section 5 defines stability function R and shows samplewise algebraic stability"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.18928",
+        "material_read": "HTML text of introduction, numerical method Section 3 (tableaux and third-order conditions), stability Section 5 (stability function), and the abstract/main-result descriptions; complete document availability was intermittent",
+        "method": "direct primary HTML content comparison",
+        "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge–Kutta Method",
+        "trigger": "Same tableau, same stage distribution, and the known rate \\(5/2\\)"
+      },
+      {
+        "assessment": "OTHER SCHEME; its randomized theta and semi-implicit formulas have different Butcher structure and claims, not an implicit cover of this new fluctuation law",
+        "evidence": [
+          "2024 preprint pages with scheme S1 and S2 and convergence rates, not the 2026 SDIRK tableau"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.19059",
+        "material_read": "arXiv text including introduction, scheme equations (S1),(S2), error-rate theorems and stability section summary",
+        "method": "direct full primary text excerpt inspection",
+        "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+        "trigger": "Previous implicit two-stage randomized RK with potential greater coverage"
+      },
+      {
+        "assessment": "DIFFERENT METHOD according to available statement; cannot assert entire document excludes the SDIRK specialization",
+        "evidence": [
+          "The record describes a Hessian-only error law for antithetic explicit RK; the present theorem uses independently refreshed implicit SDIRK and a non-Hessian-only third-order functional"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-unique-antithetic-stage-pairing-and-a-hessian-only-gaussian-erro--ed6af91e7d5b",
+        "material_read": "published summary describing explicit RK and antithetically coupled stage pairs; complete primary files inaccessible",
+        "method": "semantic result comparison using available published record",
+        "title": "Unique antithetic stage pairing and a Hessian-only Gaussian error law for randomized Runge–Kutta integration",
+        "trigger": "Closest named functional-CLT result in published mathematical records"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4d350db6-6962-40d9-ac95-eae0ecb2e2b4",
+  "value": {
+    "rationale": "The exact limiting distribution quantifies random time-stepping uncertainty, proves that the known 5/2 convergence upper rate is attained even on analytic autonomous scalar decay, and identifies the differential structure and nontrivial reciprocal-affine cancellation class. This sharpness and uncertainty description is relevant to selecting and interpreting a newly introduced randomized A-stable integrator.",
+    "status": "PASS"
+  }
+}
