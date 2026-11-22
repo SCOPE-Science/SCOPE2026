@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:49:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted matrix-tree/Cauchy–Binet identity applies to independently signed spoke/path edges and identifies each Walsh multiplier with an integer tridiagonal determinant (not a positive-weight-only Laplacian). The fan tree count F_{2n} has parity zero precisely at multiples of three. All spoke weights -1 and path weights +1 yield leading minors 1,0,-1,-1,0,1, periodic, and determinant zero iff 3|n; otherwise a ±1 witness realizes the exact odd gap. At n=3k flipping the first spoke gives determinant 2(-1)^k, which with even parity proves gcd and nonzero gap 2. Kernel vector (1,0,-1,-1,0,1,...) has zero coordinates at indices congruent 2 mod 3; independent spoke flips and global edge reversal produce 2^(k+1) different zero masks. Walsh diagonalization yields pseudoinverse/condition-number statements. Independent exact signed determinant complete sign enumeration n=1..8 gave zero counts 0,0,10,0,0,304,0,0 and sharp min 1,1,2,1,1,2,1,1; source check_fan_walsh.py reviewed and constructs a different full spanning-tree enumeration/certifier. This does not infer all-n claims solely from a finite run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-period-three-fourier-singularity-and-fourfold-divisibility-for-w--8adb2e48710a",
+          "https://arxiv.org/abs/math/0612792",
+          "https://arxiv.org/abs/2108.09363"
+        ],
+        "reasoning": "Wheel result has cyclic rim boundary conditions and exact divisibility by four in resonant cases, incompatible with the fan ±2 witness; it does not imply the fan sharp spectrum. General matrix tree determinant does not classify all sign patterns.",
+        "searches": [
+          "fan graph K1 join path signed spanning tree Walsh convolution determinant 3 periodic singularities",
+          "signed fan graph laplacian signings determinant vanishing three periodic spanning tree Fourier invertibility"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0612792",
+        "https://arxiv.org/abs/2108.09363",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-period-three-fourier-singularity-and-fourfold-divisibility-for-w--8adb2e48710a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-period-three-fourier-singularity-and-fourfold-divisibility-for-w--8adb2e48710a",
+          "https://arxiv.org/abs/math/0612792"
+        ],
+        "reasoning": "Knowing tree count modulo 2 establishes zero-freeness when n not divisible by 3 but does not prove existence of zeros at 3k, sharp 2 gap, or exponential null family; explicit determinant sign witnesses supply those additional conclusions.",
+        "searches": [
+          "fan graph K1 join path signed spanning tree Walsh convolution determinant 3 periodic singularities",
+          "period three Fourier singularity fan graph versus wheel graph signed trees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0612792",
+          "https://arxiv.org/abs/2108.09363",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-period-three-fourier-singularity-and-fourfold-divisibility-for-w--8adb2e48710a"
+        ],
+        "reasoning": "Weighted spanning-tree determinants and Walsh transform are equivalent after substituting ±1 edge weights; search included signed Laplacians, continuants and fan spanning trees. Their standard equivalence is credited, while periodic sharp gaps remain family-specific.",
+        "searches": [
+          "fan graph K1 join path signed spanning tree Walsh convolution determinant 3 periodic singularities",
+          "fan signed weighted spanning-tree polynomial determinant edge Walsh Fourier roots"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0612792",
+          "https://arxiv.org/abs/2108.09363"
+        ],
+        "reasoning": "Prior fan enumeration tables give total F_{2n} and individual trees; neither tabulates the full signed Walsh gap or all-n cancellation dichotomy.",
+        "searches": [
+          "fan spanning trees F2n Walsh transforms integer spectral table n 3k zero counts",
+          "fan spanning-tree enumeration Gray code Fourier multiplier counts"
+        ]
+      },
+      "rationale": "The 2026 wheel spanning-tree Walsh theorem has an analogous modulo-three phenomenon, but its graph has a closed rim and 2n edges, not the fan path rim and 2n-1 edges; at resonance the wheel has modulo-four divisibility whereas the fan has an actual coefficient ±2. Chebotarev/Cameron establish unweighted fan counts and enumeration algorithms; neither supplies all-sign Fourier zero classification, minimum nonzero multiplier or exponentially many null frequencies. Matrix-tree is accepted as old tool.",
+      "residual_risks": [
+        "Older signed tridiagonal continuant identities may yield a differently presented equivalent Walsh-signing classification; priority search bounded.",
+        "Does not determine exact number of zero frequencies, only the rigorous lower bound 2^(k+1)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COUNT_ONLY",
+          "evidence": "Provides F_{2n} fan spanning trees, without arbitrary edge-sign Fourier cancellation",
+          "identifier_or_url": "https://arxiv.org/abs/math/0612792",
+          "material_read": "ArXiv full mathematical theorem and fan-graph discussion",
+          "method": "Read primary mathematical theorem and proof text, not an abstract-only comparison",
+          "title": "Spanning Forests and the Golden Ratio",
+          "trigger": "Same fan graph and Fibonacci tree counts"
+        },
+        {
+          "assessment": "NOT_COVERING_ALL_SIGN_WALSH",
+          "evidence": "Constructive listing of fan spanning trees rather than complete signed determinant Walsh spectrum",
+          "identifier_or_url": "https://arxiv.org/abs/2108.09363",
+          "material_read": "ArXiv abstract, constructions/algorithm and theorem sections of full paper",
+          "method": "Read primary mathematical theorem and proof text, not an abstract-only comparison",
+          "title": "A Pivot Gray Code Listing for the Spanning Trees of the Fan Graph",
+          "trigger": "Potential signed-tree complete enumeration"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_GRAPH",
+          "evidence": "Closed cycle rim and 2n-dimensional edge cube, modulo-4 resonance; not fan path and ±2 gap",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-period-three-fourier-singularity-and-fourfold-divisibility-for-w--8adb2e48710a",
+          "material_read": "Complete RESULT.md including theorem, signed matrix tree proof, parity and limitations",
+          "method": "Read primary mathematical theorem and proof text, not an abstract-only comparison",
+          "title": "Period-three Fourier singularity and fourfold divisibility for wheel spanning-tree kernels",
+          "trigger": "Closest same-operation published SCOPE result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Signed spanning-tree transforms determine exact invertibility and stability of Boolean-edge convolution for a natural family with unbounded path length. The sharp periodic spectral gap and explicit exponential null-family are a meaningful structural combinatorial-harmonic result, beyond merely recomputing Fibonacci counts or a finite table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/math/0612792",
+    "https://arxiv.org/abs/2108.09363",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-period-three-fourier-singularity-and-fourfold-divisibility-for-w--8adb2e48710a"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the unnormalized spanning-tree indicator Walsh transform of fan F_n=K_1 join P_n (n>=1), Fourier zeros occur iff 3 divides n. The exact minimum nonzero absolute Walsh coefficient and gcd are 2 in those resonant n and 1 otherwise. There are at least 2^(n/3+1) zero frequencies when 3 divides n. The convolution pseudoinverse norm is 1/2 resonant and 1 nonresonant, and positive-subspace condition numbers are F_{2n}/2 and F_{2n}.",
+  "limitations": [
+    "Older signed tridiagonal continuant identities may yield a differently presented equivalent Walsh-signing classification; priority search bounded.",
+    "Does not determine exact number of zero frequencies, only the rigorous lower bound 2^(k+1)."
+  ],
+  "residual_risks": [
+    "Older signed tridiagonal continuant identities may yield a differently presented equivalent Walsh-signing classification; priority search bounded.",
+    "Does not determine exact number of zero frequencies, only the rigorous lower bound 2^(k+1)."
+  ],
+  "schema_version": 1
+}

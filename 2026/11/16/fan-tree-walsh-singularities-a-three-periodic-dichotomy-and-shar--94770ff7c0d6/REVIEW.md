@@ -1,15 +1,21 @@
-# Assessment of the fan-tree Walsh singularity theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed weighted matrix-tree identity is derived by Cauchy–Binet on a deleted-hub incidence matrix, so it remains valid for every independent choice of negative edge signs. Parity is fixed by the known unsigned \(F_{2n}\) fan count, while a six-periodic tridiagonal continuant explicitly reaches zero exactly for \(3\mid n\) and reaches unit magnitude otherwise. At resonance a single spoke flip evaluates the determinant as exactly \(\pm2\). The explicit period-six null vector stays null under arbitrary changes at its \(k\) zero coordinates, and a global sign reversal doubles the family. Direct tree enumeration and Walsh transforms agree with independently evaluated determinants on every frequency up to \(n=9\).
+## correctness
 
-## Originality — PASS, with residual priority risk
-Chebotarev's 2006 path-rooted-forest theorem and Bogdanowicz's 2008 fan theorem establish the *unsigned* tree count, including its parity. Dall and Pfeifle's 2014 weighted matrix-tree treatment supplies a general identity, not the signs-specific divisibility and cancellation classification. Cameron, Grubb, and Sawada's 2021 fan-tree listing addresses enumeration algorithms. Closest indexed published mathematical findings concern fan cut/cycle Hodge projections, fan matching complexes, and Walsh spectra of spanning trees on bicliques, all with different operators or different graphs. The combined all-length sharp Walsh gap, cancellation criterion, and null-family construction were not found in the checked material. Priority is not established beyond the bounded search; equivalent signed-continuant identities could exist.
+PASS
 
-## Mathematical value — PASS
-The fan is a canonical graph family, with a classical Fibonacci tree count. That count alone does not determine invertibility of convolution by its tree incidence indicator, because many different signed sums are involved. The theorem completely determines whether *any* of the exponentially many Fourier multipliers vanish and computes the exact weakest surviving multiplier, hence the sharp Hilbert-space inverse and pseudoinverse norms, for infinitely many sizes. The resonance simultaneously produces an explicit exponential set of null frequencies, exhibiting a genuine structural difference between parity-obstructed and invertible sizes. It does not claim an exact Fourier-nullity census or broader graph classification.
+The weighted matrix-tree/Cauchy–Binet identity applies to independently signed spoke/path edges and identifies each Walsh multiplier with an integer tridiagonal determinant (not a positive-weight-only Laplacian). The fan tree count F_{2n} has parity zero precisely at multiples of three. All spoke weights -1 and path weights +1 yield leading minors 1,0,-1,-1,0,1, periodic, and determinant zero iff 3|n; otherwise a ±1 witness realizes the exact odd gap. At n=3k flipping the first spoke gives determinant 2(-1)^k, which with even parity proves gcd and nonzero gap 2. Kernel vector (1,0,-1,-1,0,1,...) has zero coordinates at indices congruent 2 mod 3; independent spoke flips and global edge reversal produce 2^(k+1) different zero masks. Walsh diagonalization yields pseudoinverse/condition-number statements. Independent exact signed determinant complete sign enumeration n=1..8 gave zero counts 0,0,10,0,0,304,0,0 and sharp min 1,1,2,1,1,2,1,1; source check_fan_walsh.py reviewed and constructs a different full spanning-tree enumeration/certifier. This does not infer all-n claims solely from a finite run.
 
-## Closest sources and limitations
-See the four primary sources cited in `RESULT.md`. The 2008 fan paper's full six-page text concerns its unsigned determinant formula; the 2006 path-forest paper's full Section 2 concerns unsigned forest counts; the weighted matrix-tree paper establishes a general determinant method; the later fan Gray-code paper concerns tree enumeration. A potentially equivalent earlier signed-continuant statement remains a residual priority risk. The finite checker does not replace the general recurrence argument or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 wheel spanning-tree Walsh theorem has an analogous modulo-three phenomenon, but its graph has a closed rim and 2n edges, not the fan path rim and 2n-1 edges; at resonance the wheel has modulo-four divisibility whereas the fan has an actual coefficient ±2. Chebotarev/Cameron establish unweighted fan counts and enumeration algorithms; neither supplies all-sign Fourier zero classification, minimum nonzero multiplier or exponentially many null frequencies. Matrix-tree is accepted as old tool.
+
+## value
+
+PASS
+
+Signed spanning-tree transforms determine exact invertibility and stability of Boolean-edge convolution for a natural family with unbounded path length. The sharp periodic spectral gap and explicit exponential null-family are a meaningful structural combinatorial-harmonic result, beyond merely recomputing Fibonacci counts or a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
