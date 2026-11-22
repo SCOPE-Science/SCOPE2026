@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The finite AR(1) Markov-bridge conditional variance equals the Schur complement. The exact trace sum and farthest-endpoint greedy restriction follow algebraically. Under \\(n(1-\\rho^2)\\to0\\) a uniform expansion reduces all pairs to a strictly convex continuous quadratic whose global minimizer is (1/5,4/5) with value 1/10. The restricted greedy quadratic has minimum 1/8 and maximum 1/6; dividing proves \\(5/4\\) and \\(5/3\\). The 2x2 determinant is strictly maximized by endpoints. Companion exact-rational program checks 1128 finite identities; its finite checks do not prove the asymptotic statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mukherjee thesis repository abstract: necessary and sufficient globally optimal design conditions for product-type covariances, including OU; actual dissertation pages not accessible.",
+        "Baldi Antognini–Zagoraiou (2010) abstract: exact optimal one-dimensional ordinary-kriging designs for exponential covariance; its full text was not accessed.",
+        "Chen et al. (2024) Appendix C shows general greedy approximation limitations using block matrices, and Appendix A describes tied diagonals and ordering, but does not state a parameter-uniform sharp tie-loss law for AR(1)."
+      ],
+      "reasoning": "The OU optimal-design sources can dominate the unrestricted site-placement portion; that portion is not asserted novel. Their abstracts do not establish the diagonal-residual greedy-restricted relative trace minimum or maximum. The broader pivoting analyses give non-OU counterexamples and bounds, not this explicit 5/4 versus 5/3 result. Full-text uncertainty for the historical OU works is recorded and not papered over.",
+      "searches": [
+        "web: 2010 Exact optimal designs for computer experiments via Kriging metamodelling",
+        "web: Bhramar Mukherjee Optimal designs for estimating the path of a stochastic process dissertation",
+        "doi:10.1002/cpa.22234 inspected full article, §§3 and Appendix C",
+        "greedy Nystrom Gaussian process exponential covariance first pivot arbitrary tie best next farthest point trace residual"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1505.06195 full article",
+      "doi:10.1002/cpa.22234 full open-access HTML",
+      "doi:10.1016/j.apnum.2011.10.001 repository abstract",
+      "Mukherjee 2002 Purdue repository abstract",
+      "doi:10.1016/j.jspi.2010.03.027 abstract",
+      "published-finding corpus semantic results for OU/AR1 greedy Cholesky and tie comparisons",
+      "Previously available mathematical claim records on Nyström methods, used only to exclude statement overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu–Matthies gives greedy selection, without AR(1) conditional trace asymptotics.",
+        "Mukherjee (2002) explicitly gives global OU prediction designs, potentially implying location (1/5,4/5), but does not in its accessible abstract treat largest-residual-diagonal greedy selection.",
+        "Chen et al. document tied-diagonal ordering and a generic adversarial block-matrix family, but do not imply sharp 5/4 best or 5/3 worst ratios for Toeplitz OU under n(1-rho^2)->0."
+      ],
+      "reasoning": "Existing global OU design theory alone does not imply the optimally tie-broken greedy restriction or its worst-case ratio; generic greedy pivoting results alone do not imply this precise OU family and sharp constants. The new claim joins these two natural objects, proves their exact finite relation, and optimizes the continuous limiting constrained objective. A direct uninspected historical comparison remains a genuine bibliographic risk.",
+      "searches": [
+        "pivoted Cholesky AR(1) covariance Toeplitz initial pivot tie breaking optimal two pivot trace error power exponential kernel",
+        "greedy Nystrom Gaussian process exponential covariance first pivot arbitrary tie best next farthest point trace residual",
+        "on AR(1) Toeplitz exponential covariance, diagonal greedy pivoted Cholesky tie breaking, two selected columns trace residual, ratios 5/4 and 5/3 relative to optimal, Brownian small correlation length limit",
+        "exponential stationary Ornstein Uhlenbeck covariance K_{ij}=rho^abs(i-j), rank-two pivoted Cholesky greedy first tie; D-optimal endpoints, globally trace-optimal interior landmarks, sharp asymptotic trace error 5/3",
+        "arxiv:1505.06195 §2–§3",
+        "doi:10.1002/cpa.22234 §3 and Appendix A/C"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu–Matthies, arXiv:1505.06195 §§2–3: generic diagonal-pivoted Cholesky and maximum residual diagonal, no stationary AR(1) finite-kernel example in inspected text.",
+        "Chen et al., arXiv:2207.06503 / doi:10.1002/cpa.22234 Appendix A: generic tie effects, not this two-point Toeplitz formula.",
+        "published-finding corpus closest 2026/11/2/SCOPE-exact-two-atom-residual-law-and-sharp-pivoting-reversal-on-commo--73b2b6cddee0 concerns one-defect common-factor matrices, not geometric Toeplitz and two-column tie optimization."
+      ],
+      "reasoning": "AR(1), OU kernel, two-point Gaussian conditional variance, Nyström residual trace, incomplete Cholesky, and diagonal-greedy pivoting were searched as equivalent descriptions. The specific sharp constrained/unconstrained ratios and D-optimal contrast were not found; the underlying OU design problem itself is known and explicitly excluded from the novelty claim.",
+      "searches": [
+        "pivoted Cholesky AR(1) covariance Toeplitz initial pivot tie breaking optimal two pivot trace error power exponential kernel",
+        "on AR(1) Toeplitz exponential covariance, diagonal greedy pivoted Cholesky tie breaking, two selected columns trace residual, ratios 5/4 and 5/3 relative to optimal, Brownian small correlation length limit",
+        "exponential stationary Ornstein Uhlenbeck covariance K_{ij}=rho^abs(i-j), rank-two pivoted Cholesky greedy first tie; D-optimal endpoints, globally trace-optimal interior landmarks, sharp asymptotic trace error 5/3",
+        "web: \"pivoted Cholesky\" \"Ornstein-Uhlenbeck\" \"two\" \"trace\" greedy",
+        "arxiv:1505.06195 full-text search: Toeplitz, Ornstein, stationary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus indexed item 2026/11/8/SCOPE-sharp-one-fifth-trace-error-gap-between-sequential-cholesky-pivo--579efcd9ed6a analyzes a different randomized two-column comparison on three-point correlation kernels, rather than the deterministic AR(1) Toeplitz two-pivot tie problem.",
+        "Previously recorded numerical analyses of two-column Nyström design on shifted path Laplacian inverses and one-column Nyström design on star heat kernels have distinct kernels, budgets, and objectives."
+      ],
+      "reasoning": "Actual accessible database and ledger claims were compared at object, budget, objective, and implication levels. Exact equal constants 5/4 and 5/3 for this Toeplitz two-pivot asymptotic were not located; failures of search are not treated as uniqueness proof.",
+      "searches": [
+        "on AR(1) Toeplitz exponential covariance, diagonal greedy pivoted Cholesky tie breaking, two selected columns trace residual, ratios 5/4 and 5/3 relative to optimal, Brownian small correlation length limit",
+        "exponential stationary Ornstein Uhlenbeck covariance K_{ij}=rho^abs(i-j), rank-two pivoted Cholesky greedy first tie; D-optimal endpoints, globally trace-optimal interior landmarks, sharp asymptotic trace error 5/3",
+        "published-finding corpus query: exponential kernel pivot two traces",
+        "Comparative inspection of 118 accessible historical mathematical claims (deduplication only)"
+      ]
+    },
+    "rationale": "The only tested priority claim is the exact \\(5/4\\) and \\(5/3\\) sharp two-column greedy trace-loss pair for stationary exponential Toeplitz covariances in a joint strong-correlation limit, not the known OU optimal-site design or generic diagonal-pivot rule. Full-text primary sources on pivoting and randomized pivoting do not cover the specific OU two-pivot comparison. Historical OU optimal-design sources could contain the unrestricted optimum; they do not evidently contain the constrained greedy degradation, but uninspected text remains a material risk.",
+    "residual_risks": [
+      "Historical OU optimal-design sources provide broader exact global design results; full texts were not accessible and may contain a related greedy comparison.",
+      "Older unindexed incomplete-Cholesky tie-breaking literature may implicitly contain the same sharp constants.",
+      "Search evidence supports only a qualified priority judgment; this is not independent novelty certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "States diagonal maximization and error theory; no exact exponential Toeplitz two-pivot trace comparison in inspected text",
+        "evidence": [
+          "2015-05-21 first arXiv version; sections 2.3 and 3 describe pivoted Cholesky",
+          "discussion of trace-norm error and pivots in section 2.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.06195",
+        "material_read": "Full article parsed text, Introduction and sections 2–3, with full-document searches for Toeplitz/Ornstein/stationary and trace",
+        "method": "open-access primary arXiv article through web text",
+        "title": "Pivoted Cholesky decomposition by Cross Approximation for efficient solution of kernel systems",
+        "trigger": "First-public 2015 pivoted kernel Cholesky focal source; plausible algorithm-level coverage"
+      },
+      {
+        "assessment": "Explicitly notes tied diagonal ordering effects and provides general bounds, not the Toeplitz two-pivot comparative constants",
+        "evidence": [
+          "Appendix A: tied first pivots and default-ordering problem",
+          "Appendix C: worst-case greedy construction uses block matrices, not AR(1) Toeplitz"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/cpa.22234",
+        "material_read": "Full open-access article sections 1 and 3 and Appendices A/C, including exact tie paragraph and worst-case block-matrix analysis",
+        "method": "publisher open-access HTML",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Direct tie-breaking and greedy accuracy competitor"
+      },
+      {
+        "assessment": "General trace approximation and convergence reported; full-text comparison not achieved",
+        "evidence": [
+          "2012-issued repository record states trace norm control for pivoted Cholesky"
+        ],
+        "identifier_or_url": "https://edoc.unibas.ch/entities/publication/d4eba30a-9b48-45ca-a4cb-915bfe3a83ec",
+        "material_read": "Institutional repository abstract, not the entire paper",
+        "method": "open-access repository record",
+        "title": "On the low-rank approximation by the pivoted Cholesky decomposition",
+        "trigger": "General trace-loss theory cited by pivoting work"
+      },
+      {
+        "assessment": "Explicitly gives OU optimal prediction designs: unrestricted two-point design is treated as prior, but any greedy-specific coverage is unverified",
+        "evidence": [
+          "2002 thesis abstract: exact necessary and sufficient optimal design conditions for product-type processes including OU"
+        ],
+        "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "material_read": "Repository abstract only; dissertation text requires ProQuest access",
+        "method": "university dissertation record",
+        "title": "Optimal designs for estimating the path of a stochastic process",
+        "trigger": "Potential stronger OU/Markov global design theorem"
+      },
+      {
+        "assessment": "Potential stronger global OU site-design results; no inspected evidence on Cholesky pivot constraints",
+        "evidence": [
+          "2010 abstract: exact one-dimensional ordinary kriging designs for exponential covariance"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jspi.2010.03.027",
+        "material_read": "Article abstract and bibliographic description, not full manuscript",
+        "method": "published abstract and bibliographic records",
+        "title": "Exact optimal designs for computer experiments via Kriging metamodelling",
+        "trigger": "Plausible exact one-dimensional exponential kriging design competitor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9e500fe4-ae37-43df-b614-ec5cf14f6b8d",
+  "value": {
+    "rationale": "Unit-diagonal stationary kernels are a natural case in which the first diagonal-greedy pivot is completely undecided. The exact 25% unavoidable best-case and 66.7% worst-case asymptotic penalties, together with a determinant-optimal endpoint choice that is trace-suboptimal, answer an intrinsic two-column design question and quantify a practically relevant tie-breaking failure; not a renamed textbook matrix fact.",
+    "status": "PASS"
+  }
+}
