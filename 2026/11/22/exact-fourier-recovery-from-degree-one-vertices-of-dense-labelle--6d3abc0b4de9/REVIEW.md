@@ -1,0 +1,15 @@
+# Scientific review: degree-one profile Fourier recovery
+
+## Correctness
+**PASS.** The all-order multiplier formula follows by first forcing a fixed collection of degree-one vertices: their internal graph is a matching, every unmatched vertex chooses one external neighbor, and external edges remain arbitrary. Inclusion–exclusion gives all Walsh coefficients with no false independence assumption. The positivity argument for graph orders at least eight and the conditional one-vertex argument for strict spectral ordering from order nine are strict at their respective endpoints, and their numerical bounds decrease with order. Exact small-order arithmetic covers the missing finite cases. The claimed sharp condition bound and asymptotic have complete proofs. Reproducible enumeration and transform checks in `verify.py` passed 591 exact assertions; computation is corroboration, not the all-order proof.
+
+## Originality
+**PASS under a bounded comparison, with residual historical-priority risk.** Lin and Reinert (arXiv:0912.4812v1) study the joint degree-count process, approximation bounds, and degree-indicator dependence. Their inspected HTML text, including the construction and proofs, contains no Fourier sign classification for the set of degree-one vertices. Ghosh, Goldstein and Raič (arXiv:1106.0048v1) address concentration of the degree-zero count and do not state the graph-leaf-set Walsh spectral theorem. Published semantic searches returned related claims on degree-one covariances of fixed-edge bipartite graphs and on edge-coordinate Fourier frames, but these concern different probability spaces and statistics; neither determines the full Boolean-character spectrum, the exceptional minimizers, or the uniform condition constant eight. The underlying independent-edge and matching counting are not themselves claimed as new. Searches and limited accessibility do not certify absolute priority, and earlier signed joint-degree-moment tables remain a plausible risk.
+
+## Value
+**PASS.** The object is the naturally observed set of vertices of degree exactly one in a uniformly sampled dense graph, a dependent incidence vector. Fourier invertibility is precisely the information-recovery question for XOR convolution by that vector. The result determines the complete spectrum for every order, a sharp global dimension-free inverse condition bound, a structurally unusual shift in the extremal character weight (and multiplicity) in the first positive orders, plus a quantitative stabilization law. These data are motivated before computation and are not simply re-expression of a one-vertex degree probability or a previously published degree-count approximation.
+
+## Boundaries
+The model is uniform simple labelled graphs with fair independent edges; no claim is made for other edge probabilities, constrained graphs, or endpoint inverse norms. No independent audit is asserted. An unindexed exact signed-moment identity could supersede some conclusions.
+
+Self-review: passed. Independent audit: not yet performed.
