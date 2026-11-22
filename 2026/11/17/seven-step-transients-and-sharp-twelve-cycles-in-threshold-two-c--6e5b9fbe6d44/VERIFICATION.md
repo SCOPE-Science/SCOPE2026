@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The attached `verify_capped.py` is a complete finite-state certificate of the universal equality \(F^{19}=F^7\), the eventual least-period possibilities, their 2187-signature classification, the twelve-cycle size threshold and the three-cycle signature set. It uses exact integer operations and exhausts **all** formal input signatures of the quotient; unrealizable signatures do not weaken the implication.
+# Independent mathematical audit
 
-The separate `verify_vertices.py` applies the original rule to **individually labelled vertices**, without using the truncated-state transition. It exhausts the entire state space for \(K_{1,1,1}\), \(K_{1,1,6}\), \(K_{1,2,6}\), \(K_{1,3,4}\), \(K_{1,4,4}\), \(K_{1,4,5}\), and \(K_{1,5,5}\), with sizes up to \(177147\) configurations, checking period attraction, first entry and the exact period-three count. The independent `verify_weighted.py` recomputes basin counts from explicit multinomial sums for larger dimensions.
+## correctness
 
-Each program requires only Python's standard library. Run from the directory containing these scripts using `python verify_capped.py`, `python verify_vertices.py`, and `python verify_weighted.py`. Their captured outputs are `verify_capped.out`, `verify_vertices.out`, and `verify_weighted.out`. Finite vertex-level examples corroborate but do not by themselves establish the infinite-size theorem: that theorem rests on the exact quotient and its complete finite enumeration. The historical-priority comparison is qualified by inaccessible full-text material; no external independent validation is asserted.
+PASS
+
+Each of nine initial part/colour cohorts retains a common colour; capping counts at 2 exactly preserves every successor-threshold test, all-size dynamics reduce to 3*3^3*3^3=2187 formal states with tags tracking labelled vertices. An independently implemented 2187-state exhaustive recurrence gave F7=F19 on all capped states, period signature histogram 2001 fixed,36 period3,150 period12, fifty period12 signatures at hub zero, and 60 witnesses with nonperiodicity at step6. Formal capped-class feasibility proves sharp size windows; exact multinomial counting independently recovered claimed N3 at seven sample size pairs and N12 values; EGF major terms give (2n+6)(2/3)^n and stated smaller remainder. The mathematical capping and tag equivalence, not small-graph experiments, transfers the exhaustive finite result to all m,n.
+
+## originality
+
+PASS
+
+PASS for the final composite claim, with **explicit prior coverage** of the broader complete-tripartite period existence phase diagram and period set: published same-contact-rule SCOPE nine-step theorem already implies existence of 12 when the smallest shore is ≤3 and the other two ≥4, exclusion of period4/6 on K1,m,n, and period3 size condition upon specialization. Those components are not novel. The real additions are the improved sharp seven-step bound and exact labelled attraction-basin coefficient formulas and balanced asymptotic; the earlier general theorem supplies a nine-step bound, not seven, and its scope does not give these exact K1,m,n basin counts. Distinguish GHM prior results, which have automatic refractory transitions and are a different map.
+
+## value
+
+PASS
+
+A sharp time improvement from nine to seven on a natural singleton-shore family and full labelled attraction measures including exponentially small 12-basin probabilities are motivated exact dynamics invariants. They tell how rare oscillatory attractors are in large cone-bicliques, not a mere restatement of existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

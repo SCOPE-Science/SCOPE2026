@@ -1,15 +1,21 @@
-# Scientific assessment: cone-biclique threshold-two cyclic dynamics
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-part capped-population recurrence follows exactly from the neighbor topology of \(K_{1,m,n}\), since a threshold-two query is unchanged when each color count is truncated at two. The auxiliary tag recurrence tracks the actual colors of *each initially occupied class* of labelled vertices, so equality of the finite tagged states is equality of the entire labelled map, not just the populations. The finite certificate enumerates all \(2187\) possible truncated states, confirms equality at times \(7\) and \(19\), and classifies every possible eventual least period. Sharpness is demonstrated by explicit labelled initial states. The independent labelled-vertex program exhausts seven graph sizes, and an independent weighted calculation agrees with the exact three-cycle basin formula. The coefficient formula and balanced asymptotic follow from exact multinomial signature weights. Risk: the global finite lemma depends on the included fully reproducible enumeration; it is exhaustive for the *proved quotient*, not a claim that checking a finite list of graph sizes proves the theorem.
+## correctness
 
-## Originality — PASS, qualified
-The source-claim comparison separates the complete tripartite cone from earlier complete-bipartite threshold-two classifications. The old bipartite period-four classification, with bound three, has neither the hub edges nor the labelled twelve-cycles or seven-update clock. Durrett–Griffeath (1993) concerns threshold-range behavior of lattice excitation; Bello–Sivakoff (2021), whose full text was inspected, concerns fixation/fluctuation on infinite regular trees. Matamala–Goles (1995) gives structural period and transient bounds for finite-graph cyclic networks, but accessible materials do not state the sharp family-specific classification and basin formulas here. No directly covering mathematical implication was found in the accessible primary literature or indexed research records. Residual risk: the complete 1995 paper and 1993 preprint text were not accessible in the current literature route; the comparison with the 1995 result cannot be closed by its abstract alone. Search non-detection is not proof of priority.
+PASS
 
-## Mathematical value — PASS
-The question is motivated by a natural graph perturbation: adjoining a single universal hub to a biclique. The perturbation changes an existing three/four-period, three-step family into an exact \(\{1,3,12\}\)-period, seven-step family; it creates an unexpected labelled period twelve, with a sharp two-part onset. The exact reentrant period-three criterion, basin-count formula and balanced rare-twelve-cycle asymptotic make the claim stronger than an ad hoc example or a generic computation. The quotient is size-independent and supports a complete, exact infinite-family theorem, rather than extrapolation from finite graphs. Scope is deliberately confined to this rule, graph family and labelled attraction basins.
+Each of nine initial part/colour cohorts retains a common colour; capping counts at 2 exactly preserves every successor-threshold test, all-size dynamics reduce to 3*3^3*3^3=2187 formal states with tags tracking labelled vertices. An independently implemented 2187-state exhaustive recurrence gave F7=F19 on all capped states, period signature histogram 2001 fixed,36 period3,150 period12, fifty period12 signatures at hub zero, and 60 witnesses with nonperiodicity at step6. Formal capped-class feasibility proves sharp size windows; exact multinomial counting independently recovered claimed N3 at seven sample size pairs and N12 values; EGF major terms give (2n+6)(2/3)^n and stated smaller remainder. The mathematical capping and tag equivalence, not small-graph experiments, transfers the exhaustive finite result to all m,n.
 
-## Closest literature and limitations
-Durrett and Griffeath (arXiv:patt-sol/9303002); Matamala and Goles (DOI:10.1007/3-540-59175-3_105); Bello and Sivakoff (arXiv:2108.06404). The 1995 finite-graph result is the strongest outstanding historical-priority risk because its complete text was unavailable. Scientific evaluation here is not a claim of external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the final composite claim, with **explicit prior coverage** of the broader complete-tripartite period existence phase diagram and period set: published same-contact-rule SCOPE nine-step theorem already implies existence of 12 when the smallest shore is ≤3 and the other two ≥4, exclusion of period4/6 on K1,m,n, and period3 size condition upon specialization. Those components are not novel. The real additions are the improved sharp seven-step bound and exact labelled attraction-basin coefficient formulas and balanced asymptotic; the earlier general theorem supplies a nine-step bound, not seven, and its scope does not give these exact K1,m,n basin counts. Distinguish GHM prior results, which have automatic refractory transitions and are a different map.
+
+## value
+
+PASS
+
+A sharp time improvement from nine to seven on a natural singleton-shore family and full labelled attraction measures including exponentially small 12-basin probabilities are motivated exact dynamics invariants. They tell how rare oscillatory attractors are in large cone-bicliques, not a mere restatement of existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
