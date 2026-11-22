@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The 16 edge patterns are summed symbolically for each dihedrally invariant disagreement projector; the exact 2x2 covariance-action matrix is nonnegative and strictly positive for 0<p<1 and h>0. Perron-Frobenius gives the exact infinite-round squared-disagreement exponent, not merely a one-step bound. Similarity to a symmetric matrix with positive-definite quadratic gain coefficient proves strict convexity and a unique minimizer. Differentiation at the gain constraint h=1/2 and an exact factorization isolate the unique admissible threshold (4-sqrt(5))/11. At p=1 a deterministic mode comparison gives h=1/3. The embedded SymPy checker verified the matrices, eigenvalue discriminant, threshold identity and examples; the proof establishes all p and all rounds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patterson, Bamieh and El Abbadi (2010), https://sites.engineering.ucsb.edu/~bamieh/pubs/patbamela09tac.pdf , Sec. III, eqs. (5)-(9), Theorem 3.3, Sec. VI.",
+        "Battilotti, Cacace and d'Angelo (2023), https://arxiv.org/abs/2305.04555v1 , Sections 2-4, Eq. (9), (15), Lemmas 1 and 3, Theorems 3-5."
+      ],
+      "reasoning": "The 2010 paper proves a general stochastic covariance recursion and gives spectral-radius characterization; this contains the update model and is the strongest relevant foundation. Its inspected results do not optimize the covariance spectral radius in the four-cycle over nonnegative gains, nor state the algebraic switching probability. The 2023 paper studies distributed Kalman filtering and provides sufficient conditions under random subgraph failures, rather than this exact optimal rate.",
+      "searches": [
+        "mean square consensus random edge activations optimal gain independent erasures Laplacian spectral extremal phase transition",
+        "Convergence Rates of Distributed Average Consensus With Stochastic Link Failures optimal beta full text",
+        "Consensus analysis of random sub-graphs for distributed filtering with link failures Lemma 3 gain"
+      ]
+    },
+    "checked_sources": [
+      "Patterson, Bamieh and El Abbadi (2010), https://sites.engineering.ucsb.edu/~bamieh/pubs/patbamela09tac.pdf , Sec. III, eqs. (5)-(9), Theorem 3.3, Sec. VI.",
+      "Battilotti, Cacace and d'Angelo (2023), https://arxiv.org/abs/2305.04555v1 , Sections 2-4, Eq. (9), (15), Lemmas 1 and 3, Theorems 3-5.",
+      "Patterson et al. (2007), https://doi.org/10.1109/CDC.2007.4434917",
+      "Public records returned by searches including 2026/11/2/...b2b600a3fbfd, 2026/10/13/...798a42b2934c, examined at summaries for object distinction only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Patterson, Bamieh and El Abbadi (2010), https://sites.engineering.ucsb.edu/~bamieh/pubs/patbamela09tac.pdf , Sec. III, eqs. (5)-(9), Theorem 3.3, Sec. VI.",
+        "Battilotti, Cacace and d'Angelo (2023), https://arxiv.org/abs/2305.04555v1 , Sections 2-4, Eq. (9), (15), Lemmas 1 and 3, Theorems 3-5.",
+        "Patterson, Bamieh and El Abbadi, CDC 2007, DOI:10.1109/CDC.2007.4434917; general multiplicative-noise consensus and network examples."
+      ],
+      "reasoning": "The 2010 general second-moment operator specializes to the C4 model, but its stated spectral characterization does not alone give the dihedral two-mode reduction, exact Perron expression, strict gain convexity, or sign-root classification. These require further algebra and a uniqueness argument. Unlike one-step upper-bound tuning, the new claim optimizes the true infinite-horizon mean-square exponent. Caution: this is a mathematically close precursor and an undiscovered explicit specialization remains possible.",
+      "searches": [
+        "Convergence Rates of Distributed Average Consensus With Stochastic Link Failures optimal beta full text",
+        "Consensus analysis of random sub-graphs for distributed filtering with link failures Lemma 3 gain",
+        "Distributed average consensus with stochastic communication failures Patterson Bamieh gain 2007"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Patterson, Bamieh and El Abbadi (2010), https://sites.engineering.ucsb.edu/~bamieh/pubs/patbamela09tac.pdf , Sec. III, eqs. (5)-(9), Theorem 3.3, Sec. VI.",
+        "Published mathematical record: sharp two-round stochastic consensus on odd cycles (2026/11/2/...b2b600a3fbfd), concerning deterministic two-round nearest-neighbor kernels on odd cycles."
+      ],
+      "reasoning": "Here edge activation is iid random on every round, and the objective is the full covariance-operator asymptotic rate on the even four-cycle. The nearest two-round odd-cycle kernel concerns chosen deterministic transition kernels and does not imply the iid-link covariance formula or its delivery threshold. The known link-failure covariance operator is an antecedent, not an explicit optimized parameter law.",
+      "searches": [
+        "Bernoulli independent edge dropout graph Laplacian stochastic Euler consensus optimal common timestep worst-case one-step expected squared disagreement spectral gap largest eigenvalue phase transition",
+        "fastest mean square consensus 4-cycle independent Bernoulli link failures exact optimal gain p=(4-sqrt(5))/11",
+        "2026/11/2/SCOPE-sharp-two-round-stochastic-consensus-on-odd-cycles--b2b600a3fbfd"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published record in examined results: 2026/10/13/SCOPE-a-sharp-shortcut-cost-phase-transition-for-fastest-mixing-on-a-f--798a42b2934c (deterministic continuous-time four-cycle design); 2026/11/2/SCOPE-sharp-two-round-stochastic-consensus-on-odd-cycles--b2b600a3fbfd (deterministic two-round odd cycles).",
+        "No inspected primary result or published record supplied the exact value (4-sqrt(5))/11 for iid four-edge consensus."
+      ],
+      "reasoning": "No exact C4 iid link-failure gain diagram was located in inspected records. This is limited evidence and is not a proof of novelty; records partitioning and imperfect indexing cannot establish uniqueness.",
+      "searches": [
+        "fastest mean square consensus 4-cycle independent Bernoulli link failures exact optimal gain p=(4-sqrt(5))/11",
+        "random-link C4 cycle four vertices asymptotic covariance rate spectral radius optimal nonnegative mixing step threshold",
+        "p(lambda_max-lambda_2) = 2(1-p) transition optimum gain random edge-drop consensus"
+      ]
+    },
+    "rationale": "The nearest original covariance paper (Patterson et al. 2010) treats general iid random-link consensus and proves the covariance-operator spectral-radius criterion; it does not derive the C4 closed Perron law or the exact constrained-gain threshold. The 2023 paper treats random-subgraph distributed Kalman filtering with sufficient gain bounds. Closest published network-mixing records concern deterministic gains, graph structures or distinct objectives. Because the general operator is an especially close precursor and historical search cannot be exhaustive, priority is provisional.",
+    "residual_risks": [
+      "The 2010 operator model already covers covariance evolution generally; the new closed-form minimax switching threshold is a specialization derived here and could conceivably have been obtained elsewhere.",
+      "Only selected relevant sources and published records were inspected; title-level nonmatches and search misses do not certify novelty.",
+      "PDF screenshot retrieval for 2010 author version failed though indexed complete textual sections were accessible; arXiv 2023 full HTML and a rendered PDF page were inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL OPERATOR PRECURSOR; no exact optimized four-cycle reliability switch identified in the inspected primary text",
+        "evidence": [
+          "Patterson, Bamieh and El Abbadi (2010), https://sites.engineering.ucsb.edu/~bamieh/pubs/patbamela09tac.pdf , Sec. III, eqs. (5)-(9), Theorem 3.3, Sec. VI.",
+          "Section VI notes that choosing a step optimal in the reliable case can be suboptimal with random failures, but supplies no explicit failure-dependent optimal step for C4."
+        ],
+        "identifier_or_url": "https://sites.engineering.ucsb.edu/~bamieh/pubs/patbamela09tac.pdf",
+        "material_read": "Full indexed textual extraction, notably model, Sections II-III (eqs. 5-9 and Theorem 3.3), Section VI gain comparisons and conclusion, plus references",
+        "method": "Read published author-version PDF text through online document viewer; attempted graphical pages but PDF screenshot retrieval failed",
+        "title": "Convergence Rates of Distributed Average Consensus with Stochastic Link Failures",
+        "trigger": "Exactly the same independent per-edge failure model and asymptotic mean-square covariance operator"
+      },
+      {
+        "assessment": "RELATED FILTERING THEORY; sufficient gain and convergence conditions, not the exact asymptotic optimized C4 mean-square rate",
+        "evidence": [
+          "Battilotti, Cacace and d'Angelo (2023), https://arxiv.org/abs/2305.04555v1 , Sections 2-4, Eq. (9), (15), Lemmas 1 and 3, Theorems 3-5."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.04555v1",
+        "material_read": "Complete accessible HTML text, emphasizing abstract/introduction, model, equations 9 and 15, Lemmas 1/3, Theorems 3-5, Sec. 4.2-4.3; rendered PDF page of algorithm context",
+        "method": "Read original arXiv HTML manuscript and visually inspected a PDF page",
+        "title": "Consensus analysis of random sub-graphs for distributed filtering with link failures",
+        "trigger": "Same symmetric Bernoulli communication-graph model and gain tuning under link failures"
+      },
+      {
+        "assessment": "ANTECEDENT; studies Lyapunov covariance rate and observes failure/gain interactions, not explicit four-cycle threshold",
+        "evidence": [
+          "Patterson et al. CDC 2007; numerical examples use ring with nine nodes and two-dimensional torus with 25 nodes, rather than exact four-cycle parameter optimization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/CDC.2007.4434917",
+        "material_read": "Accessible full-text rendering including model, result summary, rate comparisons and conclusion",
+        "method": "Read accessible primary text rendering of conference paper",
+        "title": "Distributed average consensus with stochastic communication failures",
+        "trigger": "Early direct empirical and analytical treatment of this exact random-link model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c07e947-1bde-4dc0-a1ea-d7df37e18aa8",
+  "value": {
+    "rationale": "C4 is the smallest regular simple cycle exhibiting a genuine disagreement-mode split. The exact optimization of the true asymptotic covariance spectral radius is a practical contrast to one-step tuning: independent missing links create a sharp regime where maximal stochastic gain is optimal, followed by a regime where a unique interior gain is faster. The result includes a reproducible nontrivial exact threshold and complete classification at both endpoints; at p=1/2 it improves the asymptotic rate from 0.5 at h=1/2 to approximately 0.47935743 at h=0.43575315. It is a deliberately limited complete result for a natural minimal network, not an assertion about all graphs.",
+    "status": "PASS"
+  }
+}
