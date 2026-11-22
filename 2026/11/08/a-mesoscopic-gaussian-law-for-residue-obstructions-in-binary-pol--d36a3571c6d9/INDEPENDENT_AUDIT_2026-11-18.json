@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T21:52:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d≥2^16 set L=log_2 d, E=ceil L, B=floor(L-log_2 L-3). For P irreducible degree j≥2 and Q=2^j, conditional valuation probabilities are (1−Q^{-1})Q^{-e}. For e=1 the residue trace-one probability is Q/[2(Q−1)] by invertible unit multiplication in F_Q; for e≥2 the principal-unit action h↦h(1+P^{e−1}s) adds a surjective trace form and balances values. Consequently beta_P=1/(2Q)+1/(2Q^2); truncating valuations e≥E replaces beta_P by beta_{P,E}=beta_P−1/(2Q^E). For e<E the local bit is determined by f mod P^{2E}. Since S_B=Σ_{2≤j≤B}jI_j<2^{B+1} and 2^B≤d/(8L), the CRT modulus has degree 2ES_B<d; uniform monic degree-d polynomials therefore have EXACT independent truncated bits. Coupling true to truncated bits costs Σ_P Q^{−E}; comparing Bernoulli parameters adds 0.5Σ_P Q^{−E}. For E≥16, 1.5Σ_{j≥2}I_j2^{−Ej}≤6d^{−2}/(1−2^{1−E})<7d^{−2}. Irreducible counting I_j=2^j/j+O(2^{j/2}) gives mu_B,v_B=(log B)/2+O(1); the independent Bernoulli third centered moment sum is O(v_B), so Berry–Esseen plus TV yields the stated Kolmogorov bound. The absolutely convergent renormalized product supplies the positive constant C and relative O(B^−1) finite cutoff error. The asymptotic only concerns W_d, not positive orthogonal multiplicity. Independent finite arithmetic and exact tree recreation corroborated source premises and output constants; finite checks do not prove infinite statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arratia, Barbour and Tavare 1993, Theorem 3.1 approximates the prime-factor multiplicity vector by independent geometrically distributed counts; it does not record cofactor residues of dT/[T(T+1)f].",
+          "Arratia, Barbour and Tavare 2005, Section 1 defines an additive function as f(ab)=f(a)+f(b) for coprime a,b, and Theorems 3.2–3.3 concern such component observables.",
+          "Explicit independent bit arithmetic: for P=T^2+T+1, psi_P(P)=0, psi_P(P*T)=1, while J_P(T)=0. Hence J_P is not a sum of intrinsic prime-power contributions."
+        ],
+        "reasoning": "The prior broad polynomial-factor limit laws are a serious near-neighbor and establish the general probabilistic strategy and logarithmic CLTs. They do not directly imply this residue statistic: factor multiplicities for small P do not determine the inverse cofactor mod P, and the latter can change when multiplying by a coprime factor. The new statement uses exact residue-jet CRT independence with a degree budget, not just factor-count approximation. No stronger inspected theorem dominates the exact joint trace law, though one may exist.",
+        "searches": [
+          "finite-field random polynomials divisibility local residue trace Gaussian law Poisson binomial prime degree cutoff",
+          "random polynomials over finite fields central limit theorem additive prime factor statistics independent divisibility mod prime powers Chinese remainder",
+          "finite fields joint distribution small-degree irreducible factors random polynomial total variation Arratia Barbour Tavare theorem 1993",
+          "polynomial local conditions chinese remainder central limit theorem residue prime divisors F2 sieve normal",
+          "Arratia–Barbour–Tavare 1993 Theorem 3.1",
+          "Arratia–Barbour–Tavare 2005 Proposition 1.1 and Theorems 3.2–3.3",
+          "Resultary semantic query finite-field random polynomials divisibility local residue trace Gaussian law Poisson binomial prime degree cutoff"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.02352",
+        "https://www.columbia.edu/cu/simontavare/STpapers-pdf/ABT93.pdf",
+        "https://user.math.uzh.ch/barbour/pub/Barbour/ABT_additive.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-finite-validation-of-the-orthogonal-multiplicity-residue-criteri--bc79c1f08d44",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-first-degree-of-orthogonal-multiplicity-128-over-the-binary--7903543c2f3a",
+        "DOI:10.1006/jnth.1997.2201 (metadata and later-paper quotations only)",
+        "arxiv:2008.12160 (abstract and literature links only)",
+        "arxiv:1704.02640 (abstract and literature links only)",
+        "Resultary scientific semantic searches q1/q2/q3 (the same-record listing was not treated as prior independent coverage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Giraudin local P-adic theorem + the elementary Chinese remainder theorem, a simultaneous prime-power truncation and a union/coupling calculation do prove the displayed theorem once assembled; the source itself gives only the local input.",
+          "The global orthogonal-multiplicity asymptotic is explicitly conditional in the 2026 source; the audited theorem does not imply it or use it.",
+          "Arratia 1993 offers stronger cutoff ranges for factor counts, but not for nonadditive cofactor-sensitive residue bits."
+        ],
+        "reasoning": "The new theorem is a quantitatively precise special local-statistic consequence of known local algebra and CRT rather than an independent general theory. It is not covered as a formally established corollary of the inspected earlier statements without the new simultaneous truncation/coupling argument. The mathematical advance is limited accordingly; no priority claim is made for the ingredients or the full orthogonal-multiplicity conjecture.",
+        "searches": [
+          "mesoscopic central limit theorem residue obstructions binary polynomial rings F2[T] trace differential P|f Chinese remainder independent Bernoulli",
+          "finite-field random polynomials divisibility local residue trace Gaussian law Poisson binomial prime degree cutoff",
+          "Giraudin 2026 Theorem 3 and Conjecture 4",
+          "Arratia–Barbour–Tavare 1993 Theorem 3.1",
+          "Arratia–Barbour–Tavare 2005 Theorem 3.3",
+          "polynomial local conditions chinese remainder central limit theorem residue prime divisors F2 sieve normal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Giraudin 2026, Theorem 3 determines one-prime psi_P conditional trace frequencies; Theorem 2 determines a global reciprocal parity constraint, but neither asserts the degree-truncated full-vector product estimate.",
+          "Giraudin 2026, Conjecture 4 concerns a different weighted orthogonal-multiplicity statistic and an unproved full-pooling hypothesis.",
+          "Allouche–Han–Niederreiter 2020 concerns equivalent PLCP/Hankel descriptions; only its abstract and bibliographic presentation were accessible in this run."
+        ],
+        "reasoning": "The random variable W_d counts cofactor-dependent differential residues, not the orthogonal multiplicity or PLCP itself. Global reciprocity across all prime divisors is compatible with the controlled small-prime window because residue data outside the CRT window remains free. None of the inspected equivalent descriptions gives the stated joint total-variation estimate or normalized count law; this is a best-of-knowledge comparison, not a proof of universal novelty.",
+        "searches": [
+          "mesoscopic central limit theorem residue obstructions binary polynomial rings F2[T] trace differential P|f Chinese remainder independent Bernoulli",
+          "orthogonal multiplicity local residues global independence Giraudin 2026",
+          "arxiv:2610.02352 Theorems 2,3, Conjecture 4 and Section 4",
+          "Resultary semantic query mesoscopic central limit theorem residue obstructions binary polynomial rings F2[T] trace differential P|f Chinese remainder independent Bernoulli",
+          "arxiv:2008.12160 (Perfect linear complexity profile and Apwenian sequences)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Giraudin 2026, Table 1 tabulates N(d)=2^d Pr(m(f)>0) for degrees 1..33, not the vector of differential-residue indicators or its zero-event law.",
+          "Resultary SCOPE finite validation 2026-10-13 exhaustively checks the conjectural residue/multiplicity equivalence through degree 22 in a restricted squarefree family; that finite census does not control W_d for all d.",
+          "Resultary SCOPE 2026-10-26 gives a first degree for m(f)>=128, an extremal different observable."
+        ],
+        "reasoning": "A finite multiplicity table or small-degree exact residue check cannot imply the theorem for every d≥65536, its joint TV bound, or an asymptotic Euler constant. The exact degree-10 sample is only a verification instance.",
+        "searches": [
+          "arxiv:2610.02352 Section 4 Table 1",
+          "Resultary https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-finite-validation-of-the-orthogonal-multiplicity-residue-criteri--bc79c1f08d44",
+          "Resultary https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-first-degree-of-orthogonal-multiplicity-128-over-the-binary--7903543c2f3a",
+          "orthogonal multiplicity table sequence OEIS A398229 2026",
+          "orthogonal multiplicity local residues global independence Giraudin 2026"
+        ]
+      },
+      "rationale": "The exact unconditional near-logarithmic prime-degree cutoff and 7d^{-2} total-variation control for all residue-trace bits, with its specific Bernoulli parameters and zero-event Euler constant, were not established by the inspected prior statements. Giraudin (2026) proves exactly the local residue distribution and reciprocity; those are cited inputs. Arratia–Barbour–Tavare (1993) treats factor multiplicity vectors and the 2005 study treats additive component functions; the present residue-bit J_P(f) depends on the cofactor modulo P and is not additive as a function of factorization (explicit P=T^2+T+1 example). A direct quantified CRT combination of the 2026 local theorem constitutes the surviving contribution, rather than a new general sieve principle. The same-record Resultary listing was excluded as a predecessor; additional published SCOPE cases cover only finite orthogonal multiplicity or extremal thresholds. Historical general-sieve priority risk and the inaccessible 1998 original are explicit.",
+      "residual_risks": [
+        "Blackburn 1998 full text was inaccessible; authorized institutional source returned VPN-disconnected, and no whole-paper novelty claim is made.",
+        "A general unlocated theorem for arbitrary local function-field residue tests with growing modulus budget might subsume the displayed bound, even though the inspected additive/factor-count theorems do not.",
+        "The new step is an elementary but quantitatively specific CRT/truncation calculation built on the 2026 local theorem, not a new general probability principle.",
+        "The orthogonal-multiplicity criterion and complete global-independence conjecture remain unproved and are not invoked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes local e=1/e>=2 trace distributions and global parity relation, not the mesoscopic high-dimensional TV product law or Gaussian/zero count for W_d.",
+          "evidence": [
+            "Theorem 3(i),(ii) and its principal-unit proof in Section 3; Conjecture 4 after Theorem 3; Section 4 Table 1 counts positive orthogonal multiplicity rather than W_d."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.02352",
+          "material_read": "Accessible complete six-page PDF text; Theorems 1–3, Conjecture 4, proof of prime-local balance in Section 3, reciprocity Section 2 and numerical table Section 4, with a rendered page screenshot",
+          "method": "Read full indexed mathematical manuscript and inspected PDF page image, not abstract alone",
+          "title": "The proportion of polynomials over F_2 with positive orthogonal multiplicity",
+          "trigger": "Exact same differential-residue variables and local distribution input"
+        },
+        {
+          "assessment": "Factor multiplicity laws approximate independent geometric variables; they do not track local inverse cofactor traces and do not directly cover the residue-bit joint law.",
+          "evidence": [
+            "Sections 1 and 3: the X_j variables count irreducible factor multiplicities; Theorem 3.1 bounds TV for this vector, not J_P(f)."
+          ],
+          "identifier_or_url": "https://www.columbia.edu/cu/simontavare/STpapers-pdf/ABT93.pdf",
+          "material_read": "Lawful full 22-page author-hosted PDF available; read introductory definitions, Section 3 Theorem 3.1 and its argument, plus page image showing bound and scope",
+          "method": "Read mathematical text and inspected PDF page image; matched random variables to candidate statistic",
+          "title": "On random polynomials over finite fields",
+          "trigger": "Classical total-variation approximation for all small factor multiplicities in uniform random polynomials"
+        },
+        {
+          "assessment": "Its hypotheses describe additive component statistics; J_P(P*T) != J_P(P) so W_d is not of that class without an additional argument.",
+          "evidence": [
+            "Section 1 definition f(ab)=f(a)+f(b) for coprime a,b; Section 3.2–3.3 approximations for sums of independent component contributions."
+          ],
+          "identifier_or_url": "https://user.math.uzh.ch/barbour/pub/Barbour/ABT_additive.pdf",
+          "material_read": "Lawful full author-hosted manuscript accessible; read Sections 1 and 3 including additive function definition, Proposition 1.1 and Theorems 3.2–3.3; inspected PDF page image",
+          "method": "Read mathematical hypotheses and compare additive-function structure to cofactor-dependent residue statistic",
+          "title": "A probabilistic approach to analytic arithmetic on algebraic function fields",
+          "trigger": "Possibly dominating general Kubilius/Erdos–Kac theorem over F_q[T]"
+        },
+        {
+          "assessment": "Proves a finite equivalence in squarefree degree 15–22 samples, no Gaussian residue-count limit.",
+          "evidence": [
+            "Finding and enumeration table of 1,856,852 polynomials, zero mismatches; the paper explicitly limits itself to degrees<=22."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-finite-validation-of-the-orthogonal-multiplicity-residue-criteri--bc79c1f08d44",
+          "material_read": "Complete published RESULT.md and verification scope/proof discussion",
+          "method": "Read exact finite-domain assumptions and compared conclusion and table to the claimed unbounded law",
+          "title": "Finite validation of the orthogonal-multiplicity residue criterion through degree 22",
+          "trigger": "Closest published finite SCOPE case involving identical residue map"
+        },
+        {
+          "assessment": "Addresses threshold m(f)>=128 and uniqueness at degree 26, not differential-residue W_d.",
+          "evidence": [
+            "Theorem gives first threshold d=26 and 66 finite candidates; no mesoscopic joint law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-first-degree-of-orthogonal-multiplicity-128-over-the-binary--7903543c2f3a",
+          "material_read": "Complete published RESULT.md",
+          "method": "Read theorem and finite extremal proof and scope",
+          "title": "The first degree of orthogonal multiplicity 128 over the binary polynomial ring",
+          "trigger": "Additional same-object published SCOPE record, possibly an exact data implication"
+        },
+        {
+          "assessment": "Potential priority risk retained; not treated as fully inspected or as automatic originality failure.",
+          "evidence": [
+            "Giraudin 2026 attributes m(f) in {0,2^{omega_0(f)}} to Blackburn Proposition 2 and reports Blackburn Table 1 through degree 21."
+          ],
+          "identifier_or_url": "DOI:10.1006/jnth.1997.2201",
+          "material_read": "Bibliographic metadata and the Blackburn power-of-two multiplicity theorem as quoted in the 2026 primary manuscript; original full text not obtained",
+          "method": "Searched arXiv/preprint and lawful OA; authorized institutional download was blocked by disconnected VPN (no bypass attempted)",
+          "title": "Orthogonal sequences of polynomials over arbitrary fields",
+          "trigger": "Foundational older paper on the same orthogonal-multiplicity motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The differential-residue obstruction count is a natural and explicitly motivated statistic linked to the open pooling problem in the 2026 primary study. The result identifies an unconditional CRT-controlled regime containing a growing d/polylog(d)-scale number of small-prime residue bits, with an explicit uniform O(d^−2) joint approximation despite a global reciprocity constraint and with a sharp interpretable zero-survival exponent 1/2 and Euler constant. This is a useful precise boundary and benchmark for any future attempt at the full global law, beyond an arbitrary finite slice or textbook exercise. The local distribution, CRT, Berry–Esseen and harmonic summation are standard ingredients, credited as such; value attaches to the quantitatively complete combination for this specific non-additive residue observable, not to invention of a new general sieve or settlement of orthogonal multiplicity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The source theorem is for all monic degree d≥2^16 but only irreducible degrees j≤B; there is no all-prime independence conclusion or orthogonal-multiplicity criterion.",
+    "Finite calculations validate selected cases and numeric constants only; the infinite bound and limit rely on the written universal arguments.",
+    "Exact historical novelty is not certified: an unlocated general local sieve could dominate and Blackburn 1998 full text could not be read because institutional VPN was disconnected.",
+    "Public metadata retains operational provenance and model-review labels. Publication plan is not_ready, independent of scientific acceptance."
+  ],
+  "schema_version": 1
+}
