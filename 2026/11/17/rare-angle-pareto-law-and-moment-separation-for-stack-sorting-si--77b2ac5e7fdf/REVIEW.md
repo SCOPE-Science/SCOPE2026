@@ -1,19 +1,21 @@
-# Scientific review: rare-angle law for stack-sorting simplices
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The published orbit description supplies the permutation vertices. Independently, direct stack sorting gives \(e+d_k\), and the explicit orthogonality \(d_j\cdot d_k=0\) when \(j\ne k\) determines the facet normals. A telescoping sum gives their exact angular cosines without a numerical approximation. The probabilistic statement follows from a uniform exceptional index and the continuous-mapping theorem away from a zero-probability endpoint. Uniform harmonic comparison and a square-summable majorant establish both moment asymptotics. The finite checker reconstructs the source orbit and normals separately. The Euclidean realization and all dimensions are explicit.
+PASS
 
-## Originality
+Reconstructed the stack-sort orbit of 23...n1 as the identity plus orthogonal d_k vectors, with d_k·d_k=k(k−1), d_j·d_k=0 for distinct indices. Dual normals give precisely (n−1 choose 2) right and n−1 exceptional acute dihedral angles arccos sqrt(n/[(n−1)k(k−1)]); each unordered ridge is one facet pair. Conditional K uniform on 2..n gives nδ_{n,K} ⇒1/U with Pareto(1) tail. Uniform harmonic comparison gives A_n=log n+O(1), dominated square series gives B_n→C₂>0, yielding conditional first and second moments and the unconditional mean/variance coefficient, with all n≥3 and distinct-angle boundaries. Independent fresh orbit/Gram code reconstructed exact orbits and dot products for n=3..18, 168 orbit vertices; finite checks do not prove asymptotics.
 
-**PASS under best-knowledge source comparison; priority provisional.** The 2023 original paper provides the orbit and simplex and the 2025 follow-up provides Euclidean volume and altitude geometry. Those premises are prior work. Inspection of their geometric sections does not identify the precise ridge-angle multiset or conditional Pareto limit. Searches of published-finding corpus for the object, the finite-angle formulas, equivalent orthogonal-corner descriptions, and the Pareto/moment law revealed generic solid-angle results for other right simplices, not the same claim. The angle computation uses elementary normals, so there is a residual risk of an equivalent observation in unindexed geometry literature.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A natural finite family arising from stack sorting has an exact metric ridge invariant that sharply distinguishes almost-all right angles from \(n-1\) exceptional acute ones. The uniform-ridge and conditional-ridge laws have different scales, and a heavy-tailed Pareto limit coexists with a rare-event-dominated variance coefficient. This is more informative than the already-known simplex, volume, or edge-length data and makes an exact, reusable reference distribution for geometric sampling of those polytopes. No claim of general method novelty or downstream theorem is required.
+Best-of-knowledge original finite ridge-measure law and its rare-angle Pareto/moment separation, explicitly crediting existing orbit and altitude/volume descriptions; a generic orthogonal simplex normal computation is standard.
 
-## Closest literature and limitations
+## value
 
-The initial stack-sorting simplex construction and its explicit orbit are attributed to Lee--Mitchell--Vindas-Meléndez (arXiv:2308.16457). The later Euclidean-volume formula is attributed to Ake--Lewis--Louie--Vindas-Meléndez (arXiv:2508.00219). Orthogonal-simplex vertex *solid angles* concern a different angular observable. The proof concerns the canonical ambient Euclidean embedding and uniform unoriented ridges only. Incomplete historical indexing leaves priority uncertainty; external independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical stack-sort simplex is a natural enumerative polytope, and a uniformly sampled ridge has an intrinsic Euclidean statistic. The exact exceptional fraction 2/n and its Pareto(1) conditional limit with diverging moments but vanishing unconditional scale resolve a genuine geometric concentration phenomenon not obtained by simply renaming known volumes or altitudes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

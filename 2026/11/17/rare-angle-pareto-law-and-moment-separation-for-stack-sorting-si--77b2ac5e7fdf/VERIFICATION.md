@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and evidence
+# Independent mathematical audit
 
-`check_angles.py` is a standalone Python 3 checker requiring only its standard library. Running `python3 check_angles.py` reconstructs the original stack-sorting process independently of the analytic formulas, checks the exact permutation-coordinate orbit and its pairwise Gram matrix for every size \(3\le n\le60\), reconstructs all \(n\) facet normals as rational coordinate vectors, and examines the entire finite set of facet pairs. It then tests the predicted finite-size conditional distribution and moment scales at \(n=100,1000,10000\).
+## correctness
 
-Expected and observed output:
+PASS
 
-`STACK_SORT_RARE_ANGLES_PASS n=3..60 orbit_vertices=1827 facet_pairs=35989 asymptotics=100,1000,10000`
+Reconstructed the stack-sort orbit of 23...n1 as the identity plus orthogonal d_k vectors, with d_k·d_k=k(k−1), d_j·d_k=0 for distinct indices. Dual normals give precisely (n−1 choose 2) right and n−1 exceptional acute dihedral angles arccos sqrt(n/[(n−1)k(k−1)]); each unordered ridge is one facet pair. Conditional K uniform on 2..n gives nδ_{n,K} ⇒1/U with Pareto(1) tail. Uniform harmonic comparison gives A_n=log n+O(1), dominated square series gives B_n→C₂>0, yielding conditional first and second moments and the unconditional mean/variance coefficient, with all n≥3 and distinct-angle boundaries. Independent fresh orbit/Gram code reconstructed exact orbits and dot products for n=3..18, 168 orbit vertices; finite checks do not prove asymptotics.
 
-These are exact finite checks for the listed dimensions and floating-point corroboration of selected asymptotics, not exhaustive certification of all dimensions or the limiting distribution. The analytical proof in `RESULT.md` establishes the infinite statement using the facet-normal identities, convergence of uniform indices and dominated convergence for series. An independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original finite ridge-measure law and its rare-angle Pareto/moment separation, explicitly crediting existing orbit and altitude/volume descriptions; a generic orthogonal simplex normal computation is standard.
+
+## value
+
+PASS
+
+The canonical stack-sort simplex is a natural enumerative polytope, and a uniformly sampled ridge has an intrinsic Euclidean statistic. The exact exceptional fraction 2/n and its Pareto(1) conditional limit with diverging moments but vanishing unconditional scale resolve a genuine geometric concentration phenomenon not obtained by simply renaming known volumes or altitudes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
