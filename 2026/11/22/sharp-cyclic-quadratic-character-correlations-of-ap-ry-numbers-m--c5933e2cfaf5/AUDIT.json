@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Lucas factorization is proved directly by binomial digit splitting and carry exclusion. The digit vector is verified exactly; the low-digit carry partitions give the seven explicit recurrence coefficients, valid under cyclic wrap. A complete induction with nonzero divisible shifts, interior shifts and two boundary cases proves both extremal values and uniqueness for every depth; four-sign moment inversion proves all pair counts. The standalone exact checker independently tests the original binomial sums and direct cyclic sums through bounded depths (3,098 assertions). Its finite scope is not used as proof of the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fan–Konieczny (2018), sections on uniformity of q-multiplicative functions, discusses bounded fixed-lag unwrapped correlations, not exact cyclic correlations for shifts allowed to grow with the block depth.",
+        "Earlier signed-shift work for central Delannoy numbers uses a different seven-digit sign vector and unwrapped shift correlation limits; the hypotheses/normalization are not identical."
+      ],
+      "reasoning": "A broader general digital-carry framework can compute such correlations algorithmically, but finite cyclic wrap and the sharp all-shift extrema at each block size require specialized inequalities and equality classifications. The Delannoy and Apéry sign vectors differ. No inspected broad theorem yields these numeric sharp bounds and their precise extremizers as an immediate special case.",
+      "searches": [
+        "\"Exact finite block periodic autocorrelation of generalized Thue Morse sign digit [-] seven and sharp extrema\"",
+        "\"Apéry numbers modulo seven exact residue distribution Lucas digit products character correlations seven powers\"",
+        "https://arxiv.org/pdf/1806.04267",
+        "\"Sharp signed shift correlations in central Delannoy numbers modulo seven\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1508.00297",
+      "https://arxiv.org/pdf/1806.04267",
+      "https://doi.org/10.1016/0022-314X(82)90071-3",
+      "https://oeis.org/A005259"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Apéry Lucas theorem gives χ(A(n)) as the product of a fixed seven-digit vector, which permits but does not itself state any cyclic all-shift sharp extrema.",
+        "General q-multiplicative correlation estimates permit asymptotic conclusions for fixed lags and do not identify the finite cyclic extremizing shifts ±7^(r−1) and ±5."
+      ],
+      "reasoning": "The prior implication gives digit multiplicativity (and generic carry methods) only. The present claim adds an exact finite cyclic recursion, two sharp and unique extremizer families valid at every depth, and all four pair-sign counts. It does not claim novelty for Lucas or for carry methods.",
+      "searches": [
+        "Gessel Some congruences for Apéry numbers 1982 Lucas theorem",
+        "https://arxiv.org/abs/1508.00297",
+        "https://arxiv.org/abs/1806.04267",
+        "\"Sharp signed shift correlations in central Delannoy numbers modulo seven\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Malik–Straub, arXiv:1508.00297, Example 6.1, gives the seven-digit values and the product identity, not a cyclic all-shift correlation recurrence.",
+        "Fan–Konieczny, arXiv:1806.04267, analyzes q-multiplicative sequences and unwrapped correlations."
+      ],
+      "reasoning": "Equivalent formulation as the periodic cyclic autocorrelation of the sign vector (1,-1,-1,-1,-1,-1,1), or exact ordered pair-sign fibers, was checked against the digit-product and general q-multiplicative formulations. The exact finite cyclic maxima/minima and equality-shift sets are not supplied by either primary source. A general finite transducer could implicitly encode the result, but without the sharp equality classification it does not directly imply the full claim.",
+      "searches": [
+        "\"Apéry\" \"autocorrelation\" \"Legendre\" 7",
+        "\"Apéry numbers modulo seven shift correlations quadratic character auto correlation all lags\"",
+        "\"Signed correlation spectrum of classical Apéry numbers and Legendre symbol of sequence values\"",
+        "https://arxiv.org/pdf/1508.00297"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005259 lists Apéry values and references, without an all-depth table of cyclic sign-pair correlation extrema.",
+        "Malik–Straub (2015) records the seven lower-digit values and simple digit counts, not a database of correlations indexed by all shifts and depths."
+      ],
+      "reasoning": "Digit-residue tables are exact input data but not the exact all-shift cyclic correlation function or its extremizers. Direct finite tables would not establish the universal recurrence and equality sets.",
+      "searches": [
+        "https://oeis.org/A005259",
+        "\"Apéry\" \"correlation\" mod 7",
+        "\"Apéry\" \"autocorrelation\" \"Legendre\" 7",
+        "\"Apéry numbers modulo seven nonvanishing digit residues multiplicative equidistribution character spectral\""
+      ]
+    },
+    "rationale": "The classical Apéry Lucas congruence, digit residues and general q-multiplicative correlation methods predate this finding, but the inspected primary sources do not state the full exact finite cyclic recurrence, sharp all-depth maximum and minimum, their precise equality-shift sets, or the ordered sign-pair fibers for this vector. The result does not assert the methods or digital factorization are new. Residual risk is an implicit earlier specialization of a general transducer or character-correlation theory.",
+    "residual_risks": [
+      "General q-multiplicative finite-state theory may contain an equivalent unstated specialization, which cannot be excluded by searches.",
+      "The complete original 1982 Gessel article was not inspected; only its attributed Lucas theorem was compared.",
+      "Only exact quadratic-character pair statistics modulo seven are classified, not all six nonzero Apéry residue classes or unwrapped correlations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the old digit factorization and seven-entry table; does not state finite cyclic all-shift correlations or equality shifts",
+        "evidence": [
+          "Example 6.1 displays (1,5,3,3,3,5,1); its theorem concerns congruences and digit products."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.00297",
+        "material_read": "Example 6.1 and associated Lucas theorem/lemma on digit congruences",
+        "method": "Read the full-text PDF at the digit example and surrounding statements and proofs",
+        "title": "Divisibility properties of sporadic Apéry-like numbers",
+        "trigger": "Same Apéry numbers and mod-seven digit values"
+      },
+      {
+        "assessment": "Gives general unwrapped limiting and uniformity tools, not the exact finite cyclic all-shift maximum/minimum and unique equality cases here",
+        "evidence": [
+          "The analyzed correlations use q-multiplicative digit products and limiting/unwrapped windows rather than cyclic wrap at N=7^r."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.04267",
+        "material_read": "Introduction and sections discussing q-multiplicative correlations and uniformity",
+        "method": "Read relevant PDF pages including correlation bounds and their hypotheses",
+        "title": "On uniformity of q-multiplicative sequences",
+        "trigger": "Potential broader coverage of digit-product two-point correlations"
+      },
+      {
+        "assessment": "Historical antecedent for digit congruences; complete text not inspected, priority uncertainty recorded",
+        "evidence": [
+          "Malik–Straub attributes the classical Apéry Lucas result to Gessel (1982)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0022-314X(82)90071-3",
+        "material_read": "Bibliographic citation and available secondary attribution; not the complete 1982 paper",
+        "method": "Bibliographic verification and comparison through Malik–Straub’s discussion",
+        "title": "Some congruences for Apéry numbers",
+        "trigger": "Original source of Apéry Lucas congruences"
+      },
+      {
+        "assessment": "Tabulates original values rather than the claimed all-depth shift spectrum",
+        "evidence": [
+          "Entry identifies the sequence used; no finite cyclic extremum table was located."
+        ],
+        "identifier_or_url": "https://oeis.org/A005259",
+        "material_read": "Sequence definition, sample terms and reference context",
+        "method": "Read accessible sequence entry and looked for character-correlation tables",
+        "title": "Apéry numbers (A005259)",
+        "trigger": "Exact database/table for the claimed correlations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c5933e2c-faf5-4a2f-9a4d-10d182a073be",
+  "value": {
+    "rationale": "This is a natural complete all-shift problem for the first useful quadratic-character digit model of the classical Apéry sequence. The exact finite cyclic recurrence gives all two-sign joint counts, while the sharp extremum theorem identifies moving positive and fixed negative shift scales and unique extremizers for every block depth. Such equality classifications are not generic consequences of digit multiplicativity, and the result is a meaningful full finite-scale structural classification rather than an arbitrary numerical case.",
+    "status": "PASS"
+  }
+}
