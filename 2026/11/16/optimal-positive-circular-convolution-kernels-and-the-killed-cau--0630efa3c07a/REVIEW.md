@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The calculation is normalized on the circle with average Fourier coefficients. Fejér–Riesz covers all pointwise nonnegative trigonometric kernels, including lower-degree and zeros-on-circle cases. The Toeplitz eigenvalue variational formula holds for complex coefficient vectors. The Perron matrix is irreducible because every consecutive index pair is connected, so the positive minimizer and its reversal symmetry are unique. The continuum argument uses a **band-limited weighted Fourier identity** for step functions; it does not incorrectly assign finite global half-derivative energy to discontinuous steps. An alias estimate and Fourier-tail compactness yield the form-domain lower bound. Smooth compactly supported sampled tests give the upper bound. The sine test has the stated exact energy, and its boundary logarithm precludes criticality, giving strict improvement. Numerics in the embedded checker passed 248 assertions; they are secondary to this proof.
+## correctness
 
-**Originality — PASS against inspected sources, subject to specific risk.** The motivating 2026 paper computes the moment constants for two designated kernels and explains why moment is the correct objective. It does not in the inspected available scientific material present the unique optimal positive degree-by-degree kernels or their restricted-Cauchy eigenvalue limit. Prior spectral work states the interval fractional-Laplacian first eigenvalue but does not derive the positive-convolution optimization identity. Indexed nearby work on Fejér Lipschitz contraction and powered-Fejér rough-input derivative norms addresses different operator quantities; neither statement implies the full optimal positive-kernel spectral limit. The 1984 Goldstein–McDonald extremal-polynomial paper is a concrete remaining coverage risk: the title and citation were available, but its full text was not, and no noncoverage judgment is made about it. Failed full-text access is not evidence of novelty.
+PASS
 
-**Mathematical value — PASS.** The theorem solves a naturally defined exact optimal positivity-preserving convolution approximation problem, characterizes every finite-degree optimizer uniquely, and identifies an unexpected universal restricted fractional-operator ground-state limit. The strict gap below a standard explicit positive approximation kernel gives a genuine performance improvement, not merely a renaming or a numerical constant estimate. It does not purport to solve unrestricted Jackson approximation or determine a new eigenvalue of the already-studied half-Laplacian.
+For every integer n>=1 and every normalized nonnegative trigonometric polynomial of degree <=n, Fejer–Riesz writes K=|sum_{j=0}^n a_j e^{ijt}|^2 with sum|a_j|²=1. The worst error over geodesically 1-Lipschitz circle functions is exactly the |t| moment, attained by the circle-distance function. Its Fourier coefficients give the symmetric Toeplitz T with t_0=pi/2 and t_m=[(-1)^m-1]/(pi m²). Minimization is lambda_min(T), and pi I/2 -T is nonnegative irreducible by its odd-distance edges, so Perron–Frobenius gives the unique positive reflection-symmetric factor, including n=1. At h=1/(n+1), its step-function Fourier representation has principal-band energy and controllable alias tails; bounded energy and fixed support yield L² compactness, liminf restricted |D| energy, and smooth grid recovery gives limsup. Thus (n+1)C_n->first *restricted zero-exterior* Cauchy eigenvalue on (0,1). The sine trial has energy 2Si(pi)-4/pi, and its logarithmically divergent boundary |D| residual precludes equality. Independently diagonalized exact Toeplitz coefficients at n=3,8,16,64,128, obtaining positive symmetric eigenvectors and scaled values below 2.430635. The finite values corroborate only the proof, not the continuum limit.
 
-**Limitations and risks.** Priority relative to hard-to-retrieve older nonnegative-trigonometric-polynomial literature remains uncertain. The identification of the limiting constant with a known spectral eigenvalue is an exact characterization, not a new closed form or independently certified numerical value. Finite checks cannot certify the continuum proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The first-moment criterion for *fixed* positive convolution kernels is known (Shah–Urschel–West, arXiv:2607.23375, Lemma 2.1); the interval Cauchy eigenvalue itself is known (Kwaśnicki, arXiv:1012.1133). The new claim is finite-degree all-kernel uniqueness and the link from its entire optimal sequence to the existing restricted-Cauchy ground energy, with strict comparison against the fixed Rivlin trial. An older Goldstein–McDonald 1984 extremal nonnegative trigonometric polynomial title is plausibly overlapping but full text could not be obtained; this is a material priority risk, not an invented exclusion.
+
+## value
+
+PASS
+
+A natural sharp approximation problem over all positive, constant-preserving degree-n circle convolutions produces the exact optimal kernel and its nontrivial continuum limit. Distinguishing restricted from spectral Dirichlet half-Laplacian matters, and the result strictly improves the known fixed-family asymptotic benchmark; the known eigenvalue by itself is not claimed as a discovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
