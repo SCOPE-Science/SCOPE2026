@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Derive ray propagation from exact resolvent optimality at every differentiability point with nonzero slope, classify by monotone a.e. derivative and local absolute continuity, prove converse by clipped translations, and compute the kink discrepancy by complete piecewise-affine breakpoints. Covers all real input values and nonnegative times, zero weights, affine and constant cases, and arbitrary noncoercive affine functions. Python exact-rational tests (16529 passed) are supplementary; no finite grid is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bungert et al. assume absolutely one-homogeneous structure for their relevant spectral sufficient conditions; the present theorem quantifies over all everywhere-finite scalar convex penalties.",
+        "Combettes builds resolvent compositions using a linear map; this is not an equivalence that automatically supplies parameter-time composition for the same penalty."
+      ],
+      "reasoning": "The examined sufficient conditions and different composition constructions do not, by their stated hypotheses and conclusions, dominate the finite scalar necessity theorem or the sharp kink-error formula.",
+      "searches": [
+        "scalar proximal operators time additive classification convex 1D asymmetrical soft threshold piecewise linear",
+        "gradient flow equals single resolvent every time scalar convex minimizer V shaped classification",
+        "one dimensional convex potential resolvent equals gradient flow all times exact semigroup characterization"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1901.06979",
+      "https://arxiv.org/pdf/1909.05795",
+      "https://arxiv.org/pdf/2209.06200",
+      "https://arxiv.org/abs/2007.03798 (proximal determination; contextual abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present proof extracts a rigidity implication from *all* times: \\(p\\in\\partial f(z+s p)\\) at every nonzero differentiable slope \\(p=f\\prime(z)\\).",
+        "The prior sources inspected do not state the two-slope maximized discrepancy \\(\\min\\{sa,t(b-a)\\}\\) or its reflected version."
+      ],
+      "reasoning": "A sufficient one-homogeneous criterion does not yield the necessity for all finite convex scalar penalties; explicit prox calculations do not immediately imply the classification and sharp time defect. An unexamined equivalent classical implication remains a residual risk.",
+      "searches": [
+        "1d maximal cyclically monotone graph resolvents time additive semigroup iff piecewise horizontal nonzero branches",
+        "everywhere finite scalar convex functions proximal resolvents form exact additive semigroup if and only if affine or weighted distance to interval, explicit time-composition error for two-slope hinge"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The semigroup relation translates via \\(P_t=(I+t\\partial f)^{-1}\\) into exact time additivity of scalar maximal-monotone resolvents.",
+        "Theorem 4.5 of arXiv:1901.06979 concerns equality of gradient-flow and variational constructions under spectral assumptions; no necessity classification for arbitrary finite scalar convex functions is supplied in the inspected section."
+      ],
+      "reasoning": "The named resolvent and implicit-Euler aliases were considered, rather than treating mismatched vocabulary as proof of novelty. A classical scalar monotone-graph classification under a different name cannot be ruled out.",
+      "searches": [
+        "one-dimensional convex proximal maps semigroup exactly asymmetric absolute values V shaped functions iff piecewise linear only minimizer kink",
+        "complete classification finite-valued convex scalar function whose proximity maps form exact one-parameter semigroup clipped translations flat minimizer intervals",
+        "classification convex functions one dimensional whose proximal mappings satisfy semigroup identity prox_s prox_t = prox_s+t"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Planiden–Wang give formulas for one-variable piecewise-cubic proximal maps, including Corollary 4.11, a possible starting point for calculations.",
+        "The new identity provides a supremum over all inputs and independent times, together with a complete classification of the semigroup class."
+      ],
+      "reasoning": "An explicit proximal map table is not itself the universal time-semigroup classification nor the optimized two-time composition-error table; no identical table was located in the examined material.",
+      "searches": [
+        "sharp composition defect sup_x prox_s prox_t - prox_s+t of one-kink convex piecewise linear asymmetric hinge slopes",
+        "one-dimensional resolvent semigroup property for convex subdifferential functions piecewise linear"
+      ]
+    },
+    "rationale": "Three primary-source comparisons and targeted searches identify general sufficient gradient-flow theory, scalar prox calculus, and linear-operator resolvent compositions, but not the necessity classification plus sharp one-kink defect in their materially inspected contents. A possibility of an implicit classical scalar resolvent corollary is expressly retained as a historical-priority risk.",
+    "residual_risks": [
+      "Implicit older equivalents in monotone-operator resolvent or scalar implicit-Euler semigroup literature, especially inaccessible or unindexed source sections.",
+      "The Combettes and Planiden papers were not claimed wholly excluded based on only inspected sections.",
+      "Independent expert priority verification has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant sufficient equivalence for one-homogeneous spectral settings, not the claimed full finite scalar necessity classification",
+        "evidence": [
+          "First publicly released 2019-01-21",
+          "Section 4.2, Theorem 4.5 and its absolute-one-homogeneity setting"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1901.06979",
+        "material_read": "Abstract, Section 4.2 and Theorem 4.5 with adjacent hypotheses and discussion",
+        "method": "Full-text PDF material inspection and page rendering",
+        "title": "Nonlinear Spectral Decompositions by Gradient Flows of One-Homogeneous Functionals",
+        "trigger": "Closest general relation of variational and flow solutions"
+      },
+      {
+        "assessment": "Prox formulas overlap the class of objects but the inspected material does not give the global semigroup necessity or the sharp kink composition defect",
+        "evidence": [
+          "First publicly released 2019-09-11",
+          "Corollary 4.11 in scalar piecewise-cubic prox section"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1909.05795",
+        "material_read": "Abstract, introduction, and Corollary 4.11 with surrounding scalar prox material",
+        "method": "Full-text PDF material inspection and page rendering",
+        "title": "Proximal mappings and Moreau envelopes of single-variable convex piecewise cubic functions and multivariable gauge functions",
+        "trigger": "Potential stronger scalar proximal formula/implicit semigroup computation"
+      },
+      {
+        "assessment": "Studies operator-induced composition rather than time-parameter addition; remaining sections not taken as universally excluded",
+        "evidence": [
+          "First publicly released 2022-09-13",
+          "Abstract defines composition between linear operators and set-valued operators"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.06200",
+        "material_read": "Abstract and introductory definition and motivation of resolvent composition",
+        "method": "PDF text and first-page rendering",
+        "title": "Resolvent and Proximal Compositions",
+        "trigger": "Possible broader coverage of resolvent compositions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d338409d-8bbc-4b01-b1ce-2e373dafdb57",
+  "value": {
+    "rationale": "Complete classification of a natural exact semigroup property for all finite convex scalar penalties, plus a sharp all-input defect quantified by both step sizes for nonsmooth nonminimizing hinge losses; the result separates true exact time-additivity from generic implicit-Euler convergence and predicts its exact failure in a canonical model.",
+    "status": "PASS"
+  }
+}
