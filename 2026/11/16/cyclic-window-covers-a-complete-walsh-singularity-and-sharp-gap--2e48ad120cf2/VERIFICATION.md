@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The included `verify.py` is a standalone exact-integer checker. Run `python3 verify.py` in its own directory. It derives the admissible-word indicator directly, applies integer Walsh–Hadamard transforms, and independently checks singularity, all-frequency parity, the least positive magnitude, the all-negative witness, and each prescribed resonant sign assignment for the 140 pairs \(1\le n\le14\), \(1\le k\le10\). It also checks integer transfer identities for \(1\le k\le23\) at three resonant multiples and several nonresonant lengths. Its successful completion prints `CYCLIC_WINDOW_FOURIER_EXACT_PASS all-frequency cases=140 k=1..23 resonances`.
+## correctness
 
-The infinite-parameter argument relies on the displayed finite-order transition and rank-one idempotent calculations, not on extrapolating the finite tests. The checker does not certify historical priority or constitute independent mathematical validation. No external packages or downloaded datasets are required.
+PASS
+
+Reconstructed the closed-walk k-state transfer bijection, including k>n and the all-zero exclusion. The matrix B=T(-1) has B^(k+1)=I, with nontrivial (k+1)-th roots as its eigenvalues, giving the trace k or -1. Mod-2 equality of signed matrices fixes all coefficient parities. At resonance, conjugates of AB^(-1) act upper-triangularly on B^i u, with j negative diagonal entries and trace k-2j. Odd k gives a unit witness, even k gives both a zero and magnitude-two witness. This is a uniform proof, not extrapolation from the checker.
+
+## originality
+
+PASS
+
+The prior ordinary-cycle independent-set theorem gives precisely the k=2/specific complemented special case, and the linear forbidden-run theorem lacks cyclic wrap-around. Neither entails the asserted all-k zero/positive-gap dichotomy; cited cycle domination work concerns counting rather than signed multipliers. Best-of-knowledge new all-run classification survives these actual implication comparisons.
+
+## value
+
+PASS
+
+A natural complete all-frequency singularity and spectral-gap classification for the entire cyclic window-covering family, with a nontrivial even/odd forbidden-run threshold and uniform domination convolution consequences. The transfer-reflection witness mechanism makes it structurally useful beyond a fixed small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

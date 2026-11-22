@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Cyclic word/sign normalization is explicit, and the transfer trace is a bijection with admissible periodic words. The negative transition has exact finite order and character spectrum; parity follows by reducing signed transfers modulo two. The resonant product is upper triangular in the cyclic basis with explicit diagonal, yielding \(k-2j\) with witnesses for both zero and exact positive gaps. The proof includes all \(n,k\ge1\), including repeated windows, and the checker independently verifies 140 small full-Walsh parameter pairs plus longer integer identities.
+## correctness
 
-**Originality — PASS under bounded historical comparison.** Alikhani–Peng establish the ordinary-cycle domination enumeration and recurrence, but not an all-sign Fourier theorem. Bernini–Bilotta–Pinzani–Vajnovszki treat ordinary finite generalized Fibonacci strings and Gray ordering, not cyclic signed transfer traces. An earlier ordinary-cycle independent-set classification already covers the \(k=2\) slice, which is explicitly excluded as an independent novelty claim. The comparison did not reveal a prior result implying the uniform all-\(k\) parity, zero and gap classification. The remaining risk is an unlocated earlier equivalent signed-run transfer identity.
+PASS
 
-**Mathematical value — PASS.** Simultaneously classifying singularity and the exact least positive Fourier eigenvalue for every cyclic window length is a natural complete invariant of a family of finite convolution operators. The odd/even forbidden-run dichotomy sharply separates universal invertibility for graph-power dominating sets from exact arithmetical resonances, and the upper-triangular rank-one reflection mechanism explains this distinction rather than merely tabulating it. It is not a constant-parameter numerical extension of the known \(k=2\) case.
+Reconstructed the closed-walk k-state transfer bijection, including k>n and the all-zero exclusion. The matrix B=T(-1) has B^(k+1)=I, with nontrivial (k+1)-th roots as its eigenvalues, giving the trace k or -1. Mod-2 equality of signed matrices fixes all coefficient parities. At resonance, conjugates of AB^(-1) act upper-triangularly on B^i u, with j negative diagonal entries and trace k-2j. Odd k gives a unit witness, even k gives both a zero and magnitude-two witness. This is a uniform proof, not extrapolation from the checker.
 
-**Scope and limitations.** Exact nullities and endpoint inverse norms are not claimed; source-completeness and independent verification are not claimed. The historical comparison concerns theorem implications, not similarity of titles.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior ordinary-cycle independent-set theorem gives precisely the k=2/specific complemented special case, and the linear forbidden-run theorem lacks cyclic wrap-around. Neither entails the asserted all-k zero/positive-gap dichotomy; cited cycle domination work concerns counting rather than signed multipliers. Best-of-knowledge new all-run classification survives these actual implication comparisons.
+
+## value
+
+PASS
+
+A natural complete all-frequency singularity and spectral-gap classification for the entire cyclic window-covering family, with a nontrivial even/odd forbidden-run threshold and uniform domination convolution consequences. The transfer-reflection witness mechanism makes it structurally useful beyond a fixed small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
