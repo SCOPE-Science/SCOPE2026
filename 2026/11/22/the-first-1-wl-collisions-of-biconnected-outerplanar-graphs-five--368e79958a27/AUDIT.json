@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "2-connected outerplanar graphs are exactly polygons with noncrossing chord sets up to dihedral symmetries, because their Hamiltonian outer-face cycle is unique. The exhaustive binary recursion generates each legal chord set, and canonicalizing under all dihedral maps yields one representative per isomorphism type. Exact sorted refinement keys computed on the disjoint union and iterated to stabilization group graphs by their full 1-WL color histograms, with no stochastic hashing. The included standard-library certificate exhausts all such graphs for n=3,...,10 (up to 20793 chord sets/1117 graph types), identifies precisely five distinct doubletons at n=10 and zero earlier, and separately checks each pair. The proof states the finite bound and does not generalize beyond n=10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 primary paper proves rooted outerplanar recognition and shows one counterexample to uniform unrooted 1-WL.",
+        "The 2023 GNN paper uses a graph preprocessing transformation to increase expressivity; no exact five-pair census of the untransformed graph class is given in its relevant inspected sections."
+      ],
+      "reasoning": "Root individualization and graph transformations can separate the graphs in the pairs and therefore do not imply the count of all unrooted 1-WL collision classes at a fixed order. A theorem that a stronger procedure identifies the class cannot deduce this sharp failure list for a weaker one.",
+      "searches": [
+        "Color Refinement Distinguishes Connected Rooted Outerplanar Graphs Coste Csikos Viennot 2611.18391",
+        "number of color refinement equivalence pairs among 2 connected outerplanar graphs order ten n=10 five",
+        "Maximally Expressive GNNs for Outerplanar Graphs Bause Jogl Welke Thiessen 2023"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.18391v1 (first public 2026-11-13) main text and relevant appendices",
+      "https://doi.org/10.34726/5434 (2023) relevant open-access full-text sections",
+      "https://doi.org/10.37236/984 (2007) journal abstract and known unlabeled-graph enumeration",
+      "https://disco.ethz.ch/courses/fs24/seminar/talks/12_03_Outerplanar.pdf slide presenting a known ambiguous pair",
+      "Semantic search of archived public mathematics findings on biconnected outerplanar orbit recovery, bipartite orbit recovery, bicyclic graph CR collisions and connected bipartite CR collisions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Coste--Csikós--Viennot, arXiv:2611.18391v1, Figure 1: one unrooted ten-vertex biconnected outerplanar collision is already known; the rooted positive theorem is not a claim about full unrooted finite enumeration.",
+        "The verifier enumerates 1117 canonical 10-vertex types, partitions them into 1112 exact stable 1-WL signatures, and finds five distinct two-element collision classes, with none at orders 3 through 9.",
+        "A published outerplanar vertex-orbit blindness note is first at order eight, but this does not entail an intergraph collision at order eight."
+      ],
+      "reasoning": "A known example already proves the existence of a 1-WL ambiguity at order ten, and the claim does not reassert this as new. The additional claims of nonexistence at every smaller admissible order, uniqueness of the five ambiguity classes, and their exact representatives are not implied by an existence theorem, a stronger rooted-identification theorem, a vertex-orbit partition theorem, or the enumeration of graph isomorphism classes alone.",
+      "searches": [
+        "color refinement equivalence outerplanar graphs with smallest counterexamples 1-WL 2-connected minimal vertex number",
+        "Color Refinement Distinguishes Connected Rooted Outerplanar Graphs Coste Csikos Viennot 2611.18391",
+        "five pairs nonisomorphic biconnected outerplanar graphs 10 vertices color refinement same stable color WL signature"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Coste--Csikós--Viennot, arXiv:2611.18391v1, Figure 1: one unrooted ten-vertex biconnected outerplanar collision is already known; the rooted positive theorem is not a claim about full unrooted finite enumeration.",
+        "Unrooted 1-WL equivalence means equal canonical stable color histograms in the disjoint union; this is equivalent to indistinguishability by two-variable counting logic, not to failure of color classes to equal automorphism orbits."
+      ],
+      "reasoning": "An archived first biconnected orbit-refinement obstruction at order eight is a within-graph statement. The proposed theorem is a between-graphs isomorphism-test statement. A failure of orbit recognition within an individual graph does not furnish a nonisomorphic second graph. The older rooted identification result concerns different input coloring.",
+      "searches": [
+        "1-Weisfeiler Leman color refinement minimal non-isomorphic 2-connected outerplanar graphs small 10 vertices indistinguishable sharp order",
+        "color refinement equivalence outerplanar graphs with smallest counterexamples 1-WL 2-connected minimal vertex number",
+        "\"1-WL\" \"biconnected outerplanar\" indistinguishable ten vertex pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing unlabeled outerplanar graph enumerations account for the 1117 isomorphism types; they do not classify 1-WL equivalence histograms.",
+        "A previously presented ten-vertex example appears in the 2026 paper and an older educational presentation, but not all five pairs.",
+        "Exact canonical masks for the five doublets and reproduced counts are supplied in PAIRS.json and verify.py."
+      ],
+      "reasoning": "Neither an ordinary unlabeled-graph table nor a single witness can determine a complete five-doublet 1-WL-equivalence census. The available indexed tables and relevant sources yielded no covering exact table for order ten. The full text of one related older archived study was unavailable, so its priority risk is retained.",
+      "searches": [
+        "five pairs nonisomorphic biconnected outerplanar graphs 10 vertices color refinement same stable color WL signature",
+        "outerplanar ten vertex 1-WL 1117 unlabelled five collisions unique Hamiltonian cycle",
+        "number of color refinement equivalence pairs among 2 connected outerplanar graphs order ten n=10 five",
+        "Enumeration and Asymptotic Properties of Unlabeled Outerplanar Graphs Bodirsky Fusy Kang Vigerske 2007"
+      ]
+    },
+    "rationale": "The exact sharp minimum-order threshold and complete five-doublet ten-vertex CR-equivalence census do not follow from the previously published existence example or rooted identification theorem, the classical unlabeled-graph count, or records on vertex orbit blindness. Specific identified sources and their implication relationships were checked; historical priority remains qualified by incomplete access to some archived full text.",
+    "residual_risks": [
+      "An archived mathematical note closest in subject was accessible only via published title/summary, not full text; an unreported ten-vertex intergraph table therein cannot be excluded with certainty.",
+      "Older unindexed computational records may contain a simultaneous classification of these five pairs.",
+      "The new finite theorem has not been subjected to independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXISTENCE_WITNESS_COVERED; EXACT_FIRST_FAILURE_AND_FIVE_PAIR_CENSUS_NOT_STATED",
+        "evidence": [
+          "Figure 1 already exhibits two nonisomorphic biconnected outerplanar graphs not distinguished by ordinary unrooted CR.",
+          "Theorem 1.1 establishes positive identification after one root is individualized.",
+          "No order-by-order unrooted census found in the inspected full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.18391v1",
+        "material_read": "Full-text PDF searched and relevant text examined: abstract, introduction, Section 1.2, Figure 1 with its 10-vertex example, the main rooted theorem and appendix/reconstruction sections; checked searches for enumeration and minimum-order census",
+        "method": "Public arXiv metadata, lawful open full-text PDF mirror, figure inspection and full-text search",
+        "title": "Color Refinement Distinguishes Connected Rooted Outerplanar Graphs",
+        "trigger": "Direct motivating 2026 preprint; explicitly shows nonisomorphic unrooted biconnected outerplanar graphs with matching 1-WL signatures"
+      },
+      {
+        "assessment": "NOT_COVERING_THE_UNTRANSFORMED_1WL_SHARP_CENSUS",
+        "evidence": [
+          "The object studied is a specially preprocessed graph representation yielding maximally expressive GNNs, not plain unrooted 1-WL ambiguous pair counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.34726/5434",
+        "material_read": "Open-access full-text PDF opening sections on Hamiltonian cycle transformations and WL-based graph identification",
+        "method": "TU Wien-hosted public full text and bibliographic record",
+        "title": "Maximally Expressive GNNs for Outerplanar Graphs",
+        "trigger": "Established graph-iso expressivity result for outerplanar graphs with a unique outer Hamiltonian cycle"
+      },
+      {
+        "assessment": "KNOWN_ISOMORPHISM_COUNTS_ONLY_NOT_REFINEMENT_EQUIVALENCE",
+        "evidence": [
+          "The paper counts isomorphism types of unlabeled outerplanar graphs, without providing a five-doublet plain 1-WL classification in the material checked."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/984",
+        "material_read": "Journal abstract, bibliographic details and small-order unlabeled enumeration as corroborated by enumeration literature",
+        "method": "Publisher abstract and independent small-order table",
+        "title": "Enumeration and Asymptotic Properties of Unlabeled Outerplanar Graphs",
+        "trigger": "Classical unlabeled-graph enumeration may already contain the 1117 order-ten graph type count"
+      },
+      {
+        "assessment": "NOT_IDENTICAL_CLAIM_FROM_SUMMARY; UNCHECKED_FULL_TEXT_PRIORITY_RISK",
+        "evidence": [
+          "Abstract-summary theorem: vertex colors first fail to match true automorphism orbits at eight vertices, two biconnected examples.",
+          "A discrepancy between color classes and automorphism orbits does not logically entail two nonisomorphic 1-WL-equivalent graphs."
+        ],
+        "identifier_or_url": "2026-10-18 public mathematical research record",
+        "material_read": "Published search-index title and abstract summary only; full text could not be retrieved",
+        "method": "Semantic scholarly result index; archived repository full-text request unavailable",
+        "title": "The first biconnected outerplanar counting-refinement obstructions",
+        "trigger": "Closest archived semantic-search result uses the same outerplanar graph family and color refinement"
+      },
+      {
+        "assessment": "EXISTENCE_WITNESS_COVERED_BUT_NOT_FIVE_PAIR_COMPLETE_CENSUS",
+        "evidence": [
+          "Presentation independently depicts a known ten-vertex plain CR ambiguity; no checked full five-pair classification."
+        ],
+        "identifier_or_url": "https://disco.ethz.ch/courses/fs24/seminar/talks/12_03_Outerplanar.pdf",
+        "material_read": "Presentation slide with ten-vertex counterexample figure, not an exact all-order table",
+        "method": "Public presentation PDF figure inspection",
+        "title": "Earlier outerplanar graph-refinement presentation",
+        "trigger": "Historical earlier ten-vertex witness raises priority question"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "368e7995-8a27-4076-b8f0-99c3abff8451",
+  "value": {
+    "rationale": "The least size of an indistinguishable pair for ordinary 1-WL in the natural biconnected outerplanar graph class is a structurally significant threshold, motivated by a recent result showing that individualizing one vertex restores identification. The exhaustive enumeration classifies all boundary-order ambiguities and quantifies the precise gap between graph types and 1-WL classes, distinguishing a complete natural census from a routine recount of already-known isomorphism types or a single known counterexample. The sharp cutoff and all five pairs can inform tests of graph isomorphism heuristics and expressivity on outerplanar graphs.",
+    "status": "PASS"
+  }
+}
