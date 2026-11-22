@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The initial deletion-prefix phase is congruent to the first kept letter. Because no further deleted letter can match any of the next q-1 source symbols, a full cyclic rotation is forced. This repeats after every kept q-block. Deletion counts before/between blocks have least nonnegative residues, yielding necessity of E_q(s)<=qk. The explicit deletion/retention construction using exactly the minimum phase increments, then deleting any residual suffix, proves sufficiency. Unique first letters of rotations and a bijection between phase sequences and bounded digits prove exact counting. Maximizing the digit sum gives sharp threshold; standard iid CLT gives the stated fixed-q limit. Boundary m=0,k=0 covered. Exact residual sets matched positional masks for 56 cases; an independent DP and coefficient convolution matched for 112 cases. Finite checks corroborate, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2603.20790v1 full-text Section 3 algorithm works for any finite input; it does not state a closed multi-period formula",
+        "The published two-variable alternating theorem is restricted to two letters",
+        "The indexed embedding-multiplicity theorem counts embeddings of target subsequences and does not condition the deleted subsequence to be P^k"
+      ],
+      "reasoning": "General computational algorithms are broader in possible inputs but do not imply the all-parameter structural characterization without the new forced-phase argument. The binary theorem is broader in deletion budgets but not alphabet, and the permutation one-copy theorem is broader in alphabet but not deletion budgets. The new assertion is not a direct corollary of either.",
+      "searches": [
+        "permutation powers complementary factors general k copies deleted q-ary bounded composition binomial tail",
+        "complement scattered factors periodic run block powers (0^r1)^n deleting same pattern",
+        "2026 paper complement scattered factors general algorithm permutation power shuffle exact number"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.20790v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-an-exact-run-formula-for-complements-of-alternating-binary-subse--53b12846b520",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997",
+      "Phase rigidity and exact complementary-subsequence capacity of permutation powers (available complete manuscript)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Complete published binary result: |C((ab)^(m+k),(ab)^k)| is sum_{j<=2k} binom(m,j)",
+        "Existing single-period permutation-power result: |C(P^(m+1),P)| = binom(m+q,q)-m",
+        "Published embedding-multiplicity result counts targets u with a specified number of embeddings in P^k, rather than residuals when u=P^k is deleted",
+        "New constructive phase criterion: E_q(s)<=qk for all m,k and q>=3"
+      ],
+      "reasoning": "The earlier binary count equals this q=2 specialization, and the single-period formula equals this k=1 specialization. Their statements do not imply counts for q>=3 and k>=2; in particular the full q-ary support threshold k=ceil((q-1)m/q) is unavailable from either restricted result. The embedding histogram lacks the complementary-shuffle constraint. Therefore the joint parameter range and structural characterization survive the closest implication comparisons.",
+      "searches": [
+        "\"complement scattered factors\" \"permutation\" \"copies\" 2026",
+        "q-ary complement scattered factors deletion P^k from P^(m+k) coefficient (1+x+...+x^(q-1))^m tail",
+        "permutation powers complementary factors general k copies deleted q-ary bounded composition binomial tail",
+        "all alphabet multi copy complement scattered subsequences repeated permutation word (012...)^n remove (012...)^k count polynomial tail"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adamson–Fleischmann–Huch, arXiv:2603.20790v1, Sections 3–5: general complement operator and algorithm, singleton/self-shuffle results",
+        "Published binomial-tail law and exact alternating binary run law both yield the q=2 special case",
+        "Existing complete single-deleted-period permutation-power proof yields the k=1 slice"
+      ],
+      "reasoning": "Same language can equivalently be stated as shuffle membership P^(m+k) in P^k shuffled with a word of m cyclic rotations. An apparent opposite-phase binary variant reduces to the known same-phase case by stripping forced boundary symbols, so is not separately claimed. The new criterion addresses independent m,k and alphabet size at least three, where neither known restricted theorem establishes the whole statement.",
+      "searches": [
+        "\"complement scattered factors\" \"permutation\" \"copies\" 2026",
+        "deleting reverse alternating subsequence (10)^k from (01)^n complementary residual words",
+        "q-ary complement scattered factors deletion P^k from P^(m+k) coefficient (1+x+...+x^(q-1))^m tail",
+        "two alternating words opposite phase complementary embeddings residual language rational enumeration",
+        "phase expenditure exact count repeated permutation complement shuffle bounded uniform digits"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus ranked searches returned the binary alternating binomial-tail records and the permutation-power embedding multiplicity record, not a table asserting the present all-parameter counts",
+        "For q=3, m=4, k=2 the present count is 76; for q=4, m=4, k=2 it is 221; for q=5, m=3, k=2 it is 121; these were directly computed by separate exact programs"
+      ],
+      "reasoning": "No indexed exact table covering the stated multi-alphabet multi-period deletion-complement count was found. Search failure alone is not uniqueness proof; exact computed values are corroboration, not a priority certificate.",
+      "searches": [
+        "q-ary complement scattered factors deletion P^k from P^(m+k) coefficient (1+x+...+x^(q-1))^m tail",
+        "cyclic rotation concatenation residuals shuffle of repeated permutations exactly q-ary cumulative phase increments",
+        "uniform q-ary digits threshold complement scattered factors powers",
+        "Bounded-digit law for complements of repeated permutation words exact C(P^(m+k), P^k), q-ary phase rotations cumulative increments"
+      ]
+    },
+    "rationale": "The 2026 motivating article defines complement scattered factors and computes arbitrary finite instances algorithmically but does not formulate this complete all-q, all-k repeated-permutation phase language. Published binary results cover q=2 for all m,k; an available permutation-power theorem covers q>=3 only at k=1. Their union does not yield the joint parameter range q>=3, k>=2 by statement implication. The independent embedding-multiplicity histogram concerns a different observation, and available full texts do not assert this complement set. Residual risk is an unindexed earlier shuffle-quotient formulation.",
+    "residual_risks": [
+      "Unindexed classical shuffle-quotient identities could give an equivalent q-ary generalization; public search is not a universal novelty proof.",
+      "published-finding corpus ranked search is nonexhaustive; a mathematically equivalent record might use unrelated vocabulary.",
+      "The later arXiv versions or inaccessible theses could contain an equivalent specialization despite the checked v1 text and indexed sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the operator and computational algorithms; checked statements do not characterize C(P^(m+k),P^k) by q-ary phase digits",
+        "evidence": [
+          "Definition 6 states C(w,u) as shuffle complements",
+          "Algorithm 1 computes a finite C(w,u) via a dynamic program",
+          "Theorem 4.5 concerns singleton self-shuffles, not a general all-period formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+        "material_read": "Introduction, Section 2 definitions, Section 3 algorithm, Section 4 general structural and self-shuffle theorems, conclusion-facing discussion",
+        "method": "Read accessible arXiv HTML full text, including lines 25–143 and 426–654 and relevant intervening theorem summaries",
+        "title": "(Sets of) Complement Scattered Factors",
+        "trigger": "Most relevant original definition and general algorithms; possible broad coverage"
+      },
+      {
+        "assessment": "Covers q=2 and proves binomial tail and full-support cutoff m<=2k; does not claim any alphabet with q>=3",
+        "evidence": [
+          "Theorem explicitly fixes two distinct letters a,b",
+          "Remainders split into ab/ba blocks and count sum_{j<=2k} binom(m,j)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92",
+        "material_read": "Complete RESULT.md: theorem, proof, boundaries, relationship, limitations",
+        "method": "Read public GitHub repository file content",
+        "title": "Binomial-tail law for complements of alternating words",
+        "trigger": "Exact same complement operation and two independent repetition parameters in the binary case"
+      },
+      {
+        "assessment": "Same binary specialization; not stronger q-ary coverage",
+        "evidence": [
+          "Explicitly states W=(01)^(k+r) and U=(01)^k",
+          "Every remainder consists of 01/10 blocks with a bounded number of 10 runs"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-an-exact-run-formula-for-complements-of-alternating-binary-subse--53b12846b520",
+        "material_read": "Complete RESULT.md: proof and enumeration",
+        "method": "Read public GitHub repository file content",
+        "title": "An exact run formula for complements of alternating binary subsequences",
+        "trigger": "Potential equivalent binary formulation with maximal reversed-block runs"
+      },
+      {
+        "assessment": "Counts embeddings of arbitrary target words, not complementary residuals when a prescribed P^k is deleted; no statement implying the present phase language",
+        "evidence": [
+          "Multiplicity E_{q,k}(u) depends on weak descents of u",
+          "The target u in that theorem is the embedded rather than the surviving word"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997",
+        "material_read": "Complete RESULT.md: theorem, proof and limitations",
+        "method": "Read public GitHub repository file content",
+        "title": "Exact embedding-multiplicity spectrum of cyclic permutation powers",
+        "trigger": "Same permutation-power host and arbitrary-length subsequence counts"
+      },
+      {
+        "assessment": "Includes q>=3 but fixes U=P; its phase language 0*1*...*(q-1)*0* is the k=1 slice, not the general k>=2 language",
+        "evidence": [
+          "Cardinality binom(m+q,q)-m for deletion U=P",
+          "Explicit limitation excludes arbitrary deleted subsequences and multiple removed periods"
+        ],
+        "identifier_or_url": "accessible mathematical manuscript: one deleted period",
+        "material_read": "Complete theorem and proof of the k=1 case",
+        "method": "Read accessible original claim and RESULT.md solely for statement implication comparison",
+        "title": "Phase rigidity and exact complementary-subsequence capacity of permutation powers",
+        "trigger": "Own available closest full-text result for deduplication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b24b0f8d-cc3a-4b66-9b90-229769f1fe36",
+  "value": {
+    "rationale": "The precise observation is the inverse-shuffle/deletion complement of a prescribed repeated period, a canonical family motivated by the newly defined complement scattered-factor operator. The all-parameter q-ary phase language determines every survivor set and its exact size, a sharp full-support threshold, and its probabilistic transition. The joint q>=3,k>=2 regime was not obtained by merely substituting alphabet size into the known binary argument; it requires a structural forced-block lemma applicable to all cycles. No arbitrary numerical cutoff or isolated unmotivated case is used; remaining limitations are explicit.",
+    "status": "PASS"
+  }
+}
