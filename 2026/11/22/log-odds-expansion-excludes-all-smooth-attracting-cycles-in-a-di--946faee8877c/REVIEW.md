@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact polynomial identity \(x(1-x)f'(x)=f(x)(1-f(x))+(f(x)-x)^2\) has been reconstructed directly for each permitted constant-probability branch. Log-odds conjugation gives a factor no smaller than one, and cancellation over any smooth periodic cycle gives strict product expansion unless the cycle is fixed. The nontrivial rational two-cycle was checked independently and the finite checker reproduces the exact arithmetic. Finite tests support arithmetic only; the proof covers every allowed prime period.
+
+**Originality — PASS within inspected evidence.** The originating 2021 preprint studies this exact model and proves parameter-dependent dynamics and existence of a two-cycle without the all-period multiplier conclusion. The closest stronger-looking precedent is Rozikov and Usmonov's 2020 one-cut model, which **does** prove all its periodic points repelling but does so under pointwise derivative expansion not satisfied by the present model. Different switching thresholds and allowed branch parameters prevent their theorem from implying the asserted three-branch result. Unindexed all-partition log-odds arguments and later revisions are residual priority risks, not evidence of noncoverage.
+
+**Value — PASS.** The original map is a concrete population model in which existing theorems explicitly exhibit oscillatory cycles yet do not classify stability across all possible periods. The multiplier formula gives a global, quantitative obstacle to any smooth stable periodic state, including parameter choices where local Euclidean derivatives are contractive; this is not merely a recalculation of the known two-cycle. It does not claim global dynamics outside those cycles.
+
+Self-review: passed. Independent audit: not yet performed.
