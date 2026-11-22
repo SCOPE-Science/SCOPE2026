@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-19.md",
+      "INDEPENDENT_AUDIT_2026-11-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-`verify.py` runs with the Python 3 standard library. Execute `python3 verify.py` from the directory containing this document. Its output is recorded exactly in `verification_output.txt`.
+## correctness
 
-The verifier enumerates the quotient cell type associated with every support tuple of positive sorted-row difference coordinates, and chooses one or two sheets according to whether the original column stabilizer contains an odd permutation. It then generates the signed incidence differential from the product-simplex facets, tracking the parity of the released column when an interval's terminal coordinate is deleted. All consecutive integer boundary products are zero in the verified cases. Homology ranks are computed independently modulo 2, 3 and 5, and agree with the claimed single top homology rank. A selected square submatrix of the two-term integer difference differential is checked to be triangular with unit diagonal, as predicted in the proof.
+PASS
 
-The tested cases are every pair \(2\le m\le5\), \(m+1\le n\le\min(m+4,8)\), fifteen pairs. The zero-dimensional case \(m=n\) is handled directly by bijective coloring orbits and does not require a finite homology computation. Computer checks of fifteen pairs are not exhaustive proofs for unbounded parameters; the general proof uses the explicit orbit model, the uniform integer triangular-matrix argument, and classical homotopy results. No independent mathematical audit has been performed.
+Sorted row weights model S_n orbit chamber B as product-simplex union, with straight-line contraction. Odd column stabilizers exactly where two columns coincide, producing parity double cells only at interval-support compositions n or n−1. Difference cellular chain D_d=Z^{C(n-1,m-1)}, D_{d−1}=Z^{C(n-2,m-1)} with boundary ±1 on decrement coordinates. Selecting columns b+e_m gives triangular unimodular submatrix, so D has free top homology C(n-2,m-2). For d≥2 the known Hom(K_m,K_n) wedge theorem and Armstrong 3-cycle fixed points imply pi1 of alternating orbit zero; Whitehead yields wedge of S^d. d0 and d1 separately handled.
+
+## originality
+
+PASS
+
+Previous two-sided S_m×S_n character formula proves precisely the A_n rational top Betti count C(n−2,m−2), but not integral quotient homology, torsion exclusion, pi1 or actual wedge type. Babson–Kozlov gives unquotiented wedge; older block-permutation action is source-label, not target alternating-color action.
+
+## value
+
+PASS
+
+An integral upgrade of an explicit rational quotient character calculation to a uniform topological homotopy classification with a natural unimodular boundary and fundamental-group argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
