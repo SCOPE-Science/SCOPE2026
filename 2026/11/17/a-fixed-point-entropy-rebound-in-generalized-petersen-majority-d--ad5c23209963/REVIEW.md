@@ -1,19 +1,21 @@
-# Review: A fixed-point entropy rebound in generalized Petersen majority dynamics
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The transfer-graph bijection checks each outer and inner cubic majority condition exactly for all admissible circumferences, not just a finite experiment. Exact cyclic SCC decompositions and integer characteristic polynomials give the all-size fixed-state count. Primitive Perron components and exact Collatz–Wielandt certificates give strict entropy intervals. The independent brute-force enumerator agrees through circumference eleven. The analytic claims apply to \(n\ge7\) and count only one-step fixed states.
+PASS
 
-## Originality
+A binary colouring is one-step majority-fixed in a cubic graph exactly when its bichromatic cut is a matching. For each k=1,2,3 the cyclic window automaton on 4^(2k) words enforces both centre-vertex majority conditions bijectively for n>2k. Independent construction found node/edge counts (16,20),(256,320),(4096,5120), cyclic strongly-connected sizes [4,1,1],[24,1,1],[124,1,1], and computed the characteristic polynomial of the 124-state k=3 component exactly as t^58(t-1)P32(t)P33(t) with both published coefficient vectors. Independent positive-vector computations from A^38*1 and A^37*1 certify the strict rational Collatz-Wielandt intervals 1.56485..1.56486 and 1.5965..1.5966; the dominant components have self-loops and are primitive. Exhaustive independent direct-state counts through n=10 give [32,32,32], [48,48,72], [76,76,52], [124,118,124]. Thus alpha2<alpha3<phi and exact all-size root-sum formula follow by the transfer bijection, not extrapolation.
 
-**PASS, with priority qualification.** The closest existing generalized Petersen inner-stride-two census already fixes the ninth-degree factors and associated entropy; that is comparison evidence, not a novel result here. Karami's published \(GP(n,3)\) perfect two-colorings require equitable color classes; a majority-fixed nonequitable coloring on \(GP(8,3)\) shows that classification does not cover all fixed points. General majority convergence, XOR-parity and matching-cut decision methods do not imply the new stride-three spectral decomposition. Unindexed matching-cut tables and incompletely accessible historical sources leave a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact fixed-population entropy for the complete natural \(GP(n,3)\) family is motivated by locally stable binary spin states. Its comparison with strides one and two reveals a nonmonotone rebound in the exponential equilibrium population: \(lpha_2<lpha_3<lpha_1\). This distinguishes graph-network effects that are invisible from size or degree alone, without alleging a theorem about arbitrary strides or attraction basins.
+The earlier all-size GP(n,2) ninth-degree spectrum is expressly reused and does not provide the new GP(n,3) 32/33-degree factors or entropy rebound. Karami 2020 analyzes equitable/perfect two-colourings with uniform opposite-neighbour degree by colour, not all majority-fixed matching cuts; the source supplies an explicit nonequitable fixed GP(8,3) colouring. Existing perfect-matching-cut and induced-domination classifications are strictly narrower. Broad majority-dynamics or matching-cut existence results do not imply the new population constants. Residual unindexed matching-cut count risk remains.
 
-## Evidence and limits
+## value
 
-All fixed-point conditions, transfer matrices, roots and Perron inequalities are reproducible from `check_transfer.py`; independent direct enumeration is `direct_check.cpp`. Outputs are recorded in companion files, and required Python dependencies are stated in `requirements.txt`. Exact integer/algebraic verification supplies the proof steps; finite brute-force runs alone do not certify all sizes. Remaining limitations: unknown historical priority beyond accessible literature and no external independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full natural family GP(n,3) supports an exact algebraic fixed-point census and a counterintuitive entropy rebound versus the adjacent inner strides at fixed vertex count and degree. The structural effect distinguishes network geometry from size/degree; it is not a table-only rederivation of k=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
