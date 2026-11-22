@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is arbitrary real \(n\)-tuples with \(n\ge2\), cyclic windows \(1\le w\le n\), and unweighted Gini seminorm over all unordered pairs. Every local affine selection branch is covered. The cut-level formula is exact, not merely an estimate; for short windows the occupancy cap proves the quantitative upper bound, and for long windows the unique global peak supplies the stronger exclusion of middle cut sizes. The single-peak perturbation realizes the sharp ratio for each \((n,w)\). The quotient-by-constants and full-window zero case are handled explicitly. The finite exact checker corroborates but does not replace this proof.
+PASS
 
-## Originality — PASS, with historical risk
+A cyclic width-w maximum is continuous piecewise affine in input, with strict-order slopes given by site selectors. For selector counts c_j, exact Gini coarea makes the norm the maximum t(n-t)/[k(n-k)] on cuts S, with t=sum_{j in S} c_j. For 2w<=n, each c_j<=w, and the cases kw<=n/2 and kw>n/2 yield the stated upper w(n-w)/(n-1) by the occupancy and quadratic bounds. For 2w>=n the unique global peak wins all w windows containing it, forcing any output cut count t either <=n-w or >=w. This gives numerator at most w(n-w), denominator at least n-1. A small perturbation of one unique global maximum changes exactly w output coordinates, giving sharp equality. The n=2/w=n degenerate cases were checked. Fresh exhaustive strict-order selection and all-cut rational tests for all n=2..6, all 1<=w<=n matched the formula. Finite cases are corroboration only.
 
-Inspected the 1987 primary max/min order-statistic paper, the accessible 2014 arXiv graph-morphology reader and the public primary RESULT.md on finite-path sliding extrema. The latter is an exact **adjacent-edge path** variation theorem with truncated endpoints; it is not a Gini all-pairs theorem on cycles. A previously accessible cyclic-max result computes centered-\(L^2\) rather than Gini stability. The claimed coefficient is not a corollary of generic norm comparisons. Searches for direct formulas and alternative aliases returned no equivalent. Unindexed prior art and incompletely inspected older literature remain risks, so independent priority validation is needed before any publication claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A running maximum can preserve order and obey strong one-input variation statements while amplifying the *difference of two signals* in a natural pairwise-dispersion geometry. The exact factor \(w(n-w)/(n-1)\) resolves the all-size/all-window stability problem, including a sharp four-site onset, two nontrivial nonexpansive widths and linear-in-\(n\) optimal amplification. The new occupancy-cut lemma and global-winner argument provide structural understanding and reusable methods for coordinate-selection filters.
+PASS (bounded best-of-knowledge). Flat dilation, sliding/rolling/running maximum and cyclic neighborhood supremum are equivalent operator aliases; the searched sources develop filter structure but not this exact all-pair Gini modulus. The proof requires a selection-count/cut argument and a long-window restriction; neither is an immediate corollary of order-statistic morphology identities. Material full texts and relevant primary sections checked; remaining historical-equivalence risks retained.
 
-## Sources, proof limits, and verification
+## value
 
-Scientific evidence: Maragos–Schafer (1987), DOI 10.1109/TASSP.1987.1165254; Najman–Cousty (2014), arXiv:1404.7748; the fully read public adjacent-path-variation RESULT.md at https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2. Exact finite script `verify.py` exhausts strict selector chambers through eight sites, then tests integer occupancy inequalities and exact-rational pairs/witnesses in larger finite ranges. The unrestricted theorem is proved in `RESULT.md`, not inferred from testing. Only the uniform cyclic scalar case is claimed; neither the literature search nor the review constitutes independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum filter is fundamental in discrete mathematical morphology; its exact two-input behavior can differ radically from one-input order properties and adjacent-edge variation. The sharp n/4 Gini amplification, exact window nonexpansivity set and single-peak extremizer form a useful structural stability theorem with a clearly motivated filter and seminorm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

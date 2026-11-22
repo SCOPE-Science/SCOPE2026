@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Mathematical reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3; the script requires no external packages. This code checks all strict input coordinate orders for dimensions two through eight, computes all induced binary-cut operator-norm candidates for each such order, tests an integer occupancy/global-winner bound over dimensions through 120, and compares exactly rational arbitrary two-input pairs and sharp one-peak witnesses.
+## correctness
 
-Actual command output from the reviewed implementation:
+PASS
 
-```
-EXACT_ALL_ORDER_CHAMBER_GINI_NORMS_PASSED 362878
-EXACT_OCCUPANCY_AND_GLOBAL_PEAK_BOUNDS_PASSED 1537066
-EXACT_ARBITRARY_TWO_INPUT_INEQUALITIES_PASSED 1672
-EXACT_GLOBAL_PEAK_ATTAINMENT_PASSED 209
-ALL_CYCLIC_DILATION_GINI_CHECKS_PASSED
-```
+A cyclic width-w maximum is continuous piecewise affine in input, with strict-order slopes given by site selectors. For selector counts c_j, exact Gini coarea makes the norm the maximum t(n-t)/[k(n-k)] on cuts S, with t=sum_{j in S} c_j. For 2w<=n, each c_j<=w, and the cases kw<=n/2 and kw>n/2 yield the stated upper w(n-w)/(n-1) by the occupancy and quadratic bounds. For 2w>=n the unique global peak wins all w windows containing it, forcing any output cut count t either <=n-w or >=w. This gives numerator at most w(n-w), denominator at least n-1. A small perturbation of one unique global maximum changes exactly w output coordinates, giving sharp equality. The n=2/w=n degenerate cases were checked. Fresh exhaustive strict-order selection and all-cut rational tests for all n=2..6, all 1<=w<=n matched the formula. Finite cases are corroboration only.
 
-The occupancy loop checks extremal and midpoint candidate sizes, rather than every integer cut size for each large parameter; a concavity reduction in the analytical proof justifies that choice. All experiments are finite. The proof of the infinite family is in `RESULT.md`, via cut coarea, two exact algebraic inequalities, the long-window global-maximum restriction, and the explicit sharp witness. Neither external independent review nor independently hosted certification has taken place. Primary literature was partially available; priority remains subject to independent checking.
+## originality
+
+PASS
+
+PASS (bounded best-of-knowledge). Flat dilation, sliding/rolling/running maximum and cyclic neighborhood supremum are equivalent operator aliases; the searched sources develop filter structure but not this exact all-pair Gini modulus. The proof requires a selection-count/cut argument and a long-window restriction; neither is an immediate corollary of order-statistic morphology identities. Material full texts and relevant primary sections checked; remaining historical-equivalence risks retained.
+
+## value
+
+PASS
+
+The maximum filter is fundamental in discrete mathematical morphology; its exact two-input behavior can differ radically from one-input order properties and adjacent-edge variation. The sharp n/4 Gini amplification, exact window nonexpansivity set and single-peak extremizer form a useful structural stability theorem with a clearly motivated filter and seminorm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
