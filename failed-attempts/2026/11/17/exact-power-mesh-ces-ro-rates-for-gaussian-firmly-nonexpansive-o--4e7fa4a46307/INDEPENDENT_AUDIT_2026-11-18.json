@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T01:58:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.25491",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-ces-ro-trichotomy-for-regularly-varying-gaussian-meshes--9d8d66f59465",
+        "Frozen RESULT.md and check_gaussian.py"
+      ],
+      "rationale": "Bauschke–Tung Gaussian orbit x_n=rho_n u(t_n) is invoked with exact bounded mesh admissibility; for alpha in (1/2,1), t_n diverges, squared mesh summable and rho_n->exp[-delta^2 zeta(2alpha)]. Exact Gram kernel e^{-(t_i-t_j)^2}. At index i/N->u, displacements over O(N^alpha) indices converge to delta*z/u^alpha; Gaussian Riemann sums give row limit rho_infty^2 sqrt(pi)u^alpha/delta. Uniform row bound O(N^alpha) permits dominated convergence, yielding N^(1-alpha)||Y_N||^2->rho_infty^2 sqrt(pi)/[delta(1+alpha)]. Sampled Gram sums corroborate but not proof.",
+      "residual_risks": [
+        "The Gaussian FNE realization is a cited primary theorem, not independently rebuilt as a global map. Numerical ratios converge slowly for small delta because correlation widths are long."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier result handles arbitrary admissible regularly varying increment sequences of index -alpha, not just pure powers, plus alpha=1 finite-density regimes."
+        ],
+        "reasoning": "Every audited power mesh satisfies earlier admissibility (indeed audited delta bound is sufficient) and n d_n diverges, so the stronger theorem covers the entire theorem, not just similar numerics.",
+        "searches": [
+          "Resultary: Gaussian firmly nonexpansive Cesaro means shifted Gaussians d_n n^-alpha exact asymptotic Gram L2",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-ces-ro-trichotomy-for-regularly-varying-gaussian-meshes--9d8d66f59465"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-ces-ro-trichotomy-for-regularly-varying-gaussian-meshes--9d8d66f59465",
+        "https://arxiv.org/abs/2605.25491"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorem lim n d_n||Y_n||²=rho_inf²sqrt(pi)/(1+alpha) and rho_inf=e^-sum d_k². For d_n=delta n^-alpha, rho_inf=e^-delta²zeta(2alpha)."
+        ],
+        "reasoning": "Algebraic substitution yields audited N^(1-alpha)||Y_N||²=rho_inf²sqrt(pi)/[delta(1+alpha)]. No restriction of later theorem evades earlier hypotheses. Thus O fails notwithstanding C.",
+        "searches": [
+          "Resultary: Gaussian firmly nonexpansive Cesaro means shifted Gaussians d_n n^-alpha exact asymptotic Gram L2",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-ces-ro-trichotomy-for-regularly-varying-gaussian-meshes--9d8d66f59465",
+          "https://arxiv.org/abs/2605.25491"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier proof and theorem give n d_n||Y_n||² -> rho_inf² sqrt(pi)/(1+alpha); d_n=delta n^-alpha means n d_n=delta n^(1-alpha)."
+        ],
+        "reasoning": "Multiply earlier limit by 1/delta to recover the audited coefficient exactly. The same Gaussian curve, normalization, norm factor, alpha range and parameter delta occur.",
+        "searches": [
+          "Resultary: Gaussian firmly nonexpansive Cesaro means shifted Gaussians d_n n^-alpha exact asymptotic Gram L2",
+          "Resultary: Sharp Cesàro trichotomy for regularly varying Gaussian meshes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier RESULT.md explicitly prints the exact norm asymptotic for d_n=c n^-alpha, with zeta factor exp[-c²zeta(2alpha)]."
+        ],
+        "reasoning": "This is an exact prior equation, not an absent search hit, approximate table or guess; comparison is between identical normalized limits.",
+        "searches": [
+          "Resultary: Gaussian firmly nonexpansive Cesaro means shifted Gaussians d_n n^-alpha exact asymptotic Gram L2",
+          "Resultary record 2026/10/18/...9d8d66f59465"
+        ]
+      },
+      "rationale": "Decisively covered. Resultary published 2026-10-18 Sharp Cesàro trichotomy for regularly varying Gaussian meshes contains exact theorem lim_(n->infty) n d_n ||Y_n||^2 = rho_infty^2 sqrt(pi)/(1+alpha) for ALL admissible regularly varying meshes with n d_n->infty, and explicitly states the same specialization d_n=c n^-alpha (1/2<alpha<1), with identical zeta-weighted coefficient and norm equivalent. It also treats alpha=1 finite-density limits. The audited power-mesh law is precisely a special case (with compatible small-mesh bound), not a new independent result. The original self-review missed the 2026-10-18 record and compared only weaker Bauschke–Tung and harmonic-endpoint sources.",
+      "residual_risks": [
+        "No historical uncertainty can negate complete exact earlier published implication. Publication chronology explicit: 2026-10-18 before 2026-11-17."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_WHOLE_CLAIM",
+          "evidence": "Exact n d_n norm-squared limit and explicit d_n=c n^-alpha equivalent include same rho_inf factor; strict superset.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-ces-ro-trichotomy-for-regularly-varying-gaussian-meshes--9d8d66f59465",
+          "material_read": "Full published RESULT.md from 2026-10-18 retrieved from GitHub and read including theorem, proof row limits, assumptions, explicit power-law specialization",
+          "method": "GitHub primary published record, blob adde76a2b5be4b12ffd747f7bbe87f8f22e7a02b",
+          "title": "Sharp Cesàro trichotomy for regularly varying Gaussian meshes",
+          "trigger": "Earlier broader same operator, Gaussian kernel, normalization and alpha range"
+        },
+        {
+          "assessment": "BACKGROUND_CONSTRUCTION",
+          "evidence": "Constructs firmly nonexpansive orbit and qualitative strong behavior; independent all-mesh exact rate belongs to earlier published 2026-10-18 record.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.25491",
+          "material_read": "Accessible complete article text on Gaussian sequence, mesh conditions and Cesàro estimates examined; main original rate source credited",
+          "method": "Primary arXiv text",
+          "title": "Cesàro means of firmly nonexpansive iterates need not converge strongly",
+          "trigger": "Primary construction whose orbit is used"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-ces-ro-trichotomy-for-regularly-varying-gaussian-meshes--9d8d66f59465"
+      ],
+      "rationale": "The exact exponent and coefficient are mathematically meaningful but are already printed as a power-mesh corollary of a stronger regular-variation theorem, not an unknown fact. The new article repeats a solved special case and contributes no independent new lemma/structural boundary or application beyond re-derivation; reproducible computations and alternate proof do not independently justify value.",
+      "residual_risks": [
+        "A future distinct generalization could be valuable, but it is not contained in the unchanged final claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The Gaussian FNE realization is a cited primary theorem, not independently rebuilt as a global map. Numerical ratios converge slowly for small delta because correlation widths are long.",
+    "No historical uncertainty can negate complete exact earlier published implication. Publication chronology explicit: 2026-10-18 before 2026-11-17.",
+    "A future distinct generalization could be valuable, but it is not contained in the unchanged final claim."
+  ],
+  "schema_version": 1
+}
