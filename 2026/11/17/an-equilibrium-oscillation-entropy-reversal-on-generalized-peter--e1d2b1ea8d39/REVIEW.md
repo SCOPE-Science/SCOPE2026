@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four local majority equalities precisely encode a pair of alternating time slices. Their order-four spatial overlap graph therefore counts every and only two-step periodic labelled configuration on each valid circumference. The full finite graphs, their cyclic SCCs and exact Perron interval inequalities are reproducibly checked by a standalone generator. A separate direct full-state C++ enumeration agrees for both inner steps and seven circumferences. The Perron asymptotics follow because each dominant SCC is irreducible and contains a loop. The prism comparison is established independently from its fixed-coloring characterization and bipartite double cover. The finite enumeration does not substitute for the uniform transfer proof.
+## correctness
 
-**Originality — PASS with historical-priority qualification.** The finite Petersen and dodecahedral cases and all-step-two fixed-count entropy have predecessor coverage; they are expressly excluded as independent novelty claims. Existing prism/Möbius formulas cover the step-one comparison only. The closest inspected general majority-dynamics paper proves period restrictions and studies probabilistic graph ensembles, rather than the all-size step-two primitive orbit count. The reviewed new statement is the exact step-two two-cycle transfer and the strict *opposite* entropy effect between equilibria and two-cycles. See the scientific evidence comparisons and residual risks in `AUDIT.json`.
+PASS
 
-**Mathematical value — PASS.** The generalized Petersen construction is a natural fixed-degree family containing the Petersen graph and dodecahedron. Holding graph order and degree fixed while changing only the inner-ring step makes the comparison intrinsic, not an arbitrary parameter selection. The provable reversal between exponentially declining equilibrium ratio and exponentially increasing two-cycle ratio is a structural dynamical effect. Full two-cycle counts at every circumference and a certified exponential growth rate provide reusable invariants beyond a finite graph census.
+The five-column space–time encoding s_i=(a_i,b_i,A_i,B_i) implements simultaneously M(x)=y and M(y)=x, with inner neighbors indexed i±2 and outer i±1. Closed length-n walks in the 16^4-state overlap graph bijectively encode labelled configurations fixed by M² for n≥5; the 4^4 fixed graph similarly encodes Fix(M). Rebuilding the full directed graphs from the displayed local truth constraints gives exactly 65,536 states/102,400 edges and 256 states/320 edges. Independent iterative SCC decomposition gives recurrent cyclic components of sizes 1,1,778 (2202 internal edges) and 1,1,24 (36 edges), so the trace identities for all n≥5 follow, not merely for sampled circumferences. The 778- and 24-state blocks are strongly connected with loops, thus primitive. Independent arbitrary-integer calculations on v=R^80 1 verify 264157 v_i<100000(Rv)_i<264158 v_i and 156485 v_i<100000(Rv)_i<156486 v_i coordinatewise, giving exact Perron intervals. The published and independently reconstructed prism Lucas/period-two formulas have growth φ and φ². As α<φ<φ²<β, the opposite fixed- and primitive-two-cycle exponential comparisons follow. All counts concern immediate periodic labelled states, not attraction basins; short n checks do not substitute for the transfer proof.
 
-The result does not characterize basins or transient times. The highest relevant overlap risks are the already-known fixed-state family and the individual dodecahedral orbit census; neither implies the newly proved all-circumference two-cycle entropy formula. Priority against unindexed or inaccessible older enumerations cannot be eliminated. Numerical spectral work is backed by integer inequalities, not merely floating-point eigenvalues.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed-state census of GP(n,2), its equilibrium entropy, the prism Lucas formulas and the dodecahedral n=10 two-cycle count are already published and explicitly excluded from novelty. The unreported 778-state all-n primitive two-cycle transfer, certified β>φ², and resulting reverse entropy comparison are not implied by these older mathematical statements. Best-of-knowledge with finite literature coverage.
+
+## value
+
+PASS
+
+A sharp all-circumference two-cycle transfer and rigorous 778-state Perron enclosure expose an unexpected same-degree, same-size change of dynamical populations: GP(n,2) has exponentially fewer equilibria but more primitive oscillations than the prism GP(n,1). The exact growth rate β is a natural dynamical invariant not determined by earlier fixed-state tables or a ten-vertex census. The contrast is a mathematically motivated complete-family phenomenon, not an arbitrary small graph count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
