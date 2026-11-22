@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T08:49:27.213754Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read all 7 exact frozen Git source blobs including complete RESULT.md, reviewer file and verify.py; independent Git tree SHA-1 matches assignment.",
+        "Current main branch 7 blob identities match frozen assignment, no changed-source re-audit needed.",
+        "Independent SciPy solve_continuous_lyapunov checks 96 combinations, 0 failures; check file independent_checks.json saved.",
+        "Strong-loss zero-mode recurrence w*a_j+v*a_(j+1)=0 and bipartite D^T D reflection justify endpoint ratio sum for all n, with n=1 treated separately."
+      ],
+      "rationale": "For n>=1 and v,w,kappa>0, the irreducible Jacobi H has simple spectrum and endpoint-cyclic eigenvectors, hence B is Hurwitz and X solves the unique Lyapunov equation. The staggered real-skew gauge and real-symmetric parity decomposition imply the diagonal Gramian is exactly a/kappa+b*kappa (commutant consists of even polynomials in irreducible skew A; cyclicity determines the first row, and L(Z)=D(Z)=0 has only zero solution). Weak-loss eigenbasis cross terms are bounded and reflection symmetry yields a=2n. Strong-loss Schur elimination leaves 2n-1 sites; its paired nonzero eigenmodes have squared endpoint ratios v^2/w^2 and its single zero mode has ratio (w/v)^(2n-2), giving b=(n-1)/(2w^2)+w^(2n-2)/(4v^(2n)). Differentiate positive a/kappa+b kappa to obtain the unique optimum; fixed-ratio term comparison yields both asymptotic regimes. Boundary n=1 correct with no intercell hopping. Independent 96 complex Lyapunov solves n=1..8, four hopping pairs and three rates, with max normalized error 1.8e-13 and max residual 3.6e-13; 48 rate-normalization comparisons to prior exact theorem all agree. Tests corroborate rather than prove general n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior RESULT states general affine-in-loss identity for every simple-spectrum real symmetric finite H and cyclic absorber vector before specializing to the identical dimerized chain.",
+          "Wang–Zhang provides related broad spectral analysis of rank-one local loss, but not needed for direct coverage."
+        ],
+        "reasoning": "The earlier general Gramian lemma supplies a broader mathematical framework and its specific dimerized specialization already matches this entire claim. The later representation through an alternating-parity commutant does not imply a new theorem.",
+        "searches": [
+          "Resultary: Exact average absorption first passage time continuous quantum walk one sink open SSH chain end-to-end rate optimization 2N/kappa + kappa",
+          "Resultary: coherent quantum transport non-Hermitian path with one absorbing boundary exact mean time",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-endpoint-absorption-and-topological-lifetime-scaling-on-fi--a3167f0249f0/RESULT.md",
+          "https://www.researchgate.net/publication/409443321_From_local_weight_selection_to_Zeno_slowdown_in_an_open_Su-Schrieffer-Heeger_chain_with_a_single_local_loss"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-endpoint-absorption-and-topological-lifetime-scaling-on-fi--a3167f0249f0/RESULT.md",
+        "https://github.com/Resultary/2026/commit/ed113a71aad3e55cfea728ab44ffdf65edcdbc13",
+        "https://github.com/SCOPE-Science/SCOPE2026/commit/8cb8a1bf891134a545398237a61440e8980228d3",
+        "https://www.researchgate.net/publication/409443321_From_local_weight_selection_to_Zeno_slowdown_in_an_open_Su-Schrieffer-Heeger_chain_with_a_single_local_loss",
+        "https://arxiv.org/abs/2607.10218",
+        "https://journals.aps.org/pra/abstract/10.1103/99h3-p7rj",
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-finite-path-quantum-absorption-time-and-size-independent-o--ed87558c8217",
+        "https://api.github.com/repos/SCOPE-Science/SCOPE2026/git/trees/1a4171cfcaecad44bb2b84f1d26d8764a7ae9703"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution gamma=kappa/2, m=n, a=v, b=w makes the prior equation literally identical to the submitted mean survival-time theorem.",
+          "Prior gamma* yields submitted kappa*=2 gamma*=sqrt(2n/C_n) because C_n=B_n/2.",
+          "Prior asymptotics exactly match linear time at w<=v and exponential at w>v."
+        ],
+        "reasoning": "Every displayed claimed conclusion is either identical under the scalar rate reparameterization or follows from its positive one-variable quadratic optimization and explicit asymptotic terms. Prior statement logically implies the submitted final claim without extra hypotheses.",
+        "searches": [
+          "Resultary: Exact average absorption first passage time continuous quantum walk one sink open SSH chain end-to-end rate optimization 2N/kappa + kappa",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-endpoint-absorption-and-topological-lifetime-scaling-on-fi--a3167f0249f0/RESULT.md",
+          "https://github.com/Resultary/2026/commit/ed113a71aad3e55cfea728ab44ffdf65edcdbc13",
+          "https://github.com/SCOPE-Science/SCOPE2026/commit/8cb8a1bf891134a545398237a61440e8980228d3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both papers use the identical 2n-site alternating hopping Hamiltonian, start at site 2n and integrate squared no-jump survival for endpoint absorber.",
+          "The generator equivalence under gamma=kappa/2 is exact, with a=v,b=w,m=n.",
+          "The full prior RESULT gives a generic finite Jacobi Gramian affine-in-loss lemma and the same trimmed-chain zero mode."
+        ],
+        "reasoning": "The submitted coefficient 2n/kappa matches prior m/gamma; submitted kappa[(n-1)/(2w^2)+w^(2n-2)/(4v^(2n))] matches prior gamma[(m-1)/b^2+b^(2m-2)/(2a^(2m))]. Same quantifiers and n=1 boundary. Thus exact equivalent formulation.",
+        "searches": [
+          "Resultary: Exact average absorption first passage time continuous quantum walk one sink open SSH chain end-to-end rate optimization 2N/kappa + kappa",
+          "Resultary: Lindblad quantum walk endpoint trap path graph mean survival time exact closed form optimized loss rate Zeno",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-endpoint-absorption-and-topological-lifetime-scaling-on-fi--a3167f0249f0/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously published RESULT gives the closed all-size formula, optimal rate and minimized time for every positive a,b,gamma, not merely a finite table.",
+          "Public Resultary path dated October 26 with Git commit timestamp 2026-11-08T20:01:35Z; source import commit at 2026-11-08T21:55:30Z."
+        ],
+        "reasoning": "The exact answer is in an earlier public mathematical result; no new finite database search can restore originality of this formula.",
+        "searches": [
+          "Resultary: Exact average absorption first passage time continuous quantum walk one sink open SSH chain end-to-end rate optimization 2N/kappa + kappa",
+          "Resultary: Lindblad quantum walk endpoint trap path graph mean survival time exact closed form optimized loss rate Zeno",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-endpoint-absorption-and-topological-lifetime-scaling-on-fi--a3167f0249f0/RESULT.md",
+          "Resultary semantic search by exact title and coefficients"
+        ]
+      },
+      "rationale": "The earlier published finite-dimerized-chain theorem gives exactly the same all-n lifetime, unique absorber optimum and both asymptotic regimes. Its no-jump generator uses -gamma P whereas this one uses -(kappa/2)P, so gamma=kappa/2 produces equality term by term. Prior public mirror commit precedes submission import on 2026-11-08. This is exact prior coverage, not merely a similar study.",
+      "residual_risks": [
+        "Historical precedence here relies on public mirror Git commit timestamps and published full-text equality, not claims of exhaustive bibliographic priority.",
+        "The same theorem appears with a twofold rate normalization, which must not be mistaken for a distinct result.",
+        "The source proof supplies a different parity-commutant argument for affine loss dependence, but the exact final lifetime, optimizer and scaling are covered; no independent new theorem or substantial different mathematical consequence is isolated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE: identical theorem with distinct convention gamma=kappa/2. It was published to Resultary mirror at 2026-11-08T20:01:35Z, before assigned source import at 2026-11-08T21:55:30Z. Earlier record dated 2026-10-26.",
+          "evidence": [
+            "Prior formula T_m(gamma)=m/gamma+gamma[(m-1)/b^2+b^(2m-2)/(2a^(2m))] with same 2m-site alternating open path and endpoint initialization",
+            "Prior proves unique gamma*=sqrt(m/B_m), min=2 sqrt(m B_m), and exponential vs linear regimes",
+            "Set m=n,a=v,b=w,gamma=kappa/2. The generator -iH-gamma P equals the submitted B=-iH-(kappa/2)P, and formulas coincide term by term",
+            "https://github.com/Resultary/2026/commit/ed113a71aad3e55cfea728ab44ffdf65edcdbc13",
+            "https://github.com/SCOPE-Science/SCOPE2026/commit/8cb8a1bf891134a545398237a61440e8980228d3"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-endpoint-absorption-and-topological-lifetime-scaling-on-fi--a3167f0249f0/RESULT.md",
+          "material_read": "Complete RESULT.md including theorem, assumptions, generalized affine-in-loss Lyapunov lemma, strong-loss eigenmode proof, exact optimization, scaling, limitations and cited prior literature",
+          "method": "Direct read of full GitHub file via connected GitHub read action; compared equations after rate normalization; verified GitHub publication commit timestamp",
+          "title": "Exact endpoint absorption and topological lifetime scaling on finite dimerized quantum chains",
+          "trigger": "Resultary semantic search found an earlier record with identical hopping geometry, initial site, absorber, time integral and optimized lifetime"
+        },
+        {
+          "assessment": "Studies finite-dimensional drift spectrum/Liouvillian gap, EPs and large-loss cut-chain spectrum; does not replace the decisive previously published exact endpoint absorption theorem. Not used as an abstract-only noncoverage claim.",
+          "evidence": [
+            "Section VII eqs (82)-(84), (98), (101), (116) concern cut-chain slow eigenvalues and gap, not an integrated specific endpoint-initialized survival time",
+            "Section VIII conclusion focuses on Liouvillian gap, local rapidities, EPs and Zeno slow decay",
+            "Phys. Rev. A 114, 012457, published 2026-07-24, DOI 10.1103/99h3-p7rj"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10218 and https://www.researchgate.net/publication/409443321_From_local_weight_selection_to_Zeno_slowdown_in_an_open_Su-Schrieffer-Heeger_chain_with_a_single_local_loss",
+          "material_read": "Full lawful CC BY 4.0 preprint text via ResearchGate indexed rendering (sections on exact secular equation, weak and strong loss, Zeno spectral reduction, conclusion and disorder appendix); arXiv HTML and PDF endpoints unavailable via web access",
+          "method": "Read accessible complete preprint sections and equation ranges on original CC BY full-text page; searched for survival-time integral, endpoint mean, first passage, loss optimization; compared actual observable",
+          "title": "From local weight selection to Zeno slowdown in an open Su-Schrieffer-Heeger chain with a single local loss",
+          "trigger": "Closest peer-reviewed same SSH chain and rank-one local-loss model"
+        },
+        {
+          "assessment": "Uniform chain result alone only covers the v=w slice, not the all-dimerizations theorem; decisive full text is the earlier dimerized-chain result",
+          "evidence": [
+            "Summary explicitly assumes uniform hopping and gives a site-dependent optimum independent of path length"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-finite-path-quantum-absorption-time-and-size-independent-o--ed87558c8217",
+          "material_read": "Resultary search result theorem summary only; no full-text exclusion asserted",
+          "method": "Semantic search result used for mathematical scope triage",
+          "title": "Exact finite-path quantum absorption time and size-independent optimal sink",
+          "trigger": "Potential broader path absorption result surfaced by Resultary query"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "The exact first-passage statistic was previously derived with all n, a,b,gamma positive and identical endpoint initialization.",
+        "The submitted asymptotic topological separation is stated explicitly in the prior published result.",
+        "The locally independent experiment verifies the same function, not an additional theorem."
+      ],
+      "rationale": "Endpoint capture and optimized irreversible loss in a dimerized quantum path are naturally motivated transport observables. However the all-parameter exact lifetime, optimal sink strength, minimum and sharp linear/exponential regimes are already explicitly established in an earlier published result, including a more general affine-in-loss lemma. The submitted variant changes the absorber-rate convention and proof organization but supplies no independently unknown exact invariant, meaningful new boundary or structural mathematical consequence. Correctness and utility as a benchmark do not make this a distinct valuable mathematical finding.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-endpoint-absorption-and-topological-lifetime-scaling-on-fi--a3167f0249f0/RESULT.md",
+    "https://github.com/Resultary/2026/commit/ed113a71aad3e55cfea728ab44ffdf65edcdbc13",
+    "https://github.com/SCOPE-Science/SCOPE2026/commit/8cb8a1bf891134a545398237a61440e8980228d3",
+    "https://www.researchgate.net/publication/409443321_From_local_weight_selection_to_Zeno_slowdown_in_an_open_Su-Schrieffer-Heeger_chain_with_a_single_local_loss",
+    "https://arxiv.org/abs/2607.10218",
+    "https://journals.aps.org/pra/abstract/10.1103/99h3-p7rj",
+    "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-finite-path-quantum-absorption-time-and-size-independent-o--ed87558c8217",
+    "https://api.github.com/repos/SCOPE-Science/SCOPE2026/git/trees/1a4171cfcaecad44bb2b84f1d26d8764a7ae9703"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No formal Lean proof/expert attestation and no claim thereof; unrestricted correctness is from analytic argument corroborated by finite tests.",
+    "Prior exact identity directly disproves originality and distinct contribution independent of unrelated inaccessible literature.",
+    "Public metadata includes a 1979 antecedent SSH first-public date misattributed to the new finding and internal scope_run_id/record_id; publication requires neutralization without changing original evidence."
+  ],
+  "residual_risks": [
+    "Historical precedence here relies on public mirror Git commit timestamps and published full-text equality, not claims of exhaustive bibliographic priority.",
+    "The same theorem appears with a twofold rate normalization, which must not be mistaken for a distinct result.",
+    "The source proof supplies a different parity-commutant argument for affine loss dependence, but the exact final lifetime, optimizer and scaling are covered; no independent new theorem or substantial different mathematical consequence is isolated."
+  ],
+  "schema_version": 1
+}
