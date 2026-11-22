@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:10:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/16/first-fourier-rank-separation-of-coxeter-antichains-and-order-id--11acb45d3299/RESULT.md@209c12c07fef39bf52004a9f594eec9c8de6b1fc",
+        "2026/11/16/first-fourier-rank-separation-of-coxeter-antichains-and-order-id--11acb45d3299/verify.py@b19153a9c84bfe23d932e0d98f622abdd6744962"
+      ],
+      "rationale": "Enumerated type A1,A2,A3,A4,D4 positive roots in simple-root coordinates and antichains/ideals by independent direct mask predicates. Exact direct Walsh sums across every frequency agree with butterfly transforms. Reproduced counts 2,5,14,42,50; ranks (1,1),(8,8),(46,46),(811,810),(3294,3272), and minimum unrestricted translation-averaged endpoint projection norms A4 3819/512 vs 1901/256, D4 10053/1024 vs 1981/256. Group-translation averaging proves Fourier multiplier support projection is norm-minimizing among all projections, not just invariant ones. Source verify.py checks full signed spectra, direct coefficients, Parseval, and D4 triality orbit sizes; independently checked core rank/norm values. No claim beyond rank four or under nonlinear mappings.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite-group Walsh diagonalization gives rank via zero multipliers but no evaluated type-A4 or D4 support.",
+          "Resultary 2026/11/16/SCOPE-first-walsh-rank-separation-of-noncrossing-and-nonnesting-catala--006bcae293e6 works in pair-coordinate Boolean space for set partitions, not all positive-root coordinates."
+        ],
+        "reasoning": "Neither a general Fourier method nor a different Catalan embedding implies the root-coordinate evaluated ranks and endpoint norms.",
+        "searches": [
+          "Resultary: positive root poset Coxeter antichains order ideals Boolean Fourier Walsh rank A4 D4 projection norms",
+          "arxiv:math/0502386v4 §2-3",
+          "Resultary: first Walsh-rank separation noncrossing nonnesting Catalan partitions"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0502386",
+        "https://arxiv.org/abs/1101.1277",
+        "Resultary: positive root poset Coxeter antichains order ideals Boolean Fourier Walsh rank A4 D4 projection norms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The antichain-to-ideal down-closure map is nonlinear in F2 positive-root coordinates; equal family cardinalities do not force matching character sums.",
+          "Exact rank mismatch at A4 is 811 vs 810 and D4 3294 vs 3272."
+        ],
+        "reasoning": "Prior bijections cannot be reinterpreted as invertible affine group automorphisms because Walsh nonzero support counts differ. Exact rank tables require new signed Fourier computation.",
+        "searches": [
+          "Resultary: positive root poset Coxeter antichains order ideals Boolean Fourier Walsh rank A4 D4 projection norms",
+          "arxiv:1101.1277v2 introductory bijection",
+          "arxiv:math/0502386v4 Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Panyushev proves covering polynomial relations for distributive lattices of ideals and antichain counts.",
+          "Armstrong–Stump–Thomas identify root-poset antichains as nonnesting partitions and give bijections."
+        ],
+        "reasoning": "Equivalent language of nonnesting partitions/order ideals concerns the same combinatorial sets; bijection and cardinality do not imply equality of Fourier ranks in their respective binary coordinate embeddings.",
+        "searches": [
+          "Resultary: positive root poset Coxeter antichains order ideals Boolean Fourier Walsh rank A4 D4 projection norms",
+          "arxiv:math/0502386v4 Theorem 1.2",
+          "arxiv:1101.1277v2 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Panyushev tabulates covering polynomials, not signed 2^12 coefficient functions or zero-frequency D4 triality orbits.",
+          "Resultary 2026/11/16/SCOPE-exact-walsh-rank-and-optimal-endpoint-projection-for-four-variab--e42a68448c63 uses antichains of the four-variable Boolean lattice (16 coordinates), unlike positive roots of D4 (12 coordinates)."
+        ],
+        "reasoning": "No inspected exact table contains these rank/norm evaluations; latent niche root-poset Fourier tables remain a priority risk.",
+        "searches": [
+          "Resultary: positive root poset Coxeter antichains order ideals Boolean Fourier Walsh rank A4 D4 projection norms",
+          "arxiv:math/0502386v4 Table 1 root covering polynomials",
+          "Resultary: four-variable Boolean lattice antichains Walsh rank"
+        ]
+      },
+      "rationale": "Birkhoff antichain–ideal bijection, root poset covering polynomials and nonnesting/noncrossing bijections are classical, but do not preserve ambient Boolean additive character sums. The first rank-four separation and its precise unrestricted projection constants have no implication in inspected primary results or indexed neighboring ambient-coordinate problems.",
+      "residual_risks": [
+        "An unindexed Coxeter root-poset character table might encode the exact nullities.",
+        "Triality action in source verifier was inspected, but independent code separately recomputed rank/projection rather than a fully separate triality implementation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lists covering polynomial and antichain enumerators, but not binary-incidence Walsh spectra",
+          "evidence": [
+            "Theorem 1.2 identifies coefficients with numbers of k-antichains",
+            "Table 1 displays Khat/Kcheck polynomial formulas not Fourier zero counts"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0502386",
+          "material_read": "Abstract, introduction, Theorem 1.2 at page 4, root-poset covering-polynomial results and Table 1 at page 7, reviewed PDF text and page screenshots",
+          "method": "Primary 23-page arXiv PDF, targeted theorem/table material",
+          "title": "Two Covering Polynomials of a Finite Poset, with Applications to Root Systems and Ad-Nilpotent Ideals",
+          "trigger": "Covers the same positive-root posets and order-ideal bijection"
+        },
+        {
+          "assessment": "Bijection in combinatorial representation; not character-sum preservation",
+          "evidence": [
+            "Nonnesting partitions are root-poset antichains, not an ambient-linear Fourier equivalence"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1101.1277",
+          "material_read": "Introduction and relevant theorem descriptions on nonnesting root antichains and bijection",
+          "method": "Primary arXiv text, targeted sections",
+          "title": "A Uniform Bijection Between Nonnesting and Noncrossing Partitions",
+          "trigger": "Same root poset antichain alias and Coxeter bijection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/16/first-fourier-rank-separation-of-coxeter-antichains-and-order-id--11acb45d3299/RESULT.md@209c12c07fef39bf52004a9f594eec9c8de6b1fc"
+      ],
+      "rationale": "The first failure of Fourier convolution equivalence between two naturally bijective Coxeter families is a motivated structural boundary. Exact sharp projection norms and D4 triality cancellation orbits quantify a genuine failure of spectral equivalence; these are not simply Catalan family-size recomputations.",
+      "residual_risks": [
+        "An unindexed Coxeter root-poset character table might encode the exact nullities.",
+        "Triality action in source verifier was inspected, but independent code separately recomputed rank/projection rather than a fully separate triality implementation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/math/0502386",
+    "https://arxiv.org/abs/1101.1277",
+    "Resultary: positive root poset Coxeter antichains order ideals Boolean Fourier Walsh rank A4 D4 projection norms"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed Coxeter root-poset character table might encode the exact nullities.",
+    "Triality action in source verifier was inspected, but independent code separately recomputed rank/projection rather than a fully separate triality implementation.",
+    "Publication transport incomplete because public source files contain operational identifiers."
+  ],
+  "schema_version": 1
+}

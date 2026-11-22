@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem identifies an exhaustive finite class: the irreducible simply-laced root systems of ranks one through four are \(A_1,A_2,A_3,A_4,D_4\). Each positive root is generated in its simple-root coordinates; every eligible subset mask is checked against the definitions of antichain and order ideal. Independent antichain recursion, down-closure, and all-mask enumeration agree. Every frequency is evaluated by two distinct integer Fourier methods, and both Parseval checks pass. The projection-norm statement uses translation averaging, with the complete Fourier-support-kernel sums evaluated exactly. The special diagram-triality orbit counts are exhaustive.
+## correctness
 
-**Originality — PASS under bounded comparison.** Root poset antichain counts and the ideal correspondence are known, as are general Walsh convolution diagonalization and canonical translation-averaged projections. The new assessed statements are the exact *comparison* of their convolution ranks and optimal endpoint projection constants in the complete natural rank-four cutoff, including the first rank separation and type-\(D_4\) zero-orbit refinement. Panyushev's covering-polynomial work, the published nonnesting/noncrossing bijections, and the related indexed root-poset homology/triality results do not state or imply these Fourier numbers. The nearest related spectral observations concern different binary embeddings of Catalan objects; they do not determine the claimed root-coordinate invariants. Bounded searches cannot prove global uniqueness.
+PASS
 
-**Mathematical value — PASS.** The issue is intrinsic to two standard, equinumerous incidence encodings of the same Coxeter-Catalan objects, and rank four is the first complete simply-laced cutoff where they diverge. Exact convolution ranks decide recoverable Fourier modes and provide a rigorous affine-equivalence obstruction. Endpoint projection constants quantify the distinct optimal stability costs. The type-\(D_4\) calculation includes the smallest forked Dynkin diagram with nontrivial triality, and its orbit statistics explain how the null frequencies respect that natural symmetry. These are structural distinctions beyond counting 42 or 50 antichains.
+Enumerated type A1,A2,A3,A4,D4 positive roots in simple-root coordinates and antichains/ideals by independent direct mask predicates. Exact direct Walsh sums across every frequency agree with butterfly transforms. Reproduced counts 2,5,14,42,50; ranks (1,1),(8,8),(46,46),(811,810),(3294,3272), and minimum unrestricted translation-averaged endpoint projection norms A4 3819/512 vs 1901/256, D4 10053/1024 vs 1981/256. Group-translation averaging proves Fourier multiplier support projection is norm-minimizing among all projections, not just invariant ones. Source verify.py checks full signed spectra, direct coefficients, Parseval, and D4 triality orbit sizes; independently checked core rank/norm values. No claim beyond rank four or under nonlinear mappings.
 
-**Scientific limits.** No classification beyond rank four, no claim of nonlinear inequivalence, and no independent audit. A previously unpublished or unindexed exact spectral calculation is a residual priority risk. The primary works were inspected in relevant definitions, results, tables and type-\(D\) material, not independently re-read in every paragraph.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Birkhoff antichain–ideal bijection, root poset covering polynomials and nonnesting/noncrossing bijections are classical, but do not preserve ambient Boolean additive character sums. The first rank-four separation and its precise unrestricted projection constants have no implication in inspected primary results or indexed neighboring ambient-coordinate problems.
+
+## value
+
+PASS
+
+The first failure of Fourier convolution equivalence between two naturally bijective Coxeter families is a motivated structural boundary. Exact sharp projection norms and D4 triality cancellation orbits quantify a genuine failure of spectral equivalence; these are not simply Catalan family-size recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
