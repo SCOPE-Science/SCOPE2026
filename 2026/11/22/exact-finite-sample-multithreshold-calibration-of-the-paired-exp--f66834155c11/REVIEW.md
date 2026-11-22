@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Exact change-of-variables gives independent uniform marks conditional on every pair sum. Ordering is measurable in the sums; convolution tracks the entire nested set of inequalities, and the probability integral transform establishes exact conditional type-I error for every sum-measurable nonempty rank set. The included algebraic checker independently verifies nontrivial joint probabilities by exact rational integration. Boundaries \(m=1\), \(c\le0\), and \(c\ge1\) are treated.
+
+**Originality — PASS, with historical-priority qualification.** The 2017 source introduces the threshold curve and visual diagnostics. The 2023 study provides fixed-threshold asymptotics and simulation-informed repeated-pairing inference. The independent 2023 gamma-tail study acknowledges the classical gamma sum/proportion factorization and develops U-statistic/asymptotic-variance procedures, not the conditional all-threshold exact scan. Neither those primary full texts nor relevant mathematical-record searches gave the joint prefix-mean scan law, conditional postselection test, or rational joint-example calibration. This is NOT a claim that gamma-beta independence, marginal Irwin-Hall laws, or finite convolution are novel. General scan-statistic theory and unindexed applications remain risks.
+
+**Value — PASS.** The motivating published test explicitly compares several threshold percentiles and notes unstable small-tail counts. The mathematical gap is familywise calibration when those tail thresholds are inspected jointly or restricted using sums, which fixed-threshold asymptotic and simulated critical points do not solve. The new exact finite-n conditioning eliminates rate estimation and simulation for a fixed matching; \(5221/6144\) is an explicit joint four-pair example. This is a natural, reproducible inference method, not an arbitrary numerical slice.
+
+**Limits.** Requires a fixed or independent random matching and sum-only threshold/rank selection. The published repeated-pairing average is not claimed to share this exact law. No independence, outside-model validity, or test-power conclusions are claimed. Full historical priority remains subject to unindexed or newly accessible sources.
+
+Self-review: passed. Independent audit: not yet performed.
