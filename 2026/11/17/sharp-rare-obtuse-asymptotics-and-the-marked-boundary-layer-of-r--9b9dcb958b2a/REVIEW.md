@@ -1,15 +1,21 @@
-# Scientific review of the marked rare-obtuse ball-triangle theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The six-coordinate Gram density and its exact normalization were derived independently from the radial Jacobian and three beta integrals. The constrained log-determinant maximizer is unique by strict concavity and the explicit supporting gradient. The active constraints have linear rate \(3/4\); the transverse Hessian is positive definite with determinant \(2187/64\). Integrating the half-Gaussian and three exponential factors gives the exact leading constant \(\sqrt6/4\). The six-mark density limit follows by local boundary Laplace asymptotics and Scheffé's lemma. The bundled checker reproduces all determinant/Hessian constants, published low-dimensional acute probabilities, and a high-dimensional importance-integration approach to the predicted coefficient.
+## correctness
 
-## Originality — PASS, with provisional historical priority
-Hall (1982) already gives an exact integral for the marginal acute-triangle probability in a ball; that earlier result is credited, and the isolated marginal probability is **not** the basis of novelty. The full six-mark **conditional** total-variation law and the anomalous half-normal \(d^{-1/2}\) radial layer are not specified in its accessible abstract, and no equivalent conditional distribution was identified in statement searches. A closely related surface-uniform spherical-triangle result has the same exponential determinant rate but a different power prefactor and no interior radial marks. Existing triangle studies in rectangles and flat convex sets have different sampling domains. One plausible historical source, Hall's full article, was inaccessible and remains a concrete priority risk; no exhaustive uniqueness claim is made.
+PASS
 
-## Mathematical value — PASS
-The marked law solves a natural high-dimensional shape question left unresolved by a marginal acute probability: it explains **which configurations** generate a rare obtuse angle. It identifies two sharply different radial scales, a half-normal deep vertex and exponential shallow vertices, plus the angular slack and correlated edge inner products. The resulting boundary-layer mechanism is specific to the geometry of uniform sampling in the ball, not a routine evaluation of a probability integral.
+Reconstructed the exact 3x3 Gram density (det G)^((d-4)/2) over positive-definite matrices with each diagonal <1, including the normalization I_d=(8*pi^(3/2)/d^3)*Gamma((d-1)/2)*Gamma((d-2)/2)/Gamma(d/2)^2 from the three radial-square integrals and two beta correlation integrals. The obtuse linear inequality is F(G)=G11-G12-G13+G23<0. The positive definite maximizer G* with diagonals 1, offdiagonals (1/3,1/3,-1/3) has determinant 16/27 and inverse as specified; logdet concavity and its supporting gradient give a strict global saddle under F<=0 and Gii<=1. Independently symbolically expanded the full determinant in the six scaled marks: linear h coefficient zero; second-order coefficient exactly -(3/2)(z+u+v)-Q(t,p,q)/2 for h=1/sqrt(d). The 3x3 Gaussian Hessian has determinant 2187/64 and parent T variance 8/9, while the one-sided constraints z,u,v have rate 3/4 in the (d-4)/2 exponent. Local boundary Laplace integration gives the single-vertex constant sqrt(6)/12, multiplied by three disjoint obtuse vertices to sqrt(6)/4. Strict global localization plus the local dominating Gaussian/exponential envelope make the transformed conditional densities L1-convergent and hence total-variation convergent by Scheffe. Numerical finite-d simulations and importance tests supplement but do not prove the asymptotic. The support uses volume-uniform balls, not sphere-surface uniform sampling.
 
-## Limitations
-The result is asymptotic in dimension, with no convergence-rate bound. The full result is for volume-uniform Euclidean balls only. Independently audited proof and definitive literature priority have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS as to the specifically claimed conditional six-coordinate marked law within the checked source body, with material historical-priority risk. Hall (1982) already gives an all-dimension exact integral for the marginal acute probability (thus could imply the leading probability after asymptotics), and is explicitly credited. Its accessible abstract does not specify the conditional Gram-variable boundary layer; its complete four-page paper was unavailable even after lawful publisher/OA routes, and authorized institutional retrieval reported disconnected VPN; no whole-document absence claim is made. The related sphere-surface Resultary theorem has a d^(-1/2) prefactor and no radial marks; the Gaussian-triangle conditional law is a different vertex distribution. Generic Laplace/Gram methods are tools, not claimed original.
+
+## value
+
+PASS
+
+PASS: a full conditional rare-event geometry law explains the physical configurations generating a rare obtuse angle, beyond a marginal integral or leading exponent. The half-normal d^-1/2 deficit at the obtuse vertex, d^-1 exponential deficits at other vertices and the correlated inner-product Gaussian block demonstrate a distinctive mixed-scale boundary mechanism. Total-variation convergence is stronger than a basic moment or weak-limit computation and is a motivated exact shape limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
