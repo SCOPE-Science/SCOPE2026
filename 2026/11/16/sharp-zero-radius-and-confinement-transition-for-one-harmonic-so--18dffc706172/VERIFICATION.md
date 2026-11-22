@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The Gram matrix entries were derived by exact Fourier integration. The tridiagonal elimination has positive pivots because the Gram form is positive definite. The all-degree statement is proved by a strict induction on coefficient ratios and the Eneström–Kakeya root bound. Exact rational finite tests were run with `python3 CHECK.py`, with output `PASS: 38011 exact rational identities and inequalities`.
+# Independent mathematical audit
 
-The tests cover only the enumerated finite choices in the script; they do not establish an all-degree theorem by themselves. The phase reduction, boundary cases, and sharpness construction are analytical. Publication priority has not been independently certified, and an older specialized Sobolev-circle paper could not be inspected in full.
+## correctness
+
+PASS
+
+PASS: Reconstructed the monomial Gram block G_jk=(1+tau*j²)delta_jk+tau beta jk delta_|j-k|,m and strict positive pivots d_k=a_k-b_(k-m)^2/d_(k-m). Orthogonal coefficients in each residue chain alternate and have ascending magnitude ratio b_k/d_k. For L=(m+1)beta<=1, the displayed identity L(a_k-b_(k-m)L)-b_k=beta[(m+1)+tau k(m(k-1)-L²(k-m))]>0 establishes ratio<L inductively. Enestroem-Kakeya on the positive-coefficient transformed polynomial confines all nonzero roots strictly within L^(1/m). At n=m+1, the explicit polynomial z^(m+1)-tau beta(m+1)/(1+tau)z approaches the radius and escapes when L>1 and tau>1/(L-1). beta=0 gives monomials; m=1 supercritical beta is excluded by weight positivity. Independently reimplemented rational Gram orthogonality and coefficient-ratio checks for m=1..5, multiple beta,tau, degrees<=16; these finite cases supplement rather than prove the induction.
+
+## originality
+
+PASS
+
+PASS, best-of-knowledge only: the precise all-degree, all-tau threshold and sharp root-radius and minimal escape degree are not implied by the inspected varying-strength large-degree asymptotics or effective-weight norm correction. The 2021 circular-Jacobi Sobolev bounds-and-zeros article is a genuinely plausible alternate formulation not available in full; originality remains a non-certified historical-priority judgment.
+
+## value
+
+PASS
+
+PASS: Sharp all-degree root confinement for a natural one-harmonic derivative perturbation converts tridiagonal Gram structure into an exact threshold and optimal radius; the degree-m+1 boundary is a mathematically motivated obstruction, not just a routine asymptotic or a numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
