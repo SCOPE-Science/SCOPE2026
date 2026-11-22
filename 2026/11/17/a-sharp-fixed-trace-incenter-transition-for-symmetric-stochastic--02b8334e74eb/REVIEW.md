@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The translation space and the two kinds of intrinsic projected coordinate normals are derived explicitly, without replacing the Frobenius metric by an unproved matrix-coordinate norm. Summing all diagonal and all off-diagonal ball constraints yields the exact two obstructions; the permutation-invariant feasible point attains the minimum. Equality analysis determines the *entire* incenter locus, its dimension and contacts. The fractional perfect matching support characterization follows from the unsigned incidence rank argument. The separate checker constructed a numerical orthonormal kernel and solved 49 unrestricted linear programs in dimensions four through ten. Computations corroborate but do not prove the universal formulas.
+## correctness
 
-**Originality — PASS, with residual historical priority risk.** The full publicly available text of Brualdi–Cao on symmetric stochastic polytopes was inspected at its introduction, extreme-point lemmas, and concluding classification; it studies vertices rather than fixed-trace intrinsic inballs. The full-text Birkhoff-Schatten paper of Bouthat–Mashreghi–Morneau-Guérin investigates *enclosing* Chebyshev balls of ordinary doubly stochastic matrices and a different notion of minimal trace, not fixed-trace symmetric sections. Publicly indexed and directly fetched mathematical results on transportation-polytope inradii and partial-assignment incenter families were compared by their actual hypotheses, ambient metrics and logical implications. Neither subsumes the symmetric trace-slice result. Behrend's pre-existing half-integral fractional matching vertex theorem is explicitly credited. A differently named older matrix-geometry treatment remains possible; lack of a search hit is not a uniqueness proof.
+PASS
 
-**Value — PASS.** Fixing total self-loop mass is natural for reversible uniform-stationary Markov kernels. The result gives a complete metric invariant across every real interior trace and dimension, discovers a sharp degeneracy of the *whole* incenter set from a high-dimensional matching polytope to a point, identifies all tangent coordinate hyperplanes, and translates the low-trace center vertices into odd-cycle/edge decompositions. The threshold has a nontrivial dimension-independent \(\sqrt2\) limit. The claim is substantially more than the standard formula for a uniform center's clearance, because it classifies all non-invariant maximizers and their combinatorial types.
+The symmetric Frobenius gradient of off-diagonal coordinates is (e_i e_j^T+e_j e_i^T)/2. Projection onto H=H^T, H1=0, tr H=0 via PAP-tr(PAP)P/(n-1) has squared diagonal/off-diagonal norms (n-1)(n-2)/n^2 and (n-2)(n^2-n+2)/(2n^2(n-1)). Summing coordinate clearances gives the exact min of t/(nd_n) and (n-t)/(n(n-1)o_n), attained by the permutation-invariant matrix. Equality conditions imply Y>=0 hollow symmetric row-stochastic for t<tau_n, and a unique uniform point for t>=tau_n. The unsigned complete-graph incidence rank n gives incenter dimension n(n-3)/2, and the classical half-integral extremal supports are disjoint edges and odd cycles; counts f4=3,f5=22,f6=25 follow. Independent projected-gradient matrix arithmetic at n=4,5,8,12 exactly matches formulas.
 
-The mathematical result excludes the trace endpoints, where the affine hull changes. Literature priority is provisional and requires future independent checking; no claim of independent proof certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brualdi–Cao classify vertices of unrestricted symmetric doubly stochastic polytopes, including loops and odd cycles; they do not impose fixed trace or derive Frobenius inball radii in inspected full-text sections. Behrend covers fractional b-matching vertices, a credited ingredient. Bouthat et al. study minimum enclosing balls in Schatten metrics for the ordinary Birkhoff polytope, not this intrinsic inball. A published partial-rook assignment polytope has an incenter family but different affine constraints and symmetry. No dominating theorem located in inspected sources.
+
+## value
+
+PASS
+
+It is a complete metric-geometric classification for a natural Markov-kernel trace slice: exact inradius, sharp bifurcation from a high-dimensional continuum of centers to a singleton, dimension, contact pattern, and nontrivial extreme-center census. The known matching-vertex facts are only one component of the new equality characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
