@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The proof is reconstructed without depending on finite testing. Distinct primitive rotations have distinct (d-1)-prefixes because they have identical Parikh vectors. Thus any periodic factor of length d-1 determines its phase; circular minimal absences have length <= d. Prefixes n >= max(1,2d-2) contain every circular factor of length <= d-1. Any other MAW must be a periodic factor. At length d, the sole possible absent rotation at n=2d-2 has phase d-1; for longer MAWs, presence of the length-(L-1) prefix and suffix forces starting phase d-1 and L=n-d+2. The corresponding word is absent, with both proper extreme factors present, including d=1. The binary period 01101 at n=7 disproves a uniform one-step smaller threshold. Complete direct factor-set tests: 11747; independently constructed two-sided-context tests: 4567. No finite test substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Indexed 2026/11/2/SCOPE-the-complete-minimal-absent-factor-spectrum-of-cyclic-distinct-r--3a571b3bae66: exact one-endpoint replacement for repeated cycles with pairwise-distinct letter runs, each full block repeated at least twice.",
+        "Fici et al. 2018: all primitive circular words and their shorter minimal forbidden factors, but not truncation-specific long absences."
+      ],
+      "reasoning": "The indexed special-case theorem is a strict subset: a primitive period such as 01101 has repeated nonconsecutive letters and is not a cycle of pairwise distinct runs. It also does not cover the nonmultiple prefix n=7 or the sharp universal n>=2d-2 regime. The circular result has broader input scope but weaker output claims. No inspected stronger theorem implies the full finite-prefix law.",
+      "searches": [
+        "antidictionary finite periodic word repeated primitive root minimal absent words circular factors",
+        "universal all-alphabet primitive-root finite periodic string minimal absent words one moving boundary word independent exponent",
+        "circular versus linear minimal absent factors powers of primitive words",
+        "2026/11/2/SCOPE-the-complete-minimal-absent-factor-spectrum-of-cyclic-distinct-r--3a571b3bae66"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1186/1471-2105-10-137",
+      "https://doi.org/10.1186/s12859-014-0388-9",
+      "https://arxiv.org/abs/1707.04450",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-complete-minimal-absent-factor-spectrum-of-cyclic-distinct-r--3a571b3bae66"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fici Lemma 2 explicitly identifies M_circular as the bounded-length portion of M_{rr}; it does not classify MAWs of r^omega[:n] for non-multiple n.",
+        "The indexed distinct-run result explicitly describes the same boundary mechanism in its restricted family.",
+        "The current proof uses a new explicit primitive-rotation (d-1)-factor uniqueness lemma plus finite-prefix phase-boundary inequalities."
+      ],
+      "reasoning": "One cannot infer the all-input n>=max(1,2d-2) decomposition solely from the restricted distinct-run formula. Nor does the circular doubled-word formula alone assert the number or phase of minimal absences caused by finite truncation. The extra phase analysis derives the claimed unique endpoint and the sharp uniform cutoff. Priority risk: this short derivation might occur as a corollary of other circular-factor or periodic-word results not encountered in the searches.",
+      "searches": [
+        "universal all-alphabet primitive-root finite periodic string minimal absent words one moving boundary word independent exponent",
+        "finite word power factorial language minimal forbidden set conjugacy class two-copy identity",
+        "https://doi.org/10.1186/1471-2105-10-137",
+        "https://doi.org/10.1186/s12859-014-0388-9",
+        "https://arxiv.org/abs/1707.04450",
+        "2026/11/2/SCOPE-the-complete-minimal-absent-factor-spectrum-of-cyclic-distinct-r--3a571b3bae66"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fici–Restivo–Rizzo 2018 Section 3 Lemma 2: circular minimal forbidden factors equal minimal forbidden factors of doubled period with length at most the period.",
+        "Pinho et al. 2009: left/right-context characterization for minimal absent contiguous factors."
+      ],
+      "reasoning": "The candidate is equivalent to a universal statement that the finite-prefix antifactorial set differs from the circular factorial-language antifactorial set by exactly one periodic extension that lengthens with the prefix. Neither inspected general algorithm nor the circular equivalence identifies this finite endpoint or the sharp threshold. Circular (rotation-invariant) data are explicitly separated from finite linear truncation.",
+      "searches": [
+        "minimal absent words of word powers primitive repetitions w^t antidictionary exactly one boundary minimal forbidden factor",
+        "finite word power factorial language minimal forbidden set conjugacy class two-copy identity",
+        "https://arxiv.org/abs/1707.04450"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed explicit formula is for cyclic distinct-run complete powers; it states constant antidictionary size and a single changing endpoint in that subclass.",
+        "Barton et al. 2014 focuses on general algorithms and biological MAW counts, not the full primitive-period cutoff."
+      ],
+      "reasoning": "No matching all-primitive-prefix exact table or formula was returned. Finite checks are actual private recomputations, not claims of table priority. The special-case formula is acknowledged rather than reclassified as new.",
+      "searches": [
+        "minimal absent words of word powers primitive repetitions w^t antidictionary exactly one boundary minimal forbidden factor",
+        "antidictionary finite periodic word repeated primitive root minimal absent words circular factors",
+        "2026/11/2/SCOPE-the-complete-minimal-absent-factor-spectrum-of-cyclic-distinct-r--3a571b3bae66"
+      ]
+    },
+    "rationale": "General minimal-absent-word algorithms (Pinho et al. 2009; Barton et al. 2014) do not state a periodic-prefix formula. Fici, Restivo and Rizzo (arXiv:1707.04450, Lemma 2) establish the stable circular antidictionary from a doubled period but do not give a unique moving boundary or an optimal prefix threshold. A 2026 indexed source gives the analogous endpoint phenomenon only for complete powers of periods made of runs with pairwise distinct symbols; that case is covered and explicitly excluded from the novelty claim as a special case. The present statement handles arbitrary primitive periods and all prefixes beyond a sharp universal length cutoff. Full text of the indexed special result was inaccessible, so priority remains qualified.",
+    "residual_risks": [
+      "The full package of the strongly relevant distinct-run theorem could not be read; only its indexed theorem statement was compared.",
+      "An unindexed or earlier unpublished general periodic-prefix corollary may exist; novelty search cannot prove uniqueness.",
+      "The result gives a compressed structural representation, not a demonstrated software speedup; the long endpoint costs linear time if output verbatim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and enumerates minimal absent words of finite strings, but no indexed primitive-period-prefix one-boundary theorem in inspected treatment.",
+        "evidence": [
+          "Published May 8, 2009; Definition 3 limits the implementation discussion to length at least three, unlike the all-length treatment here.",
+          "Theorem 2 characterizes MAWs by absent two-sided extensions around an occurring factor."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1471-2105-10-137",
+        "material_read": "Open-access article abstract, background, definitions, context characterization, Theorems 1 and 2, and methods discussion",
+        "method": "Scientific reading of provider-hosted HTML full text",
+        "title": "On finding minimal absent words",
+        "trigger": "Earliest verified public foundational treatment of minimal absent words and relation to repeated factors"
+      },
+      {
+        "assessment": "Algorithmic MAW computation for arbitrary finite strings; no exact stable-set plus unique moving forbidden endpoint theorem stated.",
+        "evidence": [
+          "Lemma 1 characterizes an absent word via left-extension sets.",
+          "The contribution is an O(n) suffix-array algorithm rather than a classification of periodic prefixes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s12859-014-0388-9",
+        "material_read": "Open-access PMC full-text introduction, MAW characterization and Lemmas 1–2, method and conclusions",
+        "method": "Read full-text HTML sections containing the problem definition, central characterization, and contribution claims",
+        "title": "Linear-time computation of minimal absent words using suffix array",
+        "trigger": "General algorithms might already imply a compressed repeated-prefix description"
+      },
+      {
+        "assessment": "Provides precise circular full-period factorial characterization and the bounded-length circular antidictionary identity, but not the claimed finite linear prefix boundary nor sharp cut-off.",
+        "evidence": [
+          "Section 3, Lemma 2: M_[r] = M_(rr) intersect words of length at most |r|.",
+          "Theorem 4: circular antidictionary defines a minimal factor automaton.",
+          "The argument distinguishes circular from arbitrary linear factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1707.04450",
+        "material_read": "Original fourteen-page PDF: introduction, full preliminaries, Section 3 including Lemma 2 and Theorems 4–5, and beginning of Section 4; page two visually inspected",
+        "method": "Full-paper PDF text read with page screenshot cross-check",
+        "title": "Minimal Forbidden Factors of Circular Words",
+        "trigger": "Direct possibility of stronger coverage by arbitrary primitive circular factors"
+      },
+      {
+        "assessment": "Directly covers a strict, motivated subclass of the new general theorem, not the arbitrary-period, incomplete-prefix, sharp-threshold statement on indexed evidence. Inaccessible full exposition is a priority risk.",
+        "evidence": [
+          "The record states P=a_0^r0 ... a_(q-1)^r_(q-1) with pairwise distinct cyclic run letters and k>=2, and the sole endpoint a_(q-1) P^(k-1) a_0."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-complete-minimal-absent-factor-spectrum-of-cyclic-distinct-r--3a571b3bae66",
+        "material_read": "Public indexed title, precise theorem summary, parameter range and identifier; original package contents not accessible",
+        "method": "Semantic-result index comparison and attempted primary page opening (access disabled)",
+        "title": "The complete minimal-absent-factor spectrum of cyclic distinct-run powers",
+        "trigger": "Highest-ranked direct indexed overlap found with precisely the one-boundary phenomenon"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "746f0dfb-3273-4071-b0c3-e422f39b6d08",
+  "value": {
+    "rationale": "The theorem is a natural all-alphabet, all-primitive-period structural classification for minimal absent patterns in highly repetitive strings, with a sharp universal stabilization threshold. It identifies every absent minimal pattern, proving that exactly one periodic boundary obstruction changes for all sufficiently long partial or complete repeats and that the cardinality stays constant. This is not a narrow arbitrary table or a special-case reparameterization: the known distinct-run result handles only a structured subclass, while this result treats every primitive root and an optimal cutoff. It supports compact antidictionary descriptions for long repeated texts, while explicitly excluding any unsupported measured performance claim.",
+    "status": "PASS"
+  }
+}
