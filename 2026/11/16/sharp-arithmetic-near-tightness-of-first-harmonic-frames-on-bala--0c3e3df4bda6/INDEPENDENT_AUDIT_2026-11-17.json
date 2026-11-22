@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:04:37.528010Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On zero-sum a∈C^{2k}, f_a(X)=sum_{i∈X}a_i, the full uniform k-subset covariance is k/[2(2k-1)] times ||a||². Conditional shell t, within-block independent zero-sum contrasts (multiplicity 2k-2) have variance t(k-t)/[k(k-1)] times ||a||², the remaining block-normal line has deterministic value 2t-k. Normalize by global covariance: eigenvalues 2(2k-1)t(k-t)/[k²(k-1)] and (2k-1)(2t-k)²/k². The exact ratio r=2(k-1)d²/(k²-d²) with parity d≡k mod2 gives full rank iff 0<t<k and d>0. Tightness requires (2k-1)d²=k², contradicts gcd(k,2k-1)=1. Integer d² cases r>=1 and r<1 prove universal floor, equality iff k=2u²-1, odd u>=3. Monotonicity in d² localizes optimum to parity-neighbors of alpha_k=k/√(2k-1). Expansion about alpha_k gives κ-1=(2√2/√k)ρ_k+O(1/k); equality sequence yields liminf 1/2, k=2s² odd s gives rho→1 for limsup. Independent exact brute-force shell averages for k=3,4,5 reproduce both covariance eigenvalues for every shell; independent Fraction scan k=3..2500 verifies bound and equality family, supplementing proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bernard–Crampé–Vinet one-neighborhood spectrum is broad in graph parameters and occupies a general spectral representation but optimizes fermionic entropy rather than uniform single-shell condition ratios.",
+          "Resultary 2026/10/11/SCOPE-exact-two-coordinate-face-concentration-spectrum-on-johnson-slic--d102febb3be1 uses a two-coordinate containing-face mask, not a distance shell."
+        ],
+        "reasoning": "General representation theory may supply raw eigenvalues but does not in the inspected sections imply the arithmetic floor/equality and fluctuation scales. The two-coordinate-face result addresses a non-equivalent mask.",
+        "searches": [
+          "Johnson graph balanced k subsets single distance sphere first eigenspace sampling tight frame condition number number theory",
+          "Resultary exact two-coordinate-face concentration Johnson slices 2026/10/11",
+          "Bernard Crampe Vinet 2021 single neighborhood entropy Johnson"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py, 2026-11-16 tree 3c4f6ce58c54f5b1c803ed5bf41308067a2895a0",
+        "https://arxiv.org/html/2104.11581v1 §4.3",
+        "Resultary 2026/10/11/SCOPE-exact-two-coordinate-face-concentration-spectrum-on-johnson-slic--d102febb3be1",
+        "https://arxiv.org/abs/1812.02424"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 4.3 of arxiv:2104.11581 computes entanglement/correlation eigenvalues via CG coefficient machinery for single neighborhoods, not min_d max(r,1/r) for balanced first harmonic.",
+          "Vorobev 2018 studies reconstructing Johnson eigenfunctions from spheres but does not present this exact squared frame conditioning arithmetic in the inspected abstract/material."
+        ],
+        "reasoning": "Prior results plausibly imply the two basic eigenvalues by specialization; deriving sharp integer floor plus two distinct asymptotic subsequences requires a separate explicit optimization argument verified in current proof.",
+        "searches": [
+          "Johnson graph balanced k subsets single distance sphere first eigenspace sampling tight frame condition number number theory",
+          "arxiv:2104.11581 single-neighborhood formula 78 4.3 Clebsch Gordan",
+          "arxiv:1812.02424 Johnson eigenfunctions spheres reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernard–Crampé–Vinet 2021 §4.3 formula (78) derives single-neighborhood correlation spectra in Johnson representation theory; it supplies general machinery for the component eigenvalues.",
+          "Maldonado–Penazzi arxiv:1204.1947 defines Johnson harmonic decomposition; the degree-one coefficient hyperplane is classical."
+        ],
+        "reasoning": "The two covariance eigenvalues are equivalent to specialized Johnson concentration spectra, not claimed independently new. The universal k-optimum of their ratio and parity arithmetic are additional mathematical comparisons.",
+        "searches": [
+          "Johnson graph balanced k subsets single distance sphere first eigenspace sampling tight frame condition number number theory",
+          "Johnson harmonic eigenfunction restriction to distance spheres covariance single shell"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Johnson spectra and schemes are tabulated, and basic eigenvalues are known; no table of the optimal parity-compatible d or equality sequence was identified in Resultary/prior primary sources.",
+          "Resultary own 2026/11/16 record is a self-hit, not prior coverage."
+        ],
+        "reasoning": "A generic eigenvalue table is not automatically the global number-theoretic optimum, but a specialist table could encode the answer; older explicit optimization search is a residual priority risk.",
+        "searches": [
+          "Johnson graph balanced k subsets single distance sphere first eigenspace sampling tight frame condition number number theory",
+          "first Johnson harmonic single shell optimal frame condition k=2u^2-1 sqrt2"
+        ]
+      },
+      "rationale": "The component eigenvalues live in established Johnson graph harmonic/Terwilliger neighborhood spectral theory. New best-of-knowledge contribution is exact optimization across ALL one-shell choices and its arithmetically classified non-tightness and two subsequential rates. The related prior 2021 single-neighborhood entanglement formula has different objective and no arithmetic optimum in inspected §4.3.",
+      "residual_risks": [
+        "A specialist Johnson sampling design optimization could already encode the parity classification; indexed result search and §4.3 are not exhaustive.",
+        "The claim is restricted to degree-one harmonics, balanced J(2k,k), uniformly weighted ONE shell and squared frame ratio; larger spectral subspaces and mixtures of shells are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subsumes background neighborhood spectral diagonalization, not exact single-shell first-harmonic frame-condition arithmetic optimization.",
+          "evidence": "§4.3 formula (78), chopped correlation matrix; no optimum over all t.",
+          "identifier_or_url": "https://arxiv.org/html/2104.11581v1",
+          "material_read": "Primary HTML §4.3 and adjoining Johnson/Terwilliger setup including correlation projection formula (78); PDF rendered page of §4.3",
+          "method": "arXiv HTML plus PDF page inspection",
+          "title": "Entanglement of Free Fermions on Johnson Graphs",
+          "trigger": "Most pertinent earlier same-scheme single-neighborhood spectral theory"
+        },
+        {
+          "assessment": "Samples containing two fixed coordinates; different sampling mask from fixed |X∩R|=t.",
+          "evidence": "Summary states exact two-coordinate-face spectrum and eigenvalues.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-coordinate-face-concentration-spectrum-on-johnson-slic--d102febb3be1",
+          "material_read": "Resultary metadata and summary (not full source file)",
+          "method": "Resultary semantic search",
+          "title": "Exact two-coordinate-face concentration spectrum on Johnson slices",
+          "trigger": "Close published SCOPE Johnson sampling"
+        },
+        {
+          "assessment": "No claim of non-coverage based solely on abstract; residual possible stronger reconstruction analysis.",
+          "evidence": "Record-specific citation and abstract subject.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.02424",
+          "material_read": "Title/abstract and cited relation; full primary paper not fully inspected",
+          "method": "arXiv bibliography/abstract",
+          "title": "On reconstruction of eigenfunctions of Johnson graphs",
+          "trigger": "Potential same graph eigenfunction sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural sampling-design problem of how close a single Johnson distance shell can approach a tight frame has a nontrivial arithmetic obstruction, infinitely many exact extremizers and sharp competing fluctuation scales. Those facts are useful for deterministic first-harmonic sampling and are not just an isolated small-parameter recomputation. Existing scheme representation theory is properly treated as input.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialist Johnson sampling design optimization could already encode the parity classification; indexed result search and §4.3 are not exhaustive.",
+    "The claim is restricted to degree-one harmonics, balanced J(2k,k), uniformly weighted ONE shell and squared frame ratio; larger spectral subspaces and mixtures of shells are excluded."
+  ],
+  "schema_version": 1
+}

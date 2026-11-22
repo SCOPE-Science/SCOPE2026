@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem defines both probability-normalized Hilbert structures and the two invariant coefficient subspaces. Sampling-without-replacement covariance establishes the two eigenvalues exactly, including zero-spectrum boundary cases. Monotonicity of the rational eigenvalue ratio and integrality of the parity-restricted shell offset establish the sharp bound and equality cases. Taylor expansion at the unique real crossing, together with two explicit infinite arithmetic subsequences, proves both sharp limits. `verify.py` supplies standalone exact finite checks, not an infinite proof.
+## correctness
 
-**Originality — PASS, provisional historical priority.** Johnson distance-shell reconstruction and spatio-spectral eigenvalues have substantial earlier coverage, especially Vorob'ev (arXiv:1812.02424) and Bernard–Crampé–Vinet (arXiv:2104.11581, §4.3); the spectral lemma by itself is not claimed as new. The contribution evaluated is the optimized first-harmonic **single-shell** squared condition-number floor, its infinite exact equality class, and the liminf/limsup asymptotics. Searches of the available public mathematical record and neighboring research, with explicit attention to equivalent formulations, found no prior statement of that joint optimization. However older association-scheme literature could contain the same arithmetic optimization in different notation; this remains a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** A single distance shell is a canonical spatial sampling constraint on a distance-transitive graph. The exact optimal conditioning gap quantifies unavoidable loss compared with a tight first-harmonic frame and distinguishes the rare nearly tight shells from the worst asymptotic subsequences. Unlike a routine evaluation of one fixed shell, this is a sharp optimization over all shells at every balanced graph order, with a full arithmetic equality classification and two sharp asymptotic regimes. It is relevant to designing stable graph harmonic sampling with geometrically restricted observations.
+On zero-sum a∈C^{2k}, f_a(X)=sum_{i∈X}a_i, the full uniform k-subset covariance is k/[2(2k-1)] times ||a||². Conditional shell t, within-block independent zero-sum contrasts (multiplicity 2k-2) have variance t(k-t)/[k(k-1)] times ||a||², the remaining block-normal line has deterministic value 2t-k. Normalize by global covariance: eigenvalues 2(2k-1)t(k-t)/[k²(k-1)] and (2k-1)(2t-k)²/k². The exact ratio r=2(k-1)d²/(k²-d²) with parity d≡k mod2 gives full rank iff 0<t<k and d>0. Tightness requires (2k-1)d²=k², contradicts gcd(k,2k-1)=1. Integer d² cases r>=1 and r<1 prove universal floor, equality iff k=2u²-1, odd u>=3. Monotonicity in d² localizes optimum to parity-neighbors of alpha_k=k/√(2k-1). Expansion about alpha_k gives κ-1=(2√2/√k)ρ_k+O(1/k); equality sequence yields liminf 1/2, k=2s² odd s gives rho→1 for limsup. Independent exact brute-force shell averages for k=3,4,5 reproduce both covariance eigenvalues for every shell; independent Fraction scan k=3..2500 verifies bound and equality family, supplementing proof.
 
-**Limits.** The result does not address higher eigenspaces, unbalanced graphs, nonuniform shell weights, combined shells, or the minimal total number of observation points. The originality comparison is not a guarantee of historical priority, and there has been no external or independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The component eigenvalues live in established Johnson graph harmonic/Terwilliger neighborhood spectral theory. New best-of-knowledge contribution is exact optimization across ALL one-shell choices and its arithmetically classified non-tightness and two subsequential rates. The related prior 2021 single-neighborhood entanglement formula has different objective and no arithmetic optimum in inspected §4.3.
+
+## value
+
+PASS
+
+The natural sampling-design problem of how close a single Johnson distance shell can approach a tight frame has a nontrivial arithmetic obstruction, infinitely many exact extremizers and sharp competing fluctuation scales. Those facts are useful for deterministic first-harmonic sampling and are not just an isolated small-parameter recomputation. Existing scheme representation theory is properly treated as input.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
