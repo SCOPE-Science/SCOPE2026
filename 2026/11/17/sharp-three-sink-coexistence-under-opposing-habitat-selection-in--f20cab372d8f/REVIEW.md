@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The two corner Jacobians have eigenvalues \(-b/2-d\pm\sqrt{d^2+c^2}\). The unique anti-diagonal equilibrium is the single positive zero of \((1-m^2)(bm+2c)-8dm\), and its two independent Jacobian eigenvalues are \(\alpha\) and \(\alpha-2d\). Solving \(\alpha=0\) gives the asserted exact threshold. The strict inequalities and their equality boundaries are explicitly distinguished. Exact rational substitution at \((b,d,c)=(3,1,23/12)\) independently tests the algebra. No finite computation is relied on as an infinite proof.
+## correctness
 
-**Originality (PASS within inspected evidence).** Freire–Gjini–Madec (arXiv:2608.05914) explicitly demonstrate that spatial replicator multistability may coexist with unfavorable invasion rates; that broader qualitative mechanism is credited as pre-existing. Li et al. (2015, doi:10.1371/journal.pone.0142929) analyze a four-variable two-patch evolutionary model with evolving densities. Neither inspected full text gives this necessary-and-sufficient three-designated-sink wedge in the finite two-dimensional opposing-selection frequency model, nor the sharp \(b/d=9/4\) transition. The most similar published algebraic two-patch and Nagumo examples use different equations. Full priority across older discrete bistable network literature cannot be certified.
+PASS
 
-**Mathematical value (PASS).** Explicit inequalities answer when three robust ecological outcomes coexist despite each isolated patch strictly favoring the opposite pure strategy. This is a natural three-parameter complete stability phase diagram for three distinguished equilibrium branches, with a nonempty region at every dispersal-to-selection ratio and a separate sharp regime transition. It is more than an isolated rational example or a weak perturbation result, while not claiming a complete global phase portrait.
+The source RESULT gives the complete b,d,c>0 symmetric two-patch ODE, states hyperbolic stability only of the two pure corners and the unique anti-diagonal interior fixed point, and excludes zero-eigenvalue endpoints. The pure-corner Jacobian has eigenvalues -b/2-d±sqrt(d^2+c^2), giving c<C0=sqrt(b^2/4+bd). Writing x=(1+m)/2, y=(1-m)/2 gives H(m)=(1-m^2)(bm+2c)-8dm, with exactly one positive root in (0,1) by Descartes signs and endpoint crossing; the root increases with c. The mixed Jacobian eigenvalues are alpha(m), alpha(m)-2d, alpha=b(1-m^2)/4-4dm^2/(1-m^2), strictly decreasing. Its zero yields C1=sqrt(bd)/2*(4-sqrt(4+b/d)). Intersecting strict inequalities gives max(0,C1)<c<C0, or max(b/2,C1)<c<C0 under robust opposing local margins. The exact b=3,d=1,c=23/12, m=1/2 stationary witness and mixed eigenvalues -37/48,-133/48 independently check. The b/d=9/4 comparison follows by solving C1=b/2. No basin, additional equilibrium, or boundary classification is proved.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact stability wedge is an explicit sharp finite two-patch classification not supplied by the qualitatively related PDE/backward-bifurcation literature. The physical phenomenon of mixed and pure simultaneous attractors is not claimed new. No retrieved Resultary earlier record states these three particular ODE equilibria and both exact thresholds; that unsuccessful search is not proof of priority.
+
+## value
+
+PASS
+
+An analytically sharp and explicitly nonempty parameter wedge for three specified hyperbolic sinks, plus the b/d=9/4 point where mixed-state stability becomes automatic, is a motivated bifurcation boundary in a natural symmetric migration-selection model, beyond a routine Jacobian evaluation because the interior equilibrium must be eliminated and quantified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
