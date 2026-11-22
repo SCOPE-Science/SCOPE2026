@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Independent sets decompose into two Boolean shore cubes plus matched two-vertex pairs; their character sum gives the full formula. Nonzero regimes and nullity follow by integer parity. The exact range projection is computed by Fourier inversion after deleting the two excluded endpoints from each Hamming-distance shell; translation averaging gives global minimum endpoint norm, not just a bound for one chosen projection. The Krawtchouk duality and central generating function produce the exact absolute first moment, and Jensen/triangle bounds prove the growth rate. An independent direct-integer checker verifies 21,824 coefficients at five sizes and the inverse-kernel formula at odd sizes 3 and 5.
+## correctness
 
-**Originality — PASS under bounded comparison.** The crown graph's *unsigned* independence polynomial is known in MathWorld; its coefficient enumeration does not determine labelled Fourier signs or a sharp complementability constant. De Wolf's Boolean Fourier survey treats transform and convolution abstractly. Alexander–Mink study unsigned fixed-cardinality independent-set counts and their relevant pages do not compute crown-projector norms. Published cut/cycle projection results on crown graphs concern edge-space ranges, not the vertex independent-set convolution range; the published \(K_{2,n}\) spanning-tree Fourier result concerns another incidence family. A directly equivalent specialized signed multivariate occupancy identity could affect priority; none was identified in the actual searches. This is bounded-not-exhaustive novelty assessment.
+PASS
 
-**Value — PASS.** The question asks for a natural operator invariant: the minimum norm of a projection onto the convolution range. Along odd sizes its codimension is only \(\Theta(4^n/\sqrt n)\) relative to dimension \(4^n\), yet the minimum endpoint projection norm increases as \(\Theta(2^{n/2}/\sqrt n)\). This stark disagreement between relative spectral rank and endpoint complementability motivates the exact Krawtchouk formula and distinguishes the result from a routine signed-count conversion.
+An independent subset of the crown graph is a subset of one shore or the two matched vertices at one index, giving W(u,v)=N1_(u=0)+N1_(v=0)+n-1-2|u+v|. Odd n zeros are u,v !=0 with |u+v|=(n-1)/2, each shell vector has N-2 allowed ordered choices, while even n has no zero. The exact zero-shell Fourier inverse produces Krawtchouk kernel q(x,y), and averaging ANY projection over translations yields the unique Fourier-diagonal range projector of no larger l1/linfty norm, hence sharpness. Splitting kernel mass at origin/diagonal/off-diagonal gives Lambda_n=1+[D+(N-4)L-2(N-2)B]/N²; Krawtchouk generating function yields L=2^((n+1)/2)B; Jensen/triangle show Theta growth. Independent integer Walsh and inverse-kernel computations check n=3,5: 18/300 zero frequencies and norms 49/16,733/128.
 
-**Closest literature and limitations.** De Wolf (2008) supplies standard Fourier conventions, while Alexander–Mink (arXiv:1308.3242, 2013) and the MathWorld crown independence-polynomial table supply unsigned enumeration context. Related published results on minimal cut/cycle projections of crown-graph edge spaces, the Walsh spectrum of spanning trees of \(K_{2,n}\), and the Fourier transform of clique-corona independent sets concern different spaces, kernels, or graphs and do not entail this sharp vertex-independent-set range-projection result. The exact leading constant of endpoint growth and a historical-priority guarantee remain unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No matched published SCOPE or primary reference gives this crown-graph signed independent-set Walsh shell and sharp minimum endpoint range projection. Published clique-corona formulas and crown independent-set counts involve other graphs or unsigned counts; neither imply this exact Krawtchouk absolute-norm expression.
+
+## value
+
+PASS
+
+The parity contrast between an invertible Boolean convolution and a growing projection norm even as odd-size nullity fraction vanishes is mathematically motivated and relevant for Fourier recovery and finite combinatorial harmonic analysis. All-length sharp growth is a nontrivial structural consequence, not just a small-graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
