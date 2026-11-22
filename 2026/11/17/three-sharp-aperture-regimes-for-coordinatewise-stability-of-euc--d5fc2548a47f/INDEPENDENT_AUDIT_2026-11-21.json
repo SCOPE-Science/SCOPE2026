@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-21",
+  "audited_at_utc": "2026-11-21T18:37:35.989848Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonal meridian minimization gives exact projection with middle rho=(kappa*t+r)/(1+kappa^2) between polar region t<=-r/kappa and cone t>=kappa*r. Differentiation of the middle branch gives top row (kappa^2,kappa*u)/(1+kappa^2), spatial block cI+(1/(1+kappa^2)-c)uuT with c=(1+kappa*t/r)/(1+kappa^2). The induced infinity norm is max absolute row sum, convex in c, so sharp sup follows from c=0 and 1. For u unit, fix a=|u_i| and maximize other components via sum<=sqrt(d-1)sqrt(1-a^2), giving the exactly stated B-/B+ scalar maxima. Integrating derivative bound over segments gives global two-input Lipschitz; taking limiting row-sign differential perturbations gives sharpness. The maximum a*sqrt(1-a^2)=1/2 yields all three leading coefficients and open interval dominance at thresholds 1/2,2 (no tie regime asserted). Independently checked finite middle-region directional Jacobian differences for 400 random cases from several dimensions/apertures. Finite samples corroborate but do not prove the supremum/infinite-d theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bello Cruz et al. study generalized Jacobians for standard second-order cones.",
+          "Hilbert projection nonexpansivity gives Euclidean 1-Lipschitz but only coarse sqrt(d+1) infinity bound.",
+          "Exact kappa=1 earlier theorem has no variable-aperture coverage."
+        ],
+        "reasoning": "General metric projection differentiability or nonexpansivity does not imply sharp cross-norm constants and aperture-dependent maximizing row types.",
+        "searches": [
+          "https://arxiv.org/abs/1605.09463",
+          "https://arxiv.org/abs/1212.5438",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c",
+        "https://arxiv.org/abs/1605.09463",
+        "https://arxiv.org/abs/1212.5438"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At kappa=1, previous projection theorem has one axial/spatial dimension transition; new theorem has kappa-controlled asymptotic transition at 1/2 and 2.",
+          "The l_p scaled projection theorem only asserts planar exact constants or nonexpansivity classification with metric l_p."
+        ],
+        "reasoning": "The existing results neither determine the two endpoint Jacobian row optimization at general aperture nor the asymptotic phase diagram; the new analytic computation is essential.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c",
+          "https://arxiv.org/abs/1605.09463"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full standard Lorentz projection result gives the l_infinity modulus for kappa=1.",
+          "The scaled-cone l_p projection result employs a different nearest-point map and input/output norm."
+        ],
+        "reasoning": "Weighted coordinate changes do not commute with Euclidean metric projection, so prior unscaled formulas cannot be substituted for variable aperture.",
+        "searches": [
+          "Euclidean metric projection scaled Lorentz cone coordinatewise infinity norm Lipschitz constant varying aperture dimension",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact table exists for kappa=1 and small d, but not the full continuous kappa,d branch envelope.",
+          "No matching independently earlier kappa=1/2 and 2 phase-boundary computation was located."
+        ],
+        "reasoning": "This is continuous optimization rather than a discrete database; the known standard-cone table is a proper slice and does not dominate the full claim.",
+        "searches": [
+          "Euclidean metric projection scaled Lorentz cone coordinatewise infinity norm Lipschitz constant varying aperture dimension",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c"
+        ]
+      },
+      "rationale": "The previously published standard Lorentz-cone exact norm is recovered only at kappa=1, and its explicit scope excludes arbitrary apertures. Changing kappa is not an isometry of Euclidean projection, so it cannot be obtained by conjugating a coordinate norm. The other scaled-cone prior result minimizes distances in l_p, rather than Euclidean distance then measuring errors in l_infinity. No inspected primary theorem gives this variable-aperture three-branch classification.",
+      "residual_risks": [
+        "Unindexed older conic-programming sensitivity formulas for nonstandard apertures could cover the exact cross-norm branches.",
+        "The finite-dimensional branch winner exactly at apertures 1/2 and 2 is intentionally unclassified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Exactly kappa=1 slice; no general-aperture formulas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+          "material_read": "Complete public RESULT.md, derivative and sharp row-norm proof including limitations",
+          "method": "public Git source blob",
+          "title": "Sharp coordinatewise Lipschitz transition for Euclidean Lorentz-cone projection",
+          "trigger": "same projector at aperture 1"
+        },
+        {
+          "assessment": "NOT_COVERING_MAP_NORM",
+          "evidence": "Uses l_p-nearest-point map, whereas audited result uses Euclidean projection and l_infinity perturbation metric.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c",
+          "material_read": "Complete public RESULT.md planar metric-projection formula, higher-d rigidity and scope",
+          "method": "public Git source blob",
+          "title": "Exact planar stability and nonexpansivity rigidity for l_p projections onto scaled Lorentz cones",
+          "trigger": "scaled same cone family"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Lemma 4 gives the standard kappa=1 Jacobian, which is an ingredient, but no variable-aperture sharp l_infinity branch/transition theorem in inspected relevant portions.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.09463",
+          "material_read": "Full relevant HTML Section 1.2 explicit standard cone projector, Lemma 4 Jacobian, and corresponding semismooth Newton use",
+          "method": "arXiv full-text HTML, relevant theorem and derivation inspected",
+          "title": "A semismooth Newton method for projection equations and linear complementarity problems with respect to second-order cone",
+          "trigger": "primary generalized Jacobian literature for Lorentz projections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, reproducible stability constant and two meaningful aperture phase transitions answer a natural sensitivity question for second-order-cone projection. The exact dimension-dependent row types distinguish polar, axial and cone-side amplification, which general Hilbert nonexpansivity masks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c",
+    "https://arxiv.org/abs/1605.09463",
+    "https://arxiv.org/abs/1212.5438"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every real aperture kappa>0 and spatial dimension d>=2, the exact global l-infinity Lipschitz modulus of the Euclidean projection onto t>=kappa*||x||2 is max of identity, explicit axial A and two scalar-optimized spatial branches B-/B+; asymptotic growth coefficient switches sharply at kappa=1/2 and kappa=2.",
+  "limitations": [
+    "Only circular cones, Euclidean nearest-point projection, coordinate maximum modulus, d>=2."
+  ],
+  "residual_risks": [
+    "Unindexed older conic-programming sensitivity formulas for nonstandard apertures could cover the exact cross-norm branches.",
+    "The finite-dimensional branch winner exactly at apertures 1/2 and 2 is intentionally unclassified."
+  ],
+  "schema_version": 1
+}
