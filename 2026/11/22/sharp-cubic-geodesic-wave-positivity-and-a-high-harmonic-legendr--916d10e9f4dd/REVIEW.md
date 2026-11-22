@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The full exact coefficient calculation is reconstructed in `RESULT.md`: the recurrence for \(T_3P_n\) is positive at each degree \(n\ge2\), the exponential Legendre moments are strictly positive by two base values and a positive parity recurrence, and elementary sine integration gives the two low-frequency obstruction polynomials with unique sharp threshold \(a^2=8\). The endpoint has all degrees except zero positive; the two-parity strictness criterion and harmonic-density criterion establish the remaining conclusions. The exact checker reports 230 supplementary assertions, not a substitute for the infinite proof.
+
+**Originality — PASS relative to accessible evidence.** The closest two-sphere result addresses signed first-harmonic modulation; the closest all-integer-frequency damped-wave formula applies on the three-sphere and yields only a nonsharp two-sphere sufficient condition; and the signed second-harmonic three-sphere family is also different. The newest two-sphere harmonic paper concerns differentiability rather than cubic wave positivity. Kahler's general linearization paper addresses same-family products; it does not explicitly present this mixed cubic Chebyshev–Legendre transition. Owned recent ledgers were checked for related spherical cosine and covariance results. An older mixed-product formula or unindexed exact-wave analysis remains a real priority risk.
+
+**Value — PASS.** An exact cubic oscillatory-covariance phase boundary with a sharp missing constant mode is useful for nonnegative covariance construction and harmonic approximation. The structural nonnegative mixed-product formula gives a sharp positivity-preservation cone for arbitrary high-harmonic covariance spectra, not merely a new numeric sample or routine finite check. The strict-versus-universal endpoint distinction is genuinely qualitative.
+
+**Limits.** The conclusion is limited to the round two-sphere and third angular harmonic; no general integer-frequency theorem is claimed. Published priority is bounded by accessible source comparisons, and independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
