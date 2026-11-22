@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The Lagrange polynomial basis yields a nilpotent second-differentiation matrix, so the local exponential center rows are finite exact polynomials in the diffusion ratio. Independent exact matrix powers and interpolation-derivative constructions agree at three, five and seven nodes. Complete sign factoring gives five-node positivity {0} union [1/6,2/3], and seven-node positivity {0} union [(5-sqrt(10))/10,(5+sqrt(10))/10]. Five-node Fourier conditions follow from the explicit quadratic symbol. Seven-node symbol is strictly decreasing in t=sin^2(theta/2) because its derivative equals -4mu/15 times a sum of a square and a polynomial bounded below by 3. The Nyquist cubic derivative equals 1440(mu-5/12)^2+22, ensuring a unique positive root. A negative second-neighbor first coefficient and negative large-mu near-outer coefficient prove the all-stencil obstructions. The standalone code passed 90 checks; sampled computations are diagnostic and do not replace proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bayona theorem of exactness concerns arbitrary interpolated polynomial initial data, rather than positivity over all nonnegative data vectors or Fourier stability for assembled periodic maps.",
+        "Persson lecture notes give classical centered differential coefficients, including negative distance-two weight of the five-point second derivative."
+      ],
+      "reasoning": "Polynomial-exactness and standard stencil formulas determine the algorithm but do not themselves provide the sharp all-step sign classification or seven-point uniform periodic contraction threshold without the additional sign and Fourier analysis. Negative outer coefficients of a generator alone do not determine later recovered finite-step positivity windows.",
+      "searches": [
+        "local matrix exponential 2026 polynomial interpolant diffusion Fourier symbol positivity weights",
+        "Sharp Nyquist CFL for seven-point local heat Taylor time integrator third temporal-order center stencil",
+        "High-order Lagrange local matrix exponential diffusion heat equation fails positivity for arbitrarily small and large steps",
+        "web: \"polynomial\" \"heat\" \"interpolation\" \"positivity\" \"finite differences\" Fourier 5 point"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2603.15964",
+      "https://persson.berkeley.edu/math228b/html/finite_difference_methods_for_PDEs.html",
+      "2026/10/12/SCOPE-one-third-is-the-sharp-positivity-recovery-threshold-for-backwar--f6b8d51838a7",
+      "2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026/10/12/SCOPE-one-third-is-the-sharp-positivity-recovery-threshold-for-backwar--f6b8d51838a7: summary refers to backward Euler on the fourth-order heat stencil, giving positivity recovery at normalized step 1/3.",
+        "2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47: summary concerns the exact semigroup of fixed finite-range heat generators and infinite-lattice sign oscillation.",
+        "Bayona arXiv:2603.15964 defines local polynomial exponentials, but the inspected relevant source material reports empirical high-CFL spectral behavior rather than a complete positivity/spectral theorem."
+      ],
+      "reasoning": "Backward Euler inverse (I-mu D)^{-1}, the exact global semigroup exp(mu D), and the finite polynomial-local exponential assembled from harvested rows are not the same operator. Their sign criteria do not entail our exact coefficient polynomial inequalities. The source method definition subsumes the algebraic construction but not the separately proved sharp bounds as stated.",
+      "searches": [
+        "Bayona localized matrix exponential propagator LMEP diffusion five seven point stencil positivity instability exact stability CFL thresholds",
+        "local matrix exponential 2026 polynomial interpolant diffusion Fourier symbol positivity weights",
+        "Five-point polynomial heat semigroup localized matrix exponential exact positive timestep [1/6, 2/3] and Fourier L2 stability",
+        "2026/10/12/SCOPE-one-third-is-the-sharp-positivity-recovery-threshold-for-backwar--f6b8d51838a7",
+        "2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47",
+        "web: 2026 Bayona LMEP paper full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bayona arXiv:2603.15964 sections 2.1–2.3 define the center-row matrix exponential and polynomial exactness; no full spectral/sign classification appears in the inspected sections.",
+        "The extracted periodic convolution is exactly a finite-order local Taylor heat action, not a globally assembled matrix exponential."
+      ],
+      "reasoning": "Searches included LMEP, local polynomial heat semigroups, seven-point Nyquist, numerical root and sign-window aliases. No equivalent full claim was identified; searched phrases and numbers alone do not establish uniqueness.",
+      "searches": [
+        "Bayona localized matrix exponential propagator LMEP diffusion five seven point stencil positivity instability exact stability CFL thresholds",
+        "five point seven point local polynomial heat exponential central stencil exact L2 stability limit positivity reentrant",
+        "Seven-point polynomial heat semigroup local exact exponential positivity interval 0.183772 0.816228 stability 0.841360",
+        "web: \"localized matrix exponential\" \"positivity\" \"stencil\" diffusion Bayona",
+        "web: \"0.841360228\" diffusion stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved exact table for this polynomial-exponential stencil family or the seven-node cubic/positivity endpoints.",
+        "Related published-finding corpus hits identify rational implicit or exact-semigroup problems rather than entries for this finite polynomial-exponential map."
+      ],
+      "reasoning": "Numerical values were searched as an additional check, not as a uniqueness certificate; absent matches do not prove no unpublished table exists.",
+      "searches": [
+        "Five-point polynomial heat semigroup localized matrix exponential exact positive timestep [1/6, 2/3] and Fourier L2 stability",
+        "Seven-point polynomial heat semigroup local exact exponential positivity interval 0.183772 0.816228 stability 0.841360",
+        "web: \"0.816227766\" heat equation positivity",
+        "web: \"480\" \"600\" \"272\" \"90\" heat stability stencil"
+      ]
+    },
+    "rationale": "The primary LMEP paper defines the local polynomial exponential and discusses numerical stability envelopes; its relevant full-text theoretical and numerical sections do not state or prove the complete positivity windows and periodic spectral cutoffs. The negative high-order second-derivative coefficient and standard von Neumann method are explicitly prior; the contribution is their nontrivial complete combination in exact finite-step windows and a seven-node sharp cubic transition. The nearest published-finding corpus mathematical records concern a backward-Euler rational resolvent and an actual lattice semigroup, not this assembled polynomial-local exponential. Their short retrieved summaries were not treated as full-text absence proofs. Residual priority uncertainty is recorded.",
+    "residual_risks": [
+      "The two similar published mathematical-record full texts were not accessible; only their precise advertised mathematical summaries were compared.",
+      "Classical high-order explicit heat literature may contain unindexed equivalent stencil stability tables.",
+      "Uniform-over-all-periodic-grids spectral threshold must not be misread as the cutoff for each fixed odd grid."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the method and supplies polynomial exactness; exact periodic positivity and uniform Fourier cutoffs not found in inspected original text",
+        "evidence": [
+          "Theorem 2: local exponentials reproduce evolution of polynomial interpolants; §2.3 five-node heat example discusses higher-order corrections.",
+          "§4.1 plots empirical spectral stability; §4.2 identifies numerical stable envelopes without the algebraic positivity windows."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.15964",
+        "material_read": "Full accessible arXiv HTML article, especially introduction, construction, Theorems 1–2 and proofs, diffusive five-node example, and numerical spectral/stability discussion",
+        "method": "Read accessible original article HTML at arxiv.org/abs/2603.15964 (sections 1, 2.1–2.3, 3, 4.1–4.2)",
+        "title": "Unifying Finite Differences and Semi-Lagrangian Schemes via Localized Matrix Exponentials",
+        "trigger": "Defining 2026 paper and possible direct coverage"
+      },
+      {
+        "assessment": "Contains classical derivative stencils, including five-point coefficient -1/12, and standard Fourier/stability tools; does not present this localized polynomial-exponential joint classification",
+        "evidence": [
+          "Five-point centered second-derivative stencil coefficients include -1/12 at distance two.",
+          "Three-point heat CFL and Fourier methodology are background, not novel here."
+        ],
+        "identifier_or_url": "https://persson.berkeley.edu/math228b/html/finite_difference_methods_for_PDEs.html",
+        "material_read": "Full accessible lecture notes HTML, particularly finite-difference stencils and Fourier/CFL material",
+        "method": "Read mathematical text and formulas on the lecture-note site",
+        "title": "Finite Difference Methods for PDEs",
+        "trigger": "Potential classical covering formulas for five-node heat and Fourier analysis"
+      },
+      {
+        "assessment": "The visible claim is about backward-Euler inverse on a fixed fourth-order generator, which is a distinct evolution operator. No whole-document noncoverage is claimed.",
+        "evidence": [
+          "Retrieved summary states backward-Euler recovery at step 1/3; no local polynomial-exponential endpoint appears in the available summary."
+        ],
+        "identifier_or_url": "2026/10/12/SCOPE-one-third-is-the-sharp-positivity-recovery-threshold-for-backwar--f6b8d51838a7",
+        "material_read": "published-finding corpus returned title and summary only; full underlying text was not accessible",
+        "method": "Semantic mathematical-record search plus attempted public-page open",
+        "title": "One third is the sharp positivity-recovery threshold for backward Euler on the classical fourth-order heat stencil",
+        "trigger": "Related recovered positivity at nonzero step for a high-order heat stencil"
+      },
+      {
+        "assessment": "Applies to continuous-time semigroup of a fixed finite-range generator, versus a finite polynomial center-row assembled update; implication to complete finite-step windows is not evident. No whole-document noncoverage is claimed.",
+        "evidence": [
+          "Retrieved summary describes exact lattice propagator with infinitely many sign-changing spatial coefficients at every positive time."
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47",
+        "material_read": "published-finding corpus returned title and summary only; full underlying text was not accessible",
+        "method": "Semantic mathematical-record search plus attempted public-page open",
+        "title": "Negative outer jumps force persistent lattice sign oscillation and a linear cycle-positivity delay",
+        "trigger": "Potential broad theorem subsuming high-order heat-sign obstructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "111e1c1f-c713-402c-95c3-d05adb821532",
+  "value": {
+    "rationale": "The target is a recently introduced sparse local matrix-exponential integrator whose claimed high-CFL behavior motivates sharp discrete guarantees. The finding locates exact positive-state step intervals rather than generic negative-coefficient examples, and establishes that decreasing a timestep can destroy positivity before it recovers at intermediate scale. The seven-point spectral endpoint exceeds its positivity endpoint by a positive explicit amount, yielding a quantified safe-step design distinction. The universal short- and long-step obstructions show this is a structural issue of all higher centered interpolatory heat exponentials. Exact finite classifications of natural consecutive stencil widths are useful numerical reference cases without a downstream runtime theorem.",
+    "status": "PASS"
+  }
+}

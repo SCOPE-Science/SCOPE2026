@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The object is the center row of the genuine polynomial-space exponential, not the exponential of a globally assembled sparse matrix. The proof shows that differentiation on degree-\(2r\) interpolants is nilpotent, giving the explicit weight formula for every finite \(r\). Independently computed seven-point and five-point weights agree with matrix-power exponentials. The complete coefficient sign classifications at five and seven nodes establish precisely the recovered positivity windows, including their endpoints and the isolated zero step. Fourier diagonalization of circulant symmetric updates reduces the uniform \(\ell^2\)-contraction question to the cosine symbol. The seven-point derivative has an explicit positive quadratic-square decomposition, and the resulting Nyquist cubic is strictly increasing. The general short/long-step obstruction follows from strictly negative coefficients of the respective polynomials. The 90 exact-symbolic and finite matrix diagnostics passed, with asymptotic and infinite quantifiers supplied by proof rather than sampling.
+
+## Originality — PASS (qualified)
+
+Bayona, arXiv:2603.15964, defines the polynomial-local exponential, establishes its polynomial exactness and reports numerical stability envelopes; the complete finite-step sign and Fourier-contractivity conditions in the finding are not presented in its relevant full-text sections. Standard centered differentiation and three-point heat CFL analysis are prior art, credited explicitly. Relevant mathematical records on backward-Euler fourth-order heat stencils and continuous semigroups with negative outer jumps treat distinct evolution maps; their visible summaries do not imply the exact polynomial-exponential coefficient windows or the seven-point Nyquist root. Their full underlying records could not be inspected, so no full-text absence is certified and residual literature-priority risk remains. No equivalent assertion was identified in the actual published-finding corpus and web searches; absence from retrieval is not proof of uniqueness.
+
+## Value — PASS
+
+The centered local exponential is a recently proposed sparse heat-stepping construction whose reported larger empirical stability envelope requires careful interpretation. This exact classification identifies positive-step bands in which the assembled update genuinely preserves all nonnegative nodal data and separates those bands from the wider spectral-contraction regime. The fact that *smaller* positive timesteps can violate nodal positivity, yet intermediate steps restore it, changes safe-step selection and supplies a sharp reproducible verification benchmark. The all-stencil obstruction proves that the issue is structural rather than an isolated five- or seven-point artifact. The contribution claims neither general PDE stability nor new classical Fourier/interpolation tools.
+
+## Closest literature and limitations
+
+The closest primary text is V. Bayona, *Unifying Finite Differences and Semi-Lagrangian Schemes via Localized Matrix Exponentials*, arXiv:2603.15964, first publicly released 2026-03-16. The interpolatory differentiation and spectral techniques are standard; see P.-O. Persson, *Finite Difference Methods for PDEs*, Math 228B lecture notes. Published mathematical records on positivity recovery of backward-Euler fourth-order heat stencils and oscillation of exact high-order semigroups are scientifically adjacent, but involve different rational or true-semigroup maps. Results apply to centered uniform periodic grids, constant diffusion, and completed update matrices. Higher-order intermediate windows, nonuniform and boundary stencils, and nonlinear behavior are not classified. Independent validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
