@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "Forcing k candidate diameters separates their common crossing partners into k independent opposite-sector bijections, yielding the exact all-k factorial-moment sum with correct cyclic multiplicity n/k. Conditioning on a universal diameter gives uniform π in S_{n−1}; its crossing count is (n−1)+binom(n−1,2)−inv(π), and extra universal chords are singleton direct-sum blocks. Lehmer inversion coordinates independently yield the exact variance and Gaussian CLT, and the expected extra hubs given a marked hub is 2/(n−1)+O(n^−2), giving O(1/n) size-biased total-variation transfer. Direct checks in verify.py passed 311034 exact assertions across all n≤7 chord pairings and n≤8 conditional permutations, read directly from the package; finite tests do not prove asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Acan 2015 proves degree-length bounds and studies random chord degree marginal.",
+        "Flajolet and Noy 2000 give unconditioned total crossing statistics.",
+        "Marked chord conditional regression establishes a conditional first moment, which is credited and not claimed novel."
+      ],
+      "reasoning": "The proposed theorem determines the joint all-size extremal-degree count and the conditional inversion distribution and n^{3/2} Gaussian law; separate marginals and an affine conditional mean do not determine these laws. The prior marked-chord mean is not asserted to be a new ingredient.",
+      "searches": [
+        "random circle graph conditioned on a universal vertex induced permutation graph and Tracy Widom largest crossing clique",
+        "rare event chord diagram universal vertices and induced permutation graph conditioned hub crossing count",
+        "arxiv:1501.01489v1 Section 2",
+        "Flajolet-Noy 2000 crossing enumerations",
+        "published-finding corpus ID 2026/11/8/SCOPE-universal-conditional-crossing-regression-for-a-marked-random-ch--7c3b3c68ffff"
+      ]
+    },
+    "checked_sources": [
+      "Acan arxiv:1501.01489v1 primary full preprint",
+      "Acan/Pittel arxiv:1406.2867v1 primary full preprint",
+      "Flajolet/Noy 2000 primary full PDF",
+      "Three closest published published-finding corpus RESULT.md full texts",
+      "published-finding corpus searches for universal chord counts, diameter conditions, permutation singleton blocks",
+      "OEIS A081054 terminology check"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acan 2015 degree bounds imply the maximal degree chord must be diametral, so that observation and the one-chord mean are credited.",
+        "Acan/Pittel 2014 conditions on globally low crossing count rather than rare maximum-degree chords.",
+        "The published fixed-present-chord variance formula does not condition on degree n-1; subtracting its marginal variance is not legitimate as the desired conditional variance.",
+        "The present counting forces arbitrary families of diameters and enumerates opposite-sector pairings with product factorial weights."
+      ],
+      "reasoning": "None of the examined statements logically implies the new all-k binomial-moment composition sum and the global-crossing permutation law without an additional structural bijection and conditioning argument. The exact first conditional mean and inversion-number variance are classical/corollary-level ingredients and are not individually claimed novel.",
+      "searches": [
+        "arxiv:1501.01489v1 full PDF",
+        "arxiv:1406.2867v1 full PDF",
+        "Flajolet-Noy 2000 full PDF",
+        "uniform random chord diagram universal chords crossing all other chords number probability antipodal distribution factorial moments",
+        "published-finding corpus ID 2026/11/2/SCOPE-sharp-conditional-crossing-variance-inflation-from-a-prescribed--3db04d00c97a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A uniform chord matching conditioned on a universal diameter is a uniform bipartite matching/permutation; additional universal chords correspond exactly to singleton direct-sum permutation blocks.",
+        "The checked direct-sum fingerprint result counts all direct-sum components and relates their count to pattern occurrences, not singleton blocks conditioned on a circular universal chord."
+      ],
+      "reasoning": "The permutation-block equivalence is made explicit and independently proved, not concealed. Possible historical enumeration of singleton direct-sum blocks remains a priority risk; no inspected stronger result supplies the joint factorial moments together with the conditioned crossing fluctuations.",
+      "searches": [
+        "uniform random chord diagram universal chords crossing all other chords number probability antipodal distribution factorial moments",
+        "universal vertex random chord diagrams law all finite factorial moments for count of crossing-all chords",
+        "number of singleton components in direct sum decomposition random permutation factorial moments",
+        "circle graphs dominating vertex degree n-1 chord diagrams counting",
+        "published-finding corpus ID 2026/11/2/SCOPE-a-direct-sum-fingerprint-law-and-a-sharp-2143-component-pattern--97dcef300448"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A081054 concerns diagrams with no isolated chord, not diagrams with chords crossing every other chord.",
+        "published-finding corpus searches yielded crossing motif, short-chord and marked degree results but no exact all-k universal-chord factorial-moment table."
+      ],
+      "reasoning": "The distinction between absence of isolated vertices and existence/count of universal vertices is exact. A negative search is not proof of novelty; further older tabulations remain an explicit limitation.",
+      "searches": [
+        "uniform random chord diagram universal chords crossing all other chords number probability antipodal distribution factorial moments",
+        "uniform random perfect matching on cyclic endpoints probability degree n-1 universal chords",
+        "universal vertex random chord diagrams law all finite factorial moments for count of crossing-all chords",
+        "OEIS A081054 count chord diagrams with no isolated chords",
+        "enumeration matchings chord diagrams number chords intersect all other chords"
+      ]
+    },
+    "rationale": "The geometric necessity and first moments, inversion-number formulas, unconditional crossing moments, and previously published marked-chord conditional mean are acknowledged as known. The exact all-k universal-chord factorial-moment law follows from a distinct opposite-sector pairing bijection; the rare-hub conditional crossing distribution and Gaussian density shift follow from an additional permutation representation and size-bias estimate. Actual primary-text inspections and published-finding corpus searches found no stronger theorem implying this bundle; historical priority is qualified, particularly for potentially older singleton direct-sum block enumerations.",
+    "residual_risks": [
+      "An older permutation direct-sum singleton block generating function may provide an equivalent count after reduction.",
+      "A refined chord-crossing generating function or historical thesis not completely located could subsume part of the theorem.",
+      "The labeled circular pairing model is distributionally equivalent to independent uniform continuous chord endpoints conditional on cyclic order; this is not a distinction supporting novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Degree-length inequalities and marginal distribution are already known; no all-order universal count or rare-hub conditioned crossing CLT identified",
+        "evidence": [
+          "arxiv:1501.01489v1 Section 2: marked chord degree and arc-length asymptotics"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+        "material_read": "Full 27-page accessible preprint, especially initial model and degree section; pages 1,4,5 viewed as page images",
+        "method": "Read primary open preprint and inspect relevant equations and prose",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Direct random chord graph and degree-n−1 condition"
+      },
+      {
+        "assessment": "Conditions on unusually small total crossing number, not one universally crossing chord",
+        "evidence": [
+          "arxiv:1406.2867v1 main theorem context: sparse crossing-conditioned component regime"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.2867",
+        "material_read": "Accessible open primary preprint, introduction and main theorems, including page images",
+        "method": "Read original primary text and compare conditioning event and conclusions",
+        "title": "Formation of a giant component in the intersection graph of a random chord diagram",
+        "trigger": "Potentially stronger conditional random chord graph analysis"
+      },
+      {
+        "assessment": "Unconditional crossing moments and diagrams enumeration, not simultaneous universal chord count and rare-hub conditioned crossing law",
+        "evidence": [
+          "Flajolet/Noy 2000 Sections 2–3 crossing count and asymptotic enumeration"
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Accessible full PDF; crossing and connected-diagram sections, pages 3,4,9 viewed as page images",
+        "method": "Inspect historical full paper for crossing enumerators, conditioned extremal chords and equivalent formulas",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Classical general chord matching crossing enumerators may dominate new claim"
+      },
+      {
+        "assessment": "Indeed implies conditional mean for marked degree maximal; mean is credited. Does not determine full law or conditional crossing variance nor all-k universal counts.",
+        "evidence": [
+          "Published conditional E[Y|D=t] affine formula; no higher moments"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-universal-conditional-crossing-regression-for-a-marked-random-ch--7c3b3c68ffff",
+        "material_read": "Complete published RESULT.md",
+        "method": "Read full proof and compare conditioned σ-fields",
+        "title": "Universal conditional crossing regression for a marked random chord",
+        "trigger": "Potential exact regression that subsumes conditional crossing mean"
+      },
+      {
+        "assessment": "Variances for fixed chord present without requiring universal crossing, not same conditioning; not a dominating statement.",
+        "evidence": [
+          "Published Var(C | e present) includes all possible D values, unlike Var(C | e universal)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-crossing-variance-inflation-from-a-prescribed--3db04d00c97a",
+        "material_read": "Complete published RESULT.md",
+        "method": "Read full proof; compare conditioning e present vs degree maximal",
+        "title": "Sharp conditional crossing-variance inflation from a prescribed chord",
+        "trigger": "Conditional variance may imply proposed exact variance"
+      },
+      {
+        "assessment": "It measures total number of direct-sum blocks and covariance with pattern counts, not singleton block enumeration tied to universal chords.",
+        "evidence": [
+          "Published K_n=1+sum cuts and pattern covariance; no singleton direct-sum block PGF"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-direct-sum-fingerprint-law-and-a-sharp-2143-component-pattern--97dcef300448",
+        "material_read": "Complete published RESULT.md",
+        "method": "Read all claims and proof for block-size statistics",
+        "title": "A direct-sum fingerprint law and a sharp 2143 component–pattern covariance reversal",
+        "trigger": "Permutation direct-sum component decomposition may dominate universal count bijection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "be7a9843-118d-4647-9719-a397e8250a12",
+  "value": {
+    "rationale": "Universal-vertex existence is the natural far upper extreme of the degree distribution of random circle graphs. The complete simultaneous-hub law (rather than one-chord mean) distinguishes how often hubs coexist. The exact permutation representation under an exponentially rare extremal event produces a nontrivial density shift from 1/6 to 1/4 and a full conditional Gaussian fluctuation law, useful to graph rare-event sampling and structural extreme-degree models. This is not an arbitrary finite parameter slice or merely a normalization check.",
+    "status": "PASS"
+  }
+}
