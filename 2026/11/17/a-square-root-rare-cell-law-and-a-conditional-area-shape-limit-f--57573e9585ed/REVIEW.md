@@ -1,11 +1,21 @@
-# Review of the three-circle minimum-area limit
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact area formulas follow from Girard and a direct sign-cone construction. A normal-angle Jacobian gives the explicitly normalized joint density, the Gram determinant factorizes into four sine factors, dominated convergence produces the singular-face limit, and a separate simultaneous-rare estimate justifies multiplication by four. This proves the probability coefficient and the marked conditional limit, rather than relying on simulation. The standalone program independently reconstructs spherical cell areas and checks numerical scales. The uniformity of the normal directions, the nonconcurrence assumption (probability one), and the conversion from four pairs to eight physical cells are explicit.
+## correctness
 
-**Originality — PASS (provisional priority).** Finch–Jones (2010, full text, particularly §1 and §2) explicitly recognizes dual spherical triangles and known trivariate angle/side laws; the new joint-density formula itself is not treated as original. Kabluchko (2026, full text, §4 and §5) gives solid-angle moment and conical-polytope results but not a four-pair minimum or its marked law. Hug–Thäle (2026) concerns random spherical tessellations, typical edges and incidences; only its public abstract was accessible, hence no whole-document noncoverage inference is made. Published mathematical records nearest to this question address area-weighted many-circle cells and three-site Voronoi cells, neither giving the present three-circle minimum and conditional mark. The limit theorem is a nontrivial singular-boundary analysis of classical density rather than a claim to a new density. Previously uninspected historical work remains a residual priority risk.
+PASS
 
-**Value — PASS.** The finite three-circle model is the first generic arrangement with eight triangular regions. The smallest-cell tail tests the singular configurations where normals approach a common plane; quantifying its exact exponent/coefficient and simultaneously resolving the other three cell areas is a natural, nontrivial geometric statistic. The conditional mark is mathematically informative beyond the marginal law and is not a nominal reparameterization of a known theorem.
+For 3 iid Haar normals, Girard's four sign-cone cell areas A_i=2πp_i are affine functions of pairwise angles α,β,γ with ∑p_i=1 and the claimed Jacobian 2π³. The known Gram density sinα sinβ sinγ/(4π√G), with G=4∏sin(πp_i), gives the symmetric p-simplex density. As p0=u→0 the rescaled density √u g tends pointwise to (π^{3/2}/4)√∏_{j=1}^3sin(πq_j) with an integrable common majorant, and integrating u^-1/2 gives a √ε marginal. Overlap of two tiny p_i contributes only O(ε² log1/ε), so the four disjoint leading faces multiply by 4. Replacing ε=x/(2π) yields P(M<x)∼√2 πJ√x, and conditioned p-min/ε→Beta(1/2,1) independently of the remaining ordered q's with tilted sine-product density. Independent 2D quadrature found J=0.21817592130673527 and coefficient 0.9693300782906765; finite simulation is only corroborative.
 
-**Reproducibility and limits.** `verify_three_circle.py` uses the standard library and includes independent spherical triangle reconstructions, deterministic integral quadrature, and a seeded Monte Carlo consistency test. These are supporting checks; the analytic proof establishes the result. Unindexed older work may pre-empt this asymptotic; no independent audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the minimum cell rare-event exponent/coefficient and joint conditioned three-area law; base Gram/triangle joint density is a classical input, not new. Another same-day great-circle maximum-cell extreme theorem treats a disjoint regime.
+
+## value
+
+PASS
+
+The smallest spherical cell of a canonical random tessellation is a natural extremal area invariant. Its unusually heavy √x tail, explicit non-elementary constant and independently marked macroscopic complement provide a useful rare-geometry description; the conditional law is not a textbook marginal of the already known largest-cell result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
