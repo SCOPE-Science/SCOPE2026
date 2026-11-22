@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later, without additional packages. The expected exact output is embedded in `verify_output.txt`. The checker directly reduces the ordinary augmented simplicial boundary matrices over the field with two elements for each nondecreasing integer weight vector of lengths 2 to 6 and entries 1 to 4. It separately forms the full *integral* oriented boundaries \(\partial[1,S]\), checks \(\partial^2=0\), checks exact leading coefficient one, and verifies that every term is within the asserted birth filtration. For unique minimum weights of lengths at most five, it checks the actual signed action of every weight-preserving permutation against the proposed normalizer-basis transformation.
+## correctness
 
-The checker records 205 weight profiles, 3,964 integral basis-cycle tests, and 289 permutation-action tests. These are independent finite consistency checks, not a proof for unbounded orbit lengths, large weights, or every finite group. The mathematical proof for all cases is the explicit unitriangular filtered chain isomorphism in `RESULT.md`.
+PASS
 
-Boundary cases: an empty fixed-point realization is allowed below the minimum orbit size; the formal augmented degree-minus-one interval is not included in nonnegative reduced persistence. When there is just one orbit, the nonnegative barcode is empty. This proof does not imply a statement about quotient spaces or modified weighted boundary operators.
+An H-fixed point of the geometric uniform matroid rank-r skeleton has barycentric coordinates constant on each permutation orbit. Its support gives exactly the weighted simplex L_r={S:sum w_i<=r}, not a quotient complex. With a chosen minimum orbit 1, z_S=d[1,S]=[S]-[1,dS] enters at weight w(S) because w_1<=w_i; y_S=[1,S] enters at w(S)+w_1. This is an invertible unitriangular filtration-respecting integral basis with d y_S=z_S and d z_S=0, yielding direct two-cell complexes and intervals [w(S),w(S)+w1) in degree |S|-1, no extension or torsion. Unique min orbit is fixed by the normalizer, so signed permutations of remaining orbit vertices preserve those pairs and induce the exact claimed integral normalizer module. Independently enumerated bars for weights (1,3,3),(2,2,2),(2,3,4,5) reproducing the displayed first two cases. r=0 and m=1 handled by augmentation convention; all-n proof is algebraic.
+
+## originality
+
+PASS
+
+The weighted-simplex fixed-locus homeomorphism and explicit integral filtered basis give a complete all-H barcode with a uniform bar length, plus normalizer action when the minimum orbit is unique. Earlier filtered Morse theory is generic preservation/reduction and weighted boundary homology modifies the differential; neither inspected statement supplies this specific closed formula for actual geometric fixed points.
+
+## value
+
+PASS
+
+For a natural symmetric rank filtration, individual matroid Betti numbers do not determine what survives between ranks or its residual group representation. This exact torsion-free all-r persistence with a uniform length equal to the least orbit is a motivated and reusable structural classification, though its proof is elementary once the weighted fixed-point reduction is seen.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

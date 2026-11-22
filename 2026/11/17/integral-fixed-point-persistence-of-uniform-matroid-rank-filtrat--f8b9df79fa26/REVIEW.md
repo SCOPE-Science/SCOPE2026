@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The barycentric fixed-point argument is an actual PL model, not a comparison of Euler characteristics. The filtered integral basis \(z_S=\partial[1,S]\), \(y_S=[1,S]\) has a unit coefficient on each original basis face \([S]\), while every lower-order term enters no later because the chosen orbit has minimum weight. Thus the change of basis is invertible over \(\mathbb Z\) at every threshold and each summand has boundary coefficient exactly one. The normalizer statement follows from the unique shortest orbit and signed action on oriented simplices. Independent finite checks cover 205 weight profiles and exact chain identities. Risks are confined to the stated scope, not missing infinite computation.
+## correctness
 
-## Originality
-**PASS relative to actual inspected evidence, subject to indexing risk.** Edelsbrunner–Letscher–Zomorodian (2000) establishes the persistence framework, not a subgroup-fixed uniform-matroid barcode. Mischaikow–Nanda (2013), inspected in full-text PDF passages, gives generic filtered Morse reductions, not the closed subset-sum formula or integral normalizer representation. Dawson (1990), inspected in PDF, uses a different divisibility-weighted boundary theory. Published related computations of uniform-matroid symmetry and other weighted orbit complexes do not assert this entire rank-filtration and all-inclusion classification. Exact and alias searches found no more comprehensive covering statement. Risk: an unindexed special case of general filtered-simplex algebra may be logically equivalent; the searches cannot establish universal novelty.
+PASS
 
-## Value
-**PASS.** Uniform matroids are canonical symmetric matroids; their rank filtration makes subgroup-fixed persistence a natural equivariant invariant. The result simultaneously classifies *all* finite permutation subgroups, proves sharp single-length rigidity depending on orbit arithmetic, identifies all integral inclusion maps without torsion, and gives full residual normalizer modules under a verifiable uniqueness condition. The contrast between weights \((1,3,3)\) and \((2,2,2)\) demonstrates how symmetry changes lifetimes. The exact full-family invariant and integral symmetry refinement are stronger than a one-rank Betti or routine special-case computation; no unrelated downstream claim is needed.
+An H-fixed point of the geometric uniform matroid rank-r skeleton has barycentric coordinates constant on each permutation orbit. Its support gives exactly the weighted simplex L_r={S:sum w_i<=r}, not a quotient complex. With a chosen minimum orbit 1, z_S=d[1,S]=[S]-[1,dS] enters at weight w(S) because w_1<=w_i; y_S=[1,S] enters at w(S)+w_1. This is an invertible unitriangular filtration-respecting integral basis with d y_S=z_S and d z_S=0, yielding direct two-cell complexes and intervals [w(S),w(S)+w1) in degree |S|-1, no extension or torsion. Unique min orbit is fixed by the normalizer, so signed permutations of remaining orbit vertices preserve those pairs and induce the exact claimed integral normalizer module. Independently enumerated bars for weights (1,3,3),(2,2,2),(2,3,4,5) reproducing the displayed first two cases. r=0 and m=1 handled by augmentation convention; all-n proof is algebraic.
 
-## Closest literature and limits
-See the source-by-source scientific comparisons in `AUDIT.json`. This work does not claim any new general persistence algorithm, ordinary uniform-matroid homotopy classification, or arbitrary equivariant basis when the smallest orbit size is tied. No independent mathematical review has yet occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The weighted-simplex fixed-locus homeomorphism and explicit integral filtered basis give a complete all-H barcode with a uniform bar length, plus normalizer action when the minimum orbit is unique. Earlier filtered Morse theory is generic preservation/reduction and weighted boundary homology modifies the differential; neither inspected statement supplies this specific closed formula for actual geometric fixed points.
+
+## value
+
+PASS
+
+For a natural symmetric rank filtration, individual matroid Betti numbers do not determine what survives between ranks or its residual group representation. This exact torsion-free all-r persistence with a uniform length equal to the least orbit is a motivated and reusable structural classification, though its proof is elementary once the weighted fixed-point reduction is seen.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
