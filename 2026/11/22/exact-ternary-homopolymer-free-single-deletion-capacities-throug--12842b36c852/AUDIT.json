@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For each n=2,...,7 the exact source set contains 3*2^(n-1) words, every single-deletion shadow has n distinct outputs, and compatible pairs are exactly disjoint shadows. verify_exact.cpp executes exhaustive maximum-clique branch-and-bound with a valid greedy proper-coloring upper bound and returns maxima 1,3,4,8,12,22 (1,526,900 recursion calls for n=7), checking its witnessing cliques. Independent incidence-based mixed-integer optimization proves identical optima with optimal status. The pure-Python verifier reconstructs all source/output incidences and checks every rational primal and dual inequality and equal objectives, proving fractional optima 3/2,3,9/2,42/5,27/2,99/4. The n=1 case is immediate. There is no extrapolation beyond n=7; correctness rests on the supplied finite algorithms.",
+    "risks": [
+      "The proof of integer upper bounds is finite executable enumeration rather than a short handwritten inequality.",
+      "No independent external mathematical validation has been performed."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni and Kiyavash 2012, Section V, arxiv:1211.3128v1: general constrained-source hypergraph framework and binary (d,infinity) RLL upper bounds, not exact ternary maximum-run-one size table.",
+        "Nguyen, Cai, Immink and Kiah 2020, arxiv:2001.02839v1, Section VI: quaternary constrained code constructions and rates, not an exact ternary length-seven integer optimum."
+      ],
+      "reasoning": "The general matching formulation contains this optimization as an instance, but offers no solved instance, proof of upper bound 22, or exact rational fractional value 99/4. Constructions with differing alphabet and added constraints do not dominate the present optimum.",
+      "searches": [
+        "Kulkarni Kiyavash Non-asymptotic Upper Bounds for Deletion Correcting Codes arxiv 2012 pdf run length limited",
+        "homopolymer free codes correcting single deletion runlength limited constraints exact sizes",
+        "Capacity-Approaching Constrained Codes with Error Correction for DNA-Based Data Storage arxiv 2001.02839"
+      ]
+    },
+    "checked_sources": [
+      "Kulkarni--Kiyavash 2012 arxiv:1211.3128v1 pp. 1, 12-14",
+      "Nguyen--Cai--Immink--Kiah 2020 arxiv:2001.02839v1 pp. 1-2, 10-11",
+      "Benerjee--Banerjee 2023 arxiv:2305.10741v1 pp. 1-2",
+      "Relevant publicly indexed mathematical-research record titles and summaries under exact, alias and implication queries",
+      "Recoverable statements of related earlier constrained-code results, used solely for overlap comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Old framework: LP matching bound applies to any constrained source but does not imply its integer optimum.",
+        "2023 homopolymer-free constraints are paired with minimum Hamming distance, not with sets of deletion descendants.",
+        "A two-read reconstruction graph connects words only when they have at least two common outputs; the one-read conflict graph connects whenever they have at least one."
+      ],
+      "reasoning": "The input constraint is shared with some earlier studies, but none of the inspected stronger or differently constrained statements logically forces the exact integer maximum 22 or rational fractional maximum 99/4. The critical integer upper bound requires a new finite exact argument.",
+      "searches": [
+        "run length limited ternary one-deletion code with adjacent unequal symbols length seven maximum",
+        "Kulkarni Kiyavash 2012 run-length-limited single-deletion theorem Section V",
+        "Bounds on Size of Homopolymer Free Codes arxiv:2305.10741"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two distinct deletion reads permit intersections of size one; the present one-read code forbids every intersection.",
+        "The same input constraint appears under proper path colorings, maximum homopolymer run one, and no-equal-neighbor words."
+      ],
+      "reasoning": "A single known-position erasure retains the missing index and a two-distinct-read reconstruction code receives more information; neither yields exact single-unknown-position-deletion capacity. Source equality alone is insufficient to imply the theorem.",
+      "searches": [
+        "homopolymer free q-ary length five two distinct deletion reads reconstruction 19 seven-cycle",
+        "ternary no equal adjacent letters one deletion shadow disjoint maximum code size",
+        "single deletion correcting codes no equal adjacent symbols ternary exact size 22 length seven"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table I of arxiv:1211.3128v1 reports unrestricted q-ary deletion upper bounds and constructions, not the nonrepeating-input exact table.",
+        "Search results include unrestricted ternary code size at length five and binary RLL length eleven, with different input languages.",
+        "Benerjee and Banerjee 2023, arxiv:2305.10741v1, explicitly defines a Hamming-distance code problem rather than an unknown-position deletion optimum."
+      ],
+      "reasoning": "No examined exact table includes the labeled ternary no-equal-neighbor source paired with one arbitrary deletion. No database search is taken as a proof of absence from all literature.",
+      "searches": [
+        "homopolymer free ternary single deletion correcting code maximum 22 length seven",
+        "nonrepeating ternary word one deletion exact capacities 1 3 4 8 12 22",
+        "finite exact single deletion runlength one ternary length seven 22 codewords",
+        "arxiv:1211.3128v1 Table I"
+      ]
+    },
+    "rationale": "Comparison is by logical implication under source/channel constraints. Exact ternary homopolymer-free one-deletion maxima and fractional values through length seven are not supplied by the inspected general deletion-hypergraph framework, by quaternary DNA edit constructions, or by Hamming-metric homopolymer-free bounds. Dedicated research-record searches found no equivalent indexed statement; this is a qualified best-knowledge assessment rather than a proof of historical uniqueness.",
+    "residual_risks": [
+      "Undiscovered equivalent exact finite calculations or alternative coding terminology could invalidate priority.",
+      "Related research records provide abstracts or summaries and do not guarantee full-text uniqueness checks for every item.",
+      "Unindexed proceedings, theses or private previously computed tables may contain the same numerical values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework and upper bounds cover abstract problem families; no exact instance for ternary maximum-run-one arbitrary-deletion code.",
+        "evidence": [
+          "arxiv:1211.3128v1, Section V Theorem 5.2 and Table I, pp. 12-14"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+        "material_read": "Definitions of deletion shadows; introduction, Section V constrained-source run-length-limited discussion and theorem, Section VI numerical table including unrestricted q=3 row",
+        "method": "Full-text open, located section and table, checked visual page 13",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Same deletion channel and explicitly constrained-source hypergraph modeling"
+      },
+      {
+        "assessment": "Gives efficient quaternary encoder/decoder construction and redundancy bounds; no exact ternary length-seven extremal count.",
+        "evidence": [
+          "arxiv:2001.02839v1, Sections II and VI, Table I"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2001.02839",
+        "material_read": "Abstract and definitions, result-summary table, Section VI construction of error-control codes",
+        "method": "Full-text open, inspected Section VI text and screenshot of title/abstract page",
+        "title": "Capacity-Approaching Constrained Codes with Error Correction for DNA-Based Data Storage",
+        "trigger": "Constrained homopolymer length combined with deletion correction"
+      },
+      {
+        "assessment": "Codes are assessed by Hamming distance, not deletion-shadow disjointness; no implication of exact deletion capacity.",
+        "evidence": [
+          "arxiv:2305.10741v1, pp. 1-2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.10741",
+        "material_read": "Abstract, Section II formal definitions and Hamming-sphere setup, main contributions",
+        "method": "Full-text open and verified first-page image",
+        "title": "Bounds on Size of Homopolymer Free Codes",
+        "trigger": "Identical forbidden-adjacent-repeat source vocabulary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12842b36-c852-4271-8b2d-adf163fd62e2",
+  "value": {
+    "rationale": "A natural design requirement, forbidden homopolymer runs of length two, is combined with unlocated single deletion. The exact six-versus-seven-symbol threshold M_6=12<16<=M_7=22 is a useful finite four-bit design cutoff, and the exactly certified P_7-M_7=11/4 quantifies a genuine integrality obstruction for the classical fractional shadow-packing method. Neither conclusion is an automatic numerical consequence of the general literature bounds. This is a natural short-block benchmark; no general larger-length contribution is claimed.",
+    "risks": [
+      "The directly evaluated language is ternary rather than four-letter DNA.",
+      "Application to streaming synchronization and longer blocks is unproved."
+    ],
+    "status": "PASS"
+  }
+}
