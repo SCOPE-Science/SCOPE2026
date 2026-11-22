@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The original complex is the clique complex on 49 points of \((\mathbb Z/7)^2\) with inclusive circular-Manhattan distance at most three. The provided certificate refers to the integer vertex index \(7a+b\) and records every removal in chronological order. No original face list is trusted: `VERIFY.py` rebuilds it from pairwise metric tests.
+## correctness
 
-Execute `python3 VERIFY.py CERTIFICATE.json` with Python 3.9 or newer. Successful execution must give the complete face vector \((49,588,2646,5488,5733,3136,896,98)\), \(9{,}309\) verified free-face pairs, sixteen critical cells of dimensions zero, three and four with multiplicities one, one and fourteen, and fourteen integer Morse boundary coefficients all zero. It also checks that each critical cell is maximal at its removal and that no face remains. The saved output is `VERIFY_OUTPUT.txt`.
+PASS
 
-The proof uses standard discrete Morse theory to convert the acyclic matching into a CW complex. The signed recursion in `VERIFY.py` computes attaching degrees from actual matching events and integral incidence signs; reduced Betti numbers by themselves would not establish this homotopy type. All checks are finite exhaustive checks on the 49-vertex case only. This package does not constitute an independent external audit.
+Independently reconstructed the full periodic Manhattan adjacency and exhaustively enumerated all 18,634 nonempty cliques with f-vector [49,588,2646,5488,5733,3136,896,98]. Fetched original CERTIFICATE.json (Git blob da20ff2a898fc0b79d3cc5164646cceaf87391e2, 9325 chronological events), and independently replayed every free-face pair against the current active face set: 9309 valid codimension-one pairs with unique maximal coface, sixteen distinct maximal critical faces, no remaining faces. The resulting critical dimensions are exactly one 0-cell, one 3-cell, fourteen 4-cells. Ordered free-face collapse gives an acyclic Morse matching; independent signed integral recursive projection of three-face boundaries gives all fourteen 4→3 attaching degrees exactly zero. No reliance on old VERIFY_OK: the full finite certificate was checked afresh. Each map S^3→S^3 has degree 0 and is nullhomotopic, hence the integral CW homotopy equivalence, rather than just mod-two Betti, follows.
+
+## originality
+
+PASS
+
+An accessible primary paper states the exact (7,3) homotopy classification as an open question while giving matching mod-two Betti entries; independently verified integral zero attaching degrees settle a strictly stronger question. Other indexed scale-two or scale-four classifications do not imply (7,3); best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Settles a precisely stated, natural and published missing homotopy-type case of a torus-grid Vietoris–Rips filtration. Its integral mixed-dimensional wedge distinguishes homotopy from previously known mod-two Betti numbers and yields an explicit portable finite certificate. The exact finite object is motivated by a named unresolved classification question, and the certificate upgrades homological data to genuine attaching-map information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

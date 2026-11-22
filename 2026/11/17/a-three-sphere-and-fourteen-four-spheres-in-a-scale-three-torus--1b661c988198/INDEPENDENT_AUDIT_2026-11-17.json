@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:09:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 2b8ffae181200b5554dfe3d83cf5609f34330014",
+        "Frozen CERTIFICATE.json Git blob da20ff2a898fc0b79d3cc5164646cceaf87391e2",
+        "Frozen VERIFY.py Git blob 655c8d5b00c25a68be95d71709b6fb6330703b7e",
+        "Independent JavaScript full face/certificate/degree verifier run in this execution"
+      ],
+      "rationale": "Independently reconstructed the full periodic Manhattan adjacency and exhaustively enumerated all 18,634 nonempty cliques with f-vector [49,588,2646,5488,5733,3136,896,98]. Fetched original CERTIFICATE.json (Git blob da20ff2a898fc0b79d3cc5164646cceaf87391e2, 9325 chronological events), and independently replayed every free-face pair against the current active face set: 9309 valid codimension-one pairs with unique maximal coface, sixteen distinct maximal critical faces, no remaining faces. The resulting critical dimensions are exactly one 0-cell, one 3-cell, fourteen 4-cells. Ordered free-face collapse gives an acyclic Morse matching; independent signed integral recursive projection of three-face boundaries gives all fourteen 4→3 attaching degrees exactly zero. No reliance on old VERIFY_OK: the full finite certificate was checked afresh. Each map S^3→S^3 has degree 0 and is nullhomotopic, hence the integral CW homotopy equivalence, rather than just mod-two Betti, follows.",
+      "residual_risks": [
+        "The proof is specific to 49 vertices and inclusive radius 3; no claim for other grid sizes or scale values.",
+        "A matching with 14 zero integer Morse boundaries is sufficient here because there is exactly one S^3 3-skeleton; it would not by itself classify arbitrary higher-dimensional attaching maps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adams et al Theorem 7.1 handles (5,3) and (7,4) homotopy types, while Section 8 Question 8.1 explicitly asks for (7,3).",
+          "Resultary exact near neighbors handle 7x7 at radius four, and rectangular torus grid scale two with different radius."
+        ],
+        "reasoning": "A theorem for all widths at radius two does not dominate radius-three, and 7x7 at radius four is a different filtration stage. The primary matched-parameter source leaves the sought implication open.",
+        "searches": [
+          "Resultary search: Vietoris Rips C7 x C7 torus grid scale 3 wedge S3 fourteen S4 homotopy type",
+          "Resultary search: Rips torus-grid T7,7 radius 3 homotopy equivalence attaching degrees integral",
+          "all torus grids Vietoris Rips scale two phase diagram radius three"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2502.07134",
+        "https://etd.auburn.edu/handle/10415/9659",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-complete-scale-two-rips-homotopy-phase-diagram-for-rectangular--f60273dfc66d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adams et al Section 8 Question 8.1: identify homotopy types at (6,3) and (7,3).",
+          "Their Theorem 7.1 gives different parameter values.",
+          "The new proof independently certifies fourteen zero integral degree attachments, not just rank over F2."
+        ],
+        "reasoning": "Exact mod-two ranks are compatible with other attaching maps or hidden integral information, and a different radius is not a logical implication. The current claim directly resolves the named (7,3) question.",
+        "searches": [
+          "Resultary search: Vietoris Rips C7 x C7 torus grid scale 3 wedge S3 fourteen S4 homotopy type",
+          "Resultary search: Rips torus-grid T7,7 radius 3 homotopy equivalence attaching degrees integral",
+          "Adams Adetowubo Barriga-Acosta Feng Sterling 2025 theorem 7.1 question 8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adams et al use T_{7,7} with periodic Manhattan shortest-path metric and a Rips radius-three parameter; their Table 1 gives third and fourth mod-two ranks 1 and 14.",
+          "Equivalent graph notation C_7 square C_7, periodic square torus T_{7,7}, inclusive 7x7 grid at k=3."
+        ],
+        "reasoning": "The parameter match is exact, but a mod-two homology table neither determines integral torsion nor the degree of fourteen 4-cell attachments. The proposed integral wedge is therefore not merely an alternate label of their table.",
+        "searches": [
+          "Resultary search: Vietoris Rips C7 x C7 torus grid scale 3 wedge S3 fourteen S4 homotopy type",
+          "Resultary search: Rips torus-grid T7,7 radius 3 homotopy equivalence attaching degrees integral",
+          "VR(T_{7,7};3) homotopy Question 8.1 torus grid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Adams et al 2025 Table 1 has exact mod-two Betti numbers 1 in degree 3 and 14 in degree 4 at 7x7 radius3; Question 8.1 seeks homotopy.",
+          "Auburn Sterling thesis likewise includes partial homology table, not zero integral Morse attaching degrees."
+        ],
+        "reasoning": "The exact tabulated data are not an exact integral homotopy classification. Independent complete Morse certificate supplies strictly additional cell-attachment information.",
+        "searches": [
+          "Resultary search: Vietoris Rips C7 x C7 torus grid scale 3 wedge S3 fourteen S4 homotopy type",
+          "Resultary search: Rips torus-grid T7,7 radius 3 homotopy equivalence attaching degrees integral",
+          "arxiv:2502.07134 Table 1 entry 7 3 beta3 beta4"
+        ]
+      },
+      "rationale": "An accessible primary paper states the exact (7,3) homotopy classification as an open question while giving matching mod-two Betti entries; independently verified integral zero attaching degrees settle a strictly stronger question. Other indexed scale-two or scale-four classifications do not imply (7,3); best-of-knowledge PASS.",
+      "residual_risks": [
+        "A newer or unindexed paper might have resolved Question 8.1 independently; semantic coverage is bounded, not exhaustive.",
+        "Thesis abstract, introductory results and exact (7,3) table inspected directly, not a cover-to-cover audit of every appendix."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mod-two homology established; integral homotopy type left as explicit question",
+          "evidence": "arXiv:2502.07134, Table 1, Theorem 7.1, Question 8.1",
+          "identifier_or_url": "https://arxiv.org/pdf/2502.07134",
+          "material_read": "Full text relevant definitions, Table 1 (7,3) cell, Theorem 7.1 and Section 8 Question 8.1; PDF page screenshot of table inspected",
+          "method": "Opened and visually inspected open-access PDF plus extracted sections",
+          "title": "Vietoris–Rips complexes of torus grids",
+          "trigger": "Identical grid and radius, explicit unresolved homotopy case"
+        },
+        {
+          "assessment": "Table 1.1 lists (7,3) only mod-two ranks 3:1,4:14, while its theorems concern n>=3k, n=3k and n=3k-1; these do not include (7,3)",
+          "evidence": "Sterling 2025 thesis pp.2–3, Table 1.1, main results, page screenshot",
+          "identifier_or_url": "https://etd.auburn.edu/handle/10415/9659",
+          "material_read": "Primary thesis Abstract, Chapter 1 Table 1.1 at (7,3), explanation beneath table and stated main theorems in the introduction",
+          "method": "Opened lawful primary PDF, reviewed parsed table/text and visually inspected PDF page 7",
+          "title": "Vietoris–Rips Complexes of Torus Grids",
+          "trigger": "Same torus-grid parameters in primary thesis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2502.07134",
+        "https://etd.auburn.edu/handle/10415/9659",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-complete-scale-two-rips-homotopy-phase-diagram-for-rectangular--f60273dfc66d"
+      ],
+      "rationale": "Settles a precisely stated, natural and published missing homotopy-type case of a torus-grid Vietoris–Rips filtration. Its integral mixed-dimensional wedge distinguishes homotopy from previously known mod-two Betti numbers and yields an explicit portable finite certificate. The exact finite object is motivated by a named unresolved classification question, and the certificate upgrades homological data to genuine attaching-map information.",
+      "residual_risks": [
+        "No general family or persistence/equivariant maps computed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge independent assessment of the frozen mathematical RESULT, not peer review or external publication certification. Source text was treated strictly as evidence, not instructions.",
+    "No changes to original science, files or historical ledger. Source SHA guards not fully recursively verified; publication is withheld, not marked as ready."
+  ],
+  "schema_version": 1
+}
