@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For each proper frequency U, the marked comparison runs use disjoint vertex blocks, so relative rankings are independent and give exact Eulerian factors. The full circular frequency follows from cyclic rotation to a maximum-at-end word. Signed Eulerian evaluations make every surviving multiplier sign (-1)^(|U|/2). The matching-covered-set map is bijective except for the two perfect matchings when n is even; the cycle matching polynomial yields rank L_n-1_even and q_n=2cos(n*pi/3) sign imbalance, hence the full inertia. All boundaries \\(n\\ge3\\) are handled; 2081 independently enumerated exact assertions checked n=3..9 and Eulerian values through 40.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Foata–Schützenberger (arXiv math/0508232, Chapter V, Thm 5.6) proves Eulerian evaluations at -1; this supplies the local signed factors, not their Boolean Fourier assembly around a cycle.",
+        "Petersen (2006) studies the Eulerian descent subalgebra in the symmetric group, with group-algebra multiplication and dimension n-1; this is different from XOR-convolution on 2^n descent-profile indices.",
+        "Elizalde (arXiv 0906.2795) concerns permutations consisting of one cycle and their usual descent sets, rather than arbitrary permutations with cyclically adjacent positions."
+      ],
+      "reasoning": "The strongest inspected classical sources provide exactly the inputs used in the new proof, rather than a uniform statement on the Boolean convolution spectrum. Their group-algebra and univariate enumerations do not imply exact positive and negative Walsh multiplicities without the additional run-factorization and matching-collision analysis.",
+      "searches": [
+        "signed cyclic descent set Walsh multipliers maximum zero-rank matchings on a cycle and Eulerian tangent polynomials",
+        "cyclic descent Fourier coefficients matchings Lucas numbers circular permutations",
+        "Fourier support and rank of cyclic descent pattern distribution permutations comparison Eulerian zigzag"
+      ]
+    },
+    "checked_sources": [
+      "Foata–Schützenberger, arXiv math/0508232, first posting 2005-08-15",
+      "Petersen, Brandeis dissertation May 2006, Chapter 1 §1.5",
+      "Chang–Ma–Yeh, arXiv 0806.0433, first posting 2008-06-05",
+      "Elizalde, arXiv 0906.2795, first posting 2009-06-15",
+      "Indexed work on cyclic permutation peak/valley covariance, distinct second-moment statement",
+      "Earlier linear descent pattern Fourier rank theorem statement, compared by implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Foata–Schützenberger state A_(2r)(-1)=0 and signed A_(2r+1)(-1) counts alternating permutations.",
+        "Petersen derives sum_pi t^cdes(pi)=n t A_(n-1)(t), but computes neither the Walsh support nor its inertia.",
+        "Chang–Ma–Yeh encode descent values sigma(i), not comparison-position bits i; Elizalde encodes ordinary descents of one-cycle permutations.",
+        "The indexed cyclic peak–valley result is a second-moment covariance analysis, not an all-order Boolean convolution character classification."
+      ],
+      "reasoning": "The new claimed implication is exact full Walsh support and all three inertia counts for every \\(n\\ge3\\). Each source supplies a different statistic, an aggregate marginal, or a necessary local ingredient. None of the inspected statements directly entails the asserted Lucas-minus-one support and six-periodic sign imbalance without new assembly of the cyclic character factors.",
+      "searches": [
+        "Published full text: arxiv math/0508232, Chapter V §2 and §4",
+        "Petersen dissertation 2006 Chapter 1 §1.5 cyclic descent algebra",
+        "Elizalde 2009 Descent Sets of Cyclic Permutations",
+        "Chang Ma Yeh 2008 Enumerations of Permutations by Circular Descent Sets",
+        "Relevant indexed finding: Sharp two-channel Fourier sampling of cyclic permutation extrema",
+        "Earlier related statement: Fibonacci Fourier rank of linear permutation descent patterns"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The path descent formula counts nonzero Walsh positions by Fibonacci numbers on a line, and explicitly excludes the last-to-first comparison.",
+        "Petersen, Descents, Peaks, and P-partitions, Chapter 1 §1.5, gives the circular Eulerian univariate polynomial but not a multivariate signed spectrum.",
+        "The cyclic result has the extra full-frequency multiplier -n A_(n-1)(-1) and a two-to-one perfect-matching support map."
+      ],
+      "reasoning": "A linear descent vector and a circular descent vector use distinct Boolean groups. Proper cyclic frequency runs do reuse the known local Eulerian factor, but the univariate circular law alone does not imply the full multivariate support, full-cycle sign, or exact three-way inertia. Matching-covered support is equivalent to the even-run condition proved here, not a previously retrieved theorem.",
+      "searches": [
+        "Walsh Fourier transform cyclic descents of random permutations, signed Eulerian polynomial circular descents nullity",
+        "circular descent positions Walsh transform Lucas numbers Fourier rank",
+        "cyclic Eulerian descent algebra Fourier inertia Boolean cube Lucas sequence matching covered vertices",
+        "Earlier related statement: Fibonacci Fourier rank of linear permutation descent patterns"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The number of matchings of a cycle is the classical Lucas number L_n; it counts matchings with multiplicity, not distinct Boolean vertex-coverage frequencies at even n.",
+        "Foata–Schützenberger Thm 5.6 supplies the classical signed Eulerian table, while Petersen Prop 1.5.1 supplies the total cyclic-descent number enumerator."
+      ],
+      "reasoning": "A Lucas number sequence or Eulerian evaluation table by itself does not state which of the 2^n Walsh multipliers vanish, their fixed sign law, or the six-periodic positive-minus-negative inertia. At even n one must subtract the duplicated full-coverage frequency; this is not a simple lookup of the raw matching count.",
+      "searches": [
+        "Lucas matching cycle circular binary even runs Fourier rank",
+        "circular descent positions Walsh transform Lucas numbers Fourier rank",
+        "signed Eulerian polynomial -1 tangent numbers matching cycles"
+      ]
+    },
+    "rationale": "Classical signed Eulerian evaluations and circular Eulerian univariate enumeration are explicitly credited. The checked primary texts and indexed results do not state the full Boolean XOR Fourier-support set, cyclic full-frequency correction or exact three-way inertia. Unlike the earlier linear-descent Walsh result, the cyclic setting has an additional closed all-edge character and a doubled perfect matching. Priority cannot be guaranteed against unindexed equivalent multivariate work.",
+    "residual_risks": [
+      "The Petersen thesis remote PDF screenshots could not be fetched; its directly relevant full section was read in extracted text.",
+      "Unindexed multivariate circular-descent Walsh or signed comparison-run work could contain equivalent results.",
+      "The local linear-descent factorization makes part of the proof an extension, although the cyclic full-character and exact inertia are not covered by that result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_CLASSICAL_LEMMA_NOT_NEW_CYCLIC_INERTIA",
+        "evidence": [
+          "Theorem 5.6 gives zero even-order Eulerian evaluation and positive alternating-permutation magnitudes for odd orders; no circular Boolean XOR spectral classification is stated in the examined sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0508232",
+        "material_read": "PDF pages 4-5 on Eulerian generating function and page 43, Chapter V §2, Theorem 5.6, plus Chapter V §4 formula",
+        "method": "Inspected parsed original PDF text and screenshots of relevant pages",
+        "title": "Théorie Géométrique des Polynômes Eulériens",
+        "trigger": "Classical source for the signed Eulerian evaluations critical to local Walsh factors"
+      },
+      {
+        "assessment": "COVERS_UNIVARIATE_AND_GROUP_ALGEBRA_NOT_BOOLEAN_FOURIER_INERTIA",
+        "evidence": [
+          "Proposition 1.5.1 determines cyclic Eulerian polynomial; Theorem 1.5.1 concerns multiplication in the cyclic descent algebra, not rank of XOR-convolution on descent-profile vectors."
+        ],
+        "identifier_or_url": "https://people.brandeis.edu/~gessel/homepage/students/petersenthesis.pdf",
+        "material_read": "PDF parsed Chapter 1 §1.5 (text lines 1440-1641), including Proposition 1.5.1 and Theorem 1.5.1; screenshot attempts timed out",
+        "method": "Read parsed full relevant section of PDF; screenshot failed twice due remote timeout",
+        "title": "Descents, Peaks, and P-partitions",
+        "trigger": "Same circular descent-position statistic, likely strongest primary predecessor"
+      },
+      {
+        "assessment": "DIFFERENT_COORDINATES",
+        "evidence": [
+          "The defined circular descent set is the set of values sigma(i) at descents, whereas the present vector records cyclic positions i."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0806.0433",
+        "material_read": "Pages 1-4 and introduction/main theorem formula, with first-page screenshot",
+        "method": "Inspected primary PDF parsed text and screenshot",
+        "title": "Enumerations of Permutations by Circular Descent Sets",
+        "trigger": "Plausible same-name circular descent set enumeration"
+      },
+      {
+        "assessment": "DIFFERENT_PERMUTATION_ENSEMBLE_AND_STATISTIC",
+        "evidence": [
+          "Cyclic permutations are single cycles in cycle notation; the paper studies their ordinary descent sets, not wrap-around position descents of all permutations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0906.2795",
+        "material_read": "Abstract, Section 1, main theorem Section 2, and first-page screenshot",
+        "method": "Read primary PDF introduction and main theorem statement",
+        "title": "Descent Sets of Cyclic Permutations",
+        "trigger": "Plausible cycle-related descent set theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4dccf1ce-75d5-4c36-a361-75289c23a62e",
+  "value": {
+    "rationale": "A natural complete all-dimensional classification of a nontrivial convolution operator: the exact recoverable subspace, signs of all nonzero eigenvalues, exact positive/negative/zero inertia, six-periodic imbalance, and exponential loss of Fourier modes. The cycle closure changes the rank relative to the classical matching count through a precise two-perfect-matching collision. This invariant governs which circular-descent signals can be recovered, without choosing arbitrary slice parameters.",
+    "status": "PASS"
+  }
+}
