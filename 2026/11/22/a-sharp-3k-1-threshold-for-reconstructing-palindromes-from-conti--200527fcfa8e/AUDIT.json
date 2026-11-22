@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Full symbolic proof: length-n factor identifies the entire word when n<=k; otherwise k-factor incidence determines the (k-1)-prefix; palindrome symmetry makes the centered parity-matched j-factor the unique odd-count palindromic factor. For n<=3k this and the mirrored prefix cover all but at most one symmetric letter pair, which length-one counts determine. At n=3k+1 the two explicit binary two-marker palindromes have identical factor multiplicities at every order j<=k because no observed factor sees both markers and each marker contributes once in every offset. Independent exhaustive finite scripts passed for q=2 k<=7, q=3 k<=4, q=4 k<=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karhumäki–Saarela–Zamboni 2013 Theorem 2.6 characterizes arbitrary shortest ambiguous words of length 2k",
+        "Karhumäki–Puzynina–Rao–Whiteland 2016 Proposition 3.3 characterizes equivalence by k-switchings and treats general classes"
+      ],
+      "reasoning": "General word reconstruction becomes ambiguous earlier, at length 2k. Neither cited result supplies an implication that symmetry restores uniqueness precisely to 3k or yields the parity-centered decoder; the new claim is a sharp statement about a restricted source family.",
+      "searches": [
+        "palindromes 3k k-abelian unique reconstruction length",
+        "reconstruction of palindromes from multiset of contiguous k-grams uniqueness when length at most three times k",
+        "distinct palindrome k-abelian equivalent minimal length"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1104.4273v1 (2011-04-21), https://arxiv.org/pdf/1104.4273",
+      "arXiv:1301.5104v1 (2013-01-22), https://arxiv.org/pdf/1301.5104",
+      "arXiv:1605.03319v1 (2016-05-11), https://arxiv.org/pdf/1605.03319",
+      "DLT 2014 article abstract doi:10.1007/978-3-319-09698-8_17",
+      "2018 article abstract doi:10.1016/j.ic.2018.04.001",
+      "Related scientific presentation https://www.cirm-math.fr/ProgWeebly/Renc1429/Puzynina.pdf",
+      "Previously recorded k=3 exact finite case and published fixed-three-mer sparse-marker summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1301.5104v1 Section 2 proves the general shortest-collision length 2k and discusses Sturmian examples",
+        "arXiv:1605.03319v1 Sections 3-4 analyze switchings and general class cardinalities",
+        "Cassaigne–Karhumäki–Puzynina public presentation gives rich/poor k-Abelian-palindrome results rather than injectivity between two palindromes"
+      ],
+      "reasoning": "An unrestricted witness at 2k neither implies nor refutes uniqueness among palindrome-restricted sources to 3k. A rich/poor theorem counts factors satisfying w ~ reverse(w), not fibers of ordinary palindromes. The current proof uses parity of central palindromic k-factors to certify a stronger, symmetry-specific threshold; fixed-order results do not dominate a theorem for all k.",
+      "searches": [
+        "palindrome k-abelian equivalence first collision length 3k+1",
+        "k-abelian palindromic rich and poor words 2014",
+        "k-abelian equivalence and rationality rewriting 2017",
+        "palindrome k-spectrum first ambiguity 3k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1104.4273v1 defines k-equivalence via shared k-factors and endpoint contexts",
+        "arXiv:1301.5104v1 defines multiplicities of all lengths at most k",
+        "related k-Abelian-palindrome presentation defines instead the property w equivalent to reversal(w)"
+      ],
+      "reasoning": "The equivalent notion of k-mer multiset plus a common (k-1)-prefix is explicitly considered. Ordinary palindrome sources are fixed points of reversal, whereas k-Abelian palindromes in the prior rich/poor literature need only have equivalent reversal; the latter is a larger set and not a two-source injection result. No exact 3k+1 theorem was found.",
+      "searches": [
+        "palindromes 3k+1 k abelian equivalent",
+        "palindrome reconstruction from contiguous k-factor multiset by central odd occurrence parity plus common prefix, maximum length 3k",
+        "palindromic k-Abelian reconstruction injectivity threshold 3k, first distinct equivalent palindromes length 3k+1 and pair of sparse marker palindromes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Previously recorded finite case: 3-Abelian palindromes first collide at length ten with exact two-family fiber census",
+        "Published exact three-mer multiplicity fibers for two-marker words addresses only order 3 and sparse source words"
+      ],
+      "reasoning": "The k=3 finite first-collision result is subsumed on the threshold alone, so no novelty is attributed to it. The present assertion quantifies over every positive k (including arbitrarily large orders), outside a fixed-three-mer table. No published all-order threshold table was identified.",
+      "searches": [
+        "k-Abelian equivalence ordinary palindromes length 10 q alphabet two collision families; extension to arbitrary k",
+        "palindromic k-Abelian reconstruction injectivity threshold 3k first distinct equivalent palindromes length 3k+1",
+        "palindrome k spectrum 3k+1 exact shortest collision"
+      ]
+    },
+    "rationale": "A universal palindrome-restricted first ambiguity threshold n=3k+1 is not stated or implied by the inspected general k-Abelian foundational, switching, or rich/poor palindrome results. The previously known special case k=3 and the fixed three-mer sparse-marker database do not cover all k. Full 2014 proceedings access remains a residual risk; indexed search absence is not itself a proof of novelty.",
+    "residual_risks": [
+      "Unindexed or obscure prior work may state the same universal 3k+1 theorem.",
+      "The 2014 proceedings and 2018 journal full texts could not be directly inspected; related open presentation and abstracts were examined.",
+      "Indexed research-record search is incomplete and cannot prove uniqueness of the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINITION_ONLY",
+        "evidence": "Section 1 gives prefix/suffix and length-k factor-count characterization and studies avoidability, not palindrome reconstruction.",
+        "identifier_or_url": "https://arxiv.org/pdf/1104.4273",
+        "material_read": "PDF page 1 and following definition/context, plus scope/abstract",
+        "method": "Inspected extracted text and page image",
+        "title": "Observations and Problems on k-abelian avoidability",
+        "trigger": "Foundational definition and endpoint characterization"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 2.6 classifies length-2k unrestricted collisions; no palindrome restriction or 3k+1 sharp bound appears in the inspected material.",
+        "identifier_or_url": "https://arxiv.org/pdf/1301.5104",
+        "material_read": "Sections 1-2 and Theorem 2.6 with surrounding proof; full text searched for palindrome terms",
+        "method": "Inspected extracted full-text sections and PDF page image",
+        "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+        "trigger": "Strongest potentially dominating short-length uniqueness theorem"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Proposition 3.3 generates equivalence by switchings; neither ordinary palindromes nor a sharp 3k reconstruction boundary are analyzed.",
+        "identifier_or_url": "https://arxiv.org/pdf/1605.03319",
+        "material_read": "Introduction, Section 3 Proposition 3.3 and Claim 3.4, Section 4 framework, and search of full extracted text for palindrome mentions",
+        "method": "Inspected extracted full text and PDF page image",
+        "title": "On cardinalities of k-abelian equivalence classes",
+        "trigger": "General switching result might imply the new threshold"
+      },
+      {
+        "assessment": "PARTIAL_ACCESS_RISK",
+        "evidence": "Abstract treats numbers of palindrome-equivalent factors; full proceedings paper inaccessible, so its unexamined statements remain a risk.",
+        "identifier_or_url": "doi:10.1007/978-3-319-09698-8_17",
+        "material_read": "Abstract, bibliographic scope, and matching presentation; original proceedings full text not obtained",
+        "method": "Read accessible primary bibliographic abstract and related scientific presentation; original arXiv/OA attempts failed",
+        "title": "On k-Abelian Palindromic Rich and Poor Words",
+        "trigger": "Same k-Abelian and palindromic terminology in title"
+      },
+      {
+        "assessment": "NOT_COVERING_WITH_LIMITATION",
+        "evidence": "Defines k-Abelian palindrome as w equivalent to its reversal; focuses on rich/poor infinite and finite factor occurrence counts, not two-palindrome reconstruction.",
+        "identifier_or_url": "https://www.cirm-math.fr/ProgWeebly/Renc1429/Puzynina.pdf",
+        "material_read": "Complete available scientific presentation text including definitions, poor/rich results, constructions, and open questions",
+        "method": "Read extracted PDF text; page-image request failed with HTTP 403",
+        "title": "On k-abelian palindromes (related scientific presentation)",
+        "trigger": "Accessible material by the authors on the closest palindromic topic"
+      },
+      {
+        "assessment": "PARTIAL_ACCESS_RISK",
+        "evidence": "Abstract addresses numbers of k-Abelian-palindromic factors in finite/infinite words; entire journal text not examined.",
+        "identifier_or_url": "doi:10.1016/j.ic.2018.04.001",
+        "material_read": "Bibliographic abstract and associated scientific presentation, not original full journal PDF",
+        "method": "Read accessible publisher/academic abstract and scientific presentation",
+        "title": "On k-abelian palindromes",
+        "trigger": "Subsequent journal work with nearly identical title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "200527fc-fa8e-403a-905f-71bbd7e2abce",
+  "value": {
+    "rationale": "The exact linear 3k+1 first-ambiguity threshold uniformly over every positive factor order gives a natural symmetric-source reconstruction theorem and an explicit count-based decoder. It extends beyond the existing finite order-three boundary and the unrestricted 2k threshold, and a sharp two-marker construction proves optimality. This is an all-parameter structural result rather than a routine finite census; no general nonpalindromic reconstruction claim is made.",
+    "status": "PASS"
+  }
+}
