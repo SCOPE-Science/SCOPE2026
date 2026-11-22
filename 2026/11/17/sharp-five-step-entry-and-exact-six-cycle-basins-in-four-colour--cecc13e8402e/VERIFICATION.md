@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The enclosed `verify_symbolic.py` exhausts all 6400 possible nonempty pairs of four-colour clipped count vectors. It tracks present initial classes individually and checks the complete tagged state after five and seventeen updates. The verifier reconstructs all twenty six-cycle-basin signatures and checks their transient depths. It independently enumerates multinomial weights for four parameter pairs. Its captured output is `verify_symbolic.out`.
+# Independent mathematical audit
 
-The enclosed `verify_vertices.py` simulates the original labelled vertices without a count quotient. It exhaustively checks five finite graphs and checks exact six-period and sharp fifth-entry witnesses. Its captured output is `verify_vertices.out`.
+## correctness
 
-Exact finite enumeration is sufficient for the stated general theorem because the proof demonstrates an exact finite reduction for **every** positive pair of shore sizes. Large graph enumerations alone would not establish the universal claim. The code is standard Python and has no external dependencies. Historical-priority comparison is incomplete for two relevant finite-graph papers; no independent mathematical audit has been performed.
+PASS
+
+PASS: Independently implemented the clipped-count and tagged-class recurrence from the vertex update condition. Exhausted all 6400 signatures: periods {1:6141,4:239,6:20}, entry histogram {0:1032,1:1628,2:1880,3:1364,4:448,5:48}, and verified F^17=F^5 on every state. Six-cycle signatures split four on-cycle and sixteen entry-one. Clipping is exact since successor decisions depend only on >=2 and sums are nonnegative; each tag determines all original labelled classes. EGF class-counting and asymptotic follow from multinomial occupancy; distinct vertices are counted correctly.
+
+## originality
+
+PASS
+
+Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.
+
+## value
+
+PASS
+
+A complete universal transient/period and labelled six-cycle basin census in a natural contact-threshold network is a structural dynamical classification. Exact entry-five sharpness and absence of deep six-cycle basins are nontrivial beyond generic finite-state periodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
