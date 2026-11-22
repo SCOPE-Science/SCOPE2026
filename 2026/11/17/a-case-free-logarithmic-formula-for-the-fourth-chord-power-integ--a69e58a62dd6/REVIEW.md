@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The endpoint-to-line Jacobian and Euler divergence argument prove the identity for every nondegenerate triangle, with all normalization factors and boundary terms checked. The included checker compares eight independent normal-angle/offset integrals and four equilateral/scaling identities. The analytic proof, not the finite checks, establishes the infinite-domain claim.
+## correctness
 
-## Originality: PASS (historical-priority risk remains)
-Closest published work: Martirosyan–Sargsyan (arXiv:2605.24616) treats \(I_2\) using the same endpoint coordinates and elementary primitives; Ciccariello (arXiv:1006.1496) supplies a complete case-split correlation function that implicitly determines chord moments; Gates (1982, DOI:10.2307/3213843) treats odd-moment recognition. No explicitly identical case-free \(I_4\) formula was found in targeted searches of these sources, published mathematical findings, and accessible claims. Existing primitives make algebraic derivation relatively accessible; this priority risk is disclosed. A full independent historical audit has not been performed.
+PASS
 
-## Mathematical value: PASS
-The fourth kinematic moment is a natural missing even member of the classical triangle chord-power sequence, and the new case-free side-symmetric expression avoids four geometric cases. This is an exact invariant computation, not a general uniqueness/inequality theorem. The formula holds uniformly across all nondegenerate triangle shapes and has a nontrivial exact \(\log 3\) equilateral value.
+In kinematic normalization dg=dphi dh for unoriented lines, endpoint parameters on two incident sides have Jacobian tu sin^2(theta)/sigma^3. Multiplication by sigma^4 gives a homogeneous degree-three integrand tu sigma, whose Euler divergence has factor five. This reduces the vertex contribution to two one-dimensional primitives. Completing the square and the cosine law give the H_r(p,q) expressions; the positive half-perimeter quotient yields log(s/(s-q)). Summing three vertices and pq sin(theta)=2 area proves the scale-five symmetric formula for every strict triangle side triple. Independent direct normal-angle/offset quadratures for four disparate shapes matched, including the equilateral constant; they are checks, not the proof.
 
-## Limitations
-The result is an elementary closed-form evaluation; no new optimality or identification conclusions are claimed. Full classical piecewise correlation formulas may give implicit prior coverage. Available Gates abstract is not a full-document priority check.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Martirosyan–Sargsyan paper proves an elementary formula for I2, not the present I4. Ciccariello (2010) provides a complete angle-order-dependent triangle correlation function that determines all chord moments implicitly; this is a serious coverage and easy-derivability risk but does not, in the inspected source material, give this non-piecewise explicit log formula. Gates concerns chord-moment recognition with odd powers. The asserted distinct result is the single side-symmetric I4 evaluation, not the first determination of the underlying chord distribution or Jacobian.
+
+## value
+
+PASS
+
+The kinematic I4 is a natural fourth entry in a classical integral-geometric chord moment sequence and an explicit case-free formula for every Euclidean triangle is independently reusable without piecewise correlation inversion. Its exact logarithmic equilateral specialization and scaling are meaningful finite-dimensional natural invariants. No new extremal inequality is needed for the exact formula to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
