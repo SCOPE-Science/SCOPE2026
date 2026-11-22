@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python verify_path_angles.py` using Python with SymPy and NumPy. The checker runs two independently constructed Gram matrices: (1) the explicit signed Dirichlet inverse corrected for the affine sum constraint and (2) the inverse metric of vertex differences. Exact agreement for dimensions indexed \(3\le m\le15\) tests all 559 unordered ridge pairs, parity signs and the right-angle endpoint exception. The numerical asymptotic test evaluates the actual centered facet-normal cosines for \(m=650\) and compares five Green-kernel CDF thresholds and three actual cosine absolute-CDF thresholds. It is corroboration only.
+## correctness
 
-Expected output from package replay:
+PASS
 
-```
-EXACT_AFFINE_GRAM_PASS dimensions=3..15 ridge_pairs=559
-LIMIT_DISTRIBUTION_CORROBORATION_PASS m=650 max_unsigned_CDF_gap=0.00267
-```
+The exact path unsigned incidence matrix B has full column rank, G=B^T B has 2 on diagonal and +1 on adjacent off-diagonals. The signed-Dirichlet inverse is A_ij=(-1)^(i+j)min(i,j)(m+1-max(i,j))/(m+1); affine tangent barycentric-gradient Gram is H=A-bb^T/t with b=A1, t=1^TA1. Its positive diagonal and exact equal/opposite parity signs give all m-choose-2 ridge angles including sole endpoint zero for odd m. Scaling m^-1 A to the Green kernel, parity sublattice Riemann sums, and integrating 2∫[0,1] a y/[1-(1-a)y] dy yields the given nonuniform logarithmic cosine CDF. Independent exact affine-difference metric inversion for m=3..12 checked signs and exceptional zero; finite checks only corroborate the all-m proof.
 
-The all-dimensional result and the limiting distribution instead follow from the exact tridiagonal inverse and parity-resolved Riemann sums in RESULT.md. Reproduction does not provide independent mathematical review or a certification of historical novelty.
+## originality
+
+PASS
+
+The graph edge-simplex incidence realization is classical. The previously published graphical-cycle zonotope result has an identical logarithmic squared-cosine CDF after variable change, but its finite angle multiset, sign support, polytope metric and indexed facet normals are different; no preservation/implication to the unsigned path simplex. No inspected prior establishes the parity-resolved complete path-simplex ridge array and its signed law; best-of-knowledge priority with unindexed risk.
+
+## value
+
+PASS
+
+A full intrinsic-Euclidean dihedral spectrum and exact natural uniform-ridge distribution for a canonical graph edge simplex is structural geometric information, sensitive to the graph and unavailable from its combinatorial simplex type; the unique right-angle parity defect distinguishes path from cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
