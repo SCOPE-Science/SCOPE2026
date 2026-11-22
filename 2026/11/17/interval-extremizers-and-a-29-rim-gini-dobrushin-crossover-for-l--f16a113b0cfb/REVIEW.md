@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The coarea reduction applies because the operator preserves constants and the complete-pair Gini seminorm is a sum of absolute differences. Cyclic-run degree counting proves majorization for every fixed cut cardinality, including the exceptional cardinalities. The rational arc profiles and boundary cases establish the exact 29-rim threshold; the rank-one doubly stochastic correction proves strict contractivity and the asymptotic squeeze. Exact-rational checks include all 4,079 nonzero binary cuts through 11 rim vertices and 43,956 interior block formulas through 300 rim vertices. These finite tests are not substituted for the infinite proof.
+## correctness
 
-## Originality — PASS, with historical-priority qualification
-Gaubert and Qu (arXiv:1302.5226 and 1307.4649) compute Hopf/diameter and dual total-variation contraction; the present Gini functional is a different seminorm, and equality with its coefficient fails at 29 rim vertices. The closest inspected published wheel-heat result uses unnormalized continuous-time heat and graph-edge Lipschitz variation, with a different generator and metric. The accessible related claims on star harmonic replacement and balanced bipartite walks do not cover a wheel's rim-to-rim transitions or its cut majorization. Relevant record searches found no statement implying the exact arc formula and benchmark crossover. Search incompleteness and unindexed equivalent calculations remain risks.
+PASS
 
-## Mathematical value — PASS
-A natural canonical graph family yields a polynomial-sized exact sharp coefficient instead of exponentially many cuts, with a subtle finite-size crossover at exactly 29 and distinct norms that coincide asymptotically. The result identifies optimal signal geometry and shows that strictly contracting Gini dispersion can nevertheless decay at a slower one-step worst-case rate than Hopf oscillation. These are substantive stability and comparison facts, not a parameter renaming or a small isolated table entry.
+For any real signal, coarea plus triangle inequality reduces the sharp Gini ratio to nonconstant binary cut indicators, then complements arrange hub 0. For fixed rim-cardinality k, the selected outputs exceed all unselected ones after multiplying by six; sorted partial sums are majorized by those of a single contiguous arc, including the same hub output 3k/m. Schur-convex pairwise Gini sum proves the global arc maximum. Direct rational level counting gives the piecewise R_m(k)-5/6 numerators; their integer inequalities prove <=5/6 through 28 and k=6 gives >5/6 at every m>=29 (first 10441/12528). The positive doubly stochastic rank-one gauge establishes L_m<1, and singleton and gauge bounds squeeze limit 5/6; row overlap gives delta=5/6 m>=6. Independent exact Fraction checks enumerated all hub-zero rim cuts for m=3..10, all arcs m=3..79 and the m29 witness. Finite tests corroborate, not prove, universal m.
 
-## Limits
-The sharp coefficient is for a single half-lazy walk step; no weighted graphs, other laziness, all-power formula or unique full equality classification is claimed. One primary paper was inspected in full-text extracts, and public comparisons are not an exhaustive priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the wheel-specific interval extremizers and first rim-29 Gini-versus-Hopf comparison, not claiming general Dobrushin theory as new.
+
+## value
+
+PASS
+
+The sharp induced complete-pair dispersion norm of a canonical wheel Markov operator is a natural operator invariant. Its unexpected crossing above the classical Dobrushin oscillation norm at exactly 29 vertices, while remaining contractive and approaching the same limit, identifies a meaningful difference between two legitimate contraction geometries; the interval reduction makes the value exact in linear rather than exponential search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
