@@ -1,19 +1,21 @@
-# Scientific review: cubic boundary tomography for nonuniform random chords
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The line-normal/offset transformation includes ordered-endpoint multiplicity and the Jacobian. The two near-tangent/regular sectors contribute equally; the double-singular sector is bounded by transversality and vanishes after division by the logarithm. Integrating the resulting uniform angular asymptotic produces the crossing boundary law and cuberoot reconstruction. The isolated-label law is derived from the leading sectors, and its log-uniform normal offset has exact scale from the square-root radial cutoff. Scheffé gives total variation. The independent finite-angle FFT quadrature reproduces the known uniform formula and tracks the nonuniform boundary prediction. Numerical tests supplement but do not certify the limiting argument.
+PASS
 
-## Originality — PASS, provisional priority
+For a line normal m modulo pi and offset h, pair-endpoint Jacobian gives density G(m,h)=4p(m+acos h)p(m-acos h)/sqrt(1-h²). Two independent lines meeting at x have offset map Jacobian |sin(m-n)|; exact q_p(x)=int∫|sin(m-n)|G_m G_n. With x=re^{it}, δ=1-r², each normal density concentrates log mass 4p(t)² log(1/δ) at m=t mod pi while the transverse integral int sin(m-t)G_m dm->2p(t). Two mixed near/far angular sectors yield 2*4p(t)²*2p(t)=16p(t)^3; double-near sector bounded O(η log(1/δ)) and far/far O_eta(1), uniform in t by positive C¹ p. Crossing probability 1/3 follows from three equiprobable cyclic pairings; polar integration gives 48ε log(1/ε)∫p³ and cube-root inversion. In mixed sectors three endpoints cluster at t, the fourth has residual angle law p(s)ds; four labels are symmetric. The near-tangent normal offset has measure dz/|z| over sqrtδ<<|z|<<1, so U=2log(1/|z|)/log(1/δ) tends Uniform(0,1); normalized densities converge with all mass in these sectors, giving joint TV by Scheffe. Independently checked isotropic coefficient 16/(2pi)^3=2/pi³ and exact 1/3 crossing; numerical FFT finite checks not a substitute for limiting double-sector proof. Scope excludes zero/atomic p and outside-circle X.
 
-Poonen–Rubinstein (1995; finite regular-polygon intersections) and Bortolotto–Souza (2025; uniform-endpoint radial law) are structurally different or narrower. Bortolotto–Ramos (2025) addresses arbitrary sampling measures for global extremal probabilities but does not supply this pointwise local cubic coefficient, cube-root inverse or log-tangency marked limit. The 2019 random-disc-chord paper uses different sampling. Direct semantic research-record searches for the new coefficient and aliases returned near papers but no dominating claim. David–Fix (1964) was bibliographically located but its full text was unavailable; historical priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The proposed local boundary observation identifies the entire sampling density without directly observing endpoints and captures a sharp non-Gaussian rare-event mechanism (three near-colliding endpoints, one independently sampled isolated point, and a uniform logarithmic tangency exponent). Both the inverse characterization and conditional shape mechanism go beyond the old uniform marginal law.
+PASS on best knowledge. The Bortolotto–Souza isotropic result gives exact radial density at constant p, which verifies coefficient but does not determine cubic functional p(t)^3, inverse tomography or three marked variables. Bortolotto–Ramos treat extremal crossing probabilities over measures, not a local boundary density for each smooth p. Other sampled-chord findings concern distinct circle pairs, chord midpoint or fixed endpoints. The historically plausible 1964 David–Fix paper could not be inspected fully, so priority risk is expressly retained, not converted to failure.
 
-## Limitations
+## value
 
-Strictly positive normalized C1 angular sampling densities, four independent endpoints, and one circular boundary only. No rates of convergence, singular input measures or independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Boundary probability singularities localize information in an observable geometric event, yielding explicit inversion of unknown angular endpoint sampling and a three-variable log-scale rare-configuration law. The exact coefficient and marked TV asymptotic are natural, informative invariants, not mere recomputation of the known uniform radial formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
