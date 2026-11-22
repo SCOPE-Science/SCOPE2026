@@ -1,0 +1,15 @@
+# Scientific review of the graph-quandle retraction spectrum
+
+## Correctness — PASS
+The statement fixes the graph-quandle convention, the category of maps, and image cardinality. Connectivity forces each inner-group orbit to be exactly a vertical two-point fiber, so every endomorphism has an explicit fiber map. Applying the operation identity shows that all fiber slopes agree along graph edges. The two possible common slopes give disjoint, exhaustive cases. In the zero-slope case, idempotence forces a set-theoretic retraction onto an independent set and a bit function constant on its fibers. In the unit-slope case, the adjacency-preservation equation and idempotence force vertex images into their own equal-open-neighborhood classes; conversely those assignments satisfy the equations. Choice counts and image sizes then give exactly the two terms. Both proof directions and boundary \(n=2\) are explicit. Full function enumeration for \(n\le3\) and independent fiber-map enumeration for \(n=4\) corroborate the formula. No finite computation is used to infer an infinite statement.
+
+## Originality — PASS relative to inspected evidence
+The original graph-quandle paper by Furuki and Tamaru (arXiv:2403.06209) was inspected beyond its abstract, including the graph-quandle construction and its graph/automorphism sections; it does not develop idempotent self-endomorphism image-rank polynomials. Saito and Sugawara (arXiv:2403.07383) analyze general homogeneous abelian-inner quandles, but the inspected exposition does not imply the stated numerical census. Singh (arXiv:2311.03708) addresses residual finiteness of endomorphism monoids rather than counting composition-idempotent maps. A published result for semisimple Alexander quandles has different hypotheses and an affine/Gaussian rank census, not the present independent-set and false-twin decomposition. Searches for graph-quandle endomorphism and retraction aliases did not reveal a stronger covering theorem. This supports a conditional originality judgment; absence from searches is not proof of priority.
+
+## Mathematical value — PASS
+The formula determines the complete, not partial, image-cardinality distribution of retractions of every connected graph quandle. It separates two intrinsic graph invariants—independent sets and equal-open-neighborhood classes—and reconstructs the independent-set polynomial from the quandle retraction census for all false-twin-free connected graphs. This structural recovery and the distinct arithmetic of the two branches are more than an isolated small-model enumeration.
+
+## Closest work and remaining limits
+The graph construction and generalized quandle theory are credited. The closest retraction enumerator concerns semisimple Alexander quandles and does not directly state or imply the graph-quandle polynomial without additional equivalence hypotheses. Relevant older universal-algebra literature may still contain equivalent formulations. Only connected graphs with no isolated vertices are proved, and independent mathematical validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
