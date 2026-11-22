@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T10:42:14.825571Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/smith-radical-fourier-law-and-a-modulo-four-stability-transition--db71215ddcfd/RESULT.md",
+        "cycle_quadratic_fourier_check.py 622986afc227dd54693e5daaf98e1e3665539ed5",
+        "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/turaev3.pdf",
+        "https://repository.essex.ac.uk/8578/1/SNRcirculantgraphs.pdf"
+      ],
+      "rationale": "For bQ+a·x on (Z/N)^d, |F_b(a)|²=N^d Σ_{h in ker(bA)} exp(2πi(a·h+bQ(h))/N): on the radical the exponent is a character, hence magnitude is 0 or N^(d/2)√r_b with exactly N^d/r_b nonzero a. Inverting the graph-spectrum indicator and taking its normalized L1 kernel mass yields N^(d/2−1)Σ_b r_b^(-1/2). Translation averaging shows this is minimal over all projections to the Fourier subspace. Smith diagonalization gives ∏gcd(N,b s_j). For cycle adjacency e_(i+2)=-e_i gives the three Smith cases by n mod4 and all k geometric sums. Independently enumerated exact finite Gauss frequencies/endpoint norms for n,k=(3,1),(4,1),(3,2),(4,2); the all-N theorem is the displayed character argument rather than this finite test.",
+      "residual_risks": [
+        "The graph uses a homogeneous quadratic polynomial and the special cycle n>=3, N=2^k; arbitrary cubic phases are not covered.",
+        "Boundary k=1 handled by radical case; any complex phase linear term changes support locations but not magnitude counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Turaev radical lemma holds on arbitrary finite abelian groups, including all Z/N modules and all homogeneous quadratics, stronger than the proposed general graph formula",
+          "Williams exact cycle Smith forms cover all n parity classes and all integral moduli before dyadic reduction"
+        ],
+        "reasoning": "These prior premises jointly determine the entire amplitude distribution for each n,k; summing 2-adic valuations is straightforward arithmetic. The submitted all-parameter family is a specialization/corollary of broader existing coverage.",
+        "searches": [
+          "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/turaev3.pdf",
+          "https://repository.essex.ac.uk/8578/1/SNRcirculantgraphs.pdf",
+          "quadratic Gauss sums finite abelian groups radical Smith normal form Fourier transform projection norm"
+        ]
+      },
+      "checked_sources": [
+        "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/turaev3.pdf",
+        "https://repository.essex.ac.uk/8578/1/SNRcirculantgraphs.pdf",
+        "https://arxiv.org/abs/1005.2632",
+        "Gilbert–Rzeszotnik, Annales Institut Fourier 60 (2010), Fourier transform norm literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Turaev Lemma 1 ⇒ every nonzero Fourier multiplier has magnitude N^(d/2)√r_b and frequency count N^d/r_b",
+          "Williams Corollary 4.4 ⇒ r_b three dyadic forms",
+          "Normalized inverse Fourier L1 mass and translation averaging give the proposed minimal endpoint projection norm; geometric sums give the precise growth exponents"
+        ],
+        "reasoning": "The complete scientific finding follows from strong prior lemmas plus routine character orthogonality, Fourier inversion and geometric-series algebra; by user’s implication standard, this rejects originality even where the exact final expression is not printed verbatim.",
+        "searches": [
+          "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/turaev3.pdf",
+          "https://repository.essex.ac.uk/8578/1/SNRcirculantgraphs.pdf",
+          "finite abelian translation averaging minimal projection onto Fourier support"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Turaev 1998 Lemma 1 gives exactly character-sum magnitude 0 or sqrt(|G|·|radical|) with radical restriction and cancellation",
+          "The submitted F_b(a) is exactly a quadratic Gauss sum of x↦bQ(x)+a·x"
+        ],
+        "reasoning": "Taking the polar radical ker(bA) is an immediate identification of Turaev’s general formula. Thus the proposed Smith-radical Fourier law is already a direct known lemma, not merely sharing terminology.",
+        "searches": [
+          "quadratic graph finite abelian cyclic ring Gauss sum Smith normal form Fourier projection L infinity norm cycle adjacency",
+          "finite quadratic form Gauss sum magnitude radical Turaev Lemma 1",
+          "Smith normal form cycle adjacency n modulo four Williams Corollary 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 2014 table contains the exact unit/two/zero diagonal pattern for C_n which fully controls r_b",
+          "Published 1998 lemma supplies all Gauss magnitudes without new finite census"
+        ],
+        "reasoning": "Even if the final dyadic geometric-series norm is not printed as an identical table, it is a direct algebraic implication of these existing exact entries, so no matching printed numbers are needed for coverage.",
+        "searches": [
+          "https://repository.essex.ac.uk/8578/1/SNRcirculantgraphs.pdf",
+          "Williams Smith forms adjacency circulant cycle Corollary 4.4",
+          "Turaev Gauss sums finite quadratic forms radical exact norm"
+        ]
+      },
+      "rationale": "The mathematical generality is already covered as a direct corollary of Turaev 1998 Lemma 1, which gives the Gauss-sum magnitude/vanishing criterion from the polar radical for arbitrary finite quadratic forms. Williams 2014 Corollary 4.4 supplies exactly the three integer Smith forms for cycle adjacency by n mod 4. Combining these previously proved statements with the standard Fourier projection convolution kernel and translation averaging immediately gives the claimed sharp norm and dyadic specialization: no independent nontrivial theorem remains after subtracting known coverage.",
+      "residual_risks": [
+        "An exact endpoint norm might have earlier standalone references as well; rejection already follows logically from stronger existing quadratic-radical and Smith results.",
+        "The projection-minimality averaging step is standard, not stated in Turaev or Williams; it is a routine consequence rather than a substantive independent advance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the key general quadratic radical amplitude and zero criterion",
+          "evidence": [
+            "§1.1, Lemma 1, radical Gauss sum magnitude formula"
+          ],
+          "identifier_or_url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/turaev3.pdf",
+          "material_read": "Original full PDF relevant §1.1, Lemma 1 and proof; inspected rendered page showing radical amplitude and support rule",
+          "method": "Primary full-text PDF and visual page check",
+          "title": "Surgery formula for torsions and quadratic functions on finite abelian groups (V. Turaev, 1998)",
+          "trigger": "Same finite-abelian quadratic Gauss sum magnitude, likely stronger result"
+        },
+        {
+          "assessment": "Gives three Smith diagonal patterns for cycle adjacency, dominating arithmetic input",
+          "evidence": [
+            "Corollary 4.4, cases n odd, n=2 mod4 and n=0 mod4"
+          ],
+          "identifier_or_url": "https://repository.essex.ac.uk/8578/1/SNRcirculantgraphs.pdf",
+          "material_read": "Original full PDF relevant cycle case, Corollary 4.4 and proof; inspected rendered page",
+          "method": "Primary full-text PDF and visual page check",
+          "title": "Smith forms for adjacency matrices of circulant graphs (G. Williams, 2014)",
+          "trigger": "Exactly cycle adjacency Smith forms needed for three dyadic classes"
+        },
+        {
+          "assessment": "General computational antecedent; no reliance on uninspected parts for specific implication",
+          "evidence": [
+            "Abstract and algorithmic domain"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1005.2632",
+          "material_read": "Abstract and source problem scope; full paper not necessary for decisive radical-priority comparison",
+          "method": "ArXiv abstract",
+          "title": "On Tractable Exponential Sums",
+          "trigger": "Related general quadratic exponential-sum algorithm"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/turaev3.pdf",
+        "https://repository.essex.ac.uk/8578/1/SNRcirculantgraphs.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/smith-radical-fourier-law-and-a-modulo-four-stability-transition--db71215ddcfd/RESULT.md"
+      ],
+      "rationale": "Although endpoint projection norms of quadratic-graph frequency supports are natural quantities, this particular claimed advance is a routine evaluation of Turaev’s existing general radical Gauss lemma using Williams’s known cycle Smith table, together with standard translation symmetrization of projections and a finite geometric sum. Under the same value bar, recomputation of already mechanically implied exact invariants with no separate new structural phenomenon beyond existing rank data is not an independently worthwhile result.",
+      "residual_risks": [
+        "Exact norm is potentially useful as a worked application; that usefulness is not independent mathematical value once all claimed parameters follow directly from stronger published premises."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific failure is prior mathematical implication coverage, not proof falsity or source-access failure.",
+    "Checked numerical finite instances support and do not replace stated general proofs.",
+    "All publication changes withheld for privacy-safe public-file sanitation; no GitHub write."
+  ],
+  "schema_version": 1
+}
