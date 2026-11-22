@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The eleven-column-to-spatial-functional-graph bijection is algebraic and includes both directions. Both complete, independently structured enumerations traverse all \(4,194,304\) finite profile states, agreeing on the exact spatial cycle census of one cycle each at lengths \(1\), \(2\), \(143\), and \(275\). Independent direct Rule 30 updates verify that the two long-cycle representatives have least temporal period eleven and their stated least spatial lengths. The prime-period subtraction and division into labelled temporal orbits are explicit. The claim is an exact finite-state consequence, not an extrapolation from sample ring lengths.
+## correctness
 
-**Originality — PASS, with historical risk.** Wolfram's 2002 page 268 is the most direct published point of comparison: it describes \(275\) cells as required for temporal period eleven. The \(143\)-site witness shows this is not a sharp minimum in the standard cyclic convention. The exact count \(13\mathbf1_{143\mid n}+25\mathbf1_{275\mid n}\) is not implied by the described example. Coleman's 2011 finite-width survey does not address all ring sizes at period eleven. Known online numerical data up to temporal period ten, and records on one-step Rule 30 images, do not imply an eleven-periodic census. Faase's historical repeating-pattern catalogue might contain a \(143\)-site example; its dynamic table could not be fully read, making priority of that individual example unresolved. No equivalent full all-width enumeration was located, but novelty is not independently certified.
+PASS
 
-**Value — PASS.** A sharp minimum spatial block size and the complete all-circumference orbit population are natural invariants of a canonical chaotic cellular automaton. Identifying a \(143\)-site recurrence where a published \(275\)-site requirement was stated gives a motivated correction in a prominent benchmark; finding the second spatial family and exact \(13\)- and \(25\)-orbit multiplicities adds a structural classification beyond a single counterexample. This is not an arbitrary finite cutoff.
+An 11-bit time column u_i encodes the full exact time-return condition of synchronous cyclic Rule 30; the spatial recurrence T(a,b)=(rotate_11(a) XOR(a OR b),a) is reversible as a closed-walk-to-configuration bijection, not a sampled-ring heuristic. A fresh C++17 indegree-peeling implementation on the COMPLETE 2^22=4,194,304 pair-state graph independently found 4,193,883 peeled, 421 recurrent states, precisely one directed cycle each of lengths 1,2,143,275; count checked against supplied traversal. Independent direct Rule30 updates of the two actual bitstrings confirm primitive temporal eleven and primitive spatial lengths 143,275, with Hamming weights 73,137. Prime 11 reduces least-period choices to 1/11, the 1- and 2-length transfer cycles give all fixed states, and division by 11 yields exactly 13 and 25 indexed temporal orbits whenever those spatial periods divide n. This finite exhaustive transfer graph, plus the bijection, legitimately proves every n≥3.
 
-**Limits.** Only primitive temporal period eleven is classified. A historic JavaScript catalogue was not fully readable; future comparison may sharpen historical attribution. Finite computations were replayed from the exact sources included in this package, not by an independent mathematical auditor.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge with explicit historical risk. Wolfram's original 2002 page 268 gives a 275-cell time-11 repeating example and states that 275 cells are required; the actual 143-site word provides a verified smaller fixed-ring exact recurrence, and the all-width closed-walk census is stronger than a single example. A JS-heavy historical Faase catalogue could not be fully inspected; no claim of proof of exclusive historical novelty for the 143 word alone. Published Rule30 one-step preimage and period-twelve results do not imply period-eleven finite cycle counts.
+
+## value
+
+PASS
+
+PASS: the sharp minimum ring circumference for a classic nonlinear cellular automaton's first 11-period recurrence is a motivated exact finite-state classification, not an unmotivated short brute-force table. The 143-site witness corrects a specific prominent 275-cell bound under exact temporal return; the full all-circumference formula and 4,194,304-state certificate make this precise, reproducible and independently useful. It does not purport to classify other temporal periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

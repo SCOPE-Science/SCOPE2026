@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The standalone sources in this directory reconstruct the exact time-column recurrence for temporal period eleven of cyclic Rule 30. Both C++ programs traverse the entire set of \(2^{22}=4,194,304\) encoded ordered column pairs. `cycle_walk.cpp` follows functional components and records every recurrent directed cycle. `indegree_certificate.cpp` independently computes the indegree of every state, removes the nonrecurrent states by queue, and traverses the remaining cycles. Both give the complete recurrent length-multiplicity list \((1,1),(2,1),(143,1),(275,1)\), with \(421\) recurrent and \(4,193,883\) transient profile pairs. Neither program relies on a statistical sample.
+## correctness
 
-`direct_witness.py` uses the original binary three-neighbor Rule 30 and the two complete bitstrings embedded in `cycle_walk_output.txt`. It verifies exact return at eleven updates, no return at any earlier positive time, and minimal spatial block lengths \(143\) and \(275\). The witness \(143\) contains \(73\) ones, and witness \(275\) contains \(137\).
+PASS
 
-For replay, use standard C++17 and Python 3 in the directory containing all files. The compilation and run commands appear in `RESULT.md`. Successful outputs were captured as `cycle_walk_output.txt`, `indegree_output.txt`, and `direct_witness_output.txt`. The finite certificate proves a claim for **all** spatial circumferences by a bijection with closed walks in a fixed finite graph, not by enumerating spatial rings only up to some length. No independent external audit has occurred.
+An 11-bit time column u_i encodes the full exact time-return condition of synchronous cyclic Rule 30; the spatial recurrence T(a,b)=(rotate_11(a) XOR(a OR b),a) is reversible as a closed-walk-to-configuration bijection, not a sampled-ring heuristic. A fresh C++17 indegree-peeling implementation on the COMPLETE 2^22=4,194,304 pair-state graph independently found 4,193,883 peeled, 421 recurrent states, precisely one directed cycle each of lengths 1,2,143,275; count checked against supplied traversal. Independent direct Rule30 updates of the two actual bitstrings confirm primitive temporal eleven and primitive spatial lengths 143,275, with Hamming weights 73,137. Prime 11 reduces least-period choices to 1/11, the 1- and 2-length transfer cycles give all fixed states, and division by 11 yields exactly 13 and 25 indexed temporal orbits whenever those spatial periods divide n. This finite exhaustive transfer graph, plus the bijection, legitimately proves every n≥3.
+
+## originality
+
+PASS
+
+PASS best knowledge with explicit historical risk. Wolfram's original 2002 page 268 gives a 275-cell time-11 repeating example and states that 275 cells are required; the actual 143-site word provides a verified smaller fixed-ring exact recurrence, and the all-width closed-walk census is stronger than a single example. A JS-heavy historical Faase catalogue could not be fully inspected; no claim of proof of exclusive historical novelty for the 143 word alone. Published Rule30 one-step preimage and period-twelve results do not imply period-eleven finite cycle counts.
+
+## value
+
+PASS
+
+PASS: the sharp minimum ring circumference for a classic nonlinear cellular automaton's first 11-period recurrence is a motivated exact finite-state classification, not an unmotivated short brute-force table. The 143-site witness corrects a specific prominent 275-cell bound under exact temporal return; the full all-circumference formula and 4,194,304-state certificate make this precise, reproducible and independently useful. It does not purport to classify other temporal periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
