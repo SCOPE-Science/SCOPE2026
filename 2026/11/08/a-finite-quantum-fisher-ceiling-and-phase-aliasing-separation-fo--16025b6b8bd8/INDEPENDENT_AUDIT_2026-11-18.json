@@ -1,0 +1,199 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T22:01:56.905528Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@3285a1744f5600128a1c74c65c4bca4aae6a999b:2026/11/08/a-finite-quantum-fisher-ceiling-and-phase-aliasing-separation-fo--16025b6b8bd8/RESULT.md @ f273f9760824739c72a9ed4874f750e679bdbd1e",
+        "SCOPE-Science/SCOPE2026@3285a1744f5600128a1c74c65c4bca4aae6a999b:2026/11/08/a-finite-quantum-fisher-ceiling-and-phase-aliasing-separation-fo--16025b6b8bd8/verify.py @ e03a59dc0f051d6ed39767c0b332bcf005f32be8",
+        "Independent SciPy quadrature and direct finite density-matrix spectral-QFI reconstructions of the displayed score formulas."
+      ],
+      "rationale": "Correct for known Omega>0, gamma>0, N>=1, a single stationary synchronized ensemble snapshot: global Poisson age is Exp(gamma), its observable qubit density is periodic with pi/Omega, so the folded phase phi has h_x(phi)=x exp(-x phi)/(1-exp(-pi x)). Its score is S_x=1/x-phi-pi/(e^(pi x)-1). For any POVM the outcome score is the conditional mean of S_x; Fisher data processing yields F_Q^N<=Var_x(phi)/Omega^2=Omega^-2[x^-2-pi^2/(4sinh^2(pi x/2))]. Alternating local sigma_z/sigma_y means recover (cos2phi,-sin2phi) almost surely as N→infinity, and bounded score L2 martingale convergence proves exact asymptotic attainment without entangled measurements. A z-only count identifies theta=arcsin sqrt(p) and folds phi↔pi-phi with g_x(theta)=x cosh(x(a-theta))/sinh(ax), strictly reducing score variance. Its score is strictly monotone in theta; one additional Bernoulli observation strictly changes the posterior conditional score, proving N-strict monotonicity. Uniform small-x expansions give QFI pi^2/(12Omega^2)+O(x^2/Omega^2) and z-FI pi^4 x^2/(180Omega^2)+O(x^4/Omega^2). Independent clocks give p=2/(x^2+4), FI linear in N with stated coefficient. Replayed 12 finite density-matrix SLD calculations and 25 z-count quadratures; these corroborate but do not prove universal limits. Boundary cautions: fixed positive parameters before N→infinity; one observation of whole array, not repeated time snapshots or gamma→0 jointly with N.",
+      "residual_risks": [
+        "No uniform double scaling for gamma/Omega→0 with N finite is established; the proof explicitly fixes x>0 before N→infinity.",
+        "Numerical SLD reconstructs N<=4 only, not a formal or infinite-dimensional QFI certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li, Tong & Bao, arXiv:2610.31249v2 (Nov 15, 2026), Setup/No-go Eqs. (1)-(5): its convexity no-go assumes reset clock independent of the estimated model parameter theta. Here the parameter theta=gamma IS the reset rate, so the central hypothesis fails.",
+          "Radaelli et al. New J Phys 25 053037 (2023) Sec 4 proves FI linear in N under finite temporal Markov order, whereas the spatial snapshot has a fixed exchangeable latent phase and generally infinite spatial memory.",
+          "Smiga et al. Phys Rev Research 5 033150 (2023) Secs I–IV focus on temporal records and empirical-histogram compression, not the present joint quantum state or two fixed local basis readout.",
+          "Alipour–Rezakhani 2015 extended convexity supplies the upper-bound method but no general attainment theorem for this phase-aliased Rabi model."
+        ],
+        "reasoning": "The closest broad metrology source is a theorem about theta-independent blind-reset clocks and estimation of other dynamical parameters: it does not dominate the unknown-reset-rate problem. Classical QFI convexity is a premise and the finite-Markov temporal FI results are inapplicable. No inspected broader theorem entails the full coupled upper bound, attainability, basis separation and asymptotic constants.",
+        "searches": [
+          "Web: quantum Fisher information reset rate stationary state global reset Rabi many spins",
+          "Web: quantum Fisher information quantum de Finetti exchangeable parameter mixing measure",
+          "Web: Reset-Enhanced Dissipative Quantum Metrology arxiv 2610.31249 v1 v2",
+          "Resultary: quantum Fisher information Poissonian resetting collective spin common clock rate parameter estimation spatial spin Rabi snapshot",
+          "https://arxiv.cnoctave.top/pdf/2610.31249"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2202.12655 (same global reset spin model; main text and supplement Eq. S14)",
+        "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevA.91.042104/fulltext (Alipour–Rezakhani, 2015 extended QFI convexity Eq. 4)",
+        "https://arxiv.org/pdf/2305.16480 (Smiga et al., 2023 temporal empirical-distribution FI)",
+        "https://inspirehep.net/files/f259fccd70df3734a05e35d990186ebf (Radaelli et al., 2023 temporal finite-Markov order FI)",
+        "https://arxiv.cnoctave.top/pdf/2610.31249 (Li–Tong–Bao arXiv v2 November 15, 2026; source PDF extracted, limited page image availability)",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-mixed-poisson-zeno-crossover-under-common-quantum-resetting--38e909dd13b2 (full RESULT.md read)",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-subextensive-r-nyi-entropy-and-a-sharp-attainment-threshold-for--85f38297aeaf (full RESULT.md read)",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-unique-optimal-reset-probability-for-stationary-qubit-phase-info--15941b8265f8 (full RESULT.md read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2015 extended convexity theorem gives QFI of parameter-dependent mixture <= classical mixing FI plus conditional component. With parameter-independent pure fibers the latter is zero; the exact QFI ceiling is thus a straightforward corollary once the correct phase-mixture is identified.",
+          "Magoni 2022 Protocol I and stationary renewal mixture are pre-existing, including two-spin correlations; they do not establish the reset-rate FI or optimal measurement.",
+          "Resultary October 25 mixed-Poisson convergence is a count-distribution theorem in the gamma_N~sqrt N window, not FI for fixed gamma.",
+          "Li et al. November 2026 theorem is expressly restricted to reset timing independent of theta (their Eq. 3), not gamma as unknown."
+        ],
+        "reasoning": "A substantial portion of the upper bound is a classical/known QFI data-processing deduction and is explicitly credited; it cannot by itself justify originality. The asserted one-shot rate ceiling is sharpened to an EXACT limit via a fixed nonentangled two-basis strategy, plus strict z-only loss and its pi^4/180 weak-rate coefficient. None is a formal corollary of the checked primary results, and the neighboring Resultary findings do not state them. The target Resultary entry is the same work, not independent precedent.",
+        "searches": [
+          "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevA.91.042104/fulltext",
+          "https://arxiv.org/pdf/2202.12655",
+          "https://arxiv.org/pdf/2305.16480",
+          "https://arxiv.cnoctave.top/pdf/2610.31249",
+          "Resultary semantic: global synchronous Poisson reset noninteracting Rabi spins stationary ensemble single snapshot quantum Fisher information reset rate phase modulo pi bounded ceiling N infinity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Magoni et al. Phys Rev A 106 052210 (2022), Eq. (2) and supplement Eq. (S14), gives the physical global reset age-mixture state, not an FI/measurement theorem.",
+          "Alipour–Rezakhani Phys Rev A 91 042104 (2015), Eq. (4), gives QFI extended convexity of parameter-dependent mixtures, which implies a generic upper bound for an x-independent pure-state family, but not the closed wrapped-age law or achievability.",
+          "Published Resultary mixed-Poisson Zeno paper October 25, 2026 analyzes N-dependent reset rates and z-count distributions, not reset-rate QFI at fixed gamma."
+        ],
+        "reasoning": "Equivalent descriptions are reset age T, phase phi=Omega T modulo pi, and an infinitely exchangeable ensemble directed by a Bloch-circle point. General QFI data processing gives a ceiling from the phase-law FI. Yet the exact reset-rate FI constant, fixed y/z-basis asymptotic attainment and the one-basis weak-rate gap are not implied by the source state or convexity alone. The mixed-Poisson paper concerns a separate noncommuting joint N/gamma scaling.",
+        "searches": [
+          "Resultary: global synchronous Poisson reset noninteracting Rabi spins stationary ensemble single snapshot quantum Fisher information reset rate phase modulo pi bounded ceiling N infinity",
+          "Resultary: Fisher information of exchangeable Bernoulli mixtures latent parameter folded exponential aliasing one versus two spin measurement axes",
+          "Web: quantum de Finetti state parameter dependence mixing distribution asymptotic quantum Fisher information equals classical Fisher information of mixing measure",
+          "Web: global Poisson resetting Rabi N qubit ensemble quantum Fisher information reset rate bounded by clock phase variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact same title is the present target and is excluded as proof of independent prior coverage.",
+          "Resultary full read of related October 25 mixed-Poisson crossover: reports mixed-Poisson count law and distinct scaling gamma_N=Omega sqrt(N), not a tabulation of this FI invariant.",
+          "Resultary full read of November 8 stationary purity and November 2 independent Bernoulli phase-reset optimization: different target parameters and observables."
+        ],
+        "reasoning": "These are continuous exact Fisher-information functions, not a finite classification table. Actual searches found no database of the exact wrapped clock FI values; absence of a database hit does not establish priority.",
+        "searches": [
+          "Resultary semantic: phase-aliasing Rabi globally reset spin Fisher ceiling",
+          "Resultary semantic: common quantum resetting N-dependent population counts",
+          "Web: global reset Rabi Poisson gamma sigma z Fisher information pi^4 180 weak reset",
+          "Web: stationary Poisson resetting quantum Fisher rate sample complexity table"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct sharp model-specific result: generic mixture QFI convexity and the common reset spin stationary law are prior, but the exact attainable stationary single-snapshot gamma-FI ceiling, local y/z saturation, strict z-only loss and pi^4/180 weak-rate coefficient were not established by the materially compared published sources. Direct Resultary searches do find the target itself, excluded as independent prior, and neighboring same-model entries which address different invariants and scalings. The 2026 blind-reset no-go presumes a theta-independent clock and does not cover estimating that clock rate. Residual v1 and unindexed-literature priority risks remain.",
+      "residual_risks": [
+        "Original arXiv:2610.31249v1 (Oct 22, 2026) full text was not retrieved; materially inspected substantially revised v2 instead, so unexamined v1 claims remain a priority risk.",
+        "The complete texts and appendices of every related work in the broader quantum de Finetti/latent-mixture literature were not exhausted; absence of exact search match is not proof of priority.",
+        "No human expert priority assessment or external verification was obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Physical stationary state and quantum/classical long-range correlations are prior, but inspected claims concern density correlations/discord and conditional-reset transitions, not FI for gamma or y/z measurement-optimality.",
+          "evidence": [
+            "Main paper Protocol I and Eq. (2) stationary reset state, supplement Eq. (S14), plotted correlations, absence of reset-rate Fisher theorem in relevant sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.12655",
+          "material_read": "Full displayed main introductory/model argument, Protocol I stationary discussion and Secs on correlations; relevant supplement reset-mixture Eq. (S14), including actual rendered pages 3 and 10; other supplementary sections not exhaustively read.",
+          "method": "Read arXiv full-PDF text and inspect page screenshots of scientific formulae.",
+          "title": "Emergent quantum correlations and collective behavior in non-interacting quantum systems subject to stochastic resetting",
+          "trigger": "Identical global Poisson resetting and coherently driven independent spin family"
+        },
+        {
+          "assessment": "Provides generic upper bound exactly relevant here. Does not supply closed folded Poisson phase variance, fixed-product-readout attainment or sharp weak-rate phase-aliasing gap.",
+          "evidence": [
+            "Extended convexity Eq. (4): FQ(sum p_a rho_a)<=FC(p_a)+sum p_a FQ(rho_a); Appendix A measurement-independent proof."
+          ],
+          "identifier_or_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevA.91.042104/fulltext",
+          "material_read": "Main text Secs I-II, Eq. (4), Appendix A proof Eqs. (A1)–(A10), and original first-page screenshot.",
+          "method": "Read publisher fulltext extraction and PDF screenshot.",
+          "title": "Extended convexity of quantum Fisher information in quantum metrology",
+          "trigger": "Potential fully dominating general QFI bound for parameter-dependent mixing distributions."
+        },
+        {
+          "assessment": "Analyzes temporally correlated stochastic record and empirical histogram rather than a spatial exchangeable quantum state, although data processing principles overlap.",
+          "evidence": [
+            "Sections I–III and Table I show temporal Markov-order and master-equation stochastic record setup."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.16480",
+          "material_read": "Introduction, Secs I–III, Table I, Markov/continuous-time information formulas and first page-2 screenshot of Eq. (6), Eq. (8) and (9).",
+          "method": "Read arXiv full PDF extraction and relevant screenshot.",
+          "title": "Stochastic metrology and the empirical distribution",
+          "trigger": "Potential compression-of-information theorem for correlated count records."
+        },
+        {
+          "assessment": "Linear FI-rate theorem requires a finite temporal Markov order; it does not cover a single nonergodic spatial latent mixture with one shared phase.",
+          "evidence": [
+            "New J Phys 25 (2023) 053037 Secs 1 and 4; finite-order temporal process and N-asymptotic linear scaling Eq. (2)."
+          ],
+          "identifier_or_url": "https://inspirehep.net/files/f259fccd70df3734a05e35d990186ebf",
+          "material_read": "Introduction, main finite-Markov-order theorem scope, central FI decomposition Eq. (30) discussion, and original page 2 screenshot.",
+          "method": "Read lawful OA article PDF text and screenshot.",
+          "title": "Fisher information of correlated stochastic processes",
+          "trigger": "Could its general correlated-data theorem dominate fixed-shared-age information saturation?"
+        },
+        {
+          "assessment": "The no-go hypothesis assumes the clock distribution is independent of the target theta; it is not applicable when theta equals the Poisson reset rate gamma. No shared many-spin stationary reset-rate FI limit or phase-aliasing measurement-basis theorem in inspected v2.",
+          "evidence": [
+            "November 15, 2026 v2 Setup/no-go Eq. (3) and (4) states theta-independent blind clock; Secs on T and Delta estimation rather than gamma inference."
+          ],
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2610.31249",
+          "material_read": "Public extracted full PDF material: main setup, no-go Eqs. (1)–(5), conditioned thermometry Eqs. (6)–(12), correlated two-qubit and frequency examples and conclusion; screenshot request of proxy failed. Version 1 original full text not retrieved.",
+          "method": "Read lawful arXiv PDF text via accessible mirror; separate original arXiv PDF endpoint failed.",
+          "title": "Conditional Reset-Enhanced Dissipative Quantum Metrology (v2; prior v1 titled Reset-Enhanced Dissipative Quantum Metrology)",
+          "trigger": "Same quantum metrology/reset subject and very recent revision November 15, 2026."
+        },
+        {
+          "assessment": "Treats N→infinity with gamma_N/(Omega sqrt N) fixed, giving mixed-Poisson count law. Does not imply the FI ceiling or measurement optimum for fixed gamma.",
+          "evidence": [
+            "Theorem critical gamma_N~Omega sqrt N and mixed-Poisson pgf; no reset-rate FI derivative or y-basis measurement."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-mixed-poisson-zeno-crossover-under-common-quantum-resetting--38e909dd13b2",
+          "material_read": "Complete published RESULT.md including theorem, derivation and limitations.",
+          "method": "Read full actual GitHub file at published record path.",
+          "title": "A mixed-Poisson Zeno crossover under common quantum resetting (published Resultary)",
+          "trigger": "Exactly the same global Rabi spin model and z-measurement count but possible stronger parameter coverage."
+        },
+        {
+          "assessment": "Its invariant is stationary purity and Rényi entropy over general renewal laws, not rate Fisher information for Poisson reset or measurement-basis contrast.",
+          "evidence": [
+            "Theorem P_N and sqrt(pi N)P_N limit, optimal renewal support and limits."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-subextensive-r-nyi-entropy-and-a-sharp-attainment-threshold-for--85f38297aeaf",
+          "material_read": "Complete published RESULT.md including Fourier purity expression, thermodynamic limit and reset-clock optimization.",
+          "method": "Read full GitHub file.",
+          "title": "Subextensive Rényi entropy and a sharp attainment threshold for common-clock quantum resetting (published Resultary)",
+          "trigger": "Same reset-age mix and large-N model, potential general stronger envelope."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@3285a1744f5600128a1c74c65c4bca4aae6a999b:2026/11/08/a-finite-quantum-fisher-ceiling-and-phase-aliasing-separation-fo--16025b6b8bd8/RESULT.md @ f273f9760824739c72a9ed4874f750e679bdbd1e",
+        "Alipour–Rezakhani Eq. (4) establishes generic convexity but not the model-specific sharp observation/basis result",
+        "Magoni et al. 2022 supplies physical model and correlations",
+        "Resultary full published October 25 neighboring count-law finding"
+      ],
+      "rationale": "It answers a naturally motivated inference/resource question in an exactly specified globally reset Rabi ensemble: arbitrarily many spatially correlated probes cannot overcome common unobserved clock-age uncertainty. It identifies a sharp saturable ceiling, a feasible two-fixed-axis readout, and a surprising change of small-rate order for the natural z-count readout; independent clocks recover extensive information. The exact constants matter for comparing experimental measurement resources, not merely relabeling classical Jensen. It is a meaningful sharp model classification with honest idealized limitations.",
+      "residual_risks": [
+        "Idealized stationary, noiseless and noninteracting model; no finite-N optimum closed form or actual hardware readout noise guarantee.",
+        "Practical cost of repeated independent stationary snapshots and preparation is not assessed; value is as a sharp mathematical reference model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "This is one stationary common-clock spatial snapshot; repeated independent experimental snapshots not analyzed.",
+    "Gamma and Omega are positive, Omega known, fixed before N→infinity; the N→infinity / x→0 limits cannot be interchanged from proved statements.",
+    "The model requires exact instantaneous global resets and ideal measurements. No finite-N QFI optimum, estimator confidence guarantee, noisy hardware theorem or external formal proof is claimed.",
+    "Original arXiv:2610.31249v1 full text and all broader hidden-latent quantum estimation literature were not comprehensively read; best-of-knowledge originality with explicit residual risk only."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary reset age is an exponential random variable. Folding it modulo the physical Rabi period gives the exact one-dimensional hidden phase density. The score identity for every POVM follows by differentiating the mixed outcome law; its conditional variance yields a universal quantum Fisher ceiling. Alternating local \(\sigma_y\) and \(\sigma_z\) data asymptotically identify the phase, and the bounded-score martingale closes the information bound. An exact reflection argument establishes the strict \(\sigma_z\)-only gap; a uniform weak-rate expansion supplies its quadratic coefficient. The independent-clock control is computed from one Bernoulli marginal. A standalone numerical verifier reproduced 320 diagnostic assertions, including density-matrix quantum Fisher checks, normalization, finite population likelihoods, and asymptotic constants. Diagnostics do not prove the infinite limits.
+PASS
 
-## Originality — PASS, with publication-priority risk
+Correct for known Omega>0, gamma>0, N>=1, a single stationary synchronized ensemble snapshot: global Poisson age is Exp(gamma), its observable qubit density is periodic with pi/Omega, so the folded phase phi has h_x(phi)=x exp(-x phi)/(1-exp(-pi x)). Its score is S_x=1/x-phi-pi/(e^(pi x)-1). For any POVM the outcome score is the conditional mean of S_x; Fisher data processing yields F_Q^N<=Var_x(phi)/Omega^2=Omega^-2[x^-2-pi^2/(4sinh^2(pi x/2))]. Alternating local sigma_z/sigma_y means recover (cos2phi,-sin2phi) almost surely as N→infinity, and bounded score L2 martingale convergence proves exact asymptotic attainment without entangled measurements. A z-only count identifies theta=arcsin sqrt(p) and folds phi↔pi-phi with g_x(theta)=x cosh(x(a-theta))/sinh(ax), strictly reducing score variance. Its score is strictly monotone in theta; one additional Bernoulli observation strictly changes the posterior conditional score, proving N-strict monotonicity. Uniform small-x expansions give QFI pi^2/(12Omega^2)+O(x^2/Omega^2) and z-FI pi^4 x^2/(180Omega^2)+O(x^4/Omega^2). Independent clocks give p=2/(x^2+4), FI linear in N with stated coefficient. Replayed 12 finite density-matrix SLD calculations and 25 z-count quadratures; these corroborate but do not prove universal limits. Boundary cautions: fixed positive parameters before N→infinity; one observation of whole array, not repeated time snapshots or gamma→0 jointly with N.
 
-Magoni et al., arXiv:2202.12655v1, establishes the noninteracting common-reset spin model, its renewal stationary state, density correlations and local quantum uncertainty. These are acknowledged inputs. Smiga et al., arXiv:2305.16480v1, treats information in temporal stochastic records, and Radaelli et al., arXiv:2206.00463v1, proves finite-Markov-order correlated-record Fisher statements. None of the inspected material derives the exact global-reset stationary quantum Fisher ceiling, proves asymptotic attainment by fixed local readouts, or identifies the differing orders of weak-reset information between two observation schemes. Classical data processing and martingale convergence are standard tools, not novel contributions. A recent reset-metrology preprint, arXiv:2610.31249v1, was only accessible through secondary material, so its full text is a named priority risk, as is broader unindexed literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result answers a natural experimental inference question: whether increasing the number of correlated spin probes allows arbitrarily precise estimation of their common reset clock. It supplies a sharp finite resource-independent limit and a physically realizable optimal measurement. The \(\sigma_z\)-only weak-reset information collapses while complementary phase-sensitive measurements remain informative. Independent reset clocks restore extensive information, isolating common-age correlation as the obstruction.
+Best-of-knowledge distinct sharp model-specific result: generic mixture QFI convexity and the common reset spin stationary law are prior, but the exact attainable stationary single-snapshot gamma-FI ceiling, local y/z saturation, strict z-only loss and pi^4/180 weak-rate coefficient were not established by the materially compared published sources. Direct Resultary searches do find the target itself, excluded as independent prior, and neighboring same-model entries which address different invariants and scalings. The 2026 blind-reset no-go presumes a theta-independent clock and does not cover estimating that clock rate. Residual v1 and unindexed-literature priority risks remain.
 
-## Limits of the reviewed claim
+## value
 
-Only a stationary, single-snapshot, noiseless, noninteracting Rabi model with a common complete Poisson reset clock and known Rabi frequency is covered. No finite-ensemble quantum Fisher closed formula, estimator efficiency, repeated-snapshot inference, or noisy-hardware guarantee is asserted. Population limits precede rate limits. Priority has not been independently confirmed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It answers a naturally motivated inference/resource question in an exactly specified globally reset Rabi ensemble: arbitrarily many spatially correlated probes cannot overcome common unobserved clock-age uncertainty. It identifies a sharp saturable ceiling, a feasible two-fixed-axis readout, and a surprising change of small-rate order for the natural z-count readout; independent clocks recover extensive information. The exact constants matter for comparing experimental measurement resources, not merely relabeling classical Jensen. It is a meaningful sharp model classification with honest idealized limitations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
