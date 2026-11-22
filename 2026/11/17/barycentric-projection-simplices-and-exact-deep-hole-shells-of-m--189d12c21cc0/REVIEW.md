@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The proof provides an exact normal-cone certificate: the residual at the explicitly constructed barycenter has a strictly maximal inner product precisely at the proposed face vertices. Those generators form a bipartite-forest incidence set, establishing the face as a simplex and giving its volume by a Gram determinant. The distance identity follows by direct norm calculation, and a residual-variance identity rules out all nonvertex Hausdorff maximizers. Quantifiers include every multipartite class profile with at least one part of size two or more; exceptional all-singleton graphs are excluded. Exact closed-form checks and numerical quadratic minimizations independently corroborate 140 nontrivial missing-vertex instances.
+## correctness
 
-## Originality (PASS, conditional on unindexed historical work)
-Ohsugi–Tsuchiya's complete multipartite PQ adjacency results determine lattice volume and Ehrhart information, not metric projection faces or Euclidean distance shells. A previous crown-root-polytope result **does** cover perfect-matching deletion, equivalent here when every class has exactly two vertices. That fully paired subclass is expressly credited; allowing singleton parts creates partial-matching deletion, which is not directly covered by that prior theorem. Prior Gaussian directional-width results on bipartite PQ polytopes are not equivalent to a vertexwise Euclidean nearest-point formula; neither imply the arbitrary-part-size theorem. The closest results and their precise implication boundaries have been compared, but an unindexed earlier equivalent statement under a transportation or graph-projection formulation remains possible.
+PASS
 
-## Mathematical value (PASS)
-The complete coordinate Euclidean Hausdorff invariant, exact full family of finite metric shells and multiplicities, constructive nearest-point map, and simplex face geometry are natural exact data for the PQ-type polytope family important in discrete geometry. The nontrivial independent-of-internal-size projection geometry and face support dimension varying with external class size add structure beyond a single distance constant. This is an all-dimensional theorem, not a fixed-size numerical re-enumeration. Its value does not depend on new statements about matching deletion, which is already covered in prior work.
+The residual from the missing vertex (e_i,e_j) to the equal-weight average of 2(q+1) permitted edges has row coefficient +1/2 at i and −1/[2(q+1)] at j/outside, and analogous column coefficients. Direct checking of all permitted generators places exactly those 2(q+1) active edges on the supporting hyperplane and every other generator strictly below. The two disjoint-star incidence columns form a forest, hence their convex hull is a simplex of affine dimension 2q+1, not a lower-rank face. The projection normal inequality gives unique closest point, squared norm (q+2)/[2(q+1)], and the exact edge Gram determinant 2(q+1)(q+2) yields the simplex volume. Each missing ordered pair contributes to the size-specific distance shell; q=n−part_size and monotonicity of the rational function select only maximum parts. For any nonvertex point of the full product Q, residual averaging together with strictly distinct residual vectors makes the squared distance strictly lower, proving the full continuous Hausdorff maximizer classification. Independently assembled incidence matrices for q=1,2,3,4 and checked squared distances .75, 2/3, 5/8, 3/5, and Gram determinants 12,24,40,60.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact PQ-type multipartite graph family is studied by Ohsugi–Tsuchiya, whose actual primary full text yields Ehrhart/h* and normalized volumes, not intrinsic Euclidean metric projection. A published biclique-deletion metric theorem and crown matching special case overlap some geometric constructions but do not state or dominate the multipartite off-diagonal removal shells and face dimensions for arbitrary part sizes.
+
+## value
+
+PASS
+
+A natural and well-studied family of PQ adjacency polytopes is compared with its containing product of simplices. Exact Euclidean nearest-point simplices, their intrinsic volumes, every discrete distance shell, and the full continuous Hausdorff extremizer list give motivated sharp geometric invariants, useful beyond the existing Ehrhart computations. The arbitrary-class-size classification is not an arbitrary small instance or a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

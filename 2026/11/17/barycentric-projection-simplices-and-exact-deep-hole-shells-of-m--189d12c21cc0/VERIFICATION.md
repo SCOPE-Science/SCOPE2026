@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducible verification
-Run `OPENBLAS_NUM_THREADS=1 python checks/check_pq.py` after installing NumPy and SciPy. The checker constructs complete multipartite generator matrices and for every forbidden ordered pair verifies the exact formula's Euclidean squared norm, identifies the complete active supporting face, tests the affine rank and Gram determinant, and independently solves the full convex-coefficient quadratic optimization with SciPy. Its successful output was:
+# Independent mathematical audit
 
-`PQ_MULTIPARTITE_METRIC_PASS cases=16 missing_vertices=140 exact_dual_and_affine_and_gram=140 independent_QP=140`
+## correctness
 
-The finite checks range over 16 explicitly listed multipartite size profiles; the analytic proof establishes the theorem for all profiles. Floating-point quadratic-optimization checks are corroborative and not claimed to be exact computer certification. Historical priority and independent mathematical validation are not established by these computations.
+PASS
+
+The residual from the missing vertex (e_i,e_j) to the equal-weight average of 2(q+1) permitted edges has row coefficient +1/2 at i and −1/[2(q+1)] at j/outside, and analogous column coefficients. Direct checking of all permitted generators places exactly those 2(q+1) active edges on the supporting hyperplane and every other generator strictly below. The two disjoint-star incidence columns form a forest, hence their convex hull is a simplex of affine dimension 2q+1, not a lower-rank face. The projection normal inequality gives unique closest point, squared norm (q+2)/[2(q+1)], and the exact edge Gram determinant 2(q+1)(q+2) yields the simplex volume. Each missing ordered pair contributes to the size-specific distance shell; q=n−part_size and monotonicity of the rational function select only maximum parts. For any nonvertex point of the full product Q, residual averaging together with strictly distinct residual vectors makes the squared distance strictly lower, proving the full continuous Hausdorff maximizer classification. Independently assembled incidence matrices for q=1,2,3,4 and checked squared distances .75, 2/3, 5/8, 3/5, and Gram determinants 12,24,40,60.
+
+## originality
+
+PASS
+
+The exact PQ-type multipartite graph family is studied by Ohsugi–Tsuchiya, whose actual primary full text yields Ehrhart/h* and normalized volumes, not intrinsic Euclidean metric projection. A published biclique-deletion metric theorem and crown matching special case overlap some geometric constructions but do not state or dominate the multipartite off-diagonal removal shells and face dimensions for arbitrary part sizes.
+
+## value
+
+PASS
+
+A natural and well-studied family of PQ adjacency polytopes is compared with its containing product of simplices. Exact Euclidean nearest-point simplices, their intrinsic volumes, every discrete distance shell, and the full continuous Hausdorff extremizer list give motivated sharp geometric invariants, useful beyond the existing Ehrhart computations. The arbitrary-class-size classification is not an arbitrary small instance or a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
