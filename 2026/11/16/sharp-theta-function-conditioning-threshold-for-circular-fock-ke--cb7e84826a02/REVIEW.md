@@ -1,11 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier diagonalization gives strictly positive Poisson residue eigenvalues and exact identification of the squared condition ratio. Strict full-support convolution proves monotonicity for every real radius. A uniform modular Fourier local limit, including the drifting mean phase, and the Jacobi product identify the exact theta extreme ratio. The inverse threshold follows by monotone bracketing. The packaged checker passed 48 finite consistency checks; the infinite result is analytical.
+## correctness
 
-**Originality — PASS relative to inspected literature.** The precise underlying Gram eigenvalues are expressly known from Horoshko et al. (2016), equation (9), and are not claimed new. The inspected Sections II and V of that paper do not derive a uniform modular heat limit, a strict condition-number monotonicity theorem, or the fixed-accuracy sharp large-orbit radius threshold. The analytic Fock kernel and corresponding Gaussian-RBF constructions are standard in De Bie et al. (2025). The full open-access introduction and sampling setup of Gröchenig–Ortega-Cerdà (2022) concern polynomial sampling, not fixed-circle Gram conditioning. Published published-finding corpus searches for Fock, coherent circular samples, theta thresholds, and Poisson residue conditioning yielded no identical or stronger theorem. This is a best-knowledge originality comparison, not proof of publication uniqueness. An equivalent result could exist in historical cyclic Markov-chain or quantum-optics sources.
+PASS
 
-**Value — PASS.** Condition number is an intrinsic stability invariant of circular coherent-state interpolation. The theorem gives the smallest permissible geometric radius for any prescribed stability tolerance, identifies its exact quadratic growth and a universal theta constant, and excludes nonmonotone intermediate-radius behavior. The quantitative threshold cannot be read off as a fixed number from the previously published finite spectral decomposition and requires a nontrivial phase-uniform limit and extremal argument. It does not claim a wider sampling theorem.
+For normalized Bargmann–Fock kernels on a regular n-point circle, Gram diagonalization yields lambda_j=n exp(-t) sum_(k>=0)t^(j+kn)/(j+kn)!, exactly n times Poisson residue probability. Independent Poisson increments give strictly positive circular convolution, strictly decreasing max and increasing min of each nonconstant residue law for finite t>0, so κ_n(t) strictly decreases continuously from ∞ to 1 and t_n(C) is unique for C>1. For t=alpha n², Fourier inversion over residue indices, with signed frequency bound exp(-8alpha k²), gives uniform-in-residue approximation to wrapped Gaussian heat kernel H_alpha((j-alpha n²)/n). The phase grid mesh 1/n samples its continuous extrema; Jacobi triple product places them exactly at x=0,1/2, proving theta3/theta4 limiting ratio. Heat-semigroup strict positivity gives unique alpha_C, and bracketing t_n(C)/n² yields alpha_C. Independent Poisson residue calculations at alpha≈0.090693, n=18,40,100 found κ≈2.0253,2.00183,2.00057. Known exact Poisson spectrum explicitly distinguished from the new n² limiting extreme condition theorem.
 
-No independent publication-priority verification or mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Fourier/Poisson-residue spectrum of circular coherent states is established by Horoshko et al (2016). A previous Resultary SCOPE sharp e^-1 transition for the same Gram object is at radius squared t=rho*n with fixed rho; its exponential eigenvalue asymptotics are not uniform as rho grows like alpha*n, hence do not imply the assigned theta crossover. The asserted contribution is strict finite-radius κ monotonicity and the n²-scale sharp threshold with drifting-phase uniformity.
+
+## value
+
+PASS
+
+For regular coherent-state Fock interpolation, the exact sharp n-linear geometric radius needed to maintain any prescribed Gram condition bound is a natural and practically useful threshold. It complements the known fixed-rho*n exponentially ill-conditioned regime by identifying the n²-scale bounded-condition phase and its unique theta constant; not merely restating finite Poisson eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

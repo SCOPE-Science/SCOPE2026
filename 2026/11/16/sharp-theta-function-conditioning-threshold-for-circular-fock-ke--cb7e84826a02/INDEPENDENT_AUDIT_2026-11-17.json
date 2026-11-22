@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:07:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For normalized Bargmann–Fock kernels on a regular n-point circle, Gram diagonalization yields lambda_j=n exp(-t) sum_(k>=0)t^(j+kn)/(j+kn)!, exactly n times Poisson residue probability. Independent Poisson increments give strictly positive circular convolution, strictly decreasing max and increasing min of each nonconstant residue law for finite t>0, so κ_n(t) strictly decreases continuously from ∞ to 1 and t_n(C) is unique for C>1. For t=alpha n², Fourier inversion over residue indices, with signed frequency bound exp(-8alpha k²), gives uniform-in-residue approximation to wrapped Gaussian heat kernel H_alpha((j-alpha n²)/n). The phase grid mesh 1/n samples its continuous extrema; Jacobi triple product places them exactly at x=0,1/2, proving theta3/theta4 limiting ratio. Heat-semigroup strict positivity gives unique alpha_C, and bracketing t_n(C)/n² yields alpha_C. Independent Poisson residue calculations at alpha≈0.090693, n=18,40,100 found κ≈2.0253,2.00183,2.00057. Known exact Poisson spectrum explicitly distinguished from the new n² limiting extreme condition theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inspected full Resultary e^-1 RESULT.md fixes t=rho*n with rho>0 fixed and obtains exponential condition growth and phase-dependent prefactor; it explicitly does not give uniform behavior with variable rho",
+          "Assigned t=alpha*n² is another regime; the earlier fixed-rho asymptotic ceases to apply by direct substitution rho=alpha*n"
+        ],
+        "reasoning": "Previous theorem about same objects is stronger in describing fixed-ρ exponential regime, not a covering theorem for n²-scale bounded condition crossover. Its fixed-parameter hypotheses block the proposed implication.",
+        "searches": [
+          "Resultary 2026-11-01 sharp e^-1 conditioning transition for circular Fock interpolation",
+          "Fock circular coherent state interpolation frame theta large n"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob e9609df05d412b28150b7769a16cf674587c5596",
+        "Assigned CHECK.py blob 4b2c766a10387dd01f142d62e9993588667ec4a4",
+        "Horoshko et al arXiv:1602.07852 selected full-text primary pages",
+        "Resultary 2026-11-01 full RESULT.md fixed-rho Fock conditioning",
+        "Resultary semantic circular Fock theta condition search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Poisson residue diagonalization from 2016 provides starting spectrum but neither heat-theta limit nor monotone boundary t_n(C)/n²",
+          "Earlier e^-1 theorem asymptotics t=rho*n produce exponentially large condition number for rho fixed; for alpha*n² the assigned κ has finite positive theta ratio, so hypotheses and limits differ"
+        ],
+        "reasoning": "The fixed-rho formulas cannot be extrapolated to rho→∞ without uniform estimates, and the theta ratio is not an immediate corollary. The new proof supplies the discrete Fourier uniform domination and heat-kernel extrema.",
+        "searches": [
+          "Horoshko 2016 Entanglement quantum circular states light eq 9",
+          "Resultary e^-1 transition circular Fock interpolation fixed rho"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horoshko 2016 Section II.A equations 5-9 supplies lambda_j as Poisson residue masses for same regular n-circle; it does not in the inspected relevant sections derive the n²-scale theta3/theta4 condition threshold",
+          "Assigned theta limit tracks drifting modular phase (j-alpha n²)/n uniformly over j, necessary for Gram extreme ratio"
+        ],
+        "reasoning": "Same exact finite Gram spectrum is acknowledged, while the new assertion is about optimizing extreme eigenvalues in a growing parameter regime and unique sharp radius threshold.",
+        "searches": [
+          "Resultary semantic: circular coherent state Bargmann Fock kernel Poisson residues theta condition number radius n squared threshold",
+          "Horoshko De Bièvre Kolobov Patera 2016 circular coherent states Poisson residues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Horoshko 2016 lists exact finite Poisson-residue eigenvalues, enabling numerical tables but not the unique asymptotic theta threshold for all n",
+          "No fixed n tabulation by itself proves the uniform large-n phase-extreme limit or all-n radius monotonicity"
+        ],
+        "reasoning": "This is an all-n analytic asymptotic and strict monotonicity, not a missing finite dataset; known exact finite spectral tables are correctly treated as inputs.",
+        "searches": [
+          "Resultary circular Fock Poisson theta Gram spectral condition table",
+          "coherent circular states Gram eigenvalue tabulation theta heat kernel phase"
+        ]
+      },
+      "rationale": "The Fourier/Poisson-residue spectrum of circular coherent states is established by Horoshko et al (2016). A previous Resultary SCOPE sharp e^-1 transition for the same Gram object is at radius squared t=rho*n with fixed rho; its exponential eigenvalue asymptotics are not uniform as rho grows like alpha*n, hence do not imply the assigned theta crossover. The asserted contribution is strict finite-radius κ monotonicity and the n²-scale sharp threshold with drifting-phase uniformity.",
+      "residual_risks": [
+        "A prior coherent-state or wrapped-Poisson/heat-kernel result under different terminology could already give the theta crossover; inspected sources do not justify exhaustive absence.",
+        "Finite Poisson checks do not prove uniform modular central limit or strict monotone conditioning for every n,t; these rest on analytic arguments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "established Poisson-residue spectrum; no n² condition crossover in checked relevant sections",
+          "evidence": "Eqs (5)-(9) express normalized circular-state overlaps as Poisson residue sums",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.07852",
+          "material_read": "primary PDF sections II.A equations 5-9 and selected later context; visual pages checked, not claim of entire paper having no additional theorem",
+          "method": "open-access PDF text and visual page inspection",
+          "title": "Entanglement of quantum circular states of light",
+          "trigger": "exact same coherent-state circular Gram eigenvalue model"
+        },
+        {
+          "assessment": "nonuniform fixed-rho/n scale, not the growing alpha*n² theta threshold",
+          "evidence": "statement restricts rho>0 fixed and expressly does not handle varying rho at critical windows",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-sharp-e-1-conditioning-transition-for-circular-fock-interpolat--3eb6ee5c2781/RESULT.md",
+          "material_read": "entire RESULT.md finding, full mathematical proof and assumptions/limitations",
+          "method": "GitHub read-only primary file fetch",
+          "title": "A sharp e^-1 conditioning transition for circular Fock interpolation",
+          "trigger": "same Gram at t=rho*n"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For regular coherent-state Fock interpolation, the exact sharp n-linear geometric radius needed to maintain any prescribed Gram condition bound is a natural and practically useful threshold. It complements the known fixed-rho*n exponentially ill-conditioned regime by identifying the n²-scale bounded-condition phase and its unique theta constant; not merely restating finite Poisson eigenvalues.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed C>1, equal-spacing and classical analytic Fock kernel only; no variable C, perturbed circles or non-Gaussian weights.",
+    "Same-object literature overlap with coherent-state heat kernels remains a bounded historical-priority risk."
+  ],
+  "schema_version": 1
+}
