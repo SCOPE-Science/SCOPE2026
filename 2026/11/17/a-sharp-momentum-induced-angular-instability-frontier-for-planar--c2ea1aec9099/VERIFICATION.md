@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible mathematical verification
+# Independent mathematical audit
 
-Run `python verification.py` in an environment with `numpy` and `sympy`. The script rebuilds the reflected Hessian and the first-order state matrix from the stated quadratic energy; checks the exact characteristic polynomial and its factorization at the critical root; compares 1,000 deterministic positive parameter quadruples with the predicted stability classification at six distinct angles each; and checks a worked unit-curvature counterexample.
+## correctness
 
-The script prints `PASS`, the critical angle in radians and degrees, and the full four-by-four eigenvalue spectrum for the \(30^\circ\) example. The script is numerical/symbolic cross-checking; the infinitely quantified classification follows from the exact block determinant, strict Routh--Hurwitz inequalities, and analytic critical factorization in `RESULT.md`. The tested angular grid is not claimed to exhaust real angles or parameters.
+PASS
 
-All critical identities can also be reproduced by hand:
+For H=diag(-u,v) and w=(cos theta,sin theta), K=(I-2wwT)H has trace (u+v)cos2theta and determinant uv. The 4x4 heavy-ball characteristic polynomial has RH margin gamma^2 omega(2gamma^2 T+omega T^2-4omega uv), yielding a unique positive T*, strict Hurwitz for T>T*, an imaginary pair at equality by the exact factorization and instability thereafter. This is uniform for u,v,gamma,omega>0 and theta in [0,pi/2]; the first-order bound is theta<pi/4. Direct state-matrix eigenchecks at theta=0, theta*-.05, theta* and pi/6 for unit parameters agree with spectral abscissae (-.5,-.0513297,~0,+.070696); finite checks corroborate rather than establish all-parameter RH analysis.
 
-\[
-\det K=uv,\qquad\operatorname{tr}K=(u+v)\cos2\theta,\qquad
-P(\lambda)=\det((\lambda^2+\gamma\lambda)I_2+\omega K).
-\]
+## originality
 
-No independent external audit or certification was performed. The cutoff at \(\theta_*\) concerns a fixed projector; it is not a bound for dynamically changing projector approximations.
+PASS
+
+The full perturbed momentum-HiSD source establishes sufficient local stability regions but neither the necessary and sufficient fixed planar orientation threshold nor its transverse imaginary-axis crossing. Novelty is limited to this explicit sharp fixed-projector quadratic case, not to the generic Hurwitz criterion.
+
+## value
+
+PASS
+
+The counterintuitive deterioration from 45-degree stable first-order saddle search to a strictly smaller heavy-ball threshold is a concrete algorithmic robustness question. The exact angular frontier, separate spectral-coalescence location and oscillatory transition provide a sharply motivated design limitation rather than an unsupported generic use of Routh–Hurwitz.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
