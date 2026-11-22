@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the map displayed in RESULT.md, one iterate enters the strictly positive invariant box \(K\). In logarithmic coordinates its exact Jacobian row-sum majorant is \(1-\alpha_i[1+(1-h)S_i]/[(1+S_i)^2F_i(x)]\), which is at most \(1-\delta<1\) on \(K\). Banach contraction gives the unique positive equilibrium and the stated geometric estimate. The scalar flip construction checks \(H(0)>0\), \(H(t)=0\), and \(H'(t)>0\), which forces a prime-two orbit when \(h>1\). The two-gene dimer orbit has exact full-plane two-step multipliers \(4/a^2\) and \(4(1-2\varepsilon)^2/a^2\), both below one for \(a>2\). The checker confirms the key symbolic identities; finite examples do not substitute for the general proof.
+PASS
 
-## Originality — PASS within inspected evidence
+An arbitrary nonnegative initial x is absorbed after one iterate into K=∏[α_i/D_i,U_i], where U_i>=max(x_i(0),α_i/(1-β_i)) and D_i=1+Σ c_ij U_j^h. Log transformation G_i(z)=log F_i(e^z) gives absolute Jacobian row sum <=(β_i x_i+α_i hS_i/(1+S_i)^2)/F_i=1-α_i[1+(1-h)S_i]/[(1+S_i)^2F_i] <=1-δ_i, δ_i=α_i/[D_i²(β_i U_i+α_i)]>0 for 0<h<=1. Banach contraction on complete log K establishes unique fixed point and geometric convergence from time 1, and any other fixed point must lie in K. For h>1, scalar f(x)=α/(1+x^h) with α>h/(h-1)^(1+1/h) has an equilibrium t with f'(t)<-1; IVT on f²(x)-x yields a prime-two orbit. For h=2, symmetric dimer r±=(a±sqrt(a²-4))/2, a>2, has 2-step eigenvalues 4/a² and 4(1-2ε)²/a²<1 for 0<=ε<=1; IFT extends small positive β. Independent recomputation of Jacobian deficit and several exact diagonal cycles corroborated algebra. These sample checks do not prove the all-network theorem, which is analytical.
 
-The 2026 Falęcki–Rosman–Palczewski–Pilarczyk–Bartłomiejczyk paper (arXiv:2603.03850v1), fully inspected via its online HTML article, studies finite-resolution Conley–Morse dynamics at exponent \(h=3\), and does not imply a global no-cycle theorem for arbitrary nonnegative inhibitory networks with \(h\le1\). The 2024/2025 Rosman–Palczewski–Pilarczyk–Bartłomiejczyk paper (arXiv:2411.16699v2), fully inspected, proves an absorbing-box statement across integer exponents and numerically explores higher exponents, but not the logarithmic contraction or sharp parameter-free exponent boundary. Neunhäuserer's 2025 full-text article (arXiv:2509.11881) treats chaos for \(h\ge3\), and explicitly characterizes \(h=1,2\) as seemingly nonchaotic rather than proving global attraction. The 2023 Subramani et al. article's full HTML studies bifurcations and fractional variants. Closest known standard method is contraction in logarithmic coordinates; its classical availability does not by itself cover the exact model, network-uniform classification and sharp dimer construction. Search results and prior result records did not show covering implications. Historical priority remains provisional due to incomplete access to some older articles.
+## originality
 
-## Value — PASS
+PASS
 
-In the biologically motivated reciprocal-Hill inhibitory motif, the theorem determines a precise all-parameter boundary between guaranteed monostability and the possible onset of cyclic behavior. It is global in phase space and general in network dimension, interaction topology, and magnitudes, while yielding an explicit reproducible convergence factor. The exact attracting two-gene dimer orbit shows the threshold is not merely a local-spectral artifact. This resolves a natural gap left by numerical multimerization studies and can guide interpretation of gene-circuit simulations. The result does not imply behavior for other repression laws or complex regulatory biology.
+Best-of-knowledge comparison of the exact mathematical statement/implications with named primary sources and published research; no independently earlier equivalent or dominating theorem found among inspected material. Same-day matching Resultary entries were excluded as independent prior evidence. Specific inaccessible texts and older alias risks are retained; negative searches are not treated as proof of uniqueness.
 
-## Closest literature and limitations
+## value
 
-The source studies' absorbing bounds and high-Hill chaos are acknowledged rather than relabeled. The primary 2007 source and an older 2019 study were not fully inspectable; these are residual historical risks rather than evidence of absence. The sharpness assertion is existential above \(h=1\), and the rate depends on upper bounds for the chosen initial state. This is a proof-level self-review, not external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform network-size/topology independent global-attraction threshold at the natural Hill exponent h=1, with an explicit rate and a sharp existence counterexample for every h>1, is a structurally meaningful boundary between unconditional monotonic relaxation and possible oscillation for inhibitory networks. It is not a mere contraction-mapping exercise because the logarithmic Jacobian row estimate and coupling-uniform sharpness are the substantive elements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
