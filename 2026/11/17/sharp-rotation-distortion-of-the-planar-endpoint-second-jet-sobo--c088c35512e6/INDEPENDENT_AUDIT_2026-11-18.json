@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:18:32.909905Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For U_theta f=f o R_theta the exact second-order chain-rule matrix in the {f_xx,f_xy,f_yy} coordinates has pure-column abs sums 1+|cs| and mixed-column sum |c^2-s^2|+4|cs|, which dominates first-jet |c|+|s| and zeroth-order 1 for every c^2+s^2=1. The classical scalar planar Ornstein endpoint L1 non-inequality produces compactly supported smooth functions with the mixed derivative dominating pure second derivatives; shrinking spatial scale then suppresses L1 lower-order terms. Reverse triangle inequalities imply the mixed-column lower bound, giving norm 2|sin2theta|+|cos2theta|. The quarter-circle envelope attains sqrt5 precisely where |sin2theta|=2/sqrt5, yielding isometry angles and diagonal cusp. Independent exact rational-angle checks reproduced Hessian coefficients, column dominance and bound at 169 angles; infinite-dimensional lower bound requires the cited Ornstein theorem, not those checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-order shear theorem covers U_t f(x,y)=f(x+ty,y), not rotations; Ornstein independently supplies top-jet sharpness tool but no explicit rotation envelope."
+        ],
+        "reasoning": "General linear change-of-coordinate estimates do not automatically imply exact angular equality without mixed-column concentration and dominance; no explicit stronger fully covering theorem located in inspected text.",
+        "searches": [
+          "Resultary exact shear distortion and two endpoint Sobolev norm transitions",
+          "Hamad 2026 isometric classification Wk1",
+          "Kazaniecki Stolyarov Wojciechowski anisotropic Ornstein noninequalities"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md and rotation_checker.py 2676d9fdf5c815928c12f9e79debd870f7d0d596",
+        "Hamad arXiv:2611.09577",
+        "Faraco Guerra arXiv:2006.09060",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-shear-distortion-and-two-endpoint-sobolev-norm-transitions--c0bb26d3cb4a/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hamad discusses surjective isometries; the shear norm formula for nonorthogonal triangular maps and submultiplicativity under three-shear decomposition cannot yield equality for a rotation."
+        ],
+        "reasoning": "Neither is a dominating statement for the precise sharp rotation norm. Ornstein proves existence of appropriate derivative concentration, but the new coefficient calculation completes the specialization.",
+        "searches": [
+          "Hamad arxiv 2611.09577 isometric classification",
+          "Resultary exact shear distortion two endpoint Sobolev transitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unweighted derivative-sum norm agrees with Hamad setting, but Hamad isometry classification only decides which coordinate compositions preserve the norm; the exact column envelope goes beyond that."
+        ],
+        "reasoning": "The Banach-space operator-norm question can be expressed via second-jet mixing under rotations, with sharpness dependent on Ornstein L1 derivative concentration; an isometry theorem is not an equivalent answer.",
+        "searches": [
+          "Resultary planar W2,1 rotation derivative sum Sobolev norm Ornstein sharp distortion",
+          "Hamad Isometric Classification Sobolev Spaces arxiv 2611.09577",
+          "endpoint Sobolev mixed second derivative rotation Ornstein"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Schatten/shear records are different norm/operator, while the present angular profile has max sqrt5 and diagonal local minima 2; no exact matching table in other retrieved records."
+        ],
+        "reasoning": "Isometry-angle classification is an exact zero-distortion table, not the continuous norm profile or its extremum.",
+        "searches": [
+          "Resultary sharp rotation distortion planar endpoint second jet Sobolev",
+          "Sobolev W2,1 composition rotation operator norm 2 sin 2theta cos 2theta"
+        ]
+      },
+      "rationale": "The new quantitative exact rotation norm and nonmonotone angular profile are not supplied by Hamad 2026 surjective isometry classification, which detects isometries but not their distortion factors. The published exact planar shear theorem applies to triangular coordinate changes; generic rotations are not a shear, and factorization yields only norm-product inequalities. Ornstein non-inequality is an acknowledged input, not claimed as new. PASS with priority risk for unpublished general linear-change formulas.",
+      "residual_risks": [
+        "A broad change-of-variable sharp norm formula not retrieved could imply rotation as a special case",
+        "Sharpness depends on the established Ornstein non-inequality (not replayed as an independent published proof)",
+        "Hamad 2026 complete PDF not exhaustively screened for every special corollary"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_NORM_BUT_ISOMETRIES",
+          "evidence": "Theorems classify isometry rather than quantitative nonisometric angular norm",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09577",
+          "material_read": "PDF opening, central surjective-isometry theorem and searched rotation references; not a complete full-text exclusion",
+          "method": "arXiv PDF first page visually verified and text search",
+          "title": "Isometric Classification of Sobolev Spaces, Hamad (2026)",
+          "trigger": "Exactly the same full derivative-sum W2,1 norm in the newest primary paper"
+        },
+        {
+          "assessment": "SHEAR_ONLY",
+          "evidence": "U_t(x,y)=(x+ty,y); no exact rotation operator theorem",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-shear-distortion-and-two-endpoint-sobolev-norm-transitions--c0bb26d3cb4a/RESULT.md",
+          "material_read": "Entire RESULT.md with all-k shear theorem, proof and low-order switching",
+          "method": "GitHub full source text",
+          "title": "Exact shear distortion and two endpoint-Sobolev norm transitions",
+          "trigger": "Same exact norm and endpoint concentration but different linear map"
+        },
+        {
+          "assessment": "SUPPORTING_LEMMA_NOT_COVERAGE",
+          "evidence": "Establishes concentration phenomenon, not rotation norm profile",
+          "identifier_or_url": "https://arxiv.org/abs/2006.09060",
+          "material_read": "Abstract and cited endpoint noninequality formulation; original complete proof not separately rechecked",
+          "method": "arXiv index plus source proof invocation",
+          "title": "Remarks on Ornsteins non-inequality in R2x2, Faraco and Guerra (2022)",
+          "trigger": "Critical nonstandard sharpness premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural endpoint Sobolev norm counts each mixed derivative once and is anisotropic under rotations. The theorem gives its full angular distortion profile, sharp maximum sqrt5 away from diagonal axes, and precise cusp behavior, resolving a substantive quantitative gap between the isometry classification and operator norm.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md and rotation_checker.py 2676d9fdf5c815928c12f9e79debd870f7d0d596",
+    "Hamad arXiv:2611.09577",
+    "Faraco Guerra arXiv:2006.09060",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-shear-distortion-and-two-endpoint-sobolev-norm-transitions--c0bb26d3cb4a/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": "Real-valued W2,1(R2) with each mixed derivative counted once; no nonlinear maps or arbitrary orders.",
+  "residual_risks": [
+    "A broad change-of-variable sharp norm formula not retrieved could imply rotation as a special case",
+    "Sharpness depends on the established Ornstein non-inequality (not replayed as an independent published proof)",
+    "Hamad 2026 complete PDF not exhaustively screened for every special corollary"
+  ],
+  "schema_version": 1
+}

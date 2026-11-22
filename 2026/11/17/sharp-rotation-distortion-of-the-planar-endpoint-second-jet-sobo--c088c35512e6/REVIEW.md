@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The chain-rule matrix for zeroth, first, and second derivatives gives a pointwise absolute-column-sum bound. The scalar mixed second-derivative coefficient column is \((2cs,c^2-s^2,-2cs)\), and elementary inequalities make its column sum dominant for every angle. Ornstein's established planar endpoint \(L^1\) non-inequality produces smooth compactly supported functions whose mixed second derivative dominates the pure second derivatives; independent dilation suppresses zeroth- and first-order contributions. This proves equality of operator norm with the mixed column sum. Cauchy–Schwarz gives the sharp \(\sqrt5\) maximum. The supplementary checker verifies finite algebraic identities but is not used to infer the infinite-dimensional lower bound.
+## correctness
 
-## Originality
-PASS, with qualified publication priority. The closest source is Hamad, *Isometric Classification of Sobolev Spaces* (arXiv:2611.09577, first public 2026-11-06), whose accessible abstract classifies isometries rather than the quantitative distortion of nonisometric rotations. A prior exact shear-norm formula for the same Sobolev normalization does not state this rotation formula; shear factorization would give upper bounds but not sharp equality. Ornstein (1962) and Faraco–Guerra (2021/2022) supply the necessary non-inequality, not the rotation coefficient calculation. Searches for angular rotation norms, the \(\sqrt5\) constant, and derivative-jet amplification did not locate a covering publication. The full text of the motivating arXiv preprint was inaccessible: an unobserved more general theorem in it remains a specific novelty risk. Search failure is not a uniqueness certificate.
+PASS
 
-## Mathematical value
-PASS. An isometry classification leaves open how much non-isometric but geometrically natural coordinate transformations distort the endpoint norm. The complete \(SO(2)\) norm profile determines its sharp global Lipschitz distortion constant, identifies isolated isometric angles and unexpected off-diagonal maxima, and exhibits local cusp minima at diagonal rotations. This is a quantitative property of the new natural derivative-sum Sobolev norm rather than an arbitrary finite parameter choice. The nonstandard endpoint non-inequality is essential; replacing the norm by a rotationally invariant Sobolev tensor norm erases the effect.
+For U_theta f=f o R_theta the exact second-order chain-rule matrix in the {f_xx,f_xy,f_yy} coordinates has pure-column abs sums 1+|cs| and mixed-column sum |c^2-s^2|+4|cs|, which dominates first-jet |c|+|s| and zeroth-order 1 for every c^2+s^2=1. The classical scalar planar Ornstein endpoint L1 non-inequality produces compactly supported smooth functions with the mixed derivative dominating pure second derivatives; shrinking spatial scale then suppresses L1 lower-order terms. Reverse triangle inequalities imply the mixed-column lower bound, giving norm 2|sin2theta|+|cos2theta|. The quarter-circle envelope attains sqrt5 precisely where |sin2theta|=2/sqrt5, yielding isometry angles and diagonal cusp. Independent exact rational-angle checks reproduced Hessian coefficients, column dominance and bound at 169 angles; infinite-dimensional lower bound requires the cited Ornstein theorem, not those checks.
 
-## Closest literature and limitations
-The main source was available at abstract level, not as inspectable full text; a general coordinate-change formula could dominate the new profile. Comparisons with records on shear compositions and rotation/Sobolev norms found no exact coverage, but the available records do not exhaust the literature. Higher derivative orders and nonlinear coordinate changes are outside the proved scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new quantitative exact rotation norm and nonmonotone angular profile are not supplied by Hamad 2026 surjective isometry classification, which detects isometries but not their distortion factors. The published exact planar shear theorem applies to triangular coordinate changes; generic rotations are not a shear, and factorization yields only norm-product inequalities. Ornstein non-inequality is an acknowledged input, not claimed as new. PASS with priority risk for unpublished general linear-change formulas.
+
+## value
+
+PASS
+
+A natural endpoint Sobolev norm counts each mixed derivative once and is anisotropic under rotations. The theorem gives its full angular distortion profile, sharp maximum sqrt5 away from diagonal axes, and precise cusp behavior, resolving a substantive quantitative gap between the isometry classification and operator norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

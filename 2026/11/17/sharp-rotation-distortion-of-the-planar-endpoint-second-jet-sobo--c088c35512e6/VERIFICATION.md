@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The Hessian rotation matrix and absolute column sums were checked by exact rational arithmetic in `rotation_checker.py` for 1,158 normalized rational rotations with sign variants; the program reported `ROTATION_JET_CHECKS_OK 10423`. It verifies the upper-bound algebra and finite comparison identities without relying on floating-point approximations.
+## correctness
 
-The universal sharpness proof is mathematical, not experimental: it uses Ornstein's classical real scalar \(L^1\) non-inequality for second derivatives, followed by dilation. Ornstein's result is external prior literature; the checker does not independently establish that theorem. The complete text of the 2026 motivating preprint was not accessible in the available reading routes. No independent mathematical audit has been performed.
+PASS
+
+For U_theta f=f o R_theta the exact second-order chain-rule matrix in the {f_xx,f_xy,f_yy} coordinates has pure-column abs sums 1+|cs| and mixed-column sum |c^2-s^2|+4|cs|, which dominates first-jet |c|+|s| and zeroth-order 1 for every c^2+s^2=1. The classical scalar planar Ornstein endpoint L1 non-inequality produces compactly supported smooth functions with the mixed derivative dominating pure second derivatives; shrinking spatial scale then suppresses L1 lower-order terms. Reverse triangle inequalities imply the mixed-column lower bound, giving norm 2|sin2theta|+|cos2theta|. The quarter-circle envelope attains sqrt5 precisely where |sin2theta|=2/sqrt5, yielding isometry angles and diagonal cusp. Independent exact rational-angle checks reproduced Hessian coefficients, column dominance and bound at 169 angles; infinite-dimensional lower bound requires the cited Ornstein theorem, not those checks.
+
+## originality
+
+PASS
+
+The new quantitative exact rotation norm and nonmonotone angular profile are not supplied by Hamad 2026 surjective isometry classification, which detects isometries but not their distortion factors. The published exact planar shear theorem applies to triangular coordinate changes; generic rotations are not a shear, and factorization yields only norm-product inequalities. Ornstein non-inequality is an acknowledged input, not claimed as new. PASS with priority risk for unpublished general linear-change formulas.
+
+## value
+
+PASS
+
+A natural endpoint Sobolev norm counts each mixed derivative once and is anisotropic under rotations. The theorem gives its full angular distortion profile, sharp maximum sqrt5 away from diagonal axes, and precise cusp behavior, resolving a substantive quantitative gap between the isometry classification and operator norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
