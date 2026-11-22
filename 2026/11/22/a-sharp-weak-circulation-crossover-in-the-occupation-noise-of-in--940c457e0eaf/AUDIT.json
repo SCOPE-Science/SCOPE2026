@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For g>=0 the global quadratic dissipation identity bounds the mean-field drift by negative nearest-neighbor Dirichlet energy; finite-N stationary second/fourth moment bounds ensure the stationary central-limit regime. The OU drift/noise matrices are independently reconstructed from the nonlinear logistic flux, their Fourier eigenvalues and stationary Lyapunov covariance are calculated explicitly, and the integrated covariance produces the finite-M coefficient. Pairing the two endpoint Fourier bands under delta=zeta/M and dominated convergence proves the coth scaling; a bounded angular Riemann sum handles fixed nonzero bias. The embedded independent-matrix and asymptotic checker passed 1,554 assertions. This is not an exact finite-N law or a simultaneous joint limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cheng and Lai (2024), arXiv:2401.02632, map the urn model to a Potts flow and consider phases and Monte Carlo dynamics; no time-averaged variance is developed.",
+        "Cheng and Lai (2024), arXiv:2403.15708, Section IV, explicitly present the Lyapunov stationary Gaussian covariance for four urns and analyze local fluctuations; their Section IV does not integrate temporal covariances or derive M-asymptotic crossover."
+      ],
+      "reasoning": "The finite-dimensional OU machinery is known and can be specialized, but the claimed exact integrated-noise reduction and reciprocal-size bias crossover are not present as stronger results in inspected full texts. A sufficiently general existing theorem may reduce novelty; this is retained as a residual risk.",
+      "searches": [
+        "non-equilibrium Potts ring weakly biased particle transport hydrodynamic occupation time central limit effective variance coth",
+        "https://arxiv.org/abs/2401.02632 full readable main text",
+        "https://arxiv.org/html/2403.15708v1 Sections III–V"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2106.00915 (readable full text)",
+      "arxiv:2401.02632 (readable full text)",
+      "arxiv:2403.15708v1 (HTML full text)",
+      "doi:10.1103/PhysRevE.101.012123 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For M=3 the printed 2021 linear drift and Gaussian covariance already imply the finite-M temporal covariance by routine OU propagation; the present proof explicitly disclaims those as innovations.",
+        "The 2024 four-urn covariance also supplies enough information to reconstruct a four-urn integrated variance, but does not imply the new all-M large-ring crossover without a separate mode-resolved asymptotic analysis.",
+        "The crossover depends on the full small-frequency band, not on a fixed finite number of urns."
+      ],
+      "reasoning": "The claimed added fact is a sharp entire-family scaling classification as M diverges, with explicit nonconstant coth function; fixed-three/four-state results and the ordinary Lyapunov identity do not state that limit. No decisive stronger published implication was located in the inspected studies.",
+      "searches": [
+        "https://arxiv.org/abs/2106.00915 Eq. 22–31 and 36–39",
+        "https://arxiv.org/html/2403.15708v1 Section IV Eq. 23–26",
+        "Ehrenfest urn ring weak directional bias integrated occupation time crossover hyperbolic cotangent",
+        "hydrodynamic weakly biased cyclic Potts fluctuation time averaging"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cheng and Lai (2021), Eq. (22) and (25)–(31), derive a local Gaussian stationary law and bias-independent covariance for three urns; Eq. (37)–(39) derive oscillatory mean relaxation but not integrated occupation-noise variance.",
+        "The present expression integrates all nonzero Fourier modes for arbitrary M, then takes a weak-bias large-M limit."
+      ],
+      "reasoning": "The old stationary Gaussian and small-ring relaxation formulas are implied/corroborated and therefore not counted as new; neither a time-integrated observable nor the hydrodynamic coth crossover follows as a quoted prior conclusion.",
+      "searches": [
+        "interacting Ehrenfest urn ring Gaussian fluctuation covariance directional bias occupation time",
+        "non equilibrium interacting Ehrenfest urn ring Potts arbitrary M linear noise equilibrium covariance independent clockwise bias",
+        "https://arxiv.org/abs/2106.00915 Sections IV and V"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The comparison search surfaced nearby works on cyclic urn/Potts phase diagrams and stationary Fokker–Planck Gaussian fluctuations, but no matching tabulation of the exact M-dependent occupation-time noise or the stated coth scaling law.",
+        "The formula is derived from the analytic generator and Fourier sum rather than copied from an existing table."
+      ],
+      "reasoning": "No exact matching database or table was identified. A negative index search alone is not proof of novelty, so this check is combined with material reading and implication comparison.",
+      "searches": [
+        "Ehrenfest urn biased ring occupation-time fluctuations integrated autocorrelation hyperbolic cotangent crossover large number urns weak directional bias M inverse",
+        "universal Gaussian stationary variance in interacting cyclic Ehrenfest urns independent of bias with oscillating correlations",
+        "interacting Ehrenfest urn ring uniform Gaussian covariance circulation equal-time independent bias finite-size temporal correlations integrated occupation noise"
+      ]
+    },
+    "rationale": "Cheng and Lai's 2021 three-urn paper already derives the Gaussian stationary Fokker–Planck covariance and oscillatory linearized modes, and the 2024 multi-urn paper already works out the four-urn stationary covariance; these are expressly excluded from the novelty claim. Their inspected results do not state or compute the finite-ring occupation-time noise variance, its strict bias suppression at any M, or the reciprocal-ring-length coth crossover. The closest more general linear-noise machinery potentially implies an intermediate OU calculation but does not by itself supply the model-specific scaling classification. Publication-priority risk from broader circulant Markov-chain formulas remains.",
+    "residual_risks": [
+      "An older general theorem for biased circulant Markov-chain or linearized interacting-particle occupation times may imply the model-specific finite-M sum by substitution.",
+      "A full text of the 2020 equilibrium paper was not inspected; it does not directly concern nonequilibrium circulation, but broad fluctuation methodology may overlap.",
+      "Publication priority and independent mathematical validation have not been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Small-ring static and linear-relaxation conclusions covered; no integrated occupation noise or large-ring coth crossover identified",
+        "evidence": [
+          "The 2021 work gives p+q=1, stationary Gaussian matrix c, uniform-state flux and complex relaxation eigenvalues for M=3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.00915",
+        "material_read": "Main text Sections II–V, Eq. (1)–(5), (22), (25)–(31), (36)–(39), and Appendix A on the Lyapunov equation",
+        "method": "Read the complete navigable arXiv text and matched the printed static covariance and linear eigenvalues to the proposed formulas",
+        "title": "Non-equilibrium thermodynamics and Phase transition of Ehrenfest urns with interactions",
+        "trigger": "Original interacting biased urn model, Gaussian stationary fluctuations and oscillatory relaxation"
+      },
+      {
+        "assessment": "Covers model equivalence and phase dynamics, not temporal occupation-time variance or its weak-bias scaling",
+        "evidence": [
+          "The 2024 article introduces the M-state Potts correspondence and nonlinear ring dynamics and reports finite-state phase behavior."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.02632",
+        "material_read": "Readable full main text, especially Sections 2–5 and the equations defining ring transition rates and the Potts mapping",
+        "method": "Inspected full arXiv text and searched for autocorrelation, variance and noise claims",
+        "title": "Non-equilibrium Dynamics and Phase Transitions in Potts model and Interacting Ehrenfest urn model",
+        "trigger": "Same underlying M-state Potts/urn mean-field dynamics"
+      },
+      {
+        "assessment": "Already covers stationary 4-urn covariance and general Lyapunov framework; no all-M occupation-time-noise sum or hydrodynamic crossover identified",
+        "evidence": [
+          "Section IV prints a 4-urn inverse covariance and fluctuation eigenvalues but no occupation-time variance or coth-type asymptotic."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.15708v1",
+        "material_read": "Full navigable main text, Sections III, IV and V; especially the matrix Lyapunov treatment and four-urn static covariance",
+        "method": "Read the HTML full text and compared Section IV equations and scope with the claimed time-integrated finite-M and M-infinite quantities",
+        "title": "Coexistence of distinct non-uniform non-equilibrium steady states in Ehrenfest multi-urn model on a ring",
+        "trigger": "Direct potentially covering Gaussian stationary fluctuations on the full M-urn model"
+      },
+      {
+        "assessment": "Prior equilibrium model acknowledged; detailed full-text implication to temporal biased noise unverified",
+        "evidence": [
+          "The 2020 published abstract addresses equilibrium M-urn phase thresholds and phase coexistence, not a biased time-averaged fluctuation theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.101.012123",
+        "material_read": "Publisher abstract only; no complete primary text assessed",
+        "method": "Checked published abstract and distinguished its equilibrium scope",
+        "title": "Phase transitions in Ehrenfest urn model with interactions: Coexistence of uniform and nonuniform states",
+        "trigger": "Earlier equilibrium interacting urn model and possible general M phase coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "940c457e-0eaf-4510-98e2-1cf23a6b7f6b",
+  "value": {
+    "rationale": "The experimentally observable long-time occupation-average precision cannot be inferred from the known bias-independent static stationary covariance. The exact coefficient is strictly reduced by circulation for every fixed ring, while an explicit hyperbolic-cotangent crossover identifies the sharp asymptotic weak-drive scale delta=Theta(1/M); this is a nontrivial natural spectral/hydrodynamic classification, not an arbitrary finite parameter substitution. The positive-repulsion regime is motivated by global stability, which is proved rather than presumed.",
+    "status": "PASS"
+  }
+}
