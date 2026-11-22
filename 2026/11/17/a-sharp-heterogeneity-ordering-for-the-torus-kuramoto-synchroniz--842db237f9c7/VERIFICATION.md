@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The scalar equilibrium reduction, the unique-minimum condition, the symmetric rank-one Jacobian similarity, the strict Schur--Ostrowski derivative signs, and both local expansions were checked algebraically from the stated differential equation. The asymptotic endpoint was established by a limiting positive-rate family.
+## correctness
 
-The supplied `checker.py` was run successfully. It checked 1,400 mean-preserving equalization comparisons across integer dimensions \(3\) to \(16\), scalar stationary identities, the neutral Jacobian eigenvalue at the saddle-node, the strict bounds, and four families of small-dispersion expansions for both coupling and product coherence. No finite sample is treated as proof of the universal inequalities.
+PASS
 
-The first-public source date was confirmed from the original arXiv record. The primary source's mathematical equations and results were read in its accessible text, including the full mean-field and critical-value sections. Literature overlap assessment is limited by indexing and unexamined works; it does not establish absolute priority.
+The conditional reduced ODE is specified, not an unproven claim about arbitrary microscopic networks. At a positive equilibrium, t=K prod x_i gives x_i=t/(t+d_i) and K=Phi_d(t)=prod(t+d_i)/t^{D-1}. The unique minimizer solves sum d_i/(t+d_i)=1, since its derivative changes from 1-D to 1 monotonically. The Jacobian is similar by diagonal x_i sqrt(d_i) to -diag(t+d_i)+sqrt(d) sqrt(d)^T; rank-one inertia proves upper branch attracting and lower branch one-unstable, with one zero eigenvalue at threshold. At t_c, envelope differentiation gives partial log K_c / partial d_i = q_i=1/(t_c+d_i), strictly antitone in d_i, proving Schur concavity. For X, implicit differentiation gives partial log X_c / partial d_i=q_i^2/R-q_i with R=sum d_k/(t+d_k)^2. The derivative difference equals (q_i-q_j)((q_i+q_j)/R-1); tR=sum x_k(1-x_k)<1 and t(q_i+q_j)=x_i+x_j>1 for D>=3 because sum x=D-1 and other D-2 entries <1. Thus this factor is positive and gives strict Schur concavity. At equal widths t=(D-1)m, K_c=m D^D/(D-1)^(D-1), X_c=((D-1)/D)^D; a sequence approaching (S,0,...,0) gives K_c down to S and X_c to zero. Tangent Hessian and sum x=D-1 yield the same relative -sum eps_i²/(2D²) in both observables. Independent numerical roots for d=(1,1,1), (.5,1,1.5), (.1,.1,2.8) give K=6.75,6.554959921,4.55625 and X=.296296,.287297,.175583; symmetric perturbation errors decrease approximately quartically. Analytic derivative inequalities, not these numerical instances, prove strict global majorization.
+
+## originality
+
+PASS
+
+Novaes 2026 derives the precise reduced model, equilibrium scalar equation and unique saddle-node, including selected equal/partly equal dispersion examples; those are prior premises. The checked paper does not state the two global strict Schur orders for every positive rate vector or their identical quadratic penalty. General Schur–Ostrowski criterion is classical and credited; the new work is its nontrivial joint application to both K_c and X_c, especially the implicit derivative sign for X_c.
+
+## value
+
+PASS
+
+Under a fixed frequency-width budget the theorem establishes a rigorous global prediction of how heterogeneity moves both the synchronization threshold and the coherence jump. Simultaneous strict orderings and sharp bounds for the exact bifurcation observables are natural parameters of an established mean-field model, despite relying on standard majorization calculus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

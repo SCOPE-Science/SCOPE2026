@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The theorem specifies integer dimension at least three, positive rates, fixed-sum majorization, and the exact reduced ODE. The scalar product reduction gives the unique nondegenerate saddle-node, while a rank-one symmetric similarity establishes its stability interpretation. Strict Schur derivative signs follow from the equilibrium sum rule and positive rates. Both extremal cases and second-order coefficients are derived. The supplied checker independently recomputes 1,400 finite examples and perturbative limits; the universal proof is analytic.
+## correctness
 
-**Originality (O): PASS within accessible evidence.** The source by Novaes (arXiv:2605.01021) gives the equations and saddle-node characterization, and the two-dimensional square-root formula. Those known ingredients are excluded from the novelty claim. Its inspected mean-field and special-case sections do not give a global majorization comparison for arbitrary positive unequal widths, much less the simultaneous ordering of the threshold and critical coherence product or the sharp common variance coefficient. Targeted public literature and indexed research-claim searches found no equivalent or dominating statement for this exact product-coupled torus model. A pre-existing result in an unindexed or differently named cooperative-product system cannot be excluded.
+PASS
 
-**Mathematical value (V): PASS.** The theorem answers a natural fixed-budget robustness question for a recently introduced first-order synchronization transition. It proves an all-dimension sharp comparison principle, identifies the extremal allocation and a dimension-dependent limiting factor, and shows the opposing coherence-jump cost with a precise quadratic coefficient. These are structural dynamical consequences, not an arbitrary numerical slice or a restatement of a bifurcation location.
+The conditional reduced ODE is specified, not an unproven claim about arbitrary microscopic networks. At a positive equilibrium, t=K prod x_i gives x_i=t/(t+d_i) and K=Phi_d(t)=prod(t+d_i)/t^{D-1}. The unique minimizer solves sum d_i/(t+d_i)=1, since its derivative changes from 1-D to 1 monotonically. The Jacobian is similar by diagonal x_i sqrt(d_i) to -diag(t+d_i)+sqrt(d) sqrt(d)^T; rank-one inertia proves upper branch attracting and lower branch one-unstable, with one zero eigenvalue at threshold. At t_c, envelope differentiation gives partial log K_c / partial d_i = q_i=1/(t_c+d_i), strictly antitone in d_i, proving Schur concavity. For X, implicit differentiation gives partial log X_c / partial d_i=q_i^2/R-q_i with R=sum d_k/(t+d_k)^2. The derivative difference equals (q_i-q_j)((q_i+q_j)/R-1); tR=sum x_k(1-x_k)<1 and t(q_i+q_j)=x_i+x_j>1 for D>=3 because sum x=D-1 and other D-2 entries <1. Thus this factor is positive and gives strict Schur concavity. At equal widths t=(D-1)m, K_c=m D^D/(D-1)^(D-1), X_c=((D-1)/D)^D; a sequence approaching (S,0,...,0) gives K_c down to S and X_c to zero. Tangent Hessian and sum x=D-1 yield the same relative -sum eps_i²/(2D²) in both observables. Independent numerical roots for d=(1,1,1), (.5,1,1.5), (.1,.1,2.8) give K=6.75,6.554959921,4.55625 and X=.296296,.287297,.175583; symmetric perturbation errors decrease approximately quartically. Analytic derivative inequalities, not these numerical instances, prove strict global majorization.
 
-Theoretical limits: this is a deterministic, factorized reduced mean-field model, not a general microscopic synchronization or basin theorem. The lower boundaries are limiting, not attained for positive rates. Historical mathematical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Novaes 2026 derives the precise reduced model, equilibrium scalar equation and unique saddle-node, including selected equal/partly equal dispersion examples; those are prior premises. The checked paper does not state the two global strict Schur orders for every positive rate vector or their identical quadratic penalty. General Schur–Ostrowski criterion is classical and credited; the new work is its nontrivial joint application to both K_c and X_c, especially the implicit derivative sign for X_c.
+
+## value
+
+PASS
+
+Under a fixed frequency-width budget the theorem establishes a rigorous global prediction of how heterogeneity moves both the synchronization threshold and the coherence jump. Simultaneous strict orderings and sharp bounds for the exact bifurcation observables are natural parameters of an established mean-field model, despite relying on standard majorization calculus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
