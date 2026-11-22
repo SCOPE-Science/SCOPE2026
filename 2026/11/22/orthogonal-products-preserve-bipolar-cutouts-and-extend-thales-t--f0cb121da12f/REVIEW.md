@@ -1,0 +1,15 @@
+# Review of orthogonal-product bipolar cutouts
+
+## Correctness
+**PASS.** Product faces, their affine projections, and their relative interiors split coordinatewise. Thus the cutouts and orthogonal kernels split exactly. The facet/face-intersection/atom definitions of an orthogonally bipolar polytope can be checked one by one for a product: the north and south meeting-face conditions factor, the vertex lattice is a direct product, and each atomic perpendicularity condition reduces to one factor. The resulting product cutouts coincide with the translated normal-fan cells, and the dimension-at-most-three theorem of Pavlík supplies the base case. The proof covers arbitrary finite products in Euclidean orthogonal direct sums. A separate rational checker tests a four-dimensional nonrectangular instance; it is only a sanity check, not a substitute for proof.
+
+## Originality
+**PASS, subject to historical priority risk.** The closest inspected theorem is Pavlík, *Thales's theorem in higher dimensions*, arXiv:2611.14277v1, Definition 3.1, Theorem 6.6, Proposition 6.4 and Conjecture 6.8: the positive result is established only in ambient dimension at most three and the general implication remains conjectural. The companion *Face lattices of polytopes and bipolar polytopes*, arXiv:2611.13896v1, covers abstract interval posets, cubical subdivisions and classical simplex cutouts, but does not assert closure under orthogonal Cartesian products of the metric conditions. The product theorem needs an additional independent proof of the face-intersection and atom-orthogonality axioms; it is not a mere change of dimension in the previously stated theorem. The accessible earlier right-simplex cutout result covers individual right simplices, not arbitrary products of polygons and 3-polytopes. Targeted published-finding corpus and public search queries found no identical proposition. A historically earlier product-closure lemma under different terminology remains possible.
+
+## Mathematical value
+**PASS.** Product stability is a structural reduction for a new high-dimensional conjecture, not a single numerical instance: it transports every admissible two- or three-dimensional orthogonal cutout tiling to infinitely many ambient dimensions, including products of arbitrary triangles and non-simplex polyhedra. Each higher-dimensional cell has explicit projection coordinates and a factorized shape, yielding constructive tilings by generally nonrectangular orthogonally bipolar polytopes. This gives a sizeable proven family without claiming the unresolved indecomposable case.
+
+## Limits and closest prior work
+The geometry is Euclidean and block-orthogonal; arbitrary affine products are not covered. The high-dimensional conclusion relies on the low-dimensional tiling theorem, while product closure is established independently here. The related combinatorial cubical subdivision is previously known. No global solution of Conjecture 6.8, proof of historical uniqueness, or external validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
