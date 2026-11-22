@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Parseval fixes the exact loss. Direct subtraction yields Δ_N=2/3−1/[3N(N+1)]−4 S_N/[N(N+1)]; weighted averaging of decreasing Fourier heat coefficients makes Δ_N strictly increasing in N. For each N it strictly increases with time and has one zero, giving all optimal orders and adjacent ties. Euler–Maclaurin with nonzero I1 derivative proves t_N=u*/[N(N+1)]+O(N^-4); Riemann sums and strictly monotone limiting derivative give the sharp positive J*; a separate norm decomposition gives the 2/(3t) moment-match penalty. The included standard-library checker passed 1124 finite diagnostics, which corroborate but are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The indexed optimal positive circular-convolution finding minimizes a worst Lipschitz approximation criterion at fixed degree, not the L2 distance of a heat kernel to a Fejér filter across degrees.",
+        "Colbrook–Townsend treats hat filtering for spectral-measure recovery and qualitative error rates; the inspected section has no Gaussian heat-target global degree minimization."
+      ],
+      "reasoning": "An extremal theorem for all nonnegative polynomials at fixed degree does not automatically imply optimality of the particular Fejér family or the order choice across times. The heat-to-Poisson L2 optimization uses a continuously variable rational multiplier and cannot imply a discrete Fejér transition ladder.",
+      "searches": [
+        "published-finding corpus: optimal degree Fejér kernel circular heat kernel squared L2 unique bandwidth staircase",
+        "published-finding corpus: heat kernel best approximation by Fejer kernels spectral cutoff optimal degree",
+        "published-finding corpus closest 2026/11/16/SCOPE-optimal-positive-circular-convolution-kernels-and-the-killed-cau--0630efa3c07a",
+        "arxiv:2111.14889 section 3.2 on hat filters and comparison kernels"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2210.14720",
+      "https://arxiv.org/abs/2106.08675",
+      "https://arxiv.org/abs/2111.14889",
+      "https://oeis.org/A194567",
+      "published-finding corpus:2026/11/16/SCOPE-optimal-positive-circular-convolution-kernels-and-the-killed-cau--0630efa3c07a",
+      "published-finding corpus:2026/11/17/SCOPE-heat-diffusion-reversal-of-the-weakest-fourier-shape-mode-on-reg--8fb76d5505bb",
+      "own:ef5e05ae-5838-445f-b611-a7fa836d51dc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier heat-to-Poisson theorem optimizes r in Fourier multipliers r^|k|; it does not address truncation order, triangular multipliers, or adjacent switch times.",
+        "The cited Fejér studies establish approximation and convergence properties without the proposed exact minimizer sets for each heat time."
+      ],
+      "reasoning": "Known Fejér positivity and heat Fourier coefficients give the ingredients, but neither the existence of a positive kernel nor standard convergence theorems imply the strict discrete convexity, unique threshold equation and scaling comparison. Distinct filter shape and admissible parameter type prevent subsumption by the earlier heat-to-Poisson result.",
+      "searches": [
+        "published-finding corpus: sharp phase transition best approximation to Dirichlet kernel by single Fejer kernel circular Fourier L2",
+        "published-finding corpus: Fu Hou Wu Convergence of fractional Fourier series on the torus and applications 2210.14720 Fejer heat",
+        "own indexed finding ef5e05ae-5838-445f-b611-a7fa836d51dc (heat-to-Poisson projection)",
+        "arxiv:2210.14720 sections 2,5,6; arxiv:2106.08675 sections 1-3; arxiv:2111.14889 section 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fu–Hou–Wu defines Fejér triangular Fourier multipliers and heat multipliers but discusses convergence and PDE solutions, not their L2 distance minimization.",
+        "Abdullayev–Savchuk generalizes Fejér positive means in a rational orthonormal basis; its main results do not classify a heat-to-Fejér integer-bandwidth optimum."
+      ],
+      "reasoning": "Under Fourier–Parseval, the proposed problem is equivalent to minimizing the squared distance between the fixed Gaussian multiplier sequence exp(-t k²) and the triangular cutoff (1-|k|/N)_+. Neither inspected work identifies the adjacent error difference, global integer staircase, or sharp time-to-order calibration.",
+      "searches": [
+        "published-finding corpus: optimal degree Fejér kernel circular heat kernel squared L2 unique bandwidth staircase",
+        "web: \"Fejer kernel\" \"heat kernel\" \"optimal\" \"L2\"",
+        "web: \"heat kernel\" \"Fejer kernel\" least squares bandwidth",
+        "arxiv:2210.14720 sections 2, 5, 6; arxiv:2106.08675 sections 1-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A194567 tabulates the same positive root u*=2.821439372... in a different blackbody-radiation setting.",
+        "No inspected table supplied Fejér switch times, error minima, or the optimal versus moment-matched order discrepancy."
+      ],
+      "reasoning": "The scalar transcendental constant is already known, and novelty is not claimed for its digits or its defining equation alone. The claim instead concerns the precise interpretation and all-order optimization theorem; a pre-existing table of the root does not cover the theorem.",
+      "searches": [
+        "web: \"2.821439372\" Fejer gaussian",
+        "OEIS A194567 positive solution x=3*(1-exp(-x))",
+        "published-finding corpus: Fejér mean heat semigroup Gaussian smoothing fourth moment matching inverse square root optimal truncation"
+      ]
+    },
+    "rationale": "The closest full-text references give Fejér positivity, convergence, triangular Fourier filters and heat multipliers; they do not state or imply the exact all-time global integer-order optimization and sharp calibration law. The previously tabulated root is acknowledged and not presented as novel. Accessible comparable indexed claims address different losses or filter families; historical priority is best-knowledge with residual risk.",
+    "residual_risks": [
+      "Older applied filter-bandwidth design papers outside the searched mathematical sources might contain an equivalent exact Gaussian-target calculation.",
+      "An unpublished or unindexed identical derivation cannot be excluded by database searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves convergence and PDE representation, no L2 optimization over integer Fejér orders",
+        "evidence": [
+          "Initial posting 2022-10-26; MSC 42A20 (arXiv page lines 0-10).",
+          "Section 2 Fejér multiplier at lines 160-196; Sections 5-6 convergence and heat formulas at lines 466-573."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.14720",
+        "material_read": "HTML full-text sections 1, 2 (Fejér formulas), 5 (convergence), 6 (heat equation), contents and references",
+        "method": "arXiv HTML text with searches for heat and Fejér plus direct theorem comparison",
+        "title": "Convergence of fractional Fourier series on the torus and applications",
+        "trigger": "Primary source with both Fourier heat and Fejér kernels, verified MSC 42A20"
+      },
+      {
+        "assessment": "NOT_COVERING: main theorems concern rational-system Fejér convergence, derivative defects and bounded analytic class, not heat-filter bandwidth tuning",
+        "evidence": [
+          "Initial posting 2021-06-16 and primary MSC 30C10,30E10.",
+          "Theorems 2.1-2.3 concern generalized Fejér convergence and derivative/interpolation identities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.08675",
+        "material_read": "arXiv HTML full-text introduction, main theorems 2.1-2.3, proof structure, searches for heat and optimal",
+        "method": "Read arXiv HTML text, inspected main results and searched specific comparison terms",
+        "title": "Fejér-type positive operator based on Takenaka–Malmquist system on unit circle",
+        "trigger": "Potential stronger positive Fejér approximation results"
+      },
+      {
+        "assessment": "NOT_COVERING for specified target: Fejér hat filtering is a spectral-measure recovery procedure; error bounds are for generic measures, without optimizing against a fixed circular heat multiplier",
+        "evidence": [
+          "First posted 2021-11-29.",
+          "Section 3.2 explicitly identifies the hat filter with Fejér means and gives weak convergence estimates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.14889",
+        "material_read": "arXiv HTML introduction and Section 3.2, particularly equations 3.4-3.5 and filter comparisons",
+        "method": "Full-text arXiv HTML search for hat function and close reading of Section 3.2",
+        "title": "Rigorous data-driven computation of spectral properties of Koopman operators for dynamical systems",
+        "trigger": "Plausible stronger spectral smoothing theory with hat filter and error bounds"
+      },
+      {
+        "assessment": "COVERS scalar constant only, NOT the claim about bandwidth minimizers",
+        "evidence": [
+          "A194567 states u=3(1-exp(-u)) and tabulates the same positive decimal expansion."
+        ],
+        "identifier_or_url": "https://oeis.org/A194567",
+        "material_read": "Sequence definition and comments identifying the positive root and its physical context",
+        "method": "OEIS web record",
+        "title": "A194567",
+        "trigger": "The numerical constant u*=2.821439372 appears in broader mathematics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "209d84e6-6748-4463-ad58-ad4b66bb5470",
+  "value": {
+    "rationale": "Fejér means are the canonical nonnegative finite Fourier tapers; selecting their bandwidth to emulate heat smoothing is a natural spectral-calibration problem. The result determines ALL exact finite-time optimal integers and tie cases, a sharp universal small-time scale and error, and proves that the naive first-moment matching scale is asymptotically wrong with an unbounded squared-error penalty. These are nontrivial global structural and quantitative facts, rather than a single routine finite computation.",
+    "status": "PASS"
+  }
+}
