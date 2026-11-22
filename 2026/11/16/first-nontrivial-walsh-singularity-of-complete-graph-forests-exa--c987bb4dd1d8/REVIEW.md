@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim applies to the forest incidence indicator for complete graphs at vertex orders three through six. At order six there are 15 coordinates and exactly 32768 frequencies, with 2932 forests. `verify_walsh.py` determines all 49 signed levels and zero orbits by exact arithmetic; `verify_direct.cpp` independently recognizes acyclicity through graph traversal and sums all 2932 forest signs directly at every frequency. The complete signed spectra match. Both calculate 3105 zeros, a smallest nonzero magnitude of four, ten zero orbits, 180 support-five zeros and projection numerator 1210058. Parseval's equality supplies an independent invariant. The mathematical proof of the finite exhaustion and of the sharp operator norms is spelled out in `RESULT.md`. No untested infinite claim is made.
+PASS
 
-## Originality — PASS under bounded comparison
+Reconstructed labelled K_n forest ensemble as all acyclic edge subsets and checked DSU cycle predicate exhaustively for n3..6. Recomputed sums 7,38,291,2932 and all 2^15 six-vertex signed Walsh multipliers with exact integer FWHT. Obtained 3105 zeros in 10 vertex-relabelling orbits; support histogram {5:180,7:1080,9:1800,11:45}, unique minimal 5-edge orbit rep662 of paw disjoint K2. Full set has 49 signed levels with gcd and smallest nonzero magnitude4; rank29663, Moore–Penrose norm 1/4, max2932, condition733. Hadamard range-support kernel L1 integer numerator 1210058 over 32768 gives sharp orthogonal projection endpoint 605029/16384. Finite exhaustive mask computation plus independent orbit enumeration does not infer n>=7.
 
-Sokal's 2005 multivariate Tutte survey (https://arxiv.org/abs/math/0503607) gives the spanning-forest polynomial as a known generating object. Caracciolo–Sokal–Sportiello (https://arxiv.org/abs/0706.1509) provide general weighted forest identities, Erickson (https://arxiv.org/abs/1008.3660) studies Rayleigh differences, and Stănică's 2007 Walsh paper establishes general Cayley spectral methods. None of the relevant inspected sections presents the K6 computed zero-support graph classes, exact 49-level signed distribution or projection amplification value. The nearest available related result records concern perfect matchings, spanning trees, bases or other graph families. General formulas and mathematical implication have been compared, not only keywords. The inaccessible page-image material and possibility of unindexed historical tables remain genuine priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Six vertices is the first loss of Fourier invertibility after the invertible forest cases on three, four and five vertices; the exact vanishing orbit census pinpoints a natural cancellation shape, a paw disjoint from one edge. The sharp spectral recovery gap and Fourier projection endpoint norm give distinct stability invariants of this central graphic-matroid family. This supplies a complete finite benchmark with structural meaning, not a routine restatement of the forest polynomial or a generic finite computation.
+Weighted spanning-forest polynomial is classical and Sokal describes it as a Tutte specialization, which makes these signed evaluations definable. However no inspected forest-polynomial paper or published related graph-family record evaluates this K6 full Walsh histogram, ten zero orbits and exact range-projection norm. Specialized spanning tree, unicyclic and triangle-free Walsh computations refer to different support ensembles.
 
-## Scientific limits and closest literature
+## value
 
-This is a finite exact classification; it does not settle orders seven and above, arbitrary matroids, or independent external validation. The general weighted polynomial is prior art; the evaluated K6 nullity/orbits/norm are the proposed contribution. Historical priority rests on bounded comparison with accessible literature and related records, not an exhaustive world survey.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives a natural sharp first nontrivial singularity boundary for the complete-graph forest convolution, identifies geometric minimum-support cancellation obstruction and exact recovery condition/projection norm. These quantitative invariants are motivated by forests and graphic matroid independence, not an arbitrary subfamily.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
