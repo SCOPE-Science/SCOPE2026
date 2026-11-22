@@ -1,14 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs full-fibre parabolic transitivity, proves that every ambient automorphism preserves the unique fibre-type nef contraction when the bundle is nontrivial, and uses splitting-degree rigidity to establish invariance of the flags. The displayed bundle isomorphisms, orbit closures, codimensions, and motivic classes follow from graphs of line maps and vector-bundle geometry. The independent finite-field enumerator matches 207 predicted fibre counts, but is not substituted for proof. The known all-twists-equal case is separated explicitly.
+## correctness
 
-## Originality — PASS (best-knowledge; historical priority provisional)
-The strongest comparator is Bazhov's universal monoid criterion (arXiv:1110.4275), which in principle allows the abstract orbit partition to be recovered for every complete toric variety. The new geometric assertion is more specific: each full orbit in every Picard-two family is realized as an **explicit vector bundle over a specified product**, yielding exact motives and a multiplicity-only boundary formula. Those identifications and closed classification are not stated in Bazhov's inspected main theorems, examples, or the 2026 motivating paper. The latter gives only the relevant smooth threefold family and asks for higher dimensions. Consequently novelty is confined to the explicit structural package; no novelty is claimed for the general orbit criterion or Kleinschmidt classification. Residual risk: a different older source may have already computed these specializations.
+PASS
 
-## Value — PASS
-A 2026 classification problem specifically asks for smooth complete toric varieties homogeneous in codimension one, motivated by a non-uniform split projective bundle. The answer for all Picard-number-two varieties, every dimension and every codimension threshold is an exact, natural subclass classification. More than a yes/no statement, it specifies the isomorphism types and motivic classes of all orbit strata. The multiplicity criterion gives infinite families with prescribed boundary codimension. This is a structural geometric computation; it does not purport to solve all Picard numbers.
+For s,r>=1 and split E=⊕_{j=0}^t O_{P^s}(b_j)^{m_j}, b_0=0<b_1<...<b_t, lines convention: (i) evaluation at any base point of degree-increasing bundle maps is surjective and diagonal GL(m_j) plus those shears acts transitively on the minimum-nonzero-degree stratum; base PGL transitivity lifts. (ii) For t>0 the nef rays are H and D=xi+b_t H; H contracts P^r fibres whereas |D| is generically injective on the locus with nonzero degree-zero coordinate (Veronese degree b_t recovers base, remaining sections recover fibre). Thus full Aut preserves the unique fibre-type contraction and acts by E≅g*E⊗L; the finite splitting-degree multiset forces L trivial and triangularity forces preservation of all F_j. (iii) A line over a chosen lowest nonzero level is the graph of ℓ→⊕_{h>j}O(b_h)^{m_h}, so U_j=Tot(⊕_{h>j}O(b_h-b_j)⊠O_{P^{m_j-1}}(1)^{m_h}) over P^s×P^{m_j-1}. (iv) Closure P(F_j) has codimension Σ_{h<j}m_h, vector bundle multiplicativity gives the exact motive; the boundary P(F_1) has codimension m0. Product t=0 and Hirzebruch / threefold edge cases agree. Finite census does not prove (i)–(ii).
 
-The source comparisons have been made at the level of theorem implications and vector-bundle structures, with the general Bazhov coverage explicitly credited. Independent verification remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS restricted to the explicit integrated all-dimensional orbit-BUNDLE classification, classes and sharp boundary multiplicity law. Bazhov already covers arbitrary complete toric orbit equivalence abstractly; BB theory supplies general affine strata and motivic decompositions; Kleinschmidt supplies the class of objects. They are not claimed as new. A relevant 2026 primary article has only a threefold subcase and explicitly asks for the higher-dimensional smooth classification. This is a natural, nonautomatic closed-form geometric specialization; no inspected earlier source states the entire all-parameter full Aut geometric conclusion. Residual possibility that the combination has already been worked out elsewhere is material.
+
+## value
+
+PASS
+
+The family is the natural exhaustive Picard-two subclass of smooth complete toric varieties, and the 2026 classification question singles out the phenomenon. Full geometric orbit bundle descriptions, their Grothendieck classes and a sharp homogeneous-in-codimension-k criterion for every splitting multiplicity and dimension are meaningful complete geometric invariants. The proof needs full-group invariance, not merely a fibre-point count or a trivial renaming. Value is bounded to this explicit subclass classification; it is not a solution for arbitrary Picard rank and no novelty is claimed for the general toric orbit criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
