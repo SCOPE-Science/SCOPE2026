@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns all complex three-vectors and every removal of one of nine cyclic Gabor intensities. The Hermitian lifting argument reduces global phase uniqueness to the exclusion of rank-one and rank-two matrices. The exact nine-by-nine determinant gives the three exceptional parameters. For all others, covariance reduces nine erasure choices to a single representative, whose unique kernel matrix has a strictly negative polynomial determinant for every real parameter. The two-dimensional-kernel odd-determinant argument proves the universal seven-measurement obstruction and the exceptional failures. The included checker generated the matrix independently of the manuscript's displayed factorization and passed all identities and exceptional-rank assertions.
+PASS
 
-## Originality — PASS, with residual priority risk
+Independently formed the exact 9×9 real Hermitian-lift analysis matrix of rank-one Weyl measurement projectors and symbolic determinant, reproducing -5832(s-1)^6(s+1)^2(2s+1)^2(s²+2). Deleting row (0,0), the supplied explicit symmetric H_s spans its kernel when full A is invertible; direct symbolic multiplication A[1:,:]H_s-coordinate vector gives exactly zero and det(H_s)=-(s²+s+1)^4 q(s) with q=2s^4+2s³+5s²+6s+3=2(s²+s/2)^2+(9/2)(s+2/3)^2+1>0. A one-dimensional erased projector kernel therefore has no Hermitian rank≤2 obstruction to pure-state phase retrieval. Weyl conjugation transfers the result to all nine missing points. At exceptional real s, full A ranks 3/7/7, giving real kernel dimension≥2; an odd determinant on a circle in this kernel forces a nonzero singular Hermitian obstruction or an unspanned measurement system. Any seven intensities likewise yield a ≥2-dimensional Hermitian kernel, proving the universal lower bound. This is exact algebra, not a finite-parameter extrapolation.
 
-The 2015 full-Gabor ambiguity criterion already covers a sufficient condition for all nine intensities; its theorem does not treat arbitrary loss of one measurement. The 2016 multiwindow STFT paper studies support-graph connectivity and full-frequency sampling. The July 2023 multiwindow result constructs subquadratic measurement systems and does not give a three-cycle one-erasure characterization. The closest public one-coordinate cyclic projector rank discriminant concerns linear span of all orbit projectors: that does not logically force nonsingularity of the Hermitian kernel after one erasure (for example, a standard nine-projector Hermitian tomography basis can have a singular dual basis element). The exact kernel determinant and its strict positivity are the additional content. Potential equivalence to an unindexed small-dimensional Gabor erasure table is a residual risk, not a demonstrated overlap.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Exact minimum-size complex phase retrieval is a natural measurement-design problem. This theorem both reaches the dimension-three information-theoretic minimum of eight and tolerates any of nine single erasures with one fixed measurement window. It also identifies all three real parameter resonances where even full data cannot recover the signal; notably the elementary two-tap window \\(g_0=(1,1,0)\\) achieves the positive result. This is a structural infinite-parameter classification rather than a single numerical example. It does not assert noise stability, and its numerical practicality is limited to three coordinates.
+A directly related earlier published exact one-coordinate Gabor projector-rank result already characterizes the full 9-vector span for g=(s,1,1), equivalent up to cyclic shift, and thus covers the exceptional full-tomography ranks; that component is NOT counted as new. However full informational completeness alone does not imply one-erasure pure-state phase retrieval. The explicit full-rank H_s kernel after any erasure and universal exact 8-threshold are distinct; neither the inspected earlier full rank theorem nor the primary Gabor sufficiency results state that conclusion.
 
-## Closest literature and limitations
+## value
 
-Sources inspected: Bojarovska–Flinth (2015), Li–Cheng–Han–Sun–Shi (2016), and Salanevich (2023), together with the public one-coordinate cyclic Gabor rank-discriminant summary. The main risk is historical or niche exact-erasure coverage not captured in accessible indexed sources. The mathematics was reviewed from the displayed exact identities and a standalone polynomial checker; no independent external audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact single-erasure robustness for a small canonical Gabor orbit and critical two-tap s=0 window, together with sharp eight-observation global phase-retrieval threshold and complete exceptional parameter phase diagram; this isolates a natural tomography distinction not captured by full-orbit informational completeness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
