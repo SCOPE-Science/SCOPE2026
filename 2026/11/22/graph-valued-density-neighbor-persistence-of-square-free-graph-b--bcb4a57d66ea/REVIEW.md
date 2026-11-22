@@ -1,0 +1,17 @@
+# Scientific review
+
+## Correctness — PASS
+The support-of-a-face dichotomy follows from the no-four-cycle codegree bound. It yields an exact cover by fixed, activated full simplices. Their intersections are full simplices and their nerve has an explicit global free-face matching, in descending cardinality, to the weighted bipartite incidence graph. The functorial good-cover nerve theorem gives the natural equivalences of filtrations; graph chain groups then give free integral first homology and primitive inclusions. All quantifiers, activation inequalities and isolated-vertex cases are specified in RESULT.md. A standalone independent neighbor-enumeration and finite-field homology checker confirms 1,481 stages, with a four-cycle negative control. Computations support, not replace, the proof. Risk: the required functorial good-cover equivalence is a standard but nontrivial topological ingredient; it is invoked in its natural zigzag form, not mistaken for a literal simplicial collapse of the original complex.
+
+## Originality — PASS against inspected evidence
+Full available text of Matysiak–Spaliński (2023) and Babson–Spaliński (2023) covers random-graph asymptotics rather than a deterministic heterogeneous graph-blowup classification. Full published texts for square-free and prism neighborhood classifications address the ordinary threshold \(m=1\), often requiring square-freeness of the graph itself, whereas nontrivial blowups contain squares. Here the new claim is the complete multi-threshold integral persistence model for any square-free base and all positive fiber multiplicities. Targeted searches found no statement implying it. Unindexed equivalent research or a generalized hypergraph-nerve formulation remains a genuine residual priority risk.
+
+## Value — PASS
+The exact graph model converts potentially high-dimensional multineighbor complexes into a simple finite weighted graph filtration, preserving **all** maps over the integers. This determines the full zero- and one-dimensional barcode, the absence of torsion and higher homology, and a sharp forbidden-four-cycle boundary, for arbitrary heterogeneous blowups and all square-free base graphs. The example of two triangles sharing a vertex has two distinct homological birth thresholds, illustrating information inaccessible from an \(m=1\)-only calculation. This is a structural, parameter-uniform topological classification rather than an isolated small-case number or a mere rephrasing of known ordinary-neighborhood results.
+
+## Literature and limits
+Closest sources: https://arxiv.org/abs/2302.09017 ; https://arxiv.org/abs/2309.05149 ; https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-graph-like-neighborhood-complexes-with-edge-disjoint-four-cycles--d8f86495e49d ; https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-prisms-over-four-cycle-free-graphs-collapse-to-their-bipartite-d--d8ec1dc07b6e ; https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spines-for-neighborhood-complexes-of-square-free--dd6b91667963 .
+
+No result beyond bases with no four-cycle is claimed. The independent finite checks are over \(\mathbb F_2\); the integral and naturality statements have separate abstract proofs. Bibliographic originality is best-of-knowledge, not a guarantee of global priority.
+
+Self-review: passed. Independent audit: not yet performed.
