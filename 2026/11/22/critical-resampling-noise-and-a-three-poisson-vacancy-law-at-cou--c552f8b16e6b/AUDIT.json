@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The one-ball paired avoidance probability follows exactly from the retain/independent-refresh transition kernel. Two-dimensional inclusion-exclusion yields all finite mixed falling-factorial moments. Their asymptotics, including tau=0 and tau=infinity, equal those of three independent Poisson variables. Convergence on the countable state space strengthens to total variation. The exact covariance follows by separating equal and distinct box indices. The companion checker verifies 168 exact rational identities; it is corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1007/s11009-023-10053-y treats single-process independent ball fall-through, not two correlated full allocations.",
+        "doi:10.15559/26-VMSTA306 considers repeated type arrivals in successive collectors, not independent refresh of original ball labels."
+      ],
+      "reasoning": "The most plausible broader occupancy and coupon collection models have different stochastic couplings. Their univariate Poisson laws alone cannot imply the shared-mark intensity, and the general technique of marked Poisson approximation is not the same as a prior theorem for these parameters.",
+      "searches": [
+        "noise sensitivity coupon collector empty bins resampling balls bivariate Poisson threshold 1/log n",
+        "correlated occupancy problems random balls into bins recoloring resampling poisson empty boxes joint distribution",
+        "coupon collector noise stability per-coordinate resampling threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1006.3531v1",
+      "https://link.springer.com/article/10.1007/s11009-023-10053-y",
+      "https://vmsta.org/journal/VMSTA/article/358/read"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pósfai (2010), arxiv:1006.3531, Sections 1 and 5: one-collector waiting-time approximations.",
+        "O’Neill (2023), doi:10.1007/s11009-023-10053-y: one occupancy process with per-ball fall-through.",
+        "Ilienko (2026), doi:10.15559/26-VMSTA306: sequential repeated-coupon albums and stopped occupancy."
+      ],
+      "reasoning": "The previous theorems produce one-dimensional coupon/occupancy limits or different multi-album structures. None supplies the joint fixed-time avoidance event for a matched original–refreshed ball pair. That event drives the cross-sample mark splitting and all claimed covariance/coverage conclusions.",
+      "searches": [
+        "\"coupon collector\" \"noise\" \"coverage\" \"resample\"",
+        "bivariate Poisson limit empty boxes correlated occupancy sampling resampling balls coupon collector",
+        "coupon collector at n log n cn independent refresh each ball box"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No direct statement of independently refreshed occupancy samples in the retrieved primary literature.",
+        "arxiv:1006.3531 is a single-draw coupon waiting-time thesis."
+      ],
+      "reasoning": "A bivariate Poisson limit of two marginal vacant-box counts is equivalent to a three-independent-Poisson law for shared and exclusive vacancies. Neither equivalent form was located in the inspected results.",
+      "searches": [
+        "\"coupon collector\" \"noise sensitivity\" \"resampling\"",
+        "\"empty boxes\" \"bivariate Poisson\" correlated",
+        "noise sensitivity occupancy all boxes occupied correlated counts 1/log n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact bivariate vacancy-mark formula was found by these queries.",
+        "Full source comparison used exact equations in the candidate result and the separately sourced single-sample formulas."
+      ],
+      "reasoning": "The result concerns limiting distributions and an arbitrary finite-size moment identity, not a finite precomputed table. No retrieved tabulation of the same quantities dominates the claim.",
+      "searches": [
+        "\"coupon collector\" \"bivariate Poisson\" resampled",
+        "\"occupied boxes\" \"resampling\" noise stability",
+        "Exact finite factorial moments of common and exclusive empty cells in two correlated multinomial occupancy arrays"
+      ]
+    },
+    "rationale": "The new statement concerns two dependent copies obtained by independently resampling each original ball, gives the jointly common/unique vacancy Poisson structure and the logarithmic noise crossover. Inspected single-collector and fall-through occupancy results do not state or imply the per-ball paired model, and the inspected repeated-coupon album result has a different coupling and stopping rule. A broad correlated-occupancy theorem not located in available searches is a residual priority risk.",
+    "residual_risks": [
+      "Unindexed or differently described general multivariate occupancy Poissonization/noise-stability results might imply the theorem.",
+      "Full historical mathematical priority has not been independently validated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ONE_COLLECTOR_NOT_COVERING_PAIRED_REFRESH",
+        "evidence": [
+          "Defines one sample sequence and waiting time to acquire n-m coupons, with Gumbel/Poisson approximation for the one-collector process.",
+          "No paired per-ball refreshed allocation identified in the accessible searchable full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1006.3531v1",
+        "material_read": "Chapter 1, Sections 1.1–1.3; Chapter 5 topic structure and cited Poisson approximations; full searchable HTML chapters inspected for paired/resampled allocations",
+        "method": "Accessible open HTML full text; searched resampling terminology and read model, statements and chapter structure",
+        "title": "Approximation Theorems Related to the Coupon Collector’s Problem",
+        "trigger": "Original publicly dated classical coupon collector approximation; potentially covers Poisson vacancy and multivariate laws"
+      },
+      {
+        "assessment": "NOT_COVERING_TWO_CONFIGURATION_RESAMPLING",
+        "evidence": [
+          "Each independently placed ball either occupies its selected bin or falls through; there is no retained first configuration with per-ball independent redraw."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11009-023-10053-y",
+        "material_read": "Open access article Sections 1–5 including the model, definitions and single-process distribution theorems",
+        "method": "Opened complete HTML text and searched for resampling and paired processes",
+        "title": "Three Distributions in the Extended Occupancy Problem",
+        "trigger": "Generalization of occupancy that might imply two-sample mark thinning"
+      },
+      {
+        "assessment": "DIFFERENT_COUPLING_AND_STOPPING_TIME",
+        "evidence": [
+          "Sequential albums receive the first, second and later occurrences of each coupon type; counts are evaluated at random cover times or specified delays, not at two independently refreshed copies of a fixed-size allocation."
+        ],
+        "identifier_or_url": "https://vmsta.org/journal/VMSTA/article/358/read",
+        "material_read": "Open complete HTML Sections 1–4, definitions of successive collectors and main theorems/point-process methods",
+        "method": "Read open HTML model and main theorem material",
+        "title": "Limit theorems in the extended coupon collector’s problem",
+        "trigger": "Multiple coupon collections with joint Poisson laws might dominate a shared-vacancy result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c552f8b1-6e6b-4c01-a80b-7f002214dd0a",
+  "value": {
+    "rationale": "Uniform coupon coverage is at a nondegenerate threshold. The resampling probability 1/log n is the natural scale for loss or restoration of the O(1) remaining empty boxes across n log n observations. The law determines the entire common/unique missing-box structure, strict interpolation of conditional coverage reliability, and the complete noise stability phase transition. Marginal coupon Poisson limits alone cannot recover the result; the parameter and observable are motivated by robustness of coverage under data perturbations.",
+    "status": "PASS"
+  }
+}
