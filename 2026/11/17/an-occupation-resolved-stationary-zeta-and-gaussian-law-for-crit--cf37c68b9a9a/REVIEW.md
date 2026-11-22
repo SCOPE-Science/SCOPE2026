@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The sixteen-state transfer graph has an explicit one-to-one correspondence between its length-\(m\) closed walks and labelled fixed configurations of the precise two-phase rule. The weighted determinant is an exact integer-polynomial identity, computed by a reproducible program. A separately structured exhaustive original-update simulator agrees on full histograms for widths four through ten. Dominant primitive Perron component and an analytic eigenvalue perturbation prove the all-width asymptotic and central limit theorem. Direct computations support but do not replace the proof.
+## correctness
 
-## Originality
-PASS with explicit archival risk. Margolus 1998, §4, presents the exact local block permutation and physical evolution, but not the width-two weighted fixed-state transfer determinant or occupation fluctuation theorem. Marotta 2005 describes a different, nonstrobing phase convention and gives simulations of oscillators, barriers and diffusion, not this fixed-state ensemble. Targeted searches of mathematical records involving Critters, two-row stationary populations, fixed-point zeta and Gaussian occupation produced no equivalent or broader statement; related parity, majority and cyclic-dominance results concern different rules. Earliest print treatments were not fully accessible and historical priority is not guaranteed.
+PASS
 
-## Value
-PASS. Reversible Critters is a canonical exactly invertible, structurally nontrivial cellular automaton. Exact fixed-state populations at every conserved density, stationary entropy and a quantitative Gaussian occupation law are natural benchmarks for its confined dynamics. This is not merely a few more finite cases: it determines the full stationary generating function for infinitely many labelled tori and its typical ensemble statistics. The restriction to the first nontrivial strip width is mathematically meaningful because it makes the staggered block constraint finite-state while retaining nontrivial interactions.
+Every original even 2×2 block is one 4-bit state a∈0..15. In the inspected original Critters rule each f(a) complements occupation and permutes block patterns. A fixed full even+odd step is exactly a cyclic word satisfying 16-state local conditions f(X(a,b))=Y(a,b) for adjacent original block labels, so Fm(u)=tr[diag(u^{|a|})M]^m, with no missing phase or quotient. The source SymPy program constructs all 256 edge possibilities and derives exact determinant (1−u²z)^5 [1−(1+u²+u⁴)z+(u⁴−u²−u⁶)z²−u⁶z³]. Independently rebuilt the 16-state graph (30 edges), checked 8-state primitive SCC and its (1−u²z)Q determinant, four other singleton loops, traces at m=2..5 (16,44,136,448), and reciprocal polynomial symmetry. PF analytic simple dominant root λ from X³−3X²−X−1 yields exact entropy and Gaussian quasi-powers, ψ'(0)=2, ψ''(0)=2.6898249; variance linear. Independent exhaustive C++ original-update source supports m=2..5; it is not an all-length proof.
 
-## Limitations and closest prior work
-The result is a full-even/odd-step fixed-point statement, not a description of all periodic trajectories, larger heights, or time-dependent equilibrium measures. Margolus (1998) is the primary directly inspected rule source. Marotta (2005) is the closest detailed Critters study; its distinct time-phase convention is explicitly acknowledged. The 1987 book source was only indirectly verifiable and remains an archival-priority risk. No independent mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Margolus’s original Crystalline Computation describes the precise complementing block rule, conservation across full steps and gliders but no width-two weighted fixed-point determinant or Gaussian stationary-occupation law in inspected relevant primary chapter. Marotta studies oscillators and dynamics in the distinct nonstrobing phase convention, explicitly identified in his text, not the same fixed-point ensemble. Resultary returned related parity/majority/cyclic-rule stationary findings with distinct local rules and the present record, not a dominating Critters stationary law. The archival 1987 Toffoli–Margolus book was not fully inspected, leaving a named priority risk; inaccessible literature alone is not O failure.
+
+## value
+
+PASS
+
+Critters is a canonical nontrivial reversible partitioning automaton. Its exact fixed-configuration occupation distribution, spatial zeta, entropy and central-limit variance for an infinite strip family provide natural, independently useful spectral/statistical invariants. Width two is the first nondegenerate periodic geometry where the staggered block interactions are nontrivial; this is not merely recomputing a known tiny table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

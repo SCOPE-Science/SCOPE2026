@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:51:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every original even 2×2 block is one 4-bit state a∈0..15. In the inspected original Critters rule each f(a) complements occupation and permutes block patterns. A fixed full even+odd step is exactly a cyclic word satisfying 16-state local conditions f(X(a,b))=Y(a,b) for adjacent original block labels, so Fm(u)=tr[diag(u^{|a|})M]^m, with no missing phase or quotient. The source SymPy program constructs all 256 edge possibilities and derives exact determinant (1−u²z)^5 [1−(1+u²+u⁴)z+(u⁴−u²−u⁶)z²−u⁶z³]. Independently rebuilt the 16-state graph (30 edges), checked 8-state primitive SCC and its (1−u²z)Q determinant, four other singleton loops, traces at m=2..5 (16,44,136,448), and reciprocal polynomial symmetry. PF analytic simple dominant root λ from X³−3X²−X−1 yields exact entropy and Gaussian quasi-powers, ψ'(0)=2, ψ''(0)=2.6898249; variance linear. Independent exhaustive C++ original-update source supports m=2..5; it is not an all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Margolus defines the block CA and microscopic dynamics; Marotta’s oscillator analysis uses a different phase representation.",
+          "Related earlier Resultary stationary transfer theorems concern entirely different local cellular automata."
+        ],
+        "reasoning": "A definition of a reversible automaton does not imply its exact width-two weighted determinant or Gaussian fluctuation coefficient without a separate combinatorial spectral calculation.",
+        "searches": [
+          "Norman Margolus Crystalline Computation Critters fixed points",
+          "Marotta Living in Critters World oscillators stationary",
+          "Resultary: stationary cellular automaton occupation generating function"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/comp-gas/9811002",
+        "https://revistas.unicentro.br/index.php/RECEN/article/download/385/537",
+        "1987 Toffoli and Margolus Cellular Automata Machines",
+        "Resultary semantic search Critters reversible block cellular automaton width two periodic torus fixed configurations zeta transfer matrix"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Margolus local f definition is an indispensable input but gives neither 16-state closed-walk determinant nor analytic CLT.",
+          "Marotta describes a nonstrobing rule and visual patterns; using its alternate phase without conversion would be an invalid implication."
+        ],
+        "reasoning": "The fixed-state weighted generating law follows from a new local constraint transfer derivation and exact determinant; the central limit follows from its primitive Perron branch, not from rule description alone.",
+        "searches": [
+          "https://arxiv.org/abs/comp-gas/9811002",
+          "https://revistas.unicentro.br/index.php/RECEN/article/download/385/537"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formal statement is a weighted closed-walk trace of a 16-state directed transfer matrix, with positive Perron component and exact density reciprocity."
+        ],
+        "reasoning": "Check matched original complementing full two-phase update, not alternate nonstrobing or period-one half-phase dynamics.",
+        "searches": [
+          "Resultary: Critters reversible block cellular automaton width two periodic torus fixed configurations zeta transfer matrix",
+          "Critters original complementing stroboscopic rule stationarity transfer",
+          "Margolus Critters two-row fixed points density Gaussian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published primary descriptions include illustrations of gliders and oscillators, but no exact occupation-resolved fixed-state sequence for all m."
+        ],
+        "reasoning": "The known 16,44,136,448 finite values are verified as checks; no prior exact table was located that mechanically supplies the all-m cubic transfer identity.",
+        "searches": [
+          "Resultary: Critters 2 by 2m stationary occupation histogram counts 16 44 136",
+          "Critters cellular automaton exact fixed-point zeta cubic"
+        ]
+      },
+      "rationale": "Margolus’s original Crystalline Computation describes the precise complementing block rule, conservation across full steps and gliders but no width-two weighted fixed-point determinant or Gaussian stationary-occupation law in inspected relevant primary chapter. Marotta studies oscillators and dynamics in the distinct nonstrobing phase convention, explicitly identified in his text, not the same fixed-point ensemble. Resultary returned related parity/majority/cyclic-rule stationary findings with distinct local rules and the present record, not a dominating Critters stationary law. The archival 1987 Toffoli–Margolus book was not fully inspected, leaving a named priority risk; inaccessible literature alone is not O failure.",
+      "residual_risks": [
+        "1987 book not inspected fully and unindexed earlier numerical CA research may overlap.",
+        "The Perron/analytic argument is all m and finite C++ histograms for m=2..5 are corroboration rather than proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RULE_BACKGROUND_NOT_COVERING_ENUMERATOR",
+          "evidence": "Source introduces the Critters rule, not the width-two stationary weighted trace or Gaussian law.",
+          "identifier_or_url": "https://arxiv.org/abs/comp-gas/9811002",
+          "material_read": "Accessible complete author chapter with relevant Critters section, block update, two phases and conservation/complement properties",
+          "method": "Read relevant original chapter paragraphs and figures in accessible text",
+          "title": "Crystalline Computation",
+          "trigger": "Canonical primary definition of original complementing Critters"
+        },
+        {
+          "assessment": "DIFFERENT_PHASE_AND_OBSERVABLE",
+          "evidence": "Oscillators and trajectories under alternate convention, not fixed full-step occupation distributions of original complementing partition.",
+          "identifier_or_url": "https://revistas.unicentro.br/index.php/RECEN/article/download/385/537",
+          "material_read": "Accessible full article text, especially introductory rules/footnote, oscillator and collision sections",
+          "method": "Read relevant lawful full-text article, including nonstrobing distinction",
+          "title": "Living in Critters’ World",
+          "trigger": "Directly named Critters dynamical analysis and potential stationary counts"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Cannot rule out a previously printed strip-census calculation; no fabrication of full inspection.",
+          "identifier_or_url": "1987 Toffoli and Margolus book",
+          "material_read": "Bibliographic book identification and later citations; full archival 1987 book text not accessed",
+          "method": "Not read in full",
+          "title": "Cellular Automata Machines: A New Environment for Modeling",
+          "trigger": "Known earlier original-rule archival source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Critters is a canonical nontrivial reversible partitioning automaton. Its exact fixed-configuration occupation distribution, spatial zeta, entropy and central-limit variance for an infinite strip family provide natural, independently useful spectral/statistical invariants. Width two is the first nondegenerate periodic geometry where the staggered block interactions are nontrivial; this is not merely recomputing a known tiny table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/comp-gas/9811002",
+    "https://revistas.unicentro.br/index.php/RECEN/article/download/385/537",
+    "1987 Toffoli and Margolus Cellular Automata Machines",
+    "Resultary semantic search Critters reversible block cellular automaton width two periodic torus fixed configurations zeta transfer matrix"
+  ],
+  "disposition": "passed",
+  "final_claim": "For original complementing Critters full two-phase block automaton on labelled periodic 2×2m tori, m≥2, the full stationary occupation polynomial is Fm(u)=[z^m](−z∂z log[(1−u²z)^5 Q(z,u)]) with specified cubic Q; it is palindromic, has exactly mean 2m and an asymptotically Gaussian centered occupation with variance coefficient 8(λ+1)/(3λ²−6λ−1).",
+  "limitations": [
+    "Only original complementing Critters full two-phase fixed states, labelled torus of height 2 and even circumference 2m≥4; not general width or longer temporal orbit counts."
+  ],
+  "residual_risks": [
+    "1987 book not inspected fully and unindexed earlier numerical CA research may overlap.",
+    "The Perron/analytic argument is all m and finite C++ histograms for m=2..5 are corroboration rather than proof."
+  ],
+  "schema_version": 1
+}
