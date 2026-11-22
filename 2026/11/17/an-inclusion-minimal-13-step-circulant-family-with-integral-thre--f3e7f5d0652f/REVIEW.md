@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct integral chain-homotopy comparison identifies first GLMY homology with the short-addition cokernel for every \(n>2\max S\). For the explicit thirteen-step set, exact Smith reduction gives ten unit factors and one factor three (free rank two). The inequalities separating small–small, small–large, and large–large pair sums establish the uniformity for every \(t\ge109\), rather than relying on a finite computation. The standalone verifier recomputes the full relation matrix and all thirteen deletion matrices.
+## correctness
 
-**Originality — PASS, conditional on the inspected corpus.** The 2026 circulant primary source proves general step-word comparison and treats several different short-relation types, but does not state this particular odd-primary thirteen-step family. The 2024 Cayley-covering paper develops broad machinery, not the exact three-torsion relation matrix or its deletion-minimality. Prior explicit two-primary circulant constructions are not stronger statements implying the order-three torsion. Exact, equivalent-form, and broader-group searches were performed, but indexing limitations mean absolute novelty is not certified.
+PASS
 
-**Value — PASS.** The construction answers the structural question whether order-three *integral* regular path-homology torsion occurs in **strongly connected vertex-transitive** finite digraphs, rather than changing a previously computed rational Betti number. The universal parameter range and the 13-for-13 deletion-minimality make it a robust short-relation torsion configuration, not an isolated software output. No claim of universal minimality is made.
+For t>=109 the three sum bands [2,6], [t-46,t+14], [2t-94,2t+22] are disjoint; within each, equal pair sums and singleton pairs depend only on the ten offsets, so the same complete relation matrix applies for all t. Independent generation of all legal singleton-vs-pair and pair-vs-pair relations at t=109 gives thirteen 13-column rows. Independent exact Smith form has ten 1s and a 3 (rank11), cokernel Z^2⊕Z/3; all thirteen one-generator deletions regenerated from scratch have only unit nonzero Smith factors. Checked several separated parameters as corroboration; band-separation argument handles infinitely many. Read Tang–Yau step-word and insertion-homotopy constructions: integral chain contracting relation ∂h+h∂=z-1 leads to an integral quotient of the infinite translation complex; n>2(t+11) prevents two-step modular aliasing, so the relation cokernel represents regular GLMY H1. The key all-parameter statement is not deduced from finite samples.
 
-**Limits and priority risk.** An equivalent example could exist in an unindexed source or in a not-yet-located appendix. The original homotopy-covering machinery is cited, not claimed. Results in higher degrees or for symmetrized circulants are unknown here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing published work establishes the step-word reduction (Tang–Yau) and 2-primary torsion circulants, but does not exhibit the stable deletion-minimal 13-step odd-primary Z/3 family as an already known special case. Novelty is the explicit Z/3 exact lattice family and deletion-minimality, not the general theory of Cayley path homology.
+
+## value
+
+PASS
+
+Produces an explicit infinite family of strongly connected vertex-transitive Cayley digraphs with stable odd-primary torsion, and proves its short-relation presentation is inclusion-minimal for torsion. This is a motivated new arithmetic phenomenon beyond previously exhibited order-two examples; the family is exact and reproducible, while global step-count minimality is expressly not asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
