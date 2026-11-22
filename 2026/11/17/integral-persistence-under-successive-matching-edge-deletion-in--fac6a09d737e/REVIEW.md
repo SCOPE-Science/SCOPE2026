@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result uses an exact, naturally compatible two-pole CW quotient of the full-shore simplices. The quotient identifies all filtered simplices with suspensions of nested filled-square CW complexes. For each stage, the square complex has exactly one core component and explicitly enumerated isolated vertices. A cellular collapse of filled squares to a subdivided complete graph gives primitive fundamental cycles \(P_{1i}+P_{ij}-P_{1j}\). These cycles are literally preserved under successive inclusions and extend to integral bases; isolated-vertex differences furnish natural bases with exact death times. The resulting integral maps prove the stated all-field barcode. Direct mod-two persistent-boundary calculations on six complete parameter profiles corroborate, but are not used to infer, the universal integral theorem.
+PASS
 
-## Originality — PASS with residual risk
+For all a,b>=3 and 0<=t<=min(a,b), the selected defect edges form one fixed ordered matching. Every mixed face has at most two vertices per shore. After collapsing the fixed contractible shore simplices separately, the resulting two-pole CW decomposition is naturally the unreduced suspension of the square complex Q_t with vertices e_ij, added star edges for deleted diagonals and square cells for each deleted-edge pair; because all shore inclusions and cell labels are fixed, these equivalences commute with t-inclusions. Q_0 has ab isolated vertices; for t>=1 it has a single main component plus (a-t)(b-t) isolates, so reduced H0 differences give degree-one integral basis surviving precisely while both indices >t. In the connected core, leaves collapse and every filled quadrilateral collapses across one path, leaving a subdivision of K_t; the star-at-1 integral fundamental cycles zeta_ij for 2<=i<j<=t are primitive. They are literally retained under inclusion; hence all H1 maps split surjectively, all H2 split injectively, and barcodes [0,1)^(a+b-2), [0,k)^(a+b-2k+1), [t,infty)^(t-2). Independent direct counts for (3,3),(3,4),(4,5) match stage ranks. Source verify_persistence.py constructs actual simplicial filtrations and mod-two finite barcodes for six a,b<=5, but does not on its own prove universal integral functoriality.
 
-The closest two public research statements on partially matching-deleted complete bipartite dissociation complexes were read in their complete RESULT.md texts. Both explicitly prove the **static** homotopy type at each stage; neither determines the inclusion maps, coherent primitive cycle bases, or persistent barcode. One source explicitly states that maps as the deletion parameter increases remain outside its result. Other searched literature on fixed-graph forest-degree filtrations and higher independence complexes of trees addresses different objects or parameters. The new claim is precisely the missing functorial classification. There is an irreducible risk of equivalent unindexed work; a failed search is not proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Adding edges to a simplicial complex is a filtration, and its homology ranks alone do not specify persistent survival, integral primitivity, or the maps. A full natural infinite-family barcode for successive graph defects is a motivated invariant: the theorem distinguishes ephemeral one-dimensional classes from persistent two-dimensional classes and gives explicit integral generators for every birth and death. The result uses the same natural family as two published static classification results, but determines mathematical information not implied by those statements without new naturality arguments.
+PASS best-of-knowledge for coherent inclusion-induced integral maps and complete barcode, despite known static homotopy group ranks for each partially deleted-matching stage. The previously recorded two static results were not retrievable in full this execution, so residual risk that their proofs already encode natural maps is explicitly retained. Distinct Carnero forest filtration changes degree threshold, not edges.
 
-## Related work and limits
+## value
 
-The two published stagewise classifications cited in RESULT.md are credited, not recast as new. The theorem does not treat deletions sharing endpoints or more general defect graphs. Finite checks are corroborative, not exhaustive evidence for all parameters. Independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Biclique matching faults are a natural graph filtration. The exact persistence maps and simultaneous primitive integer bases answer a different mathematical question from stagewise homotopy types; they distinguish ephemeral H1 deaths from permanent H2 births and work uniformly in both unequal shore sizes and finite endpoints. The full family result has plausible future utility without requiring a general theorem for arbitrary graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
