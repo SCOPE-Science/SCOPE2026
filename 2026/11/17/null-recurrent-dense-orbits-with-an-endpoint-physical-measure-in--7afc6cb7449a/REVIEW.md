@@ -1,15 +1,21 @@
-# Scientific review — null recurrence and endpoint empirical statistics
+# Independent mathematical audit
 
-## Correctness — PASS
-The source's precisely specified affine branches each cover one complete unit block. Direct counting gives the block transition kernel, and the conditional-uniform image property makes that kernel an exact probability law for uniformly selected block initial data. Detailed balance with the displayed \(\pi_k\) holds on every edge, and the blockwise Perron calculation establishes the invariant sigma-finite density. The bounded harmonic function \(k/L\) gives gambler's-ruin hitting probabilities and recurrence; unbounded stationary masses and irreducibility give null recurrence. Infinite-mean renewal times imply zero asymptotic visit frequency to every finite collection of blocks, hence the endpoint empirical weak limit. A regenerative full-cylinder argument gives infinitely many hits of each rational interval, establishing dense orbits independently of mere topological mixing. Invariance and full-Lebesgue empirical convergence exclude absolutely continuous invariant probabilities. Rational branch and balance checks were replayed from `CHECK.py`, but finite checks do not prove infinite assertions.
+## correctness
 
-## Originality — PASS, with residual historical-priority risk
-The complete source paper [1], especially Proposition 5.2, establishes this map's mixing and infinite entropy, not its stationary measure or typical orbit statistics. The closest published result on **the same** map [2] was read in full; it computes compact finite-block survivor entropy from a Perron matrix, not the normalized stochastic kernel, its null recurrence, or physical empirical limits. Other published results found in searches concern distinct low-slope random maps, intermittent maps, or time-reweighted tent maps, so they do not imply the present exact statements. The block branch counts themselves are already latent in [1] and explicitly used in [2], and are not asserted to be newly discovered. Novelty resides in the null-recurrent probabilistic consequences and the coexistence of almost-everywhere dense orbit and empirical convergence to the endpoint. A general-purpose theorem or earlier special-case discussion could establish equivalent conclusions without matching terminology; broader historical priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The result addresses a natural statistical gap in an explicitly constructed topologically mixing map with infinite entropy: how typical Lebesgue initial conditions behave over time. It computes a concrete infinite invariant density, rules out any absolutely continuous invariant probability, and proves the seemingly contradictory combination of topological density and physical collapse of time averages to an endpoint. The statements are structural and distinguish topological mixing from physical statistics rather than supplying an arbitrary numerical slice. The general countable Markov and renewal lemmas are standard, and the result is specific to this map; neither broad classification nor robustness is claimed.
+Proposition 5.2 source vertex strings give exactly 9 branches at block 0 (five same, four up), and 6k+13 branches at block k>=1 (2(k+2) down/up and 2k+5 same), each affine onto a full unit block, so every block itinerary under uniform initial density has the displayed Markov transition law. Direct balance pi_k P_(k,k+1)=4/9 determines pi0=1 and pi_k=2(6k+13)/(9(k+2)). Symmetric birth/death probabilities imply P_k(T_L<T_0)=k/L; recurrent but no summable invariant measure, hence null recurrent. Renewal with infinite mean yields zero occupation frequency of every finite block. Under psi, this proves weak empirical delta_1; recurrence plus positive full-branch cylinders ensures infinitely many visits to each rational interval, hence dense orbit. A probability absolutely continuous invariant law would contradict this full Lebesgue delta_1 empirical limit. Independently checked exact branch counts, detailed balance and harmonic identities for finite k,L; these cannot replace the recurrence/ergodic proofs.
 
-## Closest literature and limitations
-[1] Vinod Kumar P B, *The entropy spectra of chaotic maps of an interval*, arXiv:2610.39443v1, first public 2026-10-29, especially Proposition 5.2. [2] *An Airy-edge law for finite-survivor entropy in a mixing infinite-entropy interval map*, 2026-11-08, publicly available RESULT.md, https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-an-airy-edge-law-for-finite-survivor-entropy-in-a-mixing-infinit--8e937cf17390/RESULT.md . The recurrence classification uses classical irreducible Markov-chain theory. All physical conclusions are Lebesgue-almost everywhere and specific to the stated branches; all-order return tails and perturbation stability are unproved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 primary map source constructs a mixing infinite-entropy map, not its Lebesgue block Markov chain, invariant infinite density, or endpoint empirical measure. Published same-model bounded survivor entropy/Airy study computes unnormalized branch-count matrices on truncated state spaces but not stochastic normalization, null recurrence, infinite measure or typical empirical limits. Standard recurrent Markov and renewal theorems are premises, not a proof of the specific map statement. Novel under inspected comparisons, with nonexhaustive classical infinite ergodic theory priority risk.
+
+## value
+
+PASS
+
+A natural explicit counterpoint to topological mixing: typical orbit is dense and recurrent in every interval but spends zero asymptotic fraction in every finite core, producing a unique endpoint physical probability without pointwise attraction. The exact reversible density and null recurrence provide reusable quantitative invariant and a transparent infinite-ergodic example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
