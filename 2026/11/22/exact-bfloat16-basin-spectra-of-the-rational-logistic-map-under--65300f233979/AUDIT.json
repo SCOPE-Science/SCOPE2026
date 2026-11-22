@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Complete 16,257-state enumeration with exact rational successors, independent nearest-even rounding algorithms checked on every code and midpoint, independent path and indegree graph decompositions, and fully reproduced basin counts/periods/maximum transient depths. The source formula preserves [0,1] at mu=11/2 and all rounded successors were explicitly checked for membership.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klöwer et al. (2023) show general finite-precision eventual periodicity but calculate other maps.",
+        "The rational-map bifurcation results address real states and do not provide exact bfloat16 successor tables."
+      ],
+      "reasoning": "General eventual periodicity covers existence of some cycle but not these prime periods, basin sizes, disagreement count, and order-specific split. Neither exact real-map bifurcation theorems nor general floating-point observations dominate the claim.",
+      "searches": [
+        "finite-state logistic rational map 5.5 2022 periodic orbit cycle census numerical hardware",
+        "bfloat16 finite precision exact cycle basins rational logistic Kumar K_mu 5.5",
+        "\"Dynamical properties of a novel one dimensional chaotic map\" numerical rounding bit period"
+      ]
+    },
+    "checked_sources": [
+      "Kumar et al., Mathematical Biosciences and Engineering 19 (2022), DOI 10.3934/mbe.2022115, publisher full PDF",
+      "Klöwer et al., Scientific Reports 13 (2023), DOI 10.1038/s41598-023-37004-4, accessible article text",
+      "Public research records on ordinary binary16 logistic evaluation-order censuses, binary16 beta shifts, and real rational-map period bifurcations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source provides the formula and a simulated chaotic example, not rounded orbit graphs.",
+        "The 2023 low-precision paper establishes format dependence for ordinary logistic and generalized Bernoulli maps, not the rational map.",
+        "Pre-existing exact rational logistic period-two/three/four results vary the real parameter, rather than evaluating full finite-precision state sets."
+      ],
+      "reasoning": "None of the checked prior statements implies an exact 19-cycle under once-rounding, exactly three nonzero cycles under staged rounding, their basins, or 1,371 edge disagreements. The present claim explicitly identifies different objects/parameters and evaluation conventions.",
+      "searches": [
+        "bfloat16 finite precision exact cycle basins rational logistic Kumar K_mu 5.5",
+        "staged rounding vs one step rounding rational chaotic map mu*x*(1-x)/(1+x) binary16 bfloat16"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Originating 2022 paper Equation (3.1) defines the rational logistic recurrence; Figure 7 uses 5.5.",
+        "Published 2023 low-precision study addresses ordinary logistic and generalized Bernoulli recurrences."
+      ],
+      "reasoning": "Algebraic formula equivalence is not sufficient to imply either explicitly rounded computational graph. The closest bfloat16 logistic censuses use a different polynomial and different successor rule; no matching rational-map graph was found.",
+      "searches": [
+        "\"Kumar\" \"Alzabut\" \"bfloat16\" rational logistic cycle 5.5",
+        "\"mu x(1-x)/(1+x)\" \"precision\" periodic rounding basin",
+        "staged rounding vs one step rounding rational chaotic map mu*x*(1-x)/(1+x) binary16 bfloat16"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full source PDF Section 4 has a 20-bin real-trajectory entropy-frequency table, not an all-state bfloat16 transition table.",
+        "Open literature searches and indexed research-record matches showed bfloat16/logistic and binary16/beta-shift records but no rational \\(\\mu=5.5\\) exact census."
+      ],
+      "reasoning": "Published bin-frequency tables and real-valued periodic-orbit data do not determine finite bfloat16 graph cycles or exact basins. No checked exact table contains these numbers.",
+      "searches": [
+        "\"rational logistic\" \"19\" \"21\" \"bfloat16\" basins",
+        "\"K_mu(x)\" \"bfloat16\" order exact 2022 rational",
+        "\"Kumar\" \"Alzabut\" \"bfloat16\" rational logistic cycle 5.5"
+      ]
+    },
+    "rationale": "Specific exact complete bfloat16 census of published rational chaotic map at its illustrated parameter is not implied by source simulations, low-precision logistic/Bernoulli papers or real rational-family period theorems; required statement-level comparison performed. Unindexed computations and one inaccessible full comparator remain publication-priority risks.",
+    "residual_risks": [
+      "Literature indexing is incomplete and unpublished or unindexed exact enumerations could exist.",
+      "Complete comparator article access was redirected; accessible sections and abstract establish different models but do not prove entire manuscript noncoverage.",
+      "A different notion of staged arithmetic yields different graph counts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for exact finite bfloat16 cycles under the two defined rounding rules; source studies continuum dynamics and finite simulated trajectories.",
+        "evidence": "Equation (3.1) and Figure 7 mu=5.5; Section 4 uses 1,000 iterates and 20 histogram bins, not all 16,257 bfloat16 codes.",
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/mbe/2022/3/PDF/mbe-19-03-115.pdf",
+        "material_read": "Full-text PDF: abstract and source equation (3.1), Sections 3.1-3.3, Figures 5-7, Sections 4-5 including Tables 1-2; first publication metadata.",
+        "method": "Examined source PDF text and page views of the title and Figure 7 page, inspected explicit model, results and numerical tables.",
+        "title": "Dynamical properties of a novel one dimensional chaotic map",
+        "trigger": "Exact same map and source-selected parameter"
+      },
+      {
+        "assessment": "No exact bfloat16 rational-logistic cycle census in accessible checked sections; remaining full-text access limitation acknowledged.",
+        "evidence": "Publication explicitly identifies logistic, generalized Bernoulli, and Lorenz-1996 objects, not K_mu=x(1-x)/(1+x).",
+        "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+        "material_read": "Accessible full-length HTML search return and introductory/methodology passages including stated comparison objects; article abstracts and publication metadata.",
+        "method": "Examined indexed article text in search results and publication description; attempted full HTML opening, which encountered an access redirect.",
+        "title": "Periodic orbits in chaotic systems simulated at low precision",
+        "trigger": "Closest published low-precision periodic-orbit comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "65300f23-3979-448d-b5af-e3a872273089",
+  "value": {
+    "rationale": "The value 5.5 is a source-selected chaotic exemplar, not an arbitrary grid slice. All-state bfloat16 basin spectra and operation-order sensitivity are important for interpreting numerical long-run recurrence; 1,371 changed immediate edges split the nonzero recurrent component from one cycle to three. Exact values are not a textbook deduction or contained in existing real orbit tables.",
+    "status": "PASS"
+  }
+}
