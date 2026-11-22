@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Complete exact proof uses the degree-two-vertex nonadjacency invariant, the root-degree-two exception in the cross-increment, closed rational recurrences, a positive quadratic bound, and a divergent-weight convex averaging limit. Independent exhaustive finite histories N=3..8 and exact recurrence checks N=4..150 agree; finite computations are explicitly not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hartle–Krapivsky, arXiv:2602.01021, abstract, introduction and initial model definitions in Section II.",
+        "Cooper–Uehara, doi:10.1007/s11786-010-0041-6 abstract describes uniform maximal-clique selection rather than uniform edge selection."
+      ],
+      "reasoning": "A result about root degree and a global degree class could imply this theorem only if its sampling kernel covered uniform-edge-grown 2-complexes with a fixed primordial vertex. No inspected broader result provides that inclusion; the published 2010 clique-based random k-tree has a different attachment kernel. The older source was not inspected beyond its available abstract, so unrecognized broader coverage remains a risk.",
+      "searches": [
+        "homogeneous random simplicial complex primordial degree global minimum degree count positive covariance asymptotic decorrelation",
+        "random k-tree degree distribution degree-two vertices concentration exact covariance",
+        "linear preferential attachment root degree total number leaves covariance nonzero"
+      ]
+    },
+    "checked_sources": [
+      "Krapivsky–Lucas arXiv:2608.26547 Appendix C (primary HSC(2) full relevant text)",
+      "Hartle–Krapivsky arXiv:2602.01021 introduction and beginning of Section II (primary HTML model definitions)",
+      "Janson doi:10.1002/rsa.20046 (abstract only)",
+      "Cooper–Uehara doi:10.1007/s11786-010-0041-6 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Krapivsky–Lucas, arXiv:2608.26547 Appendix C: known \\(\\mathbb ED_N\\), \\(\\mathbb EL_N\\), their variances; no formula for \\(\\mathbb ED_NL_N\\).",
+        "Hartle–Krapivsky arXiv:2602.01021 studies \\(N_{k,\\ell}\\) in the preferential-attachment tree, not the HSC(2) count paired with a marked primordial degree.",
+        "Janson doi:10.1002/rsa.20046 gives degree-class covariance for random recursive trees, which are a different model."
+      ],
+      "reasoning": "Separate marginals do not determine \\(\\operatorname{Cov}(D_N,L_N)\\). The novel mixed increment must count both degree-two neighbors and the event that the primordial vertex itself has degree two. Neither result follows by substitution from the stated marginal moment formulas, nor from existing tree-model statements without proving a new model-changing reduction.",
+      "searches": [
+        "HSC(2) graph root degree and number of degree 2 vertices covariance square-root scaling",
+        "homogeneous random simplicial complex primordial degree global minimum degree count positive covariance asymptotic decorrelation",
+        "\"Random Recursive Simplicial Complexes\" Krapivsky Lucas 2026 HSC(2)",
+        "\"Leaves of preferential attachment trees\" 2602.01021"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krapivsky–Lucas, arXiv:2608.26547, Appendix C equations (132)–(148) give separate marginal recurrences but no root-degree/minimal-degree-count mixed moment.",
+        "Hartle–Krapivsky arXiv:2602.01021 studies trees with one edge added per step, not homogeneous two-complexes."
+      ],
+      "reasoning": "The statement is invariant under labeling any one of the three primordial vertices and under replacing graph-degree-two by minimal-degree count in HSC(2). The sources were compared on the exact edge-choice transition probabilities and joint statistic, not keywords alone. A related square-root hub–leaf covariance in preferential-attachment trees is analogous but not the same random process and does not specialize to this exact recurrence.",
+      "searches": [
+        "HSC(2) graph root degree and number of degree 2 vertices covariance square-root scaling",
+        "uniform-edge recursive two-tree first vertex degree minimum degree vertex count joint fluctuation",
+        "\"random 2-tree\" \"root degree\" \"degree two\" covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Krapivsky–Lucas Appendix C equations (134),(135),(146),(148) are exact tables/formulas of marginal means and variances, not the mixed covariance.",
+        "No exact matching joint entry was identified in the examined public material and ranked mathematical-record descriptions."
+      ],
+      "reasoning": "We compared the full random object, initial triangle, minimum-degree count, primordial vertex and cross moment rather than treating separately tabulated marginal formulas as joint coverage. Absence in the searched materials is not a proof of database uniqueness.",
+      "searches": [
+        "\"homogeneous simplicial complex\" \"degree\" \"degree two\" covariance",
+        "\"random 2-tree\" \"covariance\" \"leaves\" \"degree\" edge attachment",
+        "HSC(2) graph root degree and number of degree 2 vertices covariance square-root scaling"
+      ]
+    },
+    "rationale": "The motivating primary text supplies exactly the two marginal statistics, not their cross moment. The new conditional mixed increment and its root-degree-two exception produce the claimed joint recurrence and constant. Related preferential-attachment and recursive-tree sources are different processes; unindexed stronger results remain a real priority risk.",
+    "residual_risks": [
+      "A published analogous square-root hub–leaf covariance for a distinct degree-proportional growing tree shows that the qualitative effect is not universally new; no implication to the HSC(2) coefficient was identified.",
+      "The older 2004 and 2010 papers were compared via abstracts only, not entire bodies.",
+      "Unindexed or differently formulated general results could imply the finite recurrence; semantic search alone does not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal formulas and deterministic edge count cover prerequisites; the paper does not state the two-statistic cross covariance in the examined HSC(2) section.",
+        "evidence": [
+          "Appendix C equations (131)–(148) provide \\(2N-3\\), the root-degree increment, and the degree-two-count increment; equation (148) is a marginal variance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.26547",
+        "material_read": "Full relevant Appendix C (lines 688–817 in arXiv HTML), including HSC(2) equations (129)–(156), and descriptions of RRSC versus HSC.",
+        "method": "arXiv HTML primary full-text subsection inspection and equation-by-equation implication comparison",
+        "title": "Random Recursive Simplicial Complexes",
+        "trigger": "Exact source model, primordial-degree and minimal-degree marginal formulas"
+      },
+      {
+        "assessment": "The attachment rule adds a single edge and the minimum degree is one. Its local degree/leafdegree population statistics do not directly give the marked-root/global-minimal-degree covariance in HSC(2).",
+        "evidence": [
+          "Section II describes an N-vertex growing tree and degree-proportional attachment; equation (1) defines a different joint statistic."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.01021v1",
+        "material_read": "Abstract, introduction, and beginning of Section II through the model definition and leading degree/leafdegree results; this paper addresses single-edge preferential-attachment trees and empirical counts.",
+        "method": "arXiv HTML primary full-text comparison of the stochastic growth model and variables",
+        "title": "Leaves of preferential attachment trees",
+        "trigger": "Plausible broader joint degree/leafdegree theorem"
+      },
+      {
+        "assessment": "Degree-class covariances in random recursive trees; applicability to the HSC(2) marked-root cross moment not established.",
+        "evidence": [
+          "Abstract specifies random recursive trees and random plane recursive trees, not uniform-edge two-complexes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20046",
+        "material_read": "Publisher abstract only.",
+        "method": "Publisher abstract scope comparison",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "Possible general theory of cross-class covariance"
+      },
+      {
+        "assessment": "Selects a maximal clique first and then k vertices, unlike the uniform-edge rule in HSC(2); article body inaccessible in this inspection.",
+        "evidence": [
+          "Institutional repository abstract states a two-stage maximal-clique-and-subset sampling rule."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11786-010-0041-6",
+        "material_read": "Institutional repository abstract only.",
+        "method": "Institutional abstract/model definition comparison",
+        "title": "Scale Free Properties of Random k-Trees",
+        "trigger": "Terminological overlap with uniform-edge-grown random 2-trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "45bc3b5c-5e52-464a-89a7-9c1c762429e8",
+  "value": {
+    "rationale": "The precise dependence of a persistent founding hub on an extensive minimal-degree population is a natural missing joint invariant of the motivating complex. It requires a new auxiliary-neighbor closure and a root-degree-two boundary correction, yields strict all-size sign plus an exact asymptotic coefficient, and distinguishes growing covariance from vanishing correlation. Separate known marginal laws do not answer the joint question.",
+    "status": "PASS"
+  }
+}
