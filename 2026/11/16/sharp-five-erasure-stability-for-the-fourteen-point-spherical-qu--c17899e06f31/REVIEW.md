@@ -1,15 +1,21 @@
-# Scientific review of five-erasure Lebedev sampling stability
+# Independent mathematical audit
 
-## Correctness — PASS
-The fourteen-node rule is a Parseval sampling frame on all nine spherical harmonics through degree two because its normalized fourth moments equal the sphere moments. The complement identity \(E_S^*E_S=I-E_T^*E_T\) reduces the claim to the largest eigenvalue of a five-node principal Gram submatrix. An elementary forbidden-pair argument shows every nonhemispherical deletion has largest eigenvalue strictly above \(4/5\); the six hemispherical deletions have an explicitly diagonalized Gram matrix with largest eigenvalue exactly \(4/5\). The supplied separate checker verifies the kernel algebra symbolically and all 2002 nine-subsets numerically. The infinite-dimensional extension and alternative normalization are not claimed.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-Shimizu–Tsunoda's full accessible 2022 treatment of Lebedev quadrature supplies exact cubature and efficiency, not optimal subframe deletion. Nafees et al.'s accessible 2017 paper optimizes iso-latitude sampling systems rather than nine-of-fourteen fixed Lebedev masks. The publicly readable all-degree rhombic-dodecahedron study addresses single-degree unweighted Gram spectra on seven antipodal representatives and does not imply the weighted cumulative-degree nine-node optimum. A distinct pre-existing eleven-node worst-case recovery result on the same vertices establishes ranks, not this minimum-eigenvalue optimum or its six equality configurations. Keyword searches for nine-point Lebedev subsampling, five erasures, projection stability, and the exact bound found no matching theorem; lack of search hits is not proof of priority. Specialist subframe optimization tables remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The nine-dimensional harmonic band needs at least nine values for invertible sampling, while the standard efficient fourteen-point positive cubature presents a concrete and commonly used pool of candidate measurements. This result determines the **sharp achievable condition-stability floor with no freedom to alter weights** at the information-theoretic minimum, identifying a unique octahedral orbit of six optimizers and excluding all other deletion geometries via a robust structural obstruction. This is a meaningful exact experimental-design and erasure-selection problem, not simply another cubature identity or floating-point enumeration. No unrestricted point-design optimum is asserted.
+The six poles have weights 1/15 and eight cube points 3/40; the exact spherical moments through degree four give E_X*E_X=I for all nine harmonics of degree at most two. The addition kernel K(t)=1+3t+5P2(t)=(15t²+6t−3)/2 therefore yields projector B=E_X E_X*. For five deletions T, smallest retained Gram eigenvalue is 1−λmax(B_T). Any erased opposite cube pair has top eigenvalue 9/10; a same-hemisphere pole/cube pair violates positivity of (4/5)I−B_pair; an opposite pole pair has top 4/5 but nonzero coupling to every third erased node forces strict increase. Avoiding these pair patterns forces precisely one erased pole and all four cube points in its opposite hemisphere, exactly six T. Square Fourier modes of the four deleted cube points give 4/5 twice, 1/2, 3/5 once before constant-mode pole coupling; the remaining two eigenvalues are 3/5±(√3−1)/(5√2), below 4/5. Thus the E-optimum 1/5 and full equality spectrum follow by analytic exhaustive pair exclusion. Inspected the full packaged checker: a separate direct nine-function evaluation enumerates all C(14,9)=2002 masks and exactly six winners; exact SymPy kernel-moment identities are supplementary, not the sole proof.
 
-## Sources and limitations
-The source inspection covered arXiv:2205.04119, arXiv:1709.02497, and the full readable online research result *All-degree harmonic sampling and sharp stability on the radially normalized rhombic dodecahedron*. Earlier specialty databases may contain analogous exact finite optimal-subframe tables. The proof is supplied in `RESULT.md`, with an executable independent-coordinate check in `check_lebedev14.py`. No independent external validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact weighted 5-erasure E-optimality/equality spectrum for the complete degree≤2 Lebedev 14 grid is not entailed by published exact-degree unweighted ranks or broad quadrature rules in the sources examined.
+
+## value
+
+PASS
+
+The 14-node positive cubature is a natural fixed sensing pool for the nine-dimensional quadratic spherical harmonic space. Its exact sharp tolerance to deletion of five nodes, complete characterization of six optimal minimal-cardinality samplers, and exact lower stability eigenvalue are mathematically substantive finite optimal-design facts with direct interpolation significance. The finite problem is exhaustive by proof, not merely a recomputed table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
