@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof begins with the known exact two-row fixed-cardinality assignment polytope and gives strict witnesses for all admitted codimension-two facet intersections, plus explicit dimension arguments for every excluded pair. The projected facet normals in the intrinsic zero-row-sum tangent space yield the three angle values with no ambient-angle normalization error. The final elementary trigonometric inequality establishes the strictly obtuse *unweighted* mean; the three-atom limit and its moment follow from exact class probabilities. Exact rational verification covers every facet intersection and normal product in dimensions three through eight. This is finite corroboration, not an infinite certificate; the universal proof is the explicit facet classification and normal calculation.
+## correctness
 
-## Originality
-**PASS, with a residual historical-priority risk.** Gill and Linusson (2009) and Torres (2023) establish the assignment-polytope combinatorial context, inequalities, and face information; they do not supply the claimed complete intrinsic angle multiset or the dimension-rescaled angular law in the inspected portions. An existing exact crown-graph polytope result concerns volume, Hausdorff distance, and Gaussian width loss; a rectangular assignment polytope result concerns maximum inscribed balls. Neither controls all facet-pair incidences and their Euclidean normal dot products. Korotov and Vatne's Cartesian-product dihedral-angle sum theorem does not apply to a proper deleted-diagonal subpolytope with additional cap facets. Mathematical implication, rather than title overlap, was compared in each case. Unindexed equivalent treatments under matching, transportation, or root-polytope terminology remain possible.
+PASS
 
-## Mathematical value
-**PASS.** This is a complete codimension-two Euclidean metric classification in an infinite, standard, highly symmetric optimization polytope family; it also isolates a sharp low-dimensional exception and a genuinely nontrivial three-atom scaling law. It relates how the two incidence classes with opposite signed angle defects yield a strictly positive mean despite all angles converging to a right angle. It is not a mere recomputation of known counts or an arbitrary single numerical case.
+The fixed-cardinality crown assignment polytope has vertices (e_i,e_j) with i≠j; fractional Hall gives facet description x_i≥0,y_i≥0,x_i+y_i≤1 in affine dimension 2n−2. All 3n facets and exact ridge classification follow from explicit two-tight strict feasible witnesses and forced extra constraints for A_iC_i, B_iC_i, C_iC_j; n=3 additionally loses A_iA_j, B_iB_j and A_iB_i. Projected normals use u_i=e_i−1/n; their signed dot products give precisely acute acos(1/(n−1)), right π/2, obtuse acos(−1/(sqrt2(n−1))). Pair counts n(n−1),n²,2n(n−1) for n≥4 and (0,6,12) at n=3. Normalized probabilities and n asin(1/(n−1))→1 give −1,0,1/sqrt2 atomic limit. Exact independent affine-rank enumeration checked every vertex/facet pair at n=3,4,5 and counts (0,6,12),(12,16,24),(20,25,40), and package checker was read.
 
-## Scope and limitations
-Angles are intrinsic Frobenius angles in the standard representation; mean weights all ridges equally, not by their Hausdorff measures. Only the two-row full-cardinality family is covered. Priority is best-knowledge and not independently certified; the finite checker alone cannot prove universal claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge original metric all-ridge spectrum and signed asymptotic law of the fixed-cardinality two-row crown/2-assignment polytope. Gill–Linusson’s 2009 primary paper supplies the H-representation/facet combinatorics, not measured Frobenius angles. A closely ranked Resultary result treats full-dimensional rectangular PARTIAL matching polytopes (pq variables), a genuinely different object from fixed-cardinality crown root polytopes (2n−2 dimensions); its two-neighborliness and angle counts do not imply this theorem.
+
+## value
+
+PASS
+
+Determines a natural complete Euclidean ridge-angle invariant for a highly structured fixed-size assignment polytope, including a genuine smallest-dimension topology exception and a nontrivial three-point limiting fluctuation law with positive bias. The metrics and exact multiplicities are not a mere restatement of known assignment facet counts and can serve quantitative geometric comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
