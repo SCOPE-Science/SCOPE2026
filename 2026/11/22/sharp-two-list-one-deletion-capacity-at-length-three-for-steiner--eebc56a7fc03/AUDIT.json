@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Every length-three word has a shadow of size one, two or three; constant and two-shadow codewords consume diagonal pair capacity, giving 3|C|<=2q²+3q. Each Steiner block contributes two of each directed off-diagonal pair via two reverse pairs; replacing abc by aab, bbc, acc preserves the off-diagonal incidence and consumes one extra diagonal for each of three disjoint symbols. Kirkman triple systems exist for q=3 mod6; factor-critical Steiner systems exist for q=1 mod6 with q>=13; an explicit q=7 certificate is checked. Standalone reproducibility confirms q=3,7,9,13 and all shadow types at q<=9. Only the imported infinite design theorems are non-elementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin (arXiv:2609.26650) studies binary asymptotic list decoding, not q-ary exact length three.",
+        "Chee et al. (2010) treats perfect one-list codes of length three and length-four unique deletion codes, not the two-list extremum."
+      ],
+      "reasoning": "Asymptotic lower bounds for increasing block length do not fix a length-three maximum for variable alphabets. Complete unique-decoding spectra are not stronger statements covering two-list optima.",
+      "searches": [
+        "\"Lower Bounds for all List-Decodable Deletion Codes\" Lin 2026",
+        "\"Constant-List Insertion--Deletion Codes\" Kiah Wei Zeng 2026",
+        "\"Spectrum of Sizes for Perfect Deletion-Correcting Codes\" Chee Ge Ling"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.26650",
+      "https://doi.org/10.1002/jcd.70038",
+      "https://arxiv.org/pdf/1008.1343",
+      "https://doi.org/10.1007/BF02784058",
+      "https://doi.org/10.1007/s10623-021-00952-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bryant–Davies–Neubecker (2026) establishes the needed factor-critical Steiner system and almost parallel class, but not a two-list deletion code.",
+        "Kirkman design existence supplies a parallel class for q=3 modulo 6, but no deletion-shadow transformation.",
+        "The present bound is universal in q; the lower construction introduces a four-permutation covering and a diagonal-capacity-preserving local replacement."
+      ],
+      "reasoning": "The imported design existence is a necessary premise of the construction, not an existing stronger coding theorem. The new claimed implication is the exact capacity after the specified replacement and the exceptional seven-symbol witness.",
+      "searches": [
+        "doi:10.1002/jcd.70038 factor-critical STS Section 3",
+        "Kirkman triple-system existence v=3 mod6",
+        "arxiv:1008.1343 spectrum unique deletion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chee–Ge–Ling (2010) defines disjoint one-deletion shadows and perfect codes; allowing inverse-list multiplicity two changes the incidence problem.",
+        "The design-to-code replacement keeps all off-diagonal multiplicities at two while using spare diagonal capacity."
+      ],
+      "reasoning": "The proposed statement is equivalent to an index-two directed-pair packing with multiplicity-two diagonal loops. The exact list-two maximum is not an implication of a list-one perfect packing: doubling its blocks is prohibited by distinct-codeword constraints and changes the loop budget.",
+      "searches": [
+        "\"two-list one-deletion\" \"length three\" alphabet capacity",
+        "\"twofold directed triple packing\" length three code",
+        "arxiv:1008.1343 Section 3: directed packings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No accessible exact table or theorem with the claimed two-list capacity was located.",
+        "Nearby records concern one-deletion covering, unique decoding, length-four ternary list-two coding, and different deletion budgets; their implications differ."
+      ],
+      "reasoning": "A table of covering minima cannot upper bound a packing maximum. Previous exact ternary length-four list-two code size is a separate block length. Numerical experiments are only corroboration, not a novelty certificate.",
+      "searches": [
+        "\"2q^2/3\" \"list\" \"deletion\" length 3",
+        "\"q+floor(2q^2/3)\" deletion list",
+        "\"two-list\" \"three\" \"Steiner\" code",
+        "Indexed scientific records for length-three one-deletion covering and two-list coding"
+      ]
+    },
+    "rationale": "The closest fully inspected 2010 result concerns disjoint-shadow/perfect single-deletion codes, whereas this theorem optimizes two-list packing at length three over infinitely many alphabet sizes. The inspected 2026 Steiner existence proof supplies the design premise, not its code interpretation. Targeted mathematical-record and literature searches revealed no theorem implying the exact formula. A list-decoding 2026 preprint was accessible only at abstract level; an unindexed short-block specialization remains a stated risk.",
+    "residual_risks": [
+      "The 2026 Lin preprint full text could not be inspected; an appendix might address a fixed-length list-two specialization not visible in its abstract.",
+      "An unindexed equivalent all-alphabet packing result may exist.",
+      "The formula is not asserted for even alphabets or the residue class q=5 modulo6."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: studies one-list disjoint shadows and perfect code spectra, not inverse-list multiplicity two",
+        "evidence": [
+          "PDF pp.1–5 defines deletion-correcting codes with pairwise-disjoint descendants; Section 2 restricts to perfect (3,1) codes",
+          "2010 Lemma on directed packing does not establish the length-three two-list extremum"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.1343",
+        "material_read": "PDF introduction, definitions and Theorem 2.1, Section 3 directed-packing definitions and relevant length-three results, with page-image inspection",
+        "method": "Direct source PDF text and rendered page",
+        "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+        "trigger": "Same length-three single-deletion coding objects and directed designs"
+      },
+      {
+        "assessment": "SUPPORTING_PREMISE: the required factor-critical Steiner systems and almost parallel classes exist for every q>=13 with q=1 modulo6; no deletion code capacity is asserted",
+        "evidence": [
+          "Introduction acknowledges prior existence for all orders q=1 modulo6 with q>=13",
+          "Theorem 3.8 includes full Steiner systems at q=13,19 and arbitrary larger admissible q; Lemma 3.1 explicitly gives a near-parallel class for q=13"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jcd.70038",
+        "material_read": "Full online Introduction, Theorem 3.8, Lemma 3.1 and Section 3 existence construction",
+        "method": "Full scholarly HTML",
+        "title": "Partial Steiner Triple Systems With an Almost Parallel Class Missing Any Given Point",
+        "trigger": "Critical premise for alphabet sizes congruent to one modulo six"
+      },
+      {
+        "assessment": "DIFFERENT_DOMAIN_WITH_ACCESS_RISK: available text treats binary asymptotic list bounds, not exact q-ary length-three two-list capacity",
+        "evidence": [
+          "2026-09-22 abstract states binary asymptotic k-deletion t-list lower bounds; full text unavailable in this environment"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.26650",
+        "material_read": "Abstract and metadata only; attempted full arXiv PDF and HTML inaccessible",
+        "method": "Public arXiv abstract, independent index and direct fulltext attempt",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Recent list-decoding paper motivating fixed-list one-deletion capacity"
+      },
+      {
+        "assessment": "SUPPORTING_PREMISE: Kirkman systems exist exactly when q=3 modulo6; no list-decoding result in the material inspected",
+        "evidence": [
+          "Introduction cites Ray-Chaudhuri–Wilson and Lu for KTS existence for all q=3 mod6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-021-00952-x",
+        "material_read": "Accessible abstract and introduction excerpt summarizing classical existence theorem",
+        "method": "Publisher open HTML search material",
+        "title": "The first families of highly symmetric Kirkman triple systems whose orders fill a congruence class",
+        "trigger": "Classical resolvable Steiner system existence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eebc56a7-fc03-4da7-a337-3439ce405e0e",
+  "value": {
+    "rationale": "Solves a natural error-correction capacity at the shortest nontrivial deletion block length for two infinite congruence families, with a sharp universal shadow inequality and a constructive connection to resolvable and factor-critical Steiner systems. The exceptional q=7 has a finite certificate where the matching construction does not apply. The exact alphabet-dependent code sizes serve as reproducible benchmarks and show how repeated-letter shadows improve a directed-triple packing.",
+    "status": "PASS"
+  }
+}
