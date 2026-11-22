@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The area of applicability is fixed: five strictly positive side lengths, exterior turns of \(2\pi/5\), and exact directional closure. The distance between nonadjacent diameter disks is bounded below by a scalar projection. The weighted linear certificate and horizontal closure force a gap of at least \((\sqrt5-1)L/48\) among any four of the five nonadjacent pairs; a combinatorial complement argument yields two. The explicit constructed pentagon closes and has strictly positive side lengths, and squared-distance identities show exactly three additional intersections. The exact algebra and integer contrast were independently recalculated in the included checker. Numerical trials are supplementary, not the universal proof.
+## correctness
 
-## Originality — PASS, with historical risk
-Huemer–Pérez-Lantero (arXiv:1410.4126) obtain planarity for every convex pentagon, only implying one disjoint nonadjacent pair and at most nine edges. Herrera–Pérez-Lantero (arXiv:1805.10847) obtain treewidth at most three and broad graph-realizability results, but do not supply an equal-angle two-disjoint-pair obstruction. Neither the original nor the later work states a perimeter-proportional separation law for equiangular pentagons. An unrestricted integer-coordinate pentagon with nine graph edges shows the stricter result cannot follow from the general nine-edge bound. Searches across indexed mathematical findings and targeted literature did not locate the same implication; these searches do not certify historical uniqueness.
+PASS
 
-## Value — PASS
-The original motivating question was whether a convex pentagon must contain disjoint side disks. Equal angles are a canonical, geometrically constrained but nonregular five-sided family. The theorem answers the next natural extremal question exactly: how many side-disk edges can coexist, and whether the missing edges survive perturbations quantitatively. The two uniformly separated pairs and the sharp eight-edge example provide more structure than simply retesting the general planarity bound.
+For positive edge lengths closing along five successive 72-degree directions, projection of m_(i+2)-m_i onto the intervening edge gives Δ_i≥g_i=ell_(i+1)−(1−cos72°)(ell_i+ell_(i+2))/2. Explicit weighted sum g0+2g1+2g2+g3 plus the real closure relation equals cos72°(ell0+2ell1+(ell2+ell3)/2+2ell4)≥cos72°L/2. Each cyclic block of four therefore has some g_i≥cos72°L/12; choosing the four indices not containing a hypothetical sole large gap forces two distinct ones. The exact closure example with lengths (1/100,1,b,b,1), b=(299−99sqrt5)/200, has H0=H3>0,H1=H2<0,H4<0, so precisely three nonadjacent pairs intersect and 8 total edges. Fresh SymPy expansion independently checked closure, certificate and all 5 radical signs; 9-edge unrestricted integer witness checked by inspected script. Boundary: closed disks, strictly positive sides, exact 72° exterior turns; quantitative coefficient not asserted optimal.
 
-## Limitations
-The separation coefficient is explicit but not optimal, and no realization classification for all equiangular pentagons is claimed. The material compared may not exhaust specialized older geometry literature. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General convex-polygon side-disk graph planarity (Huemer–Pérez-Lantero) only forbids one of five nonadjacent disk pairs at n=5, not two separated pairs; Herrera–Pérez-Lantero treewidth/independent-set results likewise do not force the equiangular numerical threshold. The fixed-angle separation margin and sharp 8-edge witness are not derived by those results.
+
+## value
+
+PASS
+
+The graph of side-diameter disks is a natural geometric proximity object; restricting to an equiangular pentagon forces a genuinely stronger graph-theoretic exclusion than general planarity (8 rather than 9 edges), with an explicit uniform physical separation and a sharp extremal construction. This is not a generic n=5 enumeration or a routine restatement of planarity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

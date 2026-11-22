@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T16:08:26.873687Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive edge lengths closing along five successive 72-degree directions, projection of m_(i+2)-m_i onto the intervening edge gives Δ_i≥g_i=ell_(i+1)−(1−cos72°)(ell_i+ell_(i+2))/2. Explicit weighted sum g0+2g1+2g2+g3 plus the real closure relation equals cos72°(ell0+2ell1+(ell2+ell3)/2+2ell4)≥cos72°L/2. Each cyclic block of four therefore has some g_i≥cos72°L/12; choosing the four indices not containing a hypothetical sole large gap forces two distinct ones. The exact closure example with lengths (1/100,1,b,b,1), b=(299−99sqrt5)/200, has H0=H3>0,H1=H2<0,H4<0, so precisely three nonadjacent pairs intersect and 8 total edges. Fresh SymPy expansion independently checked closure, certificate and all 5 radical signs; 9-edge unrestricted integer witness checked by inspected script. Boundary: closed disks, strictly positive sides, exact 72° exterior turns; quantitative coefficient not asserted optimal.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General five-vertex planar graph bound 3n−6=9 versus current sharp eight under equal turning angles.",
+          "General independence number at least ceil(n/4)=2 for convex n-gons yields only a single nonedge for n=5."
+        ],
+        "reasoning": "Broad graph theorems cover more polygons but strictly weaker consequences; neither dominates the two-gap quantitative equiangular theorem.",
+        "searches": [
+          "Huemer Pérez-Lantero 2014 side disk graph planarity",
+          "Herrera Pérez-Lantero 2018 treewidth independent set realizability",
+          "Resultary same-object semantic query above"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1410.4126",
+        "https://arxiv.org/pdf/1805.10847",
+        "Resultary search query: equiangular pentagon side diameter disks maximum 8 edges at least two separated opposite disks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huemer–Pérez-Lantero planar Hamiltonian applies to all convex polygons but allows 9 edges at n=5.",
+          "Herrera–Pérez-Lantero give treewidth≤3 and convex-polygon graph realizability, not two forced separated pairs."
+        ],
+        "reasoning": "Neither graph statement algebraically forces the positive-coefficient four-gap closure certificate. Exact-title matching with the same new record is not independent prior evidence.",
+        "searches": [
+          "arXiv:1410.4126 full 21-page pdf Sections 1–4",
+          "arXiv:1805.10847 full 13-page pdf Sections 1–4",
+          "Resultary current exact-title self-hit excluded from novelty evidence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For five side disks there are five always-intersecting adjacent pairs; at most 8 edges iff at least two nonadjacent pairs are disjoint.",
+          "Huemer–Pérez-Lantero prove planarity for arbitrary convex n-gons; no fixed-angle L-proportional gap conclusion in its theorem."
+        ],
+        "reasoning": "Translated graph obstruction and separation formulation are compared; the new quantitative bound implies, but is stronger than, a graph nonedge statement.",
+        "searches": [
+          "Resultary: equiangular pentagon side diameter disks maximum 8 edges at least two separated opposite disks",
+          "arXiv:1410.4126 pp1–21",
+          "arXiv:1805.10847 pp1–13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Geometry is a continuous five-length closure family, not a table of five-vertex abstract graphs.",
+          "Nine-edge general pentagon witness and eight-edge equiangular witness distinguish unrestricted/regular-turn cases."
+        ],
+        "reasoning": "An exact table of side-disk graph realizability would need equiangular-specific geometric constraints; no such exact table encountered in inspected prior sources.",
+        "searches": [
+          "Resultary semantic query: side-diameter disks equiangular pentagon eight edges",
+          "arXiv:1805.10847 Section 4 realizability graphs"
+        ]
+      },
+      "rationale": "General convex-polygon side-disk graph planarity (Huemer–Pérez-Lantero) only forbids one of five nonadjacent disk pairs at n=5, not two separated pairs; Herrera–Pérez-Lantero treewidth/independent-set results likewise do not force the equiangular numerical threshold. The fixed-angle separation margin and sharp 8-edge witness are not derived by those results.",
+      "residual_risks": [
+        "Fixed-angle geometric margin may have an earlier unindexed geometry formulation; literature search is bounded, not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_WEAKER",
+          "evidence": "Planarity supplies at most nine edges for n=5, not at most eight in equiangular class.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.4126",
+          "material_read": "Full 21-page PDF; statement, planar proof and pentagon motivation",
+          "method": "Readable arXiv PDF text and page-level inspection",
+          "title": "The intersection graph of the disks with diameters the sides of a convex n-gon",
+          "trigger": "Same diameter-disk geometry and strongest general constraint"
+        },
+        {
+          "assessment": "GENERAL_WEAKER",
+          "evidence": "Theorem overview asserts treewidth≤3, α≥ceil(n/4), and graph realization classes; none yields two equiangular nonedges.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.10847",
+          "material_read": "Full 13-page paper including abstract, treewidth, independence, realizability sections; inspected PDF page 3 image",
+          "method": "arXiv PDF full text and screenshot",
+          "title": "On the intersection graph of the disks with diameters the sides of a convex n-gon",
+          "trigger": "Same objects; potentially stronger independent-set and graph-realizability bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph of side-diameter disks is a natural geometric proximity object; restricting to an equiangular pentagon forces a genuinely stronger graph-theoretic exclusion than general planarity (8 rather than 9 edges), with an explicit uniform physical separation and a sharp extremal construction. This is not a generic n=5 enumeration or a routine restatement of planarity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only strictly convex equiangular 5-gons with positive sides; numerical gap coefficient may not be optimal.",
+    "Independent radical/certificate checks verify proof ingredients, not external priority."
+  ],
+  "schema_version": 1
+}
