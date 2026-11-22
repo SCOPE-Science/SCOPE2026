@@ -1,17 +1,21 @@
-# Scientific review: critical coexistence rigidity and exact prey fluctuations
+# Independent mathematical audit
 
-## Correctness — PASS
-The two derivative identities, \(\frac d{dt}\log y=x-1\) and \(\frac d{dt}(\log z-2a\log y)=a(x-1)^2+a-b\), follow immediately from the displayed full three-species ODE. They yield the exact finite-horizon budget before any limiting argument. Eventual containment in a compact positive set bounds all logarithms. At \(b=a\), bounded monotonicity supplies a square-integrable prey deviation; bounded derivatives imply prey convergence, after which the equilibrium sum and a strictly monotone scalar logarithmic relation uniquely select the limit. The invariant-measure argument integrates a continuous coboundary over a compact support, and the amplitude bound follows from a bounded-variable second-moment inequality. `verify.py` checked the rational identities and a numerical illustration. No numerical extrapolation is used as a proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-Karim, Amen and Aziz (arXiv:2308.13284) classify analytic and Darboux integrability, not universal Cesàro moments or global interior convergence at the critical ratio. Samardzija and Greller (1988) already identify the qualitative critical ratio and stability regions; their prior threshold identification is explicitly excluded from the claimed novelty. The quantitative all-trajectory variance identity, compact-interior invariant-measure collapse and derived amplitude floor are not logical corollaries of a local or numerical parameter-region diagram, and none was found in the inspected textual material. Earlier work on different predator–prey variance identities does not cover this specific system via a relabeling.
+PASS
 
-The original 1988 full paper could not be read in full; its available abstract and contemporaneous citations are insufficient to categorically rule out an equivalent formulation there. The later 2025 expanded integrability article was accessible at abstract level only. Priority is therefore provisional and should be checked against these full papers before publication.
+PASS: Direct differentiation of the given ODE yields (log y)dot=x-1 and Wdot=[log z-2a log y]dot=a(x-1)^2+a-b. Integrating gives exact finite-horizon identities and bounded endpoint terms under eventual positive compactness. If b<a, W grows at least linearly and cannot remain bounded. At b=a, W increases to a finite limit and integral (x-1)^2<infinity; bounded vector field derivatives give uniform continuity, Barbalat x->1 and derivative convergence xdot->0, hence y+az->1+c. Strict decrease of log[(1+c-Y)/a]-2a log Y then selects a unique limit Y,Z>0. Integrating nonnegative Wdot against any compactly supported invariant measure forces x=1 and its invariant support to the equilibrium line; ergodic measures are atoms. For b>a, the limiting moments Ebar(x)=1 and Ebar(x^2)=b/a, along with (M-x)(x-m)>=0, yield (M-1)(1-m)>=b/a-1 and AM-GM the amplitude bound. Independent rational-state substitution at hundreds of tuples confirms only the local algebra; infinite-time conclusions follow from compactness arguments, not trajectories numerics.
 
-## Mathematical value — PASS
-The same ecological model is known for bounded periodic and chaotic coexistence. Existing stability diagrams do not determine the *exact magnitude* of prey variation for a given mortality/conversion ratio. The theorem gives a parameter-only long-time prey variance, a universal necessary amplitude floor for all compactly persistent solutions regardless of dynamical complexity, and a global convergence statement at the nonhyperbolic continuum of equilibria. This constrains permissible attractors and provides a direct simulation and parameter-calibration diagnostic. The question is natural because sustained coexistence is the model's primary dynamical phenomenon, and its solution is not merely a pointwise Jacobian or type check.
+## originality
 
-## Limitations and related literature
-Compact positive persistence is assumed, not established. The theorem does not assert coexistence existence when \(b>a\), nor does it apply to fractional-order variants. The qualitative border \(b=a\) is established background. A full-page comparison against the 1988 original is still a publication-priority risk. The 2023 integrability preprint and 2018 fractional-order study were read in their relevant equations and results sections; the latter concerns a genuinely different evolution operator. Independent validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS qualified: The original model and its critical b/a=1 stability border are already known and explicitly excluded from novelty. Karim–Amen–Aziz’s accessible full integrability preprint concerns first integrals and Darboux polynomials, not this exact all-persistent-orbit Cesaro second moment, critical convergence or invariant-measure collapse. Related predator-prey systems with other nonlinearities do not transfer these log-coboundary formulas by renaming. Original 1988 Samardzija–Greller full article and expanded 2025 article were inaccessible; no claim of whole-paper noncoverage, risk retained.
+
+## value
+
+PASS
+
+PASS: For an ecological flow known for complex recurrent/coexistence dynamics, exact prey variation independent of parameter c and of periodic versus chaotic behavior is a natural invariant. Critical global convergence to a continuum of nonhyperbolic equilibria and the supercritical necessary amplitude floor constrain possible persistent attractors and give quantitative consistency diagnostics; these are stronger than a local equilibrium stability border and not arbitrary computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
