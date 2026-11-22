@@ -1,21 +1,21 @@
-# Scientific review: radial-power harmonic Dirichlet boundary jumps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weighted energy is defined with normalized area and the complex derivative pair, avoiding a factor-of-two ambiguity. The exact Fourier multiplier is \(\psi_\alpha(n)=n^2B(n,\alpha+1)\). Direct beta-function evaluation proves the positive Poisson-mixture representation for \(0<\alpha\le1\). Classical finite-geometric-sum integration handles \(\alpha=0\). Above one, the multiplier tends to zero despite a positive first eigenvalue; for **any** positive off-diagonal jump measure, Cesàro averaging and Fatou's lemma force the total jump measure to vanish. This does not use rotation invariance. The Poisson mixture has exactly infinite activity below one, rate one at one, and yields the stated singular asymptotics. The first positive eigenvalue is the sharp spectral gap. `CHECK.py`, run from the actual document directory, passed 674 supplementary finite assertions. No finite assertion is used as a universal proof.
+PASS
 
-## Originality — PASS relative to inspected sources
+Orthogonality of disk Poisson harmonic modes under the complex Wirtinger-gradient normalization gives ψα(n)=n²B(n,α+1). For 0<α≤1 the positive mixing density να(dt)=α(1-αt)(1-t)^(α-2)dt satisfies ψα(n+1)-ψα(n)=∫t^n(1-t)να(dt), hence ψα(n)=∫(1-t^n)να(dt); Poisson Fourier coefficients establish the positive boundary-jump formula. α=0 follows from the classical circular H^1/2 Dirichlet formula. For α>1, ψα(n)→0 despite ψα(1)>0; averaging 1-cos(nθ) over all n tends to 1 off the diagonal, and Fatou rules out any positive, even nonstationary J. At α=1, να=dt gives total jump activity exactly one and j1(θ) as the displayed elementary formula; α<1 has infinite activity and derived sharp small-angle density. Increment positivity proves the positive spectral gap 1/(1+α). Independent 45 exact beta-increment checks (after expanding special functions), and numerical direct quadrature of j1 at four distinct angles agree; checks supplement full proof.
 
-The recent foundational paper of Bourabiaa et al., arXiv:2607.26870 (2026-07-29), introduces the positive-jump Douglas class, proves general superharmonic sufficiency and the existence of associated Hunt processes, and explicitly raises classification and jump-kernel identification in its §5 Problems 1 and 4. Its §4.2 computes only the classical constant-weight wrapped Cauchy case; Appendix A.2 studies the different stable symbols. The present **iff** for all radial-power parameters, the exact beta–Poisson mixture, its sharp angular singularity, and the finite-activity compound-Poisson endpoint were not found in that source. Bao, Göğüş and Pouliasis (2018, first electronically published 2017-05-19) cover general superharmonic weights and discuss the radial powers, but their reviewed sections study Dirichlet spaces and composition operators, not this sharp positive jump characterization. Actual published-finding corpus searches returned adjacent but different topics; no equivalent or dominating claim was observed in the checked evidence.
+## originality
 
-**Closest literature:** Bourabiaa et al. (2026), sections 2, 4, 5, Appendix A; Bao–Göğüş–Pouliasis (2018), introduction, §2, §5. The known superharmonic implication is explicitly prior, not proposed as novel. A search cannot establish global priority, and an equivalent result could exist under conditional-negative-definiteness, subordination, or Lévy-symbol terminology.
+PASS
 
-## Mathematical value — PASS
+General Douglas-type boundary representations for positive superharmonic weights and existence of their jump processes are established prior work. The radially exact iff 0≤α≤1 converse with no invariance assumption, explicit Poisson mixing law, density singularity and critical compound-Poisson endpoint are not found in the inspected primary theorem and its open Problems 1/4; thus best-of-knowledge genuinely additional special-family classification. Important residual terminology/priority risks persist.
 
-The 2026 source explicitly asks for concrete characterization and a description of Lévy dynamics. For the canonical radial powers, the result determines the entire sharp admissible parameter interval and a strict obstruction beyond it, rather than one more isolated example. The jump-law calculation reveals a genuine qualitative transition from infinite-activity paths to finite-activity compound Poisson motion at the exact endpoint, together with the singular coefficient and spectral gap useful for boundary potential theory. General construction of the Hunt process, superharmonic sufficiency, and wrapped Cauchy motion are previously established and are not counted as this contribution.
+## value
 
-## Scientific limitations and residual risk
+PASS
 
-The result is specific to radial powers; general weight classification is not settled. The positive representation is not asserted to be unique. The analytical proof is a self-review, not an independent audit. Historical equivalence under differently named Lévy or harmonic-extension frameworks remains possible, though no inspected source gives decisive coverage.
+The positive-jump representability of a canonical one-parameter family of weighted harmonic energies is a natural classification question explicitly motivated by the cited general theory. The α=1 transition from infinite to finite jump activity identifies an exact process-level boundary, while the converse excludes all positive kernels for α>1 even without symmetry. The special-family classification gives useful structural information beyond prior sufficiency.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

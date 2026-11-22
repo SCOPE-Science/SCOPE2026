@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The weight is defined on \(\mathbb D\) by \((1-|z|^2)^\alpha\) for real \(\alpha\ge0\); integration uses normalized planar area and the complex gradient pair. For any boundary Fourier mode \(e^{in\theta}\), angular orthogonality yields exactly \(\psi_\alpha(|n|)=n^2B(n,\alpha+1)\), eliminating normalization ambiguity. The proof checks all parameters and modes analytically, including the constant mode.
+## correctness
 
-The key nonstandard calculation is the beta first-difference identity
-\[
-\psi_\alpha(n+1)-\psi_\alpha(n)=\int_0^1t^n(1-t)\alpha(1-\alpha t)(1-t)^{\alpha-2}\,dt.
-\]
-This is integrated termwise against the normalized Poisson kernel to obtain a positive jump measure for the full \(0<\alpha\le1\) range. The impossibility direction uses only positive measure, pointwise Fejér/Cesàro convergence away from the diagonal and Fatou's lemma; it does not presume translation invariance, spectral completeness of a finite truncation, or nonlocality of a guessed kernel. Angular singularity uses an integrable scaled majorant; the critical closed form is checked by elementary integration.
+PASS
 
-Execute `python CHECK.py` from the directory containing the file. The recorded run passed 674 finite assertions, including exact rational beta recurrences at admissible and inadmissible rational exponents, the classical and endpoint spectra, high-precision checks of the exact critical jump density, and numerical checks of the small-angle singularity. The checks are supplementary and cannot prove an all-parameter or all-frequency statement on their own. No external independent mathematical validation has been performed.
+Orthogonality of disk Poisson harmonic modes under the complex Wirtinger-gradient normalization gives ψα(n)=n²B(n,α+1). For 0<α≤1 the positive mixing density να(dt)=α(1-αt)(1-t)^(α-2)dt satisfies ψα(n+1)-ψα(n)=∫t^n(1-t)να(dt), hence ψα(n)=∫(1-t^n)να(dt); Poisson Fourier coefficients establish the positive boundary-jump formula. α=0 follows from the classical circular H^1/2 Dirichlet formula. For α>1, ψα(n)→0 despite ψα(1)>0; averaging 1-cos(nθ) over all n tends to 1 off the diagonal, and Fatou rules out any positive, even nonstationary J. At α=1, να=dt gives total jump activity exactly one and j1(θ) as the displayed elementary formula; α<1 has infinite activity and derived sharp small-angle density. Increment positivity proves the positive spectral gap 1/(1+α). Independent 45 exact beta-increment checks (after expanding special functions), and numerical direct quadrature of j1 at four distinct angles agree; checks supplement full proof.
+
+## originality
+
+PASS
+
+General Douglas-type boundary representations for positive superharmonic weights and existence of their jump processes are established prior work. The radially exact iff 0≤α≤1 converse with no invariance assumption, explicit Poisson mixing law, density singularity and critical compound-Poisson endpoint are not found in the inspected primary theorem and its open Problems 1/4; thus best-of-knowledge genuinely additional special-family classification. Important residual terminology/priority risks persist.
+
+## value
+
+PASS
+
+The positive-jump representability of a canonical one-parameter family of weighted harmonic energies is a natural classification question explicitly motivated by the cited general theory. The α=1 transition from infinite to finite jump activity identifies an exact process-level boundary, while the converse excludes all positive kernels for α>1 even without symmetry. The special-family classification gives useful structural information beyond prior sufficiency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
