@@ -1,0 +1,15 @@
+# Scientific review: finite exclusion–Langmuir polarization/covariance contrast
+
+## Correctness — PASS
+The finite-state generator is explicit and irreducible for every \(a>0\), \(w\ge0\). Four pairs of positive stationary weights, totaling \(2D(a,w)\), satisfy each of the eight master equations as exact polynomial identities. Exact moment algebra yields the three covariance formulas and the density contrast. Their derivatives have the displayed strictly signed factors, valid on the entire stated parameter domain. `check.py` independently confirms the polynomial balances and formulas and solves 20 rational-rate stationary systems without using the proposed weights. These sampled systems are consistency checks, not substitutes for the polynomial proof.
+
+## Originality — PASS, with priority qualification
+The closest paper, Silva et al., arXiv:2611.07053v1 (2026), computes finite-chain stationary distributions and covariance matrices using a general operator framework and documents qualitative correlation suppression for selected parameters. Sections II, III and IV.D (and relevant figures/discussion) were inspected. Its computational kernel machinery is not claimed as new. The global two-parameter sign boundary for **all** inter-site covariances and the strictly opposed density-polarization/correlation response are not formulated in the inspected text. Botto et al., arXiv:1809.03231v1, establish symmetric-Langmuir mean-field dynamical theory, which cannot imply exact finite-volume connected correlations. Targeted published-result searches found no implication-equivalent statement. A general finite-chain stationary solver can implicitly generate these rational formulas and thus substantially limits priority claims; an unindexed explicit analysis may exist.
+
+## Value — PASS
+Three sites form the minimal chain with a bulk Langmuir site and two directed hopping bonds, making the parameter restriction mathematically natural. The result determines the **complete** pair-correlation sign classification on the entire symmetric-rate family and demonstrates a non-obvious separation: stronger balanced exchange makes the mean spatial profile more polarized, despite washing out connected spatial correlations. This qualifies as a motivated finite-size structural classification and a sharp benchmark for correlation-based transport diagnostics, not as a generic large-system theorem.
+
+## Sources and limits
+The exact generator and prior steady-state framework are taken from Silva et al. (arXiv:2611.07053v1); the previously studied symmetric-Langmuir mean-field dynamics from Botto et al. (arXiv:1809.03231v1). Relevant indexed work on finite exclusion resetting and balanced-exchange networks concerns distinct processes or time-ordered observables. The new theorem concerns only three sites with balanced interior exchange and equal boundary injection/extraction; extension to arbitrary chain lengths is unproved. General finite-state methods and possible unindexed exact solutions are the main originality risks.
+
+Self-review: passed. Independent audit: not yet performed.
