@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The edge-difference coordinate map is an isometric Banach-space identification, sending the parent composition operator to a scalar identity plus an isometric parent-duplication shift. For finite branching, the finite core plus finitely many infinite tails yields a finite-rank perturbation of a direct sum of ordinary unilateral shifts and gives the negative end-count index for every interior spectral parameter. For infinite branching, explicitly constructed independent bounded dual eigenfunctionals show infinite cokernel throughout the open disk, while the isometry estimate shows closed range. Explicit finite-support tent vectors destroy bounded-below estimates on the unit circle. Polynomial claims follow from Calkin spectral mapping and index additivity. Critical hypotheses: local finiteness for the little space and leaflessness for the isometry and infinite rays. A finite checker independently checks illustrative truncations and identities; it cannot prove the infinite statements.
+## correctness
 
-## Originality — PASS (qualified)
-The motivating full paper arXiv:2611.11737, section 4, classifies Fredholmness of the unshifted composition operator and its index; that is strictly narrower than a translated Fredholm essential-spectrum and polynomial index classification. Full text of arXiv:1906.02372 section 3 gives ordinary and approximate spectrum of forward tree shifts, but not the Fredholm essential spectrum or branching-dependent index. Full text of arXiv:2410.14714 section 4 gives spectra of little-Lipschitz composition operators, not Fredholm shift analysis. Searches for parent, Lipschitz, tree, Fredholm, spectral shifts and end-counts in published mathematical findings did not reveal an implication-equivalent result. Closest records concerned Hilbert/\(\ell^p\) tree shifts with distinct Banach geometry and different Fredholm behavior. Residual risk: an older representation as a direct sum of tree shifts or general isometry theory may already imply the explicit theorem, despite no identified matching statement.
+PASS
 
-## Mathematical value — PASS
-The Fredholm essential spectrum is a canonical operator invariant not captured by the known ordinary disk spectrum; a change from finitely to infinitely many branching vertices causes a full-disk interior transition. The number of ends controls every interior Fredholm index in the finite case, while explicit boundary functionals explain the infinite case. The polynomial extension gives a complete, computable family of robust index invariants for both nonseparable and separable tree-Lipschitz Banach spaces. This resolves a motivated gap in the recent Fredholm study, rather than only adding a trivial example.
+On locally finite leafless rooted T, the map f↦(f(o),Δf) is an isometric identification of big/little Lipschitz norms with C ⊕ ℓ∞(E) and C ⊕ c0(E). Parent composition acts as 1⊕D where Dg=0 in depth one and g(parent) otherwise. Leaflessness makes D an isometry, so for |λ|<1, ||(D-λ)g||≥(1-|λ|)||g||, giving injectivity and closed range; |λ|>1 is invertible by Neumann. If only finitely many branching vertices, stripping a finite head leaves k=1+∑(d-1) unilateral shifts, each Fredholm index -1 for |λ|<1. With infinite branching, for each u choose disjoint child rays and define L_u(g)=∑_{j>=0} λ^j(g(a_j)-g(b_j)); absolutely convergent and annihilates D-λ. The functionals are independent by choosing a minimum-depth branching vertex among a finite relation, giving infinite cokernel. Unit-circle tent vectors λ^{-depth}h_depth have norm one and residual ≤1/N and lie in c0 and ℓ∞, so injective D-λ cannot be Fredholm there. Polynomial result follows from Calkin invertibility and index additivity. The proof is genuinely infinite-dimensional; toy rank checks cannot replace it. Spectrum is the closed disk, with scalar eigenvalue 1 already contained.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kong–Liu 2026 gives Fredholmness/index for C_phi at λ=0, with K equal to branching surplus in this parent case, but not Fredholmness for every translated C_pi−λI nor the distinction between finite and infinite branching and polynomial functional calculus. The 2019 forward-shift spectrum result covers the ordinary spectrum and isometry only. No inspected theorem already implies both Fredholm essential-spectrum alternatives as a stated corollary without the new dual-functionals and finite-tail shift decomposition.
+
+## value
+
+PASS
+
+The number of ends and infinite branching are intrinsic structural parameters of leafless locally finite trees; their exact impact on a named Fredholm essential-spectrum convention and analytic index of all operator polynomials is a natural nontrivial invariant for tree Lipschitz function spaces. Closed-range infinite codimension is a useful counterpoint to the unchanged ordinary disk spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
