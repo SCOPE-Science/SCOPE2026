@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the exact Hamiltonian and Abel identities and is independent of finite experiments. A Python 3 standard-library checker (`check_signed_residence.py`) was executed on the complete new package input. It verified three exact-rational Hamiltonian parameter examples at three rational points each; it computed nonsingular turning-point integrals and checked the expected signed limit for three increasing finite energies. It also verified the analytic inverse identity at two admissible pairs, plus the symmetric half-time equality at \(a=0\). The checker printed `SIGNED_CUBIC_CENTER_RESIDENCE_INVERSE_OK`.
+# Independent mathematical audit
 
-The asymptotic proof requires the cancellation in the derivative of the two mass primitives and the integrable tail \(O(E^{-5/4})\); these are established in the Proof section, rather than inferred from the finite checker. The exact area identity follows from differentiation under an integrable square-root endpoint and the explicit vanishing endpoint. Exact sign ordering is proved by a mass-coordinate inverse hyperbolic formula and strictly positive polynomial bracket, not by numerical experiments. Errors are not asserted to be uniform as \(k\downarrow a^2\); no independent audit has been performed.
+## correctness
+
+PASS
+
+Hamiltonian equations reproduce the displayed flow; p and V are positive/strictly single-well at k>a², giving unique closed energy ovals and exact physical-time/Euclidean-area quadratures with A_s_prime=T_s. The half-mass F_s(E)=int_0^{r_s}p_s(r)^-1/2 dr has an exact arcsinh primitive. Its signed difference tends to -2/sqrt(k) artanh(a/sqrt(k)); its derivative difference g(u) is bounded near 0 and O(u^-5/4) at infinity, so Abel kernel dominated convergence yields sqrt(E)(T_+-T_-)->sqrt2 int g=B, with the endpoint range O(E^-1/4). Each F_s_prime has 1/(4sqrt(k)u) tail and produces T(E)=log E/(sqrt(2kE))+O(E^-1/2), giving L. Integrating A_s_prime establishes the 2B area constant and 1/logE occupation bias. The exact mass-coordinate potential difference factorization in S=sinh(sqrt(k)z), h=cosh(sqrt(k)z)-1 has sign(a) because 3h²+5h+1+3(a²/k)h(h-1)>0; independent symbolic polynomial reduction modulo S²=h(h+2) verified the factorization. Positive Abel kernel then gives strict all-energy signed area ordering; reflection (x,y,a)->(-x,-y,-a) preserves full period/area, while explicit tanh inverse is global analytic.
+
+## originality
+
+PASS
+
+Earlier same-system work establishes global center, leading fair-sign occupation and even a two-term unsigned total period. None of the inspected full same-model sources provides the finite signed half-period asymptotic B, global strict signed-area ordering or the resulting sign-sensitive analytic inverse; these are the claimed incremental findings.
+
+## value
+
+PASS
+
+The sign of the asymmetry coefficient is intrinsically invisible to every unsigned period/area measurement owing to exact reflection symmetry. An explicit signed residence statistic and strict finite-energy area comparison resolve a natural inverse-identifiability obstruction, adding mathematically motivated sharp information to the model rather than a routine period recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

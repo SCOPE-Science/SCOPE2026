@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The canonical Hamiltonian identity and half-period/half-area quadratures are exact for every \(k>a^2\). The mass primitive (4) gives an explicit finite signed limit. After potential inversion, the density difference is bounded near zero and decays as \(O(E^{-5/4})\), so the Abel kernel converges against its signed integral; the near-upper-end estimate is \(O(E^{-1/4})\). The total leading logarithm and area derivative supply the remaining assertions. A mass-coordinate hyperbolic substitution yields the exact positive factorization (10), proving global strict area ordering by a positive Abel kernel. The inverse is algebraically exact and smooth on the full parameter domain. An included independent arithmetic/numerical checker corroborates selected identities but is not substituted for the proof.
+## correctness
 
-**Originality: PASS within inspected evidence.** Llibre and Rondón prove global-center existence but not signed residence. The closest published same-family result, *Logarithmic occupation and the two-term high-energy period of a cubic global center*, proves a stronger *unsigned* two-term period law and a fair-sign leading measure, but inspection of its full RESULT.md establishes that the signed order-\(E^{-1/2}\) half-time difference, area partner and sign-sensitive two-observable inverse are not part of its stated proof or theorem. In fact that unsigned law is exactly invariant under the involution \(a\mapsto-a\); the new signed measurement resolves a genuine unidentifiability. The general variable-mass quadrature of Ghose-Choudhury–Guha is credited, and related logarithmic-phase work concerns a different symmetric Hamiltonian. The accessible own record claims were compared for equivalences and stronger coverage; no equivalent signed inverse was found. Unindexed prior equivalents remain a risk.
+PASS
 
-**Mathematical value: PASS.** Identifying the sign of the cubic asymmetry from dynamics is impossible from complete total-period and total-area curves, not just their limits. The theorem supplies a strict half-area ordering at every energy, the physically interpretable oriented clock, its exact finite asymptotic coefficient, the companion geometric high-energy bias, and a global analytic inverse. This solves a natural identifiability gap left by the strongest available period asymptotic; it is not merely another term in an already identified unsigned expansion. Its limitations are a fixed family, fixed-parameter high-energy limits, and unassessed finite-noise conditioning.
+Hamiltonian equations reproduce the displayed flow; p and V are positive/strictly single-well at k>a², giving unique closed energy ovals and exact physical-time/Euclidean-area quadratures with A_s_prime=T_s. The half-mass F_s(E)=int_0^{r_s}p_s(r)^-1/2 dr has an exact arcsinh primitive. Its signed difference tends to -2/sqrt(k) artanh(a/sqrt(k)); its derivative difference g(u) is bounded near 0 and O(u^-5/4) at infinity, so Abel kernel dominated convergence yields sqrt(E)(T_+-T_-)->sqrt2 int g=B, with the endpoint range O(E^-1/4). Each F_s_prime has 1/(4sqrt(k)u) tail and produces T(E)=log E/(sqrt(2kE))+O(E^-1/2), giving L. Integrating A_s_prime establishes the 2B area constant and 1/logE occupation bias. The exact mass-coordinate potential difference factorization in S=sinh(sqrt(k)z), h=cosh(sqrt(k)z)-1 has sign(a) because 3h²+5h+1+3(a²/k)h(h-1)>0; independent symbolic polynomial reduction modulo S²=h(h+2) verified the factorization. Positive Abel kernel then gives strict all-energy signed area ordering; reflection (x,y,a)->(-x,-y,-a) preserves full period/area, while explicit tanh inverse is global analytic.
 
-Independent external verification remains outstanding. The numerical checker is supplementary; it is not an independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier same-system work establishes global center, leading fair-sign occupation and even a two-term unsigned total period. None of the inspected full same-model sources provides the finite signed half-period asymptotic B, global strict signed-area ordering or the resulting sign-sensitive analytic inverse; these are the claimed incremental findings.
+
+## value
+
+PASS
+
+The sign of the asymmetry coefficient is intrinsically invisible to every unsigned period/area measurement owing to exact reflection symmetry. An explicit signed residence statistic and strict finite-energy area comparison resolve a natural inverse-identifiability obstruction, adding mathematically motivated sharp information to the model rather than a routine period recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
