@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex classification is complete even at integral offsets. Strict convexity excludes nonvertex maximizing endpoints. Rearrangement gives the exact smallest vertex inner product, and its equality cases yield the factorial counts, including the forced fractional-coordinate overlap in odd central sections. The finite exact verifier independently checked 55 small instances; it does not substitute for the general proof. Parameter boundaries and singleton cases are explicit.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The checked published research records address cube-slice face-lattice reconstruction, sharp minimum width of the same diagonal sections, hypersimplex facial distance, and other polytopes' Euclidean diameters. Neither the face-lattice invariants nor width results imply the complete all-offset Euclidean diameter graph and its factorial contact counts. Queries included alternate names (capped simplices, fractional hypersimplices, hypersimplex slices) and rearrangement formulations. The close reconstruction source was accessible only at bibliographic/abstract level and remains a residual priority risk. The classical disjoint-support integer-slice diameter is credited as routine prior geometry, not separately claimed novel.
+PASS
 
-## Mathematical value — PASS
-The invariant is canonical for the natural continuous family of parallel diagonal cube sections. The complete all-real-offset description, odd-dimensional flat diameter interval, and exact changes in the diametral vertex-pair graph answer a metric question not fixed by the slices' combinatorial types. It is a natural exact classification rather than a parameter chosen solely for an arithmetic coincidence.
+Affine transform to fractional hypersimplex Q_{n,q}, q=(n-|t|)/2, lists all vertices as permutations of k ones plus a fractional r. Strict convexity forces endpoint vertices. Rearrangement and equality cases separate disjoint supports from odd central fractional overlap, yielding squared diameter 8(k+r²) outside odd plateau and 8k inside it, with counted unordered endpoint pairs. Independently enumerated exact rational vertex pairs for n=3..8 across selected integral and fractional q including central limits; all matched exact diameters and factorial pair counts. Actual frozen verify.py examined.
 
-## Limits and comparison
-The result is restricted to Euclidean diameter of diagonal sections, not general section orientations, all face distances, or graph diameters. Primary manuscript text for the 2026 reconstruction paper was not accessible; abstract-level comparison cannot certify that the full manuscript omits every corresponding special case. Independent historical-priority and mathematical review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-real-offset Euclidean diameter and enumeration of every diametral vertex pair are explicitly classified, including odd central plateau and jump loci. Searched combinatorial cube-slice reconstruction, minimum-width and hypersimplex facial thickness do not logically imply this maximum-distance metric pair count. Direct vertex-pair enumeration through n=8 supports the proof. Historical priority is best-of-knowledge and remains provisional.
+
+## value
+
+PASS
+
+The natural metric diameter graph of cube slices has a complete nontrivial classification over continuous real offsets, with an odd-dimensional plateau and discrete jumps in the multiplicity of extremizing pairs. These fine Euclidean properties are not determined by ordinary face-lattice graphs or minimum width; useful in metric convex geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
