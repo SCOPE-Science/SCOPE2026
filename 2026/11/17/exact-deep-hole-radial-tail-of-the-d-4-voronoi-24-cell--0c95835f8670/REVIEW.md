@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof classifies all \(24\) vertices of the unscaled \(D_4\) Voronoi cell, gives an exact volume-two normalization, proves that its squared-radius superlevel set above \(3/4\) splits into disjoint vertex caps, and integrates one cap using the exact quadratic deficit. The universal cap decomposition is analytical, not inferred from samples. Catalan Lagrange inversion establishes an absolutely convergent, rational-coefficient series, and the independent numerical quadrature and uniform-cell sampling checks passed.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-Liu (arXiv:2611.00100) proves a normalized-second-moment optimality theorem; its statement does not determine the \(D_4\) error-tail germ. Ordentlich (arXiv:2506.19791) develops Voronoi spherical CDF bounds for random lattices and discusses earlier evaluated/plotted \(D_4\) radial distributions. Conway–Sloane (1982) computes Voronoi geometry and second moments. The existing regular-simplex nearest-vertex tail result is not the \(D_4\) nearest-lattice-point error law. The explicit interval-exact cube integral and all Taylor coefficients were not identified in the inspected material, but historical priority is not independently established; older radial-distribution work is the main residual risk.
+PASS
 
-## Mathematical value — PASS
-The \(D_4\) Voronoi cell belongs to the recently established optimal four-dimensional lattice quantizer. Its extreme-error tail determines the frequency of near-covering-radius quantization events, a natural statistic not characterized by normalized second moment. A rigorous full endpoint interval law and all positive rational coefficients go beyond identifying a simple leading geometric exponent.
+For the unrescaled covolume-2 D4 root lattice, |x_i|+|x_j|<=1 specifies the exact 24-vertex Voronoi 24-cell with squared covering radius 1. Distinct unit vertices have dot product <=1/2; linear support bounds make the norm²>3/4 superlevel a disjoint union of 24 vertex caps. In the e1 cap, x=(1-t,t u_1,t u_2,t u_3) with 0<=t<1/4, the deficit equals 2t-(1+sum u²)t², yielding a three-cube integral after the exact t³ Jacobian. Catalan/Lagrange inversion and uniform convergence for epsilon<1/4 prove the full rational positive series. Independently recomputed b0=1, b1=2, b2=56/15, b3=152/21 by symbolic uniform moments; finite algebra corroborates the exact derivation.
 
-## Scope
-The stated normalization has covolume two. The law is proved only for squared-error deficits strictly between zero and \(1/4\). No global radial law or extremality among all quantizers is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage after implication comparison; The cited general theory does not deliver the claimed nonlocal epsilon interval and coefficients as a corollary.
+
+## value
+
+PASS
+
+The natural squared-quantization-error tail near deep holes of a celebrated highly symmetric lattice is given not just as a moment or plot but as an exact convergent all-order law on a nontrivial interval. It quantifies rare worst-case errors, useful independently of global optimization theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

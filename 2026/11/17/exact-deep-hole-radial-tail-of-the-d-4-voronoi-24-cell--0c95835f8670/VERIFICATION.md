@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The full proof is in `RESULT.md`; `verify.py` is a standalone supplementary checker (Python 3 with NumPy). It checks exact rational coefficients via integer factorial arithmetic; the complete 24-point orbit, triality matrix, vertex inner-product bound, and cell volume; and independent random uniform-point sampling against smooth tensor quadrature at squared deficits 0.12, 0.17, 0.20 and 0.24. The code was executed and all assertions passed. Sampling is a consistency test, not a proof of the infinite statement. The exact cap-integral and Catalan calculations provide the infinite proof.
+# Independent mathematical audit
 
-The four numerical integral probabilities obtained by the checker were 0.00040760121, 0.00188349055, 0.00396113216 and 0.00948285254, respectively. Their Monte Carlo estimates all passed the predeclared six-standard-error tolerances. The complete Taylor coefficient sequence was proved analytically, rather than inferred from these four values.
+## correctness
+
+PASS
+
+For the unrescaled covolume-2 D4 root lattice, |x_i|+|x_j|<=1 specifies the exact 24-vertex Voronoi 24-cell with squared covering radius 1. Distinct unit vertices have dot product <=1/2; linear support bounds make the norm²>3/4 superlevel a disjoint union of 24 vertex caps. In the e1 cap, x=(1-t,t u_1,t u_2,t u_3) with 0<=t<1/4, the deficit equals 2t-(1+sum u²)t², yielding a three-cube integral after the exact t³ Jacobian. Catalan/Lagrange inversion and uniform convergence for epsilon<1/4 prove the full rational positive series. Independently recomputed b0=1, b1=2, b2=56/15, b3=152/21 by symbolic uniform moments; finite algebra corroborates the exact derivation.
+
+## originality
+
+PASS
+
+Best-of-knowledge noncoverage after implication comparison; The cited general theory does not deliver the claimed nonlocal epsilon interval and coefficients as a corollary.
+
+## value
+
+PASS
+
+The natural squared-quantization-error tail near deep holes of a celebrated highly symmetric lattice is given not just as a moment or plot but as an exact convergent all-order law on a nontrivial interval. It quantifies rare worst-case errors, useful independently of global optimization theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
