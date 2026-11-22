@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:06:22.041612Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The definition checks all sixteen cyclic 4-bit windows in each length-16 binary word and counts rotations separately, so exactly 256 rooted de Bruijn words arise from an independent exhaustive scan of 65536 words. I computed the entire unnormalized 16-bit integer Walsh transform with complete 12 signed levels (-96:64,-80:32,-64:96,-48:1088,-32:2640,-16:7872,0:42022,16:7744,32:2576,48:1184,64:216,256:2). The full support is 23514; least positive magnitude 16, maximum256. Complementation makes every odd-character coefficient zero (32768), leaving 9254 additional even zeros. All 120 weight-two characters yield circular-distance multipliers 0,0,0,-96,16,-16,-48,32 for distances1..8; local 1..3 cancellations are forced by four-window uniformity. Independently transforming the nonzero spectral support gave integer kernel absolute sum2520272, normalized 157517/4096. Translation-averaging arbitrary projections onto the Fourier range establishes the unrestricted global endpoint optimum. The source C++ checker additionally enumerates all reversible feedback tables; its code was read, not blindly trusted as a log.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full list of rooted 256 words is classical; a broader word enumeration could algorithmically supply the input, but not the evaluated 65536 Walsh coefficients.",
+          "Sawada–Williams–Wong construction generates de Bruijn words, not this complete codebook Fourier nullity/projection."
+        ],
+        "reasoning": "General constructions and orthogonal-array moments determine only low-degree Fourier behavior; higher even-weight zeros and sharp projector norm do not follow from them without additional whole-codebook computation.",
+        "searches": [
+          "binary de Bruijn order four 16-bit rooted codebook Walsh spectrum Boolean Fourier 42022 zeros projection",
+          "de Bruijn order four complete codebook partial word enumeration 256",
+          "de Bruijn general sequence generation Fredricksen Sawada Williams Wong"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT 465f3949c6c5160cf1b9e98db3a58d1a55f81497, verify_debruijn4.py and check_debruijn4.cpp read; tree f6fa5b7f253352866758ab2c8e2963c43ba645ae.",
+        "https://link.springer.com/article/10.1186/1687-1499-2011-4",
+        "https://doi.org/10.1016/j.disc.2015.08.002",
+        "Resultary semantic search: binary de Bruijn order four 16-bit rooted codebook Walsh spectrum Boolean Fourier 42022 zeros projection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spinsante et al. investigate individual periodic autocorrelation/crosscorrelation; do not compute this rooted codebook global Boolean transform.",
+          "Classical de Bruijn count 2^{2^{n-1}-n} times rotations yields 256 at n=4, and local four-block uniformity forces weight-two distance≤3 zeros."
+        ],
+        "reasoning": "Known cardinality, complement symmetry and local orthogonality account for only part of the spectrum; neither implies 9254 additional even-weight zeros or the optimal norm. Stronger source that evaluates this all-codebook spectrum not located.",
+        "searches": [
+          "binary de Bruijn order four 16-bit rooted codebook Walsh spectrum Boolean Fourier 42022 zeros projection",
+          "Spinsante Andrenacci Gambi binary de Bruijn sequences DS CDMA correlations",
+          "Sawada Williams Wong simple de Bruijn construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Time-shift autocorrelation of an individual de Bruijn word is a Fourier calculation on Z/16, whereas this W(u) is a Boolean character sum across the entire rooted codebook in F2^16.",
+          "Spinsante et al. 2011 discuss autocorrelations and crosscorrelations of individual words; first three pair cancellations follow classical local factor uniformity."
+        ],
+        "reasoning": "The same term Fourier can designate different groups; individual-sequence autocorrelations are not equivalent to the ensemble Boolean indicator spectrum. Only elementary local uniformity is covered prior.",
+        "searches": [
+          "binary de Bruijn order four 16-bit rooted codebook Walsh spectrum Boolean Fourier 42022 zeros projection",
+          "de Bruijn binary order four autocorrelation Fourier word space",
+          "rooted de Bruijn sequences complement Walsh codebook"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact-match own record, other order-four partial-word census reports 256 ordinary unfoldings.",
+          "The 12-level signed Walsh histogram and 2520272 inverse support-sum are distinct quantities from de Bruijn cycle-count and wildcard enumerations."
+        ],
+        "reasoning": "The exact original codeword table can be known while the complete Fourier table is unreported; direct absence from bounded search is not a proof of novelty. No earlier exact same Fourier values were found.",
+        "searches": [
+          "binary de Bruijn order four 16-bit rooted codebook Walsh spectrum Boolean Fourier 42022 zeros projection",
+          "binary de Bruijn n4 42022 zero Walsh codebook Fourier table",
+          "order four de Bruijn universal partial word enumerator"
+        ]
+      },
+      "rationale": "Compared the actual theorem and its implications against the listed primary source material and published mathematical records, including aliases and substantially broader methods. No decisive prior coverage was found in the accessible evidence; this is a bounded best-of-knowledge originality finding, with residual risks explicitly documented.",
+      "residual_risks": [
+        "A published or unindexed table of exact Boolean Walsh sums across order-four de Bruijn codewords may exist despite bounded search.",
+        "Sawada–Williams–Wong original article was only partially readable, not a whole-paper NOT_COVERING assertion.",
+        "All numeric conclusions are for fixed order four, not universal order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers individual sequence correlation, not Fourier transform across all 256 rooted words as points in 16-dimensional binary space.",
+          "evidence": "Spinsante, Andrenacci, Gambi (2011), DOI 10.1186/1687-1499-2011-4.",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/1687-1499-2011-4",
+          "material_read": "Full accessible Springer article HTML: introduction, sequence construction, individual auto- and cross-correlation discussions, DS-CDMA comparisons, conclusions",
+          "method": "Full publicly accessible article HTML read",
+          "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+          "trigger": "Highly relevant de Bruijn family and correlation analysis"
+        },
+        {
+          "assessment": "Algorithm for constructing de Bruijn cycles, not demonstrated to enumerate ensemble Walsh support; incomplete reading retained as priority risk.",
+          "evidence": "Sawada, Williams, Wong (2016), Discrete Mathematics 339,127–131.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2015.08.002",
+          "material_read": "Author preprint bibliographic record, abstract and accessible beginning only",
+          "method": "Indexed manuscript excerpts and abstract, not a full text inspection",
+          "title": "A surprisingly simple de Bruijn sequence construction",
+          "trigger": "Related generator could imply exact codebook enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The order-four de Bruijn codebook is a canonical small nontrivial complete cyclic combinatorial design with practical correlation motivation; the cardinality 256 and local lag zeros are established and not claimed new. The full Boolean **ensemble codebook** spectrum, 9254 unexplained-by-complement zeros, first nonlocal lag law and optimal recovery projection quantify distinct natural invariants. A complete exact single-order classification can stand without a higher-order theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A published or unindexed table of exact Boolean Walsh sums across order-four de Bruijn codewords may exist despite bounded search.",
+    "Sawada–Williams–Wong original article was only partially readable, not a whole-paper NOT_COVERING assertion.",
+    "All numeric conclusions are for fixed order four, not universal order."
+  ],
+  "schema_version": 1
+}

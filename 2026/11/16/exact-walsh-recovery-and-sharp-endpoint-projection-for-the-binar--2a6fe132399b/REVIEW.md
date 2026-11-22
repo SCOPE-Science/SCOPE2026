@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite set is defined by the complete cyclic-four-window condition on all \(65{,}536\) binary words. A second exhaustive method uses all \(256\) possible reversible feedback tables; exactly \(16\) yield single cycles, and their \(16\) roots agree with the direct set of \(256\). The C++17 checker compares a fast exact Walsh transform with independently summed integer characters at **every** frequency. The Python checker separately recomputes the exact histogram, two-point law and Fourier-support projection kernel. The full signed histogram, Parseval checksum, minimum nonzero modulus, zero count, Fourier rank and projection numerator were reproduced. Fourier diagonalization and averaging over all translations rigorously establish the operator-norm assertions for arbitrary linear projections.
+PASS
 
-## Originality — PASS under bounded comparison
+The definition checks all sixteen cyclic 4-bit windows in each length-16 binary word and counts rotations separately, so exactly 256 rooted de Bruijn words arise from an independent exhaustive scan of 65536 words. I computed the entire unnormalized 16-bit integer Walsh transform with complete 12 signed levels (-96:64,-80:32,-64:96,-48:1088,-32:2640,-16:7872,0:42022,16:7744,32:2576,48:1184,64:216,256:2). The full support is 23514; least positive magnitude 16, maximum256. Complementation makes every odd-character coefficient zero (32768), leaving 9254 additional even zeros. All 120 weight-two characters yield circular-distance multipliers 0,0,0,-96,16,-16,-48,32 for distances1..8; local 1..3 cancellations are forced by four-window uniformity. Independently transforming the nonzero spectral support gave integer kernel absolute sum2520272, normalized 157517/4096. Translation-averaging arbitrary projections onto the Fourier range establishes the unrestricted global endpoint optimum. The source C++ checker additionally enumerates all reversible feedback tables; its code was read, not blindly trusted as a log.
 
-Searches for de Bruijn word-space Fourier transforms, Walsh codebook indicator ranks, exact numerical nullities and equivalent convolution norms found no published theorem covering the present exact Boolean spectrum. Spinsante–Andrenacci–Gambi (2011, full HTML article inspected) calculate auto/cross-correlation performance of individual sequences; this is a different transform. Sawada–Williams–Wong (2015 manuscript text inspected) construct individual cycles. A relevant published order-four partial-word census already enumerates all \(256\) ordinary unfoldings, and this cardinality is treated as known; the complete Walsh nullspace and optimal Fourier range-projection norm are not statements of that census. A published order-five homometry classification concerns the time-shift Fourier magnitude of each cycle and not the Boolean Fourier transform across codewords. Possible unindexed computational tables of the exact spectrum remain a residual priority risk. Exhaustive checking of all historical literature is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Order-four de Bruijn sequences constitute a small, complete, natural codebook with \(16\) cyclic classes; exact correlation and recoverability are motivated by spread-spectrum sequence selection. The finding gives a complete integer spectral benchmark rather than merely reproducing the known codebook count. Its \(9{,}254\) even-weight spectral cancellations are not explained by the elementary complement symmetry. The sharp norm over **unrestricted** range projections measures the best possible stability of Fourier-band recovery; the precise nonlocal two-point law locates the first lags beyond the forced uniform four-window regime. The fact is finite and does not require a conjectured general theorem.
+Compared the actual theorem and its implications against the listed primary source material and published mathematical records, including aliases and substantially broader methods. No decisive prior coverage was found in the accessible evidence; this is a bounded best-of-knowledge originality finding, with residual risks explicitly documented.
 
-## Limits
+## value
 
-No claim about higher de Bruijn orders, no structural classification of every individual zero frequency beyond the complete executable census, and no external independent audit. The historical comparison does not rule out unavailable or unindexed exact tabulations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The order-four de Bruijn codebook is a canonical small nontrivial complete cyclic combinatorial design with practical correlation motivation; the cardinality 256 and local lag zeros are established and not claimed new. The full Boolean **ensemble codebook** spectrum, 9254 unexplained-by-complement zeros, first nonlocal lag law and optimal recovery projection quantify distinct natural invariants. A complete exact single-order classification can stand without a higher-order theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
