@@ -1,19 +1,21 @@
-# Review of the stationary energy-reversal theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim precisely fixes a finite cyclic, homogeneous, additive-noise stochastic car-following model, zero velocity alignment, and the stable parameter domain. Every nonzero Fourier mode is a complex damped oscillator; the imaginary-axis crossing condition is equivalent to positivity of its stated denominator. The unitary-noise second-moment identities yield the explicit gap and speed powers; Parseval's identity and exact differentiation prove the sharp three-vehicle trichotomy. The real five-state continuous Lyapunov system was independently solved in exact rational arithmetic for ten parameter sets. Infinite-parameter correctness relies on the analytical derivation rather than finite checks. A Gaussian linear headway process is not collision-free.
+PASS
 
-## Originality
+The complete statement fixes a stable finite periodic linear Gaussian car-following system with zero velocity alignment and centered fluctuation energy. Unit Fourier mode q has drift polynomial lambda^2+gamma lambda+alpha*2(1-cos q)+(gamma/T)*(1-e^{iq}); a purely imaginary root can occur only at d_q=alpha+gamma/(2T)-(1+cos q)/(2T^2)=0. Ito moment balance gives gap power C/d_q, speed power C[1+(1+cos q)/(2T^2 d_q)] (C=sigma^2/(2gamma)); Parseval for N=3 yields H=sigma^2/(12gamma)+sigma^2*(2alpha+gamma/(2T))/(6gamma*d), d=alpha+gamma/(2T)-1/(4T^2), derivative sigma^2*(gamma*T-1)/(12gamma*T^2*d^2). Thus all stable stiffnesses have the asserted energy sign while speed and gap variances fall. The mode q=0 velocity OU is included; equality and stability boundary are explicitly handled. A separately constructed rational 5-by-5 drift Lyapunov solve, after correcting its initial indexing mistake, matched all G/K/H formulae for four parameter tuples including the exact increasing-energy witness alpha 0 versus 1. Finite checks corroborate, analytic mode calculation proves N>=3.
 
-PASS within inspected evidence. Rüdiger–Tordeux–Ugurcan (arXiv:2212.05139, Sections 3–4) establish stability, a Gaussian invariant law, and an unevaluated covariance integral; their energy response is explored by finite simulation at selected parameters. The present claim resolves the exact stationary energy derivative, identifies a previously unstated \(\gamma T=1\) boundary, and gives a contrary increasing-energy regime even as separate variances decline. Ackermann–Ehrhardt–Kruse–Tordeux (arXiv:2502.00370, Sections 3.3–4) treat a related controlled model, its spectral stability and numerical speed variance, but not this classification. General OU covariance theory is a method, not a statement of this traffic-specific derivative threshold. Searches for equivalent stationary normal-mode formulae and stronger energy results located no decisive implication; an unindexed equivalent analytical derivation remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The exact direction of change of physical fluctuation measures as an interaction strength grows is a natural observable in the model, not an arbitrary finite statistic. The first admissible ring size already exhibits a sharp three-regime phase diagram, and the general Fourier calculation explains why different spatial frequencies can have opposite energy responses. In particular, the result distinguishes noise suppression in speed/headway variances from parameter-weighted Hamiltonian energy, preventing a model-specific simulation trend from being mistaken for a universal monotonicity principle. The result is not a claim about safety, collisions, optimization under nonlinear constraints, or the full alignment-coupled model.
+Best-of-knowledge comparison against actual published findings, the identified primary literature, and explicit mathematical implication checks distinguishes known ingredients from this result; residual inaccessible or unindexed literature is not assumed absent.
 
-## Closest sources and unresolved limits
+## value
 
-The source's covariance-integral representation does logically permit evaluating the exact stationary covariance, but it does not state the resulting energy sign and sharp boundary. Standard OU Lyapunov equations similarly give a path to the computation rather than an already published comparison theorem. The 2025 follow-up uses a squared stiffness parameter and other control structure, requiring care before transferring claims. Independent expert review and a comprehensive search of all unindexed traffic-dynamics literature remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+There is a genuine model-specific stability-versus-energy tradeoff: increasing coupling suppresses both elementary variances but amplifies centered Hamiltonian fluctuations exactly when gamma*T>1. The sharp neutral surface, explicit stationary covariance and opposite trend refine a physically motivated stochastic stability analysis rather than merely restating OU existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
