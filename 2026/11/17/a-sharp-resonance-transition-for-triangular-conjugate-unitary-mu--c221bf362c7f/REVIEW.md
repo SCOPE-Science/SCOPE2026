@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fibre geometric series, scalar singular norm, explicit similarity shear, sine-orbit criterion, Fourier-mixing limit, and both independent rescalings are reconstructed in the accompanying result. At the critical resolvent scale the scalar maximizer is solved algebraically. The executable standard-library supplementary checker verifies 7,519 finite matrix and asymptotic diagnostics, but no infinite theorem is inferred from them.
+## correctness
 
-## Originality — PASS, qualified
-The scalar one-step Foguel norm formula is known and is explicitly excluded from novelty. Nag–Golla's operator norm/attainment results, Chalmoukis–Marano's Hardy/Hankel Kreiss theory, and two closely related published research records were compared as statements and full relevant text. None implies the arbitrary-symbol multiplier criterion, all-power limit and the exact fractional-power/radial-resolvent constants as a package. Existing unitary diagonalization and divided-difference techniques are classical; an older equivalent synthesis remains a real priority risk, especially in uninspected literature.
+PASS
 
-## Mathematical value — PASS
-The result completely characterizes power-boundedness, diagonal similarity and Kreiss bounds in a natural nonnormal block-operator class. A continuous family displays every fractional power-growth order, exact leading coefficients, matched resolvent exponents and a different coefficient at the critical threshold. These structural boundaries go beyond a routine numerical norm example.
+For arbitrary b in L-infinity of circle, the fibre matrix is [[e^{-i theta},b(theta)],[0,e^{i theta}]]. Its exact nth upper entry is b sin(n theta)/sin theta, and the fibre singular norm is Phi(|upper|); spectrum is the full circle. A bounded shear with upper b/(2i sin theta) conjugates the operator to U* direct-sum U exactly when b/sin theta is bounded; conversely uniformly bounded powers require this ratio by the almost-everywhere lower bound sup_n |sin(n theta)|>=sqrt3/2, and a Kreiss bound near both spectral crossings +/-1 forces its local vanishing. Riemann-Lebesgue mixing of oscillating sine against a positive-measure near-norm set proves all power norms converge when bounded. For b=c|sin theta|^alpha, rescale theta=x/n or theta=epsilon*x near crossings for sharp alpha<1 growth and resolvent coefficients. At alpha=1, retaining the diagonal singular value yields sqrt(1+c²/4), unlike alpha>1 value 1. Independent scalar fibre norm grid for c=1.3, alpha=0,.4,1,1.5, epsilon=0.0002 matched 1.3,0.78817,1.192686,1 within scale error. Finite grids corroborate; universal measurable-symbol equivalences and asymptotics follow from proof.
 
-## Scope and limitations
-The sharp alpha-constant formulas require c|sin(theta)|^alpha. Only real outward radial resolvents are quantified. Garcia's older original full paper was not materially inspected; the related two 2026 primary/record proofs were. Numerical diagnostics do not establish infinite-dimensional claims, and publication priority has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison against actual published findings, the identified primary literature, and explicit mathematical implication checks distinguishes known ingredients from this result; residual inaccessible or unindexed literature is not assumed absent.
+
+## value
+
+PASS
+
+The diagonal unitary spectra collide at theta=0 and pi; exact resonance of the triangular coupling is a naturally motivated operator-growth problem. One family realizes a continuum of sharp fractional power and resolvent exponents, isolates the exact Kreiss/similarity threshold and nontrivial critical resolvent constant; this is substantive quantitative information beyond known one-step singular norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
