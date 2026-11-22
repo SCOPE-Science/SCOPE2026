@@ -1,19 +1,21 @@
-# Scientific review: two-scale Gaussian Laplacian nodal shells
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized Gaussian Laplacian is evaluated explicitly, including its scale and dimension factors. Signs outside the open annulus \(d<\|x\|^2/a^2<dv\) exclude every omitted root. Inside that annulus, the scalar equality \(Q(y)=(1-w)/w\) is equivalent to the proposed nodal equation with a nonvanishing comparison factor. An exact, denominator-positive logarithmic derivative proves the one/three-root alternatives, boundary multiplicities, and unique triple-root critical case. The strict inequality and equalities are all covered for integer \(d\ge1\), \(0<a<b\), \(0<w<1\). The cusp constant follows from a controlled shrinking-interval integral and a smooth logistic transformation. Direct symbolic algebra and 308 supplemental numerical checks of roots, Laplacian values, derivative identities, turning points and cusp asymptotics passed using `verify.py`.
+PASS
 
-## Originality — PASS, relative to inspected evidence
+Computing ΔG_s=s^-4(r²-ds²)G_s reduces every zero to d<y<dv, y=r²/a², v=(b/a)². Zero equation Q(y)=(1-w)/w has Q=v^((d+4)/2)(y-d)/(dv-y) exp(-(v-1)y/(2v)). Its exact log derivative (v-1)(h²-C)/(2v(D²-h²)), h=y-d(1+v)/2, D=d(v-1)/2, C=d²(v-1)²/4-2dv, has zero, two turning points, or cusp according to C<0,>0,=0; therefore at most three roots with stated simple/double/triple boundaries and weight interval. Independent algebra checks at d=2 give v_c=3+2√2 and γ_d=C'(v_c)=4√2; b/a=3,w=.1 has w_-≈0.051745899709,w_+≈0.200018095698, hence 3 simple shells. Integrating Q'/Q over the interval of width 2√C yields the sharp (v-v_c)^(3/2) weight cusp and √ separation. Positive definite Fourier transform follows as positive Gaussian mixture; strict radial monotonicity follows from negative radial derivative. These analytic arguments cover all dimensions and weights, unlike numerical witnesses.
 
-Actual searches included direct and dual formulations: `Gaussian Laplacian mixture three zero crossings scale`, `mixture of Gaussians second derivative six roots`, `two Gaussians Laplacian three circles zero crossings`, `gaussian mixture inflection points different variances zeros`, `radial Laplacian of two centered Gaussian scale mixtures dimension dependent transition 3 spheres cusp 3/2`, `Gaussian Mexican hat multi-scale filter zero crossings positive mixture Ricker wavelets three nodal spheres critical variance ratio`, and searches for log-concavity, DoG/LoG, radial shell, variance ratio and cusp. The closest published two-scale Gaussian-mixture result (publicly available as *A sharp dimension-dependent log-concavity threshold for two-scale Gaussian mixtures*) was read in full and concerns the Hessian of \(\log F\), not zeros of \(\Delta F\). Log-density curvature does not determine the zero set of the density Laplacian without the missing gradient-square term. Mahmud et al. (arXiv:2604.09538) analyze discrete signed differences of Gaussians and their Fourier multipliers; the inspected paper does not include the continuous positive-mixture nodal classification. Marta–Causin (arXiv:2608.23798) address manifold diffusion mixture dynamics, not this Euclidean two-scale threshold. Older scale-space work establishes context but was accessible only in abstract/expository form. No inspected primary source states an equivalent all-dimension sharp threshold, full boundary multiplicities and \(3/2\)-cusp. Unindexed older edge-detection literature remains a real priority risk. These comparisons support a limited positive originality assessment, not definitive global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The object is a standard positive Gaussian scale mixture and the invariant is its *complete* Laplacian nodal geometry, a central zero-crossing observable in Gaussian scale-space harmonic filtering. The sharp scale threshold depends nontrivially on ambient dimension, the bifurcation is completely classified for every mixing weight, and the double/triple critical boundaries have a nondegenerate \(3/2\)-cusp. A three-shell output despite strict radial unimodality and positive Fourier multiplier is a substantive structural distinction. The result is not just one computed coefficient or a thin arbitrary subfamily: it gives all dimensions and all two-scale interior parameters. It does not assert a theorem for general mixtures or unrelated filtering operations.
+The closest inspected published result on the same centered two-scale Gaussian object determines the Hessian-sign and log-concavity threshold of log F. Since ΔF=F(Δlog F+|∇log F|²), its sign zeros are distinct and not implied by that curvature classification. The discrete periodic difference-of-Gaussians manuscript uses another operator. The exact 1-vs-3 Laplacian zero count, threshold, weight cusp and multiplicities survive the comparison; earlier scale-space zero-crossing literature remains a real priority risk.
 
-## Closest literature and residual risks
+## value
 
-The strongest direct comparator is the fully inspected two-scale Gaussian-mixture log-concavity manuscript (public link in `RESULT.md`), whose local log-density Hessian conclusion does not imply the present exact Laplacian nodal geometry. The recent DoG block-encoding paper is a motivating source, not a claimed prerequisite theorem. Older scale-space/LoG and image-processing sources could contain the precise three-shell threshold under alternate terminology; the available abstracts and expositions were not adequate for a categorical whole-paper exclusion. Independent mathematical validation and external priority assessment have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp topology change of ΔF zero shells despite unimodality and positive Fourier transform is a meaningful natural PDE/scale-space structural boundary; explicit all-dimension weights and 3/2 cusp give more than a routine negative check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
