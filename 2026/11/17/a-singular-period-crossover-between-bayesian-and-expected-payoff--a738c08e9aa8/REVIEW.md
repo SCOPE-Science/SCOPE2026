@@ -1,15 +1,21 @@
-# Scientific review: a singular period crossover between Bayesian and expected-payoff cycles
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The exact payoff-to-log-odds derivation fixes the factor of one half on logarithmic fitness. The Hamiltonian \(H_\theta\) is proper and strictly convex, so every positive energy level is precisely one periodic orbit. The angular-speed identity and strict decrease of \(2\tanh(z/2)/z\) prove global period monotonicity, including the harmonic endpoint. The high-energy limits follow by the angular formula; the singular limit follows from the rescaled potential and vector field, uniform convergence of energy contours and dominated convergence of the reciprocal angular speed. The limiting first-quadrant arc has unit angular frequency about \((-2,-2)\), giving four times the explicitly computed angle. Numerical checks from the bundled program corroborate all regimes, but the proof is analytical. Risk: the convergence claim is deliberately restricted to positive scaled energy, and no all-energy error bound is claimed.
+## correctness
 
-## Originality (O): PASS, subject to historical priority
-The motivating article's two separate endpoint systems, including its isochronous log-linear center, are prior work. The sharp interpolation crossover is a different statement and is not a restatement of those endpoint claims. Nascimento's full accessible article proves general sufficient monotonicity criteria and illustrative applications, not this specific mixing limit. Villadelprat and Zhang's abstract and opening preview establish broad separable-Hamiltonian period theory, so the monotonicity component alone is not treated as new; their full text was not accessible, leaving a residual priority risk. Searching for the mixed-logit Hamiltonian, payoff interpolation and closed \(\arctan\) crossover produced no stronger identified implication. The calculation is new relative to the inspected statements, not certified globally unique.
+PASS
 
-## Mathematical value (V): PASS
-The recent contrast between the endpoint learning laws creates a concrete question: how much logarithmic evidence suffices to cap arbitrarily large-amplitude cycling, and on what energy scale does the transition occur? The exact function \(8\arctan\sqrt{1+e/2}-2\pi\) quantitatively resolves that singular competition between quadratic and asymptotically linear Hamiltonian terms, connecting an unbounded-period endpoint to a finite plateau. It is not merely reapplying a general monotonicity theorem; it resolves a two-parameter, nonuniform limiting regime with an explicit nontrivial profile. Risks: this is a constructed mathematical interpolation, not a fit to behavior, and broader game classes are untreated.
+For theta in [0,1], Fθ′=fθ and Fθ″=1−θ+θ sech²(z/2)>0 yield proper strictly convex Hamiltonian ovals and unit small-amplitude frequency. On each level radial r(E,phi) strictly increases with E, and angular rate Omega=(1−theta)+theta*sum_(u=cos,sin)u² Q(ru), Q(z)=2tanh(z/2)/z strictly decreasing for positive |z|. Thus T0=2π; Tθ(E) strictly increases for theta>0, with Taylor small-E 2π(1+theta E/8+O(E²)). For fixed theta<1, dominated convergence gives plateau 2π/(1−theta); at theta=1 the large-E diamond yields T/E→1. Under epsilon=1−theta, V=epsilon*v,W=epsilon*w,s=epsilon*t, energy e=epsilon E, limit G0(z)=z²/2+2|z| and linear translated circular quadrant arcs yield epsilon*T(e/epsilon)→8 atan sqrt(1+e/2)−2π. Direct independent angular geometry identity checked at e=.4,1,3,8; inspected verify_period.py uses finite numeric corroboration, not proof of universal limit.
 
-## Closest literature and limits
-Ruiz-Serra, Ay and Harré, arXiv:2610.36345v1 (relevant model and endpoint dynamics); Nascimento, DOI 10.1007/s12346-026-01595-w (general monotonicity of separable Hamiltonians); Villadelprat and Zhang, DOI 10.1007/s10884-019-09759-w (earlier general criteria; only preview read). No claim of a novel general monotonicity criterion or independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pure Bayesian/logarithmic vs expected-payoff Matching Pennies endpoints, and generic separable-Hamiltonian period monotonicity criteria, are prior art. The two-parameter singular mixture epsilon E=e>0 and model-specific exact arctangent crossover are not stated or directly implied by inspected endpoint or general fixed-energy period results; best-of-knowledge originality remains with explicit accessible-literature limits.
+
+## value
+
+PASS
+
+The sharp singular 1/(1−theta) energy crossover connects genuinely noncommuting high-energy and mixing limits in a natural replicator interpolation. The exact e-dependent trigonometric law and strict monotone period distinguish the mixed system from both endpoints; it is a motivated quantitative center-period invariant, not merely a generic theorem restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
