@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The group is exhaustively parameterized by all \(20160\) ordered independent binary bases. The character formula is derived by direct oriented simplex signs and the rational Hopf trace theorem, not extrapolated from examples. The exact exhaustive cycle-union enumeration returns the stated twelve profiles; separate direct oriented-chain traces verify one representative per profile. The concentration of rational homology in degree four is independently supported by the already published integral Morse classification (\(77\) free fourth-homology generators and one order-two third-homology class). The exact sum of all character values is zero.
+## correctness
 
-**Originality — PASS relative to inspected materials.** Forbes–Grannell–Griggs count independent subsets of Steiner triple systems, not group characters. The published binary projective three-space cap-complex homotopy theorem explicitly says that no automorphism-group action is asserted; its proof and limitations were materially read. Related published projective-plane cap results concern ternary rather than binary three-dimensional projective geometry. Searches of the available mathematical record and contemporary result index found no equivalent complete \(GL_4(\mathbb F_2)\) fourth-homology character or stronger formula implying its twelve profiles. Residual risk: an unindexed equivalent character computation may exist; a negative search cannot establish absolute priority.
+PASS
 
-**Mathematical value — PASS.** The complete character is a natural equivariant invariant of the finite-geometric cap complex and distinguishes distinct classes of equal-order symmetries, where the ordinary homotopy type cannot. The disappearance of all \(77\) rational homology dimensions after quotienting by full projective symmetry is a nontrivial, exact topological consequence. It refines an already meaningful Moore-space decomposition without redundantly recomputing that decomposition.
+The exact object is the line-avoiding simplicial complex on 15 nonzero vectors of F_2^4, with 35 line obstructions and 3048 nonempty faces. A GL_4(F_2) matrix is determined uniquely by an ordered independent 4-tuple, giving 20160 matrices. For any g the fixed nonempty simplices are precisely unions of admissible point-permutation cycles; orientation sign times simplicial Lefschetz sign reduces to -sum_{admissible cycle subsets J} (-1)^|J|, including the augmented empty term. Independent exhaustive computation rebuilt all 35 lines, all faces and all matrices and obtained exactly 12 (order, trace, count) profiles [(1,77,1),(2,-3,105),(2,5,210),(3,-1,112),(3,2,1120),(4,-3,1260),(4,1,2520),(5,2,1344),(6,-1,1680),(6,0,3360),(7,0,5760),(15,-1,2688)]. Their counts sum to 20160 and weighted traces to 0. The published integral Moore-space theorem provides the indispensable premise that only rational H4 survives, of dimension 77; the Lefschetz trace alone would otherwise be merely an alternating sum. Rational transfer after equivariant barycentric subdivision identifies quotient homology with invariants; the quotient claim is rational acyclicity, not contractibility or integral acyclicity.
 
-The claim does not give an integral representation, an integral quotient, an explicit irreducible decomposition, or a subgroup-by-subgroup fixed-space classification. Those stronger statements are neither assumed nor asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A complete 20160-element H4 character and its twelve trace profiles are a natural genuinely new equivariant invariant relative to the inspected nonequivariant PG(3,2) homotopy theorem. The exact earlier cap paper proves H3=Z/2 and H4=Z^77 but explicitly does not compute GL4(F2) actions. Steiner-system independent-set enumeration studies faces, not a homological character. No dominating published GL4 character was found in the inspected sources or topical Resultary hits. This is best-of-knowledge, not an exhaustive priority certificate.
+
+## value
+
+PASS
+
+PG(3,2) is the canonical 15-point binary projective geometry and its noncollinearity complex has nontrivial 2-torsion and free H4. The complete natural-automorphism character detects conjugacy-class distinctions at fixed orders and determines the full-symmetry rational quotient; these are meaningful exact equivariant topology invariants beyond face/Bettis, not a mere renamed table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
