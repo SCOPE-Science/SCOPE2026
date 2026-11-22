@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T02:47:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rodrigues and Stieltjes integration by parts give a linear map from df to the primitive vector v=(phi He_{n-1}/sqrt(n!),phi He_n/sqrt((n+1)!)); its BV→Euclidean norm equals sup_x ||v(x)||, attained by a unit jump. Let y=phi He_{n-1}/sqrt(n!), then y′=-phi He_n/sqrt(n!), y″+xy′+ny=0. The energies F=y²+y′²/(n+1), H=y²+y′²/n satisfy F<=H and H′=-2x y′²/n, making H strictly decrease away from 0. For odd n, He_n(0)=0 gives unique F maximum at 0. For even n, Hermite even root product and sum reciprocal squares imply He_{n-1}(x)/He_n(x)<-x on (0,r_1), so F′>0 until first root; outside, F<=H<H(r_1), giving exactly ±r_1. Triangle-equality supports classify all positive variation extremizers, with opposite jumps at even ±r_1. At those roots He_{n+1}=-nHe_{n-1}≠0, so third component increases the sharp norm. Recomputed root-maxima/third-block strictness n=1..16; not a proof of all n. Checker itself uses sympy/numpy/scipy, contrary to any expectation of standard-library-only replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sluchak arXiv:2611.04067 develops general scalar weighted primitive bounds and specific orthogonal expansions, not an exact joint two-coordinate Gaussian-Hermite best constant.",
+          "General Sonin envelope H is classical; here F=H-y′²/(n(n+1)) is smaller, requiring the new first-root increase argument."
+        ],
+        "reasoning": "A generic vector-valued primitive supremum principle alone does not solve exact finite Hermite optimization. The sharp joint theorem and block-length threshold were not shown by inspected scalar sources, but an older energy reinterpretation might.",
+        "searches": [
+          "Bounds for Orthogonal Expansion Coefficients via Weighted Primitives Sluchak Hermite Gaussian arxiv 2611.04067",
+          "Sonin Butlewski Polya Hermite derivative energy two consecutive norms"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2611.04067",
+        "Szegő, Orthogonal Polynomials 1975 §7.6 (not full read)",
+        "https://math.stackexchange.com/questions/2256158",
+        "Resultary sharp BV Laguerre and Hermite semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-coordinate bound is recovered by omitting a_{n+1}; coupled bound is no larger, which is a stronger statement, not implied by individual coefficient bounds via a triangle inequality.",
+          "Third coefficient is nonzero at every maximizing single-jump location, so the exact sharp third-block norm is strictly greater, not stated by scalar Sonin result."
+        ],
+        "reasoning": "The joint no-cost estimate and abrupt three-mode obstruction refine prior individual sharp bounds. Even if the vector primitive formula is textbook duality, identifying precisely the minimizing parity-root locations and equality structure uses nontrivial Hermite analysis.",
+        "searches": [
+          "Szegő Orthogonal Polynomials Sonin envelope Hermite Gaussian derivatives",
+          "Sluchak weighted primitives coefficients BV 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sluchak arXiv:2611.04067 proves scalar sharp BV coefficient bounds via weighted primitives; joint adjacent Hermite 2-norm and 2-to-3 sharp transition are distinct.",
+          "Szegő Sonin energy argument controls maxima of scalar Gaussian derivative modes, but does not explicitly give vector-valued BV jump equality classifications."
+        ],
+        "reasoning": "BV duality for vector blocks is a standard reduction, yet the exact global 2-mode Euclidean maximum and its largest zero-root support are additional Hermite inequalities. The existence of an older Sonin two-mode identity remains an equivalence risk.",
+        "searches": [
+          "Gaussian Hermite bounded variation sharp simultaneous consecutive coefficient two-norm Sonin energy (Resultary)",
+          "two consecutive weighted Hermite polynomial squared norm sharp closest root Sonin",
+          "sharp vector BV Hermite coefficient bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches sharp bounded-variation Laguerre coefficient norms and generalized Laguerre hard-edge transitions, which concern another orthogonal family.",
+          "Independent numerical n<=16 root extrema are finite diagnostics, not a known exact Hermite adjacent-coefficient table."
+        ],
+        "reasoning": "The theorem is all-degree analytic, not a finite database fact. No exact prior table of joint Hermite BV norms was identified; unmatched searches do not prove originality.",
+        "searches": [
+          "Hermite consecutive BV coefficients sharp norm root zero three block table",
+          "Resultary Gaussian Hermite bounded variation sharp simultaneous consecutive"
+        ]
+      },
+      "rationale": "BV duality for vector blocks is a standard reduction, yet the exact global 2-mode Euclidean maximum and its largest zero-root support are additional Hermite inequalities. The existence of an older Sonin two-mode identity remains an equivalence risk. A generic vector-valued primitive supremum principle alone does not solve exact finite Hermite optimization. The sharp joint theorem and block-length threshold were not shown by inspected scalar sources, but an older energy reinterpretation might. The joint no-cost estimate and abrupt three-mode obstruction refine prior individual sharp bounds. Even if the vector primitive formula is textbook duality, identifying precisely the minimizing parity-root locations and equality structure uses nontrivial Hermite analysis.",
+      "residual_risks": [
+        "Classical orthogonal-polynomial energy literature may contain an equivalent two-component inequality not explicitly called BV coefficient norm.",
+        "Checker imports sympy, numpy, scipy and was not independently replayed as a standalone standard-library certificate.",
+        "No extension beyond real BV, Gaussian weight and consecutive normalized Hermite modes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Single-coefficient/general weighted primitive bound, not identified as exact adjacent Hermite Euclidean sharp norm; missing synonymous result risk acknowledged",
+          "evidence": "The general theorem optimizes scalar primitives, while exact 2-mode maximization is not part of the analyzed examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.04067",
+          "material_read": "Full accessible 19-page source, Theorem 1 and examples; no Hermite/Gaussian occurrences in indexed text search",
+          "method": "read full PDF text and inspected title/page and theorem sections",
+          "title": "Bounds for Orthogonal Expansion Coefficients via Weighted Primitives",
+          "trigger": "same BV coefficient norm motivation"
+        },
+        {
+          "assessment": "Strong nearby classical tool, not a verified absence of vector theorem",
+          "evidence": "No whole-book exclusion made.",
+          "identifier_or_url": "G. Szegő, Orthogonal Polynomials, 4th ed., AMS 1975 §7.6",
+          "material_read": "Bibliographic reference and known Sonin identity only; full book inaccessible/not read",
+          "method": "compare named classical method and its scalar energy identity",
+          "title": "Orthogonal Polynomials",
+          "trigger": "classical Sonin-type envelope potentially implying claim"
+        },
+        {
+          "assessment": "Classical scalar extremum, not full vector BV two-block classification",
+          "evidence": "Secondary source; does not settle historical priority.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/2256158",
+          "material_read": "2017 discussion of scalar Sonin derivative-envelope claim",
+          "method": "inspect secondary explanatory material and referenced calculation",
+          "title": "Extremas of derivatives of Gaussian",
+          "trigger": "classical Gaussian derivative maximum argument"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp infinite-degree simultaneous coefficient bound for a natural Gaussian orthogonal basis requires no loss relative to one mode, classifies all extremizing jumps and shows precise failure at the next mode. This is a concrete, non-textbook, useful boundary of BV coefficient control.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2611.04067",
+    "Szegő, Orthogonal Polynomials 1975 §7.6 (not full read)",
+    "https://math.stackexchange.com/questions/2256158",
+    "Resultary sharp BV Laguerre and Hermite semantic searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For real BV functions on R, the sharp Euclidean norm of adjacent normalized Gaussian-Hermite coefficients (a_n,a_{n+1}) equals the sharp a_n norm C_n at the zero or nearest positive root of He_n, with exact jump extremizers. Every three-or-more consecutive coefficient block has strictly larger norm.",
+  "limitations": [
+    "Uninspected old Sonin formulations remain a historical-priority risk; Python dependencies are not an infinite proof."
+  ],
+  "residual_risks": [
+    "Classical orthogonal-polynomial energy literature may contain an equivalent two-component inequality not explicitly called BV coefficient norm.",
+    "Checker imports sympy, numpy, scipy and was not independently replayed as a standalone standard-library certificate.",
+    "No extension beyond real BV, Gaussian weight and consecutive normalized Hermite modes."
+  ],
+  "schema_version": 1
+}
