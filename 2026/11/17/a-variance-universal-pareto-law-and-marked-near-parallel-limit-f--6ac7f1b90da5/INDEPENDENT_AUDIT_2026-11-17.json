@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:02:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: With three independent normal angles theta_i of continuous density g on [0,pi] and iid bounded independent signed offsets H_i of variance v>0, Cramer/determinant expansion yields exact area T=(H1 a+H2 b+H3 c)^2/(2|abc|) with a=sin(theta2-theta3),b=sin(theta3-theta1),c=sin(theta1-theta2). The sine magnitudes satisfy triangle inequalities; bounding offsets by B yields T<=2B²(1/|a|+1/|b|+1/|c|), so T>t requires at least one O(1/t) projective angle collision. Distinct pair overlaps and projective seam collisions have probability O(t^-2) by bounded g. At a single ordinary collision theta2=theta1+z/t with third direction separated, exact area satisfies T/t -> (H1-H2)^2/(2|z|); allowed signed z interval has total width (H1-H2)^2. Integrating two directional signs yields 2v int_0^pi g² per unordered pair; all three pairs give 6v int g². Weighted collision flux produces independent pair uniformity, angular g² tilt, (H_i-H_j)²/(2v) offset-pair size bias, original unused line and independent fair sign and uniform W in (0,1); T/t conditional ->1/W. Tail integration gives positive moment finiteness precisely p<1, and Cauchy–Schwarz gives 6v int g²>=6v/pi equality only uniform g. Independently calculated area from three line-intersections formula and simulated 500k iid uniform offsets/normal angles: t P(T>t) at t=20,60,200 was approx .639,.643,.635 vs exact 2/pi=.6366. Numerical agreement is corroboration; general limit rests on bounded collision decomposition/dominated convergence. Atoms in offset distribution only produce zero limiting weight at identical offsets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tangent-triangle theorem supplies t^-1 and t^-2 log(t) coefficients conditioned on common-circle enclosure; the Poisson-line small-cell and growing-n circumscribed random-polytope results involve different sample sizes/conditioning."
+        ],
+        "reasoning": "A stronger second-order expansion for a special correlated tangency law is not a broader theorem for arbitrary bounded iid offsets; a Poisson tessellation cell distribution also does not imply this fixed 3-line marked law.",
+        "searches": [
+          "three random lines independent offsets angular density large area Pareto tail variance and marked near-parallel law",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-logarithmic-second-correction-for-random-tangent-triangl--a518cd59e8fe/RESULT.md",
+          "https://arxiv.org/abs/1211.5488",
+          "https://arxiv.org/abs/1409.8105"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md at 01a2df1a8487cbfaa33e16c1babf162ae7363c85",
+        "Frozen verify.py at assigned record tree",
+        "Independent area formula evaluation and 500k sample three-threshold tail check",
+        "https://arxiv.org/abs/1101.3931",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-logarithmic-second-correction-for-random-tangent-triangl--a518cd59e8fe/RESULT.md",
+        "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/size-distributions-in-random-triangles/117ED3787DE9B79B1AC3862B0B6C3EAB",
+        "https://arxiv.org/abs/1211.5488",
+        "https://arxiv.org/abs/1409.8105",
+        "Resultary searches on independent-offset random line triangles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One near-coincident normal pair contributes E(H_i-H_j)^2 int g² = 2v int g² independently of the third line, producing universal coefficient and offset-pair square bias; circle tangent model has all signed offsets coupled to the same circle."
+        ],
+        "reasoning": "A conditional special-circle area tail cannot imply a law for every iid bounded offset distribution, particularly atomic offsets and arbitrary continuous direction densities. The opposite-size rare-tail geometry is not determined by small Poisson-line cells.",
+        "searches": [
+          "three random lines independent offsets angular density large area Pareto tail variance and marked near-parallel law",
+          "https://doi.org/10.1239/jap/1417528481",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-logarithmic-second-correction-for-random-tangent-triangl--a518cd59e8fe/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch samples unit-circle tangents conditioned on bounded intersection. Daley/Ebert/Swift sample independent side directions but assign one side unit length. Target samples independent normal-direction angles and independently distributed bounded signed offsets."
+        ],
+        "reasoning": "All involve random triangles from lines, but the joint line measure differs substantially; a fixed incircle or unit side introduces dependence and scale constraints absent from arbitrary iid offsets.",
+        "searches": [
+          "three random lines independent offsets angular density large area Pareto tail variance and marked near-parallel law",
+          "https://arxiv.org/abs/1101.3931",
+          "https://doi.org/10.1239/jap/1417528481"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Daley/Ebert/Swift abstract describes elliptic-integral area density under a unit-side random-direction model; tangent paper tabulates 12/(pi t) and logarithmic second term for enclosing circle tangents."
+        ],
+        "reasoning": "These exact distributions/constants are for explicitly different sampling laws and do not tabulate 6v int g² or the marked iid-offset disintegration.",
+        "searches": [
+          "three random lines independent offsets angular density large area Pareto tail variance and marked near-parallel law",
+          "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/size-distributions-in-random-triangles/117ED3787DE9B79B1AC3862B0B6C3EAB",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-logarithmic-second-correction-for-random-tangent-triangl--a518cd59e8fe"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge with a named inaccessible older paper: Finch (2011) and a published sharp tangent-triangle tail theorem analyze three tangents to a fixed incircle conditioned to enclose it; their offsets are deterministic common-circle support values, not iid bounded independent signed marks, so tail constants and conditional measures cannot be specialized as an implication. Daley–Ebert–Swift (2014) prescribes independent *side directions* and fixes one side to length one, yielding a different scale/offset distribution; its accessible abstract explains that setup, but full scientific text was unavailable via arXiv/OA and protected Oxford returned vpn_disconnected. An unindexed random-line area theorem may cover the iid-offset model, so priority is qualified. The claim is the variance-only coefficient with g² angular bias and full marked disintegration, not merely existence of 1/t tails in some tangent models.",
+      "residual_risks": [
+        "Daley–Ebert–Swift 2014 article (different stated random triangle model) inaccessible in full after authorized VPN failure; hidden equivalences or stronger results might affect priority.",
+        "Tail proof is first-order at fixed bounded offsets and continuous g; g need not be positive but is bounded, and projective seam must be treated as o(1/t).",
+        "The conditional marked limit is weak convergence, not total variation; no unbounded offset or dependent sampling extension is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different conditioned tangency law, cannot assert full-text noncoverage",
+          "evidence": "Normals tangent to a common unit circle with support distance fixed, rather than freely iid bounded signed offsets.",
+          "identifier_or_url": "https://arxiv.org/abs/1101.3931",
+          "material_read": "Accessible abstract/model and named perimeter/side results; full primary scientific text was not fully inspected in this run",
+          "method": "arXiv abstract and model comparison",
+          "title": "Three Random Tangents to a Circle",
+          "trigger": "Three random lines with large triangle areas, potential same Pareto mechanism"
+        },
+        {
+          "assessment": "Only a specialized conditioned tangent distribution, not the target arbitrary independent-offset law",
+          "evidence": "Paper gives 12/(pi t)+(48 log t-12)/(pi² t²)+o(t^-2) for three enclosing circle tangents, with offsets determined by support circle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-logarithmic-second-correction-for-random-tangent-triangl--a518cd59e8fe/RESULT.md",
+          "material_read": "Entire published RESULT.md including conditional circle-tangent law, proof, expansion and limitations",
+          "method": "read full GitHub published scientific file",
+          "title": "A sharp logarithmic second correction for random tangent-triangle area tails",
+          "trigger": "Strong published Pareto area theorem in related three-line model"
+        },
+        {
+          "assessment": "Inaccessible full text; no whole-document NOT_COVERING claimed",
+          "evidence": "Abstract specifies independent directions of sides, one side fixed unit length, and elliptic-integral area density. Relation to iid offset model cannot be decisively excluded from unread text.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1417528481",
+          "material_read": "Cambridge full publisher abstract and model description; no full mathematical article. Open-preprint and OA attempts failed; authorized institution reported vpn_disconnected.",
+          "method": "abstract-only and authorized access attempt",
+          "title": "Size distributions in random triangles",
+          "trigger": "Older stochastic triangle area model with random directions; historical priority risk"
+        },
+        {
+          "assessment": "Poisson-line tessellation small-cell regime, not demonstrated fixed-three-line large area tail",
+          "evidence": "Small-cell asymptotic considers the opposite area extreme and a random tessellation cell rather than one triple of iid offset lines.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.5488",
+          "material_read": "Accessible abstract/source scope only",
+          "method": "abstract-level comparison",
+          "title": "Asymptotic shape of small cells",
+          "trigger": "General stochastic geometry random lines and extreme shapes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Infinite-mean area and exact Pareto coefficient for a naturally sampled triple of planar lines are meaningful invariants; their universality in the entire bounded iid offset family through variance, and extremization over continuous direction densities, have concrete geometric probability interpretation. The complete rare-event marks identify the large-triangle mechanism and supply a reusable disintegration, not just elementary tail calculus or a narrow unmotivated constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly three independent planar lines, iid bounded nonconstant signed offset law independent of continuous angular density.",
+    "No second-order tail constant, unbounded or correlated offsets, or arbitrary Poisson line cell theorem."
+  ],
+  "schema_version": 1
+}
