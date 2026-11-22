@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The two-element Kneser representation gives an unambiguous ten-vertex host; both standard and strict move rules are enumerated exhaustively. Since every move consumes two and creates one pebble, reachability recursion strictly decreases total mass and exactly covers all legal finite sequences by first-step induction. Independent Python recursive and C++17 queue implementations agree across all 286 states of weights below four and all 715 weight-four states; they reproduce occupancy partitions, singleton support forest spectra, and the 17 S5 orbit check. Four-pebble optimality itself is an existing theorem; the new finite census is fully reproduced by the supplied code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Katona–Papp, arXiv:1411.0923, Introduction and Definitions: exact optimal rubbling numbers for ladder, prism and Möbius-ladder families.",
+        "Belford, 2006 M.S. thesis, Chapters 2 and 3: Petersen universal rubbling number 5 and optimal methods for basic families."
+      ],
+      "reasoning": "Neither stated family in arXiv:1411.0923 includes the Petersen graph as a special case; the thesis treats the distinct universal-adversarial invariant in its Petersen subsection. Neither source gives a theorem reducing exact counts of labelled optimal Petersen distributions to their optimum weights.",
+      "searches": [
+        "Web: \"Petersen graph\" \"rubbling\" \"configurations\"",
+        "Web: arxiv 2014 optimal rubbling number ladders prisms Möbius ladders",
+        "published-finding corpus: optimal rubbling number Möbius-Kantor McGee graph"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0707.4256",
+      "https://jan.ucc.nau.edu/~ns46/research/rubbling.pdf",
+      "https://nau.edu/wp-content/uploads/sites/145/2018/08/belford-ek.pdf",
+      "https://arxiv.org/abs/1411.0923",
+      "https://jan.ucc.nau.edu/ns46/rubblingWeb/Rubbling.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Belford–Sieben, arXiv:0707.4256, Sec. 9: four pebbles stacked on any Petersen vertex suffice; three never suffice.",
+        "published-finding corpus public result 2026/11/2: a sharp two-pebble slack threshold for solvable pebbling transfers on the Heawood graph; the distinct Heawood host and pebbling-transfer move do not imply the Petersen rubbling spectrum."
+      ],
+      "reasoning": "The known ten four-pile witnesses are contained in the new count, but they do not characterize the other 165 successful rubbling distributions. The nearby published Heawood configuration-reconfiguration result concerns a different graph, move rule and total weight, and cannot imply the 175/10 classification.",
+      "searches": [
+        "Web: \"Petersen graph\" \"rubbling\" \"S5\" distribution",
+        "published-finding corpus: optimal rubbling configurations Petersen graph minimal pebbles exact enumeration reachability",
+        "Web: Petersen graph rubbling four pebbles optimal placements classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Belford–Sieben, arXiv:0707.4256, Sec. 9, Proposition 9.2(d): optimal rubbling number 4, ordinary optimal pebbling number 4.",
+        "The new characterization quantifies *every* weight-four distribution rather than the optimum cardinality or the existence of a four-pile witness."
+      ],
+      "reasoning": "An exact optimum weight does not logically determine the number or types of optimum configurations: many labelled four-pebble distributions can succeed or fail independently of the minimum. The known proof exhibits one orbit of size ten, while the new count includes seven other successful symmetry orbits.",
+      "searches": [
+        "published-finding corpus: optimal rubbling configurations Petersen graph minimal pebbles exact enumeration reachability",
+        "published-finding corpus: Petersen graph optimal rubbling distributions four pebbles count automorphism orbits strict rubbling vs ordinary pebbling",
+        "Web: \"Petersen\" \"optimal rubbling distributions\" 4 number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Belford–Sieben, arXiv:0707.4256, Proposition 9.2(d), has no tabulation of four-pebble solvability.",
+        "The original paper’s Table 1 concerns optimal rubbling values for binary trees and hypercubes, not a Petersen placement census."
+      ],
+      "reasoning": "No inspected exact published table covers the claimed 175 configurations, their 90 singleton-support cases or their 17 natural symmetry orbits. Search absence does not establish a complete literature census.",
+      "searches": [
+        "published-finding corpus: 175 optimal rubbling distributions Petersen graph 90 45 30 10 four pebbles",
+        "published-finding corpus: Petersen graph rubbling four pebbles optimal placements classification (1,1,1,1)",
+        "Web: \"Petersen\" \"175\" \"rubbling\""
+      ]
+    },
+    "rationale": "The July 28, 2007 paper by Belford and Sieben establishes only the known four-pebble optimal values, not the exhaustive census of optimal placements; its Proposition 9.2(d) constructs ten piles. The new result classifies 175 valid rubbling placements versus ten ordinary pebbling placements, including induced-support geometry, the three-edge triangle criterion, and 17 symmetry orbits. Targeted mathematical-record searches found no covering statement. Unindexed catalogues remain a genuine priority risk.",
+    "residual_risks": [
+      "The earlier thesis was not exhaustively read page by page; the known archival article was examined in its relevant sections.",
+      "Unindexed or unpublished enumerations could contain equivalent count and support classifications.",
+      "The claim concerns finite exact data, with no asserted generalization to other cubic graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes only the minimum four and the stacked example; does not enumerate all four-pebble placements or their support shapes",
+        "evidence": [
+          "arXiv submission history: 2007-07-28",
+          "https://jan.ucc.nau.edu/~ns46/research/rubbling.pdf, Proposition 9.2(d)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0707.4256",
+        "material_read": "Full-text definitions of rubbling moves and optimal solvability (Sections 2 and 9), Proposition 9.2 and its proof for Petersen, end-of-paper table and references",
+        "method": "Read parsed full PDF around Sections 2 and 9 and inspected rendered PDF pages 7 and 11",
+        "title": "Rubbling and Optimal Rubbling of Graphs",
+        "trigger": "Same Petersen graph, same rubbling operation and the exact known optimum weight"
+      },
+      {
+        "assessment": "Defines rubbling and treats Petersen universal rubbling threshold five; the inspected optimal chapter sections list complete graphs, wheels, multipartite graphs, paths and cycles, not a Petersen four-pebble census",
+        "evidence": [
+          "Title page states December 2006",
+          "Chapter 2, Theorem 2.22, Petersen rubbling number five"
+        ],
+        "identifier_or_url": "https://nau.edu/wp-content/uploads/sites/145/2018/08/belford-ek.pdf",
+        "material_read": "Title page and table of contents; Petersen subsection in Chapter 2 on the universal rubbling number and initial sections of Chapter 3 on optimal rubbling",
+        "method": "Read indexed full-text extracts; image screenshot request of Chapter 3 failed at the host, so image inspection not claimed",
+        "title": "Graph Rubbling: An Extension of Graph Pebbling",
+        "trigger": "Earlier related thesis by an author of the archival primary paper"
+      },
+      {
+        "assessment": "Studies optimal thresholds of three specified graph families and does not include the Petersen optimum distribution spectrum",
+        "evidence": [
+          "arXiv 1411.0923, Sections 1 and 2, first posted 2014-11-04"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.0923",
+        "material_read": "Full-text Introduction, Definitions and stated scope of exact family results",
+        "method": "Read arXiv hosted full-text extraction",
+        "title": "The Optimal Rubbling Number of Ladders, Prisms and Möbius-ladders",
+        "trigger": "Broader comparison to archival optimal rubbling enumeration methods and graph families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "64b630ee-0a57-4138-b75b-b237d1dbd713",
+  "value": {
+    "rationale": "The natural question asks how many minimum resource placements work and which arrangements benefit from pooling at two distinct neighbors. Despite the already-known equal optimum counts four, unrestricted rubbling admits 175 workable arrangements, while ordinary pebbling admits only ten: the difference of 165 is a substantial operational distinction, not a small parameter increment. The structural classification of all optimum supports, including 90 entirely separated configurations and a sharp triangle criterion for the 2+1+1 case, is precise and reusable as a benchmark for optimal configuration robustness. The fact is finite but a complete classification of a canonical graph invariant rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
