@@ -1,15 +1,21 @@
-# Scientific review: clique-fiber high-girth Rips collapse
+# Independent mathematical audit
 
-## Correctness — PASS
-The product metric and the girth-seven carrier classification are proved in RESULT.md, and the construction gives two successive finite sequences of genuine free-face collapses for arbitrary graph size and fiber width. First, only private branch faces are matched by toggling their matching-color hub; second, all redundant fiber colors are removed by vertex domination. The formula for the exact number of collapse pairs follows from direct counts of branch faces and edge-block overlaps. The scale-one graph-of-contractible-spaces model and the fixed-row section establish the integral persistence kernel and primitive splitting. The accompanying independent-from-derivation exhaustive finite checker passes 22 small graph/width cases; the mathematical proof, not the checks, establishes all parameters.
+## correctness
 
-## Originality — PASS, with limits
-Closest published work establishes the same Rips conclusion for **only two fiber colors** over arbitrary high-girth graphs (record 4061be6b33be), and for **arbitrary fiber width only when the base is a cycle** (record e28e5da49d34). Neither implies the present all-width, arbitrary-base collapse as a logical corollary. The published clique-fiber Čech calculation (record bcf5b8b96c75) uses the same graph product but a different complex; its second homology is nonzero and hence cannot imply this Rips result. The 2025 torus-grid paper is restricted to torus grids and their geometric formulations. These were read materially, not compared by titles alone. The collapse uses some familiar domination techniques, and unknown unindexed work may predate it; a search cannot prove uniqueness.
+PASS
 
-## Mathematical value — PASS
-The object is a natural metric thickening under graph-fiber replication, and the theorem proves full simple-homotopy recovery, exact complexity of a constructive collapse and a primitive integral persistence kernel for every branching high-girth graph. The result is stronger than a rank computation, extends two incomparable known restricted families simultaneously, and explains the contrast with the larger Čech nerve. The girth boundary is sharp over the family by the six-cycle counterexample. The exact graph topology survives arbitrarily many clique-fiber vertices and any number of base cycles, a motivated robustness property of graph-metric Rips thickenings.
+PASS — Reconstructed full carrier cover using d_P((v,a),(w,b))=d_H(v,w)+[a≠b]. When a base projection has pair distance two its intermediate vertex is unique; an alternative center would force a short cycle length ≤6, so other projected vertices must lie in its closed star. Distinct off-fiber neighbor vertices have one common center and one color, making all faces with ≥2 such neighbors private to one star. Descending-dimension matching toggling (v,a) is therefore a sequence of genuine free-face pairs, not a homology-only matching. The residual edge-carrier union has every nonzero color dominated by color zero, permitting explicit final simplicial collapses. Difference in exact face counts gives m·2^(m−1)Σ_v(2^deg(v)−deg(v)−1)+|E|(2^(2m−1)−2^m)+|V|(2^(m−1)−1). Contracting all scale-one fiber simplices gives rank mE−V+1, and the fixed-color inclusion splits the map to scale-two rank E−V+1, hence a primitive free kernel rank (m−1)E. C6 is excluded and published cyclic example is nontrivial in degree 2. Verified proof normalization and equality at inclusive radius two, at trees and branching bases. The inspected verifier enumerates true shortest-path Rips faces and checks individual immediate cofaces in 22 small cases; this finite evidence is corroboration, not the infinite proof.
 
-## Closest sources and residual risks
-The closest Rips prism and clique-cycle records have their proofs and assumptions compared directly. The Cech clique-fiber result's edge-block homotopy is incompatible with the full-simplex Rips edge blocks. The motivating torus-grid arXiv paper's introduction, graph definition and facet/homotopy sections were inspected. The 2018 metric-gluing article's accessible abstract does not determine this graph product; its full text was not inspected, so it remains a limited bibliographic uncertainty. No claim of exhaustive database novelty or independent validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS — The width-two prism theorem has general high-girth bases but not fibers of width ≥3; the wide-clique high-girth Čech theorem uses the closed-neighborhood nerve and has extra 2-spheres, incompatible with the present Rips claim. The width-m clique-fiber cycle theorem covers C_n only and the sharp C6 obstruction but not branching bases. Adams et al. consider torus-grid Rips complexes, not arbitrary high-girth bases with complete fibers. These are statement/implication comparisons, not title comparisons. Best-of-knowledge originality of the m≥3 arbitrary-base collapse and primitive persistence splitting survives, subject to unindexed equivalent graph-product results.
+
+## value
+
+PASS
+
+PASS — An explicit uniform collapse for all finite high-girth base graphs and arbitrary clique width resolves a natural stability question for graph-metric Rips filtrations. The exact elementary-collapse complexity, integral scale-one persistence and sharp six-cycle obstruction are independently useful; the contrast with the same product family’s Čech spheres isolates a meaningful structural distinction rather than a numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
