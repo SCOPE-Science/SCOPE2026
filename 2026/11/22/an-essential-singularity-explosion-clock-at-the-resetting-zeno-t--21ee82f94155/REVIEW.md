@@ -1,0 +1,15 @@
+# Review of the resetting-Zeno accumulation theorem
+
+## Correctness — PASS
+The exact probability \(q_\beta\) of an infinite nonresetting excursion and the expected duration \(B_\beta\) follow from independent Bernoulli renewals and Tonelli's theorem. An independent exponential holding time at every fresh state-zero visit excludes finite-time accumulation when \(q_\beta=0\); a successful excursion is summable because its expected total wait is \(\tau/(1-r)\). The expectation identity is a regenerative geometric-cycle sum. The sharp amplitude follows from the Laurent expansion of the Riemann zeta function, the convergent Gamma logarithm expansion, and the generalized binomial theorem. The exponential-clock limit follows from a uniform second-moment domination and Laplace-transform expansion. The executable 208-case exact-rational depth comparison is supplemental finite verification, not a substitute for infinite proofs.
+
+## Originality — PASS, with bounded priority risk
+A source-to-claim comparison was made against Huang's complete relevant Zeno and internal-state sections, Montero–Villarroel's state-dependent Sisyphus generalization, Colantoni–Pagnini's exogenous resetting CTRW theory, and Cairns–Pollett's catastrophe model. These describe underlying mechanisms or other observables, but the inspected material does not state or imply the combined power-hazard accumulation threshold, explicit \(\Gamma(1-c)\) amplitude, and normalized exponential explosion clock. Related indexed Zipf-disaster-chain work concerns *discrete-time* survival/aging and not an accumulating geometric physical clock. The general rare-event exponential-limit mechanism is recognized and not claimed as a wholly new technique. Publication priority remains subject to unindexed literature and specialists' independent inspection.
+
+## Value — PASS
+The exact hazard \(c/(k+1)^\beta\) is a motivated scale-free resistance to resetting, directly adjacent to the inverse-level renewal law used in the cited internal-state models. The difference between almost-surely unbounded operational duration and a finite random Zeno horizon is a qualitative issue for the statistical-mechanical CTRW itself. The exact activated divergence shows how a formally explosive system can be effectively nonexplosive over very long observation windows near criticality; the distributional limit quantifies that observation-window uncertainty. This is not merely a finite truncation, textbook parameter substitution, or a claim about numerical simulations.
+
+## Residual scope and verification limitations
+The result is confined to independent exponential state holds, exact power-law reset hazards, and fixed positive geometric acceleration. No spatial post-explosion evolution is defined. Numerical checks cannot alone establish weak convergence; the Laplace proof does. Comparisons to the most relevant freely accessible full texts were made, but unindexed equivalent prior statements cannot be excluded.
+
+Self-review: passed. Independent audit: not yet performed.
