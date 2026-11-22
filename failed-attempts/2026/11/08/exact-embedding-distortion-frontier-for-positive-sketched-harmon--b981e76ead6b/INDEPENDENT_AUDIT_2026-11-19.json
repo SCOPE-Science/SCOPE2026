@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T23:11:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The SPD spectral inequality lambda^2<=(kappa+1)lambda-kappa leads to x*Ax/(||Ax||||x||)>=2sqrt(kappa)/(kappa+1). A symmetric squared-norm embedding compresses E=S^TS-I to operator norm <=epsilon on the Krylov-next subspace, giving Re(y*Gy)>=(c-epsilon)||ABy||||By||>0, hence G invertible, F positive definite and Re eigenvalue(F,G)>0 for every m. For nonscalar A the endpoint eigenvector plane gives G=q(2q-epsilon(q^2+1)), F=q^2(q^2+1-2epsilon q)>0 (q=sqrt kappa); G vanishes at epsilon=c and is negative above. When kappa=1, c=1 and all permitted distortions are safe. Independent symbolic exact identities and 180 seeded 5x5 multi-step SPD Krylov samples confirmed the computations, but finite sampling is not treated as a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md Assumptions and scope: arbitrary B full column rank, U=span(B,AB), A Hermitian positive-definite over R or C, 0<=epsilon<1.",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/exact-embedding-distortion-frontier-for-positive-sketched-harmon--b981e76ead6b/RESULT.md Assumptions: B spans K_m(A,b) with embedding over K_(m+1)(A,b)."
+        ],
+        "reasoning": "For a Krylov B, span(B,AB) is a subspace of K_(m+1). An embedding on K_(m+1) is automatically an embedding on span(B,AB). Real SPD is contained in Hermitian SPD, and polynomial Krylov bases are contained in arbitrary B. Thus the earlier result applies directly to every instance of the later sufficient theorem, at the identical threshold.",
+        "searches": [
+          "Resultary_Search: sketched harmonic Arnoldi Krylov Gram epsilon eigenvalues positivity robust embedding",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/METADATA.json",
+        "Resultary semantic search outputs for three literal recorded queries",
+        "https://arxiv.org/abs/2607.10354",
+        "https://www.alphaxiv.org/abs/2607.10354",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/exact-embedding-distortion-frontier-for-positive-sketched-harmon--b981e76ead6b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md Proof 2 proves every harmonic Ritz value has positive real part for epsilon<2sqrt(kappa)/(kappa+1), any trial dimension.",
+          "Earlier https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md Proof 3 gives a singular reduced Gram factor at equality, a negative eigenvalue above it and a valid squared-norm sketch; the later https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/exact-embedding-distortion-frontier-for-positive-sketched-harmon--b981e76ead6b/RESULT.md makes precisely those assertions.",
+          "Independent symbolic reconstruction yields for new A=diag(1,q^2), b=(q,1), W=[[1,-epsilon],[-epsilon,1]], G=q[2q-epsilon(q^2+1)], F=q^2[q^2+1-2epsilon q]. The earlier normalized witness has G_new/(q^2+1) and F_new/[q^2(q^2+1)] under its own A normalization, matching signs and critical radius."
+        ],
+        "reasoning": "The earlier stronger theorem logically implies the later all-Krylov result and its sharpness for the condition number. For each fixed nonscalar A, use its actual endpoint eigenvector plane and the same prior two-mode construction, a direct invariant-subspace embedding; no independent nontrivial theorem remains.",
+        "searches": [
+          "Resultary_Search: sketched harmonic Arnoldi Krylov Gram epsilon eigenvalues positivity robust embedding",
+          "Resultary_Search: Gaussian sketch one-step harmonic Ritz sign threshold Kantorovich angle",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/exact-embedding-distortion-frontier-for-positive-sketched-harmon--b981e76ead6b/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md Sections Finding and Proof 1-3: epsilon_crit=2sqrt(kappa)/(kappa+1), G=(SAB)^*(SB), F=(SAB)^*(SAB), all-dimensional right-half-plane and singular/negative examples.",
+          "New https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/exact-embedding-distortion-frontier-for-positive-sketched-harmon--b981e76ead6b/RESULT.md Sections Finding and Proof 1-3: same threshold and pencil. Earlier proof uses x=AB and C=A^-1; new proof uses w=B y and A directly."
+        ],
+        "reasoning": "The earlier C=A^-1 angular bound and the later A angular bound are the same classical Kantorovich inequality after x=Aw. Both produce Re(y*Gy)>=(c_kappa-epsilon)||Aw||||w|| and F>0. Earlier witness becomes later witness by spectral-endpoint swapping, positive rescaling and basis normalization; the threshold and failure are identical.",
+        "searches": [
+          "Resultary_Search: sketched harmonic Ritz values positive real part SPD sharp distortion threshold 2sqrt kappa/(kappa+1)",
+          "Resultary_Search: sketched harmonic Arnoldi Krylov Gram epsilon eigenvalues positivity robust embedding",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned the exact prior item in position 1 for two independent semantic queries, explicitly displaying the sharp distortion formula, all-Ritz positivity, boundary singularity and two-mode negative witness.",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/METADATA.json records publication_date=2026-10-12, earlier than assigned 2026-11-08."
+        ],
+        "reasoning": "This is exact prior theorem coverage, not a failed approximate index match. The explicit primary source was opened and its full statement/proof compared; no use of numerical coincidence alone.",
+        "searches": [
+          "Resultary_Search: sketched harmonic Ritz values positive real part SPD sharp distortion threshold 2sqrt kappa/(kappa+1)",
+          "Resultary_Search: sketched harmonic Arnoldi Krylov Gram epsilon eigenvalues positivity robust embedding",
+          "Resultary published finding 2026/10/12/SCOPE-sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/METADATA.json"
+        ]
+      },
+      "rationale": "A published 2026-10-12 result already states and proves the identical sharp threshold, same positivity-for-all-dimensions conclusion, singular boundary and negative two-mode counterexample. Its theorem covers complex Hermitian positive-definite A and arbitrary full-rank B, strictly broader than the submitted real SPD polynomial Krylov subclass. The later proof merely rewrites the same Kantorovich angle and sketch perturbation argument; fixed-A extremizer placement is an immediate endpoint-eigenspace specialization.",
+      "residual_risks": [
+        "The original Güttel-Liu-Nyman arXiv HTML was inaccessible in this run; this does not undermine the direct full-text prior coverage from the October 12 mathematical record.",
+        "The two formulations differ by complex-vs-real and arbitrary-basis-vs-Krylov scope; the earlier is strictly broader, not an independent narrowly new claim.",
+        "No priority claim for the submitted November result survives the complete October source; later bibliographic discoveries are unnecessary for this negative verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: identical sharp frontier and both endpoint behaviors, with broader Hermitian and arbitrary B scope.",
+          "evidence": [
+            "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md sections Finding, Assumptions and scope, Proof paragraphs 1-3.",
+            "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/METADATA.json publication_date=2026-10-12."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/12/sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md",
+          "material_read": "Complete published 2026-10-12 RESULT.md, including full finding, assumptions, three proof steps, sharp 2D example, limitations, cited prior work; associated SLOGAN.txt and METADATA.json publication date.",
+          "method": "Read actual frozen repository blob by GitHub connector, compared exact pencil definitions and spectral domain, independently substituted witness formulas and proved logical inclusion.",
+          "title": "Sharp embedding-distortion frontier for sketched harmonic Ritz positivity",
+          "trigger": "Exact earlier Resultary top hit with same theorem, including all-dimensional implication and counterexample; priority comparison decisive."
+        },
+        {
+          "assessment": "Relevant background, not needed to resolve originality because the independently read October 12 published mathematical proof already dominates the submitted statement.",
+          "evidence": [
+            "https://www.alphaxiv.org/abs/2607.10354, Theoretical Foundations and Convergence: sufficient epsilon||A^-1||<rho.",
+            "https://arxiv.org/abs/2607.10354 publication metadata; submitted 11 July 2026, revised 27 October 2026."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10354",
+          "material_read": "Public arXiv abstract and alphaXiv summary of Section 5.3; original arXiv HTML full text was inaccessible during this run.",
+          "method": "Read arXiv abstract and secondary alphaXiv explanation; no claim to have read the full paper or ruled out uninspected content.",
+          "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+          "trigger": "Introduces the sketched harmonic Arnoldi framework and motivating weaker positivity condition."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp deterministic right-half-plane robustness radius for sketched harmonic Ritz extraction is a mathematically meaningful quantity, but the full theorem and sharp witness were already published October 12. The later version gives no independent mathematical classification, structural mechanism, new domain or sharp constant. Its each-fixed-A sharpness is an immediate application of the already published endpoint two-mode construction, not a substantive gap-filling extension.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Historical work outside the searched sources was not exhaustively inventoried; a decisive prior result suffices for the originality failure.",
+    "Original arXiv full text inaccessible; explicit scope and reading limitations recorded without converting access trouble to scientific failure.",
+    "Finite computation cannot establish the universal correctness claim; proof independently reconstructed.",
+    "No research source was edited and no publication or relocation has occurred."
+  ],
+  "schema_version": 1
+}
