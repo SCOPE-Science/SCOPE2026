@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The 2022 published record-subset bijection parametrizes every source of a fixed one-pass bubble-sort output ending in its maximum. Swapping two adjacent entries changes the source record set by at most one value. If the toggled selected record has intervening source-output letters since the preceding selected record, toggling yields factors μWν versus νWμ and is not a single adjacent swap; otherwise W is empty and it is one swap. Consequently bit one always flips, and bit j≥2 flips exactly when original records j−1 and j occupy consecutive positions and bit j−1 is zero. Splitting at permanent frozen coordinates gives the stated Cartesian product and the frozen-first-bit H_L component decomposition. Counting consecutive prefinal record positions gives C_n. The only numerical steps are diagnostic: full actual-fiber adjacency/BFS checks through n=8 and exact count arithmetic through n=250 using the embedded verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu–Zhou arXiv:2303.13864v1, Introduction and Theorem 1.1 concern 4-connectivity of the entire (n!)-vertex adjacent-transposition Cayley graph B_n.",
+        "Bouvel–Cioni–Ferrari arXiv:2204.12936v1 Theorem 2.2 gives enumeration/parametrization and Section 3 classifies rooted trees of iterated preimages."
+      ],
+      "reasoning": "The whole permutahedron is connected and highly regular, but arbitrary induced exact-output fibers need not be connected; hence its 4-connectivity does not dominate the presented theorem. The published inverse-image enumeration does not itself supply the induced-swap adjacency condition. Earlier pattern-class preimage classification is about class membership rather than fixed-target fiber dynamics.",
+      "searches": [
+        "sorting permutation fiber reconfiguration adjacent swap graph connected bubble sort",
+        "preimages under one pass bubble sort, fibers induced graph adjacent swaps, record gaps, connected components",
+        "arxiv:2303.13864v1 The generalized 4-connectivity of bubble-sort graphs",
+        "2022 preimages under bubblesort operator theorem 2.2, corollary 2.3 and sorting trees",
+        "Exact component counts and sizes of one-pass bubble sort inverse fibers under adjacent transpositions; nonfinal record positions; connected fibers count factorial sum e/(n-1)"
+      ]
+    },
+    "checked_sources": [
+      "Bouvel–Cioni–Ferrari (2022), arXiv:2204.12936v1, https://arxiv.org/html/2204.12936v1 (key primary material read).",
+      "Xu–Zhou (2023), arXiv:2303.13864, https://arxiv.org/abs/2303.13864 (full introductory/core statements inspected).",
+      "Albert et al. (2011), https://pureportal.strath.ac.uk/en/publications/on-the-inverse-image-of-pattern-classes-under-bubble-sort/ (abstract only).",
+      "Related externally indexed mathematical findings on induced permutation reconfiguration, including fixed-point-forbidden components and pattern-avoidance adjacent swaps; comparisons concern different vertex constraints.",
+      "Earlier own same-slot results on a facilitated hypercube for a pattern-avoidance graph and on related permutation-graph mobility; these do not describe all exact bubble-pass inverse fibers."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Corollary 2.3 of Bouvel–Cioni–Ferrari implies the 2^(k−1) vertex count, which is acknowledged as prior.",
+        "Their sorting-tree isomorphism depends only on record count and final record suffix, whereas the new component formula requires every gap between nonfinal record positions.",
+        "Xu–Zhou treat the whole bubble-sort Cayley graph; its generalized connectivity is not an induced-subgraph connectivity theorem.",
+        "Comparison to independently published results on component signatures for permutations with forbidden fixed points (https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702) and hypercube component geometry for derangements (https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-hypercube-component-geometry-and-a-sharp-two-position-threshold--f608872f11aa): their constrained permutation families differ from the present equal-bubble-output fibers, so their component formulas do not imply the stated record-gap product."
+      ],
+      "reasoning": "The new theorem needs an additional original single-swap lemma to turn record-subset choices into a graph and a leading-run decomposition to obtain all component multiplicities. It is not merely a rephrasing of the vertex cardinality, nor a corollary of full-network connectivity. The shared facilitated graph is not claimed as a separate innovation.",
+      "searches": [
+        "arxiv:2204.12936v1 sections 1.3, 2, 3, 4",
+        "arxiv:2303.13864v1 sections 1 and 2",
+        "On the inverse image of pattern classes under bubble sort 2011",
+        "one-pass bubblesort fiber reconfiguration, facilitated hypercube, component sizes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bouvel–Cioni–Ferrari arXiv:2204.12936v1, Theorem 2.2 and Corollary 2.3 describe a binary record-subset parametrization of vertices, not the graph induced by preserving one-pass output under one swap.",
+        "The primary full text treats inverse sorting trees with edges from an input to its one-pass output, which is a different graph on permutations.",
+        "Related searchable restricted-permutation adjacent-swap results involve fixed-point exclusion and pattern-avoidance subsets, not fibers of one sorting pass."
+      ],
+      "reasoning": "An isomorphism to a facilitated-bit graph for a special fiber does not give the full family: frozen coordinates arise precisely from gaps between the nonfinal record positions. Neither the known binary vertex parametrization nor a special graph isomorphism alone asserts the product decomposition, edge predicate, global connected-fiber count or component multiplicities. No equivalent full theorem was found in the inspected material.",
+      "searches": [
+        "bubblesort operator preimage fiber graph adjacent transpositions hypercube connected components",
+        "one-pass bubblesort fiber reconfiguration, facilitated hypercube, component sizes",
+        "\"bubblesort\" \"preimages\" \"adjacent\" \"swaps\" reconfiguration graph",
+        "arxiv:2204.12936v1 full-text searches for graph, connected and swap",
+        "one-pass bubble sorting preimage graph product of facilitated hypercubes, invariant output under one adjacent swap, record gaps, all-length component formula",
+        "one pass bubble sort inverse graph connected exactly when record positions initial segment, number connected output fibers floor e factorial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2022 journal and arXiv full-text versions explicitly give 2^(k−1) vertices per image but no table or formula for component counts or sizes under output-preserving adjacent swaps.",
+        "The exact new small-case table is reproduced independently by the packaged enumerator, including n=5 giving 16 connected fibers among 24 nonempty outputs and n=8 giving 1957 among 5040."
+      ],
+      "reasoning": "No accessible same-object precomputed table of the new invariant or dominating exact formula was located; published whole-graph connectivity tables do not encode the induced-fiber distribution. A failed search alone is not used as proof of novelty.",
+      "searches": [
+        "bubble sort operator inverse fibers adjacent swap graph connected",
+        "\"bubble sort\" \"fiber\" \"adjacent transpositions\" preimages",
+        "bubblesort operator preimage fiber graph adjacent transpositions hypercube connected components",
+        "2022 journal Preimages under the Bubblesort Operator (doi:10.37236/11390)"
+      ]
+    },
+    "rationale": "The nearest full primary source supplies the vertex parametrization and a different sorting-tree adjacency under complete passes, not the induced equal-output one-adjacent-swap graph. The new assertion is a sharp all-output graph classification, record-gap-dependent components, exact sizes and a connected-output census; none is a special case of a documented stronger fiber-connectivity theorem in the inspected sources. Other related full bubble-sort network connectivity results concern the entire Cayley graph and cannot imply connectivity of arbitrary induced subsets. General facilitated-cube factors and the source bijection themselves are not claimed novel. Priority remains qualified by unindexed equivalents.",
+    "residual_risks": [
+      "An unindexed or differently named theorem might describe induced Cayley graphs of sorting-operator fibers.",
+      "The binary record-subset parametrization is established prior work; its immediate consequences must not be represented as novel independently of the new graph and component classification.",
+      "No independent literature-priority adjudication or independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves the underlying preimage bijection but does not state the within-fiber one-swap component classification or connected-output count.",
+        "evidence": [
+          "Theorem 2.2 and Corollary 2.3 explicitly construct all preimages via chosen records.",
+          "Section 3 defines tree edges via the application of B, not by adjacent swaps between preimages with equal B image."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2204.12936v1",
+        "material_read": "Full-text abstract and introduction; Section 1.3 definitions; Section 2 algorithm, Theorem 2.2, Corollaries 2.3–2.5; Section 3 sorting-tree statements and definitions; whole-document term searches graph/connected/swap.",
+        "method": "Direct reading of the openly available arXiv HTML of the original 2022 version, including the displayed record-subset formulas.",
+        "title": "Preimages under the bubblesort operator",
+        "trigger": "Exact same sorting operator and inverse-fiber object; highest-priority possible coverage."
+      },
+      {
+        "assessment": "Studies 4-connectivity of the unrestricted full symmetric-group graph; inapplicable to separate output-specific induced fibers.",
+        "evidence": [
+          "Theorem 1.1 states κ4(B_n)=n−2 for the full n!-vertex Cayley graph.",
+          "Section 2 defines B_n using all permutations and adjacent transpositions, without any restriction on a sorting-pass output."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.13864",
+        "material_read": "Full-text introduction, Theorem 1.1 and Section 2 preliminary graph definitions and main-parts decomposition.",
+        "method": "Direct reading of freely accessible arXiv full-text parsing.",
+        "title": "The generalized 4-connectivity of bubble-sort graphs",
+        "trigger": "Potential stronger connectivity result for adjacent-transposition Cayley graphs."
+      },
+      {
+        "assessment": "Concerns when the inverse of a principal avoidance class is a pattern class, not within-fiber adjacent-swap geometry. No full-text NOT_COVERING inference is made.",
+        "evidence": [
+          "The stated main question is inverse images of permutation pattern classes, not exact one-output fibers."
+        ],
+        "identifier_or_url": "https://pureportal.strath.ac.uk/en/publications/on-the-inverse-image-of-pattern-classes-under-bubble-sort/",
+        "material_read": "Publication metadata and abstract only; its different question is explicitly described there.",
+        "method": "Public university research-portal abstract inspection.",
+        "title": "On the inverse image of pattern classes under bubble sort",
+        "trigger": "Earlier preimage literature cited by the 2022 primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "43496119-283c-4685-9d2d-62391d404b16",
+  "value": {
+    "rationale": "Reachability under an output-preserving elementary adjacent swap is natural in sorting/reconfiguration and cannot be inferred from the number of preimages. The theorem completely characterizes those components and their sizes for every possible output and proves a sharp decay e/(n−1) for connected exact-output fibers. The exact edge formula and constructive connectedness test are useful in optimal local enumeration and random walks confined to a sorting-pass fiber. This is a motivated, parameter-uniform structural result rather than an arbitrary computed invariant.",
+    "status": "PASS"
+  }
+}
