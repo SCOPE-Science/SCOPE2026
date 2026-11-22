@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Fourier energy is derived with probability-measure normalizations and the doubled latitude domain. Orthogonality across azimuthal indices diagonalizes the exact-degree Gram matrix. Moment convergence from the normalized associated Legendre Jacobi recurrence gives the arcsine law, while a spherical gradient-energy inequality supplies uniform integrability for positive azimuthal ratios. The zero-ratio divergence follows by bounded truncation and monotone divergence of the limiting arcsine integral. Beta/central-binomial identities prove sharp lower-limit and logarithmic zonal formulas. The packaged checker independently reproduces 1,149 finite comparisons; finite checks do not prove any infinite claim.
+PASS
 
-## Originality — PASS, with provisional historical priority
+PASS. For spherical-probability and torus-Haar normalizations, the doubled latitude map yields a diagonal degree-l Gram matrix in azimuthal m, with d_{l,m}=(2/pi)∫ p_{l,m}(x)^2/sqrt(1-x²) dx. The normalized associated-Legendre symmetric Jacobi recurrence has local coefficient limit sqrt(1−alpha²)/2 for |m|/l→alpha; moment convergence gives the arcsine law of radius sqrt(1−alpha²), including the alpha=1 point mass. For alpha>0, the angular gradient estimate m²∫ p²/(1−x²) <=l(l+1) makes the singular Jacobian uniformly integrable and yields (4/pi²)K(sqrt(1−alpha²)); for alpha=0 bounded truncations force divergence rather than relying on weak convergence for an unbounded function. Pointwise weight >1 gives d>2/pi, while the exact beta sectoral formula tends to 2/pi. Parseval for the Legendre generating function yields zonal d_{l,0}=(2l+1)sum_r b_r² b_{l−r}²=(4/pi²)log l+O(1). Independent quadrature at l=0,1,2,6,14 agreed with zonal/sectoral formulas. The finite checks are not a substitute for the Jacobi/endpoint argument.
 
-The 2021 DFS source supplies the weighted Jacobian and torus framework, not the exact-degree elliptic singular-value profile. The general Saigo--Sako arcsine law and Dunster asymptotic results supply background tools, not an identified statement of the complete DFS distortion. Searches of published mathematical findings for elliptic azimuthal limits, Legendre-weighted DFS energies and dual/alias formulations retrieved adjacent Slepian spherical-harmonic sampling or Fourier approximation findings, without an identified statement covering this claim. Historical priority of the special-function formulas remains provisional: Bailey (1938) has an inaccessible full paper whose integral identities might be relevant, and broader semiclassical associated-Legendre results may imply parts of this statement. Publication after independent priority assessment is recommended.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The double Fourier sphere transform is used for FFT-based spherical approximation. Identifying the exact-degree singular energy and its sharp two-scale distortion is a natural operator-stability question, quantitatively distinguishing near-sectoral harmonics from pole-concentrated zonal harmonics. The result is an all-degree, parameter-dependent asymptotic classification rather than an arbitrary finite special-case calculation. No new global Sobolev boundedness theorem is asserted.
+Best-of-knowledge PASS on distinct scientific statement/implication comparisons and primary evidence, with explicit source-access and index limitations. Double Fourier sphere pullback exact-degree elliptic asymptotic
 
-## Scope and limitations
+## value
 
-Classical orthogonal-polynomial recurrences are credited. The full finite-degree ordering among azimuthal orders is open here, and the general pullback does not become bounded by restriction estimates on single degrees. The available original DFS paper was read in full HTML sections relevant to pullbacks, weights, theorems and references; Bailey's plausible older paper was only available as bibliographic metadata.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The DFS pullback is a natural computational map used to FFT-analyze spherical functions; its unweighted norm distortion on an exact harmonic eigenspace has a meaningful singular-value spectrum. The theorem characterizes how this distortion changes from equatorial/sectoral to polar/zonal orders, with a sharp global lower squared energy and logarithmic zonal growth. These are natural all-degree operator-stability facts; no false global L2 boundedness is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

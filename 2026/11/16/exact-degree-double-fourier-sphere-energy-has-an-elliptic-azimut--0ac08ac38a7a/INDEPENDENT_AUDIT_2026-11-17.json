@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:53:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For spherical-probability and torus-Haar normalizations, the doubled latitude map yields a diagonal degree-l Gram matrix in azimuthal m, with d_{l,m}=(2/pi)∫ p_{l,m}(x)^2/sqrt(1-x²) dx. The normalized associated-Legendre symmetric Jacobi recurrence has local coefficient limit sqrt(1−alpha²)/2 for |m|/l→alpha; moment convergence gives the arcsine law of radius sqrt(1−alpha²), including the alpha=1 point mass. For alpha>0, the angular gradient estimate m²∫ p²/(1−x²) <=l(l+1) makes the singular Jacobian uniformly integrable and yields (4/pi²)K(sqrt(1−alpha²)); for alpha=0 bounded truncations force divergence rather than relying on weak convergence for an unbounded function. Pointwise weight >1 gives d>2/pi, while the exact beta sectoral formula tends to 2/pi. Parseval for the Legendre generating function yields zonal d_{l,0}=(2l+1)sum_r b_r² b_{l−r}²=(4/pi²)log l+O(1). Independent quadrature at l=0,1,2,6,14 agreed with zonal/sectoral formulas. The finite checks are not a substitute for the Jacobi/endpoint argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full 2022 open-access DFS paper specifies the map and weighted Fourier analysis but not these exact-degree singular energies.",
+          "Classical arcsine laws/Jacobi asymptotics yield an intermediate weak limit; they do not by themselves integrate the singular polar weight without uniform integrability."
+        ],
+        "reasoning": "General DFS framework and classical Legendre asymptotics are important antecedents; no identified explicit theorem implies the composite operator-specific sharp statement. Strong special-functions literature coverage remains an acknowledged risk.",
+        "searches": [
+          "Mildenberger Quellmalz Approximation Properties Double Fourier Sphere Method theorem 5.4",
+          "Saigo Sako Arcsine law asymptotic orthogonal polynomials 2014",
+          "Dunster Uniform asymptotic expansions associated Legendre large order 2003"
+        ]
+      },
+      "checked_sources": [
+        "Frozen degree-DFS RESULT.md, AUDIT.json, METADATA.json, REVIEW.md and verify_profile.py; verified full Git tree identity",
+        "https://link.springer.com/article/10.1007/s00041-022-09928-4",
+        "https://arxiv.org/abs/1407.0792",
+        "https://doi.org/10.1017/S0308210500002687",
+        "https://doi.org/10.1112/jlms/s1-13.3.167"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mildenberger–Quellmalz 2022 Theorem 5.4: torus Fourier coefficients with weighting and Section 6 smoothness/Sobolev phenomena.",
+          "Saigo–Sako general arcsine limit concerns weak measures, not automatically the unbounded DFS Jacobian."
+        ],
+        "reasoning": "The published general map does not algebraically specify each exact-degree norm nor a singular-weight asymptotic. Its ingredients can be combined with classical results, so method novelty is not asserted. Bailey/Dunster might entail a special-case formula and remain unverified.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00041-022-09928-4",
+          "https://arxiv.org/abs/1407.0792",
+          "https://doi.org/10.1112/jlms/s1-13.3.167"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-degree claim can be expressed as weighted associated-Legendre L2 norms with weight (1−x²)^−1/2, whereas DFS Sobolev properties concern a wider operator and different norms."
+        ],
+        "reasoning": "Equivalent special-function formulas are a genuine priority risk; no checked directly matching all-order elliptic profile and sharp sectoral/zonal statement found.",
+        "searches": [
+          "double Fourier sphere torus pullback harmonic degree L2 energy elliptic azimuthal ratio",
+          "associated Legendre polynomials unweighted latitude norm elliptic integral asymptotic",
+          "semiclassical spherical harmonic eigenfunction L2 on meridian torus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bailey 1938 is plausible integral-formula source; only bibliographic metadata could be read, no full text after public OA/arXiv attempts.",
+          "Oxford institutional attempt yielded VPN-disconnected access block; no paper text was supplied."
+        ],
+        "reasoning": "Cannot claim Bailey does not contain the exact integral. Inaccessibility alone is not scientific failure; originality is best-of-knowledge with explicit uninspected-source risk.",
+        "searches": [
+          "Bailey Some Integral Formulae Involving Associated Legendre Functions 1938",
+          "Dunster Legendre unweighted integral elliptic K asymptotics",
+          "sectoral zonal double Fourier sphere exact squared norm table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS on distinct scientific statement/implication comparisons and primary evidence, with explicit source-access and index limitations. Double Fourier sphere pullback exact-degree elliptic asymptotic",
+      "residual_risks": [
+        "Bailey 1938 full paper inaccessible; special integral formulas could overlap the finite exact sector or zonal expressions.",
+        "Dunster 2003 broader large-order Legendre asymptotics were not read in full; some claimed asymptotic profile may be corollary.",
+        "Oxford access blocked by disconnected VPN; no content, human bypass, or invented negative citation.",
+        "Semantic search service unavailable, so best-of-knowledge novelty is qualified; the unbounded singular weight requires care beyond weak convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines doubled spherical coordinate transform and analyzes smoothness/weighted Fourier coefficients; exact-degree Legendre-weighted elliptic profile not in inspected principal results",
+          "evidence": [
+            "Section 2 formula phi(lambda,theta); Theorem 5.4 weighted coefficient identity; Section 6 Sobolev example"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-022-09928-4",
+          "material_read": "Full open-access HTML sections 1–6, transform eq.1, weighted Fourier material and Theorems 4.3,5.4,6.3",
+          "method": "Read primary scientific HTML, compared norms and theorem quantifiers",
+          "title": "Approximation Properties of the Double Fourier Sphere Method",
+          "trigger": "Exactly the DFS pullback in the claim"
+        },
+        {
+          "assessment": "Relevant weak orthogonal-polynomial limit but not verified as a statement about DFS singular weight",
+          "evidence": [
+            "Weak arcsine convergence does not alone imply convergence of the unbounded 1/sqrt(1−x²) integral"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.0792",
+          "material_read": "Abstract and bibliographic theorem scope; full body not newly examined",
+          "method": "Public arXiv abstract",
+          "title": "The Arcsine law and an asymptotic behavior of orthogonal polynomials",
+          "trigger": "Classical weak arcsine limit comparison"
+        },
+        {
+          "assessment": "Plausible broader asymptotics; no whole-document noncoverage conclusion",
+          "evidence": [
+            "Older uniform associated-Legendre theory may entail elliptic-weight asymptotics"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0308210500002687",
+          "material_read": "Publisher bibliographic/abstract description; full paper not inspected",
+          "method": "Metadata and abstract",
+          "title": "Uniform asymptotic expansions for associated Legendre functions of large order",
+          "trigger": "Potential broader special-function asymptotics"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE; no claim of noncoverage",
+          "evidence": [
+            "Possible integral identity overlap; institutional connection was unavailable and cannot be bypassed"
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms/s1-13.3.167",
+          "material_read": "Bibliographic listing only. arXiv/OA efforts did not provide full article. Institutional download requested and blocked by disconnected VPN.",
+          "method": "Publisher metadata; authorized Oxford access attempt, no content received",
+          "title": "Some Integral Formulae Involving Associated Legendre Functions",
+          "trigger": "Older potentially exact associated-Legendre integral table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The DFS pullback is a natural computational map used to FFT-analyze spherical functions; its unweighted norm distortion on an exact harmonic eigenspace has a meaningful singular-value spectrum. The theorem characterizes how this distortion changes from equatorial/sectoral to polar/zonal orders, with a sharp global lower squared energy and logarithmic zonal growth. These are natural all-degree operator-stability facts; no false global L2 boundedness is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Bailey 1938 full paper inaccessible; special integral formulas could overlap the finite exact sector or zonal expressions.",
+    "Dunster 2003 broader large-order Legendre asymptotics were not read in full; some claimed asymptotic profile may be corollary.",
+    "Oxford access blocked by disconnected VPN; no content, human bypass, or invented negative citation.",
+    "Semantic search service unavailable, so best-of-knowledge novelty is qualified; the unbounded singular weight requires care beyond weak convergence.",
+    "No public file edited or posted; no claim of external certification. Historical missing ledger gap is preserved separately."
+  ],
+  "schema_version": 1
+}
