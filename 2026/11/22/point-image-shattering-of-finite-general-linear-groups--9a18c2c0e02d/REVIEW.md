@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The theorem is proved in both directions. For a dependent source circuit the all-positive mapping forces a forbidden sign pattern. Independent sources and targets permit arbitrary positive constraints, while the conditional probability that any prescribed negative assignment is accidentally realized is at most \((d-p)/(q^d-q^p)<1\). The face formula, purity, and nonmatroidality follow. Complete finite checks for binary dimension three and ternary dimension two confirm predicted face counts; exact elimination yields binary boundary rank 834 and reduced Betti rank 3870. The finite checks are not substituted for the general proof.
+
+**Originality — PASS within inspected scope.** Hu–Weinberger–Shayevitz study asymptotic code VC/distance tradeoffs; Fitzpatrick–Iosevich–McDonald–Wyman study finite-field sphere incidence; Arora–Ram count partial linear map similarity classes; Kobayashi–Kurita–Wasa develop matroid-intersection enumeration algorithms. No inspected statement implies the all-sign-pattern GL graph-incidence criterion, face enumerator or binary top homology computation. Searches for linear group action shattering, point-image matrices, matroid equivalences and exact 49/882/4704 counts found related but non-covering results. Residual risks are incomplete historical indexing and potentially equivalent terminology.
+
+**Mathematical value — PASS.** The object is the natural full general-linear-group permutation class acting on nonzero vectors. Its exact Boolean trace geometry is the intersection of two representable vector matroids, but not a matroid; the complete all-dimension polynomial and pure facets capture more information than a VC-dimension bound. The nontrivial mod-two rank-three topology provides a separately motivated invariant of the smallest projective linear action beyond rank two.
+
+**Limitations.** There is no general formula for homology, no statement about online learning dimension, no integral homology claim, and no independent mathematical verification. Exact finite enumeration proves only the explicitly enumerated finite examples. Historical priority may be revised by unindexed or inaccessible equivalent literature.
+
+Self-review: passed. Independent audit: not yet performed.
