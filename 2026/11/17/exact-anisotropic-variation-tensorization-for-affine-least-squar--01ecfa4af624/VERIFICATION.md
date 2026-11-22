@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 with the standard library. The checker builds each product design and the weighted \(L^2\) affine projector directly, forms all grid graph edges, tests every nonconstant binary cut for seven uniform designs through twelve vertices and one nonuniform weighted two-by-three design, and confirms the exact step-function witness. Representative output:
+## correctness
 
-```text
-EXACT_COAREA_CUT_ENUMERATION_PASS [2, 2] value 1 cuts 14
-EXACT_COAREA_CUT_ENUMERATION_PASS [2, 3] value 1 cuts 62
-EXACT_COAREA_CUT_ENUMERATION_PASS [3, 3] value 1 cuts 510
-EXACT_COAREA_CUT_ENUMERATION_PASS [2, 4] value 6/5 cuts 254
-EXACT_COAREA_CUT_ENUMERATION_PASS [3, 4] value 6/5 cuts 4094
-EXACT_COAREA_CUT_ENUMERATION_PASS [2, 2, 2] value 1 cuts 254
-EXACT_COAREA_CUT_ENUMERATION_PASS [2, 2, 3] value 1 cuts 4094
-EXACT_COAREA_CUT_ENUMERATION_PASS [2, 3] value 869/137 cuts 62
-SHARP_UNIFORM_FOUR_SITE_ONSET_AND_3_OVER_2_ENVELOPE_PASS
-ALL_PRODUCT_GRID_AFFINE_BV_DIAGNOSTICS_PASS
-```
+PASS
 
-The finite tests are supporting diagnostics, not a proof over arbitrary dimensions or continuous weights. That proof consists of the orthogonal coefficient decomposition, an exact positive weighted prefix-sum identity, a termwise variation inequality and an equality witness for every candidate edge. The source was read, computations were run locally in exact rational arithmetic, and no independent mathematical audit was undertaken.
+Under normalized positive product masses and strictly ordered sites, the centered coordinate functions are mutually orthogonal and provide the entire globally ADDITIVE affine projection. The coefficient a_j=s_j^-2 E[(t_j-m_j)f] equals a weighted sum of each axis-j fiber increment with positive coefficient U_{j,k}; summation by parts yields a one-sided total-variation upper bound B_j U_{j,k}/(s_j² w_{j,k}). An axis single-jump indicator has exactly one edge slice and no other coordinate coefficient, achieving every candidate ratio. Thus the sharp maximum and its independence of factor count/positive axis multipliers are proved, not extrapolated from cuts. Uniform sites give U=k(n-k)/(2n) and variance (n²-1)/12, hence 6k(n-k)/(n(n+1)) and 3floor(n/2)/(2floor(n/2)+1), with onset n=4 and limit 3/2.
+
+## originality
+
+PASS
+
+No inspected earlier result treats the induced graph-edge total variation seminorm of the globally additive, weighted L² affine orthogonal projection on a product of arbitrary weighted finite paths. Discrete polynomial LS collocation stability, continuous Q1 local TV interpolation, L∞ affine projection norms and Hodge-gradient projections use different maps or seminorms. The sharp weighted all-axis formula is not logically implied by these stated results.
+
+## value
+
+PASS
+
+The result is an exact sharp infinite family of weighted anisotropic graph-variation stability constants on a natural statistical projection. Step cut witnesses establish attainability; computation is linear in total one-axis sizes instead of product grid cardinality. The four-site instability cutoff, parity plateau and dimension-free 3/2 boundary are motivated consequences for variation-aware approximation, not trivial positivity or a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
