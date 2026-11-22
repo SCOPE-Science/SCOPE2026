@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(n\ge3\), summing the first four binary Krawtchouk polynomials yields the stated cubic exactly. The nonsquare condition eliminates both additional roots. Fourier-diagonalization defines the range, while translation averaging proves that the canonical projection is globally minimum-norm in both endpoint spaces. The exact signed-pair duality and the factorization \((1-z)(1-z^2)^m\) give the absolute kernel sum with no unproved analytic step. The central binomial asymptotic and the \(O(\sqrt X)\) exceptional-count estimate close the limit argument. Independently implemented integer checks corroborate, but are not substituted for, the proof.
+## correctness
 
-## Originality
-PASS under bounded comparison. Earlier Krawtchouk/Lloyd theory gives the Fourier polynomial and its zeros, and Defant et al. already prove the universal translation-averaged projection-kernel norm identity. Neither is claimed new. The specific all-length closed formula for the minimum endpoint norm of the radius-three ball-convolution range in the nonsquare odd phase, along with the exact rank/instability asymptotic comparison, was not identified in the accessed primary full text or indexed corpus. The strongest risk is an existing special evaluation of the middle-layer Krawtchouk absolute sum that, combined with the established general result, would immediately imply the expression. Such a source would defeat this originality claim; this limitation is not a proof of uniqueness.
+PASS
 
-## Value
-PASS. Radius-three Hamming balls are canonical supports in finite harmonic analysis and coding-theoretic convolution, and the least projection norm is an exact structural stability invariant. The formula sharply separates asymptotically full Fourier rank from exponentially diverging endpoint complementability on a density-one infinite family. The value comes from the nontrivial natural parameter regime and exact cancellation, not from a routine finite count or an arbitrary slice.
+For n>=3 the Fourier multiplier of the Boolean radius-three Hamming ball is sum_{j=0}^3 K_j(k;n)=(t+1)((t+1)^2-3n+5)/6 with t=n-2k. For odd n=2m+1>=5 and nonsquare 3n-5 only the layer h=m+1 is missing; the other square-resonant cases are covered solely by the general rank formula. Translation averaging of arbitrary ℓ1/ℓ∞ projections onto the Fourier-defined range forces the canonical projection I-E_h as minimum norm. Its convolution kernel absolute sum equals 1−2r/2^n+(1/2^n)sum_x binom(n,x)|K_h(x;n)|. Krawtchouk duality and (1-z)^(m+1)(1+z)^m=(1-z)(1-z²)^m evaluate this absolute sum exactly as 1+r(2^(-m)−2^(-2m)), r=binom(n,m+1). Stirling central binomial asymptotics give exponential endpoint norm but vanishing relative nullity. Independent exact Walsh checks n=3..13 and kernel norm checks for all qualifying odd cases confirm the formula; finite calculations are not used as an infinite proof.
 
-## Limitations and closest literature
-The finite-dimensional Fourier/Krawtchouk spectral framework, Lloyd-polynomial roots, and universal projection averaging are prior work. The theorem does not calculate minimum projection constants in the resonant dimensions or all intermediate \(\ell^p\) norms. Historical priority is bounded by the inspected sources and may require further checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, with substantial prior-implication risk. Defant et al Theorem 3.1 already gives the minimum projection norm of ANY Walsh-frequency subspace as an unevaluated character absolute sum; Krawtchouk/Lloyd theory already gives the multiplier zeros. Their inspected full manuscript does not evaluate the special middle-layer absolute sum in the closed binomial form or identify the radius-three nonsquare odd family and its exponential/vanishing-nullity separation. The specialized exact evaluation is the retained proposed original content; it may prove to be a routine application of known absolute Krawtchouk identities, so this is bounded best-of-knowledge, not priority certification.
+
+## value
+
+PASS
+
+Sharp complementability constants for natural low-radius convolution ranges quantify recovery instability in endpoint norms. The explicit numerical closed form exposes exponential projection cost even while the missing-frequency density decays like n^(-1/2), a structurally meaningful separation. This is a motivated exact family, not a requirement for a new general projection theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

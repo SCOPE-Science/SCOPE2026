@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:48:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 the Fourier multiplier of the Boolean radius-three Hamming ball is sum_{j=0}^3 K_j(k;n)=(t+1)((t+1)^2-3n+5)/6 with t=n-2k. For odd n=2m+1>=5 and nonsquare 3n-5 only the layer h=m+1 is missing; the other square-resonant cases are covered solely by the general rank formula. Translation averaging of arbitrary ℓ1/ℓ∞ projections onto the Fourier-defined range forces the canonical projection I-E_h as minimum norm. Its convolution kernel absolute sum equals 1−2r/2^n+(1/2^n)sum_x binom(n,x)|K_h(x;n)|. Krawtchouk duality and (1-z)^(m+1)(1+z)^m=(1-z)(1-z²)^m evaluate this absolute sum exactly as 1+r(2^(-m)−2^(-2m)), r=binom(n,m+1). Stirling central binomial asymptotics give exponential endpoint norm but vanishing relative nullity. Independent exact Walsh checks n=3..13 and kernel norm checks for all qualifying odd cases confirm the formula; finite calculations are not used as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant et al 2024 Theorem 3.1 general arbitrary-S projection",
+          "De Wolf 2008 Boolean cube Fourier background"
+        ],
+        "reasoning": "General projection averaging completely covers optimality of the canonical projector and the expectation formula; these are explicitly not original. The additional central-layer signed absolute-value evaluation and asymptotic separation require a special Krawtchouk generating-series calculation not stated there. The coverage risk is that the reduction may be judged too immediate.",
+        "searches": [
+          "Resultary query: Boolean Hamming ball radius three endpoint instability Fourier convolution zeros",
+          "projection constants Boolean cube homogeneous chaos Krawtchouk L1 middle n odd"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2302.00233",
+        "https://arxiv.org/abs/1409.4715",
+        "https://cims.nyu.edu/~regev/toc/articles/gs001/index.html",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-tur-n-mass-and-optimizer-geometry-of-radius-three-boolean--35b023fb86ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2302.00233 Theorem 3.1 and Sections 3–4",
+          "https://arxiv.org/abs/1409.4715 Krawtchouk transforms",
+          "Resultary radius-three Turán mass (different extremal problem)"
+        ],
+        "reasoning": "Prior theorem implies the optimal norm is an absolute Walsh sum for any support and classical Krawtchouk gives the summands. The record derives a non-generic closed evaluation from the special odd middle-layer generating function. A prior table giving this absolute sum would imply the whole claim and reverse O to FAIL; this was not established in the material read.",
+        "searches": [
+          "Resultary query: Boolean Hamming ball radius three endpoint instability Fourier convolution zeros",
+          "radius three Hamming-ball convolution range min projection norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defant et al arXiv:2302.00233 Theorem 3.1 arbitrary Walsh-frequency projection norm",
+          "Feinsilver–Schott arXiv:1409.4715 Krawtchouk convolution"
+        ],
+        "reasoning": "The range is Fourier-supported outside one middle Hamming layer, so Defant's projection norm theorem applies exactly. It yields the general absolute-character expectation but does not give the claimed specialized evaluated number or the ball singularity family in the inspected paper.",
+        "searches": [
+          "Resultary query: Boolean Hamming ball radius three endpoint instability Fourier convolution zeros",
+          "Krawtchouk middle layer Walsh projection constant odd dimension binomial exact norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query returned current package and different Hamming-ball Turán mass studies",
+          "Defant et al focus on fixed-degree homogeneous Walsh spaces"
+        ],
+        "reasoning": "The exact Krawtchouk coefficients are classical, but no independent database/table was identified printing this specific all-odd-dimension endpoint norm. Search is not novelty proof; an exact formula in older Krawtchouk tables is the leading priority risk.",
+        "searches": [
+          "Resultary query: Boolean Hamming ball radius three endpoint instability Fourier convolution zeros",
+          "Hamming sphere middle layer Krawtchouk absolute values sum binomial formula"
+        ]
+      },
+      "rationale": "PASS, with substantial prior-implication risk. Defant et al Theorem 3.1 already gives the minimum projection norm of ANY Walsh-frequency subspace as an unevaluated character absolute sum; Krawtchouk/Lloyd theory already gives the multiplier zeros. Their inspected full manuscript does not evaluate the special middle-layer absolute sum in the closed binomial form or identify the radius-three nonsquare odd family and its exponential/vanishing-nullity separation. The specialized exact evaluation is the retained proposed original content; it may prove to be a routine application of known absolute Krawtchouk identities, so this is bounded best-of-knowledge, not priority certification.",
+      "residual_risks": [
+        "Defant et al's arbitrary-spectrum projection theorem plus elementary Krawtchouk generating functions may be seen as logically covering this specialization under a strict corollary notion; the claimed contribution is only the evaluated special case.",
+        "Historical literature may already contain the exact odd-middle-layer absolute Krawtchouk sum.",
+        "Resonant odd and some even dimensions have additional zero layers; no general minimum norm is asserted there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominates translation averaging and general projection formula; does not display the specific middle-layer closed numerical evaluation in inspected material",
+          "evidence": "Theorem 3.1 arbitrary Walsh support and equation for expected absolute character sum",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00233",
+          "material_read": "Full accessible PDF abstract, introduction, Theorem 3.1 with proof, and relevant parts of Section 4; page screenshots inspected",
+          "method": "read arXiv PDF text and page image",
+          "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+          "trigger": "exact same general projection constant and possible dominating theorem"
+        },
+        {
+          "assessment": "No whole-document noncoverage conclusion; priority risk retained",
+          "evidence": "Classical Krawtchouk framework rather than a confirmed exact endpoint constant",
+          "identifier_or_url": "https://arxiv.org/abs/1409.4715",
+          "material_read": "Abstract, mathematical topic and cited Krawtchouk convolution framework; specialized middle-layer norm not verified by whole-document reading",
+          "method": "public abstract and repository cited discussion",
+          "title": "Krawtchouk transforms and Convolutions",
+          "trigger": "classical Krawtchouk transform/convolution machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp complementability constants for natural low-radius convolution ranges quantify recovery instability in endpoint norms. The explicit numerical closed form exposes exponential projection cost even while the missing-frequency density decays like n^(-1/2), a structurally meaningful separation. This is a motivated exact family, not a requirement for a new general projection theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2302.00233",
+    "https://arxiv.org/abs/1409.4715",
+    "https://cims.nyu.edu/~regev/toc/articles/gs001/index.html",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-tur-n-mass-and-optimizer-geometry-of-radius-three-boolean--35b023fb86ee"
+  ],
+  "disposition": "passed",
+  "limitations": "Full all-quantifier proof reconstructed; finite independent checks are corroboration only. Originality is a bounded best-of-knowledge judgment, not historical-priority certification. External expert and Lean attestation remain untouched; public import not ready.",
+  "residual_risks": [
+    "Defant et al's arbitrary-spectrum projection theorem plus elementary Krawtchouk generating functions may be seen as logically covering this specialization under a strict corollary notion; the claimed contribution is only the evaluated special case.",
+    "Historical literature may already contain the exact odd-middle-layer absolute Krawtchouk sum.",
+    "Resonant odd and some even dimensions have additional zero layers; no general minimum norm is asserted there."
+  ],
+  "schema_version": 1
+}
