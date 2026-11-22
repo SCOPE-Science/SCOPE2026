@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete face-poset matching and its signed Morse boundary are reconstructed for all three full finite complexes. Directed Hasse acyclicity is checked exhaustively, and the integral matrices have explicit unit-pivot elimination ranks (3); (1,35); and (2,93), with exact composition zero. The reduced CW complexes cancel to 15, 57, 57 five-cells and one zero-cell. This establishes integral homotopy equivalences, not inferred homotopy from field ranks.
+## correctness
 
-## Originality — PASS
-The nearest published October 27, 2026 result handles at most three rows or the different four-row torsion pattern with at least four capacities at least two; its other explicit four-row full-row reduction requires a capacity of six or seven at seven columns. None of the three new capacity vectors satisfies those assumptions. Searches of the indexed mathematics record, earlier accessible findings, and direct title/parameter variants found no equivalent three-vector homotopy classification. General rational Betti formulas do not imply integral homotopy. An equivalent unindexed proof remains possible.
+PASS
 
-## Mathematical value — PASS
-The total capacity eight and seven-column boundary is precisely where the 2026 paper exhibits four-row two-torsion for the balanced vector. The three missing positive partition types provide a complete natural finite companion: all have an integral sphere wedge concentrated one dimension below their pure facet dimension and are nonshellable, whereas the balanced case supports torsion. This resolves motivated adjacent boundary cases, not a random parameter slice.
+The three seven-column four-row capacities are finite natural complexes. From full legal faces, exact greedy acyclic discrete Morse matching is verified over every face-poset cover, with critical cells (0:1,4:3,5:18), (0:1,3:1,4:36,5:92), (0:1,3:2,4:95,5:150). The complete signed Morse boundary complexes satisfy d4*d5=0 and admit exact integer unit pivot ranks (3), (1,35), (2,93), leaving respectively 15,57,57 fifth-dimensional cells plus a vertex. No 1/2 cells, and cancellation of unit-incidence adjacent cells over Z yields wedges of S5; all full finite cases are exhaustive, not sampled. Independently implemented entire face generation, Hasse acyclicity, Morse reduction and integer pivots in local script chessboard_independent_1804.py, matching 8835,15933,18873 faces and quoted counts. Inspected actual verifier source verify_chessboard.py.
 
-## Residual risk
-The classification is finite and non-equivariant; no general four-row criterion is asserted. Independent mathematical review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: three capacity patterns (1,1,1,5), (1,1,2,4), (1,1,3,3) are not within the published at-most-three-row families or the four-row (2,2,2,2) torsion case; nearby (1,2,2,3) exact homotopy classification is different.
+
+## value
+
+PASS
+
+These are the three remaining positive four-row total-capacity-eight capacity partitions at seven columns after known (1,2,2,3) and (2,2,2,2), giving a complete natural boundary census and distinguishing torsion-free nonshellable wedges from the adjacent torsion example. Exact integral homotopy cannot be inferred from rational Betti tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
