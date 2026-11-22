@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For n=5..9, every 0–3 chord subset is enumerated. Both integer matrix-tree cofactors and exact cycle effective-resistance determinant lemma give the same count in 5,281 cases. Prefix-specific greedy ties are all preserved. The computed global and greedy equality sets prove an exact minimal finite obstruction; no infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The reliability paper computes small three-chord Hamiltonian network designs, giving potentially stronger coverage of the global optimum 240, but studies network reliability rather than the entire greedy tie tree.",
+        "The greedy algorithm paper provides general quality guarantees but not exact per-size greedy equality sets."
+      ],
+      "reasoning": "Global three-chord optimal graphs alone do not settle whether every locally greedy three-step path misses all optima. A theorem explicitly describing every greedy tie trajectory or deriving this exact minimal first failure would dominate the claim; none appears in inspected material. Priority risk remains substantial due to nearby three-chord enumeration.",
+      "searches": [
+        "Network reliability in hamiltonian graphs 2020 three chord greedy design smallest counterexample nine cycle",
+        "Llagostera, López & Comas 2020, arxiv:2005.02848, Sections 2.2–2.3",
+        "Khosoussi et al. 2016 Sections 4.2–4.5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1604.01116v2",
+      "https://arxiv.org/abs/1604.01116",
+      "https://doi.org/10.1016/j.disopt.2021.100645",
+      "https://arxiv.org/abs/2005.02848",
+      "https://arxiv.org/abs/1804.02785"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The two-chord source concerns infinitesimal algebraic connectivity, not three-chord spanning-tree counts.",
+        "Khosoussi et al. 2016 Theorem 4.2 supplies a general greedy approximation guarantee rather than exact optimality.",
+        "Llagostera et al. 2020 Section 2.2 gives exact two-chord optimizers; its subsequent analysis studies three-chord global reliability."
+      ],
+      "reasoning": "The claim does not assert novelty of two-chord placements, the rank-update formula, the global three-chord optimum alone, or submodularity. A general guarantee and optimal-set enumeration cannot by themselves conclude the first tie-robust greedy failure without local extension comparisons.",
+      "searches": [
+        "For cycle C_n, which two nonedges maximize the number of spanning trees after edge insertion? All maximizing pairs are crossing chords with four arc gaps balanced modulo four; exact maximal formula",
+        "cycle graph maximize product of two effective-resistance gains, rank-two Laplacian update, crossing chords quarter arc lengths",
+        "optimal two-chord infinitesimal acceleration of cycle consensus",
+        "Khosoussi et al. 2016 Theorem 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph tree number equals the cofactor of the grounded Laplacian, so exact D-optimal selection is equivalent to maximizing log determinant.",
+        "Khosoussi et al., arXiv:1604.01116, Section 4.3, gives a greedy logarithmic spanning-tree gain method and approximation guarantee."
+      ],
+      "reasoning": "The reported 235-versus-240 contrast concerns the identical objective and greedy algorithm of the source, but it is a finite tight obstruction with arbitrary ties; source general approximation bounds do not imply those exact values.",
+      "searches": [
+        "Smallest counterexample to greedy k=3 graph edge augmentation maximizing number of spanning trees: on cycle C9 every three-step greedy plan yields 235 instead of global 240, none n<9",
+        "nine-cycle three nonedge D-optimal augmentation globally 240 spanning trees versus greedy 235, all ties",
+        "Khosoussi et al. 2016 Sections 3–4, arxiv:1604.01116v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Llagostera et al. reports exhaustive Hamiltonian three-chord reliability calculations through n=11 and their optimum coefficients, so global maximal cases may have been tabulated.",
+        "Local exact independent certificate counts 5,281 graph configurations and 18 greedy n=9 triples, yielding maximum 235 versus global 240."
+      ],
+      "reasoning": "A table of global tree-number maxima may subsume 240 but not the first failure of greedy optimality or the complete stage-wise tie-robust 235. The examined table discussion does not explicitly record such a greedy comparison.",
+      "searches": [
+        "non-nested D-optimal chord augmentation of nine-cycle three links determinant greedy 235 240",
+        "greedy three-edge ring augmentation first counterexample matrix tree determinant n nine",
+        "Llagostera et al. 2020 Table 3 and Section 2.3"
+      ]
+    },
+    "rationale": "Closest primary sources provide general greedy bounds (arXiv:1604.01116) and three-chord Hamiltonian global reliability optima (arXiv:2005.02848). Neither inspected statement contains or directly implies the full tie-robust 235-versus-240 first failure. Published search results and accessible prior mathematical statements did not supply a matching theorem. Extensive priority risk remains for uninspected tables or equivalent constructions.",
+    "residual_risks": [
+      "The 2020 Hamiltonian reliability paper enumerates global three-chord optima; its tables or computations might implicitly contain the new 240 optimum, which is not claimed original independently.",
+      "A complete database or unavailable supplementary data could already compare greedy stages, so publication priority needs independent checking.",
+      "Only finite n up to nine and budget exactly three; numerical tree advantage of five is modest."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General k-edge optimality/approximation; no explicit first failed cycle with all ties or 235 versus 240",
+        "evidence": [
+          "arXiv abstract v1 first public 2016-04-05",
+          "Section 3 Lemma 3.1 effective resistance gain",
+          "Section 4.3 Theorem 4.2 greedy approximation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1604.01116v2",
+        "material_read": "HTML full text Sections 2.2–4.5, including matrix-tree theorem, effective resistance update, exact search and the greedy algorithm",
+        "method": "Direct primary HTML inspection and section text search",
+        "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+        "trigger": "Exact tree-count objective and greedy edge-addition algorithm"
+      },
+      {
+        "assessment": "Strong overlap for global optimum graphs, but no explicit classification of every greedy tie path or first order of greedy failure in inspected passages",
+        "evidence": [
+          "2020-05-06 arXiv first publication",
+          "Section 2.2 exact two-chord construction",
+          "Section 2.3 three-chord Hamiltonian optimum enumeration through 11 vertices"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disopt.2021.100645; https://arxiv.org/abs/2005.02848",
+        "material_read": "Public article HTML/text search extraction including introduction, Sections 2.1, 2.2 and 2.3 and discussion of Table 3 and conclusions; not all figure image contents inspected",
+        "method": "Primary publisher article search-text inspection and arXiv abstract verification",
+        "title": "Network reliability in hamiltonian graphs",
+        "trigger": "Potentially decisive prior enumeration of three-chord cyclic networks"
+      },
+      {
+        "assessment": "General spanning-tree optimization and algorithm methods; no matching canonical three-chord greedy first obstruction in inspected material",
+        "evidence": [
+          "2018 arXiv search abstract and general objective"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.02785",
+        "material_read": "Abstract, general problem statement and algorithmic search result passages",
+        "method": "Public primary abstract and retrieved HTML text",
+        "title": "Maximizing the Number of Spanning Trees in a Connected Graph",
+        "trigger": "Broader exact spanning-tree maximization and augmentation scope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "01ff0b7f-256c-4f5a-af7c-ed053e64ee33",
+  "value": {
+    "rationale": "Exact first-order tie-robust counterexample for the standard greedy approximation to a canonical D-optimal edge-addition objective: all tie choices fail, even though all smaller eligible cycles admit greedy optimal outputs. Natural minimality plus complete equality cases make a reusable benchmark; does not claim large practical gain or infinite theorem.",
+    "status": "PASS"
+  }
+}
