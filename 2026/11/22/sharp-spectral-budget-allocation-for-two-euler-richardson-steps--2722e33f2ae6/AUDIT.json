@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The two-step polynomial product is parametrized bijectively by 0<=u<=t^2/4; strict monotonicity in u makes the unique minimax optimum a balance of positive and negative extrema. The endpoint/vertex partition produces all thresholds and explicit formulas. Analytic derivative signs establish the sharp nonexpansion horizon. Replayed standard-Python checker independently compared 1886 minimax cases and exact rational balances; no finite test is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schöberl, Chebyshev method §77, classical unconstrained minimax p(0)=1",
+        "Rack–Vajda, DOI:10.33993/jnaat482-1173, abstract: Zolotarev first problem fixes two leading coefficients",
+        "published-finding corpus 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ],
+      "reasoning": "Zolotarev first problem controls highest coefficients and is not the exact prescribed constant/linear-coefficient polynomial. The published-finding corpus frontier constrains each step norm separately; it does not impose a fixed total and is not stronger than the current optimum. Classical Chebyshev degree-two results do cover a distinguished member, stated as such.",
+      "searches": [
+        "two step Richardson iteration fixed total relaxation budget minimax spectral interval optimal steps Chebyshev",
+        "polynomial least uniform deviation fixed leading two coefficients Zolotarev polynomial fixed coefficient degree 2",
+        "Zolotarev polynomials fixed leading coefficient constrained minimax numerical analysis",
+        "optimal two variable steps explicit Euler stable eigenvalue interval with fixed total time"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2103.01338",
+      "arxiv:2010.13335",
+      "https://jschoeberl.github.io/iFEM/iterative/Chebyshev.html",
+      "doi:10.33993/jnaat482-1173",
+      "published-finding corpus:2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "published-finding corpus:2026/11/8/SCOPE-a-triangle-count-law-for-positive-two-stage-euler-supersteps-on--395a6d422888",
+      "published-finding corpus:2026/11/2/SCOPE-a-sharp-fixed-budget-floquet-optimizer-for-two-periodic-variable--0f63ee987045"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agarwal–Goel–Zhang (2021), Theorem 3 and Definition 5 concern Chebyshev rates and ordering",
+        "Takabe–Wadayama (2020), Theorem 1 supplies fixed Chebyshev root steps for arbitrary iteration length",
+        "published-finding corpus 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 gives optimal pairs under separate individual stability restrictions"
+      ],
+      "reasoning": "Chebyshev normalization fixes a derivative determined by the spectral endpoints, thus covers t_2 but cannot vary the prescribed t. Restricting each stage to a contraction excludes many of the long/short optimal pairs in this claim. No cited result entails the entire optimal product formula as stated.",
+      "searches": [
+        "minimax two-step gradient descent SPD quadratic prescribed sum learning rates eigenvalue interval absolute polynomial",
+        "two Euler steps fixed total time spectral interval optimal split phase condition number",
+        "two step Richardson iteration fixed total relaxation budget minimax spectral interval optimal steps Chebyshev",
+        "two Euler substeps total time ratio eigenvalue endpoints 2 kappa/(kappa-1) exact amplification",
+        "2021 Chebyshev gradient descent fixed sum learning rates constraint"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Agarwal–Goel–Zhang (2021), arxiv:2103.01338, §2.3, p.3, minimizes the unconstrained degree-T residual polynomial",
+        "Takabe–Wadayama (2020), arxiv:2010.13335, §III, pp.3–4, gives unconstrained Chebyshev steps"
+      ],
+      "reasoning": "The residual identity is the same polynomial model, but prescribing the sum fixes p'(0)=-H while these methods optimize the whole polynomial. They imply only the case t=t_2, not the displayed other branches.",
+      "searches": [
+        "minimax two-step gradient descent SPD quadratic prescribed sum learning rates eigenvalue interval absolute polynomial",
+        "two Euler steps fixed total time spectral interval optimal split phase condition number",
+        "two-step Chebyshev polynomial fixed linear coefficient prescribed derivative at zero stable interval",
+        "Chebyshev semi iterative method variable steps optimum fixed total relaxation Richardson polynomial degree two coefficient constraint",
+        "degree two minimax polynomial prescribed derivative at zero Chebyshev least deviation fixed coefficient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned 2026/11/8/SCOPE-a-triangle-count-law-for-positive-two-stage-euler-supersteps-on--395a6d422888 (graph entrywise positivity, not spectral norm)",
+        "published-finding corpus returned 2026/11/2/SCOPE-a-sharp-fixed-budget-floquet-optimizer-for-two-periodic-variable--0f63ee987045 (BDF2, not two Euler stages)"
+      ],
+      "reasoning": "No exact table of the five branches or small-condition-number safe frontier was located. This is absence of an identified table, not proof of priority.",
+      "searches": [
+        "explicit Euler composition two positive step sizes sharp real axis stability length eight spectral band lower bound",
+        "two Euler substeps total time ratio eigenvalue endpoints 2 kappa/(kappa-1) exact amplification",
+        "Chebyshev two stage damped stable spectral interval kappa transition 2 horizon",
+        "two-step Chebyshev polynomial fixed linear coefficient prescribed derivative at zero stable interval"
+      ]
+    },
+    "rationale": "The unconstrained Chebyshev residual optimum covers the single budget t=t_2, and classical degree-two real-axis stability polynomials cover the kappa>=2 safe-horizon endpoint; neither supplies the full prescribed-sum minimax family or the 1<kappa<2 safe-time cutoff. Separate published published-finding corpus results impose stagewise safety or different methods. The classical Zolotarev first problem fixes leading coefficients, not a prescribed residual value and first derivative. Actual searches and full-text method sections were compared by hypotheses and implication; an unindexed classical equivalent remains possible.",
+    "residual_risks": [
+      "Classical extremal-polynomial literature may encode the fixed lowest-coefficient problem under different notation",
+      "The kappa>=2 safe stability endpoint is classically equivalent to degree-two real-axis Chebyshev stabilization and is not separately asserted novel",
+      "Unindexed lecture notes or numerical-analysis papers could contain the complete constrained-sum phase classification"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unconstrained minimax and ordering, not prescribed total two-step sum",
+        "evidence": [
+          "§2.2–2.3, pp.2–3: residual polynomial and unconstrained minimax",
+          "§3.1–3.5, pp.4–6: predetermined Chebyshev step order and robustness"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v139/agarwal21a/agarwal21a.pdf",
+        "material_read": "Full-text method portions pp.1–6: introduction, residual polynomials, Chebyshev minimax theorem, fractal ordering, stability discussion; searched PDF for fixed-sum/budget language",
+        "method": "Full-text PDF text and representative page screenshot, explicit comparison of polynomial constraints",
+        "title": "Acceleration via Fractal Learning Rate Schedules",
+        "trigger": "Same SPD residual-polynomial model and Chebyshev step sizes"
+      },
+      {
+        "assessment": "Chebyshev-root steps without fixed total sum",
+        "evidence": [
+          "§III.B, pp.4–5: Chebyshev step formula and minimax spectral bound",
+          "§III.A, p.3: fixed number of iterations, not fixed sum of step sizes"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2010.13335",
+        "material_read": "Full-text source pp.1–6: preliminaries, §III, statement of Theorem 1; scanned for step-sum constraint; screenshot of p.6",
+        "method": "Full-text PDF text and screenshot with exact hypotheses comparison",
+        "title": "Convergence Acceleration via Chebyshev Step: Plausible Interpretation of Deep-Unfolded Gradient Descent",
+        "trigger": "Same quadratic gradient descent and Chebyshev-step optimization"
+      },
+      {
+        "assessment": "Does not impose prescribed first derivative of the polynomial",
+        "evidence": [
+          "§77: minimize over all degree-n p with p(0)=1"
+        ],
+        "identifier_or_url": "https://jschoeberl.github.io/iFEM/iterative/Chebyshev.html",
+        "material_read": "§77 iteration polynomial, residual norm and unconstrained Chebyshev optimality",
+        "method": "Public full HTML relevant mathematical section",
+        "title": "The Chebyshev Method",
+        "trigger": "Classical full-interval degree-two minimax possible dominating theorem"
+      },
+      {
+        "assessment": "Different fixed coefficients; residual possibility of a reciprocal weighted formulation",
+        "evidence": [
+          "Abstract: fixed monic leading and next-to-leading coefficients, other coefficients optimized"
+        ],
+        "identifier_or_url": "https://doi.org/10.33993/jnaat482-1173",
+        "material_read": "Public abstract and statement of Zolotarev first problem; full text not reviewed",
+        "method": "Search-result and publisher abstract comparison of coefficient constraints",
+        "title": "Explicit algebraic solution of Zolotarev’s First Problem for low-degree polynomials",
+        "trigger": "Potential constrained-polynomial equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2722e33f-2ae6-4b20-b4aa-833833e706ef",
+  "value": {
+    "rationale": "Two-step time partitioning for spectral diffusion is a natural smallest variable-grid optimization. An externally fixed total duration is a nontrivial constraint absent from unconstrained Chebyshev tuning. The exact continuum robust phase diagram and kappa-dependent maximal nonexpansion duration explain when final-step stabilization permits transiently expansive stages; the comparison with equal partition is sharp and practical. The result makes no unsupported accuracy claim.",
+    "status": "PASS"
+  }
+}
