@@ -1,0 +1,51 @@
+# A homotopy four-sphere from the full-symmetry quotient of the Heawood matching complex
+
+## Finding
+Let \(H\) be the Heawood graph, namely the point-line incidence graph of the projective plane \(\mathrm{PG}(2,2)\). Let \(\mathcal M(H)\) be its **ordinary** matching simplicial complex, whose vertices are the \(21\) incidence edges and whose faces are all subsets of mutually vertex-disjoint edges. The complete graph-automorphism group \(G=\operatorname{Aut}(H)\), of order \(336\), acts on this complex. Its ordinary geometric orbit space satisfies
+\[
+\boxed{\;|\mathcal M(H)|/G\simeq S^4.\;}
+\]
+In particular, the orbit space is simply connected, with \(\widetilde H_4(-;\mathbb Z)\cong\mathbb Z\) and all its other reduced integral homology groups zero. This is a homotopy equivalence, not a statement that the orbit space is homeomorphic to a smooth or topological four-sphere.
+
+## Assumptions and scope
+Present the seven points by the nonzero vectors \(p\in\mathbb F_2^3\), and the seven projective lines by nonzero linear functionals \(a\in\mathbb F_2^3\). Incidence means \(a\cdot p=0\), with the scalar product in \(\mathbb F_2\). An incidence edge is denoted \((p,a)\). A matching is a set of these pairs with all first coordinates and all second coordinates distinct. The group preserving point/line classes is \(\mathrm{GL}_3(\mathbb F_2)\), of order \(168\). Its extension by point-line duality gives all \(336\) graph automorphisms. The action on matchings is the induced permutation of the incidence pairs. All quotients refer to the ordinary orbit space of a geometric realization, **not** to a homotopy quotient or a quotient of homology modules.
+
+## Proof
+**1. Enumerate the finite geometry and form the orbit cells.** Every invertible linear map \(A\) of \(\mathbb F_2^3\) takes an incidence \((p,a)\) to \((Ap,A^{-T}a)\). The standard polarity exchanges the two entries. Enumeration gives \(168\) invertible linear maps and \(336\) distinct edge permutations. The matching complex has \(3461\) nonempty simplices, in dimensions \(0\) to \(6\) respectively:
+\[
+(21,168,644,1218,1050,336,24).
+\]
+Pass to barycentric subdivision, whose vertices are nonempty matchings and whose simplices are strict inclusion chains. The symmetry group preserves chain ranks, so it acts without inversions. Every chain can be represented by an ordered partition \((B_1,\ldots,B_k)\) of the edges in its maximal matching: the successive matching vertices are \(B_1,B_1\cup B_2,\ldots,B_1\cup\cdots\cup B_k\). Orbits are computed by first normalizing the maximal matching under all \(336\) symmetries and then minimizing the ordered partition under the stabilizer of that matching. There are \(29\) maximal-matching-face orbit representatives in total (across all ranks). This yields the following genuine finite orbit-flag cellular counts in dimensions \(0\) through \(6\):
+\[
+(c_0,c_1,c_2,c_3,c_4,c_5,c_6)
+=(29,311,1400,3051,3375,1800,360).
+\]
+For a chain of length \(k\), its integral boundary is the alternating sum of the \(k\) chains obtained by deleting one matching vertex; if deleting an intermediate vertex, the neighboring ordered blocks merge. Because rank-preserving automorphisms cannot reverse a chain's vertex order, the quotient orientation introduces no extra sign. The verifier reconstructs all these boundary columns and checks \(\partial^2=0\) in every degree.
+
+**2. Determine integral homology, not just rational ranks.** An exact unit-pivot cellular reduction works entirely in \(\mathbb Z\). At each pivot \(\pm1\), eliminate that row from all other columns by integer elementary operations, then remove the pivot row and column, deleting the corresponding generator in the adjacent differentials. Such a reduction is unimodular and preserves all integral homology groups. Choosing the smallest local sparse fill-in first gives respectively
+\[
+(28,283,1117,1934,1440,360)
+\]
+unit pivots in boundary degrees \(1,2,3,4,5,6\). The reduced cellular chain groups have ranks \((1,0,0,0,1,0,0)\), with every differential zero. Thus the quotient has exactly the integral homology of \(S^4\), including absence of any torsion. The original quotient Euler characteristic also independently equals \(2\).
+
+**3. Establish simple connectivity.** The original complex has \(21\) vertices and \(168\) edges in its one-skeleton, with \(644\) triangular faces. Choosing a spanning tree removes \(20\) edge generators. Of the remaining \(148\) generators, a deterministic application of triangular relations each containing only one still-active generator eliminates \(96\), then \(38\), then \(14\), leaving none. This is an integral combinatorial group-presentation proof that \(\pi_1(|\mathcal M(H)|)=1\); it requires no assumption about its higher homotopy type.
+
+For a simply connected, locally well-behaved space and a finite symmetry group, Armstrong's orbit-space theorem identifies the quotient fundamental group with the group modulo the normal subgroup generated by point stabilizers. Every automorphism fixing a matching vertex fixes an actual point of the geometric complex. Direct closure under composition of the \(336\) edge permutations that fix at least one such vertex generates all \(336\) automorphisms. Consequently the normal subgroup generated by geometric point stabilizers is the entire group, and \(\pi_1(|\mathcal M(H)|/G)=1\).
+
+**4. Upgrade the homology to homotopy.** Since the quotient is a simply connected finite CW space and its reduced integral homology vanishes below degree \(4\), the Hurewicz theorem makes it \(3\)-connected and identifies \(\pi_4\) with \(H_4\cong\mathbb Z\). Choose a map \(S^4\to |\mathcal M(H)|/G\) representing a generator. It induces an isomorphism on all integral homology groups, and the homological Whitehead theorem for simply connected CW complexes makes it a homotopy equivalence.
+
+## Verification
+Run `python3 verify_heawood_quotient.py` using Python 3.10 or later, with no third-party packages. The checker constructs the geometry and symmetry group, enumerates all matchings and rank-ordered orbit flags, forms and squares every cellular boundary, and performs exact sparse unimodular reductions; independently, it eliminates the triangular fundamental-group relators and generates the symmetry group from matching-vertex stabilizers. It reports `HEAWOOD_MATCHING_FULL_AUT_QUOTIENT_S4_OK` only after all checks pass. The finite enumerations are exhaustive for this graph and group, not numerical approximation or evidence of an infinite family.
+
+## Relationship to prior work
+Jonsson's *Simplicial Complexes of Graphs* (2007 electronic publication; 2008 print copyright) presents the matching-complex framework and general connectivity methods in Chapter 11, but does not classify the full Heawood automorphism orbit space. A previously published exact-object calculation shows \(\mathcal M(H)\simeq\bigvee^{16}S^4\). A further published exact-object calculation determines the full rational \(G\)-representation on \(\widetilde H_4\), including a unique invariant line, so it implies that the orbit space has the **rational** homology of \(S^4\). Neither statement implies integral torsion-freeness or the quotient's simple connectivity. The present result supplies both by an exact orbit-cell calculation and a stabilizer argument, and consequently determines the full homotopy type. The perfect-matching extendibility complex, strong-matching complex and induced-forest complexes of the same graph are different objects and do not imply this result.
+
+## Limitations
+The claim is specific to the Heawood incidence graph and its full \(336\)-element automorphism group; no classification of all incidence graphs, all subgroups, or quotient homeomorphism type is asserted. Its integral cellular reduction and stabilizer-generation checks are exhaustive computations with fully supplied source code, not a closed-form formula for larger planes. The literature search cannot rule out equivalent unindexed work or specialized terminology outside the inspected sources. Independent external mathematical audit has not been performed.
+
+## References
+1. J. Jonsson, *Simplicial Complexes of Graphs*, Lecture Notes in Mathematics 1928, Springer, electronic publication 2007-12-10, DOI 10.1007/978-3-540-75859-4, Chapter 11 (general theory).
+2. *The Heawood matching complex is a wedge of sixteen 4-spheres*, public mathematical report (2026), identifier `7150930ba12a` (same object, unquotiented homotopy).
+3. *Full automorphism-group module of the Heawood matching complex*, public mathematical report (2026), identifier `d7a042784870` (same object, rational symmetry action).
+4. R. Forman, *Morse theory for cell complexes*, Adv. Math. 134 (1998), 90–145 (standard discrete/cellular methodology).
+5. M. A. Armstrong, *The fundamental group of the orbit space of a discontinuous group*, Math. Proc. Cambridge Philos. Soc. 64 (1968), 299–301 (orbit fundamental groups).

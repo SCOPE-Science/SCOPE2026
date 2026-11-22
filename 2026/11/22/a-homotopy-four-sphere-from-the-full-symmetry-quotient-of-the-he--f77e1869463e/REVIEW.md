@@ -1,0 +1,15 @@
+# Review of the Heawood matching quotient
+
+## Correctness
+**PASS.** Reconstructing the incidence graph as the seven nonzero vectors and seven nonzero functionals of \(\mathbb F_2^3\), with incidence given by zero scalar product, gives \(21\) incidence edges and \(336\) group actions. The package verifier computes the \(3461\) matching faces, \(10{,}326\) rank-flag orbit cells, and exact quotient boundaries. Every composition of two consecutive boundaries is zero. Exhaustive integer unit pivots \((28,283,1117,1934,1440,360)\) leave chain ranks \((1,0,0,0,1,0,0)\), so the integral homology is \(\mathbb Z\) in degrees zero and four alone. A separate \(148\)-generator triangular presentation loses all generators in waves of \(96,38,14\); the geometric stabilizers generate all \(336\) automorphisms. Armstrong's theorem supplies quotient simple connectivity, and Hurewicz–Whitehead yields the claimed homotopy four-sphere. These are exhaustive integer computations and standard deduction, not assertions from floating-point rank.
+
+## Originality
+**PASS, relative to accessible indexed literature and records.** Jonsson's general 2007 matching-complex treatment does not give this exact orbit-space homotopy. The published 2026 unquotiented Heawood calculation establishes a wedge of sixteen four-spheres. The more directly adjacent 2026 full rational action calculation supplies precisely one invariant degree-four line, but does not address the integral orbit boundaries or orbit fundamental group. The new integral and simple-connectivity conclusions are not consequences of rational invariants alone; no checked stronger exact-object theorem subsumes them. Different matching variants (induced/strong or extendibility) cannot be substituted for the ordinary matching complex. A report indexed under unfamiliar incidence-geometry terminology remains a residual novelty risk.
+
+## Value
+**PASS.** A natural and highly symmetric graph whose matching complex has sixteen separate four-dimensional classes retains exactly one class after quotienting by its complete automorphism group. Determining whether the resulting rational homology sphere has torsion or nontrivial fundamental group is mathematically substantive: neither is settled by the known representation character. The complete integral homotopy identification supplies an exact topological classification rather than a small numerical improvement, with a fully reproducible finite chain certificate.
+
+## Remaining limitations
+The result applies only to the full \(336\)-element symmetry group of the seven-point projective-plane incidence graph. The statement gives homotopy equivalence, not homeomorphism; it does not imply an analogous result for higher-order projective planes. Priority is relative to inspected sources, not proof that no unindexed equivalent exists. The source code is provided for independent reproduction, but independent audit has not been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
