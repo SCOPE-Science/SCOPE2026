@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T03:05:30.644776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For admissible A(r,s) with 2r^2<=1+s, -1<=s<=1 and A≠11^T, direct centered-row Pearson correlation gives P(A)=Gamma(Q), Q=(2r-1-s)/sqrt((2r-1-s)^2+3(1-s)^2), Gamma(q)=A(q,2q^2-1). Every subsequent iterate is q↦f(q)=q/sqrt(4q^2+6q+3). Its monotone sign and fixed-point structure on q∈[-1,1] give q→-1 for r<s, q=-1/2 exactly when r=s (one-step equicorrelation), q→0 for r>s, including semidefinite endpoints. Taylor expansion at -1 gives quadratic coefficient 3/2 and derivative at 0 gives 1/sqrt3. Independently recomputed six admissible first Pearson row-correlations and the Gamma shape directly from centered row Gram products; full all-input proof is from the exact algebra and scalar inequalities, not sampling. Main claim is mathematically correct as stated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hassan, arXiv:2608.03404v2, Theorem 5 proves global convergence of EVERY admissible 3×3 Pearson correlation orbit, and its proof classifies the exact invariant kernel-equality strata and their limiting fixed point.",
+          "The present A(r,s) slice is a strict subset of the author’s original full 3D elliptope, fully contained in a kernel-equality locus after one iteration."
+        ],
+        "reasoning": "The original theorem is genuinely stronger in domain AND already has the finer classification necessary to deduce the claimed special case; open global explicit preimages in the full elliptope do not make this slice novel.",
+        "searches": [
+          "https://arxiv.cnoctave.top/pdf/2608.03404",
+          "three by three Pearson row-correlation map symmetric slice basins r=s mixed fixed point A(0,-1) Alhajj Hassan"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.cnoctave.top/pdf/2608.03404",
+        "https://arxiv.org/abs/2608.03404",
+        "https://arxiv.org/abs/2610.24592"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Compute Q sign comparison: (2r-1-s)/sqrt((2r-1-s)^2+3(1-s)^2) is below, equal, or above -1/2 exactly when r<s, r=s, or r>s under the admissible slice constraints.",
+          "Original Theorem 5 pp31–35 supplies the limit for each corresponding kernel (-2Q,1,1) case, including rank-one/zero endpoints."
+        ],
+        "reasoning": "The complete claimed basin partition follows as a corollary; the remaining local rates are one-variable derivatives at the same original fixed points, not separate mathematical content overcoming this direct prior implication.",
+        "searches": [
+          "three by three Pearson row-correlation map symmetric slice basins r=s mixed fixed point A(0,-1) Alhajj Hassan",
+          "https://arxiv.cnoctave.top/pdf/2608.03404"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original primary Theorem 5 writes rank-two kernel q of P1 and proves q_{k+1}=D_kq_k; the present invariant slice after first step has kernel (-2Q,1,1) and hence is exactly one of the primary theorem equality cases.",
+          "Original pp31–35: q1=q2>q3 all positive converges mixed; q=(-x,1,1) x>0 converges mixed; all positive uniquely largest converges patterned; all equal fixed equicorrelated."
+        ],
+        "reasoning": "The same limit-by-kernel-order partition is expressed in r,s input coordinates; no discrepancy in update rule, graph, norm, or initial family permits escaping the published theorem.",
+        "searches": [
+          "three by three Pearson row-correlation map symmetric slice basins r=s mixed fixed point A(0,-1) Alhajj Hassan",
+          "https://arxiv.cnoctave.top/pdf/2608.03404"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary proof itself supplies the decisive case table implicitly: equal two positive maxima→mixed, distinct positive maximum→patterned, all equal→equicorrelated, and equal positive pair with negative third→mixed.",
+          "This table applied to (-2Q,1,1), Q+1/2 having the sign of r-s, reproduces all three submitted rows."
+        ],
+        "reasoning": "No separately named r<s table is necessary for coverage because the previous source proves its equivalent kernel inequalities; a query searching only literal r<s would miss it.",
+        "searches": [
+          "three by three Pearson row-correlation map symmetric slice basins r=s mixed fixed point A(0,-1) Alhajj Hassan",
+          "arXiv:2608.03404v2 §8 Theorem 5 equations (49)–(51)",
+          "https://arxiv.cnoctave.top/pdf/2608.03404"
+        ]
+      },
+      "rationale": "FAIL: this is a direct invariant-symmetry-locus corollary of Hassan's August 25 2026 full global theorem and explicit kernel-coordinate limit classification, not an independently original basin theorem. After one step kernel Gamma(q) is (-2q,1,1). The primary proof §§Theorem 5 (pp31–35) specifically treats equal-largest positive kernel coordinates as tending to the mixed point; equal positive coordinates with the third negative as tending to a mixed point; all-positive unequal-maximum as patterned; all-equal as equicorrelated; zero endpoint cases too. The inequalities r<s, r=s, r>s merely select the resulting q regimes through an elementary one-step formula. The exact special case follows without any new general basin argument. Different wording and the earlier paper's open off-slice exceptional-set problem do not establish novelty on this fully classified symmetry locus.",
+      "residual_risks": [
+        "Original paper leaves explicit stable sets off the symmetric slice open; that open question does not restore novelty for this restricted slice.",
+        "Different published v1 and v2: decisive result is August 25 v2, not the less complete August 4 v1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Theorem 5 explicitly treats q1=q2>q3 (lines 2124–2144), (-x,1,1) (lines 2225–2236), general all-positive strict-largest (lines 2145–2176), and equicorrelation (lines 2124–2128).",
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2608.03404",
+          "material_read": "Full 45-page primary PDF: statements, Gram factorization, fixed points, Proposition 5, Theorem 5 proof pp30–35, exceptional-set discussion pp36–39, open Problem 4",
+          "method": "Read parsed PDF and first-page image; compared every kernel-equality limit with Gamma(Q) on submitted slice",
+          "title": "Fixed Points, Stability, Basin Geometry, and Global Convergence of the 3×3 Correlation Map (v2)",
+          "trigger": "Exactly the same map and full elliptope; potential decisive broader coverage"
+        },
+        {
+          "assessment": "RISK_ONLY",
+          "evidence": "No independent conclusion based on inaccessible complete text; decisive coverage is established by Hassan v2.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.24592",
+          "material_read": "Accessible abstract-level description only; full text not verified",
+          "method": "Bibliographic comparison; no full-text NOT_COVERING claim",
+          "title": "Further iterated correlation and nonlinear Gram-family analysis",
+          "trigger": "Nearby named map family and possible broader reduction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL for unchanged claimed contribution: the 2D slice is a motivated special case, but its only nontrivial attractor partition is already implied by the detailed kernel-order cases of the previous 45-page proof; the simplified scalar map and two local multipliers amount to direct restricted substitution and Taylor expansion. The already-proven global result and equality-submanifold cases contain the mathematical mechanism. No separate unknown invariant, new boundary difficulty, or new structural lemma survives prior implication as a substantive independent fact.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.cnoctave.top/pdf/2608.03404",
+    "https://arxiv.org/abs/2608.03404",
+    "https://arxiv.org/abs/2610.24592"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Correct restricted result is not mathematically false; failure is specifically O and V due published implication, not access or verification errors.",
+    "No general 3D basin classification or proof of entire off-slice exceptional-set geometry is asserted."
+  ],
+  "schema_version": 1
+}
