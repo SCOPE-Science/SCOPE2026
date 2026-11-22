@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The area-uniform polar law gives the exact second and fourth distance moments, including all radial and angular coefficients. Each root is secured by the intermediate value theorem between exact endpoint signs. Rational arctangent-series intervals certify all three signs; no finite sample is used to infer existence for a continuum of data. All scales are positive, and distinct opening angles produce noncongruent sectors. The claim is deliberately “at least three,” not “exactly three.”
+## correctness
 
-## Originality — PASS, provisional priority
-The closest published sector-distance table gives first moments at three special angles but not a two-moment inverse characterization. Full primary text for the two forward-distance polygon papers and the regular-polygon moment paper was compared by objects, metric, parameters, and implied theorems. No one implies a continuous threefold fiber within flat circular sectors. A published threefold inverse ambiguity for **intrinsic flat conical disks** is not equivalent: identification of angular boundaries changes the geodesic metric. An inaccessible historical disk-mean paper creates residual risk but does not provide a documented dominating theorem. Search absence is not a proof of priority.
+PASS
 
-## Value — PASS
-The explicit open moment-data region demonstrates a robust, non-generic inverse failure in a natural two-parameter family, including two convex competitors and a nonconvex competitor. The experiment distinguishes genuine geometric nonidentifiability from numerical ill-conditioning; it supplies a useful sharp lower bound of three on fiber multiplicity without claiming a full classification.
+Using independent area-uniform radial density 2r/R^2 and uniform polar angles, E(D²)=R²[1-(8/9)sinc(theta/2)^2] and E(D⁴)=R⁴[5/3-(32/15)sinc(theta/2)^2+(1/2)sinc(theta)^2]. These follow by expanding (U²+V²-2UVcos delta)^2 with E(U^j)=2/(j+2). The denominator is strictly positive. Direct numerical independent endpoint evaluations yielded K(0+)=2.7, K(pi/2)=1.79339386, K(pi)=1.95970210, K(3pi/2)=1.76893970. The supplied check_sector.py uses rational Machin-series enclosures proving K(pi/2),K(3pi/2)<9/5 and K(pi)>39/20; inspected code and analytic expressions. IVT gives three distinct roots for every k in (9/5,39/20), and R=sqrt(m/F2) matches both moments for every m>0. Nonidentical angles give noncongruent two-dimensional sectors; the third (>pi) is nonconvex. Numerical finite roots are illustrative, not the proof of a continuum.
 
-## Limits
-Only Euclidean ambient point distances in unglued planar sectors are addressed; no assertion about full distance-distribution collisions, higher moments, or metric-cone intrinsic distances. Independent validation and historical priority review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: the exact claim is not mechanically implied by inspected primary or published related theorems. The prior cone theorem neither entails planar Euclidean fourth moment nor shows that one moment ratio crosses 9/5 and 39/20 at the claimed three planar-sector intervals. These follow from independently derived sinc-squared angular laws. The standard forward moment expansion alone is routine; the strict endpoint sign pattern and open convex/nonconvex inverse ambiguity are the substantive new conclusion. See explicit access and indexing risks; unsuccessful search is not proof of priority.
+
+## value
+
+PASS
+
+This is a robust open family of inverse non-identifiability, not a coincidence at a single special angle. Two common low-order Euclidean distance moments fail even to distinguish convex from nonconvex sectors, a natural identifiability question for area-uniform geometric distance statistics. The exactly signed interval and independent radius adjustment make the counterexample reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
