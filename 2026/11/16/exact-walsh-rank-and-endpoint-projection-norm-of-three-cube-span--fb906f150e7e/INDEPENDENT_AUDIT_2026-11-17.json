@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:01:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At frozen tree 3b19d23a verified the 12-edge Q3 adjacency edge order and 792 seven-edge candidate subsets, of which exactly 384 are connected acyclic spanning trees. An independent complete 4096-mask integer Walsh butterfly produced the exact 10-level absolute histogram (zeros 1,522; nonzeros 2,574; least nonzero magnitude 8; max 384). An independent Walsh transform of the nonzero-frequency mask had |H| sum 56,972, giving unrestricted sharp Fourier projection norm 56,972/4096=14243/1024. Reviewed actual source verify.py: each of the 4,096 coefficients is independently checked against the signed Matrix-Tree 7x7 cofactor computed by fraction-free Bareiss, and compared to complete frequency_certificate.csv (4,096 rows); automorphism_orbits.csv identifies 144 Q3 orbits. Rank four over F2 of every signed Laplacian 7x7 minor modulo 2 gives at least three even-row pivots and determinant divisible by 8, while the histogram attains 8. Parseval and orthogonal characters justify rank, singular gap and pseudoinverse norm; averaging translations establishes the minimum over arbitrary endpoint projections. All arithmetic is exact and finite.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full theorem for Q_d support sizes 1,2,3 gives Q3 first-layer zero counts 0,6,20 and dimension>=5 low-weight zero-free cutoff"
+        ],
+        "reasoning": "It is complementary partial-frequency information. For Q3 the present theorem classifies all 4096 frequencies and the entire support-kernel L1 norm, so the low-weight result is not covering or dominating.",
+        "searches": [
+          "signed weighted spanning tree Q3 cube independent edge signs Walsh 1522",
+          "Resultary higher-dimensional cube 3-edge Walsh cutoff 6a5914e5cdb4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0302213",
+        "https://arxiv.org/pdf/1109.6393",
+        "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-the-sharp-three-edge-walsh-cancellation-cutoff-for-spanning-tree--6a5914e5cdb4/RESULT.md",
+        "Resultary search: 3-cube Q3 spanning-tree signed Walsh convolution rank 2574 projection 14243/1024; signed weighted spanning tree Q3 cube independent edge signs Walsh 1522"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted Matrix-Tree determinant gives each W(s) for assigned +/-1 weights, but does not evaluate the full signed histogram or inverse indicator of W!=0"
+        ],
+        "reasoning": "General determinantal representations make the computation possible, not already done. The evaluated 4,096 mask spectrum and min projection norm require classifying all singular signings and Fourier-support inverse transform, beyond the implications of the cited theorems as stated.",
+        "searches": [
+          "3-cube Q3 spanning-tree signed Walsh convolution rank 2574 projection 14243/1024",
+          "signed weighted spanning tree Q3 cube independent edge signs Walsh 1522",
+          "weighted Matrix-Tree Theorem",
+          "Martin–Reiner arXiv:math/0302213"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martin–Reiner weighted cube spanning-tree enumerator specializes variables by directions/degree statistics; Tuffley counts 384 spanning trees via edge slides"
+        ],
+        "reasoning": "A symmetric direction-weighted enumeration cannot represent all 2^12 independent edge signings without extra site variables. Counting 384 trees does not imply the 1522-zero distribution, exact rank or Fourier projection norm.",
+        "searches": [
+          "3-cube Q3 spanning-tree signed Walsh convolution rank 2574 projection 14243/1024",
+          "signed weighted spanning tree Q3 cube independent edge signs Walsh 1522",
+          "Martin–Reiner arXiv:math/0302213",
+          "Tuffley arXiv:1109.6393"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known 384 spanning trees; no previously tabulated 4096 independently signed-edge Walsh coefficients or projection kernel found in inspected sources"
+        ],
+        "reasoning": "No exact database/table covering the 1,522 zeros and 14,243/1,024 norm was identified; the known 384 count is not novel. Exact full certificate provided by assigned package, not an external historic table.",
+        "searches": [
+          "3-cube Q3 spanning-tree signed Walsh convolution rank 2574 projection 14243/1024",
+          "Tuffley Q3 spanning trees 384",
+          "Resultary Q3 signed edge spectrum searches"
+        ]
+      },
+      "rationale": "Previous cube spanning-tree counts and weighted enumerator factorizations are distinguished from independently signed all-edge 4,096-value spectrum. A published Q_d three-edge Walsh cancellation cutoff also only covers support weights <=3, not global nullity/projection norm for Q3.",
+      "residual_risks": [
+        "Another author might have tabulated all signed Q3 Laplacian determinants, potentially making the histogram previously known.",
+        "The Matrix-Tree determinant and translation averaging are standard tools, not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RESTRICTED_WEIGHT_VARIABLES",
+          "evidence": "Weights track cube directions/degree structure, not arbitrary independent binary signs on all 12 edges, nor complete singularity support/endpoint projection.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0302213",
+          "material_read": "Primary PDF opening, theorem and direction-weighted enumerator/factorization sections around pages 1,4,5",
+          "method": "arXiv primary PDF theorem/parameter inspection",
+          "title": "Factorizations of some weighted spanning tree enumerators (Martin and Reiner)",
+          "trigger": "Cube enumeration theorem could subsume signed-tree table"
+        },
+        {
+          "assessment": "COUNT_ONLY_NOT_SPECTRUM",
+          "evidence": "Explicit Q3 tree count 384 is known; signed all-edge Walsh spectrum and norm are not there in the inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.6393",
+          "material_read": "Primary PDF abstract and initial theorem on 384 trees and edge slides",
+          "method": "arXiv primary PDF sections inspected",
+          "title": "Counting the Spanning Trees of the 3-cube Using Edge Slides (Tuffley)",
+          "trigger": "Exact same cube and tree-count parameter"
+        },
+        {
+          "assessment": "PARTIAL_FREQUENCY_ONLY",
+          "evidence": "Classifies support weights 1..3, explicitly not full multiplier rank or projection norm. Cannot imply all-support 1,522 Q3 zeros from its stated result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-the-sharp-three-edge-walsh-cancellation-cutoff-for-spanning-tree--6a5914e5cdb4/RESULT.md",
+          "material_read": "Full actual RESULT.md and support <=3 proof, including Q3 6 pair and 20 triple zeros",
+          "method": "Primary GitHub full-text read",
+          "title": "The sharp three-edge Walsh-cancellation cutoff for spanning trees of Boolean hypercubes",
+          "trigger": "Closest directly comparable Walsh theorem on all Qd"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-dimensional cube is the first canonical hypercube with nontrivial independently signed spanning-tree frequency behavior and a manageable full Fourier space. The exact 1,522-dimensional kernel and 14,243/1,024 best endpoint recovery amplification characterize a natural graphic-matroid basis ensemble far beyond the classical 384-tree count. Its certificate gives a precise small-cube reference point for testing higher-dimensional signed-tree spectral conjectures, so this is a motivated finite invariant rather than an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/math/0302213",
+    "https://arxiv.org/pdf/1109.6393",
+    "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-the-sharp-three-edge-walsh-cancellation-cutoff-for-spanning-tree--6a5914e5cdb4/RESULT.md",
+    "Resultary search: 3-cube Q3 spanning-tree signed Walsh convolution rank 2574 projection 14243/1024; signed weighted spanning tree Q3 cube independent edge signs Walsh 1522",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-walsh-rank-and-endpoint-projection-norm-of-three-cube-span--fb906f150e7e"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Q3 alone; no larger-cube extrapolation.",
+    "Fully exhaustive finite algorithms do not amount to a general Qd formula.",
+    "Historical completeness of all signed Q3 tables cannot be guaranteed."
+  ],
+  "residual_risks": [
+    "Another author might have tabulated all signed Q3 Laplacian determinants, potentially making the histogram previously known.",
+    "The Matrix-Tree determinant and translation averaging are standard tools, not credited as new.",
+    "Q3 alone; no larger-cube extrapolation.",
+    "Fully exhaustive finite algorithms do not amount to a general Qd formula.",
+    "Historical completeness of all signed Q3 tables cannot be guaranteed."
+  ],
+  "schema_version": 1
+}

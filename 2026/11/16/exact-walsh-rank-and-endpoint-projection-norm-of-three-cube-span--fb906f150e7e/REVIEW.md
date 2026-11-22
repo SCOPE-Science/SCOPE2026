@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain consists of twelve labelled cube edges, all 792 seven-edge subsets, and all 4,096 Walsh frequencies. The tree predicate is an exhaustive union-find test; it identifies exactly 384 spanning trees. Independent weighted Matrix-Tree determinants agree at every frequency with a direct Walsh transform of the enumerated tree indicator. The full coefficient distribution and 144 automorphism orbits are checked by the standalone verifier. A mod-two Laplacian rank-four argument independently proves universal divisibility by eight, and the computed certificate contains coefficients of magnitude eight. The exact second Walsh transform of the nonzero-frequency support has absolute sum 56,972. Translation-averaging proves minimum norm over all endpoint projections, with no symmetry assumption on the competitors. The result is finite and does not use computation as a substitute for an all-dimensional proof.
+## correctness
 
-## Originality — PASS under bounded comparison
-Martin–Reiner (arXiv:math/0302213) prove weighted cube spanning-tree factorizations using variables for edge directions and decoupled vertex-degree data. Those specializations do not cover independent sign choices for all twelve edges, nor do they give the complete signed-coefficient or Fourier-support distribution or an evaluated endpoint projection constant. Tuffley (arXiv:1109.6393) proves the known unsigned count 384 and studies slides, not the signed spectrum. The closest indexed records concerning spanning-tree Fourier projections involve different graphs, particularly \(K_{2,n}\), and do not imply the three-cube rank or projection constant. The weighted Matrix-Tree identity and translation averaging are acknowledged as prior techniques, and the claimed originality is limited to the evaluated finite Fourier spectrum and its exact sharp stability consequences. A previously published independently signed three-cube enumeration not captured by the bounded searches is a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The graph \(Q_3\) is the first genuinely spatial hypercube and has a well-studied 384-element spanning-tree family. Its 12-edge signed evaluations exhibit substantial and non-obvious cancellation (1,522 zero modes), a sharp eightfold divisibility gap, and a sharp endpoint projection cost far above one. The exact Fourier rank and optimal range-projection norm describe recoverability and stability of the natural tree-incidence convolution; they do not follow from the unsigned tree count or from direction-weighted enumerators. A complete natural finite example with an independently checkable certificate is mathematically useful even without a general all-dimensional formula.
+At frozen tree 3b19d23a verified the 12-edge Q3 adjacency edge order and 792 seven-edge candidate subsets, of which exactly 384 are connected acyclic spanning trees. An independent complete 4096-mask integer Walsh butterfly produced the exact 10-level absolute histogram (zeros 1,522; nonzeros 2,574; least nonzero magnitude 8; max 384). An independent Walsh transform of the nonzero-frequency mask had |H| sum 56,972, giving unrestricted sharp Fourier projection norm 56,972/4096=14243/1024. Reviewed actual source verify.py: each of the 4,096 coefficients is independently checked against the signed Matrix-Tree 7x7 cofactor computed by fraction-free Bareiss, and compared to complete frequency_certificate.csv (4,096 rows); automorphism_orbits.csv identifies 144 Q3 orbits. Rank four over F2 of every signed Laplacian 7x7 minor modulo 2 gives at least three even-row pivots and determinant divisible by 8, while the histogram attains 8. Parseval and orthogonal characters justify rank, singular gap and pseudoinverse norm; averaging translations establishes the minimum over arbitrary endpoint projections. All arithmetic is exact and finite.
 
-## Boundaries
-No theorem on larger hypercubes or arbitrary edge weights is asserted. The full finite proof is reproducible, but independent external mathematical audit has not been performed. Historical priority is not certified exhaustively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previous cube spanning-tree counts and weighted enumerator factorizations are distinguished from independently signed all-edge 4,096-value spectrum. A published Q_d three-edge Walsh cancellation cutoff also only covers support weights <=3, not global nullity/projection norm for Q3.
+
+## value
+
+PASS
+
+The three-dimensional cube is the first canonical hypercube with nontrivial independently signed spanning-tree frequency behavior and a manageable full Fourier space. The exact 1,522-dimensional kernel and 14,243/1,024 best endpoint recovery amplification characterize a natural graphic-matroid basis ensemble far beyond the classical 384-tree count. Its certificate gives a precise small-cube reference point for testing higher-dimensional signed-tree spectral conjectures, so this is a motivated finite invariant rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
