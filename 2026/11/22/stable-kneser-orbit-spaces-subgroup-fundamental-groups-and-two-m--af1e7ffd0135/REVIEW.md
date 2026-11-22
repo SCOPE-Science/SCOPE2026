@@ -1,0 +1,19 @@
+# Scientific review: Stable Kneser orbit spaces
+
+## Correctness — PASS
+
+Braun's Theorem 1.4 establishes simple connectivity for every cyclic length in scope. The combinatorial classification of intersecting two-element families proves that only order-two and order-three nontrivial rotations fix simplices, while every reflection fixes a stable-pair vertex. Armstrong's theorem then gives the subgroup fundamental-group formula. A dihedral-equivariant star-union reduction to a graph, followed by triangular-cell attachments, gives a two-dimensional homotopy model, from which free integral degree-two homology and zero higher homology follow. Finite-group rational averaging with the established character determines the degree-two ranks. The exact first-two-parameter homotopy types are backed by a reproducible orbit-flag construction, genuine elementary collapses and reversible presentation moves. The extracted scripts have been executed on the actual packaged source files. No infinite assertion is inferred from finite enumeration.
+
+## Originality — PASS relative to inspected literature
+
+The closest 2009 first-public work by Braun determines the non-equivariant wedge-of-two-spheres homotopy type, but not orbit spaces. The published *The dihedral character of stable Kneser independence-complex homology* determines rational traces and an equivariant star-graph model, but does not state geometric quotient fundamental groups, integral first-homology torsion or the exact Moore-type attaching maps for the first two cases. Its full RESULT.md was inspected: its claims are rational representation-theoretic rather than integral orbit-space homotopy. The theorem here does not reclaim Braun's sphere count or the published rational character. Schultz's related 2010 study concerns the different Hom/box complex. Armstrong supplies the classical general orbit-space theorem, not this subgroup-specific analysis. The subgroup fundamental-group formulas follow by a relatively short additional stabilizer calculation using these inputs; the computationally certified exact Moore-type classifications are an independent stricter contribution. An equivalent unindexed paper or other unpublished computation remains possible.
+
+## Value — PASS
+
+Stable Kneser graphs are a classical minimal-coloring family; their independence complexes are natural symmetric spaces. Determining integral first-homology torsion and fundamental groups for **every** dihedral subgroup resolves information invisible in the previously available rational characters. For prime lengths, rotation quotients have unbounded prime-order fundamental groups despite simply connected covering complexes. The first two exact orbit homotopy types show that the torsion comes from genuine degree-four and degree-three Moore attachments rather than a homology-only coincidence; the reflected quotients have sharply different homotopy. This is a natural complete subgroup classification and a motivated initial attaching-map classification, not an arbitrary sampled invariant.
+
+## Closest literature and limits
+
+Braun, *Independence Complexes of Stable Kneser Graphs*, arXiv:0912.0720v1 (2009-12-03), Theorem 1.4/Section 3; *The dihedral character of stable Kneser independence-complex homology*, public mathematical result of 2026-10-11, full RESULT.md; Armstrong, *On the fundamental group of an orbit space* (1965); Schultz, *The equivariant topology of stable Kneser graphs*, arXiv:1003.5688v1 (2010). The general theorem does not identify every quotient's full higher homotopy type. The original Armstrong full text was not obtained, but its theorem statement was independently checked through the published journal extract and standard secondary exposition. The Hom-complex work was inspected at its theorem and definitions, not cover-to-cover. Equivalent unindexed studies remain a residual risk.
+
+Self-review: passed. Independent audit: not yet performed.
