@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "For the precise standard Padovan initialization (1,1,1), the matrix T has order 48 on the vector modulo seven and \\(T^{48}=I+7B\\) with (T^48-I)v/7 nonzero modulo seven. Thus the least periods are \\(48\\cdot7^{k-1}\\). Exact coefficient tables show nine simple branches and three singular branches whose divided-by-49 reductions have two simple roots apiece. Hensel lifting gives respectively one and fourteen indices in each prime-power period for k>=3, so counts 12, 30, 51 are proved rather than extrapolated. The limiting valuation probabilities follow by subtracting periodic divisibility densities. check.py independently recomputes the finite data and six whole periods. Residual risk is confined to errors in the written analytic lifting reasoning, not the finite arithmetic; that reasoning was checked separately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deveci and Karaduman 2017, section 3: general modular periodicity and prime-power lifting for the Padovan p-number family, without fixed standard-orbit zero multiplicities.",
+        "published-finding corpus closest: Exact zero-incidence moments for projective-period recurrences over odd prime-power rings applies to irreducible projective-period recurrence matrices; the Padovan characteristic polynomial factors over F_7 as (X-5)(X^2+5X+3).",
+        "published-finding corpus closest: Exact 23-adic isometries and uniform distribution of Padovan numbers is specific to the prime twenty-three.",
+        "published-finding corpus closest: Exact zero-hit variance for primitive Padovan orbits modulo powers of two concerns averages across many initial triples modulo two."
+      ],
+      "reasoning": "Period-lifting results do not count zeros, and a mean or variance across recurrence orbits does not fix the zero-hits of the distinguished initial triple. Prime-twenty-three isometry cannot imply a prime-seven law with three singular branches. The more general irreducible-recurrence theorem fails its irreducibility hypothesis at seven.",
+      "searches": [
+        "Padovan sequence modulo powers of seven 7^k exact number of zero residues per least period 48 times 7^(k-1), 51 zeros, zero valuation density",
+        "Padovan sequence zero residue distribution prime powers exact periods 7 49 343",
+        "Padovan 7-adic value set zeros prime power local period 48*7^(k-1) comparison with 2-adic primitive cycles and 23-adic isometries",
+        "DOI:10.15672/HJMS.20174622760",
+        "arXiv:2606.28577"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+      "https://dergipark.org.tr/tr/download/article-file/512190",
+      "https://arxiv.org/abs/2606.28577",
+      "https://www.researchgate.net/publication/408235861_On_Brocard%27s_problem_with_Padovan_and_Perrin_numbers",
+      "https://journals.tubitak.gov.tr/math/vol48/iss6/13/",
+      "https://doi.org/10.1007/s00574-022-00315-7",
+      "https://oeis.org/A000931",
+      "Published mathematical finding: Exact zero-hit variance for primitive Padovan orbits modulo powers of two",
+      "Published mathematical finding: Exact 23-adic isometries and uniform distribution of Padovan numbers",
+      "Published mathematical finding: Exact zero-incidence moments for projective-period recurrences over odd prime-power rings",
+      "Published mathematical finding: Exact ternary valuations and sharp discrepancy for shifted Padovan numbers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nacin 2022: structural classification of Van der Laan sequences, not zero residue densities.",
+        "Bravo, Bravo and Luca 2022: bounded repetitions and literal zeros of integer Padovan-type sequences, not modular divisibility.",
+        "Bravo 2026, Lemmas 1 and 2: valuations of P_m+1 and P_m-1 in m congruent 50 modulo 112; in particular, they do not determine any \\(P_n\\) zero-count across all residue classes.",
+        "Deveci and Karaduman 2017: period-lifting context without the special nine regular and three singular zero-branch table."
+      ],
+      "reasoning": "The new conclusion demands counting solutions \\(7^k\\)|\\(P_n\\) for every k and hence local Hensel root geometry. Published period assertions and restricted shifted valuations do not imply these counts; likewise, finiteness of literal integer zeros gives no frequency information on vanishing modulo powers.",
+      "searches": [
+        "Padovan sequence modulo powers of seven 7^k exact number of zero residues per least period 48 times 7^(k-1), 51 zeros, zero valuation density",
+        "Padovan P_n divisibility by 7 powers, roots lifts, n modulo 48, singular Padovan 7-adic zeros",
+        "Padovan sequence zero residue distribution prime powers exact periods 7 49 343",
+        "Padovan modulo 7^k distribution of valuations and number of zero terms per period 48*7^(k-1); exceptional 15,31,47 mod48",
+        "DOI:10.1007/s00574-022-00315-7",
+        "arXiv:2606.28577"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nacin 2022-public Padovan indexing (1,0,0) corresponds to the standard (1,1,1) sequence after five positions; this shift was explicitly accounted for.",
+        "The condition \\(7^k\\) divides \\(P_n\\) is equivalent to zero-hits modulo \\(7^k\\), and the density tail is Z_k divided by the least period.",
+        "The indexed result Exact ternary valuations and sharp discrepancy for shifted Padovan numbers concerns \\(\\nu_3(\\(P_n\\)+1)\\), not \\(\\nu_7(\\(P_n\\))\\)."
+      ],
+      "reasoning": "The same recurrence can appear with a shifted index and with either zero-hit counts or valuation-tail language. All these equivalences were searched. None of the inspected nearest results gives the stabilized count or the special three quadratic Hensel branches for the standard recurrence at seven.",
+      "searches": [
+        "Padovan P_n divisibility by 7 powers, roots lifts, n modulo 48, singular Padovan 7-adic zeros",
+        "For standard Padovan P_0=P_1=P_2=1, indices 0<=n<48*7^(k-1) with P_n=0 mod 7^k occur 12,30,51,51... for k=1,2,>=3; 7-adic Hensel zero branches",
+        "Padovan modulo 7^k distribution of valuations and number of zero terms per period 48*7^(k-1); exceptional 15,31,47 mod48",
+        "\"Padovan\" \"7-adic\" \"valuation\" \"P_n\" 2023 2025"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000931 provides the shifted Padovan recurrence and initial terms but the inspected material did not state the all-prime-power zero-count law.",
+        "Targeted searches returned related period and shifted-valuation statements without an exact table of 12,30,51 for the standard orbit.",
+        "The 2026 Brocard paper explicitly states periods 48 and 336 but its two seven-adic shifted lemmas cover a restricted index progression, not the all-index zero table."
+      ],
+      "reasoning": "The displayed recurrence and modular periods allow computation of finitely many rows, not the stabilization for every k. No exact all-level table was found in the material inspected. An unindexed table or uninspected OEIS comment remains possible; this is not a claim of exhaustive nonexistence.",
+      "searches": [
+        "site:oeis.org \"Padovan\" \"mod 7\" zero",
+        "\"Padovan\" \"51\" \"343\" \"divisible\"",
+        "\"Padovan\" \"modulo 7\" \"0\" \"48\" period",
+        "For standard Padovan P_0=P_1=P_2=1, indices 0<=n<48*7^(k-1) with P_n=0 mod 7^k occur 12,30,51,51... for k=1,2,>=3; 7-adic Hensel zero branches"
+      ]
+    },
+    "rationale": "Examined primary sources establish recurrence and period context, integer-value multiplicities, shifted 2-adic valuations, or restricted seven-adic shifted valuations, but no inspected statement determines the all-level fixed-orbit zero counts 12,30,51 or the valuation law. Published nearby results on Padovan cycles modulo two and uniform fibers modulo twenty-three do not imply seven-adic singular-branch behavior. The general irreducible projective-period result is inapplicable because \\(X^3-X-1\\) factors mod seven. The search is non-exhaustive, with explicitly reported bibliographic risks.",
+    "residual_risks": [
+      "The bibliographic search is necessarily non-exhaustive; an unindexed 7-adic valuation classification may exist.",
+      "Full text of the 2022 integer-multiplicity paper and peripheral older modular recurrence articles was not accessed. Their stated scopes differ from the present all-level zero count, but hidden comparisons are not ruled out.",
+      "The 2026 Brocard paper was read from an author-shared full-text rendering rather than the inaccessible arXiv PDF endpoint."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source of the motivating family, but its linear-combination and order-pattern theorems do not imply modular zero frequency; shifted indexing was accounted for",
+        "evidence": [
+          "Proposition 3 classifies increasing Van der Laan sequences as linear combinations",
+          "The introduction defines p(0)=1, p(1)=p(2)=0; publication note gives December 30, 2022"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+        "material_read": "Full nine-page accessible PDF text, including definition, Sections 2-3, conclusions and references; page-one visual inspection",
+        "method": "Open-access primary full-text reading",
+        "title": "Van der Laan Sequences and a Conjecture on Padovan Numbers",
+        "trigger": "An exact 2022-public primary article defining and classifying Padovan-related recurrences"
+      },
+      {
+        "assessment": "Gives period-lifting framework for related recurrences, not fixed standard Padovan prime-seven zero counts or the complete valuation law",
+        "evidence": [
+          "Section 3.6 states general prime-power period growth",
+          "Section 3 concerns Padovan p-number recurrences with different initial conditions"
+        ],
+        "identifier_or_url": "https://dergipark.org.tr/tr/download/article-file/512190",
+        "material_read": "Primary PDF introduction and complete Section 3 modular-period statements and proofs, including Theorems 3.3 and 3.6; visual inspection of first page",
+        "method": "Open-access primary full-text section reading",
+        "title": "On the Padovan p-numbers",
+        "trigger": "Modular Padovan families and possible dominating prime-power period result"
+      },
+      {
+        "assessment": "Determines shifted seven-adic valuations on m congruent 50 modulo 112, and uses periods 48 and 336; does not give the all-index unshifted prime-power zero distribution",
+        "evidence": [
+          "Lemma 1 states \\(\\nu_7(P_m+1)\\)=0 for m congruent 50 mod 112",
+          "Lemma 2 states a valuation of P_m-1 at m congruent 50,162,274 modulo 336",
+          "Theorems 1-2 concern Brocard-Ramanujan equations, not residue frequencies"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.28577",
+        "material_read": "Author-shared full readable text, Sections 1-3 and Lemmas 1-2, via public full-text version; arXiv PDF endpoint was inaccessible",
+        "method": "Open full-text author version in HTML, compare exact hypotheses and index progressions",
+        "title": "On Brocard's problem with Padovan and Perrin numbers",
+        "trigger": "Very close later paper explicitly using the prime seven and Padovan recurrence"
+      },
+      {
+        "assessment": "Abstract specifies prime two and shifted Padovan numbers; no inference of exact unshifted prime-seven zero counts from inspected material",
+        "evidence": [
+          "Abstract explicitly targets \\(\\nu_2(\\(P_n\\)-1)\\) and \\(\\nu_2(R_n+1)\\)"
+        ],
+        "identifier_or_url": "https://doi.org/10.55730/1300-0098.3568",
+        "material_read": "Publisher abstract and publication metadata",
+        "method": "Abstract inspection, no full-text coverage claim",
+        "title": "The 2-adic valuation of shifted Padovan and Perrin numbers and applications",
+        "trigger": "Related valuation classification of the same recurrence at a different prime"
+      },
+      {
+        "assessment": "Its literal integer zero multiplicities are not modular zero-hit counts; full text was not available, so no whole-document exclusion is claimed",
+        "evidence": [
+          "Abstract gives at most two literal integer zeros except for shifted Padovan multiples, with zero multiplicity five"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00574-022-00315-7",
+        "material_read": "Full accessible abstract and bibliographic metadata, not the article full text",
+        "method": "Abstract inspection with scope limitation",
+        "title": "On the Multiplicities of Padovan-Type Sequences",
+        "trigger": "Plausible title referring to multiplicities and zeros in Padovan-type sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "20e29175-2b07-4813-a6f5-6088a5a2b987",
+  "value": {
+    "rationale": "The count of zero values modulo prime powers is a natural invariant of a recurrence, not a hand-picked numerical target. Its stabilization at 51 despite period growth is structurally explained by a nontrivial split into nine regular branches and three doubly lifting singular branches. This yields exact densities for every 7-adic valuation, a complete local distribution beyond the period and isolated modular congruence facts in the related literature. The prime-specific scope and lack of full nonzero-residue census are explicit limitations, but the infinite classification is mathematically motivated and non-routine.",
+    "status": "PASS"
+  }
+}
