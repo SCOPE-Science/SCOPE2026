@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For any nonnegative mass on a finite-field line pencil, scalar dilation averaging preserves the origin mass and does not increase the maximum nonzero Fourier modulus. Exact finite-field character sums yield one frequency level t=a-B off all selected annihilator lines and one level t+q b_j on each chosen dual line. Averaging line weights (fixed sum B) cannot increase the maximum. For the resulting two-level mass, positivity gives t in [-1/(q-1),1], and the explicit strictly one-dimensional minimax max(|t|,(1+(k-1)t)/k) has a unique optimizer at t=-1/(2k-1) if q<=2k and t=-1/(q-1) otherwise. The optimizer is attained; uniqueness after center-mass-preserving averaging proves the origin atom of every optimizer is rigid. The q=k, characteristic-two and boundary q=2k cases are included; full pencil k=q+1 is excluded. The embedded Python checker passes 4,376 direct nonzero Fourier comparisons over field orders 2,3,4,5,7,8,9,11, including nonprime fields. Finite checks supplement but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fraser Theorem 2.1 covers arbitrary selected orientations but asserts an upper bound, not its exact value on concurrent pencils.",
+        "Iosevich–Li–Yu, arXiv:2609.25404v2, §4, treats C_r(S)=||Ff||_infinity/||Ff||_r rather than inf over positive masses of max_{xi!=0}|Fmu(xi)|."
+      ],
+      "reasoning": "A more general geometric scope does not imply an exact minimax lower bound. Prior fourth-power and all-exponent synthesis formulas optimize a different functional and cannot yield the present offzero positivity-constrained optimum simply by choosing r. The chosen support is generally not affine-transitive because of its distinguished common intersection, but this distinction is not required for the objective comparison.",
+      "searches": [
+        "finite Kakeya Salem partial directions Fourier minimizing probability weight origin q 2k transition",
+        "finite field union of projective lines through origin spectral synthesis all exponents optimum uniform weights",
+        "Fourier analytic properties of Kakeya sets in finite fields arxiv 2505.09464",
+        "arxiv:2609.25404v2 §4 exact synthesis constants affine symmetry"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2505.09464v1",
+      "doi:10.1112/blms.70367",
+      "arxiv:2609.25404v2",
+      "Public exact Fourier spectra of specific Kakeya sets (indexed research summaries)",
+      "Known line-pencil fourth-power and two-axis all-exponent Fourier-synthesis claims (different optimization functionals)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fraser constructs an incidence-weight probability measure with maximum nonzero Fourier coefficient at most 1/k on a k-direction pencil. The exact optimum here is always strictly below 1/k for k>=2.",
+        "The earlier specific line-pencil L4 synthesis result determines ||Ff||inf/||Ff||4 for complex f, not the present inf of nonzero Fourier bias over positive probabilities.",
+        "The earlier all-exponent two-axis result again concerns a norm ratio and does not imply a Fourier-bias minimax lower bound."
+      ],
+      "reasoning": "Neither an upper bound alone nor sharpness for a different ratio implies this exact lower bound, the cutoff q=2k, or the fact every optimum has the same center atom. The present proof establishes these missing statements directly.",
+      "searches": [
+        "Fraser arxiv 2505.09464 Theorem 2.1 probability measure directions union lines bound",
+        "Iosevich Li Yu arxiv 2609.25404 synthesis C_r(S) affine transitive",
+        "finite field line pencil k projective directions probability measure optimal Fourier bias minimize max nonzero coefficients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fraser, arXiv:2505.09464v1, §2 Theorem 2.1 and §3.1: existence of probability measures with bounded nonzero Fourier coefficients, not the exact global minimax for concurrent pencils.",
+        "Related indexed finite-Kakeya Fourier spectra concern uniform or prescribed constructions rather than an infimum over all probability masses."
+      ],
+      "reasoning": "The equivalent optimization is minimizing the nontrivial Fourier sup norm among all positive unit masses on k concurrent directions. The source bound 1/k is strictly larger than the exact value for every 2<=k<=q, and no equivalent Fourier-design or positive-measure minimax statement was found.",
+      "searches": [
+        "finite field line pencil k projective directions probability measure optimal Fourier bias minimize max nonzero coefficients",
+        "sharp nonzero Fourier coefficient for a probability measure supported on union k lines through origin finite field plane",
+        "\"pencil of lines\" \"Fourier\" \"optimal measure\" finite fields",
+        "\"union of k lines\" \"Fourier decay\" sharp measure"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant returned records were on the Fourier spectrum of specific Kakeya supports, exact sampling of line unions, and general spectral synthesis; no record stated the universal two-branch bias B(q,k) or the central-atom rigidity.",
+        "Known fourth-power synthesis on finite-field line pencils and all-exponent synthesis on two axes were compared at the level of statements and implications; neither is a minimax over nonnegative measures of the maximum offzero Fourier modulus."
+      ],
+      "reasoning": "No identical database invariant or dominating table was identified. Finite exhaustive enumeration was neither needed nor claimed; the new exact value holds for arbitrary prime powers and directions. Retrieval/index incompleteness remains a risk.",
+      "searches": [
+        "finite field line pencil k projective directions probability measure optimal Fourier bias minimize max nonzero coefficients",
+        "finite field line pencil optimal positive Fourier flatness balanced probability Salem",
+        "finite field partial Kakeya directions optimal flat Fourier measure pencil",
+        "finite field line pencil optimal positive Fourier flatness balanced probability Salem"
+      ]
+    },
+    "rationale": "The inspected Fraser 2025 preprint and 2026 journal article provide a nonsharp (for these pencils) 1/k direction-cover bound rather than the exact optimal bias, unique origin atom and q=2k flattening threshold. The inspected Iosevich–Li–Yu 2026 theorem concerns a different objective (ratio to full Fourier l^r norm) and does not imply the positive offzero minimax. Related published records on Kakeya Fourier magnitudes concern different supports and often the uniform measure. Two earlier local line-pencil synthesis claims cover signed norm ratios, not this probability Fourier-bias minimax. No implication-complete prior result was found in actual targeted searches; older unindexed results remain possible.",
+    "residual_risks": [
+      "A classical or unindexed exact optimization of offzero Fourier bias on concurrent line unions could imply the formula.",
+      "The complete nonsymmetric equality-case classification is not proved and not claimed.",
+      "The result is specialized to positive measures on concurrent projective directions and is not asserted for arbitrary affine line arrangements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives existence and 1/k-style incidence bound, not an exact positive Fourier-minimax on concurrent line pencils",
+        "evidence": [
+          "arXiv v1 first public 2025-05-14",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/blms.70367, Theorem 2.1 and §3.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.09464",
+        "material_read": "The v1 arXiv first-submission date, introduction, Theorem 2.1 and the proof/construction in §3.1, crosschecked against accessible open journal full text",
+        "method": "Read HTML body and theorem/proof sections",
+        "title": "Fourier analytic properties of Kakeya sets in finite fields",
+        "trigger": "Direct earlier study of probability measures and Fourier decay for direction covers"
+      },
+      {
+        "assessment": "Solves a different full-Fourier norm ratio; not an exact offzero positive-measure Fourier-bias problem",
+        "evidence": [
+          "arXiv:2609.25404v2, §1 equation (1.5) and §4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.25404v2",
+        "material_read": "Abstract, introduction definitions (including C_r) and §4 exact affine-symmetry theorem, plus geometric examples and searched line/union references",
+        "method": "Inspected the accessible full-text HTML at the relevant definitions and theorems",
+        "title": "Spectral synthesis, Fourier extension, and arithmetic in Z_N^d",
+        "trigger": "Possible stronger exact Fourier synthesis constant for the same support"
+      },
+      {
+        "assessment": "No exact partial-concurrent-pencil minimax found; revision and journal dates are not the earliest public date",
+        "evidence": [
+          "Article first published 2026-04-20, but arXiv v1 2025-05-14"
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/blms.70367",
+        "material_read": "§1.3 on probability Fourier flatness, §2 Theorem 2.1 and §3.1 proof",
+        "method": "Read accessible full-text article HTML",
+        "title": "Fourier analytic properties of Kakeya sets in finite fields (journal version)",
+        "trigger": "Possible revisions of the relevant first-public preprint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8a0af04f-eab6-4cb9-b917-390ec4faf05c",
+  "value": {
+    "rationale": "Finite-field Kakeya and partial-direction covers naturally ask how Fourier-flat a probability measure can be. The exact all-prime-power, all-direction, all-2<=k<=q minimax value improves a general incidence bound and locates a sharp phase threshold: below or at q=2k the canonical measure is spectrally equimodular on all nonzero frequencies, while above it optimizers omit the common intersection. The center atom is forced for every optimizer, not just symmetric examples, and uniform mass is optimum only at q=2k-2. These are structural and quantitatively sharp features of a motivated natural invariant, not a fixed small computation or a tautological normalizing check.",
+    "status": "PASS"
+  }
+}
