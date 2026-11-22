@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Direct Brownian covariance integration gives an exact cubic gain and positive scalar variance. The derivative numerator has derivative 2(1-h-2t) times a positive denominator, hence increases then decreases once. Its positive left endpoint and exact right endpoint sign establish unique global solution in all parameter ranges, including equality. F has one root inside (0,1); implicit differentiation proves monotonicity and algebraic limits. Exact SymPy identities and 75 independent numerical quadratures plus grid optimization reproduced the package checks; finite sampling was not used to establish the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nguyen-Peraire covers posterior covariance under general linear functionals; it does not solve constrained one-dimensional Brownian window placement.",
+        "Longi et al. provide covariance formulas and spatial integral-sensor placement methods; no all-width analytic Brownian one-window optimum.",
+        "Ji-Müller provide sparse trajectory recovery design for noisy point measurements."
+      ],
+      "reasoning": "A broader Gaussian conditioning formula implies the risk formula after specialization, but neither a general optimization algorithm nor a rank-one update automatically implies the sign-unimodality lemma, unique cubic width root, exact noise threshold, or singular h-to-zero behavior. These specific additional implications were compared against inspected statements.",
+      "searches": [
+        "https://arxiv.org/pdf/1405.7569",
+        "https://arxiv.org/pdf/1604.05375",
+        "https://proceedings.mlr.press/v124/longi20a/longi20a.pdf",
+        "Bayesian A-optimal design interval-average measurements Brownian motion switch endpoint interior",
+        "functional Gaussian process exact single boxcar observation optimum"
+      ]
+    },
+    "checked_sources": [
+      "Nguyen and Peraire, arXiv:1405.7569v1 (full preprint)",
+      "Ji and Müller, arXiv:1604.05375v1 (full preprint)",
+      "Longi et al., PMLR 124 (2020), full proceedings paper",
+      "Indexed mathematical research results for boxcar/linear-functional Brownian optimal design and neighboring point-observation claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The posterior variance update is a known linear-Gaussian consequence and is not claimed new.",
+        "The new claim identifies all global minimizers for every width and independent noise, with exact algebraic transition and point-limit discontinuity in phase behavior.",
+        "A point observation corresponds only to a limiting zero-width sensor; this does not subsume finite exposure because covariance gain and attainable terminal windows change."
+      ],
+      "reasoning": "The exact statement is not a straightforward corollary of a specific inspected optimality theorem: point observations and general geometry cannot directly decide a finite-width stochastic integral optimum. The proof adds an explicit covariance norm, derivative unimodality and endpoint-sign classification.",
+      "searches": [
+        "https://arxiv.org/abs/1405.7569",
+        "https://arxiv.org/abs/1604.05375",
+        "https://proceedings.mlr.press/v124/longi20a.html",
+        "Brownian covariance kernel boxcar sensor integration sliding window design sharp noise threshold",
+        "Wiener process rectangular averaging window integrated posterior variance optimal location phase transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new observation is a sliding fixed-length Wiener boxcar average, equivalent to one integral linear-functional Gaussian observation; the objective is integrated conditional pointwise variance.",
+        "Ji-Müller use independent noisy point evaluations and minimize trajectory reconstruction risk; Longi et al. treat spatial integral observations, not the stipulated time series."
+      ],
+      "reasoning": "Alternative terms include moving average, finite exposure, rectangular/boxcar window, Gaussian-process line integral, posterior trace reduction, and A-optimal sensing. None of the inspected primary results or returned indexed titles states the same width/noise phase criterion or its equivalently formulated exact optimizer; lack of match is not an absolute originality proof.",
+      "searches": [
+        "Brownian covariance kernel boxcar sensor integration sliding window design sharp noise threshold",
+        "Wiener process rectangular averaging window integrated posterior variance optimal location phase transition",
+        "Bayesian A-optimal design interval-average measurements Brownian motion switch endpoint interior",
+        "integrated Brownian motion interval average sensor optimal moving window observation location posterior integrated variance noisy",
+        "moving window averaged Brownian sensor trajectory reconstruction optimal sampling interval",
+        "optimal design single time averaged Wiener process observation integral variance",
+        "functional Gaussian process exact single boxcar observation optimum",
+        "Gaussian process Brownian trajectory reconstruction single integrated exposure window optimal placement variance sensor location",
+        "Brownian motion boxcar linear observation optimal recovery sampling window noisy posterior variance design",
+        "https://arxiv.org/abs/1604.05375",
+        "https://proceedings.mlr.press/v124/longi20a.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed statement on Brownian kernel quadrature is for randomized point nodes, not a fixed-duration boxcar sensor.",
+        "Closest indexed Gaussian trajectory placement statements involve point observations, distinct covariance targets or multiple sensors."
+      ],
+      "reasoning": "Actual ranked database searches across the listed formulations did not return an exact width/noise formula or table. This limits detectable overlap but is not treated as proof that no unindexed or differently named answer exists.",
+      "searches": [
+        "Brownian covariance kernel boxcar sensor integration sliding window design sharp noise threshold",
+        "Wiener process rectangular averaging window integrated posterior variance optimal location phase transition",
+        "integrated Brownian motion interval average sensor optimal moving window observation location posterior integrated variance noisy",
+        "moving window averaged Brownian sensor trajectory reconstruction optimal sampling interval",
+        "optimal design single time averaged Wiener process observation integral variance",
+        "published-finding corpus index: Brownian point quadrature and integral-observation placement aliases"
+      ]
+    },
+    "rationale": "Full primary-source comparisons and database queries did not identify a stronger or equivalent result giving the unique optimizer and sharp width/noise transition for a fixed-width Brownian boxcar sensor. The standard conditioning identity and general linear-functional observation theory are explicitly credited. Residual risk of equivalent unindexed design work remains.",
+    "residual_risks": [
+      "Integral-observation optimal designs may be published under broader spline, functional-data or Wiener filtering terminology not retrieved by current searches.",
+      "General Gaussian-process formulas could permit another author to derive this as an unstated special case; absence of a statement in inspected texts does not establish publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General posterior regression for linear functional observations; no Brownian fixed-boxcar optimal start/critical-width and critical-noise theorem in inspected material",
+        "evidence": [
+          "https://arxiv.org/abs/1405.7569",
+          "Nguyen and Peraire (2014), functional regression with Gaussian-process linear functionals and covariance formulas"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.7569",
+        "material_read": "Full-text preprint, especially functional regression and posterior covariance sections, followed with relevant figure/page inspection",
+        "method": "Read lawful arXiv full text, checked central conditioning setup and functional measurement statements",
+        "title": "Functional Gaussian processes for regression with linear PDE models",
+        "trigger": "Gaussian linear-functional posterior covariance could dominate the new claim"
+      },
+      {
+        "assessment": "Works with noisy point samples of a trajectory; does not state a finite-duration single moving-average design or a two-parameter sharp boundary",
+        "evidence": [
+          "https://arxiv.org/abs/1604.05375",
+          "Ji and Müller (2016), noisy point design and optimal trajectory recovery"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1604.05375",
+        "material_read": "Full-text preprint, introduction and point-observation optimal trajectory reconstruction criterion, plus targeted text search",
+        "method": "Read arXiv text and page images for design definition, observation model and theorem scope",
+        "title": "Optimal Designs for Longitudinal and Functional Data",
+        "trigger": "Same integrated trajectory recovery objective with time placement"
+      },
+      {
+        "assessment": "Gives integral-observation covariance and spatial sensor-placement algorithms; no scalar Brownian fixed-width exposure phase diagram or point-limit singular law in inspected material",
+        "evidence": [
+          "https://proceedings.mlr.press/v124/longi20a.html",
+          "Longi and collaborators (2020), sensor optimization for spatial line-integral observations"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v124/longi20a/longi20a.pdf",
+        "material_read": "Full proceedings paper, including Sections 2.1-2.2 on integral-observation covariance and the spatial placement objectives",
+        "method": "Read accessible primary proceedings PDF and inspected page image of functional observation derivation",
+        "title": "Sensor Placement for Spatial Gaussian Processes with Integral Observations",
+        "trigger": "Directly relevant integral-observation optimal sensor placement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e704fde7-8f2f-469d-838a-95b75bd81912",
+  "value": {
+    "rationale": "Continuous monitoring instruments often average over a nonzero exposure window. The exact two-parameter optimum shows when a terminal exposure is better than an interior one, pinpoints an algebraic width frontier and a noise frontier, and proves a singular point-width limit. These are natural and actionable classification facts beyond routine substitution into the standard covariance update; the theorem intentionally excludes width-dependent noise models and multiple sensors.",
+    "status": "PASS"
+  }
+}
