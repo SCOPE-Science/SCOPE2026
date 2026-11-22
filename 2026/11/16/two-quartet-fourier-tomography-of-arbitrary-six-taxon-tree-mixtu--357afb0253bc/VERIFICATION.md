@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-The integer determinant certificate has been replayed in exact modular arithmetic using the displayed finite prime \(1000003\). A second, combinatorially independent enumeration verifies the ranks modulo \(1000033\). Both programs use the Python standard library and the `CERTIFICATE.json` included here.
+# Independent mathematical audit
 
-Run from the extracted directory:
+## correctness
 
-```sh
-python3 verify_insertions.py
-python3 verify_splits.py
-```
+PASS
 
-Observed output:
+Reconstructed all 105 tree topologies independently by inserting leaves 3,4,5 into each edge and formed their 45 pair-path-disjoint quartet indicators. Verified each four-set has exactly one active resolution. Independent modular elimination at prime 1000003 gave ranks exactly 31 and 105 for constant + singleton columns and all degree <=2 monomials. This is a *full exhaustive finite universe* and so proves rank lower bounds, with upper bounds 31 from 15 partition identities and 105 from row count. Inspected actual CERTIFICATE.json (prime 1000003, residues 243 and 582830), without claiming to have rechecked its particular selected minors. Witness is consistent with source split systems.
 
-```text
-PASS: 105 distinct trees; degree-one rank 31; degree-two rank 105.
-PASS: modular determinants 243 582830 and explicit mixture separation.
-PASS: 105 compatible full split systems; rank 31 and rank 105 modulo 1000033
-```
+## originality
 
-The first method inserts leaves at edges and tests path disjointness. The second constructs maximal compatible split systems and tests separation by a split. Neither calls the other. The verified incidence-array SHA-256 is `77b2724baaf35916196e7a8a2ec528d9b5b11de538573cb959c638629d7f8cd4`; it denotes the row-major binary incidence array sorted lexicographically by its rows. Both computations agree on all \(105\) rows and \(45\) queries.
+PASS
 
-This is a finite exhaustive certificate, not an inference from sampled cases. No calculations for larger leaf counts, numerical conditioning analysis, or external independent audit are supplied.
+A complete 105-dimensional second-degree Boolean moment span for arbitrary six-leaf tree laws is not implied by the compared two-tree recovery theorem or seven-taxon trace shattering; no equal rank table surfaced in bounded checks.
+
+## value
+
+PASS
+
+Unrestricted arbitrary-topology probability recovery is a natural stronger observational task than identifying a single phylogeny. The precise minimal moment degree, complete 74-dimensional first-order blind space and explicit trade are usable self-contained finite classification results without requiring an n-general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

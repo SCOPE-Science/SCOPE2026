@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement quantifies over exactly the \(105\) unrooted binary six-leaf tree topologies and the \(45\) yes/no resolved-quartet indicators. The proof gives a bijective recursive enumeration. All \(15\) four-set partition relations give the rank upper bound \(31\); the packaged exact integer minors have nonzero residues \(243\) and \(582830\) modulo \(1000003\), proving degree-one rank \(31\) and degree-two full rank \(105\). An independent compatible-split enumeration reproduces the complete incidence SHA-256 and the ranks modulo \(1000033\). Both actual package scripts passed. An explicit four-tree trade verifies that one-query marginals do not identify every probability law, while one specified joint query separates its two mixtures by \(1/2\). These are finite exact certificates, not sampled extrapolations.
+PASS
 
-## Originality — PASS under bounded comparison
+Reconstructed all 105 tree topologies independently by inserting leaves 3,4,5 into each edge and formed their 45 pair-path-disjoint quartet indicators. Verified each four-set has exactly one active resolution. Independent modular elimination at prime 1000003 gave ranks exactly 31 and 105 for constant + singleton columns and all degree <=2 monomials. This is a *full exhaustive finite universe* and so proves rank lower bounds, with upper bounds 31 from 15 partition identities and 105 from row count. Inspected actual CERTIFICATE.json (prime 1000003, residues 243 and 582830), without claiming to have rechecked its particular selected minors. Witness is consistent with source split systems.
 
-Grünewald–Humphries–Semple (2008) prove deterministic compatibility and definitive quartet-set results, not simultaneous identification of arbitrary topology mixtures. Allman–Rhodes (2005) treat model-based generic tree identification with limited classes. Matsen–Mossel–Steel (2007) treat tree-mixture polytopes, DNA-site patterns and two-tree disentangling, but do not supply the current 105-dimensional joint-quartet sampling theorem. Two especially close published mathematical records about seven-taxon quartet incidence give VC/Littlestone dimensions and shattering polynomials; their statements and implications do not yield these ranks. Full published statements of these close records and material relevant sections of the primary papers were inspected. Actual searches and comparison details are recorded in `AUDIT.json`. An unindexed equivalent rank table remains a priority risk; absence from searches is not a uniqueness certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact first-to-second observation-degree transition solves a natural identifiability question for distributions over the first unrooted binary tree class with nonisomorphic shapes. The \(74\)-dimensional first-degree blind space, complete quadratic recovery, and explicit indistinguishable two-tree mixtures are structurally informative, beyond routine tree counts or a single numerical experiment. No general formula for additional taxa or noise conditioning is claimed.
+A complete 105-dimensional second-degree Boolean moment span for arbitrary six-leaf tree laws is not implied by the compared two-tree recovery theorem or seven-taxon trace shattering; no equal rank table surfaced in bounded checks.
 
-## Scientific and access limitations
+## value
 
-This finite theorem assumes all joint quartet outcomes are obtained from the **same** latent tree. It does not assert statements for noisy evolutionary sequence data, trees on seven or more taxa, or independent draws across queried quartets. The inspected primary sources address different observables, but no claim of exhaustive historical coverage is warranted. The attached checks are same-model exact finite verification; no independent mathematical audit occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Unrestricted arbitrary-topology probability recovery is a natural stronger observational task than identifying a single phylogeny. The precise minimal moment degree, complete 74-dimensional first-order blind space and explicit trade are usable self-contained finite classification results without requiring an n-general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
