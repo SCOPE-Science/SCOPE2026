@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T10:51:50.544965Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Full RESULT.md reconstructs the exact interval model for all fixed 0<ell<1 and normalized Lebesgue on H=(-c,0) union (0,c), including the null endpoint/branch convention. The crossing image z=g(x) increases monotonically, its remaining excursion follows phi(z)=z+z^(1+ell), and phi(1-c)=1 prevents a skipped return, proving Q(n)=g^{-1}(delta_{n-1})/c for all integers n>=1. With w_m=delta_m^(-ell), inverse recurrence gives w_m-w_{m-1}=ell-ell(ell+1)/(2 w_m)+O(w_m^-2); first deriving w_m=ell*m+O(log m) validates summation, and summability of renormalized increments yields finite K and O(log m/m) remainder. The shift m=n-1 produces D=(ell-K)/ell^2. g inverse derivative at zero is (2+ell)^-1 and its relative remainder O(n^-1/ell)=o(1/n) for ell<1. I inspected all seven actual snapshot Git blobs; independent high-precision original-map iterates and inverse thresholds checked 640 two-sided trajectories for four exponents, consistent with proof. Finite checks are not an infinite proof. The ell=1/2 specialization C=8/(5c), B=3 is consistent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1710.01268 constructs Fatou coordinates for parabolic Dulac germs with asymptotic power-log expansion; the inverse branch of the present neutral map is in that class and its first logarithmic term follows from the Abel equation.",
+          "Coates–Luzzatto–Muhammad establish full-branch crossing and preimage partitions for general two-neutral-endpoint maps, encompassing the specified symmetric power branch.",
+          "Bansard-Tresse–Freitas Proposition 4.4 supplies leading/upper inducing tails only; Muhammad–Schindler Proposition 2.6 gives leading regularly varying tail laws."
+        ],
+        "reasoning": "Coates and the later inducing papers alone do not determine B at relative (log n)/n; this is not a valid originality argument because the broader, earlier Fatou-coordinate machinery supplies the missing higher-order neutral-preimage expansion. Their conjunction subsumes the new specialized claim. The generality is in neutral germs and return partitions, rather than identical formula notation.",
+        "searches": [
+          "arXiv:1710.01268 Main Theorem and Proposition 6.4",
+          "Coates–Luzzatto–Muhammad 2023 Theorem definitions and equations (4)–(6), Proposition 3.5",
+          "arXiv:2303.17320 Section 4 Proposition 4.4",
+          "arXiv:2211.15648 Section 1 and Proposition 2.6"
+        ]
+      },
+      "checked_sources": [
+        "Coates–Luzzatto–Muhammad (2023), Doubly Intermittent Full Branch Maps with Critical Points and Singularities, CMP 402, DOI 10.1007/s00220-023-04766-x; full OA text §1.1, (4)–(6), §3–4, Proposition 2.6 and Proposition 3.5: https://link.springer.com/article/10.1007/s00220-023-04766-x",
+        "Mardešić–Resman–Rolin–Županović (2018/2019), The Fatou coordinate for parabolic Dulac germs, arXiv:1710.01268, main theorem, §§4,6, Proposition 6.4 and Appendix Remark 7.1 (full 33-page text inspected with page images): https://arxiv.org/pdf/1710.01268",
+        "Bansard-Tresse–Freitas (2023/2025), arXiv:2303.17320, full Section 4 and Proposition 4.4 (PDF page 29 inspected): https://arxiv.org/pdf/2303.17320",
+        "Muhammad–Schindler, arXiv:2211.15648, §1, Proposition 2.6 and §4 (full-text relevant sections and page images): https://arxiv.org/pdf/2211.15648",
+        "Resultary semantic searches for same model/central returns/parabolic logarithmic corrections; no earlier same-map result in ranked matches; closest orthogonal-tents toral map is a different system, full RESULT.md inspected: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-parabolic-branch-survival-laws-for-the-orthogonal-tents-to--fa18f62401f4/RESULT.md",
+        "Original source snapshot, seven verified blob IDs, Git tree 4d6651f35f71b160312ba53fc7f5f4300f336a4a, https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/exact-return-tails-and-an-exponent-determined-logarithmic-correc--445a6a73b09f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coates 2023 partitions opposite-side crossing cells by exact branch iteration; in the symmetric model their intervals coincide with x <= g^{-1}(delta_{n-1}).",
+          "Fatou 2018 for the parabolic inverse f=phi^{-1} admits an expansion whose first log term is (1+ell)/2 as verified directly from the Abel equation.",
+          "The assigned Q_n=g^{-1}(delta_{n-1})/c, B=(1+ell)/(2ell^2), D=(ell-K)/ell^2 are obtained from the two prior structures via inversion and m=n-1 shift."
+        ],
+        "reasoning": "The prior implication is explicit: the all-time cell identity is the special-case cylinder/preimage partition, and the asymptotic is the parabolic Fatou expansion applied to its inverse iterates and normalized by 2c. The arbitrary-orbit constant K is not independently novel; its existence corresponds to the additive Fatou-coordinate shift. Thus the whole claimed nonstandard novelty is already covered even without a literally matching formula.",
+        "searches": [
+          "CMP 2023 Coates–Luzzatto–Muhammad §1.1 (4)–(6), Proposition 3.5 and §4",
+          "arXiv:1710.01268 §§4,6, Prop 6.4 and Appendix Remark 7.1",
+          "Resultary search: exact return logarithmic correction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1710.01268 Proposition 6.4 and Appendix formula for a parabolic germ f=x+a x^alpha+... give a Fatou coordinate and its power-logarithmic expansion; main theorem establishes existence and uniqueness in the specified sectional asymptotic class.",
+          "Coates–Luzzatto–Muhammad 2023 equations (4)–(6) identify ordered same-side preimages and opposite-side crossing cells delta_n for general full-branch maps.",
+          "With phi(z)=z+z^(1+ell), Psi(phi(z))-Psi(z)=1 has Psi(z)=-z^(-ell)/ell+(1+ell)/2 log z+O(1); the assigned log coefficient is a direct substitution."
+        ],
+        "reasoning": "The local parabolic orbit asymptotics are already covered in a general Abel/Fatou-coordinate formulation, and the survivor set is the special symmetric central-crossing partition of the earlier full-branch construction. Combining them gives the claimed tail, including relative log coefficient and orbit constant, by elementary inverse and normalization. The Fatou paper does not literally state Q_l, but statement implication is decisive.",
+        "searches": [
+          "Resultary query: exact first return time survival distribution for doubly intermittent full branch symmetric interval maps, log n / n correction neutral inverse preimage",
+          "Resultary query: polynomially neutral fixed point parabolic inverse orbit log correction return time tails intermittent dynamical systems, second order asymptotics",
+          "Primary arXiv:1710.01268 main theorem, §6.2 Proposition 6.4, Appendix Remark 7.1",
+          "Primary CMP 2023 Coates–Luzzatto–Muhammad §1.1 equations (4)–(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact parameter table for C_l, B_l, D_l was located in the inspected earlier findings; the closest explicitly exact toral-branch area table concerns a different two-dimensional system.",
+          "Known power-log Fatou-coordinate theorem supplies these coefficients implicitly for this convergent germ; absence of the identical table cannot establish novelty."
+        ],
+        "reasoning": "A known table is not needed: the invariant follows from a stronger symbolic asymptotic theorem plus elementary return-cell reduction. The different toral system is not direct coverage and is not used as rejection evidence.",
+        "searches": [
+          "Resultary semantic search: exact return tails, natural central first-return, doubly intermittent",
+          "Resultary semantic search: parabolic first-exit survival and logarithmic correction",
+          "Published Resultary: orthogonal-tents toral parabolic branch survival RESULT.md"
+        ]
+      },
+      "rationale": "The explicit conditional return law and subleading logarithmic coefficient are correct, but not an independently unknown result under implication-based priority. Coates–Luzzatto–Muhammad already build the exact central crossing/preimage partition (their equations (4)–(6)), covering the return-survivor threshold as its symmetric special case. The general Fatou-coordinate existence/asymptotic theorem of Mardešić–Resman–Rolin–Županović (2018), especially Proposition 6.4 and Appendix Remark 7.1, applies to the convergent parabolic germ phi^{-1} with phi(z)=z+z^(1+ell). From the Abel equation, the logarithmic term of its formal Fatou coordinate has coefficient (1+ell)/2: putting Psi(z)=-z^(-ell)/ell+A log z+... and Psi(phi(z))-Psi(z)=1 yields A=(1+ell)/2 by cancellation of the z^ell term. Inverting the time coordinate gives w_m=ell m-(1+ell)/2 log m+K+o(1), then B=(1+ell)/(2ell^2) follows by the elementary crossing-map derivative g'(0)=2+ell. The constant K is the orbit-dependent Abel-coordinate additive constant and the rest is an algebraic specialization. No matching theorem title/number is required for coverage.",
+      "residual_risks": [
+        "The prior Fatou-coordinate theorem determines the local inverse-iterate asymptotic but does not itself explicitly name this central conditional-Lebesgue observable; implication uses the elementary central-partition identification already developed in the Coates–Luzzatto–Muhammad setup.",
+        "Preexisting literature may use yet another coding or inducing interval; the conclusion is reached from positively identified broader statements, not from an unsuccessful search.",
+        "Finite high-precision computations alone never establish all-time correctness; reliance is on the inspected inverse recurrence and parabolic-coordinate proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact crossing-cell partition is general and specializes to the present all-n inverse threshold. Its leading power-tail estimates alone do not identify B; paired with earlier generic parabolic-coordinate theorem, they do.",
+          "evidence": [
+            "Published CMP 402 (2023) 1845–1878 §1.1 equations (4)–(6); Proposition 2.6; Proposition 3.5."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00220-023-04766-x",
+          "material_read": "Open-access full text: model assumptions (A0)–(A2), exact partitions equations (4)–(6) in §1.1, leading return-tail statement Proposition 2.6, inverse neutral preimage Proposition 3.5, induced Section 4",
+          "method": "Full HTML reading of primary published paper and displayed mathematical equations",
+          "title": "Doubly Intermittent Full Branch Maps with Critical Points and Singularities",
+          "trigger": "Same full-branch map family and explicit opposite-side crossing partition"
+        },
+        {
+          "assessment": "A direct general theorem subsumes the neutral-iterate logarithmic correction: its Fatou-coordinate formal coefficient specializes to A=(1+ell)/2; invert to get (log n)/n term. It does not itself contain the global central return interval, which Coates already supplies through its partition.",
+          "evidence": [
+            "arXiv:1710.01268 main theorem, §6.2 Proposition 6.4, Appendix Remark 7.1 and Abel relation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.01268",
+          "material_read": "Primary full 33-page PDF: introduction, main definitions, main theorem, Section 4 Abel embeddings, Section 6.1 construction, Section 6.2 Proposition 6.4, Appendix Remark 7.1, equations (6.21)–(6.22), screenshots of PDF pages 24,28,29",
+          "method": "Public arXiv PDF text with original page-image inspection and independent specialization of Abel equation",
+          "title": "The Fatou coordinate for parabolic Dulac germs",
+          "trigger": "Parabolic inverse iterates z+z^(1+ell) and existence of a universal power-logarithmic coordinate expansion"
+        },
+        {
+          "assessment": "Only gives leading/order tail bounds for induced returns; not independently decisive for coverage of the relative log coefficient.",
+          "evidence": [
+            "arXiv:2303.17320 Proposition 4.4 in Section 4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.17320",
+          "material_read": "Public 35-page PDF, Section 4 definitions and Proposition 4.4, with original page image of the Proposition",
+          "method": "Primary arXiv PDF text plus PDF screenshot",
+          "title": "Inducing techniques for quantitative recurrence and applications to Misiurewicz maps and doubly intermittent maps",
+          "trigger": "Same doubly intermittent class and first-return tails"
+        },
+        {
+          "assessment": "Leading regularly varying tails for broader branches; no displayed exact second-order B for this central normalized Lebesgue return.",
+          "evidence": [
+            "arXiv:2211.15648 Proposition 2.6 and §4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.15648",
+          "material_read": "Primary PDF Section 1, Proposition 2.6, Section 4 including screenshots of two relevant pages",
+          "method": "Public arXiv primary text with page images",
+          "title": "Doubly intermittent maps with critical points, unbounded derivatives and regularly varying tail",
+          "trigger": "General regularly varying neutral branch preimage/return tails"
+        },
+        {
+          "assessment": "Different 2D toral shear and rational tail, not coverage of this one-dimensional intermittent map.",
+          "evidence": [
+            "RESULT.md has explicit S_{2k} and S_{2k+1} for an orthogonal-tents toral map, not phi inverse central returns."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-parabolic-branch-survival-laws-for-the-orthogonal-tents-to--fa18f62401f4/RESULT.md",
+          "material_read": "Entire published RESULT.md with all-time rational toral-branch survival theorem and proof",
+          "method": "Read full public GitHub result via GitHub connector",
+          "title": "Exact parabolic-branch survival laws for the orthogonal tents toral map",
+          "trigger": "Highly relevant title/semantic search for parabolic survival law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "First-return statistics of intermittent maps are naturally motivated and precision beyond the leading tail can be useful. However the submitted full finite-time identity is the obvious special-case interval/cylinder enumeration of Coates–Luzzatto–Muhammad, and the only claimed harder subprincipal log coefficient is a direct specialization of the established general power-logarithmic Fatou-coordinate expansion. K is an orbit-dependent additive integration constant, not an independently unknown exact invariant. Once the stronger prior methods are used, the result is a correct pedagogical calculation but no distinct mathematical gap, structural lemma, or unentailed exact quantity survives.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Coates–Luzzatto–Muhammad (2023), Doubly Intermittent Full Branch Maps with Critical Points and Singularities, CMP 402, DOI 10.1007/s00220-023-04766-x; full OA text §1.1, (4)–(6), §3–4, Proposition 2.6 and Proposition 3.5: https://link.springer.com/article/10.1007/s00220-023-04766-x",
+    "Mardešić–Resman–Rolin–Županović (2018/2019), The Fatou coordinate for parabolic Dulac germs, arXiv:1710.01268, main theorem, §§4,6, Proposition 6.4 and Appendix Remark 7.1 (full 33-page text inspected with page images): https://arxiv.org/pdf/1710.01268",
+    "Bansard-Tresse–Freitas (2023/2025), arXiv:2303.17320, full Section 4 and Proposition 4.4 (PDF page 29 inspected): https://arxiv.org/pdf/2303.17320",
+    "Muhammad–Schindler, arXiv:2211.15648, §1, Proposition 2.6 and §4 (full-text relevant sections and page images): https://arxiv.org/pdf/2211.15648",
+    "Resultary semantic searches for same model/central returns/parabolic logarithmic corrections; no earlier same-map result in ranked matches; closest orthogonal-tents toral map is a different system, full RESULT.md inspected: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-parabolic-branch-survival-laws-for-the-orthogonal-tents-to--fa18f62401f4/RESULT.md",
+    "Original source snapshot, seven verified blob IDs, Git tree 4d6651f35f71b160312ba53fc7f5f4300f336a4a, https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/exact-return-tails-and-an-exponent-determined-logarithmic-correc--445a6a73b09f"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "All analytic expansions fixed 0<ell<1; no uniform endpoint-parameter estimates; Lebesgue not invariant-induced probability.",
+    "Originality rejection is implication-based using two independent published general constructions; the exact Q formula is not quoted verbatim in either source.",
+    "No Lean proof or expert attestation claims; no external certification.",
+    "Publication transport is not_ready owing to unsanitized historical public metadata."
+  ],
+  "residual_risks": [
+    "The prior Fatou-coordinate theorem determines the local inverse-iterate asymptotic but does not itself explicitly name this central conditional-Lebesgue observable; implication uses the elementary central-partition identification already developed in the Coates–Luzzatto–Muhammad setup.",
+    "Preexisting literature may use yet another coding or inducing interval; the conclusion is reached from positively identified broader statements, not from an unsuccessful search.",
+    "Finite high-precision computations alone never establish all-time correctness; reliance is on the inspected inverse recurrence and parabolic-coordinate proof.",
+    "Potentially public METADATA.json and AUDIT.json contain scope_run_id; first_public_date 2022-09-26 is a source paper date rather than this 2026 finding; no privacy-neutral guarded replacements staged; publication withheld.",
+    "Exact normalization is to Lebesgue on the union (-c,0) and (0,c), not to the invariant induced measure, and 0<ell<1 is fixed throughout."
+  ],
+  "schema_version": 1
+}
