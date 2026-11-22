@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T13:55:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For integer d>=3 and independently surface-uniform endpoints conditioned on opposite last-coordinate signs (probability 1/2), the exact linear crossing is Z=[B sqrt(1-A^2)u+A sqrt(1-B^2)v]/(A+B). Standard Gaussian sphere normalization gives (sqrt(d)A,sqrt(d)B) => independent half normals; independent equatorial directions satisfy E[(u·v)^2]=1/(d-1), so the cross term vanishes. Therefore Q_d => (X²+Y²)/(X+Y)². The ratio X/Y is half-Cauchy; W=|X-Y|/(X+Y) has density 4/[pi(1+w²)] on (0,1). The transformation Q=(1+W²)/2 yields precisely the displayed CDF 4/pi atan(sqrt(2q-1)) and density 2/[pi q sqrt(2q-1)], with means 2/pi and 4/(3pi), variance strictly positive. Q_d is bounded in [0,1] so all positive bounded moments converge; rotational invariance yields independent uniform angular component in each finite d. A weak law on changing dimensions is not a common-space direction limit. No quantitative rate proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/abs/10.2307/3314760 abstract tabulates random chords and plane sections for competing line constructions; full parameter tables inaccessible",
+          "https://arxiv.org/abs/2307.04314 arxiv metadata discusses random-line sampling equivalences, not all-d limits"
+        ],
+        "reasoning": "An earlier general random-sections integral-geometry theorem might cover this, but abstract-only access is not evidence of exact coverage. Kinematic random-line models cannot simply dominate independent-endpoint law for arbitrary d.",
+        "searches": [
+          "Random sections of a sphere Coleman 1989 random line sections",
+          "high-dimensional sphere secant hyperplane intersection radial law"
+        ]
+      },
+      "checked_sources": [
+        "https://www.alphaxiv.org/abs/1411.5639",
+        "https://arxiv.org/abs/2307.04314",
+        "https://onlinelibrary.wiley.com/doi/abs/10.2307/3314760"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sidiropoulos 2014: chord length depends on U·V only; crossing radius requires last coordinates and conditioned opposite signs",
+          "Bilyk et al. 2023: random-line measure characterization restricted to dimension 3"
+        ],
+        "reasoning": "Known chord-length convergence to sqrt(2) cannot imply nondegenerate crossing radius; distinct variables can share the former marginal and differ in the latter.",
+        "searches": [
+          "https://www.alphaxiv.org/abs/1411.5639",
+          "https://arxiv.org/abs/2307.04314",
+          "https://onlinelibrary.wiley.com/doi/abs/10.2307/3314760"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://www.alphaxiv.org/abs/1411.5639 chord length from endpoint dot product; different random variable",
+          "https://arxiv.org/abs/2307.04314 invariant-line model equivalence only in three-dimensional spherical setting"
+        ],
+        "reasoning": "The squared crossing radius is a function of independent endpoint latitudes and equatorial inner product; chord length alone does not recover it or its conditional law.",
+        "searches": [
+          "high dimensional uniform sphere independent endpoints straight chord equator hyperplane crossing radius distribution half normal ratio half Cauchy",
+          "conditional random spherical secant equatorial hit ratio two half normal heights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://www.alphaxiv.org/abs/1411.5639 abstract supplies length CDF/density, not the displayed conditional crossing-radius density",
+          "https://onlinelibrary.wiley.com/doi/abs/10.2307/3314760 abstract alludes to section tables but no readable table for this statistic"
+        ],
+        "reasoning": "A full distribution, not a finite database; no exact matching expression was identified in searched abstracts or Resultary findings. Possible older stereology tables remain a named risk.",
+        "searches": [
+          "spherical chord equator intersection radius 2/(pi q sqrt(2q-1))",
+          "high dimensional uniform sphere independent endpoints straight chord equator hyperplane crossing radius distribution half normal ratio half Cauchy"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Sidiropoulos establishes marginal chord lengths and scalar-product laws under the same endpoint measure; those do not determine the conditional intersection location. Bilyk et al. discuss the special equivalence with invariant lines in dimension 3, not the high-dimensional conditional radius law. Coleman 1989 is a plausible historical stereology source but only its abstract was accessible, and authorized Oxford reported VPN disconnected; that access issue is explicitly residual and not used as an automatic scientific failure.",
+      "reasoning": "PASS best-of-knowledge: Sidiropoulos establishes marginal chord lengths and scalar-product laws under the same endpoint measure; those do not determine the conditional intersection location. Bilyk et al. discuss the special equivalence with invariant lines in dimension 3, not the high-dimensional conditional radius law. Coleman 1989 is a plausible historical stereology source but only its abstract was accessible, and authorized Oxford reported VPN disconnected; that access issue is explicitly residual and not used as an automatic scientific failure.",
+      "residual_risks": [
+        "Coleman 1989 full text and tables inaccessible; exact conditional crossing law may be implicit in a historical random-section model",
+        "Arxiv primary full texts for Sidiropoulos and Bilyk not retrieved in this execution; comparison limited to stated principal results",
+        "No rate of convergence or common ambient-space limiting direction"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Length and endpoint-dot-product distribution only; no complete source-exclusion claimed",
+          "evidence": [
+            "Abstract expressly describes chord length PDF/CDF and dot-product law"
+          ],
+          "identifier_or_url": "https://www.alphaxiv.org/abs/1411.5639",
+          "material_read": "Abstract and accessible bibliographic description; full mathematical sections not newly available",
+          "method": "OA abstract search, direct arxiv HTML failed",
+          "title": "N-sphere chord length distribution",
+          "trigger": "Same independent uniform endpoint sampling"
+        },
+        {
+          "assessment": "Dimension-three construction contextual, no high-dimensional equator crossing theorem found in accessible statement",
+          "evidence": [
+            "Dimension-three invariant sampling caveat"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.04314",
+          "material_read": "Abstract and main theorem description from accessible arxiv metadata",
+          "method": "Open metadata; no newly accessed primary full text",
+          "title": "A random line intersects S² in two probabilistically independent locations",
+          "trigger": "Invariant-line versus endpoint-sampling equivalence"
+        },
+        {
+          "assessment": "Unresolved possibility of implicit equivalent density; no evidence of either coverage or noncoverage",
+          "evidence": [
+            "Abstract mentions distributions of random line and plane sections; Oxford source DOI:10.2307/3314760, VPN unavailable"
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.2307/3314760",
+          "material_read": "Complete abstract, bibliographic details and 1989 publication date, not paper body/tables",
+          "method": "OA/arxiv attempts, publisher abstract, then authorized Oxford retrieval returned vpn_disconnected",
+          "title": "Random sections of a sphere",
+          "trigger": "1989 high-coverage stereology source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model is a canonical chord through independent spherical endpoints, with natural conditional section observable and a sharply nonconcentrating high-dimensional annulus despite chord-length concentration. Full limiting density, its finite moments, and radial/angular separation are independently useful geometric probability facts, not a routine renaming of chord length.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.alphaxiv.org/abs/1411.5639",
+    "https://arxiv.org/abs/2307.04314",
+    "https://onlinelibrary.wiley.com/doi/abs/10.2307/3314760"
+  ],
+  "disposition": "passed",
+  "limitations": "Only d→∞ weak radial law, no finite-d exact density or asymptotic error bound.",
+  "residual_risks": [
+    "Coleman 1989 full text and tables inaccessible; exact conditional crossing law may be implicit in a historical random-section model",
+    "Arxiv primary full texts for Sidiropoulos and Bilyk not retrieved in this execution; comparison limited to stated principal results",
+    "No rate of convergence or common ambient-space limiting direction"
+  ],
+  "schema_version": 1
+}

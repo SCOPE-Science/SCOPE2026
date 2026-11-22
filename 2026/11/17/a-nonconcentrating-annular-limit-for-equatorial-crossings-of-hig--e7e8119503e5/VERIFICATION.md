@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The statement follows from exact conditioning on opposite hemisphere signs, linear interpolation, Gaussian-normalization convergence, orthogonality of independent uniform directions and a two-branch half-Cauchy change of variables. All formulas and quantifiers are presented in `RESULT.md`; the numerical checker is supplementary.
+## correctness
 
-From the package directory, install `requirements.txt` and run `python check.py`.
+PASS
 
-The actual check passed with the following diagnostics:
+For integer d>=3 and independently surface-uniform endpoints conditioned on opposite last-coordinate signs (probability 1/2), the exact linear crossing is Z=[B sqrt(1-A^2)u+A sqrt(1-B^2)v]/(A+B). Standard Gaussian sphere normalization gives (sqrt(d)A,sqrt(d)B) => independent half normals; independent equatorial directions satisfy E[(u·v)^2]=1/(d-1), so the cross term vanishes. Therefore Q_d => (X²+Y²)/(X+Y)². The ratio X/Y is half-Cauchy; W=|X-Y|/(X+Y) has density 4/[pi(1+w²)] on (0,1). The transformation Q=(1+W²)/2 yields precisely the displayed CDF 4/pi atan(sqrt(2q-1)) and density 2/[pi q sqrt(2q-1)], with means 2/pi and 4/(3pi), variance strictly positive. Q_d is bounded in [0,1] so all positive bounded moments converge; rotational invariance yields independent uniform angular component in each finite d. A weak law on changing dimensions is not a common-space direction limit. No quantitative rate proved.
 
-```
-NORMALIZATION_AND_MOMENTS_OK [1.0000000000001061, 0.6366197723675813, 0.42441318157828145]
-HALF_CAUCHY_TRANSFORM_CHECK_OK
-THREE_DIMENSION_BASELINE_OK (0.49862853446289207, 0.33205863783720946, 0.6016533333333334, 0.8010933333333333, 0.50004)
-HIGH_DIMENSION_CROSSING_DIAGNOSTICS_OK (0.6369108629644196, 0.4252856041212047, 0.5300736842105264, 0.8366210526315789, 0.1119157894736842)
-SPHERICAL_CHORD_EQUATORIAL_LIMIT_CHECKS_OK
-```
+## originality
 
-The theoretical limiting \(\mathbb E[Q]\) is \(2/\pi\), and the simulated dimension-500 mean was approximately \(0.636911\). The empirical dimension-500 probabilities at squared radii \(0.6\) and \(0.8\) were respectively \(0.530074\) and \(0.836621\), compared with limit values \(0.535441\) and \(0.839139\). The probability below squared radius \(1/2\) is not zero at finite dimensions (about \(0.112\) here), consistent with a slow boundary-layer approach; the proof only states that this probability tends to zero. The dimension-three baseline also matches the familiar disk-uniform law.
+PASS
 
-Checks use seeded random experiments and deterministic midpoint quadrature. No finite experiment certifies the limit; analytic proof steps remain essential. The independent audit status is not performed.
+PASS best-of-knowledge: Sidiropoulos establishes marginal chord lengths and scalar-product laws under the same endpoint measure; those do not determine the conditional intersection location. Bilyk et al. discuss the special equivalence with invariant lines in dimension 3, not the high-dimensional conditional radius law. Coleman 1989 is a plausible historical stereology source but only its abstract was accessible, and authorized Oxford reported VPN disconnected; that access issue is explicitly residual and not used as an automatic scientific failure.
+
+## value
+
+PASS
+
+The model is a canonical chord through independent spherical endpoints, with natural conditional section observable and a sharply nonconcentrating high-dimensional annulus despite chord-length concentration. Full limiting density, its finite moments, and radial/angular separation are independently useful geometric probability facts, not a routine renaming of chord length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
