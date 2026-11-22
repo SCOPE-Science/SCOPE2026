@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Each vertex is a unique increasing path. Its arc-incidence vector has Boolean coordinates, giving squared Euclidean distance equal to symmetric-difference cardinality. The final-source 11 / last-nonzero 11 automaton yields the displayed \\(2\\times 2\\) exact generating function. Summing pairwise shared-edge probabilities gives mean \\(5m/6+(8/9)(1-4^{-m})\\). The dominant eigenvalue at z=1 is 1 with subleading eigenvalue 1/4 and log lambda(e^t)=5t/6+\\(43t^2/216\\)+O(t^3), proving the CLT and variance. Exact-arithmetic direct pair enumeration reproduces every distance coefficient for m=0..7; checks are not confused with an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest indexed: 2026/11/8/SCOPE-cut-controlled-euclidean-inballs-and-factorized-centers-of-compl--4e6becfd056c; exact inradius and incenter structure, not random vertex pair distances.",
+        "Dugan 2024/2025: complete flow-polytopal face numbers for arbitrary nonnegative netflows, not Euclidean vertex-pair moments."
+      ],
+      "reasoning": "General face-number and inball statements do not dominate metric distances between random exposed path-flow vertices. The transfer law implies statistics across all pairs, which cannot be recovered from total vertex and face counts alone.",
+      "searches": [
+        "published-finding corpus: Chan Robbins Yuen complete DAG flow polytope uniform random vertices exact distribution squared Euclidean distance transfer matrix and Gaussian limit variance",
+        "published-finding corpus: Flow polytope of complete directed acyclic graph unit source sink increasing path vertices distance distribution",
+        "published-finding corpus: Euclidean diameter and complete diametral pairs of Chan Robbins Yuen flow polytope complete acyclic digraph path-incidence",
+        "turn762763view1"
+      ]
+    },
+    "checked_sources": [
+      "W. T. Dugan, arXiv:2409.15519 (2024-09-23), Cambridge open HTML article (2025), primary MSC 52B05",
+      "published-finding corpus complete-directed-flow inball indexed record 2026/11/8/...4e6becfd056c",
+      "2018 Pattern-avoiding polytopes, search passage only; original full text unavailable",
+      "Corteel–Kim–Mészáros arXiv:1612.00102, 2016 foundational CRY-flow identity (metadata and abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dugan Section 5 identifies 2^m path vertices; Sections 3–5 evaluate f-vectors. The primary searchable full text has no distance/variance result.",
+        "The new proof uses a state distinguishing last shared selected vertex, a 2-by-2 weighted matrix, and its Perron eigenvalue expansion."
+      ],
+      "reasoning": "The old path encoding is a premise, not a conclusion covering metric pair correlations. No checked source supplies the transfer matrix, full pair-distance distribution or limiting 43/360 Euclidean-distance variance; a generic finite-state central limit theorem alone would not determine the coefficients.",
+      "searches": [
+        "published-finding corpus: Chan Robbins Yuen complete DAG flow polytope uniform random vertices exact distribution squared Euclidean distance transfer matrix and Gaussian limit variance",
+        "published-finding corpus: two independently uniform increasing source sink paths complete acyclic graph overlap consecutive shared edges distribution",
+        "turn350779view1",
+        "turn588584view1",
+        "turn588584view3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2409.15519 establishes CRY as complete-DAG unit-flow polytope; paired vertices equal two independent increasing source–sink paths; Euclidean squared distance is edge-set symmetric difference.",
+        "The pattern-avoiding realization is affinely related but does not preserve the stated edge-coordinate metric by assumption."
+      ],
+      "reasoning": "Checked aliases of the same object (CRY, complete-DAG flow, increasing paths, restricted permutation polytope) and the same observable (Hamming/symmetric-difference distance). The established vertex bijection is used, but does not imply the stated evaluated transfer polynomial or Gaussian variance without the new overlap analysis.",
+      "searches": [
+        "published-finding corpus: two independently uniform increasing source sink paths complete acyclic graph overlap consecutive shared edges distribution",
+        "published-finding corpus: Chan Robbins Yuen polytope Euclidean vertex dispersion squared Hamming distance 5/6 43/108",
+        "Web: \"Chan Robbins Yuen\" \"distance\" \"vertices\" Euclidean",
+        "Web: \"random increasing paths\" \"common edges\" \"central limit\"",
+        "turn883310search1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary article Table 1 tabulates face vectors of CRY polytopes and Proposition 5.1 gives 2^m vertices, not pair-distance histograms.",
+        "published-finding corpus target-constant query did not surface a CRY random-pair-distance table."
+      ],
+      "reasoning": "The displayed transfer-polynomial coefficients count ordered pairs by squared Euclidean distance; this is not an f-vector or preexisting count of vertices. No exact table with equivalent distance histograms was identified.",
+      "searches": [
+        "published-finding corpus: Chan Robbins Yuen polytope Euclidean vertex dispersion squared Hamming distance 5/6 43/108",
+        "turn762763view1 Section 5 Proposition 5.1 and Table 1",
+        "turn883310search0"
+      ]
+    },
+    "rationale": "The evaluated two-state squared-distance generating polynomial and its \\(5/6\\), \\(43/108\\), \\(43/360\\) sharp coefficients differ substantively from the path-vertex and face-vector enumerations in Dugan 2024, the inball theorem in the closest indexed complete-DAG result, and the permutation-pattern realization. Three targeted published-finding corpus queries and four external equivalent/alias searches gave no direct covering statement; a published or unindexed equivalent remains possible.",
+    "residual_risks": [
+      "Historical priority may be preempted by a result indexed under random paths, joint renewal chains, or an unindexed thesis not returned by either source search.",
+      "Full 2018 pattern-avoiding article unavailable during this comparison, although available snippets describe combinatorial realization not metric pair laws.",
+      "No independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING among inspected statements; relevant premise 2^m path vertices is explicitly credited; originality provisional rather than full-text uniqueness proof",
+        "evidence": [
+          "turn350779view0 lines 460–520",
+          "turn350779view1 lines 853–903",
+          "turn588584view1 (no distance)",
+          "turn588584view3 (no variance)"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/on-the-fvectors-of-flow-polytopes-for-the-complete-graph/0DC6634A7BEF541ABF57AAD5160903CC",
+        "material_read": "Open-access HTML: abstract, introduction, MSC list, Section 4 face enumerators, Section 5 propositions 5.1–5.3 and associated proofs, full-text searches for Euclidean, distance, metric, variance",
+        "method": "Read substantial primary sections and compare mathematical statements and their measured quantities",
+        "title": "On the f-vectors of flow polytopes for the complete graph",
+        "trigger": "Same CRY object and explicitly enumerated path vertices"
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS; not treated as proving noncoverage",
+        "evidence": [
+          "turn883310search1",
+          "turn350779view2 403"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ejc.2018.07.006",
+        "material_read": "Search-result passage on CRY realization; full article request returned 403, so substantive original proofs and appendices not inspected",
+        "method": "Web result and attempted article retrieval",
+        "title": "Pattern-avoiding polytopes",
+        "trigger": "Connects the CRY family with restricted permutation matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "397d212d-8e0c-45ef-b58e-d7ae9e478982",
+  "value": {
+    "rationale": "A full exact metric-distance generating law for the exponentially large vertex set of a canonical flow polytope is mathematically more informative than a routine vertex count: it determines all Euclidean pairwise-distance moments and yields the sharp unscaled limiting normal law with variance \\(43/360\\) even though the ambient edge dimension is quadratic. The chosen quantity measures a natural global geometry of uniformly sampled vertices and is not implied by existing face/vector and volume enumerations.",
+    "status": "PASS"
+  }
+}
