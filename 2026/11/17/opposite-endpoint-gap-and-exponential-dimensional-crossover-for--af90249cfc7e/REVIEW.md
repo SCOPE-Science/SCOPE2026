@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise inequality and normalizations are those of the cited 2026 sharp-constant theorem, not a new assumption of sharpness. The complete argument separates the singular \(k=0\) term of the published hypergeometric series, proves uniform twice-differentiable bounds for the remaining positive series, and uses bounded differentiated Gamma ratios to obtain a remainder uniform in dimension. The fixed-dimensional Laurent coefficients follow from a convergent trigamma sum. Finite numerical checks are corroborative only; no finite computation is promoted to an infinite proof.
+## correctness
 
-**Originality — PASS, subject to priority risk.** Jleli–Samet already gives an exact series for the optimal constant, so this is not presented as a new exact formula. That series is a decisive input and determines every individual value, but it does not itself provide the dimension-uniform opposite-endpoint estimate, explicit noncommuting limits, or the exponentially scaled continuous crossover. The most relevant primary papers emphasize the limit toward order one; comparisons with source statements, web literature, and indexed mathematical findings did not reveal a covering uniform gap law. The possibility of an equivalent unindexed asymptotic analysis is a genuine residual risk.
+PASS
 
-**Mathematical value — PASS.** The HMP upper bound is asymptotically relatively sharp as \(\alpha\downarrow0\) even though its absolute gap does not vanish at fixed dimension. The exact finite gap, monotone dimension dependence, noncommuting limits and continuous exponential-dimension profile distinguish distinct asymptotic regimes of a central sharp fractional inequality, rather than supplying a routine single-parameter coefficient.
+For n>=3 and alpha in (0,1), the asserted C* is the Jleli–Samet sharp constant with exactly the Hoang–Moen–Pérez Riesz normalization; it is not a new sharpness proof. Separating the k=0 alpha^-2 hypergeometric term yields gamma_{n,1} C*=(1-alpha)Q_n(alpha)/alpha*(1+alpha² R_n(alpha)). Coefficient bound 0<A_{n,k}<=C(k+1)^alpha and its first two logarithmic derivative variants, times O((k+1)^-2), bound the series R_n and derivatives uniformly for all n>=3, 0<=alpha<=1/2; summability at exponent 1/2 is crucial. Normalized gamma ratios U_n,V_n have bounded second derivatives, so [V_n-W_n]/alpha=delta_n+O(alpha) with dimension-independent remainder and delta_n=ln2+[psi(n/2)-psi((n-1)/2)]/2. Since N^{-alpha/2} is exact external factor and log U_n=O(alpha), n->infinity with alpha ln n ->lambda gives e^{-lambda/2} ln2 and the noncommuting iterated limits. The fixed-n Laurent coefficient follows from R_n(0)=[zeta(2)+psi_1(n/2)]/4 and quadratic gamma expansion. Independent positive-series numerics at alpha=.03 in dimensions 3,6,20,200 corroborated O(alpha) gap errors, but the analytic uniform bounds carry the quantifiers. The primary paper Proposition 6.1 and related equations were inspected in the PDF with page screenshots.
 
-**Closest literature and limits.** Hoang–Moen–Pérez supplies the comparison formula; Claros–Pérez treats order one; Jleli–Samet supplies the exact sharp series and a strict finite-parameter inequality. The proof covers integer dimension at least three and does not resolve the planar unrestricted problem. Its priority assessment is not an independent bibliographic audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for a dimension-uniform opposite small-order remainder and joint alpha log n crossover; exact C*(n,alpha) and its series are acknowledged established. The new result is a quantitative asymptotic estimate derived from, not independent of, that series; possible overlooked remarks or easy corollaries of existing sharp constants remain a residual priority risk.
+
+## value
+
+PASS
+
+The competing sharp and classical upper constants share a 1/alpha divergence, so their finite difference is not determined by leading-order BBM behavior. The sharp dimension-uniform remainder and exponential-in-1/alpha crossover quantify how this comparison changes with dimension, including noncommuting limits. This is a motivated endpoint/asymptotic fact rather than a renaming of the earlier sharp value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

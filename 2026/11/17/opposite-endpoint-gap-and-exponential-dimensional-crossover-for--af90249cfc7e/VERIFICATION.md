@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The governing analytic inputs are the sharp-constant reduction and the absolutely convergent hypergeometric series in Theorem 1.3 and Proposition 6.1 of arXiv:2611.10656v1. Both were inspected against the original paper with the Riesz-potential normalization recorded in its equation (1.1).
+## correctness
 
-The proof independently verifies that the series remainder and its first two derivatives are bounded uniformly in every integer dimension at least three when the fractional order is at most one half. The Gamma-ratio normalization then gives two uniformly twice-differentiable factors that agree at zero. Their first-derivative difference is exactly the finite-gap coefficient. This is the analytic certificate for the all-dimensional result.
+PASS
 
-A supplementary finite numerical experiment evaluated partial hypergeometric sums for dimensions 3, 4, 5, 10 and orders 0.2, 0.08, 0.03. It was compared with the explicit comparison constant and the Laurent formula. The numerical output was consistent with the claimed asymptotics but is not a substitute for the proof; truncation error grows relevant as the order approaches zero. No machine-based infinite theorem certification or independent validation was performed.
+For n>=3 and alpha in (0,1), the asserted C* is the Jleli–Samet sharp constant with exactly the Hoang–Moen–Pérez Riesz normalization; it is not a new sharpness proof. Separating the k=0 alpha^-2 hypergeometric term yields gamma_{n,1} C*=(1-alpha)Q_n(alpha)/alpha*(1+alpha² R_n(alpha)). Coefficient bound 0<A_{n,k}<=C(k+1)^alpha and its first two logarithmic derivative variants, times O((k+1)^-2), bound the series R_n and derivatives uniformly for all n>=3, 0<=alpha<=1/2; summability at exponent 1/2 is crucial. Normalized gamma ratios U_n,V_n have bounded second derivatives, so [V_n-W_n]/alpha=delta_n+O(alpha) with dimension-independent remainder and delta_n=ln2+[psi(n/2)-psi((n-1)/2)]/2. Since N^{-alpha/2} is exact external factor and log U_n=O(alpha), n->infinity with alpha ln n ->lambda gives e^{-lambda/2} ln2 and the noncommuting iterated limits. The fixed-n Laurent coefficient follows from R_n(0)=[zeta(2)+psi_1(n/2)]/4 and quadratic gamma expansion. Independent positive-series numerics at alpha=.03 in dimensions 3,6,20,200 corroborated O(alpha) gap errors, but the analytic uniform bounds carry the quantifiers. The primary paper Proposition 6.1 and related equations were inspected in the PDF with page screenshots.
 
-The dimensionally uniform error constant is not given a numerical optimum. The proof does not extend the exact unrestricted sharp constant to dimension two. Bibliographic uniqueness is not formally certified.
+## originality
+
+PASS
+
+PASS best-of-knowledge for a dimension-uniform opposite small-order remainder and joint alpha log n crossover; exact C*(n,alpha) and its series are acknowledged established. The new result is a quantitative asymptotic estimate derived from, not independent of, that series; possible overlooked remarks or easy corollaries of existing sharp constants remain a residual priority risk.
+
+## value
+
+PASS
+
+The competing sharp and classical upper constants share a 1/alpha divergence, so their finite difference is not determined by leading-order BBM behavior. The sharp dimension-uniform remainder and exponential-in-1/alpha crossover quantify how this comparison changes with dimension, including noncommuting limits. This is a motivated endpoint/asymptotic fact rather than a renaming of the earlier sharp value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
