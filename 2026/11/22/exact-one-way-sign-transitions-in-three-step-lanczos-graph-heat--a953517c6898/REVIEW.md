@@ -1,0 +1,15 @@
+# Research review
+
+## Correctness
+PASS. Exact Lanczos recurrence identities give the physical-coordinate expressions on every positive-weight graph, including triangles, and positivity of the reduced three-state Metzler exponential settles the root and distance-two coordinates. Perron asymptotics identify the sign of each neighbor's slowest Ritz mode. The Chebyshev zero-count argument for three distinct real exponentials, together with the simple zero at the origin and positive derivative, proves the one-way crossing and equality cases. Exact rational calculations certify the five-vertex witness. The standalone verifier passed all exact identities and supplementary numerical tests. No claims of minimum graph order or generality beyond the stated three-step method are needed.
+
+## Originality
+PASS on inspected evidence, with residual publication-priority risk. Druskin (2008), pp. 1679–1683, proves reduced-coordinate total positivity and monotone Euclidean errors, not positivity of signed original graph coordinates. Hochbruck–Lubich (1997) and Orecchia–Sachdeva–Vishnoi (2011) give polynomial Krylov formulations and norm guarantees, not local triangle-adjusted sign criteria. The published 2026 parity theorem treats diagonal positive matrices with strictly positive input and an extreme spectral coordinate; its hypotheses and implication do not subsume this vertex-source Laplacian theorem. The published two-step positivity result is likewise a different depth and a diagonal matrix problem. The 2011 graph-Lanczos paper was read in its mathematical sections, and the complete five-page Druskin article was read. No stronger covering statement was found in the material checked; indexed-search incompleteness remains a risk, not a novelty proof.
+
+## Value
+PASS. Ordinary Krylov heat approximations are used to accelerate diffusion and graph algorithms. This result provides an exact local sign-safety diagnostic applicable to any connected positively weighted undirected graph, explains a sharp irreversible positivity transition in the approximate physical coordinates, and supplies a small rational regression example. It distinguishes sign preservation from Euclidean norm accuracy, Ritz semigroup positivity, and conservation of total mass. The general classification, not just the witness, motivates the precise result.
+
+## Closest literature and limitations
+The closest full-text article is Druskin (2008), DOI 10.1016/j.laa.2008.04.046, especially Lemmas 1–2 and Theorem 1. The previous published diagonal-system Lanczos sign results are related but have different physical objects and do not imply the graph-local degree/triangle condition. The main unresolved originality risk is equivalent material in older positive-systems or exponential-interpolation sources under different terminology. The analytical finding is exact arithmetic at depth three; numerical root estimates and finite computations do not provide an infinite proof.
+
+Self-review: passed. Independent audit: not yet performed.
