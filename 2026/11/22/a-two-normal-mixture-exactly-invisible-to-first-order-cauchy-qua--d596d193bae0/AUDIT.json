@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For symmetric smooth densities, the nested Brownian-bridge increment formulas give the exact covariance and delta-method variance (RESULT.md Eq. (1)). The mixture ratio decreases strictly with its scale parameter (Eq. (2)), creating a unique continuous ratio-matching curve. certify.py computes exact rational bounds: variance >0.1915680 at weight 0.08 and variance <0.0277288 at 0.20, against Cauchy variance between 0.1022 and 0.1024. The intermediate-value theorem establishes an exact non-Cauchy mixture matching both center and variance; standard quantile CLT proves identical first-order Gaussian law. Explicit domain: iid samples, exact p=0.02217468, two-sided asymptotically Gaussian null calibration. Log output is supplementary; proof depends on displayed inequalities and source code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rublík (2001), section 2: general fixed-probability quadratic score and subsequently sample-size-dependent extreme-order-statistic test; neither is the scalar inner/outer ratio with a two-normal alternative.",
+        "Ebner, Eid, Klar (2022), Theorem 1.1: characterizing Fourier–Stein identity and weighted discrepancy, not a finite quantile ratio."
+      ],
+      "reasoning": "The cited prior tests use different statistics with different rejection functionals. Their general quantile asymptotics serve as methods but do not assert existence of the two-equation mixture witness.",
+      "searches": [
+        "Pekgor quantile Cauchy goodness of fit Gaussian mixtures same asymptotic variance",
+        "Rublik 2001 quantile goodness-of-fit Cauchy extreme order statistics asymptotic power blind alternatives Gaussian mixture",
+        "https://doi.org/10.1007/s00362-022-01382-0"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1155/2023/9200213",
+      "https://dml.cz/dmlcz/134472",
+      "https://doi.org/10.1007/s00362-022-01382-0",
+      "Pekgör (2023), sections 2–5 and Table 1",
+      "Rublík (2001), section 2",
+      "Ebner–Eid–Klar (2022), Theorem 1.1 and section 3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pekgör (2023) proves the Cauchy null CLT and documents finite power simulations; it does not compute the Gaussian-mixture variance-on-ratio-matching curve.",
+        "Rublík (2001) proves limit behavior for a fitted Cauchy quantile discrepancy and compares critical values, not the mixture mimicry statement."
+      ],
+      "reasoning": "A null CLT does not imply a fixed alternative has the same center or variance. The latter requires two simultaneous, independently verified nonlinear equations. Earlier fixed-n Cauchy-null tail results do not imply asymptotic rejection behavior under a smooth non-Cauchy law.",
+      "searches": [
+        "Pekgor Cauchy sample quantile index asymptotic null power Gaussian normal variance mixture matched variance",
+        "A quantile goodness-of-fit test for Cauchy distribution, based on extreme order statistics",
+        "https://doi.org/10.1155/2023/9200213"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pekgör (2023), sections 2–3: scalar quantile ratio, Cauchy asymptotic null variance and powers under standard named alternatives; no exact two-Gaussian mixture with matched fluctuation law identified.",
+        "Result comparison returned unrelated Gaussian-mixture and general Cauchy findings, not equivalent scalar asymptotic-law matching."
+      ],
+      "reasoning": "Matching only the population four-quantile index is weaker than matching its asymptotic variance; both are necessary for the exact nominal-power theorem. No inspected equivalent formulation was found.",
+      "searches": [
+        "Cauchy quantile index four order statistics Pekgor 2023 normal Gaussian scale mixture blind alternative quantile ratio goodness of fit test",
+        "fixed quantile ratio test two-component normal scale mixture same limit as Cauchy finite variance null distribution",
+        "https://doi.org/10.1155/2023/9200213"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pekgör (2023), Table 1 lists the Cauchy index 0.06978 and the single normal index 0.33544; alternatives list does not include two-component normal scale mixtures.",
+        "Pekgör (2023), section 3 remarks that power can be low when the index is near the Cauchy value, without a same-asymptotic-variance construction."
+      ],
+      "reasoning": "The numerical tables do not give a finite-variance alternative whose full scalar first-order null law matches, and no checked formula/table dominates the two-equation crossing theorem.",
+      "searches": [
+        "\"Pekgor\" 2023 \"Cauchy\" quantile goodness-of-fit test limitations alternatives same quantiles",
+        "four-quantile Cauchy goodness of fit test index p=(0.02217468,0.25,0.75,0.97782532), null power Gaussian mixture",
+        "https://doi.org/10.1155/2023/9200213"
+      ]
+    },
+    "rationale": "The primary four-quantile Cauchy paper (Pekgör, 2023) establishes the statistic and null law but its examined full text and alternatives table do not supply an exact two-Gaussian match of both population index and asymptotic variance. Rublík (2001) uses a fitted quadratic quantile statistic, not this fixed four-quantile ratio. Ebner, Eid, Klar (2022) use a Fourier–Stein statistic. A previously described Cauchy quantile-ratio result concerns fixed-sample extreme null tails and does not imply this non-Cauchy asymptotic power claim. Historical priority remains uncertain.",
+    "residual_risks": [
+      "Historical priority cannot be certified exhaustively from finite full-text and semantic searches.",
+      "The primary 2023 HTML mathematical display was partially omitted in the available rendering, though the quantile levels and target Cauchy index are explicit and consistent.",
+      "The 2001 PDF visual screenshot request timed out; its searchable text and relevant formula definitions were available.",
+      "The power result does not transfer to other statistics, exact finite-n calibration, or arbitrary non-Gaussian critical sequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces studied statistic and null theory; no explicit same-center-and-variance Gaussian-mixture alternative identified",
+        "evidence": [
+          "14 March 2023 public date; fixed four levels and the index values 0.06978 (Cauchy) and 0.33544 (normal); section 3 says power lower when the index approaches the Cauchy value."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2023/9200213",
+        "material_read": "Full accessible article narrative, sections 1–5, power study, tables 1–4, discussion of normal alternative and asymptotic null law; displayed equations lost in browser text conversion",
+        "method": "Full-text HTML inspection with comparison of population index values and proof scope",
+        "title": "A Novel Goodness-of-Fit Test for Cauchy Distribution",
+        "trigger": "Same fixed four-quantile levels and target statistic"
+      },
+      {
+        "assessment": "Fixed-probability fitted quadratic statistic, then moving extreme ranks; different from scalar four-quantile ratio and absent matching two-Gaussian alternative",
+        "evidence": [
+          "2001, Applications of Mathematics 46, pp. 339–351; section 2 defines Q(n,p1,...,pk) with estimated Cauchy parameters."
+        ],
+        "identifier_or_url": "https://dml.cz/dmlcz/134472",
+        "material_read": "Parsed journal PDF, abstract, introduction, section 2 including equations (2.1)–(2.8) and asymptotic calibration discussion; page screenshots could not be retrieved due timeout",
+        "method": "Searchable PDF text and formula comparison",
+        "title": "A quantile goodness-of-fit test for Cauchy distribution, based on extreme order statistics",
+        "trigger": "Earlier potentially dominating Cauchy quantile test"
+      },
+      {
+        "assessment": "Weighted Fourier–Stein characterization test, not covering the four-quantile scalar equivalence theorem",
+        "evidence": [
+          "Published online 22 December 2022, Theorem 1.1 uses a Fourier–Stein expectation identity; section 3 considers quantiles only for estimating nuisance parameters."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00362-022-01382-0",
+        "material_read": "Accessible full-text HTML abstract, introduction, characterization theorem 1.1, Gaussian limit/statistic section, quantile estimation subsection and references",
+        "method": "Structural comparison of actual test functional",
+        "title": "Cauchy or not Cauchy? New goodness-of-fit tests for the Cauchy distribution",
+        "trigger": "Related potentially stronger Cauchy distribution test"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d596d193-bae0-464d-84ed-e2c7cd634f13",
+  "value": {
+    "rationale": "The 2023 test explicitly chooses its outer quantiles for separation from a single Gaussian. Matching both the center and first-order null variance within an elementary two-normal, strictly unimodal, all-moments-finite alternative gives a consequential failure of consistency: Gaussian-calibrated rejection remains exactly nominal in the limit. This is stronger and more motivated than merely observing that a finite number of population quantiles cannot identify a distribution; it includes structural minimality and a certified nonlinear parameter crossing.",
+    "status": "PASS"
+  }
+}
