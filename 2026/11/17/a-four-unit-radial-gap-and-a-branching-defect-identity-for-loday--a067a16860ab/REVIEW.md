@@ -1,15 +1,21 @@
-# Scientific review: Loday vertex radial quantization
+# Independent mathematical audit
 
-## Correctness — PASS
-The quantifiers cover every integer \(n\ge3\), every plane full binary tree with \(n\) internal nodes, and the intrinsic Euclidean norm in the standard affine model. Loday's coordinate formula and the known barycenter give a precisely normalized distance. The lowest-common-ancestor argument proves the fixed coordinate sum; direct induction from an explicit polynomial identity proves the exact quadratic branching-defect formula. Evenness of consecutive integers yields four-divisibility, and the unique local penalty of four occurs at a two-cherry root. The equality trees and counts follow from one-leaf extensions. No finite enumeration is used as an infinite proof. The checker independently reconstructs 82,499 tree coordinates for dimensions 1 through 11.
+## correctness
 
-## Originality — PASS (best-knowledge, historical priority provisional)
-The relevant 2023 survey was inspected in its full arXiv HTML (especially the coordinate construction, common barycenter discussion and geometric properties). The full 2023 Padrol–Palu–Pilaud–Plamondon article was checked for Euclidean radial claims; it addresses realization fans. The earlier Hohlweg–Lortie–Raymond source establishes a barycenter point but not the quadratic vertex-distance distribution. The closest public note establishes the inradius and its facet contacts; those do not determine vertex radii, the local penalty formula, or either shell's combinatorial multiplicity. Actual exact-formulation and alternative-wording searches failed to identify broader covering results. Residual risks are older literature on binary-tree shape statistics and unindexed equivalent identities. Search absence alone is not taken as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The theorem resolves an intrinsic and naturally motivated metric classification of the standard associahedron's vertex set near its canonical barycenter, for every dimension. The substantive structural identity is stronger than the numerical gap: it turns the Euclidean radial defect into a nonnegative branching statistic, establishes exact four-quantization, and gives all and only the first- and second-shell shapes and their exponentially growing multiplicities. It supplies a sharp stability bound for near-comb binary trees and a usable exact metric filtration of Catalan vertices, without demanding a downstream theorem or claiming complete higher-shell classification.
+For every canonical plane full binary tree with n>=3 internal nodes, the inorder Loday coordinates are v_i=L_iR_i; every pair of the n+1 leaves has a unique LCA, hence sum v_i=n(n+1)/2. At root with left/right leaf counts a,b, the polynomial identity a²b²+S(a-1)+S(b-1)-S(a+b-1)=ab(a-1)(b-1), S(k)=sum_{j=1}^k j², inductively proves sum v_i²=S(n)+sum_u L_uR_u(L_u-1)(R_u-1). Subtracting n(n+1)²/4 gives exact squared-radius baseline n(n²-1)/12 plus nonnegative local penalties. Each penalty is divisible by 4 because both L(L-1) and R(R-1) are even. Zero penalty iff every node has a leaf child, yielding 2^(n-1) combs. Least positive penalty 4 requires exactly one internal node with L=R=2 (two cherries) and all ancestors unilateral leaf attachments, giving 2^(n-3) trees. All other penalties at least8; n1,n2 exceptional single-shell boundaries explicitly excluded. Independent enumeration of ALL tree profiles for n1..9 reconstructed coordinates and penalties and matched every exact radius and both shell counts. Finite enumeration corroborates but induction proves arbitrary n; the center is the known Loday vertex barycenter, not asserted min enclosing ball.
 
-## Source distinctions and limits
-The source coordinates are canonical, and no result is claimed for an arbitrary affine associahedron. Previously established barycenter and inradius results remain prior work. A self-review and exact finite check were performed, not an independent audit or historical-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact metric TREE STATISTIC and first two Loday vertex-radius shells. Classical coordinate formula, known permutahedron barycenter and comb common vertices are acknowledged prior; earlier facet inradius and Euclidean edge spectrum concern different metrics. No dominating vertex-shell classification was identified, with tree-imbalance aliases remaining a concrete risk.
+
+## value
+
+PASS
+
+The canonical Loday associahedron is a central Catalan polytope and the vertex barycenter provides a natural Euclidean reference. Its local nonnegative branching defect formula is a structural identity that quantizes ALL squared radii modulo4, immediately classifies nearest and second-nearest trees with sharp dimension-independent squared gap4, and counts both shells exactly (2^(n-1),2^(n-3)). Those tree-shape stability statements are usable at every dimension, not a numerical experiment or routine preexisting barycenter statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

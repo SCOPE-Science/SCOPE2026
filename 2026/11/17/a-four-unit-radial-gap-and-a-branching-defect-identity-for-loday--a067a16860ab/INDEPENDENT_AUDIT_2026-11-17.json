@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:48:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every canonical plane full binary tree with n>=3 internal nodes, the inorder Loday coordinates are v_i=L_iR_i; every pair of the n+1 leaves has a unique LCA, hence sum v_i=n(n+1)/2. At root with left/right leaf counts a,b, the polynomial identity a²b²+S(a-1)+S(b-1)-S(a+b-1)=ab(a-1)(b-1), S(k)=sum_{j=1}^k j², inductively proves sum v_i²=S(n)+sum_u L_uR_u(L_u-1)(R_u-1). Subtracting n(n+1)²/4 gives exact squared-radius baseline n(n²-1)/12 plus nonnegative local penalties. Each penalty is divisible by 4 because both L(L-1) and R(R-1) are even. Zero penalty iff every node has a leaf child, yielding 2^(n-1) combs. Least positive penalty 4 requires exactly one internal node with L=R=2 (two cherries) and all ancestors unilateral leaf attachments, giving 2^(n-3) trees. All other penalties at least8; n1,n2 exceptional single-shell boundaries explicitly excluded. Independent enumeration of ALL tree profiles for n1..9 reconstructed coordinates and penalties and matched every exact radius and both shell counts. Finite enumeration corroborates but induction proves arbitrary n; the center is the known Loday vertex barycenter, not asserted min enclosing ball.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-tree-independent-euclidean-facet-shells-of-standard-loday-operah--e9c5b6b85a3c — Exact Euclidean facet-shell/inradius theorem for Loday operahedra"
+        ],
+        "reasoning": "Distance to supporting facets is geometrically different from Euclidean length of a polytope vertex minus barycenter. An inradius formula does not bound all vertex radial levels tightly enough to derive the four-unit lattice.",
+        "searches": [
+          "Loday associahedron vertices Euclidean distances barycenter squared radii comb trees branching defect four gap"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00013-023-01895-6",
+        "https://arxiv.org/html/2305.08471v1",
+        "https://doi.org/10.37236/344",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-tree-independent-euclidean-facet-shells-of-standard-loday-operah--e9c5b6b85a3c",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-euclidean-edge-spectrum-and-a-dirichlet-length-condensatio--f3adcce77e2f",
+        "https://doi.org/10.1112/plms.12543"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00013-023-01895-6 — Known Loday v_i=L_iR_i and b=(n+1)/2 1"
+        ],
+        "reasoning": "The proposed theorem is a nontrivial exact consequence of coordinates but not a mere parameter substitution: it requires a root-square identity, induction, minimum positive branch penalty and complete equality tree classification.",
+        "searches": [
+          "Loday associahedron vertices Euclidean distances barycenter squared radii comb trees branching defect four gap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00013-023-01895-6 — Common barycenter and characterization of comb-type common vertices"
+        ],
+        "reasoning": "The known comb vertex characterization does not establish that they minimize Euclidean center distance, much less the uniform second shell gap and 2^(n-3) count; a new quadratic nonnegative defect identity is required.",
+        "searches": [
+          "Loday associahedron vertices Euclidean distances barycenter squared radii comb trees branching defect four gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-euclidean-edge-spectrum-and-a-dirichlet-length-condensatio--f3adcce77e2f — Published exact edge-length distribution and mean"
+        ],
+        "reasoning": "Edge-length tables involve differences of adjacent vertices under rotations; they do not specify absolute centered vertex norms or the unique balanced four-leaf defect. No first/second vertex-shell table located in actual query returns.",
+        "searches": [
+          "Loday associahedron vertices Euclidean distances barycenter squared radii comb trees branching defect four gap"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact metric TREE STATISTIC and first two Loday vertex-radius shells. Classical coordinate formula, known permutahedron barycenter and comb common vertices are acknowledged prior; earlier facet inradius and Euclidean edge spectrum concern different metrics. No dominating vertex-shell classification was identified, with tree-imbalance aliases remaining a concrete risk.",
+      "reasoning": "Best-of-knowledge original exact metric TREE STATISTIC and first two Loday vertex-radius shells. Classical coordinate formula, known permutahedron barycenter and comb common vertices are acknowledged prior; earlier facet inradius and Euclidean edge spectrum concern different metrics. No dominating vertex-shell classification was identified, with tree-imbalance aliases remaining a concrete risk.",
+      "residual_risks": [
+        "Older binary-tree imbalance or additive shape-statistic literature might algebraically encode this L_u R_u(L_u-1)(R_u-1) sum under different terminology; existing searches cannot rule out all such aliases.",
+        "The theorem concerns standard Loday coordinates and the known vertex barycenter; arbitrary affine realizations have different Euclidean distances and no invariant shell claim is made.",
+        "A survey formula for vertices and known barycenter allows the identity to be derived algebraically, but the explicit nonnegative branching decomposition and sharp second-shell multiplicities are not a stated prior metric theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides coordinates v_i=L_iR_i, common vertex barycenter and number of comb-type permutahedron common vertices, not the nonnegative branch-defect identity or exact two innermost Euclidean vertex radii.",
+          "evidence": [
+            "§2.4.2 states all three canonical vertex barycenters coincide; the survey describes comb vertices as common permutahedron vertices, a combinatorial antecedent."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00013-023-01895-6",
+          "material_read": "Full accessible Springer HTML sections on Loday coordinates, common permutahedron comb vertices and §2.4.2 vertex barycenter; explicitly checked numbering differences between n coordinates and n+1 leaves",
+          "method": "Primary open-access full text (not just abstract) inspected by headings and relevant equations",
+          "title": "Celebrating Loday’s associahedron",
+          "trigger": "Complete survey of canonical realization, vertex coordinates and barycenter might imply radial shells"
+        },
+        {
+          "assessment": "Proves reference center and not, on available evidence, individual vertex norms, branching penalty or the count of the second occupied sphere.",
+          "evidence": [
+            "A centroid identity does not determine distances of nonuniform vertices from the centroid."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/344",
+          "material_read": "Bibliographic/title and source summary, with the center equality used as a known theorem; complete independent primary text not downloaded this run",
+          "method": "Bibliographic/result-level comparison only",
+          "title": "The Centers of Gravity of the Associahedron and of the Permutahedron are the Same",
+          "trigger": "Same barycenter location used for metric reference"
+        },
+        {
+          "assessment": "Facet-shell distances to supporting hyperplanes are not barycentric distances to VERTICES; data are geometrically distinct and neither invariant determines the other.",
+          "evidence": [
+            "Its formula depends on facet nesting parameter s and determines polytope inradius, not vertex two-shell spectrum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-tree-independent-euclidean-facet-shells-of-standard-loday-operah--e9c5b6b85a3c",
+          "material_read": "Complete indexed Resultary theorem summary, including facet distances and inradius, not full paper body in this execution",
+          "method": "Resultary semantic search and exact metric-object comparison",
+          "title": "Tree-independent Euclidean facet shells of standard Loday operahedra",
+          "trigger": "Exact Euclidean shells on a closely related polytope might dominate"
+        },
+        {
+          "assessment": "Treats pairwise edge lengths and their distribution under uniformly selected edges, not single-vertex radial distance from center.",
+          "evidence": [
+            "Edge lengths depend on local tree rotations and do not establish the branch defect for an arbitrary vertex."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-euclidean-edge-spectrum-and-a-dirichlet-length-condensatio--f3adcce77e2f",
+          "material_read": "Published indexed finding summary; no new full primary read in this execution",
+          "method": "Resultary semantic search",
+          "title": "Exact Euclidean edge spectrum and a Dirichlet length-condensation law for Loday associahedra",
+          "trigger": "Same realization and Euclidean geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical Loday associahedron is a central Catalan polytope and the vertex barycenter provides a natural Euclidean reference. Its local nonnegative branching defect formula is a structural identity that quantizes ALL squared radii modulo4, immediately classifies nearest and second-nearest trees with sharp dimension-independent squared gap4, and counts both shells exactly (2^(n-1),2^(n-3)). Those tree-shape stability statements are usable at every dimension, not a numerical experiment or routine preexisting barycenter statement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s00013-023-01895-6",
+    "https://arxiv.org/html/2305.08471v1",
+    "https://doi.org/10.37236/344",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-tree-independent-euclidean-facet-shells-of-standard-loday-operah--e9c5b6b85a3c",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-euclidean-edge-spectrum-and-a-dirichlet-length-condensatio--f3adcce77e2f",
+    "https://doi.org/10.1112/plms.12543"
+  ],
+  "disposition": "passed",
+  "limitations": "Canonical realization, inherited Euclidean metric, n>=3; two innermost occupied vertex shells only, not a complete classification of higher shells or affine-invariant polytope geometry.",
+  "residual_risks": [
+    "Older binary-tree imbalance or additive shape-statistic literature might algebraically encode this L_u R_u(L_u-1)(R_u-1) sum under different terminology; existing searches cannot rule out all such aliases.",
+    "The theorem concerns standard Loday coordinates and the known vertex barycenter; arbitrary affine realizations have different Euclidean distances and no invariant shell claim is made.",
+    "A survey formula for vertices and known barycenter allows the identity to be derived algebraically, but the explicit nonnegative branching decomposition and sharp second-shell multiplicities are not a stated prior metric theorem."
+  ],
+  "schema_version": 1
+}
