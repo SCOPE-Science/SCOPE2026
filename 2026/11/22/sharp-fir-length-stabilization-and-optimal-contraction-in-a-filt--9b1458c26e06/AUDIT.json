@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact recurrence gives P_plus(1)=sqrt(Delta); root factorization gives lower spectral bound, with equality only at negative repeated root. Explicit binomial-corrected positive weights attain equality; delayed selector covers the low-gain region by open Schur stability, and P_minus(1)<0 forces a real unstable root. Symbolic polynomial checks and direct companion-Jacobian tests passed; experiments are not used for infinite conclusions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Borges–Silva–Eisencraft arXiv:2401.10281 full HTML, Sections 2–5 and Appendix A, studies fixed points and chosen filter families numerically; no maximum over all tap vectors.",
+        "Borges–Eisencraft arXiv:2211.16964v1 full HTML Section 3 describes a two-tap stability region and numerically unstable negative branch.",
+        "An indexed two-cohort recruitment stability result treats a different recurrence, not an arbitrary-length nonlinear FIR Hénon map."
+      ],
+      "reasoning": "The earlier two-tap analysis and later arbitrary-order numerical analysis do not imply the all-order, all-real-tap impossibility bound, the exact optimal radius or unique formula. Generic control/Schur knowledge is not presented as new but does not settle the actual FIR coefficient constraints without the construction.",
+      "searches": [
+        "Mathematical-literature query: FIR Henon map positive fixed point optimal spectral radius arbitrary delay length positive taps gain",
+        "web: Borges Silva Eisencraft FIR filtered Hénon map optimal stability region binomial tap placement maximum gain",
+        "web: Hénon stability FIR optimal filter gain positive fixed point"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2401.10281 (full HTML sections)",
+      "https://arxiv.org/html/2211.16964v1 (full HTML)",
+      "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4487008 (record/abstract only)",
+      "https://biblioteca.sbrt.org.br/articlefile/4750.pdf (indexed abstract only)",
+      "Indexed mathematical studies on two-lag noisy feedback and two-cohort recruitment (different recurrence classes)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source already shows \\(G^2p^2+(1-\beta)p-\u0007lpha=0\\) and provides the general Jacobian; those facts are credited and not claimed independently.",
+        "The source reports numerical instability of the negative branch and parameter scans for selected filters; neither is a proof of the optimized positive-branch radius.",
+        "The accessible earlier 2022 paper gives Jacobian eigenvalue formulas only for two taps, with numerical stability regions."
+      ],
+      "reasoning": "Knowing stationary roots and a full Jacobian is insufficient to imply a sharp extremum over the infinitely many real tap configurations for arbitrary length. The additional root-product obstruction, equality classification and binomial-plus-delayed-feedback construction are essential. Negative-branch proof is a supporting extension of a reported numerical observation.",
+      "searches": [
+        "web: arxiv 2401.10281 fixed points stability sections and appendix",
+        "web: arxiv 2211.16964 full text Section 3.1",
+        "web: SSRN 4487008 initial public version and dates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The abstract polynomial inequality \\(|P(1)|\\le(1+\rho)^n\\) follows from roots, but the FIR fixed-point relation makes \\(P(1)=\\sqrt\\Delta\\) and imposes the extra \\(-\beta z^{n-2}\\) coefficient.",
+        "An indexed two-lag noisy-feedback optimal-weighting result concerns variance, not all-order filtered Hénon equilibrium contraction."
+      ],
+      "reasoning": "A generic root-product inequality is known elementary material; the proposed new statement is the exact constrained realization with positive FIR taps, all lengths and sharp gain, plus uniqueness. No retrieved equivalent system-specific theorem or dominating result was found.",
+      "searches": [
+        "Mathematical-literature query: monic characteristic polynomial minimal spectral radius given fixed P(1) coefficient sum optimal repeated negative root",
+        "Mathematical-literature query: linear discrete delay feedback stabilization binomial coefficients roots equal negative r optimal contraction factor",
+        "web: Schur polynomial fixed sum coefficients maximum value 2^n binomial root minus one control filter stabilization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary publications do not give an exact optimal-gain database or table over every FIR coefficient vector.",
+        "Targeted indexed literature searches for specific optimality claims returned unrelated delay/control and filtering records, without a directly covering statement.",
+        "arXiv:2401.10281 Appendix A tabulates the raw Jacobians but not optimal radii or sharp all-order gain cutoffs."
+      ],
+      "reasoning": "The observed database and mathematical-literature results did not contain the exact optimized FIR classification; absence from search is not a uniqueness proof.",
+      "searches": [
+        "Published literature exact searches for FIR filtered Hénon optimal gain, repeated negative root, binomial taps, all lengths",
+        "Mathematical-literature query: FIR filtered Hénon map exact maximum stabilizing feedback gain nonnegative filter taps order m 2^n root -1",
+        "web: FIR Henon map negative equilibrium instability filter gain Jacobian real eigenvalue greater than one"
+      ]
+    },
+    "rationale": "Full originating arXiv text and earlier two-tap full manuscript were compared: prior roots/Jacobians and numerical scans do not imply the sharp all-order optimal spectral radius, unique positive-tap profile or gain frontier. Mathematical-literature searches found no equivalent claim; the inaccessible earlier manuscript and broader control theory remain named priority risks.",
+    "residual_risks": [
+      "The first-public 2023-06-21 SSRN full text was not retrievable (HTTP 403); the later arXiv full version was read.",
+      "An unindexed control-theory treatment of the abstract fixed-evaluation polynomial extremum may predate this statement; priority for the concrete positive-tap Hénon specialization remains to be independently assessed.",
+      "Local Schur stability does not constrain basin size, bandwidth performance, or nonlinear neutral endpoint behavior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies recurrence, stationary roots and Jacobians; offers selected-filter numerical stability, not the sharp all-order minimax spectral radius or binomial positive-tap optimizer",
+        "evidence": [
+          "Sections 2–3 source equations and stability discussion; Appendix A formulas; Sections 4–5 selected prototypes and conclusions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.10281",
+        "material_read": "Full accessible HTML sections 2, 3, 4, 5 and Appendix A, including equations (2)–(9) and (20)–(28)",
+        "method": "Read equation definitions, fixed points, all-length Jacobian, results/conclusions and specific filter experiments",
+        "title": "Chaotic properties of an FIR filtered Hénon map",
+        "trigger": "Exact same all-order filtered quadratic recurrence and candidate optimal stability problem"
+      },
+      {
+        "assessment": "Two-tap Jacobian and numerical stability region; no sharp optimizer over general tap length, no repeated-root design or all-length exponential gain frontier",
+        "evidence": [
+          "Eq. (6), Eq. (10)–(11) and Section 3.1 numerical study"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.16964v1",
+        "material_read": "Full HTML Sections 2, 3.1, 3.2 and 4 with 2-tap recurrence, eigenvalue formulas and numerical stability diagrams",
+        "method": "Direct section and mathematical-statement comparison",
+        "title": "A filtered Hénon map",
+        "trigger": "Earlier closely related two-tap publication might dominate length-two case"
+      },
+      {
+        "assessment": "Qualitative description consistent with later version but cannot certify absence of theorem in unread full SSRN version; residual priority risk recorded",
+        "evidence": [
+          "SSRN posting line 22, versions 39–49, abstract 52–55"
+        ],
+        "identifier_or_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4487008",
+        "material_read": "SSRN page containing posted date, abstract and version listing; full manuscript returned HTTP 403",
+        "method": "Read version record and abstract; attempted authorized PDF page retrieval without success",
+        "title": "Chaotic Properties of an Fir Filtered Hénon Map, earliest SSRN posting",
+        "trigger": "Earliest public manuscript dated 2023-06-21, predating accessible arXiv source"
+      },
+      {
+        "assessment": "Addresses numerical IIR pole filter rather than finite-tap all-length coefficient optimization; no material full-document noncoverage claim",
+        "evidence": [
+          "Indexed abstract describes numerical second-order IIR filter"
+        ],
+        "identifier_or_url": "https://biblioteca.sbrt.org.br/articlefile/4750.pdf",
+        "material_read": "Search-indexed title, author and abstract only; not the PDF body",
+        "method": "Compared abstract and stated infinite-impulse-response filter class",
+        "title": "Um estudo numérico da dinâmica do mapa de Hénon com filtros só-polos de segunda ordem",
+        "trigger": "Later same-author discussion of filter dynamical stabilization might imply general bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9b1458c2-6e06-4499-bc42-49ff399c2775",
+  "value": {
+    "rationale": "A natural filter-design problem left numerical by prior work is solved for all lengths and gains: the exact best local contraction, a unique strictly positive achieving tap design, and an exponential-in-length sharp gain frontier. These distinguish optimal feasibility from merely computing a local Jacobian, without unsupported global or security claims.",
+    "status": "PASS"
+  }
+}
