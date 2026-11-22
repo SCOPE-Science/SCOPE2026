@@ -1,15 +1,21 @@
-# Review: star symmetric-edge ridge curvature
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is every integer \(d\ge2\), for the canonical Euclidean zero-sum embedding. The proof reconstructs all outward normals by solving \(B^{\mathsf T}h=\sigma\), computes the two-normal Gram determinant, and independently obtains ridge volumes from the actual signed-root Gram matrix. Every ridge is counted exactly once. The exterior-angle normalization of \(V_{d-2}\) is validated at \(d=2\). The central-limit and Taylor steps prove the distributional limit; the binomial tail bound and fourth-moment control justify averaging the second-order expansion. Exact enumeration verified \(768\) ridge instances in dimensions \(2\) through \(7\). Risk: no general computer-aided formalization; analytical proof, not finite enumerations, carries the infinite statement.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-The 2018, 2019 and 2021 primary manuscripts describe symmetric-edge-polytope facets, tree crosspolytope equivalence and facet subgraphs, not exact **area-weighted ridge** angle curvature. Published companion results on the same canonical star compute normal lengths/incenters, and another study of tree polytopes computes **facet** areas and surface area. A related \(K_{2,q}\) ridge-angle calculation includes the same centered chi-square angular limit: that distribution alone is not claimed new or sufficient for novelty. Its graph family and calculations do not furnish this star's ridge measures and exact second Steiner intrinsic volume. Additional metric-polytope sources could still contain an equivalent result.
+PASS
 
-## Mathematical value — PASS
-The complete ridge-angle/area distribution answers a natural extrinsic Euclidean geometric question that is lost under the known unimodular crosspolytope equivalence. The exact \(V_{d-2}\) formula extends beyond facet area or inradius and provides a precise first curvature correction despite order-one (rescaled) non-Gaussian angular fluctuations. This is a natural invariant and structural cancellation, not an arbitrary parameter slice or bare numerical record.
+PASS: Checked exact root-basis Gram and inverse, paired facet normal inner products, codimension-two ridge simplex Gram determinant and binomial multiplicities (including d=2 right-angle V0=1 boundary). The 1/(2π) Steiner exterior-angle normalization is consistent with V0(P2)=1. Independent evaluation of finite weighted sums d=2,3,4,8,30,100,300,1000 corroborated the −5/6 asymptotic correction. The proof controls binomial tails and fourth moments for unbounded d; finite asymptotic checks alone would not suffice.
 
-## Limitations and source comparison
-The result is confined to star symmetric-edge polytopes. It does not assert a general tree theorem, independent priority certification, or originality of the same chi-square law in a related bipartite family. Full-text comparisons are described scientifically in `AUDIT.json` and the references of `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Generic tree symmetric edge polytopes are unimodularly crosspolytopes, but that equivalence does not preserve the specified Euclidean metric and therefore cannot imply exact ridge angles or second intrinsic volume. Earlier star-specific inradius and facet-area results concern different curvatures. A biclique K_{2,q} work shares a centered chi-square angular fluctuation shape; the shape alone is explicitly not credited as new. The complete star ridge area-angle spectrum, weighted Steiner coefficient and cancellation −5/6 survive as new best-knowledge geometry.
+
+## value
+
+PASS
+
+The Euclidean canonical graph-root embedding has a natural graph metric absent from combinatorial crosspolytope equivalence. Its complete ridge measure and curvature spectrum is a structural exact invariant and the cancellation between random angle and ridge area yields an informative high-dimensional asymptotic, not a routine face count or borrowed chi-square limiting form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

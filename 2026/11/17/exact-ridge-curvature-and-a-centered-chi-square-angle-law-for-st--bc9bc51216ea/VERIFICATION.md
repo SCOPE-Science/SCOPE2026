@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python star_ridge_verify.py` in this directory (Python standard library only). The checker reconstructs facet normals independently with exact rational coordinates and rebuilds every ridge Gram determinant from the corresponding signed root vertices. It enumerates all \(768\) unoriented ridges for \(2\le d\le7\), checks their squared areas and exact exterior-angle tangents, and checks class multiplicities over \(15\) finite spectral classes. It separately evaluates the exact curvature sum for \(d=30,100,300\) and compares the calculated first-order coefficient with \(-5/6\).
+## correctness
 
-Expected terminal line: `STAR_RIDGE_PASS exact_ridges= 768 exact_spectral_classes= 15 curvature_checks=3`. All such checks executed successfully before review. The checker tests finite cases and cannot prove the full theorem, the limiting chi-square distribution, or priority. The complete unrestricted argument is in `RESULT.md` using exact facet-normal and ridge-Gram identities, the ordinary central limit theorem, uniform moment bounds, and an exponentially small binomial-tail remainder. Independent audit has not been performed.
+PASS
+
+PASS: Checked exact root-basis Gram and inverse, paired facet normal inner products, codimension-two ridge simplex Gram determinant and binomial multiplicities (including d=2 right-angle V0=1 boundary). The 1/(2π) Steiner exterior-angle normalization is consistent with V0(P2)=1. Independent evaluation of finite weighted sums d=2,3,4,8,30,100,300,1000 corroborated the −5/6 asymptotic correction. The proof controls binomial tails and fourth moments for unbounded d; finite asymptotic checks alone would not suffice.
+
+## originality
+
+PASS
+
+PASS (qualified): Generic tree symmetric edge polytopes are unimodularly crosspolytopes, but that equivalence does not preserve the specified Euclidean metric and therefore cannot imply exact ridge angles or second intrinsic volume. Earlier star-specific inradius and facet-area results concern different curvatures. A biclique K_{2,q} work shares a centered chi-square angular fluctuation shape; the shape alone is explicitly not credited as new. The complete star ridge area-angle spectrum, weighted Steiner coefficient and cancellation −5/6 survive as new best-knowledge geometry.
+
+## value
+
+PASS
+
+The Euclidean canonical graph-root embedding has a natural graph metric absent from combinatorial crosspolytope equivalence. Its complete ridge measure and curvature spectrum is a structural exact invariant and the cancellation between random angle and ridge area yields an informative high-dimensional asymptotic, not a routine face count or borrowed chi-square limiting form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
