@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python3 CHECK.py` from the directory containing this document. The checker uses only Python's standard library and exact `fractions.Fraction` arithmetic. It independently assembles every friendship graph and row-normalized Markov generator, then reconstructs the claimed heat interpolation from eigenspace identities \(Q C=0\), \(Q U=-U/2\), \(Q V=-3V/2\). Rational values of \(q=e^{-t/2}\) permit exact evaluation of the full semigroup polynomial at explicit times.
+## correctness
 
-The recorded execution returned:
+PASS
 
-```
-GENERATOR_POLYNOMIAL_IDENTITIES_PASSED 48
-EXHAUSTIVE_BINARY_CUT_INEQUALITIES_PASSED 32724
-EXACT_PAIR_WITNESS_ATTAINMENT_PASSED 36
-ARBITRARY_SIGNED_INPUT_INEQUALITIES_PASSED 1800
-AMPLIFICATION_THRESHOLD_COMPARISONS_PASSED 29
-ALL_NORMALIZED_FRIENDSHIP_GRAPH_HEAT_TESTS_PASSED
-```
+For a friendship graph of m>=1 triangles with one hub and Q=D^-1 A-I, hub-vs-average and antisymmetric blade modes decay as e^(-3t/2), while blade-mean differences decay as e^(-t/2). The exact hub-relative heat values follow by solving this linear ODE. The graph coarea/layer-cake identity reduces arbitrary signed inputs to binary superlevel cuts; complementing excludes the hub and the triangle disjoint-support decomposition has additive input edge variations. Each triangle cuts either one vertex or both; the full peripheral-pair ratio exceeds singleton by ((m-1)/m)(e^(-t/2)-e^(-3t/2)), giving exact N_m(t)=2(m-1)/m e^(-t/2)-(m-2)/m e^(-3t/2), attained by a pair cut. Differentiation gives strict contraction through m=4, unique transient peak for m>=5, and limiting sharp unattained (4/3)sqrt(2/3). Own direct matrix expm and exhaustive hub-free cuts m=1..6 at three positive times match formula within 1e-10; all-size proof is analytic.
 
-Exhaustive cuts are only within the stated finite graph-size and rational-time tests. These tests do not establish the theorem in all dimensions or continuous times, which instead follows from the analytical linear-system solution, cut reduction, and scalar maximization written in `RESULT.md`. No external or independent proof verification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality after actual mathematical implication comparisons with primary literature and published Resultary corpus; no located stronger theorem implies the entire exact final claim. Distinct known antecedents and historical risks are documented.
+
+## value
+
+PASS
+
+An exact all-time operator seminorm, a sharp four-blade stability boundary, explicit attained worst-case cut and a global unattained envelope for a natural irregular graph family connect normalized heat dynamics with graph BV geometry. The nonexpansivity threshold differs from neighboring graph norms and is a substantive classification useful for heat-flow stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

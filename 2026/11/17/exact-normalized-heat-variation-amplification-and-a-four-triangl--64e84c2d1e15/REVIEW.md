@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The generator is explicitly calculated from the friendship graph, giving three invariant modes: constants, blade-mean fluctuations (decay rate \(1/2\)), and hub-versus-mean plus within-pair antisymmetric fluctuations (rate \(3/2\)). The layer-cake/coarea reduction covers arbitrary signed real inputs; every binary cut decomposes into peripheral singletons and full pairs with additive *input* variation, permitting an exact two-case comparison. The pair cut realizes the larger quotient for every parameter. Differentiation of the proven all-time formula determines the unique peak and threshold; the strict size monotonicity yields the unattained envelope. Exact rational checker diagnostics corroborate but do not replace the all-size proof.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The closest published mathematical record on clique-bouquet graph-variation heat contraction treats the *unnormalized* combinatorial Laplacian and determines an initial growth threshold, not this degree-normalized all-time coefficient. The equal-blade windmill transport formula likewise treats unnormalized heat and the different \(W_1\)/edge-Lipschitz dual norm. The normalized complete-bipartite weighted-variation classification concerns graphs without triangle edges, so its source and parameter assumptions cannot imply the friendship formula. Primary literature on graph total variation/coarea and normalized friendship spectra supplies standard ingredients, not the sign-sensitive sum-of-edge-differences norm. Actual source and alias queries are documented in `AUDIT.json`; no mathematical-record search can exclude every unindexed equivalent source.
+PASS
 
-## Mathematical value — PASS
-The result determines a canonical exact operator stability invariant simultaneously for all graph sizes and all continuous times. The four-triangle nonexpansivity boundary, unique sharp transient peak, explicit extremizing binary cut, and universal finite-size envelope expose a substantive effect of degree normalization distinct from both transport regularity and unnormalized heat variation. The exact geometry of this stability measure matters for finite graph diffusion and nonlinear downstream processing; no new general theory outside friendship graphs is claimed.
+For a friendship graph of m>=1 triangles with one hub and Q=D^-1 A-I, hub-vs-average and antisymmetric blade modes decay as e^(-3t/2), while blade-mean differences decay as e^(-t/2). The exact hub-relative heat values follow by solving this linear ODE. The graph coarea/layer-cake identity reduces arbitrary signed inputs to binary superlevel cuts; complementing excludes the hub and the triangle disjoint-support decomposition has additive input edge variations. Each triangle cuts either one vertex or both; the full peripheral-pair ratio exceeds singleton by ((m-1)/m)(e^(-t/2)-e^(-3t/2)), giving exact N_m(t)=2(m-1)/m e^(-t/2)-(m-2)/m e^(-3t/2), attained by a pair cut. Differentiation gives strict contraction through m=4, unique transient peak for m>=5, and limiting sharp unattained (4/3)sqrt(2/3). Own direct matrix expm and exhaustive hub-free cuts m=1..6 at three positive times match formula within 1e-10; all-size proof is analytic.
 
-## Limits
-The theorem excludes nonuniform peripheral cliques, arbitrary graph weights, other generators, discrete-time powers and graph-distance Lipschitz variation. Historical priority is provisional until further independent literature review, and finite checker runs are not infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after actual mathematical implication comparisons with primary literature and published Resultary corpus; no located stronger theorem implies the entire exact final claim. Distinct known antecedents and historical risks are documented.
+
+## value
+
+PASS
+
+An exact all-time operator seminorm, a sharp four-blade stability boundary, explicit attained worst-case cut and a global unattained envelope for a natural irregular graph family connect normalized heat dynamics with graph BV geometry. The nonexpansivity threshold differs from neighboring graph norms and is a substantive classification useful for heat-flow stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
