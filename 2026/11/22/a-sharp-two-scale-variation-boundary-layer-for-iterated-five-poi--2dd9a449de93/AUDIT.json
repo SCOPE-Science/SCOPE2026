@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Fourier differentiation and unit-step extremizer prove the exact finite sharp norm. Critical Fourier peaks have explicitly computed quartic and Gaussian expansions with a moving perturbation. Smooth cutoffs, local rescaling, fourth-derivative summable coefficient tails and an intermediate spatial radius establish uniform compact-parameter ℓ1 mass additivity; the fixed-u cases follow from single-peak localization. Exact finite convolution and independent FFT checks were executed, with finite checks not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diaconis–Saloff-Coste 2012 Theorem 2.1 states boundedness of ℓ1 norms under spectral conditions; Theorem 2.3 gives fixed-parameter pointwise local limits.",
+        "Randles–Saloff-Coste 2012 studies supnorm local asymptotics and concentration, not a varying five-tap parameter or sharp global BV norm."
+      ],
+      "reasoning": "The closest broader local-limit and stability theorems were checked by implications. Power boundedness cannot imply the exact crossover coefficient; the published uniform pointwise o(r^{-1/4}) error does not control a secondary r^{1/2}-wide packet in ℓ1. Standard Fourier methods can prove the new result, but the reviewed statements do not subsume it.",
+      "searches": [
+        "critical spectral stability boundary 1/8 in five point fourth order smoothing: sharp l1 convolution power asymptotic crossover moving parameter c/n Gaussian quartic",
+        "Savitzky Golay repeated convolution Fourier multiplier one minus four u times one minus cosine theta squared exact limiting BV variation norm",
+        "arxiv:1212.4700 Sections 5 and 7 full HTML",
+        "arxiv:1205.6490 Theorems 2.1 and 2.3 full HTML"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1205.6490",
+      "arxiv:1212.4700",
+      "doi:10.1021/ac60214a047",
+      "published indexed finding: An eight-site boundary for Gini stability of cyclic five-point Savitzky–Golay smoothing",
+      "published indexed finding: Resonant saturation and missing dimensions for cyclic Savitzky–Golay variation gain",
+      "published indexed finding: Negative outer jumps force persistent lattice sign oscillation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously known same-kernel spectral-edge condition and quartic/Gaussian profiles are incorporated, not presented as new.",
+        "The new proof independently shows Fourier-cutoff derivative bounds, tail control, and spatial-scale separation giving ℓ1 mass additivity for parameters varying with the iteration."
+      ],
+      "reasoning": "A pointwise local limit with leading quartic scale is compatible with both presence and absence of nonvanishing ℓ1 Gaussian mass; determining the latter requires uniform summable tail estimates. Fixed-u statements alone cannot entail the explicit lambda profile without additional uniform perturbation analysis. No decisive prior implication to the full new claim was found.",
+      "searches": [
+        "critical spectral stability boundary 1/8 in five point fourth order smoothing: sharp l1 convolution power asymptotic crossover moving parameter c/n Gaussian quartic",
+        "five point signed convolution p[-2]=-a p[-1]=4a p[0]=1-6a Fourier 1-4a(1-cos)^2 critical a=1/8 r time n u=1/8+lambda/n operator norm l1 total variation Gaussian quartic boundary layer",
+        "Diaconis–Saloff-Coste arxiv:1205.6490 Example 2.2, Theorem 2.3, Sections 2 and 3",
+        "Randles–Saloff-Coste arxiv:1212.4700 Sections 1, 2, 5, 7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The stencil equals I-uL^2, also symbol 1-4u(1-cos θ)^2 and the parametrization s²=4u in arxiv:1205.6490 Example 2.2.",
+        "The variation quotient equals the ℓ1 norm of convolution powers because first differences commute and a step attains Young equality.",
+        "The primary 2012 fixed-parameter example states a leading local-limit profile at u=1/8, including quartic at 0 and Gaussian at π, but not a moving-parameter global norm."
+      ],
+      "reasoning": "Compared exact operator symbols, normalization, the BV-to-ℓ1 isometry and parameter transformations; equivalent formulations of the new assertion were sought, not just a title match. The fixed-kernel pointwise theorem does not provide uniform ℓ1 error control over a secondary r^{1/2} spatial region or handle u varying by lambda/r.",
+      "searches": [
+        "finite difference iterates sign changing five tap ℓ1 norm two maxima near critical lambda/n quartic Gaussian additive mass norm",
+        "five point signed convolution p[-2]=-a p[-1]=4a p[0]=1-6a Fourier 1-4a(1-cos)^2 critical a=1/8 r time n u=1/8+lambda/n operator norm l1 total variation Gaussian quartic boundary layer",
+        "Diaconis–Saloff-Coste 2012 Proposition 2.4, Example 2.2 (arxiv:1205.6490)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed Savitzky–Golay Gini and cyclic-variation claims concern finite periodic one-step filters, not bilateral many-iterate BV and near-critical u_r.",
+        "The original Savitzky–Golay coefficient tables are for polynomial fitting; no asymptotic two-scale operator norm is stated in the relevant available pages."
+      ],
+      "reasoning": "Searched for a numerical/formula table of critical ℓ1 norms and compared the metric, time horizon, domain, and parameter scaling. No reviewed table already contains the exact moving-window curve or its infinite-iteration proof.",
+      "searches": [
+        "Savitzky Golay repeated convolution Fourier multiplier one minus four u times one minus cosine theta squared exact limiting BV variation norm",
+        "Savitzky Golay one parameter five tap quadratic reproducing filter stability threshold critical one eighth mixed Gaussian fourth order attractor total variation",
+        "published indexed finding: An eight-site boundary for Gini stability of cyclic five-point Savitzky–Golay smoothing",
+        "published indexed finding: Resonant saturation and missing dimensions for cyclic Savitzky–Golay variation gain"
+      ]
+    },
+    "rationale": "The arXiv:1205.6490 full primary text (Proposition 2.4, Example 2.2) already constructs this exact five-tap symbol, locates the critical quartic and Gaussian peaks and proves fixed-parameter local limits. arXiv:1212.4700 further develops such local limits. The new theorem instead proves a global sharp BV/ℓ1 operator norm under the moving parameter 1/8+lambda/r and shows asymptotic additivity of the two physically separated scales; no checked prior statement supplies this varying-parameter norm. Residual uncertainty from unindexed prior stability work is recorded.",
+    "residual_risks": [
+      "The 2012 Diaconis–Saloff-Coste work treats exactly the same multiplier and both Fourier peaks; the new global ℓ1 result is closely related and may be derivable by further arguments not stated there.",
+      "Older Schoenberg, Greville, Thomée and parabolic-difference stability literature may contain equivalent moving-parameter ℓ1 norm formulas that were not accessible in full.",
+      "The original 1964 paper was available as parsed PDF text, but page-image inspection was unavailable due to access restrictions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original coefficient constructions and smoothing applications, not the moving-iteration ℓ1 boundary layer; some portions could only be read as extracted text.",
+        "evidence": [
+          "Original publication issue 1964-07-01, DOI:10.1021/ac60214a047.",
+          "Source lines 14–23 and 38–56 present convolution smoothing and motivating applications."
+        ],
+        "identifier_or_url": "https://doi.org/10.1021/ac60214a047",
+        "material_read": "Publisher metadata and relevant passages of available 1964 complete-PDF text, including introduction, convolution formulation and smoothing rationale; page-image fetch was blocked by 403.",
+        "method": "web open original full-document parsed PDF, relevant lines plus publisher issue date; attempted PDF screenshot",
+        "title": "Smoothing and Differentiation of Data by Simplified Least Squares Procedures",
+        "trigger": "original five-point least-squares smoother and earliest public source"
+      },
+      {
+        "assessment": "Very close prior: exact same multiplier, threshold and quartic/Gaussian local limits already known, but no moving u_r nor full global ℓ1 norm crossover was stated in inspected arguments.",
+        "evidence": [
+          "Theorem 2.1 states a uniform ℓ1 stability criterion.",
+          "Theorem 2.3 proves fixed-parameter pointwise local limits.",
+          "Proposition 2.4 and Example 2.2 treat symbol 1-s²(1-cos θ)², including s²=1/2 and 0/π maxima."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1205.6490",
+        "material_read": "Full accessible HTML portions including introduction, Section 2.1 stability, Section 2.3 local limits, Proposition 2.4, Example 2.2, Sections 3 and 5.",
+        "method": "opened and searched complete HTML; compared Fourier symbols and theorem quantifiers",
+        "title": "Convolution powers of complex functions on Z",
+        "trigger": "identical symmetric five-tap convolution family, exact critical symbol and spectral local limits"
+      },
+      {
+        "assessment": "Related general pointwise and supnorm asymptotics, not exact sharp BV norm of a parameter-varying five-tap family.",
+        "evidence": [
+          "Sections 1 and 5 give generalized local-limit theorems.",
+          "Section 7 analyzes concentration of mass at fixed kernels."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1212.4700",
+        "material_read": "Full accessible HTML Sections 1, 2, 5, 7 and examples, with searches for variation and norm statements.",
+        "method": "read full primary HTML theorem statements, local-limit and concentration discussions",
+        "title": "On the convolution powers of complex functions on Z",
+        "trigger": "general extended multipeak local-limit theorem potentially implying crossover"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2dd9a449-de93-45fc-ba10-f21f4f3145a4",
+  "value": {
+    "rationale": "The critical value u=1/8 is a canonical high-order lattice-diffusion stability edge. The sharp norm controls perturbations of finite-variation data, whereas earlier local limit theorems control pointwise kernel shape. The 1/r moving-parameter width and e^(16 lambda) profile expose a nontrivial second Fourier packet whose contribution survives in total variation although it is invisible at leading pointwise order.",
+    "status": "PASS"
+  }
+}
