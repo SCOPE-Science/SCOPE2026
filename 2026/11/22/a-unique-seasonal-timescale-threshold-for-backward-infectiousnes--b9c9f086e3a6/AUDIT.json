@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Explicit periodic integral solution with contraction, exact symbolic two-phase integration and rigorous hyperbolic superadditivity yields strict monotonicity for every positive unequal hazard; Taylor and endpoint calculations give unique crossing; direct exact per-period Floquet multiplier remains negative. Reproducible checker supports identities and numeric example but does not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pakkanen et al. time-varying renewal representation is genuinely broader; it gives a framework from which the kernel definition is natural, but inspected material lacks the explicit global monotonicity + unique cutoff.",
+        "Periodic-demography epidemic work concerns correct invasion criteria; the constant scalar Floquet exponent is fully acknowledged background.",
+        "Greenhalgh and Dumas (2023), DOI 10.1016/j.idm.2023.11.007, §2.2 treat a different forward mean-residual waiting-time; their derivative relation to calendar hazard is not the backward-current infectiousness mass equation here."
+      ],
+      "reasoning": "General formulas do not by themselves assert strict monotonicity of the calendar-averaged kernel in switching duration or a unique false-positive crossing under negative invasion growth. Broader coverage of a different *invasion* index is not coverage of this precisely defined average. An inaccessible relevant full paper remains a priority risk.",
+      "searches": [
+        "SEIR reproduction number generation interval variable infectious duration time varying recovery mortality renewal kernel memory correction",
+        "\"periodic\" \"recovery rate\" \"infectious\" \"generation interval\" reproduction number",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10393927/",
+        "https://doi.org/10.1080/17513750802304893",
+        "\"periodic\" \"mean lifetime\" \"switching period\" mortality"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.15397",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10393927/",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202100401",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10709614/",
+      "https://doi.org/10.1080/17513750802304893"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goldwasser et al. §2.2 explicitly treat biological waiting-time rates as stationary; Lemma 1 uses age-only survival to obtain constant mean infectious duration.",
+        "Pakkanen et al. formulate general nonstationary incidence kernels; specialization requires further strict hyperbolic superadditivity and precise two-rate phase integrations.",
+        "Periodic epidemic scalar Floquet multiplier is immediate and not presented as a new threshold.",
+        "Greenhalgh and Dumas periodic hazard/SIS §2.2 expresses forward mean residual waiting time; after algebra this is a different quantity from the integral over past infection times, so no direct implication to the present phase-average strict monotonicity."
+      ],
+      "reasoning": "Goldwasser equivalence does not imply the switching-period monotonicity: its stationary waiting-time premise fails. Pakkanen framework implies that an appropriate calendar kernel exists, but the assessed comparative monotonicity and sharp threshold require separate analysis not located in inspected statements. No claim is made that an averaged kernel mass is a valid next-generation invasion operator.",
+      "searches": [
+        "https://arxiv.org/abs/2606.15397",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10393927/",
+        "https://doi.org/10.1080/17513750802304893",
+        "\"Exact time-dependent recovery hazard memory correction instantaneous renewal reproduction number versus mechanistic beta S over gamma, homogeneous SIR nonstationary recovery, sharp inequality for monotone recovery\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.15397v1 §2.1 defines instantaneous reproduction as sum/integral of past-age transmission rates; §3 uses stationary infectious duration.",
+        "Pakkanen et al. 2023 general calendar-time branching kernels, PMC10393927 introduction and §2."
+      ],
+      "reasoning": "The closest formal alias is the backward-time instantaneous renewal transmission kernel mass. In a nonstationary removal calendar that kernel mass is not the forward cohort reproduction number; the new claim is strict global monotonicity and the singular averaged threshold, not an altered name for the known stationary identity. No checked exact-equivalent two-hazard theorem was found.",
+      "searches": [
+        "\"Exact time-dependent recovery hazard memory correction instantaneous renewal reproduction number versus mechanistic beta S over gamma, homogeneous SIR nonstationary recovery, sharp inequality for monotone recovery\"",
+        "\"seasonally switched recovery rates square-wave nonstationary SIR generation interval mean instantaneous reproduction beta, harmonic vs arithmetic fast-slow switching exact monotonic periodic memory\"",
+        "\"two-state\" periodic hazard \"mean lifetime\" monotonic switching period",
+        "\"two-rate periodic mortality hazard annual alternating recovery rates exact average survival cohort infectivity, monotonic function of cycle length\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed published findings concern six-block SEIR seasonal contact calendars and directed SIS contact-switching thresholds, rather than the backward recovery-survival kernel.",
+        "No discrete enumeration/table is used in the theorem; the parameter domain is continuous."
+      ],
+      "reasoning": "This is not a finite table or catalog entry. Searches of the available semantic record returned other seasonal epidemic threshold statements but no matching analytic exact two-hazard backward-survival kernel result.",
+      "searches": [
+        "\"Exact two-season gamma1 gamma2 periodic individual survival integrated past ages A'=1-gamma A; average A increasing half period, mean instantaneous reproduction number crosses 1 although Floquet decay\"",
+        "\"two-rate periodic mortality hazard annual alternating recovery rates exact average survival cohort infectivity, monotonic function of cycle length\""
+      ]
+    },
+    "rationale": "A primary-source comparison distinguishes this analytic sharp switching-period mean-backward-kernel threshold from existing stationary-duration reproduction equivalence and general nonstationary renewal frameworks, and explicitly acknowledges known scalar Floquet stability; historical priority cannot be guaranteed.",
+    "residual_risks": [
+      "Incomplete full-text inspection of older periodic-demography article DOI 10.1080/17513750802304893; do not infer not-covered from search extracts.",
+      "Unindexed or preexisting survival/renewal engineering results might contain an algebraically equivalent two-hazard monotonicity statement.",
+      "The general branching-process representation may contain a disguised sufficient theorem not identified in inspected sections; independent priority review remains needed.",
+      "Periodic-hazard survival and mean-residual-life literature is extensive; even distinguishing forward and backward integrals does not exclude a hidden historical equivalent for the latter."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Genuine initiating source; assumes biological waiting-time distributions stationary, and does not state switching-duration monotonicity",
+        "evidence": [
+          "Equation 6: instantaneous R is summed backward transmission kernel mass",
+          "§2.2 explicitly holds waiting-time parameters constant",
+          "§3 Lemma 1 uses age-only survival sum equal to constant mean"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15397",
+        "material_read": "Introduction, §§2.1–2.2, §3 including Proposition 1/Lemma 1 and proof, §4 generation interval",
+        "method": "Full public arXiv HTML text",
+        "title": "On the Equivalence of Instantaneous and Mechanistic Reproduction Numbers",
+        "trigger": "Same renewal kernel and stationary mean duration comparison"
+      },
+      {
+        "assessment": "General time-varying kernel representation; no explicit strict two-season law in inspected sections",
+        "evidence": [
+          "Abstract describes time-varying reproduction and generation intervals",
+          "§2 time-dependent incidence kernel description",
+          "§3 renewal equations"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10393927/",
+        "material_read": "Introduction, model construction §§2–3 and incidence/prevalence equations",
+        "method": "Full lawful PMC HTML text",
+        "title": "Unifying incidence and prevalence under a time-varying general branching process",
+        "trigger": "Potential stronger general renewal framework"
+      },
+      {
+        "assessment": "Focus on duration-dependent infectivity and estimation, not periodic calendar removal hazard and monotone period average",
+        "evidence": [
+          "§2.3 defines reproduction number with modeled infectious duration",
+          "No exact two-season hazard mean threshold seen in inspected section"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202100401",
+        "material_read": "Introduction, §2.3 reproductive-number treatment",
+        "method": "Full open-access Wiley HTML text",
+        "title": "Incorporating infectious duration-dependent transmission into Bayesian epidemic models",
+        "trigger": "Duration-based alternative reproduction-index definitions"
+      },
+      {
+        "assessment": "Develops a periodic forward mean residual waiting-time and a generalized SIS equation, but does not give two-season backward infectiousness mass monotonicity or the unique false-positive crossing",
+        "evidence": [
+          "Their equation (2.11) writes forward residual hazard as (m′+1)/m",
+          "Our backward kernel satisfies A′=1-γ A, so the residual-time function in that source is not a statement of this claim",
+          "Their explicit examples use sinusoidally periodic recovery-related functions, not an analytic two-rate season-length threshold"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10709614/",
+        "material_read": "Introduction, §2.1 and §2.2 equations (2.9)–(2.15), early §2.3",
+        "method": "Full open-access PMC HTML text",
+        "title": "A generalized ODE susceptible-infectious-susceptible compartmental model with potentially periodic behavior",
+        "trigger": "Potential stronger result on periodic recovery hazards and mean residual infection duration"
+      },
+      {
+        "assessment": "Classical periodic epidemic invasion result is prior background; exact historical comparison on backward-mass crossover unresolved",
+        "evidence": [
+          "DOI 10.1080/17513750802304893",
+          "Only direct scalar Floquet fact used as prior mathematical background"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/17513750802304893",
+        "material_read": "Indexed title and available search extracts only; full direct publisher text not accessible",
+        "method": "Search-index inspection; no full-text coverage claim",
+        "title": "The basic reproduction number in epidemic models with periodic demographics",
+        "trigger": "Potential broader theorem on seasonal invasion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b9c9f086-e3a6-46b5-ad70-e1125eb684ec",
+  "value": {
+    "rationale": "Addresses a natural inference gap in the stationarity assumption behind mechanistic-versus-instantaneous comparisons: the complete dimensionless mean backward infectious kernel changes with temporal modulation even when recovery average and true invasion exponent do not. An exact unique false-positive threshold is a meaningful structural benchmark rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
