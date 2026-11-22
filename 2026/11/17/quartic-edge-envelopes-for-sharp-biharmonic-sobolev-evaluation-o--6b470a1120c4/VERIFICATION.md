@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility of the quartic biharmonic evaluation result
+# Independent mathematical audit
 
-Run `python check_biharmonic.py` with Python 3 and SymPy installed. This script uses **exact rational arithmetic**, constructs the Kirchhoff vertex Green function and integrates quadratic edgewise restrictions exactly. For verification independent of the formula being checked, it subdivides each test edge at four different rational interior coordinates and re-solves the **new, larger graph's** vertex equations for a delta source at the new subdivision vertex. It compares the resulting integrated squared Green function against the proposed edge polynomial.
+## correctness
 
-Actual execution yielded:
+PASS
 
-```
-TWO_EDGE_METRIC_CIRCLE_CONSTANT_PASSED
-FOSTER_CYCLE_RANK_QUARTIC_SUMS_PASSED 10
-INDEPENDENT_SUBDIVIDED_GRAPH_GREEN_COMPARISONS_PASSED 140
-EXACT_BIHARMONIC_QUARTIC_LEADING_COEFFICIENT_PASSED 35
-EXACT_INTERVAL_NEUMANN_BIHARMONIC_EXAMPLE_PASSED
-ALL_BIHARMONIC_ENVELOPE_CHECKS_PASSED
-```
+For the zero-mean Kirchhoff Laplacian L=-d^2/ds^2 on a connected finite compact loopless metric multigraph, f(x)=<Lf,g(x,.)> and Cauchy–Schwarz give the exact point-evaluation norm Q(x)=||g(x,.)||_2^2 and equality only along L^{-1}g. Vertex Green functions solve a finite weighted Laplacian with source 1_a-(sum incident lengths)/(2T), and the normalization of edge-integrated quadratic polynomials fixes the additive constant. For an interior point x_t of edge (a,b), the global Green kernel equals (1-t)g_a+t g_b plus a same-edge Dirichlet tent of height ell and minus its mean ell^2t(1-t)/(2T). Expanding its square gives an exact degree<=4 polynomial for every t, not sampled interpolation. Endpoint/cubic stationary roots/flat edges exhaust the extrema. The t^4 coefficient ell^2(ell-r_ab-ell^2/T)/3 follows from the Green-potential resistance identity; Foster trace gives sum 3p_e/ell_e^3=beta_1-1. Bridges give negative leading coefficient, and beta_1>=2 forces some positive one. Independent Neumann spectral zeta checks reproduce Q(0)=T^3/45 and Q(T/2)=T^3/720 for T=1, verifying interval boundary normalization. The inspected checker independently subdivides edges into new Kirchhoff vertices and compares exact rational kernels for finitely many multigraphs; that is corroborative, not a general proof.
 
-The graph cases include an interval, a metric circle represented by two parallel edges, unequal-edge paths, a weighted triangle, a star, a graph with overlapping cycles, a cactus, and three pseudorandom connected rational-length networks with deterministic seed. The leading coefficient test independently solves the unit-current effective resistance network and compares against the fourth-degree coefficient. The interval example verifies the exact expression \(Q(x_t)=1/45-t^2(1-t)^2/3\) at unit length.
+## originality
 
-**Limits:** A finite collection of rational tests cannot establish the identity for all positive real edge lengths or all graph topologies. The universal proof instead uses the exact moving-source Green identity, polynomial integration, self-adjoint spectral theory, and the electrical trace/Foster identity. No independent audit has been performed.
+PASS
+
+PASS, qualified: Baker–Rumely gives Laplace Green spectral representations and resistance, but the universal explicit quartic H² evaluation envelope, stationary-point classification, and Foster leading-coefficient law were not present in the inspected full-text material; the stronger first-order H¹ envelopes do not imply fourth-degree integrated-square Green diagonals.
+
+## value
+
+PASS
+
+PASS: the exact sharp H² Sobolev embedding constant for every finite metric multigraph with arbitrary positive lengths is a natural spectral-geometric invariant; reducing continuous maximization to finitely many cubic equations and classifying ALL norming points is substantive. The cycle-rank sign identity makes graph topology visible in quartic curvature and is not a routine restatement of the H¹ case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
