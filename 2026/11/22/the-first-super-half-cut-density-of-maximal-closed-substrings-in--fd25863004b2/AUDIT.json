@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Complete exact finite proof: for each \\(2\\le n\\le14\\), verify_direct.py enumerates \\(2^n\\) binary words, all \\(n-1\\) cuts and all intervals, computing closedness by counting every occurrence of every proper border, then checking both available extensions. verify_bits.cpp independently precomputes closedness for all binary bit patterns up to 14 and uses range-difference updates for cut crossings. Both programs were compiled or executed from the actual included files and output matching maxima (1,1,2,2,3,3,4,4,5,5,6,7,8); both enumerate exactly four length-14 attaining word/cut pairs. A directly inspectable eight-interval witness at cut 8 is supplied. No infinite range is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Faro–Marino–Pavone, arXiv:2611.11552v1, Section 7 Theorem 12 upper \\(3(n-1)\\); Proposition 14 near-half lower construction and open optimal asymptotic constant.",
+        "Fischer–Köppl arXiv:2610.38114v1 supplies algorithmic MCS enumeration on a specified string, not the quantified maximal cut-crossing census through length 14."
+      ],
+      "reasoning": "The published broad bounds enclose the new finite maximum but cannot imply exact threshold, maximal value or four achieving cut pairs; a generic algorithm could compute a value but does not assert its result.",
+      "searches": [
+        "maximal closed substring crossing fixed gap local density improving lower 1/2",
+        "Internal Queries for Maximal Closed Substrings gap-crossing binary words 3(s-1)",
+        "maximal closed substrings crossing gap n 2/3 2026",
+        "arxiv:2611.11552v1",
+        "arxiv:2610.38114v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.11552v1, primary source first public 2026-11-08",
+      "arxiv:2610.38114v1, related general enumeration",
+      "doi:10.1016/j.tcs.2025.115628, abstract only",
+      "Published-result searches for exact 14-bit witness, cut maxima, and half-density threshold",
+      "Accessible historical claim summaries concerning MCS in four-run words and distinct closed factors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General inequalities \\(\\lfloor(n-1)/2\\rfloor\\) <= \\(F_2(n)\\) <= \\(3(n-1)\\) are nonsharp at n=14; neither determines \\(F_2(14)=8\\) nor the first strict exceedance of \\(\\lceil n/2\\rceil\\).",
+        "A fixed four-run classification has narrower word domain and counts all MCS occurrences rather than those crossing a cut.",
+        "An algorithm for individual strings yields computational decidability but does not furnish the explicit mathematical extremal classification for all 2^14 strings."
+      ],
+      "reasoning": "Neither the broad bounds, the fixed-run exact counts, nor the MCS listing algorithm logically implies the claimed exact first threshold and four-pair rigidity statement without additional novel exhaustive analysis.",
+      "searches": [
+        "arxiv:2611.11552v1",
+        "maximal closed substring first half-density cut fourteen",
+        "MCS crossing gap binary fixed-length extremizers",
+        "maximal closed substrings crossing gap n 2/3 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Comparisons targeted a binary cut-marked MCS maximum, the exact 14-bit witness, and first-excess half-density, not just the title.",
+        "Relevant published four-run MCS counting results have different quantifiers (fixed run family, total MCS rather than crossing fixed cut)."
+      ],
+      "reasoning": "No exact matching finite claim or direct symmetry-equivalent witness found in these searches. Reversal and complementation have been accounted for among the four pairs. This is evidence of noncoverage, not proof of uniqueness in all literature.",
+      "searches": [
+        "maximal closed substring first half-density cut fourteen",
+        "00101110100011 closed substrings gap",
+        "MCS crossing gap binary fixed-length extremizers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published related records on four-run MCS spectrum and closed-rich words concern other invariants; none presents the 13-entry binary crossing spectrum or four witness pairs.",
+        "The exact outputs reproduced from both independent enumerators are the values (1,1,2,2,3,3,4,4,5,5,6,7,8)."
+      ],
+      "reasoning": "No exact published MCS cut-density database/table with this range was located. Search results alone cannot rule out an undocumented prior table or implementation.",
+      "searches": [
+        "00101110100011 closed substrings gap",
+        "first 14 binary word 8 maximal closed substrings crossing a gap rigid",
+        "MCS local density lower 0.6 crossing gap construction"
+      ]
+    },
+    "rationale": "Best-knowledge priority review against full primary paper and published related results. The earlier general \\(3(n-1)\\) cut-crossing upper bound and \\(\\lfloor(n-1)/2\\rfloor\\) family lower bound do not determine this exact first super-half threshold, the full maxima for 2..14, or its rigidity orbit. General MCS enumeration algorithms also do not themselves state the all-word extremal census.",
+    "residual_risks": [
+      "A previously published or unpublished brute-force table of the same values may be unindexed.",
+      "The foundational older paper was available only at abstract level, not fully excluded.",
+      "Finite threshold result does not improve the global 3(n-1) upper bound or settle its asymptotic constant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: broad upper bound, lower construction, open constant, no first super-half finite length or 14-bit symmetry orbit",
+        "evidence": [
+          "Theorem 12 bounds crossings by 3(n-1)",
+          "Proposition 14 gives roughly half-length construction; it is not a finite optimality table"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.11552",
+        "material_read": "Full text especially Section 7, Theorem 12, Proposition 14 and adjacent examples, with rendered page examination",
+        "method": "Full-text page inspection and page-image verification",
+        "title": "Internal Queries for Maximal Closed Substrings",
+        "trigger": "Direct primary motivating paper defining crossing cut-density and open asymptotic bound"
+      },
+      {
+        "assessment": "NOT_COVERING: per-input listing algorithm; no full 2..14 cut-extremal census",
+        "evidence": [
+          "Output-sensitive MCS enumeration concerns supplied input word, not maximum over every binary word and every cut"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.38114",
+        "material_read": "Full text, especially algorithm, definitions, and example sections, with rendered page check",
+        "method": "Full-text reading and page-image verification",
+        "title": "Output-Sensitive Enumeration of Maximal Closed Substrings in Linear Space",
+        "trigger": "Plausible dominating general MCS enumeration result"
+      },
+      {
+        "assessment": "INCOMPLETE_SOURCE_INSPECTION: plausible unexamined details, historical-priority risk preserved",
+        "evidence": [
+          "Paper covers general maximal closed substrings; specific finite cut-crossing table not verified"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2025.115628",
+        "material_read": "Abstract and bibliographic metadata only; not full primary text",
+        "method": "Open-access abstract and citation inspection",
+        "title": "Finding maximal closed substrings",
+        "trigger": "Foundational MCS definition and existing methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd258630-04b2-4f03-bb85-aa4851d70079",
+  "value": {
+    "rationale": "Motivated by the 2026 paper’s open local cut-crossing density question (known near-half lower construction, triple-linear upper bound). Determines the sharp first finite length where the natural ceiling-half benchmark fails, gives all prior exact maxima and a single complete extremal symmetry orbit. This is a meaningful first obstruction and useful reproducible benchmark for proposed improved global bounds. The result is explicitly finite, does not mispresent a ceiling-half bound as a prior conjecture, and no downstream theorem is required.",
+    "status": "PASS"
+  }
+}
