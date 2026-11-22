@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For canonical BV representatives, step-function signed-measure decomposition proves exact norm reduction. Binomial-tail/Beta-CDF duality and convex absolute deviation prove the finite maximum. A Beta order-statistic CLT and exact variance handle all candidate-index subsequences, including endpoints; compactness gives convergence of the maximum. Differentiating the normal absolute moment yields a derivative proportional to b²R(a)-1 where R(a)=∫_0^1 exp(a²(1-v²)/2)dv rises strictly from 1; hence only center or endpoints can globally maximize, with threshold sqrt(2/pi). Packaged check.py passed direct binomial-integral and asymptotic spot checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Üster–İbikli 2015, equation (1.1) is a pointwise BV estimate, not a sharp integrated all-input norm; the shift-moment identity does not give the max directly.",
+        "Dong–Yu 2017 https://doi.org/10.1186/s13660-016-1291-x, equations (1.4) and later definitions distinguish the classical node-sampling operator from the Durrmeyer integral variant studied in their theorems."
+      ],
+      "reasoning": "General approximation and convergence theorems have nonsharp constants or different norms; they do not imply the root-degree phase value and location rigidity without the additional Beta and Gaussian variational argument.",
+      "searches": [
+        "web: Bernstein Stancu operators alpha_n beta_n sqrt n beta n convergence bounded variation",
+        "web: Bernstein Stancu operator error functions bounded variation sharp norm beta random nodes",
+        "published-finding corpus: sharp BV L1 integrated approximation Bernstein Stancu operator exact norm shift parameter phase transition"
+      ]
+    },
+    "checked_sources": [
+      "https://dergipark.org.tr/en/download/article-file/468245",
+      "https://arxiv.org/abs/1707.07424",
+      "https://link.springer.com/article/10.1186/s13660-016-1291-x",
+      "published-finding corpus semantic records returned for recorded searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2015 paper Theorem 1.1 controls pointwise deviations using local BV oscillation; it lacks integration and sharp extremizers, and does not optimize the normal drift/variance ellipse.",
+        "Gandhi–Mishra 2017 Theorem 2 shows node contraction toward alpha/beta, a qualitative premise compatible with but weaker than the claimed quantitative phase transition.",
+        "published-finding corpus closest 2026/11/17/SCOPE-gaussian-voronoi-boundary-layers-and-chernoff-sharp-convergence--a4263cb647a4 is about atomic-measure Bernstein–Durrmeyer operators and KL bisectors, not the present sampling norm."
+      ],
+      "reasoning": "The publication premises establish the operator and qualitative approximation, but neither an exact BV-step norm nor the necessary Gaussian absolute-value optimization is provided. Conversely the new result does not claim novelty for those known premises. Residual unindexed equivalence risk is recorded, not dismissed.",
+      "searches": [
+        "published-finding corpus: symmetric Stancu Bernstein beta_n b sqrt n drift sharp BV L1 norm phase transition critical sqrt 2 over pi Gaussian absolute mean",
+        "web: Bernstein Stancu operators parameters order sqrt n asymptotic boundary interior jump variation L1",
+        "source full text: Üster–İbikli 2015 https://dergipark.org.tr/en/download/article-file/468245",
+        "source full text: Gandhi–Mishra arXiv:1707.07424"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Üster–İbikli 2015 PDF, Theorem 1.1 gives local pointwise bound and equations (2),(3) define moments; neither is the integrated sharp norm or phase claim.",
+        "Gandhi–Mishra arXiv:1707.07424 sections 1–2, Theorems 1–2 provide node sensitivity and continuous uniform convergence without absolute Beta deviation maximization."
+      ],
+      "reasoning": "An equivalent formulation would maximize Beta order-statistic expected absolute deviations at shifted Stancu nodes, or maximize a folded-normal drift/variance profile at the square-root parameter scale. No such result was found in inspected statements or returned search summaries. Failure to find it is not proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: symmetric Stancu Bernstein beta_n b sqrt n drift sharp BV L1 norm phase transition critical sqrt 2 over pi Gaussian absolute mean",
+        "published-finding corpus: beta-binomial Stancu sampling exact integrated BV error shifted nodes asymptotic",
+        "web: sharp asymptotic Bernstein Stancu approximation L1 BV norm limit sqrt n parameter b"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus ID 2026/11/17/SCOPE-sharp-centered-cell-bernstein-comparison-and-its-parity-dependen--5166dd5d5596 concerns one-cell mean-preserving refinements with Lipschitz discrepancy; not the present BV-to-L1 norm.",
+        "The classical unshifted Bernstein operator is the special case b=0, which does not entail a positive-parameter transition."
+      ],
+      "reasoning": "No exact table/record encountered matching the finite Stancu Beta candidate maxima or limiting critical threshold. The classical Bernstein operator is a boundary subcase and cannot subsume the family claim. This statement is confined to actually inspected records.",
+      "searches": [
+        "published-finding corpus: boundary versus midpoint extremizer transition centered stochastic Bernstein sampling sqrt n parameter",
+        "published-finding corpus: quadratic Bernstein Stancu sampling error BV jumps extremizer",
+        "published-finding corpus: Bernstein Kantorovich Schurer sharp BV integrated error"
+      ]
+    },
+    "rationale": "The full primary 2015 Bernstein–Stancu BV paper gives pointwise estimates, not exact integrated operator norm or beta_n=b sqrt(n) phase transition; the 2017 parameter-sensitivity preprint proves continuous-input statements and the 2017 Durrmeyer study uses an integral operator. Published-result searches found no statement entailing the sharp root-degree limit plus optimizer localization, while historical-priority risks remain.",
+    "residual_risks": [
+      "Stancu 1983 Calcolo primary full text not inspected; an older unpublished equivalent cannot be excluded.",
+      "Some literature using different names for folded-normal interpolation or order-statistic absolute deviation could contain equivalent results not indexed in searched records.",
+      "No independent external verification; novelty based on available source/statement comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "POINTWISE_BV_ESTIMATE_NOT_SHARP_INTEGRATED_NORM",
+        "evidence": "Theorem 1.1 bounds a pointwise deviation using local variation and the second central moment; there is no integrated BV-to-L1 norm or square-root parameter phase formula.",
+        "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/468245",
+        "material_read": "PDF 11 pages, especially pp.126–128 operator definition (2), Theorem 1.1, moments, and pp.134–135 end of proof; page 127 and page 135 inspected visually",
+        "method": "web PDF text plus page screenshots and full-text searches",
+        "title": "On the rate of convergence of the Stancu type Bernstein operators for functions of bounded variation",
+        "trigger": "Same operator, same BV data, closest archival lead"
+      },
+      {
+        "assessment": "NODE_SENSITIVITY_NOT_EXACT_BV_L1_PHASE",
+        "evidence": "Theorem 2 proves contraction of sampled nodes toward alpha/beta; continuous-function convergence and modulus bounds do not compute the sharp BV norm.",
+        "identifier_or_url": "https://arxiv.org/abs/1707.07424",
+        "material_read": "full accessible arXiv HTML Introduction and Main Results, including Theorems 1–2, Corollaries 1–2",
+        "method": "web full-text HTML",
+        "title": "Study of sensitivity of parameters of Bernstein-Stancu operators",
+        "trigger": "Potential parameter-dependent stronger result for identical sampling nodes"
+      },
+      {
+        "assessment": "DIFFERENT_INTEGRAL_OPERATOR_AND_NORMS",
+        "evidence": "The paper distinguishes classical sampled Stancu (1.4) from its new Durrmeyer integration operator, and states direct/converse continuous-approximation estimates.",
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-016-1291-x",
+        "material_read": "open-access HTML Introduction, equations (1.1)–(1.9), Theorem 1, and operator differences",
+        "method": "web primary article HTML",
+        "title": "Pointwise approximation by a Durrmeyer variant of Bernstein-Stancu operators",
+        "trigger": "Plausible modified operator with stronger approximation claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b2f50bc0-f568-4b2b-96b9-2c3f18ad6dc1",
+  "value": {
+    "rationale": "The square-root Stancu knot displacement is the natural critical scale matching sampling noise for discontinuous signals. A nontrivial exact threshold sqrt(2/pi) switches asymptotically worst jump placement between interior and endpoints, with a finite explicit Beta formula for all degrees and rigorously proved location rigidity; this informs parameter design and is not merely a fixed-parameter Bernstein constant re-expression.",
+    "status": "PASS"
+  }
+}
