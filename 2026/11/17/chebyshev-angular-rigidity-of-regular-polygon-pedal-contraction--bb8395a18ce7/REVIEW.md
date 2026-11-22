@@ -1,19 +1,21 @@
-# Review: Chebyshev angular rigidity of regular-polygon pedal contraction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the previously established exact product of pedal scale factors, not a numerical approximation. With the circumradius normalized to one, side lines have signed offsets \(c-\rho\cos(\phi-\alpha_j)\). The Chebyshev root-product identity gives the numerator, and the roots-of-unity identity gives the denominator. Their positivity on the exact interior domain makes the derivative with respect to \(\cos(n\phi)\) strictly positive, proving the complete angular classification including boundary cross-sections. The expansion is uniform in angle and the first nonradial term has strictly positive coefficient \(c^n+2^{1-n}\). The proof isolates nondegenerate pedal iterations from the everywhere-defined scalar extension. A standalone recomputation checks 2,865 finite identities and actual iterations; these are supplementary, not a substitute for the infinite proof.
+PASS
 
-## Originality — PASS, subject to historical priority
+The n shifted side normals are roots of T_n(x)+cos(n phi), yielding numerator 2^{1-n}rho^n(T_n(c/rho)+cos(n phi)). Roots-of-unity product gives denominator |p^n-1|. Differentiation in s=cos(n phi) yields a strictly positive sum because side distances and denominator are positive. At rho<c all angles admissible and minima occur s=-1, maxima s=1; above inradius side endpoints attain zero only in boundary extension. The parity structure of T_n proves A_n(rho) polynomial in rho² and order-n anisotropic coefficient c^n+2^{1-n}>0. n>=3 and 0<rho<1 constraints are stated, and possible degenerate pedal iterates are not claimed geometrically valid.
 
-Primary literature inspected: Michał Zwierzyński, *When Pedal Shapes Come Back: a Complex Story*, arXiv:2611.01247v1 (2026-10-31), eight-page full text, especially Theorem 2.2 and Corollary 2.3. It establishes the general product and central optimum; those are excluded from the originality claim. It does not state the complete off-center Chebyshev profile, strict circular angular rigidity, exact angular gap, or the first anisotropic Taylor coefficient. These are obtained by a nontrivial specialized factorization and monotonicity argument. published-finding corpus comparisons for angle-dependent pedal contraction, regular-polygon roots, and related Chebyshev aliases retrieved closest but different results: *Exact harmonic–arithmetic contraction for regular polygons* (index ID `1a7b93dcfbad`) treats Minkowski symmetrization; *Sharp affine least-squares projection norms on regular polygons* (index ID `ac0c9cd53708`) treats affine orthogonal projection, not pedal iteration. Unindexed classical product identities or pedal-transform calculations remain the principal historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A new global contraction theorem bounding only the center does not resolve how a displaced pedal point changes the scale. The result closes this natural angular optimization problem for every regular polygon and every radius, identifies the two sharp symmetry orbits, gives their exact gap, and detects the unusually delayed onset of anisotropy at order \(n\). These are structural facts about a natural recently studied dynamics, not a computation on arbitrarily selected polygon sizes or isolated numerical examples. The result does not pretend to settle irregular polygons or all nondegeneracy issues.
+Zwierzyński supplies n-step pedal similarity product and global incenter upper bound, but not the full fixed-radius Chebyshev angular factor, strict extremizers, or first anisotropic term. Chebyshev and root-of-unity product identities are classical, acknowledged as ingredients; full combined geometric classification not found in relevant Resultary prior outputs. Exact priority remains best-of-knowledge.
 
-## Scientific limits and sources
+## value
 
-Zwierzyński [arXiv:2611.01247v1], Theorem 2.2 and Corollary 2.3 (the general similarity product and global bound), https://arxiv.org/abs/2611.01247. Standard Chebyshev and roots-of-unity identities are prior facts. Historical uniqueness cannot be inferred from a database search. The exact statements concern regular polygons and an interior pedal point; boundary values represent a continuous scalar extension.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit complete fixed-radius and off-center contraction profile provides sharp angular extremizers and first symmetry-breaking jet for a natural pedal dynamics problem, extending an already known global incenter contraction bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

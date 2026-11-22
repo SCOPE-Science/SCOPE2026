@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python verify_pedal.py` with Python 3, NumPy and SciPy. The program was run against the complete packaged source and returned `PASS: 2865 finite checks, including actual n-step pedal simulations`.
+## correctness
 
-It compares both independent numerical representations of the full scale: (1) the literal product of distances from a point to all supporting side lines divided by its product of distances to the original vertices, and (2) the Chebyshev closed formula; it also computes the actual sequence of perpendicular-foot polygons and checks the final edge-length scale. Multiple polygon orders from 3 through 31 and both inner and near-boundary radial points are covered. Monotonicity, exact endpoint formulas, and the angular gap are checked numerically. At extremely small radial scales, the strictly positive angular difference can fall below binary64 resolution, so no false floating-point separation is demanded in that regime.
+PASS
 
-The symbolic Chebyshev root identity, strict derivative argument, cross-section geometry, and uniform asymptotic expansion appear in `RESULT.md` and establish the all-integer, all-angle conclusions analytically. Numerics alone do not establish a universal theorem. The connection to an actual similarity uses the nondegeneracy assumptions of the cited prior iteration formula. Independent audit has not been performed.
+The n shifted side normals are roots of T_n(x)+cos(n phi), yielding numerator 2^{1-n}rho^n(T_n(c/rho)+cos(n phi)). Roots-of-unity product gives denominator |p^n-1|. Differentiation in s=cos(n phi) yields a strictly positive sum because side distances and denominator are positive. At rho<c all angles admissible and minima occur s=-1, maxima s=1; above inradius side endpoints attain zero only in boundary extension. The parity structure of T_n proves A_n(rho) polynomial in rho² and order-n anisotropic coefficient c^n+2^{1-n}>0. n>=3 and 0<rho<1 constraints are stated, and possible degenerate pedal iterates are not claimed geometrically valid.
+
+## originality
+
+PASS
+
+Zwierzyński supplies n-step pedal similarity product and global incenter upper bound, but not the full fixed-radius Chebyshev angular factor, strict extremizers, or first anisotropic term. Chebyshev and root-of-unity product identities are classical, acknowledged as ingredients; full combined geometric classification not found in relevant Resultary prior outputs. Exact priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The explicit complete fixed-radius and off-center contraction profile provides sharp angular extremizers and first symmetry-breaking jet for a natural pedal dynamics problem, extending an already known global incenter contraction bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
