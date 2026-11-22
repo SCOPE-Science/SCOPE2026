@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T17:39:16.954421Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob d0641f5d77fc31c16bdff5aee1718c72c27400b4",
+        "frozen verify_implicit_cubic.py blob 13c9c5970db76f035f483f1447b4044ef3bc76cf",
+        "independent symbolic critical-value factorization and Taylor-series algebra in scope06_current_checks.py"
+      ],
+      "rationale": "Chebyshev convex combination H_h=(1-h/4)x+(h/4)T3(x) proves invariance at h<=4. Critical value criterion factors 4(h-1)^3-27h=(h-4)(2h+1)^2. For h>=64 the three inverse branches have disjoint ranges and uniformly controlled inverse slopes h^-1 and (2h)^-1 with logarithmic deviations O(1/h). A separated C1 conformal IFS yields shift conjugacy and the dimension squeeze between perturbed pressure roots. Expanding the root of h^-s(1+2^(1-s))=1 gives coefficient (ln2)^2 ln3(4+ln3)/9 in 1/(ln h)^3; the dimension squeeze error is O(1/[h(ln h)^2]). Exact symbolic factorization and Taylor coefficients independently checked against the frozen proof, with no extrapolation from finite h.",
+      "residual_risks": [
+        "No classification of 4<h<64 and no finite-h exact dimension formula; bounded-past dynamics are not a root-selection algorithm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neither inspected primary theorem gives a dimension estimate for all points whose H_h iterates remain in [-1,1]."
+        ],
+        "reasoning": "Standard separated IFS theory supplies a proof method only; it does not itself calculate the cubic-specific unequal contraction corrections, so the claimed asymptotic is not a trivial quoted corollary of a dominating explicit result.",
+        "searches": [
+          "implicit Euler cubic x=(1-h)y+h y^3 bounded backward trajectories Cantor repeller Hausdorff dimension 3 branches",
+          "https://arxiv.org/pdf/1912.08900",
+          "https://arxiv.org/html/2611.03336v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2611.03336v1",
+        "https://arxiv.org/pdf/1912.08900",
+        "implicit Euler cubic x=(1-h)y+h y^3 bounded backward trajectories Cantor repeller Hausdorff dimension 3 branches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Timestep validity is about continuation of a consistent numerical solution, not the set K_h admitting arbitrary inverse-branch pasts."
+        ],
+        "reasoning": "The all-parameter invariant interval boundary plus Cantor symbolic dynamics and three unequal-branch log-dimension coefficients cannot be inferred from the cited local orbit/timestep results without the new geometric branch analysis.",
+        "searches": [
+          "implicit Euler cubic x=(1-h)y+h y^3 bounded backward trajectories Cantor repeller Hausdorff dimension 3 branches",
+          "https://arxiv.org/pdf/1912.08900",
+          "https://arxiv.org/html/2611.03336v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oliveira analyzes local Lyapunov-Schmidt periodic-orbit bifurcations; Green et al. study principal implicit solution branches and allowed timesteps."
+        ],
+        "reasoning": "The condition of a bounded entire past translates to a forward survivor set for H_h; local solver multiplicity and chosen-step stability do not determine the full three-branch repeller or fractal dimension.",
+        "searches": [
+          "implicit Euler cubic x=(1-h)y+h y^3 bounded backward trajectories Cantor repeller Hausdorff dimension 3 branches",
+          "https://arxiv.org/html/2611.03336v1",
+          "https://arxiv.org/pdf/1912.08900"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned the same named finding and other different cubic-map results, without an exact cubic bounded-past dimension table."
+        ],
+        "reasoning": "No exact earlier table was identified; this absence alone does not establish originality.",
+        "searches": [
+          "implicit Euler cubic x=(1-h)y+h y^3 bounded backward trajectories Cantor repeller Hausdorff dimension 3 branches",
+          "Resultary published corpus: cubic Euler step Cantor dimension 3 inverse branches"
+        ]
+      },
+      "rationale": "A specific unequal-branch three-term Hausdorff dimension law of the cubic implicit-step bounded-past repeller was not found in the inspected timestep, numerical branch-selection and local implicit-bifurcation results. Best-of-knowledge, not exhaustive priority.",
+      "residual_risks": [
+        "Unindexed one-dimensional polynomial-repeller literature could contain this exact parametric asymptotic despite the targeted searches.",
+        "Only h>=64 is covered by the Cantor theorem; excluded region is a scope limit rather than a false claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "related local bifurcation, not a covering global repeller theorem",
+          "evidence": [
+            "Local periodic-orbit reduction, no Hausdorff dimension of K_h."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.03336v1",
+          "material_read": "Accessible primary HTML: statement, definitions and local bifurcation scope",
+          "method": "Read HTML theorem and introductory setup",
+          "title": "Lyapunov–Schmidt reduction for periodic orbits of implicit discrete dynamical systems",
+          "trigger": "same implicit dynamical system context"
+        },
+        {
+          "assessment": "Related solver/branch validity; no whole-past IFS dimension theorem",
+          "evidence": [
+            "Principal/consistent branch vs arbitrary implicit solutions is explicitly distinguished."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.08900",
+          "material_read": "Full ten-page arXiv PDF, abstract, model and timestep/branch discussion; page one visually inspected",
+          "method": "Read PDF text and first-page image",
+          "title": "On theoretical upper limits for valid timesteps of implicit ODE methods",
+          "trigger": "implicit Euler multiple real roots and step-size threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2611.03336v1",
+        "https://arxiv.org/pdf/1912.08900",
+        "d0641f5d77fc31c16bdff5aee1718c72c27400b4"
+      ],
+      "rationale": "This provides a sharp step threshold for global bounded-past behavior in a natural implicit discretization and distinguishes equal symbolic entropy from unequal geometric contractions via three explicit Hausdorff-dimension coefficients. These are motivated quantitative dynamical invariants, not mere renamings of general IFS facts.",
+      "residual_risks": [
+        "Dimension formula is asymptotic and does not classify the intermediate bifurcation regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No classification of 4<h<64 and no finite-h exact dimension formula; bounded-past dynamics are not a root-selection algorithm.",
+    "Unindexed one-dimensional polynomial-repeller literature could contain this exact parametric asymptotic despite the targeted searches.",
+    "Only h>=64 is covered by the Cantor theorem; excluded region is a scope limit rather than a false claim.",
+    "Dimension formula is asymptotic and does not classify the intermediate bifurcation regime."
+  ],
+  "schema_version": 1
+}
