@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:48:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On Petersen KG(5,2), edges correspond to ten two-subsets of five elements and strict-majority neighbours are the three disjoint subsets, giving an exact 2^10-state map T. Actual checker check_petersen.py exhaustively determines T^6=T^4 and T^5≠T^3, recurrent set size124 with 14 fixed symbols and 55 two-cycle orbits; inverse T4 fibers have multiplicities 72 of size1, 50 of size10, two of size226, with check 72+500+452=1024. Independently reconstructed all Petersen masks and verified both iterate identities, fixed counts and full weight histogram; group orbit reduction covers all 34 isomorphism classes under S5. For the bipartite double GP(10,3), F(x,y)=(T(y),T(x)); on recurrent symbols R, T^2=I, so F conjugates to the swap on R×R, giving 124 fixed and C(124,2)=7626 primitive two-cycles. Fiber weights w are T-invariant and imply per-fixed basin w^2, per-two-orbit basin 2ww'. Direct independent cross-products of weights reproduce nine orbit classes fixed (1:72, 100:50, 51076:2), period-two (2:2556,20:3600,200:1225,452:144,4520:100,102152:1), with populations 107224+941352=1048576. Original check_desargues.cpp independently enumerates full 2^20-labelled functional graph using GP(10,3) edges and indegree pruning; its algorithm and expected counts were inspected. Exact first-entry table max t4 and sharp witness follow T^6=T^4≠T^3; finite enumeration is exhaustive for exactly specified graph, not infinite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1405.2486 — General period-two dynamics on undirected finite majority graphs"
+        ],
+        "reasoning": "Its general theorem lacks any dimension-specific Petersen weights and quantitative 2^20 orbit basin table; no stronger graph-specific number implication from it.",
+        "searches": [
+          "Petersen Desargues majority dynamics 124 fixed 7626 two cycles four steps"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-equal-attractor-counts-but-unequal-basins-for-majority-on-the-pr--fb9765d5d984",
+        "https://arxiv.org/abs/1405.2486",
+        "https://mathworld.wolfram.com/DesarguesGraph.html",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-equal-attractor-counts-but-unequal-basins-for-majority-on-the-pr--fb9765d5d984 — Earlier source constructs 1024 shore projection maps T_A,T_B and counts aggregate paired weights"
+        ],
+        "reasoning": "It mathematically defines a complete 1024-state table so the new fine weights are computable, but no closed weights or individual orbit spectrum was stated; within user criterion a natural new exact classification can be valuable despite calculable finite algorithm. The novelty assessment is qualified, not merely based on absent exact numbers.",
+        "searches": [
+          "Petersen Desargues majority dynamics 124 fixed 7626 two cycles four steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-equal-attractor-counts-but-unequal-basins-for-majority-on-the-pr--fb9765d5d984 — Exactly same GP(10,3) Desargues 124 fixed, 7626 two cycles and first-entry/basin aggregate populations in earlier theorem"
+        ],
+        "reasoning": "The earlier result fully covers those advertised counts; the only surviving independent claim is the 34 Petersen S5 orbit decomposition, three T4 fiber sizes and nine individually classified orbit basin sizes. Identical summary numbers must never be claimed as new.",
+        "searches": [
+          "Petersen Desargues majority dynamics 124 fixed 7626 two cycles four steps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-equal-attractor-counts-but-unequal-basins-for-majority-on-the-pr--fb9765d5d984 — Earlier first-entry/period table and total fixed vs two-cycle basin populations; no full per-orbit basin histogram"
+        ],
+        "reasoning": "Prior coarse table is not enough to reconstruct nine per-orbit basin multiplicities or which recurrent symbols carry weights 1/10/226. Full prior SOURCE CODE might recover them by bounded enumeration, expressly treated as close overlap and not as proven independence.",
+        "searches": [
+          "Petersen Desargues majority dynamics 124 fixed 7626 two cycles four steps"
+        ]
+      },
+      "rationale": "QUALIFIED PASS only for genuinely surviving full Petersen fiber/orbit and nine-class Desargues per-orbit basin spectrum, not the already published Desargues recurrent counts, entry-time table or aggregate basin totals. Read full same-day Resultary source and explicitly delimit its dominant overlap. The weight histogram and lifted individual basin classification constitute a complete natural finer invariant, although their derivability by finite enumeration from the older shore maps is a real residual risk; global priority not certified.",
+      "reasoning": "QUALIFIED PASS only for genuinely surviving full Petersen fiber/orbit and nine-class Desargues per-orbit basin spectrum, not the already published Desargues recurrent counts, entry-time table or aggregate basin totals. Read full same-day Resultary source and explicitly delimit its dominant overlap. The weight histogram and lifted individual basin classification constitute a complete natural finer invariant, although their derivability by finite enumeration from the older shore maps is a real residual risk; global priority not certified.",
+      "residual_risks": [
+        "The published prism–Desargues comparison ALREADY covers Desargues 124 fixed points, 7626 primitive 2-cycles, the sharp four-step entry clock, the complete first-entry/period table, and total basin populations 107224/941352. These clauses are not novel; acceptance is restricted to the surviving Petersen 34-orbit/three-fiber and complete per-orbit basin-size classification, whose possible mechanical derivability from published full code remains a meaningful closeness risk.",
+        "All census results are for two finite labelled graphs; exhaustive state enumeration proves only these cases, never a larger generalized Petersen family.",
+        "There may be unindexed earlier Petersen or Desargues majority tables containing the exact 1/10/226 fiber histogram or nine per-orbit basin classes; this bounded search is not priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUBSTANTIAL COVERAGE: Desargues 124 fixed, 7626 two-cycle orbits, max-entry4, every joint first-entry/period entry and aggregate fixed/two basin totals are already stated. However no three-weight Petersen T4 fiber distribution, 34 S5-graph orbit classification, or nine per-ORBIT basin multiplicities appear as the final theorem. These distinct remainder values are mathematical, but could be calculated using its shore maps.",
+          "evidence": [
+            "Prior comparison table Desargues entry times t0..4: (124,15252),(2940,129140),(24480,442720),(32640,169920),(47040,184320); fixed aggregate basin107224, two aggregate941352."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-equal-attractor-counts-but-unequal-basins-for-majority-on-the-pr--fb9765d5d984",
+          "material_read": "Complete publicly available RESULT.md theorem and full proof including shore-factorization, first entry table, exact fixed and two-cycle counts, and aggregate basin populations",
+          "method": "Retrieved Resultary GitHub primary RESULT.md (not just semantic snippet), compared every overlapping integer and invariant",
+          "title": "Equal attractor counts but unequal basins for majority on the prism and Desargues graphs",
+          "trigger": "Same graph, same majority map, many identical numerical claims: MUST check actual prior implication"
+        },
+        {
+          "assessment": "The general eventual period-two theorem supplies the allowed eventual periods only; no four-update optimum, labelled Petersen recurrence or full Desargues basin formula.",
+          "evidence": [
+            "Theorems on convergence do not give graph-specific temporal entry clock or complete 2^20-state basin partition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Full accessible arXiv HTML introduction, statement of general period-at-most-two and finite graph context, majority convergence discussion",
+          "method": "Primary full HTML study",
+          "title": "Convergence, Unanimity and Disagreement in Majority Dynamics on Unimodular Graphs and Random Graphs",
+          "trigger": "Classical symmetric threshold dynamical period theorem may dominate all finite claims"
+        },
+        {
+          "assessment": "Heawood has 58 recurrent shore symbols and different graph incidence, not Petersen 124 and fiber weights.",
+          "evidence": [
+            "58 Heawood symbols vs Petersen 124, no graph isomorphism or reduction to Petersen."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93",
+          "material_read": "Resultary hit full indexed theorem summary and scientific comparison; no entire current primary text read anew in this execution",
+          "method": "Resultary semantic search comparison",
+          "title": "A two-step majority projection and exact attraction basins on the Heawood graph",
+          "trigger": "Very similar bipartite degree-three graph with orbit basin spectrum"
+        },
+        {
+          "assessment": "Dodecahedron GP(10,2), not Desargues GP(10,3); different basins and 118 fixed / 9679 two-cycle counts.",
+          "evidence": [
+            "Different inner step and graph; the source establishes its own finite case, not a dominating GP(10,k) general theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea",
+          "material_read": "Publicly indexed result summary and quantitative theorem comparison, not full current source fetch",
+          "method": "Resultary indexed search",
+          "title": "Dodecahedral majority dynamics: an exact recurrent, basin and symmetry census",
+          "trigger": "Generalized Petersen graph at same vertex count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Petersen and Desargues are canonical cubic symmetric graphs, and the bipartite Petersen double is the natural incidence geometry of the Desargues graph. The three exact inverse-fiber weights 1/10/226 identify sharply unequal attraction among 124 recurrent symbols; their pair products yield a complete nine-class orbit-level basin spectrum, including 2,556 isolated temporal two-orbits and a unique orbit attracting 102,152 states. Although an earlier source already supplies aggregate Desargues dynamics, the exact fine basin hierarchy and Petersen 34-isomorphism-class explanation are motivated complete finite invariants, not just arbitrary sampled small graphs.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-equal-attractor-counts-but-unequal-basins-for-majority-on-the-pr--fb9765d5d984",
+    "https://arxiv.org/abs/1405.2486",
+    "https://mathworld.wolfram.com/DesarguesGraph.html",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93",
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea"
+  ],
+  "disposition": "passed",
+  "limitations": "Only synchronous strict open-neighbour binary majority on Petersen and Desargues, with labelled states; part of the claimed numerical census was already published in same-day prior Resultary paper, and only finer classification is accepted as original best-of-knowledge.",
+  "residual_risks": [
+    "The published prism–Desargues comparison ALREADY covers Desargues 124 fixed points, 7626 primitive 2-cycles, the sharp four-step entry clock, the complete first-entry/period table, and total basin populations 107224/941352. These clauses are not novel; acceptance is restricted to the surviving Petersen 34-orbit/three-fiber and complete per-orbit basin-size classification, whose possible mechanical derivability from published full code remains a meaningful closeness risk.",
+    "All census results are for two finite labelled graphs; exhaustive state enumeration proves only these cases, never a larger generalized Petersen family.",
+    "There may be unindexed earlier Petersen or Desargues majority tables containing the exact 1/10/226 fiber histogram or nine per-orbit basin classes; this bounded search is not priority proof."
+  ],
+  "schema_version": 1
+}
