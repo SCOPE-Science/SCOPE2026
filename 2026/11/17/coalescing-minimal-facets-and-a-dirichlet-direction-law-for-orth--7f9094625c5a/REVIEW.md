@@ -1,11 +1,21 @@
-# Scientific review: coalescing minimal facets and a Dirichlet direction law
+# Independent mathematical audit
 
-**Correctness — PASS.** The box projection identity follows from its facet normals. The exact minimizers are the coordinate poles with minimal facet weights. At each pole, the spherical surface measure has the explicit Jacobian \((1-|x|^2)^{-1/2}\). Weighted-simplex integration gives the fixed-weight leading term; the uniform radial-root expansion and \(\mathbb E Z_j^2=2/[d(d-1)]\) give the next coefficient. Moving weights produce almost-everywhere and \(L^1\) convergence on bounded rescaled tangent charts, proving total-variation convergence. The dimension-four example follows by substitution. No infinite inference relies on numerical sampling.
+## correctness
 
-**Originality — PASS, provisionally.** The accepted result is a dimension-at-least-four, lower-end **marked orientation** theorem with simultaneous facet coalescence, an exact Dirichlet limiting budget and a truncated-power mixing law. Full inspected related reports establish regular cube width distributions and upper-end box spherical-cap transitions; these are excluded. The three-dimensional rectangular-box projected-area law is attributed to Walters and is also excluded. The high-dimensional projection CLT of Paouris–Pivovarov–Zinn and all-dimensional fixed-width moment identification do not state this rare conditional geometry. Abstract-only access to the comprehensive work of Abas and inaccessible older Walters material are residual priority risks; neither is presented as checked in full.
+PASS
 
-**Value — PASS.** An array of almost-minimal facet areas is a canonical geometric near-degeneracy, and the result quantifies precisely when competing faces contribute to an unusually small hyperplane shadow. The signed viewing normal, not just the shadow-volume scalar, has an explicit limiting law. This provides a rare-event importance proposal and distinguishes fixed-parameter tail behavior from critical moving-facet behavior. The fixed-shape curvature correction is a meaningful local accuracy control.
+PASS — Projection brightness is Σw_i|U_i| and its minimum is attained precisely at poles indexed by minimal w_i. Spherical pole charts x give Jacobian 1/(s_{d−1}√(1−|x|²)); the rare event forces |x|=O(t) because all limiting weights stay positive. Rescale x=ty: the fixed-shape leading tangent region is a weighted crosspolytope, with two antipodal charts, giving the displayed coefficient. Radial chart expansion r_max=1+(mt/2)Σz_j²/w_j²+O(t²), E_Dirichlet z_j²=2/[p(p+1)] with p=d−1, yields the relative +mt/d Σw_j^-2 correction. In the moving case threshold yields λ_i+Σw_j^0|y_j|<1; pointwise a.e. chart densities converge in L1 on common compact support, implying total variation of the marked pole/coordinate mixture, not just weak convergence. Signs are independent by orthant invariance and normalized absolute weighted coordinates plus slack have constant density p! on a simplex. For d4 weights (1,1+αt,c,c), s3=2π² gives 4/(3π²c²)[1+(1−α)_+³]. The script uses local importance Monte Carlo as numerical diagnostics only; no uniform remainder is asserted for degenerating weights.
 
-Analytical scope: fixed finite \(d\ge4\), strictly positive limiting facet areas and specified box orientation. The probability is asymptotic and the conditional law is a weak/total-variation limit, not an exact nonasymptotic distribution. Scientific priority and proof remain unvalidated by independent researchers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS — Prior scalar width distributions in dimension three and all-dimensional moments are credited; upper spherical-cap transition theorems concern the opposite endpoint. This claim is a labelled near-minimum conditional TV crosspolytope/Dirichlet law in a moving equal-weight critical window, not merely a formula for a box width density. A highly relevant comprehensive modern manuscript, arXiv:2608.06348, was located but full text was unavailable; its indexed moment/width description is not sufficient to assert whole-paper noncoverage. Best-of-knowledge PASS retains specific risk that it could contain a stronger conditional theorem.
+
+## value
+
+PASS
+
+PASS — Coalescing facets change which poles contribute at the rare-event scale. The exact crossover weights, jointly marked tangent law and Dirichlet slack resolve a natural geometric-probability conditioning question and are useful even when scalar brightness distributions are known. The result is neither merely a coordinate rename nor a routine fixed-parameter moment: TV control and moving-aspect threshold sharpen the quantitative geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
