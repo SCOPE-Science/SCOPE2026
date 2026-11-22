@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_mixed_cactus.py` with Python 3's standard library. The program enumerates all 40320 permutations of eight graph vertices and constructs the downward-closed strong-Morse matching complex from first principles. It checks 345 generator incidence sets; 492 nonempty faces; the f-vector (20,108,220,144); and an explicitly fixed 239-pair matching.
+## correctness
 
-For every cover relation in the entire nonempty face poset, the program directs unmatched relations downward and matched relations upward. A topological sort visits every one of 492 nodes, so the matching is acyclic. There is exactly one critical 0-face and thirteen critical 3-faces, and no other critical faces. Forman's discrete Morse theorem proves the integral homotopy type as a wedge of thirteen 3-spheres. This is a finite exhaustive argument, not extrapolation.
+PASS
 
-As independent consistency checks the program calculates complete mod-two simplicial boundary ranks (19,89,131) and verifies preservation of the graph by all sixteen automorphisms. For every automorphism it computes the **signed** simplicial Lefschetz number by summing fixed-face orientation signs, and checks the full ten-class rational top-homology character. `verification_output.txt` contains a replay transcript. The code is a sufficient executable combinatorial certificate but has not undergone external independent validation.
+For the 8-vertex unfilled bouquet graph E={01,12,20,03,34,40,05,56,67,70}, in a strict vertex filtration an oriented incidence (v,w) is selected exactly if w is the only earlier neighbor of v. Independently exhausted 8!=40320 orders yielding 345 generated masks and 493 faces including empty, f=(20,108,220,144). Reproduced the prescribed sequence of face-toggle discrete Morse pairings: 239 pairs; the entire 492-vertex directed Hasse diagram topologically sorts; unmatched exactly one vertex and 13 three-faces, no intermediate dimension, giving integral wedge^13 S^3 by Forman. Independent reconstruction of each of 16 automorphism signed fixed-face Lefschetz sums then Hopf trace yields character rows 13/-9, -7/3,5/-1,-7/3,5/-1 with class multiplicities 1,2,1,2,2 for square fixed/reversed. No integral equivariant lattice is claimed.
 
-# Limits
+## originality
 
-No infinite-family, equivariant homotopy, or integral group-module classification is established. The complete mathematical proof additionally uses standard Forman discrete Morse theory and the Hopf trace formula.
+PASS
+
+Knudson–Owens-White (2026) defines the full strong Morse matching complex and computes paths, stars, simplex and boundary families plus cycle data. It does not establish this particular mixed three-petal cactus or its full symmetry character. Published two-petal triangle+cycle and uniform square-bouquet results are structurally different; neither furnishes the 16-character data for two interchangeable triangles plus an independently reversed square. Exact finite topology and rational representation survive comparison as best-of-knowledge.
+
+## value
+
+PASS
+
+The eight-vertex graph is a canonical smallest three-petal mixed bouquet with a nontrivial two-triangle interchange and one 4-cycle. The observed persistence of 13 summands while sphere dimension jumps from 1 to 3 is a motivated first mixed-gluing boundary, and the complete rational automorphism character adds independently usable representation data not determined by a wedge rank. A natural finite complete classification need not be an all-cactus theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

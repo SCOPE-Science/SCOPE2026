@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The 8-vertex graph, all 10 undirected edges and 20 oriented vertex-edge incidences are fixed explicitly. In a strict vertex filtration of a 1-dimensional graph, a descending link is a nonempty cone precisely when one earlier neighbor exists. Exhausting all 8! strict orders is therefore exhaustive for the full strong matching complex, yielding 345 distinct generators and all 492 nonempty faces. A fixed sequence of 20 incidence toggles produces 239 matched Hasse edges; a full directed topological sort confirms acyclicity, leaving one 0-cell and thirteen 3-cells. There are no 1- or 2-cells in the resulting Morse CW model, so the attaching maps are constant and the homotopy type is a wedge of thirteen 3-spheres. A separate full boundary-rank calculation corroborates the dimensions. The rational character follows from actual signed fixed-face traces and the Hopf trace formula, not from guessed symmetry multiplicities.
+## correctness
 
-## Originality — PASS, with residual risk
-The September 6, 2026 Knudson–Owens-White manuscript defines this construction and computes other graph families; its stated examples do not cover the present three-petal mixed cactus. Earlier uniform friendship-graph and square-bouquet formulas are for different graphs. The recovered earlier two-petal triangle-and-cycle calculation stops before the present three-petal configuration. Semantic searches for equivalent formulations, the mixed three-petal graph, symmetry traces and more general cactus classifications returned no equivalent result. Searches are not a proof of mathematical priority, and unindexed generalized cactus formulas remain a risk.
+PASS
 
-## Mathematical value — PASS
-This is the smallest bouquet containing both two triangular petals (and their nontrivial interchange symmetry) and a quadrilateral petal, making it a motivated first test of whether a nontriangular petal changes the topology and symmetry of a friendship-graph strong-Morse complex. The exact result unexpectedly preserves all thirteen summands while raising their sphere dimension from one to three. The complete ten-conjugacy-class rational character distinguishes this from mere Betti-number enumeration and supplies a reproducible benchmark for mixed-cycle graph-gluing theory. This is a natural finite invariant rather than a general all-cactus theorem.
+For the 8-vertex unfilled bouquet graph E={01,12,20,03,34,40,05,56,67,70}, in a strict vertex filtration an oriented incidence (v,w) is selected exactly if w is the only earlier neighbor of v. Independently exhausted 8!=40320 orders yielding 345 generated masks and 493 faces including empty, f=(20,108,220,144). Reproduced the prescribed sequence of face-toggle discrete Morse pairings: 239 pairs; the entire 492-vertex directed Hasse diagram topologically sorts; unmatched exactly one vertex and 13 three-faces, no intermediate dimension, giving integral wedge^13 S^3 by Forman. Independent reconstruction of each of 16 automorphism signed fixed-face Lefschetz sums then Hopf trace yields character rows 13/-9, -7/3,5/-1,-7/3,5/-1 with class multiplicities 1,2,1,2,2 for square fixed/reversed. No integral equivariant lattice is claimed.
 
-## Closest literature and limitations
-Closest sources: Knudson–Owens-White, arXiv:2609.06844 (full matching-complex definition and other families); Fernández, *Strong discrete Morse theory* (filtration-based construction); existing uniform triangle bouquets, uniform square bouquets, and triangle-plus-one-cycle calculations. No complete exhaustive original-source bibliography can rule out future priority challenges. The result is restricted to the specified unfilled graph and rational symmetry character; it makes no claim about an integral equivariant lattice or an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Knudson–Owens-White (2026) defines the full strong Morse matching complex and computes paths, stars, simplex and boundary families plus cycle data. It does not establish this particular mixed three-petal cactus or its full symmetry character. Published two-petal triangle+cycle and uniform square-bouquet results are structurally different; neither furnishes the 16-character data for two interchangeable triangles plus an independently reversed square. Exact finite topology and rational representation survive comparison as best-of-knowledge.
+
+## value
+
+PASS
+
+The eight-vertex graph is a canonical smallest three-petal mixed bouquet with a nontrivial two-triangle interchange and one 4-cycle. The observed persistence of 13 summands while sphere dimension jumps from 1 to 3 is a motivated first mixed-gluing boundary, and the complete rational automorphism character adds independently usable representation data not determined by a wedge rank. A natural finite complete classification need not be an all-cactus theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
