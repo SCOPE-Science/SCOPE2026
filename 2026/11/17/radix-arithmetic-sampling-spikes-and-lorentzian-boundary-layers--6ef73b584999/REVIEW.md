@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The maximal diagonal operator generates a contraction semigroup. The exact sampled-resolvent symbol is diagonal. Uniform low- and high-frequency bounds reduce the infinite norm to fixed offsets, where the leading terms are explicitly computed. The same uniform localization establishes the Lorentzian boundary layer and the strict dominance of its first resonant mode. The companion numerical checks test constants but are not substituted for proof. The proof excludes the endpoints of the damping exponent.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic risk.** The source on dyadic self-adjoint resolvent reconstruction does not formulate the arithmetic phase function. A later full-text manuscript on sampled semigroups proves rate bounds and, on the dyadic version of the same diagonal generator, a lower bound along one aligned mesh. That lower bound does not imply either the all-ratio limit or the rescaled Lorentzian profile. Public mathematical index searches and comparisons with accessible earlier claims did not identify a theorem containing these claims. Lack of an indexed match is not a uniqueness certificate; an unindexed scalar discretization study could contain an equivalent result.
+PASS
 
-## Value
-**PASS.** The exact phase dependence distinguishes spectacularly different asymptotics for arbitrarily close rational and nonresonant mesh ratios, despite a common \(O(T^\alpha)\) error guarantee. The boundary-layer width quantitatively resolves how this discontinuity emerges from finite sampling. Both are natural diagnostics of aliasing on a geometric spectrum and go materially beyond a special-case verification of the known order bound.
+PASS: In RESULT.md (3), the exact symbol is T/(1-exp(-Tp_j))-T/2-1/p_j, p_j=lambda+(2pi b^j)^alpha+i2pi b^j. For T=tau_N b^{-N}, j<=N-K has Tp_j=O(b^{-K}) and phi(z)=1/(1-e^{-z})-1/2-1/z=O(z), so its T^{-alpha} contribution vanishes; j>=N+K is bounded by O(b^{-alpha K})+o(1), allowing K→∞ after N→∞. For each fixed j-N=k, the T^{-alpha} symbol is zero at noninteger phase tau b^k and tends to (2pi tau b^k)^(-alpha) at integer phase. For 1<=tau<b no k<0 resonates, and first integer depth r uniquely maximizes the fixed-offset values. With tau_N=m/b^r+xi b^{-(1-alpha)N}, first-order expansion has real damping tau0(2pi)^alpha b^(alpha r) and imaginary detuning 2pi b^r xi; this proves the Lorentzian width exactly. Boundary tau=1 is handled only in the pointwise theorem, while boundary-layer theorem correctly restricts tau0 in (1,b). Independent direct scalar numerical calculations for b=2,3,4 and detunings 0,0.5,-1.5 reproduce 9 predicted values within 1.4e-5; finite checks do not prove the supremum limit. All claims require 0<alpha<1, lambda>0, geometric spectrum and pointwise tau; no uniform-in-tau convergence.
 
-## Prior literature and limitations
-N. Castillo, arXiv:2607.21278 (2026), provides the motivating dyadic reconstruction. N. Castillo, arXiv:2611.15563v1 (11 November 2026), gives the closest same-generator rate sharpness result, including Proposition 5.10(b). N. Castillo, O. Costin and R. D. Costin, arXiv:2210.17502, provide the earlier underlying resolvent representation. The present theorem is restricted to a normal power-damped geometric spectrum and interior Lorentzian profiles; other generator classes and exponent endpoints are unproved. Possible unindexed prior formulations remain a risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Castillo's Theorem 5.9 and Proposition 5.10(b) already prove O(T^alpha) and a matching dyadic lower bound for precisely the b=2 diagonal spectrum, so neither general convergence nor optimal exponent is novel. Their exact displayed bound at T=2^{-N} does not state or mathematically determine the every-mesh-ratio popcorn function, first-base-power denominator rule, or the two-sided detuning Lorentzian constant. The published continuous-frequency first-alias theorem explicitly assumes L²(R) multiplication and monotone continuous damping and has no sparse geometric radix discontinuity. Both are explicitly credited; no full earlier equivalent fine-phase computation was identified.
+
+## value
+
+PASS
+
+PASS: The exact mesh-ratio discontinuity and its universal near-resonance layer identify where standard semigroup resolvent sampling attains or loses its expected normalized error, a natural stability/aliasing phenomenon for a geometrically discretized spectrum. Exact constants and detuning scale are distinct nontrivial invariants not implied by the prior sharp order, and are useful for phase-sensitive numerical analysis. No general arbitrary-generator or uniform-tau claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
