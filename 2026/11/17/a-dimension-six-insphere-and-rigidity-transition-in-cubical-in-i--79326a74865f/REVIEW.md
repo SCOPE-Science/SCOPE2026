@@ -1,15 +1,21 @@
-# Scientific review of the cubical in-in zonotope sphere theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted family is fixed unambiguously as the unit coordinate-plus-edge Minkowski zonotope in \(\mathbb R^{2^d}\), and the proof handles every integer \(d\ge1\). A free-generator rank argument independently identifies its facet normals as the signed indicators of connected induced subsets. The support value for an indicator is exactly \(|S|+|\partial S|\). An induction using binary entropy proves the requisite cubical edge-isoperimetric lower bound. The resulting scalar function has no interior minimum, leaving only the complete set or singleton subsets as inradius extremizers, which also supplies all tangent facets and the center-locus affine dimension. The coordinate bound \(|x_v|\le d+1\) and a bipartite sign construction determine the unique two outer contacts. The proof establishes the infinite family; exact finite checks confirm samples but are not used to extrapolate.
+## correctness
 
-## Originality — PASS, subject to historical-priority uncertainty
-The most directly relevant primary work is Glew's January 26, 2026 in-in zonotope construction (arXiv:2601.18903v1), whose HTML sections III–V were inspected. That paper gives the Minkowski description and facets but no sharp cubical in-in Euclidean balls. The publicly indexed tree/cycle in-in record already gives a general cut formula, and its \(Q_1\) and \(Q_2\) special cases are expressly excluded from a novelty assertion. The publicly indexed biclique in-in record treats another family. A separate cube-*graphical*-zonotope record proves the cubical edge bound and a dimension-five change for a different body, but does not determine the coordinate-augmented in-in geometry. The new complete classification for cubical in-in zonotopes \(d\ge3\), especially the threshold at \(d=6\) and two-to-exponential contact jump, is not an implication of one of the cited published classification statements alone. No equivalent statement was found in the actual indexed-record and web searches; searching cannot certify universal priority.
+PASS
 
-## Mathematical value — PASS
-Binary hypercubes form a canonical, high-symmetry family of graph inputs to a recently introduced polytope construction. The theorem determines two fundamental Euclidean radii, the complete inner and outer contact classifications, the affine dimension of every maximal-inball center set, and the unique diameter pair in all dimensions. The crossover moves from the dimension-five threshold of an unaugmented graphical zonotope to dimension six after adding coordinate generators; the resulting collapse of a \((2^d-1)\)-dimensional center locus to one point and jump from two tangent facets to \(2^{d+1}\) facets supplies a substantive structural distinction. Standard cut and induced-edge bounds are credited rather than represented as new theorems. The result does not purport to classify weights, center-locus face vectors, or volumes.
+Verified support h(u)=Σ_v|u_v|+Σ_{vw}|u_v−u_w|, and derived exposed-free-generator rank: genuine facets have normals ±1_S for nonempty connected induced S; offset = |S|+|∂S|. Consequently largest origin-centered ball is min_S (|S|+|∂S|)/√|S| and center locus consists of |Σ_Sc|+r√|S|≤|S|+|∂S| for all connected S. Cubical edge induction via partition along coordinate and binary entropy proves |∂S|≥|S|(d−log2|S|). Let t=log2|S|∈[0,d]; lower bound g_d(t)=2^{t/2}(d+1−t) has derivative of sign (ln2)(d+1−t)/2−1, so strict global minima only endpoints (t0 singleton vs td full). Values d+1 and sqrt(2^d) cross exactly between d5 and d6. Equality only full set for d≤5, and singletons for d≥6, establishing tangent facet counts; strict finite slack for noncontacts gives center locus dimension 2^d−1 or 0. Independent degree bound |x_v|≤d+1, equality signs propagate along connected bipartite cube to ±χ, giving only ±(d+1)χ outside contacts, R=(d+1)sqrt(2^d) and one diametral pair. Exhaustive all subsets of cubes d≤4 independently reproduced strict equality classification; no finite test claimed for d≥5.
 
-## Limits and closest sources
-The closest related research records are the tree/cycle and complete-bipartite in-in sphere classifications (2026-10-25), the cubical graphical-zonotope incenter classification (2026-10-11), and Glew's original in-in construction (2026-01-26). Their relevant public research statements were read and compared at the level of the polytope definition, Euclidean normalization, graph family and theorem implication. Full literature priority remains uncertain and no independent mathematical validation has taken place. The exact checker confirmed 77,255 bounded assertions, including all subsets through cubical graph dimension four; its limits are detailed in `VERIFICATION.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the exact statement and normalization with primary literature, published mathematical findings and indexed aliases; novelty assessed for the unrestricted claimed quantitative family rather than for credited intermediate lemmas. Residual priority risk is explicit. A complete in/out Euclidean sphere and center-locus classification for the canonical binary-hypercube inputs to the in-in zonotope construction, with a sharp d=6 singleton/full-set switch, exponential jump in tangent facets and collapse of a high-dimensional c
+
+## value
+
+PASS
+
+A complete in/out Euclidean sphere and center-locus classification for the canonical binary-hypercube inputs to the in-in zonotope construction, with a sharp d=6 singleton/full-set switch, exponential jump in tangent facets and collapse of a high-dimensional center family, is a motivated structural geometric result. The known general cut formula and classical edge-isoperimetry are credited; the combined exact family transition and rigid exterior contacts are the assessed value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

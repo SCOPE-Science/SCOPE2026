@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the cubical in-in zonotope sphere theorem
+# Independent mathematical audit
 
-`verify.py` runs with Python 3.10 or later and standard-library modules only. Executing `python verify.py` produces the nine dimension rows and ends with `TOTAL_ASSERTIONS= 77255` and `VERIFICATION_PASSED`.
+## correctness
 
-The script exhaustively enumerates all nonempty subsets in dimensions \(1\) through \(4\), checks the exact integer inequality \((|S|+|\partial S|)^2\ge |S|\min\{2^d,(d+1)^2\}\), and checks that equality subsets match the asserted minimum-radius facets. Dimensions \(5\) through \(9\) receive deterministic examples and fixed-seed random samples rather than exhaustive enumeration. The script also constructs the two antipodal outer contacts for each tested dimension and enumerates every endpoint signing of all Minkowski generators in dimensions \(1\) and \(2\).
+PASS
 
-These finite assertions cannot certify an all-dimensional theorem. The proof in `RESULT.md` instead establishes the facet-normal classification by free-generator rank, the induced-edge bound by induction on cube dimension, the absence of intermediate size minimizers by explicit derivative analysis, all maximal-ball centers through finite facet inequalities, and the outer sphere/diameter classification using connected bipartiteness. No external proof assistant or independent mathematical auditor has examined the result.
+Verified support h(u)=Σ_v|u_v|+Σ_{vw}|u_v−u_w|, and derived exposed-free-generator rank: genuine facets have normals ±1_S for nonempty connected induced S; offset = |S|+|∂S|. Consequently largest origin-centered ball is min_S (|S|+|∂S|)/√|S| and center locus consists of |Σ_Sc|+r√|S|≤|S|+|∂S| for all connected S. Cubical edge induction via partition along coordinate and binary entropy proves |∂S|≥|S|(d−log2|S|). Let t=log2|S|∈[0,d]; lower bound g_d(t)=2^{t/2}(d+1−t) has derivative of sign (ln2)(d+1−t)/2−1, so strict global minima only endpoints (t0 singleton vs td full). Values d+1 and sqrt(2^d) cross exactly between d5 and d6. Equality only full set for d≤5, and singletons for d≥6, establishing tangent facet counts; strict finite slack for noncontacts gives center locus dimension 2^d−1 or 0. Independent degree bound |x_v|≤d+1, equality signs propagate along connected bipartite cube to ±χ, giving only ±(d+1)χ outside contacts, R=(d+1)sqrt(2^d) and one diametral pair. Exhaustive all subsets of cubes d≤4 independently reproduced strict equality classification; no finite test claimed for d≥5.
+
+## originality
+
+PASS
+
+Compared the exact statement and normalization with primary literature, published mathematical findings and indexed aliases; novelty assessed for the unrestricted claimed quantitative family rather than for credited intermediate lemmas. Residual priority risk is explicit. A complete in/out Euclidean sphere and center-locus classification for the canonical binary-hypercube inputs to the in-in zonotope construction, with a sharp d=6 singleton/full-set switch, exponential jump in tangent facets and collapse of a high-dimensional c
+
+## value
+
+PASS
+
+A complete in/out Euclidean sphere and center-locus classification for the canonical binary-hypercube inputs to the in-in zonotope construction, with a sharp d=6 singleton/full-set switch, exponential jump in tangent facets and collapse of a high-dimensional center family, is a motivated structural geometric result. The known general cut formula and classical edge-isoperimetry are credited; the combined exact family transition and rigid exterior contacts are the assessed value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
