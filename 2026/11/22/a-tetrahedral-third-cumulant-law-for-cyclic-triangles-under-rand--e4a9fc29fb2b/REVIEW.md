@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Exact Walsh expansions prove pairwise independence and classify nonzero three-way centered moments; the only obstruction consists of three triangular faces of a four-clique. Known four-vertex tournament geometry gives the exceptional all-one probability zero, which combined with Bernoulli one- and two-point laws yields \(-1/64\). The weighted formula follows from expanding the third cumulant with exact diagonal and repeated-index contributions. The independently executable exhaustive verifier passed on 1,098 labelled graphs through five vertices and 1,004 distinct-triangle triples. The proof, not enumeration, covers all finite graphs.
+
+**Originality — PASS with stated priority limits.** Moon's recorded 1947 complete-tournament third-moment formula is explicitly excluded as novelty. The four-vertex prohibition is also known from the tournament-hypergraph construction. Neither inspected primary work establishes the three-way independence criterion on arbitrary underlying graphs or the complete weighted mixed third-cumulant support. Random cyclic-total-order query shattering is an analogous but different stochastic model, not an implication. Earlier equivalent orientation-tensor formulations remain possible.
+
+**Value — PASS.** Pairwise cyclic-triangle indicators are indistinguishable from independent Bernoulli indicators, even in graphs with many triangles. The theorem isolates exactly the four-clique as the first three-body dependence, fully classifies when every triple really is independent, and converts weighted fluctuation measurements into a local structural signature. The unweighted third cumulant recovers four-clique count using an orientation-based observable rather than an edge-sign balance count; this is not claimed to supersede other graph-motif tomography methods.
+
+**Scope and risks.** The special complete-graph numerical moment is classical; the statement is limited to fair independent edge orientations and cumulants through three. Unindexed equivalent arbitrary-graph results remain the main priority risk. The verifier is finite, not a proof for unbounded graph orders. Independent validation has not been undertaken.
+
+Self-review: passed. Independent audit: not yet performed.
