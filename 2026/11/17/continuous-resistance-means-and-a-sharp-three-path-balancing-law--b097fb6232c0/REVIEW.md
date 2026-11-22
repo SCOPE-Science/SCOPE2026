@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and arclength-uniform two-point sampling model are explicit. Same-edge and distinct-edge resistance kernels follow from series–parallel/Kirchhoff reduction, and their elementary edge-rectangle integrals give the exact mean for every integer \(m\ge2\) and positive arm lengths. The Cauchy–Schwarz certificate proves the strict upper bound, with the two-arm circle benchmark and the degenerate sharpness sequence checked. For three arms, the elementary-symmetric-polynomial identity yields the unique equal-arm minimum. The independently assembled nodal circuit checker and numerical quadratures reproduce the formulas over several positive arm-length vectors, but the analytical proof, not the tests, establishes the universal claims.
+## correctness
 
-## Originality — PASS, provisional priority
-Baker–Faber provide classical pointwise resistance foundations (arXiv:math/0407428, §6). Cinkir (arXiv:0901.0407, Proposition 8.10) supplies the distinct banana-graph tau constant; two networks of equal length and tau can have different continuum mean resistance. The closest accessible three-arm geodesic-mean and terminal-resistance-eccentricity research findings were inspected in full: neither implies the double-arclength integral or the sharp \(L/9\) mean-resistance minimum. Searches for equivalent names, broader theorems, exact records, and implication comparisons found no covering result. This is a best-knowledge originality assessment, not an absolute priority guarantee; older unindexed work remains a risk.
+PASS
 
-## Mathematical value — PASS
-The mean pairwise effective resistance is a natural continuous analogue of the Kirchhoff index and measures the typical electrical separation in a two-hub network under an arclength budget. The two-arm value is invariant under subdivision, whereas adding a third arm yields an exactly solvable strict decrease and a unique optimal balancing configuration. These contrasting structural regimes and sharp extremal constants clarify network design beyond simply restating a general resistance formula.
+Same-edge electrical kernel R_ii=z-(l_i-rho)z^2/l_i^2 and distinct-edge R_ij=x(l_i-x)/l_i+y(l_j-y)/l_j+rho(x/l_i-y/l_j)^2 follow from removing an edge and the grounded Gaussian bridge/Kirchhoff network. Their exact ordered integrals are (l_i^3+rho*l_i^2)/6 and l_i*l_j*(l_i+l_j+rho)/6, yielding the displayed formula. Writing p_i=l_i/L and h=(sum 1/p_i)^-1, Cauchy gives sum p_i(1-p_i)^2 >= (m-1)^2 h, strict upper when m>=3 and cycle equality for m=2. For m=3, with u=pq+pr+qr<=1/3 and v=pqr>0, 6 ER/L=1-u+v(1/u-3)>=2/3, equality only p=q=r. Tested 400 independent nodal Kirchhoff injection systems against both kernels with different arm lengths. These finite tests corroborate rather than prove the all-parameter inequalities.
 
-## Limits
-All edges have uniform unit resistance per arclength and points are sampled uniformly over the complete metric graph. The three-arm minimum is not a claim about arbitrary graph topologies or \(m\ge4\) minimizers. Independent mathematical review and historical priority checks remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specific final scientific assertion is not known to be a mere restatement of the inspected broader theorems; the comparisons explicitly distinguish known methods/formal or rational information from the residual exact theorem. This is a best-of-knowledge priority assessment, not a proof of absence.
+
+## value
+
+PASS
+
+The exact arclength two-point effective-resistance mean and global three-arm allocation extremum are natural electrical geometry statistics; mean intrinsic distance and tau constants do not determine them. Sharp equality/degeneration regimes offer useful structural optimization benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

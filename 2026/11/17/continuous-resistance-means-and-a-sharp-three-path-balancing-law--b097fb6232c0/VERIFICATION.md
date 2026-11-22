@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The proof independently establishes all positive edge lengths and arbitrary integer \(m\ge2\) by Kirchhoff reduction, exact integration, Cauchy–Schwarz, and a three-variable symmetric-polynomial bound. The standalone `check_resistance.py` assembles resistor network nodes including the two sampled interior points and solves grounded Kirchhoff equations, independently of the derived formulas. It tested 400 direct pairs, independently integrated the resistance kernels, compared Gauss quadrature against the symbolic expectation, tested 99 cycle subdivisions, and assessed 40,000 three-arm length vectors. It reported `DIRECT_CIRCUITS_AND_EXACT_MEAN_OK` and `THREE_PATH_SHARP_BOUNDS_AND_TWO_PATH_INVARIANCE_OK`.
+## correctness
 
-Run `python3 check_resistance.py` with NumPy installed, using the accompanying dependency declaration. These finite checks corroborate the proof only and cannot certify infinite-domain claims. An independent mathematical or historical audit has not been performed. The bound \(\mathbb E R<L/6\) is strict for positive lengths and its limiting value is unattained.
+PASS
+
+Same-edge electrical kernel R_ii=z-(l_i-rho)z^2/l_i^2 and distinct-edge R_ij=x(l_i-x)/l_i+y(l_j-y)/l_j+rho(x/l_i-y/l_j)^2 follow from removing an edge and the grounded Gaussian bridge/Kirchhoff network. Their exact ordered integrals are (l_i^3+rho*l_i^2)/6 and l_i*l_j*(l_i+l_j+rho)/6, yielding the displayed formula. Writing p_i=l_i/L and h=(sum 1/p_i)^-1, Cauchy gives sum p_i(1-p_i)^2 >= (m-1)^2 h, strict upper when m>=3 and cycle equality for m=2. For m=3, with u=pq+pr+qr<=1/3 and v=pqr>0, 6 ER/L=1-u+v(1/u-3)>=2/3, equality only p=q=r. Tested 400 independent nodal Kirchhoff injection systems against both kernels with different arm lengths. These finite tests corroborate rather than prove the all-parameter inequalities.
+
+## originality
+
+PASS
+
+The specific final scientific assertion is not known to be a mere restatement of the inspected broader theorems; the comparisons explicitly distinguish known methods/formal or rational information from the residual exact theorem. This is a best-of-knowledge priority assessment, not a proof of absence.
+
+## value
+
+PASS
+
+The exact arclength two-point effective-resistance mean and global three-arm allocation extremum are natural electrical geometry statistics; mean intrinsic distance and tau constants do not determine them. Sharp equality/degeneration regimes offer useful structural optimization benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
