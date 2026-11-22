@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** All \(435\) unordered faults are partitioned by \(120\) explicitly enumerated automorphisms into eight fully covered orbits. The verifier generates each representative's complete face poset from all \(36\) perfect matchings, checks a directed-Hasse DAG for its full acyclic Morse pairing, and computes the exact signed Morse differential. Only dimensions two and three survive; the one nonzero integer matrix has a unit Smith factor, and all others vanish. Standard discrete Morse theory and Hurewicz theory therefore yield the precise integral homotopy types. Independent direct simplicial ranks over two prime fields agree for each orbit. Computational evidence is exhaustive for this finite graph; it is not a claim about infinite families.
+
+**Originality — PASS against checked sources.** The foundational honeycomb and polygonal-line-tiling perfect-matching-complex papers cover different graph structures. The published intact dodecahedral result gives a Moore space plus spheres and the earlier single-edge calculation concerns one deletion; neither implies the two-edge orbit spectrum. Semantic published-finding corpus and targeted web searches for double-edge deletions, perfect-matching extendibility, homotopy and torsion found no covering theorem. The previously known intact and one-edge results are credited; unindexed equivalent work remains possible.
+
+**Value — PASS.** This is the complete sharp two-fault topological response of a natural cubic polyhedral graph whose intact and one-fault perfect-matching complexes have genuine integral two-torsion. It distinguishes all \(435\) two-edge patterns, including a contractible incident-fault class, three nontrivial free wedge types, and exact multiplicities. The disappearance of a Moore-space torsion class from the *homology groups* is not an implication of the earlier stagewise types. This is a substantive fault-threshold and symmetry-orbit classification, not merely a single Betti-number increment.
+
+**Risks and limits.** No independent external audit; finite exhaustive computer-assisted proof; no classification of three faults, larger graphs, or natural inclusion maps. Published indexed and inspected work may not exhaust all equivalents.
+
+Self-review: passed. Independent audit: not yet performed.
