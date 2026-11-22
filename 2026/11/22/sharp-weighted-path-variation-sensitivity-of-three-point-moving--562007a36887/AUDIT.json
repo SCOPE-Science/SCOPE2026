@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For each length-three window, unscaled MAD equals min(|d_i|,|d_{i+1}|,|d_i+d_{i+1}|). Each coordinate section of that map is 1-Lipschitz, so changing one input difference can change at most its two incident output coordinates by at most the input change. The weighted variation column bound is v_{j-2}+2v_{j-1}+v_j for interior edges, with the stated boundary values. Coordinate telescoping proves the all-pair upper bound. Strict rational local triples (-3/2,1,-3) and perturbation 1/10 attain alpha=-epsilon,beta=+epsilon simultaneously; boundary triples (1,3)/(3,1) attain the endpoint ratios. Hence each column ratio and their maximum is attained by finite real pairs. Exact rational checker corroborates the identity, witness quotients, arbitrary-weight inequalities, and all unweighted regimes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published finite-window morphology results concern pointwise min/max of raw signals and weight effects on those maps, not the minimum pairwise spacing of each triple.",
+        "Published all-radius running-median results concern a rank/location filter and cannot be specialized by setting a radius to recover MAD.",
+        "Pearson et al. (2016), Sec. 7, uses integer sample-replication weights inside the filter. The present theorem instead weights input and output variation edges."
+      ],
+      "reasoning": "None of the inspected broader filter classes contains the three-sample MAD as the same operator with the same output/metric. Their theorems therefore cannot be applied as stronger bounds subsuming the result. Only indexed summaries of some relevant published comparisons were available; lack of full text is stated as residual risk.",
+      "searches": [
+        "Sliding robust scale Hampel MAD signal filter perturbation sensitivity edge total variation weighted Lipschitz exact finite chain.",
+        "Robust scale statistic moving window median absolute deviation nonlinear variation norm vs standard deviation.",
+        "published-finding corpus indexed: 2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2",
+        "published-finding corpus indexed: 2026/11/17/SCOPE-sharp-two-input-variation-instability-of-all-radius-running-medi--4ef2a38a9807",
+        "web: \"smallest pairwise difference\" \"total variation\" sliding window"
+      ]
+    },
+    "checked_sources": [
+      "https://wis.kuleuven.be/stat/robust/papers/publications-1993/rousseeuwcroux-alternativestomedianad-jasa-1993.pdf",
+      "https://link.springer.com/article/10.1186/s13634-016-0383-6",
+      "https://zenodo.org/records/35878",
+      "https://www.mathworks.com/help/matlab/ref/movmad.html",
+      "2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+      "2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2",
+      "2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb",
+      "2026/11/17/SCOPE-sharp-two-input-variation-instability-of-all-radius-running-medi--4ef2a38a9807"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2016 Hampel paper analyses filter roots, implosion, weighted replication, and empirical recovery; no operator norm on scale outputs under path-variation perturbations is asserted.",
+        "1993 MAD paper compares robust estimators of scale by statistical efficiency and influence functions; no moving-window perturbation stability is asserted.",
+        "Sharp moving-median operator results have a different Jacobian: median returns one order statistic, while MAD returns the minimum of three pairwise gaps. The anti-aligned adjacent derivative witness for MAD is not provided by median smoothing estimates."
+      ],
+      "reasoning": "The sharp coefficient is not a corollary of an individual observation breakdown bound, a location-filter BV contraction, or the general fact that scalar MAD is Lipschitz. The exact joint sign-realizability plus edge-weight column compatibility is essential. The nearest published claims do not supply these conclusions.",
+      "searches": [
+        "Sliding robust scale Hampel MAD signal filter perturbation sensitivity edge total variation weighted Lipschitz exact finite chain.",
+        "Robust scale statistic moving window median absolute deviation nonlinear variation norm vs standard deviation.",
+        "primary full-text DOI:10.1186/s13634-016-0383-6",
+        "primary full-text DOI:10.1080/01621459.1993.10476408",
+        "published-finding corpus indexed: 2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The triple MAD equals minimum of all three pairwise distances (proved directly), not the median of the three observations. Pearson et al. (2016) Eq. (4) defines the MAD scale, while its results are about Hampel replacement/implosion, not output-scale BV.",
+        "Rousseeuw--Croux (1993) Eq. (1.2) defines MAD; its theorems study robust scale efficiency and breakdown.",
+        "Indexed running-median studies 2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42 and 2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb address different output maps."
+      ],
+      "reasoning": "The original operator is a moving *scale*, expressible as a minimum of three pairwise distances; it is not a running median, nor a running minimum/maximum of the original samples. A synonym such as local nearest-neighbor spacing was searched through the triple identity. The reviewed claims do not assert or imply the weighted BV norm for this scale.",
+      "searches": [
+        "Moving median absolute deviation MAD of three observations adjacent smallest spacing. Sharp weighted total variation Lipschitz constant exact 0 2 3 4 n samples.",
+        "Median absolute deviation local triple min pairwise gaps. Sharp variation nonexpansivity on finite paths, weighted edges.",
+        "web: \"sliding median absolute deviation\" \"variation\" \"Lipschitz\"",
+        "web: \"median absolute deviation filter\" \"bounded variation\" inequality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed search returned related median and morphology constants but no record of MAD full-window weighted-edge 0,2,3,4 saturation.",
+        "MathWorks moving-MAD documentation documents implementation/examples, not a sharp two-input variation table or the independent weight formula."
+      ],
+      "reasoning": "No exact formula or table was observed for the selected MAD operator/variation seminorm. This absence is search-limited and is not used alone as proof of novelty; distinct operator implications were also compared.",
+      "searches": [
+        "Moving median absolute deviation MAD of three observations adjacent smallest spacing. Sharp weighted total variation Lipschitz constant exact 0 2 3 4 n samples.",
+        "Sliding robust scale Hampel MAD signal filter perturbation sensitivity edge total variation weighted Lipschitz exact finite chain.",
+        "web: \"moving MAD\" sharp Lipschitz constant variation",
+        "web: \"median absolute deviation\" \"Lipschitz\" weighted graph path filter"
+      ]
+    },
+    "rationale": "Both complete primary scientific texts that define/use the local MAD were compared at the level of operator and theorem: Rousseeuw--Croux treats scale, influence and breakdown; Pearson et al. treats Hampel replacement and replication-weighted median windows. Neither gives any exact two-input weighted path-variation coefficient. Indexed scientific results on running medians and min/max morphology act on other quantities and do not subsume this simultaneously weighted local MAD output formula. The exact 2,3,4 onset and sharp edge-weight criterion were not found in the inspected sources. Historical equivalence remains possible outside the inspected corpus.",
+    "residual_risks": [
+      "Historical priority cannot be established against all pre-index or unindexed sources; a prior proof of the exact weighted moving-MAD modulus could exist.",
+      "The 2015 conference PDF was not separately read in full; the freely accessible longer 2016 Hampel paper with the same authors and line of work was inspected.",
+      "Certain relevant published indexed results were available only as scientific summaries because full-source retrieval failed; each had a distinctly defined operator in the visible claim.",
+      "First-public-date is the precisely dated 2015 local-Hampel literature lead, not a claim that MAD itself first appeared in 2015."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering moving output-scale weighted path-variation norm. Focuses on robust scale breakdown/efficiency/influence.",
+        "evidence": [
+          "Equation (1.2) defines MAD; sections 1--3 investigate robust scale alternatives and efficiencies.",
+          "No Lipschitz or total variation theorem found in PDF text."
+        ],
+        "identifier_or_url": "https://wis.kuleuven.be/stat/robust/papers/publications-1993/rousseeuwcroux-alternativestomedianad-jasa-1993.pdf",
+        "material_read": "PDF introduction, MAD definition and comparison with other estimators; relevant theorem statements, bibliography and source text searched for Lipschitz and total variation; first page visually inspected",
+        "method": "open-access author-hosted full PDF, parsed text plus first-page screenshot",
+        "title": "Alternatives to the Median Absolute Deviation",
+        "trigger": "foundational MAD definition, possible scale perturbation results"
+      },
+      {
+        "assessment": "Not covering the sharp weighted variation modulus of the scale output; weighted filters change data-window multiplicities rather than variation edges.",
+        "evidence": [
+          "Section 2 Eq. (4) uses local MAD as an outlier threshold.",
+          "Section 7.1 defines weighted median by replicated observations and analyses root-sequence conditions; conclusions address different properties."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s13634-016-0383-6",
+        "material_read": "Full open article, especially Sections 2, 3, 5, 7, and 8 (MAD definition, generalized Hampel constructions, weighted replication, simulations and conclusions)",
+        "method": "full journal HTML text and term searches",
+        "title": "Generalized Hampel Filters",
+        "trigger": "same moving-window MAD statistic and potential weighted filter coverage"
+      },
+      {
+        "assessment": "Dated earlier version of same Hampel-filter research direction; expanded 2016 article was inspected instead. Full 2015 paper not separately checked.",
+        "evidence": [
+          "Repository lists publication date August 31, 2015 and an EUSIPCO conference-paper PDF.",
+          "Download attempt failed in textual retrieval."
+        ],
+        "identifier_or_url": "https://zenodo.org/records/35878",
+        "material_read": "Landing-page title, publication date, files, conference identification and DOI; PDF failed to fetch through web text retrieval",
+        "method": "open conference repository landing page; attempted PDF download",
+        "title": "The Class of Generalized Hampel Filters",
+        "trigger": "early precisely dated research lead and conference-preprint equivalence"
+      },
+      {
+        "assessment": "Different output (median smoothing rather than local MAD scale); no direct implication evident in indexed statement.",
+        "evidence": [
+          "Indexed abstract describes endpoint-preserving running median and its weighted edge coefficient, not the minimum pairwise-gap statistic."
+        ],
+        "identifier_or_url": "2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+        "material_read": "Published indexed title, mathematical claim summary and identifier (full source fetch disabled)",
+        "method": "published-finding corpus scientific index search",
+        "title": "Sharp two-input variation sensitivity of three-point median smoothing on finite paths",
+        "trigger": "same three-point length and weighted BV seminorm; plausible dominating result"
+      },
+      {
+        "assessment": "Raw-signal running min/max is not the pairwise-spacing MAD and the listed formula does not imply the stated metric result.",
+        "evidence": [
+          "Indexed statement concerns running minima/maxima on finite paths and arbitrary edge weights."
+        ],
+        "identifier_or_url": "2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2",
+        "material_read": "Published indexed title and mathematical claim summary (full source fetch disabled)",
+        "method": "published-finding corpus scientific index search",
+        "title": "Finite-window morphology: sharp two-input variation and a boundary-weight transition",
+        "trigger": "potential representation of MAD as a minimum of gap functions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "562007a3-6887-4255-8f90-4ba7f7d9fcec",
+  "value": {
+    "rationale": "Local MAD is the robust scale used by Hampel outlier screening. A high breakdown point does not control path-variation amplification between two moving-scale estimates. This all-length theorem resolves the exact worst-case perturbation budget for every positive pair of input/output edge-weight sequences, provides an iff nonexpansivity criterion, identifies the first unstable signal length and saturated gain, and supplies actual worst-case signals. It is a complete natural classification at the smallest nontrivial robust-scale window, not merely a one-off computation or normalized rewriting of running-median/standard-deviation bounds.",
+    "status": "PASS"
+  }
+}
