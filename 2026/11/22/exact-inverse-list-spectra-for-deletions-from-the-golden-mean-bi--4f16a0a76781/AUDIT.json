@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every source-parent pair has a unique greedy leftmost embedding of the received word. The intervening complementary-bit blocks factor under the 11 prohibition into \\(t^r(1+t)^{m-2k+r+1}/((1-t)^k(1-t-t^2))\\), with a nonnegative exponent because the k-r one-runs require at least k-r-1 separating zeros. The coefficient criterion proves feasibility and unique-parent equivalence for all m,d. Stars-and-bars gives the entire parameter-class histogram, a two-state transfer matrix gives the double generating series, and the unique dominant root of \\(1-z-z^2\\) gives the stated fixed-d asymptotic. An independent enumeration in verify.py checked 3,066 cases; its finite coverage is not treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2012.13536 §I and §IV construct efficient maximum-run-length-limited single-insertion/deletion correcting code families, not all individual inverse fibers for arbitrary deletion count.",
+        "arxiv:1802.00703 §V studies entropy extremization for one and two deletions over unrestricted sources, not counts for a forbidden-factor source language."
+      ],
+      "reasoning": "Generic regular-language transfer matrices could compute such cardinalities algorithmically, but an effective finite-state algorithm does not by itself state the two-statistic closed form, singleton equivalence, and asymptotic fraction. A literature theorem giving this general formula as an immediate corollary would supersede the claim; none was identified in the checked sources.",
+      "searches": [
+        "\"binary\" \"supersequence\" \"11\" avoiding Fibonacci cardinality",
+        "runlength limited single deletion channel unique supersequence constrained code 2020 2022",
+        "arxiv:2012.13536",
+        "arxiv:2105.04617"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1802.00703",
+      "https://arxiv.org/pdf/2012.13536",
+      "https://arxiv.org/abs/2105.04617",
+      "https://globals.ieice.org/en_transactions/fundamentals/10.1587/transfun.2020EAP1147/_p"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem IV.5 in arxiv:1802.00703 groups unrestricted supersequences of equal length/composition; it does not impose a forbidden adjacency transition and so does not determine the new parameter r.",
+        "RLL-SIDC results in arxiv:2012.13536 are code constructions with bounded deletions and redundancy, not an inverse-list classification over the full language."
+      ],
+      "reasoning": "Neither compared theorem implies the claimed equality for all m,d and y by the stated hypotheses; an additional constrained greedy-factor proof is necessary. The cited constructions motivate the application but are not passed off as new.",
+      "searches": [
+        "arxiv:1802.00703 IV.4 IV.5 singleton run enumeration",
+        "arxiv:2012.13536 run length limited insertion deletion construction",
+        "\"Fibonacci\" constrained words deletion channel output feasible iff adjacent 11 count at most number deletions and uniquely decodable iff equals deletions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arxiv:1802.00703 §III–IV, the distinct supersequence set ranges over the unrestricted binary alphabet and has a word-independent cardinality for fixed lengths. Its word-specific singleton count counts unique embeddings, not unique admissible parent strings.",
+        "The new rational formula varies with received-word weight and adjacent 11 count; this dependence is absent from the unrestricted theorem."
+      ],
+      "reasoning": "Canonical/greedy subsequence embeddings are a shared counting method, but the forbidden-adjacency source language and distinct-parent quotient change the enumerated set. No claimed equivalence was found in the inspected full-text sections or the web searches.",
+      "searches": [
+        "\"supersequences\" \"no consecutive ones\" generating function deletion",
+        "\"golden mean\" \"subsequence\" \"supersequence\" generating function",
+        "\"Fibonacci\" constrained words \"supersequences\" insertion channel counts",
+        "arxiv:1802.00703"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact small coefficients were computed independently from admissible parent enumeration for 3,066 received-word/deletion pairs, and no previously published parameter table from the checked sources matched the full all-parameter parent-list invariant.",
+        "arxiv:1802.00703 tabulates unrestricted supersequence embedding weights; those are not counts of the admissible distinct parents here."
+      ],
+      "reasoning": "A match of a short numerical sequence would not imply full coverage; direct full formula and invariant checks were sought. Search absence is limited evidence, not a uniqueness proof.",
+      "searches": [
+        "\"no consecutive ones\" \"supersequences\" \"subsequence\" number",
+        "\"adjacent ones\" \"deletion\" \"unique\" supersequence",
+        "\"Fibonacci\" \"supersequence\" \"deletion\" reconstruction list"
+      ]
+    },
+    "rationale": "A full-text comparison separates unrestricted supersequence counting and singleton embeddings (Atashpendar et al. 2018) from the present count of distinct parents constrained to avoid adjacent ones. Run-limited code construction literature (Takemoto and Nozaki 2020) has a different objective and does not state the exact arbitrary-deletion inverse-list law. Further semantic and phrase searches, including formulas and adjacency-count aliases, did not identify a covering item in the checked material. This is a qualified search-based originality judgment; undetected stronger prior coverage remains possible.",
+    "residual_risks": [
+      "A general regular-language constrained-supersequence theorem may imply this formula without matching the searched phrasing.",
+      "Equivalences in unindexed literature or older monographs were not exhaustively excluded.",
+      "The run-limited sequence asymptotics paper was considered at abstract level, not as a full-text negative check.",
+      "Published mathematical finding records were compared using discoverable abstracts/summaries; full repository records were not accessible for an exhaustive stronger-claim review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different count: unrestricted binary supersequences and mask-weight singleton embeddings; no forbidden-11 source classification in the inspected sections.",
+        "evidence": [
+          "§III defines Υ as all binary parents of fixed length containing a received word.",
+          "§IV-E defines singletons by exactly one embedding mask, explicitly different from unique admissible parents."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1802.00703",
+        "material_read": "Full-text PDF: abstract and introduction, definition of compatible supersequences in §III, §IV clustering (including Theorems IV.4 and IV.5), §IV-E singleton embeddings, and §V single/double-deletion material and conclusion.",
+        "method": "Accessible arXiv full-text page extraction with page-image visual inspection of the supersequence-counting section.",
+        "title": "From Clustering Supersequences to Entropy Minimizing Subsequences for Single and Double Deletions",
+        "trigger": "Same supersequence/deletion counting object, potential broad dominance."
+      },
+      {
+        "assessment": "Coding and algorithm construction for bounded runs, not arbitrary received-word inverse-fiber enumeration.",
+        "evidence": [
+          "§I emphasizes constructing encodable/decodable RLL-SIDC codes with redundancy.",
+          "§IV states code construction and encoding algorithms rather than all-parameter list-size classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2012.13536",
+        "material_read": "Full-text PDF: abstract and introduction, run-length code model, §III encoder comparison, §IV code construction and Theorem 1 and associated encoding algorithm.",
+        "method": "Accessible arXiv full-text text extraction and visual inspection of code-construction page.",
+        "title": "Construction and Encoding Algorithm for Maximum Run-Length Limited Single Insertion/Deletion Correcting Code",
+        "trigger": "Run-length restriction paired with insertion/deletion, potential overlap."
+      },
+      {
+        "assessment": "Relevant background only; absence of overlapping results is not claimed from abstract-level material.",
+        "evidence": [
+          "The published abstract discusses sequence asymptotics and code bounds, not an explicit received-word inverse-list law."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.04617",
+        "material_read": "Public abstract and bibliographic overview of capacity, composition, and run-count asymptotics; no complete full-text inspection.",
+        "method": "ArXiv abstract and external bibliographic descriptions.",
+        "title": "Asymptotic Behavior and Typicality Properties of Runlength-Limited Sequences",
+        "trigger": "Related run-limited information-theoretic asymptotics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4f16a0a7-6781-4915-9fc6-212029469927",
+  "value": {
+    "rationale": "A deletion-channel receiver needs the number of admissible distinct source strings, rather than the number of deletion masks. This result supplies that cardinality for every target and arbitrary deletion count and compresses its dependence to just weight and adjacent-11 count. It additionally enumerates every list-size class and exactly identifies all singleton and feasible outputs, with a sharp asymptotic recovery fraction. These are motivated complete channel invariants, not a small-number table or a relabeling of unrestricted counting.",
+    "status": "PASS"
+  }
+}
