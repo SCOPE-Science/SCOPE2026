@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "BV derivative measure gives an exact finite-degree jump reduction; conditional binomial/beta transition moments and fixed-iterate Gaussian limits yield the full central jump profile. A uniform Chebyshev integral bound excludes endpoint jumps, the unique maximum of t(1-t) enforces median localization, and Minkowski with a strict external gap proves all near-extremal variation concentrates at the median. Uniform-norm extremal lower bound follows from continuity of non-atomic Markov transition at the zero boundary. Exact check.py gives 266 rational assertions and 16 numerical comparisons, not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berdysheva–Dyn–Farkhi–Mokhov, arxiv:2212.00439 section 6 Theorem 6.6: nonsharp order \\(n^{-1/2}\\) \\(L^1\\) bounds for Bernstein-Durrmeyer and Kantorovich metric approximation.",
+        "Adell–Garrancho–Martínez-Sánchez, arxiv:2410.19893: pointwise discontinuity estimates and probabilistic limit methods, not the sharp integrated norms for all finite p and r."
+      ],
+      "reasoning": "The general positive-kernel estimates could reproduce qualitative rates but do not determine the exact integrated Gaussian coefficient, the factor between the two sampling mechanisms, or the near-extremal derivative-measure rigidity. The separate pointwise central limit theorem does not on its own imply uniformity over jumps approaching endpoints.",
+      "searches": [
+        "arxiv:2212.00439 sections 3-6 Theorem 6.6",
+        "arxiv:2410.19893 methods and discontinuity case studies",
+        "positive averaging approximate identity sharp BV to Lp error norm Gaussian profile universal jump concentration"
+      ]
+    },
+    "checked_sources": [
+      "W. Hoeffding (1971), doi:10.1016/0021-9045(71)90001-3",
+      "D. H. Jones (1976), doi:10.1016/0021-9045(76)90001-0 (original inaccessible; secondary restatement)",
+      "Öksüzer–Karsli–Yeşildal (2016), arxiv:1605.03976",
+      "Berdysheva–Dyn–Farkhi–Mokhov (2022), arxiv:2212.00439",
+      "Adell–Garrancho–Martínez-Sánchez (2024), arxiv:2410.19893",
+      "Wang (2013) NCSU dissertation, theorem 2.2.4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Variation contraction of D_n does not determine the Lp error of I-D_n^r.",
+        "Nonsharp L1 order estimates are weaker than this exact all-p fixed-\\(r\\) coefficient.",
+        "A sharp point-sampling Bernstein p=2 result does not cover Durrmeyer posterior beta noise or iterates."
+      ],
+      "reasoning": "The new full theorem specializes to known cases (r=1,p=1), which are credited. Its additional all-p and iterated parts are neither identical with, nor consequences of, the inspected exact or nonsharp prior statements without new Gaussian transition and uniform endpoint estimates.",
+      "searches": [
+        "arxiv:1605.03976 Theorem 3.1 and 4.1",
+        "arxiv:2212.00439 Theorem 6.6",
+        "arxiv:2410.19893 pointwise discontinuity results",
+        "Markov approximation kernels bounded variation norm sharp Lp error Gaussian central limit variance maximize"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hoeffding 1971 is a sharp integrated L1 predecessor for Bernstein-type operators; the one-step p=1 component is not a novelty claim.",
+        "arXiv:1605.03976 sections 1–4 give variation estimates, not the displayed all-p sharp residual constants."
+      ],
+      "reasoning": "Rewriting the residual error as an operator norm on the BV seminorm quotient reduces it to unit jumps, but the Gaussian jump profile and fixed-step variance addition are needed to obtain the new all-p constant and concentration of near-extremizers. The older L1 equality only controls r=1,p=1, and hence cannot imply r>1 or p>1.",
+      "searches": [
+        "Bernstein Durrmeyer fixed iterates gaussian transition integrated approximation sharp BV norm",
+        "Web: Bernstein Kantorovich Durrmeyer bounded variation L2 error sharp",
+        "W. Hoeffding, JAT 4 (1971), doi:10.1016/0021-9045(71)90001-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jones 1976 indexed title concerns Bernstein polynomial L2 error; the secondary dissertation quotation gives an absolutely continuous-input upper rate with weighted derivative integral.",
+        "The exact finite-degree one-step L1 constants for classical K and D have already been established and are expressly excluded from the originality claim."
+      ],
+      "reasoning": "The paper title and available restatement concern point-sampling Bernstein approximation of smooth functions; the present primary invariant is the joint fixed-iterate BV to Lp residual of two integral operators. The original Jones text was not accessible, leaving some historical uncertainty. No matching multi-iterate all-p table was identified.",
+      "searches": [
+        "D. H. Jones, JAT 18 (1976), doi:10.1016/0021-9045(76)90001-0",
+        "Wang 2013 NCSU dissertation, Theorem 2.2.4 restating Jones 1976",
+        "Kantorovich Bernstein operators sharp bounded variation to L2 residual limiting constants"
+      ]
+    },
+    "rationale": "The genuine new component is a common, sharp asymptotic for every fixed finite p and iteration r for both integral kernels, with the variance-factor distinction and near-extremal variation-measure rigidity. Earlier \\(r=1,p=1\\) and adjacent point-sampling Bernstein results are recognized as prior coverage; other inspected works only have variation, pointwise, smooth-input or nonsharp estimates. The historically inaccessible original Jones paper remains an explicit residual risk.",
+    "residual_risks": [
+      "The complete 1976 Jones original is inaccessible and may contain a stronger unindexed general method; the consulted dissertation restatement does not show claim coverage.",
+      "An unindexed classical general-kernel theorem could subsume the combined all-p and fixed-iterate assertion despite no direct match found.",
+      "The result is a same-model mathematical assessment, not independent external verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for sharp BV-to-Lp residual and fixed iterates",
+        "evidence": [
+          "Theorem 3.1 is variation detracting; theorem 4.1 gives variation approximation for smooth inputs, not exact integrated jump errors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1605.03976",
+        "material_read": "Sections 1–4 including equations (1)–(8), theorem 3.1 and theorem 4.1",
+        "method": "Open-access arXiv full HTML text",
+        "title": "Convergence of the Bernstein-Durrmeyer operators in variation seminorm",
+        "trigger": "same integral operator, real BV, original archival 2016 source"
+      },
+      {
+        "assessment": "NOT_COVERING for exact all-p iterated coefficients",
+        "evidence": [
+          "Theorem 6.6 gives an O(n^-1/2) nonsharp L1 estimate for metric selections. No exact all-p constants or fixed-iterate near-extremizer geometry."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.00439",
+        "material_read": "Full arXiv HTML sections 3–6, including kernel definitions and Theorems 6.5–6.6",
+        "method": "Open-access arXiv full HTML text, theorem and proof inspection",
+        "title": "Metric approximation of set-valued functions of bounded variation by integral operators",
+        "trigger": "both K and D kernels and BV L1 error in a general setting"
+      },
+      {
+        "assessment": "NOT_COVERING for integrated operator sharp norms",
+        "evidence": [
+          "The main comparison is a pointwise discontinuity approximation statement; no global BV-to-Lp fixed-iterate exact constant identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.19893",
+        "material_read": "Full available arXiv HTML mathematical methods, main theorems and examples",
+        "method": "Open-access arXiv HTML text",
+        "title": "Approximation of discontinuous functions by positive linear operators. A probabilistic approach",
+        "trigger": "probabilistic treatment of jump approximation under positive kernels"
+      },
+      {
+        "assessment": "COVERING for some one-step L1 precedents, explicitly credited rather than presented as new",
+        "evidence": [
+          "The 1971 work is an exact L1 predecessor on Bernstein-type approximants; no comparable all-p multi-iterate statement identified from the material read."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0021-9045(71)90001-3",
+        "material_read": "Journal pages 347–356 accessible as parsed full text; first-page PDF screenshot attempt failed with service 503",
+        "method": "Open-access journal PDF text extraction and published bibliographic indexing",
+        "title": "The L1 norm of the approximation error for Bernstein-type polynomials",
+        "trigger": "strong exact one-step BV L1 antecedent"
+      },
+      {
+        "assessment": "UNRESOLVED full-paper comparison; available restatement is about smooth-input classical point sampling, not same joint theorem",
+        "evidence": [
+          "Wang (2013), theorem 2.2.4 attributes to Jones an absolutely continuous function upper error, involving weighted derivative integral."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0021-9045(76)90001-0",
+        "material_read": "Original journal full text unavailable; bibliographic data and detailed 2013 dissertation theorem restatement read",
+        "method": "Publisher/archival searches, secondary theorem text; institutional full-text attempt returned disconnected VPN",
+        "title": "The L2 norm of the approximation error for Bernstein polynomials",
+        "trigger": "potential dominating L2 result for an adjacent Bernstein operator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "238426d6-43b3-42ba-94b4-11a4cf069142",
+  "value": {
+    "rationale": "Classical Bernstein-type integral regularizers are natural BV signal smoothers. Exact worst-case integrated errors and the \\(2^{1/(2p)}\\) posterior-beta penalty distinguish standard algorithms; \\(r^{1/(2p)}\\) quantifies repeated smoothing, while the median rigidity theorem and nonvanishing L-infinity barrier reveal the exact worst-case geometry and endpoint obstruction, beyond qualitative convergence.",
+    "status": "PASS"
+  }
+}
