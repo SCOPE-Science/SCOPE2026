@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T03:59:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rule is explicitly defined for 4 color states and threshold count of excited neighbors. The two-subsets of 5 symbols form the exact 10-vertex 3-regular Petersen graph. Its 4-adic state space contains exactly 4^10=1048576 states, all enumerable. Source Python direct Kneser adjacency checks F_1^31=F_1^11 for every input and F_2^5=0, traces periods and S5 action on cycles. Independently constructed C++ outer-cycle+spokes+inner-pentagram graph and used indegree pruning on entire functional graph to find exact periods and transient times. Full independent C++ run reproduced period census {1:1,4:90,5:30}, threshold2 only fixed point, each entry-time-period table and 1920/3740 extremal populations. Read supplied second C++ verifier and 120-permutation Python code; temporal orbit S5 partition 30/60/30 and maximal-delay sixteen 120-orbits are coherently exhaustive but not independently rerun a second group-census implementation. The theorem is ONLY finite Petersen, not general graph impossibility.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner-Lyu-Sivakoff 2018 title and theorem: three-color arbitrary graphs",
+          "Resultary four-state Chvatal and icosahedral findings concern other graphs",
+          "Resultary four-state complete bipartite theorem excludes Petersen graph"
+        ],
+        "reasoning": "General three-color theorems do not imply four-color transient populations; graph-family formulas require complete bipartite conditions Petersen violates. Model paper is general dynamics, not a stated exact census for this benchmark.",
+        "searches": [
+          "four color Greenberg Hastings Petersen graph threshold one two full orbit census five cycles symmetry"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record RESULT.md, verify_kneser.py, verify_outer_inner.cpp, census.csv",
+        "Independent C++ exhaustive functional graph (all 1048576 states, both thresholds)",
+        "arXiv:1610.07320 full primary text",
+        "Fisch Gravner Griffeath 1991",
+        "Greenberg Hastings 1978 abstract",
+        "Resultary exact 3-color Petersen comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1991 Fisch-Gravner-Griffeath defines threshold Greenberg-Hastings wave model on lattice",
+          "2018 Gravner-Lyu-Sivakoff covers three-color graph dynamics, no full 4-color Petersen state table",
+          "Direct exhaustive 4^10 functional-graph computation established exact counts"
+        ],
+        "reasoning": "Definition of a dynamical system and qualitative lattice activity do not mathematically determine exact Petersen basins and automorphism-orbit census. Available published same-graph three-state results are not stronger for 4-state operator.",
+        "searches": [
+          "four color Greenberg Hastings Petersen graph threshold one two full orbit census five cycles symmetry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same graph has Kneser two-subset form and generalized Petersen GP(5,2) outer/inner 5-cycle construction",
+          "Rule F_theta with color 0 rest and 1 excite plus refractory 2,3"
+        ],
+        "reasoning": "Both graph presentations are isomorphic and the independent C++ full census used the outer-inner representation. Earlier three-color GP(5,2) is a different phase space (3^10 vs 4^10), not an equivalent formulation of the current temporal states.",
+        "searches": [
+          "four color Greenberg Hastings Petersen graph threshold one two full orbit census five cycles symmetry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned same Petersen result plus three-color Petersen/GK(6,2) comparisons and 4-state other-graph tables; no prior indexed 4-state Petersen exact table"
+        ],
+        "reasoning": "Existing three-color Petersen tables have different periods and cannot cover four-color data. The searched finite-state table database did not directly match; outside datasets may still exist.",
+        "searches": [
+          "four color Greenberg Hastings Petersen graph threshold one two full orbit census five cycles symmetry"
+        ]
+      },
+      "rationale": "Full exact four-state Petersen excitation census not implied by related three-color Petersen results, four-color excitation on Chvatal/icosahedral, or infinite complete bipartite families. Primary 2018 arbitrary-graph paper is three-color; 1991 threshold model treats lattice waves. Original 1978 Greenberg Hastings paper only bibliographic abstract read, not a whole-text noncoverage claim; residual risk disclosed. Source code and graph state are enough for exact finite theorem, with no generalization.",
+      "residual_risks": [
+        "Older 1978 original full text not inspected; no claim that snippets establish whole-document noncoverage.",
+        "Spatial S5 class enumeration was code-audited and counts sum correctly, but the separate independent C++ check verifies temporal census and not a second implementation of S5 orbit grouping.",
+        "A finite verified benchmark is not a theorem about arbitrary regular graphs or higher color counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Arbitrary graph but three colors, not 4^10 four-color Petersen transition census",
+          "evidence": "Graph model definitions, theorem scopes",
+          "identifier_or_url": "arXiv:1610.07320; Annals of Applied Probability 2018",
+          "material_read": "Full accessible PDF 2018 theory, hypotheses and results; figure/page visually checked",
+          "method": "author-hosted legal full PDF inspected",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Same Greenberg-Hastings model on arbitrary graph, possible stronger coverage"
+        },
+        {
+          "assessment": "Threshold-wave qualitative scaling on lattice, not a direct exact Petersen 4^10 orbit table",
+          "evidence": "Model definitions, title and statements available in paper",
+          "identifier_or_url": "Fisch, Gravner, Griffeath, Statistics & Computing 1 (1991), https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf",
+          "material_read": "Accessible paper descriptions of threshold-range models and lattice regime; no claim of inspecting all appendices",
+          "method": "author-hosted PDF accessed and scoped",
+          "title": "Threshold-range scaling of excitable cellular automata",
+          "trigger": "Four-state and threshold-range predecessor"
+        },
+        {
+          "assessment": "Original dynamics are prior; cannot claim article whole text excludes Petersen results; residual priority risk retained",
+          "evidence": "SIAM J Applied Math 34 (1978) 515–523",
+          "identifier_or_url": "Greenberg & Hastings (1978), DOI:10.1137/0134040",
+          "material_read": "Abstract/bibliographic metadata only; full original article not acquired",
+          "method": "publisher abstract and bibliographic record",
+          "title": "Spatial Patterns for Discrete Models of Diffusion in Excitable Media",
+          "trigger": "Original eponymous dynamics; most relevant older source"
+        },
+        {
+          "assessment": "Matching graph alone cannot cover different four-state F map; noncoverage conclusion restricted to indexed theorem statement",
+          "evidence": "Published summary 3-color versus current 4-color",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-recurrence-and-basins-on-the-two-ten-vertex-generalized-pe--7d4c1d4df82a",
+          "material_read": "Published Resultary summary explicitly says 3^10 three-state maps and periods seven/eight",
+          "method": "Resultary semantic index plus title/summary, full manuscript not retrieved",
+          "title": "Exact recurrence and basins on the two ten-vertex generalized Petersen graphs",
+          "trigger": "Same Petersen graph and exact dynamics, possible stronger finite table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural smallest iconic nontrivial cubic graph with symmetric automorphism S5, and the exact threshold-driven disappearance of 4/5-cycle oscillations is a complete motivated finite classification of attractors, basins, and sharp clocks. The exact S5 type split is mathematically interpretable, not an arbitrary narrow sampling, and supports benchmarking of threshold excitable dynamics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen record RESULT.md, verify_kneser.py, verify_outer_inner.cpp, census.csv",
+    "Independent C++ exhaustive functional graph (all 1048576 states, both thresholds)",
+    "arXiv:1610.07320 full primary text",
+    "Fisch Gravner Griffeath 1991",
+    "Greenberg Hastings 1978 abstract",
+    "Resultary exact 3-color Petersen comparison"
+  ],
+  "disposition": "passed",
+  "final_claim": "For complete 4^10 four-color Greenberg-Hastings maps on Petersen KG(5,2), threshold 1 has F^31=F^11, one fixed point, 90 primitive 4-cycles and 30 primitive 5-cycles in S5 classes of sizes 30/60/30, exact maximal first-entry 11 (1920 states). Threshold 2 has F^5 identically zero, maximal first-entry 5 (3740 states).",
+  "limitations": [
+    "Finite graph and precisely specified four-state update rule only; binary execution bounded and exact, not an all-graphs classification.",
+    "No claim the 1978 original article was read in full."
+  ],
+  "residual_risks": [
+    "Older 1978 original full text not inspected; no claim that snippets establish whole-document noncoverage.",
+    "Spatial S5 class enumeration was code-audited and counts sum correctly, but the separate independent C++ check verifies temporal census and not a second implementation of S5 orbit grouping.",
+    "A finite verified benchmark is not a theorem about arbitrary regular graphs or higher color counts."
+  ],
+  "schema_version": 1
+}
