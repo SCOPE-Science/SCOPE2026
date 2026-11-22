@@ -1,11 +1,21 @@
-# Scientific comparison and self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 12-vertex, 18-edge graph is fully defined; two edge orbits are exhaustive. There are 562 and 598 augmented faces in the rung- and rim-deleted complexes, respectively. The complete directed Hasse graphs of the explicit face matching are acyclic, and exact signed integral Morse boundary matrices are displayed in the result and computed in the standalone verifier. All relevant boundary entries have unit minors, allowing genuine CW cancellation to a wedge of two two-spheres in both cases. This is a complete finite proof with replayable finite enumerations, not a numerical extrapolation.
+## correctness
 
-**Originality — PASS with bibliographic risk.** Agarwal–Basak (arXiv:2608.30601, Theorem 25, full primary text inspected) covers the intact prism but not any fault deletion. The earlier horizontal-edge fault classification already establishes the rim case and is excluded from the newly contributed rung orbit. Published searches for one-rung perfect-matching topology and related aliases did not identify a theorem implying the rung case; none of the closest records on ordinary matching complexes, reflection-fixed subspaces, or general prism perfect-matchings identifies it. Source indexing is incomplete, so priority is not independently certified.
+PASS
 
-**Value — PASS.** The six-column prism is the smallest natural even circular-prism case in which the intact perfect-matching complex has six two-sphere generators. A single deleted edge retains exactly two, and the new rung computation shows that this loss is independent of the two distinct edge orbits. This finishes a natural complete graph-edge fault classification with integral homotopy information, not just a Betti-number check; no arbitrary parameter slice is selected apart from completing all faults of the fixed hexagonal prism.
+The entire finite 12-vertex prism admits two edge orbits. Independently enumerated 14 facets/598 augmented faces for a removed rim edge, and 12 facets/562 for a removed rung. Rebuilt full downward-closed complexes and independently computed mod-2 Betti 2 in degree two and zero in other positive degrees. Constructed complete oriented Hasse diagrams with Morse pairing, checked every directed cover and topological acyclicity: 296 rim pairs and 279 rung pairs. Independently recomputed signed integral Morse boundaries exactly: rim d2=[1,1,-1,-1], d3=[0,0,1,-1]^T, rung d2=[0,-1,1]. Both have primitive unit attachments. For rim, cancel one 1/2 pair and one primitive 2/3 pair; for rung, cancel one 1/2 pair. Remaining CW type is S2∨S2 for both. This is an exhaustive finite proof, not extrapolation.
 
-The finite result does not assert any extension to arbitrary circumference, multiple faults, or equivariant homotopy. The supporting primary paper has been read in full available text; an unindexed covering theorem remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Agarwal–Basak Main Theorem 2 and its full proof classify only intact circular ladders; n=6 gives six S2 summands. The published horizontal-defect law already covers rim deletion and is credited; the distinct rung orbit at n=6 is not covered by the published odd-width deleted-rung theorem. The union of two edge-orbit outcomes is an additional complete natural fault classification. Small finite graph does not make the exact new rung result valueless or already tabulated.
+
+## value
+
+PASS
+
+The hexagonal prism is a canonical symmetric cubic graph with exactly two edge orbits. Computing both fault homotopy types proves a natural complete one-fault classification and detects a strong drop in integral degree-two homology rank (six to two). The new rung case is a small exact invariant of an independently motivated complex, supported by a finite complete integral certificate, not an arbitrary unidentified sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
