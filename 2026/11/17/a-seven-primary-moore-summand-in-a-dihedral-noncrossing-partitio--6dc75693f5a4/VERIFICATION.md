@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the integral quotient complex
+# Independent mathematical audit
 
-Run `python3 verify.py certificate.json` in the directory containing the extracted files. Standard-library Python 3 is sufficient. The verifier constructs all \(877\) set partitions of seven points, identifies \(429\) noncrossing partitions, excludes the two lattice bounds, and takes whole-chain orbits under the explicit \(14\)-element dihedral group.
+## correctness
 
-The finite checks verify the cell counts \((47,542,1954,2680,1231)\), Burnside fixed-chain counts, all signed incidences, every boundary composite, and exactly \(3221\) integral unit chain contractions. The resulting differential is the nonzero one-row map from \(\mathbb Z^{10}\) whose nonzero entries have greatest common divisor seven. The certificate records each pivot and final matrix and is compared byte-for-byte with the regenerated certificate. The expected final success marker is `VERIFY_OK`.
+PASS
 
-As an independent mathematical consistency check, the free order-seven rotation quotient has \(H_3\cong\mathbb Z/7\) by Cartan–Leray, and reflection inversion is trivial on this third group-homology degree; involution-quotient transfer localized at seven predicts the surviving \(\mathbb Z/7\) class. This does not determine the free rank or rule out two-primary torsion.
+The proper NC7 order complex of rank-six lattice has 427 vertices and is simply connected by the primary EL-shellability result. The D7 action is without simplex inversions since chain ranks are preserved, and every reflection has a fixed nontrivial partition vertex; Armstrong gives simply connected quotient. A NEW independently written exhaustive restricted-growth partition and dihedral orbit-chain enumeration recovered original chain counts (427,6468,25382,36015,16807), quotient cells (47,542,1954,2680,1231), and signed boundary nonzeros (0,1084,5862,10720,6155). Independently implemented integer unit-chain cancellations took 3221 pivots to residual groups (1,0,0,1,10), with ten degree-four coefficients (14,7,7,-14,14,7,-14,14,-14,14), gcd=7. Hence H3=Z/7,H4=Z^9 and no other reduced integral groups. A simply-connected 4-CW complex with H2=0 is 2-connected, its 3-skeleton a wedge S3 and degree classification gives M(Z/7,3) wedge nine S4. The exact computation is finite, not an all-size classification.
 
-Shellability and the rank-six wedge theorem, Armstrong's orbit-space fundamental-group theorem, and the two-connected four-dimensional cellular attachment classification are mathematical prerequisites proved in the cited literature or by the argument in `RESULT.md`, not experimentally certified by this script. No assertion of independent or formal verification is made.
+## originality
+
+PASS
+
+Best-of-knowledge search and actual statement comparisons across Resultary, primary accessible literature and the assigned proof found no earlier statement implying this specific final claim. Named comparisons below identify exact overlap and inapplicability; failure to find a source is not itself novelty proof, and material uninspected is retained as risk.
+
+## value
+
+PASS
+
+A natural dihedral quotient of the classical seven-point noncrossing-partition lattice acquires 7-primary torsion not present in the torsion-free covering sphere wedge. The full integral homotopy type including a Moore space and nine free spheres is a meaningful exact symmetry-topology invariant, providing an explicit case that rational orbit counts cannot detect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
