@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:14:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2611.09537",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-logarithmic-finite-cutoff-bias-at-the-critical-shattering--6e804feb8f4b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-logarithmic-finite-cutoff-bias-at-the-critical-shattering--6e804feb8f4b/check.py"
+      ],
+      "rationale": "The stated positive recurrence a_k=k n_k, a_1=4/5, a_k=k/[2(k+4)] sum_{j<k}a_j a_{k-j} yields the exact ODE z(1-A)A'=4(z-A). The mass-one limiting solution and M2=2 are justified using endpoint finite-second-moment bounds from the critical stationary regime, not a truncated simulation. With w=1-z and h=2-(1-A(1-w))/w, direct substitution gives w h'=h^2/[(1-w)(2-h)]-w(2-h)/(1-w). The reciprocal u=1/h obeys u'->1/2 in logarithmic time after the elementary linear upper bound u(L)<=L+C controls e^-L u^2, so 2-A'(1-w)~2/log(1/w). The positive coefficient sandwich at w-=1/[N(log N)^2] and w+=(log N)^2/N bounds the omitted mu_k=k^2 n_k mass and proves (log N)R_N->2. Moment divergence for p>2 and epsilon log N_epsilon->2 follow. Independently recomputed 15 exact recurrence coefficients and tested finite interior ODE residual; that is only a finite algebra check, not the infinite proof.",
+      "residual_risks": [
+        "An endpoint M2 finite bound is needed before differentiating A at 1; the source supplies it via supercritical stationary moment bounds and Fatou.",
+        "An integrated tail does not independently imply pointwise n_k asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matveev gives critical recurrence/M2=2; other Resultary finding supplies missing exact tail.",
+          "Earlier result directly entails cutoff bias and p>2 divergence via moment comparison."
+        ],
+        "reasoning": "General moment balance alone is insufficient, but the full earlier integrated-tail theorem is sufficient and stronger than the new corollaries.",
+        "searches": [
+          "Resultary semantic search: critical shattering multiplicative coagulation monomer fragmentation lambda 4 cutoff second moment logarithmic tail; exact same 2026-11-17 published theorem plus Matveev 2611.09537",
+          "https://arxiv.org/abs/2611.09537",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-spontaneous-shattering-has-a-sharp-logarithmic-stationa--25e7a29c91df/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-spontaneous-shattering-has-a-sharp-logarithmic-stationa--25e7a29c91df/RESULT.md",
+        "https://arxiv.org/abs/2611.09537"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier lim(log N)R_N=2 => R_N~2/log N, N_epsilon~exp[(2+o(1))/epsilon] on logarithmic scale, and any p>2 moment would contradict slower-than-power decay."
+        ],
+        "reasoning": "All principal and corollary statements in the submitted result are implications of an earlier actual source, even though the proof methods differ.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-spontaneous-shattering-has-a-sharp-logarithmic-stationa--25e7a29c91df/RESULT.md",
+          "https://arxiv.org/abs/2611.09537"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same lambda=4, mass-one product kernel, stationarity and recurrence; earlier exact boxed limit lim (log N) sum_{k>N} k^2 n_k=2."
+        ],
+        "reasoning": "The exact previous theorem is identical under a_k=k n_k and R_N as tail. No weaker/stronger change of normalization avoids coverage.",
+        "searches": [
+          "Resultary semantic search: critical shattering multiplicative coagulation monomer fragmentation lambda 4 cutoff second moment logarithmic tail; exact same 2026-11-17 published theorem plus Matveev 2611.09537",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-spontaneous-shattering-has-a-sharp-logarithmic-stationa--25e7a29c91df/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both are exact infinite analytic tail laws with constant 2; finite coefficient tables are not the basis of the priority comparison."
+        ],
+        "reasoning": "No lookup-table or census issue is relevant; the complete exact same infinite theorem already covers it.",
+        "searches": [
+          "Resultary semantic search: critical shattering multiplicative coagulation monomer fragmentation lambda 4 cutoff second moment logarithmic tail; exact same 2026-11-17 published theorem plus Matveev 2611.09537",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-spontaneous-shattering-has-a-sharp-logarithmic-stationa--25e7a29c91df/RESULT.md"
+        ]
+      },
+      "rationale": "A separate already published result with a different title proves exactly the same mass-one product-kernel, lambda=4 stationary theorem: lim(log N) sum_{k>N}k^2n_k=2 with the identical recurrence and critical normalizations. Its full RESULT.md gives a construction and Tauberian proof. The submitted p>2 moment divergence and exponential cutoff inversion follow immediately from that exact tail, so neither is an original mathematical final claim. An alternative elementary Tauberian sandwich is a proof presentation rather than a separately motivated mathematical theorem.",
+      "residual_risks": [
+        "The publication order within November 17 is not independently established; strong extant prior-coverage evidence suffices for this review without asserting authorship or independent priority chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: same exact infinite tail theorem with same constant and model",
+          "evidence": [
+            "Finding boxed lim(log N)R_N=2; proof §4 monotone Tauberian; scope lambda=4 and mass one."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-spontaneous-shattering-has-a-sharp-logarithmic-stationa--25e7a29c91df/RESULT.md",
+          "material_read": "Full RESULT.md including theorem, assumptions, barriers, generating ODE, Tauberian proof, limitations",
+          "method": "GitHub exact repository file read",
+          "title": "Critical spontaneous shattering has a sharp logarithmic stationary second-moment tail",
+          "trigger": "Near-identical Resultary semantic hit; actual same recurrence and constants"
+        },
+        {
+          "assessment": "BACKGROUND: gives recurrence/critical M2 but not tail itself",
+          "evidence": [
+            "Product-kernel stationary equation and moment Riccati M2'=M2^2−λM2+λ."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.09537",
+          "material_read": "Paper text §§1–3: product kernel, critical λ=4, recurrence (12), M2 steady state",
+          "method": "Open scholarly PDF text extraction; arXiv-first public abstract and lawful document text",
+          "title": "Suppression of gel formation by spontaneous fragmentation",
+          "trigger": "Underlying physical model and initial stationary formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-spontaneous-shattering-has-a-sharp-logarithmic-stationa--25e7a29c91df/RESULT.md"
+      ],
+      "rationale": "Sharp critical finite-cutoff error is a genuinely motivated quantity, but the exact fact and constant are already delivered by the full earlier published theorem. The added easy moment/cutoff corollaries and an alternate asymptotic argument do not constitute a new independently valuable claim. Scientific rejection is for comprehensive coverage, not because the topic itself is trivial.",
+      "residual_risks": [
+        "No untouched downstream claim beyond the earlier theorem was found; preserving all original files protects evidence."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection because full original is published already; the observed SLOGAN.txt also contains a pre-existing vertical-tab escape corruption in the rendered epsilon word, preserved rather than silently edited in a failed relocation.",
+    "No claim is made about pointwise n_k, dynamics or separately truncated kinetic systems."
+  ],
+  "schema_version": 1
+}
