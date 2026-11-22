@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact two-sine Gramian and inverse; strict logit convexity from entrywise positive logarithmic curvature, Hölder plus Perron–Rayleigh and tail divergence; heat short-horizon uniform limit and infinite-horizon cubic unique root reconstructed from finite formula. Symbolic identities and 20610 supplementary numerical checks run from the included verification source; continuum proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2108.05629 studies every finite-dimensional scalar actuator but a different norm-based design reduction",
+        "arxiv:1403.6445 considers unrestricted positive-measure domains under averaging",
+        "doi:10.1016/j.ifacol.2021.06.102 abstract concerns observer costs"
+      ],
+      "reasoning": "General design frameworks do not, by their stated results, solve this fixed sinusoidal one-point, worst-direction Gramian with all SPD temporal profiles. The Burns–Herdman full body was not accessible, so no whole-document exclusion is asserted.",
+      "searches": [
+        "two-frequency sensing profiles sin pi x and sin 2 pi x E-optimal infinite horizon observability Gramian smallest eigenvalue analytic unique",
+        "\"first two eigenmodes\" \"optimal sensor\" heat \"minimum eigenvalue\"",
+        "\"two-mode\" \"heat\" \"E-optimal\" \"sensor\" Gramian",
+        "optimal sensor placement for observer design 2021 Burns Herdman full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.05629",
+      "arxiv:1403.6445",
+      "https://ecal.studentorg.berkeley.edu/pubs/CDC12-PDESensorPlacementBatts.pdf",
+      "https://skoge.folk.ntnu.no/prost/proceedings/nolcos-2013/papers/0011.pdf",
+      "doi:10.1016/j.ifacol.2021.06.102"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1403.6445 Eq. (4) optimizes the minimum over eigenmodes after expectation diagonalizes the observable",
+        "Wolf–Moura–Krstić CDC 2012 Eq. (25) uses independent eigenmode absolute amplitudes",
+        "arxiv:2108.05629 Sec. 2 optimizes a companion-coordinate transformation rather than the continuous observation Gramian"
+      ],
+      "reasoning": "Neither diagonal mode-by-mode minimum nor unconstrained actuator-direction norm compares to a nonzero-cross-term two-by-two information Gramian for a spatially restricted point sensor; a theorem optimizing the former does not imply the claimed horizon-dependent optimizer of the latter.",
+      "searches": [
+        "\"Optimal shape and location of sensors for parabolic equations with random initial data\" spectral criterion",
+        "\"On Optimizing Sensor Placement for Spatio-Temporal Temperature Estimation\" modal observability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2108.05629 Sections 1–3: actuator direction optimization via Brunovský representation",
+        "arxiv:1403.6445 Section 2: random-initial-data averaging removes modal cross terms",
+        "Wolf–Moura–Krstić CDC 2012 Eq. (25): maximum absolute eigenfunction amplitude criterion"
+      ],
+      "reasoning": "Cross-matrix, worst-direction finite-time Gramian E-optimality with first two sine gains is distinct from these criteria; no equivalent formula found in inspected text. General log-convex spectral-radius theorems may supply the proof technique but do not alone specify this spatial location theorem and its heat limit laws.",
+      "searches": [
+        "two-mode Dirichlet heat equation point sensor E-optimal smallest eigenvalue observability Gramian unique spatial location finite observation horizon",
+        "strict log-convexity inverse observability Gramian heat eigenmodes first two Fourier modes optimize point sensor",
+        "single sensor first two sine modes heat equation largest inverse Gramian eigenvalue optimal u cosine squared"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected formula table or design database contains the universal unique logit optimum or limiting cubic",
+        "The exact cubic is derived in the included proof from the limiting Gramian"
+      ],
+      "reasoning": "The claim is a continuum spectral optimization theorem, not a numerical table entry. Searches cannot establish absolute nonexistence of equivalent formulas.",
+      "searches": [
+        "\"sin(2*pi*x)\" \"smallest eigenvalue\" \"observability\" sensor",
+        "\"two-mode\" \"heat\" \"E-optimal\" \"sensor\" Gramian"
+      ]
+    },
+    "rationale": "No inspected primary source states or implies the all-positive-definite temporal-Gramian logit strict-convexity theorem and both heat horizon limits. The nearest articles use actuator-direction coordinate transforms, averaged positive-measure observation domains, or pointwise modal-amplitude criteria; the mathematical comparison is of objectives and implications, not matching titles. An equivalent consequence of classical matrix log-convexity remains a priority risk.",
+    "residual_risks": [
+      "Generic log-convexity theorems for Perron roots could imply the uniqueness method as a specialization; novelty is the restricted spatial design and sharp heat limits.",
+      "The plausible Burns–Herdman 2021 full text was inaccessible and was not declared NOT_COVERING.",
+      "An obscure two-mode E-optimal heat placement calculation may be published under different notation despite these searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_OBJECTIVE, not demonstrated to cover",
+        "evidence": "General unconstrained scalar actuator b and inverse of change-of-basis P(b); no two-sine fixed spatial x Gramian formula",
+        "identifier_or_url": "https://arxiv.org/abs/2108.05629",
+        "material_read": "Introduction Sections 1.1–1.2, Section 2 propositions and proofs, and Section 5 conclusion",
+        "method": "open-access full HTML text",
+        "title": "Optimal actuator design via Brunovsky’s normal form",
+        "trigger": "closest middle-period primary mathematical actuator-design work"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE, not demonstrated to cover",
+        "evidence": "Positive-measure subsets and averaged observability Eq. (4) decouple initial spectral coefficients",
+        "identifier_or_url": "https://arxiv.org/abs/1403.6445",
+        "material_read": "Abstract, Introduction and Sections 1–2 mathematical setup and theorem",
+        "method": "open-access full HTML text",
+        "title": "Optimal shape and location of sensors for parabolic equations with random initial data",
+        "trigger": "strongest nearby mathematical heat observability prior"
+      },
+      {
+        "assessment": "DIFFERENT_CRITERION, not demonstrated to cover",
+        "evidence": "Modal observability is |normalized eigenmode|, optimized using nonlinear programming rather than integrated two-mode spectral Gramian",
+        "identifier_or_url": "https://ecal.studentorg.berkeley.edu/pubs/CDC12-PDESensorPlacementBatts.pdf",
+        "material_read": "PDF first page and Section III definitions and optimization, including Eq. (25)",
+        "method": "PDF parsed text and rendered page inspected",
+        "title": "On Optimizing Sensor Placement for Spatio-Temporal Temperature Estimation in Large Battery Packs",
+        "trigger": "pointwise heat sensor placement and finite modal truncation"
+      },
+      {
+        "assessment": "MOTIVATION, not exact optimization",
+        "evidence": "Discussion of smallest eigenvalue as observability measure and modal truncation, not optimal spatial point theorem",
+        "identifier_or_url": "https://skoge.folk.ntnu.no/prost/proceedings/nolcos-2013/papers/0011.pdf",
+        "material_read": "PDF first page and Sections 1–2, heat example and observability discussion",
+        "method": "PDF parsed text and rendered page inspected",
+        "title": "Partial Observability and Its Consistency for Linear PDEs",
+        "trigger": "minimum Gramian eigenvalue for reduced heat equations"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+        "evidence": "Discusses Luenberger observer cost functions and Kalman Riccati methods, but full text could not be compared",
+        "identifier_or_url": "https://doi.org/10.1016/j.ifacol.2021.06.102",
+        "material_read": "Publisher abstract, bibliographic information and reference list only; full paper unavailable",
+        "method": "abstract page and open-access version search",
+        "title": "Optimal Sensor Placement for Observer Design",
+        "trigger": "plausible broad paper on point-sensor placement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0eea7945-8835-4b67-9c1b-8c44c7b9b4a2",
+  "value": {
+    "rationale": "First two Dirichlet heat modes are a natural minimal point-sensing model where coherent mode cross terms determine worst-case reconstruction. The general SPD temporal-kernel uniqueness theorem converts a nonconvex position choice to a globally strict convex logit problem, and the distinct short/long heat optimal positions show that determinant-optimal or fixed location rules cannot universally maximize the worst-mode information. It supplies an exact sensor-design benchmark without claiming high-dimensional gains.",
+    "status": "PASS"
+  }
+}
