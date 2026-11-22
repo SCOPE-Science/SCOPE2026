@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed-prefix bijection proves the full multiplier formula without a sampling assumption. Parity and an explicit alternating-bottom-frequency construction prove the all-width singularity and sharp nonzero gap. Singleton counts reduce exactly to the negative Pell equation, whose complete positive solution family is standard; two top-cell witnesses establish the sharp fallback at every other singular width. The state transfer is a bijective four-choice update. The direct C++ Walsh transform and separate Python state/count analysis reproduce exact integer results through the stated ranges and agree on Parseval.
+## correctness
 
-**Originality — PASS under bounded comparison.** Full relevant sections and main theorem of Dhand (2013) concern Gaussian rank enumeration and unimodal chain decomposition, not coordinate Fourier signs. The Boolean-Fourier survey of de Wolf (2008) establishes general diagonalization only. The mathematically nearest identified public rectangle-generating-function record `2026/9/15/SCOPE031` was read in full as to its RESULT and compared by implication: area-and-corner weights do not cover the independent per-cell Walsh transform or Pell cancellation threshold. published-finding corpus searches for Ferrers/Young Fourier zeros and Pell first-support equivalents, plus comparison with the accessible related research claims, found no stronger covering result. Residual priority risk: unindexed Fourier or partition literature, and equivalence under an unexpected signed-enumerator change of variables.
+PASS
 
-**Value — PASS.** The exact first vanishing Fourier support degree is a natural local-observation threshold for deconvolution on Young diagram incidence codes; its exceptional set is an infinite, arithmetically sparse Pell family rather than an arbitrary finite parameter table. The same proof determines invertibility and sharp Hilbert stability at every width, and yields a polynomial-time exact rank procedure instead of exhaustive \(4^n\)-frequency enumeration. These invariants are not mere normalizations of the Gaussian area generating function.
+For a two-row Young ideal (a,b), 0<=b<=a<=n, the independent sign-prefix variables X_a,Y_b give W=sum_a X_a sum_{b<=a}Y_b. Parity of M=(n+1)(n+2)/2 proves zero-free n=0,1 mod 4; alternating Y gives exact attainable ±1/0/±2 gaps. Singleton zeros require t(t+1)/2=M/2, equivalent to (2n+3)^2-2(2t+1)^2=-1; positive odd Pell solutions give n=2,19,118,695,... and exactly two singleton cells. In all other singular n, explicit top-row pairs (k,3k+2) or (k+1,3k+3) give precisely half of the M diagrams with odd incidence, hence support two. The recurrence updating S_j by an independent Y sign and w by X_j*S_j counts all 4^n characters exactly in O(n^4) additions. Independent state transfer reproduced the six asserted nullities 6,18,789,2807,137820,511732 and total 4^n mass; finite agreement is not the Pell or recurrence proof.
 
-**Limits.** No closed form for every nullity and no higher-row generalization is asserted. Historical priority has bounded-search uncertainty and no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded search finds no prior covering the final substantive claim as a whole; all identifiable overlapping subresults are disclosed, especially the duplicate two-row parity/gap, and residual historical risks are retained.
+
+## value
+
+PASS
+
+The new Pell-exceptional low-support zero classification identifies the sparsest Fourier obstructions on a natural distributive lattice of two-row Young diagrams. The exact polynomial-state recurrence determines every full nullity, a natural invariant not supplied by the otherwise related Brownian limiting-spectrum result. Both are usable for reconstructability and exact kernel analysis and add nontrivial information, although the common parity invertibility and sharp gap are already published and must not be claimed as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
