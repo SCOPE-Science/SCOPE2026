@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationarity assumptions and finite second moment are explicit prerequisites, identified as established in Matveev's equations (8)–(12) and (11). Reconstructing the differentiated generating identity produces the nonnegative-derivative differential equation \((1-H)H'''=B-AH''\). Monotonicity gives a uniform finite bound for \(\lambda>9/2\), forced logarithmic divergence for \(4<\lambda<9/2\), and the critical boundary law for \(\lambda=9/2\). An index-zero positive-coefficient Tauberian theorem converts the latter to the exact truncated third-moment coefficient. The closed-form finite branch and near-critical pole follow algebraically. Independent numerical finite-prefix checks corroborate only finite behavior; they are not the proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Conditional explicitly on the cited mass-one stationary branch M1=1 and finite M2=m_lambda. Differentiating the exact stationary H,G identity on 0<z<1 yields (H−1)H′=lambda(H/z−1); twice differentiating gives (1−H)Y′=B−A Y, Y=H″≥0, A=lambda/z−3H′, B=2lambda/z²(H′−H/z)>0. Limits 1−H~m(1−z), A→lambda−3m, B→2lambda(m−1) establish finite Y(1−)=B/A iff lambda>9/2; negative/zero A force Y→infinity. At the critical lambda=9/2 use A=lambda(1/z−1)+3(m−H′)>0 to bound Y=O(log), deduce A Y=o(1), and (1−z)Y′→3, so Y~3 log(1/(1−z)). Nonnegative-coefficient index-zero Tauberian theorem yields truncated sum of (k^3−k²)n_k~3log N and finite M2 removes correction. Differentiate lambda−3m at 9/2 gives slope 2 and pole residue 9/4. Numeric recurrence partial sums at lambda=4.5 and 5 support only finite checks; source second moment is premise, not newly proved.
 
-Matveev (arXiv:2611.09537v1), sections 1–3, gives the steady recurrence and \(M_2\), but not the post-gelation third-moment boundary, its finite formula, or its critical logarithmic coefficient. The distinct critical case \(\lambda=4\) concerns a second-moment tail, not this higher-moment transition. A published study by Laurençot and van Roessel treats singular fragmentation, not constant-rate discrete monomer shattering. Broader aggregation/fragmentation reviews may contain analogous moment calculations; complete priority remains a risk rather than a claim of exhaustive coverage.
+## originality
 
-## Value — PASS
+PASS
 
-The finite second moment is the usual gelation diagnostic. A second, strict threshold at \(\lambda=9/2\), *inside the non-gelling phase*, distinguishes equilibria with unbounded higher size fluctuations from equilibria with a finite third moment. The exact boundary coefficient \(3\) and the pole \(9/4\) quantify both sides of this physically interpretable transition. This is a natural invariant for the model, not an arbitrary finite cutoff or a restatement of its known second moment.
+The all-integer finiteness hierarchy published 2026-11-17 already implies the third-moment finiteness threshold lambda=9/2 and its finite-branch formula; these isolated facts are NOT novel. What remains is the exact LOGARITHMIC critical coefficient 3 in truncated M3. The near-boundary pole residue 9/4 is an immediate calculus consequence of the already-covered finite-branch formula and is NOT counted as a second novel result. This surviving result is natural and nontrivial; priority remains bounded.
 
-## Scope and remaining risks
+## value
 
-The proof is conditional on the published existence and moments of the stationary mass-one branch; it does not independently establish global convergence of all transient solutions. The complete 2026 review and every specialized pre-2026 monograph were not exhaustively inspected. A relevant older article uses a different fragmentation operator and was compared at abstract/metadata level only. Independent scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Onset of gelation is diagnosed by M2, but finite M3 quantifies next-order cluster-size fluctuations. The explicit critical truncated-moment logarithmic coefficient 3 gives a precise critical growth law at lambda=9/2, beyond the covered finiteness classification. The pole residue 9/4 is a useful corollary but follows mechanically from the already-known finite M3 formula. This natural critical asymptotic remains independently useful even though the threshold and above-threshold formula are already special cases of a known all-order theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
