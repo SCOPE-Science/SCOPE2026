@@ -1,15 +1,21 @@
-# Scientific review — matrix Cauchy law for singular Herglotz boundary spectra
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof specifies finite matrix dimension, a positive singular Hermitian matrix measure with strictly positive total mass, arbitrary Hermitian drift and almost-everywhere boundary functional calculus. The crucial operator-valued identity is not inferred by applying a scalar Boole law to eigenvalues: the bounded analytic matrix inverse has exact disk mean \((B+iT-wI)^{-1}\) for each spectral parameter in the lower half-plane. The averaged matrix spectral measure is then uniquely determined by its Cauchy transform, with an explicitly checked matrix imaginary-part identity and Stieltjes inversion. Strict positivity of \(T\) prevents real-axis poles and permits a full positive density. The scalar Cauchy integrals and matrix functional calculus give the zero-drift projector and sharp moment threshold. A two-dimensional example with noncommuting residues and noncommuting drift is additionally checked numerically; finite checking is supplementary only.
+## correctness
 
-## Originality: PASS relative to inspected sources
-The November 4, 2026 motivating paper proves a scalar distribution for atomic positive cotangent sums; it attributes the scalar identity in part to Poltoratski. Aizenman–Warzel concerns scalar Herglotz boundary distributions (including scalar matrix entries); its scalar conclusions cannot be promoted to matrix functional calculus of noncommuting cotangent sums. Gesztesy–Tsekanovskii supplies the general matrix Herglotz and inversion infrastructure, while Liaw–Treil averages a finite-rank perturbation coupling parameter rather than an angular singular boundary field. The claim here is precisely the explicit matrix-valued averaged spectral measure, its noncommuting drift density, and its singular-continuous extension. A general analytic theorem can make an unrecognized specialized formula a corollary, and the absence of a directly matching search result is not a proof of global novelty. The older scalar Poltoratski paper was identified bibliographically but its complete text was not inspected. These remain specific originality risks.
+PASS
 
-## Mathematical value: PASS
-The result classifies, without simultaneous diagonalization, the full spectral-projection average of a natural operator-valued singular boundary field. Its invariance under pole locations and even replacement of atomic by arbitrary singular matrix measures is structural. The exact positive matrix density, averaged half-positive projector in the centered case, and sharp fractional trace moments provide concrete invariants of matrix singular Herglotz data useful in spectral averaging and operator-valued harmonic analysis. The central observable is the matrix functional calculus, not merely a renamed scalar density. No theorem about joint eigenvalue order, eigenvector independence or infinite-dimensional matrices is claimed.
+The finite polarization family transfers scalar singular-Herglotz a.e. limits to a self-adjoint matrix boundary Y. For Im w<0, R_w=(H-wI)^-1 is analytic and bounded by 1/|Im w|; angular harmonic mean and dominated boundary passage give E[(Y-wI)^-1]=(B+iT-wI)^-1. Positive matrix spectral resolution and entrywise Cauchy inversion identify the unique measure and density D_x^{-*} T D_x^{-1}/pi; strict T>0 excludes real poles and singular mass. Noncommuting factor order is correct. At B=0 spectral calculus reduces to scalar Cauchy kernels; integration of the tails and |x|^p proves the projection I/2, formula for 0<p<1, divergence p>=1. The finite numerical matrix checker tests only 2x2 examples, not the general identity.
 
-## Closest literature and limitations
-Efraimidis et al., arXiv:2611.06877, Theorem 1 and Corollary 1.1 (scalar atomic law); Aizenman–Warzel, arXiv:1312.7769 (scalar boundary Cauchy law); Gesztesy–Tsekanovskii, arXiv:funct-an/9712004 (matrix Herglotz framework); Liaw–Treil, arXiv:1806.08856, Theorem 4.1 (matrix averaging over perturbation parameter). The claim assumes finite dimension and a strictly positive total matrix. An older general operator-valued boundary averaging statement could dominate this formulation. Independent publication-priority and mathematical audits remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Scalar quadratic-form boundary values are not the matrix spectral measure of a noncommuting Y. Scalarizing g(Y) does not commute with averaging. The present finite-dimensional matrix spectral projector identity contains scalar results at dimension 1; no equivalence or full coverage of noncommuting functions established by these sources. Matrix Herglotz tools are premises and imply an abstract inversion mechanism but Theorem 6.6 concerns invariant ac support of transformed measures, not explicit angular mean over a fixed singular disk boundary field. Real perturbation averaging is in a different parameter. A hidden equivalent operator-valued formula in the broad older matrix literature remains plausible. The new claim implies scalar Boole/Cauchy specializations but a known scalar output does not imply a matrix-valued nonlinear spectral-projector identity. Standard matrix inversion and resolvent averaging constitute a short derivation rather than independent novelty; judge originality of exact combined statement only.
+
+## value
+
+PASS
+
+The full matrix spectral projector distribution is intrinsic to the singular Herglotz boundary measure and invariant under all placements of singular matrix residues, even when noncommuting. The explicit positive density, I/2 projector and fractional moment law are nontrivial boundary objects useful beyond the scalar formula; the proof does not claim known scalar inversion as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
