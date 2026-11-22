@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The gaps of n ordered iid uniform sites form Dirichlet(1,...,1) and admit n+1 independent exponential numerators. Endpoint domination is W<2Z. The Beta probability follows from an exact integral. The conditional transformed density converges by dominated convergence to Gamma(shape 1/2, rate 1). Conditional Chebyshev controls the common denominator relative to the rare-event probability, yielding the erfc law for the actual covering radius; endpoint symmetry proves the fair independent mark. A separate rational inclusion-exclusion calculation agrees for n=1..40, with quadrature and seeded simulation used only as checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1504.03029 Corollary 3.6 includes rectifiable 1-regular curves, and Proposition 3.9 treats d>=2 cubes; neither provides the marked location or conditional event distribution.",
+        "arXiv:2101.06306 Theorem 4.2 explicitly includes intervals as one-dimensional polytopes in an almost-sure covering-radius law, but not the present exact rare endpoint competition."
+      ],
+      "reasoning": "A theorem about expected radii in higher dimensions, or global radius convergence, does not imply a finite-sample marked argmax probability on a segment. Neither cited full text supplies a stronger general identity specializing to the full asserted law.",
+      "searches": [
+        "arXiv:1504.03029 full text: covering radius, interval, [0,1], Proposition 3.9, Section 5",
+        "arXiv:2101.06306 full text: boundary, d=1, endpoint, Section 3",
+        "Web: uniform independent points [0,1] maximum nearest neighbour distance covering radius boundary spacing interior 1979 2003 paper",
+        "arXiv:1504.03029 Corollary 3.6 rectifiable curves; arXiv:2101.06306 Theorem 4.2 d=1 polytope"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1504.03029 (full searchable text)",
+      "arXiv:2101.06306 (full searchable text)",
+      "Hüsler 1988 DOI 10.2307/3213981 (abstract only)",
+      "published-finding corpus 2026/11/2/SCOPE-exact-maximum-spacing-greenwood-dependence-and-a-truncated-quadr--e1d92a439f4f (search record summary)",
+      "published-finding corpus 2026/10/26/SCOPE-a-unique-covariance-reversal-between-the-largest-uniform-spacing--8f81f2914613 (search record summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Reznikov–Saff 2015 Corollary 3.6 supplies an expected-radius asymptotic on the interval; Penrose 2021 Theorem 4.2 supplies a strong law for intervals. Neither controls the marked rare boundary maximizer and its conditional limit.",
+        "Existing maximum-spacing covariance entries give neither witness localization nor the conditional Gamma(1/2,1) transform."
+      ],
+      "reasoning": "The finite probability and rare-event marked law do not follow from a Gumbel marginal limit, since an event with probability of order n^-1/2 disappears from that marginal. The result is a new asserted conditional joint observable, not a restatement of prior unconditional convergence.",
+      "searches": [
+        "published-finding corpus: uniform random points interval covering radius endpoint extremal probability beta n square root boundary",
+        "published-finding corpus: conditional distribution maximal spacing coverage radius random broken stick extremes",
+        "arXiv:1504.03029 Section 1 / Proposition 3.9",
+        "arXiv:2101.06306 Introduction and dimension-restricted theorems",
+        "published-finding corpus: Dirichlet uniform spacings covering radius maximizer boundary versus midpoint conditional half gamma extreme"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arXiv:1504.03029, Corollary 3.6 gives the expected covering-radius asymptotic for rectifiable curves, including the interval, but does not assert a finite boundary witness law or conditional erfc limit.",
+        "In arXiv:2101.06306, Theorem 4.2 includes polytopes (including intervals) in a strong law; the inspected full text does not provide the endpoint-witness distribution.",
+        "Relevant mathematical-record item 2026/11/2/SCOPE-exact-maximum-spacing-greenwood-dependence-and-a-truncated-quadr--e1d92a439f4f is about longest uniform spacing versus squared spacing energy, not the endpoint witness of the covering radius."
+      ],
+      "reasoning": "The witness indicator depends on competition of two boundary gaps against half the longest interior gap. A largest-spacing or unconditional coverage-radius statement does not determine the boundary-witness probability, and an unconditional Gumbel law does not imply the conditional erfc law.",
+      "searches": [
+        "published-finding corpus: iid uniform points [0,1] farthest point endpoint probability beta(1/2,n)-1/n",
+        "published-finding corpus: boundary-dominated covering radius conditional gamma half distribution",
+        "Web: \"boundary\" \"covering radius\" \"one dimensional\" \"probability\" random uniform point interval",
+        "Web: \"farthest point\" \"endpoint\" \"random\" \"covering radius\" interval",
+        "published-finding corpus: exact rare endpoint location probability in one-dimensional iid uniform covering radius, beta(1/2,n)-1/n, conditional erfc error law"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned spacing records were 2026/10/18/SCOPE-exact-positive-covariance-of-maximal-and-quadratic-uniform-spaci--7536578b7678 and 2026/10/26/SCOPE-a-unique-covariance-reversal-between-the-largest-uniform-spacing--8f81f2914613; their stated results are maximum spacing/Greenwood and exceedance-count correlations.",
+        "No exact table of the two-boundary-versus-interior-half-gap event appeared in the actual searches."
+      ],
+      "reasoning": "The cited recorded quantities do not encode endpoint location or the conditional maximum law. Database search coverage is finite and absence of a hit alone is not proof of originality.",
+      "searches": [
+        "published-finding corpus: uniform random points interval covering radius endpoint extremal probability beta n square root boundary",
+        "published-finding corpus: maximal endpoint gap twice internal maximum spacing random exponential Dirichlet",
+        "Web: \"boundary\" \"largest\" \"half\" \"spacings\" \"covering\" random points"
+      ]
+    },
+    "rationale": "Statement-level inspection separates the exact one-dimensional endpoint-versus-interior witness event and its rare-event conditional Gamma/erfc law from published unconditional expected-radius asymptotics (including rectifiable curves) and strong laws (including intervals). Both relevant arXiv works were accessed as full searchable text; published-finding corpus mathematical-record searches found no matching claim, while maximum-spacing/Greenwood findings concern different observables. The absence of a hit is not treated as a uniqueness proof; a plausible older explicit spacing derivation remains an acknowledged risk.",
+    "residual_risks": [
+      "An equivalent older Beta integral for the weighted maximum of interior and endpoint spacings may be buried in textbook or pre-index one-dimensional coverage literature.",
+      "Hüsler (1988) was not inspected in full; its abstract alone cannot exclude an equivalent result.",
+      "Only two highly relevant recent full articles and bounded index searches were examined; no universal priority claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains an expected-covering-radius asymptotic for rectifiable curves (thus intervals), plus higher-dimensional results, but no finite endpoint-witness probability or conditional erfc law in inspected relevant sections.",
+        "evidence": [
+          "Section 1 defines radius as largest empty neighborhood; first arXiv posting 2015-04-12; header primary MSC includes 60D05",
+          "Proposition 3.9 explicitly assumes d>=2 for cubes",
+          "Corollary 3.6 gives the asymptotic expectation for any rectifiable curve, including the interval"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.03029",
+        "material_read": "Accessible complete article HTML searched; Introduction, Corollary 3.6, Proposition 3.9, relevant proof sections and targeted keyword matches read (not an end-to-end reading of every line).",
+        "method": "Open accessible arXiv article HTML and search within complete article text",
+        "title": "The Covering Radius of Randomly Distributed Points on a Manifold",
+        "trigger": "Same named geometric object and co-primary MSC 60D05, 2015 first public posting"
+      },
+      {
+        "assessment": "Full-domain coverage results include a d=1 polytope strong law via Theorem 4.2, but no finite endpoint-witness probability or conditional 1D erfc law in inspected relevant text.",
+        "evidence": [
+          "Introduction states d>=2 for most convergence theorems",
+          "Definition of R_n and interior/whole domain boundary effect is explicit",
+          "Theorem 4.2 includes dimension one by its polytope definition (intervals)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.06306",
+        "material_read": "Accessible complete 1427-line article HTML searched; Introduction, definitions, Theorem 4.2, and targeted d=1/endpoint searches (not every line read end to end).",
+        "method": "Open accessible arXiv article HTML and search complete extracted article text",
+        "title": "Random Euclidean coverage from within",
+        "trigger": "Most relevant fuller boundary-effects coverage analysis"
+      },
+      {
+        "assessment": "Abstract addresses nonuniform maximal spacings and circle-arc coverage, not explicit 1D endpoint marked event; full text uninspected, hence no exclusion asserted",
+        "evidence": [
+          "Journal of Applied Probability 25 (1988), 519–528; abstract is on nonuniform spacings"
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3213981",
+        "material_read": "Bibliographic entry and abstract only (not full article)",
+        "method": "Read journal abstract and bibliographic metadata",
+        "title": "Maximal, non-uniform spacings and the coverage problem",
+        "trigger": "Classical historical coverage/max-spacing literature with possible overlapping terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0aae3343-0d2b-412f-a48d-1cd388dec98d",
+  "value": {
+    "rationale": "The worst-point location is an intrinsic coverage-reliability observable: an endpoint maximizer occurs with a sharp square-root rare-event probability, even though the unconditional coverage threshold has a standard Gumbel scaling. The exact conditional erfc law quantitatively describes the exceptional error magnitude and its endpoint mark. This is information about location and conditional reliability not supplied by a routine expected-radius computation.",
+    "status": "PASS"
+  }
+}
