@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T21:16:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — The signed antichain construction on an ordinal sum of r nonempty antichains gives E={x:Σ||x^(i)||∞≤1}; its polar is a product of cross-polytopes. Facets are indexed by signed selected coordinates, F=Π(2a_i), with normal norm sqrt r, and polar edges change one block. For a_i≥2 this gives F(a_i−1) ridges at exterior angle arccos((r−1)/r); singleton levels contribute F/2 ridges each at arccos((r−2)/r). The facet and two ridge-area Dirichlet integrals, including Gram factors sqrt r, sqrt(2r−1), sqrt(r−1), cancel all nonsingleton a_i in area/volume ratios. Thus V_{n−1}/Vol=n sqrt r/2 and V_{n−2}/Vol=n(n−1)K(r,s)/(4π), K=(r−s)sqrt(2r−1)acos((r−1)/r)+s sqrt(r−1)acos((r−2)/r), with n≥3, r≥2. Direct independent profile checks reproduce all polar-edge counts and stated normalized values; finite code corroborates, but the beta-integral/polar-edge proof covers all integer profiles.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Davis free-sum theorem controls normalized volume; Ohsugi–Tsuchiya enriched triangulations and Okada–Tsuchiya transfer maps control lattice/combinatorial properties."
+        ],
+        "reasoning": "These are broader in polytope/poset family but weaker in metric Steiner data; a lattice-preserving transfer map need not preserve Euclidean intrinsic volumes.",
+        "searches": [
+          "enriched chain polytope ordinal sum antichains second intrinsic volume ridge dihedral angle curvature",
+          "https://arxiv.org/abs/1711.11130",
+          "https://arxiv.org/abs/2003.12271"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1812.02097",
+        "https://arxiv.org/abs/2003.12271",
+        "https://arxiv.org/abs/1711.11130",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-layer-size-universality-of-the-first-two-steiner-coefficients-of--a2f5cc300668/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Enriched cube-sign vertices produce 2^rΠa_i facets, while ordinary chain-polytope facets have n+Πa_i; the normal-angle and measure calculations differ."
+        ],
+        "reasoning": "Volume-product formula alone cannot determine the codimension-two Steiner term. The ordinary chain result cannot transfer by unimodular or nonorthogonal equivalence without unjustified metric invariance.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-layer-size-universality-of-the-first-two-steiner-coefficients-of--a2f5cc300668/RESULT.md",
+          "https://arxiv.org/abs/1711.11130"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For layered posets, E is the orthogonal free sum of signed cubes, with polar product of cross-polytopes; the ordinary unsigned chain polytope uses different facets."
+        ],
+        "reasoning": "This reveals the correct equivalent norm-body formulation but none of the inspected source theorems has the Euclidean ridge measure and singleton K(r,s) formula.",
+        "searches": [
+          "enriched chain polytope ordinal sum antichains second intrinsic volume ridge dihedral angle curvature",
+          "https://arxiv.org/abs/1812.02097",
+          "enriched chain polytopes l1 sum of block infinity gauges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary layer-size theorem for ordinary chain polytopes states V_{n−2}/Vol=n(n−1)[r²/8+r sqrt r/4+r sqrt(2r−1)acos((r−1)/r)/(4π)], distinct from enriched K(r,s)."
+        ],
+        "reasoning": "The exact prior table covers a related different convex body; no matching signed enriched ridge-angle table was found in indexed checks.",
+        "searches": [
+          "enriched chain polytope ordinal sum antichains second intrinsic volume ridge dihedral angle curvature",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-layer-size-universality-of-the-first-two-steiner-coefficients-of--a2f5cc300668/RESULT.md"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge — Ohsugi–Tsuchiya and Okada–Tsuchiya establish the enriched polytopes, triangulations and transfer maps, and Chen–Davis gives free-sum normalized volume. None of the mathematical statements read contains this canonical Euclidean V_{n−2} coefficient with singleton-sensitive ridge-angle classes. The recent layered ordinary chain-polytope curvature formula is for nonnegative rather than signed coordinates, with a different facet system and three ridge types; it does not imply this two-class enriched result.",
+      "residual_risks": [
+        "Unsearched general convex-geometric intrinsic-volume identities for orthogonal free sums of cubes could imply the K(r,s) formula without using the enriched-poset terminology.",
+        "The checked sources are not a proof of priority over all older angle/ridge literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_AND_LATTICE_THEOREMS",
+          "evidence": [
+            "Theorem 0.1 gives reflexive and regular unimodular triangulation; Theorem 0.2 gives Ehrhart polynomial. Neither supplies a Euclidean V_{n−2} statement in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.02097",
+          "material_read": "Primary PDF page 2 visually checked: signed antichain construction, reflexivity, triangulation and Ehrhart theorem statements; further overview read",
+          "method": "Lawful arXiv PDF and screenshot",
+          "title": "Enriched chain polytopes",
+          "trigger": "Primary definition and combinatorial results of the identical object"
+        },
+        {
+          "assessment": "ENRICHED_TRANSFER_THEORY",
+          "evidence": [
+            "Theorem 1.1 and surrounding discussion concern the piecewise-linear order/chain transfer map and Ehrhart equivalence, not angle preservation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.12271",
+          "material_read": "Primary PDF page 2 and introduction/transfer-map statements visually inspected",
+          "method": "Lawful arXiv PDF and screenshot",
+          "title": "Two enriched poset polytopes",
+          "trigger": "Potential dominating enriched transfer-map result"
+        },
+        {
+          "assessment": "PRIOR_VOLUME_ONLY",
+          "evidence": [
+            "Multiplicative normalized volume under free sums does not provide Euclidean exterior dihedral angles or ridge areas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.11130",
+          "material_read": "Primary PDF introductory theorem and page 2 visually checked; lattice-volume factorization and Ehrhart preliminaries",
+          "method": "Lawful arXiv PDF and screenshot",
+          "title": "A Product Formula for the Normalized Volume of Free Sums of Lattice Polytopes",
+          "trigger": "The exact volume could follow trivially from prior free-sum identities"
+        },
+        {
+          "assessment": "NEAR_RELATED_NONIMPLYING",
+          "evidence": [
+            "Its ordinary chain polytopes have three ridge classes and all a_i≥2, whereas the enriched signed body has two angle classes including singleton levels."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-layer-size-universality-of-the-first-two-steiner-coefficients-of--a2f5cc300668/RESULT.md",
+          "material_read": "Full published RESULT.md including facet/ridge classification and formulas",
+          "method": "Read full public Resultary GitHub RESULT blob dea7a1a11a0d21b6750195e67c19d76c9c6208a9",
+          "title": "Layer-size universality of the first two Steiner coefficients of layered chain polytopes",
+          "trigger": "Same layer parameters and same Euclidean invariant but non-enriched chain body"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Complete codimension-two Euclidean ridge measures and unexpected universality under arbitrary nonsingleton layer-size changes answer a natural metric question about enriched poset polytopes beyond lattice invariants. The exact two-angle classification and cancellation mechanism are explanatory and extend across all profiles; the result has mathematical substance independent of possible publication size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only unweighted canonical Euclidean enriched chain polytopes of ordinal sums of nonempty antichains, r≥2 and n≥3; no general posets or higher intrinsic volumes.",
+    "Unsearched general convex-geometric intrinsic-volume identities for orthogonal free sums of cubes could imply the K(r,s) formula without using the enriched-poset terminology.",
+    "The checked sources are not a proof of priority over all older angle/ridge literature."
+  ],
+  "schema_version": 1
+}

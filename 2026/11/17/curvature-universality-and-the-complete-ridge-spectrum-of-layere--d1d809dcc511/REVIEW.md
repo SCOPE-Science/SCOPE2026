@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polar product-of-cross-polytopes gives an exhaustive ridge adjacency census, including one-dimensional factors. Both Euclidean ridge Jacobians and their beta integrals were derived explicitly and checked against brute convex-hull geometry for 11 profiles with 466 ridges. The standard polytope Steiner coefficient relates those integrals to the stated intrinsic volume; no finite test is used as a proof for all dimensions. The formulas include the dimension-three cross-polytope and the square bipyramid boundary cases, and show the expected two-dimensional limiting identity separately.
+## correctness
 
-## Originality — PASS (priority provisional)
-The full original enriched-chain-polytope paper by Ohsugi–Tsuchiya (arXiv:1812.02097, especially the definition on page 2 and Theorems 0.1–0.3) concerns reflexivity, triangulations and Ehrhart data, not the second Euclidean curvature coefficient. The enriched transfer-map and triangulation paper by Okada–Tsuchiya (arXiv:2003.12271, especially sections 1–2 and Proposition 2.1) gives relevant facet inequalities but not the ridge measures or normalized Steiner expansion. The free-sum volume paper by Chen–Davis (arXiv:1711.11130) supplies only the known volume relationship. Searches for exact normalized codimension-two intrinsic volumes, free sums of cubes, second Steiner coefficients and enriched-chain dihedral data in published research records and web literature found no theorem with the same implication. Absence in these searches cannot establish absolute historical novelty; a more general free-sum intrinsic-volume identity remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The coefficient of second-order Euclidean outer parallel-body expansion is a natural global curvature invariant, not merely a recoding of a facet count. A priori it depends on every ridge area and exterior angle, yet an all-dimensional cancellation makes the normalized invariant insensitive to detailed layer sizes except singleton status. The result simultaneously classifies every ridge and angle, and gives a complete closed form for a family of exponentially faceted reflexive polytopes. It supplies a testable rigidity/universality phenomenon for broader free-sum geometry.
+PASS — The signed antichain construction on an ordinal sum of r nonempty antichains gives E={x:Σ||x^(i)||∞≤1}; its polar is a product of cross-polytopes. Facets are indexed by signed selected coordinates, F=Π(2a_i), with normal norm sqrt r, and polar edges change one block. For a_i≥2 this gives F(a_i−1) ridges at exterior angle arccos((r−1)/r); singleton levels contribute F/2 ridges each at arccos((r−2)/r). The facet and two ridge-area Dirichlet integrals, including Gram factors sqrt r, sqrt(2r−1), sqrt(r−1), cancel all nonsingleton a_i in area/volume ratios. Thus V_{n−1}/Vol=n sqrt r/2 and V_{n−2}/Vol=n(n−1)K(r,s)/(4π), K=(r−s)sqrt(2r−1)acos((r−1)/r)+s sqrt(r−1)acos((r−2)/r), with n≥3, r≥2. Direct independent profile checks reproduce all polar-edge counts and stated normalized values; finite code corroborates, but the beta-integral/polar-edge proof covers all integer profiles.
 
-## Scope and limitations
-Exact standard-coordinate Euclidean statements for ordinal sums of nonempty antichains only, with at least two levels and ambient dimension at least three. No claim about general posets or higher curvature coefficients, and no claim that full literature coverage or independent validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge — Ohsugi–Tsuchiya and Okada–Tsuchiya establish the enriched polytopes, triangulations and transfer maps, and Chen–Davis gives free-sum normalized volume. None of the mathematical statements read contains this canonical Euclidean V_{n−2} coefficient with singleton-sensitive ridge-angle classes. The recent layered ordinary chain-polytope curvature formula is for nonnegative rather than signed coordinates, with a different facet system and three ridge types; it does not imply this two-class enriched result.
+
+## value
+
+PASS
+
+PASS — Complete codimension-two Euclidean ridge measures and unexpected universality under arbitrary nonsingleton layer-size changes answer a natural metric question about enriched poset polytopes beyond lattice invariants. The exact two-angle classification and cancellation mechanism are explanatory and extend across all profiles; the result has mathematical substance independent of possible publication size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
