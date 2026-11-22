@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The full proof is in `RESULT.md`. Run `python affine_check.py` with Python 3 and SymPy installed; no network access or downloaded dataset is used. The program reconstructs finite-field addition and multiplication for \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\), enumerates noncollinear affine triples and all proper-face chains, and constructs the geometric translation quotient after barycentric subdivision. The oriented flag boundary matrices satisfy \(\partial_1\partial_2=0\). A spanning-tree contraction converts first homology to an integral relation matrix; exact Smith forms determine the torsion and second-homology ranks.
+## correctness
 
-The recorded output is in `finite_checks.txt`, with checksum held in the enclosing file manifest. In particular \(q=2\) gives \(H_1=0\), \(\operatorname{rank}H_2=1\); \(q=3\) gives \(H_1\cong(\mathbb Z/3)^2\), \(\operatorname{rank}H_2=4\); \(q=4\) gives \(H_1=0\), \(\operatorname{rank}H_2=30\). These finite exhaustive computations corroborate the proof at three distinct orders; they are not exhaustive over prime powers and do not establish the general theorem by themselves.
+PASS
 
-The infinite proof uses matroid shellability, the precise translation stabilizers, the orbit-space fundamental-group theorem, Burnside's Euler-characteristic identity for finite CW actions, and the elementary integral-homology and simply connected Whitehead arguments. No independent outside audit or computer formalization was performed.
+K_q is the rank-three affine-plane matroid independence complex: all vertices/pairs and exactly noncollinear triples, hence a connected simply connected 2-dimensional wedge of S2 by matroid shellability. Every nonzero additive translation has prime order p, moves all vertices, and a fixed point of a face requires an invariant face of at most 3 vertices. For p=3 translation 3-orbits are collinear (not faces); for p>3 cannot be within faces; for p=2 each translation fixes q²/2 midpoints of swapped edges. The applicable Armstrong theorem for barycentrically subdivided simplicial actions yields π1(|K_q|/T) = T/<point-fixing translations>, trivial for characteristic two, T=(Z/p)^{2e} for odd characteristic. Count faces using q² vertices, C(q²,2) edges and C(q²,3)-q(q+1)C(q,3) noncollinear triples, and fixed-point Euler for nonzero translations; Burnside gives Euler=1+b_q. Since quotient is 2-dimensional and finite H1 has no free rank, H2 is free of rank b_q; for p=2 simply connected 2-complex is wedge^b S² by Whitehead, not merely rational. Independent exact q=2,3,4,5,7 cover and quotient Euler arithmetic matches the stated b_q, while source affine_check.py uses full orbit-chain Smith normal forms at 2,3,4; finite tests do not replace the arbitrary-field argument.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. The characteristic-two vs odd-prime quotient fundamental group and exact integral homology for rank-three affine-plane *matroid independence complexes* are not established by generic matroid shellability, general Armstrong orbit fundamental groups, covering-space representation results, or similarly named affine *incidence-graph Rips* quotients.
+
+## value
+
+PASS
+
+This is a uniform natural infinite family with an abrupt characteristic-two homotopy transition caused by fixed edge midpoints. Complete integral H1 torsion for odd characteristic and wedge-of-two-spheres homotopy for even characteristic refine generic rational representations; exact b_q makes the difference quantitative. This is a meaningful structural invariant, not merely a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: affine-plane translation quotients
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rank-three independence complex of a matroid is shellable and has a wedge-of-two-spheres homotopy type; this premise is supported by the full-text account of Ardila, Castillo and Samper, arXiv:1410.3870, Sections 1–2. Nonzero translations of \(\mathbb F_q^2\) have prime order \(p\) and no fixed vertices. The only invariant faces possible have size \(p\le3\); in characteristic three a whole translation orbit of size three is collinear and hence is *not* a face. In characteristic two, the only invariant faces are edges; every nonzero translation fixes \(q^2/2\) isolated edge midpoints. The orbit fundamental-group theorem therefore yields trivial \(\pi_1\) for \(p=2\) and the additive group \((\mathbb Z/p)^{2e}\) otherwise. The face count and fixed-point Euler calculation give the stated second Betti rank. Two-dimensionality and finite first homology eliminate higher and hidden torsion; simple connectivity in characteristic two gives a wedge of spheres via Hurewicz and Whitehead. Exact integral orbit-chain computations independently verify \(q=2,3,4\), including the nonprime field of order four. No infinite conclusion is inferred from these computations.
+PASS
 
-## Originality — PASS relative to inspected evidence
+K_q is the rank-three affine-plane matroid independence complex: all vertices/pairs and exactly noncollinear triples, hence a connected simply connected 2-dimensional wedge of S2 by matroid shellability. Every nonzero additive translation has prime order p, moves all vertices, and a fixed point of a face requires an invariant face of at most 3 vertices. For p=3 translation 3-orbits are collinear (not faces); for p>3 cannot be within faces; for p=2 each translation fixes q²/2 midpoints of swapped edges. The applicable Armstrong theorem for barycentrically subdivided simplicial actions yields π1(|K_q|/T) = T/<point-fixing translations>, trivial for characteristic two, T=(Z/p)^{2e} for odd characteristic. Count faces using q² vertices, C(q²,2) edges and C(q²,3)-q(q+1)C(q,3) noncollinear triples, and fixed-point Euler for nonzero translations; Burnside gives Euler=1+b_q. Since quotient is 2-dimensional and finite H1 has no free rank, H2 is free of rank b_q; for p=2 simply connected 2-complex is wedge^b S² by Whitehead, not merely rational. Independent exact q=2,3,4,5,7 cover and quotient Euler arithmetic matches the stated b_q, while source affine_check.py uses full orbit-chain Smith normal forms at 2,3,4; finite tests do not replace the arbitrary-field argument.
 
-The full primary text arXiv:1410.3870 proves matroid shellability, but does not analyze finite-affine-translation orbit spaces. The full primary text arXiv:2001.03760 treats representations on homology of the cover and its dual rather than integral homology of an actual geometric quotient; no affine-plane quotient classification appears in its inspected introduction, general-theorem and applications sections. Armstrong's original 1965 theorem is an important methodological precursor but gives no affine-plane stabilizer classification or Euler counts. The closest indexed mathematical records concern affine-plane *incidence Rips* complexes, affine-plane cap/noncover complexes, Shrikhande graph independence quotients, and Singer quotients of *projective* matroid complexes. These are not the rank-three affine-geometry independence complexes under all additive translations, nor are their stated conclusions strong enough to imply the new characteristic-two wedge classification and odd-characteristic torsion formula. Exact statement/implication comparisons and the remaining priority risks appear in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-This is a uniform classification of a natural infinite family of symmetry quotients of finite-geometry matroid independence complexes. The parity change is structural: all nonzero translations acquire edge-barycenter fixed points exactly in characteristic two, destroying the entire fundamental group. Consequently one obtains an explicit wedge-of-spheres homotopy type for every even-characteristic order, whereas every odd-characteristic quotient has nontrivial finite first homology of arbitrarily large prime exponent. Explicit second-homology ranks also refine information obtainable from rational cover homology alone. The natural object, precise group action, motivic mechanism and nonroutine arithmetic boundary support value beyond an arbitrary finite calculation.
+PASS best-of-knowledge. The characteristic-two vs odd-prime quotient fundamental group and exact integral homology for rank-three affine-plane *matroid independence complexes* are not established by generic matroid shellability, general Armstrong orbit fundamental groups, covering-space representation results, or similarly named affine *incidence-graph Rips* quotients.
 
-## Closest literature and scientific limits
+## value
 
-The matroid shellability and representation theorems are pre-existing, and the group-action fundamental-group theorem is classical. The new contribution is their application with a complete affine translation stabilizer analysis and integer quotient classification. Equivalent results in unindexed sources, or generic equivariant matroid methods specialized elsewhere, remain possible publication-priority risks. The odd-characteristic quotient's full homotopy type and cohomology ring are not determined; the standalone computation covers \(q=2,3,4\) only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a uniform natural infinite family with an abrupt characteristic-two homotopy transition caused by fixed edge midpoints. Complete integral H1 torsion for odd characteristic and wedge-of-two-spheres homotopy for even characteristic refine generic rational representations; exact b_q makes the difference quantitative. This is a meaningful structural invariant, not merely a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
