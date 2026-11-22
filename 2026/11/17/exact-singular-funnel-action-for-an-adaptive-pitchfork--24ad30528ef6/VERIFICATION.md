@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verification/check_funnel.py` from the package root with Python 3, NumPy and SciPy. It computes the exact saddle eigenvector slope, follows the backward stable branch in logarithmic coordinates, and compares scaled logarithmic section positions against the stated action for \(a=3\), \(b=2\), at sections \(\mu=2,5\) and rates \(\varepsilon=0.1,0.03,0.01\). It also checks the exact cancellation of feedback coefficient \(a\) between two section actions for two admissible feedback values.
+## correctness
 
-The numerical values of \(-\varepsilon\log x_\varepsilon(2)\) for these three rates are approximately 0.490688604821, 0.445150093903 and 0.431534509124, compared with the analytical action 0.424635855096. The analogous values at \(\mu=5\) are approximately 2.371986030580, 2.325918526007 and 2.312302933252, compared with 2.305404279226.
+PASS
 
-The essential verification is symbolic and in the written proof: \(r^2+b=ar\); the saddle determinant \(\varepsilon r(2r-a)<0\); the global graph and fixed-interior-point estimate \(0\le\mu_\varepsilon(\eta)-r^2\le(a\varepsilon/r)\log(r/\eta)\); the exact logarithmic integral; and the uniform small-\(\eta\) integrand bound. These verify the limit for all admissible real parameters; the program only samples finitely many instances. No prefactor or section-uniform estimate was derived. Independent validation has not been performed.
+At b>0, a>2sqrt(b), r=(a-sqrt(a²-4b))/2>0 is the lower equilibrium with ar=r²+b and a>2r; det of the Jacobian at (r,r²) is eps*r*(2r-a)<0. The backward left stable branch stays in 0<x<r,mu>r² since xdot>0 and mudot=-eps(mu+b-ax)<0 there; it cannot blow up at finite backward time and reaches every higher horizontal section exactly once. Inverse graph ODE bounds 0<=mu_eps(eta)-r²<=a eps/r log(r/eta). Along fixed section, log derivative gives -eps log x(mu0) as integral of (mu-x²)/(mu+b-ax), whose difference from mu/(mu+b) is O(eta) uniformly on x<=eta; first eps->0 then eta->0 gives action integral [mu-r²-b log((mu+b)/(r²+b))]. Subtracting two fixed-section limits cancels the lower endpoint and a-dependent r, giving independent-of-a attenuation. Independent numerical stable-branch integrations at eps=.12,.05,.02 show convergence of action at mu=2,5 for a=3,b=2; only analytical argument proves limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for explicit fixed-section exponent and feedback-independent relative section rate of this adaptive pitchfork. The same-model prior article constructs exponential singular basin funnels but does not state this exact closed action and section ratio, based on reading the main text and supplement; general entry-exit integrals are method precedent, not the displayed model-specific law.
+
+## value
+
+PASS
+
+For the actual positive-saddle basin boundary of an adaptive pitchfork, the logarithmic action is an exact, parameter-resolved natural observable quantifying exponential funnel sensitivity. The section-to-section a-independence is a meaningful structural cancellation; the stable-branch existence and order of limits distinguish it from a trivial one-line linearization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

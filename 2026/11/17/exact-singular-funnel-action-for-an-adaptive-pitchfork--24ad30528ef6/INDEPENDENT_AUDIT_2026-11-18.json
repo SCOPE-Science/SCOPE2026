@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:47:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-singular-funnel-action-for-an-adaptive-pitchfork--24ad30528ef6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-singular-funnel-action-for-an-adaptive-pitchfork--24ad30528ef6/verification/check_funnel.py",
+        "Independent ODE integrations in /mnt/data/scope06_20261118T0234Z_work/independent_math_checks.py"
+      ],
+      "rationale": "At b>0, a>2sqrt(b), r=(a-sqrt(a²-4b))/2>0 is the lower equilibrium with ar=r²+b and a>2r; det of the Jacobian at (r,r²) is eps*r*(2r-a)<0. The backward left stable branch stays in 0<x<r,mu>r² since xdot>0 and mudot=-eps(mu+b-ax)<0 there; it cannot blow up at finite backward time and reaches every higher horizontal section exactly once. Inverse graph ODE bounds 0<=mu_eps(eta)-r²<=a eps/r log(r/eta). Along fixed section, log derivative gives -eps log x(mu0) as integral of (mu-x²)/(mu+b-ax), whose difference from mu/(mu+b) is O(eta) uniformly on x<=eta; first eps->0 then eta->0 gives action integral [mu-r²-b log((mu+b)/(r²+b))]. Subtracting two fixed-section limits cancels the lower endpoint and a-dependent r, giving independent-of-a attenuation. Independent numerical stable-branch integrations at eps=.12,.05,.02 show convergence of action at mu=2,5 for a=3,b=2; only analytical argument proves limit.",
+      "residual_risks": [
+        "Fixed sections above r² only; no pre-exponential factor, moving-section uniformity, or general adaptive system claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broad entry-exit function theory develops integral rates for slow passage; the primary same-model article does not spell out this pair of section formulas, and the other source treats intersecting eigenvalues."
+        ],
+        "reasoning": "General principles may generate the integral with a new calculation but no checked prior theorem directly covers this exact model-specific action.",
+        "searches": [
+          "adaptive pitchfork singular funnels stable manifold small epsilon exact action entry exit integral",
+          "arxiv:2208.11559 Entry Exit Functions Fast Slow Systems",
+          "arxiv:2601.02001v1 supplement section II"
+        ]
+      },
+      "checked_sources": [
+        "adaptive pitchfork singular funnels stable manifold small epsilon exact action entry exit integral",
+        "https://arxiv.org/html/2601.02001v1",
+        "https://arxiv.org/abs/2208.11559"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yanchuk proves funnel existence, separation and exponential narrowing; gives neither mu-r²-b log expression nor section-ratio cancellation. The present formula follows by integrating the explicit slow vector field on small-x branch."
+        ],
+        "reasoning": "Existence and general theory are precursors but do not state or uniquely force the explicit claimed coefficient without the model-specific branch limit proof.",
+        "searches": [
+          "Yanchuk 2026 supplement II",
+          "Kaklamanos Kuehn Popović Sensi arxiv:2208.11559",
+          "adaptive pitchfork singular funnels stable manifold small epsilon exact action entry exit integral"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior adaptive pitchfork stable manifold and narrow singular funnels are same geometric object; its width has exp(-C/eps) qualitative behavior."
+        ],
+        "reasoning": "The audited A(mu) resolves the previously unspecified fixed-section rate and the difference independent of a, not an equivalent rephrasing of funnel existence.",
+        "searches": [
+          "adaptive pitchfork singular funnels stable manifold small epsilon exact action entry exit integral",
+          "Yanchuk Wieczorek Jardón-Kojakhmetov Alkhayuon arxiv:2601.02001v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary own record is strongest match; no known numerical table giving this exact logarithmic action at every fixed mu and all a>2sqrt(b) was surfaced."
+        ],
+        "reasoning": "No exact prior table or source claimed closed rate; lack of exact table is not independent proof of novelty.",
+        "searches": [
+          "adaptive pitchfork singular funnels stable manifold small epsilon exact action entry exit integral",
+          "Resultary adaptive pitchfork singular funnels stable manifold",
+          "arxiv:2601.02001v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for explicit fixed-section exponent and feedback-independent relative section rate of this adaptive pitchfork. The same-model prior article constructs exponential singular basin funnels but does not state this exact closed action and section ratio, based on reading the main text and supplement; general entry-exit integrals are method precedent, not the displayed model-specific law.",
+      "residual_risks": [
+        "Potential general entry–exit theorem may imply this exact rate as a specialization, and uninspected broad full text prevents exhaustive uniqueness.",
+        "No rigorous uniform prefactor, especially near moving sections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same basin boundary but no explicit every-section action, feedback-independent fixed-section ratio in inspected article",
+          "evidence": [
+            "Adaptive pitchfork section and supplementary section II scaling exp(-L lambda/eps)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.02001v1",
+          "material_read": "Full HTML primary article including saddle adaptive pitchfork figure, Results discussion, supplemental Section II slow-fast basin derivation",
+          "method": "Read full HTML equations and supplemental relevant sections",
+          "title": "Singular basins in multiscale systems",
+          "trigger": "Exact adaptive pitchfork equations, positive saddle and singular stable funnel"
+        },
+        {
+          "assessment": "Broad background; cannot assert whole-document noncoverage because full text not inspected",
+          "evidence": [
+            "Entry-exit integral mechanisms apply to different spectral structures"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.11559",
+          "material_read": "Abstract, mathematical setting and bibliographic citation",
+          "method": "Abstract and metadata only",
+          "title": "Entry–Exit Functions in Fast–Slow Systems with Intersecting Eigenvalues",
+          "trigger": "Broader slow-fast entry-exit estimates could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-singular-funnel-action-for-an-adaptive-pitchfork--24ad30528ef6/RESULT.md",
+        "https://arxiv.org/html/2601.02001v1"
+      ],
+      "rationale": "For the actual positive-saddle basin boundary of an adaptive pitchfork, the logarithmic action is an exact, parameter-resolved natural observable quantifying exponential funnel sensitivity. The section-to-section a-independence is a meaningful structural cancellation; the stable-branch existence and order of limits distinguish it from a trivial one-line linearization.",
+      "residual_risks": [
+        "Specialized model; asymptotic logarithmic action, not complete basin volume or transition probability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed sections above r² only; no pre-exponential factor, moving-section uniformity, or general adaptive system claim.",
+    "Potential general entry–exit theorem may imply this exact rate as a specialization, and uninspected broad full text prevents exhaustive uniqueness.",
+    "No rigorous uniform prefactor, especially near moving sections.",
+    "Specialized model; asymptotic logarithmic action, not complete basin volume or transition probability."
+  ],
+  "schema_version": 1
+}

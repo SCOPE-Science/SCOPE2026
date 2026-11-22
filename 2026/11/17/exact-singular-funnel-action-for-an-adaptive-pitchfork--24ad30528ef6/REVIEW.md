@@ -1,11 +1,21 @@
-# Scientific review — exact adaptive-pitchfork funnel action
+# Independent mathematical audit
 
-**Correctness: PASS.** The saddle has negative determinant and a uniquely oriented stable branch. Monotonicity traps that branch in \(0<x<r\), \(\mu>r^2\) under backward flow. A direct differential inequality proves that the branch approaches the saddle height at each fixed positive \(x\) as \(\varepsilon\downarrow0\). Integration of the exact logarithmic slope and a two-limit estimate establishes the full action, including strict positivity and the two-section cancellation. Numerical integration provides a check but is not used as a proof of convergence.
+## correctness
 
-**Originality: PASS within the inspected comparison.** The primary 2026 study develops the singular-basin geometry and reports exponential narrowing, but the inspected main text and supplementary section II do not provide the exact fixed-section small-\(\varepsilon\) coefficient or the section-to-section independence from \(a\). The closest general entry–exit literature studies different fast–slow configurations. This is a narrower quantitative result, not a claim to originate the singular-funnel phenomenon. General singular perturbation machinery could imply the formula after specialization; priority is therefore provisional.
+PASS
 
-**Value: PASS.** The natural invariant basin separator itself fixes the minimum positive initial amplitude that enters the remote basin. Its exponentially small width controls threshold sensitivity for a genuine two-attractor dynamical system, and the exact rate distinguishes two separate roles of adaptation parameters. A sharp model-specific exponent is useful even without a universal theorem or a prefactor.
+At b>0, a>2sqrt(b), r=(a-sqrt(a²-4b))/2>0 is the lower equilibrium with ar=r²+b and a>2r; det of the Jacobian at (r,r²) is eps*r*(2r-a)<0. The backward left stable branch stays in 0<x<r,mu>r² since xdot>0 and mudot=-eps(mu+b-ax)<0 there; it cannot blow up at finite backward time and reaches every higher horizontal section exactly once. Inverse graph ODE bounds 0<=mu_eps(eta)-r²<=a eps/r log(r/eta). Along fixed section, log derivative gives -eps log x(mu0) as integral of (mu-x²)/(mu+b-ax), whose difference from mu/(mu+b) is O(eta) uniformly on x<=eta; first eps->0 then eta->0 gives action integral [mu-r²-b log((mu+b)/(r²+b))]. Subtracting two fixed-section limits cancels the lower endpoint and a-dependent r, giving independent-of-a attenuation. Independent numerical stable-branch integrations at eps=.12,.05,.02 show convergence of action at mu=2,5 for a=3,b=2; only analytical argument proves limit.
 
-**Scope and risks.** Real parameters must satisfy \(b>0\), \(a>2\sqrt b\), and the observed section is fixed strictly above the saddle. No limit with changing section height, no full prefactor, and no independent audit are claimed. The most material remaining novelty uncertainty is whether a more general entry–exit result encompasses the action implicitly.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for explicit fixed-section exponent and feedback-independent relative section rate of this adaptive pitchfork. The same-model prior article constructs exponential singular basin funnels but does not state this exact closed action and section ratio, based on reading the main text and supplement; general entry-exit integrals are method precedent, not the displayed model-specific law.
+
+## value
+
+PASS
+
+For the actual positive-saddle basin boundary of an adaptive pitchfork, the logarithmic action is an exact, parameter-resolved natural observable quantifying exponential funnel sensitivity. The section-to-section a-independence is a meaningful structural cancellation; the stable-branch existence and order of limits distinguish it from a trivial one-line linearization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
