@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-An analytic proof establishes the theorem for every finite complete multipartite graph and every metric target, without limiting vertex-class sizes. The only computational component is supplementary: run `python CHECK.py` with Python's standard library. The checker passed 7,136 exact-rational assertions for exhaustive small-size subset/prefix reductions, finite equality witnesses, and sampled metric inequalities; neither these experiments nor a successful run establishes the infinite theorem without the proof.
+## correctness
 
-The first-public motivating source and primary MSC were checked against arXiv metadata (arXiv:2611.05649v1, 3 November 2026, 46B20). Its PDF and HTML were inaccessible for full inspection, making bibliographic priority provisional. Independent audit has not been performed.
+PASS
+
+PASS: On K_(n1,...,nk) cross-part average y_ij controls within-part W_i <= n_i(n_i-1) min_j y_ij. For S_t indices whose minimum exceeds t, every incident edge-class y_ij exceeds t; integrate A(S_t)<=Lambda B(S_t) to prove P<= (1+Lambda)Q. For each S, construct {0,1,2} pseudometric with all omitted parts collapsed, length 2 within selected parts and 1 otherwise; it attains 1+A(S)/B(S). The swap/delete exchange strictly removes inversions of selected smaller/omitted larger classes, establishing an optimal size-sorted prefix. Endpoints and singleton parts covered. Independent Fraction enumeration verified all 121 sorted profiles with part sizes 1..4, k=2..5, and two mixed-prefix examples.
+
+## originality
+
+PASS
+
+The prefix extremizer theorem for arbitrary k and arbitrary integer sizes is stronger than checked bipartite and symmetric-tripartite exact special cases, which are credited.
+
+## value
+
+PASS
+
+PASS: Unrestricted metric Poincare ratio of natural complete multipartite families is exactly classified for all part sizes, and an exponential subset optimization reduces to k ordered prefixes. The intermediate optimizers K_(4,3,1,1) and K_(4,3,2,1,1) demonstrate a meaningful phase not captured by bipartite/restricted-tripartite tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
