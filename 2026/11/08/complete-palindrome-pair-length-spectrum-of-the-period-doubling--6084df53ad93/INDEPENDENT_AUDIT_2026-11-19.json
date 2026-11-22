@@ -1,0 +1,198 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T19:10:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned Git tree RESULT.md full four-step proof, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, verify_period_doubling.py at commit 3285a1744f5600128a1c74c65c4bca4aae6a999b",
+        "Fici–Shallit–Simpson 2024 Theorem 14 and 2025 Theorem 13 full periodicity count, distinction from PP",
+        "OEIS A275202 parity factor-count recurrence and proof",
+        "Independent local exact finite-factor and palindrome decomposition script, 1..128 and 7*2^j witness for j=0..8"
+      ],
+      "independent_checks": [
+        "Re-derived common palindrome-prefix induction, reversal-rotation relation and offset-r synchronization for the positive direction.",
+        "Verified no odd conjugating offset for δ(v) when v contains 1 and inspected witness b starting at index 1; checked its eight non-PP iterates by independent palindrome-splitting test.",
+        "Recomputed C−F in the dyadic quarter intervals from independent OEIS C recurrence and source F formula; validated all boundary cases n=1,2,3,5,7.",
+        "Independent Python fixed-point generator and palindrome split predicate: all factors of every n=1..128 in 8192- and 16384-character prefixes stable; independently verified C(n) and exact universal PP length classification; all 2, 8, 32 binary words for n=1,3,5 are palindrome pairs.",
+        "Read all seven actual package files, inspected but did not treat source verifier as proof, computed canonical Git tree from all seven actual pinned blob SHAs: exact 5c1b7ad5089767eca490a65479014682afc19a04."
+      ],
+      "rationale": "Reconstructed all-length proof. (i) A finite word splits into at most two palindromes iff its reversal is a cyclic conjugate, a published equivalence. (ii) For every j>=1 the substitution δ(1)=10, δ(0)=11 has δ^j(a)=U_j π_j(a), common palindrome prefix U_j of length 2^j−1 and a permutation π_j; induction gives U_(j+1)=U_j π_j(1) U_j. This makes δ^j preserve reversal-conjugacy. An arbitrary length m·2^j factor is a rotation of δ^j(v) for an m-factor v: its last r<2^j boundary letters coincide because all images share U_j. All binary words of lengths 1,3,5 are PP (independently exhaustively checked), so universal PP holds at 1,3,5 times 2^j. (iii) The proven period-doubling factor complexity C(1)=2,C(2)=3,C(2m)=2C(m),C(2m−1)=C(m)+C(m−1), combined with the published exact palindromic-periodicity count F(q+r) (2024 Thm14 / 2025 Thm13) gives C−F equal to 2r, 2r−q/2, 2r−q, 2r−3q/2 on four successive dyadic quarter-intervals. Since PP implies palindromic periodicity, universal PP requires C=F and thus only 1,3,5,7 dyadic families. (iv) b=0111010 occurs starting at index 1 and is not conjugate to its reversal. If v contains 1 then δ(v) contains a 0 only in odd positions, so a conjugacy between δ(v) and δ(v^R) must have even offset, descending to a conjugacy of v and v^R. Thus δ^j(b) is a non-PP occurring factor of length 7·2^j. All 7·2^j factors are still palindromic periodicities by C=F. Base n=1,2,3 and dyadic quarter boundaries covered. Independently reconstructed the canonical seven-blob Git tree 5c1b7ad5... and checked finite factor classification through 128, using two nested prefixes; finite enumeration is corroboration, not proof.",
+      "residual_risks": [
+        "The published Walnut periodicity automaton correctness was not independently reproduced; its exact all-length count is an openly acknowledged external theorem, not inferred from a finite table.",
+        "Finite prefix stability through length 128 does not prove every infinite factor was observed or establish the all-length result; the proof uses the published count and symbolic substitution arguments.",
+        "The factor-complexity recurrence is independently checked against finite data and sourced to a published OEIS proof; no fresh formal certificate was built."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CPM 2025 Theorem 13 gives four-piece palindromic-periodicity count F(n), not PP(n)",
+          "For n=7*2^j, F(n)=C(n), but δ^j(0111010) is never a palindrome pair; hence the broad-class theorem does not imply positive palindrome-pair classification",
+          "Earlier Lie-complexity RESULT.md counts fully represented cyclic orbits and has support only at 1*2^j and 3*2^j, whereas PP includes 5*2^j",
+          "2021 PPL prefix invariant concerns only one prefix, not the universal factorwise assertion"
+        ],
+        "reasoning": "Dominating palindromic-periodicity membership is a superset, and complete cyclic-orbit membership is a different predicate. Their exact known formulas, even combined with C(n), do not establish the additional universal two-palindrome property, especially at the fourth F=C family.",
+        "searches": [
+          "Fici Shallit Simpson On Palindromic Periodicities period doubling Theorem 13",
+          "period doubling infinite word exact lengths where every factor is a palindrome pair symmetric",
+          "2026-10-27 SCOPE exact Lie-complexity period doubling full RESULT.md",
+          "https://arxiv.org/pdf/2009.02934"
+        ]
+      },
+      "checked_sources": [
+        "Borchert–Rampersad (2015), arXiv:1509.05396 full PDF pp.1–5, p.13",
+        "Fici–Shallit–Simpson (2024), arXiv:2407.10564 full preprint §§1–2,5.1 Theorem 14, figure automata",
+        "Fici–Shallit–Simpson (2025), CPM 2025 full publisher HTML §§1–5, Theorem 13",
+        "OEIS A275202 internal entry, formula proof and sequence table",
+        "Frid–Laborde–Peltomäki (2021), arXiv:2009.02934 full PDF, §5.1",
+        "SCOPE 2026-10-27 prior exact Lie-complexity RESULT.md at pinned 3285a174 commit",
+        "Resultary semantic searches on universal PP/symmetric-word period-doubling spectrum; assigned mirror deduplicated",
+        "Two sets of direct web searches, including aliases cyclic reversal, two-palindrome product, and palindromic length"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2015 Borchert–Rampersad Theorem 7/Corollary 8 and Proposition 9 establish PP for Sturmian words/another constructed word, not a PD exact spectrum",
+          "2024 Theorem 14 / 2025 Theorem 13 supplies necessary C=F condition but explicitly only periodicity superset",
+          "2026 prior Lie-complexity formula gives fully present cyclic classes; it cannot infer all length-5*2^j factors symmetric",
+          "Assigned proof uses common palindromic-prefix structure δ^j(a)=U_jπ_j(a), cut-rotation of each aligned factor, and odd-offset exclusion to close precisely the missing PP implications"
+        ],
+        "reasoning": "Prior results establish factor-count and larger periodicity hypotheses; the exact if-and-only-if requires independent preservation of reversal-conjugacy for all factors at 1/3/5 dyadic bases and a morphic counterexample at 7. Neither clause follows as a corollary of the inspected primary statements without those separate arguments.",
+        "searches": [
+          "https://arxiv.org/pdf/1509.05396",
+          "https://arxiv.org/pdf/2407.10564",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol331-cpm2025/html/LIPIcs.CPM.2025.11/LIPIcs.CPM.2025.11.html",
+          "SCOPE prior 2026-10-27 exact Lie-complexity RESULT.md",
+          "Resultary semantic query: exact universal lengths for which every factor of period doubling is two palindromes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fici–Shallit–Simpson 2024 §2: two-palindrome words exactly cyclically conjugate to reversal; strict containment in palindromic periodicities",
+          "Borchert–Rampersad 2015 defines property PP as infinitely many length-n factorwise two-palindrome decompositions, but no period-doubling classification",
+          "Exact mirror in Resultary id 2026/11/8/SCOPE-complete-palindrome-pair-length-spectrum-of-the-period-doubling--6084df53ad93 is the assigned finding itself, not earlier independent evidence"
+        ],
+        "reasoning": "The equivalent reversal-conjugacy / symmetric-word reformulation was explicitly searched. Neither the property-PP paper nor the period-doubling palindromic-periodicity theorem implies the exact symmetric-factor spectrum. The Resultary matching hit is the same assignment mirror and is excluded as historical prior.",
+        "searches": [
+          "period doubling word \"palindrome pairs\" \"length\" every factor",
+          "period doubling word \"symmetric factors\" all factors lengths powers",
+          "palindromic length period doubling word every factor length n at most two",
+          "Resultary semantic query: exact universal lengths every contiguous binary period-doubling factor product of two palindromes / symmetric reverse conjugate",
+          "https://arxiv.org/pdf/2407.10564"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A275202 lists factor complexity C(n) and its parity recurrence, not palindrome-pair counts",
+          "Fici–Shallit–Simpson 2025 Table/Theorem 13 is the periodicity count F(n), with equality C=F also at 7*2^j",
+          "Resultary closest exact match has the same SCOPE record ID and public date; earlier search hits concern Lie complexity, block palindrome width, or periodic run words"
+        ],
+        "reasoning": "An exact sequence table for C and a theorem for F do not tabulate the exact universal PP predicate. No independently prior exact PP table was found in the actual indexed queries; this absence is not a guarantee of novelty.",
+        "searches": [
+          "https://oeis.org/A275202/internal",
+          "period doubling word all palindrome pair lengths exact table",
+          "Resultary: period doubling palindrome pair product of two palindromes length spectrum",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol331-cpm2025/html/LIPIcs.CPM.2025.11/LIPIcs.CPM.2025.11.html"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the exact factorwise palindrome-pair length set of the classical binary period-doubling fixed point is not established by the inspected prior theorems. The 2024/2025 Fici–Shallit–Simpson formula is for the strictly larger palindromic-periodicity language and yields only a necessary four-family condition; it leaves the 7·2^j ambiguity and does not assert the palindrome-pair positive lifts at 3·2^j,5·2^j. An explicit factor 0111010 and substitution descent exclude the fourth family. The 2015 property-PP paper concerns Sturmian, other constructed, and Thue–Morse words, not this sequence. The 2021 prefix PPL invariant, 2026 prior Lie-complexity classification, and OEIS A275202 count different objects/invariants. Search failures alone are not proof of novelty; residual priority risk remains.",
+      "residual_risks": [
+        "An older unindexed theorem under an equivalent automatic-word or symmetric-factor formulation might cover the exact classification; no negative universal priority guarantee is made.",
+        "Exact 2024/2025 Fici–Shallit–Simpson periodicity enumerator is accepted as a published theorem with Walnut proof; its original automaton/linear representation was inspected, not independently recomputed.",
+        "An existing unpublished or obscure OEIS/comment/software computation of the PP predicate could predate the indexed sources; targeted search was nonexhaustive.",
+        "Earlier SCOPE cyclic/Lie-complexity results concern nearby but distinct invariants, and no independent priority is assigned to the related parity/rotation methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: PP length classification for Sturmian words and a separately constructed word; negative Thue–Morse result. Does not give period-doubling universal symmetric-factor lengths.",
+          "evidence": [
+            "Borchert–Rampersad Section 2 Theorem 7 and Proposition 9, Section 3 Theorem 10; exact PDF https://arxiv.org/pdf/1509.05396"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.05396",
+          "material_read": "Sections 1–3 and conclusion/open problems, including Lemma 1, Theorem 7, Corollary 8, Proposition 9, Theorem 10, and Thue–Morse Walnut PP criterion (PDF pp.1–5, 13); searched full PDF for period-doubling (no occurrence)",
+          "method": "Original open-access PDF, extracted text and page image p.3",
+          "title": "Words with Many Palindrome Pair Factors (Borchert–Rampersad, 2015)",
+          "trigger": "Closest original property-PP research; possible direct prior universal-length theorem"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE ONLY: exact count of palindromic periodicities, a strict superset of palindrome pairs. Its 7*2^j equality length is refuted for palindrome pairs by an explicit morphic witness; it does not state universal PP spectrum.",
+          "evidence": [
+            "p.2: example of a palindromic periodicity not a palindrome pair and symmetric-word reversal criterion",
+            "pp.9–11: pd2pal predicate used inside pdpp; Theorem 14 states four-piece periodicity count, not PP count"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.10564",
+          "material_read": "Definition/remarks in §§1–2, complete §5.1 period-doubling automaton definitions and Theorem 14 formula/proof on PDF pp.9–11; remainder of paper and references scanned for a separate symmetric-factor classification",
+          "method": "Full openly available arXiv preprint; PDF text and page image p.11",
+          "title": "Some Remarks on Palindromic Periodicities (Fici–Shallit–Simpson, 2024)",
+          "trigger": "Same period-doubling word and directly dominating broad class, including its Walnut proof"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE ONLY: same broader-class enumeration under its published theorem number 13, no classification of universally symmetric/PP length-n factors; not an independent second result from 2024 preprint.",
+          "evidence": [
+            "§2 explicitly says a symmetric word is a palindrome pair and gives strict containment in periodicities; §5.1 Theorem 13 gives period-doubling periodicity counts"
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol331-cpm2025/html/LIPIcs.CPM.2025.11/LIPIcs.CPM.2025.11.html",
+          "material_read": "Complete publisher HTML §§1–5, in particular §2 symmetric/palindromic-periodicity distinction, §4 automaton setup, and §5.1 Theorem 13 exact period-doubling formula and Corollary 14",
+          "method": "Open publisher full-text HTML",
+          "title": "On Palindromic Periodicities (Fici–Shallit–Simpson, CPM 2025)",
+          "trigger": "Published version of the preceding paper; potential same-source stronger statement"
+        },
+        {
+          "assessment": "BACKGROUND ONLY: C(2m)=2C(m), C(2m−1)=C(m−1)+C(m); counts all distinct factors but no palindrome-pair predicate.",
+          "evidence": [
+            "OEIS A275202 formula/proof and table; period-doubling block-complexity recurrence"
+          ],
+          "identifier_or_url": "https://oeis.org/A275202/internal",
+          "material_read": "Complete OEIS internal entry, initial terms, formulas, recurrence proof attributed to Jinyuan Wang (2020), references and cross-references",
+          "method": "Crawled OEIS full HTML/internal entry; independently checked recurrence against 128 enumerated factor sets",
+          "title": "Subword complexity of period doubling sequence, OEIS A275202",
+          "trigger": "Potential exact database/table of numerical length spectrum and source of factor count"
+        },
+        {
+          "assessment": "NOT_COVERING: studies a single prefix at each length and PPL-difference regularity; neither counts all factors nor classifies which lengths universally split into two palindromes.",
+          "evidence": [
+            "§5.1 Conjecture 17 concerns non-2-automaticity of first differences of prefix palindromic length"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.02934",
+          "material_read": "Definition of prefix palindromic length, §§1–2, §5.1 pp.12–13, Conjecture 17 and conclusions, with full text skim and PDF page image p.11",
+          "method": "Original open-access PDF, extracted text and page screenshot",
+          "title": "On prefix palindromic length of automatic words (Frid–Laborde–Peltomäki, 2021)",
+          "trigger": "Same period-doubling word and related two-palindrome/palindromic-length invariant"
+        },
+        {
+          "assessment": "NOT_IMPLYING: completely present conjugacy classes at lengths powers of two or 3*powers differ from universal reversal-conjugacy of individual factors, and do not account for the 5*powers PP family.",
+          "evidence": [
+            "Lie(n)=2 only at powers of two and three times powers of two; tests whether ALL rotations occur, not whether word is conjugate to its reversal"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/10/27/exact-lie-complexity-spectrum-of-the-period-doubling-fixed-point--d2b1e5730ed7/RESULT.md",
+          "material_read": "Complete RESULT.md including finding, precise Lie-complexity definition, five-part proof and references",
+          "method": "Pinned primary source GitHub file fetched by connector",
+          "title": "Exact Lie-complexity spectrum of the period-doubling fixed point (SCOPE, 2026-10-27)",
+          "trigger": "Earlier same-word cyclic-conjugacy classification that might imply reversal symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary 2015 property-PP paper poses universal factorwise two-palindrome lengths as a natural invariant",
+        "2024/2025 period-doubling palindromic-periodicity theorem reveals a genuine broader-class gap",
+        "Exact seven-length morphic obstruction and complete proof in assigned pinned RESULT.md",
+        "Nearby earlier period-doubling Lie complexity has a different answer and invariant"
+      ],
+      "rationale": "Gives a complete, naturally motivated classification of the factorwise two-palindrome (property-PP) length spectrum for a standard aperiodic automatic word, rather than a finite threshold, code refactor, arbitrary slice or restatement of known factor counts. The exact separation between the symmetric (two-palindrome) factor condition and the strictly broader palindromic-periodicity condition occurs at infinitely many 7·2^j lengths with explicit morphic witnesses. Three positive dyadic families and one sharp excluded family provide structural information usable in comparisons of palindromic factorization, automatic-sequence invariants and symbolic dynamics. No general theorem beyond the fixed point is claimed or required.",
+      "residual_risks": [
+        "The value is specialized to the classical binary period-doubling word and depends on the external Fici–Shallit–Simpson periodicity theorem; no assertion of arbitrary automatic-word generalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact 2024/2025 F(n) is a cited proved result, not rederived from its Walnut automaton in the audit.",
+    "Finite checks do not establish infinite claims; symbolic argument provides all-length dependence on published lemmas.",
+    "Claim restricted to the one-sided fixed point and its contiguous factors; no broader morphic-word characterization.",
+    "Originality remains best-of-current-knowledge, not exhaustive priority certification."
+  ],
+  "schema_version": 1
+}
