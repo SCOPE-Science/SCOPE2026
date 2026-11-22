@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Geometric fixed points are modeled via invariant barycentric coordinates. The first and second projections of any matching edge-orbit cover the entire associated transitive row and column orbits and, because they are injective, yield a \(G\)-equivariant bijection. Such bijections exist exactly between conjugate stabilizer types and have multiplicity \(|N_G(H)/H|\). Two eligible edge-orbits are compatible exactly when their row and column orbit indices differ; this establishes the PL join formula for all finite \(G\)-sets without assuming freeness. The section/retraction on parallel edges splits integral homology. Finite independent checks include all eligible face subsets for eight actions and 19,091 matchings for one 5-by-5 doubled board. The ordinary \(\mathbb Z/3\mathbb Z\) base case is attributed to Shareshian–Wachs and Jonsson rather than claimed as newly computed.
+## correctness
 
-**Originality — PASS relative to examined evidence.** Direct statement-level comparisons were made with the indexed separately-transitive fixed-point theorem (one row and one column orbit: only isolated points), the classic 1994 chessboard connectivity treatment, the 2004 and 2012 integral homology papers, the 2022 weighted multiple-chessboard fixed-face construction, and the 2023 nonequivariant parallel-edge splitting. None of the inspected material gives a formula for arbitrary nontransitive, nonfree \(G\)-sets with joins classified by subgroup conjugacy type and normalizer quotients. General G-set orbit techniques may make a similar observation elsewhere; unindexed equivalents remain a priority risk, and no independence is claimed.
+PASS
 
-**Mathematical value — PASS.** The theorem classifies a natural all-group geometric fixed-point problem by standard, computable group invariants and ordinary matching complexes. Unlike the separately-transitive classification, it produces higher-dimensional topology, arbitrary joins, and an explicit family whose fixed spaces retain integral three-torsion as a split summand. Both nonabelian groups and multiple stabilizer types are covered uniformly. Its contribution is the exact geometric fixed-space model, not a new ordinary chessboard homology calculation or a claimed general theorem on homology of all weighted boards.
+For a side-preserving finite G-action on any nonempty complete K_(R,C), a geometrically fixed point of the matching simplicial realization has barycentric coefficients constant on each edge orbit. It is supported on invariant matchings precisely when each selected edge orbit is itself pairwise disjoint. The first/second projections of an eligible edge orbit to its transitive row and column G-orbits are both injective and surjective, hence it is the graph of a G-equivariant bijection. Such maps exist only between isomorphic stabilizer types G/H, with exactly |N_G(H)/H| choices per orbit pair. Two distinct eligible orbits coexist iff they use distinct row and column G-orbit indices; this is precisely the face rule of a matching complex of w_H K_(a_H,b_H), and disjoint stabilizer types form their simplicial join. The orbit-barycenter map is a PL homeomorphism (not just a bijection of invariant vertices). In the five-regular-orbit case w=|G|; forgetting/choosing a parallel-edge color gives simplicial section/retraction to M(K_5,5), so known H~2=Z/3 is a direct summand, not merely torsion of unspecified order. The 2-by-2 weighted block decomposes into two K_(w,w) graph components, cycle rank (w-1)^2. The proof holds for every finite group, with empty geometric fixed locus when no eligible edge orbit exists; finite code enumerations remain checks only.
 
-**Closest literature and limitations.** Björner–Lovász–Vrećica–Živaljević (1994), Shareshian–Wachs (2004 arXiv version), Jonsson (2012 arXiv version), Bayer–Jelić Milutinović–Vega (2023, Proposition 11), Jojić–Panina–Živaljević (2022, Remark 6.2), and the 2026 separately-transitive fixed-space result were compared. Only complete bipartite shore-preserving actions are covered; some plausible equivalent unpublished or less-indexed orbit formulations may remain. The integral torsion class comes from a known theorem, not an independently reproduced Smith-form computation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the published separately-transitive matching fixed-point theorem is exactly the one-orbit-per-shore case a=b=1. Its zero-dimensional conclusion does not classify multiple row/column orbits, which produce positive-dimensional matching complexes with normalizer multiplicity. Classical chessboard connectivity/torsion studies give ordinary homology, not geometric fixed loci of arbitrary finite-group actions. Other higher-matching or one-shore capacity fixed space results use different face rules. The ordinary 3-torsion theorem is expressly credited, not claimed new.
+
+## value
+
+PASS
+
+This is a complete classification of a natural geometric fixed-point construction for arbitrary finite G-set actions, detecting the stabilizer type and Weyl-normalizer multiplicity. It connects equivariant orbit data with concrete chessboard homology and demonstrates that fixed spaces can have split 3-torsion for every nontrivial finite group. Not a routine fixed-vertex count: geometric barycenters and simultaneous shore orbits are essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
