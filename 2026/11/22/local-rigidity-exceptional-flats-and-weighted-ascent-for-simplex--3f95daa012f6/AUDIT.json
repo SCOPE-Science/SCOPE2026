@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The incidence identity \\(B^\\top B=(q-2)I+J\\) proves P0 is an orthogonal projection and fixes every nonzero sign. The signed Kneser matrix \\(S=2BB^\\top-2I-J\\) has eigenvalues alpha on constants, beta on E, -2 on W, giving exact all-m leakage identity (1), sharp via rank-one rotations. At \\(m=4\\) the entire local equality manifold is the hyperplanes of the 5D incidence space; positive row sums give strict weighted ascent off P0. The simple top eigenvalue 8/5 of |P0| has gap \\(5/3\\) to the E-mode, and its standard second derivative gives precisely \\(48/125\\) for every unit angular direction. The accompanying tested script returned 2330 supplementary checks; finite samples are not used in the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kumar et al. settle stabilization of the ambient-coordinate sequence of maximal relative projection constants rather than a local Hessian or sign-chamber landscape.",
+        "Sivashankar et al. control universal graph eigenvalues and global projection upper bounds, not the local orbit of the simplex-midpoint Gram projector.",
+        "The hypersimplex paper computes concrete frame lower bounds and exact finite global tables (N <= 11) but not perturbation costs or local optimizer manifolds."
+      ],
+      "reasoning": "Universal extremal bounds are over all frame Gram projections, and do not imply quantitative stability around this particular nonglobal m=4 frame. The published fixed-frame weight theorem, while spectrally close and expressly credited, contains no variable-Gram control.",
+      "searches": [
+        "maximal projection constants fixed signs local quadratic Frobenius stability rank m orthogonal projections",
+        "arxiv:2609.03200 Theorem 1.3",
+        "arxiv:2608.02429 Theorems 2.2 and 4.1",
+        "Hypersimplex frames beyond the simplex bound Theorem A / Computation 7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.08695",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-sharp-weight-rigidity-and-a-spectral-crossover-for-regular-simpl--bc57de4b689b/RESULT.md",
+      "https://arxiv.org/abs/2609.03200",
+      "https://arxiv.org/abs/2608.02429",
+      "https://ideosphere.ai/papers/projconst-mn-v1.pdf",
+      "https://arxiv.org/abs/2609.29422"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Example 2.1 establishes P0 and the value 4(m-2)/(m+1), a premise rather than the perturbation claim.",
+        "The published weight theorem computes the spectrum of |P0|, used for the m=4 Perron second derivative; it does not assert that P can vary in a Grassmannian flat with F constant but L strictly increasing.",
+        "Known Ky Fan and symmetric-matrix eigenvalue derivative formulas are explicitly employed and distinguished from the new classification."
+      ],
+      "reasoning": "The key new deductions need the signed Gram matrix S (not just |P0|), its three-way spectral splitting in the variable-P objective, and the structure of all hyperplanes within the incidence space. Even at m=4, the prior optimization varies the weight vector only at P0, where it is uniquely uniform; the claimed strict ascent requires varying the Gram matrix simultaneously.",
+      "searches": [
+        "\"local maximizer\" \"simplex\" \"projection constant\" frame",
+        "https://arxiv.org/abs/2608.08695",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-sharp-weight-rigidity-and-a-spectral-crossover-for-regular-simpl--bc57de4b689b/RESULT.md",
+        "https://ideosphere.ai/papers/projconst-mn-v1.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original source constructs the edge-midpoint Parseval frame and calculates its value; its theorem does not quantify rank-m projection perturbations.",
+        "The closest published research record proves a sharp penalty for perturbing nonnegative weights while holding the frame Gram projection fixed; it explicitly excludes perturbing frame vectors.",
+        "The new theorem varies the Grassmannian point P, identifies a four-dimensional flat manifold at m=4, and compares F(P) against optimized L(P), which are absent from those statements."
+      ],
+      "reasoning": "The fixed-matrix weight problem and the variable-matrix local sign-chamber problem have different quantifiers and different optimizers. Ky Fan and Perron eigenvalue perturbation are transparent ingredients, but no inspected result states or entails the dimension-four flat-versus-weighted-ascent classification by simply specializing its quantified conclusion.",
+      "searches": [
+        "For the regular simplex edge midpoint Parseval frame, sharp local Grassmannian perturbation loss of the entrywise absolute Gram sum, isotropic m=7, flat m=4",
+        "simplex midpoint frame rank projection sign matrix Kneser eigenvalue local maximum nonisolated Grassmann dimensions four seven",
+        "arxiv:2608.08695 §2",
+        "2026/11/2/SCOPE-sharp-weight-rigidity-and-a-spectral-crossover-for-regular-simpl--bc57de4b689b"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source table reports a global value at m=4,N=10 above the midpoint frame's value 8/5; that does not give a local flat-locus or the gain 48/125.",
+        "A prior published simplex-frame result treats deleting matching frame vectors and renormalizing, an operation distinct from arbitrary nearby rank-m Gram projections.",
+        "Relevant record searches returned fixed weight and erasure claims but not the local sign-chamber identity with a weighted ascent coefficient."
+      ],
+      "reasoning": "An exact table of global optima does not determine local neighborhoods around a nonoptimal frame, and neither a matching-erasure family nor a fixed-weight perturbation is the unrestricted Grassmannian family.",
+      "searches": [
+        "edge midpoint regular simplex Parseval frame local maximum projection constant sign chamber Kneser graph eigengap quadratic stability dimension four flat directions",
+        "\"regular simplex\" \"quasimaximal\" \"Grassmann\" local maxima",
+        "2026/11/2/SCOPE-sharp-weight-rigidity-and-a-spectral-crossover-for-regular-simpl--bc57de4b689b",
+        "2026/11/2/SCOPE-sharp-two-erasure-peak-in-canonical-simplex-edge-frame-projectio--c8f52abf70b1",
+        "Hypersimplex frames beyond the simplex bound Table 2, m=4,N=10"
+      ]
+    },
+    "rationale": "The closest published full text covers perturbing weights with the Gram matrix fixed and expressly excludes frame perturbations. The original arXiv source supplies the unperturbed frame; other full-text comparisons give global maximization, graph-eigenvalue, or ambient-dimension results. None of these statements logically covers the quantified local variable-projector landscape, flat \\(m=4\\) manifold together with strict weighted ascent and the exact quadratic gain. Standard spectral computations are acknowledged as ingredients; unindexed equivalent work remains a genuine risk.",
+    "residual_risks": [
+      "The Sept 2026 Sidelnikov–Welch paper was verifiable at abstract level but its full text could not be retrieved in this session; its stated topic is recursive weighted frame inequalities, not local Gram perturbations.",
+      "An unindexed equivalent result in frame optimization or signed-graph spectral geometry might exist; searches do not prove novelty.",
+      "The leakage formula follows from classical spectral variational methods and known incidence eigenvalues; the mathematical contribution is the concrete sharp local classification and the weighted ascent, not those standard ingredients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the unperturbed Parseval frame and its lower bound, but no local Grassmannian profile, m=4 manifold, or weighted second-order gain.",
+        "evidence": [
+          "Section 2 Example 2.1: edge-midpoint Parseval construction and 4(m-2)/(m+1).",
+          "Section 1: definitions of equal-weight and optimized-weight objectives; Section 3: design conjectures."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.08695",
+        "material_read": "Full arXiv HTML text, especially Introduction, §2, Example 2.1, Lemma 2.1, §3, and references.",
+        "method": "Read original HTML sections and compared the frame and optimization quantifiers.",
+        "title": "Maximal Projection Constants and Extremal Vector Configurations: Some Conjectures and Examples",
+        "trigger": "Primary source introducing the exact family and its extremal objective."
+      },
+      {
+        "assessment": "Determines |P0| spectrum and globally optimal loss for variable weights t at fixed P0; its limitations explicitly exclude moving frame vectors. Those ingredients are credited; no theorem of varying P or flat weighted ascent is contained.",
+        "evidence": [
+          "Theorem ranges over t >=0 with fixed |P0|, not rank-m P near P0.",
+          "Limitations: no stability estimate asserted when frame vectors themselves are perturbed."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-sharp-weight-rigidity-and-a-spectral-crossover-for-regular-simpl--bc57de4b689b/RESULT.md",
+        "material_read": "Full RESULT.md text including finding, incidence proof, scope, limitations, and references.",
+        "method": "Read authorized public research result and compared input variable, exact implication and stated exclusions.",
+        "title": "Sharp weight rigidity and a spectral crossover for regular-simplex midpoint frames",
+        "trigger": "Closest published record, exactly same frame and spectral crossover."
+      },
+      {
+        "assessment": "Stabilization under increasing ambient n, unrelated to local rank-m Gram perturbations at fixed N.",
+        "evidence": [
+          "Theorem 1.3 studies lambda(r,n)=lambda(r) when n exceeds a finite threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.03200",
+        "material_read": "ArXiv HTML text including full introduction and Theorem 1.3 and its scope; comparisons to its graph variational formulation.",
+        "method": "Inspected theorem and defined variable n for the stability statement.",
+        "title": "Stability of maximal relative projection constants",
+        "trigger": "Possible broader projection-constant stability theorem."
+      },
+      {
+        "assessment": "Supplies general spectral context, not the m=4 flat frame manifold or the local weighted ascent.",
+        "evidence": [
+          "Theorem 2.3 uses Ky Fan; Section 4 proves global upper bounds for arbitrary projections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.02429",
+        "material_read": "ArXiv HTML: introduction, Theorems 2.1–2.3 and their proofs, Section 4 on upper bounds, Section 5 on graph constructions.",
+        "method": "Compared universal graph eigenvalue bounds with fixed sign neighborhood optimization.",
+        "title": "Graph Eigenvalues and Projection Constants",
+        "trigger": "Uses the same graph-sign matrices and Ky Fan tools."
+      },
+      {
+        "assessment": "Proves lower bounds for several hypersimplex frames and presents finite global-value tables. No theorem of perturbing a fixed midpoint projector nor its local weighted-versus-equal-weight discrepancy.",
+        "evidence": [
+          "Theorem A: exact value for k-subset frames, k=2 recovers known midpoint value.",
+          "Computation 7: maximized values over all rank-m projectors for N <=11."
+        ],
+        "identifier_or_url": "https://ideosphere.ai/papers/projconst-mn-v1.pdf",
+        "material_read": "Full 11-page open-access PDF, including source frame, Theorems A–C, Tables 1–2, and limitations; relevant page rendered visually as well.",
+        "method": "Read full parsed text and inspected page image of the projection/Seidel formulation; compared table and source family.",
+        "title": "Hypersimplex frames beyond the simplex bound, and the exact table of quasimaximal projection constants up to N=11",
+        "trigger": "Same edge-midpoint frame as k=2 member of a more general family; exact tables might dominate local claims."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3f95daa0-12f6-4c67-b938-8117092020ea",
+  "value": {
+    "rationale": "The edge-midpoint frames are explicit candidates in difficult maximal real projection-constant conjectures. Their local stability and optimizer geometry are natural tests of these candidates: the exact optimal Frobenius gap and equality modes resolve this for every dimension >=5, dimension 7 exhibits isotropic loss, and dimension 4 has a four-dimensional equal-weight plateau that becomes a strict ascent family once weights are optimized. The explicit \\(48/125\\) coefficient quantifies the mismatch between the two central frame functionals that agree at the source configuration. This is a motivated structural classification, not an arbitrary matrix slice or a claim of new global projection constants.",
+    "status": "PASS"
+  }
+}
