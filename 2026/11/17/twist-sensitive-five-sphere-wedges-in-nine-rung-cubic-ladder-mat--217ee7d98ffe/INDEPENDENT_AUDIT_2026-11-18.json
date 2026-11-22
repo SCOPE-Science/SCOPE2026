@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T18:08:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "check_ladder18.py",
+        "check_ladder18_output.json",
+        "Forman discrete Morse theorem"
+      ],
+      "rationale": "Independently reconstructed both 27-edge cubic graphs and enumerated all matchings without using the provided program as an oracle. Möbius: 36,627 nonempty simplices, critical cells one 0, twenty-three 5, one 6; 18,301 matching pairs, all 199,908 cover relations sorted. Prism: 36,625 nonempty, critical one 0, twenty-six 5, two 6; 18,298 pairs, all 199,890 covers sorted. Exact signed Morse boundaries independently reconstructed and matched all supplied JSON entries: Möbius 1x23 matrix with entry +1 at column 6; prism 2x26 matrix with determinant +1 on columns 8,14. Since maps of S5 to wedges of S5 are classified by degree, unimodular integer cancellations remove the sixth cells and yield wedges of 22 and 24 S5 integrally. No inference of homotopy from mod-two Betti alone.",
+      "residual_risks": [
+        "This is exact for two 18-vertex graphs, not an all-width formula.",
+        "The independent reconstruction follows the signed cellular-Morse elimination recurrence; algorithmic correctness is justified by cancellation of acyclic face pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agarwal and Basak main theorems classify independence and perfect matching complexes, not ordinary",
+          "Published earlier ordinary Möbius cases 12/14/16 and prism widths 3..8; this checks n=9",
+          "Cubic graphs have min degree 3, excluding outerplanar hypotheses"
+        ],
+        "reasoning": "None of these broader family statements gives the nine-rung ordinary matching result; prior results on smaller n cannot be extrapolated.",
+        "searches": [
+          "Agarwal Basak arxiv:2608.30601 full 19-page paper",
+          "Resultary: Three integral homotopy types of ordinary Möbius-ladder matching complexes",
+          "Resultary: Initial integral homotopy types of circular-ladder matching complexes",
+          "outerplanar matching complex classification"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULTS/check_ladder18.py/expected JSON",
+        "Agarwal–Basak arxiv:2608.30601v2 full authorized text",
+        "Resultary published Oct25 prior smaller ladders",
+        "Resultary semantic search ordinary M18 and C9 prism",
+        "Bayer/Jelić Milutinović/Vega arxiv:2411.04601 outerplanar matching complexes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Agarwal–Basak discussion explicitly distinguishes ordinary complex from perfect matching complex; its main theorems are on different complexes",
+          "Earlier 8-rung prism is mixed-dimensional, so no same-dimension stabilization can be assumed"
+        ],
+        "reasoning": "The exact 22 versus 24 five-sphere wedge cannot follow by the cited smaller-n ordinary calculations without a novel recurrence; this report provides separate complete finite chain reductions.",
+        "searches": [
+          "Agarwal Basak arxiv:2608.30601 Problem 26",
+          "Resultary Oct25 and Nov1 ordinary ladder matching smaller n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordinary matching complex is Ind(line graph) including all partial matchings; the perfect matching complex retains only facets extendible to perfect matchings"
+        ],
+        "reasoning": "The complexes share the graph but not their simplices, so the perfect-matching wedge/contractibility statements cannot be substituted for full ordinary matching homotopy.",
+        "searches": [
+          "Resultary: ordinary matching complexes Möbius ladder M18 prism C9 Cartesian K2 nine rung sphere wedge",
+          "Agarwal Basak arxiv:2608.30601 matching versus perfect matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "First same-object 9-rung source in search is assigned 2026/11/17 result; earlier exact tables end at Möbius 16 vertices and prism 8 rungs"
+        ],
+        "reasoning": "No earlier independent 9-rung exact integral boundary/cellular table was found; same-day indexed assigned result is not external precedent.",
+        "searches": [
+          "Resultary: 18-vertex nine-rung Möbius ladder ordinary matching homotopy 22",
+          "Resultary: nine-rung prism ordinary matching homotopy 24"
+        ]
+      },
+      "rationale": "Exact comparison with previous all-width independence/perfect matching results and previous small ordinary matching results confirms the missing 9-rung ordinary case remains a separate computation, including its twist-sensitive 22 vs 24 integral wedge ranks.",
+      "residual_risks": [
+        "Prior or unindexed nine-rung computed tables could exist.",
+        "General recursive matching-complex theorem outside inspected references might specialize to n=9, but no such implication was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING ordinary matching complexes for n=9; solves independence and perfect-matching variants",
+          "evidence": "Abstract and Main Theorems 1–2 classify Ind and Mp; §5 is explicitly perfect matching; ordinary matching distinct.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601",
+          "material_read": "Authorized complete extracted text of revised 19-page 2026-09-14 arXiv version, pages 1 through 19",
+          "method": "Authorized full-text paper extraction; pages 1-2 and theorem/section match windows throughout the remaining pages inspected",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Precisely same graph family; nearest primary manuscript"
+        },
+        {
+          "assessment": "LIMITED_NONCOVERAGE by its stated width range; exact n=9 not among its cases",
+          "evidence": "Result explicitly limits to 3<=n<=8; n=8 mixed-dimensional.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-initial-integral-homotopy-types-of-circular-ladder-matching-comp--94cb26be0034",
+          "material_read": "Published summary and comparison with stated width range 3–8",
+          "method": "Resultary semantic retrieval and theorem range comparison",
+          "title": "Initial integral homotopy types of circular-ladder matching complexes",
+          "trigger": "Earlier ordinary prism width series"
+        },
+        {
+          "assessment": "LIMITED_NONCOVERAGE by its 12-,14-,16-vertex scope",
+          "evidence": "Target M18 has 18 vertices and separate 5-dimensional critical-cell computations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-three-integral-homotopy-types-of-ordinary-m-bius-ladder-matching--2836154b88c9",
+          "material_read": "Published statement and exact classified orders checked",
+          "method": "Resultary semantic retrieval and statement comparison",
+          "title": "Three integral homotopy types of ordinary Möbius-ladder matching complexes",
+          "trigger": "Earlier ordinary twisted ladder cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Agarwal–Basak 2608.30601 same graph-family context",
+        "Published shorter-width ordinary cases",
+        "Independent integral Morse matrices"
+      ],
+      "rationale": "The Möbius versus cylinder twist comparison is a natural controlled combinatorial change for cubic ladder families. Its nine-rung boundary fills the next omitted ordinary matching-complex case, proving exact integral homotopy and a nontrivial difference of two sphere generators where the preceding cases exhibit mixed dimensions. This is a motivated exact invariant, not an arbitrary small-slice number.",
+      "residual_risks": [
+        "Does not establish a general width-periodicity law or equivariant structure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Ordinary matching complexes of the 18-vertex Möbius ladder M18 and nine-rung prism C9 square K2 are integrally wedges of 22 and 24 five-spheres, respectively.",
+  "limitations": [
+    "This is exact for two 18-vertex graphs, not an all-width formula.",
+    "The independent reconstruction follows the signed cellular-Morse elimination recurrence; algorithmic correctness is justified by cancellation of acyclic face pairs.",
+    "Prior or unindexed nine-rung computed tables could exist.",
+    "General recursive matching-complex theorem outside inspected references might specialize to n=9, but no such implication was located.",
+    "Does not establish a general width-periodicity law or equivariant structure."
+  ],
+  "schema_version": 1
+}
