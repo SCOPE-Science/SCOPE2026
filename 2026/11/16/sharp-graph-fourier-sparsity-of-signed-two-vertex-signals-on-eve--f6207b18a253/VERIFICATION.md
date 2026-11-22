@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification of the path-graph Fourier sparsity theorem
+# Independent mathematical audit
 
-The proof consists of an exact trigonometric product identity, an integer linear-congruence zero-count lemma, and global upper bounds on zero sets split by path-length parity. It covers all integer path lengths at least two; it does not require a numerical limiting argument. The boundary cases of length two, odd prime order and powers of two are covered by the equality classification.
+## correctness
 
-Two reproducibility checks were executed from the included standalone source files:
+PASS
 
-- `python check_exact.py`: PASS, using only Python's integer arithmetic. For all path lengths \(2\le n\le80\), all \(170{,}640\) distinct unordered vertex pairs and binary relative signs were enumerated; predicted minimum, all equality sets and cardinalities were checked exactly.
-- `python check_dct.py`: PASS, with `mpmath` at 90 decimal digits. For all \(2\le n\le22\), all \(3{,}542\) pairs and binary relative signs, direct Laplacian cosine-transform coefficients agreed with the integer-congruence zero classification at tolerance \(10^{-65}\).
+The combinatorial path Laplacian has simple real cosine eigenvectors phi_0=n^-1/2 and phi_k(j)=sqrt(2/n)cos(pi*k*(j+1/2)/n). For every u<v, factoring phi_k(u) +/- phi_k(v) gives a product of cosine or sine functions at indices A=u+v+1 and B=v-u, exactly one odd. Converting each factor zero to c*k = n or 0 (mod 2n), counting zero indices k=0,...,n-1 by gcd, and distinguishing even n=2^t q (odd q) from odd n (least prime p), proves sharp support (n-q+1)/2 or (n-n/p)/2 and the reflected-pair/sign/optimizer enumeration. For n a power of two, q=1 ties both signs; for n=2 and n=3 boundaries give integer counts. Inspected actual RESULT.md, check_exact.py and check_dct.py at frozen Git blobs; verified algebraic examples P6/P9/P16 and checked bound/equality logic. Script enumerates n=2..80 exactly and DCT 2..22 with high precision, but the universal conclusion rests on modular proof, not finite logs.
 
-The exact congruence checker verifies finite specializations but is not a substitute for the all-dimension reasoning; the numerical checker is corroboration only. Historical publication priority and robustness for unequal or noisy amplitudes are not mathematically certified here. Independent audit status remains unperformed.
+## originality
+
+PASS
+
+Checked potential equivalence with arithmetic controllability of path nodes and graph uncertainty; those statements are for independent channels or general inequalities, not fixed signed equal-magnitude two-site Fourier support and exact all-location minima. Resultary returned the identical record and distinct graph/cycle results, not an independent stronger coverage; no claim of assured historical priority.
+
+## value
+
+PASS
+
+The fully optimized, all-size two-site graph-Fourier uncertainty equality case has a natural graph-signal-processing motivation: it identifies sparse signed sensor/forcing geometries and exactly when reflected pairs and parity/gcd produce maximal spectral annihilation. Distinguishing sum versus difference for each path length and counting all optimal locations adds a structural classification beyond the familiar DCT formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
