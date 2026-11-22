@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Solving the calibrated ODE yields Q_j=C(X^j-Z^j). Two ratios give s=X+Z and v=X²+XZ+Z²; Δ=4v−3s²=(X−Z)² recovers both endpoints and amplitude under exact strict deployment-domain inequalities. Perturbing X and Z oppositely proves a continuum of two-read aliases. Differentiating the inverse at fixed Q1,Q2 gives |∂log C/∂log Q3|=2(1+r+r²)/(1−r)², r=e^(−kh), yielding the exact limit 6. The fully factored Jacobian is C²k²XZ(X−Z)^4>0 for physical coordinates. A distinct rational alias, exact rational witness, and 47,013 independent supplementary assertions (from the included checker) are consistent with the proof. The check is finite; universal correctness rests on the displayed algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Plonka and Tasche, doi:10.1002/gamm.201410011, describes general exponential-sum recovery and known conditioning issues; publisher abstract and references were accessible, but full text was not.",
+        "Becker et al., doi:10.1007/s11356-024-34460-x, formulate uptake kinetics and discuss unresolved pulse-timing uncertainty, without an exact three-rate inverse."
+      ],
+      "reasoning": "Classical general Prony permits recovery of a wider class using more measurements, but its generic statement does not explicitly entail minimal three-channel recovery with the necessary and sufficient physical inequalities or the duration-only exact inverse sensitivity coefficient. A fuller general-theory comparison is a residual priority risk.",
+      "searches": [
+        "Prony methods for recovery of structured functions 2014 Plonka Tasche",
+        "Prony piecewise constant function Laplace samples known moment inversion equal amplitude two jump points three samples",
+        "Prony jump discontinuities finite rate of innovation Laplace transform unknown box support 3 measurements"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s11356-024-34460-x (full journal HTML; dated 2024-08-12)",
+      "https://doi.org/10.1002/etc.69 (full journal HTML; published 2009-12-02)",
+      "https://doi.org/10.1002/gamm.201410011 (publisher abstract and references only)",
+      "Targeted online searches for three-rate pulse inversion, two-node constrained exponential sums, and collision sensitivity",
+      "Multiple semantically matched indexed mathematical findings with different model assumptions and claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Becker et al. (2024), Model Eq. (5), gives time-variable first-order convolution with calibrated rates; its discussion notes pulse timing and duration uncertainties.",
+        "Hawker (2009) discussion states timed series or samplers retrieved at different times can infer pulse features.",
+        "General two-node Prony literature treats unconstrained coefficient identification and node collision."
+      ],
+      "reasoning": "The forward convolution alone does not imply the claimed all-interior exact inverse, 2-vs-3 scalar minimality, feasibility image, and exact independent-of-lag 6/(kh)^2 sensitivity. Hawker's temporal sampling and the present single-retrieval rate-diversity design are not logically identical. Broader Prony literature implies broad recovery concepts and instability mechanisms, which are acknowledged rather than relabeled.",
+      "searches": [
+        "Modelling passive sampling of hydrophilic compounds under time-variable aqueous concentrations Becker 2024",
+        "Modeling the response of passive samplers to varying ambient fluid concentrations of organic contaminants Hawker 2009",
+        "three exponential moments one rectangular pulse identifiability sensitivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The normalized observations are tied-weight two-node exponential/power differences, Q_j=C(X^j-Z^j), a constrained two-node Prony-like system.",
+        "Hawker (2009; doi:10.1002/etc.69) models a contaminant pulse from longitudinal sampler-response curves, not three distinct rates at one common retrieval."
+      ],
+      "reasoning": "An ordinary two-exponential representation has four free amplitude/node parameters; the present constrained opposite coefficients reduce this to three parameters, with a three-reading inverse and a physically constrained domain. Other moment parameterizations may exist; the exact assessed statement is not just the model ODE.",
+      "searches": [
+        "\"three exponential moments\" \"interval\" inversion amplitudes",
+        "\"passive samplers\" \"different\" \"elimination rates\" \"pulse\" \"infer\"",
+        "Two-node Prony difference of exponentials three moments with opposite equal weights, inverse feasibility, coalescing nodes stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed nearby scientific statements concerned Gaussian pollutant puff localization, multiple-zone tracer cumulants, or generic exponential sampling, not three simultaneous harmonic-rate passive samplers reconstructing a rectangular episode.",
+        "No published exact table or instance corresponding to this three-rate physical inverse was identified by these searches."
+      ],
+      "reasoning": "The finding is an all-positive-parameter symbolic inverse, rather than a numerical table entry. Failure to find an exact table is evidence of nonoverlap within searched sources, not a proof of global uniqueness.",
+      "searches": [
+        "Exact single-collection reconstruction of one rectangular pulse start end and height by three exponential decay rates with harmonic ratio k,2k,3k, with feasibility and quadratic short-pulse inverse sensitivity",
+        "Loss of identifiability / ill-conditioning fourth-order Jacobian and relative sensitivity inverse pulse width squared for passive sampler triangular exponential moment inversion",
+        "recover rectangular pulse from three exponential moments Laplace measurements minimal 3"
+      ]
+    },
+    "rationale": "The same terminal, rate-diverse one-episode inverse and sharp dimensionless concentration-sensitivity factor were not found in inspected primary forward-model and pulse-reconstruction literature or indexed scientific records. Classical Prony reconstruction, exponential convolution and generic collision instability are prior and not claimed as novel. The three-channel physical-domain specialization and its exact universal 6 coefficient are the assessed statement. Full text of the closest general Prony survey was not obtainable, so historical priority is provisional.",
+    "residual_risks": [
+      "Classical moment/Prony literature may contain this specialization or an exact differential sensitivity constant despite its absence from inspected statements.",
+      "The general Prony survey full text was not accessible; no NOT_COVERING assertion is made for that whole document.",
+      "Field calibration may not realize rate ratios 1:2:3 or the one-compartment model, limiting direct empirical applicability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_FORWARD_MODEL; no same-observation-design exact three-rate inverse or sharp concentration differential sensitivity found",
+        "evidence": [
+          "First published 2024-08-12.",
+          "Eq. (5) is an exponential response integral; discussion says unknown timing/duration restrict practical modelling."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11356-024-34460-x",
+        "material_read": "Full accessible journal HTML: introduction, calibration, generalized kinetic model Eq. (5), time-variable input model, experimental phases, results and implications",
+        "method": "Read open full-text HTML, including model equations, goals, interpretation of unknown pulse timing and duration",
+        "title": "Modelling passive sampling of hydrophilic compounds under time-variable aqueous concentrations",
+        "trigger": "Main dated 2024 application and exact forward-equation overlap"
+      },
+      {
+        "assessment": "CLOSEST_FORWARD_AND_RECONSTRUCTION_PAPER; changes observation times and uses a pulse shape rather than the constrained three-rate one-collection problem",
+        "evidence": [
+          "First published online 2009-12-02.",
+          "Discussion recommends a response curve from repeated retrievals, not a one-time three-harmonic-rate inversion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/etc.69",
+        "material_read": "Full journal HTML, theory and results for pulse inputs and discussion/conclusions, including lines describing retrieval at different durations",
+        "method": "Read full-text accessible publisher HTML",
+        "title": "Modeling the response of passive samplers to varying ambient fluid concentrations of organic contaminants",
+        "trigger": "Earlier theoretical pollutant-pulse reconstruction paper"
+      },
+      {
+        "assessment": "GENERAL_METHOD_OVERLAP; whole-document coverage unresolved; not presented as whole-document exclusion",
+        "evidence": [
+          "The summary covers exponential sums, generalized Prony and spline functions.",
+          "No full-text claim was inspected; a stronger specialized implication remains possible."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/gamm.201410011",
+        "material_read": "Publisher abstract, references and bibliographic metadata only; university-hosted preprint link redirected; institutional full-text service not connected",
+        "method": "Read publisher summary and references, sought author-hosted preprint, attempted authorized institutional retrieval",
+        "title": "Prony methods for recovery of structured functions",
+        "trigger": "Plausible stronger generic inverse-moment reconstruction and conditioning coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "355f087d-32be-464a-b67a-1b1e6a430f52",
+  "value": {
+    "rationale": "The 2024 aqueous monitoring work identifies unknown episodic-exposure timing as a concrete limitation of passive samplers. The precise information limit (two simultaneous samplers cannot determine pulse start, stop, concentration; three can under explicit feasibility) is useful as an ideal experimental-design benchmark. The exact, lag- and concentration-independent local amplification 2(1+r+r²)/(1-r)², with sharp 6/(kh)² short-event degradation, provides a mathematically meaningful warning that structural identifiability alone does not imply practical resolution. It is not a routine parameter renaming, a known numerical table, or a claim of field-ready performance.",
+    "status": "PASS"
+  }
+}
