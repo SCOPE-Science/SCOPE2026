@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Explicit stable steady matrix; Cramer formulas. Derivatives have exact signs: source derivative numerator strictly positive, remote quadratic determinant uniquely maximized at equal split, total derivative numerator strictly increasing and crosses zero in (0,B/2) iff B>2r+r^2/m. Equality and large-B expansions verified. checker.py replays finite tests; analytic proof establishes all positive parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus 2026/11/8 aerosol-SIS ventilation budget addresses nonlinear infection extinction, not this steady-state pollutant loss.",
+        "Kikumoto & Ooka locate an air cleaner in nonuniform spatial flow rather than split two removal rates.",
+        "published-finding corpus 2026/11/2 two-box tracer optimizes interroom exchange at fixed time rather than filtration budget at steady state."
+      ],
+      "reasoning": "Neither mathematical objective nor variable, hypotheses and constraints imply the exact new concentration allocation theorem as a specialization; generic KKT or quadratic differentiation tools alone do not establish a published dominating result. Broader air-quality optimization literature may remain.",
+      "searches": [
+        "published-finding corpus: sharp threshold two communicating well mixed rooms fixed total air filtration capacity allocate optimal source room versus clean room minimize combined steady particle burden sqrt budget",
+        "published-finding corpus: asymmetric two compartment ventilation filtration budget unique optimal allocation crossover",
+        "https://doi.org/10.1002/2475-8876.12318"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/ijerph9124639",
+      "doi:10.1016/j.buildenv.2009.03.023",
+      "doi:10.1002/2475-8876.12318",
+      "https://www.airgle.com/research/one-large-or-two-small-air-purifiers",
+      "2026/11/8/SCOPE-sharp-ventilation-budget-threshold-and-universal-critical-decay--0ec732feed40",
+      "2026/11/2/SCOPE-a-sharp-exchange-rate-optimum-for-an-unequal-loss-two-box-tracer--89b160aaa5b3",
+      "2026/11/2/SCOPE-sharp-resource-allocation-staircases-under-uniform-patch-dispers--5d8b1181bd2f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Du et al. calibrate and compare two-zone exposure scenarios; optimization over a continuum of fixed filtration rates is not a result reported in the inspected abstract, methods, scenario analysis or conclusion.",
+        "Novoselac & Siegel model discrete air cleaner placement and flow field, without a fixed-budget all-rate analytic optimum in inspected accessible parts.",
+        "Airgle explicitly compares two finite allocations under the same mass balance; its source-only scenario is a strong nearby prior but does not discuss optimizing all y."
+      ],
+      "reasoning": "The source model is acknowledged as inherited. The new claim entails exact minimizers for every feasible split, a critical budget dividing two qualitative regimes, and nonzero asymptotic benefit; none follows from the inspected finite scenarios without additional mathematical analysis. An uninspected more general published allocation result could still cover it.",
+      "searches": [
+        "published-finding corpus: two reservoir diffusive coupling fixed total first-order removal optimal distribution steady exposure source downstream compartments",
+        "doi:10.3390/ijerph9124639",
+        "doi:10.1016/j.buildenv.2009.03.023",
+        "https://www.airgle.com/research/one-large-or-two-small-air-purifiers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Airgle directly gives the same two-zone mass balance but evaluates only concentrated and equal split; no continuous optimizer or exact activation threshold in its discussion.",
+        "Du et al. 2012 studies different source locations and air-filter scenarios in two-zone modeling."
+      ],
+      "reasoning": "The model itself and discrete design comparisons are known. The exact continuum three-objective optimization statement is neither a renaming of the discrete comparisons nor obtained by comparing only the two endpoint policies.",
+      "searches": [
+        "published-finding corpus: two-box symmetric exchange pollutant source only in first box uniform intrinsic loss optimal treatment rates split concentration total square root resource allocation",
+        "Web: two zone multizone air cleaner allocation fixed CADR split optimize source room pollutant total concentration budget",
+        "https://www.airgle.com/research/one-large-or-two-small-air-purifiers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published-finding corpus result or inspected Airgle worked table gave B_c=2r+r^2/m, the stated continuous source-free optimal allocation, and three distinct objectives."
+      ],
+      "reasoning": "Finite tabulated configurations at given filtration capacities cannot by themselves establish the all-parameter universal minimizer or sharp equality threshold; absence of indexed exact table is not proof of worldwide novelty.",
+      "searches": [
+        "published-finding corpus: source-only room concentration optimal filtration all at source while non-source room concentration optimal equal split and overall exposure interior budget threshold",
+        "published-finding corpus: steady state aerosol two rooms removal budget threshold B critical 2r+r squared divided exchange m",
+        "https://www.airgle.com/research/one-large-or-two-small-air-purifiers"
+      ]
+    },
+    "rationale": "Closest inspected studies already establish the two-zone air balance and discrete cleaner comparisons, which are acknowledged. No checked source or published-finding corpus finding states the continuous all-budget three-objective minimizers, threshold and asymptotic gain. The exact theorem is provisional given possible broad unpublished or unindexed resource allocation coverage.",
+    "residual_risks": [
+      "More general analytic filtration-resource or compartment-network allocation literature could imply this rational two-box special case; indexed and selected source comparisons do not prove priority.",
+      "Model assumptions restrict application: equal volumes, symmetric exchange, linear rates and steady input; field validity is untested."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Two-zone empirical and numerical study, not an all-budget optimum with explicit switching condition",
+        "evidence": [
+          "Public date 12 December 2012; authors compare emissions, filters and interzonal flow and emphasize large room-to-room exposure differences."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/ijerph9124639",
+        "material_read": "Full open-access HTML, abstract, model/scenario descriptions, discussion, conclusions and references",
+        "method": "Read full article sections through publisher HTML",
+        "title": "Air Change Rates and Interzonal Flows in Residences, and the Need for Multi-Zone Models for Exposure and Health Analyses",
+        "trigger": "Classic detailed two-zone exposure source and date anchor"
+      },
+      {
+        "assessment": "Cleaner placement and performance simulation, not a statement of the present fixed-sum two-rate global optimizer",
+        "evidence": [
+          "Considers changing placement of portable air cleaners in multizone residential environments; no continuous two-room optimal-split threshold identified in inspected material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.buildenv.2009.03.023",
+        "material_read": "Lawful accessible PDF pages covering abstract, model and conclusions",
+        "method": "Accessed full PDF, inspected front and relevant methodological/conclusion page images",
+        "title": "Impact of placement of portable air cleaning devices in multizone residential environments",
+        "trigger": "Directly relevant classic multizone purifier placement"
+      },
+      {
+        "assessment": "Single cleaner location optimization in nonuniform flow, different feasible set and claim",
+        "evidence": [
+          "First online 23 November 2022; adjoint-based positional optimization rather than rate splitting in two communicating boxes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/2475-8876.12318",
+        "material_read": "Publisher full open-access HTML, abstract, methods, numerical scenarios and conclusion",
+        "method": "Read full article via publisher HTML",
+        "title": "Study on influence of air cleaner on room dispersion field and its optimal placement using adjoint concentration",
+        "trigger": "Potential dominating optimization study"
+      },
+      {
+        "assessment": "Same physical equations and two candidate allocations are prior art; no all-splits exact optimizer established there",
+        "evidence": [
+          "Source-only example explicitly compares 300 versus 150+150 clean-air unit allocation; analytic continuous optimum and critical threshold absent from inspected text."
+        ],
+        "identifier_or_url": "https://www.airgle.com/research/one-large-or-two-small-air-purifiers",
+        "material_read": "Entire relevant online modeling discussion, source-only and two-source numerical comparisons and limitations",
+        "method": "Read original full online article",
+        "title": "One Larger Air Purifier or Two Smaller Units? A Multiroom Comparison",
+        "trigger": "Exact equal-volume two-zone balance model and budget comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cd7c91b4-d72d-4b0d-b46c-2ba3c75d5c30",
+  "value": {
+    "rationale": "Fixed-rate filtration allocation among emitting and nonemitting connected rooms is physically motivated. An exact positive activation threshold and divergent preferences of three legitimate exposure objectives guide interpretation of simple but widely used two-zone mass balance. The source-only benchmark is improved by a strictly interior rate split, with a nonzero asymptotic fractional benefit. Clinical/field generalization is not claimed.",
+    "status": "PASS"
+  }
+}
