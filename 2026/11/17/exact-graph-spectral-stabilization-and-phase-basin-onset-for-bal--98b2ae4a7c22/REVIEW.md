@@ -1,25 +1,21 @@
-# Scientific review: balanced antipodal spectral stabilization
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact triadic derivative at a balanced sign pattern has rank one, producing a symmetric Jacobian. The quotient decomposition into the collective sign direction and its orthogonal shape modes is exact; the symmetric Schur-complement equivalence proves necessity as well as sufficiency of the proposed finite-graph criterion, including equality boundaries. An explicit block spectrum proves the community threshold. Direct substitution into the flow yields the exact invariant-circle equation, and one-dimensional sign analysis and Taylor expansion establish the basin fraction, square-root onset and critical cubic instability. The bundled `checker.py` provides 452 successful finite-dimensional comparisons but is not used to prove the all-graph statement.
+PASS
 
-## Originality (O): PASS within inspected evidence
+At balanced signs s (sum s=0), the triadic term equals K2 Im(z2 conj(z1)e^{-i theta_i}); at z1=0, z2=1 its linearization is -K2 ss^T/N. The pairwise derivative is (K1/d) signed symmetric Laplacian B. Orthogonal decomposition 1^perp=span(s/sqrtN)⊕ W yields J block matrix; Schur complement proves exponential attraction iff C=P_WB|W negative definite and K2>(K1/d)(alpha-b^T C^-1 b). At equality one additional zero eigenvalue so not exponential; no general nonlinear assertion from that alone. For two uniformly weighted communities, W eigenvalue m(v-u), alpha=2mv, b=0, threshold H=2mv K1/d. On the internally synchronized invariant circle phi_dot=-sin(phi)(H+K2 cos(phi)), separatrix geometry yields arccos(H/K2)/pi basin and sqrt onset; at K2=H the local cubic drift +(H/2)(phi-pi)^3 is repelling. Independently compared full finite-difference Jacobian eigenspectrum at m=3,u=2.5,v=.7,K1=1.3,K2=1.8 with formula to 1e-8. This does not imply full-torus basin fraction. Inspected RESULT.md blob 3e6744bc95048220eac9f0058a475d0967c7223d.
 
-The motivating 2026 mixed-order model paper [1] studies finite-size synchronization, rather than proving a balanced-antipodal arbitrary-weight-graph criterion. Skardal–Adhikari–Restrepo [2] already treats antiphase community clusters in a related all-to-all community framework; this is acknowledged, and no general first discovery of antiphase states is asserted. The inspected model and analysis there do not give the finite-graph compression/Schur criterion or the exact uniform-relative-phase basin fraction. Skardal–Arenas [3] gives a stability test for a different, symmetric higher-order interaction. Closely related special-topology calculations exist; the new contribution is a necessary-and-sufficient arbitrary-graph obstruction together with a natural sharp block-model boundary and its exact invariant-circle basin law. Search coverage does not establish exhaustive priority: a hidden equivalent signed-Laplacian theorem or a special community reduction remains a risk.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-Graph heterogeneity is not a cosmetic perturbation: rank-one global triadic feedback can stabilize the community-difference mode but cannot fix any noncontracting internal shape mode. The theorem gives an exact, implementable obstruction and minimum triadic gain on every finite weighted graph of the stated kind. On the standard two-block family it yields a sharp assortativity condition, a nonlinear critical boundary, and an exactly quantified positive-measure interval of initial phase differences captured by antiphasing. The basin fraction is not promoted to a full-torus probability.
+Best-of-knowledge model-specific arbitrary weighted-graph transverse stabilization obstruction and the precise critical invariant-circle basin law are not covered by numerically studied original model, continuum antiphase multistability or particular barbell/path thresholds.
 
-## Sources and residual limits
+## value
 
-[1] Sharma et al., *Synchronization transitions in Kuramoto oscillators with mixed interactions*, doi:10.1140/epjs/s11734-026-02482-w; full lawful arXiv https://arxiv.org/html/2611.09564v1.
+PASS
 
-[2] Skardal, Adhikari and Restrepo, *Multistability in coupled oscillator systems with higher-order interactions and community structure*, https://arxiv.org/abs/2207.00070.
+An explicit rank-one graph obstruction shows exactly which transverse instabilities no amount of triadic coupling can heal; the Schur threshold is operational on arbitrary finite weighted graphs. The all-parameter two-community basin fraction and critical cubic repulsion sharpen qualitative multistability into a mathematically motivated exact bifurcation and boundary.
 
-[3] Skardal and Arenas, *Memory selection and information switching in oscillator networks with higher-order interactions*, https://arxiv.org/abs/2007.11561.
-
-Independent external verification, exhaustive historical-priority assessment, nonlinear classification of general nonhyperbolic graph endpoints and full-phase-space basin volume are not performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
