@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The estimator is a fully specified joint-Gaussian polynomial on an isotropic quadratic. Isserlis pairing proves the exact mean operator. Conditioning on the exploratory direction and applying noncentral Gaussian fourth moments and chi-square moment identities proves the two invariant-block second-moment coefficients for every d >= k >= 1. Their nonnegative difference identifies the worst hinted direction; the scalar quadratic step factor gives the exact positive contraction interval and its unique minimizer. Above the rank-dependent correlation boundary the hinted expected iterate is nondecaying or strictly growing, so Jensen prohibits mean-square convergence at any positive step. Exact rational Wick expansion independently matched the stated mean and second moments in all 105 checked dimension/rank/correlation cases. These finite checks are supplementary, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ryabchenko–Qian–Mou, Section 3 and Algorithm 1, expressly requires fresh exploratory draws independent of the chosen reference, which is violated by the positive-correlation model.",
+        "Public finding “The golden-ratio-conditioned two-dimensional safety transition for Gaussian hinted descent” treats known projected-gradient reference and Hessian-conditioned objective safety, not a randomized same-iteration reference.",
+        "Public finding “Exact finite-difference noise floors for projected control-variate Gaussian descent” assumes fixed known gradient subspace and complementary probes, not jointly correlated estimated reference."
+      ],
+      "reasoning": "The cited oracle-reference and independent-reference theorems cannot imply a threshold for dependent, jointly sampled references without an additional analysis of the joint fourth and eighth Gaussian moments. None of the inspected broader frameworks states a theorem covering arbitrary within-step correlation in the exact model.",
+      "searches": [
+        "correlated Gaussian same-probe data reuse control variate zeroth-order gradient estimator bias phase threshold projection subspace",
+        "Gaussian zeroth-order descent estimated reference m=Pvv^T gradient and exploration u correlation mean-square stability frontier",
+        "in-sample hint reference estimated using same Gaussian direction control variate descent ascent quadratic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.08277 (originally public 2026-09-08; examined v2 HTML)",
+      "https://arxiv.org/abs/2007.14634 (full open text)",
+      "Published finding: The golden-ratio-conditioned two-dimensional safety transition for Gaussian hinted descent",
+      "Published finding: Exact finite-difference noise floors for projected control-variate Gaussian descent",
+      "Published finding: A sharp alignment threshold for minimax anisotropic Gaussian finite-difference probes",
+      "Published finding: A five-pair variance threshold for reused Gaussian-quadratic control variates",
+      "Published finding: Probe averaging can reverse almost-sure stability in Gaussian zeroth-order descent"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2609.08277, reference estimation occurs before a fresh independent exploratory draw; the unbiasedness lemma takes its reference vector as fixed.",
+        "arXiv:2007.14634 constructs zero-mean reparameterization control variates for a different stochastic gradient object.",
+        "Published Gaussian-probe covariance-optimization findings retain unbiased inverse-covariance correction with a fixed hint geometry."
+      ],
+      "reasoning": "The mathematical novelty is not control-variate construction itself or the generic warning about data reuse. It is the exact drift operator with eigenvalue 1-(k+1)rho^2, the simultaneous all-dimensional second-moment coefficients, and the resulting sharp contraction/mean-instability phase diagram for this coupled modification. Previous independent-reference statements do not imply these by specializing parameters, changing titles or reducing dimension.",
+      "searches": [
+        "correlated Gaussian same-probe data reuse control variate zeroth-order gradient estimator bias phase threshold projection subspace",
+        "correlated jointly Gaussian reference projection v v transpose and exploration u control variate gradient zero order threshold rho 1/sqrt(k+1) unstable negative mean",
+        "Gaussian zeroth-order descent estimated reference m=Pvv^T gradient and exploration u correlation mean-square stability frontier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ryabchenko–Qian–Mou, arXiv:2609.08277, Sec. 3.1–3.2: the same algebraic control-variate form is unbiased only when its reference is fixed before the independent exploratory probe.",
+        "Geffner–Domke, arXiv:2007.14634, Sec. 2–3: the control-variate argument relies on a genuinely zero-mean correction; its reparameterization model is distinct.",
+        "A public mathematical finding titled “A five-pair variance threshold for reused Gaussian-quadratic control variates” concerns fitted regression correction for Monte Carlo integration, rather than projected Gaussian zero-order descent."
+      ],
+      "reasoning": "The mean identity can be recast as an in-sample control-variate bias or a Gaussian fourth-tensor contraction. No inspected formulation fixes simultaneously this rank-k projector, one-probe reference, correlated exploration and sharp mean-square step frontier. An algebraically equivalent unindexed presentation is not ruled out.",
+      "searches": [
+        "correlated jointly Gaussian reference projection v v transpose and exploration u control variate gradient zero order threshold rho 1/sqrt(k+1) unstable negative mean",
+        "rank k sample reuse bias control variate G = m + (uu^T)(g-m), m = Pvv^Tg correlated Gaussian u and v",
+        "subspace rank k Gaussian control variate using same sample gradient estimator expected drift negative proportional k rho squared"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical records returned nearby Gaussian variance, moment, baseline-reuse and control-variate results but not an exact matching mean operator or two coefficient polynomials.",
+        "The source 2026 paper gives a conditional-unbiased estimate and rate bounds, not a table of the coupled-reference Gaussian moments."
+      ],
+      "reasoning": "There is no apparent directly tabulated exact moment polynomial or rank-dependent reversal threshold in the inspected records. Absence from searched records does not certify global uniqueness.",
+      "searches": [
+        "same-sample reusable directional hint Gaussian fourth moment biased control-variate zeroth-order descent",
+        "Gaussian fourth moment reused sketch gradient control variate unstable optimization projection mean operator"
+      ]
+    },
+    "rationale": "The motivating paper explicitly draws exploration independently after choosing the control-variate reference; its oracle and practical constructions do not subsume an estimator with a correlated Gaussian one-probe reference. Accessible published comparisons address fixed projections, Gaussian probe covariance design, noisy independent finite differences, or differently structured fitted control variates, not this exact rank-dependent reversal and all-dimensional sharp squared-norm frontier. General dependence-induced control-variate bias is acknowledged as prior knowledge. Residual risks from uncatalogued equivalent formulas remain.",
+    "residual_risks": [
+      "A preexisting equivalent Gaussian moment or in-sample baseline formula outside the inspected searchable record could subsume the proposed result.",
+      "The central model is an explicitly modified Gaussian two-probe estimator; it is not the practical independent-reference algorithm and its significance is confined to the coupling design choice.",
+      "Higher-dimensional quadratics with nonidentity Hessians, finite-difference noise and time-correlated probes are not addressed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Base estimator formula matches, but the paper samples exploration independently of its already selected reference; its oracle and practical estimators do not take the coupled one-probe reference used here.",
+        "evidence": "Section 3.1 formula (2), Algorithm 1 and conditional independence statement in Section 3.2; original version 8 September 2026.",
+        "identifier_or_url": "https://arxiv.org/html/2609.08277v2",
+        "material_read": "Full-text HTML Sections 2, 3.1–3.3, 4 including the reference-creation algorithm, and relevant proof and discussion sections; original arXiv date/version metadata.",
+        "method": "Read accessible lawful open full text; compare estimator algebra, conditioning filtration, reference construction and theorem quantifiers.",
+        "title": "Adaptively Incorporating Directional Hints into Zeroth-Order Optimization",
+        "trigger": "Direct model, estimator formula, conditional independence requirements and claimed convergence of control-variate zeroth-order descent."
+      },
+      {
+        "assessment": "Control-variate mechanism is prior; estimators concern reparameterization gradients in variational inference, not a rank-k jointly Gaussian directional finite-difference reference and iterative moment stability.",
+        "evidence": "Section 2 definition of unbiased control variate and Section 3 quadratic approximating control variate.",
+        "identifier_or_url": "https://arxiv.org/abs/2007.14634",
+        "material_read": "Open full-text Sections 1–3 with definition of zero-mean control variates and construction of quadratic approximation.",
+        "method": "Read public arXiv HTML content and compare random object and estimator target.",
+        "title": "Approximation Based Variance Reduction for Reparameterization Gradients",
+        "trigger": "Plausible more general Gaussian control-variate dependence and variance reduction results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c97544bc-105f-457b-b1f4-d3e033a04789",
+  "value": {
+    "rationale": "The exact rank-only correlation cutoff answers a motivated numerical design question: reusing the exploratory Gaussian data to estimate a projected reference can make the mean gradient point uphill even on the simplest strongly convex objective, and no reduction of a positive step repairs that regime. The complete conditional squared-norm formula gives sharp positive-side step calibration for all dimensions and ranks rather than only a single counterexample, with an explicit distinction from the proven original independent-reference method.",
+    "status": "PASS"
+  }
+}
