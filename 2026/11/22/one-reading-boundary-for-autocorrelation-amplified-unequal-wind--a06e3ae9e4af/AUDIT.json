@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For all m,n>=1 the exact coefficient ranges follow direct count. With minimum one all coefficients are negative; otherwise c1>0 and ordered coefficients have exactly one positive-to-negative sign change, so Descartes' sign rule bounds positive derivative roots by one. Prefix-cut identity proves derivative at rho=1 negative while c1 gives derivative at 0 positive; unique simple interior maximum. Gaussian tails strictly increase in variance for every positive threshold. Exact independent checker verifies coefficient and cut formulas across 400 length pairs; finite checks are diagnostics only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General covariance-to-contrast formula is classical; coefficient sign-change and prefix-cut argument provide an explicit all-pair classification not located in inspected broader wavelet results.",
+        "Sesia–Tavella 2008 paper on missing/unequally spaced data addresses unbiased estimation of equal-scale Allan variance, not this parametric correlation optimum."
+      ],
+      "reasoning": "A general theorem for arbitrary signed two-step filters might subsume the classification, so residual priority risk is retained. The primary inspected wavelet and Allan results do not supply such a dominating assertion.",
+      "searches": [
+        "generalized Allan variance two unequal averaging intervals autocorrelation positive resonance",
+        "unequal averaging periods Allan variance difference of adjacent averages unequal lengths autoregressive correlation",
+        "Keim–Percival 2010 full PDF Section 2 through 3"
+      ]
+    },
+    "checked_sources": [
+      "Zhang 2008 NIST paper Sec.2 and Eq.(30), DOI 10.1088/0026-1394/45/5/009",
+      "Keim and Percival arXiv:1007.4169v1 full PDF key sections",
+      "Kiviluoma et al. 2015/2016 publisher full text, DOI 10.1002/we.1942",
+      "Gallego-Castillo et al. 2015 publisher abstract, DOI 10.1049/iet-rpg.2014.0457",
+      "Sesia and Tavella (2008), unequal spacing and missing observations in Allan-variance estimation, DOI 10.1088/0026-1394/45/6/S19"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kiviluoma et al. report ramp distributions and autocorrelation, not a stationary Gaussian parametric sign theorem.",
+        "Zhang Eq. (30) is an exact expression for m=n and could be differentiated for this special case but does not entail the m≠n or singleton part without an additional proof.",
+        "Keim–Percival change the Haar block scale at fixed correlation, whereas here the block sizes are fixed and correlation varies."
+      ],
+      "reasoning": "Prior equal-window formula covers one subset and must not be re-claimed. The accepted claim is the full unequal/singleton sharp classification, derived by a separate all-length sign-variation proof.",
+      "searches": [
+        "2015 Kiviluoma et al. Variability in large-scale wind power generation Section 2 and 3.7",
+        "arxiv:1007.4169v1 equations and figures 1–3",
+        "2008 Nien Fan Zhang equation (30) and AR(1) Section 2.3",
+        "two adjacent unequal windows general Allan variance AR1 correlation characteristic maximum Descartes sign change",
+        "wind speed forecast unequal averaging intervals moving average difference AR(1) Gaussian large ramp exceedance probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhang Eq. (30) gives AR1 Allan variance with the *same* length n on either side; Keim–Percival (p.2) explicitly define Haar coefficients by equal τ-length sums.",
+        "New coefficient proof addresses all independent positive integer m,n and singles out min(m,n)=1 with a strict decrease."
+      ],
+      "reasoning": "Equal-block Allan/Haar specialization has overlapping objects and is explicitly credited. Neither inspected paper states arbitrary unequal pair lengths and global unique optimizer with ρ varying at fixed marginal variance.",
+      "searches": [
+        "unequal adjacent block means m n AR1 autocorrelation variance unique maximizer positive correlation single-sample threshold",
+        "N. F. Zhang (2008) Eq. (30), PDF full Section 2.3",
+        "Keim and Percival 2010 Section 2, arxiv:1007.4169v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific-record searches did not locate a matching arbitrary unequal-window sign-change statement; closest Gaussian AR1 works discuss distinct functionals.",
+        "Zhang's table/formula specializes to equal windows, not a classification over unequal positive integer windows."
+      ],
+      "reasoning": "No exact tabulation or claim matching the sharp singleton frontier was found; search alone does not establish originality.",
+      "searches": [
+        "unequal adjacent block means m n AR1 autocorrelation variance unique maximizer positive correlation single-sample threshold",
+        "nonoverlapping unequal adjacent averaging windows Gaussian autocorrelation ramp variance optimum positive persistence",
+        "generalized Allan variance two unequal averaging intervals autocorrelation positive resonance",
+        "https://www.nist.gov/publications/allan-variance-time-series-models-measurement-data"
+      ]
+    },
+    "rationale": "The accepted claim is restricted to arbitrary two adjacent unequal reporting windows and the exact singleton-versus-two-averaged-windows frontier. Zhang 2008 Sec.2.3 and Keim-Percival 2010 cover equal-length Allan/Haar cases, not arbitrary unequal lengths or their global optimization in persistence. Wind ramp literature provides relevance rather than an equivalent theorem. Published-claim comparisons did not find an implication, but historical priority remains provisional.",
+    "residual_risks": [
+      "Older unequal-window two-sample variance and signed-filter total positivity theorems may imply the proof's sign-change criterion despite not appearing in the inspected full texts.",
+      "The generality of the mathematical claim makes priority uncertain; no claim is made that equal-block Allan variance itself is new.",
+      "Wind-energy relevance is illustrative and not evidence that real wind-power anomalies follow this Gaussian AR1 model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Equal-block exact formula covers a strict special case; general unequal-window singleton classification not found in inspected material",
+        "evidence": [
+          "Section 2.3 equation (30) uses equal length n; PDF first page says online publication 23 September 2008; NIST publication portal lists 22 September 2008."
+        ],
+        "identifier_or_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=152041",
+        "material_read": "Full mathematical statement and sections 1 and 2 (especially equations 6–11 and 27–31); full article text searchable",
+        "method": "primary open-access PDF inspected directly, including rendered first page",
+        "title": "Allan variance of time series models for measurement data",
+        "trigger": "AR(1) Allan-variance exact formula potentially implies candidate"
+      },
+      {
+        "assessment": "Specifically equal-length adjacent blocks; peak as filter scale varies for fixed autoregression; no m≠n frontier identified",
+        "evidence": [
+          "Page 2 definition has same τ in both sums; p.8 compares characteristic scale and AR1 persistence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1007.4169",
+        "material_read": "Full primary PDF pages 1–2 and 6–8, definition and figures of Haar variance; remaining structure inspected via textual search",
+        "method": "arXiv original PDF with rendered page and exact equations",
+        "title": "Assessing Characteristic Scales Using Wavelets",
+        "trigger": "Broader Haar wavelet result may cover Gaussian adjacent-window peak"
+      },
+      {
+        "assessment": "Empirical autocorrelation and ramp distributions motivate model but do not prove proposed classification",
+        "evidence": [
+          "Section 2.1 considers time bins and section 3.7 explicitly remarks correlation between consecutive ramps."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/we.1942",
+        "material_read": "Full open webpage sections 2.1,2.2, 3.7 and conclusions, including methods and illustrations",
+        "method": "publisher full-text HTML read directly",
+        "title": "Variability in large-scale wind power generation",
+        "trigger": "Relevance and possible physical antecedent of ramp risk"
+      },
+      {
+        "assessment": "Forecasting feature selection, not demonstrated full-text exclusion of any mathematical lemma",
+        "evidence": [
+          "Published 1 November 2015; abstract addresses predictors and forecasting rather than parametric exact covariance maxima."
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/iet-rpg.2014.0457",
+        "material_read": "Publisher abstract and article metadata, not claimed full-text exclusion",
+        "method": "publisher available abstract",
+        "title": "Identifying wind power ramp causes from multivariate datasets",
+        "trigger": "Wind ramp-forecasting context and alternate framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a06e3ae9-e4af-4968-b9a4-25358f69f61c",
+  "value": {
+    "rationale": "A complete sharp classification of autocorrelation-induced ramp amplification for arbitrary unequal positive integer reporting periods, with a natural singleton boundary, resolves a physically motivated temporal-aggregation design question. For lengths 2 vs 10, fixed-marginal persistence can raise contrast variance 48.29% and modeled exceedance from 0.1967 to 0.2891. The theorem is not merely an arbitrary small numerical slice or rediscovery of the equal-width formula; its all-length phase boundary is the reusable structural feature.",
+    "status": "PASS"
+  }
+}
