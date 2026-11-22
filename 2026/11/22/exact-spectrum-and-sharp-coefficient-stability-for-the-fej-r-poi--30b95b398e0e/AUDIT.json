@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Expanding the Fejer Fourier multiplier proves the exact Hermitian matrix form. Direct second differences plus reflection symmetry and endpoint boundary equations construct all n positive eigenvectors, and the endpoint null vector completes an n+1-dimensional basis. The smallest positive eigenvalue yields the exact parity-specific best coefficient coercivity constant and every equality direction. The standard-library checker verifies 421265 finite rational and floating-point assertions, but the full quantifiers rest on the written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ruzieh and Powers calculate the eigenspectrum of D=(|j-k|) on paths; H=J-2D/n includes a noncommuting J, and D itself has one positive and the other negative eigenvalues, unlike H with zero and all other positive eigenvalues."
+      ],
+      "reasoning": "Neither the distance spectrum of D nor the original pointwise Fejer inequality supplies an explicit lower bound for distance of analytic factor coefficients to the equality line. General covariance diagonalization is a possible bibliographic risk, but no dominating theorem on the exact H operator was located.",
+      "searches": [
+        "Toeplitz matrix 1-2 abs(j-k)/n spectrum positive gap Fourier Fejer inequality",
+        "Fejer Riesz inequality 2 convolution factor sharp stability spectral gap 1-2abs matrix",
+        "doi:10.1080/03081089008818032"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.05363, full text",
+      "doi:10.1080/03081089008818032, accessible full-text transcription",
+      "doi:10.11648/j.ajam.20221004.13, abstract",
+      "doi:10.1112/blms.12543, abstract",
+      "Published mathematical record results corresponding to the stated semantic search objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original MacDonald claim is nonnegativity of b*Hb with the kernel and an exact squares expression; this claim quantifies b*Hb relative to the Euclidean distance from ker H, requiring the smallest positive spectral eigenvalue.",
+        "A direct path-distance eigendecomposition is not preserved under addition of the noncommuting all-ones matrix."
+      ],
+      "reasoning": "The current claim logically strengthens the pointwise inequality by exact coercivity and classifies its unique soft direction. It is not implied numerically by a known bound for a different matrix. The proof gives the missing diagonalization explicitly.",
+      "searches": [
+        "MacDonald A convolution inequality and Krzyz conjecture Fejer sharp 2026 perturbation stability coefficient distance",
+        "sharp spectral decomposition of Fejer convolution slack matrix H_{jk}=1-2|j-k|/n and stability of inequality tau <= 2 F_n*tau",
+        "arXiv:2611.05363",
+        "doi:10.1080/03081089008818032"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MacDonald derives the exact partial-sum squares identity but gives only the zero-deficit classification; the current full spectral decomposition and optimal coefficient-distance norm are not stated there."
+      ],
+      "reasoning": "The identity determines a quadratic form, but diagonalization and the least positive eigenvalue with its even/odd eigenvector are additional nontrivial assertions. Closest equivalent formalizations are discrete path-distance and Green kernels; their matrix operators and boundary conditions were compared.",
+      "searches": [
+        "sharp spectral gap Fejer convolution inequality nonnegative trigonometric polynomial coefficient distance to extremal cos n theta",
+        "sharp spectral decomposition of Fejer convolution slack matrix H_{jk}=1-2|j-k|/n and stability of inequality tau <= 2 F_n*tau",
+        "Fejer Riesz sum of squared partial sums sharp smallest eigenvalue n cos squared parity",
+        "arXiv:2611.05363v2, Theorem 3 and section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published mathematical search hits included The sharp Lipschitz contraction deficit of Fejér means (2026), about a Lipschitz operator norm; and Exact doubled-harmonic Carathéodory–Fejér family (2026), about sparse coefficient extremizers."
+      ],
+      "reasoning": "Neither listed database result tabulates spectral eigenvalues or the sharp coefficient stability for this Fejer pointwise slack. A search match in Fejer nomenclature is not equivalent to a statement/implication match.",
+      "searches": [
+        "quantitative stability Lax Bernstein derivative nonnegative trigonometric polynomials Fourier Fejer kernel rigidity",
+        "optimal coefficient l2 stability for Fejer pointwise inequality with parity dependent cosine sine near extremizers",
+        "Fejer Riesz sum of squared partial sums sharp smallest eigenvalue n cos squared parity"
+      ]
+    },
+    "rationale": "The full 14-page MacDonald preprint proves the underlying Fejer pointwise bound and a cumulative-sum squares identity, but not the complete coefficient matrix spectrum, sharp parity-dependent stability constant, or least-stable equality eigenspace. The 1990 path distance spectral article treats a distinct matrix D; H=J-2D/n is a noncommuting rank-one correction. Targeted published-finding corpus and primary-source comparisons yielded no equivalent sharp stability statement. Older finite Green-function and covariance spectral formulations remain a stated residual priority risk.",
+    "residual_risks": [
+      "The 1990 distance-matrix method and 2022 Brownian-bridge spectra may admit an unindexed equivalent presentation of some eigenvalues.",
+      "Abstract-only review of related Brownian-bridge and Fejer smoothing literature is not a full-text exclusion.",
+      "No comprehensive historical bibliographic uniqueness claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the original nonnegative quadratic form, its sums-of-squares representation, and its exact kernel; does not state the positive spectral eigenvalues, the optimal coefficient metric gap, or parity-dependent soft modes.",
+        "evidence": [
+          "Theorem 3 on PDF page 3 states tau <= 2 F_n*tau and zero-deficit equality.",
+          "Section 3 pages 6–8 derives one half the sum of squared cumulative coefficients, not a diagonalization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.05363",
+        "material_read": "Full-text PDF accessed; materially read Theorem 3 and its complete Section 3 proof, with pages 3 and 6–8 inspected in original page images; introduction and related results inspected in extracted text",
+        "method": "arXiv open-access full PDF and page images, with theorem-to-claim implication comparison",
+        "title": "A convolution inequality and the Krzyż conjecture",
+        "trigger": "Exact Fejer kernel pointwise inequality and sums-of-squares equality; strongest plausible covering source"
+      },
+      {
+        "assessment": "Studies unmodified D, not the rank-one modified H or its Fejer-convolution coefficient stability. Related spectral methods create residual overlap risk.",
+        "evidence": [
+          "Abstract and Theorem 2.1 explicitly concern eigenvalues/eigenvectors of the path graph distance matrix D.",
+          "The current H is J-2D/n, where J does not commute with D on paths of length at least three."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081089008818032",
+        "material_read": "Accessible author-provided full-text page including abstract, definitions, section 2 theorem and distance-matrix method, with some transcription garbling",
+        "method": "author-provided full-text transcription and direct operator comparison",
+        "title": "The distance spectrum of the path P_n and the first distance eigenvector of connected graphs",
+        "trigger": "A possible prior full eigendecomposition of the distance kernel in H=J-2D/n"
+      },
+      {
+        "assessment": "Related Brownian bridge covariance spectra; cannot rule out a disguised equivalent finite Green-function formula from abstract alone.",
+        "evidence": [
+          "Abstract discusses discrete Brownian-bridge covariance and inverse eigendecomposition, not explicitly the Fejer slack or its endpoint kernel."
+        ],
+        "identifier_or_url": "https://www.sciencepg.com/article/10.11648/j.ajam.20221004.13",
+        "material_read": "Full bibliographic abstract only, not the complete article",
+        "method": "published abstract/title operator and setting comparison",
+        "title": "Decompositions of the Covariance Matrix of the Discrete Brownian Bridge: New Fast Constructions",
+        "trigger": "Potential equivalent finite-difference eigenvalue terminology"
+      },
+      {
+        "assessment": "Concerns convolution smoothing derivative operator norm, not pointwise nonnegative polynomial stability.",
+        "evidence": [
+          "Abstract optimizes discrete smoothing derivative norms over averaging sequences."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/blms.12543",
+        "material_read": "Published abstract only",
+        "method": "topic and operator comparison",
+        "title": "The smoothest average: Dirichlet, Fejér and Chebyshev",
+        "trigger": "Fejer smoothing and sharp operator constants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30b95b39-8e0e-4a22-9a1e-7225209f4330",
+  "value": {
+    "rationale": "The 2026 sharp Fejer pointwise inequality previously had a zero-deficit classification but no quantified proximity of arbitrary Fejer–Riesz coefficients to the equality line. This theorem supplies the exact optimal stability gap for every degree and the complete eigenmode structure, including a nontrivial parity switch in the least stable direction. It is a natural coercivity invariant for perturbative extremizer analysis, not an arbitrary finite sample or a renaming of the original inequality. The result remains strictly scoped to coefficient Hilbert distance.",
+    "status": "PASS"
+  }
+}
