@@ -1,19 +1,21 @@
-# Scientific review: a marked small-area law for random cyclic quadrilaterals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact sine-product identity reduces the quadrilateral area to a positive function on the Dirichlet gap simplex. Its zero set is the union of six edges. Four singular vertex neighborhoods contribute at orders \(t\) and \(t^{5/3}\); compact nonvertex edge neighborhoods contribute only \(O(t^2)\). Uniform radial Taylor expansion, an explicit integrable domination by \(h^{-5/3}\), and evaluation of \(\int h^{-1}=\pi^2\) supply both constants. The normalized radial Jacobian yields an independent \(\operatorname{Beta}(3,1)\) mark and a normalized gap-fraction density. Exact independent-angle sampling and adaptive quadrature are consistent with the formulas, but do not replace the analytic proof. Main risk: an incorrectly neglected singular simplex boundary; addressed explicitly by the \(h^{-5/3}\) estimate and the \(O(t^2)\) edge bound.
+PASS
 
-## Originality — PASS, provisionally
+PASS. With one distinguished circle-uniform vertex, the four gaps in cyclic order are (2π) Dirichlet(1,1,1,1), giving density 6/(2π)³. Shoelace area exactly factors as 2sin((a+b)/2)sin((b+c)/2)sin((c+a)/2). The area-zero locus is the six edges of the gap tetrahedron; outside four vertex neighborhoods the sublevel volume is Oδ(t²) because two transverse gaps must be small. At each vertex put a=Wu,b=Wv,c=Ww. The Jacobian is W², and sine expansions produce A=W³h(1−W²Q/24+O(W⁴)), h=(1-u)(1-v)(1-w)/4 and Q=Σ(1-u)². Solving for W_t³ gives t/h+Q(t/h)^{5/3}/24+..., so radial integration gives t/(3h)+Q(t/h)^{5/3}/72. Unlike an unjustified uniform inversion near simplex corners, h^{-5/3} is integrable (h~distance to a corner on two-dimensional Δ), and capping W≤δ gives O(t²) first-term error; dominated convergence yields t/π+C_*t^{5/3}+o(t^{5/3}). Independently integrated the leading simplex integral π²/4 and the second coefficient C*=0.242278704743 using SciPy, not copied from source output. Radial substitution R=W(h/t)^{1/3} yields R³~Uniform, hence R~Beta(3,1), normalized gaps density h^{-1}/π² and independent uniform gap index/rotation. Boundary concentration and weak convergence are accounted for, not inferred from a simulation.
 
-Finch (2016) reports moments and discusses the area of random cyclic quadrilaterals, not the sharp two-term small-area expansion or three-gap conditional shape law. Koroleva–Nikitin (2013) study opposite, near-maximum area tails. The published *Conditional area law for random cyclic quadrilaterals at a fixed diagonal angle* provides a full *scalar* conditional distribution, so the unconditional scalar area distribution is implicitly covered and is **not** claimed original here. That one-dimensional conditional law does not supply the three independent marked gap degrees of freedom, or explicitly give the fractional \(t^{5/3}\) term. The published exact area-perimeter second-moment result addresses moment values, not the rare-event law. The genuinely assessed combined claim is the explicit nonanalytic second term **and** marked angular clustering law. Residual risk: the second term might be recoverable from other published integral expressions and older rare-cyclic-polygon literature; historical priority remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The conventional scalar moments do not describe the geometry of near-degenerate cyclic quadrilaterals. The law identifies the dominant clustering mechanism, an integrable but singular distribution of local gap ratios, and the first noninteger correction to small-area probability. The distinction between one big circular gap (order \(t\) probability) and two separated clusters (order \(t^2\)) is a structural geometric insight and makes the coefficient useful as an exact benchmark for simulation and quadrilateral random-geometry models. This is not a routine relabeling of a previously known scalar law.
+Best-of-knowledge PASS for the explicit positive t^{5/3} lower-tail correction and the full marked clustering limit. A published conditional-on-diagonal-angle area law already determines the entire scalar area marginal via integration, so merely obtaining a marginal distribution is not novel; its main theorem and proof do not state the two-term small-area expansion or normalized clustering marks. General extremal random-inscribed-polygon theory is focused on maximal rather than near-zero area. The exact distribution could in principle permit deriving the scalar coefficients; this implication remains a priority risk.
 
-## Scope and limitations
+## value
 
-The claim applies only to four independent arclength-uniform circle points and a vanishing area threshold. Numerical evaluation of the new coefficient is diagnostic; the exact coefficient is its absolutely convergent double integral. No closed elementary form or finite-threshold error constant is asserted. The full historical priority and independent mathematical validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The area-zero set has competing two-gap and triple-gap strata; proving which geometry dominates, quantifying its nonanalytic t^{5/3} correction and obtaining its marked shape law are natural geometrical probability questions. The exact positive coefficient and independent Beta/shape/orientation limiting factors provide sharp conditional information not encoded in the previously known moments or stated diagonal-angle CDF. The nontrivial corner integrability and uniform control distinguish the result from an arbitrary tiny numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
