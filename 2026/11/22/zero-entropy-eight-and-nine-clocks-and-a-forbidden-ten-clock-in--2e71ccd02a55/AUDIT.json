@@ -1,0 +1,181 @@
+{
+  "correctness": {
+    "rationale": "The local time-column de Bruijn graph gives a bijection between each labelled fixed-iterate ring state and a closed walk. Every cyclic SCC at heights 8,9,10 and all needed divisor heights is enumerated from the eight-bit Rule 110 truth table; every edge and minimal column period is checked. At height eight, the only new simple cycle has spatial length eight. At height nine, the additional simple cycles have lengths 6 (three copies), 12 (three copies), 18 (one copy), with temporal period nine. At height ten, every cyclic component has time-column period at most five, specifically one/five/two. These exact facts imply the three formulas for all n. Direct independent bit-parallel state enumeration over all 3<=n<=20 confirms the first cases but is not treated as the infinite proof. Delivered programs report FULL_SPECTRAL_COUNTS_OK and BRUTE_FORCE_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Martínez et al. (2007), Figure 8 and text around its page 14, supply de Bruijn diagrams for glider phases through ten generations, but no tabulated all-length orbit count C_8(n), C_9(n), C_10(n).",
+        "Martínez et al. (2016), sections 1.1-1.2 and the collider construction, treat collisions and engineered finite rings rather than exact global closed-walk multiplicities.",
+        "The previously published five-step Rule 110 fixed-iterate result explicitly limits itself to periods at most five; the prior seven-step result classifies time six/seven."
+      ],
+      "reasoning": "The general diagram construction is a known algorithm applicable to these graphs; algorithmic computability is not the evaluated height-nine census or the no-ten-clock structural conclusion. The closest statements do not contain a demonstrably stronger theorem directly implying all three formulas. Their finite examples are not asserted as new.",
+      "searches": [
+        "published-finding corpus: rule 110 temporal period eight spatial zeta",
+        "published-finding corpus: Rule 110 primitive period 9 cycles on spatial lengths divisible by six",
+        "published-finding corpus: Rule 110 no temporal ten cycles t10 absent and primitive eight",
+        "https://arxiv.org/pdf/0706.3348",
+        "https://arxiv.org/pdf/1609.05240"
+      ]
+    },
+    "checked_sources": [
+      "https://www.wolframscience.com/nks/citation/",
+      "https://content.wolfram.com/sites/13/2023/02/15-1-1.pdf",
+      "https://arxiv.org/abs/0706.3348",
+      "https://arxiv.org/abs/1609.05240",
+      "https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf",
+      "2026/11/17/SCOPE-lucas-arithmetic-and-the-first-exponential-short-return-class-in--6da91943e80a",
+      "2026/11/17/SCOPE-a-sharp-thirty-site-gap-between-six-and-seven-step-recurrence-in--2dd8fa420e00",
+      "2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The five-step result gives T_1 through T_5, including positive entropy at period five; it does not constrain all fixed points of F^9 or F^10.",
+        "The seven-step result establishes absence of period six and a seventh-period transfer component but does not determine the disjoint height-nine 6/12/18 spatial cycles or the height-ten SCC column periods.",
+        "Cook (2004), Figure 5, gives the A and B glider period/displacement vectors; these imply some individual periodic waves, not the uniform orbit multiplicities for every ring.",
+        "The new certificate shows that every cyclic height-ten SCC has time-column period dividing two or five, yielding Fix(F^10)=Fix(F^2) union Fix(F^5) exactly."
+      ],
+      "reasoning": "The new labelled orbits are compatible with known A and B glider existence and numerical finite samples; novelty is strictly the complete joint all-size census and obstruction. Neither temporal-five nor temporal-seven results give the new finite-column decomposition; the time-ten exclusion is not merely a corollary of the time-six exclusion.",
+      "searches": [
+        "2026/11/17/SCOPE-lucas-arithmetic-and-the-first-exponential-short-return-class-in--6da91943e80a",
+        "2026/11/17/SCOPE-a-sharp-thirty-site-gap-between-six-and-seven-step-recurrence-in--2dd8fa420e00",
+        "https://content.wolfram.com/sites/13/2023/02/15-1-1.pdf",
+        "https://arxiv.org/pdf/0706.3348",
+        "web: Rule 110 2007 gliders nine 8 periodic phase de bruijn"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rule 124 is the spatial reflection of Rule 110; the two finite-ring maps are conjugate by coordinate reversal.",
+        "The published Rule 110 one-step image zeta enumerates spatially periodic outputs rather than states satisfying exact time-iterate equations."
+      ],
+      "reasoning": "The spatial mirror is an exactly equivalent statement, not a separate finding. Neither the one-step image zeta nor a finite glider orbit under spatial translation determines the full labelled temporal-eight, nine, ten orbit populations without the new height-specific closed-walk inventory.",
+      "searches": [
+        "published-finding corpus: Rule 110 exact 8-period temporal orbits circumference multiple of 8 9-period two four two 10 absent",
+        "published-finding corpus: rule 124 mirror 110 eight nine ten temporal orbit counts",
+        "web: elementary cellular automaton rule 110 temporal period nine cycles fixed ring",
+        "2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Stricker (2023) Section 2 says complete finite-ring cycle-length spectra were computed through length 22 and sampled to length 56 for Rule 110, but the article does not provide all-length primitive-eight/nine/ten orbit-count expressions.",
+        "The computed package checks the complete cyclic strongly connected component inventories at temporal heights eight, nine and ten, not a finite sampling or a lookup of an existing table."
+      ],
+      "reasoning": "Finite numerical tables or atlas plots can contain the first witnesses or absence through some n; they do not establish the universal divisibility formulas or all-size absence of period ten. Some small finite answers are already recoverable from prior numerical atlases and are not claimed novel in isolation.",
+      "searches": [
+        "https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf",
+        "web: elementary cellular automaton rule 110 period eight temporal cycle ring exact 8 zeta",
+        "published-finding corpus: Rule 110 exact 8-period temporal orbits circumference multiple of 8 9-period two four two 10 absent"
+      ]
+    },
+    "rationale": "Primary comparisons include Cook glider periods (known individual witnesses), Martínez 2007 de Bruijn diagrams through ten generations and 2016 finite collider rings, Stricker finite numerical spectra, and three fully read published same-map results. None of the inspected scientific statements directly contains or dominates the evaluated all-circumference counts and period-ten obstruction. The method, finite examples, and spatial mirror equivalence are not claimed new; priority of the all-size theorem is qualified by potential unindexed calculations.",
+    "residual_risks": [
+      "Known A/B glider time-space displacement vectors may already imply specific small-ring witnesses; only the all-size counts are novel candidates.",
+      "Martínez et al. 2007 zero-shift de Bruijn Figure 8 may contain encoded hints of the finite graph, but does not state the evaluated joint theorem in its inspected relevant sections.",
+      "Numerical atlases and inaccessible or unindexed earlier calculations may already evaluate the relevant periodic subshifts; historical priority is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background citation, not used to certify absence of earlier six-to-ten-clock formulas",
+        "evidence": [
+          "Publisher confirms first publication 2002-05-14; classic periodic-background descriptions predate the present counts."
+        ],
+        "identifier_or_url": "https://www.wolframscience.com/nks/citation/",
+        "material_read": "Publisher publication-date and reference material; no full-book claims of priority",
+        "method": "Publisher bibliographic record and publicly available Rule 110 background",
+        "title": "A New Kind of Science",
+        "trigger": "Earliest public description and standard Rule 110 short-wave background"
+      },
+      {
+        "assessment": "Glider displacement periods can cover initial existence witnesses, but relevant inspected statements do not enumerate C_8,C_9,C_10 at every circumference",
+        "evidence": [
+          "Page 1 states Rule 110 truth table; printed page 14 Figure 5 lists A and B glider space-time vectors; the explicit focus is universality and collisions."
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2023/02/15-1-1.pdf",
+        "material_read": "PDF page 1, relevant glider discussion and Figure 5 on printed page 14; PDF text and page screenshot",
+        "method": "Read primary PDF text, locate period/cycle terms, inspect page images",
+        "title": "Universality in Elementary Cellular Automata",
+        "trigger": "Canonical universal Rule 110 construction and A/B glider clocks"
+      },
+      {
+        "assessment": "Figure 8 includes zero-shift periodic pattern plots through ten generations; no evaluated orbit-count formulas observed in the relevant discussion. This is a substantial historical overlap risk for finite examples.",
+        "evidence": [
+          "Page 13 mentions generation ceiling ten; page 14 Figure 8 presents qualitative diagram patterns, not the SCC multiplicity table or all-size divisibility counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0706.3348",
+        "material_read": "PDF pages 1, 12-15, figures 7-8 and relevant diagram discussion; full relevant paragraph and screenshots",
+        "method": "Read textual sections and inspect the original PDF page images for diagrams",
+        "title": "Determining a regular language by glider-based structures called phases in Rule 110",
+        "trigger": "Potential broader de Bruijn diagram coverage through temporal height ten"
+      },
+      {
+        "assessment": "Finite ring collider design and glider phase constructions; inspected sections do not state an exact universal primitive-eight/nine/ten census",
+        "evidence": [
+          "Abstract emphasizes engineered particle interactions; Section 1.1 lists gliders, periods and spatial displacements."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1609.05240",
+        "material_read": "PDF pages 1-5, table 1.1 and diagram discussion, abstract, searches for period-nine labels",
+        "method": "Read public arXiv PDF text and page screenshots",
+        "title": "A Computation in a Cellular Automaton Collider Rule 110",
+        "trigger": "Finite ring glider constructions plausibly realize the claimed clocks"
+      },
+      {
+        "assessment": "Reports numerical finite-length period spectra and maxima, not all-size primitive-period orbit counts",
+        "evidence": [
+          "Section 2 states full enumeration up to spatial length 22 and partial samples to 56; Section 3.1.2 studies large maximal cycle lengths of Rule 110."
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf",
+        "material_read": "PDF pages 1-5, especially Sections 2-3 and tables of Rule 110 cycle spectra; source images inspected",
+        "method": "Read primary PDF text and screenshot page 2; find Rule 110 entries",
+        "title": "Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k",
+        "trigger": "Most plausible exact finite-size table or stronger cycle-spectrum claim"
+      },
+      {
+        "assessment": "Does not derive temporal-height eight/nine/ten counts",
+        "evidence": [
+          "Theorem gives T1,T2,T3,T4,T5 and primitive-five Lucas counts; explicit limitations end at temporal five."
+        ],
+        "identifier_or_url": "2026/11/17/SCOPE-lucas-arithmetic-and-the-first-exponential-short-return-class-in--6da91943e80a",
+        "material_read": "Complete published RESULT.md",
+        "method": "Fetched public GitHub primary result and compared formulas/quantifiers",
+        "title": "Lucas arithmetic and the first exponential short-return class in elementary Rule 110",
+        "trigger": "Exact published same-map time-five-return census"
+      },
+      {
+        "assessment": "Gives no primitive-eight/nine/ten exact population",
+        "evidence": [
+          "Theorem excludes temporal six and enumerates period seven through a 63-vertex transfer component."
+        ],
+        "identifier_or_url": "2026/11/17/SCOPE-a-sharp-thirty-site-gap-between-six-and-seven-step-recurrence-in--2dd8fa420e00",
+        "material_read": "Complete published RESULT.md",
+        "method": "Fetched public GitHub primary result and compared statements and scope",
+        "title": "A sharp thirty-site gap between six and seven-step recurrence in Rule 110",
+        "trigger": "Exact published same-map six/seven-period result"
+      },
+      {
+        "assessment": "Does not cover the temporal-period orbit census",
+        "evidence": [
+          "Counts periodic points for the spatial shift of the one-step image, not fixed points of F^8,F^9,F^10."
+        ],
+        "identifier_or_url": "2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc",
+        "material_read": "Complete published RESULT.md",
+        "method": "Fetched public GitHub result and compared object: image subshift versus fixed temporal iterates",
+        "title": "Exact spatial dynamical zeta function and least periods of the Rule 110 one-step image",
+        "trigger": "Same-rule possible stronger coverage via dynamical zeta"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2e71ccd0-2a55-438e-8a6c-3be4aeb4e524",
+  "value": {
+    "rationale": "This is a natural complete classification of the three shortest previously unclassified temporal-return classes following documented periods through seven in a canonical universal cellular automaton. It distinguishes an isolated 8-period clock, three arithmetic 9-period mechanisms, and a total 10-period obstruction on every ring. The orbit-counts C8<=1 and C9<=8 show a zero-entropy valley contrasting with published exponential temporal-five and temporal-seven population growth. This structural all-size conclusion is sharper than a finite example or an arbitrary invariant and supplies checkable constraints for glider-mode theories.",
+    "status": "PASS"
+  }
+}
