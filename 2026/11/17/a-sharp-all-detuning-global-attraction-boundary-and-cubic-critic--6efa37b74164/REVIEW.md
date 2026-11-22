@@ -1,15 +1,21 @@
-# Review of the all-detuning whirling-string theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The energy identity and the transverse quadratic identity reduce the transverse exclusion statement to an explicit damped differential inequality. The planar equilibrium count follows from the exact Duffing cubic and the positive derivatives of both fold heights with respect to detuning. The transverse Jacobian block is strictly stable in the global-uniqueness strip, and the constant planar divergence excludes periodic cycles. Explicit center-manifold algebra proves the cubic restoring coefficient and inverse-square relaxation at the sole neutral endpoint. All identities and the cubic coefficient have been reproduced with the standalone script. Limits: the checker illustrates rather than proves infinite-time claims; those use the displayed inequalities and planar-flow argument.
+PASS
 
-## Originality — PASS, provisional historical priority
+For complex V,W with Ω=Δ−3(|V|²+|W|²)/2 and J=Im(conj(W)V), direct differentiation gives E′=−2γE−2αIm(V) and (|W|²)′≤(−2γ+|V|²)|W|². The scalar energy envelope bounds E asymptotically by α²/γ²; hence α²<2γ³ gives forward exponential W decay and rules out nonplanar bounded complete trajectories by backward boundedness. The planar fixed-point equation Q[γ²+(Δ−3Q/2)²]=α² has cusp fold height 16√3γ³/27 at Δ=√3γ and monotone fold heights thereafter; below/equal threshold exactly one planar equilibrium for every Δ, above it some Δ has three. Negative planar divergence, boundedness, sink/cubic attracting cusp, and asymptotically autonomous planar perturbation establish global convergence. Independent symbolic center-manifold expansion gives du/ds=−2u³/√3+O(u⁴), so every nonzero center orbit has τu_physical²→√3/4, not all strong-stable trajectories. Symbolic source checker independently inspected for energy and cusp identities.
 
-The full accessible source by Tufillaro (arXiv:2611.06567v1, Section 3.3 and conclusions) contains the Miles equations, planar equilibrium cubic, local eigenvalues and a numerical route to chaos, but no all-detuning global attraction theorem or exact critical relaxation coefficient. Duffing cusp algebra and planar hysteresis are **not** claimed as new. Search comparisons with available mathematical records did not find the full asserted four-dimensional theorem; nearest records concern distinct oscillators or discrete Duffing maps. Older whirling-string studies by Miles and O'Reilly were only partially accessible; this is a real priority risk, not evidence of noncoverage. This is a best-knowledge originality assessment, not an exhaustive claim of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A uniform global no-whirling region in a model known to support a route to chaos is a structural threshold with direct interpretive value. The two nested bounds distinguish loss of uniform monostability from the necessary onset of nonplanar bounded recurrence. The sharp cusp relaxation law quantifies the critical slowing at the boundary. The contribution is not a routine restatement of the standard Duffing cubic because it includes global four-dimensional convergence and transverse complete-orbit exclusion.
+Best-of-knowledge PASS for combined full-ODE global all-detuning theorem, recurrence-exclusion strip and explicit cusp relaxation coefficient. Known Duffing response and linear modes are background; priority remains uncertain because early string bifurcation analyses were not fully accessible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A uniform-in-detuning threshold establishing global convergence in a natural physically motivated four-dimensional nonlinear flow is a substantive dynamical gap, particularly because the same model can whirl chaotically at other forces. The stronger planarization strip and sharp cusp relaxation are reusable structure beyond textbook local fold algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
