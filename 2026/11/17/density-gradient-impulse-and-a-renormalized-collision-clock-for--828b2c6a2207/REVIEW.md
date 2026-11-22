@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has explicit exact hypotheses: positive \(C^1\) density on a compact rod, a finite-time **interior** impact in its zero-angular-momentum invariant plane, and finite conserved energy. The proof obtains the radial leading logarithm from the source's exact force limit, then derives the new estimates without presupposing finite terminal tangential speed: the axial force grows at most logarithmically and is integrable in remaining time. The potential finite part is an absolutely convergent integral by \(C^1\) regularity; conservation of energy gives the exact constant in the radial squared speed. Integrating its reciprocal with a uniform remainder proves the second-order clock. Two more time integrations give the axial velocity and position coefficients. The algebraic force formulas were cross-checked against quadrature, and one singular collision was independently integrated in logarithmic radius. The finite experiments cannot establish the universal limits. The proof is conditional on impact and does not prove such impacts exist for every density or initial condition.
+PASS
 
-## Originality — PASS within inspected evidence
+For every assumed finite-time interior collision with positive C^1 density, reconstruct rho ddot(rho)->-2G sigma(x*) by the scaled Newtonian kernel; ddot(rho)<0 gives eventual monotone infall and dot(rho)^2~4G sigma(x*)log(1/rho). The split axial integral cancels the odd constant-density part and gives ddot(x)=2G sigma'(x*)log(1/rho)+o(log), integrable against dt~d(rho)/sqrt(log). Thus dot(x)->v*, x-x*=O(rho/sqrt(log)); uniform finite-part potential expansion U=-2G sigma(x*)log(1/rho)-G B*+o(1) follows from C^1. Energy conservation yields dot(rho)^2=A log(1/rho)+(2H+2GB*-v*^2)+o(1); integration of 1/sqrt(A log+C) yields coefficient -(1+C/A)/2 for the remaining-time clock. Twice integrating axial acceleration gives stated 2G sigma' and G sigma' impulse/position limits. The theorem does not establish a collision basin, endpoint law or uniform-in-density estimates. Independent linear-density finite-part calculation at rho=.02,.001,1e-5 had errors 2.87593e-4,7.19143e-7,7.19e-11; these are corroboration, not proof.
 
-The closest source is Crespo et al., arXiv:2611.08625v1, especially Theorem 5.5 and §5.1. Its radial force limit and normal-incidence ratio are prerequisites, not claimed as new. Its clock estimates are upper bounds, not the present two-term asymptotic. The new content is a finite renormalized transverse kinetic constant involving a nonlocal density integral, a sharp second-order remaining-time expansion, and the local density-gradient coefficients in the axial velocity and displacement. The earlier full-text Martínez AAS24-333 manuscript treats a linear-density model and singularity structure without these asymptotics. Semantic searches of published mathematical findings found no directly matching statement. Alberti–Vidal (2010) was accessible only at abstract level, so its mathematical results have not been declared absent. More general singular-potential normal-form theory and uninspected historical texts remain priority risks. Similarity-search noncoverage is not proof of global uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating source proves a geometric collision criterion but leaves the actual observable impact clock and the axial momentum transfer unresolved beyond leading-normal incidence. At a singular line potential, these observables separate *global* material information in the regularized potential from the *local* density derivative in the tangential impulse. The finite part can distinguish distributions with identical density at impact, while the axial signature detects directional inhomogeneity. Exact scale and coefficient information are relevant to regularizing numerical collision trajectories and to comparing mass distributions, beyond a routine change of notation. There is no claim of global impact basins, arbitrary low regularity, endpoint effects, a prefactor beyond the displayed clock, or independent external certification.
+Best-of-knowledge novel higher-order interior-collision observables, conditional on occurrence of collision; earlier same-model work supplies the planar reduction, leading transverse force and final cone but not the finite-part transverse energy, two-term logarithmic flight clock, or variable-density gradient-driven axial impulse. Search not a certification of priority.
 
-## Historical comparison and limitations
+## value
 
-Full text inspected: Crespo et al., *Singularities and Collision Criteria in the Gravitational Straight-Segment Problem with Arbitrary Positive Density*, arXiv:2611.08625v1, §2, §5 and Theorem 5.5; Martínez, *Dynamics of a Particle around a Non-Homogeneous Straight Segment*, AAS 24-333 (2024), singularity and linear-density sections. Only abstract-level material was available for Alberti and Vidal, *Singularities in the gravitational attraction problem due to massive bodies*, DCDS 26 (2010), DOI 10.3934/dcds.2010.26.805. No independent mathematical assessment has been made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A nontrivial refinement of a singular mechanical impact problem: a finite renormalized transverse energy and quantitative time-to-collision correction depend on global density and energy, whereas tangential impulses detect only the local density gradient. These are distinct asymptotic observables relevant to sensitivity and collision timing; neither a routine substitution nor simply restating the known leading log singularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

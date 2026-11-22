@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T21:54:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every assumed finite-time interior collision with positive C^1 density, reconstruct rho ddot(rho)->-2G sigma(x*) by the scaled Newtonian kernel; ddot(rho)<0 gives eventual monotone infall and dot(rho)^2~4G sigma(x*)log(1/rho). The split axial integral cancels the odd constant-density part and gives ddot(x)=2G sigma'(x*)log(1/rho)+o(log), integrable against dt~d(rho)/sqrt(log). Thus dot(x)->v*, x-x*=O(rho/sqrt(log)); uniform finite-part potential expansion U=-2G sigma(x*)log(1/rho)-G B*+o(1) follows from C^1. Energy conservation yields dot(rho)^2=A log(1/rho)+(2H+2GB*-v*^2)+o(1); integration of 1/sqrt(A log+C) yields coefficient -(1+C/A)/2 for the remaining-time clock. Twice integrating axial acceleration gives stated 2G sigma' and G sigma' impulse/position limits. The theorem does not establish a collision basin, endpoint law or uniform-in-density estimates. Independent linear-density finite-part calculation at rho=.02,.001,1e-5 had errors 2.87593e-4,7.19143e-7,7.19e-11; these are corroboration, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crespo et al PDF pages 10-16 provides linear upper bound for collision time and conditional quadratic upper bound for homogeneous density, not an asymptotic equality; Alberti-Vidal DOI 10.3934/dcds.2010.26.805 discusses homogeneous sources at abstract level."
+        ],
+        "reasoning": "General positive continuous-density collision criteria and conditional homogeneous bounds are broader in density for existence but weaker in asymptotic observables; no theorem seen implying the global finite-part B* or sigma-prime impulse. Unavailable homogeneous source is retained as a priority risk.",
+        "searches": [
+          "Crespo et al 2026 Theorems 4.4,5.3,5.5; Alberti Vidal 2010 gravitational attraction massive bodies; Resultary semantic search"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2611.08625v1",
+        "https://arxiv.cnoctave.top/pdf/2611.08625",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/density-gradient-impulse-and-a-renormalized-collision-clock-for--828b2c6a2207/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-singular-physical-time-impulse-law-for-a-high-energy-loud-cent--2ae25b67c534"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior result: eventual cone, leading acceleration scaling and time bounds; new claim: O(1) renormalized kinetic constant, O(1/L) clock term and O(u log(1/u)) tangential impulse with local sigma prime."
+        ],
+        "reasoning": "The old acceleration leading term yields first-order radial speed but not second-order clock constant or axial derivative coefficient; the current proof supplies both, conditional on stronger C^1 regularity.",
+        "searches": [
+          "arXiv:2611.08625 §5.1 compared with frozen RESULT.md Finding and Steps 2-5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crespo et al Theorem 5.5 establishes final cone condition for interior collisions, including normal incidence and leading force; source RESULT.md Step2 derives a new density-derivative tangential force and integral."
+        ],
+        "reasoning": "The potential normalizations refer to the same fixed Newtonian segment after translating axes. Its known leading rho ddot rho term is a prerequisite; the two next asymptotic constants and axial impulse cannot be derived just from that leading limit without the C^1 finite-part and axial-force analysis.",
+        "searches": [
+          "Resultary: gravitational straight segment variable density interior collision finite part kinetic transverse clock density gradient axial impulse asymptotics",
+          "Crespo et al arXiv:2611.08625 §5 and §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Crespo et al numerical collision time tables are finite tests for time bounds. The present linear-density checker samples a small number of radii."
+        ],
+        "reasoning": "Neither numerical table supplies a universal C^1 variable-density asymptotic coefficient; no exact table/database match identified in inspected sources. Finite simulations alone never prove novelty.",
+        "searches": [
+          "Resultary gravitational straight segment search; Crespo et al Section6 numerical cases; frozen check_impact.py"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel higher-order interior-collision observables, conditional on occurrence of collision; earlier same-model work supplies the planar reduction, leading transverse force and final cone but not the finite-part transverse energy, two-term logarithmic flight clock, or variable-density gradient-driven axial impulse. Search not a certification of priority.",
+      "residual_risks": [
+        "Published homogeneous segment collision literature, especially Alberti–Vidal 2010, not fully inspected; overlap may exist for homogeneous intermediate terms.",
+        "C^1 assumption is essential for the stated tangential coefficient and finite-part; no endpoint collision or uniform asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LEADING_ONLY_NOT_COVERING",
+          "evidence": "Theorem 5.5 says final cone; §5.1 derives conditional time upper bound, not the present equality and gradient impulse.",
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2611.08625",
+          "material_read": "PDF introduction; Hamiltonian reduction §2; final cone Theorem 5.5 and proof pp12-15; conditional quadratic time bound §5.1, pp15-16",
+          "method": "Read 21-page PDF text and page screenshot, compared theorem formulas",
+          "title": "Crespo et al., Singularities and Collision Criteria in the Gravitational Straight-Segment Problem with Arbitrary Positive Density",
+          "trigger": "Same segment, arbitrary density, finite interior collisions"
+        },
+        {
+          "assessment": "UNRESOLVED_PRIORITY_RISK",
+          "evidence": "Covers constant-density segment collision singularities; no whole-paper exclusion without full text.",
+          "identifier_or_url": "https://doi.org/10.3934/dcds.2010.26.805",
+          "material_read": "Journal abstract and description quoted in Crespo introduction, not full article",
+          "method": "Read accessible abstract/context only",
+          "title": "Alberti and Vidal, Singularities in the gravitational attraction problem due to massive bodies",
+          "trigger": "Earlier homogeneous fixed-segment collision study"
+        },
+        {
+          "assessment": "MATHEMATICAL_PROOF_VERIFIED",
+          "evidence": "Potential finite-part expansion and energy conservation yield four boxed limits under interior C^1 hypothesis.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/density-gradient-impulse-and-a-renormalized-collision-clock-for--828b2c6a2207/RESULT.md",
+          "material_read": "Finding, assumptions, complete Steps 1-5, test specification, references",
+          "method": "Read exact pinned Git blob",
+          "title": "Frozen gravitational-segment package RESULT.md",
+          "trigger": "Assigned final scientific claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A nontrivial refinement of a singular mechanical impact problem: a finite renormalized transverse energy and quantitative time-to-collision correction depend on global density and energy, whereas tangential impulses detect only the local density gradient. These are distinct asymptotic observables relevant to sensitivity and collision timing; neither a routine substitution nor simply restating the known leading log singularity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only finite-time interior collisions for positive C^1 density; existence not proved; not uniform at endpoints.",
+    "Alberti–Vidal 2010 full text not read; priority remains qualified."
+  ],
+  "schema_version": 1
+}
