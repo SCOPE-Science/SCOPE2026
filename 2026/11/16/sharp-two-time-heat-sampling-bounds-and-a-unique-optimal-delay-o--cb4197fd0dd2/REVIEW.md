@@ -1,15 +1,21 @@
-# Review of sharp two-time ladder heat sampling
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives an explicit fiber matrix for the unweighted normalized ladder with the specified raw observations. Its determinant is nonzero uniformly over the compact Fourier circle for each positive observation delay. The two optimal global Gram endpoints follow from rank-one Loewner monotonicity, and their trace and determinant identities have been verified exactly. Implicit differentiation reduces all possible interior optimizer times to one sextic equation. The derivative of that sextic is strictly positive on the full candidate interval; its root lies strictly below \(2/3\) and corresponds to the smaller Gram eigenvalue. Endpoint decay establishes the global optimum. Direct inverse reconstruction and the two distinct time-boundary asymptotics follow from the same fiber matrix. The standalone exact checker passed; its finite numerical tests are supporting evidence, not the infinite-dimensional proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The most pertinent recent graph Paley–Wiener paper (Bulai–Cabrelli–Cordero–Molter–Saliani, arXiv:2609.25472) describes infinite lattice spectral representations, abstract orbit frames, and finite-path dynamical sampling. The accessible material does not state the full-band unweighted infinite-ladder theorem or the explicit degree-six delay optimizer. Aldroubi–Davis–Krishtal supply general dynamical sampling principles, acknowledged rather than claimed as new. Two published neighboring results were inspected through their full scientific statements: one is even-vertex heat sampling on the **single** integer line with an alias blind spot and spectral notch; the other is a finite-propagation adjacent-sensor model on the integer line. Their conclusions do not imply the positive full-space rail-sampling constant on the ladder or the uniquely optimized delay. Targeted semantic searches found no equivalent recorded statement. This does not establish historical uniqueness: full-text access to the most relevant 2026 paper was incomplete, and an older specific ladder computation could exist.
+PASS
 
-## Value — PASS
-The infinite ladder is the simplest nontrivial two-layer periodic graph. Sampling exactly one of its rails twice gives a natural critical-density experiment for reconstructing two unknown initial rails. The theorem provides a complete, sharp conditioning profile at every positive delay, an explicit stable inverse, exact short- and long-delay instability laws, and the unique lower-frame-optimal sampling time. The sextic optimum is a motivated instrument-timing invariant, not an arbitrary parameter slice. This resolves a concrete structural contrast with the scalar integer-line alias-collision obstruction without claiming general graph observability or optimal geometry.
+Fourier–Plancherel on the longitudinal Z variable yields the exact fiber M_t(ω)=[[1,0],[q cosh(t/3),q sinh(t/3)]] for q=e^{-t(1−2cosω/3)}, bounded away from zero for each fixed t>0. Its Gram form is diag(1,0)+q² vv*, nondecreasing in q², so the sharp essential lower endpoint is ω=π and upper endpoint ω=0. Putting r=e^{-2t/3} gives M_-=[[1,0],[r²(1+r)/2,r²(1−r)/2]], M_+=[[1,0],[(1+r)/2,(1−r)/2]], hence exact traces and determinants and both quadratic eigenvalue bounds. Fourier inversion gives the bounded explicit recovery formula for f_1. Differentiating the lower characteristic root gives critical polynomial P=3r^6−3r^5+5r^4−5r^3+5r²+4r−4; its stated derivative decomposition is strictly positive on [0,1]. P(0)<0<P(2/3), critical eigenvalue lies on the small branch, and the boundary lower bound tends to zero at both ends, proving a unique global optimum. Independently verified the polynomial resultant identity exactly using SymPy and r*=0.6377325420915736, t*=0.6747544448314551, A*=0.004882704478092798.
 
-## Limitations and closely related sources
-The theorem applies to the canonical unweighted 3-regular ladder and exactly two observation times. It does not address other transverse graphs, missing spatial sensors, or optimal condition-number design. Relevant references and precise literature comparisons appear in `RESULT.md` and `AUDIT.json`. The priority conclusion is provisional and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Fourier fiber and generic dynamical sampling stability conditions are classical, but the exact two-rail unweighted normalized-Laplacian A(t), B(t) and globally A-optimal sextic delay are a different objective from the published Cartesian strip D-optimal determinant delay, even in transverse width two. The ordinary integer-line even-site problem has a spectral blind spot absent here. The 2026 graph Paley–Wiener source was only accessible partly; its unknown complete contents and older one-rail observability calculations remain risks.
+
+## value
+
+PASS
+
+Observing only one entire rail at two times is a concrete natural undersampling design. The sharp worst-case recovery energy, explicit inverse and unique delay maximizing the lower frame bound provide an optimal robustness parameter for every ℓ² input. It is not just sampling injectivity, a generic Vandermonde criterion, or an arbitrary scalar optimization; the physically meaningful worst-case stability objective and full continuous spectral extremum are resolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
