@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Gaussian conjugation and symmetric-chaos factorization give the exact singular-value product. The energy identity identifies strict finite-time contraction with the full Kalman span, and a scaled positive-definite covariance Gramian gives the exact asymptotic coefficient. The rank bound and explicit chain are proved for all dimensions and positive Schatten exponents. The degree-three constant was checked independently in exact rational arithmetic and through high-precision finite-time data. The claim excludes infinite-dimensional and non-Gaussian settings.
+PASS
 
-## Originality
+The exact inverse-Gaussian conjugation of the Gaussian adjoint reduces singular values to symmetric tensor powers of e^{tB}; second quantization gives exp(pt tr B) product(1-sigma_i(t)^p)^-1. The dissipative Gramian W_t=I-e^{tB^T}e^{tB}=integral_0^t e^{sB^T}Qe^{sB} ds is strictly positive exactly for a full Kalman flag; a missing direction leaves tensor powers with singular value one, so no compactness. Orthogonal filtration projections have first coefficients s^k C_k, yielding D_t^-1 W_t D_t^-1 -> positive G, det W_t ~ det G t^K. Positivity follows from independent polynomial coefficients and full row ranks. Replacement 1-sigma^p ~ p(1-sigma^2)/2 yields the coefficient. Nonincreasing Kalman increments and delayed one-dimensional levels give sharp upper bound; explicit dissipative skew-chain B=J_m + scalar blocks gives extremal m=d-r+1, its signed Hilbert determinant gives factorial coefficient. Independently recomputed exact rank-one d=3 determinant(G)=1/1080 and S1 leading 8640; inspected source CHECK.py exact-rational checker through m=8 but did not treat it as a universal proof.
 
-PASS, qualified. The 2026 inverse Gaussian source includes the conjugation and spectral theory with nondegenerate diffusion but does not state the graded trace-ideal asymptotic or rank-sharp family. The 1995 second-quantization source already provides the generic Schatten product formula and is credited, not relabeled as new. The exact first-chaos Gramian method is also classical. The assessed new statement combines these to derive a complete rank-graded blow-up theorem, a sharp envelope at prescribed diffusion rank, and an explicit factorial extremal realization in dimension at least three. An existing two-dimensional inverse Gaussian Schatten analysis already covers the planar case; this work expressly excludes planar novelty. Relevant related research on hypoelliptic short-time smoothing differs in its stated target invariant. Residual risk: equivalent formulations may exist in older control-Gramian and operator-ideal literature, and a quantum Gaussian Markov-semigroup preprint could not be inspected beyond its abstract.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The exact Schatten power and positive constant are natural quantitative invariants of a nonnormal semigroup, not arbitrary finite samples. The sharp rank-dependent upper bound determines the most severe possible short-time blow-up for a fixed amount of noise, and all-dimensional examples exhibit a trace-versus-nuclear-norm gap of order \(t^{-d(d-1)}\) at rank one. This complements ordinary spectrum and smoothing estimates; it does not claim results on other underlying \(L^q\) spaces.
+Best-knowledge PASS for exact all-dimension positive Kalman-graded singular-value product coefficient, sharp fixed-rank upper bound and extremal factorial family, NOT for general second quantization, Kalman controllability, or existing inverse OU spectral equivalence. Read relevant primary-article abstracts/available sections and compared published planar inverse OU work; the general 1995 Araki–Sinha–Sunder product theorem is an admitted premise. Full access to some historical primary text was limited, leaving explicit risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exponent K can jump from d to d^2 when diffusion loses directions, despite operator trace staying order t^-d; the exact graded coefficient and rank-sharp extremizer quantify a genuine nonnormal smoothing/singular-value phenomenon across all dimensions. This is motivated operator-theoretic information, not a one-off calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
