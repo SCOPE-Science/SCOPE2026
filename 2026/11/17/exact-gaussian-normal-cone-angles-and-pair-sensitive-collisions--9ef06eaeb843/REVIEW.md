@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The theorem concerns one intrinsic Euclidean angular invariant and its two-draw collision moment. The Johnson-independent condition implies the sparse-paving basis-exchange property, and when the top-r subset is forbidden its optimal admissible successor is necessarily the unique second-best subset, an allowed Johnson neighbor. Conditional permutation symmetry gives exact weight \(1/(r(n-r))\) per neighbor; projecting an ambient normal objective into the intrinsic span preserves comparisons and isotropic Gaussian measure. Counting the four common neighbors of each Johnson-distance-two forbidden pair gives the exact collision coefficient. The r-by-s matching argument gives both sharp bounds. A separate brute-force checker tested all strict orders in seven finite parameter configurations and the two precise six-element examples. Computations are supplementary; the proof is uniform in n, r and the family.
+## correctness
 
-## Originality
-PASS under the inspected literature and indexed-record comparisons, with residual priority risk. Hanely et al., arXiv:2201.12442 (originally 2022-01-28), establish sparse-paving truncation/Ehrhart structure but do not give the inspected Euclidean Gaussian vertex selection formula. Ferroni and Schröter, arXiv:2310.05487, Section 2.5, Corollary 2.10 (originally 2023-10-09), establish dependence of face numbers on the same \(\lambda,\mu\) parameters, not normal-cone angles or two-objective collisions. A previously recorded rank-two matroid angular-spectrum theorem covers rank two (and dual corank two), deliberately excluded here. Other relevant nearby records concern Euclidean surface area, width variances and toric class groups, which neither directly imply nor state this exact higher-rank angular law. The conclusion is priority-provisional, not a global uniqueness guarantee.
+PASS
 
-## Mathematical value
-PASS. The claim supplies an exact all-vertex geometric angular invariant for a broad natural family of polytopes, with a complete formula for two-direction Gaussian selection collisions. The latter reads off the circuit-hyperplane intersection statistic independently of a face-vector census, and the dimension-five pair of 18-vertex examples proves that equal numbers of bases do not force equal angular geometry. The sharp high-dimensional uniformity bound and the minimum-collision equality condition are natural structural consequences rather than arbitrary parameter slices.
+The proof uses the unique Gaussian top-r set T (uniform over N), and conditional on forbidden T the unique cheapest one-coordinate swap to T′. Johnson independence ensures T′ is permitted. Its missing min-in/max-out elements are independently uniform among r and s options, giving per-permitted-basis selection probability N^{-1}(1+d(B)/(rs)). Squaring and using sum d=lambda rs plus sum d^2=lambda rs+8mu (four common Johnson neighbors for any distance-two forbidden pair) yields the stated collision formula. Rook-grid independent-set bound d<=min(r,s) gives the sharp global range. Independently enumerated all 720 Gaussian coordinate orderings for n=6,r=3 for two nonbasis pairs, reproducing 18 times 1/18 and spectrum (4 at 1/20, 10 at 1/18, 4 at 11/180), with collision values 1/18 and 113/2025. Finite checks are not a general proof; the all-n argument is the counting proof. Inspected RESULT.md blob 71e09512df7c87efd79b075b7568af154a427c44 and METADATA.json d5cce8bd5d0e4fa1a0c59343fa39f5ca9afc34ba.
 
-## Limitations
-The result does not classify full normal-cone combinatorics or supply an independent external mathematical audit. Finite exact checks do not establish infinite claims. Priority comparison can miss material not indexed or not inspected in full; the 2022 source was inspected for the sparse-paving construction and relevant terminology, and the 2023 source for its relevant face-enumeration theorem, not claimed to be line-by-line audited in its entirety.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new intrinsic Euclidean exposure probabilities, pointwise normal-cone law and pair-sensitive two-direction collision invariant, compared by implications rather than matching mu or polytope terminology.
+
+## value
+
+PASS
+
+Determines genuinely geometric normal-fan probabilities for a natural broad class of matroid base polytopes, where combinatorial f-vectors and lattice invariants do not determine individual exposure weights. Pair-collision distinguishes concrete polytopes with same n,r,lambda by mu; sharp range and equality witnesses are mathematically motivated and usable, not arbitrary finite arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
