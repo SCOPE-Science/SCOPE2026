@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For each binary digit and carry 0<=c<=6, the 7-state signed transfer matrix counts exactly the product of Thue-Morse signs; the remaining outgoing carry is restored by terminal vector v. An exact 7-vector calculation gives (M^4-M-2I)v=4(e_2-e_4), while the e_0 M^L rows satisfy w_2=w_4 and w_1=w_5 by an explicit invariant for every L. Hence C_{L+4}=C_{L+1}+2C_L for all L>=0, with exact initial terms 1,2,2,2. Positivity follows by induction. Rational expression and its coprime reduction establish the order-3 recurrence; the characteristic root bound makes excess sublinear relative to 2^L. Standalone code reconstructs transitions and compares complete direct sums for L<=15; these finite tests are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/11/2/SCOPE-exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5 gives a result for multipliers 2^k+1 (k>=2), never 7.",
+        "2026/11/2/SCOPE-exact-oscillatory-parity-correlations-at-binary-triples--4ded471daa94 concerns multiplier 3 and an oscillatory finite-block signed correlation.",
+        "2026/11/2/SCOPE-exact-logarithmic-bias-for-a-triple-thue-morse-dilation-correlat--fced8f0dbad8 concerns a triple product at multipliers 1,3,5, rather than the pair 1,7."
+      ],
+      "reasoning": "The cited parameter hypotheses exclude multiplier 7; no implication to 7 follows from the displayed statements. Generic rationality from carry automata, including the carry method used in related studies, does not entail this special low-order recurrence or a persistent sign.",
+      "searches": [
+        "published-finding corpus: exact dyadic Thue Morse correlation dilation 7 sign sums positive all lengths n 7n 2^L",
+        "published-finding corpus: multiplicative Thue Morse correlation multiplier seven 7n carry automaton generating function (1+z+z²)/(1-z+z²-2z³)",
+        "Web: \"Thue-Morse\" correlation multiplicative dilation 7 2020"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.09498",
+      "https://doi.org/10.1023/A:1015241900975",
+      "2026/11/2/SCOPE-exact-oscillatory-parity-correlations-at-binary-triples--4ded471daa94",
+      "2026/11/2/SCOPE-exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5",
+      "2026/11/2/SCOPE-exact-logarithmic-bias-for-a-triple-thue-morse-dilation-correlat--fced8f0dbad8",
+      "https://oeis.org/A010060"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Spiegelhofer (2023) proves asymptotic parity equidistribution for n^3 and develops correlations in a cubic digit-block analytic argument, not exact dyadic n-versus-7n parity counts.",
+        "2026/11/2/SCOPE-exact-oscillatory-parity-correlations-at-binary-triples--4ded471daa94 gives a cubic recurrence at 3; 2026/11/2/SCOPE-exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5 gives a restricted 2^k+1 family with different initial values.",
+        "Mauduit (2002) is a broad survey on multiplicative properties; only abstract and references could be accessed, so whole-paper noncoverage is not asserted."
+      ],
+      "reasoning": "These known claims do not imply all-scale positivity at multiplier 7 or the reduced order-three generating function. The unavailable survey remains a concrete, nondecisive literature risk because its accessible abstract does not assert the particular closed formula.",
+      "searches": [
+        "Full arXiv paper arXiv:2308.09498, Theorem 2.1 and Section 4.3",
+        "Web: Mauduit multiplicative properties Thue Morse sequence 2002 pdf",
+        "published-finding corpus: Thue Morse binary digit parity correlation n and 7n positivity recurrence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The invariant C_L equals the same-minus-opposite parity count on 0<=n<2^L; its first values are 1,2,2,2,4,6,6,8,14,18,20.",
+        "The closest returned published correlations are at multiplier 3 or family 2^k+1, and not the seven-multiplier pair."
+      ],
+      "reasoning": "Searched both the signed sum and the parity-agreement formulation, plus exact recurrence and dyadic scale. No matching statement was obtained. These searches do not rule out indexing gaps.",
+      "searches": [
+        "published-finding corpus: Thue Morse (-1) binary digit parity sum n and 7n for n below 2^L exact positive recurrence C_(L+4)=C_(L+1)+2C_L",
+        "Web: \"s_2(n)+s_2(7n)\"",
+        "Web: \"Thue Morse\" \"7n\" dyadic parity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Queries on the first thirteen values and reduced rational denominator did not return a matching exact sequence/table.",
+        "The 2026 Mersenne-multiple Hamming-weight spectrum computes a different statistic (weight distribution among multiples), not this joint parity sum."
+      ],
+      "reasoning": "The searched tables and database summaries provided no exact row matching the 7n correlation. This is limited evidence, not proof that the sequence is absent from all catalogs.",
+      "searches": [
+        "Web: \"1, 2, 2, 2, 4, 6, 6, 8, 14, 18, 20, 30, 46\"",
+        "Web: \"1-z+z^2-2z^3\" binary correlation",
+        "published-finding corpus: Thue Morse dyadic parity coincidences seven times n Mersenne 2^3-1 binary Hamming weight cross correlation"
+      ]
+    },
+    "rationale": "Compared exact statement and equivalent same/opposite parity counts, generating-function denominator, parameter 7, and four analogous published claims. Spiegelhofer 2023 handles cube sampling and correlations of a different mathematical form; closest published explicit dyadic pair is multiplier 3, and exact restricted family 2^k+1 excludes 7. The resulting 7-specific positive order-four identity and reduced order-three recurrence are not implications of those statements. Remaining uninspected 2002 broad survey and incomplete catalog indexing are explicitly recorded, so uniqueness is not claimed.",
+    "residual_risks": [
+      "Mauduit 2002 survey full text could not be inspected; earlier equivalent published treatment may exist.",
+      "Published published-finding corpus entries supplied claim-level summaries, not underlying full document content.",
+      "Web and indexing searches cannot prove absence from all literature or databases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the specific 7n finite-block identity in those inspected portions.",
+        "evidence": [
+          "Theorem 2.1 proves asymptotic parity equidistribution at n^3.",
+          "Section 4.3 introduces variable digit-block correlations in the proof of the cubic theorem, not the exact finite dyadic correlation at 7n."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.09498",
+        "material_read": "Introduction, theorem summary and Section 4.3 (approximately pages 2–3 and 19–20); 50-page PDF text opened and relevant portion read.",
+        "method": "Full-text PDF inspection of main theorem and material correlation section, with page display.",
+        "title": "Thue–Morse along the sequence of cubes",
+        "trigger": "Primary 2023 binary digit-sum paper in the same number-theoretic program; cubic correlations could dominate special ones."
+      },
+      {
+        "assessment": "INDETERMINATE for body; no whole-document noncoverage claim.",
+        "evidence": [
+          "The 2002 abstract describes a survey of multiplicative properties but does not give the exact 7n recurrence.",
+          "Full text unavailable for direct comparison."
+        ],
+        "identifier_or_url": "https://doi.org/10.1023/A:1015241900975",
+        "material_read": "Publisher abstract and bibliography only; no accessible primary full text identified.",
+        "method": "Publisher record and OA/preprint search; authorized institutional retrieval was unavailable in non-interactive context.",
+        "title": "Multiplicative properties of the Thue-Morse sequence",
+        "trigger": "Plausible older general literature on multiplication and Thue–Morse."
+      },
+      {
+        "assessment": "NOT_IMPLYING seven-multiplier claim as stated; underlying full file was not accessible.",
+        "evidence": [
+          "Exact multiplier-3 sum has oscillatory cubic recurrence.",
+          "Parameter 3 alone is not the parameter 7."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-oscillatory-parity-correlations-at-binary-triples--4ded471daa94",
+        "material_read": "Published indexed mathematical claim and summary, not the entire source file.",
+        "method": "published-finding corpus claim search and implication/parameter comparison.",
+        "title": "Exact oscillatory parity correlations at binary triples",
+        "trigger": "Closest explicit dyadic two-argument parity sum with multiplier 3."
+      },
+      {
+        "assessment": "NOT_IMPLYING, because the stated family 2^k+1 with integer k>=2 does not contain 7; full file not inspected.",
+        "evidence": [
+          "The family has initial vanishing correlations; current multiplier 7 has positive values from its first block.",
+          "A generic signed-carry matrix alone does not establish this specific invariant."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5",
+        "material_read": "Published indexed mathematical claim and summary, not the entire source file.",
+        "method": "published-finding corpus parameter and rational-generating-function comparison.",
+        "title": "Exact dyadic multiplicative correlations for two-one binary multipliers",
+        "trigger": "Strongest nearby family of exact dyadic multiplicative parity correlations."
+      },
+      {
+        "assessment": "NOT_IMPLYING: triple correlation n,3n,5n is not pair correlation n,7n.",
+        "evidence": [
+          "The published triple correlation has logarithmic negative bias formula, whereas this is an exponentially growing positive pair sum."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-logarithmic-bias-for-a-triple-thue-morse-dilation-correlat--fced8f0dbad8",
+        "material_read": "Published indexed mathematical claim and summary, not entire source.",
+        "method": "published-finding corpus object and parameter comparison.",
+        "title": "Exact logarithmic bias for a triple Thue–Morse dilation correlation",
+        "trigger": "Uses seven-state automaton for related digit-parity correlation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e1f412db-2902-4885-97df-0775d8d9e2fe",
+  "value": {
+    "rationale": "The linked binary digit-parity coincidence excess for n and 7n is a natural unshifted multiplicative-correlation invariant at the first odd three-one Mersenne multiplier. Its exact all-scale positive sign contrasts with the multiplier-3 oscillatory claim and the initial zero correlations for two-one multipliers; this contrast is not given by routine generic automaton rationality. The nonobvious invariant w_2=w_4 collapses a seven-carry signed transfer to a minimal third-order recurrence and separately yields a positive fourth-order relation, providing a reusable structural explanation rather than an unmotivated numerical slice.",
+    "status": "PASS"
+  }
+}
