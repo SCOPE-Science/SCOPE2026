@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness: PASS.** The crossed-product character decomposition follows from odd-order semisimplicity for \(k[H]\), inversion-pair matrix blocks, and finite-field descent. Each nonzero square-zero \(2\times2\) matrix is rank one with equal image and kernel; the sum-of-two argument traps every linear nilpotent family in one matrix line. This proves completeness, uniqueness and intersection counts of the maximal spaces. The trace-zero quadratic-cone description gives the reduced geometry; regular multiplication ranks are additive. The independently executed convolution checker validates all stated small-field cases and the incidence enumerations. Main boundary: the assertions are only for characteristic two and odd-order abelian kernels.
+
+**Originality: PASS, subject to historical priority.** The unit-group classification of Kaur–Khan supplies the familiar matrix factors and makes square-zero total counts a corollary in its cyclic prime-power domain; none of that is claimed as a stand-alone novelty. Closest published records about inner-derivation ranks on the same group, rank spectra for dicyclic odd-index algebras, and order-sixteen groups differ in operators or parameter families. None of the fully inspected statements classifies all inclusion-maximal square-zero linear spaces or their complete pair-incidence spectrum for arbitrary odd abelian kernels. The possibility of an older general nilpotent-linear-space theorem is an explicit residual risk.
+
+**Value: PASS.** The exact rational-point count conceals the arithmetic Frobenius orbit data, while the count and incidence spectrum of maximal square-zero linear subspaces recover that data as a natural geometry of the same operator locus. The theorem also reconciles geometric irreducibility with a finite rational-space cover and determines a complete arithmetic regular-rank polynomial. The result is a full natural classification, not a selected small example or a renamed textbook identity.
+
+The reproducibility checker is a finite consistency check and does not certify universal correctness or publication priority. Independent mathematical audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
