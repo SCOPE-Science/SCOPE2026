@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:15:35.819627Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned source RESULT.md blob 06140ded7f10ef371af854d0a50bb2d6dda7a010",
+        "Pinned checker.py blob f10d85bf2da59ecfe6a35d6fc08ff4da40cc847a",
+        "Independent exact crossing quartic and numerical root computation"
+      ],
+      "rationale": "For 1/2<r<1, the nine stated spherical vertices satisfy fourteen distinct supporting triangular facet inequalities (two horizontal caps, six slanted, six vertical); an Euler F≤2V−4=14 bound completes the facets. The C3 rotation and z-reflection group average any feasible inball center to the origin without reducing its radius. Origin distances to cap, slope and vertical facets are h=√(1−r²), s=[1+((1−r/2)/h)²]^(−1/2), v=√3 r/[2√(1−r+r²)]. Exact comparisons show s>min(h,v). h strictly decreases and v strictly increases, crossing once at ρ≈0.717869821226245. At r>ρ the two cap equalities force z=0 and the residual strict six-plus-six inequalities define a 2D center polygon. At r=ρ, the six vertical normals force p=0 and the caps force z=0: unique eight-facet ball contact. At r<ρ vertical constraints force p=0, caps give |z|≤h−v, and inequality 3(1−r+r²)>(1−r)(1+r)^3 proves the full 1D segment survives slanted facets. Independently recomputed crossing and radius; package checker constructs facets/solves inball LP on a finite parameter sample. These finite checks support but cannot prove the interval-wide center assertions.",
+      "residual_risks": [
+        "The claimed locus is only for r in (1/2,1), not at combinatorial degeneracy r=1/2 or asymmetric polytopes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoehner–Ledford arXiv:2608.04392v2 handles all nine-vertex inscribed polytopes but maximizes *volume*, a distinct objective.",
+          "Resultary same-day exact John–Löwner theorem determines radius and optimum for same r-family; no full center-set theorem is stated."
+        ],
+        "reasoning": "Globality in volume does not imply a ball-center classification. The other same-family result has strong coverage of quantitative inradius and defines all source facets, so PASS cannot rest on inradius optimization alone.",
+        "searches": [
+          "triaugmented triangular prism insphere inradius incenter locus 8 facets 9 vertices spherical volume maximum Hoehner Ledford",
+          "Hoehner Ledford maximum volume polytope nine vertices inscribed sphere arxiv 2608.04392",
+          "John Löwner ellipsoids three distinct optima nine vertex spherical prism family"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.04392 full",
+        "Resultary 2026/11/17 John–Löwner ellipsoid RESULT.md full",
+        "triaugmented triangular prism insphere inradius incenter locus 8 facets 9 vertices spherical volume maximum Hoehner Ledford"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary John–Löwner full RESULT.md gives both inradius and all fourteen facet equations; obtaining the center set from them still requires evaluating shifted inequalities for all feasible translations and proving no slanted facet removes the low-r segment.",
+          "Hoehner–Ledford main theorem computes ordinary volume optimum only."
+        ],
+        "reasoning": "The radius/optimum/contact equalities are covered or immediate from the stronger same-family source. The complete 2D polygon/unique point/1D segment and boundary center contacts are an additional classification not explicitly implied as an asserted theorem, but are a close consequence of the supplied halfspaces; this proximity materially weakens the originality margin.",
+        "searches": [
+          "triaugmented triangular prism insphere inradius incenter locus 8 facets 9 vertices spherical volume maximum Hoehner Ledford",
+          "Exact John Löwner ellipsoids three distinct optima same prism complete incenter set",
+          "Hoehner Ledford theorem one parameter family 9 vertices volume"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/17 John–Löwner theorem defines the identical vertex family and gives identical inradius formula and r_I.",
+          "That prior John ellipsoid contacts precisely eight facets for all r, whereas present BALL has eight contacts only at transition r_I; neither contact statement alone determines every ball center."
+        ],
+        "reasoning": "The same-family equivalence is exact for the radius/optimizer and not novel. The full maximal-ball center locus and r-dependent dimensions remain unstated in the other result, though its halfspace inequalities provide strong groundwork.",
+        "searches": [
+          "triaugmented triangular prism insphere inradius incenter locus 8 facets 9 vertices spherical volume maximum Hoehner Ledford",
+          "inradius nine vertex triaugmented triangular prism family exact John Löwner ellipsoids three optima phase eight facet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day Resultary John–Löwner paper explicitly lists r_I=0.717869821226 and ρ(r)=min{h,v}; neither number can be claimed new.",
+          "The earlier paper has no table of all incenter-set dimensions 2,0,1 or endpoint contact families."
+        ],
+        "reasoning": "The exact numerical radius and parameter are already known. The additional classified center family requires checking active constraints and feasibility; no inspected exact prior center-locus table was found.",
+        "searches": [
+          "triaugmented triangular prism insphere inradius incenter locus 8 facets 9 vertices spherical volume maximum Hoehner Ledford",
+          "triaugmented triangular prism incenter set segment polygon point complete",
+          "eight facet insphere rho 0.717869821226"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS **only for the complete r-dependent incenter-center locus and its 2→0→1 dimension/contact classification**, not for the inradius formula or its optimum in isolation. A closely related *already published* same-day Resultary theorem, Exact John–Löwner ellipsoids and three distinct optima in a nine-vertex spherical prism family, uses exactly P_r and explicitly states ρ(r)=min{h,v}, the identical optimum r_I≈0.717869821226, and all fourteen halfspaces; it also says the John ELLIPSOID contacts eight facets (a different object). It does **not** present or prove the full continuum of maximum-BALL centers or its dimension jumps and endpoint contact counts; those require solving all shifted facet inequalities, including the strict segment-feasibility inequality. Thus the numerical optimum and radius are strongly covered and NOT counted as independent originality or value. Hoehner–Ledford full manuscript only determines maximum ordinary volume at √3−1. The remaining center-locus classification is natural and nontrivial enough to survive, but because it follows from a prior explicit halfspace/radius setting by additional inequalities, the overlap constitutes a substantial priority/value risk.",
+      "residual_risks": [
+        "Strong same-family exact previous result covers quantitative radius/optimizer and all facets; the surviving center-locus classification is a close elementary consequence, so independent novelty is narrow and historical sequencing uncertain.",
+        "Possible later/older descriptions of all inball centers under the same parametrization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS numerical inradius and optimizer and all halfspaces; does not state the maximal-BALL center-locus classification",
+          "evidence": "Reports ρ(r)=min(h,√3r/[2√(1−r+r²)]), r_I=.717869821226, caps and vertical facet constraints, John-ellipsoid eight contacts; not a center-family formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-john-l-wner-ellipsoids-and-three-distinct-optima-in-a-nine--66811e2b55c7/RESULT.md",
+          "material_read": "Entire published RESULT.md: finding, all fourteen facet planes, John/Löwner proofs, ratio/inradius, limits",
+          "method": "Read complete GitHub blob b1def4da8f3a8aca9eaea952f3de755569cfa95a",
+          "title": "Exact John–Löwner ellipsoids and three distinct optima in a nine-vertex spherical prism family",
+          "trigger": "Exact same-object, same-family, more detailed ellipsoid result"
+        },
+        {
+          "assessment": "Does not cover incenter loci or inradius optimum; volume objective only",
+          "evidence": "Unique nine-vertex volume maximizer is a triaugmented triangular prism with r*=√3−1.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04392",
+          "material_read": "Full arXiv HTML of revised manuscript, including main theorem, equality structure and volume comparison",
+          "method": "Read publicly accessible main theorem, equality structure and relevant optimizer section",
+          "title": "The maximum volume polytope with nine vertices inscribed in the sphere",
+          "trigger": "Primary volume-optimum theorem from exact same geometry"
+        },
+        {
+          "assessment": "The matched record is same claim, not an independent prior",
+          "evidence": "Contains the strict segment-feasibility inequality and complete optimal center sets absent from ellipsoid-result finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-an-eight-facet-insphere-transition-in-symmetric-triaugmented-tri--b6fd090ad2f5/RESULT.md",
+          "material_read": "Entire target text and full proof from pinned source repository",
+          "method": "Read actual GitHub source blob 06140ded7f10ef371af854d0a50bb2d6dda7a010",
+          "title": "An eight-facet insphere transition in symmetric triaugmented triangular prisms",
+          "trigger": "Same indexed claim control, not prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full noncentral inball-center classification and strict segment feasibility",
+        "Same-day John–Löwner result gives only radius, max parameter and ellipsoid descriptions"
+      ],
+      "rationale": "The surviving mathematical contribution is a **complete classification of every largest-inscribed-Euclidean-ball center** of a natural fixed-combinatorial-type nine-vertex symmetric family, with sharp unique-center eight-contact phase and dimensions 2,0,1. These are natural geometric invariants, not an arbitrary slice or a renamed number, and the explicit segment-feasibility inequality is essential for the whole center locus. The already published optimum radius and separation from the volume maximizer do not independently establish novelty/value; scope is intentionally one symmetric family and this result is not a global nine-vertex inradius theorem.",
+      "residual_risks": [
+        "Center-locus classification is narrow relative to broader John–Löwner work; no global unrestricted nine-vertex insphere extremum proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Overlap warning: a published same-day broader John–Löwner result states the identical inradius formula, optimizer and facet halfspaces. No novelty is assigned to those components.",
+    "Surviving novelty is only complete maximal-BALL center classification including its 2→0→1 transition; it is close to a corollary of earlier explicit inequalities.",
+    "Restricted to symmetric nine-vertex one-parameter family, not all spherical polytopes or endpoints."
+  ],
+  "schema_version": 1
+}
