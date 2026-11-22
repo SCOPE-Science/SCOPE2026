@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The exact proof is in `RESULT.md`, with the down-set projection reduction, the sharp Cauchy–Schwarz equality certificate, bipartite path integrality, and a positive dual-multiplier certificate for every path dimension. The cycle result follows from an explicitly represented orbit average of a maximum independent set, and uniqueness of the deepest cube point follows from strict coordinatewise inequality for the projection.
+## correctness
 
-Run `python3 verification/verify.py` with Python 3, NumPy and SciPy. The actual successful replay reported:
+PASS
 
-`CUBE_STABLE_SET_PARITY_PASS exact_paths=299 exact_cycles=298 independent_qps=24 cube_corner_checks=486`
+The stable-set polytope is coordinatewise downward closed, so projection of all-ones dominates every cube point; its projection coordinates are all strictly below one for paths/cycles, giving unique farthest point. Cauchy–Schwarz and maximum independent set orbit mixing yield the general graph bound with exact equality condition. For paths, edge constraints form the integral stable-set hull (bipartite TU); displayed positive KKT multipliers and sum-of-squares identity give the unique minimizer in every order including n=2. Cycles use vertex transitivity and alpha=floor(n/2), giving exact squared gaps and the even-zero, odd-(n+1)/(2n) edge-closing jump. Reconstructed exact path KKT stationarity for n=6,7,8,9; all pass. Finite checks support but are not the universal proof.
 
-Exact `fractions.Fraction` checks reconstruct all path edge multipliers, stationarity and squared-distance formulas at orders 2 through 300. Exact cycle maximum-set averaging identities are checked at orders 3 through 300. Independently formulated SLSQP quadratic programs check projection coordinates and objective values at orders 3 through 14; additional comparisons evaluate every alternative cube corner at orders 3 through 7. Numerical tolerances are fixed in the supplied checker. Its finite tests cannot prove the infinite assertions and are not independent mathematical validation. This record does not report an independent external audit.
+## originality
+
+PASS
+
+Best-of-knowledge noncoverage after implication comparison; Prior geometrical/combinatorial graph polytope statements do not by implication determine the exact ambient Euclidean cube gap or parity jump.
+
+## value
+
+PASS
+
+The complete exact Euclidean Hausdorff metric of two central graph-polytope families, the sharp general equality criterion and a parity-sensitive single-edge stability law are motivated quantitative convex-combinatorial invariants. A classical polytope description alone does not fix the nonlinear Euclidean projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

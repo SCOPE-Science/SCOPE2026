@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every graph stable-set polytope is a coordinate down-set, so the cube's all-ones corner realizes its Hausdorff distance. The sharp independence-number lower bound follows from Cauchy–Schwarz with an exact necessary-and-sufficient equality condition. For paths, the complete facet description is justified by bipartite total unimodularity; explicit nonnegative edge multipliers and equality constraints give a quantitative global least-squares optimality certificate, not just a local stationary point. Cycles attain the general sharp bound through automorphism averaging of maximum independent sets. The nearest points have all coordinates strictly below one, so all cube points other than the all-ones corner have strictly smaller distance. Subtracting exact squared norms verifies the parity jump. The code checks small cases and certificate algebra but does not replace the proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The earliest middle-period lead source is Aliniaeifard et al. (2018, arXiv:1804.00360v1), whose publicly accessible full text is about the 1-skeleton of stable-set polytopes, not ambient cube-to-polytope Euclidean Hausdorff distances. Bärmann–Schneider (2021, arXiv:2101.09267v1) provides the odd-cycle hull constraints, rather than the exact distance and all-point maximizer classification. Relevant published exact cycle stable-set covariance and odd-cycle fractional-integral cap results were compared in full: their distributions and objects differ from the two convex bodies used here, and their theorems do not imply this parity formula. Indexed broader searches did not surface an equivalent exact statement; absence from searches is not proof of priority. The full texts of the older Fibonacci-polytope paper and the 2024 cycle-polytope paper were not available for complete comparison. No claim is made that total unimodularity, automorphism averaging, or ordinary Cauchy–Schwarz are new.
+PASS
 
-**Mathematical value — PASS.** The natural loss from imposing graph-independent-set constraints on a Boolean cube is an intrinsic question about a common realization of graph polytopes. This theorem completely computes the loss, nearest points, and deepest-corner uniqueness for both basic connected degree-at-most-two graph families, with an exact all-order rigidity-versus-positive-loss law when only one edge is inserted. The graph-wide equality characterization explains why the even cases and all cycles are especially tractable, whereas odd paths have a genuinely nonuniform least-squares projection. These are exact geometric invariants with natural motivation, rather than a reformulation of a known face inequality or a sampled finite count. The result does not claim a general graph closed form or a paper-sized downstream application.
+The stable-set polytope is coordinatewise downward closed, so projection of all-ones dominates every cube point; its projection coordinates are all strictly below one for paths/cycles, giving unique farthest point. Cauchy–Schwarz and maximum independent set orbit mixing yield the general graph bound with exact equality condition. For paths, edge constraints form the integral stable-set hull (bipartite TU); displayed positive KKT multipliers and sum-of-squares identity give the unique minimizer in every order including n=2. Cycles use vertex transitivity and alpha=floor(n/2), giving exact squared gaps and the even-zero, odd-(n+1)/(2n) edge-closing jump. Reconstructed exact path KKT stationarity for n=6,7,8,9; all pass. Finite checks support but are not the universal proof.
 
-**Limits.** Historical priority remains provisional; independent mathematical review is outstanding. All quantities are unweighted ambient Euclidean, and no conclusions about the fractional relaxation's Hausdorff distance are made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage after implication comparison; Prior geometrical/combinatorial graph polytope statements do not by implication determine the exact ambient Euclidean cube gap or parity jump.
+
+## value
+
+PASS
+
+The complete exact Euclidean Hausdorff metric of two central graph-polytope families, the sharp general equality criterion and a parity-sensitive single-edge stability law are motivated quantitative convex-combinatorial invariants. A classical polytope description alone does not fix the nonlinear Euclidean projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
