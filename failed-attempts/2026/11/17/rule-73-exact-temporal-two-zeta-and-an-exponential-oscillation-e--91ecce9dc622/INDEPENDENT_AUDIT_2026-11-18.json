@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:08:38.373330Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rule73 truth table has ones exactly on neighborhoods 000,011,110. A 4-state de Bruijn graph tests one-update fixed windows and a 16-state graph tests the five-symbol double update; cyclic closed walks correspond exactly to indexed states, even for rings n=1,2 with wrapped repeated positions. Complete finite elementary-directed-cycle determinant expansion yields det1=1-z³-z⁴, det2=(1-z)^2(1+z²)^2(1-2z²-z³+z⁴); independent graph/determinant implementation matches exactly. Formal −log det=Σ tr(M^n) z^n/n proves both rational functions for all n. Primitive SCC Perron arguments and rational root sign isolations give spectral radii α>β, so c_n=(t_n-s_n)/2~α^n/2. Independent direct source checker is finite confirmation, not all-n argument. Crucially the exact expanded det2 was also independently compared to published all-rule table row73 and agrees coefficient by coefficient.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-rule publication quantifies over r=0,...,255 and every cyclic ring n>=1, so r=73 is an exact special case.",
+          "Both zeta denominators and every primitive two-cycle count c_n=(tr(B_r^n)−tr(A_r^n))/2 follow from the general theorem."
+        ],
+        "reasoning": "It is broader in the rule parameter while preserving identical n-domain, update convention, and quantity; a special case is covered without needing identical title or factorization.",
+        "searches": [
+          "elementary cellular automaton rule 73 period 2 temporal cycles spatial zeta periodic points",
+          "Resultary A sharp six-site test and forty temporal-two zeta classes for elementary cellular automata",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-six-site-test-and-forty-temporal-two-zeta-classes-for-el--78b8bdccc729"
+        ]
+      },
+      "checked_sources": [
+        "actual RESULT.md 744a63460b545252f82323f6cb80497e9f7a7288",
+        "actual verify.py 6950e7bd17fccd35e4b49b172dce19efdb58ff2b",
+        "Resultary full all-rule RESULT.md blob e26e2e93996b08d982decdca090ac44a6b1b593c",
+        "Resultary all-rule table CSV blob 3fcca53520b5e543f0ad364cb0833b6484bed1c2",
+        "Stricker 2023 DOI 10.25088/ComplexSystems.32.3.229"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General all-rule theorem supplies trace/zeta for r=73 with the same cyclic update f(a,b,c)=floor(73/2^(4a+2b+c)) mod2.",
+          "Perron spectral isolation of the known denominator gives growth constants α and β, and subtraction yields c_n~α^n/2 because α>β."
+        ],
+        "reasoning": "The narrower Rule73 result is implied by specializing a stronger established theorem and elementary spectral analysis; no separate original final claim remains. Same-day publication dating does not establish chronological priority.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-six-site-test-and-forty-temporal-two-zeta-classes-for-el--78b8bdccc729",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-six-site-test-and-forty-temporal-two-zeta-classes-for-el--78b8bdccc729/rule_table.csv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-256 theorem defines A_r (4 states) and B_r (16 states) by exactly the same one- and two-step local de Bruijn constraints.",
+          "At r=73, the 256-rule table lists the first denominator as 1-z³-z⁴ and the second as 1−2z+z²−z³+z^5+2z^6−3z^7+3z^8−3z^9+z^10."
+        ],
+        "reasoning": "These are equivalent formulations of both boxed Rule73 zeta identities, with the second supplied in expanded rather than factored form; independent symbolic multiplication confirms the identity.",
+        "searches": [
+          "elementary cellular automaton rule 73 period 2 temporal cycles spatial zeta periodic points",
+          "Resultary all-rule forty temporal-two zeta classes",
+          "Resultary Rule73 exact all-length first/second iterate zeta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "rule_table.csv line beginning 73,1,0: first coefficients 1;0;0;-1;-1; second 1;-2;1;-1;0;1;2;-3;3;-3;1.",
+          "Independent determinant expansion of submitted factorization gives that exact second vector, including the zero z^4 term."
+        ],
+        "reasoning": "This is direct exact_database_or_table coverage, not a loose semantic match: row73 encodes the entire exact claimed zeta functions and finite orbit population sequence.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-six-site-test-and-forty-temporal-two-zeta-classes-for-el--78b8bdccc729/rule_table.csv",
+          "elementary cellular automaton rule 73 period 2 temporal cycles spatial zeta periodic points"
+        ]
+      },
+      "rationale": "Decisive published same-model dominating coverage: the separately published 256-rule exact first/second-iterate zeta classification supplies BOTH denominator polynomials for EVERY elementary rule in its downloadable 256-row rule_table.csv, including row 73 exactly. The submitted Rule73 rational zeta identities are a parameter-specialization of that all-rule theorem. The advertised exponential gap follows mechanically from its known Rule73 polynomials by elementary Perron/root comparisons; the formula is not a distinct original theorem despite a different emphasis or title. Both related records have 2026-11-17 dates; historical within-day precedence is not inferred.",
+      "residual_risks": [
+        "All-rule result and submitted Rule73 result share UTC publication date 2026-11-17; exact within-day historical order is unknown, so no chronological-first claim is made",
+        "Rejection concerns the unchanged final mathematical finding and the separately verified broad table, not alleged falsity or failure of source code",
+        "An alternative genuine contribution would require a distinct corrected final scientific claim and full replacement files; none is supplied here"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING. Uniform theorem supplies one- and two-iterate zeta for all r, and explicitly counts all 256 rule classes; Rule73 included.",
+          "evidence": "Finding states zeta_{1,r}=1/det(I-zA_r), zeta_{2,r}=1/det(I-zB_r) for every r; accompanying table gives r=73 polynomials.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-six-site-test-and-forty-temporal-two-zeta-classes-for-el--78b8bdccc729/RESULT.md",
+          "material_read": "Entire published RESULT.md including assumptions, all-256 transfer proof, all-length zeta formulas, the complete census method, limitations, and references.",
+          "method": "Full published primary scientific record fetched via GitHub immutable content SHA e26e2e93996b08d982decdca090ac44a6b1b593c",
+          "title": "A sharp six-site test and forty temporal-two zeta classes for elementary cellular automata",
+          "trigger": "Exact all-rule coverage dominates potential Rule73 specialization"
+        },
+        {
+          "assessment": "COVERING: row73 equals both submitted denominator polynomials; same invariant, same parameter.",
+          "evidence": "73,1,0,1;0;0;-1;-1,1;-2;1;-1;0;1;2;-3;3;-3;1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-six-site-test-and-forty-temporal-two-zeta-classes-for-el--78b8bdccc729/rule_table.csv",
+          "material_read": "CSV header plus row73 and surrounding rows, with explicit denominator coefficient columns; exact row73 contents inspected.",
+          "method": "Full file fetched via GitHub; exact row and symbolic polynomial comparison",
+          "title": "Full 256-rule first/second-iterate zeta denominator table",
+          "trigger": "Exact known table entry for Rule73"
+        },
+        {
+          "assessment": "Historical methodology comparator; no need to use it to reject because newer exact all-rule table is decisive.",
+          "evidence": "Abstract and sections classify rules by cycle-length spectra, not rational zeta denominator row73.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf",
+          "material_read": "Full PDF text searched/read on topic, and title/abstract/intro p1 visually inspected; classification treats maximal limit-cycle lengths, not full all-ring temporal-two point counts.",
+          "method": "Author-hosted primary PDF text and first page screenshot",
+          "title": "Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k",
+          "trigger": "Potential older all-rule periods/Rule73 source"
+        },
+        {
+          "assessment": "One-step image counts output configurations, not fixed/twice-fixed points, so not decisive compared with all-rule zeta table.",
+          "evidence": "Image cardinality is not equal to fixed-point cardinality in general.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-cyclic-one-step-image-series-of-elementary-cellular-automa--4412da3b7a44",
+          "material_read": "Published title and semantic summary, not complete full record.",
+          "method": "Resultary semantic search",
+          "title": "Exact cyclic one-step image series of elementary cellular automaton Rule 73",
+          "trigger": "Same local rule, potentially different invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As an unchanged standalone final claim this is a known exact table recomputation plus routine spectral consequences; the finite exact result would otherwise be interesting, but is already available as an explicit row of a natural complete classification. Correctness, reproducibility, and a simpler factorization do not provide a fresh mathematically motivated independent contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Only temporal periods 1 and 2 of nearest-neighbor cyclic Rule73; no higher cycles/basins. Scientific rejection O and V is based on exact all-rule table coverage, not access failure."
+  ],
+  "schema_version": 1
+}
