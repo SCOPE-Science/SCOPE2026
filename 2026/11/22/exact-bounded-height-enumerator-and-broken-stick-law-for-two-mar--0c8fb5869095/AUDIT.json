@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "PASS: Binary singleton-height deletion theorem gives h(w)=1+max_i λ_i(w). Independently reconstruct the shortest lost subsequences after each deletion among all-zero, one-one rectangle, and two-one bounded-gap patterns, obtaining the three gap-dependent witness formulas. Partition nonnegative (a,b,c) by their zero/positive statuses; disjoint generating sums give the exact polynomial for every H≥3. Uniform simplex convergence gives the maximum-coordinate CDF and 11/18 mean, 13/648 variance. An independent insertion-based greedy subsequence automaton agrees for all 455 triples with total zeros ≤12; 368 polynomial coefficient comparisons also pass. Finite computations do not prove the infinite formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2024 paper provides full general binary individual-word height computation with isolated-run reductions; its displayed Section 5 theorem and appendix do not count a fixed two-marker family by all lengths",
+        "Four-run enumerator concerns 0^a 1^b 0^c 1^d with a,b,c,d≥1; two singleton one runs generally form a five-run word"
+      ],
+      "reasoning": "Although the prior general algorithm entails the ability to calculate each term, it does not state or directly imply the exact cumulative polynomial and its limiting Dirichlet law without additional case enumeration, algebraic summation and asymptotic reasoning. The closest aggregate theorem has a distinct family and independent parameter factors.",
+      "searches": [
+        "arxiv:2412.16560v1 Lemmas 5.3-5.5 and Theorem 5.6",
+        "piecewise height fixed weight two words asymptotic expected height longest gap",
+        "published-finding corpus:2026/10/26/SCOPE-a-perfect-square-length-enumerator-for-bounded-piecewise-height--951e6db8c395"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.15431v1",
+      "arxiv:2412.16560v1",
+      "published-finding corpus:2026/10/26/SCOPE-a-perfect-square-length-enumerator-for-bounded-piecewise-height--951e6db8c395",
+      "published-finding corpus:2026/10/25/SCOPE-exact-fixed-content-simon-congruence-classes-for-binary-two-mark--176c90a6c83d",
+      "https://doi.org/10.4230/LIPIcs.ICALP.2025.171"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fixed-content result counts equivalence classes inside one zero-count stratum and not singleton height against arbitrary comparators",
+        "The four-run paper supplies P_H(z)^2 for four positive alternating runs, not G_H(z) for 0^a1 0^b1 0^c",
+        "General piecewise-height formulas do imply wordwise computability and are credited as crucial premises"
+      ],
+      "reasoning": "The new assertion is the explicit G_H(z), G_H(1), exact-height spectrum and weak-composition limit. The earlier results neither assert the three-gap status partition nor yield the stated aggregate as an immediate corollary without nontrivial enumeration. The core deletion characterization is not claimed new. An undiscovered stronger uniform multivariate enumerator would subsume this work and is retained as a priority risk.",
+      "searches": [
+        "published-finding corpus exact fixed-content Simon-congruence classes for binary two-marker words",
+        "published-finding corpus perfect-square bounded piecewise-height four-run binary words",
+        "arxiv:2311.15431v1",
+        "arxiv:2412.16560v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Praveen et al. provide singleton height and minimality-index algorithms/side distances, not a three-zero-gap all-height generating polynomial",
+        "The two-marker Simon-depth census fixes the zero-count when comparing words; that is a different equivalence relation"
+      ],
+      "reasoning": "Searches compared piecewise height, piecewise complexity, singleton Simon congruence, minimality index and fixed-weight two-marker aliases. General computability of the invariant does not itself state the enumerated exact polynomial; same domain/method does not imply an explicitly recorded all-height aggregate. No equivalent theorem was found in inspected relevant material.",
+      "searches": [
+        "piecewise complexity h(u) Simon singleton congruence binary words two occurrences of one exact formula 2023",
+        "piecewise minimality index rho(u) binary words fixed Hamming weight two",
+        "height Simon congruence singleton two ones h(0^a 1 0^b 1 0^c) exact",
+        "arxiv:2311.15431v1 Section 3",
+        "arxiv:2412.16560v1 Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic query hits included a border-length limit law for two-marker words, but borders are contiguous prefix/suffix matches, not singleton scattered-subsequence height",
+        "No matching polynomial/table appeared among ranked published-finding corpus hits for the queried aliases"
+      ],
+      "reasoning": "A related two-marker longest-border statistic does not determine this piecewise height. Absence from indexed search is only negative search evidence, not proof of novelty; independently read the most plausible primary and indexed full texts.",
+      "searches": [
+        "piecewise complexity h(w) binary weight exactly two ones zero gap maximum Dirichlet broken stick longest spacing distribution",
+        "piecewise height fixed weight two words asymptotic expected height longest gap",
+        "published-finding corpus query: piecewise height fixed weight two words asymptotic expected height longest gap"
+      ]
+    },
+    "rationale": "PASS (best-knowledge priority): Compared actual statements with full public RESULT.md of fixed-content Simon-class census and four-run height enumerator, and inspected relevant mathematical sections of 2023/2024 primary piecewise-height papers. Fixed-content equivalence restricts competitors to common composition, unlike singleton height against all binary words. Four-run factorization counts positive four-run words, not words with two singleton ones and three arbitrary zero gaps; 2024 general formulas compute individual word heights but do not state the all-height sparse enumerator. published-finding corpus and web searches for alternative terminology and a normalized broken-stick limit found no covering result. No unqualified novelty or exhaustive-history assertion; possible unindexed equivalents remain.",
+    "residual_risks": [
+      "Unindexed equivalent all-height enumerator under alternative terminology or an unstated corollary of later general algorithms might exist",
+      "General 2024 formulas are a credited premise; their full 22-page content was navigated for relevant sections, not independently recertified line by line",
+      "No independent expert priority review has been conducted"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers individual wordwise premise but not explicit all-H two-one generating function",
+        "evidence": [
+          "binary identity between height and minimality index; deletion/insertion characterization; general algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.15431",
+        "material_read": "Abstract, relevant Section 3 statements and mathematical descriptions of height/minimality relations",
+        "method": "Open-access arXiv HTML/text passage review",
+        "title": "On the piecewise complexity of words and periodic words",
+        "trigger": "Original published wordwise singleton-height and deletion characterization"
+      },
+      {
+        "assessment": "Individual-word formulas and algorithm with run reductions, not the fixed two-marker all-H polynomial in the inspected text",
+        "evidence": [
+          "Lemma 5.3 formula ρ(u)=k+max(n1+1,nk+1,n2,...)-3 for internal nonsingletons; Lemmas 5.4-5.5 remove isolated runs; no two-marker cumulative polynomial stated"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2412.16560",
+        "material_read": "Section 5 (page 16 of 22 PDF), Lemmas 5.3-5.5, Theorem 5.6, and identified Appendix A.1 argument",
+        "method": "Searchable primary PDF text plus rendered inspection of page 16",
+        "title": "On the piecewise complexity of words",
+        "trigger": "Plausible stronger coverage via exact binary run-block algorithms"
+      },
+      {
+        "assessment": "Counts a,b,c,d≥1 four-run words; does not contain exact two-singleton-one three-gap formula",
+        "evidence": [
+          "Generating function P_H(z)^2 for 0^a1^b0^c1^d; four positive runs"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-a-perfect-square-length-enumerator-for-bounded-piecewise-height--951e6db8c395",
+        "material_read": "Entire RESULT.md including finding, assumptions, proof, literature comparisons, and limitations",
+        "method": "Direct repository file fetch via authorized read-only GitHub connector",
+        "title": "A perfect-square length enumerator for bounded piecewise height of four-run binary words",
+        "trigger": "Closest published exact bounded-height enumerator"
+      },
+      {
+        "assessment": "Calculates classes at fixed m and k, not singleton h(w) or its all-zero-count enumerator",
+        "evidence": [
+          "Invariant (min(a,k-2),min(b,k-2),min(c,k-2), two pair-threshold flags) between words having the same m"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-fixed-content-simon-congruence-classes-for-binary-two-mark--176c90a6c83d",
+        "material_read": "Entire RESULT.md including full class-equivalence proof and all formulas",
+        "method": "Direct read-only GitHub repository file fetch",
+        "title": "Exact fixed-content Simon-congruence classes for binary two-marker words",
+        "trigger": "Same two-marker objects and same scattered-subsequence equivalence family"
+      },
+      {
+        "assessment": "General computational-complexity results for compressed words, no explicit sparse fixed-weight enumerator found in reviewed relevant material",
+        "evidence": [
+          "Focus on tropical/compositional computation of piecewise height of individual words"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2025.171",
+        "material_read": "Accessible abstract, introduction and algorithmic scope text",
+        "method": "Publisher open-access HTML review",
+        "title": "A Tropical Approach to the Compositional Piecewise Complexity of Words and Compressed Words",
+        "trigger": "Later broad computational treatment of the same invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0c8fb586-9095-4430-bc6f-ca6172a9b251",
+  "value": {
+    "rationale": "PASS: The class of all binary words with precisely two marked positions is a natural sparse family for piecewise testability, and fixed-height cardinality is a precise descriptive-complexity invariant. An exact all-height polynomial enables length-by-height counts without a wordwise re-evaluation and gives a nondegenerate fixed-weight limit law with explicit CDF and moments, both meaningful to asymptotic sparse string analysis. Not just a renaming or arbitrary single-instance computation.",
+    "status": "PASS"
+  }
+}
