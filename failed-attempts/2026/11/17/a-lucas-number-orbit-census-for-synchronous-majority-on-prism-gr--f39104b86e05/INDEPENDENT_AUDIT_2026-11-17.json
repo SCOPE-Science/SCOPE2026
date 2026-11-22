@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:07:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The synchronous 3-neighbor majority rule on C_n square K_2 has a direct 4-bit space-time transfer with 256 state-pairs for F^2-fixed configurations and a 2-bit/16-state transfer for F-fixed states. Frozen verify_transfer.py explicitly defines all triple-letter majority constraints, computes 400/20 allowed directed edges, cyclic strongly connected components 16,8,8,2,1,1 and 4,1,1, and exact integer characteristic polynomials via Newton identities; the characteristic power sums determine traces for ALL n, not just checked n. Independent implementation of microscopic neighbor majority from adjacency arrays enumerated ALL 2^(2n) labelled configurations at n=3..9 and reproduced (H_n,P_n)=(4,22),(8,64),(14,124),(22,484),(32,844),(48,2304),(76,5782). Exact direct comparison to Nov 1 published formulas f_P=R_n+2, q_P=(R_n+2)^2 for even n and R_{2n}+2 for odd n verifies equivalence via R_n=L_n+2cos(npi/3) and standard Lucas L_{2n}=L_n^2-2(-1)^n. The formula and orbit quotient are mathematically correct for labelled n>=3; the finite enumeration verifies the certificate inputs rather than establishing universal n alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov1 published theorem includes full prism counts PLUS Möbius ladder and twist response, strictly broader coverage.",
+          "Nov8 fully-flipping-majority-sector result explicitly credits Nov1 full census and adds a different sector refinement; the assigned package does NOT add that refinement."
+        ],
+        "reasoning": "The prior theorem is strictly stronger, and the submitted statement is a direct specialization (prism component).",
+        "searches": [
+          "prism C_n square K_2 majority complete recurrent orbit census R_n squared November 2026",
+          "majority dynamics prism Möbius ladder seam response 2026",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-modulo-six-twist-resonance-in-synchronous-majority-dynamics-on--0a383da6731a/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-lucas-number-orbit-census-for-synchronous-majority-on-prism-gr--f39104b86e05/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-lucas-number-orbit-census-for-synchronous-majority-on-prism-gr--f39104b86e05/verify_transfer.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-lucas-number-orbit-census-for-synchronous-majority-on-prism-gr--f39104b86e05/verify_vertices.py",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-modulo-six-twist-resonance-in-synchronous-majority-dynamics-on--0a383da6731a/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n even: (R_n+2)^2 expands to L_2n+8L_n+18 if n divisible by 6, otherwise L_2n+2L_n+3; for n odd: R_{2n}+2 equals L_2n+4 if n divisible by3, else L_2n+1.",
+          "The fixed formula R_n+2 gives L_n+4, +3, +1 or +0 by n modulo 6, exactly the assignment; both b=(q-f)/2, same asymptotic φ^{2n}/2."
+        ],
+        "reasoning": "Every principal conclusion of the submitted final claim follows algebraically from the full published Nov1 theorem. This is a decisive FAIL on originality independent of correctness.",
+        "searches": [
+          "prism C_n square K_2 majority complete recurrent orbit census R_n squared November 2026",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-modulo-six-twist-resonance-in-synchronous-majority-dynamics-on--0a383da6731a/RESULT.md",
+          "Lucas identity L_2n=L_n^2-2(-1)^n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Nov1 Resultary theorem uses P_n=C_n square K_2, synchronous binary strict open-neighbor majority and labelled configurations.",
+          "It sets R_n=L_n+2cos(npi/3), f_P(n)=R_n+2 and q_P(n)=(R_n+2)^2 (even n) or R_{2n}+2 (odd n).",
+          "The assigned theorem has H=L_n+4, L_n+3, L_n+1, L_n, etc by n mod6 and precisely the same q via Lucas identities."
+        ],
+        "reasoning": "The alternative R_n cosine representation and six-residue Lucas table are algebraically identical under the same graph/rule; this is not merely shared parameters.",
+        "searches": [
+          "synchronous majority prism ladder graph fixed points two cycles Lucas numbers exact count",
+          "prism C_n square K_2 majority complete recurrent orbit census R_n squared November 2026",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c/RESULT.md",
+          "synchronous strict three-neighbor majority prism cyclic ladder R_n Lucas 2 cos n pi/3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full published Nov1 theorem is an exact recurrent-orbit table, not an estimate: it lists f_P, q_P, b_P in closed form for all n>=3.",
+          "Independent microscopic checks n=3..9 agree with both formulas, but agreement is irrelevant to independent novelty."
+        ],
+        "reasoning": "An exact published table contains all requested invariant values; replacing R_n with residue classes does not create a new mathematical invariant.",
+        "searches": [
+          "synchronous majority prism ladder graph fixed points two cycles Lucas numbers exact count",
+          "prism C_n square K_2 majority complete recurrent orbit census R_n squared November 2026",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c/RESULT.md",
+          "Lucas six-residue fixed state two-cycle prism n modulo six"
+        ]
+      },
+      "rationale": "Decisive exact prior coverage. The complete fixed-state count, two-step recurrent count and primitive two-cycle count for the IDENTICAL prism graph, majority rule and labelled convention were published on November 1, 2026. The assigned six residue-class Lucas table is only the prior closed formulas expanded modulo six, and its leading asymptotic is the same. There is no distinct surviving new claim in the frozen RESULT.md.",
+      "residual_risks": [
+        "There is no originality margin in the unchanged six-class table; a different scientifically meaningful sector would require a substantive new claim and full repaired package, which is not supplied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY COVERING: exact submitted prism census is one case of this theorem.",
+          "evidence": "f_P=R_n+2, q_P=(R_n+2)^2 (n even) or R_2n+2 (n odd), b_P=(q_P-f_P)/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c/RESULT.md",
+          "material_read": "Full published RESULT.md finding, hypotheses, cyclic-word transfer proof, temporal bipartite double-cover isomorphism, fixed and q formulas, growth.",
+          "method": "Direct GitHub full-source scientific read",
+          "title": "A Lucas-number seam response in majority oscillations on prism and Möbius ladders",
+          "trigger": "IDENTICAL graph and rule, prior exact orbit census"
+        },
+        {
+          "assessment": "Explicitly credits Nov1 full recurrent-state census and introduces only different all-vertex-flip subset, absent from assigned RESULT.",
+          "evidence": "Prior-work boundary explicitly names earlier census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-modulo-six-twist-resonance-in-synchronous-majority-dynamics-on--0a383da6731a/RESULT.md",
+          "material_read": "Full RESULT.md and its prior-work boundary and sector transfer proof.",
+          "method": "Direct GitHub full-text read",
+          "title": "Fully flipping majority two-cycles on cyclic prisms and Möbius ladders",
+          "trigger": "Nearby follow-up distinguishing total versus fully flipping sector"
+        },
+        {
+          "assessment": "Different open ladder with endpoint degree-two tie rule; not needed for decisive coverage because prism prior exists.",
+          "evidence": "Open ladder theorem f_n=2(F_n+1), q_n=L_2n+1+3 1_{3|n}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-lucas-fibonacci-orbit-census-for-synchronous-majority-dynamics-o--589e6314b7c7/RESULT.md",
+          "material_read": "Full Resultary RESULT.md statement, boundary tie conventions and transfer argument.",
+          "method": "Direct GitHub full-text read",
+          "title": "A Lucas–Fibonacci orbit census for synchronous majority dynamics on open ladders",
+          "trigger": "Similar exact numbers with different boundary conditions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact prism periodic orbit census is a natural worthwhile invariant IN GENERAL, but for this assigned claim it was already completely evaluated in the November 1 publication with an even broader prism/Möbius theorem. Re-expressing published formulas using residues and repeating an exact transfer certificate has no independent new mathematical value. This is a rejection of the unchanged combined claim, not a rejection of majority dynamics or of exact finite enumeration as such.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-lucas-number-orbit-census-for-synchronous-majority-on-prism-gr--f39104b86e05/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-lucas-number-orbit-census-for-synchronous-majority-on-prism-gr--f39104b86e05/verify_transfer.py",
+    "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-modulo-six-twist-resonance-in-synchronous-majority-dynamics-on--0a383da6731a/RESULT.md"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No scientific repair of previously covered claim was staged, and a changed result would require a complete independent final proof/package.",
+    "Scientific finding is independent of mechanical publication import; source public metadata requires sanitization.",
+    "No formal Lean or expert attestation is inferred from numerical or exact finite checks."
+  ],
+  "schema_version": 1
+}
