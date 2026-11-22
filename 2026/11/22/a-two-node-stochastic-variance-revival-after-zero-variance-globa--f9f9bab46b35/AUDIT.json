@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Identity-started global Lanczos is scalar orthogonal polynomial quadrature for the counting spectral measure. The rational inverse Hermite identity reconstructs the exact residual and all relevant boundaries. Explicit moments yield q1 and q2. The 45-degree block gives the exact binomial sign distribution, while the inverse differentiation and Weyl bound establish unbounded perturbation ratio with SPD conditioning <3. Exact-rational standalone verification (1360 assertions) was replayed, but finite checks were not mistaken for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Hallman arxiv:2205.01736 uses Krylov deflation, Hallman–Troester arxiv:2103.10516 uses multilevel Chebyshev levels; their studied correction matrices differ from this Hermite residual."
+      ],
+      "reasoning": "Generic Frobenius error bounds and Chebyshev multilevel or low-rank Krylov deflation results cannot order sign-Hutchinson offdiagonal variance for this specific Hermite residual; no general theorem guaranteeing or classifying this reversal was found in the inspected texts.",
+      "searches": [
+        "Rademacher Hutchinson variance exactly zero at one Krylov Hermite residual step but positive at next global Lanczos Gauss quadrature iteration",
+        "polynomial control variate trace inverse improvement in quadrature bias worsens sign probe variance nonmonotonic increase irreducible tridiagonal",
+        "https://arxiv.org/pdf/2103.10516",
+        "https://arxiv.org/pdf/2205.01736"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.18864v1, §§2–5, full PDF",
+      "arxiv:2103.10516v1, §§1–6, full PDF",
+      "arxiv:2205.01736v3, relevant §§1–5 of accessible full PDF",
+      "Relevant publicly indexed exact Hutchinson variance and Lanczos Ritz/probe findings screened by abstracts and implications; no abstract-only result was represented as whole-text coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For the exact full-size residual, arxiv:2611.18864v1 Theorem 2.6 and Eq. (4.1) imply \\(M_m=f(A)-h_m(A)\\); Eq. (3.3) gives \\(2\\|M_m-\\operatorname{diag}M_m\\|_F^2/s\\). Neither is itself a two-depth monotonicity statement.",
+        "The explicit family has \\(M_1\\) diagonal but \\((M_2)_{12}=-\\Delta_n/2\\), hence strictly positive two-node variance even though \\(\\operatorname{tr}M_2<\\operatorname{tr}M_1\\).",
+        "Chen–Hallman arxiv:2205.01736 uses Krylov deflation, Hallman–Troester arxiv:2103.10516 uses multilevel Chebyshev levels; their studied correction matrices differ from this Hermite residual."
+      ],
+      "reasoning": "The original source already implies the variance can be computed from \\(M_m\\), but its generic identities do not imply a sign or bound on the ratio across depths; the present proof supplies a nontrivial family, exact product-sign law, dimension minimum and robust perturbation. Neighboring published estimators do not subsume this exact statement.",
+      "searches": [
+        "trace matrix inverse global lanczos stochastic correction Rademacher exact first step increased second step variance",
+        "polynomial control variate trace inverse improvement in quadrature bias worsens sign probe variance nonmonotonic increase irreducible tridiagonal",
+        "two-node global Lanczos Hermite inverse-trace Rademacher correction one-node zero variance two-node nonzero exact binomial tridiagonal",
+        "https://arxiv.org/pdf/2611.18864",
+        "https://arxiv.org/pdf/2103.10516",
+        "https://arxiv.org/pdf/2205.01736"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For the exact full-size residual, arxiv:2611.18864v1 Theorem 2.6 and Eq. (4.1) imply \\(M_m=f(A)-h_m(A)\\); Eq. (3.3) gives \\(2\\|M_m-\\operatorname{diag}M_m\\|_F^2/s\\). Neither is itself a two-depth monotonicity statement.",
+        "The explicit family has \\(M_1\\) diagonal but \\((M_2)_{12}=-\\Delta_n/2\\), hence strictly positive two-node variance even though \\(\\operatorname{tr}M_2<\\operatorname{tr}M_1\\)."
+      ],
+      "reasoning": "Compared sign-probe off-diagonal energy, polynomial Hermite residual, Lanczos Gauss nodes, spectral-moment formulas and Rademacher stochastic trace control variates, rather than matching only words in titles. The exact cross-depth one-node zero to two-node nonzero law with rank-one offdiagonal is not stated by the source identities.",
+      "searches": [
+        "Global Lanczos stochastic Hermite correction Hutchinson Rademacher variance nonmonotone depth extra iteration zero variance positive two-step",
+        "Gauss quadrature Hermite polynomial control variate Rademacher variance reversal spectral eigenvector orientation exactly zero off-diagonal",
+        "trace matrix inverse global lanczos stochastic correction Rademacher exact first step increased second step variance",
+        "https://arxiv.org/pdf/2611.18864"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No numerical table for this constructed three-eigenvalue family or its exact finite-binomial distribution was found in the original paper’s experiments; the published related abstracts surveyed concern distinct matrix families and probe mechanisms."
+      ],
+      "reasoning": "The exact-rational spectrum, two-node polynomial and family-wide \\(\\Delta_n\\) law were computed from the definition and cross-checked independently, rather than read from a known table. Search failure does not prove uniqueness.",
+      "searches": [
+        "Global Lanczos stochastic Hermite correction Hutchinson Rademacher variance nonmonotone depth extra iteration zero variance positive two-step",
+        "deterministic global Lanczos stochastic correction spectral moment three eigenvalues one node two nodes exact binomial zero variance",
+        "https://arxiv.org/pdf/2611.18864"
+      ]
+    },
+    "rationale": "The motivating paper supplies the estimator and formula, but its verified results concern individual depth and bounds; the explicit dimension-minimal cross-depth exact binomial and unbounded irreducible variance reversal is not a corollary of its general bounds. Related multi-level/deflation results use distinct estimators; no covering published statement was identified in the inspected mathematical record. Unindexed equivalents are a real residual risk.",
+    "residual_risks": [
+      "An equivalent counterexample or generic off-diagonal Hermite-residual nonmonotonicity theorem may exist in incompletely indexed polynomial control-variate/trace-estimation literature.",
+      "No independent expert literature or mathematical audit has been performed.",
+      "Comparison of abstract-only adjacent results has limited exclusion power; a later full-text comparison may change the novelty judgment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the full-size estimator, Hermite error identity and generic Rademacher variance; DOES NOT STATE the two-depth variance reversal, binomial formula or unbounded irreducible perturbation ratio",
+        "evidence": "Theorem 2.6, Eq. (3.3), Eq. (4.1)–(4.3), Prop. 4.2, Alg. 4.1, Section 5; m=7 fixed for several corrected numerical comparisons",
+        "identifier_or_url": "arxiv:2611.18864v1 / https://arxiv.org/pdf/2611.18864",
+        "material_read": "Abstract, introduction, Algorithms 2.1 and 4.1, sections 2.2–2.6, 3.1, 4.1–4.3, numerical experiments and conclusion of full 22-page preprint",
+        "method": "Inspected freely accessible full PDF, including the Hermite identity, Rademacher variance and depth choices",
+        "title": "Global Lanczos with stochastic error correction for trace estimation of matrix functions",
+        "trigger": "Original definition of full-size GLHutch and Hermite correction for matrix functions"
+      },
+      {
+        "assessment": "Studies Chebyshev control variates and telescoping multilevel allocation, not exact identity-started global-Lanczos Hermite remainder at two nodes",
+        "evidence": "Introduction §§1.1–1.2; Theorem 3.1 on level selection; Theorem 4.2 on multilevel error guarantees",
+        "identifier_or_url": "arxiv:2103.10516v1 / https://arxiv.org/pdf/2103.10516",
+        "material_read": "Full 15-page OA PDF, introduction, §2–§5, Theorem 3.1 and Theorem 4.2, conclusions",
+        "method": "Inspected freely accessible full PDF mathematical definitions, algorithms, general theorems and experiments",
+        "title": "A multilevel approach to stochastic trace estimation",
+        "trigger": "Variable approximation degree and probe budget for stochastic trace estimates"
+      },
+      {
+        "assessment": "Deflates a dominant Krylov space and stochastically estimates a complementary residual; unlike the full-size identity-started Hermite-polynomial residual, so its main guarantees do not directly imply the specific two-depth sign law",
+        "evidence": "Eqs. (2.1)–(2.2) and (2.6)–(2.7); Algorithms 2.1, 3.1; main theorems and results",
+        "identifier_or_url": "arxiv:2205.01736v3 / https://arxiv.org/pdf/2205.01736",
+        "material_read": "Relevant parts of the accessible 28-page full PDF: abstract, intro, §§2–4 methods and algorithms, numerical experiments and key theorem statements",
+        "method": "Inspected key sections and algorithms within the freely accessible PDF, comparing their estimators to full-size scalar global-Lanczos correction",
+        "title": "Krylov-aware stochastic trace estimation",
+        "trigger": "Plausibly stronger stochastic Krylov/trace estimate theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f9f9bab4-6b35-4b90-a6d8-db5f13e57305",
+  "value": {
+    "rationale": "In the source method, the number of full-size global Lanczos steps is an important computational decision. The theorem proves that uniformly smaller deterministic positive quadrature error does not entail smaller stochastic sign-correction variance; it supplies a minimal spectral model, exact finite-sample law and robust arbitrarily large effect in irreducible bounded-condition-number tridiagonal matrices. This is a substantive boundary for depth/sample allocation rather than a routine computation.",
+    "status": "PASS"
+  }
+}
