@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Endpoint and Pickands obstacle inequalities are exact. Differentiating P^(1/a) gives a positive factor times K(w). For 1<=a<2 and d>0, K(w)<0 near zero. For a>=2, division by [w(1-w)]^(a/2) and exact AM-GM minimization produces (2(a-1)(bc)^(a/2)-d)(d+2(bc)^(a/2)); the second factor is positive. Thus both necessity and sufficiency, endpoint cases, and unique curvature zero at w=c/(b+c) for a>2 follow. CHECK.py independently verifies symbolic identities and exact boundary examples, without being relied upon as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pickands (1981) characterization and Tawn (1988) asymmetric logistic construction give general validity concepts.",
+        "Chesneau, Current Developments on Extreme Value Copulas, 2023, DOI 10.59790/2790-3257.1036, Table 1: classical Tawn and Ch2 symmetric d=b=c=1 specialization.",
+        "No retrieved broader source stated this evaluated sharp constant for the modified-Tawn-2 family."
+      ],
+      "reasoning": "The general Pickands convexity test is necessary and used, but does not itself supply the evaluated four-parameter inequality. The classical asymmetric logistic family corresponds to d=0, so it does not settle the positive cross-term region.",
+      "searches": [
+        "extreme value copula logistic cross term alpha Pickands dependence function quadratic form power nonnegative mixed term",
+        "\"convexity\" \"x^p+y^p\" \"x y\" \"p-1\" norm",
+        "\"convexity\" \"(x^p+y^p+c x^{p/2}y^{p/2})^{1/p}\""
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3233/MAS-231451",
+      "https://ojs.ijemd.com/index.php/Mathematics/article/download/420/209/1995",
+      "https://doi.org/10.59790/2790-3257.1036",
+      "https://lrnv.github.io/Copulas.jl/stable/bestiary/extremevalues"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chesneau, On two new modified Tawn copulas, 2024, DOI 10.3233/MAS-231451, Proposition 2 (6): 0<d<=2 sqrt(a-1)(bc)^(a/2) suffices.",
+        "Chesneau, Current Developments on Extreme Value Copulas, 2023, DOI 10.59790/2790-3257.1036, Table 1: classical Tawn and Ch2 symmetric d=b=c=1 specialization.",
+        "At a=3, b=c=1, d=7/2 the published requirement d<=2 sqrt(2) fails while the exact convexity condition d<=4 holds."
+      ],
+      "reasoning": "The original sufficient condition does not entail the new admissible example and thus does not dominate the if-and-only-if classification. The family is the same; the mathematical gap is removing a nonnecessary termwise positivity assumption, not changing parameter names.",
+      "searches": [
+        "\"On two new modified tawn copulas\" sharp parameter conditions necessity",
+        "\"modified Tawn 2\" \"parameter\" valid d convex",
+        "\"On two new modified tawn copulas\" \"2023\" pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chesneau, On two new modified Tawn copulas, 2024, DOI 10.3233/MAS-231451, Proposition 2 (6): 0<d<=2 sqrt(a-1)(bc)^(a/2) suffices.",
+        "Chesneau, Current Developments on Extreme Value Copulas, 2023, DOI 10.59790/2790-3257.1036, Table 1: classical Tawn and Ch2 symmetric d=b=c=1 specialization.",
+        "The equivalent homogeneous form is (b^a x^a+d(xy)^(a/2)+c^a y^a)^(1/a); its curvature sign is optimized explicitly in the new proof."
+      ],
+      "reasoning": "The source result R=4(a-1)(bc)^a-d^2>=0 is strictly stronger than the actual pointwise curvature condition when a>2. The source does not give the equivalent optimized inequality d<=2(a-1)(bc)^(a/2). The 2023 symmetric Ch2 case fixes the cross term and cannot imply the boundary for variable d, b and c.",
+      "searches": [
+        "\"modified Tawn\" \"d\" \"convexity\" \"a-1\" Pickands",
+        "\"Pickands\" \"w\" \"a/2\" \"d\" convexity modified Tawn",
+        "exact convexity parameter d for Pickands function [b^a w^a+d w^{a/2}(1-w)^{a/2}+c^a(1-w)^a]^{1/a}"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest mathematical-record results concerned different asymmetric power, Legendre or rational copula models rather than the modified-Tawn-2 Pickands function.",
+        "Chesneau, On two new modified Tawn copulas, 2024, DOI 10.3233/MAS-231451, Proposition 2 (6): 0<d<=2 sqrt(a-1)(bc)^(a/2) suffices."
+      ],
+      "reasoning": "No retrieved exact table or research claim gives the full MT2 positive-cross-term admissibility interval. Similarity-ranked nearby copula findings have different functional formulas and do not imply the claimed criterion.",
+      "searches": [
+        "Chesneau 2024 two modified Tawn copulas exact necessity of parameter condition d <= 2(a-1)(bc)^(a/2)",
+        "modified Tawn 2 Pickands dependence function sharp admissible convexity d threshold a b c 2024 Chesneau",
+        "extreme value modified Tawn 2 tail dependence maximally admissible cross interaction parameter"
+      ]
+    },
+    "rationale": "The originating paper derives the same curvature formula but applies the stronger separate-summand sign condition d<=2 sqrt(a-1)(bc)^(a/2), sufficient only. The new exact domain admits d values excluded from the original bound, e.g. a=3,b=c=1,d=7/2. Earlier general Pickands/Tawn theory and the 2023 symmetric mixed-power specialization do not state the exact four-parameter criterion. Available mathematical-record searches did not locate dominating coverage. Priority remains provisional.",
+    "residual_risks": [
+      "Literature search and accessible full-text comparisons cannot certify historical priority; a not-located classical generalized power-norm inequality might provide a different proof.",
+      "Classical original Pickands and Tawn works were not independently inspected in full; comparison uses the precise classical statements supplied by later primary papers.",
+      "No claim is made about negative d, zero b or c, or dimensions greater than two."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_SOURCE_NOT_COVERING_SHARP_CLAIM",
+        "evidence": [
+          "Chesneau, On two new modified Tawn copulas, 2024, DOI 10.3233/MAS-231451, Proposition 2 (6): 0<d<=2 sqrt(a-1)(bc)^(a/2) suffices.",
+          "The source concludes validity from both Q=(a-2)d>=0 and R=4(a-1)b^a c^a-d^2>=0, and uses d=2 sqrt(a-1)(bc)^(a/2) as its displayed special case. It does not minimize the sum of these terms jointly."
+        ],
+        "identifier_or_url": "https://doi.org/10.3233/MAS-231451",
+        "material_read": "Primary PDF extracted full article, especially Section 3.1, Proposition 2, page 43-44 curvature proof; Section 3.2 pages 45-47, and conclusions",
+        "method": "Read paper text including its derivative factorization, sufficiency argument and special parameter cases; publisher confirms first online date 2024-02-01",
+        "title": "On two new modified Tawn copulas",
+        "trigger": "Exact originating family and plausible covering admissibility result"
+      },
+      {
+        "assessment": "SPECIAL_CASE_ONLY_NOT_SHARP_FOUR_PARAMETER_DOMAIN",
+        "evidence": [
+          "Chesneau, Current Developments on Extreme Value Copulas, 2023, DOI 10.59790/2790-3257.1036, Table 1: classical Tawn and Ch2 symmetric d=b=c=1 specialization.",
+          "Ch2 is given at fixed cross coefficient one, and classical Tawn uses no cross term."
+        ],
+        "identifier_or_url": "https://doi.org/10.59790/2790-3257.1036",
+        "material_read": "Primary PDF introduction, Table 1, Proposition 2.2, and the relevant Pickands construction descriptions; examined page 3 visually",
+        "method": "Read accessible PDF and its mathematical table, not merely its abstract",
+        "title": "Current Developments on Extreme Value Copulas: Extended Pickands Dependence Functions",
+        "trigger": "Prior general framework from the same author and symmetric mixed-power form"
+      },
+      {
+        "assessment": "GENERAL_THEORY_NOT_A_FAMILY_SPECIFIC_SHARP_BOUND",
+        "evidence": [
+          "General convexity and obstacle criteria underlie the proof; no independent full-text noncoverage claim is made for these original references."
+        ],
+        "identifier_or_url": "Pickands 1981; Tawn 1988",
+        "material_read": "Relevant definitions and citations reproduced in the two inspected full-text papers and modern summaries; originals were not independently inspected in full",
+        "method": "Compare known general Pickands criterion and d=0 special case against positive-cross-term theorem",
+        "title": "Classical Pickands and Tawn results",
+        "trigger": "Possible domination by standard extreme-value and asymmetric logistic characterizations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d7756f77-b568-41f3-aa58-1aac827e75a9",
+  "value": {
+    "rationale": "The original paper offers a sufficient feasible parameter subset for a four-parameter extreme-value model. The proof determines the full necessary-and-sufficient positive coefficient domain, including exact equality and a failure witness; the cross-term range grows by a factor sqrt(a-1) beyond the old bound and the gap grows without bound with exponent a. This is a natural complete classification that changes which scientifically valid copulas are available, not a cosmetic reparametrization.",
+    "status": "PASS"
+  }
+}

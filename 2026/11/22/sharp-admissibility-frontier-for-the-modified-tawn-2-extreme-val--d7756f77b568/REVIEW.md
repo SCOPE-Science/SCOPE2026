@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof establishes the endpoints, the Pickands lower obstacle, and the all-parameter curvature sign. The positive factor and the precise curvature bracket are independently checked by symbolic differentiation. For \(a\geq2\), the infimum over all interior arguments factors into a positive term and \(2(a-1)(bc)^{a/2}-d\), proving both directions including equality. For \(1\leq a<2\), a negative endpoint-near curvature supplies necessity. This is a global proof, not extrapolation from examples.
+
+**Originality — PASS, with residual priority risk.** Chesneau (2024), Section 3, gives the same family and a sufficient bound \(d\leq2\sqrt{a-1}(bc)^{a/2}\), not the sharp condition. The earlier Chesneau (2023) article contains the classical Tawn copula and a symmetric specialization, but not the claimed exact four-parameter frontier. The new statement is not implied by the earlier sufficient bound: \((a,b,c,d)=(3,1,1,7/2)\) is a concrete valid instance excluded by it. Related generic Pickands results supply the characterization, not the family-specific evaluated threshold. Searches of related mathematical records identified no statement covering this exact criterion; that does not certify universal priority.
+
+**Value — PASS.** A practitioner using the original parameter bound would exclude valid copulas. The replacement is a complete analytic classification within the natural positive-parameter domain, with a clear curvature witness for invalid choices, an exact transition point, and an unbounded widening factor as the power exponent increases. This closes the admissibility problem posed by the original family, rather than merely giving an arbitrary parameter example.
+
+**Closest literature and limitations.** The strongest direct comparison is Chesneau, “On two new modified Tawn copulas” (2024), Proposition 2; the preceding general construction “Current Developments on Extreme Value Copulas” (2023) and the classical Pickands/Tawn theory were also compared. The theorem does not address negative cross terms or all real coefficients. Independent review and exhaustive priority certification remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
