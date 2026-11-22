@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T23:59:19.378604Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For sparse paving rank 2<=k<=n-2, distinct nonbasis hyperplanes intersect in <=k-2, so at most one x(H)>k-1 can be violated by a point in Delta_(n,k). Given violation t>0, x_i>=t on H and x_j<=1-t outside. Subtracting t/k inside H and adding t/(n-k) outside preserves [0,1] and all other nonbasis inequalities, by y(J)<=|H∩J|+y(H^c)<=k-1. The displacement is orthogonal to x(H)=k-1 within the sum-k affine slice, proving the global Euclidean projection and squared gap t² n/[k(n-k)]. Missing incidence vertices uniquely maximize the gap. Excised cap has apex 1_H, base Delta(k,k-1)×Delta(n-k,1), Euclidean volume sqrt(n) binom(n-2,k-1)/(n-1)!, and its superlevel region at t>u scales by (1-u)^(n-1), giving exact mixture mass and conditional Beta(1,n-1) law. Independently checked an exact n=6,k=3 violating point (9/10 on H and 1/10 elsewhere): projected y=(2/3 on H,1/3 outside) with distance squared 49/150. The general proof does not depend on finite samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-euclidean-distance-shells-recover-hyperplane-size-profiles-of-pa--18ef6f2b2201/RESULT.md",
+          "General paving-matroid theorem gives missing-vertex projection and maximal Hausdorff gap; sparse paving is its subfamily."
+        ],
+        "reasoning": "The submitted Hausdorff equality and farthest missing vertices are covered by a more general theorem. It does not cover arbitrary X or volume beta law, so the final claim has an original meaningful remainder.",
+        "searches": [
+          "Resultary: matroid sparse paving hypersimplex Euclidean projection distance beta law missing bases cap",
+          "Resultary: sparse paving matroid base polytope nearest point Euclidean hypersimplex beta distance",
+          "arXiv:2201.12442 Hanely et al. Ehrhart theory paving and panhandle matroids"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-euclidean-projection-and-a-universal-beta-distance-law-for--8d39b121255f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-euclidean-projection-and-a-universal-beta-distance-law-for--8d39b121255f/AUDIT.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-euclidean-projection-and-a-universal-beta-distance-law-for--8d39b121255f/VERIFICATION.md",
+        "https://arxiv.org/html/2201.12442v3",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-euclidean-surface-area-of-sparse-paving-matroid-base-polytopes-d--f28b7ecdc05e/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-euclidean-distance-shells-recover-hyperplane-size-profiles-of-pa--18ef6f2b2201/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier paving theorem gives only x=1_H projection to barycenter of exchange bases.",
+          "Submitted formula applies for every real x in hypersimplex, and yields exact conditional Beta(1,n-1) law of Euclidean distances."
+        ],
+        "reasoning": "Vertex-level formula/known cap slicing do not logically imply the global nearest-point map, because other inequalities could make the local plane projection infeasible; the submitted proof explicitly rules this out.",
+        "searches": [
+          "Resultary: matroid sparse paving hypersimplex Euclidean projection distance beta law missing bases cap",
+          "Resultary: sparse paving matroid base polytope nearest point Euclidean hypersimplex beta distance",
+          "arXiv:2201.12442 Hanely et al. Ehrhart theory paving and panhandle matroids"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matroid base projection equals convex Euclidean metric nearness to base polytope from a hypersimplex point.",
+          "Known descriptions of circuit-hyperplane relaxations and caps in arXiv:2201.12442."
+        ],
+        "reasoning": "Translate clipping into orthogonal metric projection to compare; earlier relaxation/Ehrhart polynomials are not distance projection statements.",
+        "searches": [
+          "Resultary: matroid sparse paving hypersimplex Euclidean projection distance beta law missing bases cap",
+          "Resultary: sparse paving matroid base polytope nearest point Euclidean hypersimplex beta distance",
+          "arXiv:2201.12442 Hanely et al. Ehrhart theory paving and panhandle matroids"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-euclidean-surface-area-of-sparse-paving-matroid-base-polytopes-d--f28b7ecdc05e/RESULT.md",
+          "arXiv:2201.12442 known Eulerian hypersimplex volume and cut-off corner volume",
+          "No all-point projection/distance beta distribution tabulated in inspected prior texts."
+        ],
+        "reasoning": "Cap volume and p mass mechanically follow earlier geometry, but naming p as positive-distance probability requires the nontrivial global feasible orthogonal projection; conditional beta follows homothety once that is established.",
+        "searches": [
+          "Resultary: matroid sparse paving hypersimplex Euclidean projection distance beta law missing bases cap",
+          "Resultary: sparse paving matroid base polytope nearest point Euclidean hypersimplex beta distance",
+          "arXiv:2201.12442 Hanely et al. Ehrhart theory paving and panhandle matroids"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full claimed new pointwise projection and conditional Euclidean distance distribution. Known hypersimplex corner cutting, cap volumes and Eulerian normalization are explicitly credited. Published November 17 broader paving-matroid distance-shell theorem already entails the vertex Hausdorff and farthest-point corollary for sparse paving, so those cannot be treated as novel. But it only projects incidence vertices, not arbitrary interior hypersimplex points, and does not give the normalized-volume beta distance distribution. The November 8 sparse-paving surface-area theorem uses the same caps but not their global nearest-point distance map. Thus the surviving all-point orthogonal feasibility certificate and distance-law characterization are mathematically separate. Literature priority remains provisional.",
+      "residual_risks": [
+        "Hausdorff and farthest-point corollaries already covered by stronger paving theorem; only all-point distance and beta distribution are credited as original.",
+        "Conditional law undefined for zero missing bases; Euclidean unweighted norm and source uniform hypersimplex volume only.",
+        "No generic matroid projection, no outside-hypersimplex points or other norms; search cannot prove global historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: establishes cap slicing and enumerative/Ehrhart geometry, no exact global Euclidean nearest-point map or conditional beta distance law in inspected material",
+          "evidence": "Introduction explicitly describes cutting sparse-paving corners from hypersimplex; searches of full-text for projection and distance found no such theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2201.12442v3",
+          "material_read": "Lawful arXiv full HTML: introduction, matroid-polytope background, hyperplane relaxation, slicing, volume sections and text searches for distance and projection",
+          "method": "Read lawful arXiv HTML and term searches",
+          "title": "Ehrhart theory of paving and panhandle matroids",
+          "trigger": "Exact same sparse-paving hypersimplex truncation geometry and Eulerian counts"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE: known clipped cap product and disjointness imply cap volume but not pointwise Euclidean projection or beta *distance* without orthogonal feasible projection",
+          "evidence": "Its C_H disjointness and product base geometric facts are credited; no projection formula on arbitrary x.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-euclidean-surface-area-of-sparse-paving-matroid-base-polytopes-d--f28b7ecdc05e/RESULT.md",
+          "material_read": "Full Finding and Steps 1-4 of Proof, explicit new facet/old patch geometry",
+          "method": "Read GitHub RESULT.md primary theorem, proof, scope, comparisons",
+          "title": "Euclidean surface area of sparse-paving matroid base polytopes depends only on their nonbases",
+          "trigger": "Same sparse-paving corner decomposition and disjointness"
+        },
+        {
+          "assessment": "COVERS Hausdorff part for sparse paving; does not cover all interior hypersimplex points or a uniform intrinsic-volume conditional beta distance law",
+          "evidence": "For sparse paving all nonbasis hyperplanes have size k, so its distance 1/k+1/(n-k) and farthest nonbasis list are exactly the submitted Hausdorff corollary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-euclidean-distance-shells-recover-hyperplane-size-profiles-of-pa--18ef6f2b2201/RESULT.md",
+          "material_read": "Full Finding and Proof, including projection of missing incidence vertices and continuous deepest-point characterization",
+          "method": "Read GitHub RESULT.md primary theorem, proof, scope, comparisons",
+          "title": "Euclidean distance shells recover hyperplane-size profiles of paving matroid base polytopes",
+          "trigger": "Stronger family of paving matroids and same Hausdorff separation metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact projection operator on the entire hypersimplex to a nontrivial sparse-paving matroid polytope and a rank/arrangement-independent conditional distance law are natural, potentially reusable computational and geometric invariants. Their proofs require checking feasibility of the orthogonal projection against EVERY other hyperplane; the beta height scaling alone would not establish a distribution of actual distances. The work does not demand a downstream theorem or claim novelty of the already-known cap-volume and Hausdorff ingredients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hausdorff and farthest-point corollaries already covered by stronger paving theorem; only all-point distance and beta distribution are credited as original.",
+    "Conditional law undefined for zero missing bases; Euclidean unweighted norm and source uniform hypersimplex volume only.",
+    "No generic matroid projection, no outside-hypersimplex points or other norms; search cannot prove global historical priority."
+  ],
+  "schema_version": 1
+}
