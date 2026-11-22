@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The torus exponent map identifies every finite character space and its complete monomial span. Haar integration gives the exact beta Gram matrix, Jacobi orthogonality produces and normalizes the single wandering vector in each character, and purity of the multiplier yields the global basis via Wold. The proof handles the index boundaries \(r=0\), half-integer Jacobi parameters, and removal of apparent singularities. Reproducibility checks exercise 245 distinct parameter triples and 1,400 assertions; they supplement, rather than replace, the analytic proof.
+
+**Originality — PASS, with bibliographic uncertainty.** Pal–Su–Tomar, arXiv:2611.17140v1, supplies the canonical Hardy model, coarse orthogonal gradings and pure-isometry theorem, but not the three-character Gram law or Jacobi wandering vectors; the relevant sections 3 and 5 were inspected directly. Pal–Tomar, arXiv:2507.14589, treats abstract hexablock Wold models on vector-valued Hardy spaces and does not give the claimed canonical boundary polynomial basis. Searches for combinations of hexablock, Jacobi, Wold, wandering, and orthonormal basis revealed no matching prior theorem. Published mathematical-record searches returned as a closest topical result a pentablock Hardy-space spectral calculation, not the present hexablock multiplier or basis. Exact independent-priority certainty is not claimed.
+
+**Mathematical value — PASS.** The recent canonical Hilbert-space model has an abstractly pure coordinate shift but no explicit coefficient-level orthonormal Wold basis. This construction replaces an abstract infinite-multiplicity decomposition by normalized classical Jacobi polynomials in all character spaces, giving a usable matrix-coordinate system for studying multipliers and Toeplitz operators. The structure requires simultaneous character bookkeeping and nontrivial beta-moment orthogonalization; it is not a mere restatement of Wold's theorem.
+
+**Scope and risks.** The construction is for the canonical unweighted Haar-pushforward measure only. An older, differently parameterized equivalent polynomial basis remains a bibliographic possibility; independent mathematical validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
