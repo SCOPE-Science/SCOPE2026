@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3, polynomial Euler identity mod2 gives E_n(t)=(1+t)^(n-1) mod2; Lucas gives iff n-1 power of two, A(n,1) gives exactly one factor 2 except n=3. For odd common p, n! == 2 mod p forces p>n>=5. Rational cumulants with invertible denominators give n+1 == 3(n-1)^2 == 15(n-1)^4 mod p, hence (3n-1)(n-2)==0, 5(n-1)^2==1, p=11, n==4 mod11, contradiction. Direct rows n3 and n4 finish. Standalone exact checker passed 1462 assertions through n=240, with inclusion-exclusion and moments crosschecks. Infinite proof is algebraic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cao and Pan, arXiv:math/0608564, Theorem 1.1 gives prime-adic bounds for sums over residue classes of Eulerian indices and not the individual universal interior divisibility criterion.",
+        "Iijima–Sasaki–Takahashi–Yoshinaga, arXiv:1611.10147, treats polynomial congruences in the (t-1)-adic setting, not simultaneous integer coefficient divisibility.",
+        "Nymann and Sáenz, Fibonacci Quarterly 37 (1999), Theorem 4.1 and equation (20): A(p,k) == 1 mod p for every k in a row indexed by a prime p, not a universal all-index gcd formula. Full text: https://www.fq.math.ca/Scanned/37-2/nymann.pdf"
+      ],
+      "reasoning": "Progression-sum congruences allow coefficient cancellations and do not imply congruences for every coefficient. Local polynomial congruences modulo powers of t-1 are different from reduction of all intermediate coefficients modulo each integer prime. Neither comparison yields a stronger theorem implying the proposed classification. The prime-row congruence excludes p as a common divisor for n=p but says nothing about arbitrary row n or other primes, hence does not determine the complete gcd.",
+      "searches": [
+        "Eulerian numbers gcd row interior",
+        "Eulerian polynomial derivatives moments fourth cumulants modulo primes interior row gcd",
+        "arxiv:math/0608564",
+        "arxiv:1611.10147",
+        "EULERIAN NUMBERS: INVERSION FORMULAS AND CONGRUENCES MODULO A PRIME"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0608564",
+      "https://www.impan.pl/shop/en/publication/transaction/download/product/82497",
+      "https://arxiv.org/abs/1611.10147",
+      "https://luschny.de/math/oeis/Eulerian.html",
+      "https://oeis.org/A008292/internal",
+      "Exact common divisors of interior Narayana counts in prime rows (published mathematical result)",
+      "Uniform dyadic residues in the two-descent Eulerian column with sharp onset (published mathematical result)",
+      "https://www.fq.math.ca/Scanned/37-2/nymann.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published result Exact common divisors of interior Narayana counts in prime rows (published mathematical result) concerns peak counts of Dyck paths, not permutation descent counts.",
+        "Published result Uniform dyadic residues in the two-descent Eulerian column with sharp onset (published mathematical result) fixes a descent count and varies permutation length; it does not take the minimum over all interior columns of one row.",
+        "Published result Universal row content of strong-divisibility binomial arrays (published mathematical result) concerns generalized binomial coefficient arrays without a stated Eulerian specialization."
+      ],
+      "reasoning": "Those theorems have different coefficient objects or reversed free/fixed index quantifiers. Without an identity identifying Eulerian row coefficients with those arrays or an implication linking fixed-column residues to all-column gcd, none subsumes the present exact theorem.",
+      "searches": [
+        "gcd of permutation descent count coefficients excluding endpoints",
+        "gcd of interior Narayana numbers N(n,k) 2<=k<=n-1 exact prime power row content",
+        "Eulerian ascent triangle gcd of nonendpoint row coefficients equal two exactly at powers of two plus one, exception 11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claim is equivalent to integer content of E_n(t)-1-t^(n-1), not the gcd including endpoints (which is always one).",
+        "The indexed Eulerian RowGcd table contains finite values 4,11,2 and subsequent 1/2 values but no recovered all-index proof: https://luschny.de/math/oeis/Eulerian.html"
+      ],
+      "reasoning": "The rephrasing as coefficient content and as universal congruences E_n(t) == 1+t^(n-1) mod p was explicitly compared. The finite tabulation is not a proof or statement for arbitrary n; no accessible source asserting the general criterion was recovered.",
+      "searches": [
+        "gcd of all interior Eulerian numbers in each row exact classification n-1 power of two exceptional n=4 prime 11",
+        "Eulerian polynomial coefficient content gcd row excluding first and last",
+        "\"greatest common divisor\" \"Eulerian\" numbers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Peter Luschny, Eulerian: IntegerTriangles.py, indexed RowGcd table: https://luschny.de/math/oeis/Eulerian.html (search-result excerpt inspected; page access unsuccessful).",
+        "OEIS A008292 lists finite Eulerian triangle entries, from which finitely many contents can be computed: https://oeis.org/A008292/internal"
+      ],
+      "reasoning": "Known computational rows match the formula but their finite scope cannot establish the infinite quantifier or the prime-11 exclusion for all larger n. The inaccessible full Luschny page is an explicitly retained originality risk rather than being certified not covering.",
+      "searches": [
+        "site:oeis.org \"Eulerian\" \"row gcd\" 11",
+        "Eulerian triangle gcd row n 3 4 11 2 1 if n minus one power of two",
+        "OEIS:A008292"
+      ]
+    },
+    "rationale": "A complete all-index classification of integer contents of Eulerian rows was compared by implication, not title, with archival Nymann–Sáenz prime-row congruences and Cao–Pan Eulerian progression-sum congruences, later Eulerian polynomial congruences, published finite gcd data, neighboring triangular arrays, and fixed-column arithmetic. No accessible source found to imply this exact theorem. Historical priority remains qualified because unindexed or unavailable earlier sources may contain an equivalent, and finite data already document the initial pattern.",
+    "residual_risks": [
+      "The complete Luschny RowGcd page was not accessible; its indexed finite table does not establish what any unavailable explanatory text might say.",
+      "Older Eulerian congruences, particularly Glaisher-era work not read in full, may contain an equivalent theorem.",
+      "Negative literature searches do not prove historical novelty; an equivalent unindexed coefficient-content theorem may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.1 bounds valuations of sums over index congruence classes; it does not state or imply the full-row gcd formula",
+        "evidence": [
+          "arXiv initial date 2006-08-23; publisher Acta Arithmetica 132 (2008), 315–328, primary MSC 11A07",
+          "Theorem 1.1 (1.8),(1.9) concerns summed Eulerian coefficients"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0608564",
+        "material_read": "Complete arXiv HTML theorem and proof sections; publisher PDF, especially pages 317-318 containing Theorem 1.1 and its proof setup",
+        "method": "Primary-source text and page-image inspection",
+        "title": "Congruences on Stirling numbers and Eulerian numbers",
+        "trigger": "Archival primary-11A07 paper directly about Eulerian congruences"
+      },
+      {
+        "assessment": "Its polynomial congruences are local near t=1, not coefficientwise modular gcd classification",
+        "evidence": [
+          "Theorems 1.1 and 1.2 concern Eulerian polynomials and powers of t-1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.10147",
+        "material_read": "Full accessible nine-page publication PDF, with Theorems 1.1-1.2 and Eulerian applications",
+        "method": "Open-access full text inspection",
+        "title": "Eulerian polynomials and polynomial congruences",
+        "trigger": "Plausible broader polynomial congruence result involving Eulerian rows"
+      },
+      {
+        "assessment": "Finite values coincide with initial theorem cases, but no all-n criterion or proof was verified; priority risk retained",
+        "evidence": [
+          "RowGcd sequence starts 1,1,1,4,11,2,1,1,1,2 and further values"
+        ],
+        "identifier_or_url": "https://luschny.de/math/oeis/Eulerian.html",
+        "material_read": "Search-index excerpt containing the RowGcd initial values; the full webpage failed to open",
+        "method": "Search-index table extraction, explicitly not full-text verification",
+        "title": "Eulerian: IntegerTriangles.py",
+        "trigger": "Direct database listing of RowGcd invariant"
+      },
+      {
+        "assessment": "Supports ordinary Eulerian coefficients; no all-index interior gcd theorem on the inspected entry",
+        "evidence": [
+          "Finite rows [1,4,1], [1,11,11,1], [1,26,66,26,1]"
+        ],
+        "identifier_or_url": "https://oeis.org/A008292/internal",
+        "material_read": "OEIS sequence metadata, comments, finite rows and links",
+        "method": "Primary database entry inspection",
+        "title": "Triangle of Eulerian numbers (A008292)",
+        "trigger": "Exact sequence/database comparison of the underlying triangle"
+      },
+      {
+        "assessment": "A congruence involving polynomials and powers of t-1 is not a row-content classification",
+        "evidence": [
+          "The article studies an Eulerian polynomial congruence, not the integer content of omitted-endpoint coefficients"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/351117718_On_a_polynomial_congruence_for_Eulerian_polynomials",
+        "material_read": "Accessible article transcription of main Eulerian polynomial congruence statement and argument",
+        "method": "Accessible article text inspection",
+        "title": "On a polynomial congruence for Eulerian polynomials",
+        "trigger": "Plausible related general polynomial congruence work"
+      },
+      {
+        "assessment": "Establishes all prime-row Eulerian coefficients are 1 mod the row prime; does not state all-index interior row gcd or cover the distinct primes dividing rows indexed by composite integers",
+        "evidence": [
+          "1999 Fibonacci Quarterly 37(2), pages 154-161; Theorem 4.1 equates the prime-row Eulerian congruence to Stirling-number divisibility",
+          "Equation (20): every Eulerian coefficient is 1 modulo the prime when row index is that prime"
+        ],
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/37-2/nymann.pdf",
+        "material_read": "Entire eight-page accessible original PDF including the introduction, inversion formulas, and Theorem 4.1 in section 4",
+        "method": "Read publisher archive full PDF text and inspect original page image",
+        "title": "Eulerian Numbers: Inversion Formulas and Congruences Modulo a Prime",
+        "trigger": "Older directly relevant congruence theorem for Eulerian coefficients"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "efeba646-acc1-430b-88bf-1fe85d15f23c",
+  "value": {
+    "rationale": "Full interior Eulerian-row gcd is a canonical integer divisibility invariant, not an arbitrary restriction. The exact all-n classification separates an isolated odd-prime 11 phenomenon from a dyadic family and otherwise unit gcd. The fourth-cumulant obstruction gives a structural explanation for the absence of every other odd prime, above the documented finite table. This supplies natural complete classification and reproducible exact verification.",
+    "status": "PASS"
+  }
+}
