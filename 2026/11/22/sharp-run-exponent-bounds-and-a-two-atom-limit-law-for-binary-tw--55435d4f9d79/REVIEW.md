@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** The proof characterizes every maximal run from the three zero gaps: only maximal unary blocks and, if present, one period-\(b+1\) run are possible. Its exact length and existence inequality yield the rational all-parameter sum; a two-branch integer bound proves the sharp length-constrained maximum and all extremizers. The weak limit follows from a uniform gap-simplex argument, a two-atom geometry calculation, and an exact area integral giving the continuous tail. The included direct interval enumerator checked all 2,600 two-marker words through length 25, all equality cases there, and 873 additional seeded gap examples. The proof, not the finite checks, supports universal statements.
+
+**Originality (O): PASS against the inspected sources, with residual priority risk.** Czarkowski (2026) and Crochemore et al. (2010) address unrestricted global exponent-sum bounds; neither identified theorem implies the fixed-weight-two maximum or its probability law. Glen–Simpson (2013) uses *sum of run lengths*, a different normalization. A closely indexed weight-three result classifies **the number** of runs, not their exponent sum, and its complete scientific statement was inspected. Published research-index searches included aliases for maximal repetitions, runs, sparse markers, exact maxima, and asymptotic distributions. Existing accessible research claims were compared for mathematical implication. No positive implication or dominating table was found; this is not proof that no unindexed equivalent exists.
+
+**Value (V): PASS.** The sharp fixed-content extremum has an explicit rigid set of all extremizers, and the centered random exponent sum has a nondegenerate law with two atoms, a rational density, and a finite limiting variance. These determine actual quantitative behavior of the sum-of-exponents invariant in a natural sparse class and distinguish it from unrestricted worst-case bounds. Neither a generic counting exercise nor a numerical improvement in the unrestricted constant is claimed.
+
+**Limits.** Only words of binary weight two, not greater weights or cyclic words. The atom at one appears only in the limit. No independent verification or exhaustive historical priority certification is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
