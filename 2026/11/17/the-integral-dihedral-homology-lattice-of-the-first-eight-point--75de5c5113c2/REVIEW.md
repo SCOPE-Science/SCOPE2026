@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The all-faces classification identifies the independence complex as the union of eight chord-star simplices and sixteen exceptional triangles. Its star-union nerve is the eight-vertex chord graph, reducing the integral second homology to an explicitly oriented sixteen-to-twenty integer boundary kernel. Three written cycles are integral, a determinant-one rank-thirteen minor proves there are exactly three independent directions, and identity coordinate rows prove saturation. Signed full-symmetry matrices act on this *integral* basis. The orbit of a primitive vector has four elements, one primitive sum-zero relation, and reflection action \(j\mapsto1-j\), establishing the exact module rather than only its character. The Smith-minor calculation yields cyclic order-four rotation coinvariants. Direct simplex Lefschetz tests provide an independent consistency check. The degree-concentration statement uses Braun's established theorem.
+PASS
 
-## Originality
+The face-classification reduces all 244 nonempty faces to eight star simplices and sixteen exceptional triangles. Their signed attaching map D:Z^16->Z^20 has displayed rank-13 unimodular minor, and the three listed integer nullvectors have identity coordinates 12,14,15, establishing the entire primitive integral kernel, not just a rational span. Signed actions on those cells give the explicit R and S with R^4=S^2=SRSR=I. A primitive four-element orbit sums to zero and any three form a unimodular basis; Smith invariants of R-I are (1,1,4), and modulo 2 nilpotent ranks 2,1,0. The star graph nerve plus Braun homology concentration justifies degree restrictions. Independent reconstruction found 20 chords, 16 admissible triples, boundary rank 13, kernel rank 3 and det(R-I)=-4.
 
-**PASS relative to inspected published material and indexed research.** Braun proves the nonequivariant three-sphere wedge; Schultz's dihedral analysis concerns a different graph Hom complex. The closest indexed full-text result, *The dihedral character of stable Kneser independence-complex homology*, gives every rational character but explicitly excludes integral module classification. Its rational trace values do not distinguish the cyclic order-four coinvariants here from the split sign-plus-quarter-turn lattice, whose coinvariants have two order-two summands. Search comparisons also distinguished integral homology work on ordinary two-subset Kneser graphs from the stable graph treated here. A complete priority claim is not possible: unpublished or unindexed integral calculations remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The eight-point Schrijver graph is the first instance of Braun's natural infinite wedge-of-two-spheres family with a three-dimensional homology representation. Integrally classifying the full dihedral action exposes a primitive, nontrivial extension between the rational rotation-sign and quarter-turn constituents. The exact order-four coinvariant is a genuinely representation-theoretic invariant of this canonical symmetry, not an arbitrary numerical graph slice. The new fact is a localized but complete integral calculation, with a reproducible primitive lattice certificate and explicit obstruction to splitting.
+The integral D8 representation and nonsplit Z/4 coinvariants refine rather than reproduce Braun’s nonequivariant wedge classification or the earlier all-m rational dihedral character. A rational sign plus planar quarter-turn decomposition does not distinguish the nonsplit integral lattice.
 
-## Scope and risks
+## value
 
-The calculation does not classify every size, any equivariant homotopy type, or geometric quotient torsion. The explicit integral module is specific to the stable graph, not the ordinary two-subset Kneser graph. The verified script is an exhaustive check for this single finite complex, while the mathematical rank and saturation arguments are separate. No independent validation or definitive bibliographic priority determination has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A primitive integral symmetry lattice, its Z/4 coinvariant obstruction and nonsplitting are natural geometric invariant data invisible to the known ordinary homotopy and rational character. This is a meaningful exact finite equivariant classification, not a mere numeric substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
