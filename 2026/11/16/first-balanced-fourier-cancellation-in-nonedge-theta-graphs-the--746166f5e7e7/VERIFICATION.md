@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducing the finite Fourier certificate
 
-Three Python 3 standard-library files are provided in the same directory: `direct_check.py`, `transfer_check.py` and `replay_check.py`. Execute `python replay_check.py` to compare all 25,029 exact coefficient residue triples and assert every claimed classification and degree count. The full seven-row output is recorded in `census.json`.
+# Independent mathematical audit
 
-The direct checker constructs the edges and filters vertex-colour configurations. The transfer checker does not enumerate proper colourings: it independently computes branch contributions by integer coefficient triples in \(\mathbb Z[t]/(t^3-1)\), with cyclic convolution and exact terminal summation. Both checkers verify symmetry-forced zeros and all seven path-length combinations. Their outputs agree per frequency, not only in summary. No floating-point tolerance is used.
+## correctness
 
-The certificate covers exactly the nonedge three-path theta graphs on at most eight vertices. Its finite character census does not imply a result on arbitrary larger theta graphs, different numbers of colours, or full priority against inaccessible historical literature.
+PASS
+
+The polynomial group-ring R=Z[t]/(t^3-1) transfer recurrence accumulates colour-phase residues for three internally disjoint paths with fixed terminal colours, and W(k)=0 for primitive cube root iff the three integer residue counts agree. Global palette translations make all unbalanced frequencies zero. Explicitly verified the complete list of seven triples 2<=a<=b<=c with a+b+c-1<=8. Read direct_check.py/transfer_check.py/replay_check.py declared checks and frozen census.json; independently constructed a separate exact radix-3 Fourier transform on enumerated proper-colouring indicator, not using either repository checker. Full 7-graph independent census exactly reproduced proper colourings, balanced zeros, ranks and theta(2,3,4) degree counts (0,0,4,8,74,106,210,138,44) and the degree-two pairs. Exactly 162 proper colourings produce 54 equal-colour outcomes in each of those pairs; palette symmetry gives independence iff 54 of 162 equal. This is exhaustively finite for the seven graphs, not for all theta graphs.
+
+## originality
+
+PASS
+
+Brown–Hickman–Sokal–Wagner establish chromatic-polynomial formulae for generalized theta graphs, hence total proper-colouring counts at zero frequency, not the full vertexwise weighted Fourier transform or 584-zero obstruction. The complete ternary proper-colouring spectrum for K_(2,n) covers theta(2,2,2)=K_(2,3) at one corner, but not theta(2,3,4). Babson–Beck group-valued graph-colouring Fourier approach gives general methods and unweighted homomorphism enumeration, with no exact seven-graph vertex-frequency census in inspected theorems. Related cycle Fourier classifications concern distinct graphs.
+
+## value
+
+PASS
+
+The first finite nonedge theta obstruction is a natural minimal forbidden pattern for Fourier recovery of graph-colouring indicator convolution; exact rank loss and low-degree pairwise independence identify where higher-order correlations cancel unexpectedly. Seven complete small natural graphs, two independent exact reconstruction methods and an explicit obstruction classification make this an independently usable finite combinatorial fact, not an unmotivated arbitrary slice. General theta sizes expressly excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
