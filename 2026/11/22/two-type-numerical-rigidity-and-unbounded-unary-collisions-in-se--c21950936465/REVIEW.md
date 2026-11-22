@@ -1,0 +1,13 @@
+# Self-review
+
+**Correctness — PASS.** For every fixed class partition, parity-compatible orientations form independent row-plus-column affine spaces with exactly the rank given in the proof; old-base restriction is surjective. Summing exact extension fibres over class partitions gives the all-arity formula. The strict inequality comparing the two-type counts when the one-type counts agree is proved for all integers \(n,m\ge1\), \(1\le k\le n\), \(1\le j\le m\), with the \(k=2\) boundary handled separately. The explicit collision-family arithmetic is exact. Direct finite-diagram enumeration and an independent arithmetic sweep support, but are not substituted for, the proof.
+
+**Originality — PASS, with historical-priority risk.** The foundational parity law and two-block rank are prior; the previously published global unmarked Stirling-layer count is explicitly credited. The new proposition is the *global, cardinality-free* two-arity rigidity of pointwise named-base numerical spectra and explicit arbitrarily separated unary collisions. The closest grid-structure analogue conditions reconstruction on a known base cardinality and uses two transverse equivalences rather than parity-constrained multipartite orientations. No covering published statement was located in the actual searched records or inspected primary material. Unindexed folklore or an equivalent older account is a residual possibility, not proof of originality.
+
+**Mathematical value — PASS.** The minimum arity of a numerical invariant sufficient to recover an unknown parameter-support profile is a natural logical reconstruction problem. The theorem supplies an all-arity normal counting form, proves the sharp reconstruction threshold, and finds an infinite family of failures when one arity is discarded, with arbitrarily large parameter-size separation. The result is not merely the pre-existing parity-matrix count: the main rigidity and sharpness require the independent Diophantine argument. It does not purport to reconstruct the full induced finite digraph.
+
+**Most relevant prior work:** Cherlin's semigeneric construction; Coskey–Ellis's section 4; *Exact Stirling-layer orbit profile of the semigeneric complete multipartite digraph*; the distinct two-equivalence grid analogue. See the main result and structured audit for precise comparisons.
+
+**Limitations:** Historical priority remains provisional; only numerical spectra are classified; finite checker runs are not proof of infinite assertions; no independent mathematical validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
