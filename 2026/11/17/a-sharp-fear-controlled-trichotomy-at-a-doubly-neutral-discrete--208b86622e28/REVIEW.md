@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact map transforms to the stated \((s,y)\) variables; the two-step jet has cubic coefficient \(-4/3\), mixed term \(-2Lsy\), and no pure fourth-order or \(s^2y\) contribution. The explicit wedge \(s>y^q\) is inward pointing at its lower boundary exactly because \(q>p\) and \(2q>1\). Positivity, decay, reciprocal-predator limits, and the inverse-square difference equation yield the three amplitude laws without extrapolating finite diagnostics. The supplied standalone symbolic and numerical checker replays the critical expansions and finite examples. Risk: the statement is local, and the proof does not classify exceptional initial data outside the wedge.
+## correctness
 
-## Originality — PASS within checked coverage
-Du–Han–Lei (2023), equation (1.2) and Proposition 3, identify the eigenvalues at the boundary; their subsequent sections analyze equilibrium existence, flip/Neimark–Sacker conditions, controls and simulations, not the double-neutral transient-rate trichotomy. The closely overlapping indexed research result on the same map treats positive-equilibrium counts, a static rather than dynamical assertion. Other predator extinction and Ricker critical-decay results use distinct maps without the relevant \((-1,+1)\) boundary and do not imply the model-specific mixed coefficient. Related codimension-two discrete predator–prey work concerns different normal forms and parameters. Residual risks include nonindexed equivalences and incomplete access to some comparison full texts; searches alone cannot certify global novelty.
+PASS
 
-## Mathematical value — PASS
-The collision of a prey flip multiplier and a predator invasion multiplier is a natural codimension-two boundary of this published ecological model. The fear parameter changes the actual polynomial extinction exponent, with a logarithmic transition at an explicit positive threshold, while predator extinction remains \(1/n\). It is a mechanistic classification on a genuine open set, stronger than a restatement of local eigenvalues and with sharp coefficients in two regimes.
+After x=u/K−1, y=v, s=x+By/2 and A=a/(bK+c), B=β/(K+γ), H=K/(K+γ), L=2k+B(1+H), the exact two-fold analytic map has leading s=s−(4/3)s³−2Lsy+O(s^5+s³y+sy²+y³), y=y−2Ay²+O(|s|y²+y³). Independent rational polynomial Taylor expansion at (B,H,k,A,J)=(1/5,1/2,1/50,1,1/2) verified −4/3 and −17/25=−2L, cancellation of s²y and y², but found positive pure y³ at s=0. Thus the RESULT.md phrase that s decreases on the whole small rectangle 0<s,y<δ is literally too broad; the actual claimed wedge s>y^q (q>max(p,1/2), q<1) avoids this: its lower boundary ratio increases by 2A(q−p)y−(4/3)y^{2q}+o(y), and within it negative cubic/mixed drift dominates y³. This suffices for wedge invariance and positivity. Reciprocal y gives y_n~1/(An); the inverse-square even-iterate R=1/s_(2m)^2 satisfies R_(m+1)=[1+2p/m+summable ε_m]R_m+8/3+o(1) using the wedge, y~1/(2Am), s²=O(1/m); product asymptotics produce universal sqrt3(1−2p)/2 for p<1/2, sqrt3/2 at p=1/2 with log correction, positive initial-data-dependent C for p>1/2. Finite diagnostic tests not infinite proofs. The inaccurate rectangle-wide ancillary statement should be corrected by owner before public release, without changing the scientific conclusion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Du, Han and Lei 2023 supply the exact exponential fear map and eigenvalues −1,+1 at the selected thresholds but address equilibria and local bifurcations; no corresponding open-wedge polynomial/logarithmic extinction law is given. Resultary 2026/10/4 treats positive equilibrium counts of the same model; other -1/+1 Ricker maps have different coefficients and do not directly imply this one.
+
+## value
+
+PASS
+
+The simultaneous prey flip and predator invasion resonance is a natural codimension-two dynamical boundary. Dependence of the prey decay exponent on an explicit ecological fear parameter and sharp logarithmic intermediate scaling on an open set are substantive results not a restatement of linear eigenvalue classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
