@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The generator matrix has determinant \(1-(-1)^n\prod_iw_i\), nonzero by hypothesis. An integral parallelepiped point with one zero barycentric coefficient forces all coefficients to zero, and complementing the others is a height-reversing bijection. For the uniform five-cycle, an explicit inverse matrix proves every positive integral composition is interior; volume and lattice-point identities fix the whole Ehrhart numerator, and an exact monotonic ratio proves the cutoff at seven. The verifier separately checks low dilations by direct integer enumeration. An independent audit has not occurred.
+## correctness
 
-## Originality — PASS, with risk
-The graph-family source Nanduri–Roy (2025) studies toric ideals rather than Ehrhart spectra. Nill (2026) gives a broad eventual log-concavity consequence of large width but no sharp finite threshold in this family. The highly relevant Biermann–Lin–O'Keefe preprint (November 12, 2026) gives the degree-one lattice-point classification and failure of integer decomposition, which are not presented as new here. Recorded published-finding corpus searches found no same weighted-cycle Ehrhart polynomial; the closest result on oriented cycle *root* polytopes has different vectors, and a weighted four-cycle *symmetric edge* result concerns Minkowski decompositions, not Ehrhart log-concavity. Standard general reciprocity is credited. Historical overlap outside indexed sources remains possible, and neither a failed search nor restricted ownership is proof of global novelty.
+PASS
 
-## Value — PASS
-The integer decomposition property fails for all weights in the five-cycle family, but the Ehrhart numerator crosses into log-concavity at the exact small integer threshold seven. This is a complete natural one-parameter combinatorial-geometric classification, supported by an all-cycle structural symmetry that also handles unequal weights. It sharpens an eventual large-width phenomenon and separates two widely studied lattice-polytope regularities.
+For n>=3 and positive integral w_i with det M=1−(−1)^n Π_i w_i nonzero, v_i=e_i+w_{i+1}e_{i+1} form an (n−1)-simplex in affine hyperplane. If a barycentric coefficient vanishes on a lattice boundary point, integer coordinates propagate a 0/1 choice around the cycle forcing a vertex. The same propagation for half-open parallelepiped generator coefficients in [0,1) forces any nonzero lattice point to have all coefficients strictly between zero and one; complementing gives height j↔n−j, h_n=0. For n=5, uniform w>=2, all interior positive integer compositions of total w+1 lie in simplex (for w>=4 prove via M^{-1} lower coordinate bound), hence L(1)=5+binom(w,4). Affine normalized volume (w5+1)/(w+1), h0=1 and shifted symmetry yield h1=h4=A and h2=h3=B=w(w−1)(11w²+5w+6)/24. B>A, so log-concavity reduces to A²>=B; ratio B/A decreasing for w>3 and exact w6 failure vs w7 success proves cutoff 7. Independent first-two-dilate counts w2..6 verify coefficients, not full general case. Degenerate even all-unit case correctly excluded.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The full claim is a nondegenerate positive exponent-vector directed-cycle simplex with shifted Ehrhart reciprocity for all positive integral weights and a complete five-cycle polynomial with exact w>=7 log-concavity cutoff. Known toric-ideal setup and the later weighted-oriented-edge-polytope paper supply object and unit-dilate/IDP facts; general reciprocity is classical and unclaimed as methodological novelty. Bounded searches did not locate this exact numerator/cutoff or a stronger statement forcing it. A plausible unavailable full text is retained as real priority risk, not automatic scientific failure.
+
+## value
+
+PASS
+
+It identifies a natural weighted oriented-graph lattice-polytope family with unexpectedly shifted Ehrhart symmetry and provides an exact explicit log-concavity threshold inside a persistent non-IDP family. The exact five-cycle h* polynomial and w=7 boundary are nontrivial finite-dimensional but infinite-parameter facts, useful beyond a numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
