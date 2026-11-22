@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The edge/window bijection is valid for every n>=2. For odd n=2r+1, the (ab)^r vertices of one class have aggregate forced excess incoming degree (ab)^r(a-b) when a>b, proving the lower bound; a one-place rotation bijection identifies exactly one existing edge per deficit vertex whose |a-b| additional copies balance all vertices. The original overlap digraph is strongly connected, so its balanced expansion has an Euler circuit. Even n gives immediate Eulerian coverage. Replayed 80 finite constructive tests and eight independently exhaustive small minima pass; infinite correctness rests on proof, not testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published results titled Exact shortest cyclic covers of run-limited words over arbitrary alphabets, and Exact shortest cyclic covers of zero-run-free windows before repeated-run overlap, impose different forbidden-factor languages."
+      ],
+      "reasoning": "Neither forbidding long runs in an undifferentiated alphabet nor forbidding a single zero-run is the same as forced alternation between a prescribed partition of the alphabet. Neither inspected statement gives the required two-class degree imbalance or the exact all-orientation optimum. Search summaries alone do not justify an assertion about uninspected full texts.",
+      "searches": [
+        "shortest universal cyclic cover for alternating alphabets A and B length n bipartite de Bruijn graph imbalanced sizes a b parity exact",
+        "universal cycle of words alternating disjoint alphabets sizes a b exact minimum shortest cyclic superstring",
+        "alternating restricted word Chinese postman graph bipartite parity directed imbalance repeated equal endpoints"
+      ]
+    },
+    "checked_sources": [
+      "Champlin, Godbole and Tomlinson, 2013, arXiv:1303.3323, full rendered text",
+      "Kreitzer, Nica and Pereira, 2023, arXiv:2306.01498, full rendered text",
+      "Published result title: Exact shortest cyclic covers of run-limited words over arbitrary alphabets (indexed synopsis comparison only)",
+      "Published result title: Exact shortest cyclic covers of zero-run-free windows before repeated-run overlap (indexed synopsis comparison only)",
+      "MSC2020 68R15 Combinatorics on words, AMS category listing"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 theorem proves existence where required edges are balanced, not the minimum edge augmentation where unbalanced.",
+        "2023 A-designated alternating de Bruijn covers can have unrepresented B-start factors, including in the displayed example; their cycle length alone does not imply a both-start-class cover."
+      ],
+      "reasoning": "The formula coincides with previously known exact-once window counts in balanced regimes, which are expressly credited. The new assertion is simultaneous both-start-class coverage at a provably minimal replicated-edge count in the odd unequal regime, with a specific strongly connected Eulerian construction. The 2023 asymmetric property is strictly weaker; a covering construction cannot be inferred merely from matching total lengths.",
+      "searches": [
+        "arXiv:1303.3323 Theorem 4",
+        "arXiv:2306.01498 Theorem 3 Corollary 1 Example 6",
+        "class alternating word minimum repeat Eulerized de Bruijn graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2013 Theorem 4: exact-once alternating universal cycles in even or equal-size regimes; odd unequal degree imbalance is noted.",
+        "2023 Definition 5: every odd-length window must start and end in designated alphabet A; Remark 3 and Example 6 note asymmetric missing B-start windows."
+      ],
+      "reasoning": "The relevant alias is class-alternating universal cycles or alternating de Bruijn sequences. The former does not provide the shortest imbalanced repeated-factor cover. The latter only imposes A-start coverage and cannot imply complete two-orientation coverage.",
+      "searches": [
+        "shortest cyclic universal cover class alternating words unequal alphabet sizes odd window length repeated windows Euler tour",
+        "Champlin Godbole Tomlinson class alternating universal cycles unequal vowels consonants minimum repeat optimal cyclic cover",
+        "alternating de Bruijn sequences both starting parities exact length a b n odd shortest superstring",
+        "arXiv:1303.3323 Sections 1 and Theorem 4",
+        "arXiv:2306.01498 Definitions 4–6 and Theorem 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact all-parameter shortest odd-window unequal-two-alphabet covering table or theorem was returned by the semantic record queries; original 2013 manuscript provides only existence conditions."
+      ],
+      "reasoning": "No external table or value is used as a novelty certificate. Exact computations for finite cases are checks only; the closed formula is compared by implication against inspected definitions and theorems.",
+      "searches": [
+        "shortest cyclic universal cover class alternating words unequal alphabet sizes odd window length repeated windows Euler tour",
+        "alternating de Bruijn sequences both starting parities exact length a b n odd shortest superstring"
+      ]
+    },
+    "rationale": "The full inspected 2013 class-alternating universal-cycle theorem proves the balanced exact-once case but does not optimize repeats in the unequal odd case; the inspected 2023 alternating construction covers only one designated start class. The derived deficit minimum and explicit balanced Eulerian augmentation are not consequences of the claimed coverage of either paper. Recurrent words with unrelated factor restrictions do not subsume this language.",
+    "residual_risks": [
+      "An unindexed combinatorial optimization treatment of the same two-class Eulerization may exist.",
+      "The full texts of the two differently constrained published cyclic-cover findings were not inspected; only their indexed claims were compared, so no whole-document noncoverage assertion is made.",
+      "The full classification and number of all optimal circular hosts are not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves exact-once cycles in feasible balanced cases, not a repeated-factor minimum for odd unequal alphabets",
+        "evidence": [
+          "Theorem 4 says a class-alternating universal cycle exists when n is even or n is odd and the two alphabet-class sizes are equal; the preceding paragraph explicitly computes unequal odd indegrees and outdegrees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.3323",
+        "material_read": "Full publicly rendered manuscript, especially Introduction and Theorem 4 with its in/out degree analysis, and remaining results for potentially stronger cyclic claims",
+        "method": "Read the arXiv full-text rendering and a full-text accessible mirror",
+        "title": "Universal Cycles of Complementary Classes",
+        "trigger": "Primary first-public class-alternation construction and odd-degree obstruction"
+      },
+      {
+        "assessment": "One designated starting alphabet only, with examples of absent opposite-start factors; does not provide the simultaneous both-start coverage guarantee",
+        "evidence": [
+          "Definition 4 requires A-start and A-end odd words; Remark 3 states roles of A/B not symmetric; Example 6 expressly records a missing B-start window; Corollary 1 guarantees the asymmetric construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.01498",
+        "material_read": "Accessible full-text rendering through Sections 2.3, 3 and the associated construction, definitions, corollaries and examples",
+        "method": "Read the full research-text rendering with particular attention to Definitions 4–6, Remark 3, Example 6 and Corollary 1",
+        "title": "Using alternating de Bruijn sequences to construct de Bruijn tori",
+        "trigger": "Terminological near-exact match, possibly broader alternating de Bruijn construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "733eded4-bf55-4a03-9f1d-f3fcd20e8d1e",
+  "value": {
+    "rationale": "The previously known universal-cycle feasibility dichotomy leaves a natural quantitative covering deficit precisely for odd windows with unequal category sizes. The all-parameter minimum surplus (ab)^r|a-b| and explicit optimal single-circle construction resolve that gap and quantify unavoidable sampling repetition for class-alternating word families. This is a natural exact invariant and constructive classification of the sharp length, not a random finite slice.",
+    "status": "PASS"
+  }
+}
