@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The target adjacency specification is unambiguous and agrees with the eleven-vertex Mycielskian of the five-cycle. The independent adjacency-matrix walk calculation gives 310 singleton graph homomorphisms. Exhaustive coordinate-extension enumeration is justified by downward heredity of multi-homomorphism constraints and produces exactly 310 vertices, 500 edges and 150 squares. Every codimension-one face of all 150 two-cells is reconstructed. The standalone program reads the supplied complete certificate and verifies 150 successive genuine free-face collapses; its residual one-skeleton is connected with 310 vertices and 350 edges. Graph topology then gives the stated wedge of 41 circles over the integers. Residual risk: although small and fully specified, this is an exact computer-assisted finite proof, requiring execution or independent line-by-line checking of the supplied code and data to reproduce the numerical certificates.
+## correctness
 
-## Originality: PASS (qualified)
-The closest accessible primary work comprises Matsushita, arXiv:2412.19144, Theorem 1.2, and Fujii–Kimura–Nozaki, arXiv:2412.19039: both require a square-free codomain, whereas the specified target has a four-cycle. The standard multi-homomorphism definition in Dochtermann does not imply the numerical homotopy result. A relevant known classification for graph-Hom complexes with **even** source cycles and high-girth codomains likewise does not apply to an odd source and a girth-four target. Database comparisons distinguished other complexes on the Grötzsch graph and graph-Hom complexes with different sources or targets. No direct exact or stronger covering calculation was located. Residual risks: search coverage is nonexhaustive, and full material from the Fujii–Kimura–Nozaki paper was not available for inspection; the stated hypothesis, however, decisively excludes this target from its advertised theorem.
+PASS
 
-## Mathematical value: PASS
-The Grötzsch graph is the smallest triangle-free four-chromatic graph and the first Mycielskian above the pentagon. The five-cycle is a canonical homotopy-test source, so this is a natural first interaction of odd-cycle Hom topology with the chromatic-raising Mycielski construction. The exact fundamental-group rank and elementary two-cell collapse distinguish this result from a routine Euler-characteristic computation and provide a reproducible non-square-free benchmark. It is not claimed to solve a general family or an arbitrary-codomain classification.
+Reconstructed the target from v_i v_{i+1}, u_i v_{i±1}, u_i w (11 vertices,20 undirected edges), verified its four-cycle and all C5 closed walks (310 singleton Hom maps). Independently enumerated every multi-homomorphism by admissible coordinate expansions: 960 cells with (310 zero,500 one,150 square) and no higher cells. Fetched and parsed the actual 150-pair collapse_pairs.json certificate, and independently checked each pair's target edge/square remained and that its edge was incident to exactly one remaining square. All 150 legal collapses leave 310 vertices and 350 edges in one graph component, hence first Betti number 41 and wedge of 41 circles, with integral free pi1.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Square-free-target theorems do not apply to the target Grötzsch graph, since 0,u_1,w,u_4 is a four-cycle; other published C5 Hom examples involve different target graphs. No checked graph-Hom table supplies Hom(C5,mu(C5))=41. Previous Hom-complex methodology itself is not claimed new.
+
+## value
+
+PASS
+
+A concrete exact fundamental-group computation at the smallest 11-vertex triangle-free four-chromatic Mycielski graph resolves a natural boundary where square-free codomain Hom theorems cease to apply. The full explicit collapsibility certificate, not just 41 from Euler characteristic, provides structural homotopy information future graph-Hom workers can reuse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T03:15:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the target from v_i v_{i+1}, u_i v_{i±1}, u_i w (11 vertices,20 undirected edges), verified its four-cycle and all C5 closed walks (310 singleton Hom maps). Independently enumerated every multi-homomorphism by admissible coordinate expansions: 960 cells with (310 zero,500 one,150 square) and no higher cells. Fetched and parsed the actual 150-pair collapse_pairs.json certificate, and independently checked each pair's target edge/square remained and that its edge was incident to exactly one remaining square. All 150 legal collapses leave 310 vertices and 350 edges in one graph component, hence first Betti number 41 and wedge of 41 circles, with integral free pi1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both 2024 square-free-codomain classifications restrict the codomain to graphs without 4-cycles; the 11-vertex Grötzsch target has explicit 4-cycle v0-u1-w-u4-v0."
+        ],
+        "reasoning": "Hypotheses fail here; no stronger all-codomain Hom(C5,H) classification was found in inspected statements. These results do not dominate this case.",
+        "searches": [
+          "Hom(C5 Mycielskian Grötzsch graph) 41 circles graph Hom complex",
+          "Matsushita Hom complexes whose codomains are square-free 2412.19144",
+          "Fujii Kimura Nozaki square-free codomains 2412.19039"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Hom RESULT.md, verify_hom.py and entire collapse_pairs.json Git blobs",
+        "Independent complete 960-cell enumeration and all 150 sequential free-face checks; residual connectedness",
+        "Matsushita arXiv:2412.19144 square-free theorem scope",
+        "Fujii–Kimura–Nozaki arXiv:2412.19039 square-free theorem scope",
+        "Published Resultary Chvátal C5 Hom entire RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Square-free classification excludes the target's 4-cycle, and related Chvátal calculation uses different 12-vertex H."
+        ],
+        "reasoning": "Neither implies the exact 150 free-face collapses or the residual cycle rank 41, although standard collapses and graph free groups are known machinery.",
+        "searches": [
+          "Square-free codomain Matsushita Fujii Kimura Nozaki 2024",
+          "Resultary Chvátal 61 circles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard Hom convention uses multihomomorphism cells in products of simplices. Resultary Chvátal target has 12 vertices and 61 circles, whereas Grötzsch target has 11 vertices and 41 circles."
+        ],
+        "reasoning": "Target graph isomorphism fails already by order and degree; neither published target calculation supplies the specific Grötzsch complex. The calculation is not Hom(K2,mu(C5)), which appears in Mycielski suspension work.",
+        "searches": [
+          "Hom(C5 Mycielskian Grötzsch graph) 41 circles graph Hom complex",
+          "Graph Hom Grötzsch Mycielski five-cycle 41 circles",
+          "Resultary Hom C5 Chvátal graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finds the current exact record and distinct-target examples: Chvátal 61 circles, Petersen and Clebsch other structures; no independent exact table for the 11-vertex target."
+        ],
+        "reasoning": "Table check is specific to both source and codomain, and to the regular polyhedral multihomomorphism convention; absence is not novelty proof.",
+        "searches": [
+          "Hom(C5 Mycielskian Grötzsch graph) 41 circles graph Hom complex",
+          "Grötzsch graph Hom complex C5 integer homology Betti 41"
+        ]
+      },
+      "rationale": "Square-free-target theorems do not apply to the target Grötzsch graph, since 0,u_1,w,u_4 is a four-cycle; other published C5 Hom examples involve different target graphs. No checked graph-Hom table supplies Hom(C5,mu(C5))=41. Previous Hom-complex methodology itself is not claimed new.",
+      "residual_risks": [
+        "An unindexed older exact calculation of Hom(C5,mu(C5)) could duplicate this finite result.",
+        "Square-free theorem comparisons rely on the available scope/abstract, not full primary-text examination; a separately worded non-square-free corollary elsewhere remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering; distinct graph target and rank",
+          "evidence": [
+            "Chvátal target: 12 vertices, 24 edges, Hom(C5,H) wedge 61 circles, not Grötzsch 11 vertices, 20 edges, wedge 41."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-pentagon-hom-complex-of-the-chv-tal-graph-sixty-one-circles--93c6d7d819c8",
+          "material_read": "Complete 10,055-character published RESULT.md, theorem, graph edge list and method",
+          "method": "Pinned published Git blob SHA d3ca3c105629b767f001a56963aa4b281cebee48",
+          "title": "The pentagon Hom complex of the Chvátal graph: sixty-one circles and a dihedral character",
+          "trigger": "same C5 source, four-chromatic and non-square-free target"
+        },
+        {
+          "assessment": "Not directly covering as target has a four-cycle",
+          "evidence": [
+            "Square-free codomain condition violated by v0-u1-w-u4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.19144",
+          "material_read": "Abstract and available theorem-scope statements only; not full text",
+          "method": "Public arXiv/indexed abstract search",
+          "title": "Hom complexes of graphs whose codomains are square-free",
+          "trigger": "same type of graph-Hom classification"
+        },
+        {
+          "assessment": "Not directly covering non-square-free Grötzsch target",
+          "evidence": [
+            "Square-free codomain condition violated."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.19039",
+          "material_read": "Abstract and theorem summary, not full text",
+          "method": "Public arXiv/indexed abstract search",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are square-free",
+          "trigger": "independent same-scope classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete exact fundamental-group computation at the smallest 11-vertex triangle-free four-chromatic Mycielski graph resolves a natural boundary where square-free codomain Hom theorems cease to apply. The full explicit collapsibility certificate, not just 41 from Euler characteristic, provides structural homotopy information future graph-Hom workers can reuse.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the fixed source/target pair and standard polyhedral Hom model; no general Mycielski or equivariant Hom theorem.",
+    "An unindexed older exact calculation of Hom(C5,mu(C5)) could duplicate this finite result.",
+    "Square-free theorem comparisons rely on the available scope/abstract, not full primary-text examination; a separately worded non-square-free corollary elsewhere remains possible."
+  ],
+  "schema_version": 1
+}

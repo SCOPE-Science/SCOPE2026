@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The standard graph-Hom polyhedral cell model is encoded as five tuples of nonempty 11-bit integers. The supplied `verify_hom.py` is standard-library-only Python 3 and `collapse_pairs.json` is a complete ordered list of 150 candidate free-edge/square removals.
+## correctness
 
-Execute `python3 verify_hom.py collapse_pairs.json`. The script independently enumerates the 310 graph homomorphisms, checks that the fifth adjacency-matrix trace agrees, and enlarges all admissible coordinate subsets to reconstruct the entire finite face poset. Exhaustiveness follows because every valid box contains a singleton assignment, and one-coordinate-at-a-time additions inside that box are admissible. The script checks the full cell vector, the dimension upper bound, every square's four edges, and that each proposed removed edge is free in the *current* remaining complex. It then checks the entire remaining graph, its connectivity and cycle rank.
+PASS
 
-Expected reproduced outcome: 310 vertices, 500 edges and 150 square faces before collapses; 150 verified elementary collapses; connected residual graph with 310 vertices and 350 edges; cycle rank 41. A captured successful replay is included as `verification_output.txt`.
+Reconstructed the target from v_i v_{i+1}, u_i v_{i±1}, u_i w (11 vertices,20 undirected edges), verified its four-cycle and all C5 closed walks (310 singleton Hom maps). Independently enumerated every multi-homomorphism by admissible coordinate expansions: 960 cells with (310 zero,500 one,150 square) and no higher cells. Fetched and parsed the actual 150-pair collapse_pairs.json certificate, and independently checked each pair's target edge/square remained and that its edge was incident to exactly one remaining square. All 150 legal collapses leave 310 vertices and 350 edges in one graph component, hence first Betti number 41 and wedge of 41 circles, with integral free pi1.
 
-The finite certificate supplies a complete proof for this particular graph pair, not a sampling argument. Its correctness depends on the stated graph-Hom definition, the explicit enumeration and verification code, and the integrity of the supplied certificate. This is not an independent audit of the result.
+## originality
+
+PASS
+
+Square-free-target theorems do not apply to the target Grötzsch graph, since 0,u_1,w,u_4 is a four-cycle; other published C5 Hom examples involve different target graphs. No checked graph-Hom table supplies Hom(C5,mu(C5))=41. Previous Hom-complex methodology itself is not claimed new.
+
+## value
+
+PASS
+
+A concrete exact fundamental-group computation at the smallest 11-vertex triangle-free four-chromatic Mycielski graph resolves a natural boundary where square-free codomain Hom theorems cease to apply. The full explicit collapsibility certificate, not just 41 from Euler characteristic, provides structural homotopy information future graph-Hom workers can reuse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
