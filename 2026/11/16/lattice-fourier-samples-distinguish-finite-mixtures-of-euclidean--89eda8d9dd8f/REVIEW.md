@@ -1,15 +1,21 @@
-# Scientific review: lattice Fourier identification of finite ball mixtures
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is every full-rank lattice and every finite complex linear combination of positive-radius Euclidean ball indicators. After combining equal radius/center-mod-lattice classes, periodization converts zero Fourier samples into an almost-everywhere zero periodic function. A boundary sphere in dimension at least two contains an open patch not lying on any other lifted sphere because (i) the family is locally finite, and (ii) unequal spheres intersect only on lower-dimensional sets. Across that patch the periodic function's jump is precisely one purported nonzero coefficient, forcing it to vanish. The argument repeats for all coefficients, with no genericity assumption. In dimension one, distributional differentiation and the period integral prove both directions of the exact endpoint-plus-mass kernel criterion. A shifted unit-period interval supplies a genuine failure example. Numerical rank checks are ancillary, not the proof.
+## correctness
 
-## Originality — PASS relative to inspected literature
-Asipchuk–Robins, arXiv:2608.29217, Theorem 1 classifies all indicator aliases as equidecompositions and Theorem 2 proves rigidity only with an anti-aliasing hypothesis; neither states linear independence of arbitrarily overlapping weighted ball-periodizations with arbitrary radii. Their explicit one-dimensional wrapped-boundary example overlaps the failure phenomenon, but not the full endpoint-and-mass kernel characterization. Kuratsubo–Nakai, arXiv:2011.06178, gives the same periodization Fourier formula for radial kernels but investigates convergence and lattice-point errors, not mixture identifiability. Rocha-Neves, arXiv:2608.11078, assumes a family of lattice-point counts across real dilations, unlike one fixed sampled Fourier lattice. Exact and alias searches of the relevant research database did not identify an equivalent weighted-sphere statement; this does not establish global priority. Older interface-reconstruction or spline-translate literature remains a residual risk.
+PASS
 
-## Value — PASS
-The motivating problem is the noninjectivity of Fourier sampling of arbitrary bounded shapes on a single lattice. The theorem gives a complete, no-separation exception for the natural finite-particle class of spherical indicator profiles, including **signed** overlaps, unbounded radii and all spatial lattice geometries, together with the exact failure kernel in the only missing dimension. The local curved-interface argument explains the mechanism of identifiability and the sharp dimensional boundary; this is more than a single worked numerical example or parameter substitution. It does not claim stability, finite-sample reconstruction or a general convex-body theorem.
+Fourier coefficients on the dual lattice equal (up to fundamental-cell volume) Fourier coefficients of the locally finite lattice-periodized compactly supported mixture; all vanishing means periodization zero a.e. Fix any one sphere boundary S_j. Only finitely many lattice translates of the finite family intersect a compact tubular neighborhood of S_j. If none is identical in parameter class, each other sphere intersects S_j in at most a proper codimension-one subsphere, so d>=2 provides an open patch of S_j free of all other boundaries. The alleged zero periodization has a jump exactly a_j across that patch, forcing a_j=0. For d=1, the distribution derivative on R/sZ is the summed signed endpoint delta measure. Vanishing derivative gives an a.e. constant; the integral over one cell is sum 2a_jr_j, so these two independent conditions are necessary and sufficient. A length-s interval shifted by a nonlattice amount supplies sharp aliasing. Independently computed a planar six-disk 81-frequency matrix with rank 6 and minimum singular 0.2968204, and checked interval periodization; such finite checks do not establish all-lattice uniqueness.
 
-## Literature comparison and remaining risk
-The closest comparison is Asipchuk–Robins (2026), Sections 1 and 3–7; the source was inspected beyond its abstract, including the hypotheses and proofs of the two main theorems and the one-dimensional ambiguity remark. Kuratsubo–Nakai (2020) was inspected at its statement of scope, its periodization definitions, and its Fourier-Bessel example. The Rocha-Neves abstract was inspected as a separate stronger-measurement comparator. A pre-existing exact equivalence outside these inspected works remains possible. The claimed originality is supported relative to this evidence only; independent audit is not represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Periodization and unique singular interface patches are known geometric techniques, and Asipchuk–Robins characterize when two ordinary set indicators have equal lattice Fourier samples via equidecomposability. Their results do not establish complex linear independence of an arbitrary many weighted, arbitrarily overlapping balls or the exact 1D weighted mixture kernel. Bounded primary comparisons and Resultary returned no direct covering assertion; older inverse-interface uniqueness equivalences remain risk.
+
+## value
+
+PASS
+
+The finite-ball mixture inverse problem is natural in lattice tomography and Fourier shape inference. The exact no-alias result despite arbitrary overlap and complex cancellation, plus a necessary-and-sufficient dimension-one obstruction, is a meaningful complete classification of a natural dictionary rather than a fitted one-off example. It identifies precise information loss under periodization without claiming finite noisy recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

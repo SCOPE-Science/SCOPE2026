@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical verification is the separating-sphere-patch argument in `RESULT.md`: each distinct lifted sphere has a patch away from all other interfaces, so its coefficient is the unique jump across that patch. This supplies an all-parameter proof, not an extrapolation from finite computations.
+# Independent mathematical audit
 
-The one-dimensional distributional-derivative identity and period mean are both necessary and sufficient. The strict dimension boundary is witnessed by shifted intervals of one lattice period.
+## correctness
 
-`CHECK.py` was executed with six planar disk parameters, 81 integer frequencies, and 57 interval-frequency checks, returning `CHECK_OK disks=6 frequencies=81 numerical_rank=6 translation_alias=81 one_dim_interval_modes=57`. Only finite sanity tests are thereby established; analytic correctness does not depend on them. No independent audit has been performed.
+PASS
+
+Fourier coefficients on the dual lattice equal (up to fundamental-cell volume) Fourier coefficients of the locally finite lattice-periodized compactly supported mixture; all vanishing means periodization zero a.e. Fix any one sphere boundary S_j. Only finitely many lattice translates of the finite family intersect a compact tubular neighborhood of S_j. If none is identical in parameter class, each other sphere intersects S_j in at most a proper codimension-one subsphere, so d>=2 provides an open patch of S_j free of all other boundaries. The alleged zero periodization has a jump exactly a_j across that patch, forcing a_j=0. For d=1, the distribution derivative on R/sZ is the summed signed endpoint delta measure. Vanishing derivative gives an a.e. constant; the integral over one cell is sum 2a_jr_j, so these two independent conditions are necessary and sufficient. A length-s interval shifted by a nonlattice amount supplies sharp aliasing. Independently computed a planar six-disk 81-frequency matrix with rank 6 and minimum singular 0.2968204, and checked interval periodization; such finite checks do not establish all-lattice uniqueness.
+
+## originality
+
+PASS
+
+Periodization and unique singular interface patches are known geometric techniques, and Asipchuk–Robins characterize when two ordinary set indicators have equal lattice Fourier samples via equidecomposability. Their results do not establish complex linear independence of an arbitrary many weighted, arbitrarily overlapping balls or the exact 1D weighted mixture kernel. Bounded primary comparisons and Resultary returned no direct covering assertion; older inverse-interface uniqueness equivalences remain risk.
+
+## value
+
+PASS
+
+The finite-ball mixture inverse problem is natural in lattice tomography and Fourier shape inference. The exact no-alias result despite arbitrary overlap and complex cancellation, plus a necessary-and-sufficient dimension-one obstruction, is a meaningful complete classification of a natural dictionary rather than a fitted one-off example. It identifies precise information loss under periodization without claiming finite noisy recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
