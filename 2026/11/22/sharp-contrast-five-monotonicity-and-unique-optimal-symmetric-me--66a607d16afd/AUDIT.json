@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "Natural-spline curvature equations form a nonsingular 2x2 system with determinant (r+2)(3r+2). Exact derivative cardinal coefficients on the three intervals reproduce affine data (coefficients sum 1). Minimizing over [1,K]^3 gives 1-(K-1)N pointwise. On the outer interval the sharp negative coefficient mass is 1/(r+2) at the left boundary; on the central interval positive b coefficient and the quadratic individual/matched negative terms yield N <= max{1/(r+2),r/[2(r+2)]}, with the second attained at its midpoint. The individual-negative bound is verified separately for r<=2 and r>=2; the analytic inequalities cover all real r>0. Exact extremal positive-secant triples (1,K,1) and (K,1,K) give actual negative derivatives above the threshold, and the branches meet uniquely at r=2. A separate standard-library exact-rational checker passed 5050 derivative evaluations, central-coefficient identities, and explicit strict witnesses. Finite tests only supplement the complete proof; no numerical root assumption.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aràndiga–Baeza–Yáñez use nonlinear derivative modifications for shape preservation, unlike fixed natural cubic interpolation.",
+        "Baeza–Yáñez report that endpoint slope changes alone cannot always enforce monotonicity for arbitrary increasing data; the present theorem imposes a bounded slope ratio and prescribes zero endpoint second derivatives."
+      ],
+      "reasoning": "Unbounded-data impossibility does not imply the optimal bounded-contrast threshold. Local Hermite criteria can be applied to test any data triple but do not themselves supply the exact optimum over all triples and symmetric mesh ratios. No covering quantitative corollary was found in source passages inspected.",
+      "searches": [
+        "natural cubic interpolation slope ratio monotonicity optimal symmetric knot spacing all data",
+        "natural cubic four knot shape preserving ratio threshold positive derivative",
+        "arxiv:2102.11564v1",
+        "arxiv:2402.01324"
+      ]
+    },
+    "checked_sources": [
+      "Fritsch–Carlson 1980 DOI 10.1137/0717021",
+      "Aràndiga–Baeza–Yáñez arXiv:2102.11564v1",
+      "Baeza–Yáñez Applied Numerical Mathematics 181 (2022), arXiv author copy 2402.01324",
+      "Beatson–Chacko 1990 institutional OA report",
+      "published-finding corpus 2026-11-17 a68c76ffcd7c full result",
+      "published-finding corpus 2026-11-17 287732549e93 full result",
+      "published-finding corpus 2026-10-04 three-knot natural-spline positivity abstract",
+      "Own current-week records: clamped four-knot slope contrast and natural four-knot L∞ norm optimum"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fritsch–Carlson: pointwise characterization of cubic Hermite positivity, no symmetric natural four-knot mesh optimizer.",
+        "Beatson–Chacko: spline endpoint-condition comparisons and interpolation operator approximation-error norms, not positivity under slope contrast.",
+        "published-finding corpus variation-optimal ratio 1.42882553 differs from the present monotonicity-optimal ratio 2 because the former quantifies unrestricted variation and the latter a bounded-data positivity domain."
+      ],
+      "reasoning": "The sharp bound is not inferred merely from a sufficient condition: a global negative-coefficient mass upper bound is attained by two explicit positive-secant patterns, making both the mesh-dependent radius and optimal ratio necessary. Closest results neither state this nor dominate it under their hypotheses; historical equivalence outside accessible material remains a risk.",
+      "searches": [
+        "doi:10.1137/0717021",
+        "doi:10.1137/0913059",
+        "arxiv:2102.11564v1",
+        "arxiv:2402.01324",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/17/SCOPE-unique-variation-optimal-symmetric-four-knot-natural-cubic-inter--a68c76ffcd7c/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/17/SCOPE-sharp-total-variation-amplification-of-the-first-coupled-natural--287732549e93/RESULT.md",
+        "optimal interpolation monotonicity natural cubic spline four knots boundary conditions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The negative-cardinal-derivative coefficient mass N_*=max{1/(r+2),r/[2(r+2)]} is exactly equivalent to the bounded-contrast monotonicity radius: R=1+1/N_*; it is not an unrestricted operator-variation norm.",
+        "Fritsch–Carlson 1980 gives single-interval Hermite monotonicity inequalities in derivative-to-secant variables, but no four-knot natural endpoint-specific mesh maximin in the inspected text."
+      ],
+      "reasoning": "The theorem can also be phrased as the sharp robust positivity radius of the derivative map on a cube of positive secants. Both expressions and endpoint/central extremizers were searched and compared, rather than title matching alone.",
+      "searches": [
+        "for four natural cubic spline knots symmetric spacings 1 r 1 sharp monotone secant slope contrast five at r two",
+        "\"1:2:1\" natural cubic monotonicity secant ratio five",
+        "doi:10.1137/0717021",
+        "arxiv:2102.11564v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus natural four-knot variation-minimax gives r=1.42882553... and norm 1.31425595..., not R(2)=5.",
+        "published-finding corpus uniform four-knot variation gain gives 1+8/(9sqrt3), not the monotonicity contrast-four threshold."
+      ],
+      "reasoning": "The database returns results with same knots and spline type, but their operator norm quantifies total-variation amplification, rather than the zero-sign-change guarantee conditional on comparable positive secants. No tabulated equivalent sharp R(r) appeared in queried records.",
+      "searches": [
+        "\"5\" \"natural cubic\" \"monotonicity\" \"four\" \"secant\"",
+        "sharp contrast-five natural cubic spline slope bounded monotone",
+        "four-point natural spline interpolation derivative positivity symmetric mesh contrast",
+        "published-finding corpus:2026/11/17/a68c76ffcd7c",
+        "published-finding corpus:2026/11/17/287732549e93"
+      ]
+    },
+    "rationale": "The claim optimizes the all-data sufficient-and-sharp secant-slope contrast for monotonicity of the unmodified natural cubic on symmetric four-knot meshes. Full published mathematical records on the same four-knot natural spline instead optimize unrestricted variation amplification, with different optimal gap ratios; the clamped four-knot threshold changes the boundary conditions. First-hand inspected external spline literature discusses pointwise Hermite criteria or end-slope adjustment, not the full uniform-in-data sharp mesh contrast threshold. No equivalent theorem or stronger covering result was found after aliases, mesh/slope terminology and implication comparisons. Literature priority remains provisional because no search proves absence of an earlier equivalence.",
+    "residual_risks": [
+      "An older unindexed spline-shape-conditions result might state an equivalent uniform contrast cutoff or a more general theorem implying it.",
+      "The Fritsch–Carlson local conditions are classical; translating them into the unique global symmetric mesh optimum may be regarded as a corollary by specialists, although the exact minimax expression was not identified.",
+      "Not every historical spline monograph, thesis, or publisher-only paper is accessible; literature priority should be independently checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant general test for local pieces, but no identified sharp all-data four-knot natural-spline mesh contrast theorem",
+        "evidence": [
+          "Conditions constrain two endpoint derivatives for an individual segment; natural spline endpoint derivatives couple across the full mesh."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0717021",
+        "material_read": "Indexed theorem/conditions and publicly accessible discussion of monotone cubic segment criteria",
+        "method": "Web source inspection and mathematical comparison against natural spline coupled curvatures",
+        "title": "Monotone Piecewise Cubic Interpolation",
+        "trigger": "Classical necessary-and-sufficient monotonicity conditions for local Hermite cubics"
+      },
+      {
+        "assessment": "Monotonicity is obtained by specialized derivative correction, not a best positive-secant-ratio universal guarantee for unmodified natural cubic",
+        "evidence": [
+          "Preprint v1 dated 2021-02-23; nonlinear monotonic reconstruction conditions do not state R(r)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.11564",
+        "material_read": "Full open PDF text searched; introduction, section theorem statements, first-page and theorem-page renderings inspected",
+        "method": "Open-access arXiv PDF text and page images",
+        "title": "Monotone cubic spline interpolation for functions with a strong gradient",
+        "trigger": "2021 literature on monotone cubic interpolation and derivative modifications"
+      },
+      {
+        "assessment": "Shows limits of modifying endpoint first derivatives to force monotonicity for arbitrary data, not the bounded positive-secant all-data radius for zero second derivative endpoints",
+        "evidence": [
+          "Journal online 2022-06-22; this theorem quantifies a nonempty bounded-contrast region absent in the cited impossibility."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2402.01324",
+        "material_read": "Open full author-copy PDF with introduction, main results and concluding proofs; relevant pages rendered",
+        "method": "Open-access author-copy PDF text and relevant page images, compared to journal-first 2022 version",
+        "title": "A note on some bounds between cubic spline interpolants depending on the boundary conditions: Application to a monotonicity property",
+        "trigger": "Closest title explicitly combines cubic spline boundary conditions and monotonicity"
+      },
+      {
+        "assessment": "Endpoint-condition choice and norm/error comparisons, not the all-positive-secant sign preservation mesh design",
+        "evidence": [
+          "Preprint report dated 1990-11-30; distinguish approximation/error operator norms from derivative cone radius."
+        ],
+        "identifier_or_url": "https://ir.canterbury.ac.nz/server/api/core/bitstreams/76c796a1-5524-4a10-8394-a0e93ecc05e5/content",
+        "material_read": "Full PDF accessible; title/abstract, selected norm and error results, rendered opening and substantive pages",
+        "method": "Publisher-independent institutional OA report text/page images",
+        "title": "Which Cubic Spline Should One Use?",
+        "trigger": "Older comparison of natural and alternative spline endpoint conditions"
+      },
+      {
+        "assessment": "Not covering: optimization of unrestricted total-variation norm with r approximately 1.42882553, not robust derivative positivity with r=2",
+        "evidence": [
+          "Document section Finding defines V_c(Sy)/V_d(y) and obtains max{O(r),C(r)}; new claim conditions on slope ratio and imposes S’>=0 everywhere."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/17/SCOPE-unique-variation-optimal-symmetric-four-knot-natural-cubic-inter--a68c76ffcd7c/RESULT.md",
+        "material_read": "Entire published RESULT.md, including statements, proof, comparisons and limitations",
+        "method": "Retrieved public published-finding corpus repository primary result file through GitHub connector",
+        "title": "Unique variation-optimal symmetric four-knot natural cubic interpolation",
+        "trigger": "Exact same knot count, boundary condition and symmetric family"
+      },
+      {
+        "assessment": "Not covering: exact variation gain 1+8/(9sqrt3), rather than contrast threshold 4 or symmetric-mesh optimality",
+        "evidence": [
+          "Variation norm maximized by central step data, which have zero secant slopes and lie outside strict contrast-bounded positive-slope class."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/17/SCOPE-sharp-total-variation-amplification-of-the-first-coupled-natural--287732549e93/RESULT.md",
+        "material_read": "Entire published RESULT.md, including derivation and limitations",
+        "method": "Retrieved public published-finding corpus repository primary result file through GitHub connector",
+        "title": "Sharp total-variation amplification of the first coupled natural cubic spline",
+        "trigger": "Exact same four-knot natural spline at uniform gaps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "66a607d1-6afd-45aa-a52d-19e31e7b3ae2",
+  "value": {
+    "rationale": "Even increasing data can be overshot by classical smooth interpolation; a sharp positivity-cone radius gives an actionable exact mesh design guarantee absent from generic sufficient shape-preservation inequalities. The theorem identifies two competing geometrically distinct failure mechanisms and proves their unique robust equalization on mesh (1,2,1), increasing admissible slope contrast from 4 to 5 (25%) relative to uniform spacing. The condition is natural (ratio of positive secant slopes), mesh and boundary hypotheses explicit, and both sharp obstructions are constructive. It concerns the first natural cubic with coupled interior curvatures, a useful benchmark for stable interpolation and monotone-data design; no general arbitrary-grid claim is implied.",
+    "status": "PASS"
+  }
+}
