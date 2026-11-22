@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The paired-coordinate map is a bijection with exact center boundary and GC/Hamming weights. The coefficient transfer counts all constrained words once. Explicit alternating-track constructions achieve every asserted r; parity excludes the missing zero value for odd m. The stationary 16-state product Markov chain has eigenvalues yielding integrated covariance diag(1/4,15/64), with zero cross-covariance; explicit four-step return loops establish full lattice span and the Fourier local CLT. Separate direct and transfer enumeration agrees through m=5; exact moments and transfer agree through m=6; tests are corroborative, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benerjee–Deb–Gupta, arXiv:1902.04419, sections I–III and methods: code constructions and lower bounds rather than all-word self-distance statistics.",
+        "Rasool et al., Frontiers Genetics 2023, sections 2–6: GC, no-runlength, reverse-complement code lower bounds by evolutionary heuristics.",
+        "Indexed reverse-complement-fixed necklace result includes bounded-run GC fixed-point counting (r=0), no positive r coverage shown in its available summary."
+      ],
+      "reasoning": "Finite codebook optimization does not determine the population of all individual input words by their aligned self-reverse-complement Hamming distances. The fixed-necklace count can dominate the r=0 edge, not the full r>0 law or Gaussian distribution. The uninspected full text leaves residual risk.",
+      "searches": [
+        "Exact bivariate weight enumerator and central limit theorem for Hamming distance from reverse complement among homopolymer-free and GC-balanced DNA words; asymptotic variance 15/64 and mean 3/4.",
+        "Reverse-complement-fixed necklaces homopolymer GC balanced exact fixed point count asymptotic and comparison orientation distance distribution.",
+        "Bounds on Size of Homopolymer Free Codes 2023",
+        "On Conflict Free DNA Codes 2019"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1902.04419",
+      "Frontiers in Genetics 2023 doi:10.3389/fgene.2023.1158337",
+      "Briefings in Bioinformatics 2023 doi:10.1093/bib/bbac484 (limited excerpts)",
+      "published-finding corpus indexed fixed-necklace id published-finding corpus record dated 2026-11-02: Reverse-complement-fixed necklaces with constrained homopolymer runs and GC content",
+      "published-finding corpus related GC-balanced DNA codebook census records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The transfer identity counts each eligible word by its self-distance using coupled paired-coordinate states; existing listed constructions constrain pairwise codeword distances, a different quantity.",
+        "Fixed-necklace published-finding corpus 2026 record implies at most the r=0 fixed-point layer (and may have related asymptotics); the new r>0 coefficients, support and conditional normal law are not implied by a count of fixed points."
+      ],
+      "reasoning": "General result could imply prior r=0 statement under appropriate linear-vs-necklace conversion, so zero-distance is identified as prior special case, not standalone novelty. Conversely, one coefficient alone cannot recover all other coefficients or their fluctuation statistics.",
+      "searches": [
+        "Exact bivariate weight enumerator and central limit theorem for Hamming distance from reverse complement among homopolymer-free and GC-balanced DNA words; asymptotic variance 15/64 and mean 3/4.",
+        "Reverse-complement-fixed necklaces homopolymer GC balanced exact fixed point count asymptotic and comparison orientation distance distribution.",
+        "https://arxiv.org/pdf/1902.04419",
+        "https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2023.1158337/full"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus semantic results: close fixed-necklace id published-finding corpus record dated 2026-11-02: Reverse-complement-fixed necklaces with constrained homopolymer runs and GC content; 2026-11-08 optimal GC balanced four-base DNA Hamming codes (finite four-mer case)",
+        "Public web searches on reverse-complement Hamming distance / enumerator / balanced homopolymer-free words returned construction and fixed-point literature, not a full positive-distance spectrum."
+      ],
+      "reasoning": "Reverse-complement automorphism fixed points correspond only to r=0. A general Hamming-weight enumerator under the same two biochemical restrictions would be equivalent; none was identified. Title matching and lack of search hits are not proof of novelty.",
+      "searches": [
+        "complete distribution of Hamming distance between each DNA word and its reverse complement among GC-balanced, homopolymer-free sequences; orientation ambiguity enumerator",
+        "DNA reverse complement distance spectrum for GC-balanced words avoiding homopolymers exact polynomial",
+        "distance distribution reverse complement palindromic word counts constrained DNA no adjacent identical symbols",
+        "\"Hamming distance\" \"reverse complement\" \"distribution\" \"GC\" homopolymer DNA",
+        "reverse complement autocorrelation distance enumerator homopolymer-free GC balanced DNA",
+        "\"reverse complement distance\" \"homopolymer\" \"enumerat\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026-11-08 indexed optimal quaternary GC balanced Hamming code census reports a length-four codebook classification, not N_m(r) for arbitrary m.",
+        "arXiv:1902.04419 tables list lower bounds for codebook sizes for short lengths, not the integer complete spectrum N_m(r)."
+      ],
+      "reasoning": "A fixed-length table of codebook optima is neither an exact all-length count of individual words nor a proof of the coefficient recurrence. No directly matching sequence table was discovered.",
+      "searches": [
+        "reverse complement distance homopolymer GC content exact coefficient table generating function",
+        "complete distribution of Hamming distance between each DNA word and its reverse complement among GC-balanced, homopolymer-free sequences; orientation ambiguity enumerator",
+        "2020 2021 2022 \"self reverse complement\" \"distance distribution\" DNA strings homopolymer"
+      ]
+    },
+    "rationale": "Searches for complete aligned reverse-complement self-Hamming distance profiles with simultaneous exact GC balance and homopolymer avoidance found no statement implying the full all-length sixteen-state spectrum, sharp support and conditional Gaussian coefficient. Closest primary articles optimize constrained DNA codebooks. An indexed fixed-necklace result addresses the already-known zero-distance subcase; that subcase is expressly excluded as an independent novelty claim. Residual risk of unindexed or unpublished equivalences remains.",
+    "residual_risks": [
+      "Indexed fixed-necklace source was only available as title/summary and its full text could contain a more general enumerator; no whole-document NOT_COVERING assertion is made.",
+      "Broader algebraic weight-enumerator literature could contain an equivalent transfer representation under different terminology.",
+      "The asymptotic fluctuation law uses a standard finite-state Markov additive local limit theorem, not an independently externally refereed probability proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivation and code constructions with simultaneous constraints; no identified all-word aligned self-reverse-complement distance spectrum",
+        "evidence": "PDF pages 1–4: definitions, lower-bound table and construction statement; arXiv first-public 2019-02-12, later PDF revision July 2019",
+        "identifier_or_url": "https://arxiv.org/pdf/1902.04419",
+        "material_read": "Parsed article text: title/abstract, Introduction, preliminary definitions and GC/reverse-complement remarks, conflict-free constructions and lower-bound table; screenshot service attempted but failed",
+        "method": "Web PDF text extraction and section-specific search/open; no claim of inspecting unavailable figures",
+        "title": "On Conflict Free DNA Codes",
+        "trigger": "Direct same DNA constraints, primary 2019 source"
+      },
+      {
+        "assessment": "Optimization of finite code sets/lower bounds; not a complete single-word orientation-distance enumerator",
+        "evidence": "Article sections 2 and 3 explain GC/no-runlength/RC constraints and heuristic algorithm; results and conclusions concern codebook lower bounds",
+        "identifier_or_url": "https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2023.1158337/full",
+        "material_read": "Full HTML text, especially sections 1–3, computational setup, results and conclusion",
+        "method": "Open-access full-text HTML inspection and term searches",
+        "title": "Evolutionary approach to construct robust codes for DNA-based data storage",
+        "trigger": "Direct use of all three constraints with reverse-complement Hamming distance"
+      },
+      {
+        "assessment": "Different balanced/no-homopolymer construction; full-text coverage cannot be excluded from these excerpts",
+        "evidence": "First published 2022-11-21; lemmas assert GC balance and no-homopolymer in constructed DNA-LC code",
+        "identifier_or_url": "https://doi.org/10.1093/bib/bbac484",
+        "material_read": "Search-accessible abstract, open indexed lemmas, and published first date; redirected full HTML unavailable",
+        "method": "Search snippets and citation metadata; did not represent limited snippets as full-text examination",
+        "title": "Multiple errors correction for position-limited DNA sequences with GC balance and no homopolymer for DNA-based data storage",
+        "trigger": "Exactly balanced no-homopolymer DNA construction"
+      },
+      {
+        "assessment": "r=0 and cyclic classes are covered; no defensible assertion about inaccessible appendices, residual historical risk retained",
+        "evidence": "published-finding corpus summary reports exact RC fixed necklace count and primitive-necklace asymptotic",
+        "identifier_or_url": "published-finding corpus record dated 2026-11-02: Reverse-complement-fixed necklaces with constrained homopolymer runs and GC content",
+        "material_read": "published-finding corpus indexed title and summary only; direct full-text URL returned access error",
+        "method": "published-finding corpus semantic hit and attempted public result URL read",
+        "title": "Reverse-complement-fixed necklaces with constrained homopolymer runs and GC content",
+        "trigger": "Most relevant indexed r=0 special-case predecessor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "93ad91af-9b53-44fc-a248-2e22d74c0773",
+  "value": {
+    "rationale": "Aligned self reverse-complement distance is the single-strand exclusion statistic underlying strand-orientation screening and lower bounds for RC-separated DNA libraries. Precisely GC-balanced no-homopolymer words are a natural design population; the complete all-length distance profile, exact admissible support and Gaussian scaling are needed to quantify the fraction of available candidate words at any chosen threshold, rather than merely the familiar self-complementary count. The result is not claimed to solve codebook optimization or full molecular hybridization.",
+    "status": "PASS"
+  }
+}
