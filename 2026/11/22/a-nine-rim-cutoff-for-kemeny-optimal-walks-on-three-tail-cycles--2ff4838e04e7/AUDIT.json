@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every m>=3, Kemeny=tr(L+J/N)^(-1)-1 has positive-definite Hessian along every nonzero edge-weight direction, hence unique global optimum and exact automorphism reduction. The Kirchhoff-index bridge decomposition gives A/a1+C/a2+D/a3+B/b. Stochasticity forces b=(1-a1)/2, a3=1-a2 and leaves one coupling inequality. Its unique minimizer is on the x+y=1 face for m<=8, and in the interior for m>=9 because H(m)=12(AC-2BD)=-8m^3+74m^2-82m+25 has H(8)=9>0, H(9)=-551<0 and is decreasing for m>=8. The symbolic exact arithmetic and independent spectral trace test at m=3,4,5,9 verify nonstandard identities and finite instances; no finite computation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Durastante--Gnazzo--Meini, DOI 10.1007/s10543-026-01152-6, full HTML §§1-2 and numerical examples: general sparsity-constrained reversible Kemeny optimization and SDP methods.",
+        "Boyd--Diaconis--Parrilo--Xiao, arXiv:0709.0955v1, pp. 1-2, 33-34: graph automorphism reductions and other cyclic examples, for SLEM rather than Kemeny.",
+        "published-finding corpus 2026/10/26/SCOPE-exact-nonnegative-fastest-mixing-on-depth-three-spider-trees--4d7800ee60ec concerns three-arm depth but tree topology and SLEM; 2026/11/8/SCOPE-exact-fastest-mixing-on-sunlet-graphs-c-m-circ-k-1--99b49e269aef concerns only one-edge pendants and SLEM."
+      ],
+      "reasoning": "General convex optimization characterizations do cover the problem as a solvable optimization instance but do not state or immediately imply its closed-form optimizer, sharp 8-to-9 active-constraint boundary, and global uniqueness without additional mathematical derivation. Other related exact graph-family claims have different objective or graph family; no logical domination found in checked summaries and primary text.",
+      "searches": [
+        "published-finding corpus: \"optimal Kemeny constant symmetric stochastic graph lollipop wheel friendship barbell\"",
+        "published-finding corpus: \"cycles with identical pendant paths Kemeny optimal edge transition probabilities network design, rooted comb 3 sunlet\"",
+        "Web: \"Kemeny constant minimization reversible Markov chains sparsity constraints convex optimization\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0709.0955v1 (Boyd et al., 2007-09-06)",
+      "arXiv:2108.01061v1 (Faught et al., 2021-08-02)",
+      "doi:10.1007/s10543-026-01152-6 (Durastante et al., 2026-09-23)",
+      "published-finding corpus: 2026/11/8/SCOPE-exact-fastest-mixing-on-sunlet-graphs-c-m-circ-k-1--99b49e269aef",
+      "published-finding corpus: 2026/10/26/SCOPE-exact-nonnegative-fastest-mixing-on-depth-three-spider-trees--4d7800ee60ec",
+      "published-finding corpus: 2026/11/2/SCOPE-a-sharp-edge-space-kemeny-comparison-on-arbitrary-cycle-bouquets--54c961ecb853"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd et al. 2007 give general symmetry reductions for a different eigenvalue-modulus objective; their graph in §5.3.6 is a periodic cycle with triangular bumps, not three-edge tails, and is treated numerically for SLEM.",
+        "Faught et al. 2021 provide resistance and cut-vertex formulas for the simple random walk and do not optimize symmetric P with uniform stationary law.",
+        "Durastante et al. 2026 give general Kemeny optimization algorithms, while the explicit resistance split and the two-variable inequality are new deductive steps here."
+      ],
+      "reasoning": "Neither a different-objective optimizer nor a generic optimization formulation implies the closed-form Kemeny optimizer without resolving its nonlinear capacity competition. The boundary H(8)>0>H(9) and all global equality conditions require the proof provided; no directly implying prior result was identified.",
+      "searches": [
+        "published-finding corpus: \"arXiv:0709.0955 Fastest Mixing Markov Chain on Graphs with Symmetries Boyd Diaconis Parrilo Xiao 2007\"",
+        "published-finding corpus: \"Optimal randomized gossip edge activation probabilities fastest consensus star graph wheel tree barbell vertex constraints spectral gap sampling\"",
+        "Web: \"Kemeny constant for random walks on weighted graphs effective resistance Kirchhoff index uniformly stationary transition matrix sum inverse eigenvalues\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.01061v1, pp. 1-3, uses cut-vertex resistance formulas for degree-normalized simple random walks, not optimized uniform-stationary symmetric stochastic kernels.",
+        "The exact equivalence Kemeny = tr((I-P+J/N)^(-1))-1 for symmetric uniform-stationary P is used in the new proof, and the equivalent Kirchhoff-index formulation was searched."
+      ],
+      "reasoning": "The natural alternative names are Kirchhoff-index minimization, mean hitting-time minimization and trace-inverse Laplacian optimization. On the inspected literature, no result gives the stated explicit optimized edge weights, all-m classification and exact holding-probability equality cases under these equivalent names.",
+      "searches": [
+        "published-finding corpus: \"Unique minimizer Kemeny's constant uniform-stationary symmetric stochastic walk on cycle with every vertex attached to a 3-edge pendant tail, transition threshold at m=9\"",
+        "Web: \"minimum Kemeny constant symmetric stochastic Markov chain weighted sunlet graphs cycle with pendant paths\"",
+        "published-finding corpus: \"Kirchhoff-index optimal stochastic transition probabilities necklace of paths cycle teeth length 3, root-middle constraints become slack above eight spokes\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic results include 2026/11/2/SCOPE-a-sharp-edge-space-kemeny-comparison-on-arbitrary-cycle-bouquets--54c961ecb853 about directed-edge constants of bouquets, a distinct graph and chain.",
+        "No directly indexed record of the entire graph-family optimizer, exact small-m holding classification or sharp m=9 cutoff appeared in these searches."
+      ],
+      "reasoning": "An absence from the indexed search is not a uniqueness theorem. The query comparison found no known tabulated or precomputed exact optimizer with matching assumptions, graph, criterion and parameter ranges.",
+      "searches": [
+        "published-finding corpus: \"2026 Kemeny stochastic uniform stationary cycle attached three-edge paths nine eight\"",
+        "published-finding corpus: \"Best symmetric stochastic Markov chains Kemeny three-leaf corona edge weights square root cycle vertices\"",
+        "Web: \"graph corona C_n P_3 Kemeny constant stochastic walk optimal transitions\""
+      ]
+    },
+    "rationale": "Multiple searches of published mathematical findings, prior claims and primary literature did not identify a result logically implying the explicit unique Kemeny-minimizing transition matrix on a cycle with three-edge tails and the sharp m=9 holding transition. General SDP/Kemeny tools and graph-resistance identities are acknowledged as prior, not novelty.",
+    "residual_risks": [
+      "Published semantic coverage is incomplete and cannot prove priority; unindexed theses or tables may contain an equivalent formula.",
+      "published-finding corpus returned summaries for some related works; these were not asserted to be fully inspected.",
+      "General literature may furnish a shorter or structurally more general route to these formulas without naming this family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related general machinery and different optimized SLEM objective; no direct three-tail Kemeny result in the inspected cases",
+        "evidence": [
+          "pp. 1-2 formulate spectral-norm SLEM objective; pp. 33-34 study a 6m-vertex cyclic motif with triangular bumps and report numerical SLEM weights."
+        ],
+        "identifier_or_url": "arXiv:0709.0955v1; https://arxiv.org/pdf/0709.0955",
+        "material_read": "Abstract and introduction pp. 1-2; graph reduction and cyclic family discussion; detailed final example pp. 33-34",
+        "method": "Full OA PDF text inspection and rendered page inspection, including pp. 1,2,33,34",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Foundational graph-symmetry optimization and a cyclic graph with local decorations"
+      },
+      {
+        "assessment": "Cut-vertex formulas are for natural random walks with degree-dependent stationary measures, not optimal uniform-stationary transition allocations",
+        "evidence": [
+          "p. 2 Lemma 1.1 uses the degree-weighted resistance quadratic form; p. 3 gives 1-separation formula under that graph walk."
+        ],
+        "identifier_or_url": "arXiv:2108.01061v1; https://arxiv.org/pdf/2108.01061",
+        "material_read": "Abstract, introduction, resistance lemma and §2 statement on pp. 1-3",
+        "method": "Full OA PDF text inspection and rendered page inspection of pp. 1 and 3",
+        "title": "A 1-Separation Formula for the Graph Kemeny Constant and Braess Edges",
+        "trigger": "Potential resistance-decomposition coverage of pendant-cycle Kemeny values"
+      },
+      {
+        "assessment": "General algorithms and SDP formulations; no tailored three-pendant cycle optimization or eight-to-nine cutoff found in the inspected full-text sections",
+        "evidence": [
+          "Article published 2026-09-23; §2 formulates constrained reversible Kemeny optimization; numerical studies use synthetic chains and power grids."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+        "material_read": "Full accessible HTML abstract, introduction, formulation and optimization discussions, examples and conclusions",
+        "method": "Publisher open-access HTML text review; searching the document for cycle, pendant and corona",
+        "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+        "trigger": "Direct modern optimization of Kemeny constant under sparsity and reversibility"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2ff4838e-04e7-4a62-9616-f1c005e1b840",
+  "value": {
+    "rationale": "This natural first nontrivial pendant depth yields an all-size exact Kemeny design with a sharp integer holding-probability phase transition. Smaller pendant depths force all nonterminal vertex stochasticity constraints to saturate; length three produces the first release of such a constraint. The all-asymmetric global uniqueness and explicit exact objective value make a reproducible benchmark for Markov design, without asserting a general theorem for arbitrary graph topologies or a large engineering gain.",
+    "status": "PASS"
+  }
+}
