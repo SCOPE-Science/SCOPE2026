@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For positive a,T,W,κ,p, the return map of two equal half-period affine-growth-and-impulse stages contracts by e^{-κ(r1^p+r2^p)}<1. Solving the fixed point and integrating its two dry pieces gives aT/4(1+s1)(1+s2)/(1-s1s2). Substitution yields the two claimed hyperbolic means. Setting c=2^(p-1)>1/2 and G=coth(x/2)/coth(cx), differentiation gives (log G)′=-1/sinh(x)+2c/sinh(2cx)<0 from strict growth of sinh(z)/z. The limits are 2^p and 1, proving all strict and equality regimes, including p=1. For p=2 the crossover reduces to cosh^2 x-cosh x-1=0, with unique positive solution. The code at this package’s checker.py independently reconstructed recurrence and tested 38,553 assertions; finite assertions are not a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published 2026 mathematical record, “Periodic leaching minimizes stationary salt mass: a renewal convex-risk law,” full RESULT.md examined; fixed retention r, variable renewal timing.",
+        "Published 2026 mathematical record, “Two sharp patch-allocation transitions for a generalized Type III feeding response,” full RESULT.md examined; Hill functional response with globally optimized two-patch prey allocations.",
+        "Vinck et al. (2023), full HTML: dry deposition and exponential wash-off modeled; no global rain-depth partition theorem located."
+      ],
+      "reasoning": "The fixed-retention leaching theorem has no budget coupling between event count and per-event removal, unlike this varying-retention comparison. The Type-III patch allocation has a different utility, denominator and feasible space, and its global optimum cannot imply the hyperbolic stationary-stock threshold. The present theorem does not claim a global optimum, avoiding a false broader parameter coverage assertion.",
+      "searches": [
+        "global optimal resource allocation for sigmoidal response tanh(x^p) two allocations vs corner; golden ratio for p=2",
+        "uniform deposition on impervious surfaces with rain-mediated fractional wash-off, stationary mean retained pollutant mass, fixed total rainfall schedule number of events",
+        "general stationary impulsive pollutant model power law wash-off rainfall allocation theorem"
+      ]
+    },
+    "checked_sources": [
+      "Mao et al. (2024), doi:10.1016/j.envpol.2024.123766, public abstract/metadata; full text unavailable",
+      "Vinck et al. (2023), doi:10.3390/w15050931, full HTML",
+      "He et al. (2024), doi:10.1021/acsestwater.4c00105, public abstract and supplementary material; main full text unavailable",
+      "Published full mathematical results: three-stage stormwater exposure ordering (2026-11-01), periodic leaching stationary salt mass (2026-11-02), two-patch Type III allocation (2026-10-26)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "“Sharp three-stage stormwater exposure ordering with continued pollutant supply,” first two findings/proof and limitations inspected: orders three preassigned positive rates over a finite interval, nonflushing receiving stock, initial mass and ongoing supply.",
+        "“Periodic leaching minimizes stationary salt mass: a renewal convex-risk law,” finding, assumptions, theorem proof inspected: iid interevent durations with fixed removal factor, and optimality of deterministic timing for fixed mean duration.",
+        "“Two sharp patch-allocation transitions for a generalized Type III feeding response,” finding/proof inspected: rational Hill-response prey allocation and a distinct exact transition formula."
+      ],
+      "reasoning": "None of the specific prior hypotheses contains a storm-dose power law with retention e^{-κr^p} and a fixed aggregate depth allocated to one full event versus two half-sized events. A general affine-recurrence technique can derive both but is not itself the asserted phase classification; it does not give the global p=1 regime boundary or the unique p>1 crossover without the present comparison. The paper with the closest physical objects was available as an abstract only, leaving material historical-priority uncertainty; the present evaluation is best-knowledge, not a certificate of novelty.",
+      "searches": [
+        "sharp rainfall sequencing stormwater pollutant first flush, strong prior theorem covering two equal vs one rainfall pulse under superlinear wash-off",
+        "uniform deposition on impervious surfaces with rain-mediated fractional wash-off, stationary mean retained pollutant mass, fixed total rainfall schedule number of events",
+        "published mathematical 3-stage stormwater exposure ordering and periodic leaching stationary salt mass exact results"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Vinck et al. (2023), doi:10.3390/w15050931, full article sections on dry-weather pollutant buildup and event wash-off.",
+        "Mao et al. (2024), doi:10.1016/j.envpol.2024.123766, 2024-03-14 public bibliographic abstract describing exponential RDS wash-off; full manuscript unavailable.",
+        "Published 2026 mathematical record, “Sharp three-stage stormwater exposure ordering with continued pollutant supply,” full RESULT.md examined."
+      ],
+      "reasoning": "A storm-response exponent and fixed aggregate rain budget induce retention factors depending on how depth is partitioned, whereas the closest three-stage ordering result permutes fixed rates and evaluates finite-horizon exported exposure. Its variables do not specialize to a comparison of stationary time-mean retained mass across two different storm-count schedules; its two-stage statement addresses ordering, not differing storm depths.",
+      "searches": [
+        "urban road deposited pollutant retention two periodic storm rain pulses wash-off exp(-k rain_depth^p), compare one concentrated storm vs two equal-depth storms; sharp crossover superlinear exponent p>1 and golden ratio cosh threshold",
+        "uniform deposition on impervious surfaces with rain-mediated fractional wash-off, stationary mean retained pollutant mass, fixed total rainfall schedule number of events",
+        "\"periodic rain\" \"wash-off\" \"equal\" \"split\" model"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact per-exponent threshold table for the stationary rain-depth-allocation comparison found among directly returned matched mathematical records.",
+        "The motivating 2024 road-deposited sediment paper reports empirical runoff splitting and loading fractions, rather than a table of this idealized normalized dose crossover."
+      ],
+      "reasoning": "The claimed parameter-dependent boundary is an analytic curve, with the quadratic case given by an algebraic golden-ratio equation; it is not a recomputation of a known empirical runoff split or a finite database lookup. Lack of a returned table is not treated as proof of uniqueness.",
+      "searches": [
+        "sharp rainfall sequencing stormwater pollutant first flush, strong prior theorem covering two equal vs one rainfall pulse under superlinear wash-off",
+        "urban road deposited pollutant retention two periodic storm rain pulses wash-off exp(-k rain_depth^p), compare one concentrated storm vs two equal-depth storms; sharp crossover superlinear exponent p>1 and golden ratio cosh threshold",
+        "road deposited sediment wash-off event splitting golden ratio hyperbolic cotangent threshold"
+      ]
+    },
+    "rationale": "The claim concerns the exact stationary time-mean of a surface stock with continuing deposition and two alternative fixed-total-rain event-size allocations. The directly read hydrological source describes buildup, event wash-off and numerical management; three highly relevant published mathematical records instead treat (i) finite-horizon order of three fixed wash-off rates, (ii) stationary renewal timing with fixed per-event retention, and (iii) a different Hill-function allocation objective. The dose-dependent retention and two prescribed periodic rain schedules are not recovered by substitution from those claims. The same-model assessment finds no known direct implication, without claiming exhaustive historical uniqueness. The inaccessible primary paper is an explicit priority risk.",
+    "residual_risks": [
+      "Full main article and appendices of Mao et al. (2024) were not readable, though the abstract was; an equivalent periodic-depth-allocation theorem not mentioned in its abstract cannot be ruled out.",
+      "Older rain-wash modeling and general impulsive dynamical optimization could contain this coth phase diagram as an unindexed special case.",
+      "The superlinear dose law is hypothetical and its field plausibility requires independent parameter calibration; the present mathematical finding is not an empirical result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT DECISIVELY COVERED ON VISIBLE ABSTRACT; full article could contain relevant scheduling results, so historical-priority risk remains",
+        "evidence": "PubMed PMID 38492751, Epub 2024-03-14, abstract reports a CPSI exponential wash-off equation, heterogeneity, and initial runoff volume splitting.",
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/38492751/",
+        "material_read": "PubMed bibliographic article abstract and publication record, not complete article or appendices; no full text obtained via public routes or institutional access",
+        "method": "Read article abstract, authors and electronic publication date; attempted lawful full-text access",
+        "title": "Characterization of road-deposited sediment wash-off and accurate splitting of initial runoff pollution in heterogeneous urban spaces",
+        "trigger": "Source with the closest physical objects: dry-day accumulation, runoff sediment wash-off and event partition"
+      },
+      {
+        "assessment": "NOT COVERING the specific fixed-total-rain, two-prescribed-schedules stationary mean crossover",
+        "evidence": "Vinck et al., Water 15 (2023), 931, doi:10.3390/w15050931.",
+        "identifier_or_url": "https://www.mdpi.com/2073-4441/15/5/931",
+        "material_read": "Open HTML article including model assumptions, methods, runoff pollution equations and results",
+        "method": "Read accessible methods, results and discussion sections in full HTML",
+        "title": "A New Decision Support Tool for Evaluating the Impact of Stormwater Management Systems on Urban Runoff Pollution",
+        "trigger": "Full primary text addressing surface buildup and exponential wash-off"
+      },
+      {
+        "assessment": "NOT COVERING: fixed three-stage rate permutations and finite-horizon exported exposure differ from rain-dose-dependent retention and the periodic stationary mean",
+        "evidence": "Result fixes a>b>c over three stages, while new comparison changes event size/retention across two periodic policies.",
+        "identifier_or_url": "Published mathematical result dated 2026-11-01: Sharp three-stage stormwater exposure ordering with continued pollutant supply",
+        "material_read": "Entire published RESULT.md, 11,811 characters, including finding, assumptions, six-step proof and limitations",
+        "method": "Direct read of full public mathematical result and its precise objective/hypotheses",
+        "title": "Sharp three-stage stormwater exposure ordering with continued pollutant supply",
+        "trigger": "Closest published mathematical result with the same scalar pollutant surface stock and ongoing supply"
+      },
+      {
+        "assessment": "NOT COVERING: constant per-event removal does not impose varying removal fractions driven by a fixed total rain budget",
+        "evidence": "The result fixes event retention 0<r<1 while varying interevent time distributions with a given mean.",
+        "identifier_or_url": "Published mathematical result dated 2026-11-02: Periodic leaching minimizes stationary salt mass: a renewal convex-risk law",
+        "material_read": "Entire published RESULT.md, 11,024 characters, including definitions, proof, limitations",
+        "method": "Compared fixed retention and renewal interval quantifiers with rainfall-budget-dependent retention",
+        "title": "Periodic leaching minimizes stationary salt mass: a renewal convex-risk law",
+        "trigger": "Nearest published stationary mean mass comparison under deposition and multiplicative removal"
+      },
+      {
+        "assessment": "NOT COVERING: no reduction of the rational prey allocation optimum to the coth wash-off threshold",
+        "evidence": "The published transition at N=(2^p-2)^(1/p) is distinct from coth(x/2)=2 coth(2^(p-1)x).",
+        "identifier_or_url": "Published mathematical result dated 2026-10-26: Two sharp patch-allocation transitions for a generalized Type III feeding response",
+        "material_read": "Entire published RESULT.md, 11,647 characters, including main theorem and five-step proof",
+        "method": "Compared rational Hill objective, constraints and optimum versus exponential-retention stationary stock and a restricted two-pattern choice",
+        "title": "Two sharp patch-allocation transitions for a generalized Type III feeding response",
+        "trigger": "Possible stronger coverage of two-target S-shaped response allocation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "21edf7b5-0f2f-4d3a-bf1b-6281ae4964a5",
+  "value": {
+    "rationale": "A natural fixed-total-rain choice between one concentrated precipitation event and two equal periodic events involves opposing operational mechanisms: a single stronger event may remove a larger fraction, whereas shorter dry accumulation gaps favor splitting. The full p>0 phase diagram, unique dimensionaless crossover for p>1 and explicit quadratic golden-ratio threshold distinguish these prescriptions analytically; the result is not merely an arbitrary single numerical point. It does not claim global scheduling optimality, total pollutant export reduction or field calibration, preventing misleading management recommendations. It provides a motivated benchmark for a family of event-response laws and reveals exactly when equal splitting cannot be assumed superior.",
+    "status": "PASS"
+  }
+}
