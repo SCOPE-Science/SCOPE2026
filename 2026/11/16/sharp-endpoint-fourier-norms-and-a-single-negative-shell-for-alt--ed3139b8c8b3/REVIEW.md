@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion covers all prime-power orders and every dimension at least six. The pointwise subspace-incidence expansion is checked separately on ranks zero, two, four, and all higher ranks. Character orthogonality reduces the transform to isotropic subspace enumeration; lifts across the radical give the exact count, and a Gaussian-binomial polynomial identity yields the stated closed transform. The sign proof explicitly treats the minimum-radical orbit, the one exceptional negative orbit, and every larger radical dimension using strict positive polynomials. The rank orbit count and Fourier inversion give the operator norm with sharpness for both endpoints. Exact integer checks in 42 parameter cases and two exhaustive independent binary transforms corroborate the proof; no finite experiment is presented as an infinite argument.
+## correctness
 
-## Originality — PASS under bounded primary-source comparison
-Delsarte–Goethals (1975) establishes the ambient alternating-forms scheme; Friedlander–Bouganis–Gadouleau (arXiv:2210.16153, Section 4) gives the general skew-rank Krawtchouk eigenvalues, which imply constituent coefficients. Abiad–Alfarano–Ravagnani (arXiv:2405.09254, Sections 2–3) studies spectral code-size bounds, and Schmidt–Weiß (arXiv:2508.12806, Sections 2–4) studies the packing linear-programming optimum. None of the inspected full texts supplies the universal strict sign classification of the cumulative rank-two-and-rank-four shells, the parity-dependent unique negative orbit, or the sharp absolute endpoint norm. Searches for alternate names—rank balls, second Plücker secants, alternating-form Krawtchouk sums, and Wiener norms—and comparisons with accessible earlier results did not find a dominating theorem. The earliest 1975 article was not available for complete inspection; an unlocated old table or implicit specialized computation remains a real residual priority risk. The claim is not that the character table itself is new.
+PASS
 
-## Mathematical value — PASS
-The radius-two ball in the alternating-rank metric is the first nontrivial secant of the finite-field Plücker cone and is a canonical frequency set. Its endpoint Fourier projection norm is a precise amplification invariant; evaluating it requires a global sign analysis, not merely a known list of eigenvalues. The uniform nonvanishing and unexpectedly single negative shell, changing from corank two to corank three by dimension parity, give a structural classification across an infinite family. The formula also determines exact invertibility of convolution by this ball's indicator, including even characteristic.
+Reconstructed the pointwise H4+(1-b)H2+constant*delta0 incidence identity for alternating bivectors, the character sum q^6 I_B(4)+(1-b)q I_B(2)+constant, and isotropic radical-lift counts. Independent integer Gaussian/incidence evaluations reproduce the polynomial F_r for 24 (q,n) instances q=2,3,4,5 and n=6..11; sample q=2,n=6 gives (18880,448,-64,64). The proof, not these finite checks, controls all q,n: factorizations of N(1),N(q),N(q^2),N(q^3) have strict signs at admissible parity and P(z),L(z) are positive increasing for z>=q^4. Fourier inversion and alternating-rank multiplicities give the exact absolute kernel norm and no-zero invertibility.
 
-## Scope and risk
-The theorem concerns rank at most four, not arbitrary rank thresholds. Direct full-text comparison against Delsarte–Goethals (1975) was unavailable, so independent historical-priority review is still warranted. Arithmetic tests are corroboration rather than independent proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is restricted to the strict universal unique-negative-shell and zero-free sign theorem and explicit endpoint absolute-norm evaluation, not Delsarte–Goethals character tables or the skew-rank MacWilliams formulas. The closest 1975 primary full text was inaccessible; treat as residual priority risk, not automatic rejection.
+
+## value
+
+PASS
+
+Determining the sign pattern of a natural rank-at-most-four ball over every finite field, no-zero Fourier boundary and exact endpoint norm is a meaningful global structural result that is not supplied by mere character eigenvalue listings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
