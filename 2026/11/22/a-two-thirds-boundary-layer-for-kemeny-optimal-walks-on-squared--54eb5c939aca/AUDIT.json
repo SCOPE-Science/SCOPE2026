@@ -1,0 +1,168 @@
+{
+  "correctness": {
+    "rationale": "On 1-perp the connected graph Laplacian is positive definite. The inverse trace is strictly convex under any nonzero symmetric Laplacian perturbation; injectivity of off-diagonal weights and cyclic averaging establish unrestricted uniqueness. Positivity of the objective under global edge scaling rules out holding; Fourier diagonalization gives the exact strictly convex scalar problem and a unique interior root (positive derivative at epsilon=1, nonoptimal other endpoint). A sine partial fraction plus Poisson-kernel roots-of-unity sum proves the exact finite-n resolvent. Comparison and lower-bound arguments trap epsilon*n^(2/3) away from zero and infinity, and a uniform two-term expansion proves 4^(2/3) and the correction constant. An independent finite-size matrix inverse matches the Fourier objective and 986 finite diagnostics passed; those checks are corroboration, not proof of the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. supply general automorphism orbit reduction for SLEM optimization; Ghosh et al. optimize resistance via general convex formulations; Patel et al. supply Kemeny design framework.",
+        "The three general design sources do not state a closed squared-cycle allocation or n^(-2/3) singular asymptotic in the inspected material."
+      ],
+      "reasoning": "Broader frameworks subsume the feasibility setup and some proof techniques, but do not logically supply the graph-specific nonlinear minimizer and boundary-layer coefficient without additional analysis. The present value and novelty are not attributed to generic convexity or Fourier diagonalization.",
+      "searches": [
+        "Kemeny constant optimizing edge weights length one and length two cycle, large n boundary layer",
+        "Kemeny optimal 4-regular circulant network short long jump parameters",
+        "Kemeny trace inverse Laplacian optimizer for two distance orbit circulant cycle weighted walks n^-2/3",
+        "arxiv:0709.0955v1",
+        "doi:10.1137/070689413"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955v1; https://arxiv.org/abs/0709.0955",
+      "doi:10.1109/TAC.2015.2426317; https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+      "doi:10.1137/070689413; https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf",
+      "arxiv:2110.12614; doi:10.1016/j.dam.2022.01.001; https://ar5iv.labs.arxiv.org/html/2110.12614",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-fastest-symmetric-mixing-on-two-hop-cyclic-networks--68c871d2f31e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-fastest-mixing-on-the-second-power-of-every-finite-cycle--1e4c2afd1cba"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Kemeny SDP theory implies existence of an optimization formulation, not explicit C_n^2 weights.",
+        "Prior C_n^2 SLEM results have nearest-neighbor scale n^(-2), while the new Kemeny optimum has n^(-2/3), so those stated optimizers do not solve the new objective.",
+        "Equal-neighbor hitting-time formulas evaluate epsilon=1/2 only."
+      ],
+      "reasoning": "The claim requires one unique interior root for every n>=5, a closed exact resolvent, and a nontrivial n^(-2/3) boundary-layer limit. Neither the specific fixed-weight formula nor different-objective SLEM optimizer directly implies those conclusions. An unadvertised general proposition or uninspected full text might still imply them, so priority remains provisional.",
+      "searches": [
+        "Kemeny-optimal walks on two-hop cycles, circulant C_n^2 with nearest-neighbor and next-nearest-neighbor jump probabilities, asymptotic n to power minus two thirds",
+        "Kemeny constant optimizing edge weights length one and length two cycle, large n boundary layer",
+        "Kemeny trace inverse Laplacian optimizer for two distance orbit circulant cycle weighted walks n^-2/3",
+        "weighted second power cycle Kemeny constant optimal transition probability nearest next nearest minimize average hitting time",
+        "Kemeny optimal squared cycle random walk n^{-2/3} nearest neighbor next nearest",
+        "doi:10.1109/TAC.2015.2426317",
+        "arxiv:2110.12614"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For uniform stationary measure, Kemeny sum equals trace of (I-P)^+ and is proportional to total effective resistance; Ghosh et al. and Patel et al. address these general formulations.",
+        "Doi et al. 2021 uses the same graph but fixed equal probabilities, not optimized two-orbit weights."
+      ],
+      "reasoning": "Explicitly compared Kemeny, hitting-time, Kirchhoff index, effective-resistance, inverse-Laplacian trace and Fourier-circulant formulations. These equivalences change nomenclature, not the need to derive the exact optimized scalar and exponent. No inspected primary text or semantic result contained that statement.",
+      "searches": [
+        "Kemeny-optimal walks on two-hop cycles, circulant C_n^2 with nearest-neighbor and next-nearest-neighbor jump probabilities, asymptotic n to power minus two thirds",
+        "symmetric stochastic walks squared cycle C_n^2 minimizing Kemeny trace with two edge-orbit weights scaling n^(-2/3)",
+        "mean first passage time optimized circulant two hops cycle trace pseudoinverse",
+        "Kemeny constant minimization on square of cycle C_n^2 weighting nearest neighbor versus next-nearest neighbor probability full asymptotic",
+        "arxiv:2110.12614",
+        "doi:10.1109/TAC.2015.2426317"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published C_n^2 entries concern spectral-radius fastest mixing and report n^(-2) nearest-neighbor weights.",
+        "The separately inspected squared-cycle hitting-time article fixes its walk at probability 1/4 per edge."
+      ],
+      "reasoning": "The checked exact C_n^2 objects and their parameters were contrasted directly; an SLEM table and fixed-weight hitting-time formulas do not table the trace-inverse optimum. Semantic search is not proof that no hidden or unindexed table exists; this remains a residual risk.",
+      "searches": [
+        "symmetric stochastic walks squared cycle C_n^2 minimizing Kemeny trace with two edge-orbit weights scaling n^(-2/3)",
+        "Kemeny constant minimization on square of cycle C_n^2 weighting nearest neighbor versus next-nearest neighbor probability full asymptotic",
+        "Kemeny trace inverse Laplacian optimizer for two distance orbit circulant cycle weighted walks n^-2/3",
+        "asymptotic Kemeny optimum for square cyclic graphs with small short-step probability",
+        "published-finding corpus 2026/11/2/SCOPE-exact-fastest-mixing-on-the-second-power-of-every-finite-cycle--1e4c2afd1cba",
+        "published-finding corpus 2026/10/13/SCOPE-exact-fastest-symmetric-mixing-on-two-hop-cyclic-networks--68c871d2f31e"
+      ]
+    },
+    "rationale": "The specific positive Kemeny optimization on squared cycles, its exact resolvent and n^(-2/3) design boundary layer are not implied by inspected general convex/SDP resistance design, fixed-weight squared-cycle hitting-time identities, or the different-objective n^(-2) fastest-mixing spectral-radius record. Novelty is best-knowledge and qualified because some relevant published full texts were inaccessible, and no search proves publication uniqueness.",
+    "residual_risks": [
+      "Relevant published published-finding corpus C_n^2 SLEM records were accessible as scientific summaries, not their complete primary manuscripts; an unadvertised corollary might exist.",
+      "Publication priority cannot be proven from search coverage, particularly unpublished or differently indexed spectral sums.",
+      "Finite diagnostics and same-model proof review are not independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Optimizes second-largest eigenvalue modulus, not trace inverse or Kemeny; orbit averaging is shared background but does not imply the scalar root, resolvent or exponent.",
+        "evidence": [
+          "The 2007 abstract defines the target as second-largest eigenvalue modulus",
+          "No Kemeny-specific squared-cycle allocation appears in the inspected sections"
+        ],
+        "identifier_or_url": "arxiv:0709.0955v1; https://arxiv.org/abs/0709.0955",
+        "material_read": "Full open-access manuscript sections on objective, automorphism orbits and example graphs, including PDF opening and symmetry argument; abstract and submission date verified separately",
+        "method": "Read primary PDF text and page renderings and checked objective and circulant/cycle terminology",
+        "title": "Fastest mixing Markov chain on graphs with symmetries",
+        "trigger": "Oldest focal graph-symmetry constrained Markov optimization source and same cyclic averaging method"
+      },
+      {
+        "assessment": "Provides general convex optimization and computational SDP but not the explicit finite squared-cycle optimizer or singular n^(-2/3) transition found here.",
+        "evidence": [
+          "General weighted-Kemeny convexity and SDP formulas are existing results",
+          "No fixed two-hop cycle family, exact Fourier resolvent or sharp power-law optimizer is established in the inspected material"
+        ],
+        "identifier_or_url": "doi:10.1109/TAC.2015.2426317; https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "Author-manuscript PDF sections defining weighted Kemeny, its convex/semidefinite design, examples and optimization conditions; page images examined",
+        "method": "Read actual primary manuscript, searched graph/cycle terminology and inspected formulations",
+        "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+        "trigger": "Closest general prior framework with the same objective, convexity and stochastic constraints"
+      },
+      {
+        "assessment": "General effective-resistance optimization covers formulation but gives no source result fixing optimal nearest/two-hop Kemeny probabilities or n^(-2/3) boundary layer.",
+        "evidence": [
+          "The paper relates weighted Laplacian pseudoinverse trace to network resistance",
+          "General optimality conditions alone require a distinct calculation to derive the specific asymptotic law"
+        ],
+        "identifier_or_url": "doi:10.1137/070689413; https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf",
+        "material_read": "Open-access PDF introduction, objective setup, examples and conductance-design methods, with PDF page images",
+        "method": "Read primary PDF and assessed whether examples or results cover the exact circulant claim",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Potential broader design theorem implying the inverse-Laplacian objective"
+      },
+      {
+        "assessment": "All four neighbors of each vertex have fixed simple-walk probability 1/4; it solves hitting times for that walk but does not optimize independently variable transition probabilities.",
+        "evidence": [
+          "Definition and proof of the simple random walk use probability 1/4 on each neighbor",
+          "This corresponds only to epsilon=1/2 in the new optimization"
+        ],
+        "identifier_or_url": "arxiv:2110.12614; doi:10.1016/j.dam.2022.01.001; https://ar5iv.labs.arxiv.org/html/2110.12614",
+        "material_read": "Full lawful arXiv HTML including theorem, definitions and proof of the hitting-time formula",
+        "method": "Read full-text original arXiv representation and inspect explicit random-walk transition normalization",
+        "title": "On the average hitting times of the squares of cycles",
+        "trigger": "Exact same squared-cycle graph and hitting-time observable, strongest graph-specific source"
+      },
+      {
+        "assessment": "Published claim concerns fastest SLEM and leading gap, not inverse-eigenvalue sum; the full published manuscript remains an access-based residual novelty risk.",
+        "evidence": [
+          "Its stated objective is minimum SLEM, and main conclusion is a spectral-gap asymptotic",
+          "The new optimum is for the different sum of inverse eigenvalue gaps"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-fastest-symmetric-mixing-on-two-hop-cyclic-networks--68c871d2f31e",
+        "material_read": "Published record title and substantive abstract-style summary; primary full file unavailable",
+        "method": "Compared actual semantic search record statement, especially SLEM rather than Kemeny",
+        "title": "Exact Fastest Symmetric Mixing on Two-Hop Cyclic Networks",
+        "trigger": "Same squared-cycle family with autonomous symmetric edge optimization"
+      },
+      {
+        "assessment": "Studies Chebyshev spectral equioscillation and SLEM with near-neighbor weights n^(-2), a distinct objective and incompatible optimizer from Kemeny n^(-2/3). Cannot exclude unadvertised extra material in inaccessible full text.",
+        "evidence": [
+          "Its stated one-hop weight decays n^(-2), unlike n^(-2/3) in the new analytic theorem",
+          "Minimizing spectral radius does not generally imply minimizing inverse-trace"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-fastest-mixing-on-the-second-power-of-every-finite-cycle--1e4c2afd1cba",
+        "material_read": "Published record title and detailed scientific summary; primary full file inaccessible",
+        "method": "Compared exact objective, supported graph, optimizer asymptotic and proposed implication",
+        "title": "Exact Fastest Mixing on the Second Power of Every Finite Cycle",
+        "trigger": "Possibly dominating C_n^2 theorem with all permitted edge weights"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "54eb5c93-9aca-4503-910b-793fb0116019",
+  "value": {
+    "rationale": "The exact optimum of a natural family of spatially local reversible Markov chains is characterized for all sizes, unrestricted edge allocations and holding, with a singular two-channel limit: the short-step probability is positive yet vanishes as n^(-2/3), unlike the n^(-2) fastest-spectral-mixing objective. The leading Kemeny sum improves fourfold over nearest-neighbor dynamics, and the sharp n^(4/3) second-order penalty exposes the mechanism. This is not a routine known-table evaluation or merely a generic convexity observation.",
+    "status": "PASS"
+  }
+}
