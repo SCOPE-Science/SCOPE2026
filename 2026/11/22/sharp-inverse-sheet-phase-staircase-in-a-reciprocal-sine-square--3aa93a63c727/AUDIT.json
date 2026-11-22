@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For a,b>0 and 0<u,v<1, every admissible second phase is one of finitely many zeta=k*pi+theta or zeta=(k+1)*pi-theta; substitution gives a strictly monotone inverse phase and the explicit positive root of (a/pi^2)x^2+c x-a=0. Only phase choices 0<zeta<=b*pi permit x approaching zero. Each such phase and each of two nonmerged first-phase branches contributes a/epsilon+O(1); all other phases contribute O(1). Exact Jacobian determinant -ab(1+pi^2/x^2)sin(2Theta)sin(2Phi) is nonzero at each interior target. The K_b(v) floor formula and b=1/2 threshold account for phase boundaries inclusive; a harmonic-series estimate proves O(epsilon log(1/epsilon)) transverse Wasserstein-1 convergence. All quantifiers and target-edge exclusions are explicit. The package checks/verify_inverse.py checked 270 cutoff enumerations by two methods and 21,424 regular inverse samples; those checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The cosine-flux Chialvo inverse-valence theorem, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-singular-zero-to-infinite-inverse-valence-transition-in-a-cosine--8b96b0ec53ba, counts growing positive-quadrant x<=R preimages for a different exponential/cosine map.",
+        "Mira, Noninvertible maps (2007), https://doi.org/10.4249/scholarpedia.2328, gives general concepts of preimages and critical curves but no reciprocal sine-square phase staircase."
+      ],
+      "reasoning": "General inverse-branch and oscillatory root principles motivate the proof, but no checked stronger theorem states the precise finite-height phase staircase, b=1/2 all-target transition, and atom locations for this map. The comparable published cosine map has source infinity rather than the excluded bounded square edge; its coefficient and target coverage do not specialize to this map.",
+      "searches": [
+        "published-finding corpus semantic search: Zhu Deng Zhang Zhu hyperchaotic reciprocal sine map 2023 inverse-fiber asymptotic N(epsilon)=2aK/epsilon for target (u,v), countable regular preimages in unit square",
+        "published-finding corpus semantic search: preimage-counting essential singularity sin squared 1/x accumulation boundary phase threshold b=1/2 and atomic transverse distribution",
+        "web search: noninvertible planar maps preimage count critical curves inverse sheets Mira 1996 2001",
+        "published-finding corpus semantic search: Lawnik Berezowski 2022 M-map invariant density exact topological entropy periodic-point census and Perron Frobenius"
+      ]
+    },
+    "checked_sources": [
+      "Zhu et al., Mathematics 11 (2023), 3171, https://doi.org/10.3390/math11143171, complete public HTML",
+      "Published same-map fixed-point finding, published-finding corpus 2026/11/2/99bf14d32624, complete RESULT.md",
+      "Published cosine-flux inverse-valence finding, published-finding corpus 2026/11/8/8b96b0ec53ba, complete RESULT.md",
+      "C. Mira, Noninvertible maps, Scholarpedia 2(9):2328 (2007)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Same-map fixed-point RESULT.md specifies exactly two saddles per high phase band for F(x,y)=(x,y), with x~a/n and y~a^4/n^2.",
+        "Current proof independently solves F(x,y)=(u,v) via a finite second-phase set and an explicit quadratic inverse equation; K_b(v) jumps as b or v crosses phase thresholds.",
+        "2023 original Sections 2 and 6 emphasize numerical forward dynamics and encryption instead of arbitrary-target backward count."
+      ],
+      "reasoning": "The prior fixed-point equation forces the target to vary with the unknown source; it cannot vary u and v independently or determine the K_b(v) staircase. The bounded-square source and b-threshold obstruct derivation from the Chialvo infinite-quadrant map. The new exact parametrization is not a renaming of a prior fixed-point result.",
+      "searches": [
+        "published-finding corpus semantic search: Map x_next = sin^2(a pi/x + b y), y_next=sin^2(b pi y+a x): infinitely many inverse branches accumulating at x=0; preimage counting asymptotic and inverse-sheet density",
+        "published-finding corpus semantic search: 2D sin-square chaotic map x_{n+1}=sin^2(a pi /x_n + b y_n), y_{n+1}=sin^2(b pi y_n+a x_n), preimages inverse equation all target values",
+        "published-finding corpus semantic search: Zhu Deng Zhang Zhu hyperchaotic reciprocal sine map 2023 inverse-fiber asymptotic N(epsilon)=2aK/epsilon for target (u,v), countable regular preimages in unit square",
+        "published-finding corpus semantic search: preimage-counting essential singularity sin squared 1/x accumulation boundary phase threshold b=1/2 and atomic transverse distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source Equation (1), https://doi.org/10.3390/math11143171; inspected Sections 2-6 do not give inverse-sheet counts.",
+        "Same-map published RESULT.md, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-two-fixed-point-saddles-per-reciprocal-phase-band-in-a-coupled-s--99bf14d32624: near-singular fixed-point roots solve F(x,y)=(x,y), unlike F(x,y)=(u,v) with independent u,v."
+      ],
+      "reasoning": "Possible aliases include reciprocal trigonometric map, sine-square coupled map, inverse valence, one-step antecedent count, and phase-cell inverse root census. Fixed-point accumulation at a moving target is not an equivalent formulation of targetwise inverse-fiber proliferation. The present coefficient depends on the second target height via K_b(v); the fixed-point theorem has no independent target-height parameter.",
+      "searches": [
+        "published-finding corpus semantic search: Map x_next = sin^2(a pi/x + b y), y_next=sin^2(b pi y+a x): infinitely many inverse branches accumulating at x=0; preimage counting asymptotic and inverse-sheet density",
+        "published-finding corpus semantic search: 2D sin-square chaotic map x_{n+1}=sin^2(a pi /x_n + b y_n), y_{n+1}=sin^2(b pi y_n+a x_n), preimages inverse equation all target values",
+        "web search: Zhu Deng Zhang Zhu 2023 \"sin\" \"aπ/x\" \"preimages\" inverse",
+        "web search: reciprocal sine square map preimage number x near zero inverse fibers",
+        "published-finding corpus semantic search: 2D hyperchaotic sine square map essential singularity inverse preimage count compact square 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest exact model-specific indexed record covers the small-state fixed-point spectrum rather than an arbitrary-target inverse census.",
+        "The 2023 source paper reports numerical Lyapunov/bifurcation/PRNG measures; no exact inverse-count table is presented in its accessible complete HTML."
+      ],
+      "reasoning": "An enumerated sample or histogram of forward chaotic output does not imply a theorem counting every regular backward inverse at all cutoff scales. No targetwise inverse-count database/table with K_b(v) was located.",
+      "searches": [
+        "published-finding corpus semantic search: Zhu Deng Zhang Zhu hyperchaotic reciprocal sine map 2023 inverse-fiber asymptotic N(epsilon)=2aK/epsilon for target (u,v), countable regular preimages in unit square",
+        "published-finding corpus semantic search: preimage-counting essential singularity sin squared 1/x accumulation boundary phase threshold b=1/2 and atomic transverse distribution",
+        "web search: 2023 two dimensional hyperchaotic map Zhu Deng sin square reciprocal singular fixed points inverse dynamics"
+      ]
+    },
+    "rationale": "The source 2023 map was read in its mathematical-model/dynamical sections and conclusion. The closest same-map indexed published-finding corpus theorem counts fixed points and proves saddle multipliers near (0,0), not inverse solutions for arbitrary fixed interior targets. Its N(epsilon)=2a/epsilon fixed-point count does not imply the phase-dependent arbitrary-target coefficient 2a K_b(v), the all-target b=1/2 threshold, or the transverse atomic inverse-fiber law. An inverse-valence theorem for a cosine-flux Chialvo map addresses different equations and an unbounded positive quadrant; it cannot be instantiated to the present bounded source with reciprocal x-singularity. Searches of aliases and stronger coverage disclosed no exact covering statement; broader literature remains a priority risk.",
+    "residual_risks": [
+      "A broader unindexed theorem about oscillatory inverse fibers could imply the counting formula after model-specific reduction.",
+      "The priority comparison is best-knowledge rather than independent exhaustive scholarly review.",
+      "The leading O(1) error is fixed-parameter and may not be uniform near phase-threshold equalities."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact coupled map and numerical forward/cryptographic analysis, no all-target inverse valence staircase or its proof",
+        "evidence": [
+          "https://www.mdpi.com/2227-7390/11/14/3171, dated 2023-07-19, Equation (1), lines 214-224; Sections 2-6 and concluding lines 547-551"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math11143171",
+        "material_read": "Full publicly accessible article HTML, concentrating on Equation (1), Sections 2-3, inverse/decryption mentions in Section 4, Section 5, and conclusions Section 6",
+        "method": "Read publisher full-text HTML; searched page for preimage and inverse; compared scientific propositions and equations rather than titles",
+        "title": "Construction of a New 2D Hyperchaotic Map with Application in Efficient Pseudo-Random Number Generator Design and Color Image Encryption",
+        "trigger": "Exact originating map, earliest verified public source date and potential prior inverse discussion"
+      },
+      {
+        "assessment": "Proves fixed-point pair spectrum and multiplier asymptotics; not an arbitrary-target inverse-fiber result",
+        "evidence": [
+          "RESULT.md sections Finding, Proof and Limitations; fixed-point constraint F(x,y)=(x,y); coefficient N(epsilon)=2a/epsilon for fixed points"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-two-fixed-point-saddles-per-reciprocal-phase-band-in-a-coupled-s--99bf14d32624",
+        "material_read": "Complete RESULT.md scientific claim, hypotheses, proof and relationship to literature",
+        "method": "Fetched and read published GitHub RESULT.md through repository connector",
+        "title": "Two fixed-point saddles per reciprocal phase band in a coupled sine-square map",
+        "trigger": "Same exact map and same reciprocal phase edge, potential encompassing theorem"
+      },
+      {
+        "assessment": "Similar inverse counting mechanism but different exponential-cosine system, quadrant domain, asymptotic variable and constant",
+        "evidence": [
+          "RESULT.md sections Finding and Proof: positive-quadrant R-growth coefficient k1/k2 for a different map"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-singular-zero-to-infinite-inverse-valence-transition-in-a-cosine--8b96b0ec53ba",
+        "material_read": "Complete RESULT.md mathematical statement, hypotheses, and proof",
+        "method": "Fetched and read published GitHub RESULT.md through repository connector",
+        "title": "Singular zero-to-infinite inverse-valence transition in a cosine-flux Chialvo map",
+        "trigger": "Closest conceptual inverse-sheet counting with oscillatory forcing"
+      },
+      {
+        "assessment": "General taxonomy only; does not give this family-specific count, boundary-phase selection or atomic limit",
+        "evidence": [
+          "https://www.scholarpedia.org/article/Noninvertible_maps, sections introducing rank-one preimages and inverse branches"
+        ],
+        "identifier_or_url": "https://doi.org/10.4249/scholarpedia.2328",
+        "material_read": "Article explanation of rank-one preimages, critical points, Z_i regions and applications",
+        "method": "Read accessible Scholarpedia article text",
+        "title": "Noninvertible maps",
+        "trigger": "Broader standard framework of inverse fibers and critical preimages"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3aa93a63-c727-481f-9bb9-bddadeff6ab0",
+  "value": {
+    "rationale": "An explicit, physically bounded state domain for an established coupled chaotic map can have countably infinite regular one-step inverse fibers accumulating at the undefined boundary. The precise inverse multiplicity coefficient is a target-dependent phase staircase, with a sharp b=1/2 threshold for all interior targets and a finite atomic transverse limiting law. This clarifies backward-state ambiguity and distinguishes infinite valence without critical folds from familiar finite-fold noninvertible maps; it is a global classification of a natural invariant of the published map, not an arbitrary selected finite table or a renamed fixed-point census. It does not imply cryptographic weakness or forward asymptotics.",
+    "status": "PASS"
+  }
+}
