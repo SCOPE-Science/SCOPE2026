@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Fenchel support dual yields f*=||b||²/2-dist(b,C)²/[2(1+r)] and x_kappa=(kappa b-Proj_C(kappa b))/(kappa+r). The projection normal inequality p.q>=0 and factorization B²-D(r+kappa²)=kappa²(1-kappa)² imply the exact nonnegative gap (A/D)L-f(x_kappa)=(1-kappa)²(B p.q+r||q||²/2)/(D B²). A farthest nonzero point p of C certifies equality at b=p/kappa for every gauge. Contractive proximal iteration and q>0 bounds are proved separately. 1,728 exact rational cases independently checked the algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zou and Hastie (2005), Sections 2–3, supply elastic-net shrinkage for an orthogonal design; the present C ranges over arbitrary compact convex sets containing zero.",
+        "Balcan et al., NeurIPS 2022, abstract: piecewise-rational validation losses for tuning ElasticNet across datasets, not the within-objective sharp ratio for arbitrary gauges."
+      ],
+      "reasoning": "Known formulas for particular soft thresholds and general regularization paths do not state or immediately classify a gauge-independent worst-case objective inflation attainable for each convex gauge. The unrestricted geometry and exact saturation are the material extension.",
+      "searches": [
+        "sharp worst case objective ratio (1+r)/(r+kappa(2-kappa)) elastic net proximal gradient weighted gradient mismatch",
+        "universal sharp objective ratio support function regularizer plus ridge quadratic weighted gradient kappa gradient scaling minimizer",
+        "web: elastic net soft threshold orthogonal design proximal closed form quadratic l1 paper 2005",
+        "web: elastic net approximation objective worst case over regularization parameter misspecification bound objective ratio"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.32750",
+      "https://doi.org/10.1111/j.1467-9868.2005.00503.x",
+      "https://papers.nips.cc/paper_files/paper/2022/hash/b21a34c4e8dba253f05f4a5adc68ba73-Abstract-Conference.html",
+      "https://doi.org/10.1093/IMAIAI/IAZ027",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-corrected-squared-soft-threshold-duals-in-the-dual-smoothing-exa--b751cd0ca81f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brito et al. (2026) explicitly permit weighted/unweighted critical point displacement; Examples 3.16–3.17 give instances but no minimax objective ratio.",
+        "Zou–Hastie (2005) derives box-like special cases, and Combettes–Pesquet (2006) treats general proximal-thresholding background."
+      ],
+      "reasoning": "The prior critical-point distance bounds do not yield a finite sharp value ratio for arbitrary gauges without an additional comparison argument. The proof uses a new two-projection dual lower bound and the exact nonnegative algebraic slack, then shows equality at a farthest dual-set point. A full earlier theorem giving this universal comparison would cover the claim even without matching wording; none was identified in the sources searched.",
+      "searches": [
+        "soft thresholding quasar convex proximal method objective misalignment sharp relative gap for strongly convex l1 plus quadratic",
+        "weighted composite proximal gradient min kappa g+h compare min g+h elastic net loss function error sharp",
+        "quasar convex proximal gradient weighted objective regret support path ratio absolute value norm",
+        "web: \"elastic net\" \"worst-case\" \"objective\" \"ratio\" \"penalty\" orthogonal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brito et al. arXiv:2610.32750v1, Algorithm 1 and Section 3: optimizes F_kappa=kappa g+h; Theorem 3.15 bounds distance to minimizers of f=g+h.",
+        "The derived equivalent dual statement uses C=partial H(0), p=Proj_C(kappa b), and dist(b,C)."
+      ],
+      "reasoning": "The object here is sup_b f_b(x_kappa)/min_x f_b(x), not the convergence rate or distance of iterates. Dual projection makes the bound universal over every convex gauge, and the equality condition is an exact geometric normal-cone test.",
+      "searches": [
+        "arxiv 2610.32750 Brito Lara Yuan PG-SQC elastic net quadratic regularizer weighted objective kappa minimizer exact approximation inflation",
+        "weighted composite proximal gradient min kappa g+h compare min g+h elastic net loss function error sharp",
+        "universal sharp objective ratio support function regularizer plus ridge quadratic weighted gradient kappa gradient scaling minimizer",
+        "web: weighted proximal gradient scaled smooth component sharp objective value degradation composite optimization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned nearest titled result: 2026/10/4/SCOPE-corrected-squared-soft-threshold-duals-in-the-dual-smoothing-exa--b751cd0ca81f, concerning conjugates, not objective inflation.",
+        "published-finding corpus search also returned 2026/10/26/SCOPE-sharp-proximal-bifurcation-and-cusp-laws-for-logistic-spectral-s--7fbc9df4762d, concerning logistic spectral shrinkage, not this comparison."
+      ],
+      "reasoning": "The actual semantic search hits do not record the universal factor or any exact table of this invariant. Absence of a match is not treated as proof of novelty.",
+      "searches": [
+        "arxiv 2610.32750 Brito Lara Yuan PG-SQC elastic net quadratic regularizer weighted objective kappa minimizer exact approximation inflation",
+        "sharp worst case objective ratio (1+r)/(r+kappa(2-kappa)) elastic net proximal gradient weighted gradient mismatch",
+        "universal sharp objective ratio support function regularizer plus ridge quadratic weighted gradient kappa gradient scaling minimizer",
+        "regularization over-scaling prox soft threshold sharp approximation factor 1/(kappa(2-kappa)) objective"
+      ]
+    },
+    "rationale": "Motivating work establishes weighted critical-point and distance comparisons, but not a sharp objective-value ratio independent of convex penalty geometry; traditional elastic-net formulas are narrow special cases. Separate universal all-gauge sharpness and equality characterization were compared against actual published-finding corpus and primary sources; historical priority remains unverified.",
+    "residual_risks": [
+      "Historical priority is not established by search nonmatches.",
+      "NeurIPS 2022 ElasticNet parameter-tuning full paper was not inspected; the accessible abstract appears to cover a different validation-risk quantity.",
+      "Other older convex-dual optimization work may contain equivalent gauge-independent comparison identities."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_PROVIDES_WEIGHTED_METHOD_NOT_EXACT_UNIVERSAL_RATIO",
+        "evidence": "Equation (11)–(12) weighted gradient/proximal rule, Theorem 3.15 distance-to-minimizer and Example 3.16 scalar quadratic displacement, Section 4 regularization rescaling discussion.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.32750",
+        "material_read": "Full available web HTML textual article, especially Introduction, Sections 2–4, Algorithm 1, Theorem 3.15 and Examples 3.16–3.17",
+        "method": "arXiv full-text HTML rendition viewed and searched",
+        "title": "A Proximal Gradient Method for Nonconvex Nonsmooth Optimization with Applications",
+        "trigger": "Source of kappa-weighted proximal algorithm and comparison objective"
+      },
+      {
+        "assessment": "SPECIAL_CASE_FORMULAS_NOT_ALL_GAUGE_BOUND",
+        "evidence": "Sections 2.2 and 3 describe shrinkage and augmented-regression formulation; no arbitrary convex support set or sharp within-objective normalized inflation ratio.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9868.2005.00503.x",
+        "material_read": "Journal HTML Sections 2 and 3, including normalized model and naive elastic-net rescaling and orthogonal-design discussion",
+        "method": "Publisher full-text HTML page",
+        "title": "Regularization and Variable Selection Via the Elastic Net",
+        "trigger": "Classical orthogonal elastic-net shrinkage might dominate a proposed scalar special case"
+      },
+      {
+        "assessment": "RELATED_PARAMETER_DEPENDENCE_FULL_TEXT_UNINSPECTED",
+        "evidence": "Abstract establishes piecewise-rational validation-loss structure for ElasticNet tuning and generalization across instances, not the present within-objective ratio; full-text priority risk retained.",
+        "identifier_or_url": "https://papers.nips.cc/paper_files/paper/2022/hash/b21a34c4e8dba253f05f4a5adc68ba73-Abstract-Conference.html",
+        "material_read": "Conference abstract, not the full text",
+        "method": "Conference abstract page",
+        "title": "Provably Tuning the ElasticNet across Instances",
+        "trigger": "Potential stronger general loss-parameter structural characterization"
+      },
+      {
+        "assessment": "DIFFERENT_COMPARATOR",
+        "evidence": "Discusses penalized regularization versus best s-sparse solutions, not minimizers of F_kappa versus f for every gauge.",
+        "identifier_or_url": "https://doi.org/10.1093/IMAIAI/IAZ027",
+        "material_read": "Journal HTML discussion of proximal thresholding, L1 penalty and restricted optimality",
+        "method": "Journal full-text HTML",
+        "title": "Between hard and soft thresholding: optimal iterative thresholding algorithms",
+        "trigger": "Worst-case soft-thresholding versus sparse objective optimality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db8061d4-8d29-4a5c-899f-b7277d668c98",
+  "value": {
+    "rationale": "Sharp dimension-free worst-case unweighted objective inflation quantifies the exact cost of the weighted-gradient objective mismatch highlighted in the motivating 2026 method. The factor is nontrivially independent of arbitrary support-set geometry, and every fixed nonzero gauge attains it. Positive ridge changes the exact worst-case severity, making this a benchmark for objective calibration and regularizer scaling rather than a textbook single soft-threshold computation.",
+    "status": "PASS"
+  }
+}
