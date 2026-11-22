@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T01:47:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified from the actual RESULT.md and all seven source Git entries: for q=n-1, the regular solution h_s(x)=2F1(a_s,q-a_s;1;x), a_s(q-a_s)=s/c, yields E exp(-sT_b)=1/h_s(b). Product factorization gives m=ΣA_k b^k/c and Var=m^2-2ΣA_k b^k S_k/c^2. Thus D=2 E_w S_K/c with S_k strictly increasing from 0 to H_q/q; differentiation gives dD/d log(b)=2 Cov_w(K,S_K)/c>0. Since A_k∼k^(q-2)/q!, the normalizing weights diverge at b↑1 (log for q=1), escape finite k, and D↑2H_q/(cq). Independently the mean ODE gives m_2=-log(1-b)/c and m_n∼(1-b)^-(q-1)/(cq(q-1)) for q>=2, hence exactly the claimed relative-variance rates. Nondegenerate stopped diffusion has Var>0; boundary conventions b<1, x=0 entrance, c>0 and fixed n were checked. Independently coded high-precision positive-series evaluation and an ODE quadrature at q=1,2,3,6 and b=.05,.25,.7,.93 (16 cases), with strict inequalities and mean agreement; finite checks supplement the universal proof. The complete seven-entry Git tree SHA was independently reconstructed and matched 0e2f66...; no VERIFY_OK was used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tóth v2, Sec. 4.3 pp. 6--7 Eqs. (19)--(28) and Appendix pp. 12--13, provides mean first passage, spectral tail and hypergeometric eigenfunctions, not a variance comparison in b.",
+          "The 2018 Chaos published version, p. 3 Eq. (8) and p. 4 Eqs. (10)--(12), treats general Jacobi FPT moments; its Figures 1--5 study variability under different drift/noise input parameters rather than the fixed-generator threshold monotonicity.",
+          "The Nov-02 published Haar-scale result gives strict ordering in n for target z/n, limiting CIR law and limiting variance as n grows, not fixed-n monotonicity of the weighted variance deficit as the threshold b grows."
+        ],
+        "reasoning": "All three have overlapping or broader underlying objects, and two contain transforms from which some assigned formulas can be derived. A strict comparison for all b and exact finite-n harmonic endpoint do not follow as named theorems from the examined coverage without a further nontrivial positivity/monotone-weight argument. No claimed novelty for model or generic moment formulas.",
+        "searches": [
+          "Resultary: first passage time variance asymptotics Brownian motion on complex projective space CP n Fubini Study harmonic correction",
+          "Web: Jacobi diffusion first passage mean weighted coefficient variation deficit monotone threshold harmonic H_q q D'Onofrio 2018",
+          "https://arxiv.cnoctave.top/pdf/2606.11438",
+          "https://wrap.warwick.ac.uk/id/eprint/186862/2/WRAP-Jacobi-diffusion-process-neuronal-model-2024.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-haar-scale-fidelity-hitting-strict-dimension-ordering-and-a-bess--de34a1a3a38f/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.cnoctave.top/pdf/2606.11438",
+        "https://wrap.warwick.ac.uk/id/eprint/186862/2/WRAP-Jacobi-diffusion-process-neuronal-model-2024.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-haar-scale-fidelity-hitting-strict-dimension-ordering-and-a-bess--de34a1a3a38f/RESULT.md",
+        "https://arxiv.org/abs/2606.11438",
+        "https://doi.org/10.1063/1.5051494",
+        "Resultary semantic searches (three actual queries as recorded in four checks)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2018 Jacobi Eq. (8) and the Nov-02 Haar-scale result yield a first-passage Laplace transform for the same generator: both imply the mean and variance after differentiation.",
+          "At fixed q=n-1, the assigned proof factors (a)_k(q-a)_k as ∏_{j=0}^{k-1}[j(j+q)+s/c], giving positive weights A_k b^k and increasing S_k=Σ_{j<k}1/[j(j+q)]. The strict covariance of K and S_K then yields dD/d(log b)>0; S_infty=H_q/q yields the sharp endpoint.",
+          "Tóth v2 supplies high-fidelity mean order, but no coefficient-of-variation correction or sharp D ceiling was identified in the read relevant sections and appendix."
+        ],
+        "reasoning": "The fully known transform mathematically contains the finite moments, but the new all-threshold inequality is not a fixed-b corollary, and the earlier cross-n monotonicity is about a different varying parameter. This is a qualified original comparison theorem, not a new transform. If an abstract Jacobi comparison theorem gives this inequality after specialization, originality should be revised.",
+        "searches": [
+          "Resultary: Jacobi first passage coefficient of variation mean-weighted variance deficit monotonic barrier threshold harmonic number Brownian fidelity projective sphere",
+          "Resultary: Jacobi diffusion hypergeometric Laplace transform monotonic first passage coefficient of variation threshold comparison",
+          "Web: Jacobi diffusion first passage mean weighted coefficient variation deficit monotone threshold harmonic H_q q D'Onofrio 2018",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-haar-scale-fidelity-hitting-strict-dimension-ordering-and-a-bess--de34a1a3a38f/RESULT.md",
+          "https://arxiv.cnoctave.top/pdf/2606.11438",
+          "https://wrap.warwick.ac.uk/id/eprint/186862/2/WRAP-Jacobi-diffusion-process-neuronal-model-2024.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At beta parameters (1,q), q=n-1, the fidelity generator is exactly a Jacobi/Wright-Fisher generator; D'Onofrio--Tamborrino--Lansky (2018), Eq. (8) gives its general hypergeometric first-passage transform and Eqs. (10)--(12) give first moments.",
+          "The Nov-02 Haar-scale result uses the same Fubini--Study generator and supplies an equivalent all-interior-threshold Laplace-transform coefficient representation after setting z=nb and the time scale."
+        ],
+        "reasoning": "The transform and any single-threshold moment are covered. The assigned D_n(b)=m_n(b)[1-Var(T_b)/m_n(b)^2] is a new comparison functional of these known moments. A fixed-b hypergeometric transform does not itself assert monotonicity in b or the supremum over all b; those inequalities require the identified increasing coefficient statistic S_k and strict covariance argument.",
+        "searches": [
+          "Resultary: Jacobi first passage coefficient of variation mean-weighted variance deficit monotonic barrier threshold harmonic number Brownian fidelity projective sphere",
+          "Resultary: Jacobi diffusion hypergeometric Laplace transform monotonic first passage coefficient of variation threshold comparison",
+          "https://wrap.warwick.ac.uk/id/eprint/186862/2/WRAP-Jacobi-diffusion-process-neuronal-model-2024.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-haar-scale-fidelity-hitting-strict-dimension-ordering-and-a-bess--de34a1a3a38f/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches return the assigned record itself as the top hit and the Nov-02 Haar-scale fidelity theorem as a related prior, but no distinct earlier exact monotone D_n(b) table or harmonic endpoint result.",
+          "Web searches for Jacobi/Wright--Fisher threshold CV trends returned general stochastic-process and moment literature without an exact all-threshold matching table."
+        ],
+        "reasoning": "The self hit is not independent priority evidence. No exact table was found beyond known general transform/moment formulas. Negative search is not proof of originality; the primary-source mathematical implications are the substantive evidence.",
+        "searches": [
+          "Resultary: Jacobi first passage coefficient of variation mean-weighted variance deficit monotonic barrier threshold harmonic number Brownian fidelity projective sphere",
+          "Resultary: first passage time variance asymptotics Brownian motion on complex projective space CP n Fubini Study harmonic correction",
+          "Resultary: Jacobi diffusion hypergeometric Laplace transform monotonic first passage coefficient of variation threshold comparison",
+          "Web: Wright Fisher diffusion hitting time coefficient of variation threshold increasing mean weighted variance deficit",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-haar-scale-fidelity-hitting-strict-dimension-ordering-and-a-bess--de34a1a3a38f/RESULT.md"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality for the global all-threshold strict monotonicity and sharp harmonic ceiling of the mean-weighted deficit, not for the Jacobi transform, finite-threshold mean/variance, or the projective-fidelity diffusion. The 2018 full primary article, the accessible November 3 revised projective preprint, and the complete earlier Resultary Haar-scale theorem were compared by statements and implications. They already supply general Jacobi Laplace/moment data, the same generator and high-fidelity mean, or a distinct cross-DIMENSION ordering. None of their inspected conclusions states this fixed-dimension, all-threshold mean-weighted variance comparison or its sharp dimension-dependent correction; potential implicit priority remains a material caveat.",
+      "residual_risks": [
+        "The previously published Haar-scale theorem and 2018 Jacobi article encode all fixed-b moments, so a broader abstract threshold-variance comparison may imply this relatively short inequality; no exhaustive priority assurance is possible.",
+        "No extensive historical monograph search was completed; unindexed Jacobi/Wright--Fisher special-case inequalities remain possible.",
+        "Mean-weighted rather than unweighted CV deficit is a specifically motivated first additive-time correction; the claimed value depends on that interpretation, not physical experimental validation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior treatment of generator, first-passage mean, full spectral tail and high-fidelity mean; no variance-deficit monotonicity or harmonic ceiling found in the inspected relevant text.",
+          "evidence": [
+            "Sec. 4.3 Eq. (19) computes mean; (20) high-fidelity growth; (21)--(28) spectral FPT and principal rate. Appendix (A.4)--(A.11) repeats mean and spectral derivation."
+          ],
+          "identifier_or_url": "arXiv:2606.11438v2; https://arxiv.cnoctave.top/pdf/2606.11438",
+          "material_read": "Full revised preprint mathematical sections, in particular Sec. 4.3 pages 6--7 and Appendix pp. 12--13; checked equations (19)--(28), (A.4)--(A.11) and geometric normalization.",
+          "method": "Opened accessible v2 PDF, inspected extracted mathematical text and rendered PDF screenshots for pages 6, 7, 12, 13.",
+          "title": "Isotropic random walks and Brownian diffusion on complex projective space (revision v2)",
+          "trigger": "Same projective fidelity diffusion and Brownian first-passage problem, 3 November 2026 revision previously uninspected"
+        },
+        {
+          "assessment": "General Jacobi transform, threshold moments and coefficient-of-variation numerical studies are prior work; their variable-input parameter sweeps do not identify the assigned threshold monotonicity and harmonic endpoint.",
+          "evidence": [
+            "Published p. 3 Eq. (8) reciprocal hypergeometric transform; p. 4 Eqs. (10)--(12) mean/variance and third moment, Figure 1 plots CV against drift coefficient; p. 6 Figure 3 varies excitatory input."
+          ],
+          "identifier_or_url": "D'Onofrio--Tamborrino--Lansky, Chaos 28 (2018) 103119; https://wrap.warwick.ac.uk/id/eprint/186862/2/WRAP-Jacobi-diffusion-process-neuronal-model-2024.pdf",
+          "material_read": "Accessible published version, mathematical development in Secs. II--III, pp. 2--4, with parameter/variability figures and discussion pp. 4--8; Eqs. (5)--(12) and Figures 1--5.",
+          "method": "Read the open Warwick full-text PDF; reviewed page-4 transform, first/second/third moment formulae on rendered screenshot, and coefficient of variation discussions.",
+          "title": "The Jacobi diffusion process as a neuronal model",
+          "trigger": "General primary Jacobi first-passage transform and moments potentially dominating all specializations"
+        },
+        {
+          "assessment": "Provides same-process all-threshold transform at z=nb, and ordering across n with a moving Haar-scale threshold; not the present strict threshold comparison at fixed n or the harmonic upper ceiling.",
+          "evidence": [
+            "Its exact product transform and variance discussion; strict ordering holds between n and n+1 for fixed z; limiting n→∞ Kummer/CIR clock."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-haar-scale-fidelity-hitting-strict-dimension-ordering-and-a-bess--de34a1a3a38f/RESULT.md",
+          "material_read": "Complete RESULT.md including Finding, Assumptions, proof of exact transform, dimension comparison and moment limits.",
+          "method": "Read entire published primary mathematical record through GitHub connector.",
+          "title": "Haar-scale fidelity hitting: strict dimension ordering and a Bessel-to-exponential clock",
+          "trigger": "Published Resultary record with exactly the same projective-fidelity diffusion and explicit FPT transform"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The underlying Fubini--Study Brownian state-preparation problem and target-fidelity passage are natural and physically motivated. The mean-weighted deficit m(1-CV^2) isolates the first additive-time deviation from the exponential rare-target clock. Its strict ordering over every threshold and sharp dimension-dependent harmonic ceiling is a genuine structural comparison of fluctuation statistics beyond fixed-threshold Jacobi moment evaluation; the logarithmic versus power-law approach creates a natural dimension-two boundary. Its value does not require a new generic Jacobi transform, a paper-sized result, or downstream physical validation. The fact is not a mere parameter substitution or an arbitrary unmotivated finite slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-harmonic-limit-for-first-passage-fluctuations-of-project--50b86ca17263/RESULT.md",
+    "https://arxiv.cnoctave.top/pdf/2606.11438",
+    "https://wrap.warwick.ac.uk/id/eprint/186862/2/WRAP-Jacobi-diffusion-process-neuronal-model-2024.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-haar-scale-fidelity-hitting-strict-dimension-ordering-and-a-bess--de34a1a3a38f/RESULT.md",
+    "Actual Git tree SHA 0e2f66a3c5b6cbd13bd435fc9cbab3e3fa6a57aa",
+    "Actual source blobs RESULT.md:6318b2a81b159553db3e6dc6d854d09246b7e81a; verify.py:85bc15a00b110ca7be3760a50a74c244c611b53b"
+  ],
+  "disposition": "passed",
+  "final_claim": "As stated: for integer n>=2, c>0 and b in (0,1), the mean-weighted squared-CV deficit of the projective-fidelity Jacobi first-passage time started from zero is strictly increasing, positive and strictly below 2H_(n-1)/(c(n-1)); it converges to that sharp ceiling as b approaches 1, giving the asserted logarithmic (n=2) and epsilon^(n-2) (n>=3) correction to squared CV=1.",
+  "limitations": [
+    "Only the canonical isotropic Brownian generator from F_0=0; no finite-step random walk or microscopic quantum dynamics.",
+    "The proof establishes two moments and the sharp deficit, not distributional convergence of the full rescaled T_b law.",
+    "Independent bounded high-precision computations verify finite sample choices only, not infinite domains.",
+    "Best-of-knowledge priority with generic Jacobi and same-model transform coverage explicitly credited; no publication certification."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For the stated fidelity Jacobi generator, the solution regular at zero is a hypergeometric function. Its reciprocal at the target is the Laplace transform of the first-passage time. Coefficient factorization gives a positive exact series for the mean-weighted variance deficit, and the increasing sequence of partial harmonic sums gives a strict positive covariance derivative. The normalization and boundaries are fixed for all integer dimensions \(n\ge2\), positive speeds \(c>0\), and interior thresholds \(0<b<1\). Divergence of the total coefficient weight and an independent mean ODE give the sharp endpoint and the first correction. The standalone 196-case checker tests finite instances, not the universal quantifiers.
+PASS
 
-## Originality: PASS, with stated priority risk
+Verified from the actual RESULT.md and all seven source Git entries: for q=n-1, the regular solution h_s(x)=2F1(a_s,q-a_s;1;x), a_s(q-a_s)=s/c, yields E exp(-sT_b)=1/h_s(b). Product factorization gives m=ΣA_k b^k/c and Var=m^2-2ΣA_k b^k S_k/c^2. Thus D=2 E_w S_K/c with S_k strictly increasing from 0 to H_q/q; differentiation gives dD/d log(b)=2 Cov_w(K,S_K)/c>0. Since A_k∼k^(q-2)/q!, the normalizing weights diverge at b↑1 (log for q=1), escape finite k, and D↑2H_q/(cq). Independently the mean ODE gives m_2=-log(1-b)/c and m_n∼(1-b)^-(q-1)/(cq(q-1)) for q>=2, hence exactly the claimed relative-variance rates. Nondegenerate stopped diffusion has Var>0; boundary conventions b<1, x=0 entrance, c>0 and fixed n were checked. Independently coded high-precision positive-series evaluation and an ODE quadrature at q=1,2,3,6 and b=.05,.25,.7,.93 (16 cases), with strict inequalities and mean agreement; finite checks supplement the universal proof. The complete seven-entry Git tree SHA was independently reconstructed and matched 0e2f66...; no VERIFY_OK was used as proof.
 
-The 2018 Jacobi diffusion paper already gives general hypergeometric hitting-time moments; these fixed-target formulas are not claimed as original. The motivating 2026 projective Brownian study establishes the fidelity generator, target-passage means and spectral tails. Their inspected texts do not state the global strict monotonicity of the mean-weighted coefficient-of-variation deficit, its harmonic-number bound, or the explicit limiting dimensional correction. The principal risk is an unindexed broader Jacobi comparison theorem or the inaccessible full 2026 revised text. Search nonmatches are not novelty proofs, and publication priority remains unverified.
+## originality
 
-## Value: PASS
+PASS
 
-For difficult high-fidelity preparation, the first-passage distribution approaches the coefficient of variation of an exponential clock. A bounded *mean-weighted* deficit measures the first additive-time departure from that idealization. The strict target-threshold ordering and dimension-dependent harmonic constant give a precise structural and experimentally interpretable benchmark, not merely an evaluation at an arbitrary target.
+Qualified best-of-knowledge originality for the global all-threshold strict monotonicity and sharp harmonic ceiling of the mean-weighted deficit, not for the Jacobi transform, finite-threshold mean/variance, or the projective-fidelity diffusion. The 2018 full primary article, the accessible November 3 revised projective preprint, and the complete earlier Resultary Haar-scale theorem were compared by statements and implications. They already supply general Jacobi Laplace/moment data, the same generator and high-fidelity mean, or a distinct cross-DIMENSION ordering. None of their inspected conclusions states this fixed-dimension, all-threshold mean-weighted variance comparison or its sharp dimension-dependent correction; potential implicit priority remains a material caveat.
 
-## Scope and limitations
+## value
 
-Only isotropic Fubini--Study Brownian fidelity starting at an orthogonal state is treated. There is no claim about finite-step quantum walks, quantum measurement back-action, finite-time hitting of exact unit fidelity, or convergence of the entire rescaled hitting-time law. Numerical verification cannot certify the infinite family. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The underlying Fubini--Study Brownian state-preparation problem and target-fidelity passage are natural and physically motivated. The mean-weighted deficit m(1-CV^2) isolates the first additive-time deviation from the exponential rare-target clock. Its strict ordering over every threshold and sharp dimension-dependent harmonic ceiling is a genuine structural comparison of fluctuation statistics beyond fixed-threshold Jacobi moment evaluation; the logarithmic versus power-law approach creates a natural dimension-two boundary. Its value does not require a new generic Jacobi transform, a paper-sized result, or downstream physical validation. The fact is not a mere parameter substitution or an arbitrary unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
