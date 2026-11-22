@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python check.py` in the directory containing the result. The executable uses only Python's standard library and performs exact-rational sign enclosures of the transcendental fixed-point equation, proves the three root brackets by opposite endpoint signs plus the analytic at-most-three result, bounds the three outer two-by-two characteristic polynomials, and compares rational lower and upper bounds in the full six-dimensional Rouché inequality. It uses the elementary uniform exponential bound `21*3**61/61!` for Taylor order 60 at arguments with absolute value at most three.
+## correctness
 
-The printed certificate verifies nine simple positive fixed points and their exact division into four hyperbolic sinks and five unstable fixed points at the supplied parameter vector. The spectral factorization, the all-parameter nine-equilibrium/four-sink upper bounds, and hyperbolic continuation are established in `RESULT.md`; they are not inferred from any finite simulation. A separate independent review has not been performed.
+PASS
+
+Fixed recovery equations yield x2=gamma and independent G_i(x_i)=d_i with G_i=x-A_i x^2 exp(-Kx); each derivative has at most two positive zeros, giving at most 3 positive roots per outer neuron. Reconstructed full six-variable Jacobian characteristic determinant Q1 Q2 Q3-(lambda-a)(lambda-1)(s1 t1 Q3+s3 t3 Q1). At lambda=1 the two G_i derivatives determine the sign, and with two descending branches the largest >1 root of a Q_i forces a real spectral root >1; at most two ascending roots per outer neuron can be sinks. At rational witness the three root positions are 0.0020489380177,0.0923303627250,2.1888643904714; independent full Jacobian eigensolver across all nine pairs gives precisely four spectral radii <1 (about 0.9141) and five >1 (about 1.8587). Read original check.py exact-rational exponential enclosure and Rouché strict 0.00011239816 < 0.0005184; the rigorous universal result comes from sign/root arguments, not the numerical eigenvalue check. At folds eigenvalue 1 excludes hyperbolic sinks. No global basin theorem.
+
+## originality
+
+PASS
+
+The named 2024 origin paper already gives the exact chain and steady-state reduction; reduction is NOT new. Its inspected Sections 3–5 study numerical fixed points and bifurcations, not sharp all-positive-coupling nine/four ceilings and an exact four-sink rational witness. An indexed three-node different-coupling system and isolated Chialvo models have different maps; no implication to this all-parameter six-dimensional ceiling. This is best-of-knowledge, not novelty certification.
+
+## value
+
+PASS
+
+The natural coupled-neuron equilibrium/multistability counting question is unresolved by the founding numerical scan; ruling out stabilization of decreasing branches for arbitrary return couplings and attaining four coexisting local sinks in a positive bidirectional example is a nontrivial network constraint, useful for phase studies without claiming biological efficacy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
