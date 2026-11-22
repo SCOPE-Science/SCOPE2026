@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Analytical and reproducibility checks
+# Independent mathematical audit
 
-The proof identifies the invariant law with a geometric-depth/uniform-bit mixture, proves path-wise stationarity and detailed balance of the depth walk, computes all degree-at-most-four binary shift moments needed using exact finite sums, then transfers the reversal of two-time moments to those shift identities. Positivity follows from an explicit positive-probability event for every positive integer lag; it is not extrapolated from finite enumeration.
+## correctness
 
-Running `python3 verify.py` from this package requires only the Python standard library and returns the marker `VERIFY_OK`. It performs 32 exact shift-moment comparisons for eight shift lengths, four independent one-step direct-branch integrations using the exact stationary fourth moment, and 28 exact finite-path evaluations across four probabilities and seven lags. Such checks do not independently prove the infinite-lag assertions, priority, or an external audit.
+PASS
 
-No mathematical result is claimed for \(p=1/2\), nonstationary initialization, full-path time reversibility, or arbitrary three-time cubic moments.
+Stationary realization X_n=2^{-K_n} D^{L_n}(U) uses geometric stationary depth K with birth probability q, death probability p, and boundary self-loop p; detailed balance with r=q/p makes depth paths reversible. The independent U uniform survives D shifts. Dyadic-cylinder computation h21(m)=h12(m)=1/6+2^{-m}/12, and h31-h13=(2^{-m}-2^{-3m})/120 gives exact reversal cancellation up to degree 3 and positive quartic at every lag; on K0=0 and all n double steps L_n=n and weight positive (p>1/2). K0>=n has L_n=0, making the path expression finite. One-step yields (2p-1)/320; p=1 deterministic limit correct. Exact rational m<=4, p=3/5,4/5,1 and n<=4 independent checks; no finite extrapolation. Boundary p=1/2 excluded, n=0 zero.
+
+## originality
+
+PASS
+
+Neither the published invariant-density/second-order correlation analysis nor Monthus's binary-stack method, as inspected, states the sharp two-time polynomial degree-four threshold, strict all-lag directional antisymmetry, or exact positive finite-path formula. The hidden-depth representation itself is NOT claimed original. Literature scope remains bounded.
+
+## value
+
+PASS
+
+A natural dynamical question is which coordinate-moment order first detects time direction in a stationary noninvertible random map. The answer distinguishes all ≤3 moments from a strictly nonzero degree-four two-time statistic for every positive lag, not a tiny numerical check. Exact first-lag amplitude and full finite-path representation are useful for statistical irreversibility tests and quantify hidden directional information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
