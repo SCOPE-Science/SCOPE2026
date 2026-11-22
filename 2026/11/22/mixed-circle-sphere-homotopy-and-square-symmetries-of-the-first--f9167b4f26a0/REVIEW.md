@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The explicit proof reduces the unique tetrahedron by a free-face collapse, isolates twelve graph edges absent from all triangles, and cancels fourteen pairs of one- and two-dimensional CW cells using the checker-certified attaching words. Two circle generators and one null-attached two-cell remain in the connected non-grid subcomplex, proving a genuine integral homotopy decomposition. The signed primitive two-cycle and all eight exact square-symmetry traces are checked by reproducible integer arithmetic. The calculation does not infer a homotopy type merely from finite Betti ranks.
+
+**Originality — PASS against available inspected evidence.** Manuel–Klavžar (2017) determine general-position cardinality on grid networks, and Iršič–Klavžar–Rus–Tuite (2024) give grid general-position counting polynomials, including the nine-vertex face vector. Neither specifies the attaching homotopy, mixed sphere wedge or dihedral homology character. Related public results on rook-graph general-position complexes and nine-vertex grid matching complexes use different simplices and do not dominate the claim. Unindexed or inaccessible equivalents remain possible; the comparison is not a uniqueness certificate.
+
+**Value — PASS.** The smallest genuinely two-dimensional square grid exhibits both a primitive integral two-sphere and fourteen circle summands. The symmetry calculation distinguishes the sphere's sign action from the two surviving rational orbit-circle classes; this cannot be inferred from the known face polynomial or maximum general-position set size. The self-contained finite classification is a natural base test case for graph-geodesic topology; no extension to larger grids is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
