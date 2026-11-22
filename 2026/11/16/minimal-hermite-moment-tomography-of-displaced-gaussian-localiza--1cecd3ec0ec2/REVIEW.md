@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The Fock matrix entries are precisely the Gaussian zeroth and first moments. For two different balls, the difference of their normalized defining quadratics is affine and has the same sign as the indicator difference on the symmetric difference. Integrating against the strictly positive Gaussian proves global injectivity. The positive-part integral is a convex differentiable potential with this moment map as its gradient, so the true parameters are its unique dual minimizer. Boundary transport and a Schur complement yield a strictly positive covariance Jacobian in all even real dimensions. Invariance of domain supplies the minimal continuous-data count. Planar Bessel formulas and independent numerical examples were checked with the attached script. The checks are finite corroboration, not substitutes for the proofs.
+PASS
 
-## Originality: PASS (historical priority provisional)
+The Fock Toeplitz coefficient identity gives m=int_B dmu and b=int_B z dmu with the stated first-argument-linear inner product. Two distinct quadratic ball-defining functions differ by an affine L, with L(1_B1-1_B2)>0 on the positive-measure symmetric difference; identical (m,b) would force its weighted integral to vanish. The convex Ψ is finite and differentiable at all parameters because the quadratic zero set is negligible; true data give its gradient, and strict two-ball injectivity plus m>0 excludes any other minimizer. Shape differentiation at positive r yields r^n λ^(n+1) det Cov_ν(ω)>0, with uniform boundary support. Invariance of domain supplies the continuous-observation lower bound. The d=1 I0/I1/I2 angular Bessel formula specializes to the stated determinant; centered R² direct calculation at r=1.1 gives positive 0.08540916030474. Assumption r>0, known contrast, indexed (not spectral) data, and lack of global conditioning all matter.
 
-A current exact-claim search found no published equivalent among the returned records or the accessible earlier ledger titles and claims. Jaming–Speckbacher (2019) establish forward planar STFT sampling estimates; Kisil (2021) analyzes Fock/Toeplitz operator calculus; Abreu–Dörfler (2012) use prescribed eigenfunctions in an inverse problem. The 2000 moment-reconstruction paper gives a broad general-domain uniqueness theorem with a larger order-one complex moment array (including the mixed moment), not this minimal Gaussian ball family and its convex inverse/positive Jacobian. The affine separation argument is elementary and could well appear in older convex-moment folklore; this is an explicit residual priority risk. The 2026 Ramos paper was accessible only by abstract and remains a named limited comparison.
+## originality
 
-## Value: PASS
+PASS
 
-The question asks for the fewest Gaussian Gabor/Hermite operator coefficients needed to identify a single geometric aperture, without access to the full operator or unordered spectrum. This natural \(2d+1\)-parameter inverse problem is settled sharply in every dimension, and the convex objective gives an algorithmically explicit characterization of the unique target while the covariance Jacobian quantifies local recoverability. The statement is not asserted for general symbols and does not claim uniform global noise stability. Its value is the complete minimal-observation theorem and mathematically defined reconstruction, rather than just an instance of ordinary Gaussian integration.
+Best-of-knowledge PASS for the exact minimal first-Hermite ball reconstruction plus global convex inverse and Jacobian, not a novelty claim for sign separation or truncated moments generally. Gustafsson–He–Milanfar–Putinar reconstruct more general planar polynomial domains from a larger mixed-moment array; their hypotheses do not imply the stronger small-data Gaussian-ball assertion. Other identified Fock localization works concern spectra, Ky Fan/shape derivatives or eigenfunctions rather than this measurement map. Possible weighted centroid / inverse-moment folklore remains a genuine priority risk.
 
-## Relationship and limits
+## value
 
-Specific comparisons: arXiv:1906.02964, arXiv:2108.13710, arXiv:1202.5841, arXiv:2204.03068, DOI 10.1088/0266-5611/16/4/312. No equivalence was found, but a failed search cannot certify novelty, and the classical geometric sign argument has uncertain independent priority. Numerical checks cannot establish the infinite-dimensional claims. No independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural inverse Gaussian localization problem: the number of independent real center/radius parameters is 2d+1, and the theorem gives matching continuous data, constructive globally unique convex optimization, local analytic stability, and explicit degeneracy boundaries. These are useful exact sensing criteria rather than mere numerical recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
