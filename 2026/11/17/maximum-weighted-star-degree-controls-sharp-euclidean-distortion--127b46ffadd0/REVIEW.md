@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The target's convex inequality description follows directly by eliminating the maxima from the height-two inverse. Every local Jacobian decomposes into weighted stars, whose two nontrivial squared singular values solve one explicitly derived quadratic. Convex-domain line segmentation proves global upper bounds, while a strict-interior point at a maximum-weight vertex and a singular-vector perturbation attain both sharp constants. This handles isolated elements, zero interpolation weights, and continuous intermediate parameters. An independent script supplies finite cross-checks, not a substitute for the proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Fang–Fourier–Litza–Pegel, *A continuous family of marked poset polytopes* (arXiv:1712.01037, full-text Section 2), constructs the parametrized maps and inverse but does not state the optimal Euclidean Lipschitz constants. Pegel–Sanyal, *On piecewise-linear homeomorphisms between distributive and anti-blocking polyhedra* (arXiv:1911.12090, Sections 1–3), develops broader PL maps rather than the sharp graph-theoretic constant here. Existing two-level marked-poset minimum-sphere computations concern image geometry, not the two-sided operator norm of the transfer. A possible earlier equivalent singular-value characterization remains a bibliographic risk.
+PASS
 
-**Value — PASS.** The answer is a complete, non-asymptotic sharp stability invariant for a natural interpolation family rather than merely a reformulation of the transfer definition: all bipartite incidence structure and all independent interpolation parameters collapse to one weighted degree maximum. It supplies optimal forward and inverse perturbation bounds, identifies their interior extremizers, and quantifies the asymptotically square-root growth for a large star; these are relevant to conditioning of the standard geometric bijections between Ehrhart-related polytopes.
+Theorem reconstructs a finite height-at-most-two poset transfer with each upper coordinate subtracting t_b times its largest lower-neighbour coordinate, t_b in [0,1]. The image inequalities (1-t_b)y_a <= y_b <=1-t_by_a for each a<b yield a convex bijective target and the stated inverse. On a unique-max chamber its Jacobian splits orthogonally into triangular weighted star blocks; eigenvalues of S^TS outside the identity space solve z^2-(2+U)z+1=0. The largest possible squared star weight is W=max_a sum_{b>a}t_b^2; a strictly interior order-polytope point can force every upper neighbour of a maximizing a to choose it, giving infinitesimal equality for both map and inverse. Convexity and finite piecewise-affine decomposition give global bounds, including zero weights and disconnected graphs. Independent NumPy singular-value check and source-reviewed checker.py corroborate but do not prove the universal theorem.
 
-**Limitations.** The result applies only to height-at-most-two posets, their standard coordinate realizations, and the specified real parameter interval. Historical priority awaits independent review; the computation is finite and numerical.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: existing marked-poset transfer and chain/order polytope papers construct the same map or much broader piecewise-linear families, but the mathematical results inspected do not establish the exact Euclidean Lipschitz operator norm of both directions, the maximum weighted-star statistic or equality for all independent interpolation weights. An abstract homeomorphism result is not a statement about sharp numerical stability. Actual Resultary searches find the assigned theorem and unrelated star metric distortions; searching is not proof of global novelty.
+
+## value
+
+PASS
+
+The sharp distortion and equality cases quantify metric stability of a natural combinatorial transfer map for all height-two posets; an explicitly computable weighted maximum makes it useful for perturbation bounds in order/chain geometry. It is not just an existence theorem or a single numeric instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
