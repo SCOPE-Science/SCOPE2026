@@ -1,19 +1,21 @@
-# Review of the \(3\times4\) ant orbit classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** An explicit local inverse establishes that every one of the \(196608\) states is immediately periodic. `verify_direct.py` checks the inverse and generator commutation on every state and obtains cycle/symmetry classes by exhaustive orbit tracing and union-find. Independently, `verify_independent.cpp` checks the state successor indegrees, counts cycles and applies Burnside's lemma to the 48-element geometric group. Both reproduce all 20 rows, the period-weighted total, and 74 symmetry types. Output logs are included, but executable proofs are the source of the finite certification.
+PASS
 
-## Originality
+The turn-flip-move ant state space has 2^12*12*4=196608 states. Each transition has a unique inverse, found by backing up the final direction, recovering the preflip bit and old heading, so the finite full map is a permutation and every state is immediately periodic. Independent full-state enumeration rebuilt and traversed all 196608 states, obtaining 2480 cycles, 20 distinct periods, minimum 16 and maximum 312; all periods divisible by 8 and period-weighted total 196608. All 48 translations and axis-sign operations with color complement for reversing orientation commute with the rule. Classifying temporal cycles under these symmetries reproduced exactly 74 types and the complete 20-row count table, including 18 types among 564 period-72 cycles and two types among 96 longest cycles. This is exhaustive for the fixed finite torus, not for other dimensions.
 
-**PASS, qualified.** The closest accessible torus treatment is the 2019 discussion that lists the all-white \(3\times4\) axis-dependent periods 72 and 56, reversibility, group symmetries and parity bounds. It does **not** give the full 20-period distribution or the 74-class symmetry quotient. The 2011 generalized-ant paper concerns recurrence hardness on infinite lattices; the 2020 twisted-torus paper concerns algorithmic hardness on a different geometry. OEIS A386970 lists one return time per \(n\times3\) size. Related prior finite calculations for \(2\times n\) and the \(3\times3\) square do not imply the first unequal-sided \(3\times4\) census. No checked stronger classification covers the precise claim, although unindexed computations remain possible. These comparisons are statements about the mathematical scopes, not proof of global uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The first nonsquare, genuinely two-dimensional finite torus is a canonical test case for the ant's geometric symmetries. Its exact return spectrum and full symmetry quotient answer a natural classification question that single-background period tables cannot answer. The coexistence of 18 inequivalent symmetry types at period 72 and exactly two maximal-period types demonstrates that time period is not a complete geometric invariant. The precise 74-class answer is itself the meaningful finite classification, without a claim of a general theorem for all sizes.
+First nonsquare nondegenerate 3-by-4 torus complete labelled-cycle and rule-symmetry quotient census is not supplied by earlier all-white period tables, 3-by-3/4-by-4 torus censuses, 2-by-n geometry, or infinite/twisted-torus complexity papers. Bounded risk of unindexed finite ant enumerations remains.
 
-## Residual limitations
+## value
 
-This is an exact finite-state statement and no larger-torus generalization is proved. Relevant accessible primary texts were inspected for their definitions, main theorems, and scope, not automatically treated as absent merely because a search snippet failed to mention the counts. Historical priority remains conditional on this finite literature survey; independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A 3-by-4 torus is the first unequal-sided torus with at least three sites in both directions, making it a natural finite benchmark. The 20 temporal periods refine into 74 geometric cycle types; even a fixed period (72) splits into 18 distinct types. These are exact complete finite dynamical invariants, independent of claims about larger lattices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

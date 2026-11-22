@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T17:54:13.651326Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The turn-flip-move ant state space has 2^12*12*4=196608 states. Each transition has a unique inverse, found by backing up the final direction, recovering the preflip bit and old heading, so the finite full map is a permutation and every state is immediately periodic. Independent full-state enumeration rebuilt and traversed all 196608 states, obtaining 2480 cycles, 20 distinct periods, minimum 16 and maximum 312; all periods divisible by 8 and period-weighted total 196608. All 48 translations and axis-sign operations with color complement for reversing orientation commute with the rule. Classifying temporal cycles under these symmetries reproduced exactly 74 types and the complete 20-row count table, including 18 types among 564 period-72 cycles and two types among 96 longest cycles. This is exhaustive for the fixed finite torus, not for other dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2011 studies repeatability/recognition in a different (unbounded) model; 2020 studies twisted tori; indexed neighboring torus dimensions differ."
+        ],
+        "reasoning": "Results for square 3×3 and 4×4 lattices and degenerate width 2 cannot determine a rectangular width 3×4 complete census by specialization or relabeling.",
+        "searches": [
+          "Tsukiji Hagiwara 2011 Langton ant generalized recurrence hardness",
+          "Hagiwara Tsukiji 2020 twisted torus hardness",
+          "Resultary Langton ant 3x3 4x4 and 2xn classifications"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3390/a4010001",
+        "https://doi.org/10.3390/a13120344",
+        "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+        "https://oeis.org/A386970",
+        "Resultary 3x3, 4x4, 2xn and 3x4 Langton ant queries",
+        "Git verify_direct.py, verify_independent.cpp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The universal time-reversibility/bijection argument is old in general and reproduced as a premise.",
+          "Knowing two all-white return periods and general reversibility does not imply counts of the other 196,606 states or their cycle-group classes."
+        ],
+        "reasoning": "The novel content is the exhaustive spectrum and geometric Burnside/union-find classification, not a proof that the update is reversible or that a white-board orbit has length 72.",
+        "searches": [
+          "2019 Math StackExchange all-white 3x4 returns 72 and 56",
+          "Tsukiji Hagiwara 2011 reversibility",
+          "Resultary Langton ant 3x3 eight symmetry types"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2019 problem gives a period-72 all-white 3-by-4 trajectory and axes 56/72, not the complete 196608-state transition permutation.",
+          "OEIS A386970 lists one uniform-initial-state period per size; not all binary board cycles."
+        ],
+        "reasoning": "A return time for one initial board is not equivalent to the full orbit/period-and-spatial-symmetry census; no enumerated 2480/74 result was found under these aliases.",
+        "searches": [
+          "Resultary Langton ant 3 by 4 torus complete cycles 2480 74 symmetry types 312",
+          "OEIS A386970 period Langton ant n by 3 torus all white",
+          "2019 MSE Langton ant torus initial white board 3x4 72"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These databases/discussions enumerate restricted starts, typically one background per torus, rather than 2^12 board states and all headings/locations.",
+          "Independent exhaustive enumeration reproduces 20 primitive-period rows and 74 symmetry classes."
+        ],
+        "reasoning": "The new exact full configuration-space table is not a known table reprint from the sources actually inspected; hidden independent old computations remain a residual possibility.",
+        "searches": [
+          "OEIS A309251 square torus all-white periods",
+          "OEIS A386970 rectangular n×3 uniform initial state",
+          "2019 MSE Langton ant torus table"
+        ]
+      },
+      "rationale": "First nonsquare nondegenerate 3-by-4 torus complete labelled-cycle and rule-symmetry quotient census is not supplied by earlier all-white period tables, 3-by-3/4-by-4 torus censuses, 2-by-n geometry, or infinite/twisted-torus complexity papers. Bounded risk of unindexed finite ant enumerations remains.",
+      "residual_risks": [
+        "Unindexed computational notebooks or independent complete 3×4 torus enumerations could duplicate the exact 2480/74 class table.",
+        "Geometric symmetry group is the specified 48 commuting rule maps, not all transformations of the state set or time reversal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_HARDNESS_NOT_COVERING",
+          "evidence": "Handles generalized and infinite-grid ant repeatability, not full 3×4 finite torus orbit counts.",
+          "identifier_or_url": "https://doi.org/10.3390/a4010001",
+          "material_read": "Open-access 2011 full paper abstract, setting, main complexity results and scope",
+          "method": "Read OA article relevant theorem material",
+          "title": "Recognizing the Repeatable Configurations of Time-Reversible Generalized Langton’s Ant Is PSPACE-Hard",
+          "trigger": "Potential prior complete ant dynamics theorem"
+        },
+        {
+          "assessment": "DIFFERENT_GEOMETRY",
+          "evidence": "Twisted topology and approximation hardness do not determine untwisted 3×4 full-state cycle counts.",
+          "identifier_or_url": "https://doi.org/10.3390/a13120344",
+          "material_read": "Open-access abstract, definition of twisted torus, main complexity theorem statement",
+          "method": "Read OA research article sections around theorem and geometry",
+          "title": "Hardness of Approximation for Langton’s Ant on a Twisted Torus",
+          "trigger": "Torus-geometry closest primary paper"
+        },
+        {
+          "assessment": "PARTIAL_BACKGROUND",
+          "evidence": "3×4 all-white periods 72 and 56, but no 20-period full-board table or 74-class geometric quotient.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+          "material_read": "Full visible 2019 question, responses, all-white table and symmetry comments",
+          "method": "Read dated discussion and numerical table",
+          "title": "What is the period of Langton’s ant on a torus?",
+          "trigger": "Most plausible exact old small torus period table"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Lists a single-background return period by torus size rather than all primitive cycles for one fixed torus.",
+          "identifier_or_url": "https://oeis.org/A386970",
+          "material_read": "Sequence scope and definition as available in OEIS",
+          "method": "Read sequence definition and initial-condition constraints",
+          "title": "OEIS A386970",
+          "trigger": "Nearest named n×3 table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A 3-by-4 torus is the first unequal-sided torus with at least three sites in both directions, making it a natural finite benchmark. The 20 temporal periods refine into 74 geometric cycle types; even a fixed period (72) splits into 18 distinct types. These are exact complete finite dynamical invariants, independent of claims about larger lattices.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.3390/a4010001",
+    "https://doi.org/10.3390/a13120344",
+    "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+    "https://oeis.org/A386970",
+    "Resultary 3x3, 4x4, 2xn and 3x4 Langton ant queries",
+    "Git verify_direct.py, verify_independent.cpp"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only exact 3×4 untwisted torus with flip-then-move and all 12 labelled board bits; no infinite-grid, other sizes or twisted-boundary conclusion.",
+    "The entire 196608-state set is finite and fully enumerated, so exhaustive finite computation is a legitimate proof at this size."
+  ],
+  "residual_risks": [
+    "Unindexed computational notebooks or independent complete 3×4 torus enumerations could duplicate the exact 2480/74 class table.",
+    "Geometric symmetry group is the specified 48 commuting rule maps, not all transformations of the state set or time reversal."
+  ],
+  "schema_version": 1
+}
