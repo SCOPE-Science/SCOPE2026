@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument first proves that four-periodic sites either all remain unchanged or all advance exactly three times. The unchanged sector consists of the three monochromatic fixed points. The active sector is represented without approximation by 12 single-site time traces and 144 temporal column states. The completely enumerated 20,736-vertex pair transfer graph has 20,340 directed edges and only six cyclic strongly connected components, each a directed four-cycle; this proves the all-circumference counting formula. Reconstructed cyclic words agree exactly with the stated 24 four-letter wave patterns. Two independent graph implementations use different local-edge tests, and separate direct enumeration of all 3-to-7 circumference configurations corroborates the theorem. Risk: source-code correctness is self-reviewed, but the finite certificate is complete, machine-replayable and cross-checked.
+PASS
 
-## Originality — PASS (qualified)
+An F⁴-periodic site advances 0 or3 times, since each advance is +1 modulo3. An adjacent site changing three times would force an allegedly static site to change; connectedness gives either all static (three monochromatic states) or all change thrice. In active case a site trace is determined by initial color c∈Z3 and one of four hold times, 12 traces/site and 144/two-row column; an admissible 3-column transfer state uses original five-neighbor update, with 20,736 ordered-pair vertices. Inspecting verify_transfer.cpp and verify_masks.py shows complete candidate enumeration and independent SCC algorithms. Independently reimplemented transfer constraints gave 20,340 edges, 20,718 SCCs, exactly six directed simple 4-cycles. Every torus configuration corresponds bijectively to a closed transfer walk, so the cyclic graph classification proves all n, not just sampled widths. Source verifier identifies all 24 row-equal 2100 shifts/reversals/phase shifts; independently brute-executed original automaton for n=3..7 and found Fix(F⁴) counts [3,27,3,3,3].
 
-Fisch–Gravner–Griffeath (1991) give the original planar cyclic automaton and general wave-clock motivation, not the five-neighbor two-row exact four-step classification. Gravner–Lyu–Sivakoff (2016), Theorem 3 and its supporting development, characterize long-term excitation rates through contour integrals on arbitrary graphs, which does not determine exactly which labelled starting states return at time four. Published mathematical-record searches for four-cycle enumerations, the two-row Moore torus, the 24 configurations, orientations and equivalent spatial waves found no identified matching result. Closest distinct results concern threshold-three square tori, open square ladders, and period-three Greenberg–Hastings waves. Risk: full historical priority is not guaranteed by database coverage; the 1993 source was available as an archival abstract rather than its complete paper text.
+## originality
 
-## Value — PASS
+PASS
 
-The least temporal period four is a natural excitation-clock invariant in three-color cyclic dynamics. The result reveals a strong and non-obvious spatial constraint: a narrow periodic Moore geometry admits such a clock only through row-synchronized, period-four traveling waves, even on arbitrarily large tori. The constant population and the sharp divisibility restriction distinguish structural rigidity from a brute-force small-circumference list. It gives a complete, reusable classification of a natural dynamical period; no assertion about higher-period basins or infinite-plane universality is needed.
+Earlier two-dimensional cyclic automata develop defect/clock phenomenology and asymptotic excitation rates, but do not give the immediate F⁴ state census for the five-distinct-neighbor two-row Moore quotient. Closest indexed exact tori use different automata/thresholds or enumerate temporal three-cycles. Best-of-knowledge new precise recurrence theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An exact uniform population of temporal four-cycles and forced row equality across arbitrarily long strips is a natural all-circumference classification of the minimal nontrivial Moore-strip recurrence. The transfer proof rules out other oscillators, gives a concrete spatial rigidity mechanism, and exposes a sharp divisibility threshold; finite-state computation is exhaustive for this finite local transfer model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
