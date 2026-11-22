@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T15:59:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Forward positivity is a real hypothesis since the full quadrant is not invariant. The prey satisfies x_{n+1}<R x_n exp(-x_n), so x_n decreases to zero and alpha x_n->0 makes y_n super-geometric. For R<1 the convergent sums x_n,y_n give a nonzero limit C=x_n/R^n and tail O(R^n); summing the product of x_k/(CR^k) proves positive finite D and the exact Gaussian exponent n(n-1)/2. At R=1, eventual multiplier e^{-x_n}-y_n>=1/2 yields x_n>=c 2^{-n}, whereas y_n=O(q^n) for arbitrary q<1, so y_n/x_n^m decays exponentially for every fixed m. With u_n=1/x_n, the exact update u_{n+1}=u_n e^{1/u_n}/(1-y_n e^{1/u_n}) expands as u_{n+1}-u_n=1+1/(2u_n)+O(u_n^{-2})+O(rho^n). Summability gives u_n=n+0.5 log n+H+O(log n/n). The difference of V_n=log(y_n Gamma(n)/alpha^n)+0.25 log^2 n+H log n is O(log^2 n/n^2), so V_n converges and D>0. Verified that nlogn limit follows from Stirling, not from numerical fitting. The described positive invariant open set x_0<min(1,1/alpha), y_0<R exp(-x_0) indeed decreases both coordinates and retains positivity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published research record 2026/10/13 Gaussian-in-generation herbivore collapse treats a strong-Allee Ricker system with hyperbolic prey decay, compatible only with the subcritical mechanism.",
+          "Published 2026/11/8 critical prey clearance work uses a different Leslie–Gower or Beverton–Holt response and a different critical clock."
+        ],
+        "reasoning": "A general parabolic product theorem might apply if it controlled the specific nonautonomous perturbation and second-order logarithmic correction; none found in checked sources. Different parameter regimes and ODEs do not imply this exact Ricker endpoint formula.",
+        "searches": [
+          "Ricker predator prey map extinction threshold e inverse critical parabolic asymptotics Gaussian factorial stretched lognormal",
+          "Resultary global critical prey clearance logarithmic correction predator Ricker strong Allee",
+          "discrete parabolic map product factorial extinction alpha x_n y_n"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s12190-022-01737-8",
+        "doi:10.1007/s12190-022-01737-8",
+        "Resultary 2026/10/13 strong-Allee Ricker herbivore Gaussian extinction",
+        "Resultary 2026/11/8 critical extinction logarithmic clock in an exponential predator-prey map"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hamada et al. Proposition 3 assumes r<e^{-1}, excluding equality; Proposition 2(iv) identifies nonhyperbolicity, a local fact, not an exact orbit asymptotic.",
+          "The earlier strong-Allee subcritical result has a Gaussian multiplicative extinction exponent, a general product mechanism explicitly credited in this audit."
+        ],
+        "reasoning": "Neither convergence in a strict subcritical regime nor local eigenvalue unity entails the exact critical second-order law; the whole final asymptotic is a stronger additional statement for the exact given map.",
+        "searches": [
+          "Ricker predator prey map extinction threshold e inverse critical parabolic asymptotics Gaussian factorial stretched lognormal",
+          "doi:10.1007/s12190-022-01737-8 Proposition 2(iv) Proposition 3",
+          "Resultary 2026/10/13 SCOPE-gaussian-in-generation-herbivore-collapse-in-a-strong-allee-rick--4532f0bf4789"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hamada et al. model (5) is the same normalized recurrence after R=e r; Proposition 2 recognizes nonhyperbolicity at R=1, without the gamma/log-squared trajectory asymptotic.",
+          "Classical parabolic iteration yields the prey reciprocal drift but does not by itself normalize the multiplicative predator product."
+        ],
+        "reasoning": "Checked equivalent state variables x,y and inverse prey u, and the neutral threshold; the complete predator product correction is not asserted in the inspected primary model analysis.",
+        "searches": [
+          "Ricker predator prey map extinction threshold e inverse critical parabolic asymptotics Gaussian factorial stretched lognormal",
+          "Hamada El-Azab El-Metwally Ricker model r=e^-1 extinction critical",
+          "parabolic iteration inverse prey u_n=n+.5 log n predator product Gamma n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The model-specific prior article supplies numerical simulations and equilibrium/bifurcation tables, but no exact critical extinction prefactor.",
+          "The finding is an infinite asymptotic identity, not a finite combinatorial table; numerical plots cannot determine the universal log-squared coefficient."
+        ],
+        "reasoning": "No checked exact formula reproduces the claimed Gamma/log-squared normalization; unsuccessful searches do not establish absolute priority.",
+        "searches": [
+          "Ricker predator prey map extinction threshold e inverse critical parabolic asymptotics Gaussian factorial stretched lognormal",
+          "Ricker 2022 normalized predator prey numerical critical extinction table",
+          "exp[-(log n)^2/4] gamma predator asymptotic formula ecological map"
+        ]
+      },
+      "rationale": "The exact same-model Hamada/El-Azab/El-Metwally published paper establishes a subcritical global extinction region and neutral linear multiplier, not the two exact extinction clocks, particularly the universal critical exp[-(log n)^2/4]. An earlier Gaussian herbivore claim in a different strong-Allee Ricker model and neutral Leslie–Gower results are not the same coupled recurrence. The simple subcritical Gaussian mechanism is credited rather than asserted unique.",
+      "residual_risks": [
+        "A model-independent theorem for parabolic iterations with multiplicative secondary coordinates could imply the prefactor without naming this model; priority is not certified globally.",
+        "The related strong-Allee and other indexed findings were inspected as summaries rather than asserting full-document noncoverage.",
+        "The conclusions are for forward-positive trajectories only; the entire positive quadrant is not forward invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subcritical qualitative convergence and critical nonhyperbolicity are covered; critical predator prefactor and sharpened prey shift are not stated",
+          "evidence": [
+            "Proposition 2(iv) nonhyperbolicity at r=e^{-1}; Proposition 3 global stability for r<e^{-1}; model (5) and conclusion"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s12190-022-01737-8",
+          "material_read": "Accessible full HTML model definitions, fixed-point Jacobian and propositions in Section 3, bifurcation analysis and conclusions",
+          "method": "Read primary article full HTML and compared actual conditions to present proof",
+          "title": "Bifurcations and dynamics of a discrete predator–prey model of Ricker type",
+          "trigger": "Exact same recurrence and critical reproduction threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinction between geometric prey extinction and neutral 1/n prey decay induces genuinely different predator time scales, with a non-obvious universal log-squared prefactor from summing the parabolic prey correction. This is a motivated boundary asymptotic for a published ecological recurrence, not merely a Jacobian check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s12190-022-01737-8",
+    "doi:10.1007/s12190-022-01737-8",
+    "Resultary 2026/10/13 strong-Allee Ricker herbivore Gaussian extinction",
+    "Resultary 2026/11/8 critical extinction logarithmic clock in an exponential predator-prey map"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every forward-positive orbit of the normalized Ricker predator-prey map x_{n+1}=R x_n exp(-x_n)-x_n y_n, y_{n+1}=alpha x_n y_n, 0<R<=1, x,y,alpha>0, the subcritical predator has a quadratic-in-n logarithmic extinction law; at R=1 prey reciprocal has n+0.5 log n+H correction and predator has the precise alpha^n/Gamma(n) n^{-H} exp[-(log n)^2/4] asymptotic.",
+  "limitations": [
+    "Scope exactly as defined in the final theorem; cited source-access and priority risks do not constitute a mathematical impossibility proof.",
+    "Finite checks corroborate analytic or complete finite-state certificates; logs and bounded numerics alone are not infinite proofs.",
+    "Publication withheld pending verified neutralization of existing operational source metadata."
+  ],
+  "residual_risks": [
+    "A model-independent theorem for parabolic iterations with multiplicative secondary coordinates could imply the prefactor without naming this model; priority is not certified globally.",
+    "The related strong-Allee and other indexed findings were inspected as summaries rather than asserting full-document noncoverage.",
+    "The conclusions are for forward-positive trajectories only; the entire positive quadrant is not forward invariant."
+  ],
+  "schema_version": 1
+}
