@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The proof derives an m*d incidence-budget upper bound, solves its cardinality-layer knapsack exactly, proves an equitable uniform hypergraph exchange lemma, and realizes every optimal family using an internal matching/path/triangle and independent witness vertices. Each marked degree equals its family incidence, every witness has degree at most d, and each host vertex has a unique trace. Handles d=0, m=1, layer endpoints, high d and VC dimension. Reproducible checker exercises 2,097,151 small-graph instances and explicit extremizers; finite tests are not substituted for the all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 paper works with closed radius-one neighborhoods and sharp treewidth/pathwidth values; it presents forests as a special width class.",
+        "A fixed maximum vertex degree does not imply fixed treewidth: bounded-degree expanders can have unbounded treewidth.",
+        "The 2025 profile-complexity work gives width/minor-exclusion asymptotic estimates, not the exact maximum-degree open-trace formula."
+      ],
+      "reasoning": "The published sharper claims apply to structurally restricted width/minor classes or to closed neighborhoods, so they do not mathematically dominate the unrestricted bounded-degree open-neighborhood result. Neither sharp closed forest estimates nor abstract bounded-expansion linearity imply the exact binomial layers or minimum-host constructions.",
+      "searches": [
+        "bounded maximum degree graph shatter function all m and d binomial sums nearly regular k uniform hypergraphs",
+        "VC density of degree bounded graph first order adjacency types exact incidence budget formula",
+        "arXiv:2607.16889 §§1,3–5; https://www.paperpeel.com/paper/2607.16889",
+        "arXiv:2501.08895 abstract"
+      ]
+    },
+    "checked_sources": [
+      "Berthe et al., Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth, arXiv:2607.16889 (full HTML inspected)",
+      "Bonnet et al., Neighbourhood complexity of graphs of bounded twin-width, arXiv:2301.04217v2 (full HTML inspected)",
+      "Beaudou et al., Profile and neighbourhood complexity of graphs excluding a minor and tree-structured graphs, arXiv:2501.08895v3 (abstract and section statements checked)",
+      "Searchable summaries of exact neighborhood-shattering results for Kneser, Johnson and Hamming graphs (not treated as full-text source inspections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Berthe et al. 2026 bounds |{N[v]∩A}| for graphs of fixed treewidth or pathwidth, where the closed neighborhood includes v itself.",
+        "Bonnet et al. 2023 bounds |{N(v)∩A}| for graphs of bounded twin-width, where red-degree contractions control the bound and do not impose an ordinary maximum-degree constraint.",
+        "A fixed maximum degree does not force fixed treewidth; a closed-neighborhood theorem does not immediately transfer to the sharp open-neighborhood count."
+      ],
+      "reasoning": "The relevant earlier theorems use distinct notions of graph width, closed rather than open neighborhoods, or constrained graph subclasses. Neither their upper bounds nor their special-case constructions imply an exact expression simultaneously for every graph with a specified ordinary maximum degree, nor the minimum-order extremizer/threshold-rigidity conclusions. A possible unknown incidence-budget set-system theorem remains a priority risk.",
+      "searches": [
+        "Exact value of maximum number of different open neighborhoods N(v) intersect A in all graphs with maximum degree Delta: 1 plus full layers of subsets of A and a partial binomial layer based on incidence budget m Delta; optimal host with each trace once",
+        "maximum-degree restricted graph neighbourhood trace shatter function exact formula floor(m(d+1)/2) open adjacency types VC dimension 1+floor(log2 d)",
+        "arXiv:2607.16889 §§1,3–5; https://www.paperpeel.com/paper/2607.16889",
+        "arXiv:2301.04217v2 §§1–4; https://arxiv.org/html/2301.04217v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The twin-width paper defines open X-neighborhoods in §2 and bounds them using twin-width, with ν(t,k)≤(t+2)2^(t+1)k.",
+        "An exact incidence-layer phase formula would require the maximum vertex degree, not contraction red degree; the inspected result does not use the latter parameter."
+      ],
+      "reasoning": "The claim can be rephrased as an extremal incidence-bounded set-family enumeration, as a sharp neighborhood shatter function, or as a minimum-host separating-code statement. The inspected twin-width theorem concerns a genuinely different graph invariant and provides a bound rather than this degree-parameter phase formula.",
+      "searches": [
+        "sharp exact open neighborhood trace growth bounded maximum vertex degree d as a function of marked set m combinatorial optimization uniform hypergraph",
+        "Exact value of maximum number of different open neighborhoods N(v) intersect A in all graphs with maximum degree Delta: 1 plus full layers of subsets of A and a partial binomial layer based on incidence budget m Delta; optimal host with each trace once",
+        "maximum-degree restricted graph neighbourhood trace shatter function exact formula floor(m(d+1)/2) open adjacency types VC dimension 1+floor(log2 d",
+        "arXiv:2301.04217v2 §1–4; https://arxiv.org/html/2301.04217v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searchable records on Kneser/Johnson/Hamming neighborhood VC dimensions fix one explicit graph family rather than optimize over every finite graph of bounded maximum degree.",
+        "No searched database/table entry reports the binomial-degree thresholds for all m,d; absence from search results is not a proof of nonexistence."
+      ],
+      "reasoning": "Exact tables for fixed host graph families cannot answer the maximization over all degree-at-most-d graphs; their parameters and quantifiers differ. The finite checker uses direct mathematical enumeration, not a known-table transcription.",
+      "searches": [
+        "sharp exact open neighborhood trace growth bounded maximum vertex degree d as a function of marked set m combinatorial optimization uniform hypergraph",
+        "maximum-degree restricted graph neighbourhood trace shatter function exact formula floor(m(d+1)/2) open adjacency types VC dimension 1+floor(log2 d)",
+        "arXiv:2301.04217v2 §2–4; https://arxiv.org/html/2301.04217v2"
+      ]
+    },
+    "rationale": "Compared the exact two-parameter theorem, its incidence-bounded hypergraph formulation, all-size coefficient and minimum-host refinement against five actual semantic literature searches and three relevant primary papers. The closest inspected full texts restrict treewidth/pathwidth or twin-width rather than maximum ordinary degree; none mathematically entails the all-graph sharp binomial-layer law. Historical priority remains provisional.",
+    "residual_risks": [
+      "An exact bounded-degree open-neighborhood shatter function or an incidence-constrained hypergraph extremum might appear under different terminology or in literature not located by the actual searches; absence from retrieved matches does not prove absolute historical novelty.",
+      "Some related special-graph-class results were compared only from searchable summaries; they are not certified as whole-document noncoverage.",
+      "The strongest primary-paper comparisons concern width-based or closed-neighborhood results and do not exhaust every older extremal set-system theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: counts closed neighborhoods under treewidth/pathwidth constraints rather than open neighborhoods under maximum degree. The closed/open distinction and class hypotheses prevent implication.",
+        "evidence": [
+          "At arXiv abstract the complexity uses N[v] (closed) and bounds (k-w+1)2^w+w, with forest bound 7k/3.",
+          "Full text §1 defines N[v]∩S and discusses treewidth rather than Δ(G)."
+        ],
+        "identifier_or_url": "arXiv:2607.16889; https://www.paperpeel.com/paper/2607.16889",
+        "material_read": "Full-text HTML introduction, definitions, forest section, statement of main treewidth/pathwidth theorems and selected proofs/remarks in sections 3–5.",
+        "method": "Read exposed HTML text and inspect precise closed-neighborhood definition and published theorem parameters.",
+        "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+        "trigger": "2026 motivation and plausible stronger all-size neighborhood-complexity theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: its d is twin-width, not maximum ordinary degree; its bound (d+2)2^(d+1)k is not the desired exact binomial-layer formula.",
+        "evidence": [
+          "§2 explicitly defines open N(v)∩X and twin-width using red degrees of trigraph contractions.",
+          "The stated upper bound ν(d,k)≤(d+2)2^(d+1)k, with lower constructions, is width-parameter asymptotics."
+        ],
+        "identifier_or_url": "arXiv:2301.04217v2; https://arxiv.org/html/2301.04217v2",
+        "material_read": "Full-text HTML abstract, introduction, definitions, main bound and proof of upper bound (sections 1–3), plus description of lower constructions in section 4.",
+        "method": "Read lawful arXiv HTML directly and compared the controlling parameter and quantified graph class.",
+        "title": "Neighbourhood complexity of graphs of bounded twin-width",
+        "trigger": "Exact open-neighborhood type-counting under a graph-width parameter"
+      },
+      {
+        "assessment": "NO_DECISIVE_COVERAGE_IN_READ_MATERIAL: abstract provides excluded-minor/treewidth distance-profile bounds, not an exact maximum-degree formula.",
+        "evidence": [
+          "Abstract states O_h(r^(3h-3)k) for excluded minors and O_t(r^(t+1)k) for bounded treewidth."
+        ],
+        "identifier_or_url": "arXiv:2501.08895; https://arxiv.org/abs/2501.08895",
+        "material_read": "Abstract only (not full text); all-content noncoverage is not claimed.",
+        "method": "Read arXiv abstract and compared stated asymptotic parameter forms.",
+        "title": "Profile and neighbourhood complexity of graphs with excluded minors and tree-structured graphs",
+        "trigger": "Potential general neighborhood-complexity framework that could subsume bounded-degree formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0fd3e423-289b-47dc-a396-6fc688598447",
+  "value": {
+    "rationale": "An exact all-size growth function and phase diagram for one-types in the natural hereditary class of maximum-degree-bounded graphs, together with exact VC threshold, threshold-family rigidity, and minimal-order identifying hosts. These are substantive structural and extremal claims beyond qualitative bounded-expansion linearity or a one-parameter routine upper bound. For fixed d the exact leading coefficient (d+1)/2 is information-theoretically tight; the minimum-host theorem encodes optimal type families without redundant vertices.",
+    "status": "PASS"
+  }
+}
