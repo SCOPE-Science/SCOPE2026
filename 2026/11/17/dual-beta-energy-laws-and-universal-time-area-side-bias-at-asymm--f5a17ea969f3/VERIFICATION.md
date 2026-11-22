@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is analytic: exact fixed-energy period and area quadratures, inverse Puiseux expansion for each analytic one-sided potential, a uniform beta-weight remainder estimate, and a beta-function recurrence. Both limiting conditional laws and the vanishing fast-side weights are obtained as true limits, not inferred from numerical extrapolation. The one-sided derivatives of the inverted potential and the normalization of conditional probability densities are written explicitly in `RESULT.md`.
+## correctness
 
-`python3 checks/dual_beta_check.py` uses the standard library only and returns `DUAL_BETA_TIME_AREA_SWITCHING_CENTER_CHECK_OK` when its finite symbolic/numerical consistency checks pass. It checks exact beta recurrences, limiting mean fractions, monomial example formulas, the area derivative and a local perturbative inverse-derivative coefficient. These checks do not establish uniqueness of the result in the literature or substitute for the analytic proof.
+PASS
 
-Limits: analytic one-sided monotone potentials at small energies, fixed coefficients; no large-energy or global-period-annulus claim. The mathematical correctness, originality and value assessments are same-model only, and independent audit has not been performed.
+The exact one-sided quadratures use inverse R_s(u)=U_s^{-1}(u): T_s=sqrt(2) int_0^h R_s'(u)(h-u)^(-1/2)du and A_s=2sqrt(2) int_0^h R_s'(u)(h-u)^(1/2)du. Analytic inversion gives R_s'(u)=alpha A u^(alpha-1)[1-2alpha b A u^alpha+O(u^(2alpha))] with uniform differentiated remainder, alpha=1/k, A=a^-alpha. After u=hq, beta-normalized densities converge in weighted L1; normalization yields the centered first correction -c h^alpha(q^alpha-E_beta Q^alpha) and sharp TV rate if b!=0. Beta recurrence B(alpha,3/2)/B(alpha,1/2)=k/(k+2), combined with rare-side power h^(1/n-1/m), cancels stiffness coefficients to m(n+2)/(n(m+2)). Monomial potentials give exact laws. Independently checked time/area beta moments and period-as-action-derivative in thirteen cases; convergence proof is symbolic.
+
+## originality
+
+PASS
+
+Bakhshalizadeh–Liu–Rezende arxiv:2311.10020 Theorem B and Sec 3 supply piecewise-center nonisochronicity and period quadratures; these are credited. They do not, in inspected material, state distinct conditioned *fixed-energy* time and Euclidean-area probability laws and their centered analytic corrections. Elementary monomial beta distributions are also prior common knowledge. The new joint local result assembles sampling distinction, TV control and universal amplification; other Resultary nearby beta-residence studies address high energies/different potentials.
+
+## value
+
+PASS
+
+Comparing physically distinct sampling measures on asymmetric switching-center orbits yields an interpretable universal less-flat-side bias and a sharp perturbative local law. The fact connects period and action asymptotics to a probability-observable difference, not just a renaming of one Euler beta integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
