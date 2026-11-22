@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact finite classification
+# Independent mathematical audit
 
-The supplied `orbit_check.py`, `tree_walsh_check.py`, `cross_check.py` and `orbits.csv` are complete, standalone Python 3 files requiring only the standard library. They were run directly on the included files, giving the three success markers named in `RESULT.md`.
+## correctness
 
-The first method enumerates all 65,536 sign patterns through 192 symmetries, uses exact Bareiss determinants of reduced signed Laplacians, verifies the 192 certificate rows and counts multiplier occurrences. The second method enumerates every seven-edge graph, tests connectedness and acyclicity by disjoint sets, and independently performs a 16-variable integer Walsh–Hadamard transform. The third checks pointwise agreement for all 65,536 frequencies. The projector kernel is computed as the unnormalized Walsh transform of the nonzero-spectrum indicator; its absolute sum equals 2,950,060, before division by 65,536.
+PASS
 
-The programs are exhaustive over this finite graph, but they do not prove an analogous statement for all complete bipartite graphs. No external independent mathematical audit is recorded.
+The seven-edge acyclic eight-vertex subsets are precisely trees; 4096 equals 4^3*4^3. Each Walsh coefficient is a signed weighted matrix-tree determinant; counting convolution diagonalizes exactly in Boolean characters. Independently enumerated every 16-edge mask with a distinct DSU implementation, performed integer 65536-point Walsh transform, obtained rank 22642, minimum magnitude 32, absolute histogram {0:42894,32:14016,64:896,128:7008,224:32,256:192,288:288,512:144,640:64,4096:2}, verified Parseval and projection inverse transform l1 numerator 2950060. The claimed 192-orbit determinant scheme has exact generation and comparison logic in orbit_check.py; the independent full transform avoids dependence on its certificate. Since convolution kernel l1 mass gives attained l1 and linfinity norm, 2950060/65536=737515/16384 is sharp for this specified spectral projection (no unclaimed universal minimality).
+
+## originality
+
+PASS
+
+The K4,4 signed-tree enumerator is classically computable by weighted matrix-tree theory, but the specific complete 16-independent-edge-sign frequency distribution and evaluated support-projection norm were not supplied by the inspected complete-graph-product, complete-colorful, or forest-inclusion theorems. The Resultary matches for K2,n and three-cube use different graph edge sets; the exact numbers are not specializations of their parameter domains. This is best-of-knowledge evaluated finite invariant novelty, not novelty of method.
+
+## value
+
+PASS
+
+K4,4 is a natural first symmetric 4-by-4 bipartite graph; its complete signed spanning-tree Fourier spectrum and rank diagnose zero frequencies and inverse amplification, while the sharp projection endpoint norm controls stable range restriction. The evaluated 192-orbit certificate is a genuine complete finite classification, not an arbitrary single mask or textbook substitution. The finite theorem does not claim general Kmn formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
