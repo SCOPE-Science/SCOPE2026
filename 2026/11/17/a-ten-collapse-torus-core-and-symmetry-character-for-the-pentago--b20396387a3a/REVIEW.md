@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof enumerates all 15 matching-complex vertices, 55 edges, and 40 triangles from a seven-vertex graph. Ten separately specified edge–triangle pairs have unique cofaces, and removing them yields a 15/45/30 complex in which every edge is in two triangles and every vertex link is one 5- or 8-cycle. An explicit 30-triangle integer two-cycle proves orientability, and connectedness with Euler characteristic zero gives the torus. The computation supplies the exact integral cycle and independently checks 20 group actions, signed Lefschetz traces and mod-two boundary ranks. The classical surface classification is the only external topological ingredient. The proof establishes only the stated seven-vertex case.
+PASS
 
-## Originality — PASS against examined sources
+PASS. Independently enumerated all matchings from the five rim edges and ten apex spokes: face vector (15,55,40), precisely ten edges with a unique triangle coface, and their ten distinct collapsible pairs. The surviving (15,45,30) subcomplex is connected, every edge lies in exactly two triangles, and links of the five rim-edge vertices are 8-cycles and the ten spoke-edge vertices 5-cycles. Independently propagated signed triangle orientations across all residual edges: consistent integral 30-triangle cycle with zero boundary. Euler characteristic 0 and orientability give the torus, hence integral H1=Z²,H2=Z. Independently enumerated all 20 D5×C2 automorphisms of the original graph, checked signed chain traces and orientation action, deriving H1 traces 2,0,0,-2 and H2 signs 1,-1,-1,1 in the stated four classes. The original K has branching link and fails manifold hypotheses. No equivariant integral-module classification is asserted.
 
-The closest full primary text, Bayer–Goeckner–Jelić Milutinović's *Manifold Matching Complexes* (arXiv:1906.03328, Theorem 4.2), treats matching complexes already satisfying manifold hypotheses; the present original complex has ten free edges and a branching vertex link, so is not a manifold even with boundary. The Buchsbaum classification arXiv:2110.11302 determines a distinct regularity property, not the present homotopy type or symmetry. The outerplanar classification arXiv:2411.04601 is inapplicable because the graph contains a subdivision obstruction \(K_{2,3}\). The full mathematical result from the publicly indexed seven-vertex matching-complex torsion census classifies torsion, not torsion-free torus homotopy types. Searches for the graph name, homotopy torus, ten collapses, and symmetry action identified no dominating statement. Search incompleteness and possible unindexed equivalent work remain genuine risks; this is best-knowledge originality, not a certified global priority claim.
+## originality
 
-## Value — PASS
+PASS
 
-The graph is a standard seven-vertex convex-polyhedral graph, while matching complexes whose *realizations are themselves* tori are highly constrained in the classical manifold-classification theorem. The explicit ten-collapse construction exhibits a natural non-manifold matching complex nevertheless of torus homotopy type. Integral topology and a full symmetry character distinguish this example from ordinary rational Betti-number enumeration. The result is a complete exact topological calculation for a motivated canonical object, not an arbitrary parameter slice or routine rephrasing of known dimensions.
+PASS best of knowledge. The main manifold-matching-complex classification only covers complexes that are themselves homology manifolds; the original bipyramid complex is demonstrably not one. Its torus instance M(K_{3,4}) is a different graph. Other indexed pentagonal prism/antiprism results concern different graph matching complexes and homotopy types; none implies this collapse or symmetry character.
 
-## Limitations and external checks
+## value
 
-There is no all-bipyramid classification, no integral representation decomposition, and no independent external audit. Equivalence in unpublished or insufficiently indexed literature remains possible. Closest scientific sources: arXiv:1906.03328; arXiv:2110.11302; arXiv:2411.04601; and the full published seven-vertex torsion census referenced in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Gives a natural canonical seven-vertex graph's integral homotopy type by an explicit minimal-looking collapse to a nontrivial torus plus its full rational symmetry characters, separating being a manifold from merely collapsing onto one. The explicit 10-pair structural core and equivariant homology are independently reusable facts not derivable from Euler characteristic alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
