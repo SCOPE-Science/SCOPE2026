@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof uses the exact Kunz inequalities and the Apéry–minimal-generator correspondence. It covers all fixed integer multiplicities at least three, all sufficiently large integer genera, and both upper and matching lower polynomial orders. The hyperplane estimate counts at most one integer solution after the two independent equations; a positive-volume relative box produces enough two-child examples, with a separate parity treatment at multiplicity three. An independent definition-based checker agrees in 1,275 small finite cases. Finite checks support, but do not substitute for, the proof.
+
+**Originality — PASS, with priority limits.** The 2018 low-multiplicity study obtains the multiplicity-three child profile, the 2019 Kunz paper proves density one of maximal embedding dimension, and the 2026 paper supplies algorithms and related conjectures. The known 2019 density result does not imply exactly one child, since maximal embedding dimension allows simultaneous effective generators. The new conclusion gives a sharp all-multiplicity error order, including the matching lower bound from near-tied primitive Apéry elements. Targeted record searches did not identify that statement. The 2019 publisher full text could not be lawfully obtained in this review; its abstract and the 2022 full paper describing its consequence were inspected. This remains a historical priority risk, not a correctness uncertainty.
+
+**Mathematical value — PASS.** One-child prevalence concerns the local offspring distribution of the numerical-semigroup tree, a natural statistic in the 2026 classification program. The theorem identifies a universal fixed-multiplicity branching law with a sharp exception scale, as opposed to a calculation at one multiplicity or genus. It also yields eventual internal-node predominance in every fixed-multiplicity stratum. It does not resolve the stronger finite-genus conjecture for arbitrary multiplicities.
+
+Closest sources: Casas–Madrid–Rosales (2026); García-Sánchez–Marín-Aragón–Robles-Pérez (2018); Alhajjar–Russell–Steward (2019); DiPasquale–Gillespie–Peterson (2022). Limitations: implicit multiplicity-dependent constants, no varying-multiplicity regime, and outstanding historical-priority review of the complete 2019 text.
+
+Self-review: passed. Independent audit: not yet performed.
