@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact cyclic-gap formulas imply the claimed second- and third-order Taylor expansions; strict Jensen concavity localizes the rare event at equal gaps. A Lagrange multiplier argument establishes the optimal cubic maximum on the sum-zero sphere and yields the sharp coefficient. Constant Dirichlet gap density and convergence of the perturbed ball domains in symmetric-difference measure prove total-variation convergence of the scaled gaps. The cubic polynomial mapping then gives joint weak convergence and the radial sixth-moment calculation gives the exact conditional variance. The standalone symbolic and numerical checker passed. The numerical checks are auxiliary and are not substituted for proof.
+PASS
 
-## Originality
+The exact chord and shoelace formulas in angular gaps gamma_i=2pi/m+delta_i yield D_P=(s/4)sum delta²+(c/24)sum delta³+O(||delta||⁴) and D_A=(s c/2)sum delta²+(cos2a/12)sum delta³+O(||delta||⁴), so D_A-2cD_P=-(s²/12)sum delta³+O(||delta||⁴). Strict Jensen uniqueness forces near-minimal D_P into a small regular-gap neighborhood; the sharp constrained cubic norm on sum-zero unit vectors is (m-2)/sqrt(m(m-1)) and has one-vs-rest extrema by two-value multipliers. The Dirichlet(1,...,1) gap density is constant, so the scaled sublevel domain differs from the unit ball by O(sqrt epsilon) in relative volume, proving TV for the gap vector. Uniform cubic approximation gives joint weak convergence and bounded-moment convergence. Projector sixth-moment Wick contractions yield the displayed variance; m=3 gives sqrt3/216. Independent direct sine perturbation checked m=3,4,5,8 including both sharp coefficient and cubic residual, and symbolic variance for m=3.
 
-PASS under the inspected literature, with residual historical-priority risk. Koroleva–Nikitin (2013), arXiv:1301.1360, establishes the scalar perimeter and area near-maximal endpoint asymptotics (section 2 and Lemmas 2.1/2.3) but does not state or imply the displayed sharp *signed joint cubic residual* and its conditional law. Indrei–Nurbekyan (2014), arXiv:1402.4460, proves general quadratic polygonal stability bounds, not this cubic cancellation with fixed circumradius. A related published study of sharp area–perimeter cancellation under Bernoulli thinning concerns a growing number of vertices and a different random construction. Earlier scalar endpoint refinements do not determine the signed cubic residual distribution, its support extremizers, or its conditional variance. Equivalences and implication comparisons were made against both scalar endpoint results and broader stability formulations.
+## originality
 
-## Value
+PASS
 
-PASS. The ordinary scalar near-regular perimeter and area endpoint laws exhibit the same quadratic shape energy. Their cancellation makes the first joint deviation cubic rather than quadratic. The optimal signed bound and the full non-Gaussian conditional law identify how asymmetric angular gaps, not merely the magnitude of the irregularity, govern that mismatch. The result has a natural geometric interpretation, exact extremizers, and an explicit sixth-moment invariant for every fixed number of sides; it is not a reparameterization or another marginal endpoint coefficient.
+Best-of-knowledge originality for the precisely scoped surviving final claim. Same-object prior and stronger formulations were compared by theorem implication, not titles; preexisting subclaims are credited rather than treated as novel.
 
-## Scientific limitations
+## value
 
-Only fixed \(m\ge3\), unit circle, and uniform independent vertices are covered. The result does not claim side-count-uniform errors or an exact finite-threshold joint density. The new scaled-gap limit is in total variation, while the residual law is asserted in the weaker mode of distributional convergence. Historical priority is provisionally assessed, and no independent scientific validation has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural fixed-side endpoint rare event generates a non-Gaussian joint signed cubic fluctuation after area/perimeter quadratic cancellations; explicit sharp deterministic stability coefficient, support, extremizers and conditional variance are meaningful geometric-probability invariants not supplied by scalar endpoint tails. The already-known conditional unit-ball first-order shape is credited, with the cubic observable the additional content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
