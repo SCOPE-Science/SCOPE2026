@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For any fixed positive sample, G has exact plateau C=[1-phi_hat(u-1)]/2; ML makes C=0, MO makes C=(v-u)/(2(v-1)). This and compact support of R=G-C give both exact fixed-n limits. For iid IG(1,phi), four explicit tail basis functions have finite unweighted L2 second moments x, x^3/3, x/3, 1/(3x); exact algebra expresses R in their empirical averages with root-n consistent coefficients and zero population mean, proving n||R||_2^2=O_P(1). Cauchy-Schwarz therefore permits every deterministic a_n downarrow zero. The MO influence H=X^2-X^-1-3(1+1/phi)(X-1) has exactly variance 6/phi^3, yielding sqrt(n)C=>N(0,3/(2phi)), and both scaled chi-square limits; ML scaled limits vanish. The actual check.py passed 50 exact/symbolic/numerical assertions and a supplementary seeded 7,000 replicate simulation. Independent expert checking is not claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nik–Weiß (2024) Section 3 unifies the IG maximum-likelihood and moment shape estimators but studies their parameter-estimation bias/MSE, not the CDF–Stein squared-distance null law.",
+        "Allison et al. (2019) fixed-weight Hilbert limit assumes integrable positive weight."
+      ],
+      "reasoning": "Neither the estimator-only family nor a fixed-weight L2 theorem covers joint vanishing weights, where the MO residual has nonzero limiting tail and is not in unweighted L2.",
+      "searches": [
+        "inverse Gaussian Stein CDF test simultaneous vanishing tuning sequence a_n null asymptotics moment estimator tail residual",
+        "IG empirical CDF Stein residual MO estimator limit a downarrow zero gives 3/(2 phi) chi squared inverse Gaussian",
+        "https://doi.org/10.1007/s44199-024-00081-z",
+        "https://arxiv.org/abs/1910.14119"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1910.14119",
+      "https://doi.org/10.3390/math10030350",
+      "https://doi.org/10.1007/s44199-024-00081-z",
+      "public mathematical-claim records, semantically searched using seven explicit scientific queries",
+      "previous scientific claims, compared solely by their mathematical statements and identifiers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously documented theorem 328293f1-5bd9-4c1d-b882-6bca6b568356 treats a tending to infinity for ML, identifying the small-threshold slope, not a tending to zero or MO moment mismatch.",
+        "Previously documented theorem 4669b08b-9788-4ab9-9efd-0bbd1086a6d2 treats Rayleigh large-a Stein fit; distinct law, estimator and endpoint.",
+        "The closest semantically retrieved inverse-Gaussian central-mass record 2026/10/13/...7902035868a9 treats a distributional Gaussianization crossover and not a goodness-of-fit statistic."
+      ],
+      "reasoning": "Large-a Laplace concentration at t=0 does not imply small-a accumulation at t=infinity. The known same-source ML statement has exact zero tail rather than the MO plateau; it cannot supply the nondegenerate MO chi-square limit.",
+      "searches": [
+        "Allison Betsch Ebner Visagie inverse Gaussian MO ML estimators small weighting parameter chi square n times tail Stein discrepancy",
+        "moment estimator versus maximum likelihood inverse Gaussian CDF Stein large-t nonvanishing tail zero-weight unweighted statistic",
+        "328293f1-5bd9-4c1d-b882-6bca6b568356",
+        "2026/10/13/SCOPE-a-square-root-five-phase-boundary-in-inverse-gaussian-central-ma--7902035868a9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2019 arXiv full text Sections 1–3 and 7.1 define weighted G, estimators and fixed-a theory; 2022 full HTML Sections 1–3 and 5 likewise. Neither inspected analysis sends a to zero.",
+        "The MO plateau equivalently measures v-u, the empirical discrepancy between normalized second and inverse-first moments."
+      ],
+      "reasoning": "A finite-n plateau can be derived from the source definition and is not presented as an unrelated new statistic. The final theorem is the arbitrary-rate a_n-to-zero CLT and sharp contrast with the ML cancellation, which requires proving unweighted residual tightness and explicit influence variance; the fixed positive a Gaussian-process theorem does not directly imply it.",
+      "searches": [
+        "inverse Gaussian goodness of fit CDF Stein weighted L2 moment estimator maximum likelihood tuning a to zero unweighted integral diverges chi square limiting coefficient",
+        "Allison Betsch Ebner Visagie inverse Gaussian MO ML estimators small weighting parameter chi square n times tail Stein discrepancy",
+        "Allison Betsch Ebner Visagie inverse Gaussian weighted L2 CDF Stein goodness of fit small a vanishing exponential tuning moment estimator tail plateau chi-square ML zero",
+        "https://arxiv.org/abs/1910.14119",
+        "https://doi.org/10.3390/math10030350"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2019 preprint Section 7 / tables and 2022 article Section 5 tabulate a=0.1,1,10.",
+        "No searched exact theorem/table matching coefficients 3/(2phi) and 3 sqrt(pi)/(4phi) emerged."
+      ],
+      "reasoning": "Finite tuning tables do not yield a joint sequence law; no independently confirmed exact database/table coverage was found. This is not a proof of uniqueness.",
+      "searches": [
+        "inverse Gaussian goodness of fit CDF Stein weighted L2 moment estimator maximum likelihood tuning a to zero unweighted integral diverges chi square limiting coefficient",
+        "Allison Betsch Ebner Visagie inverse Gaussian weighted L2 CDF Stein goodness of fit small a vanishing exponential tuning moment estimator tail plateau chi-square ML zero",
+        "zero smoothing weights inverse Gaussian Stein-Moment likelihood estimator phase chi-square limit",
+        "https://arxiv.org/abs/1910.14119",
+        "https://doi.org/10.3390/math10030350"
+      ]
+    },
+    "rationale": "Best-knowledge priority after full primary 2019 preprint and 2022 article inspections, secondary 2024 moment-estimator article and current exact-claim record searches. Fixed positive tuning Gaussian-process theory and source computational formulas are known; the arbitrarily vanishing-tuning four-way null phase with explicit chi-square coefficient and unweighted Hilbert residual bound was not identified. Generic Stein identities and general Hilbert-space CLTs are explicitly acknowledged, not claimed as new.",
+    "residual_risks": [
+      "Historical priority is not proved: a dispersed result on vanishing-weight goodness-of-fit may exist outside inspected primary literature and indexed records.",
+      "The fixed-n plateau is a direct algebraic consequence of the published statistic definition; novelty is claimed only for the combined arbitrary-rate chi-square/zero asymptotics and its sharp coefficient.",
+      "No independently performed mathematical audit or bootstrap rejection-level validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same statistics and fixed positive a asymptotics; does not state arbitrary a_n to zero or exact MO one-chi-square limit.",
+        "evidence": [
+          "arxiv:1910.14119, 30 October 2019",
+          "MSC primary 62G10 printed in preprint",
+          "Source sections 1–3, 7.1, 9"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.14119",
+        "material_read": "Full accessible arXiv HTML: Introduction, parameter estimators, weighted Hilbert theorem, computational form, simulation tables and conclusions, Sections 1–3, 7 and 9.",
+        "method": "Read mathematical statements and source assumptions, search within primary text for tuning parameter and boundary coverage.",
+        "title": "New weighted L2-type tests for the inverse Gaussian distribution",
+        "trigger": "Same underlying statistic and earliest verified source; primary exact-coverage check"
+      },
+      {
+        "assessment": "Defines exponential and Gaussian weights and recommends a=10; fixed-a theory and tables but no inspected vanishing-weight theorem.",
+        "evidence": [
+          "2022 Mathematics 10(3), 350, 24 January 2022",
+          "DOI 10.3390/math10030350"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10030350",
+        "material_read": "Full HTML Article Sections 1–6 including equations (3), (4), (5), estimators, null theorem, Section 5 tuning values and references.",
+        "method": "Read source formulas and boundary assumptions, compare joint versus fixed tuning.",
+        "title": "On Testing the Adequacy of the Inverse Gaussian Distribution",
+        "trigger": "Revised full journal article plausibly extends source theorem"
+      },
+      {
+        "assessment": "Estimator bias and MSE, not the source CDF–Stein GOF statistic or zero-weight asymptotic.",
+        "evidence": [
+          "2024 Journal of Statistical Theory and Applications 23, 240–274",
+          "DOI 10.1007/s44199-024-00081-z"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s44199-024-00081-z",
+        "material_read": "Full open-access HTML Introduction, Section 3 Stein estimation of inverse-Gaussian law including formula (3.3) and relation to both ML/MM estimators.",
+        "method": "Check studied objects and asymptotic goals directly.",
+        "title": "Generalized Moment Estimators Based on Stein Identities",
+        "trigger": "Plausible generalized coverage of IG moment versus ML estimators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a9014fe2-80b5-4ba6-b7dc-65147bc208a9",
+  "value": {
+    "rationale": "The original paper compares and recommends MO-versus-ML CDF–Stein tests at fixed positive tuning, reporting apparent parameter insensitivity. At the natural opposite zero-weight boundary, the raw statistics behave qualitatively differently: generic MO unweighted divergence vs finite ML, and under the null the MO scaled limit is universally one chi-square component with explicit shape-dependent coefficient, for any vanishing tuning rate. This identifies a practically relevant calibration/regularization boundary and the sole moment-mismatch direction governing the MO tail, beyond a routine reparameterization.",
+    "status": "PASS"
+  }
+}
