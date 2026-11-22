@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The quotient recurrence is triangular because L^2 has constant coefficient one; choosing the first 14/9/10 permitted output coefficients enumerates all 3^14/3^9/3^10 normalized candidates in the three prescribed classes exactly once. Complete integer convolution and endpoint/symmetry checks leave precisely 2/1/2 candidate quotients. The packaged C++17 checker performs both recursive and base-three-counter exhaustive enumerations and checks the exact five vectors. Coefficients of the formal inverse of L^2 through index 21 have total absolute sum 125, so all intermediate values and products are far below signed-64-bit limits. Restoring sign gives 4/2/4, with no extrapolation beyond these finite domains.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "El Otmani–Idris–Sac-Épée establish minimum degrees and full degree supports for Lehmer-square Borwein multiples; at each admitted degree their tables provide one polynomial, not an exhaustive list.",
+        "Mossinghoff (2003), Section 4, pp. 322–323, describes searching and producing examples of multiplicity-two and multiplicity-three height-one multiples, not uniqueness counts for the three thresholds.",
+        "Drungilas–Jankauskas–Šiurys (2018) focuses on small-degree Borwein divisors and Littlewood/Newman multiples rather than these minimizer counts."
+      ],
+      "reasoning": "Existence, least degree, and degree-spectrum statements do not logically determine the number of polynomials at a qualifying degree. No inspected source asserts the three counts or a theorem from which these exact counts follow without solving the new finite enumeration.",
+      "searches": [
+        "Full coefficient constraints for self reciprocal Borwein polynomials divisible by Lehmer polynomial powers beyond square cube",
+        "arXiv 2611.18323 On Borwein polynomials multiple roots outside unit disk exact multiplicities of minimal-degree 34 solutions",
+        "Mossinghoff Lehmer height one multiples minimal degree uniqueness reciprocal antireciprocal",
+        "Mossinghoff Borwein Lehmer square cube polynomial 2003 minimal polynomials multiplicity enumeration",
+        "doi:10.1112/S1461157000000474"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.18323v1",
+      "https://arxiv.org/abs/2611.18323",
+      "https://doi.org/10.1112/S1461157000000474",
+      "https://doi.org/10.1090/mcom/3258"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source already proves the minima 34,38,41; those are used here as known facts.",
+        "The source degree-41 antisymmetric example is one of two distinct normalized quotient vectors; the other has a different coefficient prefix.",
+        "The degree-34 vectors are mutual coefficient reversals, which explains four signed solutions, not forced by the prior existence result."
+      ],
+      "reasoning": "Minimum-degree feasibility does not imply uniqueness, and the new degree-41 second minimizer shows why simply assuming uniqueness would be wrong. The result is a complete fiber-size and symmetry-orbit refinement of the prior degree-optimality statement, not a restatement of it.",
+      "searches": [
+        "Enumerate all Borwein polynomial multiples of Lehmer polynomial squared of minimum degree 34; exact number of normalized degree-34 minimizers",
+        "Borwein polynomial Lehmer least degree 34 38 41 square multiple count all extremal solutions reversal",
+        "arXiv:2611.18323v1 Sections 3.1, 3.2, Appendix",
+        "Mossinghoff 2003 Section 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 paper sets up a coefficient feasibility system equivalent to a candidate test, but its theorems and appendix list feasibility and examples, not cardinalities of solution sets at the three minima.",
+        "Our normalized quotient-census outputs 2,1,2; sign doubles these to 4,2,4."
+      ],
+      "reasoning": "The exact quintuple of quotient vectors, the unique reversal orbit at degree 34, and the existence of two nonproportional antisymmetric optimizers at degree 41 are equivalent descriptions of the new classification. A generic feasibility constraint is not a previously evaluated or stated solution-count theorem.",
+      "searches": [
+        "Enumerate all Borwein polynomial multiples of Lehmer polynomial squared of minimum degree 34; exact number of normalized degree-34 minimizers",
+        "Lehmer polynomial squared Borwein degree 34 uniqueness count classification minimizers coefficient vectors",
+        "Borwein polynomial Lehmer least degree 34 38 41 square multiple count all extremal solutions reversal",
+        "\"Lehmer\" \"34\" \"Borwein\" \"unique\" multiple square",
+        "arXiv:2611.18323v1, Section 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Appendix Table 1 supplies one degree-34 coefficient vector, Table 2 one degree-38 symmetric vector, and Table 3 one degree-41 antisymmetric vector; all are matched by members of the new classification.",
+        "No count table for all minimizers appears in the relevant full-text sections or appendix.",
+        "The indexed published-result queries returned other polynomial or extremizer classifications, not this Borwein/Lehmer-square census."
+      ],
+      "reasoning": "The article gives explicit representative tables, not exhaustive solution-count tables. Exact search did not locate a separate enumeration; that negative search is treated only as supporting evidence, not proof of originality.",
+      "searches": [
+        "Lehmer polynomial square Borwein coefficient extremizer exact enumeration",
+        "\"Lehmer\" \"34\" \"Borwein\" \"unique\" multiple square",
+        "\"Lehmer\" \"38\" \"41\" \"Borwein\" count symmetry extremizers",
+        "arXiv:2611.18323v1 Appendix Tables 1–3"
+      ]
+    },
+    "rationale": "The inspected primary full text proves least possible degrees and prints a representative per degree; it does not count or classify all optimal polynomials. Mossinghoff 2003 reports examples, and the related 2018 restricted-coefficient paper treats different divisor degrees. Targeted current literature and published-result searches returned no covering exact enumerator. This is a best-knowledge originality assessment, subject to an unindexed prior census.",
+    "residual_risks": [
+      "An unpublished solver output, an unindexed research note, or a hidden appendix could conceivably contain the same complete census.",
+      "The 2018 related article was compared using its publisher abstract rather than its full text.",
+      "Independent external verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers minima and existential representatives but not total minimizer counts or orbit classification",
+        "evidence": [
+          "Degrees 34,38,41 appear in Section 3; appendix states one polynomial for each admitted degree and provides representative vectors; unique/complete minimum-fiber count is absent."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.18323v1",
+        "material_read": "Relevant full HTML: definitions, Section 2 feasibility algorithm, Section 3.1–3.4 thresholds/spectra, Section 5 and Appendix Tables 1–3",
+        "method": "Direct inspection and statement-level implication comparison",
+        "title": "On Borwein polynomials with multiple roots outside the unit disk",
+        "trigger": "Same Lehmer square, exact minimum degrees and appendix representatives"
+      },
+      {
+        "assessment": "Example constructions, no exact minimizer classification",
+        "evidence": [
+          "Section 4 explicitly describes finding one example of the smallest known degree for each selected factor; the degree-38 and degree-115 examples are presented as samples."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/S1461157000000474",
+        "material_read": "PDF pp. 315–316 and 322–323, including visible pages of Section 4 and Algorithm 3",
+        "method": "Full-page inspection of relevant source pages and comparison with exact census",
+        "title": "Polynomials with restricted coefficients and prescribed noncyclotomic factors",
+        "trigger": "Earlier source of Lehmer polynomial high-multiplicity height-one examples"
+      },
+      {
+        "assessment": "Studies low-degree Borwein divisors and Littlewood/Newman multiples, not the present counted Lehmer-square minimizers; limited full-text access leaves a small bibliographic risk",
+        "evidence": [
+          "Abstract explicitly focuses on Borwein divisors of degree at most nine; Lehmer polynomial has degree ten."
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/mcom/3258",
+        "material_read": "Publisher abstract and scope statement; full article not inspected",
+        "method": "Scope comparison using published description",
+        "title": "On Littlewood and Newman polynomial multiples of Borwein polynomials",
+        "trigger": "General restricted-coefficient multiple literature cited in the 2026 paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "247984b5-bf1d-465a-9f1d-9fd1f038e0da",
+  "value": {
+    "rationale": "The motivating paper optimizes degree of height-one multiples of Lehmer square, so cardinality and rigidity of the exact optimal solution sets are natural structural follow-up invariants. The complete classification shows three distinct optimizer phenomena—one unrestricted reversal orbit, a unique symmetric solution up to sign, and two inequivalent antisymmetric solutions up to sign—and provides all coefficient witnesses. This is a finite but mathematically motivated complete extremizer census, not an arbitrary numerical slice or a restatement of existence.",
+    "status": "PASS"
+  }
+}
