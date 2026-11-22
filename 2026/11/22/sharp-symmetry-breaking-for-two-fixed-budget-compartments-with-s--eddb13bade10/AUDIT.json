@@ -1,0 +1,175 @@
+{
+  "correctness": {
+    "rationale": "After positive rescaling, every feasible allocation is described by an imbalance around the fixed mean. The exact derivative has the sign of a strictly convex quadratic in the squared imbalance, whose endpoint values have opposite signs precisely above a unique cubic threshold. This proves the unique global imbalance and excludes endpoints; quadratic discriminant gives the optimizer. The onset follows by an implicit derivative and high-load expansion by exact algebra. Standalone symbolic checker verified critical identities and 10,667 deterministic assertions. Limits and constraints are explicit; no finite run substitutes for the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abu Reesh 2021 DOI 10.3390/pr9081419: flow-coupled series reactor design minimizes volume at conversion targets; full HTML including equations and results inspected.",
+        "Stacey–Shepherd 2022 DOI 10.1007/s40314-022-01807-4: two serial chemostats; text explicitly states output optimization not considered.",
+        "Published result 2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd: monotone Hill inhibitory mechanism splitting, active equal components, not the unimodal substrate-inhibited response.",
+        "Published result 2026/10/26/SCOPE-two-sharp-patch-allocation-transitions-for-a-generalized-type-ii--7d3ca49da7d6: sigmoid Type III patch feeding with a distinct boundary-versus-equal transition, not the Haldane response."
+      ],
+      "reasoning": "Serial CSTR residence-time and stability objectives need flow balances, whereas this theorem fixes a static sum and adds instantaneous response rates. Monotone inhibitory/Holling response laws lack the high-load falling tail essential to the new strictly positive unequal, nonboundary optimum. General convex-envelope resource-allocation results remain a named residual risk rather than established covering claims.",
+      "searches": [
+        "Symmetry-breaking optimal unequal nutrient concentration in two microbial reactors Haldane Andrews concave envelope",
+        "optimal two-compartment allocation nonmonotone unimodal response inhibition x/(a+x+x^2) high resource one at optimum",
+        "maximum total Haldane growth sum fixed concentration mean inflection threshold f''",
+        "\"substrate inhibition\" \"heterogeneous\" \"optimum\" \"concentrations\" growth",
+        "https://doi.org/10.3390/pr9081419",
+        "https://doi.org/10.1007/s40314-022-01807-4",
+        "2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd",
+        "2026/10/26/SCOPE-two-sharp-patch-allocation-transitions-for-a-generalized-type-ii--7d3ca49da7d6"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/(SICI)1097-0290(19961205)52:5%3C602::AID-BIT7%3E3.0.CO;2-N",
+      "https://doi.org/10.1002/bies.200900167",
+      "https://doi.org/10.1021/es505837v",
+      "https://doi.org/10.3390/pr9081419",
+      "https://doi.org/10.1007/s40314-022-01807-4",
+      "https://doi.org/10.1002/bit.260100602",
+      "2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd",
+      "2026/10/26/SCOPE-two-sharp-patch-allocation-transitions-for-a-generalized-type-ii--7d3ca49da7d6",
+      "2026/11/2/SCOPE-sharp-resource-allocation-staircases-under-uniform-patch-dispers--5d8b1181bd2f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gharasoo et al. 2015 Section 3.1 solves threshold concentration where inhibition-only and mass-transfer-limited rates agree; Sections 3.3–3.4 address porous transport/degradation and potential material design.",
+        "Reed et al. 2010 covers enzyme substrate inhibition including a two-binding-site rate expression but not optimization of two equal independent compartments.",
+        "Abu Reesh 2021 defines a series-reactor residence-time minimization; Stacey–Shepherd 2022 explicitly has serial flow and no output optimization."
+      ],
+      "reasoning": "Those results do not imply the claimed exact fixed-sum optimizer by substitution or a direct parameter limit: their variables are rate-law choice, bioavailability exchange, dynamic reactor flow or residence times, not a freely partitioned static concentration budget. A broader abstract allocation theorem could still subsume the explicit special case, which is retained as a residual priority risk.",
+      "searches": [
+        "\"Haldane\" \"two\" \"compartments\" \"optimal\" \"substrate\" heterogeneity",
+        "\"substrate inhibition\" \"heterogeneous\" \"optimum\" \"concentrations\" growth",
+        "\"Andrews\" \"two patch\" \"substrate inhibition\" optimum",
+        "Symmetry-breaking optimal unequal nutrient concentration in two microbial reactors Haldane Andrews concave envelope",
+        "maximum total Haldane growth sum fixed concentration mean inflection threshold f''",
+        "https://doi.org/10.1021/es505837v",
+        "https://doi.org/10.1002/bies.200900167",
+        "https://doi.org/10.3390/pr9081419",
+        "https://doi.org/10.1007/s40314-022-01807-4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reed–Lieb–Nijhout 2010 DOI 10.1002/bies.200900167: single-site Haldane inhibition curve and biological roles, full HTML text examined.",
+        "Gharasoo et al. 2015 DOI 10.1021/es505837v: compares single-site classical inhibition with mass-transfer-coupled inhibition and derived crossover concentration, full HTML text examined.",
+        "No matched fixed-sum, equal-weight independent-compartment response objective was located in the returned scientific comparisons."
+      ],
+      "reasoning": "A single-site rate peak, mass-transfer threshold, or biofilm spatial heterogeneity is not the same statement as maximizing the sum of two static Haldane rates under a total concentration constraint. The inspected sources do not derive the cubic threshold, exact unequal allocations, or critical exponent. Search absence alone is not a priority proof.",
+      "searches": [
+        "Haldane Andrews inhibitory substrate kinetics two independent equal biomass patches fixed total substrate optimal unequal split bifurcation threshold",
+        "two equal parallel chemostat substrate inhibition fixed mean concentration symmetric allocation unstable bifurcation",
+        "substrate inhibition Andrews growth response x/(1+ax+x^2) sum at fixed mean optimal variance",
+        "\"Haldane\" \"two\" \"compartments\" \"optimal\" \"substrate\" heterogeneity",
+        "\"substrate inhibition\" \"heterogeneous\" \"optimum\" \"concentrations\" growth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest matching statements found on 2026-11-02 and 2026-10-26: 2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd; 2026/10/26/SCOPE-two-sharp-patch-allocation-transitions-for-a-generalized-type-ii--7d3ca49da7d6; 2026/11/2/SCOPE-sharp-resource-allocation-staircases-under-uniform-patch-dispers--5d8b1181bd2f.",
+        "The 2015 Gharasoo et al. tabulated crossover concentrations for bioavailability transfer, not a fixed-budget optimum split (its Table 1 and §3.1 inspected)."
+      ],
+      "reasoning": "The compared table values concern a different experimental variable and dynamical law; no exact table of the cubic critical mean or unequal two-site Haldane optimum was identified. A search index is incomplete; this is not a proof of uniqueness.",
+      "searches": [
+        "Haldane Andrews inhibitory substrate kinetics two independent equal biomass patches fixed total substrate optimal unequal split bifurcation threshold",
+        "substrate inhibition Andrews growth response x/(1+ax+x^2) sum at fixed mean optimal variance",
+        "optimal two-compartment allocation nonmonotone unimodal response inhibition x/(a+x+x^2) high resource one at optimum",
+        "Haldane Andrews substrate inhibition optimum uneven substrate distribution parallel reactors fixed total concentration heterogeneity optimal allocation",
+        "2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd",
+        "2026/10/26/SCOPE-two-sharp-patch-allocation-transitions-for-a-generalized-type-ii--7d3ca49da7d6",
+        "2026/11/2/SCOPE-sharp-resource-allocation-staircases-under-uniform-patch-dispers--5d8b1181bd2f"
+      ]
+    },
+    "rationale": "Exact all-positive-parameter fixed-total two-site allocation, with a sharp cubic threshold, two asymmetric maximizers, square-root onset, and a single-site high-load asymptote, was not implied by the examined closest published statements. The closest accessible primary treatments concern different physical controls (mass transfer, serial reactor steady states) or one-site inhibition. Historical priority against general nonconcave two-point optimization remains provisional, not certified.",
+    "residual_risks": [
+      "Generic convex-envelope/nonconcave moment-allocation theorems might imply the two-point fixed-budget formula without using Haldane terminology; direct full-text implication of that broad literature was not established.",
+      "The 1968 Andrews and 1996 Tan full texts were not materially inspected, so their full mathematical appendices cannot be excluded. The available abstracts point to different systems but do not prove noncoverage.",
+      "The constrained two-compartment objective is a stylized benchmark: single-site kinetics alone cannot justify system-level process control under dynamic mass transfer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies historical physical formulation and dating, not evidence for any exact two-compartment allocation classification. Full text unavailable in the inspected access.",
+        "evidence": [
+          "Publisher abstract: statistical thermodynamic derivation of models including Haldane–Andrews; no separate-resource-compartment objective in available abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1097-0290(19961205)52:5%3C602::AID-BIT7%3E3.0.CO;2-N",
+        "material_read": "Publisher abstract and first-publication metadata (1996-12-05), not full text",
+        "method": "Publisher HTML abstract and bibliographic metadata",
+        "title": "Modeling substrate inhibition of microbial growth",
+        "trigger": "Early dated formulation of inhibitory microbial growth kinetics"
+      },
+      {
+        "assessment": "Covers physical explanation, single-site inhibition and its regulatory roles; does not classify fixed-sum two-compartment response.",
+        "evidence": [
+          "Text around mechanism describes two enzyme binding sites, not two substrate allocation compartments.",
+          "First published 22 April 2010."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/bies.200900167",
+        "material_read": "Accessible full HTML: abstract, mechanism, eqs. (1)–(2), case-study sections and discussion",
+        "method": "Read publisher full-text HTML (including online date 2010-04-22)",
+        "title": "The biological significance of substrate inhibition: A mechanism with diverse functions",
+        "trigger": "Biochemical meaning and parameterization of single-site self-inhibition"
+      },
+      {
+        "assessment": "Models mass-transfer-limited bioavailability and two kinetic laws at a bulk concentration, not optimal static splitting across independent equal-biomass compartments. Does establish qualitatively that restricting access can improve inhibited rates.",
+        "evidence": [
+          "§3.1 derives mass-transfer crossover concentration c_gh; §3.4 proposes porous media heterogeneity implications.",
+          "Table 1 contains bioavailability-crossing thresholds, not a fixed-total split."
+        ],
+        "identifier_or_url": "https://doi.org/10.1021/es505837v",
+        "material_read": "Accessible full HTML: theoretical descriptions, §§3.1–3.4, Table 1, conclusions and publication history",
+        "method": "Read primary HTML sections and tables; public online date verified 2015-04-15",
+        "title": "Kinetics of Substrate Biodegradation under the Cumulative Effects of Bioavailability and Self-Inhibition",
+        "trigger": "Closest source on spatial access limitations and counterintuitive increase of inhibited degradation rates"
+      },
+      {
+        "assessment": "Optimization minimizes total residence time of serial coupled tanks at conversion goals; different objective and feasible set.",
+        "evidence": [
+          "Abstract and §3 define inlet concentrations, reactor volume, conversion and MATLAB fmincon; no static two-independent-compartment sum of rates."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/pr9081419",
+        "material_read": "Accessible full HTML: abstract, model equations, §§2–4 and design results",
+        "method": "Read primary HTML full analytical/numerical optimization formulation",
+        "title": "Optimum Design of N Continuous Stirred-Tank Bioreactors in Series for Fermentation Processes Based on Simultaneous Substrate and Product Inhibition",
+        "trigger": "Plausible stronger design optimization claim with inhibitory rates"
+      },
+      {
+        "assessment": "Studies dynamics, steady states and stability of two serial-flow reactors; explicitly says output optimization is not considered.",
+        "evidence": [
+          "Introduction states output optimization not considered; model has reactor 1 feeding reactor 2."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40314-022-01807-4",
+        "material_read": "Accessible full HTML: introduction, model, summary of sections, §5 discussion",
+        "method": "Read full publisher HTML narrative and system equations",
+        "title": "Analysis of a continuously stirred two tank reactor cascade with Haldane kinetics",
+        "trigger": "Two-reactor Haldane mathematics possibly covering a broader allocation result"
+      },
+      {
+        "assessment": "Classical single chemostat model, but full text inaccessible; cannot certify it excludes two-compartment optimization.",
+        "evidence": [
+          "Publisher abstract discusses batch/continuous inhibition, lag and process instability; reported issue date November 1968 without a verified first-public calendar day."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/bit.260100602",
+        "material_read": "Publisher abstract and issue-month metadata only; full paper not obtained",
+        "method": "Publisher abstract and related bibliographic records",
+        "title": "A mathematical model for the continuous culture of microorganisms utilizing inhibitory substrates",
+        "trigger": "Original microbial Haldane–Andrews kinetics and historical priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eddb13ba-de10-4925-8a9f-bdc24f13438f",
+  "value": {
+    "rationale": "Fixed-total substrate sharing among two equally weighted, independent inhibitory compartments is a physically motivated but nonlinear design benchmark. The result separates the single-site inhibition peak from a strictly higher onset of beneficial heterogeneity, computes every optimal split, excludes full concentration in one compartment, and identifies square-root onset and high-load retention of one compartment at the individual-optimal concentration. This is an exact global phase diagram, not a relabeling or arbitrary numerical slice; it does not assert field-scale efficacy.",
+    "status": "PASS"
+  }
+}
