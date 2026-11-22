@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(a>1\), nonzero real \(\alpha\) and \(\Omega\), differentiation of the explicit inverse-radius coordinates gives \(\dot X=-\sigma Y\), \(\dot Y=\sigma X\), and \(\dot\theta=-\Omega\). The global inverse has positive squared radius exactly when \(X>-a^2\), so the completeness boundary is the exact harmonic-circle/half-plane contact threshold; the lifespan and distinct escape powers follow by nondegenerate and tangent Taylor expansion. The included symbolic checker independently confirms critical algebra. The proof is analytic, not based on its finite tests.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest same-object source is Jana (arXiv:2401.07843), which states the quadratic family in Corollary 4.2 and the rational first integral in Remark 4.5. Integrability and a specified invariant torus do not themselves state the global original-time harmonic conjugacy, the entire complete-data region, constant torus rotation vectors, or explicit finite escape laws. Llibre–Rebollo-Perdomo (2013) addresses algebraic torus meridians/parallels in its inspected main theorems and proofs. Llibre–Medrado (2011) is a plausible older source on the same torus, available here only through article metadata and a conference abstract; it remains a publication-priority risk. Closest indexed related findings concern cubic meridian cycles and other isochronous polynomial systems, not this quadratic flow or its completeness boundary.
+PASS
 
-## Value — PASS
-This yields a complete global dynamics and blow-up classification in a natural, low-degree polynomial family arising from a published classification of fields preserving an algebraic torus. The constant rotation vector of an entire open continuum of invariant tori is structurally stronger than knowing one rational first integral, and the sudden change in coordinate blow-up exponent across an exact invariant paraboloid provides a sharp boundary between globally complete and incomplete motion.
+From u=x²+y², du/dt=alpha z u/2 and angular rate -Omega. Set k=a^4-1, X=k/u-a², Y=sqrt(k)z/u; exact Lie derivatives give Xdot=-sigma Y, Ydot=sigma X with sigma=alpha sqrt(k)/2, and a global analytic inverse on X>-a². A harmonic circle remains in the half-plane for rho<a² and leaves it otherwise, giving the precise two-sided lifespan as allowed arc length divided by |sigma|. Tangency at rho=a² yields r~tau^-1; transverse exit for rho>a² yields r~tau^-1/2, while the z leading coefficient is 4/alpha or 2/alpha, respectively. Axis Riccati has lifespan pi/|sigma|. Independent SymPy recomputed both Lie identities, angular speed and rho²=1+kH. Full completeness is not inferred from finite tests.
 
-## Scope and risks
-The result concerns the constant-angular-speed subfamily, not arbitrary linear \(f\); there is no perturbative claim. Hidden overlap in inaccessible older full text or unindexed literature is possible. Both backward and forward blow-up are genuine unboundedness in the original polynomial coordinates; no physical-time reparameterization is used.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jana supplies the exact quadratic field and rational first integral; the new global time-preserving inverse-radius harmonic conjugacy, all-point completeness set, exact life intervals and distinct blow-up scales are additional explicit dynamical conclusions not stated in the inspected Jana full text. Earlier torus-meridian papers may contain overlap; this is a named priority risk.
+
+## value
+
+PASS
+
+A global physical-time conjugacy allows exact two-sided completeness, rational/irrational torus motion and distinct tangent/transverse finite-time blow-up laws in a natural polynomial torus flow. The two different escape exponents and exact lifespan are meaningful structural invariants not immediate from existence of a first integral alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
