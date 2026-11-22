@@ -1,0 +1,11 @@
+# Review of three-word code ambiguity classification
+
+**Correctness — PASS.** Full equality-pattern reduction covers all alphabets: the seven symbol positions have exactly 877 set partitions, 825 satisfying the distinct-short-word requirement. The packaged exhaustive Sardinas–Patterson test finds exactly 10 nondecipherable patterns and checks agreement with both structural families for each. Witness identities prove each exceptional family has a length-five ambiguity. Counting is disjoint and exact. The standard-library checker additionally tests all literal codebooks for alphabet sizes two through five. This is finite exhaustive proof on all possible equality structures, not extrapolation from small alphabets.
+
+**Originality — PASS, qualified.** The 1953 Sardinas–Patterson decision framework is prior art. The principal 2001 three-word paper proves equivalence of decipherability notions for two equal-length words; the 2002 paper addresses further structural cases. The inspected relevant material did not identify an exact enumeration of non-UD codes of profile (2,2,3), a two-type classification, or the sharp universal five-symbol witness. Related indexed findings on Kraft-equality codes and non-overlapping codes concern different predicates and parameters. An earlier unindexed short-code classification remains a plausible residual risk; absence from indexed search is not uniqueness proof.
+
+**Mathematical value — PASS.** The length profile (2,2,3) is the first odd-long-word case after two length-two codewords: the longer word cannot itself be a concatenation of short words, so the classification isolates overlap-driven ambiguity rather than immediate substitution. A natural alphabet-wide formula and a sharp uniform certificate bound determine the entire failure population and its vanishing density as the alphabet grows. The work does not claim an all-length characterization.
+
+Scientific limitations: only the explicitly stated length profile and ordinary concatenation; computational symbolic proof is reproducible but not independently audited. Exact public dating of the earlier 2001 article is uncertain; 2002-05-22 is the verified day-resolved source used for dating.
+
+Self-review: passed. Independent audit: not yet performed.
