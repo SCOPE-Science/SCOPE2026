@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The compact-group central expansion uses \(\chi_j\chi_k=\sum_{h=0}^{\min(j,k)}\chi_{j+k-2h}\); this reproduces every coefficient \(C_n\) and yields an exact affine tail for \(n\ge d-1\). The only boundary issue, the formal negative index \(-1\) when \(n=d-1,j=d\), contributes precisely zero and is not used as a negative-index representation. Positive type follows from irreducible Fourier coefficient nonnegativity; the converse limit proves the necessity of \(S\ge0\). Injectivity of \(b\mapsto(C_0,\ldots,C_{d-1},S)\) follows from pointwise strict positivity of \(P_r\), so the cone really has \(d+1\) irredundant facets. Co-finite strict coefficient positivity proves strict positive definiteness, while every mode being positive gives universality. There is no extrapolation from finite tests.
+PASS
 
-## Originality — PASS against inspected evidence, with priority risks
+SU(2) Clebsch–Gordan product chi_j chi_k=sum chi_{j+k-2h} gives the exact coefficient C_n; for n>=d the sum is r^n((n+1)S+T), with the only candidate negative k index at n=d-1,j=d,h=0 contributing coefficient zero, extending affine tail to n=d-1. Algebraic elimination yields the claimed r^(n-d+1)C_(d-1)+(n-d+1)r^n S identity. Peter–Weyl/Bochner central positivity makes individual C_n nonnegative necessary and sufficient, and asymptotic n forces S>=0. The square coordinate map has trivial kernel: all C_n=0 implies P_r q_b=0; P_r>0 everywhere, so b=0. An atomic measure with finitely many nonzero Peter–Weyl blocks must equal a smooth Haar-density Fourier polynomial yet is singular unless zero, so strictly positive tails imply strict finite-site PD; the converse finite rank fails on large finite subsets. All strictly positive coefficients are exactly uniform RKHS universality. Independently checked rational identities for radii 1/2,2/3,3/5 and d=1..6 through n=d+14 with exact fractions. Read source su2_poisson_checker.py, confirming its separate formulas and boundary tests. This is all degrees, not finite extrapolation.
 
-The closest antecedent is the exact quadratic-mask classification; it is a specialization and is **excluded** from the novelty claim. The present theorem treats every degree simultaneously, including a full invertible \((d+1)\)-coordinate positivity cone. The 2026 compact-universality manuscript gives general Fourier-positive criteria but does not supply the exact finite mask theorem. The 2024 compact-group Gaussian-process manuscript gives SU(2) harmonic expansions but not this result. Broader theorem synonyms, notably Chebyshev multiplication and affine Abel spectral tails, remain an explicit bibliographic priority risk. A missing pre-existing equivalent formula could affect originality.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is natural for building positive-type, group-invariant covariances with finite character modifications of an analytic base. The exact all-degree reduction solves an infinite family of spectral inequalities by a finite linear test and completely classifies the admissible coefficient geometry and its strictly definite/universal distinctions. Arbitrary-degree classification is not just another fixed-degree numerical slice, and the representation-theoretic proof explains why finite positivity constraints suffice.
+The published degree-two central SU(2) Abel-mask positivity cone gives exactly three inequalities and two vertices (d=2) but explicitly does not classify arbitrary mask degrees. The present all-degree affine tail and d+1-simplex theorem dominates it and is a nontrivial extension; its formulas can specialize to d=2 and are not claimed to be novel there. Said et al. and Azangulov et al. give general universality and spectral representation criteria without this explicit family-specific finite-cone classification.
 
-## Limitations
+## value
 
-Only \(SU(2)\) with Abel weights \((n+1)r^n\) and real finite masks is addressed; no optimality claim for more general coefficient sequences. External independent validation and exhaustive priority checking are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite positivity and universality tests for every character-polynomial degree replace infinitely many constraints with precisely d+1 independent facets, controlling strict/finite-rank/universal strata of a natural compact-group covariance kernel. This uniform all-degree structural result has clear use in harmonic-analysis kernel design; no broad theorem for other groups is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
