@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness (PASS).** The complement map \(d\mapsto n/d\) converts the divisor-window problem into a consecutive-integer window. The least admissible complementary integer forces \(n/y>b\); until \(n/y\) reaches \(T\), the only possible complementary integers are exactly \(a,\ldots,b\). Their simultaneous divisibility is equivalent to one least-common-multiple condition. Endpoint conventions are checked explicitly. The all-parameter proof is independent of the supplied finite verifier, which independently enumerates 153,292 exact instances.
+
+**Originality (PASS, with risk).** The 2026 Ford–Gabdullin–Pratt article gives far-range asymptotics for the same counting function, not an exact first-support progression. Its Theorem 1.1 requires \(100\le y\le X/100\), a large auxiliary scale, and a restriction on \(r\). The 2007 Ford–Tenenbaum results are relative-density asymptotics for short divisor intervals. Targeted full-text checks of the 2026 paper and comparisons against published-finding corpus indexed claims and available prior research files found no equivalent or stronger first-support theorem. The elementary nature of the argument creates a real risk that an equivalent result appears in an unindexed source; no global uniqueness claim is made.
+
+**Value (PASS).** This is a complete, parameter-uniform exact solution for the initial nonzero band of a specifically motivated arithmetic counting function, not an arbitrary coefficient slice. It identifies both the optimal lower onset slope and the exact first-wave count and multiplicity, for all real interval ratios and all integer multiplicities. It complements, rather than restates, the paper's asymptotic analysis of the much larger scale. The first-wave endpoint need not be maximal, and later waves remain unresolved here.
+
+Self-review: passed. Independent audit: not yet performed.
