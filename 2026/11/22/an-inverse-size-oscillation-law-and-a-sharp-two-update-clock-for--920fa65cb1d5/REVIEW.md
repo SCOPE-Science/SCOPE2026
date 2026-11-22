@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** An all-size proof reduces each of six pair types to a common-neighborhood update and exhausts every possible ranking of the three global opinion totals. The ranking cases establish the full map identity \(F_m^4=F_m^2\), the exact fixed/orbit/basin formulas, and sharpness. For uniform starts the sector-sum probability follows from an aperiodic bivariate lattice local central limit theorem plus a conditional Gaussian limit; two other sectors are smaller by explicit bounds. The direct graph and independently weighted-profile implementations agree on complete finite tests (including every one of the \(3^{12}\) labelled configurations at \(m=6\)). Proofs, not solely computations, supply the infinite claim.
+
+**Originality — PASS, qualified.** The full pertinent results on binary majority on matching-deleted cliques, and on ternary excitable (Greenberg–Hastings) dynamics on the same graph, were inspected and compared by transition rule and implication rather than by title. They do not imply the ternary incumbent-tie plurality census. The 2012 Mossel–Neeman–Tamuz primary preprint treats information aggregation and multi-opinion no-tie convergence instead of the exact matched-pair dynamics. Goles–Olivos's binary period bound is older and duly acknowledged, but its complete paper was not inspected. Searches found no statement subsuming the present basin law, but unindexed historical coverage remains possible.
+
+**Value — PASS.** The exact full labelled time-and-orbit classification and the explicit inverse-size oscillation constant explain a natural three-opinion consensus/oscillation mechanism in a highly symmetric, minimally perturbed complete network. This is a meaningful, parameter-free asymptotic prediction for the entire infinite graph family, not an isolated finite census or trivial substitution.
+
+**Closest sources and risks.** Mossel–Neeman–Tamuz, arXiv:1207.0893v1 (2012-07-04); Goles–Olivos, Discrete Mathematics 30 (1980), DOI 10.1016/0012-365X(80)90121-1; the two full accessible results listed in the References. Historical novelty cannot be conclusively proved by search; the asymptotic uses iid uniform opinions, and the answer changes under a different tie convention.
+
+Self-review: passed. Independent audit: not yet performed.
