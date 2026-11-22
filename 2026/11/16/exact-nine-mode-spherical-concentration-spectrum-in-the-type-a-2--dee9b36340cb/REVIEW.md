@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The nine full-sphere normalized real harmonic basis functions form a complete band of degrees zero, one and two. The chamber is a sixty-degree lune and respects two reflections, yielding a complete direct sum of four matrices of dimensions \(4,2,2,1\). The embedded checker independently recomputes all moment integrals, symbolic characteristic polynomials, and sign changes at nine rigorously bounded rational eigenvalue intervals; because nine distinct roots occur, every eigenvalue is accounted for and simple. The sharp extremal values are from the first block. Numerics are not substituted for root certificates.
+## correctness
 
-## Originality — PASS, subject to historical priority
-The closest prior exact lune results recorded in public research findings concern **pure degree two** (five modes), while a full degree-through-two quarter-wedge result uses **right-angle walls** rather than the type-\(A_2\) sixty-degree chamber. The accessible prior full-band spherical-octant result has three bounding great circles and a different mask. Simons, Dahlen and Wieczorek provide a general Slepian matrix framework (Sections 4 and A.2 of arXiv:math/0408424), not this evaluated nine-eigenvalue table. Zandieh, Han and Avron provide near-optimal random full-sphere sampling (arXiv:2202.12995), not fixed-chamber stability. Searches and source access do not prove absolute novelty; the exact historical risk is especially older specialized special-case tables and uninspected related full texts.
+PASS
 
-## Value — PASS
-A type-\(A_2\) reflection fundamental chamber is a natural, non-arbitrary observation domain covering exactly one-sixth of the sphere. All nine spherical harmonic coefficients can be recovered from restriction, but the sharp continuous observation condition number is about \(45.2943\). The four symmetry blocks, strictly ordered spectrum and unique best/least modes solve a meaningful exact finite-band concentration and conditioning benchmark with mixed degrees, not merely an unmotivated table entry.
+With axis e=(1,1,1)/sqrt(3), the Weyl chamber is a longitude lune of aperture pi/3 and probability 1/6; full-sphere normalized harmonics through degree two give nine orthonormal modes. Reflecting azimuth and axis parity splits the restricted Gram into explicit blocks A(4), B(2), C(2), D(1). Direct beta-function integrals int z^(2k)(1-z^2)^(q/2) and cosine/sine longitude integrals yield the stated entries. The source verifier symbolically regenerates all entries and characteristic polynomials; rational enclosures for pi and sqrt(3) yield disjoint sign-changing brackets exhausting 4+2+2+1 roots, proving simplicity/strict order and positivity rather than just floating values. Independent block-matrix eigensolving reproduced all nine decimals, trace exactly 1.5 and sqrt(lambda_max/lambda_min)=45.294...; a separate smooth quadrature checked the geometry at lower accuracy. Addition theorem gives trace=9/6.
 
-## Boundaries
-The claim does not extend to larger bandwidth or arbitrary spherical polygons. The exact root enclosures are proved with rational interval arithmetic and Machin's identity for \(\pi\); numerical values are illustrative. Historical priority and independent validation are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General arbitrary-region Slepian theory supplies concentration eigenmatrices but not the exact sixty-degree Weyl-lune nine-eigenvalue spectrum. The published octant same-band spectrum is a different mask with probability 1/8 and nonidentical symmetry; pure cubic or degree-two spectral results do not dominate this direct sum. The claim is narrow but an exact complete natural invariant.
+
+## value
+
+PASS
+
+The 60-degree chamber is the natural type-A2 fundamental spherical domain and the smallest nontrivial full low-pass harmonic band has dimension nine. Exact four-block spectrum, strict ordering and sharp best/worst concentration bounds provide an independently useful conditioning benchmark for this geometric restriction, not an arbitrary tolerance check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

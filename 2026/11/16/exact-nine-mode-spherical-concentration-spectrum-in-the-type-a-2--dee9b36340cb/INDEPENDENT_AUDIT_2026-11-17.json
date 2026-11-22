@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:46:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With axis e=(1,1,1)/sqrt(3), the Weyl chamber is a longitude lune of aperture pi/3 and probability 1/6; full-sphere normalized harmonics through degree two give nine orthonormal modes. Reflecting azimuth and axis parity splits the restricted Gram into explicit blocks A(4), B(2), C(2), D(1). Direct beta-function integrals int z^(2k)(1-z^2)^(q/2) and cosine/sine longitude integrals yield the stated entries. The source verifier symbolically regenerates all entries and characteristic polynomials; rational enclosures for pi and sqrt(3) yield disjoint sign-changing brackets exhausting 4+2+2+1 roots, proving simplicity/strict order and positivity rather than just floating values. Independent block-matrix eigensolving reproduced all nine decimals, trace exactly 1.5 and sqrt(lambda_max/lambda_min)=45.294...; a separate smooth quadrature checked the geometry at lower accuracy. Addition theorem gives trace=9/6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simons-Dahlen-Wieczorek arXiv:math/0408424 gives the general Slepian finite-matrix method; it does not analytically evaluate every mask",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-spectrum-of-a-spherical-octant--fb01171e76df gives complete same-band octant spectrum, but mask differs",
+          "Quarter-lune pure cubic spectrum concerns a different band and aperture"
+        ],
+        "reasoning": "The arbitrary-region framework has broader geometric scope as an algorithm, but not an explicit theorem implying the nine evaluated roots or sharp condition number at this 60-degree Weyl mask. The other exact result concerns an octant and cannot specialize by rotation.",
+        "searches": [
+          "spherical harmonics degrees 0 1 2 Slepian concentration on Weyl chamber A2 sixty degree lune nine eigenvalues",
+          "arbitrary spherical Slepian region exact complete spectrum degree two"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md sha d8dc35c3eca76eca5b687e8d1af50323e34bde5e",
+        "SCOPE verify_lune.py sha ad14109f6aba51531b7ddab6200f2a3bd2459a1d",
+        "https://arxiv.org/abs/math/0408424",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-spectrum-of-a-spherical-octant--fb01171e76df",
+        "https://arxiv.org/abs/1608.05479",
+        "Resultary semantic query: spherical harmonics degrees 0 1 2 Slepian concentration on Weyl chamber A2 sixty degree lune nine eigenvalues"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-spectrum-of-a-spherical-octant--fb01171e76df octant mask probability 1/8, spectrum with 3 simple and 3 double values",
+          "Current A2 chamber probability 1/6, spectrum nine simple in four reflection parity blocks, trace 3/2 versus octant 9/8"
+        ],
+        "reasoning": "There is no rotation mapping a 60-degree lune to a three-sided spherical octant; neither mask nor representation multiplicities agree, and general Slepian construction alone cannot specialize an exact octant spectrum to this result.",
+        "searches": [
+          "spherical harmonics degrees 0 1 2 Slepian concentration on Weyl chamber A2 sixty degree lune nine eigenvalues",
+          "exact quadratic band Slepian spectrum spherical octant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The restriction operator P_{<=2}1_Omega P_{<=2} equals its 9-by-9 spherical-harmonic Gram matrix",
+          "Simons-Dahlen-Wieczorek arXiv:math/0408424 gives this generic finite-matrix Slepian equivalence"
+        ],
+        "reasoning": "The operator and Gram formulations are equivalent, but an uncomputed general eigenmatrix is not an exact tabulation or implication of the specific nine root-defined eigenvalues.",
+        "searches": [
+          "spherical harmonics degrees 0 1 2 Slepian concentration on Weyl chamber A2 sixty degree lune nine eigenvalues",
+          "spherical longitude lune 60 degree Slepian 9 mode exact concentration eigenvalues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search found same-band spherical OCTANT and pure cubic quarter-lune, both different regions/bands",
+          "All nine eigenvalues are enclosed in explicit rational intervals, not found as a preexisting matching table"
+        ],
+        "reasoning": "No exact 60-degree degree<=2 table found in inspected source corpus; historic specialized exact low-band lune tables may exist.",
+        "searches": [
+          "spherical harmonics degrees 0 1 2 Slepian concentration on Weyl chamber A2 sixty degree lune nine eigenvalues",
+          "spherical harmonic Slepian lune pi/3 bandlimit 2 table exact spectrum"
+        ]
+      },
+      "rationale": "General arbitrary-region Slepian theory supplies concentration eigenmatrices but not the exact sixty-degree Weyl-lune nine-eigenvalue spectrum. The published octant same-band spectrum is a different mask with probability 1/8 and nonidentical symmetry; pure cubic or degree-two spectral results do not dominate this direct sum. The claim is narrow but an exact complete natural invariant.",
+      "residual_risks": [
+        "An old specialized low-band spherical-lune eigenvalue table may be equivalent but not indexed",
+        "Only 60-degree lune and degrees <=2, not arbitrary Weyl chamber masks or higher bandlimits",
+        "Numerical condition value is derived from certified eigenvalue brackets, not a new exact algebraic constant over Q"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL FRAMEWORK, not same nine-value theorem",
+          "evidence": "General arbitrary-region operator eigenmatrix construction does not evaluate the A2 60-degree band<=2 eigenvalues",
+          "identifier_or_url": "https://arxiv.org/abs/math/0408424",
+          "material_read": "Full accessible PDF; relevant Sections 4 and Appendix A.2, including page images",
+          "method": "Read full PDF text and inspected selected screenshot pages",
+          "title": "Spatiospectral concentration on a sphere",
+          "trigger": "Foundational spherical Slepian treatment of arbitrary regions and operator eigenspaces"
+        },
+        {
+          "assessment": "NOT_COVERING 60-degree Weyl lune",
+          "evidence": "Its octant has probability1/8, permutation representation and doubled eigenvalues; different from four parity blocks for the 60-degree lune",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-spectrum-of-a-spherical-octant--fb01171e76df",
+          "material_read": "Entire published RESULT.md including exact proof and constraints",
+          "method": "Full primary published result comparison",
+          "title": "Exact quadratic-band Slepian spectrum of a spherical octant",
+          "trigger": "Same nine harmonic degrees but different mask"
+        },
+        {
+          "assessment": "METHOD CONTEXT; residual risk",
+          "evidence": "Generic arbitrary mask methods can numerically compute but no exact same nine-level theorem established by inspected material",
+          "identifier_or_url": "https://arxiv.org/abs/1608.05479",
+          "material_read": "Publicly available abstract and context, not used as proof of whole-paper noncoverage",
+          "method": "Abstract-level related method inspection",
+          "title": "Efficient Computation of Slepian Functions for Arbitrary Regions on the Sphere",
+          "trigger": "Potential general exact spectrum coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 60-degree chamber is the natural type-A2 fundamental spherical domain and the smallest nontrivial full low-pass harmonic band has dimension nine. Exact four-block spectrum, strict ordering and sharp best/worst concentration bounds provide an independently useful conditioning benchmark for this geometric restriction, not an arbitrary tolerance check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md sha d8dc35c3eca76eca5b687e8d1af50323e34bde5e",
+    "SCOPE verify_lune.py sha ad14109f6aba51531b7ddab6200f2a3bd2459a1d",
+    "https://arxiv.org/abs/math/0408424",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-spectrum-of-a-spherical-octant--fb01171e76df",
+    "https://arxiv.org/abs/1608.05479",
+    "Resultary semantic query: spherical harmonics degrees 0 1 2 Slepian concentration on Weyl chamber A2 sixty degree lune nine eigenvalues"
+  ],
+  "disposition": "passed",
+  "final_claim": "The degree-at-most-two, nine-mode spherical-harmonic concentration operator on the 60-degree type-A2 Weyl chamber has the complete simple spectrum of explicit 4+2+2+1 parity matrices, with exact root brackets, trace 3/2 and sharp restriction condition number approximately 45.294268754.",
+  "limitations": "Only degree<=2 full band and the 60-degree fundamental A2 spherical lune; concentration operator uses whole-sphere probability norm.",
+  "residual_risks": [
+    "An old specialized low-band spherical-lune eigenvalue table may be equivalent but not indexed",
+    "Only 60-degree lune and degrees <=2, not arbitrary Weyl chamber masks or higher bandlimits",
+    "Numerical condition value is derived from certified eigenvalue brackets, not a new exact algebraic constant over Q"
+  ],
+  "schema_version": 1
+}
