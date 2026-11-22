@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed all-size fixed-space formula, order trichotomy, Möbius census and maximal-period proportions follow from four explicit steps: adjacency coordinates, exact Jordan partitions, transfer to temporal cyclic modules, and primary-power divisibility. The adjacency calculation includes degenerate cases, notably the single triangle. The independent checks reconstruct the full matrices for \(k=2,\ldots,10\), and an unrelated local-transition implementation enumerates every state for \(k=2\). No infinite conclusion depends merely on finite enumeration.
+PASS
 
-## Originality — PASS with historical-priority qualification
+Recomputed from the actual graph and the recurrence T(u,v)=(Au-v,u). Petal sum and difference coordinates decompose adjacency into k contrast eigenlines at -1 plus a hub-sum block (x^2-x-2k) and k-1 eigenvalue-one modes. Modulo 3, the exceptional generalized eigenline is J2(1) for k=0 mod3 and J2(-1) for k=1, and the quadratic irreducible x^2-x+2 occurs for k=2. For spatial J_s(lambda), h_lambda(X)=X^2-lambda X+1 lifts to a cyclic temporal module: double roots of h yield J_(2s)(±1), and the quadratic factor yields irreducible Phi10. Hence all-time fixed dimensions follow from min(s,3^v3(t)), root-order divisibility, including the extra [4|t], [10|t] terms. Actual blocks imply exact orders 36/18/30 and Mobius inversion yields primitive populations. Independent modular Gaussian elimination of freshly constructed full wave matrices checked all t through claimed order for k=2,...,7. Fractions are products of independent nonzero primary-component/top-chain probabilities; for k=0 the two factors are (1-q^-2)(1-q^-1). Finite checks corroborate all-size Jordan proof, not replace it.
 
-The exact graph family has published spectral-polynomial formulas, but these do not establish modular Jordan structure or temporal orbit counts. The closest published characteristic-three two-row wave formulas concern complete bipartite graphs with orders 8 or 12, rather than a shared-hub union of triangles with orders 18, 30 or 36. The published same-graph parity dynamics is first-order and binary, with different transients and temporal periods. Full result/proof statements and the same-graph 2026 primary paper were examined. Remaining unindexed priority and a directed consensus paper not examined in full are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This complete natural infinite-family classification isolates a three-residue modular resonance and detects the tenth cyclotomic sector. The exact three limiting maximal-period fractions are dynamical invariants not implied by real adjacency characteristic polynomials; no general theorem or arbitrary numeric slice is needed for this motivated structural classification to be informative.
+The general reversible CA construction is known, and Li–Zhang–Wang supply same Dutch-windmill graph adjacency characteristic polynomials. Those shared ingredients do not determine characteristic-three adjacency Jordan structures or the time-two recurrence invariant factors and primitive populations. Prior exact bipartite and first-order binary windmill results operate on distinct graphs/rules. Same-day matching Resultary item is not independent earlier priority evidence.
 
-## Scope and limitations
+## value
 
-Unweighted simple friendship graphs only; the field must have characteristic three. Standard general reversible second-order construction and ordinary adjacency spectral calculations are prior knowledge and are not claimed as discoveries. No external independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The friendship graph is a canonical family whose hub coupling creates genuinely different modular Jordan resonances. The complete all-parameter labelled orbit census, cyclotomic order-ten mode and nonzero maximal-period asymptotic fractions give precise invariants of a natural reversible dynamics, beyond a simple plug-in of an existing spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
