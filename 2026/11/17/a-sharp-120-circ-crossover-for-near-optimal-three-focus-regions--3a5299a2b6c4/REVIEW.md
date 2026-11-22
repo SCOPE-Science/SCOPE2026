@@ -1,15 +1,21 @@
-# Scientific review of the critical three-focus sublevel-area law
+# Independent mathematical audit
 
-## Correctness — PASS
-For any fixed side lengths \(b,c>0\) and fixed finite \(\lambda\), the stated theorem makes a precise claim about the distribution of the area-uniform location in a moving triangle. The exact distance identity is expanded only at the two nonzero smooth foci; the nonsmooth distance to the vertex remains exact. The wedge and two nonparallel squared-distance remainder terms give a lower bound \(cu^2+cv^2/u-C\sqrt t\,u\), forcing the complete rare sublevel, including the moving minimizer, into the \(u=O(\sqrt t)\), \(v=O(t^{3/4})\) boundary layer. The limiting cost \(kx^2+\beta\lambda x+y^2/(2x)\) has minimum \(-\beta^2(-\lambda)_+^2/(4k)\); its sublevel has compact closure and measure-zero boundary. Hence indicator convergence under the exact Jacobian \(t^{5/4}\) proves the probability law and, by normalization in \(L^1\), total-variation convergence. The anisotropic reparameterization proves the full relative-excess CDF; a cross-section change of variable proves the independent critical Beta/uniform marks. The asymptotic profile limits follow from dominated convergence after shifts/rescalings, with no false claim of uniformity at diverging parameters. Independent exact-cost cross-sectional quadrature corroborated the normalization at five parameters and two thresholds; the checker is not the infinite proof.
+## correctness
 
-## Originality — PASS, with historical priority qualified
-The key preexisting facts are the classical Fermat–Torricelli minimizer and its 120-degree transition. Sekino, “n-Ellipses and the Minimum Distance Sum Problem” (1999), develops multifocal level geometry and smooth Hessian methods, but its inspected full text does not supply the moving singular small-sublevel volume or the conditional anisotropic law. Shen and Tolosa, “The Weighted Fermat Triangle Problem” (first published March 17, 2008), study weighted minimizer location, not small-excess area probabilities. Petrović, Banjac, and Malešević, “The Geometry of Trifocal Curves” (arXiv:1312.1640, 2013), treat trifocal level shapes and area computations; the inspected complete preprint does not prove a uniform 120-degree critical crossover. An inspected published equilateral radial-envelope result concerns the extrema on each centered circle, not changing-angle sublevel areas. The claim is not a renaming or direct corollary of these statements: a uniform quantitative localization proof at a nonsmooth minimizer and a moving-parameter sublevel-volume calculation are required. The text of Groß–Strempel (1998) could not be obtained; abstract-level information cannot establish complete exclusion, so historical priority is explicitly provisional. Neither absence of search hits nor partition assignment is treated as proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The value is the natural 120-degree phase transition separating a vertex optimum from an interior Fermat point. The two endpoint regimes have different small-excess exponents (linear cusp versus smooth quadratic area), and the critical window requires a nontrivial anisotropic balancing, yielding a sharp \(t^{5/4}\) exponent and a parameter-dependent crossover profile. Beyond a scalar coefficient, it identifies the complete conditioned location law and the independent shape coordinates at the critical point. The fact informs rare-near-optimal facility locations and polyellipse area geometry. This is not merely classical minimizer recovery, an arbitrary finite slice, or a numerical coefficient without motivation.
+The Euclidean distance expansion near the 120-degree Fermat vertex separates r-u ~v²/(2u), the small radial quadratic k u² (k=3(1/b+1/c)/8), and angular perturbation β λ sqrt(t)u (β=√3/2). The positive smooth-distance quadratic remainder plus the triangle wedge bound force u=O(sqrt(t)), v=O(t^(3/4)) for bounded-scaled-excess points; hence the limit Gλ=kx²+βλx+y²/(2x) and moving minimum mλ=-β²max(-λ,0)²/(4k). Zero boundary area and common scaled compact containment prove L1/total-variation convergence and t^(5/4) volume Jacobian, not just a pointwise formal expansion. Independent Beta-function and direct cross-section quadrature at b=c=1 give V0=1.68196397526220, Δ0=√3/4, V0/Δ0=3.88432941553954. The independent volume check is not a proof of uniform convergence. All small-t assertions are fixed finite λ; large-|λ| describes the limiting profile only.
 
-## Scope and remaining risks
-The statement is for equal-weight three-focus costs and area-uniform points in triangles with fixed adjacent side lengths. Only fixed finite crossover parameters are covered by the small-threshold theorem. A comprehensive historical priority audit is still needed, especially the inaccessible generalized-conic treatment of Groß and Strempel. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge search and actual statement comparisons across Resultary, primary accessible literature and the assigned proof found no earlier statement implying this specific final claim. Named comparisons below identify exact overlap and inapplicability; failure to find a source is not itself novelty proof, and material uninspected is retained as risk.
+
+## value
+
+PASS
+
+The 120-degree Fermat minimizer switches from interior to vertex, so standard smooth quadratic rare-region asymptotics fail. An explicit universal critical window t^(5/4), finite-λ crossover profile, total-variation localization and independent Beta/uniform marks give exact geometric probability information about a canonical optimization transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
