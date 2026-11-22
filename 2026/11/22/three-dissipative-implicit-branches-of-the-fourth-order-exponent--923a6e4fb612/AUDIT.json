@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact reduction to G_t and strict energy confinement; three rationally certified alternating signs; exact polynomial/Descartes proof of at most two turning points; asymptotic branch comparison. The actual packaged checker independently confirms transformed coefficients and high-precision roots; finite checks are not used as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] §2.4 Theorem 6 has fourth-order consistency and positive dissipation without all-step implicit uniqueness",
+        "[2] §5.1 has fixed-scalar AVF uniqueness, not endpoint-dependent exponential feedback",
+        "2026/11/2/SCOPE-large-step-frozen-state-amplification-in-positive-square-law-sav--56e0d8f06f8b",
+        "2026/11/8/SCOPE-a-sharp-reversal-branch-threshold-and-false-long-time-limits-for--f950ba79895d"
+      ],
+      "reasoning": "No broader statement in the checked sources supplies or dominates the exact all-t≥20 triple-root classification or its three asymptotic rates. Qualitatively analogous nonphysical frozen/reversal behavior in distinct SAV schemes is not logical coverage.",
+      "searches": [
+        "Exponential fourth-order average-vector-field discrete gradient for quartic scalar energy has three implicit roots and sign-changing branches at large time steps",
+        "Midpoint Hessian exponential dissipation factor quartic gradient flow nonunique update near-frozen large-step branch and two overshooting roots",
+        "\"fourth-order\" \"energy-consistent\" \"multiple solutions\" discrete gradient"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.24692 full text §2-§4",
+      "arxiv:1805.06444 full text §§3-5",
+      "2026/11/2/SCOPE-large-step-frozen-state-amplification-in-positive-square-law-sav--56e0d8f06f8b",
+      "2026/11/2/SCOPE-two-time-aliases-a-cubic-third-time-cusp-and-opposite-long-horiz--723be3ffe5ad",
+      "2026/11/8/SCOPE-a-sharp-reversal-branch-threshold-and-false-long-time-limits-for--f950ba79895d",
+      "Targeted published-finding corpus queries above",
+      "Targeted literature search queries above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] pointwise positive completion implies ΔH≤0 for any root but no uniqueness conclusion; several roots can share ΔH<0",
+        "[2] fixed τ equation y=x-τ·AVF(x,y) has convexity uniqueness, but [1] uses τ=h exp(-h² H''(midpoint)^2/12), varying with y",
+        "SAV record 2026/11/2/SCOPE-large-step-frozen-state-amplification-in-positive-square-law-sav--56e0d8f06f8b concerns a positive auxiliary variable and another update rule"
+      ],
+      "reasoning": "Neither local fourth-order consistency nor unconditional energy dissipation forces global uniqueness. Convexity alone forces standard AVF uniqueness only with fixed scalar weight, which the new scheme lacks. Thus the stated prior theorems do not imply the new three-branch theorem.",
+      "searches": [
+        "arxiv:2609.24692 §§2.1,2.4,3",
+        "arxiv:1805.06444 §§3-5",
+        "Exponential fourth-order average-vector-field discrete gradient for quartic scalar energy has three implicit roots and sign-changing branches at large time steps",
+        "Fourth-order energy-consistent AVF dissipative Hamiltonian Lautwein Marheineke Myhr Schäfers implicit nonuniqueness quartic gradient root counting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1, Eq. (14)] exponential completion with midpoint Hessian",
+        "[2, Lemma 5.1] uniqueness for fixed-multiplier mean-value discrete gradient"
+      ],
+      "reasoning": "Rewriting the new scalar endpoint equation as G_t(z)=1 exposes an endpoint-dependent coefficient. The fixed-multiplier AVF monotonicity theorem has a different implicit map, and the same method under quartic variable names is not described by the inspected material.",
+      "searches": [
+        "fourth order exponential completion average vector field discrete gradient quartic gradient flow multiple implicit roots branches large time step",
+        "Lautwein Marheineke 2026 exponential completion discrete gradient nonuniqueness nonlinear quartic scalar damped gradient",
+        "exponential dissipation factor midpoint Hessian implicit AVF multiple solutions quartic high stiffness",
+        "arxiv:2609.24692 §2.4",
+        "arxiv:1805.06444 §5.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus record searches returned nearest IDs 2026/11/2/SCOPE-large-step-frozen-state-amplification-in-positive-square-law-sav--56e0d8f06f8b, 2026/11/2/SCOPE-two-time-aliases-a-cubic-third-time-cusp-and-opposite-long-horiz--723be3ffe5ad, 2026/11/8/SCOPE-a-sharp-reversal-branch-threshold-and-false-long-time-limits-for--f950ba79895d; none reports the exact equation G_t(z)=1, t≥20 or its branch asymptotics.",
+        "Source [1] contains method and numerical experiments, not a quartic three-root table."
+      ],
+      "reasoning": "A matching exact parameter table, equation, or published numerical catalogue was not found among the named sources and actually returned records; retrieval incompleteness is acknowledged.",
+      "searches": [
+        "fourth order exponential completion average vector field discrete gradient quartic gradient flow multiple implicit roots branches large time step",
+        "Fourth-order energy-consistent AVF dissipative Hamiltonian Lautwein Marheineke Myhr Schäfers implicit nonuniqueness quartic gradient root counting",
+        "\"exponential completion\" \"discrete gradient\" implicit nonuniqueness quartic"
+      ]
+    },
+    "rationale": "No inspected source yields the exact three-real-root classification or asymptotic branches for the exponential completion of [1]. Source [1] proves nonnegative dissipation and local order, not global endpoint uniqueness. Source [2] proves ordinary fixed-multiplier AVF uniqueness, not the midpoint-Hessian variable-multiplier equation. Similar records use other numerical methods. Targeted source/alias/parameter/implication checks completed; possible unindexed nonlinear integrator literature remains a historical-priority risk.",
+    "residual_risks": [
+      "Unindexed earlier literature may independently analyze variable-mobility discrete-gradient root multiplicity or the identical scalar quartic implicit equation.",
+      "No claim that 20 is the earliest triple-root threshold or that root-finding implementations necessarily select the near-freezing branch."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "defines same exponential completion and guarantees positive dissipation/local order; does not state global quartic root count or large-step asymptotics",
+        "evidence": [
+          "§2.1 Eq. (4) AVF definition",
+          "§2.4 Eqs. (12)-(15) and Theorem 6",
+          "§3 numerical applications"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.24692",
+        "material_read": "introduction, §2.1 AVF definitions, §2.2 perturbation, §2.3 completion, §2.4 including Theorem 6 and its proof, §3 experiments and conclusion",
+        "method": "arXiv HTML full text, section-by-section",
+        "title": "Fourth-Order Energy-Consistent Average Vector Field Discrete Gradient Methods for Dissipative Hamiltonian Systems",
+        "trigger": "exact source of fourth-order exponential completion"
+      },
+      {
+        "assessment": "fixed-step AVF uniqueness theorem, but its coefficient is independent of the unknown endpoint; not applicable to exponential completion",
+        "evidence": [
+          "§5.1 Lemma 5.1",
+          "§4 fixed point equation with scalar τ",
+          "§5.2 large step discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.06444",
+        "material_read": "§3 solution existence, §4 iterative approximation and §5.1 uniqueness including Lemma 5.1, §5.2 large-step behavior",
+        "method": "arXiv HTML full text",
+        "title": "A geometric integration approach to smooth optimisation: Foundations of the discrete gradient method",
+        "trigger": "potential stronger uniqueness theorem for convex AVF implicit steps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "923a6e4f-b612-42f3-8247-f4c3e3a3cbc2",
+  "value": {
+    "rationale": "A newly proposed fourth-order dissipative solver on the canonical convex nonlinear gradient flow becomes an ambiguous three-valued numerical map at coarse steps. Its mathematically permitted branches have incompatible large-t states, including two sign reversals and exponentially slow motion. This motivates meaningful branch-selection/uniqueness safeguards; energy decay by itself does not address them.",
+    "status": "PASS"
+  }
+}
