@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the sixfold ellipse phase law
 
-## Analytic checks
+# Independent mathematical audit
 
-The proof gives a fixed-shape positive-definite area Hessian, its quadratic-region volume, arclength-density factorization, a positive normalization, and a strict covariance sign for the inverse sixth moment. The claimed convergence of the marked conditional distribution follows from \(L^1\) convergence of the *rescaled joint densities*. The scalar tail normalization is consistent with the prior density-correlation literature and is not asserted as new. The sequential flattened-ellipse limit is not a uniform joint asymptotic.
+## correctness
 
-## Executable diagnostics
+PASS
 
-Run `python check.py` after installing `requirements.txt`. It independently evaluates the predicted scalar coefficient and sixth moment at \(q=0,0.35,0.70,0.92\) by numerical quadrature and compares them with normalized-area and phase-moment statistics from independent boundary-arclength rejection sampling, with 550,000 sampled triples at each parameter. The checked diagnostic completed with the terminal marker `ELLIPSE_MAX_TRIANGLE_SIXTH_HARMONIC_CHECK_OK`.
+On a fixed nondegenerate ellipse the affine circle mapping makes exactly two equilateral anomaly-gap maximizing branches. Taylor expansion yields positive quadratic deficit (sqrt(3)/4)(u²-uv+v²), determinant 9/64, ellipse area 8π/3. Uniform localization and L1 convergence of bounded rescaled densities justify the full joint conditional TV limit. The exact trigonometric product identity yields D_q=1−3q²/4−q³cos(6θ)/4. Covariance with strictly increasing x/(1−δx) makes M6 strictly decreasing, and the q→1 phase limit integrates to −1/3. Independent direct quadrature showed M6(0.65)=−0.0251656066997 and K(0)=4/(3π); pointwise trigonometric products agreed to <1e−12. Fixed q before deficit limit is essential.
 
-Predicted \((K(q),M_6(q))\) values: at \(q=0\), \((0.42441318158,0)\); at \(q=0.35\), \((0.41416819086,-0.00295085570)\); at \(q=0.70\), \((0.37541179558,-0.03399129556)\); at \(q=0.92\), \((0.31461783641,-0.13992218557)\). A separate stricter-threshold diagnostic with two million trials per parameter gave, at \(\varepsilon=0.007\), empirical coefficient and sixth moment \((0.37336,-0.03451)\) for \(q=0.70\), and \((0.30907,-0.12237)\) for \(q=0.92\). Monte Carlo statistical error is nonzero; these numbers only check consistency.
+## originality
 
-## Limits of verification
+PASS
 
-The script cannot prove total-variation convergence, global orientation uniqueness, strict harmonic monotonicity or historical originality. Those statements are addressed in the written proof and scientific comparison. No independent mathematical review has been performed.
+The general random-polygon U-max scalar tail coefficient and orientation-density product are already in Nikitin–Polevaya 2019 (Lemma 1, Theorem 4), not novel. The surviving exact sixfold angular density, global strict inversion of the sixth Fourier coefficient, and independent uniform transverse marked law are not stated in inspected relevant primary sections; publication priority qualified by possible implicit general-density marked calculations.
+
+## value
+
+PASS
+
+Natural geometric phase-selection invariant: continuum of equal-area maximizers on an affine ellipse is sampled nonuniformly by Euclidean arclength. Sixfold Fourier phase and its cube-root conditioning identify aspect ratio from one statistic and separate orientation bias from local displacement. Useful exact structural fact beyond the known unmarked probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

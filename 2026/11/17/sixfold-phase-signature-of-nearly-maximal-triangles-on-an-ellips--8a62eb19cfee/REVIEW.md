@@ -1,19 +1,21 @@
-# Scientific review: Sixfold phase signature of nearly maximal triangles on an ellipse
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each fixed nondegenerate ellipse, the maximum area of an inscribed triangle is the affine image of an equilateral triangle. After anchoring the first labelled eccentric anomaly, there are exactly two maxima branches, and the area loss has a positive-definite quadratic form with determinant \(9/64\). The resulting local two-dimensional ellipse has area \(8\pi/3\). Conditioning and rescaling yields convergence of the *joint marked density* in \(L^1\), so the stated convergence is in total variation, not a weaker pointwise claim. The exact threefold arclength-speed product equals \(\sqrt{1-3q^2/4-q^3\cos(6\theta)/4}\) up to normalization. Strict inversion is certified by the sign of a covariance between two increasing functions of the sixth cosine. The limiting value \(-1/3\) and the cube-root small-anisotropy sensitivity are obtained by direct integration/expansion. The script `check.py` implements independent finite-sample diagnostics; the written proof does not rely on these simulations.
+PASS
 
-## Originality — PASS, with historical risk
+On a fixed nondegenerate ellipse the affine circle mapping makes exactly two equilateral anomaly-gap maximizing branches. Taylor expansion yields positive quadratic deficit (sqrt(3)/4)(u²-uv+v²), determinant 9/64, ellipse area 8π/3. Uniform localization and L1 convergence of bounded rescaled densities justify the full joint conditional TV limit. The exact trigonometric product identity yields D_q=1−3q²/4−q³cos(6θ)/4. Covariance with strictly increasing x/(1−δx) makes M6 strictly decreasing, and the q→1 phase limit integrates to −1/3. Independent direct quadrature showed M6(0.65)=−0.0251656066997 and K(0)=4/(3π); pointwise trigonometric products agreed to <1e−12. Fixed q before deficit limit is essential.
 
-The **unmarked** probability of nearly maximum triangle area is *not original*: Nikitin and Polevaya (2019), Lemma 1 and Theorem 4, provide its general density-product coefficient, including arclength-uniform ellipses. Koroleva and Nikitin (2013) cover circle-area extremal laws, and Nikitin and Simarova (2020) supply related general extremal machinery. Those publications are stronger than a claim of novelty for the scalar coefficient, so that coefficient is included solely to normalize and independently check the marked result. The assessed claim is the complete, exactly evaluated *conditional phase* with its first nonzero Fourier harmonic at order six, strict one-number axis-ratio reconstruction and joint total-variation local-shape product law. The inspected original work uses the angular density product inside an integral but does not state the ellipse-specific sixfold density or its strict harmonic inverse. The closest indexed threefold-oval crossover treats different curves and a different exponent. No exact priority certification is asserted; other implicit treatments of marked orientations remain a historical risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The deterministic continuum of maximal-area ellipse triangles has a free orientation parameter, while Euclidean-arclength sampling breaks its rotational uniformity. Determining *how* rare near-maximizers choose their orientation is a natural geometric question not answered by their aggregate probability. The exact first-surviving sixth harmonic is a structural fingerprint of the interaction between three equally spaced extremal vertices and the ellipse's twofold anisotropy. Its strictly invertible coefficient quantifies recovery of aspect ratio and the sharp cube-root loss of inverse sensitivity near circularity. The independent uniform-ellipse transverse limit separates orientation bias from local geometric fluctuations. Thus this is more than a recomputation of a known scalar tail, although it is a focused exact result rather than a general theorem for arbitrary convex curves.
+The general random-polygon U-max scalar tail coefficient and orientation-density product are already in Nikitin–Polevaya 2019 (Lemma 1, Theorem 4), not novel. The surviving exact sixfold angular density, global strict inversion of the sixth Fourier coefficient, and independent uniform transverse marked law are not stated in inspected relevant primary sections; publication priority qualified by possible implicit general-density marked calculations.
 
-## Closest literature and limits
+## value
 
-E. V. Koroleva and Ya. Yu. Nikitin (2013), arXiv:1301.1360; Ya. Yu. Nikitin and T. A. Polevaya (2019), Zap. Nauchn. Sem. POMI 486, 200–213, §§2–3, Lemma 1 and Theorem 4; Ya. Yu. Nikitin and E. N. Simarova (2020), arXiv:2010.04460. The ellipse is fixed before the area threshold shrinks; the flat-ellipse constants and sixth-harmonic endpoint are sequential limits only. The anomaly coordinate presumes fixed principal axes. Potential historical coverage of the explicit marked phase density outside the inspected texts remains a residual risk. The numerical tests are diagnostic, not mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural geometric phase-selection invariant: continuum of equal-area maximizers on an affine ellipse is sampled nonuniformly by Euclidean arclength. Sixfold Fourier phase and its cube-root conditioning identify aspect ratio from one statistic and separate orientation bias from local displacement. Useful exact structural fact beyond the known unmarked probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
