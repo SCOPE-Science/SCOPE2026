@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The beta=1 recurrence is copied from Eq. (2) of the exact 2023 source. P(x)=s-kx/[H(H+x)] is strictly decreasing and yields a unique interior equilibrium. Exact Jacobian sign and characteristic-polynomial identities show an attracting prey-only equilibrium and a positive saddle. The strict wedge bounds give x_n <= x_0 exp(n-B(q^n-1)) and y_n>=y_0 q^n. This implies all exponential-weighted x-series converge. Telescoping the y equation defines positive L, and summable tails yield sum|y_n-Le^{sn}|<infinity. With sum(x_n y_n)<infinity the corrected logarithm of x converges to positive K. Uniform convergence yields continuity; lower bounds show L nonconstant. Full proof is in RESULT.md; verify.py passed exact rational and high-precision finite diagnostics, not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2208.00153v1, Theorem 2.2: qualitative infinite-time predator explosion for a related ODE without refuge and with a different parameter regime.",
+        "https://www.academia.edu/119212811/Prey_predator_dynamics_with_prey_refuge_providing_additional_food_to_predator: continuous-time refuge model, equilibria, Hopf/limit-cycle claims.",
+        "https://www.mdpi.com/2227-7390/11/6/1399: original discrete recurrence analyzed locally."
+      ],
+      "reasoning": "The continuous-time explosion theorem is a substantial conceptual predecessor and prevents any claim that unbounded predators themselves are novel. Its conclusion neither entails the discrete ratio identities nor the simultaneous attracting prey-only state; its assumptions also lack the positive refuge factor a<1. The 2017 continuous flow is not an iteration theorem. Broader asymptotic theory could dominate if it directly supplies two limits with summable error; no such applicable statement was found among the checked sources.",
+      "searches": [
+        "Neimark Sacker bifurcation discrete predator prey model prey refuge effect Hong Zhang 2023 exponential map extinction explosive predator alternative food y_n growth x_n double exponential",
+        "discrete predator-prey refuge y grows exponentially prey superexponential extinction scattering amplitude",
+        "predator alternative food discrete exponential Ricker simultaneous prey only stable sink unstable coexistence saddle and runaway basin scattering constant",
+        "Parshad et al., arXiv:2208.00153v1 Sections 2.3–2.4",
+        "Ghosh et al., Chaos Solitons Fractals 96 (2017) 110–119, sections 2–5"
+      ]
+    },
+    "checked_sources": [
+      "https://www.mdpi.com/2227-7390/11/6/1399",
+      "https://arxiv.org/html/2208.00153v1",
+      "https://www.academia.edu/119212811/Prey_predator_dynamics_with_prey_refuge_providing_additional_food_to_predator",
+      "https://onlinelibrary.wiley.com/doi/abs/10.1002/mma.9562",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-over-capacity-runaway-and-step-independent-positivity-loss-in-a--bd8c96fa6219",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-a-double-neutral-extinction-clock-and-noninteger-flip-exponent-i--52b2f0dd58e8",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-lambert-fold-extinction-with-a-noninteger-power-correction--4341070d577c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus related record: 2026/10/13/SCOPE-over-capacity-runaway-and-step-independent-positivity-loss-in-a--bd8c96fa6219, concerning continuous Smith ODE and Euler positivity failure.",
+        "published-finding corpus related record: 2026/11/17/SCOPE-a-double-neutral-extinction-clock-and-noninteger-flip-exponent-i--52b2f0dd58e8, concerning predator decay and double neutrality in a different map.",
+        "published-finding corpus related record: 2026/11/8/SCOPE-lambert-fold-extinction-with-a-noninteger-power-correction--4341070d577c, concerning a continuous-time fold extinction law.",
+        "Hong–Zhang 2023 Theorem 1 classifies local prey-only stability, and Sections 4–5 treat local interior NS bifurcation; neither provides a globally trapped set and summable asymptotic correction.",
+        "Parshad 2022 Theorem 2.2 proves qualitative predator runaway for a continuous model with no prey refuge."
+      ],
+      "reasoning": "The new conclusion contains both an open runaway wedge and positive exact L and K with x_n exp(C(e^{sn}-1)-n) convergent, while the finite sink is locally attracting in the same parameters. None of the located earlier conclusions logically implies the combined discrete result, since the related older models differ in time law, refuge structure, or outcomes. The already-known local equilibrium characterization is credited and is not independently claimed new.",
+      "searches": [
+        "Neimark Sacker bifurcation discrete predator prey model prey refuge effect Hong Zhang 2023 exponential map extinction explosive predator alternative food y_n growth x_n double exponential",
+        "predator prey discrete Ricker model additional food predator unbounded exponential predator escape superexponential prey extinction x exp(1-x/gamma - (1-c)y/(1+alpha xi+x))",
+        "predator alternative food discrete exponential Ricker simultaneous prey only stable sink unstable coexistence saddle and runaway basin scattering constant",
+        "Neimark Sacker Discrete-Time Predator Prey Model Prey Refuge Effect Hong Zhang 10.3390/math11061399 global escape asymptotics",
+        "https://www.mdpi.com/2227-7390/11/6/1399 Sections 3–6",
+        "https://arxiv.org/html/2208.00153v1 Theorem 2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hong–Zhang 2023 Eq. (2) gives x_{n+1}=x_n exp(1-x_n/gamma-a y_n/(H+x_n)) and, at beta=1, y_{n+1}=y_n exp((a x_n+xi)/(H+x_n)-delta).",
+        "Original article Sections 3–6 cover equilibria and local bifurcation but do not state a positive renormalized limit for prey/predator on unbounded orbits.",
+        "The two amplitudes can be stated equivalently as limits of log y_n-sn and log x_n-n+C(e^{sn}-1), not just raw population growth."
+      ],
+      "reasoning": "The exact recurrence and its logarithmic ratio form were checked, including beta=1 to avoid any ambiguity in displayed beta placement. A local source-equilibrium result cannot imply global existence of runaway or two normalized finite limits. No equivalent statement was recovered from the full text or indexed semantic searches; that absence alone does not establish priority.",
+      "searches": [
+        "predator prey discrete Ricker model additional food predator unbounded exponential predator escape superexponential prey extinction x exp(1-x/gamma - (1-c)y/(1+alpha xi+x))",
+        "x_{n+1}=x_n exp(1-x_n/gamma-(1-c)y_n/(1+alpha xi+x_n)); y_{n+1}=y_n exp(((1-c)x_n+xi)/(1+alpha xi+x_n)-delta) attracting prey-only and runaway double exponential",
+        "Hong Zhang March 2023 refuge semidiscrete predator prey map x exp(1-x/gamma-(1-c)y/(1+alpha xi+x)) positive prey-only sink simultaneous unbounded predator high initial data",
+        "discrete-time predator prey with supplementary food two finite scattering amplitudes y_n exp(-s n) prey exp[-C exp(s n)+n]",
+        "Neimark Sacker Discrete-Time Predator Prey Model Prey Refuge Effect Hong Zhang 10.3390/math11061399 global escape asymptotics",
+        "Hong and Zhang 2023 equation (2), https://www.mdpi.com/2227-7390/11/6/1399"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published-finding corpus summary among the returned ranked hits gave an exact L or K for the Hong–Zhang recurrence.",
+        "The source does not tabulate the amplitude L or K; source numerical figures vary gamma near a finite attractor.",
+        "Related records on harvested Ricker and exponential Beverton–Holt equations describe extinction powers/logarithmic corrections, not the two-amplitude growing-predator wedge."
+      ],
+      "reasoning": "The claim concerns a continuous family of exact trajectory-dependent limits, not a lookup of a finite enumerated table. Exact-source and formula searches were performed; database search gaps are acknowledged as a priority risk rather than uniqueness certification.",
+      "searches": [
+        "\"Neimark–Sacker Bifurcation of a Discrete-Time Predator–Prey Model with Prey Refuge Effect\" Hong Zhang 2023 global predator runaway",
+        "positive discrete predator prey with additional food refuge exponentially growing predator doubly exponential prey",
+        "discrete-time predator prey with supplementary food two finite scattering amplitudes y_n exp(-s n) prey exp[-C exp(s n)+n]",
+        "Neimark Sacker Discrete-Time Predator Prey Model Prey Refuge Effect Hong Zhang 10.3390/math11061399 global escape asymptotics",
+        "doi:10.3390/math11061399 sections 2–6 and DOI/title full-text query"
+      ]
+    },
+    "rationale": "Full text of Hong–Zhang 2023 supplies the map, local fixed-point stability and Neimark–Sacker analysis but not an invariant high-predator wedge, simultaneously a prey-only sink, and its two finite discrete scattering amplitudes. Parshad et al. 2022 rigorously establish predator explosion for a related no-refuge ODE, not these discrete-time limit expressions or finite-sink coexistence. Ghosh et al. 2017 study the corresponding differential equation, not the iterative asymptotic clocks. Targeted published-finding corpus claim searches found related but not logically dominating records. Originality remains best-knowledge subject to the stated search/coverage risks.",
+    "residual_risks": [
+      "Equivalent results in unindexed or inaccessible mathematical literature remain possible; semantic retrieval is not a novelty certificate.",
+      "The saturated-refuge discrete paper was checked at abstract level only; the described model is different but its full implications are not certified.",
+      "The beta=1 result is a genuine five-free-parameter slice of the source family; general beta is not claimed.",
+      "No independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_MODEL_AND_LOCAL_STABILITY; NO_DISPLAYED_COVERAGE_OF_TWO_SCATTERING_AMPLITUDES",
+        "evidence": "Publication date 2023-03-14; Equation (2), Sections 3–6, especially local Theorems 1–2 and final conclusions.",
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/11/6/1399",
+        "material_read": "Full rendered HTML Sections 2–6, including Equation (2), Theorems 1–2, local bifurcation calculation, numerical simulations and conclusion",
+        "method": "Opened and read structured full-text HTML, exact model and stated theorems",
+        "title": "Neimark–Sacker Bifurcation of a Discrete-Time Predator–Prey Model with Prey Refuge Effect",
+        "trigger": "Exact source recurrence and primary candidate for stronger/equivalent coverage"
+      },
+      {
+        "assessment": "STRONG_QUALITATIVE_PREDECESSOR_ONLY; CONTINUOUS_TIME_NO_REFUGE; DOES_NOT_IMPLY_DISCRETE_L_K",
+        "evidence": "arXiv v1 publicly submitted 2022-07-30; Sections 2.3–2.4, Theorem 2.2; Equation (2) ODE.",
+        "identifier_or_url": "https://arxiv.org/html/2208.00153v1",
+        "material_read": "Full arXiv HTML model Section 2, Theorem 2.2 and proof, Section 3 competition modification, comparison and discussion",
+        "method": "Opened original lawful arXiv HTML full-text and inspected assumptions/ODE structure and Theorem 2.2",
+        "title": "Additional food causes predator explosion—unless the predators compete",
+        "trigger": "Closest broader qualitative predator-runaway statement in similar additional-food functional response"
+      },
+      {
+        "assessment": "RELATED_CONTINUOUS_SYSTEM; NO_DIRECT_DISCRETE_SCATTERING_RESULT",
+        "evidence": "Chaos Solitons & Fractals 96 (2017) 110–119, DOI 10.1016/j.chaos.2017.01.010.",
+        "identifier_or_url": "https://www.academia.edu/119212811/Prey_predator_dynamics_with_prey_refuge_providing_additional_food_to_predator",
+        "material_read": "Accessible full-text rendering, especially dimensional reduction, Section 2 equilibrium/stability and Sections 3–5 Lyapunov and cycle discussions",
+        "method": "Inspected accessible full text of 2017 article and compared continuous differential equations to discrete recurrence",
+        "title": "Prey-predator dynamics with prey refuge providing additional food to predator",
+        "trigger": "Original continuous-time differential-equation ancestor cited by the 2023 source"
+      },
+      {
+        "assessment": "DIFFERENT_SATURATED_REFUGE_MODEL_IN_ABSTRACT; FULL_TEXT_NOT_INSPECTED",
+        "evidence": "First published 2023-07-21; abstract describes self-limiting refuge and separate discrete model.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/mma.9562",
+        "material_read": "Published abstract and bibliographic record only; not the whole paper",
+        "method": "Web record and abstract review, attempted primary source context by model description",
+        "title": "Bifurcation and global stability of a discrete prey–predator model with saturated prey refuge",
+        "trigger": "Similar discrete prey-refuge keywords and global stability claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2422c987-23d8-430a-ad2b-288d2e7cb8bd",
+  "value": {
+    "rationale": "The 2023 discrete refuge model was investigated mainly by local equilibrium and Neimark–Sacker methods. This theorem establishes a genuinely global high-predator trapping regime in which runaway and a nearby finite prey-only sink coexist for the same fixed parameters. Two positive initial-state-dependent scattering amplitudes and the exact order-n correction in a double-exponential prey clock capture detailed behavior impossible to extract from the known qualitative continuous-time predator-explosion theorem or from local equilibrium stability. It is a motivated dynamical limit rather than an arbitrary finite computation; no global basin census is claimed.",
+    "status": "PASS"
+  }
+}
