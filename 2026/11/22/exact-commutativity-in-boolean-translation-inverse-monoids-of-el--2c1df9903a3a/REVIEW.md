@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The claimed family and counting conventions are fixed precisely: the full Boolean semilattice-by-translation inverse monoid retains the label of every empty subset, and its partial-translation quotient identifies those labels. The commutation criterion follows from the multiplication rule and abelianity; the four label-pair types are exhaustive. The independent-label case reduces to homogeneous binary equations on each four-element coset; all sixteen supports yield the rank-frequency table \((1,9,6)\) in ranks \((0,2,4)\), hence the factor \(58\). Single nonzero labels yield two-element orbit factor \(10\). The quotient correction follows by comparing pairs containing any empty subset before and after collapse. The finite checker verifies the rank table and full pair counts at orders \(2,4,8\), with independent direct multiplication at orders \(2,4\). Mathematical proof, rather than numerical extrapolation, establishes the all-rank formula and asymptotics.
+
+## Originality — PASS with historical-priority qualification
+The closest foundational comparison is Silva–Soares (arXiv:1412.3048), Sections 2–3, which treats semilattice-by-group inverse semigroups but establishes the Howson property, not prescribed commuting-pair enumerations for the regular Boolean action. Araújo–Bentz–Konieczny (arXiv:1205.1664), Sections 1–2 and statements in Sections 3–7, supplies an ambient symmetric-inverse-semigroup commutation criterion and extremal/graph invariants, not the present restricted submonoid's total count. Kudryavtseva (2015) treats semidirect and W-product structure, not the displayed local \(10\)/\(58\) enumeration in its examined structural exposition. Related accessible research on partial translations of chains and on commuting retractions applies to different objects and does not imply this formula. A historical equivalent through general transformation-centralizer enumerations remains a residual risk: similarity searches do not prove priority.
+
+## Value — PASS
+This exact infinite-family census distinguishes three orbit types in a natural regular-action inverse monoid, and derives an asymptotic separation between overwhelmingly commuting partial identities and rare pairs involving nonidentity translations. The same computation survives the nontrivial quotient identifying all empty partial maps, giving an exact invariant for an ordinary partial-transformation inverse monoid. The constants and exponential convergence have a structural explanation, not just interpolation from small groups.
+
+## Limits
+The theorem assumes an elementary two-group and its regular action; it does not classify centralizers or extend the exact counts to arbitrary abelian groups. Small-order checker outputs are consistency tests, not proofs for all orders. A priority check against the complete historical transformation-semigroup literature remains desirable; no independent audit is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
