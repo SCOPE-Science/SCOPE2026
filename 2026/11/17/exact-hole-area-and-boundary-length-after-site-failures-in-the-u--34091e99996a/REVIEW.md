@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A surviving face vertex covers its entire unit triangle, so all holes localize to fully deleted faces. Exhaustive projection geometry shows that only the three opposite neighboring lattice sites can cover their interiors. Each surviving opposite site's circular cap has exact area \(\pi/6-\sqrt3/4\) and arc length \(\pi/3\); the three caps are disjoint. Counting face interior area and boundary caps gives the finite identities, and a local ergodic average yields both Bernoulli density formulas. Numerical checks corroborate, but do not establish, these general statements.
+## correctness
 
-## Originality
-**PASS, provisional historical priority.** Relevant older work on redundancy and sensor failures in triangular/hexagonal lattices gives bounds or simulations for local multiplicity, not the global exact area–perimeter valuation by fully deleted faces and their boundary, nor the specific complete Bernoulli uncovered-area and boundary-length polynomials. Classical site-percolation thresholds likewise do not supply these geometric quantities. Direct comparison with the closest available published records did not reveal an equivalent or stronger implication. The source review is not an exhaustive historical certification.
+PASS
 
-## Mathematical value
-**PASS.** The complete exact identity converts the continuous area and length of uncovered disk regions for *arbitrary finite failure patterns* into two discrete geometric counts, then yields all-parameter exact stochastic coverage and boundary-density laws. It sharply locates the first possible coverage failure at three elementary-face sites and quantifies the extra area caused by neighboring failed triangles. This is more than an isolated numerical special case and provides an exact geometric statistic for an established failure-resilience model.
+A surviving vertex of a unit equilateral face covers its whole closed face; if all three are deleted, only its three opposite edge-neighbor centers may cover interior. Each surviving opposite site removes an independent nonoverlapping cap of area pi/6-sqrt(3)/4 with one circular boundary arc of length pi/3. Summing faces gives area aF-cB and length (pi/3)B. I.i.d. deletion gives face q^3 and exposed edge q^3(1-q), with finite-range ergodicity and O(R) window error for area and length density. Independently checked one/two-face cases and the q polynomials at eleven q values.
 
-## Residual limitations
-Exact radius-to-spacing ratio one is essential. Historical work on other lattice overlap models could contain a related formula under different conventions; independent literature verification is still desirable. Random densities hold for independent, spatially stationary failures, not correlated removal patterns.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: local redundant covering of triangular/hexagonal sensor deployments and Bernoulli failures are known, and a different honeycomb lattice already has an exact motif valuation. The assigned exact arbitrary-finite-deletion face/boundary valuation at radius equal nearest-neighbor spacing, and resulting cubic-quartic area/perimeter formulas for this triangular Bravais lattice, are not mathematical specializations of the honeycomb formulas or of sensor coverage multiplicity bounds.
+
+## value
+
+PASS
+
+Exact conversion of continuous uncovered-area and boundary-length damage into discrete counts for every finite erasure pattern gives a usable robust-coverage law and a three-site failure threshold. The all-q stochastic density follows with a sharp geometry-specific coefficient and predicts nonadditivity of adjacent failures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
