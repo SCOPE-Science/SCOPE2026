@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Poisson thinning gives y_j=a+j theta q^j exactly. The eliminated background satisfies an explicit quadratic whose other root always makes y_1-a_nonphysical<=0, proving global uniqueness. The two-input fiber is continuous. Differentiation establishes a strictly positive Jacobian, and two adjacent differences yield exact ordering regimes; standard-library checker passes 46824 rational diagnostics, not substituted for the real proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schultz and Lance (2015) parameterize Poisson marker detection by collection, extraction and PCR sampling; their investigated detection model does not simultaneously infer a fixed false-positive background and exponential inhibitor factor from three input levels.",
+        "Wilcox et al. (2013) performs qPCR specificity/sensitivity experiments with related fish and reports false detections, without the model inverse.",
+        "Temporal Markov occupancy identification relies on joint across-season moments rather than three controlled input dose-response probabilities."
+      ],
+      "reasoning": "These works share ecological monitoring or Poisson probability motivation, but their conclusions and observables differ: none inspected establishes a stronger global inverse encompassing this exact response model.",
+      "searches": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4624909/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3608683/",
+        "ecological occupancy false positives Poisson identifiability three visits",
+        "exponential nonlinear dose-response parameter identifiability three points"
+      ]
+    },
+    "checked_sources": [
+      "Wilcox et al. (2013), PLOS ONE, DOI 10.1371/journal.pone.0059520, complete open-access article",
+      "Schultz and Lance (2015), PLOS ONE, DOI 10.1371/journal.pone.0141503, complete open-access article",
+      "McKee et al. (2015), Biological Conservation, DOI 10.1016/j.biocon.2014.11.031, public abstract only",
+      "General Prony-type exponential reconstruction background; not a directly comparable fully evaluated theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected Wilcox paper determines qPCR sensitivity/specificity effects in trout assays, not an analytic uniqueness theorem from three exact dose-dependent population probabilities.",
+        "The inspected Schultz–Lance paper models field detection probability and amplification but does not estimate independent false-positive baseline plus an unknown exponential inhibition coefficient from exactly three assays.",
+        "McKee abstract documents the effect of dilution on inhibition but the complete source was unavailable, leaving residual risk."
+      ],
+      "reasoning": "Experiments on inhibition or Poisson sensitivity are not logical statements proving sharp global identification of all three unknowns. If an uninspected paper provides a more general inversion theorem, priority may be subsumed; the present PASS is bounded to actually inspected material.",
+      "searches": [
+        "https://doi.org/10.1371/journal.pone.0059520",
+        "https://doi.org/10.1371/journal.pone.0141503",
+        "https://doi.org/10.1016/j.biocon.2014.11.031",
+        "\"three concentrations\" \"inhibition\" \"false positive\" identifiability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source-free transformed response has a common additive offset and a positivity-constrained exponentially attenuated linear factor at levels 1,2,3.",
+        "Prony-type reconstruction addresses exponential fitting generally; inspected background descriptions do not give this three-sample, offset-plus-linear-times-exponential inverse and physical-root selection."
+      ],
+      "reasoning": "An unconstrained exponential-polynomial method may handle related functions, but one must still prove three response values globally identify all three constrained parameters, exclude the second quadratic root, and establish two-level impossibility. The inspected general descriptions did not state or imply those three facts.",
+      "searches": [
+        "\"a + b t exp(-c t)\" \"three points\" identifiability",
+        "\"three input levels\" \"false positive\" \"inhibition\" PCR",
+        "https://en.wikipedia.org/wiki/Prony%27s_method"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected published three-dose identification table or parameter formula for the constrained \\(a+j\theta q^j\\) response was found.",
+        "McKee et al. report empirical outcomes of 5-fold, 10-fold, and column-purification interventions; the public abstract does not state a global inverse identification rule."
+      ],
+      "reasoning": "This is a real-continuous parameter identification claim, not a finite enumeration or lookup table. The searches and primary inspected sources did not recover an exact database providing the inverse; the search cannot establish its nonexistence.",
+      "searches": [
+        "\"a + b t exp(-c t)\" \"three points\" identifiability",
+        "qPCR three dilution assay inhibitor calibration false positives",
+        "https://www.usgs.gov/publications/effect-dilution-and-use-a-post-extraction-nucleic-acid-purification-column-accuracy"
+      ]
+    },
+    "rationale": "Full open-access primary text of Wilcox et al. (2013) and Schultz and Lance (2015) presents empirical specificity and Poisson detection sensitivity but does not state a sharp global three-dose identifiability inverse incorporating both fixed false-positive rate and exponential inhibition. McKee et al. (2015) publicly summarizes dilution experiments; its full text was unavailable. Searches for aliases, exact response forms, broader exponential identification and related occupancy findings did not resolve a dominating prior statement; historical priority remains uncertain.",
+    "residual_risks": [
+      "The complete McKee et al. article was inaccessible and could contain relevant quantitative modeling absent from the abstract.",
+      "Broader nonlinear exponential parameter-identification literature could subsume this constrained three-observation theorem.",
+      "No finite search proves novelty or independent priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates specificity and low-copy assays, but does not state the exact inhibited Poisson three-level parameter inverse.",
+        "evidence": [
+          "Wilcox et al. PLOS ONE 2013, doi:10.1371/journal.pone.0059520, reports concentration-dependent qPCR detection and possible cross amplification."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3608683/",
+        "material_read": "Complete open-access article (introduction, experimental designs, quantitative results and discussion)",
+        "method": "Open-access full HTML reading",
+        "title": "Robust Detection of Rare Species Using Environmental DNA: The Importance of Primer Specificity",
+        "trigger": "Primary pre-2016 assay specificity, dilute target and false-positive evidence"
+      },
+      {
+        "assessment": "Poisson survey-sensitivity modeling, including discussion of inhibition, without this three-dose inverse with unknown false-positive background.",
+        "evidence": [
+          "Schultz and Lance, PLOS ONE 2015, doi:10.1371/journal.pone.0141503; model targets survey sensitivity from concentration and processing volumes."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4624909/",
+        "material_read": "Complete open-access article including model, assumptions and discussion",
+        "method": "Open-access full HTML reading",
+        "title": "Modeling the Sensitivity of Field Surveys for Detection of Environmental DNA (eDNA)",
+        "trigger": "Closest Poisson-copy detection and PCR sampling model"
+      },
+      {
+        "assessment": "Abstract reports experimental dilution/inhibition comparisons, not enough to decide if the full paper contains the exact mathematical inverse.",
+        "evidence": [
+          "McKee, Spear and Pierson, Biological Conservation 183 (2015), 70–76; https://www.usgs.gov/publications/effect-dilution-and-use-a-post-extraction-nucleic-acid-purification-column-accuracy"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.biocon.2014.11.031",
+        "material_read": "USGS public abstract only; complete article not accessible",
+        "method": "Public USGS bibliographic abstract and attempted lawful full-text access",
+        "title": "The effect of dilution and the use of a post-extraction nucleic acid purification column on the accuracy, precision, and inhibition of environmental DNA samples",
+        "trigger": "Highly plausible dilution/inhibition comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8108bff3-28aa-427b-8da6-79be8268e8af",
+  "value": {
+    "rationale": "Repeated eDNA assays at multiple template concentrations are motivated by competing copy scarcity and inhibitor dose, while false positives bias abundance inference. This proves the minimal exact number of dose levels for simultaneous identification under a natural, fully specified toy mechanism, gives a nonmonotonic trend classification, and rules out a physically spurious second solution. It is a useful sharp identifiability/design benchmark independent of later field validation; it is not claimed as an empirical optimum or general inhibition model.",
+    "status": "PASS"
+  }
+}
