@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "Direct construction Q=D-D²/12 with the five-cycle shift yields exact eigenvalues 0 (once), -α and -β (each twice), spectral projectors and three explicit Fourier entries. At all positive times diagonal and nearest neighbors are strictly positive. The distance-two entry starts at zero with derivative -1/12, has a derivative with exactly one zero and tends to 1/5, so precisely one positive sign-restoration crossing exists. Every row has two such entries, proving the ten-entry count. Actual bundled symbolic verifier checked exact projectors and identities, and a distinct high-precision matrix-exponential route passed 7,260 finite comparisons; the proof, not numerical sampling, handles infinitely many times.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest general finite-range theorem [4] covers qualitative eventual strict positivity on every finite periodic grid, including five sites, and gives n-dependent nonsharp bounds.",
+        "The proof and limitations of [4] explicitly say that no sharp finite-cycle recovery horizon is claimed.",
+        "Hu--Zhang [1] construct a different high-order finite element / Gauss--Lobatto spatial scheme with positivity under mesh and time conditions."
+      ],
+      "reasoning": "The broader same-stencil result implies eventual positivity but neither the exact \\(n=5\\) value nor its uniqueness, zero multiplicities, and strict sign for all earlier times. Thus the new exact-time classification is not a numerically renamed corollary of its stated conclusions. The different high-order scheme does not dominate the specific semidiscrete generator.",
+      "searches": [
+        "fourth order five point central difference spatial Laplacian periodic heat semigroup eventually entrywise positive sharp time for five grid nodes, early negative off-diagonal",
+        "positive heat kernel of fourth order centered five-point diffusion discretization on periodic 5-site cycle, eventual positivity threshold spectral",
+        "eventual positivity of high-order finite difference heat semidiscrete periodic circulant 5 point stencil sharp first recovery time",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47",
+        "https://arxiv.org/html/2009.03581v1",
+        "https://arxiv.org/html/2103.16790v2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2103.16790v2",
+      "https://arxiv.org/html/2009.03581v1",
+      "https://arxiv.org/html/2010.07282v3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-one-third-is-the-sharp-positivity-recovery-threshold-for-backwar--f6b8d51838a7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Record [4] (same Q) establishes eventual positivity and nonsharp large-n horizon bounds; its text explicitly leaves \\(H_n\\) uncomputed.",
+        "Record [5] gives an all-t resolvent sign threshold but says periodic grids require separate analysis.",
+        "Chen et al. [2] Section VI proves qualitative eventual positivity of relevant signed Laplacians, not the exact transition count for this specific operator.",
+        "The new direct Fourier projectors yield E_{j,j±2}(t)=(1-φ exp(-αt)+φ^{-1}exp(-βt))/5 and a derivative with one sign transition."
+      ],
+      "reasoning": "General spectral convergence plus initial negative stencil couplings imply some sign loss and some eventual recovery, but do not imply that there is exactly one crossing, that no other entries go negative, or the explicit critical equation. The latter assertions require the two-eigenvalue-pair golden-ratio computation and a global derivative analysis. The backward-Euler statement is not an exponential-semigroup implication. These are the precise extra conclusions assessed.",
+      "searches": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-one-third-is-the-sharp-positivity-recovery-threshold-for-backwar--f6b8d51838a7",
+        "https://arxiv.org/html/2009.03581v1",
+        "https://arxiv.org/html/2103.16790v2",
+        "https://arxiv.org/html/2010.07282v3",
+        "5 node periodic classical fourth order 5-point finite difference heat exact exponential semigroup sign positivity restoration time unique at 0.10307871100774266",
+        "five-point fourth-order periodic heat generator exact sharp entrywise positivity threshold \\(n=5\\) finite time semidiscrete"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The problem is equivalent to the sharp eventual-exponential-nonnegativity time of the 5x5 classical centered fourth-order circulant Laplacian.",
+        "The full same-generator finite-range result [4] states only eventual positivity, conservative n-dependent horizons and the absence of a claimed sharp finite-cycle time.",
+        "Chen et al. [2], Section VI, define eventual exponential positivity without computing this concrete matrix threshold."
+      ],
+      "reasoning": "Identified the exact-equivalence aliases as positive semigroup, eventual exponential nonnegativity, signed-Laplacian diffusion and cyclic five-point centered heat evolution. These records supply general tools but not the explicit orbitwise signs or sole root of the two-exponential equation.",
+      "searches": [
+        "5 node periodic classical fourth order 5-point finite difference heat exact exponential semigroup sign positivity restoration time unique at 0.10307871100774266",
+        "five-site cycle heat stencil Q = D-D^2/12 negative distance-two propagator Fourier golden ratio first zero",
+        "five-point fourth-order periodic heat generator exact sharp entrywise positivity threshold \\(n=5\\) finite time semidiscrete",
+        "arxiv.org/html/2009.03581v1 Section VI",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant published exact backward-Euler infinite-lattice threshold [5] is 1/3 for the resolvent, not the time at which exp(tQ) becomes nonnegative on a five-cycle.",
+        "The exact five-node exponential threshold was not displayed in the accessible relevant published records or primary tables inspected."
+      ],
+      "reasoning": "Compared the mathematical invariant, not merely matching scalar values: exact \\(n=5\\) continuous-time semigroup sign restoration versus n-infinite resolvent one-step positivity, graph-heat time stepping and stationary inverse positivity. No identical table entry or algebraically equivalent threshold was established; uninspected historical tables remain a priority risk.",
+      "searches": [
+        "5 node periodic classical fourth order 5-point finite difference heat exact exponential semigroup sign positivity restoration time unique at 0.10307871100774266",
+        "five-site cycle heat stencil Q = D-D^2/12 negative distance-two propagator Fourier golden ratio first zero",
+        "five-point fourth-order periodic heat generator exact sharp entrywise positivity threshold \\(n=5\\) finite time semidiscrete",
+        "positive heat kernel of fourth order centered five-point diffusion discretization on periodic 5-site cycle, eventual positivity threshold spectral",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-one-third-is-the-sharp-positivity-recovery-threshold-for-backwar--f6b8d51838a7"
+      ]
+    },
+    "rationale": "The strongest directly relevant full scientific record treats the identical classical five-point generator and establishes eventual periodic positivity and large-cycle bounds, but explicitly disclaims sharp finite-cycle recovery times; it does not entail the unique \\(n=5\\) root or the complete ten-entry sign diagram. A separate exact backward-Euler resolvent result uses the same spatial operator but not its exponential. Other inspected primary works concern signed-Laplacian eventual positivity, stationary inverse positivity, or a different fourth-order finite-element-derived operator. This is a narrow first-unaliased-grid exact invariant. Historical-priority uncertainty remains, and neither negative searches nor work partitioning prove uniqueness.",
+    "residual_risks": [
+      "Classical cyclic-circulant and older semidiscrete maximum-principle literature may contain the equivalent five-node computation or a tabulated value that has not been located.",
+      "The result is intentionally narrow and follows from a short exact discrete Fourier derivation; its value is the sharp first-unaliased-grid boundary rather than a general n-grid classification.",
+      "Historical-priority assessment is based on inspected accessible literature and published records; it is not a proof of global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover exact \\(n=5\\) sign law; explicitly does not claim sharp finite-cycle recovery times.",
+        "evidence": [
+          "Exact stencil Q=D-D²/12 stated; theorem gives eventual periodic positivity with n-dependent bounds.",
+          "Limitations explicitly: no sharp finite-cycle recovery time claimed."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47",
+        "material_read": "Complete accessible RESULT.md, including assumptions, proof, relationship and limitations, via lawful public repository read.",
+        "method": "Compared the claimed finite-n restoration horizon, sign count and exact algebraic threshold with its global oscillation and nonsharp general bounds.",
+        "title": "Negative outer jumps force persistent lattice sign oscillation and a linear cycle-positivity delay",
+        "trigger": "Identical fourth-order five-point signed generator and eventual periodic positivity; strongest apparent potential coverage"
+      },
+      {
+        "assessment": "Distinct time-function and topology; no implication establishing claimed semigroup threshold.",
+        "evidence": [
+          "Statement restricts to infinite lattice; n-periodic analysis explicitly separate.",
+          "Threshold 1/3 concerns backward-Euler step ratio, not semidiscrete time."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-one-third-is-the-sharp-positivity-recovery-threshold-for-backwar--f6b8d51838a7",
+        "material_read": "Complete accessible RESULT.md via lawful public repository read.",
+        "method": "Compared (I-rQ)^{-1} on the infinite lattice against exp(tQ) on a five-point periodic grid.",
+        "title": "One third is the sharp positivity-recovery threshold for backward Euler on the classical fourth-order heat stencil",
+        "trigger": "Same stencil and positivity restoration language"
+      },
+      {
+        "assessment": "Studies distinct operator and positivity of fully discrete schemes; not covering exact \\(n=5\\) exponential sign law.",
+        "evidence": [
+          "The paper explicitly obtains the fourth-order operator from Q² finite elements with three-point Gauss--Lobatto quadrature.",
+          "Section 3.5 studies monotonicity of its finite difference matrix on an interval, not the five-point circulant semigroup."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2103.16790v2",
+        "material_read": "Online full HTML, abstract, introduction, discrete operators in Section 2 and fourth-order monotonicity in Section 3.5.",
+        "method": "Compared the high-order finite-element Gauss--Lobatto origin and implicit time discretization with the classical periodic signed central-difference semidiscrete matrix exponential.",
+        "title": "Positivity-preserving and energy-dissipative finite difference schemes for the Fokker--Planck and Keller--Segel equations",
+        "trigger": "Numerical finite-difference positivity motivation, with primary MSC2020 65M06"
+      },
+      {
+        "assessment": "Qualitative eventual positivity may apply, but does not compute \\(n=5\\) unique threshold.",
+        "evidence": [
+          "Section VI defines eventual exponential positivity as existence of sufficiently late nonnegative semigroup matrices.",
+          "No explicit five-node fourth-order stencil time in inspected theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2009.03581v1",
+        "material_read": "Online full HTML, setup and Section VI on eventual positivity and spectral conditions.",
+        "method": "Compared generic eventual positivity criterion and eigenvalue multiplicity assumptions to exact finite time and entrywise count.",
+        "title": "On Spectral Properties of Signed Laplacians with Connections to Eventual Positivity",
+        "trigger": "Potential broad coverage of eventually exponentially positive signed matrices"
+      },
+      {
+        "assessment": "Does not cover exact five-node exponential sign classification.",
+        "evidence": [
+          "Paper treats monotonicity of discrete elliptic stiffness inverses and spectral elements.",
+          "No complete semigroup transient sign law for the specified five-node classical operator."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2010.07282v3",
+        "material_read": "Online full HTML, abstract and Section 2.2 classical high-order finite-difference and Bramble--Hubbard construction.",
+        "method": "Distinguished stationary elliptic inverse positivity from semidiscrete heat exponential entrywise positivity.",
+        "title": "On the monotonicity of Q3 spectral element method for Laplacian",
+        "trigger": "Closest classical higher-order finite-difference stencil and inverse-positive matrix connections"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c80ff18-eff6-4693-acb1-60f6e8c2eabb",
+  "value": {
+    "rationale": "The five-site cycle is the minimum unaliased periodic realization of this classical five-point fourth-order stencil, giving a natural sharp test instance for preservation of nodal nonnegativity. Its previously unspecified exact entrywise restoration horizon and complete negative-entry census separate spectral dissipation and mass conservation from the discrete maximum principle and provide an exact regression benchmark for higher-order heat solvers. This is a motivated finite-size invariant, not a numerical table update or a claim about all grid sizes; no downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
