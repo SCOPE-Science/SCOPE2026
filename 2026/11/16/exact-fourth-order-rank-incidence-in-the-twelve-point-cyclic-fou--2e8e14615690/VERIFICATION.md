@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-Both standalone verification programs were run from their actual package source files with no unbundled inputs. The Python 3 checker over the prime 65581 returned `EXACT_Z12_CHECK_PASS`, all four rank totals, 24 full-spark rows and the 21 orbit profiles. The C++17 checker over the distinct prime 65557 returned `EXACT_Z12_CHECK_PASS` with the same global numbers. Both check prime and root order. The Hadamard–norm bound ensures the complex and modular ranks coincide for all considered minors. These are same-source reproducibility checks, not an independent audit. No claim is made for other matrix sizes, and no floating-point approximation establishes a rank.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+All 495^2=245025 restrictions were independently enumerated and row/column rank-reduced over two distinct exact prime fields: p=65581,t=62640 and p=65557,t=10574, with t primitive order 12 and p>4^8=65536. Both independently yield rank counts 0,1224,39384,204417 and 24 full-spark row sets. For any square minor k<=4 in Q(zeta12), Hadamard bounds each of four Galois conjugates by k^(k/2), so a nonzero algebraic norm is an integer of modulus at most k^(2k)<=65536. A vanishing mod-p evaluation would make the norm divisible by p, impossible if nonzero, hence every modular zero minor is exactly zero over C and conversely; modular rank equals complex rank. An independent orbit construction under r->ur+b (u unit mod12) yields exactly 21 row orbits covering all 495 row sets. Thus this is an exhaustive finite classification with an exact lifting theorem, not floating numerical rank or partial enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete rank incidence distribution and 21 affine profiles at the cyclic order-12 DFT. Previously published same-order full-spark classification gives the known 24 full-spark rows; this subclaim is not new. Earlier Delvaux–Van Barel works give structural rank-deficient block constructions and uncertainty relations, not the exact counts of all rank-2/3/4 four-by-four restrictions shown here. Different 15-/16-point rank censuses and the same-order 5-by-5 census do not imply the order-12 fourth-order distribution. Older exact unindexed tables remain possible.
+
+## value
+
+PASS
+
+This is a complete, reproducible rank-defect incidence classification for a natural mixed-prime cyclic Fourier matrix; it refines mere full-spark yes/no to rank-two versus rank-three failures and an affine orbit table. Exact finite classification is a worthwhile independent mathematical invariant; no blanket extrapolation to other orders is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

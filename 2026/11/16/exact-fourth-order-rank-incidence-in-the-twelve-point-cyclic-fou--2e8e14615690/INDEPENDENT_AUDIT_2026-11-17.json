@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:50:09.820767Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All 495^2=245025 restrictions were independently enumerated and row/column rank-reduced over two distinct exact prime fields: p=65581,t=62640 and p=65557,t=10574, with t primitive order 12 and p>4^8=65536. Both independently yield rank counts 0,1224,39384,204417 and 24 full-spark row sets. For any square minor k<=4 in Q(zeta12), Hadamard bounds each of four Galois conjugates by k^(k/2), so a nonzero algebraic norm is an integer of modulus at most k^(2k)<=65536. A vanishing mod-p evaluation would make the norm divisible by p, impossible if nonzero, hence every modular zero minor is exactly zero over C and conversely; modular rank equals complex rank. An independent orbit construction under r->ur+b (u unit mod12) yields exactly 21 row orbits covering all 495 row sets. Thus this is an exhaustive finite classification with an exact lifting theorem, not floating numerical rank or partial enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Delvaux–Van Barel classify maximal deficient submatrix constructions, not the checked exact 21 orbit partner-rank profiles.",
+          "The existing all-size Z12 full-spark theorem implies the count 24 for four-row sets but not each rank-2/3 pair incidence count."
+        ],
+        "reasoning": "The broader full-spark statement covers one corollary only; the full rank distribution is a strictly richer invariant not deducible from a binary full-spark classification alone.",
+        "searches": [
+          "Resultary: Z12 cyclic Fourier matrix rank distribution 4x4 minors 21 affine orbits",
+          "doi:10.1016/j.laa.2008.04.043",
+          "Resultary: complete full-spark classification order-12 DFT"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, Python and C++ full verifier source",
+        "Resultary Resultary: Z12 cyclic Fourier matrix rank distribution 4x4 minors 21 affine orbits",
+        "Delvaux–Van Barel doi 10.1016/j.laa.2008.04.043 and doi 10.1016/j.laa.2007.05.009",
+        "Alexeev-Cahill-Mixon arXiv:1110.3548",
+        "Resultary same-order full-spark and fifth-order, other orders 15 and 16 fourth-order"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General group-submatrix tiling constructions demonstrate classes of singular minors, not necessarily exact cardinalities for all pairs.",
+          "A same-order 5x5 census is not a monotone formula for 4x4 ranks: changing both row and column cardinalities changes incidence."
+        ],
+        "reasoning": "Known rank-deficiency mechanisms and full-spark boundaries constrain but do not cover the complete exhaustive 4x4 partner-rank table without additional counting.",
+        "searches": [
+          "Resultary: Z12 cyclic Fourier matrix rank distribution 4x4 minors 21 affine orbits",
+          "doi:10.1016/j.laa.2007.05.009",
+          "doi:10.1016/j.laa.2008.04.043"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complex 4x4 restriction rank distribution is the four-frequency interpolation-failure incidence table for cyclic Z12.",
+          "Rank loss corresponds to singular minors and Fourier-supported vanishing interpolation constraints."
+        ],
+        "reasoning": "Compare ranks of all 245025 pairs, not only nonvanishing determinants or full-spark row subsets.",
+        "searches": [
+          "Resultary: Z12 cyclic Fourier matrix rank distribution 4x4 minors 21 affine orbits",
+          "doi:10.1016/j.laa.2008.04.043"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known 24 full-spark rows at n=12 are deliberately treated as prior.",
+          "The checked all-4x4 rank counts 1224,39384,204417 are not in the compared full-spark table; n=15/16 tables use distinct root orders."
+        ],
+        "reasoning": "No direct existing table of the target incidence counts was identified; an unindexed or inaccessible table remains possible.",
+        "searches": [
+          "Resultary: Z12 cyclic Fourier matrix rank distribution 4x4 minors 21 affine orbits",
+          "Resultary: complete full-spark classification order-12 DFT",
+          "Resultary: complete fourth-order rank incidence order-16 and order-15 DFT"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete rank incidence distribution and 21 affine profiles at the cyclic order-12 DFT. Previously published same-order full-spark classification gives the known 24 full-spark rows; this subclaim is not new. Earlier Delvaux–Van Barel works give structural rank-deficient block constructions and uncertainty relations, not the exact counts of all rank-2/3/4 four-by-four restrictions shown here. Different 15-/16-point rank censuses and the same-order 5-by-5 census do not imply the order-12 fourth-order distribution. Older exact unindexed tables remain possible.",
+      "residual_risks": [
+        "Historical full-spark count 24 is known and is not asserted independently novel.",
+        "An old exact combinatorial rank table (not searched exhaustively) could imply some or all incidence values.",
+        "Finite-field exhaustiveness relies on the bounded algebraic norm argument; without it a modular rank would not certify complex rank."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_PRIOR_NOT_EXACT_TABLE_ESTABLISHED",
+          "evidence": "Maximal rank deficient and hierarchical submatrices are discussed, but no verified complete order-12 fourth-order rank distribution was found in the material read.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2008.04.043",
+          "material_read": "Public HTML-extracted technical-report opening, definitions, uncertainty theorem, low-rank block construction overview; not every later table verified",
+          "method": "2006 preprint text and comparison of exact target parameter",
+          "title": "Rank-deficient submatrices of Fourier matrices",
+          "trigger": "Same cyclic Fourier matrices and ranks"
+        },
+        {
+          "assessment": "GENERAL_STRUCTURAL_RESULT",
+          "evidence": "Provides tiling and low-rank constructions over Kronecker Fourier matrices but does not state the target numerical incidence table in accessible material.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2007.05.009",
+          "material_read": "Publisher abstract and report TW477 abstract; report PDF could not be opened through accessible provider",
+          "method": "abstract/object-and-implication check",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Broader group Fourier rank constructions"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Full spark constraints can cover the 24-row corollary but do not classify ranks of all non-invertible 4x4 pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+          "material_read": "Public article summary and cited theorem context, not a new page-by-page audit",
+          "method": "theorem-level implication check",
+          "title": "Full Spark Frames",
+          "trigger": "Cyclic composite Fourier row full-spark necessary/sufficient conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete, reproducible rank-defect incidence classification for a natural mixed-prime cyclic Fourier matrix; it refines mere full-spark yes/no to rank-two versus rank-three failures and an affine orbit table. Exact finite classification is a worthwhile independent mathematical invariant; no blanket extrapolation to other orders is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 4x4 restrictions of the cyclic DFT at order 12.",
+    "No singular values, condition numbers or arbitrary-order theorem.",
+    "Full 21-orbit partner profile in RESULT.md follows its exhaustive verifier, while independent check separately confirmed orbit count and total global rank distribution."
+  ],
+  "schema_version": 1
+}
