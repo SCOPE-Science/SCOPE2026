@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T17:56:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/strict-rooted-cluster-stochastic-dominance-for-site-percolation--a1698345da6f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/strict-rooted-cluster-stochastic-dominance-for-site-percolation--a1698345da6f/microcanonical_histograms.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/strict-rooted-cluster-stochastic-dominance-for-site-percolation--a1698345da6f/verify_masks.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/strict-rooted-cluster-stochastic-dominance-for-site-percolation--a1698345da6f/verify_boundaries.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/strict-rooted-cluster-stochastic-dominance-for-site-percolation--a1698345da6f/verify_all.py",
+        "/mnt/data/scope_worker02_run_20261119T174300Z/independent_checks.py"
+      ],
+      "rationale": "The claim fixes two undirected vertex-transitive graphs on Z_4^2 and defines X_G=0 when the root is vacant. For each occupied root component U, connectivity and the exact vacant external boundary force H_G(k,s)=sum_{U connected rooted, |U|=s} binom(16-s-|partial U|,k-s), with H_G(k,0)=binom(15,k). All 65536 labeled vertex-subsets of each graph were exhaustively enumerated independently by two new methods: repeated fixed-point neighborhood growth and a separately written rooted-connected-subset boundary census. The 17x17 integer matrices agree entry for entry within each graph (578 entries total), and the new signed difference agrees with the package: k=4: (s3:-12,s4:12); k=5: (s3:-36,s4:-24,s5:60); k=6: (s3:-36,s4:-48,s5:-30,s6:114); k=7: (s3:-12,s4:-24,s6:-6,s7:42); k=8: (s4:-6,s8:6); all other entries exactly zero. Independent tail sums for t=4,...,8 give respectively [12,36,36,12,0], [0,60,84,36,6], [0,0,114,36,6], [0,0,0,42,6], [0,0,0,0,6] for k=4,...,8, with every other entry zero. Thus every fixed-population conditional tail difference D_{k,t}/C(16,k) is nonnegative; the independent-site mixture has polynomial sum D_{k,t}p^k(1-p)^(16-k). For all 0<p<1 this is strictly positive exactly t=4..8 and zero for every other integer threshold; p=0,1 are equality. Weighting the delta by component size yields exact mean coefficients 12,96,234,126,24, sum 492. Both explicit neighbor sets are symmetric and six-regular with two common neighbors for every distinct vertex pair, implying A^2=4I+2J and eigenvalues 6^1,2^6,(-2)^9. Translation symmetry covers any root. Finite exhaustive enumeration is a complete proof for these fixed 16-vertex graphs, not an extrapolation beyond them. The actual 10-blob frozen Git tree was independently reconstructed and equals the assignment SHA.",
+      "residual_risks": [
+        "All-parameter assertion depends on exact finiteness and binomial mixing; no claims for bond percolation, heterogeneous site retention, or larger graph orders.",
+        "The two independent counts use explicit coordinate definitions; a graph-model convention change would require recounting, but those conventions match the submitted statement.",
+        "Finite checks are exhaustive for n=16 only, and no infinite-graph behavior or general spectral comparison is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diskin and Krivelevich (2023), Theorems 1–3 assume growing graph order/d=o(n) and prove high-probability largest-component bounds, not exact finite rooted tails on n=16.",
+          "Huang et al. (2022), Section 3.5/Appendix I, show the rook graph has four-cliques and Shrikhande does not, supporting nonisomorphism, but no site-percolation stochastic order.",
+          "Published same-pair hard-core monomer adsorption theorem concerns irreversible exclusion and expected accepted count (rook greater), not independent occupied-site component size (Shrikhande greater).",
+          "Published paired-domination census concerns perfect matchings in dominating subsets, not rooted percolation."
+        ],
+        "reasoning": "No inspected stronger result has hypotheses/conclusions that imply all fixed-population cluster-tail signs. Spectral equality gives identical two-point common-neighbor counts, not equality or stochastic comparison for higher rooted clusters; the known random-greedy adsorption law does not reduce to independent-site percolation.",
+        "searches": [
+          "Resultary: strongly regular (16,6,2,2) Shrikhande rook site percolation cluster size network reliability connected component all p",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21141",
+          "https://proceedings.mlr.press/v162/huang22l/huang22l.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-strict-kinetic-separation-of-two-cospectral-graphs-under-hard-co--0f9e5993c6ec/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-paired-domination-distinguishes-two-graphs-with-identical-total--0d16d6786052/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/cond-mat/0101295v2",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21141",
+        "https://proceedings.mlr.press/v162/huang22l/huang22l.pdf",
+        "https://aeb.win.tue.nl/drg/graphs/Shrikhande.html",
+        "https://reference.wolframcloud.com/language/ref/GraphData.html",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-strict-kinetic-separation-of-two-cospectral-graphs-under-hard-co--0f9e5993c6ec/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-paired-domination-distinguishes-two-graphs-with-identical-total--0d16d6786052/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-closed-neighborhood-shattering-polynomial-separation-of-the-sh--670b6697d463/RESULT.md",
+        "https://www.cambridge.org/core/books/shrikhande-graph/792566CAD203CDFD06CD1AB449504664"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Newman–Ziff Eq. (2) implies the Bernoulli expression GIVEN every microcanonical D_{k,t}; it supplies no graph-pair signs and hence is not a prior proof of domination.",
+          "Diskin–Krivelevich use asymptotic pseudorandom graph assumptions with n large, not the particular pair at n=16.",
+          "Huang et al. prove only an incidence-four-clique distinction; the statement 4-cliques differ does not imply a complete all-threshold stochastic-order theorem.",
+          "Same-graph closed-neighborhood shattering polynomials classify trace sets, not component-size distributions."
+        ],
+        "reasoning": "The new statement is stronger than an expectation-only inequality and requires D_{k,t}>=0 for every k,t, including strict support t=4..8. Prior equal-spectrum results and 4-clique counts are too weak to force these many signs; the direct finite boundary enumeration supplies the missing decisive integer inequalities. A hidden previous exact table would reverse this originality conclusion, and is a stated risk.",
+        "searches": [
+          "https://arxiv.org/html/cond-mat/0101295v2",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21141",
+          "https://proceedings.mlr.press/v162/huang22l/huang22l.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-closed-neighborhood-shattering-polynomial-separation-of-the-sh--670b6697d463/RESULT.md",
+          "https://aeb.win.tue.nl/drg/graphs/Shrikhande.html"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proposed canonical survival difference equals sum_{k=0}^{16} D_{k,t} p^k(1-p)^{16-k}, where D_{k,t} is the exact finite-population count difference. Newman and Ziff (2001), Eq. (2), gives this generic microcanonical binomial reconstruction for any site-percolation observable, without evaluating any rook/Shrikhande D_{k,t}.",
+          "An alternate name for X_G is the zero-when-absent root-connected component size or root cluster susceptibility variable; vertex/node reliability usually counts full surviving-set connectivity, not this distribution by rooted component size and exterior boundary."
+        ],
+        "reasoning": "An earlier exact rooted site-animal boundary polynomial or fixed-population tail table could cover the entire claim regardless of terminology. The genuinely overlapping published general mixing formula determines neither the signed coefficient matrix nor the sign of every threshold, and an all-terminal reliability polynomial alone does not determine each H_G(k,s).",
+        "searches": [
+          "Resultary: Shrikhande graph versus 4 by 4 rook graph independent site percolation rooted occupied component stochastic dominance exact histogram fixed k",
+          "Web: \"Shrikhande\" \"rook\" \"site percolation\" \"cluster\"",
+          "Web: \"Shrikhande\" \"rook\" \"cluster size distribution\"",
+          "https://arxiv.org/html/cond-mat/0101295v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "GraphData documents general reliability and connected-induced-subgraph polynomial accessors; examined documentation does not exhibit the evaluated 17x17 rooted-component histograms or their tail comparisons for this pair.",
+          "The 2026 Cambridge monograph The Shrikhande Graph provides a same-object 176-page overview; public table of contents spans properties, torus, Latin squares and miscellanea but full chapters required access and were not read.",
+          "A connected-induced-subgraph size count alone would give counts of full k-clusters but not the number of size-s root components among k-site subsets for all s<k, which depends on the external vertex boundary."
+        ],
+        "reasoning": "A source table with every rooted component size at every fixed occupancy could dominate the present finite result even without calling it percolation; no such exact evaluated table was retrieved. Generic executable GraphData functions permit recomputation but are not evidence of a published evaluated comparison. The monograph limitation is retained as risk, not asserted to be noncovering.",
+        "searches": [
+          "Web: \"Shrikhande\" \"ConnectedInducedSubgraphPolynomial\"",
+          "Web: \"Shrikhande graph\" \"reliability polynomial\"",
+          "Web: \"Shrikhande\" \"rook\" \"vertex reliability polynomial\"",
+          "Web: \"Shrikhande\" \"rook\" \"connected induced subgraphs\" counts",
+          "https://reference.wolframcloud.com/language/ref/GraphData.html",
+          "https://www.cambridge.org/core/books/shrikhande-graph/792566CAD203CDFD06CD1AB449504664"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS for the exact comparison of the full rooted site-percolation distributions on the canonical nonisomorphic strongly regular pair, not for the known graphs, their spectra, or the general binomial-mixing technique. Newman–Ziff supply the canonical/microcanonical transformation without evaluating these rooted cluster tails; Diskin–Krivelevich prove asymptotic results for growing regular graph families, not exact finite coefficient signs for this pair; Huang et al. distinguish the pair by four-cliques, which does not imply rooted stochastic order. Inspected published same-graph findings on irreversible hard-core adsorption, paired domination, and neighborhood shattering count different objects and do not determine site-component distributions. Exact database searches identify generic graph invariant functions, not this rooted boundary-weighted coefficient matrix. No stronger covering result was identified in the cited primary texts and searches. Historical tabulation of rooted connected-set boundaries and a 2026 monograph with inaccessible full book chapters remain explicit priority risks; absence in a search is not proof of novelty.",
+      "residual_risks": [
+        "An unindexed table of rooted cluster boundary counts or fixed-population site-reliability distributions could imply the exact result even if its title never mentions the pair.",
+        "The recent dedicated Cambridge monograph was accessible only through its table of contents/extracts; full chapter contents were not inspected, and this lack alone is not a scientific failure.",
+        "A proof of a global stochastic coupling or graph-switching inequality hidden in other literature might dominate the finite coefficient table. No such theorem was found in the inspected sources, but the search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MIXING_ONLY",
+          "evidence": "Eq. (2) expresses Q(p)=sum_n binom(N,n)p^n(1-p)^(N-n)Q_n. Applications focus on square-lattice spanning and random-graph giant clusters; no pair-specific rooted D_{k,t}.",
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/0101295v2",
+          "material_read": "Official full HTML Introduction (definitions, Eq. 1–3), Section II algorithm and listed application sections; document-wide Shrikhande text search.",
+          "method": "Read HTML text and scanned contents and named-graph terms.",
+          "title": "A fast Monte Carlo algorithm for site or bond percolation",
+          "trigger": "Primary microcanonical-to-canonical transfer and fixed-occupancy cluster technique."
+        },
+        {
+          "assessment": "ASYMPTOTIC_SCOPE_NOT_FINITE_16_COMPARISON",
+          "evidence": "Theorems 1–3 give whp component-size behavior under asymptotic n,d assumptions and no comparison of the two (16,6,2,2) graphs or exact microcanonical tail signs.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21141",
+          "material_read": "Open-access full HTML Introduction, definitions, Theorems 1–3 with their d=o(n) and eigenvalue-ratio hypotheses, subcritical and supercritical proof sections, isolated-tree enumeration lemmas.",
+          "method": "Read Wiley full HTML and searched in-document theorem statements and finite-graph terms.",
+          "title": "Site percolation on pseudo-random graphs",
+          "trigger": "Primary potentially dominating general theorem about site clusters on degree-regular pseudorandom networks."
+        },
+        {
+          "assessment": "GRAPH_DISTINCTION_NOT_ROOTED_PERCOLATION",
+          "evidence": "Figure 7 and Appendix I establish rook four-cliques and absence for Shrikhande as a GNN expressivity witness; neither fixed-site-root tails nor stochastic dominance is computed.",
+          "identifier_or_url": "https://proceedings.mlr.press/v162/huang22l/huang22l.pdf",
+          "material_read": "Full paper Sections 3.5 and Appendix I proof (around PDF page 23), including Figure 7 and four-clique argument; rest of paper skimmed for topic and scope.",
+          "method": "Read official PMLR source PDF text and visually inspected relevant page 23 (zero-based page 22).",
+          "title": "Going Deeper into Permutation-Sensitive Graph Neural Networks",
+          "trigger": "Primary same-pair result providing four-clique distinction and potential linked connected-induced-subgraph count."
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_PROCESS_NO_COVERAGE",
+          "evidence": "Hard-core adsorption rejects attempts adjacent to earlier accepted monomers; its R>S expected accepted count does not imply independent Bernoulli-site S>R root connected-component tails.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-strict-kinetic-separation-of-two-cospectral-graphs-under-hard-co--0f9e5993c6ec/RESULT.md",
+          "material_read": "Complete RESULT.md including model, theorem, recurrence, all coefficients, verification, and limitations.",
+          "method": "Read complete primary published scientific record from GitHub, compared random laws.",
+          "title": "Strict kinetic separation of two cospectral graphs under hard-core monomer adsorption",
+          "trigger": "Relevant published same-pair random-occupancy comparison with exact all-parameter Bernstein coefficients."
+        },
+        {
+          "assessment": "MATCHING_DOMINATION_NOT_SITE_CLUSTER",
+          "evidence": "Polynomial coefficients classify dominating subsets with induced matchings, not exterior-boundary-weighted sizes of a fixed rooted occupied component.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-paired-domination-distinguishes-two-graphs-with-identical-total--0d16d6786052/RESULT.md",
+          "material_read": "Complete RESULT.md including perfect-matching condition, exact domination polynomials, proof and references.",
+          "method": "Read published source in full and compare subset predicates with rooted connected components.",
+          "title": "Paired-domination distinguishes two graphs with identical total-domination polynomials",
+          "trigger": "Same Shrikhande/rook graph pair and all-vertex-subset exact counts might encode a stronger dominating table."
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT_NOT_COVERING",
+          "evidence": "The complete shattering polynomials concern neighborhood trace patterns on j-subsets, which do not supply H_G(k,s) or its tail signs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-closed-neighborhood-shattering-polynomial-separation-of-the-sh--670b6697d463/RESULT.md",
+          "material_read": "Complete RESULT.md, especially theorem, shattered-set definition and exact table.",
+          "method": "Read published source in full and compared shattering predicates to root-connected induced subgraph constraints.",
+          "title": "A closed-neighborhood shattering-polynomial separation of the Shrikhande and rook graphs",
+          "trigger": "Exact same-graph neighborhood set-system table could imply or dominate root-boundary counts."
+        },
+        {
+          "assessment": "UNRESOLVED_HISTORICAL_TABLE_RISK_NOT_DECISIVE",
+          "evidence": "Public contents cover strongly regular graph parameters, spectrum, automorphisms, torus and miscellanea; no publicly displayed percolation theorem, but the inaccessible chapters could contain equivalent data.",
+          "identifier_or_url": "https://www.cambridge.org/core/books/shrikhande-graph/792566CAD203CDFD06CD1AB449504664",
+          "material_read": "Book description, full public chapter table of contents and accessible Chapter 5 overview excerpt; full book chapters were restricted and not read.",
+          "method": "Inspected publisher table of contents and access indications; did not infer noncoverage from restricted content.",
+          "title": "The Shrikhande Graph: A Window on Discrete Mathematics",
+          "trigger": "Recent (June 2026) primary monograph on the exact graph; plausible obscure exact combinatorial tables."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/strict-rooted-cluster-stochastic-dominance-for-site-percolation--a1698345da6f/RESULT.md",
+        "/mnt/data/scope_worker02_run_20261119T174300Z/independent_checks.py",
+        "https://arxiv.org/html/cond-mat/0101295v2",
+        "https://aeb.win.tue.nl/drg/graphs/Shrikhande.html"
+      ],
+      "rationale": "Rooted occupied-cluster size is a fundamental site-percolation susceptibility and network robustness variable, and the Shrikhande/4x4 rook pair is the canonical nonisomorphic, cospectral strongly regular (16,6,2,2) test pair. The complete signed fixed-population histograms yield a genuinely more informative simultaneous first-order stochastic order over all 16 thresholds, every 0<=k<=16 and all p in [0,1], with a precisely located strictness window and exact positive mean polynomial. This is a motivated exact finite-system benchmark showing what common spectra and two-point parameters fail to fix. It is not merely a few small graph statistics or an arbitrary numerical slice: the finite space is exhausted and the full natural rooted distribution classified. The result is independent of a large-N theorem or paper-sized downstream use; it could be reused to test reliability enumerators and compare graph models. The narrow scope is explicit and does not assert a universal percolation inequality.",
+      "residual_risks": [
+        "The conclusion is an exact sixteen-vertex pair-specific calculation and cannot be extrapolated to generic cospectral graphs or thermodynamic criticality.",
+        "Practical utility is as a rigorous benchmark and structural counterexample to spectral determination, not a universal theorem about large random networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No infinite-volume conclusion; no bond or heterogeneous-site percolation result.",
+    "Originality qualified by the named inaccessible monograph and possible earlier unindexed tables."
+  ]
+}
