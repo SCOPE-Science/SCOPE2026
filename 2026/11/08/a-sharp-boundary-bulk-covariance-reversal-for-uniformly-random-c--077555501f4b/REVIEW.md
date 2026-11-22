@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Weighted composition factorization gives an explicit three-part overlapping seam kernel and exact rational generating functions for both means and their mixed moment. All finite orders 1–100 are certified by rational recurrence; the strict complex-analytic tail bound treats every higher order. Direct composition enumeration independently checks 2–9. The first two signs are zero, 3–14 positive and 15 onward negative, with asymptotic covariance \(-4/189\).
+## correctness
 
-**Originality — PASS, qualified.** The closest composition-variation paper by Archibald, Knopfmacher and Mansour develops marginal variation generating functions, and Mansour's earlier word study treats adjacent letters. Neither inspected result asserts a seam-interior mixed covariance. A bivariate generating function in variation and part count cannot determine this joint seam dependence. An uninspected broader multivariate analysis may nevertheless implicitly contain the theorem; literature priority is not independently confirmed.
+PASS
 
-**Value — PASS.** Boundary closure creates a motivated nonlocal interaction with internal variation. The exact sample-size 15 sign reversal, not merely its observed numerical examples, and finite negative limiting constant give a sharp structural contrast between boundary and bulk fluctuations.
+For every n≥1 all 2^(n−1) ordered positive compositions are equally weighted; k=1 gives L=B=0 and k=2 gives B=L once. Disjoint edge-pair enumeration establishes H=2[Q+2J/(1−W)+P²/(1−W)²], F=2P/(1−W)² and G=2P/(1−W) at t=z/2. Independently rederived P,Q and checked J from h_a against its formal series; exact symbolic reduction reproduced all three displayed rational functions. Subtraction of the pole parts H=(8/9)/(1−z)²−(620/189)/(1−z)+H0, F=(2/3)/(1−z)²−(22/9)/(1−z)+F0, G=(4/3)/(1−z)+G0 yields c_n=−4/189+residual. Independently factored all H0,F0,G0 denominators, whose zeros have |z|=2, and recomputed the explicit |z|=3/2 coefficient bounds. Their common n=100 bound is below 4/189 and decreases for n≥100. Independent rational recurrences checked all n=1..100 and full direct enumeration all 2^(n−1) compositions for 2≤n≤15. This proves exact zero at n=1,2, strict positive 3..14, strict negative n≥15, with exact c14=1745/2097152, c15=−551287/67108864 and limiting −4/189; finite checks are combined with a genuine analytic infinite tail argument.
 
-No extension beyond uniform positive ordered compositions and absolute differences is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: full relevant sections of the author-uploaded 2012 Archibald–Knopfmacher–Mansour paper separately enumerate the signed endpoint difference v=a_K-a_1 and linear absolute variation av, including a univariate av generating function and variance; they do not give the mixed seam/interior expectation or its sharp sign law. Mansour 2009 concerns fixed-alphabet words. Two directly inspected published composition-covariance results concern rise-vs-fall counts and word-occurrence-vs-part-count, not the |a_K-a_1| seam. The boundary–bulk covariance depends on an additional overlapping triple kernel, not on separate marginal moments. No independently published dominating formula was identified; historical implicit coverage via a more general endpoint-marked transfer matrix remains a real priority risk.
+
+## value
+
+PASS
+
+The closing edge B is an intrinsic boundary-closure statistic for a linear composition and changes the variation geometry in a mathematically motivated way. The exact change from positive boundary–bulk covariance for 3≤n≤14 to negative covariance for every n≥15, together with a nonzero limiting constant despite growth of the linear variation, provides a sharp previously unreported structural dependence law, not merely a moment formula, arbitrary slice, or numerical sign observation. The exact threshold and limit can be reused in random composition/bargraph boundary dependence calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

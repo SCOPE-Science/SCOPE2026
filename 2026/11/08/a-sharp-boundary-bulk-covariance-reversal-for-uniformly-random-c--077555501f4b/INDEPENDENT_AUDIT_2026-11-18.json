@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T23:57:46.014596Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-sharp-boundary-bulk-covariance-reversal-for-uniformly-random-c--077555501f4b/RESULT.md",
+        "2026/11/08/a-sharp-boundary-bulk-covariance-reversal-for-uniformly-random-c--077555501f4b/verify.py",
+        "/mnt/data/independent_scope02_checks_20261118.py (local independent verifier)"
+      ],
+      "rationale": "For every n≥1 all 2^(n−1) ordered positive compositions are equally weighted; k=1 gives L=B=0 and k=2 gives B=L once. Disjoint edge-pair enumeration establishes H=2[Q+2J/(1−W)+P²/(1−W)²], F=2P/(1−W)² and G=2P/(1−W) at t=z/2. Independently rederived P,Q and checked J from h_a against its formal series; exact symbolic reduction reproduced all three displayed rational functions. Subtraction of the pole parts H=(8/9)/(1−z)²−(620/189)/(1−z)+H0, F=(2/3)/(1−z)²−(22/9)/(1−z)+F0, G=(4/3)/(1−z)+G0 yields c_n=−4/189+residual. Independently factored all H0,F0,G0 denominators, whose zeros have |z|=2, and recomputed the explicit |z|=3/2 coefficient bounds. Their common n=100 bound is below 4/189 and decreases for n≥100. Independent rational recurrences checked all n=1..100 and full direct enumeration all 2^(n−1) compositions for 2≤n≤15. This proves exact zero at n=1,2, strict positive 3..14, strict negative n≥15, with exact c14=1745/2097152, c15=−551287/67108864 and limiting −4/189; finite checks are combined with a genuine analytic infinite tail argument.",
+      "residual_risks": [
+        "The analytic sign proof relies on the all-n combinatorial factorization and exact coefficient pole subtraction; these were reconstructed and tested, not externally formally certified.",
+        "All-size claim is limited to strictly positive ordered integer compositions with a uniform distribution; the two-part seam is counted once."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Archibald–Knopfmacher–Mansour (2012), Theorem 3.3 and derivative formulas give E[L] and Var(L), and Section 2 gives signed endpoint distribution, but no E[LB], https://www.researchgate.net/publication/230799586_Variation_Statistics_on_Compositions.",
+          "Heubach–Mansour general rises/levels/drops joint generating functions cited in https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-the-exact-rise-fall-covariance-changes-sign-at-size-nine-in-unif--69b1e5a2e986/RESULT.md mark relative directions; they do not directly specify the absolute jump magnitudes or nonadjacent seam endpoint."
+        ],
+        "reasoning": "A general multivariate endpoint-marked enumerator incorporating absolute jump sizes would dominate the result, but the inspected primary 2012 formula does not contain both necessary markers. A method that can be extended is not by itself a printed theorem proving the sharp n=15 covariance crossing; broader implicit computation remains possible.",
+        "searches": [
+          "Resultary: general multivariate generating function compositions absolute adjacent variation first last part endpoint",
+          "web: \"Variation Statistics on Compositions\" Archibald Knopfmacher Mansour pdf",
+          "web: \"variation of compositions\" endpoint joint distribution absolute variation"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3233/FI-2012-685",
+        "https://www.researchgate.net/publication/230799586_Variation_Statistics_on_Compositions",
+        "https://dmtcs.episciences.org/467/pdf",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-the-exact-rise-fall-covariance-changes-sign-at-size-nine-in-unif--69b1e5a2e986/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-weight-length-universality-and-sharp-covariance-zeros-for-compos--d92df0df777d/RESULT.md",
+        "Resultary semantic query records listed in the four named searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2012 Theorem 3.3 univariate absolute-variation GF and Section 2 signed-endpoint marginal cannot determine their cross moment https://www.researchgate.net/publication/230799586_Variation_Statistics_on_Compositions.",
+          "Published Nov 2 rise/fall result uses ordered adjacent inequality indicators, not absolute magnitudes or seam endpoints (https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-the-exact-rise-fall-covariance-changes-sign-at-size-nine-in-unif--69b1e5a2e986/RESULT.md).",
+          "Published Nov 8 word-pattern result computes Cov(number of parts, exact fixed-word occurrences), not Cov(nonlocal seam, weighted adjacent total) (https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-weight-length-universality-and-sharp-covariance-zeros-for-compos--d92df0df777d/RESULT.md).",
+          "Candidate kernel J=Σ_{a,b,c≥1}|a-b||a-c|t^{a+b+c} represents endpoint-adjacent overlap; the further separated-edge contribution P²/(1-W)² has no direct analogue in the checked prior claims."
+        ],
+        "reasoning": "One cannot recover the covariance from E[L], Var(L), E[|v|], or Var(v) alone. The candidate explicitly counts seam-incident edges, independent-block pairs and two-part degeneracy, then proves finite sign and analytic tail. The inspected published statements do not imply this exact theorem without substantial additional derivation.",
+        "searches": [
+          "web and read: Archibald Knopfmacher Mansour 2012 Theorems 2.2, 3.3 and Sections 2,3,5",
+          "web and read: Mansour 2009 Theorems 1.1, 1.3, definitions and scope",
+          "Resultary full text: SCOPE exact rise-fall covariance Nov 2 and weight-length universality Nov 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Archibald–Knopfmacher–Mansour (2012), Sections 2 and 3, https://www.researchgate.net/publication/230799586_Variation_Statistics_on_Compositions: v is the signed telescoping endpoint difference; av is the sum of internal absolute adjacent differences. Their individual distributions do not specify E[av |v|].",
+          "Mansour (2009), Theorem 1.3, https://dmtcs.episciences.org/467/pdf: mean/variance for unconstrained fixed-alphabet words, not fixed-total compositions with end-to-start seam."
+        ],
+        "reasoning": "The seam B=|v| is the absolute of the 2012 signed variation statistic; L=av is the distinct 2012 absolute variation statistic. Neither individually marked generating function is a bivariate joint enumerator of (L,|v|). An ordinary cyclic perimeter marginal would likewise need second-order information to determine Cov(L,B).",
+        "searches": [
+          "Resultary: random integer compositions adjacent absolute variation seam closing difference covariance sign reversal joint variation boundary bulk",
+          "Resultary: covariance of interior absolute variation with endpoint difference in random integer compositions; cyclic boundary closure variation joint generating function",
+          "web: random compositions \"closing\" \"variation\" covariance; cyclic variation random integer compositions covariance seam endpoint",
+          "2012 article Sections 2–3: v=a_K-a_1 and av=Σ|a_i-a_(i+1)|"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the exact Nov 8 2026 entry for THIS same candidate (id 077555501f4b); it is not an independent predecessor.",
+          "Its nearest separate composition entry dated Nov 2 concerns rise-fall covariance with a sign reversal at n=9 (https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-the-exact-rise-fall-covariance-changes-sign-at-size-nine-in-unif--69b1e5a2e986/RESULT.md), not a seam-interior covariance."
+        ],
+        "reasoning": "No distinct exact table or preexisting catalogue entry for c_n=Cov(Σ|a_i-a_(i+1)|,|a_K-a_1|), n=15 crossing or limit -4/189 was identified. This bounded negative search does not prove novelty or exhaust prior tables.",
+        "searches": [
+          "Resultary: random composition bargraph interior vertical perimeter versus endpoint height seam cyclic covariance sign threshold",
+          "Resultary: random integer compositions adjacent absolute variation seam closing difference covariance sign reversal joint variation boundary bulk",
+          "web: \"cyclic variation\" \"compositions\" \"covariance\" adjacent endpoints"
+        ]
+      },
+      "rationale": "Best-of-knowledge: full relevant sections of the author-uploaded 2012 Archibald–Knopfmacher–Mansour paper separately enumerate the signed endpoint difference v=a_K-a_1 and linear absolute variation av, including a univariate av generating function and variance; they do not give the mixed seam/interior expectation or its sharp sign law. Mansour 2009 concerns fixed-alphabet words. Two directly inspected published composition-covariance results concern rise-vs-fall counts and word-occurrence-vs-part-count, not the |a_K-a_1| seam. The boundary–bulk covariance depends on an additional overlapping triple kernel, not on separate marginal moments. No independently published dominating formula was identified; historical implicit coverage via a more general endpoint-marked transfer matrix remains a real priority risk.",
+      "residual_risks": [
+        "Uninspected older transfer-matrix or multivariate bargraph boundary-perimeter analysis could imply the mixed seam moment without using these words.",
+        "The full 2012 article yields marginal generating functions for both endpoint difference and absolute variation; a strengthened endpoint-marking derivation might recover the candidate with moderate additional work.",
+        "The exact matching Resultary entry is the audited record itself and carries no independent priority weight."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the joint |v|/av covariance: both marginals are analyzed separately but no jointly marked seam-interior mixed moment or sharp sign boundary is stated",
+          "evidence": [
+            "Section 2: v(σ)=σ_m−σ_1; Section 3 Theorem 3.3: G∞(x,y,q) marks av(σ), derivative yields E[av] and Var(av); Section 5 mean only, https://www.researchgate.net/publication/230799586_Variation_Statistics_on_Compositions"
+          ],
+          "identifier_or_url": "https://doi.org/10.3233/FI-2012-685",
+          "material_read": "Author-uploaded full-text HTML transcription of the 17-page article; read introduction, definitions and tables, signed-variation Section 2 and corollaries, absolute-variation Section 3/Theorem 3.3 and variance formulas, and mean-value Section 5",
+          "method": "Lawful author-uploaded public full text at https://www.researchgate.net/publication/230799586_Variation_Statistics_on_Compositions; compared defining variables and actual generating-function and variance statements, not just abstract",
+          "title": "Variation Statistics on Compositions",
+          "trigger": "Same random positive-composition model and both separate statistics L=absolute variation and signed endpoint difference v"
+        },
+        {
+          "assessment": "NOT_COVERING: fixed-length k-ary words without fixed-total positive-composition constraint and without cyclic end-to-start cross moment",
+          "evidence": [
+            "Theorem 1.3 supplies E and Var of adjacent-word variation; Section 1 defines words σ∈[k]^n and u(σ)=Σ_{i=1}^{n−1}|σ_i−σ_(i+1)|, https://dmtcs.episciences.org/467/pdf"
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/467/pdf",
+          "material_read": "Open-access 14-page PDF text examined with page-0 screenshot; introduction, precise word model and Theorems 1.1–1.3 on enumeration and moments, plus proof setup",
+          "method": "Public publisher PDF opened and first page visually rendered; compared object, constraint and statistic",
+          "title": "Enumeration of words by the sum of differences between adjacent letters",
+          "trigger": "Foundational adjacent absolute-difference generating-function literature cited by candidate"
+        },
+        {
+          "assessment": "NOT_COVERING: covariance of counts of strict rises/falls with sign boundary 9, whereas current statistic is weighted absolute jump sum versus endpoint seam",
+          "evidence": [
+            "Defines R_n,D_n strict comparison counts and obtains Cov(R,D)~11n/756, not the nonlocal seam B or finite limit -4/189, https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-the-exact-rise-fall-covariance-changes-sign-at-size-nine-in-unif--69b1e5a2e986/RESULT.md"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-the-exact-rise-fall-covariance-changes-sign-at-size-nine-in-unif--69b1e5a2e986/RESULT.md",
+          "material_read": "Complete public RESULT.md including statement, generating-function proof, bound, relationship to prior work and limitations",
+          "method": "Read full published record via authorized GitHub fetch",
+          "title": "The exact rise–fall covariance changes sign at size nine in uniform compositions",
+          "trigger": "Another all-size exact covariance sign reversal on the same uniform composition probability space"
+        },
+        {
+          "assessment": "NOT_COVERING: covariances of part count with occurrences of fixed exact consecutive words, not weighted absolute adjacent variation with closing endpoint seam",
+          "evidence": [
+            "Counts K_N and Y_N,b for fixed word b, with result depending on r and w only, https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-weight-length-universality-and-sharp-covariance-zeros-for-compos--d92df0df777d/RESULT.md"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-weight-length-universality-and-sharp-covariance-zeros-for-compos--d92df0df777d/RESULT.md",
+          "material_read": "Complete public RESULT.md including exact theorem, occurrence bijection proof, limits and literature comparison",
+          "method": "Read full published record via authorized GitHub fetch",
+          "title": "Weight–length universality and sharp covariance zeros for composition patterns",
+          "trigger": "Same uniform composition model with exact all-size covariance and occurrence counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/a-sharp-boundary-bulk-covariance-reversal-for-uniformly-random-c--077555501f4b/RESULT.md",
+        "https://www.researchgate.net/publication/230799586_Variation_Statistics_on_Compositions",
+        "https://dmtcs.episciences.org/467/pdf"
+      ],
+      "rationale": "The closing edge B is an intrinsic boundary-closure statistic for a linear composition and changes the variation geometry in a mathematically motivated way. The exact change from positive boundary–bulk covariance for 3≤n≤14 to negative covariance for every n≥15, together with a nonzero limiting constant despite growth of the linear variation, provides a sharp previously unreported structural dependence law, not merely a moment formula, arbitrary slice, or numerical sign observation. The exact threshold and limit can be reused in random composition/bargraph boundary dependence calculations.",
+      "residual_risks": [
+        "Sign reversal is a specialized invariant of the uniform model; no broader universality or general correlated-composition theorem follows.",
+        "The mathematical value does not itself prove bibliographic novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only uniform positive ordered integer compositions and absolute first differences are covered; seam counted once at k=2.",
+    "All-size sign and limit follow from the combinatorial rational proof and analytic bounds; finite computations alone would not prove them.",
+    "Novelty is best-of-knowledge: possible uninspected generalized endpoint-marked bargraph transfer-matrix formula remains an originality risk.",
+    "Exact Git tree object 72a6e342780e49d084c84f2302f62805f1f3d51d was returned by GitHub tree fetch with seven matching listed blobs, but local SHA-1 tree-content recomputation yielded c22a5900561679a528efe1210dcd53540d75b8da. Hence an independent tree digest verification was not achieved; this discrepancy must be reconciled before publication.",
+    "Existing public-facing METADATA.json, AUDIT.json and REVIEW.md include operational run identifiers and review-process labels (including scope_run_id/same_model_review). Complete neutral final replacements preserving the original scientific evidence and external Lean/expert status, and all blob-guarded semantic privacy checks, were not completed. A minimal server-derived certificate plan has not been verified to sanitize these existing public bytes; publication must remain withheld."
+  ],
+  "schema_version": 1
+}
