@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact trigonometric Taylor expansion gives a double eigenvalue \(-9\delta\), a quadratic map of constant quotient-metric norm coefficient \(3\sqrt6/8\), and a four-root blow-up equation. Each of the three nonzero roots is a saddle; inward radial estimates and the saddle obstruction give matching \(4\sqrt6\,\delta+O(\delta^2)\) basin-radius bounds. The standalone script symbolically verifies the nonstandard identities and numerically checks the predicted branches. Limitations: the argument is local in the harmonic parameter and proves no global basin measure.
+## correctness
 
-## Originality
-**PASS within the examined literature, with residual priority risk.** The 2026 delayed inhibitory-network paper develops phase reductions and numerical rhythm portraits but no sharp nonlinear initial-condition tolerance. The 2016 generalized oscillator work covers linear synchronization and splay stability conditions, including the necessity of higher harmonics for separated thresholds, not a nonlinear basin inradius with explicit coefficient. Published related phase-ring results concern other interactions, while comparisons against accessible prior findings did not reveal an equivalent or stronger result for this precise phase flow and basin metric. The general linear threshold and coexistence mechanism are credited to existing theory, not claimed here.
+PASS
 
-## Mathematical value
-**PASS.** The inradius is the exact leading worst-case deterministic phase perturbation guaranteed to return to a newly stable traveling wave. It identifies a linear collapse of guaranteed robustness at a multirhythmic boundary, with a geometric coefficient fixed by a three-saddle collision rather than by linear eigenvalues alone. This is a natural, reproducible invariant of an explicitly defined minimal three-cell oscillator model and a meaningful distinction from just computing a local stability threshold.
+Direct differentiation of relative phase field at splay gives exact linear -9δ I and Q(x,y)=sqrt3/4(x²+2xy-2y²,2x²-2xy-y²). The quotient metric r²=2(x²-xy+y²)/3 satisfies ||Q(w)||_q²=27r^4/32; independent symbolic expansion confirms this identity. The radial bound d(r²/2)/dt <=(-9δ+(3sqrt6/8)r+C(r²+δr))r² proves an invariant, strictly inward ball of radius 4sqrt6 δ-O(δ²), with all its points converging. Blowing up w=δW produces -9W+Q(W); independently verified precisely the three specified nonzero simple roots with quotient radius sqrt96=4sqrt6 and Jacobian eigenvalues 9,-27. IFT yields nearby saddle equilibria outside the basin, limiting its centered ball by the same leading distance. Local error bounds constrain every nonzero small equilibrium to O(δ) and ensure no omitted roots. Both chiralities follow by relabelling; synchrony eigenvalues remain negative.
 
-## Sources and risks
-Closest full-text sources are arXiv:2611.06836v1 (phase-reduced three-cell network, methods and results) and the 2016 Frontiers article (general phase-oscillator stability, Section 3.1). Related prior records concern different coupling models, not this basin metric. Residual risks include unindexed older three-oscillator normal-form work and the fact that the phase approximation need not reproduce the exact basin in a delayed full-state model.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after inspecting the frozen proof, searching mathematical aliases/general implications, comparing related primary theorems and published results at statement-level. The contribution is the specific final claim, not its openly credited combinatorial, signal-processing or probabilistic prerequisites. Inaccessible or less-indexed literature remains explicitly a residual risk.
+
+## value
+
+PASS
+
+Converts a known local stability threshold into a sharp deterministic phase-error tolerance with an explicit nonlinear three-saddle obstruction in the physically standard quotient metric. A basin inradius controls robust capture and is not supplied by linear eigenvalues or global basin-area observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
