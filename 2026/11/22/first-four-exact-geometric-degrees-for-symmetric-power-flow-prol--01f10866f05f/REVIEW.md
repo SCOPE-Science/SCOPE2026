@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Over an algebraically closed characteristic-zero field, the jet recurrence yields explicit forms through the fourth jet. The exact gcd computation excludes all points at infinity except the two coordinate points. Their weighted initial equations are a regular sequence with colength \(m(n-1)(n-m)\). Generic linear slices of a smooth graph are reduced, and Bézout gives the degree formula. The embedded exact-arithmetic checker confirms nontrivial symbolic identities and all weighted support comparisons for six exponents; the all-exponent argument is the displayed proof. Boundary cases \(m=0\) and \((n,m)=(3,3)\) have no points at infinity.
+
+**Originality — PASS (subject to publication-priority risk).** Puddu's arXiv:2611.06638v1, Section 4, states the unrestricted two-parameter formula as a conjecture, exhibits the first non-squarefree/nontransverse obstacles, and reports finite gcd experiments, but does not prove the uniform formula for all exponents at \(m=0,1,2,3\) or the exact local intersection multiplicities. Pogudin's 2025 open-problem note reports data for the single cubic exponent and does not resolve the all-exponent slices. Lanciano's available abstract states general bounds but does not identify these exact numbers; its full text remains an inspection gap rather than proof of noncoverage. Targeted searches of mathematical literature and research records found no stronger directly covering theorem; neither unsuccessful searches nor the absence of an exact table can certify uniqueness. Unindexed literature remains a residual risk.
+
+**Mathematical value — PASS.** The initiating paper leaves a natural infinite two-parameter degree law open and specifically notes that nonreduced/nontransverse points at infinity block a simple proof. The present theorem settles all first four orders **uniformly in the unbounded exponent**, including the first three nontrivial boundary multiplicity regimes. It provides an explicit reproducible local tool and four closed degree formulas, not merely another finite numerical test or a change of notation. No general-order result is claimed.
+
+**Limitations.** Orders \(m\ge4\) remain untreated, the priority comparison is not exhaustive, and no independent review has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
