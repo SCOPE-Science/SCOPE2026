@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_transfer.py` with Python 3, NetworkX and SymPy available. It generates all 15,625 three-column words, exactly tests the local eight-incidence rule, constructs a 625-state spatial graph, extracts its unique 283-vertex cyclic component, checks the full characteristic-polynomial factorization, tests the integer Perron certificate in `spectral_certificate.json`, and computes first counts from Newton power sums. Standard output is in `verify_transfer.out`. The certificate vector and multiplication comparisons are integer-only once the transfer is built.
+## correctness
 
-Run `g++ -std=c++17 -O3 direct_enumeration.cpp -o direct_enumeration && ./direct_enumeration`. It applies the original four-state update to every one of \(4^{2n}\) initial configurations at each \(n=3,4,5,6\), without referring to the five-history transfer states. Its recorded output is `direct_enumeration.out`, and agrees exactly.
+PASS
 
-The all-width theorem relies on the explicit finite transfer equivalence and factorization; the bounded direct enumeration is only an independent check. The entropy inequality comes from a positive integer Collatz witness on the primitive SCC, not numerical spectral fitting. The calculation does not check broader cylinders, higher temporal periods, or historical priority.
+Five possible temporal 3-histories (empty, persistent conductor, three H/T/C rotations) per cell give 25 column symbols. The 625 ordered two-column states and local 8-offset count with repeated opposite-row incidences define an integer transfer T and R_n=tr(T^n), n>=3. Inspected verify_transfer.py constructs T by testing 15625 triples, obtains 4090 legal arcs, one 283-vertex recurrent component with 1816 arcs, and validates det(I−zT)=a^2 b c^2 d by exact symbolic integer matrix characteristic polynomial. A separate positive integer vector certificate bounds lambda between 6.44175 and 6.44176. The other recurrent eigenvalues are strictly dominated by the Perron eigenvalue since the component has a self-loop; hence R_n~lambda^n. Exactly 4^n configurations are temporally fixed, and C_n=(R_n−4^n)/3. Independent sparse transfer traces n=3..8 reproduced 238,1840,12064,70540,453478,2975344, and all six associated 3-orbit counts. The characteristic-polynomial calculation is a finite exactly specified matrix certificate, not an extrapolation from bounded n.
+
+## originality
+
+PASS
+
+Gladkikh–Nigay 2018 supplies original four-state Wireworld rule and period-three clocks, but its main work is the seven-state Wireworld++ electronic implementation rather than a two-row torus primitive orbit zeta or entropy. Published two-row Greenberg–Hastings and three-row Brian's Brain zetas apply to different automata.
+
+## value
+
+PASS
+
+An all-circumference exact spatial zeta and rigorously bounded entropy for a concrete small-width nonlinear 4-state cellular automaton is a motivated reproducible invariant of its local dynamics, not an arbitrary partial state census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

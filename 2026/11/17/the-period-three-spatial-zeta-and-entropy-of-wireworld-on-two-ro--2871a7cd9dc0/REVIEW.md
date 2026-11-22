@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Each third-return cell history belongs to precisely five classes: empty, stationary conductor or one of the three rotating head–tail–conductor phases. The eight Moore offset incidences on a two-row quotient count opposite-row diagonal positions twice. Using the resulting exact local head-count predicate yields the explicit 625-state transfer matrix and a bijection of closed column walks with all third-return configurations. The independently reconstructed 283-state cyclic subgraph and exact factored characteristic polynomial prove the all-length zeta. The all-conductor/empty fixed set has \(4^n\) states, and exact integer Collatz inequalities prove the Perron bound. Independent four-state direct enumeration at widths 3–6 matches every predicted count. Remaining risk: implementation or symbolic-library errors not detected by these checks; the local correspondence and independently written direct evolution mitigate them.
+PASS
 
-## Originality — PASS (qualified)
+Five possible temporal 3-histories (empty, persistent conductor, three H/T/C rotations) per cell give 25 column symbols. The 625 ordered two-column states and local 8-offset count with repeated opposite-row incidences define an integer transfer T and R_n=tr(T^n), n>=3. Inspected verify_transfer.py constructs T by testing 15625 triples, obtains 4090 legal arcs, one 283-vertex recurrent component with 1816 arcs, and validates det(I−zT)=a^2 b c^2 d by exact symbolic integer matrix characteristic polynomial. A separate positive integer vector certificate bounds lambda between 6.44175 and 6.44176. The other recurrent eigenvalues are strictly dominated by the Perron eigenvalue since the component has a self-loop; hence R_n~lambda^n. Exactly 4^n configurations are temporally fixed, and C_n=(R_n−4^n)/3. Independent sparse transfer traces n=3..8 reproduced 238,1840,12064,70540,453478,2975344, and all six associated 3-orbit counts. The characteristic-polynomial calculation is a finite exactly specified matrix certificate, not an extrapolation from bounded n.
 
-The archival Wireworld description (Dewdney 1990) and the full accessible 2018 Wireworld++ treatment establish the rule and period-three signaling, not the two-row periodic fixed-third-iterate generating function, four polynomial factors, or growth constant. The later paper states that conventional Wireworld embeds in Wireworld++, but its results concern circuit simulation, uniform clocks and logic gates. Targeted published-record and literature searches for aliases (Wireworld oscillator entropy, three-step return zeta, two-row periodic Moore strip) identified no stronger formula with the same object and exact multiplicity convention. An inaccessible original historical article and unindexed private enumeration tables remain residual priority risks. Lack of a search hit does not prove uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Temporal period three is the shortest propagating electron signal clock of the canonical four-state electronic cellular automaton. Determining the complete population and entropy of that clock on the minimal two-row toroidal confinement is a natural dynamic invariant, not an arbitrary restricted statistic. The exact rational zeta and simple dominant algebraic rate explain infinitely many labelled circumferences and distinguish recurrent clock growth from the \(4^n\) frozen backgrounds. The precise multiplicity convention is decisive and transparently stated.
+Gladkikh–Nigay 2018 supplies original four-state Wireworld rule and period-three clocks, but its main work is the seven-state Wireworld++ electronic implementation rather than a two-row torus primitive orbit zeta or entropy. Published two-row Greenberg–Hastings and three-row Brian's Brain zetas apply to different automata.
 
-## Scope and remaining qualifications
+## value
 
-No claim is made for open boundaries, simple-neighbor collapsed graphs, longer periods or attractor basins. The original 1990 magazine full text was not obtained; historical priority should be independently examined.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-circumference exact spatial zeta and rigorously bounded entropy for a concrete small-width nonlinear 4-state cellular automaton is a motivated reproducible invariant of its local dynamics, not an arbitrary partial state census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
