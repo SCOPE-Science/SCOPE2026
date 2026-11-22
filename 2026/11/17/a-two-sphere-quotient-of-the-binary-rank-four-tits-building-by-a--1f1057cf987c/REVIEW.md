@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The object and its full normalizer are explicitly defined over the primitive field presentation. The covering two-dimensional building is simply connected by Solomon–Tits. Frobenius fixes a rank-one subspace; the normalizer relation then kills all fundamental-group generators under Armstrong's theorem. Two independently implemented integer enumerations verify the quotient-cell counts (4,9,7) and Euler characteristic 2. A simply connected two-dimensional CW complex with Euler characteristic 2 has integral homology of a two-sphere, and Hurewicz–Whitehead gives the stated homotopy type. No inference of an infinite family is made.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual risk).** The 2012 primary source treats Singer-cycle normalizers in affine-building lattice constructions, not the ordinary topological quotient of the binary rank-four spherical link. The classical building wedge theorem concerns the pre-quotient. Armstrong gives the general orbit-space fundamental-group theorem. Accessible cyclic Singer calculations neither describe the Frobenius extension nor imply its quotient homotopy. Searches for the exact rank, normalizer, aliases and orbit-space homotopy gave no claim establishing the displayed equivalence. A comparable unindexed publication is still possible; the full text of Cossidente–de Resmini was not inspected.
+PASS
 
-**Value — PASS.** The Singer normalizer is a canonical finite subgroup of \(\mathrm{GL}_4(\mathbb F_2)\), naturally occurring as an affine-building vertex stabilizer. Its action on the smallest nontrivial two-dimensional binary spherical building yields a complete and somewhat unexpected two-sphere quotient. The result connects group stabilizer relations to the disappearance of quotient fundamental-group torsion and determines the actual integral homotopy type, not only rational Betti numbers.
+The F16 multiplication and Frobenius presentation yields a 60-element rank-preserving action on the 2-dimensional building. Solomon–Tits yields a simply connected 2-dimensional covering building; Frobenius fixes the line F2·1, and Armstrong’s normal-closure formula combined with f a f^{-1}=a² kills both acting generators. An independent finite-field enumeration from the definition found 65 vertices, 315 edges, 315 triangles before quotient, and precisely 4,9,7 simplex orbits. The quotient CW complex has chi=2 and pi1=0, hence H2=Z with all other positive-dimensional homology zero; Hurewicz and Whitehead give S². A finite census alone would NOT prove pi1 or homotopy type.
 
-Scientific scope is restricted to the ordinary quotient by this particular sixty-element group, with no general-field or independent-audit claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge targeted statement-and-implication comparison supports an original claim in its specified model and conclusion; inaccessible/unindexed literature is named as residual risk rather than treated as proof of novelty. Type A3 spherical building of PG(3,2), proper-subspace flag complex and semilinear group GammaL1(16) are alternative descriptions; no independently read equivalent normalizer quotient theorem was found.
+
+## value
+
+PASS
+
+The semilinear Singer normalizer is a canonical group acting on the rank-four building; the explicit quotient answers a geometric-topology question not determined by representation characters or the unquotiented Solomon–Tits wedge. The extra Frobenius action kills cyclic quotient torsion and changes the actual integral homotopy type. This smallest nontrivial 2D example is naturally motivated, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
