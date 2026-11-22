@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "An exhaustive traversal of all 1920 even signed type-D5 elements with the subword criterion determines every Bruhat lower interval and exact Betti rank vector. Intersection-cohomology duality and Kazhdan–Lusztig monotonicity give required inequalities at degrees 1,2,3. Precisely 572 elements pass the degree-four necessity filter; the largest fourth difference is 27, achieved by seven candidates. Exact KL R-polynomial recursion tests all seven and all nine possible degree-three equalizers; precisely a unique inverse pair has P_e,w(1)=2, and direct interval counts show its coefficient differences 14 and 27. The actual standalone checker passes and tests every possible R-descent on each final candidate interval, plus published A3/D4 examples. This is complete finite proof, not sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2611.24751v1 Corollary 3.3 gives the general upper bound [q^4]D_w <= [q^3]P_w0=30 in D5; it does not yield the optimal 27.",
+        "arXiv:2506.18388v1 Theorem A addresses factoriality in all simply-laced types but no higher-degree optimal defect."
+      ],
+      "reasoning": "The stronger covering statement would need to force [q^4]D_w<=27 and exactly the displayed two extremizers for minimal-rational-singularity elements in D5. Neither primary paper makes that implication. Existing general KL recursions guarantee computability, but do not state the extremal classification.",
+      "searches": [
+        "type D5 Schubert varieties minimal singular higher Betti defects degree four sharpness factorial",
+        "\"type D\" \"asymmetry polynomial\" \"Schubert\" \"sharp\" 2026",
+        "arXiv:2611.24751v1 Corollary 3.3 Theorem 4.1 Theorem 4.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.18388v1",
+      "arXiv:2611.24751v1",
+      "https://www.math.ias.edu/~goresky/tables.html",
+      "https://www.math.ias.edu/~goresky/D4.txt",
+      "https://doc.sagemath.org/html/en/reference/algebras/sage/algebras/iwahori_hecke_algebra.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2025 Theorem A: degree-one opposite Betti equality is equivalent to factoriality in simply-laced type; no higher sharp values.",
+        "2026 Corollary 3.3: upper bound at degree four 30 in D5; exact current value 27 is strictly stronger.",
+        "The checker reports 572 necessity-filter elements, seven possible degree-four equalizers, and only two with identity KL value 2."
+      ],
+      "reasoning": "The new conclusion cannot be read off the low-degree factoriality criterion, the universal 30 bound or the D4 tables; it requires an exhaustive D5 Bruhat/KL comparison. The final inverse-pair structure and the deficiency of three are additional information not stated in the cited literature.",
+      "searches": [
+        "\"D5\" \"asymmetry\" \"Poincare\" \"Kazhdan-Lusztig\"",
+        "arXiv:2506.18388v1 first opposite Betti factoriality Theorem A",
+        "arXiv:2611.24751v1 universal coefficient bound and type A/B sharpness",
+        "published Goresky D4 table and exact signed permutation Bruhat polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Rietsch–Yang study factoriality from the first opposite Betti pair; arXiv:2506.18388v1, Section 1.2.",
+        "Burrull–Li–Zeng–Zhang define the asymmetry polynomial and prove a general inequality, but discuss sharpness only in types A and B; arXiv:2611.24751v1, Sections 3–4."
+      ],
+      "reasoning": "Our coefficients are the half-degree-3 and half-degree-4 opposite Betti differences. The leading factoriality condition corresponds to half-degree 1, so its equivalence neither computes nor bounds the new exact higher coefficients. The later invariant is equivalent notation; its universal upper bound is weaker and lacks the D5 equality classification.",
+      "searches": [
+        "\"type D5\" \"asymmetry polynomial\" \"27\" \"Schubert\"",
+        "\"D5\" \"Kazhdan-Lusztig\" \"1+q\" \"Betti\"",
+        "arXiv:2506.18388v1 Theorem A, Remarks 1.1–1.2",
+        "arXiv:2611.24751v1 Proposition 3.2 and Corollary 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Goresky index explicitly lists complete tables for D4 and several A/C types, but no D5 table; the downloaded/read ASCII table is headed by D4 simple-generator words and short D4 singular examples.",
+        "An exact whole-type-D5 database providing this numerical maximum and equality set was not located in checked searches."
+      ],
+      "reasoning": "The D4 table cannot contain any D5 element (1920-element Coxeter group). A potentially existing unpublished type-D5 table would pose a priority risk; available D4 Betti/KL entries serve only as normalization controls, not as the 27 bound.",
+      "searches": [
+        "Goresky Tables of Kazhdan Lusztig Polynomials type D4 type D5",
+        "https://www.math.ias.edu/~goresky/tables.html",
+        "https://www.math.ias.edu/~goresky/D4.txt",
+        "table Kazhdan Lusztig polynomials type D5 complete Schubert Bruhat 1920"
+      ]
+    },
+    "rationale": "The 2025 simply-laced factoriality paper identifies equality of only the first opposite Betti pair; the exact degree-three/four rank-five values and inverse-pair rigidity are not implied by that criterion. A later 2026 paper proves a universal bound 30 at degree four and constructs sharpness in types A and B, but does not calculate the exact smaller optimum 27 for type D5. Goresky’s existing tabulation covers D4, not D5. Searches against the accessible historical corpus, the mathematical-record index and public literature revealed no matching result. The claim remains subject to the genuine possibility of unpublished or unindexed equivalent type-D5 work.",
+    "residual_risks": [
+      "A different unindexed D5 Kazhdan-Lusztig or Betti table might contain an equivalent optimum without this formulation.",
+      "General Coxeter results on symmetry may imply some aspects of the inverse-pair relation; no such domination was found in the checked primary material.",
+      "The computation is internally exact and reproducible but has not undergone independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related motivation, not covering",
+        "evidence": [
+          "Theorem A concerns b_2=b_(2ell-2) and factoriality, not third- or fourth-degree sharp upper bounds.",
+          "First public v1 June 23, 2025, primary MSC14M15."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.18388v1",
+        "material_read": "Full-text HTML introduction, Theorem A, Remarks 1.1–1.2 and supporting theorem index; searched references to Poincare/Kazhdan-Lusztig",
+        "method": "Read primary arXiv open text; compared its degree-one criterion with proposed higher-degree extrema",
+        "title": "An anticanonical perspective on G/P Schubert varieties",
+        "trigger": "A natural simply-laced first opposite-Betti defect and factoriality criterion"
+      },
+      {
+        "assessment": "Proves general upper bound 30 and type A/B sharpness, not the exact type-D5 optimum 27 or its unique inverse pair",
+        "evidence": [
+          "Corollary 3.3 general finite-Weyl bound; type A/B sharpness statements in Theorem 1.1.",
+          "Paper v1 first public Nov 18, 2026; it is later supporting work, not the dated primary source."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.24751v1",
+        "material_read": "Abstract, introduction, Section 2.1, Section 3.2 Proposition 3.2 and Corollary 3.3, Section 4.1 equality analysis, Section 4 type A/B constructions; text search for type D and D5",
+        "method": "Read primary preprint HTML and compare actual inequalities and equality hypotheses",
+        "title": "On the asymmetry polynomial of Schubert varieties",
+        "trigger": "Potential stronger later bound and equivalence to the coefficient-difference invariant"
+      },
+      {
+        "assessment": "D4 results only in type D; useful independent normalization test but not D5 computation",
+        "evidence": [
+          "Published index enumerates A3 A4 A5 C3 C4 D4 H3, not D5.",
+          "D4 first length-four singular rows list KL (1,1) and Betti (1,3,5,4,1), matching checker."
+        ],
+        "identifier_or_url": "https://www.math.ias.edu/~goresky/tables.html",
+        "material_read": "Complete listing of covered Coxeter types and table notation, plus leading 230 lines of linked D4 ASCII table at https://www.math.ias.edu/~goresky/D4.txt",
+        "method": "Inspect official table index and D4 data",
+        "title": "Tables of Kazhdan Lusztig Polynomials",
+        "trigger": "Possible exact historical table dominance"
+      },
+      {
+        "assessment": "Standard algorithmic foundation, not a D5 extremal theorem",
+        "evidence": [
+          "P_w,w=1 and deg P_x,w <= (ell(w)-ell(x)-1)/2."
+        ],
+        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/algebras/sage/algebras/iwahori_hecke_algebra.html",
+        "material_read": "Hecke KL basis description, degree condition and example type D4 support",
+        "method": "Reference documentation comparison with exact R-polynomial recurrence and degree cutoff",
+        "title": "Kazhdan-Lusztig polynomial recurrence and normalization",
+        "trigger": "Check recursion normalization and unique degree cutoff"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9fef68ae-9cff-4edb-9f54-0ff9dfb311d9",
+  "value": {
+    "rationale": "The earlier simply-laced factoriality paper elevates opposite-Betti symmetry defects to meaningful birational geometry. This exact natural rank-five calculation determines the sharp third- and fourth-degree defects on the minimal rational singularity stratum. At degree three the full-flag bound is attained, while at degree four it fails by exactly three, with an identical unique inverse pair extremizing both. It supplies a concrete sharpness boundary beyond the low-degree factoriality criterion and beyond the later general inequality: a complete motivated finite cutoff with plausible utility for understanding higher-degree cohomological asymmetry in type D.",
+    "status": "PASS"
+  }
+}
