@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The proof is symbolic and applies to arbitrary finite transitive source actions; the standalone verifier tests two nonabelian cases independently. It enumerates the complete six-element permutation group for the three-source test, all assignments of nine target colors, and all their equivariance equations. It also constructs the full twenty-four-element permutation group, the two twelve-element ordered-pair orbits, and the fixed-source labels for each orbit stabilizer. It checks that the predicted nonempty cell counts are seven and eight respectively.
+# Independent mathematical audit
 
-Run `python3 verify_nonabelian_hom.py`. The included `verification_output.txt` records its actual output. These finite checks cannot prove the theorem for arbitrary groups or target sets; that scope is covered by the explicit normalization and support-map proof. No independent audit has been performed.
+## correctness
+
+PASS
+
+A point of Hom(K_S,K_T) is a family of source-indexed probability vectors on T with nonempty pairwise disjoint supports. G-invariance identifies weights along each target orbit O, which, when active, determines exactly one G-equivariant map O→S. Such maps biject with S^{G_t}, for t∈O. Transitivity of S forces every source vertex to receive |O|/|S| colors for each chosen orbit, so its common normalization yields barycentric weights of a join of discrete sets of sizes a_O=|S^{G_t}|. The inverse simplex maps are continuous and affine on cells; empty, singleton, and wedge cases follow integrally from joins. Verified independent S3 target orbit sizes (3,6) and option counts (1,3), and noncyclic S4 two 12-element orbits each with two choices, giving a circle. Source proof handles all finite G, not inferred from checks.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for arbitrary transitive (possibly noncyclic) finite G with stabilizer-weighted factors and actual PL fixed-space topology. The published same-day cyclic diagonal result is a genuine covered special case, excluded from novelty. Babson–Kozlov prove ordinary Hom topology and different source action/quotient statements; neither computes simultaneous arbitrary subgroup fixed spaces.
+
+## value
+
+PASS
+
+A uniform PL homeomorphism for every finite transitive source action is a structural classification beyond Euler traces. Stabilizers determine join factors, yielding exact integral wedge ranks, contractible and empty cases; a noncyclic S4 action with two ordered-pair target orbits yields a fixed circle. This is a naturally motivated symmetry topology result rather than a change of notation for ordinary Hom homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

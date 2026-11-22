@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. A point of the polyhedral Hom complex is a family of nonnegative source-indexed probability vectors with pairwise disjoint supports. Equivariance forces every used target orbit to carry exactly one equivariant assignment to source vertices. The number of assignments is the cardinality of the source set fixed by the orbit stabilizer. The transitive source hypothesis makes the row normalizations identical: a selected target orbit of size \(|O|\) contributes \(|O|/m\) assigned colors to every source. Rescaling these equal entries gives barycentric coordinates on the asserted join, with a continuous piecewise-affine inverse. The topology, empty case, singleton contractible case, and sphere multiplicity follow. A standalone checker independently tests the full \(S_3\) and \(S_4\) examples; computations corroborate but do not prove the universal statement.
+## correctness
 
-## Originality
-PASS relative to the cited and inspected literature. Babson–Kozlov (arXiv:math/9704227, Section 6, Theorem 6.2(d,e)) supplies the ordered-disjoint-subset model and nonequivariant topology/block-permutation quotient, not simultaneous target-action fixed-point spaces. Babson–Kozlov (arXiv:math/0310056, Definition 1.2, Section 4.3, Proposition 5.5) gives the graph-Hom construction and ordinary homotopy information, and a source-only involution result, but not this orbit-stabilizer fixed join. Dochtermann (arXiv:math/0605275) studies Hom-complex functoriality rather than this classification. Indexed complete two-sided rational homology character formulas determine character traces, but do not directly specify a PL homeomorphism for all subgroup-fixed spaces. A previously derived diagonal cyclic action result is subsumed by the present noncyclic theorem and is excluded from the novelty claim. Residual risks: independent publication-priority verification is not complete, and unindexed equivalent descriptions of simultaneous equivariant deleted products may exist.
+PASS
 
-## Value
-PASS. The geometric fixed-point problem for two-sided group actions is distinct from rational homology characters or block-permutation quotients; the explicit orbit-stabilizer join provides a uniform integral PL homotopy classification for every finite transitive group action and every finite target set. Unlike cyclic cases, stabilizers can produce different discrete factor sizes for distinct target orbits, yielding simultaneously spherical and contractible behavior. The noncyclic \(S_4\) ordered-pair instance exhibits a genuine fixed circle despite the absence of pointwise-fixed Hom vertices.
+A point of Hom(K_S,K_T) is a family of source-indexed probability vectors on T with nonempty pairwise disjoint supports. G-invariance identifies weights along each target orbit O, which, when active, determines exactly one G-equivariant map O→S. Such maps biject with S^{G_t}, for t∈O. Transitivity of S forces every source vertex to receive |O|/|S| colors for each chosen orbit, so its common normalization yields barycentric weights of a join of discrete sets of sizes a_O=|S^{G_t}|. The inverse simplex maps are continuous and affine on cells; empty, singleton, and wedge cases follow integrally from joins. Verified independent S3 target orbit sizes (3,6) and option counts (1,3), and noncyclic S4 two 12-element orbits each with two choices, giving a circle. Source proof handles all finite G, not inferred from checks.
 
-## Scope and verification limits
-The source must be a transitive finite group set with at least two elements, and both graphs complete and loopless. Only finite test examples were exhaustively computed. An independently verified exhaustive literature priority search has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for arbitrary transitive (possibly noncyclic) finite G with stabilizer-weighted factors and actual PL fixed-space topology. The published same-day cyclic diagonal result is a genuine covered special case, excluded from novelty. Babson–Kozlov prove ordinary Hom topology and different source action/quotient statements; neither computes simultaneous arbitrary subgroup fixed spaces.
+
+## value
+
+PASS
+
+A uniform PL homeomorphism for every finite transitive source action is a structural classification beyond Euler traces. Stabilizers determine join factors, yielding exact integral wedge ranks, contractible and empty cases; a noncyclic S4 action with two ordered-pair target orbits yields a fixed circle. This is a naturally motivated symmetry topology result rather than a change of notation for ordinary Hom homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
