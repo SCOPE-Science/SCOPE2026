@@ -1,11 +1,21 @@
-# Review of the uniform triple-partition dimension theorem
+# Independent mathematical audit
 
-**Correctness.** The VC upper bound uses all-positive realizability plus within-triple transitivity and shows every purported larger support forces a negative query to be positive. The lower support has an explicit partition for each labeling using the unqueried reserve triple. For online dimension, the all-positive branch of a putative deeper tree becomes unique, and a second support has two realizing partitions for every trace, permitting a leaf-dependent final query. The \(m=1\) boundary is addressed. A standalone full enumeration for \(m\le3\) and direct recursion for online depths \(m=2,3\), together with a twelve-vertex strong-trace test, corroborate the proof.
+## correctness
 
-**Originality.** The nearest directly related established result, Bressan et al. (2019), Theorem 6, treats all partitions with unrestricted block sizes and proves VC dimension \(n-1\), but contains no result for uniform triples or their online mistake dimension. Liu–Mukherjee (2021/2022) treats partition identification rather than Littlestone mistakes and neither fixes every block size nor supplies these formulas. The vector-space zero-set family of Guingona et al. (2021) is structurally different. Searches for equal-block equivalence relations, uniform 3-partitions, co-membership shattering, and adaptive dimensions found no statement covering the joint theorem. Historical priority remains uncertain, especially under unfamiliar terminology.
+PASS
 
-**Value.** The bounded-block-size requirement is substantive: unlike arbitrary partitions, the class has a sharp static–adaptive gap at every nontrivial order. The strong-trace construction explains the gap and gives a reusable structural tool for comparing constrained partitions, rather than a finite numerical recomputation. No inference about the complexities of noisy or exact-identification learning is claimed.
+Checked every step of frozen RESULT.md (Git blob 95e19f...): the all-positive realization restricts S to within m triples, at most two edges/triple (triangle transitivity forbids shattering). At 2m-1 or 2m support edges the forced-all-positive other m-1 full triples leave three vertices uniquely determined, making a selected negative edge impossible. The lower support with m-1 two-edge paths and one unqueried reserve triple realizes every trace via pair/singleton breaking and cyclic exchanges. For an online tree of depth 2m, following 2m-1 positive edges forces a forest and uniquely determines the triple partition, contradicting branching at the next level. The distinct strong witness uses m-2 path units and two one-edge units; r>=3 has two distinct cyclic derangements, and r=2 is handled by identity/swap when both single edges are positive or two orientations of a negative single edge otherwise. Every label admits two hypotheses, so adaptive leaf splitting yields depth 2m-1. m=1 has a singleton hypothesis and zero dimensions. The proof is for all integers m>=2, unordered triple blocks and ALL pair queries; finite checks corroborate but cannot generalize.
 
-**Limits.** Verification is independent code rather than independent mathematical review; larger block sizes are not resolved. Sources and comparisons are documented in the accompanying result and structured audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: the exact uniform triple-partition pair-equality class has the claimed (2m-2,2m-1) dimensions for all m>=2, and no inspected relevant primary theorem or previously published result entails both. Highly relevant Pasteris et al. (2018) supplies nonsharp general online bounds; Bressan et al. (2019) treats all partitions; the refinement-closed and size-capped classifications cannot be specialized because they allow refinements. Earlier (2,3)-two-block class has a different hypothesis domain and theorem. Negative database searches alone do not establish priority; alternative nomenclature remains risk.
+
+## value
+
+PASS
+
+A mathematically motivated natural fixed-block equivalence concept class shows exact persistent VC-vs-Littlestone gap one for every nontrivial m, unlike refinement-closed partitions whose dimensions agree. The two-realizer trace lemma is a structural mechanism for converting near-maximal static shattering into an extra adaptive round. The result defines a complete sharp infinite-family classification with nontrivial capacity constraints, not a one-off tiny enumeration or an immediate substitution into a generic theorem. It does not claim noise robustness, other block sizes or a larger gap than established fixed-(2,3) products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,211 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T03:12:57Z",
+  "axes": {
+    "correctness": {
+      "computational_evidence": {
+        "findings": [
+          "all 1,10,280 triple partitions for m=1..3; all shattered supports histogram m=2 (1,15,105), m=3 (1,36,630,5040,18900)",
+          "exact online feasibility by depths 0..4 for m=2: TTTTF, and 0..6 for m=3: TTTTTTF",
+          "strong support all 2^2,2^4,2^6 traces with min multiplicity two for m=2,3,4; m=4 has 15400 hypotheses"
+        ],
+        "independent_check_output": "worker10_triple_independent_check_output.txt",
+        "independent_check_script": "worker10_triple_independent_check.py",
+        "limitations": "Separate bounded checker only m<=3 full static/online, m=4 only fixed witness; universal dimensions proved in RESULT.md. No Lean or expert attestation."
+      },
+      "proof_paths": [
+        "2026/11/08/a-sharp-static-online-gap-for-uniform-triple-partitions--165fac9eb392/RESULT.md: §§Proof 1–6",
+        "2026/11/08/a-sharp-static-online-gap-for-uniform-triple-partitions--165fac9eb392/CHECK.py: exact-cover generators and independent finite checker (source inspected, not run as opaque code)",
+        "worker10_triple_independent_check.py: separately written exact-cover/trace/cached mistake-tree checker"
+      ],
+      "rationale": "Checked every step of frozen RESULT.md (Git blob 95e19f...): the all-positive realization restricts S to within m triples, at most two edges/triple (triangle transitivity forbids shattering). At 2m-1 or 2m support edges the forced-all-positive other m-1 full triples leave three vertices uniquely determined, making a selected negative edge impossible. The lower support with m-1 two-edge paths and one unqueried reserve triple realizes every trace via pair/singleton breaking and cyclic exchanges. For an online tree of depth 2m, following 2m-1 positive edges forces a forest and uniquely determines the triple partition, contradicting branching at the next level. The distinct strong witness uses m-2 path units and two one-edge units; r>=3 has two distinct cyclic derangements, and r=2 is handled by identity/swap when both single edges are positive or two orientations of a negative single edge otherwise. Every label admits two hypotheses, so adaptive leaf splitting yields depth 2m-1. m=1 has a singleton hypothesis and zero dimensions. The proof is for all integers m>=2, unordered triple blocks and ALL pair queries; finite checks corroborate but cannot generalize.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressan 2019 Theorem 6: unrestricted VC=n-1, which yields only VC<=3m-1 for the smaller class.",
+          "Refinement-closed / cap-3 class: VC=Ldim=3m-m=2m; exact triple class lacks required refinement closure.",
+          "Pasteris 2018 Theorem 2 lower n-k-d_max=2m-3, folklore upper n-k=2m, not a sharp 2m-1 conclusion.",
+          "Liu-Mukherjee 2022 counts exact identification queries, not mistakes."
+        ],
+        "reasoning": "Superclass VC/Ldim formulas do not determine proper restricted-class dimensions; fixed partition cardinalities also violate the closure hypotheses. Generic online bounds bracket, rather than prove, the sharp target.",
+        "searches": [
+          "Littlestone dimension VC dimension uniform partitions of 3m vertices into m triples pair co-membership equivalence relations exact 2m-2 and 2m-1",
+          "Littlestone dimension bounded size clustering pairwise similarity prediction Pasteris Vitale Gentile Herbster 2018 theorem",
+          "Resultary semantic: refinement closed partitions online dimension and bounded size clusters",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-shattering-complexes-and-maximal-face-spectra-of-size-capped-equ--8b7b35a2f27d/RESULT.md",
+          "https://proceedings.mlr.press/v83/pasteris18a/pasteris18a.pdf",
+          "https://proceedings.neurips.cc/paper_files/paper/2019/file/b0ba5c44aaf65f6ca34cf116e6d82ebf-Paper.pdf",
+          "https://proceedings.mlr.press/v178/liu22a/liu22a.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.neurips.cc/paper_files/paper/2019/file/b0ba5c44aaf65f6ca34cf116e6d82ebf-Paper.pdf",
+        "https://proceedings.mlr.press/v83/pasteris18a/pasteris18a.pdf",
+        "https://proceedings.mlr.press/v178/liu22a/liu22a.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-shattering-complexes-and-maximal-face-spectra-of-size-capped-equ--8b7b35a2f27d/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-adaptive-shattering-gap-for-size-prescribed-two-block-equi--2b18e419d19e/RESULT.md",
+        "Resultary semantic queries 3 independent variants returned self-match + adjacent non-equivalent entries",
+        "Web exact-formula and alternate-term searches at 2026-11-19 UTC"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Claim: exact fixed 3-block VC=2m-2, online Ldim=2m-1 and at least two realizers for each labeling of fixed support of 2m-2 pair queries.",
+          "Pasteris 2018 bounds at equal triples do not give 2m-1 nor the two-realizer support.",
+          "Bressan 2019 all partitions VC=3m-1; no online statement.",
+          "Published two-block classes have different universe/hypothesis restrictions; capped and refinement-closed classes exclude exact fixed block-size constraints."
+        ],
+        "reasoning": "None of the earlier statements logically yields either sharp fixed-size-three joint formula or the uniform strong-multiplicity certificate. No claim of exhaustive literature priority or new transitivity mechanism.",
+        "searches": [
+          "Littlestone dimension VC dimension uniform partitions of 3m vertices into m triples pair co-membership equivalence relations exact 2m-2 and 2m-1",
+          "Littlestone dimension bounded size clustering pairwise similarity prediction Pasteris Vitale Gentile Herbster 2018 theorem",
+          "arxiv:1905.11902 Theorem 6",
+          "PMLR 83 Theorems 1–2",
+          "PMLR 178 Theorems 1.2–1.3",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-shattering-complexes-and-maximal-face-spectra-of-size-capped-equ--8b7b35a2f27d/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-adaptive-shattering-gap-for-size-prescribed-two-block-equi--2b18e419d19e/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact-size-3 partitions are perfect partitions into 3-sets; pair equality may be complemented to separation without changing both dimensions. https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-adaptive-shattering-gap-for-size-prescribed-two-block-equi--2b18e419d19e/RESULT.md treats fixed two-block (2,3) or fixed 5-vertex supergroups, not all exact triple partitions."
+        ],
+        "reasoning": "The logical query equivalence of equality versus inequality preserves dimensions, but changing allowable partitions or externally prescribed supergroups changes hypotheses. The exact all-triple class does not reduce to independent local (2,3) choices.",
+        "searches": [
+          "Littlestone dimension VC dimension uniform partitions of 3m vertices into m triples pair co-membership equivalence relations exact 2m-2 and 2m-1",
+          "Online mistake bound VC dimension shattering k-uniform hypergraph matchings partition into fixed-size blocks pairwise same class query",
+          "Static adaptive shattering gap VC Littlestone clustering triple partitions strong witness two realizing hypotheses",
+          "Resultary semantic search: uniform triple, perfect three-uniform matchings, pairwise co-membership; https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-adaptive-shattering-gap-for-size-prescribed-two-block-equi--2b18e419d19e/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic index returned the identical assigned record as self-match, plus non-equivalent refinement-closed, capped, two-block and fixed-(3,6) results; no independent table covering these formulas was found.",
+          "Targeted web search did not uncover a table of VC/Ldim for exact size-3 equal-block partitions."
+        ],
+        "reasoning": "The self-match cannot corroborate originality, and absence in bounded indexes is not priority proof; separate full-text primary mathematical comparisons provide the substantive evidence.",
+        "searches": [
+          "Littlestone dimension VC dimension uniform partitions of 3m vertices into m triples pair co-membership equivalence relations exact 2m-2 and 2m-1",
+          "Online mistake bound VC dimension shattering k-uniform hypergraph matchings partition into fixed-size blocks pairwise same class query",
+          "Static adaptive shattering gap VC Littlestone clustering triple partitions strong witness two realizing hypotheses",
+          "VC dimension Littlestone dimension exactly uniform partitions into triples same cluster pair queries",
+          "learning uniform hypergraph perfect matchings pair queries VC Littlestone equal sized partition",
+          "Resultary semantic exact same parameters (3m,m,VC=2m-2,Ldim=2m-1)",
+          "Google/web exact formula + uniform equivalence relations fixed size three"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: the exact uniform triple-partition pair-equality class has the claimed (2m-2,2m-1) dimensions for all m>=2, and no inspected relevant primary theorem or previously published result entails both. Highly relevant Pasteris et al. (2018) supplies nonsharp general online bounds; Bressan et al. (2019) treats all partitions; the refinement-closed and size-capped classifications cannot be specialized because they allow refinements. Earlier (2,3)-two-block class has a different hypothesis domain and theorem. Negative database searches alone do not establish priority; alternative nomenclature remains risk.",
+      "residual_risks": [
+        "Published work under aliases such as uniform equivalence relations, perfect 3-hypermatchings or balanced cluster online shattering may be underindexed; this PASS is best-of-knowledge only.",
+        "Searches and inspected full text do not exhaust all proceedings, theses, or unpublished literature.",
+        "Pasteris 2018 gives near-neighbor online bounds but not exact equality; further related results might refine them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering: VCdim of ALL partitions on n labels is n-1, based on spanning-tree shattering; unrestricted blocks and no fixed-triple online theorem",
+          "evidence": [
+            "§5 Theorem 6 and proof: arbitrary partitions allow every spanning tree (n-1 edges) and prohibit cycles. Restricting to triple blocks does not inherit this equality."
+          ],
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2019/file/b0ba5c44aaf65f6ca34cf116e6d82ebf-Paper.pdf",
+          "material_read": "Full PDF text relevant to problem definition, §5 Theorem 6 and proof, and its surrounding methods; page 7 (zero-index page 6) visually inspected",
+          "method": "Primary NeurIPS PDF textual review plus screenshot",
+          "title": "Correlation Clustering with Adaptive Similarity Queries",
+          "trigger": "Same equality-on-pairs concept class, but unrestricted partitions"
+        },
+        {
+          "assessment": "Does not establish exact uniform-triple dimension: general upper 5(n-d_max) and lower n-k-d_max; for k=m,d_max=3,n=3m, lower is 2m-3, not 2m-1",
+          "evidence": [
+            "Theorem 1 upper bound for Oppa: 5(n-d_max); Theorem 2 lower bound for any online learner: n-k-d_max. The folk upper n-k gives 2m for equal triples but neither equality is sharp."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v83/pasteris18a/pasteris18a.pdf",
+          "material_read": "Primary 28-page PDF definitions/related work and §3 Theorems 1–2, algorithms, and appendix proofs of Theorems 1–2 (including pages 7–8 and 16–18); relevant pages visually inspected",
+          "method": "Primary PMLR PDF text and screenshots",
+          "title": "On Similarity Prediction and Pairwise Clustering",
+          "trigger": "Online mistakes for pairwise equivalence queries under fixed cluster size profiles"
+        },
+        {
+          "assessment": "Not covering: its (k-1)n-binomial(k,2) bound is oracle queries required to identify entire partition, not binary classification Littlestone mistake dimension",
+          "evidence": [
+            "§1.2 Theorem 1.2 and Remark 1.4: worst-case exact partition reconstruction with k components; no prescribed triple-only VC/Littlestone theorem."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v178/liu22a/liu22a.pdf",
+          "material_read": "Primary 15-page PDF introduction/§1–2, Theorems 1.2 and 1.3 and Remark 1.4; page 3 visually inspected",
+          "method": "PMLR full-text search and targeted theorem reading, PDF screenshot",
+          "title": "Tight query complexity bounds for learning graph partitions",
+          "trigger": "Same-component oracle for unknown partition"
+        },
+        {
+          "assessment": "Not covering: exact triple partitions are not refinement closed; theorem requires arbitrary refinements, yields equality n-min blocks, whereas present class has strict VC/Ldim gap",
+          "evidence": [
+            "Finding and Proof steps 2–5 require refinement closure; splitting a triple violates the exactly-triple hypothesis."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+          "material_read": "Full published RESULT.md finding, all proof steps including conditional quotient and coloring specialization, scopes and limitations",
+          "method": "GitHub public full-text result read",
+          "title": "Refinement-closed partition concepts: exact shattering supports, online dimension, and coloring quotients",
+          "trigger": "Potential general dominating theorem on pair-equality concept classes"
+        },
+        {
+          "assessment": "Not covering: capped class includes refinements and has VC=Ldim=2m for n=3m,r=3; strict subset of all size-3 blocks has 2m-2 and 2m-1, not implied by superclass dimensions",
+          "evidence": [
+            "Learning-dimension theorem n-ceil(n/r); proof uses splitting positive forests into arbitrarily small blocks; forbidden in exact-triple class."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-shattering-complexes-and-maximal-face-spectra-of-size-capped-equ--8b7b35a2f27d/RESULT.md",
+          "material_read": "Full published RESULT.md statement, forest criterion, learning-dimension and maximal-support proofs, assumptions and limitations",
+          "method": "GitHub public full-text result read",
+          "title": "Shattering complexes and maximal-face spectra of size-capped equivalence relations",
+          "trigger": "Natural superset with every block size at most three"
+        },
+        {
+          "assessment": "Does not cover this theorem: its hypotheses have TWO blocks of sizes (2,3), or independent known groups of five with profiles (2,3), versus m unknown disjoint triples on 3m vertices; cannot transfer its dimension pair by renaming",
+          "evidence": [
+            "Finding: local (2,3) dimension pair (2,3) and product powers (2s,3s) on fixed predeclared five-point groups. Not equivalent to exactly m triples."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-adaptive-shattering-gap-for-size-prescribed-two-block-equi--2b18e419d19e/RESULT.md",
+          "material_read": "Entire published RESULT.md, including two-block (2,3) tree, product amplification, assumptions and caveat",
+          "method": "GitHub public full-text result read",
+          "title": "First adaptive-shattering gap for size-prescribed two-block equivalence relations",
+          "trigger": "Nearly identical query domain and prescribed block sizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "No formulas for blocks of sizes other than three.",
+        "The value is as an exact natural learnability invariant and structural witness, not as a broad downstream theorem or a novel general union-find algorithm."
+      ],
+      "rationale": "A mathematically motivated natural fixed-block equivalence concept class shows exact persistent VC-vs-Littlestone gap one for every nontrivial m, unlike refinement-closed partitions whose dimensions agree. The two-realizer trace lemma is a structural mechanism for converting near-maximal static shattering into an extra adaptive round. The result defines a complete sharp infinite-family classification with nontrivial capacity constraints, not a one-off tiny enumeration or an immediate substitution into a generic theorem. It does not claim noise robustness, other block sizes or a larger gap than established fixed-(2,3) products.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://proceedings.neurips.cc/paper_files/paper/2019/file/b0ba5c44aaf65f6ca34cf116e6d82ebf-Paper.pdf",
+    "https://proceedings.mlr.press/v83/pasteris18a/pasteris18a.pdf",
+    "https://proceedings.mlr.press/v178/liu22a/liu22a.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-shattering-complexes-and-maximal-face-spectra-of-size-capped-equ--8b7b35a2f27d/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-adaptive-shattering-gap-for-size-prescribed-two-block-equi--2b18e419d19e/RESULT.md",
+    "Resultary semantic queries 3 independent variants returned self-match + adjacent non-equivalent entries",
+    "Web exact-formula and alternate-term searches at 2026-11-19 UTC"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No GitHub or dispatcher write or final publication performed.",
+    "Science is qualified independent best-of-knowledge, not certification of global historical priority.",
+    "Tool result local transfer limitation: original response object unavailable to container; identifiers reproduced verbatim from actual displayed result and checked where possible.",
+    "Original CHECK.py was inspected but not executed as opaque code."
+  ],
+  "residual_risks": [
+    "Published work under aliases such as uniform equivalence relations, perfect 3-hypermatchings or balanced cluster online shattering may be underindexed; this PASS is best-of-knowledge only.",
+    "Searches and inspected full text do not exhaust all proceedings, theses, or unpublished literature.",
+    "Pasteris 2018 gives near-neighbor online bounds but not exact equality; further related results might refine them.",
+    "No independent formal proof or expert verification.",
+    "Publication metadata currently contains operational provenance and must not be publicized as-is."
+  ],
+  "schema_version": 1
+}
