@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-20",
+  "audited_at_utc": "2026-11-20T00:09:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact conditional positive-Gaussian fourth moments: multiplying by d(d+2), the five quartic exponent types are (4)→3, (2,2)→1, (3,1)→4/pi, (2,1,1)→2/pi, (1,1,1,1)→4/pi². In the normalized tracefree u plus edge-v basis, the form equals ||u||²+(1−a)²||v||²+a(1−a)||Bv||²+a²|Σv|²+2Re[(a/√2)〈u,Bv〉], a=2/pi. BB^T=(d−2)I+J splits edge space into constants, standard sector B^T(1-perp), and ker B (dimension d(d−3)/2). The standard 2×2 block is exactly M_d; the constant edge mode gives tau_d. det M=alpha+(d−2)a(1−3a/2)>0 since pi>3, and det(M−alpha I)=(d−2)a²[(2−a)(1−a)−1/2]<0 since 7/11<a. Therefore 0<mu−<alpha<mu+<tau for d≥4, omitting absent alpha at d=3. tau−tr M=d beta+a²d(d−1)/2−1>0. Positive analytic unique continuation gives every eigenvalue below one. tau~a²d²/2, mu−→(pi−3)/(pi−2), giving exact asymptotic 2(pi−2)/[pi²(pi−3)] for the energy concentration ratio, with sqrt for restriction. Degree-one Gram (1−a)I+aJ gives linear contrast. Independently reconstructed full conditional monomial Gamma Gram matrices in d=3..12 and compared all eigenvalues (maximum absolute error <1.2e−14), plus d=100,1000,10000,100000 asymptotic values. Numerical checks only corroborate the all-dimensional analytic argument; initial oversized multiset expansion was avoided in corrected large-d branch-only check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://geoweb.princeton.edu/people/simons/PDF/reprints/SIAM-2006.pdf §4 handles a general region but calculates polar-cap and other examples; the only framework for the orthant is a matrix defined by as-yet-unevaluated integrals.",
+          "https://www.researchgate.net/publication/350484286_A_Unified_Approach_to_Scalar_Vector_and_Tensor_Slepian_Functions_on_the_Sphere_and_Their_Construction_by_a_Commuting_Operator §3.1 general spin-weighted concentration matrix and §§3.2-3.3 polar-cap commuting operators; ambient ordinary sphere S², not every S^(d-1) with d≥3.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-blocks-on-every-spherical-positive--f9d7096cbc9a/RESULT.md contains the pure model as a subspace of a broader later band, but explicitly distinguishes and credits the earlier pure-degree result."
+        ],
+        "reasoning": "A genuinely general closed spectral formula covering all positive coordinate orthants would dominate the claim, but the relevant older frameworks are constructive definitions, not evaluated exact eigenvalue results. The November 16 exact full-band result has a different larger trial space, and its later date plus explicit recognition of the November 8 pure-degree result prevents treating it as previously known coverage.",
+        "searches": [
+          "Resultary semantic: spherical simplex hyperoctant pure quadratic Slepian concentration eigenvalues complete graph incidence",
+          "Resultary semantic: orthant spherical harmonic concentration spectrum symmetry degree two and stability",
+          "web: Michel Plattner Seibert 2103.14650 arbitrary region full manuscript",
+          "web: Simons Dahlen Wieczorek 2004 full spherical Slepian manuscript"
+        ]
+      },
+      "checked_sources": [
+        "https://geoweb.princeton.edu/people/simons/PDF/reprints/SIAM-2006.pdf §4–7 (full PDF, screenshot p. 512)",
+        "https://www.researchgate.net/publication/350484286_A_Unified_Approach_to_Scalar_Vector_and_Tensor_Slepian_Functions_on_the_Sphere_and_Their_Construction_by_a_Commuting_Operator §3.1–3.5 (full rendered manuscript)",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-spectral-staircase-for-quadratic-spherical-quarter-wedge-c--e0da39681828/RESULT.md (full RESULT)",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-sharp-quadratic-spherical-lune-concentration-and-its-dimension-d--03bb0ccb58c4/RESULT.md (full RESULT)",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-blocks-on-every-spherical-positive--f9d7096cbc9a/RESULT.md (full RESULT, later)",
+        "Resultary semantic queries for hyperorthant, octant, sign-chamber, spherical simplex, degree-two Gram eigenspectra; 30/100 ranked findings",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738/RESULT.md (complete assigned final claim)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://geoweb.princeton.edu/people/simons/PDF/reprints/SIAM-2006.pdf (4.3)-(4.6) shows every regional Gram can be diagonalized, but without the actual eigenvalue distribution for a specific non-axisymmetric d-orthant.",
+          "https://www.researchgate.net/publication/350484286_A_Unified_Approach_to_Scalar_Vector_and_Tensor_Slepian_Functions_on_the_Sphere_and_Their_Construction_by_a_Commuting_Operator Theorem 3.5 expresses regional integrals via spherical harmonic coefficients; exact evaluation for d≥4 and full sign-chamber representation decomposition is not provided.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-spectral-staircase-for-quadratic-spherical-quarter-wedge-c--e0da39681828/RESULT.md quarter-wedge indicator 1_{x1,x2>0} cannot imply 1_{all d coordinates>0} from its eigenvalues, because the additional d−2 cuts alter cross-moments.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-sharp-quadratic-spherical-lune-concentration-and-its-dimension-d--03bb0ccb58c4/RESULT.md two-cut geometry is not orthogonally congruent to d-coordinate orthant for d≥3.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-blocks-on-every-spherical-positive--f9d7096cbc9a/RESULT.md relation-to-prior-work explicitly identifies the pure quadratic result as already established when the full band was derived."
+        ],
+        "reasoning": "Arbitrary-region integral definitions mechanically allow computation in a specified dimension, but do not already state/entail the closed evaluated spectrum and ordering without additional nontrivial moment/incidence analysis. A single hemisphere/two-cut spectrum does not determine intersections of all d positive halfspaces. The later full-band blocks include a pure-quadratic compression in principle but postdate and credit this theorem. No earlier implication or exact same statement was located; residual unindexed classical symmetry/moment identity risk remains.",
+        "searches": [
+          "web: quadratic spherical harmonics restriction positive orthant exact spectrum incidence graph 2/pi",
+          "Resultary semantic: orthant spherical harmonic concentration spectrum symmetry degree two and stability",
+          "primary comparison: https://geoweb.princeton.edu/people/simons/PDF/reprints/SIAM-2006.pdf §4 and https://www.researchgate.net/publication/350484286_A_Unified_Approach_to_Scalar_Vector_and_Tensor_Slepian_Functions_on_the_Sphere_and_Their_Construction_by_a_Commuting_Operator §3.1",
+          "primary comparison: https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-spectral-staircase-for-quadratic-spherical-quarter-wedge-c--e0da39681828/RESULT.md and https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-sharp-quadratic-spherical-lune-concentration-and-its-dimension-d--03bb0ccb58c4/RESULT.md and https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-blocks-on-every-spherical-positive--f9d7096cbc9a/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://geoweb.princeton.edu/people/simons/PDF/reprints/SIAM-2006.pdf §4 equations (4.1)-(4.6) gives the regional harmonic Gram spectral problem for arbitrary regions, without the evaluated positive sign-chamber degree-two eigenstructure.",
+          "https://www.researchgate.net/publication/350484286_A_Unified_Approach_to_Scalar_Vector_and_Tensor_Slepian_Functions_on_the_Sphere_and_Their_Construction_by_a_Commuting_Operator §3.1 Problems 3.2–3.3 and Theorem 3.5 give a spin-weighted arbitrary-region kernel in S²; no all-dimenional positive-orthant four-sector result in its complete accessible manuscript.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-blocks-on-every-spherical-positive--f9d7096cbc9a/RESULT.md (published 2026-11-16) solves a larger H0⊕H1⊕H2 band and expressly cites the 2026-11-08 pure-degree-two result as prior rather than an earlier equivalence."
+        ],
+        "reasoning": "Compared the theorem also as a spherical simplex/cone Gram matrix, a complete-graph incidence operator, a hyperoctant sign chamber and a conditional absolute-Gaussian fourth-moment tensor. These names lead to the same evaluated four eigenvalue families only after the trace-free projection and representation decomposition. General kernel formulas and raw moment identities do not themselves give the evaluated all-dimensional eigenspectrum. The later full-band result is not earlier priority and explicitly treats the audited pure-degree-two classification as preexisting.",
+        "searches": [
+          "Resultary semantic: exact spectrum restriction degree two spherical harmonics positive orthant octant full fourth moments conditioning d squared",
+          "Resultary semantic: positive orthant pure degree two spherical harmonic concentration spectrum condition number",
+          "web: spherical harmonics orthant Slepian concentration eigenvalues degree two exact",
+          "web: hyperoctant quadrupole Slepian eigenvalues all dimensions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact November 8 hit is the assigned finding itself, not prior independent coverage.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-spectral-staircase-for-quadratic-spherical-quarter-wedge-c--e0da39681828/RESULT.md §Finding contains a 1/4-quarter-wedge H0⊕H1⊕H2 spectrum, not 2^-d pure-H2 positive-orthant spectrum.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-sharp-quadratic-spherical-lune-concentration-and-its-dimension-d--03bb0ccb58c4/RESULT.md §Finding handles two halfspace cuts of variable angle in pure H2, not d orthant cuts.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-blocks-on-every-spherical-positive--f9d7096cbc9a/RESULT.md is an explicitly later 2026-11-16 publication; its connection is documented rather than silently treated as an earlier database result."
+        ],
+        "reasoning": "Inspected the closest returned primary mathematical records rather than equating similar result titles. No accessible earlier exact table provided the four conditional eigenlevels, multiplicities (1,d−1,d(d−3)/2,d−1), and limiting condition ratio 2(pi−2)/(pi²(pi−3)). Search failure is not proof of global novelty.",
+        "searches": [
+          "Resultary semantic: positive orthant pure degree two spherical harmonic concentration spectrum condition number (100 hits)",
+          "Resultary semantic: exact spectrum restriction degree two spherical harmonics positive orthant octant full fourth moments conditioning d squared (30 hits)",
+          "web: spherical positive orthant harmonics degree 2 spectral concentration eigenvalue multiplicities",
+          "web: symmetric group quadratic forms Gram matrix positive half Gaussian fourth moments eigenvalues orthant"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the exact positive-orthant pure-degree-two 2^d-scaled four-sector spectrum, strict ordering, top symmetric mode, bottom (d−1)-dimensional sector and sharp d² conditioning constant were not present in full material of the relevant earlier primary sources. Original mathematical evaluation uses fourth-moment incidence reduction, not a mere citation of a generic Slepian eigenmatrix. Closest 2026-11-16 larger-band same-mask result is explicitly later and credits the audited 2026-11-08 pure-degree result. The October 25 pure-H2 lune and November 2 quadratic quarter-wedge concern different masks and cannot force the hyperorthant spectrum. Historical priority is provisional.",
+      "residual_risks": [
+        "An implicit group-theoretic or fourth-moment orthant matrix diagonalization may exist in older or unindexed literature.",
+        "The public record indexed on 2026-11-16 postdates and credits the November 8 result but does not establish independent historical priority.",
+        "Resultary and web coverage are finite and cannot prove nonexistence of equivalent prior formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_FRAMEWORK_NOT_EVALUATED_ORTHANT_SPECTRUM",
+          "evidence": "Theorem matrix D_{lm,lm′}=∫_R Y_lm Y_lm′ in §4 defines the operator, while the closed-form construction specializes axisymmetric caps. No d-dimensional positive-orthant degree-two four-sector decomposition in material read.",
+          "identifier_or_url": "https://geoweb.princeton.edu/people/simons/PDF/reprints/SIAM-2006.pdf",
+          "material_read": "Author-hosted published PDF, including introduction, §4 regional eigenmatrix (4.1)-(4.6), §5 axisymmetric cap separation, §6 geographic examples, and comparison of abstract and §7; searched text for orthant.",
+          "method": "Opened full PDF via web text; visually inspected PDF page 9 (paper p. 512), including integral eigenproblem (4.11)-(4.15); compared the actual matrix setup and specialized geometries.",
+          "title": "Spatiospectral concentration on a sphere",
+          "trigger": "Foundational primary article with arbitrary-region spherical concentration and possible exact special cases."
+        },
+        {
+          "assessment": "GENERAL_S2_KERNEL_AND_CAP_METHODS_NOT_ALL_DIMENSION_ORTHANT_CLASSIFICATION",
+          "evidence": "§3.1 formulas (6)-(7) are arbitrary-region kernel entries, and Theorem 3.5 is a Wigner-3j integral expression; specialized efficient explicit methods concern polar caps, not hyperorthants.",
+          "identifier_or_url": "https://www.researchgate.net/publication/350484286_A_Unified_Approach_to_Scalar_Vector_and_Tensor_Slepian_Functions_on_the_Sphere_and_Their_Construction_by_a_Commuting_Operator",
+          "material_read": "Public full manuscript rendered on ResearchGate as searchable 4923-line text; read intro/TOC, §3.1 Problems 3.2–3.3, Lemma 3.4, Theorem 3.5, §3.2–3.3 cap specializations, §3.5 Shannon number, and searched orthant.",
+          "method": "Read full accessible paper text from lawful author-uploaded CC BY4 material and compared theorem statements and geometry.",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "Closest later primary arXiv preprint with explicit generic regional kernel and cap operators; possible stronger result."
+        },
+        {
+          "assessment": "DIFFERENT_TWO_CUT_BAND_REGION",
+          "evidence": "Its region is {x1>0,x2>0}, mass 1/4 independently of d, and uses H0⊕H1⊕H2; audited result is all d cuts, mass 2^-d, and pure H2.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-spectral-staircase-for-quadratic-spherical-quarter-wedge-c--e0da39681828/RESULT.md",
+          "material_read": "Entire RESULT.md, finding, explicit generalized blocks, moment derivations, spectral inequalities, verification, scope and references.",
+          "method": "Fetched complete primary Resultary published finding via approved GitHub raw-file connector; compared domain, mask, trial space and eigenvalues.",
+          "title": "Exact spectral staircase for quadratic spherical quarter-wedge concentration",
+          "trigger": "Earlier Nov 2 finding with two perpendicular sign cuts and quadratic harmonics."
+        },
+        {
+          "assessment": "DIFFERENT_TWO_HALFSPACE_LUNE",
+          "evidence": "Pure H2 but only two halfspace inequalities with an arbitrary angle; cannot be rotated into all-coordinate positive orthant for any d≥3.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-sharp-quadratic-spherical-lune-concentration-and-its-dimension-d--03bb0ccb58c4/RESULT.md",
+          "material_read": "Entire RESULT.md, including full eigenvalue formulas, proof and sharp optimizer threshold.",
+          "method": "Fetched complete published research claim via approved GitHub raw-file connector and compared region topology, angles and symmetry sectors.",
+          "title": "Sharp quadratic spherical-lune concentration and its dimension-dependent optimizer transition",
+          "trigger": "Earlier Oct 25 pure H2 exact all-dimensional spectrum on a nonaxisymmetric region."
+        },
+        {
+          "assessment": "LATER_BROADER_DIFFERENT_TRIAL_SPACE_CITES_EARLIER_PURE_RESULT",
+          "evidence": "Full band H0⊕H1⊕H2, published 2026-11-16; its Relationship to prior work explicitly says the closest exact positive orthant result had already determined pure degree two, with quadratic concentration conditioning. The broader theorem does not establish older priority.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-quadratic-band-slepian-blocks-on-every-spherical-positive--f9d7096cbc9a/RESULT.md",
+          "material_read": "Entire RESULT.md including formulas for two 3×3 blocks, proof, limiting constant and Relationship to prior work.",
+          "method": "Fetched complete published finding via approved GitHub raw-file connector and read the explicit earlier-pure-H2 credit.",
+          "title": "Exact quadratic-band Slepian blocks on every spherical positive orthant and a sharp fourth-power conditioning law",
+          "trigger": "Very close stronger later Nov16 theorem for exactly the same region with a larger harmonic trial space; needed mathematical and chronological comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The positive orthant is the canonical spherical simplex/fundamental sign chamber, and the exact pure-H2 restriction spectrum is an intrinsic, nonaxisymmetric all-dimensional operator invariant. The full multiplicities/extremizers and proof of d² energy-conditioning growth, versus d for H1, provide a sharp mathematically meaningful stability separation for a natural observation region. Unlike a trivial finite table, this classifies every dimension and extracts the sharp universal coefficient from a nontrivial moment/incidence decomposition; the analysis does not claim more general bands, noise models or arbitrary regions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical novelty is best-of-knowledge, not exhaustive; implicit group-moment derivations remain a plausible risk.",
+    "The result is pure degree 1 or 2, continuous noiseless full-sphere probability normalization, d≥3; no claim for H0⊕H1⊕H2 spectrum, arbitrary cones, noise, or finite sampling.",
+    "Finite tests from independent reimplementation do not prove universal correctness; analytical moment/eigenspace proof is the basis of PASS.",
+    "Later November 16 full-band result was used solely in mathematically and chronologically proper context and explicitly cites the older pure-degree result.",
+    "No repository edit or publication has been performed; the plan is staged."
+  ],
+  "schema_version": 1
+}
