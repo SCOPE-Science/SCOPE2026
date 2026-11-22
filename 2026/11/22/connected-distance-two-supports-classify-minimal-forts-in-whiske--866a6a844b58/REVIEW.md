@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The fort condition forces every mate at a selected core vertex and exactly the mates at outside cores with one selected core neighbor; when there are two or more such neighbors, selecting the pendant mate is unnecessary for a minimal fort. Branch removal at any outside vertex with at least three selected-core neighbors rules out that case in minimal forts of trees. The remaining inclusion-minimality condition is equivalent to connectedness of the two-step link graph; the proof treats both directions. For path cores this link graph must be an interval on one parity class, establishing the exact polynomial and its boundary cases. A standalone exhaustive checker compares all forts and the proposed families on combs through eight cores and labelled/unlabelled tree samples through six cores.
+
+**Originality — PASS, with risk.** The earlier 2024 paper mentions a four-comb diagram and proves formulas for paths, cycles and spiders, not the all-order comb minimal-fort polynomial. The December 2025 tree paper gives general structural criteria but does not specify this corona-specific link-graph bijection or symbolic spectrum. The September 2026 tree algorithm computes numbers for individual trees but does not state this closed formula in the accessible abstract. A 2026 record classifying forts on cycle coronas is not a tree-corona classification. The present claim is not just the known scalar algorithm: it gives a structural parametrization and cardinality polynomial. Historical priority is qualified because the complete September 2026 paper was not accessible.
+
+**Value — PASS.** Fort hypergraphs are the exact constraints in zero-forcing set-cover models. The explicit characterization converts a potentially exponential fort family into a quadratic-size minimal-obstruction hypergraph for combs, while resolving every fort size and both extremal multiplicities. The general whiskered-tree bijection supplies a transparent structural certificate of minimality. This is an exact, motivated infinite-family enumeration rather than a numerical lookup.
+
+Related literature and limitations are documented in RESULT.md. This assessment is not an independent mathematical audit.
+
+Self-review: passed. Independent audit: not yet performed.
