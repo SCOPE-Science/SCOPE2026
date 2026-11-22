@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The companion \(\texttt{verify.py}\) uses Python 3 standard library only. Run it from the directory containing this document and \(\texttt{RESULT.md}\):
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-The completed checks reported:
+Equilibrium identity I=alpha(1-E)s/mu and Q_i=d_i/(m_i+A_i s) reduces strictly positive equilibria to F(s)=alpha on its positive interval. F''>0 unless every A_i vanishes, proving at most two roots or continuum. Row elimination at zero frequency yields Delta_s(0)=mu*s*prod a_i*F'(s); positive large-real characteristic determinant forces a real unstable eigenvalue at the lower root. Checked explicit quadratic 16s²-15s+1 and feasible positive parameters.
 
-```text
-POSITIVE_CHARACTERISTIC_ROOT 2 0.0530779492369
-POSITIVE_CHARACTERISTIC_ROOT 3 0.0638598947468
-POSITIVE_CHARACTERISTIC_ROOT 4 0.0638598947468
-POSITIVE_CHARACTERISTIC_ROOT 6 0.0638598947468
-VERIFY_OK exact_determinants 23 positive_real_root_cases 4
-```
+## originality
 
-The exact-arithmetic calculations construct Jacobian characteristic matrices at positive equilibria with \(n\in\{2,3,4,6\}\) for five rational susceptible-population levels and check the exact determinant–derivative identity. Three more degenerate checks use \(A_i=0\) and verify a zero characteristic determinant. Four numerical checks locate strictly positive real characteristic roots at the lower equilibrium of the sharpness witnesses; these are evidence only, not proofs of an infinite-domain statement. All universal assertions follow from the algebraic and real-analysis argument in \(\texttt{RESULT.md}\). The original full model, including the auxiliary infected-population coordinate and its history constraint, was used in the characteristic calculations. Independent audit: not performed.
+PASS
+
+The primary model's equal-latency n=2 classification is prior knowledge; generalized finite-n convexity plus universal lower-equilibrium positive-real instability is not implied by its abstract nor the materially read local critical-dose theorem. Primary full text inaccessible; preserve risk.
+
+## value
+
+PASS
+
+An all-finite-phage sharp equilibrium bound and physically compatible real instability certificate distinguish multiple coexistence states without claiming clinical outcomes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
