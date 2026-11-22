@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T16:53:18.412976Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inspected the exact 21 listed integral 3-vectors, the 37 supporting 3D facet planes, all 37^2=1369 side facets and two base facets of the specified 8D free-sum/pyramid embedding. The seven active side normals with positive weights 14,3/2,3/2,1,1,9,9 plus base weights 111,74 cancel every center coordinate, giving R<=222/(257+14sqrt15+3sqrt23+2sqrt770). A symmetric center satisfies seven active equalities; an independent enumeration of all 37 facets and 1362 nonactive side slacks produced positive minimum slack 0.002278226939043... . The original VERIFY.py implements exact rational sqrt intervals via isqrt, not just floating comparisons; its code was read. Differences of three swapped active pairs have determinant 148, fixing the two 3-blocks and establishing uniqueness. The max squared facet normal 1525 gives origin-centered ball radius 1/sqrt1525. Independent high-precision approximate checks corroborate exact analytical inequalities; this exhaustive finite construction is self-contained for one specified polytope, not an infinite family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hofscheier-Nill prove the face/vertex construction and dimensional facet-count amplification; related inball theorems retrieved refer to symmetric edge polytopes, other twinned chain polytopes, and unrelated 8D norm shells."
+        ],
+        "reasoning": "Neither a generic reflexive-embedding theorem nor a facet-count result determines Euclidean inball after this specific coordinate embedding; unimodular changes do not preserve Euclidean distances.",
+        "searches": [
+          "Hofscheier Nill arxiv:2611.08819",
+          "Resultary: Hofscheier Nill reflexive polytope 1371 facets 8 dimensional largest Euclidean inscribed ball Chebyshev center nine contacts"
+        ]
+      },
+      "checked_sources": [
+        "Reflexive polytopes can have doubly exponentially many vertices: https://arxiv.org/abs/2611.08819",
+        "Facet Numbers of Non-Centrally Symmetric Reflexive Polytopes Arising from Posets: https://link.springer.com/article/10.1007/s00454-026-00879-x",
+        "The unique nine-contact Euclidean inball of the 1,371-facet reflexive eight-polytope: https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-unique-nine-contact-euclidean-inball-of-the-1-371-facet-refl--14ef98e8fc89"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A reflexive lattice polytope can have all facet lattice distances one from the origin, while Euclidean distances depend on facet normal norms; here origin radius 1/sqrt1525 vs optimal radius 0.5825."
+        ],
+        "reasoning": "Face count and reflexivity fail to imply the exact Euclidean center, radius or nine active contacts; their derivation uses explicit nine-constraint dual weights and 1362 strict inequalities.",
+        "searches": [
+          "Hofscheier Nill 2026 Theorem 2.1 Lemma 3.2",
+          "Resultary related polytope exact inballs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The support-plane inequalities allow phrasing the inball as a linear-programming Chebyshev-center problem with inhomogeneous normal lengths."
+        ],
+        "reasoning": "The general linear-program equivalence is standard; source does not report this exact solved 8D radius or active set. The certificate computes a genuinely new exact instance.",
+        "searches": [
+          "Hofscheier Nill arxiv:2611.08819 Theorem 2.1 and Lemma 3.2",
+          "Resultary: Hofscheier Nill reflexive polytope 1371 facets 8 dimensional largest Euclidean inscribed ball Chebyshev center nine contacts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published table supplies 21 seed vertices and 37 base facets/1371 total facets, not a table of normalized facet distances at the unique incenter."
+        ],
+        "reasoning": "The previous complete vertex data is input evidence and could be used to derive the metric fact; it is not a table listing this inradius or 9-contact set.",
+        "searches": [
+          "Hofscheier Nill arxiv:2611.08819 appendix 21 vertex coordinates",
+          "Resultary: Hofscheier Nill reflexive polytope 1371 facets 8 dimensional largest Euclidean inscribed ball Chebyshev center nine contacts"
+        ]
+      },
+      "rationale": "The 44-vertex/1371-facet 8D reflexive polytope and pyramid/free-sum facet construction are Hofscheier-Nill prior work. They do not give its nine-facet active Chebyshev center, radius radical or 22.7x origin comparison. Searches of matching geometric invariants and published Resultary records found only different polytopes. Novelty is strictly the metric calculation for the original coordinate embedding, not the combinatorial counterexample.",
+      "residual_risks": [
+        "The source article full PDF/appendix was not independently downloaded in this run, so a metric-geometry note hidden there remains conceivable.",
+        "A previously computed metric invariant under a different coordinate ordering could be indexed under another name.",
+        "The result is coordinate-embedding-dependent and makes no assertion for other unimodular realizations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING within inspected theorem/construction, with full-text limitation",
+          "evidence": "Construction explicitly establishes the face-count counterexample, but no Euclidean inball theorem seen in inspected material; unexamined appendix remains a bounded priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.08819",
+          "material_read": "Available arXiv metadata plus publicly indexed text of Theorem 2.1, Lemma 3.2, 21-vertex construction and main facet-count conclusion; full PDF was not downloaded in this run",
+          "method": "Public search and accessible indexed original-manuscript extracts",
+          "title": "Reflexive polytopes can have doubly exponentially many vertices",
+          "trigger": "Exact same 8D landmark polytope and 21 seed vertices"
+        },
+        {
+          "assessment": "NOT_COVERING different family/invariant",
+          "evidence": "Twinned chain polytopes and their facet-number upper bound, not metric inball for Hofscheier-Nill example.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-026-00879-x",
+          "material_read": "Abstract and stated facet-number bound",
+          "method": "Publisher open HTML",
+          "title": "Facet Numbers of Non-Centrally Symmetric Reflexive Polytopes Arising from Posets",
+          "trigger": "Related large-facet reflexive classes"
+        },
+        {
+          "assessment": "SAME_ASSIGNED_FINDING, NOT INDEPENDENT PRECEDENT",
+          "evidence": "Excluded exact self-match from originality support; no dated independent earlier inball source identified.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-unique-nine-contact-euclidean-inball-of-the-1-371-facet-refl--14ef98e8fc89",
+          "material_read": "Resultary title/summary; identical same claim, not independent earlier covering source",
+          "method": "Resultary semantic search",
+          "title": "The unique nine-contact Euclidean inball of the 1,371-facet reflexive eight-polytope",
+          "trigger": "Exact published record of this submitted claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact Euclidean inball and nine-contact certificate for a uniquely distinguished small-dimensional counterexample to reflexive facet bounds is a naturally motivated metric invariant. The large separation from lattice-origin radius quantifies the difference between lattice facet normalization and Euclidean centering. Full 1371-facet feasibility, uniqueness and sparse contacts are nonroutine and independently useful although the theorem covers one canonical polytope.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Reflexive polytopes can have doubly exponentially many vertices: https://arxiv.org/abs/2611.08819",
+    "Facet Numbers of Non-Centrally Symmetric Reflexive Polytopes Arising from Posets: https://link.springer.com/article/10.1007/s00454-026-00879-x",
+    "The unique nine-contact Euclidean inball of the 1,371-facet reflexive eight-polytope: https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-unique-nine-contact-euclidean-inball-of-the-1-371-facet-refl--14ef98e8fc89",
+    "Independent cross-checks /mnt/data/independent_scope03_checks_20261118.json (numerical/rational tests only)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The source article full PDF/appendix was not independently downloaded in this run, so a metric-geometry note hidden there remains conceivable.",
+    "A previously computed metric invariant under a different coordinate ordering could be indexed under another name.",
+    "The result is coordinate-embedding-dependent and makes no assertion for other unimodular realizations."
+  ],
+  "residual_risks": [
+    "The source article full PDF/appendix was not independently downloaded in this run, so a metric-geometry note hidden there remains conceivable.",
+    "A previously computed metric invariant under a different coordinate ordering could be indexed under another name.",
+    "The result is coordinate-embedding-dependent and makes no assertion for other unimodular realizations."
+  ],
+  "schema_version": 1
+}
