@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For all finite Q, exact expansion gives P_ij=h*a_ij-h²*Delta_ij/2 and P_ii>=1/2. A maximal-rate diagonal exceeds one above 2/M, forcing a finite negative offdiagonal edge. These formulas prove the single positivity interval, the edge minimum, sharp bounds, and iff equality criterion without missing cases (including Q=0, absorbing states and zero links). The packaged rational checker passed 39240 supplemental assertion groups on varied directed generators and stars; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth 2005 abstract treats classwise positivity step-size thresholds for general positive initial-value problems, but generator-specific full text was not accessible.",
+        "2013 absolute-monotonicity paper derives a method-level radius, not the stated local edge-rate formula or two-hop equality criterion.",
+        "Two-stage Euler-superstep public result concerns regular unweighted undirected graphs and nonnegative factorizable Euler coefficients."
+      ],
+      "reasoning": "Generic classwide positivity bounds do not imply exact individual-generator horizons or iff edge motif conditions. The 2005 abstract is insufficient to assert definitive noncoverage; its possible stronger specialization remains an explicit priority risk. No stronger covering theorem was identified in available full text.",
+      "searches": [
+        "Sharp universal timestep factor two for completed explicit midpoint Runge Kutta positivity of continuous-time Markov chain on any finite weighted directed graph",
+        "\"second order\" \"Markov generator\" \"positivity\" \"Heun\" \"sharp\" timestep",
+        "doi:10.1016/j.apnum.2004.08.026",
+        "arxiv:1303.6651"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1403.6519v1",
+      "https://arxiv.org/abs/1303.6651",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-triangle-count-law-for-positive-two-stage-euler-supersteps-on--395a6d422888",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-path-parity-certificate-for-sharp-positivity-loss-in-taylor-di--2c9867ce7a18",
+      "https://doi.org/10.1016/j.apnum.2004.08.026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Euler-superstep product has coefficients h1+h2 and h1*h2, requiring h1*h2<= (h1+h2)^2/4, incompatible with RK2 coefficient h²/2.",
+        "Path-parity certificate proves sharp Euler threshold for a special walk-gap class but does not classify sharpness on all generators.",
+        "The 2014 SSP representation guarantees endpoint positivity only up to the Euler limit, but does not prove its graph-conditional exactness."
+      ],
+      "reasoning": "The new theorem contains the full finite directed weighted class and a necessary-and-sufficient maximal-exit arc criterion; neither follows from the cited published conclusions. Its regular graph corollary shares elementary triangle-count algebra and is not independently claimed as a new ingredient. A general uninspected 2005 full text remains the leading priority uncertainty.",
+      "searches": [
+        "A triangle-count law for positive two-stage Euler supersteps on regular graphs (complete RESULT.md)",
+        "A path-parity certificate for sharp positivity loss in Taylor diffusion (complete RESULT.md)",
+        "Gottlieb Grant Higgs 2014 Optimal Explicit Strong Stability Preserving Runge-Kutta Methods High Linear Order full text",
+        "Horváth On the positivity step size threshold of Runge-Kutta methods 2005"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gottlieb--Grant--Higgs 2014 provides the two-stage order-two SSP scheme with coefficient one (Section 2).",
+        "Lóczi--Ketcheson 2013 studies method-level absolute-monotonicity radii, not arbitrary fixed-generator exact thresholds.",
+        "The complete public technical result on two-stage Euler supersteps specifies P=(I-h2 L)(I-h1 L), not the RK2 polynomial."
+      ],
+      "reasoning": "Endpoint positivity is stronger than an SSP sufficient lower bound for a fixed generator. The RK2 coefficient h²/2 cannot be represented as h1*h2 with two nonnegative Euler substeps summing to h, since their product is at most h²/4. The novel claim is the complete directed-weighted generator classification and necessary-and-sufficient equality motif; the polynomial itself is standard.",
+      "searches": [
+        "Graph motif characterization of equality of SSP CFL threshold for second-order Runge Kutta on Markov generator: edge joins two maximum-exit vertices without any common two-step path; sharp exact safe step bound local triangles",
+        "Pointwise exact nonnegative transition matrix R2(hQ)=I+hQ+h²Q²/2 from direct and two-hop rates, no positivity reentry",
+        "arxiv:1403.6519v1, sections 1-2",
+        "arxiv:1303.6651, introduction and definitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest public indexed exact result is a triangle-count law for nonnegative two-stage Euler supersteps on regular graphs (id: 2026/11/8/SCOPE-a-triangle-count-law-for-positive-two-stage-euler-supersteps-on--395a6d422888).",
+        "A path-parity certificate for sharp Taylor positivity loss gives a sufficient walk-gap witness (id: 2026/11/2/SCOPE-a-path-parity-certificate-for-sharp-positivity-loss-in-taylor-di--2c9867ce7a18).",
+        "Accessible same-topic archived claims did not match the directed weighted RK2 exact positivity formula or its iff motif."
+      ],
+      "reasoning": "The available indexed results supply related concepts but neither the exact general directed generator parameterization nor the necessary-and-sufficient SSP-bound equality test. The index and one partition of history cannot establish global uniqueness; unindexed equivalents remain a risk.",
+      "searches": [
+        "Exact entrywise nonnegativity of second-order explicit Runge Kutta Heun midpoint polynomial I+hQ+h^2Q^2/2 for arbitrary finite continuous-time Markov generator Q: sharp maximal timestep from local edge exit-rate sums and two-hop path counts, diagonal always nonnegative, no later positivity recovery",
+        "published research index: Graph motif characterization of equality of SSP CFL threshold for second-order Runge Kutta on Markov generator",
+        "arxiv:1403.6519v1",
+        "own accessible archive research ledger claim/title scan (117 lines including initialization)"
+      ]
+    },
+    "rationale": "Full relevant texts of Gottlieb--Grant--Higgs (2014), Lóczi--Ketcheson (2013), and two closest public graph-polynomial results were compared by implication. Prior statements give method-level SSP radii, two nonnegative Euler substeps, or a sufficient regular-graph Taylor walk-gap witness, but not the all-generator directed weighted exact horizon and iff maximal-exit two-hop motif. Horváth (2005) remains only abstract-inspected and is a real bibliographic priority risk.",
+    "residual_risks": [
+      "Complete 2005 Horváth paper not inspected; could contain a generator-wise equivalent result.",
+      "Unindexed, historical, and non-English numerical positivity literature may contain equivalent graph-local formulas.",
+      "Related public results already give polynomial coefficient/triangle-count algebra for regular graph Euler products; only the all-generator RK2 characterization and exact iff motif are claimed as distinctive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes stagewise SSP coefficient one, not fixed-generator directed graph-local iff threshold",
+        "evidence": [
+          "Section 2 displays the two-stage order-2 SSP update and coefficient one; Introduction describes convex Euler sufficient bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1403.6519v1",
+        "material_read": "Abstract, introduction, full Section 2 review through standard two-stage tableau and discussion of linear autonomous methods",
+        "method": "Open arXiv HTML full-text and read relevant displayed equations and methods",
+        "title": "Optimal Explicit Strong Stability Preserving Runge--Kutta Methods with High Linear Order and optimal Nonlinear Order",
+        "trigger": "Exact SSP(2,2) method and the distinction between sufficient SSP bounds and problem-specific endpoint positivity"
+      },
+      {
+        "assessment": "Method-level radius problem; does not assert the generator-specific two-hop weighted directed threshold",
+        "evidence": [
+          "Introduction defines method-level radius of absolute monotonicity and contrasts linear and nonlinear problems"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+        "material_read": "Public full-text HTML introduction, main definitions, stated method-radius claims and class assumptions",
+        "method": "Read arXiv textual full-page content for the relevant definitions and statements",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Potentially broader absolute monotonicity result for the second-order stability polynomial"
+      },
+      {
+        "assessment": "Polynomial factorization uses real nonnegative Euler substeps; its main result does not apply to the RK2 coefficient h²/2 at fixed h, though elementary graph-entry algebra is related",
+        "evidence": [
+          "Proof gives P=I-(h1+h2)L+h1*h2 L² and regular graph triangle-count entry formula",
+          "Optimization is over two nonnegative Euler substeps"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-triangle-count-law-for-positive-two-stage-euler-supersteps-on--395a6d422888",
+        "material_read": "Complete public RESULT.md including finding, assumptions, five proof steps, verification, relationship and references",
+        "method": "Read complete published result file from its public repository",
+        "title": "A triangle-count law for positive two-stage Euler supersteps on regular graphs",
+        "trigger": "Closest title and explicit two-step graph-local triangle counts"
+      },
+      {
+        "assessment": "Sufficient sharpness for constant-rate graphs with a walk-gap; not necessary-and-sufficient for arbitrary weighted nonregular directed Q",
+        "evidence": [
+          "Hypotheses require constant exit rate, walk-gap and no parity-conflicting walk at the target order"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-path-parity-certificate-for-sharp-positivity-loss-in-taylor-di--2c9867ce7a18",
+        "material_read": "Complete public RESULT.md including theorem, assumptions, proof, comparisons and limitations",
+        "method": "Read complete public result file",
+        "title": "A path-parity certificate for sharp positivity loss in Taylor diffusion",
+        "trigger": "Second-order Taylor polynomial graph positivity and walk-gap sharpness"
+      },
+      {
+        "assessment": "Potential older generator-wise coverage cannot be excluded; explicit residual novelty risk",
+        "evidence": [
+          "Abstract discusses largest step size for positive general IVP classes and strict classwise thresholds"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Abstract and bibliographic description only; complete paper not accessible",
+        "method": "Publisher/institutional/indexed abstract search and open metadata",
+        "title": "On the positivity step size threshold of Runge--Kutta methods",
+        "trigger": "Potentially general positivity threshold theorem for RK methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4f9e85fe-71de-42bc-beab-02518790c43f",
+  "value": {
+    "rationale": "A complete and computable exact positivity certificate for every finite Markov generator, not a small example: safe timestep from local directed one- and two-hop rates; topology/rate necessary-and-sufficient criterion for when SSP coefficient one is genuinely sharp; and an explicit star sequence approaching twice the usual step limit. These structural properties can inform positivity-preserving timestep selection. No claim of accuracy improvement or stagewise safety is made.",
+    "status": "PASS"
+  }
+}
