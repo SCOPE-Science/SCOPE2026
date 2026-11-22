@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:18:32.909909Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=4 and odd permutation Q, even vertices P have tr(Q^T P)<=n-2, with equality exactly when Q^T P is one transposition; this extends to the even-permutation convex hull. Because Q-X has zero row/column sums, Schatten duality against Q-J (orthogonal rank n-1 projector) gives dist_Sp(Q,E_n)>=2(n-1)^(1/p-1), including endpoints. The mean of all transpositions is ((n-3)/(n-1))I+2J/(n-1), so Q times that mean lies in the even hull and attains bound with n-1 identical singular values. Every full Birkhoff point is a convex mixture of even/odd vertices, which bounds the Hausdorff maximum by the same distance. The trace-contact transposition matrices have distinct off-diagonal entries, so define an exposed simplex; strict convexity of Schatten p for 1<p<infinity proves unique closest and no additional farthest nonvertex points. Independently enumerated permutation parity and transposition faces for n=4..7, yielding squared Frobenius gaps 4/(n-1), consistent with the formula, with no finite-to-infinite inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bouthat et al. derive Schatten norms and radius for full Birkhoff polytope, not the relative Hausdorff distance to the even convex hull; older alternating-hull studies cover combinatorial structure."
+        ],
+        "reasoning": "Neither known broader treatment in read material gives the new cross-polytope metric comparison as a special case; older primary full-text gap is retained.",
+        "searches": [
+          "Resultary exact Schatten Birkhoff geometry 2310.14043",
+          "Cunningham Wang alternating permutation polytope facets",
+          "Brualdi Liu even doubly stochastic matrices"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md and check_even_permutation_schatten.py 6da19ce3f1ab29208030d0eb458b802d03464921",
+        "Bouthat et al. arXiv:2310.14043",
+        "Brualdi Liu 1991 doi:10.1016/0097-3165(91)90048-L",
+        "Cunningham Wang 2004 doi:10.1016/j.laa.2004.03.016",
+        "Baumeister et al. arXiv:0709.1615"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full Birkhoff Schatten theorem concerns a single polytope; the submitted odd-vertex trace barrier plus equal-weight transposition contact yields a different two-set Hausdorff minimum."
+        ],
+        "reasoning": "A general parity-polytope facet theorem might contain the supporting inequality but does not imply exact nearest Schatten norm without the attaining construction; unresolved historical source comparisons explicitly remain.",
+        "searches": [
+          "Bouthat Mashreghi Morneau Guérin Birkhoff Schatten geometry arxiv 2310.14043",
+          "Cunningham Wang even permutation polytope 2004 membership facets",
+          "Brualdi Liu even doubly stochastic matrices 1991"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Membership/facet descriptions characterize the even hull but do not explicitly give nearest-point Schatten metric; the trace barrier identifies exposed transposition face and rank n-1 singular profile."
+        ],
+        "reasoning": "A facet inequality for even hull is a possible premise, but sharp all-p Hausdorff distance and optimizer characterization are not merely equivalent to a membership test.",
+        "searches": [
+          "Resultary Hausdorff Schatten distance even permutation polytope Birkhoff odd vertices",
+          "Cunningham Wang on the even permutation polytope 2004",
+          "Brualdi Liu polytope of even doubly stochastic matrices 1991"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At p=2 gap is 2/sqrt(n-1), at p=1 exactly 2, at p=infinity 2/(n-1); inspected nearby full-Birkhoff and permutation-hull records do not list these parity metric pairs."
+        ],
+        "reasoning": "No exact previously published all-p gap table located in checked sources; lack of matching table is not alone proof of priority.",
+        "searches": [
+          "Resultary sharp Schatten Hausdorff separation Birkhoff even permutation polytopes",
+          "Schatten distance even doubly stochastic matrices odd permutation nearest",
+          "1991 Brualdi Liu polytope even doubly stochastic matrices"
+        ]
+      },
+      "rationale": "The classical alternating-permutation polytope papers emphasize combinatorial facets and even doubly stochastic membership, while modern Schatten geometry analyzes the full Birkhoff polytope; none of the materially inspected passages states a sharp all-p Hausdorff distance between B_n and the parity subpolytope, its exposed contact simplex, or strict-norm farthest-point rigidity. Best-of-knowledge PASS with explicit priority risk from inaccessible complete 1991/2004 primary papers.",
+      "residual_risks": [
+        "Cunningham-Wang (2004) full paper remains inaccessible; authorized Oxford retrieval returned vpn_disconnected, job 4a092bf9208609a965095f85ecb6ae31; human reconnect needed",
+        "Original 1991 article not verified as a complete paginated primary scan; reproduced accessible text read only",
+        "Strict convexity gives the claimed rigidity only for 1<p<infinity; endpoints do not carry uniqueness assertions"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULL_BIRKHOFF_NOT_PARITY_COMPARISON",
+          "evidence": "Norms of full Birkhoff points/center, not E_n Hausdorff approximation",
+          "identifier_or_url": "https://arxiv.org/abs/2310.14043",
+          "material_read": "Accessible arXiv full HTML introduction and theorem passages on norm radius/geometry; exact comparison sought",
+          "method": "arXiv full HTML inspected relevant theorem material",
+          "title": "On the Geometry of the Birkhoff Polytope II: The Schatten p-norms, Bouthat Mashreghi Morneau-Guérin",
+          "trigger": "Identical ambient Schatten geometry and Birkhoff polytope"
+        },
+        {
+          "assessment": "COVERAGE_NOT_FOUND_IN_READ_MATERIAL",
+          "evidence": "Polytope/facet structure and combinatorial properties rather than exact Schatten metric gap; residual full verified-original risk",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(91)90048-L",
+          "material_read": "Accessible reproduced article text with abstract, introduction and combinatorial face/polytope statements; original pagination/integrity not independently verified",
+          "method": "Open reproduced primary text, targeted Hausdorff/distance search",
+          "title": "The polytope of even doubly stochastic matrices, Brualdi and Liu (1991)",
+          "trigger": "Earliest highly relevant even-permutation hull, potential overlooked metric corollary"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Facet and membership subjects in abstract; no whole-paper NONCOVERAGE assertion",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2004.03.016",
+          "material_read": "Publisher abstract and metadata only; full paper not obtained",
+          "method": "arXiv/OA searches followed by authorized Oxford retrieval (VPN disconnected)",
+          "title": "On the even permutation polytope, Cunningham and Wang (2004)",
+          "trigger": "Closest named primary article on the same parity hull; could cover precise sharp inequality"
+        },
+        {
+          "assessment": "GENERAL_CONTEXT",
+          "evidence": "Combinatorial permutation polytopes, possible unindexed alternating special section",
+          "identifier_or_url": "https://arxiv.org/abs/0709.1615",
+          "material_read": "Abstract and introductory summary; full appendices not verified",
+          "method": "arXiv search/primary abstract",
+          "title": "On permutation polytopes, Baumeister Haase Nill Paffenholz (2007)",
+          "trigger": "General permutation group polytope context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deleting half of the vertices of the Birkhoff polytope while measuring precise Schatten geometry is a natural extremal convex-polytope question. Exact norm-by-norm Hausdorff gap, unique 1<p<infinity closest point, and exposed transposition simplex are independently informative, including nuclear norm persistence despite p>1 decay.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md and check_even_permutation_schatten.py 6da19ce3f1ab29208030d0eb458b802d03464921",
+    "Bouthat et al. arXiv:2310.14043",
+    "Brualdi Liu 1991 doi:10.1016/0097-3165(91)90048-L",
+    "Cunningham Wang 2004 doi:10.1016/j.laa.2004.03.016",
+    "Baumeister et al. arXiv:0709.1615"
+  ],
+  "disposition": "passed",
+  "limitations": "n>=4, real unscaled Schatten p norms, even-permutation hull; rigidity only in strict range 1<p<infinity.",
+  "residual_risks": [
+    "Cunningham-Wang (2004) full paper remains inaccessible; authorized Oxford retrieval returned vpn_disconnected, job 4a092bf9208609a965095f85ecb6ae31; human reconnect needed",
+    "Original 1991 article not verified as a complete paginated primary scan; reproduced accessible text read only",
+    "Strict convexity gives the claimed rigidity only for 1<p<infinity; endpoints do not carry uniqueness assertions"
+  ],
+  "schema_version": 1
+}
