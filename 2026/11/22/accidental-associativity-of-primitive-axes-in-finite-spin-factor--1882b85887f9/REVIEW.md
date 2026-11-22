@@ -1,0 +1,11 @@
+# Review of the primitive-axis associator-zero census
+
+**Correctness — PASS.** The primitive-idempotent parametrization, the cancellation criterion for one ordered associator, and the disjoint classification of dependent and independent outer axis pairs give the exact count. The perpendicular hyperplane has determinant class equal to the original form because the middle vector has norm one. The norm-one representation numbers are derived from Gauss-sum orthogonality, valid over every odd prime-power field. The minimal-dimension exceptions follow by explicit inequalities. Direct Jordan-multiplication checks cover 18 field/dimension/form configurations, including a nonprime field. Those finite tests alone would not establish the universal assertion.
+
+**Originality — PASS, with historical uncertainty.** The 2014 primitive-axial Jordan paper proves the axis and Peirce framework, not the finite arithmetic single-associator triple census. The closest publicly available associating-tuple theorem concerns simultaneous associativity of the generated subalgebra, a stronger predicate that excludes the nonzero \(ST(T-2)\) accidental stratum being counted here. Previously studied square-root and pair-product fibers of finite spin factors do not prescribe a three-axis associator. Searches also considered single-associator terminology and norm-one orthogonal triples. A historical source giving an equivalent arithmetic count may exist; that residual uncertainty does not establish priority.
+
+**Value — PASS.** The zero locus of a basic nonassociative word restricted to the intrinsic primitive-axis quadric is a natural algebraic statistic, distinct from the associative-subalgebra census. The formula quantifies exactly how frequently one bracketing accidentally associates without generating an associative algebra, for all form types and odd finite fields. Its sharp dimension-three exceptional class supplies a meaningful boundary rather than an arbitrary finite example.
+
+**Limitations.** Other associator fibers, characteristic two, degenerate quadratic spaces and independent mathematical validation are outside the result. Standard quadratic-space counts and the primitive-axis construction are credited as prior theory.
+
+Self-review: passed. Independent audit: not yet performed.
