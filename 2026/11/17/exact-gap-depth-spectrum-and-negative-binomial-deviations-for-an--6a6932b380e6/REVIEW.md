@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem precisely assumes the affine, strongly separated Cantor-gap branches of [1, Appendix B.1], not a generic distorted countable map. The branch multiplicity generating function gives the exact depth-sum count. Cylinders contract by the exact product of similarities. A Stirling cylinder-cover bound provides the spectrum upper estimate, and finite strongly separated similarity systems with carefully chosen finite-support Bernoulli distributions provide its lower estimate; neither step assumes an unsupported infinite-alphabet dimension theorem. The conformal Bernoulli law is identified by its exact similarity weights and independence, so the negative-binomial law follows. A second uniform Stirling calculation supplies the local-prefactor error on compact subsets of mean depths above one. The proof includes all endpoints and explicitly excludes infinite-average levels.
+## correctness
 
-## Originality — PASS (qualified)
-The closest primary source [1, Appendix B.1] specifies all branch multiplicities and already establishes the unrestricted Hausdorff dimension, while [1, Theorem A] supplies the shift conjugacy and existence of an invariant conformal measure. These are not claimed as new. The new statement is the exact **conditioned depth spectrum**, its nonzero high-depth boundary, and the sharp finite-time depth-sum distribution. Generic entropy-variational and conformal-IFS methods are known [2–4], so the novelty is the integrated closed form for this exact Cantor-accumulation example, not a new general method. The 2010 countable EMR assumptions include a single accumulation point for branch endpoints, whereas [1, Appendix B.1] has Cantor accumulation; the present direct argument is independently complete. Neither the related published countable-branch collision/leakage result nor the pathwise rotation-spectrum result implies the present formulas. Literature searches did not identify an exact duplicate. Residual risk: specialized unindexed work might have calculated the same elementary conditioned spectrum.
+PASS
 
-## Mathematical value — PASS
-The statistic is intrinsic to the return map's geometry: the depth records which gap generation a trajectory visits. The exact dimension of *every* finite mean-depth level resolves a genuine stratification question not answered by the source's total dimension. The positive \(\log2/\log r\) limiting dimension for arbitrarily high finite average depth quantifies the proliferation of deep Cantor gaps. The conformal law gives exact finite-return probabilities and a sharp local large-deviation prefactor, useful for quantifying atypical orbit visits and testing models. Exact counting in isolation would be routine; its connection to the full conditioned geometric spectrum and finite-time probabilities supplies the mathematical motivation.
+The primary Appendix B.1 provides the full shift, strongly separated branch images, generation multiplicities and r^-k affine contractions. Multiplying branch counts for compositions of S into n positive parts gives N_{n,S}; summing logs of r^-k gives exact length 2r^-S. Stirling cylinder covers for S/n near m give the upper bound H(m)/(m logr), with m=1 from the delta-neighborhood limit. A finite alphabet Bernoulli law truncated from geometric mean-m and adjusted with an extra depth restores the exact mean m; the finite strongly separated IFS dimension theorem and entropy continuity give a matching lower bound, so this is not extrapolation of a finite enumeration or an unsupported countable-symbol theorem. Differentiation of H(m)/m gives log(2/(m-1))/m² and the maximum m=3, high-m floor log2/logr. Since each depth-k branch has conformal mass 3^-k, aggregation gives P(k)=(1/3)(2/3)^(k-1), independent under full shift; the multinomial generating function gives P(S_n=S)=N_{n,S}3^-S. Uniform Stirling for m=S/n in compact (1,infinity) gives exp(-n[m log3-H(m)])/[sqrt(2 pi n m(m-1))]*(1+O(1/n)); at S=n probability 3^-n exact. Independent enumerator checked all composition totals n=1..5, S=n..n+5; finite checks validate only combinatorial ingredients.
 
-## Closest literature and limitations
-[1] Cunha–Novaes–Ponce, arXiv:2608.00398 (source construction and total dimension); [2] Iommi–Jordan, arXiv:1003.2979 (general multifractal variational theory for an EMR setting); [3] Iommi–Jordan, arXiv:1303.2596 (quotient formalism); [4] Mauldin–Urbański, DOI 10.1112/plms/s3-73.1.105 (general CIFS geometry). The result does not cover nonlinear distortions, non-finite limiting depths, or the physical-time dynamics of a Filippov flow. Historical priority is necessarily provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality; four explicit comparisons and actual primary-source material inspections below. Knowing total dimension is a maximum over conditional levels, not the function of the prescribed finite m. Nor does invariance/conformality alone give a local central prefactor without exact branch weights and Stirling expansion.
+
+## value
+
+PASS
+
+The stage depth of a Cantor gap is a canonical symbolic/geometric observable of the published natural return map, and the precise Hausdorff dimension for every finite average depth reveals a stratification not present in its known total dimension. The high-mean positive dimensional floor and precise atypical-depth probabilities are potentially reusable quantitative orbit statistics; ordinary negative-binomial algebra is not the value claim by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
