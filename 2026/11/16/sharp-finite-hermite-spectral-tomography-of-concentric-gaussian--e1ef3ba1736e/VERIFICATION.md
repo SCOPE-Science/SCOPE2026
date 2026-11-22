@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Run `python3 check_inverse_annuli.py` using Python 3, `mpmath` and optionally `sympy`. The checker recomputes exact incomplete-gamma moments independently of adaptive integration at 70-digit precision, verifies the weighted Vandermonde determinant against direct matrix determinants, checks endpoint moments and finite-difference derivatives, simplifies low-dimensional symbolic identities and produces two genuinely different two-annulus masks sharing three labelled Hermite moments but differing in the fourth.
+## correctness
 
-Observed replay output:
+PASS
 
-```text
-INVERSE_ANNULAR_STFT_PASS moment_cases=16 symbolic_dimensions=2,4 nonidentifiability_fiber=m2_two_sides boundary_moments=checked finite_difference_jacobian=checked max_integral_error=9.05568e-72 max_det_relative_error=2.54249e-66
-```
+Gaussian/Hermite STFT energy for radial binary masks integrates to λ_j=(1/j!)∫_E t^j exp(-t) dt with t=π|z|². For E,F unions of ≤m intervals, 1_E−1_F has ≤2m nonzero alternating sign-runs; a polynomial of degree ≤2m−1 with zeros between opposite runs has strictly signed weighted integral, contradicting equality of the 2m moments unless E=F. For exactly m intervals the endpoint derivative matrix is sign times weighted Vandermonde; determinant (-1)^m exp(-∑x_i)∏_(i<k)(x_k−x_i)/∏j! is nonzero. Dropping a row yields rank 2m−1 and analytic one-dimensional equal-moment fibers, proving necessity. Lagrange inversion gives the stated linear noise sensitivity, not a global noise guarantee. Independent m=2 endpoints (.3,1.1,2,3.7) determinant 0.00126476703225768 matches formula. Infinite uniqueness is the sign-change proof, not a finite test.
 
-The symbolic check covers 2-by-2 and 4-by-4 cases; numerical tests cover 16 examples with one through four rings. These checks do not establish the universal theorem. Global identification and the sharp minimality result rest on the polynomial sign-separation proof, the analytic Vandermonde identity and the finite-dimensional implicit-function theorem, as specified in `RESULT.md`. Independent scientific audit is not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original quantitative conclusion after matching exact objects, normalizations and implication checks. General piecewise D-finite moment inversion contains the problem class but not clearly the sharp fixed-sign minimal first-2m e^-t moments. The indicator sign-run argument derives uniqueness and exact local minimality with tied endpoint weights, not arbitrary weighted-spike inversion.
+
+## value
+
+PASS
+
+Identifiability of binary radial Gabor masks from labelled Hermite-mode observations is a natural finite inverse spectral problem. The sharp 2m threshold, all-mask uniqueness, one-dimensional ambiguity below threshold and explicit local Jacobian quantify measurement burden and instability; broader weighted spike theory does not mechanically give these exact Hermite observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

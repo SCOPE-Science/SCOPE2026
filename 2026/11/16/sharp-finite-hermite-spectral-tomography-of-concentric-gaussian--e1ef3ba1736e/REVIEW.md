@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses a fixed Gaussian-window localization normalization, a strictly ordered endpoint chamber, and labelled Hermite diagonal entries. Knutsen's radial formula independently supplies the exact moment representation. The global uniqueness argument requires no approximation: a signed difference of two at-most-\(m\)-component indicators has at most \(2m\) alternating sign-runs; a real polynomial of degree at most \(2m-1\) separates its signs, contradicting cancellation against each of the first \(2m\) positively weighted monomials. Direct differentiation gives the full Vandermonde Jacobian. Its determinant and nonvanishing \((2m-1)\)-row minors establish local analytic inversion and one-dimensional deficiency at the sharp smaller sample count. Lagrange polynomials give the exact inverse derivative. The checker tests the normalization, determinant, and an explicit deficient-data fiber; it does not stand in for the infinite proof.
+## correctness
 
-## Originality — PASS, provisional priority
-Jaming–Speckbacher (arXiv:1906.02964) establish planar STFT sampling estimates for known masks; Knutsen (arXiv:1907.00848) studies direct radial spectra and ring/Cantor norm bounds. Dewage–Ólafsson (arXiv:2107.01465) diagonalize quasi-radial Fock Toeplitz operators. Vetterli–Marziliano–Blu (2002) develop finite-rate-of-innovation reconstruction from suitable samples, with general weighted impulses, not this fixed Hermite moment map nor its sharp two-endpoints-per-annulus threshold. Batenkov (arXiv:0901.4665) treats broad piecewise D-finite moment inversion and arbitrary unknown amplitudes; his Example 3.3 concerns a different measurement reconstruction system and does not state the optimal 2m weighted Hermite moment theorem for binary annuli. Ramos (arXiv:2607.21590) formulates inverse free-boundary localization from prescribed eigenfunctions, not finite labelled eigenvalue observations. No examined primary result states or directly implies all of the present uniqueness, minimality, and explicit local inverse for the specific operator and mask class. Broad polynomial moment-variation and finite-innovation theory may conceal an implicit-equivalence or readily recoverable special case; this is a genuine priority risk rather than a claim of certified novelty.
+PASS
 
-## Value — PASS
-An exact finite-data tomography problem is solved at the intrinsic parameter count, with global rather than merely local identifiability. Sharpness holds at *every* strictly separated configuration, and an explicit inverse Jacobian quantifies why thin or remote rings are poorly conditioned. The result supplies a nontrivial benchmark for the design of Hermite-probe measurements of unknown phase-space masks without claiming broader nonradial or noisy inversion.
+Gaussian/Hermite STFT energy for radial binary masks integrates to λ_j=(1/j!)∫_E t^j exp(-t) dt with t=π|z|². For E,F unions of ≤m intervals, 1_E−1_F has ≤2m nonzero alternating sign-runs; a polynomial of degree ≤2m−1 with zeros between opposite runs has strictly signed weighted integral, contradicting equality of the 2m moments unless E=F. For exactly m intervals the endpoint derivative matrix is sign times weighted Vandermonde; determinant (-1)^m exp(-∑x_i)∏_(i<k)(x_k−x_i)/∏j! is nonzero. Dropping a row yields rank 2m−1 and analytic one-dimensional equal-moment fibers, proving necessity. Lagrange inversion gives the stated linear noise sensitivity, not a global noise guarantee. Independent m=2 endpoints (.3,1.1,2,3.7) determinant 0.00126476703225768 matches formula. Infinite uniqueness is the sign-change proof, not a finite test.
 
-## Limitations and independent verification
-The observations must retain Hermite indices, and radial binary geometry with an a priori component bound is essential. No uniform stability, noise-robust global solver, or unordered-spectrum inverse is asserted. Computations test finite examples only. Historical priority should be verified independently against specialist moment-inversion and operator-tomography literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original quantitative conclusion after matching exact objects, normalizations and implication checks. General piecewise D-finite moment inversion contains the problem class but not clearly the sharp fixed-sign minimal first-2m e^-t moments. The indicator sign-run argument derives uniqueness and exact local minimality with tied endpoint weights, not arbitrary weighted-spike inversion.
+
+## value
+
+PASS
+
+Identifiability of binary radial Gabor masks from labelled Hermite-mode observations is a natural finite inverse spectral problem. The sharp 2m threshold, all-mask uniqueness, one-dimensional ambiguity below threshold and explicit local Jacobian quantify measurement burden and instability; broader weighted spike theory does not mechanically give these exact Hermite observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

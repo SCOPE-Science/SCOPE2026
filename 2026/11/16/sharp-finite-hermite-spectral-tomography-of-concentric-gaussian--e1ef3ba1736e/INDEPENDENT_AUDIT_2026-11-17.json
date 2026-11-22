@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:14:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian/Hermite STFT energy for radial binary masks integrates to λ_j=(1/j!)∫_E t^j exp(-t) dt with t=π|z|². For E,F unions of ≤m intervals, 1_E−1_F has ≤2m nonzero alternating sign-runs; a polynomial of degree ≤2m−1 with zeros between opposite runs has strictly signed weighted integral, contradicting equality of the 2m moments unless E=F. For exactly m intervals the endpoint derivative matrix is sign times weighted Vandermonde; determinant (-1)^m exp(-∑x_i)∏_(i<k)(x_k−x_i)/∏j! is nonzero. Dropping a row yields rank 2m−1 and analytic one-dimensional equal-moment fibers, proving necessity. Lagrange inversion gives the stated linear noise sensitivity, not a global noise guarantee. Independent m=2 endpoints (.3,1.1,2,3.7) determinant 0.00126476703225768 matches formula. Infinite uniqueness is the sign-change proof, not a finite test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/0901.4665",
+          "https://arxiv.org/abs/1002.0639",
+          "https://arxiv.org/abs/2107.01465",
+          "Resultary Hermite annular tomography search"
+        ],
+        "reasoning": "Batenkov 2009 Example 3.3 covers piecewise-constant jump locations through general moment inversion, and Vandermonde sensitivity is familiar. It does not explicitly establish the tied binary annular 2m threshold and its Gabor spectral interpretation; a broader Chebyshev moment theorem might subsume uniqueness as a corollary.",
+        "searches": [
+          "Resultary: Gaussian Gabor localization concentric annuli finitely many Hermite eigenvalues inverse moments 2m uniqueness sharpness",
+          "web: arxiv PDF 0901.4665 Batenkov p1,p2,p15,p16; fast search moment union intervals 2m and arxiv:1002.0639"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0901.4665",
+        "https://arxiv.org/abs/1002.0639",
+        "https://arxiv.org/abs/2107.01465",
+        "Resultary Hermite annular tomography search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/0901.4665",
+          "https://arxiv.org/abs/1002.0639",
+          "https://arxiv.org/abs/2107.01465",
+          "Resultary Hermite annular tomography search"
+        ],
+        "reasoning": "General piecewise D-finite moment inversion contains the problem class but not clearly the sharp fixed-sign minimal first-2m e^-t moments. The indicator sign-run argument derives uniqueness and exact local minimality with tied endpoint weights, not arbitrary weighted-spike inversion.",
+        "searches": [
+          "Resultary: Gaussian Gabor localization concentric annuli finitely many Hermite eigenvalues inverse moments 2m uniqueness sharpness",
+          "web: arxiv PDF 0901.4665 Batenkov p1,p2,p15,p16; fast search moment union intervals 2m and arxiv:1002.0639"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/0901.4665",
+          "https://arxiv.org/abs/1002.0639",
+          "https://arxiv.org/abs/2107.01465",
+          "Resultary Hermite annular tomography search"
+        ],
+        "reasoning": "Courtney arXiv:1002.0639 proves indicator recovery for unions of circle arcs from Fourier partial sums; it is an analogous variation-diminishing moment phenomenon, not the same e^-t Hermite-indexed Gaussian radial experiment.",
+        "searches": [
+          "Resultary: Gaussian Gabor localization concentric annuli finitely many Hermite eigenvalues inverse moments 2m uniqueness sharpness",
+          "web: arxiv PDF 0901.4665 Batenkov p1,p2,p15,p16; fast search moment union intervals 2m and arxiv:1002.0639"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/0901.4665",
+          "https://arxiv.org/abs/1002.0639",
+          "https://arxiv.org/abs/2107.01465",
+          "Resultary Hermite annular tomography search"
+        ],
+        "reasoning": "Resultary found annular concentration and Hermite eigenmode crossings but no indexed 2m-mask recovery table; Batenkov has other minimal solvability requirements with independent unknown amplitudes.",
+        "searches": [
+          "Resultary: Gaussian Gabor localization concentric annuli finitely many Hermite eigenvalues inverse moments 2m uniqueness sharpness",
+          "web: arxiv PDF 0901.4665 Batenkov p1,p2,p15,p16; fast search moment union intervals 2m and arxiv:1002.0639"
+        ]
+      },
+      "rationale": "Best-of-knowledge original quantitative conclusion after matching exact objects, normalizations and implication checks. General piecewise D-finite moment inversion contains the problem class but not clearly the sharp fixed-sign minimal first-2m e^-t moments. The indicator sign-run argument derives uniqueness and exact local minimality with tied endpoint weights, not arbitrary weighted-spike inversion.",
+      "residual_risks": [
+        "Classical Chebyshev moment separation or finite rate of innovation could imply the uniqueness abstractly; novelty is the exact labelled Gaussian Hermite threshold and full Jacobian in this model.",
+        "No globally stable inverse algorithm or unordered-spectrum recovery is demonstrated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General moment inversion for unknown jumps and piecewise constants; Example 3.3 supplies Vandermonde sufficiency for an algorithm, but does not state sharp 2m Gaussian Hermite labelled mask inversion under tied binary jump signs",
+          "evidence": "Batenkov (2009), Example 3.3, Theorem 4.1 and conclusion",
+          "identifier_or_url": "https://arxiv.org/pdf/0901.4665",
+          "material_read": "Original 22-page PDF, introduction pp.1–2, main theorem overview, Example 3.3 pp.15–16, stability theorem pp.16–17 and conclusions p.18",
+          "method": "Open-access PDF text and screenshots of first two pages; sections read by indexed lines",
+          "title": "Moment inversion problem for piecewise D-finite functions",
+          "trigger": "Closest general piecewise-constant interval moment inversion and Vandermonde stability"
+        },
+        {
+          "assessment": "Analogous exact reconstruction of n arcs from Fourier moments; a priority risk for general finite-union moment reasoning, but kernel and geometry differ",
+          "evidence": "Courtney 2010 abstract, arXiv:1002.0639",
+          "identifier_or_url": "https://arxiv.org/abs/1002.0639",
+          "material_read": "Title and abstract only; PDF inaccessible",
+          "method": "arXiv public abstract, PDF attempt unavailable",
+          "title": "Unions of arcs from Fourier partial sums",
+          "trigger": "Analogous indicator support recovery using few Fourier coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifiability of binary radial Gabor masks from labelled Hermite-mode observations is a natural finite inverse spectral problem. The sharp 2m threshold, all-mask uniqueness, one-dimensional ambiguity below threshold and explicit local Jacobian quantify measurement burden and instability; broader weighted spike theory does not mechanically give these exact Hermite observations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/0901.4665",
+    "https://arxiv.org/abs/1002.0639",
+    "https://arxiv.org/abs/2107.01465",
+    "Resultary Hermite annular tomography search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical Chebyshev moment separation or finite rate of innovation could imply the uniqueness abstractly; novelty is the exact labelled Gaussian Hermite threshold and full Jacobian in this model.",
+    "No globally stable inverse algorithm or unordered-spectrum recovery is demonstrated."
+  ],
+  "residual_risks": [
+    "Classical Chebyshev moment separation or finite rate of innovation could imply the uniqueness abstractly; novelty is the exact labelled Gaussian Hermite threshold and full Jacobian in this model.",
+    "No globally stable inverse algorithm or unordered-spectrum recovery is demonstrated."
+  ],
+  "schema_version": 1
+}
