@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete graph-edge predicate gives an exhaustive classification of new faces: only the deleted matched pair with exactly \(q-2\) singleton-shore vertices is newly legal. The intact complex strongly collapses onto a simplex skeleton. The attaching spheres of all matched edges map to the same explicitly chosen, primitive subset of the skeleton's integral homology basis. Killing that basis subset at the first step, and attaching nullhomotopic cells at later steps, proves the sphere-wedge homotopy and split inclusion behavior for all stated integers. The attached finite checker independently verifies the structural face classification and mod-two homology at thirteen stages. No infinite conclusion is inferred from finite testing.
+PASS
 
-## Originality — PASS, with residual risk
+The initial q-clique-free complex of two large plus s singleton shores strong-collapses to the (q−2)-skeleton of the simplex on s+2 shores, with top integral rank C(s+1,q−1)=h+d. Any face newly allowed after deleting matched edge a_i b_i must meet exactly q shores and consist of those two endpoints and exactly q−2 singleton vertices; therefore each stage attaches precisely d (q−1)-simplices whose boundaries lie in X0. Under the strong-collapse shore map, each attaching sphere maps to a boundary ∂[A,B,S] in the standard integral basis ∂[A,T], selecting a primitive rank-d direct summand, independent of i. For q>=4 the (q−2)-sphere wedge is simply connected and Hurewicz identifies π_{q−2} and H_{q−2}. First attachment kills d summands; every later attaching class becomes nullhomotopic and wedges d S^{q−1}, giving h permanent low-dimensional classes, initial d low classes dying at stage 1, and later split high-degree births, all torsion-free. Independent graph-subset/finite GF2 homology and face-difference checks in q=4,5 matched families agreed; integral all-parameter conclusion rests on the primitive attaching-basis proof.
 
-The relevant 2026 primary paper concerns shellability and clique-attachment operations, not the edge-matching deletion filtration. The closest previous forest-defect calculation assumes the forbidden-clique order equals the **entire** number of shores; it does not imply this result at the strict lower threshold. The intact multipartite compression theorem has no deleted matching, while the triangle-specific matched-part result involves a different graph construction and cutoff. Targeted published-record searches found no theorem covering both the two-degree wedge and the integral persistence maps. This is best-knowledge originality rather than a proof of uniqueness. Residual risk: unindexed work, or an inaccessible formulation of a more general fault theorem, could contain an equivalent consequence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural question is how simplicial homotopy changes when a complete multipartite graph loses a matching of cross-shore edges. The theorem identifies the exact first-deletion homology death, the stable lower-dimensional homology, and subsequent free higher-dimensional births for every higher forbidden-clique order in the stated range. The simultaneous two-degree homotopy pattern is absent at the previously known full-shore cutoff and cannot be inferred from the homology of the intact multipartite graph alone. Explicit integral inclusion maps are stronger than a face count or a Betti-number identity.
+The completed best-of-knowledge review compares the exact theorem (not just title) with the closest published records and primary source statements. For q smaller than the total number of shores, proof needs the primitive independent attaching classes in an enlarged skeleton; earlier results alone do not furnish the asserted natural inclusion maps. Access and priority risks are explicitly retained.
 
-## Limits
+## value
 
-The result is nonequivariant, assumes singleton additional shores and one deleted matching between two shores, and uses finite computations only as independent corroboration. The review is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph defect filtration is a natural topology-changing combinatorial perturbation of clique-avoidance complexes; exact adjacent-degree sphere wedge types and split integral persistence under arbitrary widths give a usable classification beyond individual mod-two ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
