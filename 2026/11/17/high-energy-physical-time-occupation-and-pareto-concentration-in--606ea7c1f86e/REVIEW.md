@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved analytically for fixed \(0<a<b\) and \(d>0\). Differentiating the transformed coordinates yields a classical two-dimensional Lotka--Volterra system with the exact original-time clock \(dt=w_*W\,d\tau\). The energy levels are compact periodic curves. Eliminating the other coordinate gives an exact two-branch physical-time density, including the square-root singularities at its two turning points. The global inverse-branch bounds show that its excess mass above unit density is \(O(\log(2+h))\) while its support width is \(h/\lambda+O(\log(2+h))\), yielding both the physical-time period and total-variation Pareto limit. The probability concentration and persistent means follow from branch control and exact logarithmic balance identities. Algebraic identities and illustrative quadratures were recomputed from the attached checker. No numerical extrapolation is used in place of the proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For fixed 0<a<b,d>0, z-y=d and lambda=b-a, the exact change V=by/(ax),W=bd/(lambda x),d tau/dt=x gives classical LV equations V_tau=lambda V(1-W),W_tau=aW(V-1), and physical dt/dtau=(lambda/(bd))W. H=a f(V)+lambda f(W) has compact regular positive levels. Each inverse branch V=v_±(q_h(W)) supplies original-time density B_h(W)=1/(1-v_-)+1/(v_+-1). Near branch endpoints B-1=O(q^-1/2), in the bulk its excess is O(1/q)+exponentially small. The w-variable change has controlled Jacobian outside [1/2,2] and bounded middle error, proving I_h=h/lambda+O(log h) and T(h)=h/(abd)+O(log h). Thus lambda W/h approaches U(0,1) in total variation at O(log h/h); its reciprocal hX/(bd)=1/U approaches Pareto(1,1) in TV with same bound. The high-V branch has O(log h/h) physical mass and typical low-V branch V→0, so state→(0,0,d) in probability; integrating periodic log derivatives proves positive exact means bd/lambda,ad/lambda,bd/lambda. Independent check: Performed independent symbolic differentiation of V and W from the displayed mass-action system: both transformed derivative differences simplify identically to zero. Rechecked the endpoint inverse f(s)=s-1-log s derivative bounds, rescaled interval length, and exact normalization w*/(a lambda)=1/(abd). Prior finite-energy quadrature in source verification is supplemental only.
 
-Banaji--Boros--Hofbauer (arXiv:2304.02303v1, Section 5.2) supply the chemical model, center regime and coordinate time change. Boulnois (arXiv:2301.00673v1, Sections 3--4) and Genda--Fidlin--Lenci--Gendelman (DOI:10.1007/s11071-024-10667-y, Appendix C) analyze high-energy periods of the classical Lotka--Volterra oscillator. These prior results cover the reduction and anticipate the period scale, but do not state or give an implication establishing the **original physical-time weighted concentration distribution** and its \(O(\log(2+h)/h)\) total-variation approximation by a Pareto law, or the associated chemical-state concentration/mean contrast. The high-energy period asymptotic alone does not imply a quantitative phase-occupation law. Indexed semantic searches for equivalent formulations, all-parameter stronger theorems, and tables returned related but distinct chemical and center findings. Unindexed equivalent occupational asymptotics remain a publication-priority risk; a general high-energy Lotka--Volterra path formula could potentially be developed into another proof, but the inspected papers do not establish this quantitative theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A globally periodic chemical reaction center has a natural high-energy singular regime: its trajectories come arbitrarily close to a boundary extinction equilibrium while also making rare very large excursions. The theorem supplies a universal one-parameter Pareto law for the **observable concentration in physical time**, not just a period quadrature. In particular it proves that typical concentrations vanish while exact positive time means remain pinned at their interior equilibrium values; the distinction exposes a non-uniform-integrability mechanism and clarifies why averaged concentrations alone misrepresent high-amplitude chemical oscillations. The quantitative total-variation error controls the full event-probability law and is not a normalization or arbitrary finite calculation.
+Best-of-knowledge: examined primary source evidence, actual same-object implications, and published mathematical findings. Earlier constructions, generic formulas and independent source results are credited; the surviving quantitatively specified theorem is not implied by the directly inspected antecedents. No certification of absolute historical priority is asserted.
 
-## Closest literature and boundaries
+## value
 
-The center and its first integral are derived from the source's time-changed predator--prey system, not presented as novel. The historical large-energy period work is explicitly acknowledged. The new theorem applies only on strictly positive stoichiometric planes \(z-y=d>0\), for fixed \(0<a<b\) and large energy \(h\). No uniformity in parameters, noise robustness, or global off-plane attraction is asserted. The rate upper bound is not claimed optimal. The priority comparison is same-model and bounded to accessible indexed and full-text sources, not independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A physical-time chemical concentration converging to an explicit heavy-tailed Pareto law in total variation despite typical collapse to a boundary equilibrium is a substantive invariant-measure phenomenon. The exact nonzero means clarify rare-excursion lack of uniform integrability, and the error rate makes the result quantitatively usable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
