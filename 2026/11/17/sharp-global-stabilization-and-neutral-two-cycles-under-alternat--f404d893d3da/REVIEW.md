@@ -1,13 +1,21 @@
-# Scientific review: alternating-coordinate Lozi target feedback
+# Independent mathematical audit
 
-**Correctness — PASS.** The original Lozi map and the two complementary diagonal feedback operators are defined explicitly. Every fold-crossing orbit is controlled by the nonnegative two-step product \(L_BL_A\) via the global reverse-triangle inequality, with strictly positive matrix and characteristic polynomial \((1-b)-r[a^2+b(1-b)t]\) at one. This proves uniform all-plane exponential convergence exactly below the root. Above it, the true local return derivative is diagonally similar to the same positive matrix and is a saddle. At equality, the two explicit nonparallel nonzero phase directions map into each other while both x-coordinates are positive. The critical periodic family is exact, not inferred from a linear approximation. All parameter boundaries and initial-state quantifiers were checked; the rational checker replayed successfully.
+## correctness
 
-**Originality — PASS within inspected evidence.** Braverman–Rodkina's complete accessible manuscript [1], in particular sections 2.1, 2.2.2 and 2.3.2, supplies the same target-control framework and sufficient per-step/local bounds, but no necessary-and-sufficient two-step criterion for complementary one-coordinate interventions, and no corresponding critical continuum. The available Braverman–Chan [2] abstract concerns scalar pulse control. The public delayed-Lozi periodic-orbit finding [3] concerns a different uncontrolled family. Floquet, Schur and positive-matrix stability principles are standard and not claimed original. The risk is an unindexed equivalent two-step control theorem or stronger result containing this specialization; absence from the searches is not a proof of historical priority.
+PASS
 
-**Value — PASS.** This is the natural minimal resource-constrained temporal allocation: exactly one of two state coordinates is intervened on per step and the other is left unmodified. Its exact boundary is not obtained from sufficient one-step contraction theory, especially when the uncontrolled first-coordinate update is expanding. The theorem identifies a fully global-stabilization region across the nonlinear fold, resolves the sharp loss of target stability, and constructs a nonisolated family of exact critical two-season responses. It distinguishes physically different control schedules rather than merely renaming a constant-feedback inequality.
+The reverse triangle inequality | |x|-xi |<=|x-xi| with xi=1/(1+a-b)>0 gives global componentwise error matrices LA=[[ar,r],[b,0]], LB=[[a,1],[bt,0]], L=LB LA>0. Its trace is a²r+b+brt, determinant b²rt<1, and det(I-L)=1-b-r(a²+b(1-b)t). Positivity and determinant <1 imply rho(L)<1 iff r<r*, proving uniform full-plane two-season decay and one-step controlled bound. In positive target neighborhood, the actual return Jacobian Q=diag(1,-1)Ldiag(1,-1), so its Floquet multipliers coincide with L, proving supercritical saddle instability. At r* vectors v=(a,-b(1-b)t), w=(-(1-b),ab) satisfy J_A v=w and J_B w=v; for small nonzero eps both x coordinates stay positive, so affine dynamics agrees with exact nonlinear absolute-value map. Thus an actual nonconstant period-two calendar orbit exists at criticality. Exact rational checks at (a,b,t)=(7/5,3/10,1/2) gave r*=140/413 and the cycle; additional independent floating matrix calculations for other parameters supported, not proved, the algebra.
 
-**Limitations and inspection depth.** The classification does not address arbitrary schedules or off-target equilibria. Full scientific sections of [1] were read in lawful open HTML; [2] was inspected through a publicly available abstract only. All-case assertions derive from the written proof, not 108 tested paths.
+## originality
 
-**References:** [1] https://arxiv.org/html/2208.09092v1 ; [2] https://pubmed.ncbi.nlm.nih.gov/24697381/ ; [3] https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-delay-parity-bifurcations-of-prime-two-cycles-in-the-generalized--61b734b81bc7.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS: the model-specific earlier target-oriented control paper provides sufficient one-step and local bounds but does not in the inspected theorem/Lozi sections establish the unrestricted-plane exact two-step threshold or the critical continuum. Prior delayed Lozi recurrence and scalar pulse control concern different map/control classes.
+
+## value
+
+PASS
+
+The exact global stability threshold for feedback that acts on only one coordinate each season is substantively stronger than conservative one-step sufficient control and supplies precise failure dynamics at the threshold. This identifies a natural periodic actuator-scheduling robustness boundary rather than a minor algebraic rearrangement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The self-contained analytic proof in `RESULT.md` establishes the full-plane estimates and all boundary claims for every real parameter within the stated domain. The executable `checker.py` uses only standard-library rational arithmetic, with the concrete parameters \(a=7/5\), \(b=3/10\), \(t=1/2\).
+## correctness
 
-Run `python3 checker.py`. Expected output:
+PASS
 
-`PERIODIC_LOZI_COORDINATE_SHARP_OK exact_matrix_cases=3 comparison_trajectories=108 critical_two_cycles=3`
+The reverse triangle inequality | |x|-xi |<=|x-xi| with xi=1/(1+a-b)>0 gives global componentwise error matrices LA=[[ar,r],[b,0]], LB=[[a,1],[bt,0]], L=LB LA>0. Its trace is a²r+b+brt, determinant b²rt<1, and det(I-L)=1-b-r(a²+b(1-b)t). Positivity and determinant <1 imply rho(L)<1 iff r<r*, proving uniform full-plane two-season decay and one-step controlled bound. In positive target neighborhood, the actual return Jacobian Q=diag(1,-1)Ldiag(1,-1), so its Floquet multipliers coincide with L, proving supercritical saddle instability. At r* vectors v=(a,-b(1-b)t), w=(-(1-b),ab) satisfy J_A v=w and J_B w=v; for small nonzero eps both x coordinates stay positive, so affine dynamics agrees with exact nonlinear absolute-value map. Thus an actual nonconstant period-two calendar orbit exists at criticality. Exact rational checks at (a,b,t)=(7/5,3/10,1/2) gave r*=140/413 and the cycle; additional independent floating matrix calculations for other parameters supported, not proved, the algebra.
 
-The checker confirms the exact two-step Jacobian and positive comparison matrices, determinant and trace identities and threshold for \(r=1/4\), \(r=140/413\), \(r=1/2\). It checks the global comparison on 108 finite initial trajectories and three critical two-season cycles with positive coordinates in both phases. These finite checks do not assert exhaustive initial-state coverage or prove convergence as iteration count grows. The universal assertions follow from the explicit matrix inequality and its eigenvalue analysis.
+## originality
 
-No independent mathematical validation has been conducted. The originality assessment is based on inspected and accessible published scientific statements and is not proof of bibliographic uniqueness.
+PASS
+
+Best-of-knowledge PASS: the model-specific earlier target-oriented control paper provides sufficient one-step and local bounds but does not in the inspected theorem/Lozi sections establish the unrestricted-plane exact two-step threshold or the critical continuum. Prior delayed Lozi recurrence and scalar pulse control concern different map/control classes.
+
+## value
+
+PASS
+
+The exact global stability threshold for feedback that acts on only one coordinate each season is substantively stronger than conservative one-step sufficient control and supplies precise failure dynamics at the threshold. This identifies a natural periodic actuator-scheduling robustness boundary rather than a minor algebraic rearrangement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:57:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reverse triangle inequality | |x|-xi |<=|x-xi| with xi=1/(1+a-b)>0 gives global componentwise error matrices LA=[[ar,r],[b,0]], LB=[[a,1],[bt,0]], L=LB LA>0. Its trace is a²r+b+brt, determinant b²rt<1, and det(I-L)=1-b-r(a²+b(1-b)t). Positivity and determinant <1 imply rho(L)<1 iff r<r*, proving uniform full-plane two-season decay and one-step controlled bound. In positive target neighborhood, the actual return Jacobian Q=diag(1,-1)Ldiag(1,-1), so its Floquet multipliers coincide with L, proving supercritical saddle instability. At r* vectors v=(a,-b(1-b)t), w=(-(1-b),ab) satisfy J_A v=w and J_B w=v; for small nonzero eps both x coordinates stay positive, so affine dynamics agrees with exact nonlinear absolute-value map. Thus an actual nonconstant period-two calendar orbit exists at criticality. Exact rational checks at (a,b,t)=(7/5,3/10,1/2) gave r*=140/413 and the cycle; additional independent floating matrix calculations for other parameters supported, not proved, the algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braverman–Chan 2014 pulse target control is a scalar-map study, unlike the two-coordinate Lozi alternating product.",
+          "Lozi per-step sufficient inequalities from 2022 are violated for some admissible stable two-season schedules because the second uncontrolled first coordinate is expanding."
+        ],
+        "reasoning": "General control sufficient criteria in inspected sources do not imply sharp necessity and a critical continuum for this periodic schedule.",
+        "searches": [
+          "alternating coordinate target oriented control Lozi map global stabilization exact threshold two cycles",
+          "https://pubmed.ncbi.nlm.nih.gov/24697381/",
+          "https://www.researchgate.net/publication/361404155_On_target-oriented_control_of_Henon_and_Lozi_maps"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1080/10236198.2022.2088286",
+        "https://www.researchgate.net/publication/361404155_On_target-oriented_control_of_Henon_and_Lozi_maps",
+        "https://pubmed.ncbi.nlm.nih.gov/24697381/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-step map B_t expands its first-coordinate linear comparison for a>1, so a one-step strict contraction premise fails though LB LA may be Schur stable.",
+          "At r*=... the nonzero eigenvalue-one direction constructs an exact nonlinear cycle because both stages remain on one affine branch."
+        ],
+        "reasoning": "The two-step comparison and conjugacy Q=SLS supply global sufficiency and local necessity not furnished by prior per-step estimates; a local Floquet bound alone would not imply global convergence across the fold.",
+        "searches": [
+          "alternating coordinate target oriented control Lozi map global stabilization exact threshold two cycles",
+          "https://doi.org/10.1080/10236198.2022.2088286"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Braverman–Rodkina 2022 studies diagonal target-control matrices and local/per-step contraction criteria; their displayed conditions differ from a two-season product where one coordinate is uncontrolled each step."
+        ],
+        "reasoning": "The earlier Lozi map is the same object, but the exact alternating schedule, full-plane quantifier and neutral two-season family are additional statements not obtained by matching the map name.",
+        "searches": [
+          "alternating coordinate target oriented control Lozi map global stabilization exact threshold two cycles",
+          "https://doi.org/10.1080/10236198.2022.2088286",
+          "https://www.researchgate.net/publication/361404155_On_target-oriented_control_of_Henon_and_Lozi_maps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Lozi exact-cycle results concern autonomous or delayed recurrence cycles, not a two-season feedback return map."
+        ],
+        "reasoning": "The exact threshold is an open-continuum parameter formula and not a preexisting table of numerical cycles; the other cycle classifications do not directly yield it.",
+        "searches": [
+          "alternating coordinate target oriented control Lozi map global stabilization exact threshold two cycles",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-one-two-three-primitive-four-cycle-transition-in-the-lozi--6c38d491d93d"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the model-specific earlier target-oriented control paper provides sufficient one-step and local bounds but does not in the inspected theorem/Lozi sections establish the unrestricted-plane exact two-step threshold or the critical continuum. Prior delayed Lozi recurrence and scalar pulse control concern different map/control classes.",
+      "residual_risks": [
+        "Historical priority beyond indexed control results cannot be certified; not all related switching-control manuscripts were accessible.",
+        "Exact theorem assumes one fixed alternating two-season schedule and positive target with a>1, 0<b,r,t<1; it does not cover random switching or saturated controls.",
+        "Finite checker trajectories are diagnostics, while full-plane statement follows analytic positive matrix comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient per-step/local control, not an exact unrestricted alternating-coordinate two-step sharp theorem in inspected portions.",
+          "evidence": "Per-step contraction criteria do not apply when the uncontrolled coordinate has expanding a>1.",
+          "identifier_or_url": "https://www.researchgate.net/publication/361404155_On_target-oriented_control_of_Henon_and_Lozi_maps",
+          "material_read": "Accessible full article text portions: Theorem 2.1, Proposition 2.5, remarks and Lozi applications.",
+          "method": "Read lawful public research article text.",
+          "title": "On target-oriented control of Hénon and Lozi maps",
+          "trigger": "Same Lozi map and target-oriented feedback"
+        },
+        {
+          "assessment": "Scalar pulse feedback cannot be assumed to cover the two-coordinate switching Lozi product.",
+          "evidence": "Article explicitly described scalar regular/pulse target control.",
+          "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/24697381/",
+          "material_read": "Accessible abstract and bibliographic record, not entire article.",
+          "method": "Public PubMed record.",
+          "title": "Stabilization of prescribed values and periodic orbits with regular and pulse target oriented control",
+          "trigger": "Potential pulse/periodic target control generalization"
+        },
+        {
+          "assessment": "Autonomous family primitive cycles differ from controlled two-calendar orbit continuum.",
+          "evidence": "Parameter is internal autonomous map rather than alternating coordinate gain pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-one-two-three-primitive-four-cycle-transition-in-the-lozi--6c38d491d93d",
+          "material_read": "Resultary indexed mathematical finding and summary, not entire proof.",
+          "method": "Resultary semantic search.",
+          "title": "Exact one-two-three primitive-four-cycle transition in the Lozi family",
+          "trigger": "Potential exact Lozi cycle table overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact global stability threshold for feedback that acts on only one coordinate each season is substantively stronger than conservative one-step sufficient control and supplies precise failure dynamics at the threshold. This identifies a natural periodic actuator-scheduling robustness boundary rather than a minor algebraic rearrangement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Lozi map F(x,y)=(1-a|x|+y,bx), a>1 and 0<b<1, alternating first-coordinate target feedback with retention r and second-coordinate feedback with t globally exponentially stabilizes the positive target iff r<(1-b)/(a²+b(1-b)t). The equality frontier has nonconstant exact two-season cycles for a continuum of amplitudes; above it the two-step target is a saddle.",
+  "limitations": [
+    "Historical priority beyond indexed control results cannot be certified; not all related switching-control manuscripts were accessible.",
+    "Exact theorem assumes one fixed alternating two-season schedule and positive target with a>1, 0<b,r,t<1; it does not cover random switching or saturated controls.",
+    "Finite checker trajectories are diagnostics, while full-plane statement follows analytic positive matrix comparison."
+  ],
+  "schema_version": 1
+}
