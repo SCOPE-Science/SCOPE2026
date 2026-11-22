@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact centered-write-noise second moments yield a diagonal squared-error quadratic form. Strict convexity in eigenvalue proves only spectral endpoints can dominate. Both unique roots exist by monotone functions; their branch structure proves one global minimizer. A Descartes one-sign-change cubic proves the unique parameter phase boundary. The 2x2 rational counterexample and SNR calculation are exact. The included standard-library checker verifies 1056 individual finite assertions; the universal claims rely on the analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shah et al. (2026), Section 3.3 gives a more general SPD shifted-target SNR condition, but not a minimax true-inverse-risk solution. Etter and Ying (2022) allow general random input matrices but optimize a different matrix estimator and norm."
+      ],
+      "reasoning": "Greater matrix generality is not stronger coverage when the loss or random mechanism differs. The current diagonal specialization includes an exact optimality and phase comparison not implied by either general result.",
+      "searches": [
+        "analog digital preconditioning centered additive write-noise diagonal SPD block shift optimal worst-case mean-square true inverse accuracy sharp two-regime threshold",
+        "eigenvalue extremal modes minimax ridge bias variance noise scaling max entry shifted inverse",
+        "https://arxiv.org/abs/2606.17227",
+        "https://doi.org/10.1137/21M1416849"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.17251v1 (Sections 2 and 3.3)",
+      "arxiv:2606.17227 (Sections 3.4 and 4.2.1)",
+      "DOI:10.1137/21M1416849 (Introduction and Theorem 6.1)",
+      "Relevant online indexed mathematical findings (summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Theorem 4: programming noise versus the shifted target; source equation (61): deterministic inverse bias. Present claim combines both in the worst-direction expected error relative to exact unshifted solution. Source text after (62) describes a feasible reference shift, not a minimax result."
+      ],
+      "reasoning": "The source SNR guarantee neither minimizes nor upper-bounds the total exact-solution error in the way needed to derive the optimum. Our rational example (κ=2, c=7/12) gives a minimizer that fails the SNR test while SNR-safe shifts exist; therefore a feasibility-optimal shift cannot imply this risk-minimizing policy.",
+      "searches": [
+        "https://arxiv.org/html/2611.17251v1",
+        "Noise-Adaptive Analog-Digital Preconditioning optimal regularization shift minimax inverse output error additive write noise diagonal SPD extremes",
+        "analog digital preconditioning centered additive write-noise diagonal SPD block shift optimal worst-case mean-square true inverse accuracy sharp two-regime threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.17251v1 eqs. (60),(61) separately; Etter–Ying (2022) eqs. (1.3),(1.4) and Theorem 6.1 optimize a different additive estimator."
+      ],
+      "reasoning": "Transforming the objective into a worst singular quadratic correction error leads to the maximum of two different modal functions. The cited primary models do not state or derive the optimal minimax shift or critical root; the additive-shrinkage operator theorem is not an equivalent parameterization.",
+      "searches": [
+        "\"shifted inverse\" \"write noise\" minimax risk",
+        "Noise-Adaptive Analog-Digital Preconditioning optimal regularization shift minimax inverse output error additive write noise diagonal SPD extremes",
+        "minimax mean squared preconditioner bias variance diagonal regularization analog in memory noise shifted inverse two eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed records on bounded inverse-preconditioner safeguards (2026/10/13), deterministic regularized Gauss–Newton (2026/11/8), and rank-one PCG angular safeguards (2026/10/12) have distinct model, output and parameter objectives."
+      ],
+      "reasoning": "No matching exact table, stored threshold, or exact objective was returned in the recorded searches. These summaries are partial evidence only and cannot prove absence of unindexed or inaccessible results.",
+      "searches": [
+        "regularization optimal shift under entrywise matrix write perturbations analog crossbar inverse diagonal spectral extremes",
+        "phase transition equalizing worst-case inverse relative MSE programming noise"
+      ]
+    },
+    "rationale": "The primary source gives an SNR threshold for implementing the shifted target plus a separate bias formula, not the minimax total true-inverse risk or its unique stationary/crossing phase diagram. Prior general operator-shifting theory uses a different estimator and noise distribution. Indexed relevant findings also optimize different risk functions or noise mechanisms; no known statement implies the exact cubic frontier and the infeasible-but-optimal shift example. Historical completeness is unproved.",
+    "residual_risks": [
+      "Published indexed mathematical findings were not all accessible as full packages; only returned title/claim summaries could be compared.",
+      "Unindexed or inaccessible older literature could contain an equivalent result.",
+      "Optimization and SNR statements are for a deliberately simplified diagonal block, not arbitrary SPD bases or deployed hardware."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact centered second-moment write model and worst shifted-target implementation-error threshold are given, as well as deterministic bias per mode, but no minimax true-inverse risk optimum, endpoint phase law, or infeasible-optimum example.",
+        "evidence": [
+          "Sections 3.3, Theorem 4 (equations (55)–(60)), bias equation (61), feasible shift (62), and text after equation (62)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.17251v1",
+        "material_read": "Sections 2.1–2.2, Section 3.3 including Theorem 4, proof, equations (54)–(62), and the transition to experiments; introduction and definitions.",
+        "method": "Direct readable primary HTML manuscript, comparing the definitions and the precise claimed implications.",
+        "title": "Noise-Adaptive Analog–Digital Preconditioning",
+        "trigger": "Identical write-noise distribution, shift parameter, and maximum-entry programming scale."
+      },
+      {
+        "assessment": "Studies analog shift and damping in inner blocks with FGMRES performance; does not determine the stated write-noise-coupled minimax solution-risk law.",
+        "evidence": [
+          "Section 3.4 discusses adding an identity safeguard to a shifted analog block; Section 4.2.1 compares iteration counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.17227",
+        "material_read": "Abstract, Section 3.4 on damping/shifting/nested Jacobi, and Section 4.2.1 experiments.",
+        "method": "Readable primary preprint text, checking equations and numerical design objectives.",
+        "title": "Hybrid Digital-Analog Approximate Inverse Preconditioning for Krylov Methods",
+        "trigger": "Earlier method by overlapping authors with diagonal shifts, damping and analog noise."
+      },
+      {
+        "assessment": "Optimizes additive corrections of an estimated inverse of a noisy coefficient matrix under a different residual norm and distribution. Its theorem guarantees shift sign; it does not optimize regularization inside the deterministic programmed inverse or imply this two-branch threshold.",
+        "evidence": [
+          "Introduction (1.3)–(1.4) and Theorem 6.1 (6.2)–(6.3) define a different estimator and loss."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/21M1416849",
+        "material_read": "Published PDF abstract and Introduction section 1.1, primary definition (1.3)–(1.4), Section 6 around Theorem 6.1 and its proof.",
+        "method": "Author-hosted PDF, extracted text and page-image inspection.",
+        "title": "Operator Shifting for General Noisy Matrix Systems",
+        "trigger": "Potentially stronger general optimal shift result for noisy inverse estimation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3ba897f2-57e9-4acf-ab9b-0879f6a86c7d",
+  "value": {
+    "rationale": "The programming shift is an explicit natural design variable in the underlying model. Its best true-solution approximation shift differs in a provable, sharp region from what implementation-only SNR feasibility would suggest, so the theorem gives a nontrivial decision boundary and a false-equivalence counterexample. Scope is restricted, and it does not imply solver speedup or realistic-hardware advantage.",
+    "status": "PASS"
+  }
+}
