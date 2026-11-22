@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The circle characteristic equation is transformed exactly into a projective Riccati equation with a trace-zero two-by-two linear lift, giving a Möbius stroboscopic map. The two unperturbed fold points are nondegenerate; temporal reversal pins the perturbed fold phases. Their second-order shifts follow from solvability of the explicit first- and second-order periodic equations. A time-origin conjugacy forces the fold speeds to be analytic even functions of perturbation amplitude, giving fourth-order error terms. The speed enclosure and Möbius fixed-point bound exclude unaccounted one-to-one cycles at small amplitude. Structural non-subharmonic and exact multiplier reciprocity claims are consequences of projective monodromy. The standalone checker reproduced symbolic identities and all tested numerical boundaries. No finite computation is used as an infinite proof.
+## correctness
 
-## Originality — PASS within inspected literature
-The primary full text by Davies and Hiltunen (arXiv:2610.16847, §§3–5) identifies characteristic limit cycles and computes perturbations of **hyperbolic** cycles; its Proposition 4.3 assumes nonzero Floquet exponent, so it does not determine the saddle-node boundaries or the dependence of their signed separation on the second grating's travel direction. The explicit first-harmonic Riccati structure is classical and is not separately advertised as a novel mechanism. Gandhi, Knobloch, and Beaume (arXiv:1509.03582) analyze periodically forced Adler phase slips with an additive frequency drive, not the moving-grating coupling and these speed-index-dependent fold coefficients. Tsarev and Fominov (arXiv:2505.20502) explicitly acknowledge integer-only mode locking for single-harmonic phase currents, supporting the classical nature of the no-subharmonic obstruction. Semantic search among published mathematical records returned only different circle maps, wave systems, and locking mechanisms; no covering statement or dominating two-grating expansion was found. Residual historical priority risk remains: standard perturbative projective-flow literature may contain an equivalent coefficient formula under other variables.
+PASS
 
-## Mathematical value — PASS
-The primary wave-characteristic study uses two travelling gratings and relates attracting locked characteristics to energy focusing, but its numerical trapping windows do not quantify how the admissible speed band reacts to the direction of a weak added wave. The present paired, exact-coefficient fold expansion determines a physically interpretable directional effect: widening for stationary/counterpropagating modulation versus narrowing for faster co-propagation. The global first-spatial-harmonic Möbius restriction additionally clarifies which types of higher-period locking the model cannot support. This is a motivated parameter boundary of a published model, not an arbitrary isolated calculation.
+The moving-frame substitution y=x-vt gives a first-spatial-harmonic Riccati equation under z=tan(y/2), lifted to a trace-zero 2x2 system. The stroboscopic map is PSL(2,R), implying at most two fixed points and reciprocal hyperbolic derivatives; its nontrivial higher-period points cannot attract in isolation. Reversibility R(y)=-y pins simple parabolic folds at y=pi near v=1 and y=0 near v=3. At each fold, solve the periodic first-order forced equation y1=±sin(kv0t)/(kv0), integrate its second-order solvability condition, giving respectively 1/(2k)+1/(4k²) and 1/(6k)-1/(36k²). A half-period time shift conjugates +epsilon to -epsilon and forces even analytic folds. Bounding all locked speeds in [1-|epsilon|,3+|epsilon|] plus compact continuation excludes remote fixed branches. Independent numerical shooting checked coefficients for eight (k,epsilon) combinations; no quantitative statement relies solely on finite checks.
 
-## Limitations and comparison risk
-The signed effect is proved for fixed integer secondary-to-primary velocity ratio and sufficiently small secondary amplitude. It does not address arbitrary spatial harmonics, long-range energy growth in the non-impedance-matched wave PDE, or exact finite-strength tongue boundaries. Standard forced-Riccati theory may subsume some structural statements, and independent scholarly priority review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Davies–Hiltunen examine characteristic accumulation and report two-wave saddle nodes, a strong relevance trigger, but the inspected abstract and source discussion do not establish the explicit paired fold coefficients or their k-sign comparison. Their full text was not lawfully retrievable during this run, so this priority risk remains explicit; general Adler/RSJ first-harmonic theory supplies Riccati organization but not the stated explicit wave-speed dependent pair by itself.
+
+## value
+
+PASS
+
+The sign reversal of the width deformation distinguishes faster co-propagating from stationary/counter-propagating gratings in an identified wave-characteristic model, and the complete small-amplitude locking boundary is a motivated stability threshold. It is not merely the classical no-subharmonic Möbius observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

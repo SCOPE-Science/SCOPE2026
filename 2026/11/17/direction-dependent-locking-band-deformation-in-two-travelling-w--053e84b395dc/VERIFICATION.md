@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python check.py` with installed NumPy, SciPy and SymPy. The checker reconstructs the exact tangent-half-angle polynomial, asserts the coefficient formulas algebraically, finds the two neutral return-map folds by shooting from their symmetry-pinned phases for four integers \(k\in\{-2,-1,1,2\}\) and three perturbation strengths \(0.1,0.05,0.025\), and checks four pairs of reciprocal Floquet multipliers.
+## correctness
 
-The observed terminal marker was `VERIFY_OK symbolic_projective=1 quadratic_coefficients=1 fold_cases=12 reciprocal_pairs=4`. For \(k=1\), the widths at perturbations \(0.1,0.05,0.025\) were approximately \(1.994004349813\), \(1.998479609051\), and \(1.999618519995\), consistent with quadratic contraction. For \(k=-1\), the corresponding widths were \(2.000552890388\), \(2.000138723015\), and \(2.000034711866\), consistent with quadratic expansion. Reciprocal multiplier products had errors below \(10^{-9}\) in the four tested cases.
+PASS
 
-These are **finite corroborative checks**, not exhaustive verification of all parameters or proof of the infinite-dimensional statements. The analytic arguments in `RESULT.md` establish the Möbius restriction, nondegenerate folds, even-parity, quadratic coefficients, and global local-amplitude locking census. The source model and historical novelty require independent mathematical review.
+The moving-frame substitution y=x-vt gives a first-spatial-harmonic Riccati equation under z=tan(y/2), lifted to a trace-zero 2x2 system. The stroboscopic map is PSL(2,R), implying at most two fixed points and reciprocal hyperbolic derivatives; its nontrivial higher-period points cannot attract in isolation. Reversibility R(y)=-y pins simple parabolic folds at y=pi near v=1 and y=0 near v=3. At each fold, solve the periodic first-order forced equation y1=±sin(kv0t)/(kv0), integrate its second-order solvability condition, giving respectively 1/(2k)+1/(4k²) and 1/(6k)-1/(36k²). A half-period time shift conjugates +epsilon to -epsilon and forces even analytic folds. Bounding all locked speeds in [1-|epsilon|,3+|epsilon|] plus compact continuation excludes remote fixed branches. Independent numerical shooting checked coefficients for eight (k,epsilon) combinations; no quantitative statement relies solely on finite checks.
+
+## originality
+
+PASS
+
+Davies–Hiltunen examine characteristic accumulation and report two-wave saddle nodes, a strong relevance trigger, but the inspected abstract and source discussion do not establish the explicit paired fold coefficients or their k-sign comparison. Their full text was not lawfully retrievable during this run, so this priority risk remains explicit; general Adler/RSJ first-harmonic theory supplies Riccati organization but not the stated explicit wave-speed dependent pair by itself.
+
+## value
+
+PASS
+
+The sign reversal of the width deformation distinguishes faster co-propagating from stationary/counter-propagating gratings in an identified wave-characteristic model, and the complete small-amplitude locking boundary is a motivated stability threshold. It is not merely the classical no-subharmonic Möbius observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
