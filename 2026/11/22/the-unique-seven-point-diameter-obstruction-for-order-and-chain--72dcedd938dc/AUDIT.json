@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The exhaustive generation covers every poset because each has a linear extension; exact transitive closure enumerates every relation. Established ideal/antichain edge criteria and integer BFS give exact graph diameters. Executing CHECK.py reproduced 40/357/4824/96428 upward-labelled orders, 0/1/66/3705 containing X, and exactly 46 seven-element discrepancies, forming two dual isomorphism classes. The source independently proves the representative diameters (2,3). No floating point or sample extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lee 2026 proves equal diameters for several large poset families and exhibits one seven-element mismatch, but its Section 4.6 does not state all-order cutoff/uniqueness.",
+        "Goel 2026 concerns face-number domination, not graph diameter."
+      ],
+      "reasoning": "General diameter bounds via poset width and component counts are insufficient to rule out every six-element counterexample or to classify all seven-element posets. The exhaustive enumeration is the missing ingredient.",
+      "searches": [
+        "A refinement of the edge theorem for order and chain polytopes arxiv:2610.07413 Section 4.6",
+        "Goel order chain polytopes diameter differences seven element 2026",
+        "order and chain polytopes graph diameters for at most six elements coincide"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.07413 full text",
+      "arxiv:1508.00187 abstract",
+      "arxiv:2610.40703 abstract",
+      "Published studies on order–chain polytope minimum width and vertex dispersion",
+      "Published poset-polytope literature and related geometric findings searched for the same graph-diameter statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lee provides P1 and its diameters, a 9-element witness with reverse inequality, and several sufficient equal-diameter classes.",
+        "The new enumeration proves that every 6-element poset has equal diameter and that every 7-element exceptional poset is isomorphic to P1 or its dual."
+      ],
+      "reasoning": "Published example + equality for some families does not imply a universal six-element statement, and neither example nor width bounds imply classification up to duality. New finite exhaustive enumeration supplies strictly stronger evidence and assertions for the specified cardinalities.",
+      "searches": [
+        "arxiv:2610.07413 Example 1.6 Proposition 4.41 Theorem 1.5",
+        "arxiv:1508.00187 edge numbers order chain polytopes",
+        "arxiv:2610.40703 Hibi–Li conjecture"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lee 2026, Theorem 1.5 and Proposition 4.41: two different one-skeleton graphs can have diameters 2 and 3 at seven elements; no cutoff or classification claim appears there.",
+        "Hibi et al. 2015: same edge counts does not entail equal graph diameters."
+      ],
+      "reasoning": "Equivalent forms include first dimension of unequal graph diameters and smallest poset witnessing a diameter discrepancy. Neither is implied by a single 7-element example, or by edge-number equality.",
+      "searches": [
+        "minimum poset size dimension different diameter order polytope chain polytope seven minimal witness",
+        "order and chain polytopes graph diameters for at most six elements coincide",
+        "seven element minimal example diameter order chain polytope X poset",
+        "\"order polytope\" \"chain polytope\" \"diameter\" \"seven\" minimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible published geometric findings addressed Euclidean width and vertex dispersion rather than the exact minimum dimension for divergent graph diameters.",
+        "Targeted research searches found published studies of Euclidean width, radii and vertex dispersion but no exact graph-diameter minimum classification."
+      ],
+      "reasoning": "The computed two-isomorphism-type count is not found in the searched records; no exhaustive prior database/table for order–chain diameter discrepancy was identified. Search absence alone is not proof of uniqueness in literature.",
+      "searches": [
+        "minimum poset size dimension different diameter order polytope chain polytope seven minimal witness",
+        "seven element minimal example diameter order chain polytope X poset",
+        "\"two\" \"seven-element posets\" \"chain polytope\" diameters"
+      ]
+    },
+    "rationale": "The exact minimal cardinality and the complete duality-orbit classification are not stated in the primary full text; Lee proves existence of one seven-element witness but no minimality or classification. Exhaustive exact enumeration supplies a further non-implied assertion. Targeted searches found metric-width/inertia results but no dominating diameter classification; older independent computations remain a residual priority risk.",
+    "residual_risks": [
+      "Historical unpublished/uncatalogued finite-poset enumeration could have noted the minimality/duality classification.",
+      "Some older pertinent order-polytope sources were only available as abstracts; these were not claimed fully excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers existence of seven-element witness and graph edge criteria, not the minimality at 7 or unique isomorphism/duality classification",
+        "evidence": [
+          "2026-10-05 first arXiv public date",
+          "Theorem 1.5 gives adjacency criteria",
+          "Proposition 4.41(i) proves O(P1) diameter 2 and C(P1) diameter 3",
+          "Theorem 2 gives X-free unimodular equivalence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.07413",
+        "material_read": "Accessible primary HTML full-text edition, with direct reading of the introduction, Theorem 1.5, Section 4.6 and Proposition 4.41, and contextual sections on graph isomorphism",
+        "method": "Read primary full text and compared claim hypotheses, quantifiers, graph diameters and seven-element witness",
+        "title": "A refinement of the edge theorem for order and chain polytopes",
+        "trigger": "Same objects and existing seven-element example; decisive priority comparison"
+      },
+      {
+        "assessment": "No direct implication for minimum graph-diameter disparity; full text was not exhaustively inspected",
+        "evidence": [
+          "The 2015 result establishes equality of edges and a degree-sequence equivalence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.00187",
+        "material_read": "Abstract and stated theorem summary",
+        "method": "Compared documented results on edges and degree sequences, not whole-paper exclusion",
+        "title": "The numbers of edges of the order polytope and the chain poyltope of a finite partially ordered set",
+        "trigger": "Original edge equality theorem and graph-degree result"
+      },
+      {
+        "assessment": "Addresses face numbers rather than graph diameters; priority risk limited but not ruled out by an abstract alone",
+        "evidence": [
+          "2026-10-28 preprint statement addresses face counts at k≥2 and equal edge case"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.40703",
+        "material_read": "Primary abstract and stated face-number theorem",
+        "method": "Compared face-count dominance with the graph-metric target",
+        "title": "The Hibi--Li (2016) conjecture is fully resolved",
+        "trigger": "Later comprehensive poset polytope face-number comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "72dcedd9-38dc-44b8-b8a5-e2ccc2c1c522",
+  "value": {
+    "rationale": "The first dimension in which Ehrhart- and edge-count-equivalent poset polytopes can have different one-skeleton diameters is a natural geometric-combinatorial obstruction problem raised by Lee’s 2026 examples. A complete minimal-size classification up to duality, with no excluded seven-element exceptions, provides a reusable sharp cutoff and rigorous finite obstruction census. This is not a routine rescaling or a mere recomputation of the known witness.",
+    "status": "PASS"
+  }
+}
