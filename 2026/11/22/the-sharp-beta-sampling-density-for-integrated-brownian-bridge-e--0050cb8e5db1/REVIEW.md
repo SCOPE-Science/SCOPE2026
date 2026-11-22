@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact risk identity is derived from the conditional Gaussian bridge covariance and Isserlis' identity. The sharp lower constant follows from a mesh-dependent discrete Hölder inequality, and the Beta quantile grid attains it with boundary-tail estimates; the proof covers weakly ordered and repeated readings by continuity. Independent symbolic and exact-rational verification, plus Gaussian covariance quadrature, support the computational identities but do not substitute for the infinite proof.
+
+**Originality — PASS (provisional historical priority).** The recorded exact two-reading formula for the same nonlinear Brownian-bridge functional does not imply a sharp all-\(n\) asymptotic risk or a continuum quantile density. The most relevant published results use either distinct path information (Foster–Lyons–Oberhauser, 2019), the Brownian-bridge kernel interpolation power function (Santin, 2022), or integrated path-prediction error (Cui–Chronopoulou, 2023). Several semantically related numerical-design records likewise treat linear quadrature rather than this quadratic path functional. The inspected source sections contain no established implication giving the stated Beta density, although a result under other design terminology remains a genuine priority risk.
+
+**Value — PASS.** Squared Brownian-bridge energy is a natural nonlinear path-output quantity in stochastic numerical approximation and path-integrated observables. The theorem supplies an exact finite-grid risk functional, a sharp optimizable large-budget constant, and an explicit nonuniform sensor design with a quantified improvement over the standard uniform grid. This goes beyond computing a few sampling nodes or improving an arbitrary numerical slice.
+
+**Boundaries and risks.** The result concerns nonadaptive, noiseless measurements of a pinned Gaussian bridge. It is asymptotic; it does not claim exact finite-sample quantile optimality or a unique finite-budget optimizer. An older general optimal-design theorem may cover the asymptotic special case despite the statement-level comparisons; independent literature-priority and proof review remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

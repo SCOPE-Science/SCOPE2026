@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Derivation integrates Gaussian posterior covariance on each gap exactly; sharp minimax lower bound via discrete Holder plus mesh convergence; matching explicit quantile construction with endpoint tails controlled as O(epsilon m^-2), remainders O(log(m)/m^3). Independent symbolic identities, direct Gaussian double-integral evaluation and rational checks reproduced by the embedded verifier. No extrapolation from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Santin (2022): equal spacing optimizes the Brownian-bridge interpolation power function, not Q functional Bayes risk.",
+        "Cui–Chronopoulou (2023): integrated path prediction error, not the integral of squared path as one target.",
+        "Foster–Lyons–Oberhauser (2019): Brownian path polynomial approximations with different observed functionals."
+      ],
+      "reasoning": "Although these papers use the same covariance or Gaussian family, their objectives and observation sigma-fields differ. No inspected theorem establishes the Beta(4/3,4/3) quantile law as a corollary; the unresolved older optimal-design literature remains a priority risk.",
+      "searches": [
+        "arxiv:2210.15959",
+        "arxiv:2304.07661",
+        "arxiv:1904.06998",
+        "Bayes-optimal sampling density Beta(4/3,4/3) squared Brownian bridge energy integrated square observation grid",
+        "conditional variance integrated squared Brownian bridge mesh quadratic functional optimal design",
+        "Brownian bridge squared L2 norm optimal sampling design high resolution density"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1904.06998 (relevant full-text sections)",
+      "arxiv:2210.15959 (power-function theorem and proof)",
+      "arxiv:2304.07661 (sampling objective and deterministic formulation)",
+      "arxiv:1902.06126 (abstract/partial earlier version only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The nonlinear Q loss produces leading local coefficient t(1-t)/3, yielding the Beta(4/3,4/3) density.",
+        "Linear Brownian-bridge integral quadrature optimizes an entirely different posterior scalar variance and has distinct grid laws.",
+        "Only the new proof supplies the global Hölder lower bound and boundary-correct quantile upper bound for the stated nonlinear objective."
+      ],
+      "reasoning": "Exact source assumptions and conclusions do not imply the proposed sharp asymptotic theorem; their overlapping covariance kernels alone are insufficient. There remains risk of a general nonlinear functional-optimal-design theorem outside inspected material.",
+      "searches": [
+        "arxiv:1904.06998",
+        "arxiv:2210.15959",
+        "arxiv:2304.07661",
+        "Brownian bridge squared path energy optimal sampling asymptotic mesh density x(1-x) one third power",
+        "optimal deterministic observation grid for quadratic Brownian bridge energy integrated squared process n sensors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact posterior risk is variance of the scalar quadratic functional, not integrated pointwise conditional variance.",
+        "Related existing fixed-two-node quadratic bridge-energy calculation does not resolve the sharp n-to-infinity limit."
+      ],
+      "reasoning": "Aliases tested include squared L2 norm, integrated energy, Gaussian quadratic functional, conditional variance and optimal point-sampling density. Conditioning on a different set of functionals or optimizing linear kernel interpolation is not equivalent.",
+      "searches": [
+        "Brownian bridge squared path energy optimal sampling asymptotic mesh density x(1-x) one third power",
+        "optimal deterministic observation grid for quadratic Brownian bridge energy integrated squared process n sensors",
+        "asymptotic optimal nonlinear Brownian functional quadratic energy sampling quantile Beta 4/3",
+        "arxiv:1904.06998",
+        "arxiv:2210.15959"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed entries discuss two-node Brownian-bridge kernel quadrature, linear stratified Brownian quadrature, and fractional Brownian occupation sampling.",
+        "Finite-two-site quadratic energy calculation was separately checked in the accessible earlier ledger for overlap."
+      ],
+      "reasoning": "Compared implication scope: a finite n=2 optimum or a density for iid linear quadrature does not cover sharp n-uniform quadratic-energy posterior-risk asymptotics. No all-budget formula found in searched indices; absence of a hit is not proof of priority.",
+      "searches": [
+        "Brownian bridge squared path energy optimal sampling asymptotic mesh density x(1-x) one third power",
+        "optimal deterministic observation grid for quadratic Brownian bridge energy integrated squared process n sensors",
+        "asymptotic optimal nonlinear Brownian functional quadratic energy sampling quantile Beta 4/3",
+        "Bayes-optimal sampling density Beta(4/3,4/3) squared Brownian bridge energy integrated square observation grid",
+        "conditional variance integrated squared Brownian bridge mesh quadratic functional optimal design",
+        "Brownian bridge squared L2 norm optimal sampling design high resolution density",
+        "Brownian bridge kernel quadrature two i.i.d. observations",
+        "Brownian kernel integral variance stratified sampling"
+      ]
+    },
+    "rationale": "Compared exact mathematical objects, information sets, losses and parameter ranges. Fixed two-node quadratic energy findings do not imply the global asymptotic optimal constant; the Santin power-function interpolation result, linear kernel quadrature and fractional-Brownian path estimation have distinct losses. Primary relevant full-text sections inspected; priority residual risk expressly retained.",
+    "residual_risks": [
+      "Historical priority not independently established; broader scalar-Gaussian-functional sampling or optimal knot literature could contain an equivalent result.",
+      "The older Brownian measurement-time work was not inspected in full; partial reading is not evidence of full-document noncoverage.",
+      "The result does not settle finite-budget optimal nodes or unknown process parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses Brownian terminal values and integrated first-order path information, not an all-budget deterministic point grid for integrated squared bridge energy.",
+        "evidence": [
+          "arxiv:1904.06998, introductory theorems on polynomial Brownian approximation and conditioned squared-path integrals; first version April 15 2019"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.06998",
+        "material_read": "Full-text introduction and the sections discussing quadratic integrated path observables and their conditioning, with methodology of polynomial-path approximation; publication history checked.",
+        "method": "Open-access preprint PDF, relevant body sections and identified the information set.",
+        "title": "An optimal polynomial approximation of Brownian motion",
+        "trigger": "Quadratic Brownian path integral is an explicit object of study; potential domination of new observation law."
+      },
+      {
+        "assessment": "Power-function interpolation minimax objective is not the posterior squared-error of the nonlinear \\(\\int B^2\\) target. Its equal-spacing statement cannot dominate the Beta density.",
+        "evidence": [
+          "arxiv:2210.15959, theorem on unique equally spaced minimizers of Brownian-bridge kernel interpolation power function"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.15959",
+        "material_read": "Full-text statements and local interpolation basis/power-function optimization theorem, including the relevant theorem and proof section.",
+        "method": "Open-access arXiv full PDF, theorem/assumption comparison.",
+        "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+        "trigger": "Apparent stronger optimality of equally spaced samples for the same Brownian-bridge covariance kernel."
+      },
+      {
+        "assessment": "Minimizes integrated path reconstruction distortion rather than Bayes risk for the scalar integrated squared path functional.",
+        "evidence": [
+          "arxiv:2304.07661, deterministic and level-triggered Gaussian path estimation objectives"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.07661",
+        "material_read": "Open-access PDF introduction, problem formulation and deterministic-sampling criterion and related conclusions.",
+        "method": "Primary arXiv PDF, objective and sampling-information comparison.",
+        "title": "Optimal Sampling for Estimation of Fractional Brownian Motion",
+        "trigger": "Potentially general optimal sampling times for Gaussian path data with deterministic schemes."
+      },
+      {
+        "assessment": "Focuses on filtering/path conditional variance, not nonlinear integrated squared bridge-energy prediction; remaining full-text priority risk is noted.",
+        "evidence": [
+          "arxiv:1902.06126 abstract and available earlier conference material; no whole-PDF noncoverage claim"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.06126",
+        "material_read": "Abstract and portions of an accessible earlier conference-source rendering; full arXiv PDF unavailable in this inspection.",
+        "method": "Public abstract and accessible conference-source material, not a full-PDF inspection.",
+        "title": "Optimal Measurement Times for a Small Number of Measures of a Brownian Motion over a Finite Period",
+        "trigger": "Older apparent optimal Brownian sampling location classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0050cb8e-5db1-4817-98a0-fdce83d5fbc8",
+  "value": {
+    "rationale": "A natural nonlinear stochastic path-energy functional requires a different allocation from the uniform placement optimal for a standard bridge kernel interpolation objective. The all-budget sharp Bayes-risk constant and implementable beta-quantile observation design provide 10.678% asymptotic risk reduction against uniform at identical measurement cost, with exact finite-gap risk formula and clear limits.",
+    "status": "PASS"
+  }
+}
