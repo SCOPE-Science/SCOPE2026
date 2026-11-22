@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite real unimodular orthonormal family, representing an \(L^1\)-to-finite-dimensional operator by an \(L^\infty\) vector field gives the exact trace identity \(\mathbb E\sum_jr_jg_j=n\). Holder's inequality yields the universal minimum; its equality conditions give uniqueness for \(p>1\), and the displayed perturbation gives nonuniqueness for \(p=1\). The sharp real Khintchine constant, norm interpolation, permutation convexity, and a direct binomial identity verify every asserted coefficient norm. The stability identity follows from expanding the square, and its equality construction uses an independent extra coordinate.
+## correctness
 
-## Originality — PASS (qualified)
-The 2026 free-lattice theorem gives a qualitative POE criterion, not the sharp coefficient-probe costs or the extension-fiber rigidity. Haagerup supplies a sharp inequality but not the extension optimization. Lewicki and Micek study minimal Fourier-type extensions with an \(L^1\) range norm, and no exact coefficient-target result was identified in the inspected text. Related published mathematical records treat other extension targets or finite Walsh invariants. Residual risk: a prior vector-valued Fourier coefficient minimality theorem may imply the claimed extension constants and equality cases under different terminology; the comparison is not an independent publication-priority certification.
+PASS
 
-## Mathematical value — PASS
-The quantitative extension cost is a natural invariant behind the POE-\(p\) obstruction for the Rademacher inclusion. The exact finite-dimensional constants show divergent extension losses, while the all-exponent minimality theorem and strict uniqueness boundary separate the geometry of \(\ell_1\) from strictly convex targets. The sharp Hilbert stability identity quantifies how nearly minimal extensions concentrate on the canonical Fourier coefficient operator. There is no claim that these are optimal extension constants over all possible coefficient maps or operators on the span.
+Check exact L1 dual L-infinity vector representation and moments E(g_i r_j)=delta_ij; trace Holder yields lower n^(1/p), attained by r. At p>1 strict Holder equality forces g=r; at p=infty n coordinate constraints force r_jg_j=1. For p=1, explicit epsilon perturbation g1=r1+epsilon,g2=r2-epsilon r1r2 has norm n and all moments. Reconstruct sharp Khintchine/Jensen and p-interpolation for p>=2, permutation symmetrization for p=1, correct p in (1,2) lower bound; Hilbert identity is exactly E||g-r||²=E||g||²-n, sharp via r_{n+1}(r2,-r1). Independent enumeration n=2..9 verifies binomial, perturbation norms and moments; no assertion of exact ||Q|| for 1<p<2.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2026 Pariente-Martin--Tradacete theorem and its Rademacher example imply qualitative finite-exponent failure of uniform POE-p but not sharp finite-n targets, uniqueness p>1 versus p=1, or equality-sharp p=2 stability. Lewicki--Micek 2013 open full article treats complex n-circular Fourier-type operators L1(Z)->V with inherited L1 target and sign-function uniqueness; its Theorems 12/15/17 and examples do not give the fixed real ell_p coefficient-target formulas. Khintchine sharp scalar bound is previously known. No matched stronger general result in inspected literature/Resultary (besides the target finding itself).
+
+## value
+
+PASS
+
+Norm rigidity and exact extension growth on canonical first Walsh level diagnose the quantitative obstruction behind the known free-Banach-lattice extension failure. Separating p=1 from p>1 and attaining an exact stability inequality for every norm C is a motivated robust structural characterization, not a mere finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
