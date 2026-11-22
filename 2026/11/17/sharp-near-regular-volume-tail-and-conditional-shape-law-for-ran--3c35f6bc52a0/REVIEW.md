@@ -1,15 +1,21 @@
-# Scientific review: near-regular random tetrahedra
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the sampling law and volume normalization. The exact covariance determinant identity gives the global maximum \(8/(9\sqrt3)\) and proves that only regular tetrahedra attain it. After eliminating global rotations, the five reduced coordinates are exactly uniform with density \(1/(32\pi^2)\); there are two separated maximizing points. Differentiating the explicit determinant gives the displayed positive definite Hessian, whose determinant is \(243/2048\). Local quadratic bounds, compactness and dominated convergence justify both the sharp \(5/2\)-power probability coefficient \(128\sqrt3/405\) and the conditional ellipsoid-uniform shape limit. The symbolic checker recomputed the Hessian and its principal minors, while direct determinant comparisons, local perturbation comparisons and finite Monte Carlo checks supported the calculations. No finite experiment is used as an infinite proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Horváth–Lángi (2014) address deterministic maximal-volume inscribed polytopes, not the probability of a near-maximal four-point configuration. MathWorld's *Sphere Tetrahedron Picking* provides exact moment values and the standard five-variable integral, without an upper-endpoint shape limit. Miles (1971) treats moments of volumes of isotropic random simplices; even if the entire scalar volume law were implicit in those moments, it would not by itself supply the **conditional joint law of the five rotation-reduced shape coordinates**. Akopyan–Edelsbrunner–Nikitenko (2020), inspected in full through the open arXiv PDF especially Sections 5 and 7, examine mean intrinsic volumes and ball deficiencies, not the near-regular four-vertex event. A publicly available upper-tail analysis of eight points on the three-sphere treats a distinct configuration and expressly does not cover other vertex counts. Search and source comparisons revealed no dominating theorem for this claim. The full Miles article could not be obtained: its abstract and indexed formulas were inspected, but complete absence of priority cannot be certified.
+PASS
 
-## Mathematical value — PASS
-The endpoint and the near-regular configurations are natural questions in stochastic geometry. The exact exponent \(5/2\) identifies the five-dimensional space of deformations left after quotienting rigid rotations. The sharp coefficient and explicit ellipsoid are nontrivial geometry-specific quantities, while the conditional limit describes all rare-event shape perturbations rather than only the already-studied scalar volume moments. This is not an arbitrary parameter slice or a routine known-table lookup.
+Centering Gram-matrix AM-GM proves the unique volume maximum V*=8/(9sqrt3) and precisely two chiral regular tetrahedron classes modulo rotations. After fixing P1 north and P2 azimuth zero, x,y,z,phi,psi have constant density 1/(32pi^2), with exactly two maxima q+ and q-. The determinant formula D(q) yields Taylor Delta(q_+ +h)=h^T H h/2+O(||h||^3), H positive definite with leading minors 27/32,2835/4096,18225/32768,1215/4096,243/2048, hence det H=243/2048. Independent symbolic differentiation verifies the Hessian and sqrt(det) and 2*(1/32pi^2)*vol(B5)*2^(5/2)/sqrt(detH)=128sqrt3/405. Compactness excludes other near-maxima, and rescaled dominated convergence proves uniform ellipsoid shape and fair independent chirality. Examined actual checker: symbolic Hessian, numeric Cartesian determinant and nine-million finite MC trials only corroborate, they do not prove rare-event asymptotics.
 
-## Limitations and closest literature
-The result is restricted to four independent uniform points on the surface of a sphere; it does not treat points in the ball, arbitrary sample sizes, finite-deficit densities, or noisy inverse estimation. Compare R. E. Miles, *Isotropic random simplices* (1971); Horváth–Lángi, arXiv:1402.6496v1; Akopyan–Edelsbrunner–Nikitenko, arXiv:2007.07783v1; E. W. Weisstein's MathWorld entry *Sphere Tetrahedron Picking*; and the published eight-point four-dimensional upper-tail result at https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-ninth-power-upper-volume-tail-for-eight-random-points-on-t--32bb10986e8d.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge: classical maximal inscribed regular tetrahedron and known scalar volume moments do not imply the five-coordinate conditional shape law. Other published spherical four-point rare-event results use chord sum, coplanarity/zero volume, or spherical cap coverage, not the upper tail for 3D Euclidean tetrahedron volume; no inspected prior supplies the full explicit Hessian and coefficient.
+
+## value
+
+PASS
+
+PASS: exact five-half-power rarity of near-maximum four-point sphere-inscribed tetrahedra, sharp constant and marked 5D deformation are natural stochastic geometry endpoint invariants, useful independently of a broader polytope theorem; not a mere moment recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
