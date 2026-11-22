@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The resolvent partial fraction and jump equation yield the stated two-sided decaying kernel with the stated normalization. The first difference commutes with convolution; Young's inequality gives the upper variation bound and a single Heaviside jump gives equality. Every smoothing parameter has a negative impulse coefficient because the complex-root phase advances through a negative-sine interval. The small-parameter expansion is an \(\ell^1\) Neumann expansion; the large-parameter limit is an exponentially dominated Riemann sum with a directly integrated sign-alternating continuum Green function. A standalone exact rational finite-section/residual argument certifies the strict nonmonotone comparison.
+## correctness
 
-## Originality
-**PASS (with residual historical risk).** The closest source is McElroy's 2006 full-text report, which explicitly supplies the signed exponentially decaying weights, but does not state their absolute-sum sharp variation norm, the step extremizer, the nonmonotone rational comparison or the continuum-limit constant. Its weight formula cannot by itself be reported as novel. The full-text 2009 \(\ell^1\) trend-filtering paper studies a different nonsmooth optimization penalty and finite data. Finite-path Whittaker–Henderson variation results and periodic biharmonic positivity theorems do not cover the bilateral exact gain and its strong-smoothing limit. Relevant keywords and formulas were also compared against indexed mathematical records. The finite-sample HP source was available at abstract level only; an older unindexed exact-norm treatment remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The problem asks a natural stability question about a widely used regularized low-pass estimator: does it reduce total signal variation, and how does the worst-case amplification depend on regularization? The theorem completely determines the gain by a rapidly convergent formula, gives exact extremizing inputs, proves persistent failure of variation contraction, exhibits a rigorously certified *decrease* under stronger smoothing, and evaluates an unexpected nontrivial universal saturation constant. These are relevant when controlling artificial oscillation around discontinuities rather than only mean-square or frequency response.
+For λ>0 resolvent partial fractions reduce (I+λL²)^−1 to conjugate nearest-neighbor Green kernels; the decaying q root gives a geometrically summable real kernel of mass 1. D commutes with convolution, so Young and a one-step input give exact BV gain ∑|K(j)|. Negative sine lobes force >1; Neumann ℓ1 expansion yields 1+4λ+O(λ²). As λ→∞, rescaling j/λ^(1/4) with an exponential envelope yields the closed damped-sine absolute integral 1+√2e^(−3π/4)/(1−e^(−π)); first sign-change scale is 3π/(2√2)λ^(1/4). Exact rational finite-section residual bounds rigorously certify nonmonotonicity.
 
-## Scope and risks
-The operator is bilateral and the input is a bounded real sequence with finite adjacent variation. Endpoints, other dimensions and general penalty orders are excluded. The 2006 weight formula is established prior art; the specific norm and phase behavior require additional arguments. No independent mathematical or historical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+McElroy has already derived the exact bilateral HP Green coefficients and their signed lobes, and the BV convolution norm equals their ℓ1 mass by a standard jump reduction. The meaningful added claims are rigorously certified decrease in gain as λ rises from 1/16 to 1/9, the explicit strong-smoothing limit 1+√2 e^(−3π/4)/(1−e^(−π)) and the first negative lobe scale; none is stated by the relevant full McElroy material or distinct finite-path order/positivity result.
+
+## value
+
+PASS
+
+The Hodrick–Prescott low-pass estimator is a natural filter and bounded variation is a natural stability invariant at discontinuities. The theorem identifies exact jump-extremizers, unavoidable ringing, an unexpected rigorously certified reversal under stronger smoothing, and a closed saturation constant. It measures behavior distinct from conventional frequency-domain or squared-error estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
