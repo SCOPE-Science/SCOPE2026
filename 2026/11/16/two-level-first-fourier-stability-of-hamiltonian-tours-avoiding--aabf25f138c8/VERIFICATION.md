@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact general-parameter mathematical argument is provided in `RESULT.md`: path contraction, conditional pair moments, full orthogonal decomposition, and direct covariance eigenvalues. The bundled standalone `checker.py` executes using Python 3's standard library only. Running `python3 checker.py` enumerates every undirected tour avoiding a fixed edge at orders \(n=6,7,8,9\) and verifies exact rational degree-nullspace relations, explicit high/low eigenvector equations, trace, and total multiplicity.
+# Independent mathematical audit
 
-Observed successful output includes `EXACT_PASS` for those four orders and the final line `FORBIDDEN_HAMILTONIAN_TOUR_FOURIER_FRAME_EXACT_PASS`. Enumeration is finite evidence and cannot certify the all-order theorem or historical novelty. No independent validation has been performed.
+## correctness
+
+PASS
+
+Proved path-contraction P(F) = 2^c (n-k-1)!/(n-1)!, conditioning on missing edge and degree constraints. The W-, W+ and ker(Q) decomposition fills all allowed coordinates and yields exact positive eigenvalues. Independent enumeration of every undirected forbidden-edge tour at n=6,7,8 produced populations 36,240,1800 and precisely predicted complete numerical Gram spectra. It corroborates, not extrapolates, the all-n algebra. The constraint rank and Walsh factor four were checked.
+
+## originality
+
+PASS
+
+No checked published result implies the conditional undirected forbidden-edge two-level covariance spectrum; substantial constrained frame quantification remains, subject to specialized moment-calculus priority risk.
+
+## value
+
+PASS
+
+An explicit sharp condition ratio on a naturally constrained tour incidence ensemble quantifies frame stability beyond classical rank/facet constraints. Equality of two symmetry sectors is structural, not a mere graph or parameter relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
