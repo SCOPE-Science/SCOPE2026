@@ -1,19 +1,21 @@
-# Scientific assessment of the mixed-theta Rips filtration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For arbitrary integers \(p\ge2\), \(q\ge1\), the proof separately establishes the radius-two path-attachment collapse, identical radius-three third-power neighborhoods among short-arm counterparts, a complete cross-arm simplex classification and free-face matching, the octahedral-boundary identity for the eight-cycle factors, and a radius-four cone. It then derives the full integral filtration from these homotopy statements and the surjective radius-one-to-two first-homology map. The finite verifier checked actual elementary collapses, not only Betti dimensions. The six-cycle comparison confirms the boundary of the ear-attachment lemma; no finite extrapolation is required for the main theorem.
+PASS
 
-## Originality — PASS, with literature limitations
+PASS: At r=1 the graph has N=2+2p+4q vertices, E=3p+5q edges and cycle rank p+q−1; it has girth six. At r=2 the p short arms form the suspension S0*L_p with p−1 two-spheres, and each new length-five path is a relative collapsed ear introducing exactly one circle while d(u,v)=3. At r=3 short-arm twins fold, leaving a short arm and q long arms, each an eight-cycle with scale-three Rips complex the boundary of a four-crosspolytope S3. Distinct-arm cross faces have exactly near-u or near-v types and admit an explicit apex free-face matching, leaving q such S3 copies on a contractible common tetrahedron, hence ∨q S3 integrally. At r=4 the first short-arm vertex is a cone apex. The inclusion r1→r2 is surjective on integral H1 because distance-two edges have corresponding r2 triangles, determining the degree-one bar splitting. Fresh separate shortest-path and full flag-chain GF(2) computations for (p,q)=(2,1),(3,1),(2,2) matched all stages r=1..4; general integral results follow from the explicit collapses, not these checks.
 
-The closest published three-edge theta-graph classification [4] has no five-edge arms and becomes contractible at radius three. Its conclusions do not imply the \(q\) new three-spheres or the four-threshold mixed-graph barcode. Adamaszek's cycle-power classification [2] gives a single eight-cycle factor, but not the simultaneous overlapping-arm collapse. The metric-gluing theorem [3, Theorem 8] has a concretely failed premise here: the mixed radius-three simplex \(\{a_1,z_{j,1},z_{j,4}\}\) cannot be enlarged by either pole, so there is no nonempty extension in the gluing intersection. Theorem 10 also fails its short-gluing-path bound. The indexed searches under mixed-length theta, octagon, Vietoris–Rips, and equivalent graph-power language did not show stronger applicable results. Unindexed or implicit equivalent generalizations remain a residual novelty risk; absence of a search hit is not asserted as proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural complete integral homotopy and persistent-homology classification for an infinite two-parameter family of graphs built from heavily overlapping six- and eight-cycles. Its radius-three step is a uniform structural simplicial collapse that explains how \(q\) independent three-spheres arise despite a contractible all-short-arm core, and the result records all relevant persistent maps, not just numerical homology. The distinction from the previously studied all-short-arm case and the failure of existing metric-gluing hypotheses make the classification mathematically informative rather than a routine special case.
+PASS (best of knowledge): The primary general metric-gluing theorems have concretely violated assumptions at the nonstandard radius-three overlap, and existing equilateral theta and individual eight-cycle computations do not yield the q-sphere glued stage or all persistence maps. The target proves the missing all-p,q relative collapse.
 
-## Scientific limitations
+## value
 
-The proof does not cover other long-arm lengths, weighted or continuous metrics, or equivariant homotopy. The machine-verification cases are finite checks supporting the unrestricted combinatorial argument, and the literature comparison cannot eliminate unpublished equivalent work. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The two-parameter mixed-arm family gives a natural complete graph-metric Rips filtration with consecutive degree-one, degree-two and degree-three persistent classes, a structural phenomenon absent in pure short-arm graphs. The explicit collapse of cross-arm interactions is motivated, reusable and not a routine one-cycle computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

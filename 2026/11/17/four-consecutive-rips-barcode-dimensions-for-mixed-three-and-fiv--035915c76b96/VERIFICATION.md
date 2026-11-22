@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run in the directory containing the attached standalone Python files:
+## correctness
 
-```bash
-python3 verify_mixed_theta.py
-python3 verify_five_arm.py
-```
+PASS
 
-Both programs use only the Python standard library. They reconstruct the graph metric by breadth-first search and enumerate **every nonempty Rips face** in the tested instances. `verify_mixed_theta.py` verifies all proposed radius-two free-face collapses for 63 path attachments, comprising 2,510 elementary pairs, and independently calculates mod-two homology for 28 mixed-theta graphs. Its inputs include base graphs with triangles and terminal distances exceeding three, as well as multiple successive ear attachments.
+PASS: At r=1 the graph has N=2+2p+4q vertices, E=3p+5q edges and cycle rank p+q−1; it has girth six. At r=2 the p short arms form the suspension S0*L_p with p−1 two-spheres, and each new length-five path is a relative collapsed ear introducing exactly one circle while d(u,v)=3. At r=3 short-arm twins fold, leaving a short arm and q long arms, each an eight-cycle with scale-three Rips complex the boundary of a four-crosspolytope S3. Distinct-arm cross faces have exactly near-u or near-v types and admit an explicit apex free-face matching, leaving q such S3 copies on a contractible common tetrahedron, hence ∨q S3 integrally. At r=4 the first short-arm vertex is a cone apex. The inclusion r1→r2 is surjective on integral H1 because distance-two edges have corresponding r2 triangles, determining the degree-one bar splitting. Fresh separate shortest-path and full flag-chain GF(2) computations for (p,q)=(2,1),(3,1),(2,2) matched all stages r=1..4; general integral results follow from the explicit collapses, not these checks.
 
-`verify_five_arm.py` verifies complete radius-three face enumerations for nine three/five-arm theta graphs with \(p\in\{2,3,4\}\) and \(q\in\{1,2,3\}\). It checks identical closed neighborhoods for removable short-arm vertices, independently replays all associated dominated-vertex free-face collapses, exhaustively constructs the long-arm factors, checks their four disjoint antipodal nonedges, and replays every cross-arm free-face collapse. It also computes complete mod-two boundary ranks and verifies the radius-four cone condition. Across its nine runs, it classifies 768 external cross-arm faces. The exact program outputs are in `verification_output.txt`.
+## originality
 
-**Limits:** Verified finite cases do not prove the all-parameter theorem and mod-two calculations alone do not establish integral torsion-freeness. The explicit, uniform elementary-collapse argument in `RESULT.md` establishes the integral homotopy type and the complete persistence barcode for arbitrary allowed parameters. This verification does not constitute an independent mathematical audit.
+PASS
+
+PASS (best of knowledge): The primary general metric-gluing theorems have concretely violated assumptions at the nonstandard radius-three overlap, and existing equilateral theta and individual eight-cycle computations do not yield the q-sphere glued stage or all persistence maps. The target proves the missing all-p,q relative collapse.
+
+## value
+
+PASS
+
+PASS: The two-parameter mixed-arm family gives a natural complete graph-metric Rips filtration with consecutive degree-one, degree-two and degree-three persistent classes, a structural phenomenon absent in pure short-arm graphs. The explicit collapse of cross-arm interactions is motivated, reusable and not a routine one-cycle computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
