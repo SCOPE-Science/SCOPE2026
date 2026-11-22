@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:09:19.468908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For synchronous threshold-one 3-state Greenberg–Hastings dynamics on connected Q_d (d≥1), a period-three trajectory either rotates all vertices through 0→1→2 or is all-zero fixed: any persistently resting zero adjacent to a rotating vertex would be excited, and connectivity propagates this. Thus primitive immediate period three is equivalent to X=0 defects, where each Y_v indicates no neighbor with color C_v+1. Conditioning on initial color gives p=(2/3)^d; two centers at distance one have joint probability (3/4)p², distance two (9/8)p², and distance at least three independent because closed one-neighborhoods are disjoint. Summing covariances across d+binom(d,2) neighbors gives Var X=µ+Np²(d²−5d−16)/16, µ=(4/3)^d, switching sign precisely between d7 and d8. Dependence ball at Hamming distance ≤2 has M_d=1+d+C(d,2); Arratia–Goldstein–Gordon 1989 Theorem1 with its norm 2TV and b1=N M_d p²,b2=Np²(3d/4+9C(d,2)/8),b3=0 gives standard count TV ≤pB_d(1−e^{-µ}); Theorem3 gives vector-TV ≤2Np²(B_d+1). These tend to zero since Np²=(8/9)^d. Greedy packing of disjoint closed neighborhoods selects at least ceil(N/M_d) independent defect indicators and bounds P(X=0)≤(1−p)^ceil(N/M_d)≤e^{-µ/M_d}→0. Independent reimplementation enumerated all 9,81,6561 initial configurations for d=1,2,3 obtaining (waves,E,Var) respectively (0,4/3,2/9),(0,16/9,56/81),(252,64/27,1024/729), agreeing with published formula. Frozen tools/defect_check.py source checked for direct 3-step dynamics and exact pairs. Finite enumeration is only corroboration of all-d analytic theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AGG Theorem 1 count and Theorem 3 joint process give generic bounds once b1,b2,b3 are computed, and their Example 1 concerns different hypercube orientation events.",
+          "Earlier 2026 random-edge GH theorem derives an exact conditional binomial-sum law for G(n,p), not deterministic cube correlations."
+        ],
+        "reasoning": "A broad generic approximation lemma does not supply the nontrivial exact positive distance-two/negative distance-one correlations, variance crossover or the actual dynamical zero-defect equivalence. No stronger inspected result covers those concrete facts.",
+        "searches": [
+          "Arratia Goldstein Gordon 1989 hypercube rare edge orientation poisson process local dependency",
+          "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-rarest-color-poisson-threshold-for-immediate-three-cycles-in-r--1d35b531b603/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Arratia–Goldstein–Gordon Ann Probab 17 (1989), Thm1 &3",
+        "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-rarest-color-poisson-threshold-for-immediate-three-cycles-in-r--1d35b531b603/RESULT.md",
+        "arxiv:1610.07320 long-time Greenberg–Hastings setting",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/almost-independent-phase-defects-and-vanishing-immediate-excitat--35b3f92e894d/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "AGG bounds alone do imply the TV limits after one proves all exact b values; those coefficients follow from the color-induced local joint law, which is this claim’s concrete content.",
+          "The ER GH zero-defect implication cannot be transferred to fixed Q_d simply by replacing n and p because cube overlapping neighborhoods create correlations."
+        ],
+        "reasoning": "The final theorem is a model-specific application of a known method; novelty/value rest on the exact covariance law, scale µ=(4/3)^d, growing-intensity joint field and immediate-cycle vanishing. No false claim of inventing Poisson approximation theory.",
+        "searches": [
+          "Chen Stein Bernoulli process rare pattern cube color dependency b1 b2 b3",
+          "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-rarest-color-poisson-threshold-for-immediate-three-cycles-in-r--1d35b531b603/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arratia–Goldstein–Gordon Theorems 1 and 3 give the general local-dependence Poisson and Bernoulli process approximation.",
+          "Prior GH random-graph result considers random independent edges G(n,p), not deterministic Q_d neighbors or growing mean µ=(4/3)^d."
+        ],
+        "reasoning": "The relevant equivalent formulation is the absence of successor-colored neighbors in a fixed hypercube random coloring. The Chen–Stein inequalities are tools, not an equivalent explicit color-defect theorem; the random-graph asymptotic is a different probability space.",
+        "searches": [
+          "Greenberg Hastings Boolean hypercube random 3-color immediate 3-cycle phase defects Chen Stein field total variation",
+          "https://arxiv.org/abs/1610.07320",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-rarest-color-poisson-threshold-for-immediate-three-cycles-in-r--1d35b531b603/RESULT.md",
+          "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "New explicit pair data (3/4)p² and (9/8)p² and variance µ+(Np²/16)(d²−5d−16), sign switches at 8.",
+          "Independent d=1,2,3 exact-state counts and immediate cycles agree with the signed variance expression; d=3 has 252 primitive configurations."
+        ],
+        "reasoning": "No inspected known table of finite-cube primitive cycles supplies the full all-d moment and total-field approximation. Finite d=3 census is previously known and credited; the natural d=8 fluctuation boundary is a genuinely derived exact fact.",
+        "searches": [
+          "GH Q_d fixed cube variance underdispersed dimension 7 overdispersed 8",
+          "GH hypercube three-color defect joint distance 1 2 exact probability",
+          "https://arxiv.org/abs/1610.07320",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-rarest-color-poisson-threshold-for-immediate-three-cycles-in-r--1d35b531b603/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact hypercube color-defect covariance sign reversal, growing-intensity full-vector independent-site approximation and initial period-three rarity. Chen–Stein theorem, GH dynamics and random-graph Poisson windows are prior and explicitly acknowledged. The earlier rarest-color Erdős–Rényi result has random edges and mean approaching a constant, so it does not directly imply hypercube local pair correlations with µ diverging.",
+      "residual_risks": [
+        "The model-specific local-defect statistics are a specialization of standard dependency-graph bounds; general approximation theory is entirely prior.",
+        "The vector-TV bound tends to zero but by itself does not yield relative asymptotics of extremely rare all-zero defects; the packing result is only an upper bound.",
+        "Independent enumerations stop at d=3; all-d bounds depend on AGG hypotheses, exact overlap counts and packing proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_THEOREM_PRIOR",
+          "evidence": "Original norm is twice usual event-TV; after conversion bounds match pB_d(1−e^{-µ}) and 2(b1+b2)+2Np².",
+          "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+          "material_read": "Full accessible primary PDF introductory setup, Theorems 1 and 3, process norm convention and Example 1",
+          "method": "primary PDF text/page inspection",
+          "title": "Two Moments Suffice for Poisson Approximations: The Chen–Stein Method",
+          "trigger": "Exact normalization and scope of b1,b2,b3 inequalities"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_GRAPH_REGIME",
+          "evidence": "G(n,p) has independent edges and finite limiting defect mean; does not specify Q_d distance-one/two pair laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-rarest-color-poisson-threshold-for-immediate-three-cycles-in-r--1d35b531b603/RESULT.md",
+          "material_read": "Entire published RESULT.md: conditional law on random edges, asymptotic rarest-color window, dynamic period-three criterion",
+          "method": "full Resultary primary theorem reading",
+          "title": "A rarest-color Poisson threshold for immediate three-cycles in random excitable networks",
+          "trigger": "Identical dynamics, potential broad coverage"
+        },
+        {
+          "assessment": "AUDITED_SOURCE",
+          "evidence": "Explicit local pair probabilities, variance, bounded TV and X=0 rarity with d=1,2,3 exhaustive tests.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/almost-independent-phase-defects-and-vanishing-immediate-excitat--35b3f92e894d/RESULT.md",
+          "material_read": "Entire assigned RESULT.md and tools/defect_check.py; conditional coloring probabilities, AGG application and greedy packing",
+          "method": "frozen assigned Git source/code inspection",
+          "title": "Almost-independent phase defects and vanishing immediate excitation waves on Boolean cubes",
+          "trigger": "New model-specific all-dimensional proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact dimension-eight crossover from underdispersion to overdispersion, combined with asymptotic independence of the entire rare spatial defect pattern while mean defect count diverges, is a motivated fine-scale stochastic-dynamical phenomenon on a canonical graph family. It separates local rarity from global immediate-cycle rarity; the exact local correlation coefficients would be useful in testing random excitation approximations. Standard Chen–Stein technology is not claimed new.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Arratia–Goldstein–Gordon Ann Probab 17 (1989), Thm1 &3",
+    "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-rarest-color-poisson-threshold-for-immediate-three-cycles-in-r--1d35b531b603/RESULT.md",
+    "arxiv:1610.07320 long-time Greenberg–Hastings setting",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/almost-independent-phase-defects-and-vanishing-immediate-excitat--35b3f92e894d/RESULT.md",
+    "Git blob b30add4c8564ad4fc11a3abac7a9c410ec595a13",
+    "Git blob f5b49695262f9b60cc19ead55a4e868e7f8532d0"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The model-specific local-defect statistics are a specialization of standard dependency-graph bounds; general approximation theory is entirely prior.",
+    "The vector-TV bound tends to zero but by itself does not yield relative asymptotics of extremely rare all-zero defects; the packing result is only an upper bound.",
+    "Independent enumerations stop at d=3; all-d bounds depend on AGG hypotheses, exact overlap counts and packing proof.",
+    "No GitHub writes, no dispatcher closeout, no publication; all files remain frozen at assigned commit."
+  ],
+  "schema_version": 1
+}

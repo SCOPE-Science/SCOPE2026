@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every probability and covariance is derived by conditioning on endpoint colors and counting common versus private neighbors in a Boolean cube. The explicit two-neighborhood dependence structure makes the published Arratia–Goldstein–Gordon Theorems 1 and 3 applicable with vanishing long-range conditional term. Their total-variation norm is exactly twice the supremum-over-events convention used here, and the coefficients in both bounds have been normalized accordingly. The disjoint-neighborhood packing gives a separate, direct upper bound on immediate three-cycles. Direct dynamics and rational pair counts agree on every small cube that was exhaustively checked. Risk: the all-dimensional result uses a classical external theorem; the standalone checker verifies illustrative finite instances only.
+PASS
 
-## Originality
+For synchronous threshold-one 3-state Greenberg–Hastings dynamics on connected Q_d (d≥1), a period-three trajectory either rotates all vertices through 0→1→2 or is all-zero fixed: any persistently resting zero adjacent to a rotating vertex would be excited, and connectivity propagates this. Thus primitive immediate period three is equivalent to X=0 defects, where each Y_v indicates no neighbor with color C_v+1. Conditioning on initial color gives p=(2/3)^d; two centers at distance one have joint probability (3/4)p², distance two (9/8)p², and distance at least three independent because closed one-neighborhoods are disjoint. Summing covariances across d+binom(d,2) neighbors gives Var X=µ+Np²(d²−5d−16)/16, µ=(4/3)^d, switching sign precisely between d7 and d8. Dependence ball at Hamming distance ≤2 has M_d=1+d+C(d,2); Arratia–Goldstein–Gordon 1989 Theorem1 with its norm 2TV and b1=N M_d p²,b2=Np²(3d/4+9C(d,2)/8),b3=0 gives standard count TV ≤pB_d(1−e^{-µ}); Theorem3 gives vector-TV ≤2Np²(B_d+1). These tend to zero since Np²=(8/9)^d. Greedy packing of disjoint closed neighborhoods selects at least ceil(N/M_d) independent defect indicators and bounds P(X=0)≤(1−p)^ceil(N/M_d)≤e^{-µ/M_d}→0. Independent reimplementation enumerated all 9,81,6561 initial configurations for d=1,2,3 obtaining (waves,E,Var) respectively (0,4/3,2/9),(0,16/9,56/81),(252,64/27,1024/729), agreeing with published formula. Frozen tools/defect_check.py source checked for direct 3-step dynamics and exact pairs. Finite enumeration is only corroboration of all-d analytic theorem.
 
-PASS, with qualified historical priority. The 1978 founding model and the 1991/2016 long-time behavior studies do not state an initial defect correlation or full-field decoupling on fixed high-dimensional Boolean cubes. The published 2026 random-edge Greenberg–Hastings Poisson threshold applies to random Erdős–Rényi graphs with bounded defect mean, not the present deterministic hypercube with exponentially increasing mean, exact distance-dependent signed covariances, and vanishing full-pattern total-variation distance. The published four-cube exact orbit census is finite-dimensional and does not imply any of the all-dimensional estimates. Arratia–Goldstein–Gordon's hypercube edge-orientation example is a methodological antecedent, not the same color-induced events. Risk: older results may contain an equivalent specialization of a general dependency-graph statement; no absolute priority is asserted.
+## originality
 
-## Value
+PASS
 
-PASS. The natural observable distinguishes the locally almost-certain condition that each vertex has an excitation source from the globally very unlikely event of an immediately coherent three-cycle. The exact sign reversal in nearby correlations and a dimension-eight sub-Poisson to over-Poisson variance crossover, despite asymptotic independence of the entire high-dimensional defect field, is a substantive quantitative phenomenon in a canonical excitable network. It supplies a tractable baseline for high-dimensional initial wave formation, not merely a finite table or a relabelled generic theorem. The probability of an immediate three-cycle is bounded above but its sharp asymptotic remains open.
+Best-of-knowledge PASS for the exact hypercube color-defect covariance sign reversal, growing-intensity full-vector independent-site approximation and initial period-three rarity. Chen–Stein theorem, GH dynamics and random-graph Poisson windows are prior and explicitly acknowledged. The earlier rarest-color Erdős–Rényi result has random edges and mean approaching a constant, so it does not directly imply hypercube local pair correlations with µ diverging.
 
-The closest references are Greenberg–Hastings (1978), Durrett–Steif (1991), Arratia–Goldstein–Gordon (1989), Gravner–Lyu–Sivakoff (2016), and the published 2026 random-edge excitation threshold and finite four-cube census. None of their inspected statements provides the same all-dimensional joint defect law. Independent review and historical completeness remain outstanding.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An exact dimension-eight crossover from underdispersion to overdispersion, combined with asymptotic independence of the entire rare spatial defect pattern while mean defect count diverges, is a motivated fine-scale stochastic-dynamical phenomenon on a canonical graph family. It separates local rarity from global immediate-cycle rarity; the exact local correlation coefficients would be useful in testing random excitation approximations. Standard Chen–Stein technology is not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
