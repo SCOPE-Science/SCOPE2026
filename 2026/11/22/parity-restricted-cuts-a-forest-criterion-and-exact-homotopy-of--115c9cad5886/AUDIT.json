@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The even-weight shore subspace has one-dimensional orthogonal complement spanned by the all-ones vector. A support loses linear rank exactly when it has a nonempty even-degree subgraph or an all-odd-degree subgraph. The former forces a cycle, the latter exists in a forest exactly when every component has even order. This proves the general claim including isolated vertices. The dimension proof uses the maximal spanning forest, and the online equality uses binary linear-code size. Cayley tree counts and the labeled exponential formula yield the coefficientwise polynomial; standard matroid shellability yields the integral wedge with top Betti equal to the signed face sum. Separate finite Python trace and C++ rank implementations check all edge supports through 6 vertices; an independent labeled-component recurrence checks the polynomial through 10 vertices; direct mod-two boundary ranks check n=4 and 6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest published-finding corpus ID published-finding corpus record 938da32cb1c6 (component-size shattering of fixed-cardinality cuts) addresses each single prescribed shore size, not the union of all even sizes.",
+        "Guenin–Pivotto proves broad matroid structural facts but does not state the specialized polynomial or homotopy count.",
+        "Matroid shellability is classical and used, not claimed."
+      ],
+      "reasoning": "The fixed-size shore classification concerns a different family. The union of trace families can realize labels unavailable in individual classes, so their individual shattered-support lists do not imply the parity-union criterion without further arguments. General shellability implies wedge concentration but not the explicit counts; the signed tree-species calculation supplies that specialization.",
+      "searches": [
+        "published-finding corpus: even cut matroid complete graph parity restricted cuts forest odd component VC shattering",
+        "published-finding corpus: even cut code complete graph shattering forest all even sized components",
+        "Web: \"even cut\" \"complete graph\" \"independence complex\" homology",
+        "Web: \"parity\" \"VC dimension\" \"cut space\" \"graphic matroid\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1902.08689",
+      "https://www.math.uwaterloo.ca/~bguenin/papers/stable.pdf",
+      "https://arxiv.org/abs/2007.16042",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.17",
+      "published-finding corpus record 938da32cb1c6 (component-size shattering of fixed-cardinality cuts)",
+      "published-finding corpus record 97de3d7a6dd7 (two-vertex cuts of a complete graph)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guenin–Pivotto already identifies the duality with even-cut matroids: that portion is acknowledged as prior.",
+        "Bujtás et al. Theorem 3 concerns prescribed odd-degree sets realized by forests, not cut-coordinate VC surjectivity, generating functions or homotopy.",
+        "Adler et al. treat open neighborhoods on Johnson/Hamming graphs.",
+        "The fixed-cardinality shore work has not been inspected in full: only abstract/summary-level comparison is possible."
+      ],
+      "reasoning": "The current claim combines a parity-specific trace criterion for every graph with the complete polynomial and integral sphere count for K_n. The major individual tools are classical; a direct specialized all-order implication from a matching prior theorem was not found. Possibility of an implicit specialized Tutte or matroid computation remains.",
+      "searches": [
+        "Guenin Pivotto Stabilizer theorems for even cut matroids Section 2.1 (PDF text)",
+        "Bujtas Jendrol Tuza On specific factors in graphs arXiv:1902.08689 pages 1–3",
+        "Adler Benediktsson Macpherson VC dimension Johnson Hamming graphs 2020 primary introduction and main theorem",
+        "published-finding corpus: fixed cardinality cut shattering polynomial forest component sizes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guenin–Pivotto, Section 2.1: T-even cuts are cycles of the even-cut matroid; edge-query concept rows are its binary cocycle space.",
+        "No published-finding corpus returned item explicitly matched parity-restricted even-shore trace criterion."
+      ],
+      "reasoning": "Equivalent coding-theoretic formulation is coordinate surjectivity for the even-cut cocycle space; ordinary even-cut-matroid representation itself is known, but that representation does not state the present complete fixed-graph shattering and exponential face polynomial. No equivalent published specialized formula was located.",
+      "searches": [
+        "published-finding corpus: even cut graft complete graph T all vertices VC shattering polynomial forests odd components topology",
+        "published-finding corpus: parity constrained vertex two-colourings complete graphs edge differences Boolean concept class homology",
+        "Web: \"even cut matroid\" \"complete graph\" circuits forest",
+        "Web: \"even cut\" \"complete graph\" \"Tutte polynomial\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest database IDs: published-finding corpus record 938da32cb1c6 (component-size shattering of fixed-cardinality cuts); published-finding corpus record 97de3d7a6dd7 (two-vertex cuts of a complete graph).",
+        "No retrieved numeric table gave 7, 511, 98099 for this specific parity-constrained cut complex."
+      ],
+      "reasoning": "The searched database records count fixed-shore cuts; no exact parity-restricted series was returned. Database retrieval cannot prove uniqueness, and inaccessible source files are specifically listed as a risk.",
+      "searches": [
+        "published-finding corpus: exact parity restricted cuts complete graph 1+6z+12z2 1+15z+105z2+420z3+840z4",
+        "Web: parity vertex cuts VC dimension shattering even subsets edges complete graphs",
+        "Web: \"even cut\" \"complete graph\" \"Tutte polynomial\""
+      ]
+    },
+    "rationale": "Existing graft/even-cut-matroid representation is credited and is not presented as new. The surveyed claims on fixed-cardinality cuts, parity factors, general matroid structure, and neighborhood VC relations do not explicitly imply the complete even-shore union trace count or its specialized integral Betti sequence without new trace and labeled-tree analysis. Full primary text was inspected where available. This is a qualified best-knowledge priority assessment, not proof of absolute novelty.",
+    "residual_risks": [
+      "The fixed-cardinality cut result was retrieved as a summary but its full claim/proofs were not accessible for closer implication analysis.",
+      "Specialized Tutte-polynomial or matroid independence-complex tables for the graft (K_n,V) might contain an implicit exact formula.",
+      "The accessible prior ledger history is not guaranteed exhaustive across older weeks; no global uniqueness proof is claimed.",
+      "Guenin PDF screenshot fetch was forbidden despite parsed section text availability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the matroid and graft language, not the enumerative or learning-theoretic specialization; representation explicitly credited.",
+        "evidence": [
+          "Defines ecut(G,T) as cycle space of a binary matroid (lines 79–88).",
+          "Connects T-joins to even cuts and matrices (lines 90–104)."
+        ],
+        "identifier_or_url": "https://www.math.uwaterloo.ca/~bguenin/papers/stable.pdf",
+        "material_read": "Extracted PDF text: Introduction and Section 2.1 (lines 57–104), including T-even graft cuts, T-joins, matrix representation; PDF screenshot attempt returned forbidden.",
+        "method": "Full primary text section inspection by parsed text; screenshot attempted but unavailable.",
+        "title": "Stabilizer theorems for even cut matroids",
+        "trigger": "Directly related matroid representation and parity cuts"
+      },
+      {
+        "assessment": "Establishes parity-factor context rather than cut-edge learning traces or shattering topology.",
+        "evidence": [
+          "Theorem 3 provides arbitrary even-set degree-parity forest existence (page 2).",
+          "Main setting requires positive degree factors, distinct from these cut concepts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1902.08689",
+        "material_read": "Pages 1–3 including the classical T-join forest existence theorem and parity-factor definitions; PDF page 2 screenshot inspected; text search for VC/shattering showed no matches.",
+        "method": "arXiv open PDF parsed text and screenshot for page 2.",
+        "title": "On specific factors in graphs",
+        "trigger": "Earliest motivating public paper on parity-prescribed graph factors"
+      },
+      {
+        "assessment": "Studies graph vertex-neighborhood concepts; no complete-graph cut-edge parity class.",
+        "evidence": [
+          "Theorem 1.1 bounds neighborhood VC dimension of Johnson and Hamming graph classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+        "material_read": "Published HTML primary full-text introduction, definition and Theorem 1.1, plus main argument excerpts.",
+        "method": "Publisher full-text HTML, with primary arXiv identification.",
+        "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Foundational middle-era graph VC literature"
+      },
+      {
+        "assessment": "Described problem is independent vertex separators and multiway cuts, not VC shattering; remains only abstract-level exclusion.",
+        "evidence": [
+          "Abstract specifies parameterized optimization for vertex cuts subject to matroid independence."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.17",
+        "material_read": "Open-access publisher full metadata, abstract, subject and references; not entire paper.",
+        "method": "HTML abstract-level inspection.",
+        "title": "Cuts in Graphs with Matroid Constraints",
+        "trigger": "Plausible modern cut/matroid crossover"
+      },
+      {
+        "assessment": "Fixed-size shores are distinct from union of all even sizes, but source full text unavailable.",
+        "evidence": [
+          "Summary asserts a forest criterion involving component sizes for fixed-cardinality cuts."
+        ],
+        "identifier_or_url": "published-finding corpus record 938da32cb1c6 (component-size shattering of fixed-cardinality cuts)",
+        "material_read": "published-finding corpus search title and detailed summary only; linked full files inaccessible in this execution.",
+        "method": "Semantic search result and attempted linked page access.",
+        "title": "Component-size shattering of cardinality-constrained graph cuts",
+        "trigger": "Closest published database claim by object"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "115c9cad-5886-4b1e-a720-bb30adc39dcd",
+  "value": {
+    "rationale": "The parity restriction on graph shores is intrinsic to even-cut codes and induces a sharp graph-wide VC/Littlestone rank drop while preserving the binary linear-code structure. The all-graph forest/odd-component criterion identifies every support and the complete-graph specialization yields exact coefficients and integral Betti numbers at all orders; the stated finite values 7, 511, 98099, 36215281 require genuine weighted forest counting and are not only renamings of VC dimension. These supply a concrete benchmark for parity-sensitive matroid complexes.",
+    "status": "PASS"
+  }
+}
