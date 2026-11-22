@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:53:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Independent uniform area sampling yields sector offsets with normalized density sec^2(t)/(2 tan(pi/n)); the radius cancels in the diameter-disk condition X dot Y<=0. For odd n, modular differences count r or r+1 favorable sectors according to whether alpha/2<|T_X-T_Y|<3alpha/2. The band probability is an explicit two-integral sec^2-weighted calculation, converted algebraically to B(z). For even n, central inversion makes the probability 1/2. For odd n, the circle-folded offset density is symmetric unimodal and its self-convolution has strictly larger centered-half-circle mass, yielding the already known alternating sign. Uniform density expansion cancels constant and linear terms in the centered band, leaving an exact quartic correlation integral J=-5/192; I independently integrated the kernel -(u-2)(3u^4+6u^3-8u^2-16u+8)/90 and confirmed J=-5/192. Hence alpha=pi/n gives the fifth-order term with O(n^-7) after a smooth even expansion. The source verifier separately checks sector signs and numerical quadratures; finite checks cannot establish all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 Fourier representation applies to general radial densities and regular polygons but leaves an unevaluated infinite series; general spherical-depth algorithms compute from input data but do not state the closed regular-n analytic evaluation."
+        ],
+        "reasoning": "General representations and algorithms do not automatically imply the explicit elementary B(z) formula and nonzero 1/n^5 coefficient as an existing stated theorem, although the latter can be derived with additional work.",
+        "searches": [
+          "Resultary query: spherical depth center regular polygon random diameter disk two independent uniform area points logarithmic formula fifth order asymptotics",
+          "MSE question 5101873 Oct 2025 answer by Marco",
+          "arXiv:1702.07399 spherical-depth algorithm"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026 RESULT.md and verify.py",
+        "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains",
+        "https://arxiv.org/abs/2608.27491",
+        "https://arxiv.org/abs/1702.07399"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Fourier coefficients are integrals of sec^2(theta) cos(k n theta); recovering the displayed rational-log formula and its exact coefficient needs explicit nontrivial convolution/integration and cancellation. The general triangle paper supplies a methodology and base case, not the n-variable evaluation."
+        ],
+        "reasoning": "Strong methodological coverage is credited, but no inspected prior assertion gives the claimed evaluated odd-n expression or exact fifth-order constant.",
+        "searches": [
+          "Resultary query: spherical depth center regular polygon random diameter disk two independent uniform area points logarithmic formula fifth order asymptotics",
+          "MSE question 5101873 answer by Marco October 17, 2025",
+          "arXiv:2608.27491",
+          "arXiv:1702.07399"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event that the center lies in the disk on XY is X dot Y<=0; this is angular antipodality/spherical depth, and the 2025 discussion writes a convolution/Fourier formula for exactly that event."
+        ],
+        "reasoning": "The identity of observable and center definition was checked; known exact triangle and sign claims are covered and excluded from new contribution.",
+        "searches": [
+          "Resultary query: spherical depth center regular polygon random diameter disk two independent uniform area points logarithmic formula fifth order asymptotics",
+          "MSE question 5101873 October 2025 full thread",
+          "arXiv:2608.27491"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier materials state triangle p3=1/3+log3/6 and qualitative odd-n signs; one comment offers an unevaluated pentagon integral. The current B(z) provides every n and the asymptotic coefficient."
+        ],
+        "reasoning": "Individual n=3 or pentagon values do not cover the exact all-order formula or sharp fifth-order convergence.",
+        "searches": [
+          "Resultary query: spherical depth center regular polygon random diameter disk two independent uniform area points logarithmic formula fifth order asymptotics",
+          "MSE question 5101873: triangle and pentagon comments, exact equations",
+          "arXiv:2608.27491"
+        ]
+      },
+      "rationale": "PASS with narrow scope: The October 2025 Mathematics Stack Exchange full thread asks the identical center/diameter problem, derives the triangle value 1/3+log(3)/6, gives odd-n mod-four sign alternation and a general Fourier-coefficient formula for regular polygons. All are expressly prior and not claimed new. The inspected discussion does not evaluate the displayed all-odd-n single elementary logarithmic formula nor the sharp 5*pi^4/192 coefficient and two-order remainder. Rabinowitz 2026 studies polygonal spherical depth and triangles, and Bremner–Shahsavarifar 2017 general depth algorithms; neither known claim provides this evaluated n-family. Direct derivation from the prior Fourier representation is mathematically conceivable, so historical distinctness is a qualified best-of-knowledge conclusion, not a claim that the topic was previously unstudied.",
+      "residual_risks": [
+        "The Oct 2025 full Fourier formula may allow a short alternative derivation; an overlooked evaluated comment or unindexed paper could preempt the all-odd-n closed form or the fifth-order coefficient.",
+        "The Rabinowitz triangle-paper full text was not inspected; its title and available abstract suggest a triangle-focused result, but whole-paper exclusion cannot be asserted.",
+        "No general convex-body extremal theorem or optimal center is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS triangle, sign and general Fourier representation, NOT_COVERING explicit all-odd-n elementary B(z) or the sharp 5*pi^4/192 asymptotic",
+          "evidence": "Oct 17 answer writes P(C)=1/2+sum_k theta(k)|fhat_k|^2/(pi^2 area^2 k) and regular-n Fourier integrals; no evaluated all-n closed log",
+          "identifier_or_url": "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains",
+          "material_read": "Complete question, answers and Oct 2025 comments including exact triangle p3, mod-four sign, Marco Fourier regular-polygon formula and pentagon integral",
+          "method": "Full public thread HTML incl. lines 24-67 and 227-336",
+          "title": "What planar convex shape maximizes the probability that a random circle contains the centre?",
+          "trigger": "Identical random-diameter/centroid problem"
+        },
+        {
+          "assessment": "SAME observable, focus on triangle and generic polygon transfer; full-document noncoverage NOT asserted",
+          "evidence": "The source has exact triangle title and published 2026-08-26 preprint; material-read limitation is explicit",
+          "identifier_or_url": "https://arxiv.org/abs/2608.27491",
+          "material_read": "Accessible arXiv abstract and bibliographic description; full article not obtained in this run",
+          "method": "ArXiv/OA metadata and abstract, not full primary text",
+          "title": "The Probability That the Incenter of a Triangle Lies in a Random Diameter Disk (Rabinowitz)",
+          "trigger": "Closest recent exact triangle and polygon methodology"
+        },
+        {
+          "assessment": "Computational depth algorithm is general, no inspected claim of evaluated regular polygon all-n probability",
+          "evidence": "2017 scope: algorithms for point depth rather than analytic regular-polygon area measure",
+          "identifier_or_url": "https://arxiv.org/abs/1702.07399",
+          "material_read": "Accessible abstract and algorithmic scope, not an asserted complete inspection",
+          "method": "ArXiv metadata/abstract",
+          "title": "An Optimal Algorithm for Computing the Spherical Depth of Points in the Plane (Bremner–Shahsavarifar)",
+          "trigger": "General spherical-depth alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The center spherical depth of a uniform regular polygon is a natural and already studied geometric probability. The entire exact n-dependent value and nontrivial fifth-order convergence constant sharpen a quantified disk limit beyond the previously known sign, without claiming global extremality among arbitrary polygons. This is a natural all-order exact invariant, not a one-off decimal.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026 RESULT.md and verify.py",
+    "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains",
+    "https://arxiv.org/abs/2608.27491",
+    "https://arxiv.org/abs/1702.07399"
+  ],
+  "disposition": "passed",
+  "final_claim": "For centered regular Euclidean n-gons with independent area-uniform endpoints, center spherical depth equals 1/2 at even n, and at odd n has the specified elementary rational-logarithmic expression B(tan^2(pi/(2n))) with exact sign and sharp deviation (-1)^((n+1)/2)*5*pi^4/(192*n^5)+O(n^-7).",
+  "limitations": [
+    "Only centered regular polygons, independent uniform area measure, and center-in-random-diameter-disk probability.",
+    "Finite numeric quadrature does not prove exact logarithmic integral identity at every n; symbolic proof in RESULT.md supplies the all-order step."
+  ],
+  "residual_risks": [
+    "The Oct 2025 full Fourier formula may allow a short alternative derivation; an overlooked evaluated comment or unindexed paper could preempt the all-odd-n closed form or the fifth-order coefficient.",
+    "The Rabinowitz triangle-paper full text was not inspected; its title and available abstract suggest a triangle-focused result, but whole-paper exclusion cannot be asserted.",
+    "No general convex-body extremal theorem or optimal center is established."
+  ],
+  "schema_version": 1
+}
