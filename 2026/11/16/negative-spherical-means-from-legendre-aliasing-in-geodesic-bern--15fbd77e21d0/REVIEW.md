@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact input \(P_{2n-2}(\cos\theta)\) is a zonal positive-definite kernel on \(S^2\) by spherical-harmonic addition. Darboux's interior Legendre expansion at \(\theta_j=\pi j/n\) yields an aliased phase \(2\pi j-3\theta_j/2-\pi/4\), giving the asserted locally uniform profile after binomial concentration. The beta-binomial identity supplies an exact expression for the spherical mean, and the beta mean/variance bounds produce an \(O(n^{-1})\) correction; uniform Legendre Bernstein bounds control endpoints. The resulting beta cosine integral evaluates to \(-\sqrt\pi/(4\sqrt2)\). Negative constant Legendre coefficient proves non-positive-definiteness on \(S^2\). The standalone numerical checker passed 28 assertions. This is a proof of eventual failure, not of the least failing degree.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Legendre addition theorem makes the pure harmonic input positive semidefinite. Darboux P_m(cos u) for m=2n−2 has phase (2n−3/2)u−π/4; at u=πj/n this aliases modulo 2π to −3u/2−π/4. Uniform interior Darboux remainder and binomial concentration prove compact-interior √n H_n convergence, without claiming uniform endpoint behavior. Exact Bernstein beta integral and bounded sine Taylor error O(1/n), uniform |P_m|<=1, convert the normalized a0 to a weighted Riemann sum. Standard uniform Legendre envelope bounds √n|P_m(cos u)|sin u <=C sqrt(sin u), including endpoints by vanishing sine, permitting dominated integral limit. The beta-cosine integral equals π/(2sqrt(2)) and gives −sqrt(π)/(4sqrt(2)) (independently integrated to −0.313328534328875...). Schoenberg coefficient nonnegativity makes eventual negative a0 a fixed S² obstruction. No least cutoff claimed.
 
-Otten–Nguyen–Watts (arXiv:2608.04836v1, 2026-08-05) prove positivity preservation on the circle for all degrees and discuss an **affine dot-product** higher-sphere obstruction; their available full text does not state the present angular two-sphere monopole limit. Published affine Bernstein findings (full RESULT.md inspected) concern a distinct operator. The nearest angular dimension-lifting result establishes failure to lift to positivity on *all* sphere dimensions simultaneously, which does not imply failure on \(S^2\). The present negative zeroth Legendre coefficient and exact aliasing constant provide the non-covered fixed-sphere implication. Searches included equivalent wording, the constant, spherical means, Legendre aliases, the source and the operator. Priority risk remains from classical spherical approximation literature not fully indexed.
+## originality
 
-## Value — PASS
+PASS
 
-A real question prompted by a recent circle-positive-preservation theorem is whether the **same geodesic sampling** preserves spherical covariance positive definiteness. The theorem provides an infinite-family fixed-sphere obstruction and a sharp diagnostic amplitude/phase law; its failure is detected by the most natural spherical invariant, the constant harmonic coefficient. The distinction between failure of Hilbert-sphere lifting and failure on the original two-sphere is mathematically substantive. The limit is a structural phenomenon rather than arbitrary small-degree arithmetic, and the input sequence is explicitly admissible.
+Best-of-knowledge PASS. Closely related full Resultary source proves a sharp Hilbert-sphere lifting frontier for angular Bernstein but expressly does not imply failure on the *original* S²; its negative witnesses concern loss of all-dimension lifting. Classical affine-dot-product Bernstein failures use different nodes and kernel. Otten–Nguyen–Watts abstract establishes preservation on circle and mentions S² failure only for the affine dot-product operator. The present fixed-S² negative monopole and exact Legendre alias decay constant are not consequences of either. The highly relevant preprint full text was not read, leaving bounded priority risk, not automatic failure.
 
-## Closest literature and limitations
+## value
 
-The mathematical comparison uses full accessible text for Otten, Nguyen and Watts, *Preservation of Positive-Definiteness by Bernstein Operators on the Circle*, https://arxiv.org/abs/2608.04836; published affine results at https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-dimension-degree-frontier-and-infinite-sphere-lift-for-aff--3785c4062726 and https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-degree-frontier-for-affine-bernstein-approximation-of-sp--a8520e405e97; and standard Legendre asymptotics from Szegő/DLMF. There is no independently verified publication priority; an older aliasing equivalent remains possible. No sharp finite cutoff, no uniform endpoint asymptotic, and no higher-dimensional universal frontier is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining whether approximation methods preserve spherical positive definiteness is a natural kernel-theory boundary question. A quantitative asymptotic negative degree-zero coefficient for a valid S² input proves non-preservation in the original dimension, stricter than failure to lift to infinite dimension; the precise aliasing profile explains the mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
