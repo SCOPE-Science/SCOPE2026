@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Positive generators split into three disjoint intervals. The only nontrivial interval is controlled exactly by missing elements of the two-fold sumset of the selected small offsets, establishing the invariant identity for every allowed parameter, including the degenerate boundary. The finite fixed-genus mean follows from disjoint unordered summand pairs and coefficient extraction. Hypergeometric finite prefixes converge to iid Bernoulli prefixes; a uniform lower-coupling and exponential hole-tail bound promote convergence to total variation and expectations. The independent Bernoulli probability series gives the explicit mean. Exhaustive finite enumeration is separate corroboration and is not used to infer an infinite theorem.
+
+**Originality — PASS, qualified.** The source covariety theory includes maximal embedding dimension and genus enumerations, the November 2026 counting paper covers the triple of Frobenius, multiplicity and genus, and existing random-sumset literature studies independently sampled subsets. The accepted mathematical contribution is specifically the fixed-genus embedding-dimension defect, its exact hypergeometric mean, and the total-variation conditional limit for all interior subset densities. The standalone Bernoulli sumset-gap statistic, elementary binomial genus counting, and general maximal-embedding-dimension concepts are excluded from the novelty claim. Unindexed conditional sumset results could imply parts of the theorem; the priority claim is necessarily provisional.
+
+**Value — PASS.** Embedding dimension is a standard invariant of numerical semigroups, while genus is used as a conditioning statistic in current multiplicity–Frobenius enumerations. This identifies an order-one, nontrivial local correction rather than just its leading linear scale, and proves that conditioning on genus produces a universal fringe law with an explicit density-dependent mean. The coefficient formula is exact for every finite admissible triple and the proof establishes the limit without relying on experiments.
+
+The existing literature is credited in RESULT.md; further historical literature search and independent mathematical review may refine attribution.
+
+Self-review: passed. Independent audit: not yet performed.
