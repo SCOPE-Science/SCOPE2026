@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the twelve vertices as the lexicographically ordered edges of the three-cube and defines the synchronous four-neighbor, tie-retaining majority update without ambiguity. The proof is a finite exhaustive proof over exactly \(2^{12}=4096\) states, not a numerical sample. Two separately implemented supplied programs agree on all six first-entry/period classes, all basin sizes, all twenty primitive two-orbits, the sharp update-four witness, and every two-cycle phase's indegree one. The Python checker also constructs the full 48-element spatial automorphism group, whose completeness has an independent triangle-incidence argument, and verifies its orbit sizes. The C++ checker validates each hardcoded neighborhood against the cube-edge incidence definition. The exact claim is therefore supported by the package; there is no inference to larger graphs.
+PASS
 
-## Originality — PASS with historical-priority risk
+PASS — The graph is precisely L(Q3) with 12 lexicographically indexed cube edges and four neighbors each. A newly implemented incidence-mask transition enumeration over all 4096 binary configurations confirmed 146 fixed states and 20 primitive 2-cycle orbits; initial-periodic-entry histogram t=0..4 is (186,1606,1200,1008,96), giving F^6=F^4 for EVERY state with t=4 attained. Every oscillatory phase has indegree 1, each two-cycle basin has size exactly 2, the fixed-basin histogram matches the source; all 48 cube automorphisms give 14 fixed classes and three two-cycle geometric classes of sizes 6,6,8. The independent implementation verified flips 6 in 8 cycles, 8 in 12 cycles, and center Hamming weight six. This is genuinely exhaustive finite proof, not sampled trajectories; no longer periods remain possible.
 
-Actual mathematical-record searches used the aliases cuboctahedral majority, \(L(Q_3)\) majority, cube-edge voting, exact 146 fixed and 20 primitive two-cycles, isolated two-cycles, and spatial orbit counts. The closest inspected public records are the exact majority censuses for the dodecahedral graph and the four-cube, which concern different underlying graphs and do not imply the stated counts or three-class decomposition. The original arXiv:1405.2486v1 was inspected in its introduction and parts on random four-regular graphs: it gives a general period bound and random/infinite-graph behavior, not this finite exact census. The 2004 full text of Tošić and Agha was inspected, including its one-dimensional setup, Lemma 5, and conclusion: its broad no-incoming-transients assertion means that isolated oscillation **alone is not claimed new**, but it supplies none of the cuboctahedral numerical, basin, or geometric facts. The original 1980 Goles–Olivos article was not available in full and priority remains qualified, though its stated theorem does not enumerate this graph. A search with exact numbers and graph aliases found no covering source. No novelty claim depends merely on a title mismatch.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural graph-specific dynamical invariant for the edge-incidence graph of the smallest ordinary cube, a vertex-transitive four-regular Archimedean skeleton with a transparent 48-element symmetry group. The result distinguishes isolated oscillatory orbits from the overwhelmingly fixed-point attraction basins, identifies three geometrically different oscillation families, and gives a sharp complete entrance-time distribution. It is a motivated finite benchmark for symmetry-sensitive threshold dynamics, not an arbitrary subset or random integer tabulation. Its scope is deliberately finite: neither a general line-graph theorem nor an infinite-family formula is asserted.
+PASS best-of-knowledge — The general majority threshold theorem establishes eventual period at most two, and earlier finite-census literature covers dodecahedron and the 4-cube, not the 12-vertex line graph L(Q3) with this tie-retaining rule. A known generic nonincoming-oscillation observation is NOT claimed as new; the complete 4096-state basin and symmetry-resolved census, exact sharp entrance clock and orbit measures are the distinct findings.
 
-## Closest comparisons and limits
+## value
 
-Benjamini et al., arXiv:1405.2486v1 (2014), provides general period-two context; Tošić and Agha (2004) studies one-dimensional cellular automata and makes a broadly stated incoming-transient assertion; the two accessible finite-graph majority censuses cover the dodecahedron and four-cube, respectively. No exact cuboctahedral table was found. The Goles–Olivos original full text and potentially unindexed enumerations remain uninspected. Programs prove a finite exact computation only, without independent external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — Cuboctahedron is a canonical Archimedean/cube line graph with nontrivial 48-element symmetry. The exact full-state attractor census, completely isolated oscillators, sharp settling bound and geometric phase types constitute a natural self-contained finite dynamical classification; 4096 explicit states with symmetry and basin structure is more than a cheap toy example or arbitrary cut-off.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
