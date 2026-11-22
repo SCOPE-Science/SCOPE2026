@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python check_ultrametric_haar.py` using Python 3 and only the standard library. The script uses exact rational arithmetic and computes signed Haar kernels and tree-flow transportation norms without calling the Bellman recurrence for the kernel comparison. It exhausts all 128 node-sign choices and all 28 unordered leaf pairs for three independent depth-three radius configurations; it also checks the depth-two configuration and enumerates all 256 path-sign strings through depth eight.
+## correctness
 
-The observed diagnostics were:
+PASS
 
-```
-EXACT_SIGNED_HAAR_ROW_BELLMAN_PASSED depths=1..8
-EXACT_ALL_TRANSFORMS_AND_PAIRS 2 48 optimal 1 per-depth ['1', '1']
-EXACT_ALL_TRANSFORMS_AND_PAIRS 3 3584 optimal 5/4 per-depth ['5/4', '1', '1']
-EXACT_ALL_TRANSFORMS_AND_PAIRS 3 3584 optimal 11/10 per-depth ['11/10', '1', '1']
-EXACT_ALL_TRANSFORMS_AND_PAIRS 3 3584 optimal 5/4 per-depth ['5/4', '1', '1']
-ALL_EXACT_ULTRAMETRIC_HAAR_CHECKS_PASSED
-```
+Read frozen RESULT.md and exact-rational check_ultrametric_haar.py. The metric embedding with tree lengths (r_{t−1}−r_t)/2 gives Kantorovich–Rubinstein mass-flow norm; norm duality reduces signed transforms to images of leaf-pair molecules. After first split, the two row branches are independent, and the scalar Bellman recurrence W_s yields F_s for each level with one greedy sign choice optimizing all descendant mass levels. Abel summation gives positive-tail formula; geometric sum and limiting radius criterion follow. Partial Haar projections and cylinder density are justified on little-Lipschitz only. Independently enumerated exact rational Bellman values for depths one through six. Neither finite tests nor saved log substitute for transport/density proofs.
 
-The depth-two count is \(8\times6=48\), and each depth-three count is \(128\times28=3584\). These tests corroborate the finite norm identities but are not an exhaustive verification of all dimensions or all positive real radius profiles. The general finite and infinite assertions rely on the analytical argument in `RESULT.md`. Independent validation of the mathematics has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality for the metric-dependent sharp sign norm and little-Lipschitz unconditionality iff; pre-existing signed L-infinity Haar row recurrence and general ultrametric free-space bases are acknowledged and not claimed.
+
+## value
+
+PASS
+
+Determines the exact sensitivity of a canonical multiscale Haar basis to sign flips in a natural ultrametric Lipschitz norm, for arbitrary distance scales, and pinpoints unconditionality by a meaningful uniform decay condition. This is stronger than an existence-of-basis statement and identifies sharp geometric-radius dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

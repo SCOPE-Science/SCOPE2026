@@ -1,15 +1,21 @@
-# Mathematical review: sharp ultrametric Haar sign bounds
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The precise space, normalization, finite domain and sign-multiplier norm are defined in the result. A finite ultrametric leaf pair embeds in a rooted weighted binary tree with positive edge lengths, and the Kantorovich--Rubinstein norm of each signed leaf measure is exactly its sum of edge-flow magnitudes. Signed Haar rows have the scalar Bellman recurrence (9); its affine solution produces the explicitly stated \(F_s\). A kernel-row difference first diverging at depth \(k\) splits into two independent descendants; at each deeper level its optimal total absolute mass is \(2F_s\), simultaneously achievable at every level by the same nested signs. This proves the finite sharp norm without extrapolation from numerical tests. Summation by parts gives the positive tail formula. The conditional-expectation approximation and finite-cylinder density in the little-Lipschitz norm justify the infinite criterion. The standalone exact-rational enumeration reconstructs the kernel and the tree-flow norm independently in small cases. Norming functions in the finite theorem come from independently chosen edge gradients, not numerical approximations.
+## correctness
 
-## Originality
-**PASS, subject to bibliographic risk.** Godard's 2009 tree-metric representation supplies a transport framework, not the sharp Haar Lipschitz sign norm. Cúth--Doucha's 2014 work gives monotone retractional bases on ultrametric free spaces, but not the normalized binary Haar sign profile. Osękowski's 2013 results concern restricted weak-type estimates for Haar/Fourier operators, not the tree-ultrametric Lipschitz seminorm. The signed \(L^\infty\) Haar row formula \(F_s\) was already known and is used as a proof ingredient, not claimed independently. A previously published exact formula for nearest-predecessor bases of **comb** ultrametrics concerns different geometry and vectors; a published weighted-Hamming Cantor coordinate-filtration norm concerns a different metric and multipliers. Neither directly implies (1)--(6). Accessible literature and semantic comparisons found no equivalent arbitrary-radius binary-ultrametric statement; this absence is not a proof of global uniqueness. Incompletely indexed historical Haar and ultrametric work remains a real priority risk.
+PASS
 
-## Value
-**PASS.** The Lipschitz geometry of an ultrametric depends critically on its distance scales, and a stable Haar sign expansion is a natural analytic question for Lipschitz function spaces and their preduals. The theorem determines an exact entire family of norms, not one arbitrary example, and classifies when the canonical Haar system stays unconditional in a separable function space. The geometric formula shows a quadratic near-isometry regime and an exact reciprocal divergence near slowly decaying scales. These distinctions are invisible from the previously known \(L^\infty\) Haar-row norm alone and from qualitative Schauder-basis existence results.
+Read frozen RESULT.md and exact-rational check_ultrametric_haar.py. The metric embedding with tree lengths (r_{t−1}−r_t)/2 gives Kantorovich–Rubinstein mass-flow norm; norm duality reduces signed transforms to images of leaf-pair molecules. After first split, the two row branches are independent, and the scalar Bellman recurrence W_s yields F_s for each level with one greedy sign choice optimizing all descendant mass levels. Abel summation gives positive-tail formula; geometric sum and limiting radius criterion follow. Partial Haar projections and cylinder density are justified on little-Lipschitz only. Independently enumerated exact rational Bellman values for depths one through six. Neither finite tests nor saved log substitute for transport/density proofs.
 
-## Limitations and closest work
-The theorem assumes uniform binary splitting and radii depending only on depth. It does not settle asymmetric probabilities, arbitrary branching, all Lipschitz functions on the infinite Cantor space, or 0/1 coordinate suppression. Potential alternative historical formulations in martingale multiplier and tree transport literature are not excluded. No independent audit or certification is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the metric-dependent sharp sign norm and little-Lipschitz unconditionality iff; pre-existing signed L-infinity Haar row recurrence and general ultrametric free-space bases are acknowledged and not claimed.
+
+## value
+
+PASS
+
+Determines the exact sensitivity of a canonical multiscale Haar basis to sign flips in a natural ultrametric Lipschitz norm, for arbitrary distance scales, and pinpoints unconditionality by a meaningful uniform decay condition. This is stronger than an existence-of-basis statement and identifies sharp geometric-radius dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
