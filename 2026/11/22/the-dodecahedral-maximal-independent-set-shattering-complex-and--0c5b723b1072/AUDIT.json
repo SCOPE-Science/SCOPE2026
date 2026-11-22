@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "All 2^20 vertex masks are evaluated, both programs recover exactly 295 inclusion-maximal independent sets (10 of size 6, 280 of size 7, 5 of size 8). All possible independent supports are compared against every Boolean trace; n>=9 excluded by 2^9>295. Face counts 1,20,160,660,1470,1572,310 and facet counts 10,672,310. Python independently finds the ten pairwise-distance-three tetrahedra; they equal the ten four-facets. Two exact GF(2) boundary eliminations recover ranks 1,19,141,519,941,305 and reduced homology in dimensions 3,4,5 of ranks 10,326,5. Scripts verify actual input and all asserts, and the Euler check 10-326+5=-311 agrees with the face vector. Scope is the explicit finite graph; nothing infinite is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2024 Lemma 27 gives general VC upper bound, not a complete face polynomial or homology",
+        "General whiskered-graph shattering theorem restricted to W_t(G) with degree-one vertices"
+      ],
+      "reasoning": "A general VC upper bound cannot imply the 1+20z+160z²+660z³+1470z⁴+1572z⁵+310z⁶ coefficient vector. Dodecahedron is 3-regular and falls outside the pendant-leaf theorem.",
+      "searches": [
+        "dodecahedral graph maximal independent sets shattered vertex supports complete VC shattering complex",
+        "shattering complex of dodecahedron maximal independent sets six dimensional homology",
+        "arxiv:2403.17910 Lemma 27 maximal independent set hypergraph VC dimension bipartite induced matching",
+        "A flag-complex realization theorem for maximal-independent-set shattering on whiskered graphs (public 2026)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2403.17910 (full SoCG article, Lemma 27)",
+      "arxiv:2302.14388 (full HTML, section 4 Lemma 4.1)",
+      "arxiv:2007.16042 (abstract only)",
+      "A flag-complex realization theorem for maximal-independent-set shattering on whiskered graphs (public 2026)",
+      "The dodecahedral independence complex is a wedge of four 5-spheres (public 2026)",
+      "Integral icosahedral homology lattice of the dodecahedral scale-three Rips complex (public 2026)",
+      "Orientation-twisted five-set homology of the dodecahedral independence complex (public 2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 article proves existence of ten tetrahedra but no MIS membership characterization",
+        "Ordinary independence complex has much larger face counts and its fifth homology rank is 4 versus this shattering complex ranks 10,326,5 in dimensions 3,4,5",
+        "Whiskered graph class has private leaves not present in D"
+      ],
+      "reasoning": "Geometric tetrahedra alone do not show those are all exceptional shattered facets, nor determine the 672 five-facets, 310 six-facets or homology. No inspected theorem subsumes the new exact classification.",
+      "searches": [
+        "arxiv:2302.14388 section 4 lemma 4.1",
+        "arxiv:2403.17910 lemma 27",
+        "The dodecahedral independence complex is a wedge of four 5-spheres (public 2026)",
+        "A flag-complex realization theorem for maximal-independent-set shattering on whiskered graphs (public 2026)",
+        "Integral icosahedral homology lattice of the dodecahedral scale-three Rips complex (public 2026)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MIS hypergraph concept = all maximal independent sets queried by single-vertex incidence; ordinary independence complex is a different family",
+        "A flag-complex realization theorem for maximal-independent-set shattering on whiskered graphs (public 2026)"
+      ],
+      "reasoning": "Searched both maximal-independent-set hypergraphs and VC-shattering complexes; compare object as incidence matrix rather than graph name alone. Whiskered graph theorem requires leaves; ordinary independence complex contains many independent sets not shattered by the maximal-independent-set family.",
+      "searches": [
+        "dodecahedral graph maximal independent sets shattered vertex supports complete VC shattering complex",
+        "icosahedral graph maximal independent sets shattering polynomial pure nonpure",
+        "dodecahedron graph shattering maximal independent sets VC dimension",
+        "generalized Petersen GP(10,2) VC shattered supports 295 maximal independent sets 310 six faces"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The dodecahedral independence complex is a wedge of four 5-spheres (public 2026)",
+        "Orientation-twisted five-set homology of the dodecahedral independence complex (public 2026)",
+        "Integral icosahedral homology lattice of the dodecahedral scale-three Rips complex (public 2026)"
+      ],
+      "reasoning": "Same-graph ordinary-independence face tables and metric Rips tetrahedra are known but not the exact shattering-support face polynomial and GF(2) boundary ranks; the ten tetrahedra themselves are prior knowledge.",
+      "searches": [
+        "dodecahedral maximal-independent-set shattering complex nonpure facets homology mod 2 Betti 10 326 5",
+        "generalized Petersen GP(10,2) VC shattered supports 295 maximal independent sets 310 six faces",
+        "shattering complex of dodecahedron maximal independent sets six dimensional homology"
+      ]
+    },
+    "rationale": "Actual semantic queries for dodecahedron, generalized Petersen aliases, MIS shattering and numerical profile returned no exact or stronger result. Full scientific statements of closely adjacent public results and the 2024 motivating source were compared by their hypotheses and conclusions. The already known ten geometric tetrahedra are expressly not presented as new. Neither prior general bound nor the whiskered construction, ordinary independence complex or metric Rips results imply this specific complete face/facet and mod-two homology classification. Residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "Unindexed, unpublished or terminology-shifted tables of maximal-independent-set incidence may predate this exact count.",
+      "The 2020 neighborhood VC article was assessed by abstract and excerpts; no full-text noncoverage determination is claimed.",
+      "No independent external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General upper bound via induced matchings does not imply exact dodecahedral face counts, facets or boundary ranks",
+        "evidence": [
+          "2024 first public arxiv:2403.17910 (2024-03-26)",
+          "Lemma 27 states general VC bound, not exact face enumerator"
+        ],
+        "identifier_or_url": "arxiv:2403.17910; https://drops.dagstuhl.de/storage/00lipics/lipics-vol293-socg2024/LIPIcs.SoCG.2024.71/LIPIcs.SoCG.2024.71.pdf",
+        "material_read": "Full open-access SoCG 2024 article; specifically Lemma 27 and adjacent argument",
+        "method": "Read HTML bibliographic entry and PDF text; visual inspection of PDF cover and relevant page",
+        "title": "Beyond chromatic threshold via the (p,q)-theorem, and a sharp blow-up phenomenon",
+        "trigger": "2024 maximal-independent-set hypergraph VC-dimension lemma; the lead middle-cohort source"
+      },
+      {
+        "assessment": "Ten tetrahedra and their distance-three property previously known and expressly NOT claimed new; source studies metric Rips complex, not MIS membership shattering or its homology",
+        "evidence": [
+          "Section 4 Lemma 4.1 explicitly identifies ten equidistant dodecahedral tetrahedra",
+          "Article treats Vietoris-Rips rather than maximal-independent-set incidence"
+        ],
+        "identifier_or_url": "arxiv:2302.14388",
+        "material_read": "Accessible full arXiv HTML; introduction and section 4, including Lemma 4.1",
+        "method": "Read scientific manuscript sections and exact stated geometric configurations",
+        "title": "Vietoris–Rips complexes of Platonic solids",
+        "trigger": "Ten pairwise-distance-three dodecahedral tetrahedra may predate this computation"
+      },
+      {
+        "assessment": "Ordinary independence complex has 5828 faces and distinct face vector; does not compute membership-shattered supports (4193 faces) or its mod-two homology",
+        "evidence": [
+          "Ordinary independence face counts by size (1,20,160,660,1510,1912,1240,320,5)",
+          "Wedge of four S5 concerns ordinary independence complex, not the proposed shattering complex"
+        ],
+        "identifier_or_url": "The dodecahedral independence complex is a wedge of four 5-spheres (public 2026)",
+        "material_read": "Complete public RESULT.md, with full claim, proof, verification and limitations",
+        "method": "Retrieved and read full publicly available scientific result text",
+        "title": "The dodecahedral independence complex is a wedge of four 5-spheres",
+        "trigger": "Same graph, ordinary independence complex has homology and all face counts"
+      },
+      {
+        "assessment": "Requires private pendant-leaf modules W_t(G) with t>=1; dodecahedron has no degree-one leaves, so neither its face counts nor its homology are covered",
+        "evidence": [
+          "Theorem specifically assumes W_t(G), t>=1",
+          "Dodecahedron is cubic, not the whiskered graph class"
+        ],
+        "identifier_or_url": "A flag-complex realization theorem for maximal-independent-set shattering on whiskered graphs (public 2026)",
+        "material_read": "Complete public RESULT.md including hypotheses, full proof and limitations",
+        "method": "Retrieved and read full scientific theorem and its graph construction",
+        "title": "A flag-complex realization theorem for maximal-independent-set shattering on whiskered graphs",
+        "trigger": "General theorem describing shattering by maximal independent sets"
+      },
+      {
+        "assessment": "Computes rational homology of ordinary independence complex, not mod-two homology of MIS shattering complex",
+        "evidence": [
+          "Statement explicitly X=Ind(D), rational H5, not S(D)"
+        ],
+        "identifier_or_url": "Orientation-twisted five-set homology of the dodecahedral independence complex (public 2026)",
+        "material_read": "Full public RESULT.md, at least finding, scope and proof character description",
+        "method": "Retrieved and read complete scientific result text",
+        "title": "Orientation-twisted five-set homology of the dodecahedral independence complex",
+        "trigger": "Same graph homology with icosahedral symmetry"
+      },
+      {
+        "assessment": "Prior authorship of distance-three tetrahedra acknowledged; metric Rips homology does not entail this MIS shattering complex",
+        "evidence": [
+          "Ten tetrahedra with six pairwise distances three in the Rips construction"
+        ],
+        "identifier_or_url": "Integral icosahedral homology lattice of the dodecahedral scale-three Rips complex (public 2026)",
+        "material_read": "Full public RESULT.md, including theorem, relative-homology argument and tetrahedral definitions",
+        "method": "Retrieved and read complete scientific result text",
+        "title": "Integral icosahedral homology lattice of the dodecahedral scale-three Rips complex",
+        "trigger": "Earlier exact treatment of ten tetrahedra of the same graph"
+      },
+      {
+        "assessment": "Neighborhood membership rather than maximal independent sets; no established implication, full-text noncoverage not asserted",
+        "evidence": [
+          "Abstract concerns Johnson/Hamming neighborhood families, not dodecahedral maximal independent sets"
+        ],
+        "identifier_or_url": "arxiv:2007.16042",
+        "material_read": "Accessible arXiv bibliographic abstract and search excerpt, not a full text inspection",
+        "method": "Compared stated neighborhood concept class and graph families",
+        "title": "Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs",
+        "trigger": "Graph and VC terminology may hide equivalent concepts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0c5b723b-1072-45f4-b589-f2fdc2dd6626",
+  "value": {
+    "rationale": "The twenty-vertex Platonic dodecahedron is a canonical finite incidence structure, and its maximal-independent-set shattering is motivated by the 2024 general MIS-hypergraph VC theory. Its complete exact shattering complex, three distinct facet sizes, geometric ten tetrahedral facets, and three consecutive nonzero homology degrees are mathematically structural and not inferable from ordinary independence counts or scalar VC dimension. Both shattering and algebraic-topological invariants are fully computed, making the claim a natural exact classification rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
