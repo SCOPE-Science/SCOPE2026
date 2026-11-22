@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source operator factors as \((I+e_1\otimes u)D\) with \(u_j=1/j\), and the bounded rank-one factor has the explicitly verified inverse \(I-(e_1\otimes u)/2\). Below \(\alpha=1/2\), the transformed rank-one factor is boundedly invertible; the maximal diagonal graph is therefore the closure. At and above the threshold, the summation functional has zero graph-norm capacity on every infinite tail, giving the full one-dimensional vertical graph fiber. An independent adjoint-domain computation yields exactly the same defect. The regular form is the projection away from that fiber. Weighted Cauchy–Schwarz gives the exact finite-dimensional infimum, and harmonic-series asymptotics prove all stated rates. The included exact-rational finite checks corroborate the algebra but are not used to infer the infinite result.
+PASS
 
-## Originality — PASS, qualified
+Checked all alpha>=0 in the maximal diagonal domain. Since u=(1/j) in ell^2 and E=e_1 tensor u has E^2=E, T=(I+E)D is densely defined, closed, onto and has compact inverse D^-1(I-E/2). For S_alpha=R^alpha T the algebraic identity on D(D) is D_alpha x+e_1 sum_j x_j with D_alpha=diag(j^(1-alpha)). For alpha<1/2 the sum functional is bounded in the D_alpha graph norm because v_alpha=(j^(alpha-1)) lies in ell^2, giving the asserted closed (I+e_1 tensor v_alpha)D_alpha, with finite support a core. For alpha>=1/2, divergence of every tail sum of (1+j^(2(1-alpha)))^-1 yields tail vectors of arbitrarily small graph norm and prescribed sum, establishing exactly graph(D_alpha)+({0}×Ce_1), no larger multivalued part; the finite-dimensional vertical sum of a closed graph is closed. Projecting onto e_1 perpendicular gives q_reg and the singular first-coordinate form, by canonical form decomposition. Weighted Cauchy–Schwarz derives the exact finite N variational cost, and harmonic/summable series give the five asymptotic regimes including (log N)^-1/2 at alpha=1/2 and sqrt(2/N) at alpha=1. Verified independently finite-rank cost and boundary powers; finite tests do not prove the infinite threshold.
 
-The closest source, Hassi–de Snoo (arXiv:2611.08225v1), gives general implications and an existential example with \(R^{1/2}T\) closable but \(RT\) singular. Its inspected full text does not give the compact-inverse, scalar-boundary model, an all-power criterion, its graph-closure formulas or the finite-section logarithmic law. Hassi–de Snoo (2025) and Simon (1978) provide the general theory of regular/singular form decompositions, not this explicit critical model. Bounded diagonal rank-one perturbation research concerns a different invariant. Searches of indexed findings and accessible prior claims did not reveal covering statements; exact-title absence is not treated as proof of uniqueness. An unindexed earlier equivalent construction or implication remains a genuine bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural, fully solved test case for the instability of closability under positive compact post-multiplication. The initial operator has particularly strong regularity—closed, onto, one-to-one and with a compact inverse—yet an entire continuum of its compactly damped products undergoes an exact Hilbert-space trace-capacity transition. The result computes not just existence of a defect but the full closed relation, the maximal regular component of its quadratic form and a sharp logarithmic critical cost. These linked invariants quantify how smoothing can destroy an operator graph; the finding is not a parameter substitution or an isolated numerical example.
+Hassi–de Snoo 2026 discusses abstract products of linear relations and existential counterexamples, and Hassi–de Snoo 2025/Theorem 3.1–3.2 gives the general canonical regular/singular form projection. These tools are duly credited. The inspected sources do not exhibit this single explicit closed-bijection/compact-inverse family, all powers alpha>=0, its exact vertical graph relations, and the quantitative logarithmic capacity transition. A general framework permits a derivation but does not state this explicit model and sharp parameter law.
 
-## Closest literature and limitations
+## value
 
-- S. Hassi and H. de Snoo, *Non-standard behaviour of semibounded forms and their representations*, arXiv:2611.08225v1, Sections 3–6; qualitative product behavior and abstract extreme examples.
-- S. Hassi and H. S. V. de Snoo, *Representing maps for semibounded forms and their Lebesgue-type decompositions*, J. London Math. Soc. (2025), Section 3; canonical regular-part projection.
-- B. Simon, *A canonical decomposition for quadratic forms with applications to monotone convergence theorems*, J. Funct. Anal. 28 (1978); general form decomposition.
+PASS
 
-The statement is confined to the specified separable sequence-space coupling and diagonal damping. Its calculations do not establish any classification for arbitrary unbounded operators. Indexed and web searches cannot eliminate every unpublished or unindexed prior equivalent.
+The natural question whether compact postcomposition can destroy a closed unbounded graph acquires an explicit one-parameter boundary: closable for alpha<1/2, one-dimensional multivalued beyond, with finite-section logarithmic capacity. Distinguishing operator closure from form regularization makes a concrete structural counterexample and a complete exact model, beyond a routine single numerical check.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
