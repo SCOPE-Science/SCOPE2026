@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The exact zero/one counts have a Poisson weak limit and a concentrated mean respectively. Exact pgf remainder expectations give two different scales for numerator and denominator. Conditioning on each positive zero count yields the reciprocal atom; conditioning on zero yields the divergent branch. The delta-method bias and variance are reconstructed from the Poisson covariance matrix and independently checked by finite Poisson summation, and the 5% rejection atoms are separated strictly from both limit critical boundaries. The proof is complete for the stated triangular arrays; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aleksandrov, Weiß and Jentsch (doi:10.1111/stan.12252), Section 3, derive a fixed-parameter central limit approximation for a class of count time-series nulls.",
+        "Weiß, Puig and Aleksandrov (doi:10.1002/bimj.202200073), Section 3 and Appendix A.3, derive the fixed-parameter multivariate CLT/delta method and a family of optimized weights."
+      ],
+      "reasoning": "The cited Gaussian theorems hold for a fixed population vector with nonvanishing denominator expectation; they cannot be applied uniformly as the denominator expectation decays on the rare-zero scale. Neither is a stronger triangular-array theorem containing the present positive infinity atom.",
+      "searches": [
+        "Stein Chen ratio statistic high mean small u Poisson zeros 2023 2024 2025",
+        "rare zeros binomial Poisson empirical PGF derivative ratio mean tending infinity bandwidth u tending zero asymptotic atom infinity",
+        "ratio weighted Poisson zero cell rare n e^{-mu} reciprocal-Poisson non-Gaussian asymptotic normal bias correction"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/stan.12252 — original full accessible source, relevant sections read",
+      "https://doi.org/10.1002/bimj.202200073 — follow-up full accessible source, relevant sections and Appendix A.3 read",
+      "Published mathematical-record search for the same ratio, high-mean Poisson zero counts, reciprocal-Poisson limits, and Gaussian calibration (queries specified under the four comparisons)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published fixed-parameter normal approximation requires mean/variance computed at one fixed Poisson mean and one fixed weight; the paper acknowledges division-by-zero concerns.",
+        "The revised study specifically warns that some boundary weights give a degenerate statistic, yet gives no high-intensity rare-zero Poisson law or the particular 5% rejection probability."
+      ],
+      "reasoning": "The new theorem uses the same source statistic but a changing sequence of nulls and weights. The zero-count Poisson limit, separate high-count remainder estimates and Gaussian calibration limits are needed to deduce the reported 36.79% size, none of which is a direct fixed-parameter corollary. This is a best-knowledge comparison, not proof of global novelty.",
+      "searches": [
+        "doi:10.1111/stan.12252 equations (10), (14) and Theorem 1",
+        "doi:10.1002/bimj.202200073 equations (3), (11), (17)-(21), Appendix A.3",
+        "Poisson Stein Chen ratio optimal Stein goodness of fit f(x)=u^x inverse-Poisson boundary calibration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The first source defines \\(\\widehat T_2=\\overline{Xf(X)}/(\bar X\\overline{f(X+1)})\\). The second gives its pgf-log-derivative form \\(\\phi'(u)/(\\mu\\phi(u))\\) for \\(f(x)=u^x\\). Both are identical to the ratio studied here for a fixed row.",
+        "Both sources formulate Gaussian delta-method asymptotics under a fixed parent law and fixed weight. The second mentions degeneracy at \\(u\to0\\), but without the joint high-mean limit."
+      ],
+      "reasoning": "The statement is compared in both ratio and logarithmic-pgf-derivative forms. A warning about boundary degeneracy does not by itself state the reciprocal-Poisson law, infinity atom or limiting 36.79% null size.",
+      "searches": [
+        "empirical pgf log derivative Poisson increasing mean low u rare zero normal approximation ratio asymptotic distribution",
+        "Poisson goodness of fit statistic u^X degeneracy rare zeros high intensity sample n exponential log mean",
+        "doi:10.1002/bimj.202200073 Section 2 and Appendix A.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source papers report finite-sample simulation tables with fixed means (e.g. \\(\\mu\\in\\{2,4\\}\\)) and regular weights, and normal-approximation formulas; they do not tabulate the present increasing-mean/boundary-weight limit.",
+        "Closest retrieved mathematical records concerning Poisson ratios address Bernoulli-Poisson mass ratios; those concerning Stein factors address characterizations, not the statistic-specific calibration."
+      ],
+      "reasoning": "The target value is an explicit asymptotic null rejection probability for a fixed stated sequence, not a count in a standard table or a reformulation of fixed-mean simulations. No exact tabulation or theorem with the same conclusion was located.",
+      "searches": [
+        "2021 Aleksandrov Weiss Jentsch Poisson Stein Chen goodness-of-fit test T2 exponential weight u^x high mean zero count reciprocal Poisson null size",
+        "2022 Weiss Puig Aleksandrov optimal Stein-type goodness of fit ratio central limit triangular array rare zeros gaussian miscalibration",
+        "exact 36.787944 percent size 5 percent Stein Chen exponential test Poisson null Gaussian"
+      ]
+    },
+    "rationale": "The two closest open-access primary sources define this exact ratio, weight family, and fixed-parameter Gaussian calibration, and warn of possible degeneracy, but do not derive the joint increasing-mean/boundary-weight reciprocal-Poisson null limit or the 36.79% size. Actual mathematical-record searches and own prior-claim comparisons identified no theorem that directly implies the final claim. Generic reciprocal rare-count asymptotics remain a disclosed historical-priority risk.",
+    "residual_risks": [
+      "Generic reciprocal-of-rare-count asymptotics may imply abstract pieces of this limit after a nontrivial identification of the statistic; a definitive historical-priority claim is not made.",
+      "Earlier or later implementations may use alternative finite-sample or simulated calibration, so the null-size conclusion is restricted to the stated fixed-parameter Gaussian formula evaluated on the triangular array.",
+      "Search and full-text comparisons establish only best-knowledge originality, not a proof of absence from all published literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the source statistic and fixed-population null Gaussian calibration; does not assert the present reciprocal-Poisson high-intensity/boundary-weight law.",
+        "evidence": [
+          "Equation (10) distinguishes reciprocal ratio statistics, and the text notes division-by-zero issues.",
+          "Theorem 1 supplies the fixed-parameter normal approximation and bias correction; Section 4.1 implements it at a fixed count mean."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/stan.12252",
+        "material_read": "Full open-access HTML, focusing on Sections 3 and 4, equation (10), Theorem 1, equation (14), discussion of denominator-zero issues and fixed-mean application.",
+        "method": "Read and compared the paper's statistic, limiting assumptions, normal mean/variance and applications with the proposed triangular-array claim.",
+        "title": "Goodness-of-fit tests for Poisson count time series based on the Stein–Chen identity",
+        "trigger": "The exact ratio \\(\\widehat T_2\\) is defined and calibrated there."
+      },
+      {
+        "assessment": "The paper anticipates the qualitative boundary-degeneracy issue but does not present the coupled logarithmic-mean rare-zero law, infinity atom or exact limiting size.",
+        "evidence": [
+          "Equation (11) equates the ratio with \\(\\phi'(u)/(\\mu\\phi(u))\\).",
+          "Appendix A.3 uses a fixed-parameter vector central limit theorem and a smooth ratio delta method.",
+          "Its weight-choice discussion identifies \\(u\to0\\) as a degenerate boundary."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/bimj.202200073",
+        "material_read": "Full open-access HTML, Sections 1–3, Sections 5–6 and Appendix A.3, including equations (3), (11), the normal test and discussion of the degenerating weight boundary.",
+        "method": "Compared the pgf derivative representation, null CLT/delta-method assumptions, weight optimization and warnings about degenerate parameters.",
+        "title": "Optimal Stein-type goodness-of-fit tests for count data",
+        "trigger": "Most directly related subsequent study of the same ratio and exponential weights."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1faa7f7a-dc80-4a66-b156-b506c010c6a3",
+  "value": {
+    "rationale": "The theorem identifies a specific, nontrivial nonuniformity in the normal calibration of a published goodness-of-fit method: an exactly Poisson null has limiting 36.79% rejection at nominal 5% under a mathematically natural rare-zero/boundary-weight scaling. The sharp atom-at-infinity description identifies the cause and distinguishes it from ordinary fixed-mean small-sample error. It does not make a recommendation to use the stressed tuning in practice.",
+    "status": "PASS"
+  }
+}
