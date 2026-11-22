@@ -1,15 +1,21 @@
-# Review: Complete shattered-support census and mixed-alphabet critical window for categorical subcubes
+# Independent mathematical audit
 
-## Correctness — PASS
-For supports of size at least three, the necessity of one private categorical coordinate per point follows from the cell omitting precisely that point. Conversely, simultaneously fixing the private coordinate of each excluded point to its common value yields every nonempty trace; a spare product point yields the empty trace. No column can be private for two points, yielding the dimension ceiling. Inclusion–exclusion over omitted privately marked rows gives the exact coefficient and the factorial division is justified because privately marked rows are distinct. For random independently sampled rows, mutually exclusive private marks within each coordinate give the explicit falling-factorial moment identity. The maximum individual marking probability is exponentially small and its squared sum vanishes, proving the Poisson limit. Replayed direct finite enumeration agrees in 13 grids (22,061 supports).
+## correctness
 
-## Originality — PASS, with residual historical risk
-Gopalan–Levin–Wieder, arXiv:1911.07378, defines subcube cells and treats skewed distributional anomalies rather than VC-shattered-support counts or their random-sample critical window. Paszke–Pilipczuk, arXiv:2003.14177, supplies VC-density bounds for definable set systems on graph classes, which do not imply the mixed-alphabet coefficient sequence or Poisson limit. Gillibert–Lachmann–Müllner, arXiv:2004.13861, studies periodic interval boxes on a torus, not categorical equality cells. Searches under conjunction, cylinder, private-coordinate, shattering-polynomial, and Poisson-threshold terminology did not identify a previously published implication covering the claim. Earlier local findings on positive coordinate literals concern a strictly smaller concept family with a different rare-event mechanism. Possible equivalent results in learning-theoretic conjunction literature and covering-array language remain the main residual risk. These comparisons are not proof of worldwide uniqueness.
+PASS
 
-## Mathematical value — PASS
-The object is a standard natural finite concept class of complete categorical conjunctions. Rather than merely restating its VC dimension, the theorem gives every shattered-support coefficient for arbitrary heterogeneous alphabets, a structural if-and-only-if criterion, a sharp maximal-support coefficient, and a universal critical window for randomly sampled supports. These describe distributional sample complexity and differentiate alphabets and dimensions beyond a worst-case VC dimension bound; the mixed-alphabet Poisson result is not simply a relabeling of the finite enumerator. The result does not assert results for nonuniform or dependent sampling.
+For m>=3, realizing the complement of each sampled row forces a coordinate with a singleton exception; conversely fixing private-exception coordinates of excluded rows constructs all nonempty traces, and an outside singleton realizes the empty trace. A coordinate cannot privately mark two different rows for m>=3, giving d>=m and Q>=2^d>m. Each coordinate marks a specified row in precisely q_i(q_i-1) of q_i^m patterns and mark classes are pairwise disjoint, so two-layer inclusion-exclusion counts all m-row shatterable tuples, all distinct, and division by m! is valid. At m=d the d privately marked rows biject with coordinates, giving product q_i(q_i-1); m=0,1,2 and d=1,2 boundaries are treated separately. For random rows, the exact k-th factorial moment of unmarked rows is (m)_k product_i(1-kp_i); max_i p_i<=2^(1-m) and mu=log m+c+o(1) imply sum_i p_i^2=o(1), yielding Poisson(e^-c) by all fixed factorial moments. The window also forces d>=2^(m-1)(log m+O(1)), making distinct rows automatic on the shattering event; hence probability tends exp(-e^-c). An independent cell-trace enumeration, not the supplied saved output, exactly matched eight representative grid profiles including binary and mixed 3- and 4-dimensional cases. This finite work corroborates but does not prove all-dimension/asymptotic statements.
 
-## Sources and limitations
-The closest inspected sources are arXiv:1911.07378, arXiv:2003.14177, and arXiv:2004.13861. The mathematical proof is self-contained; direct finite enumeration does not certify the asymptotic. Historical-priority assessment remains qualified and requires independent scholarly examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the full mixed-alphabet exact shattering-support enumeration and arbitrary-varying-alphabet Poisson critical window, not for the already-known all-binary finite shattering coefficients or the generic coupon-collector method. Full mathematical statements of the most relevant prior models were compared. None implies the categorical-conjunction formula for all q_i>=2 or its heterogeneous limit; residual learning-theory and covering-array priority risk remains.
+
+## value
+
+PASS
+
+The class of categorical coordinate-equality conjunctions is a natural finite concept family. An exact all-degree shattered-support polynomial for arbitrary mixed alphabets, top-rank coefficient and uniform critical window under arbitrarily varying q_i answer natural extremal and distributional questions beyond its VC dimension. The object and statistic are motivated independently of computation: these coefficients count exactly which samples can be labeled arbitrarily, and the window identifies the sample/dimension transition. The previously covered all-binary finite census and generic coupon machinery are not themselves credited as new or sufficient value. The surviving exact mixed-alphabet and probabilistic statements are nontrivial, self-contained, and plausibly useful in theoretical learning/finite product range spaces; no general downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
