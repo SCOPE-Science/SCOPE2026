@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The three spectral modes (eigenvalues 0,1,3) produce a two-variable cubic envelope and the exact input seminorm 2 max(|du|,3|dv|). For all active maximizers in [0,1], the Jacobian norm is at most 4/3 by 3(x+y)+|x^3-y^3|<=6 and 3|x-y|+x^3+y^3<=4, with beta<=1. Rademacher/mollification extends the bound globally. Strictly positive f=(13,12,5),g=(15,11,4) yield V(f-g)=3 and V(Mf-Mg)=4. Exact P2 coefficient=1/2. The included checker independently tests finite witnesses and numerical grids, not as a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carneiro–Svaiter (2013), full-text sections 2.2.1 and 3.2: the heat maximal operator acts on infinite Z^d; displayed regularity compares one output with its own input.",
+        "González-Riquelme–Madrid (2020), full-text Theorems 1–3, defines averaging over graph metric balls; time supremum of e^{-tL} is absent.",
+        "Liu–Zhang (2022), accessible theorem text, likewise studies graph-ball averages on finite directed graphs."
+      ],
+      "reasoning": "Even a general contraction V(Mf)<=V(f) does not imply V(Mf-Mg)<=V(f-g), as the explicit P3 pair shows. The graph-ball maximizers use finitely many uniform ball averages, whereas heat-maximal smoothing uses continuously weighted heat kernels, so the finite-graph ball-average norm formulas do not dominate the claim.",
+      "searches": [
+        "Carneiro Svaiter heat maximal graph finite path variation stability between two signals supremum heat time finite path P3",
+        "arxiv:1309.1529v1",
+        "arxiv:2005.03146v3",
+        "doi:10.3390/math10060950"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1309.1529v1",
+      "arxiv:2005.03146v3",
+      "doi:10.3390/math10060950",
+      "Published mathematical result: Sharp weighted variation of the centered maximal operator on a three-vertex path",
+      "Published mathematical result: Sharp two-input graph variation stability of the centered maximal operator on stars",
+      "Historical claim: centered graph-ball maximal averaging on unweighted cycles with 3–5 vertices",
+      "Historical claim: centered graph-ball maximal averaging on finite stars"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 of arxiv:1309.1529 gives one-input maximal variation control on the bilateral lattice, not a nonlinear Lipschitz modulus for two finite inputs.",
+        "arxiv:2005.03146, Theorems 1–3 concern C_{G,p}=sup Var(M_G f)/Var(f) for graph-ball M_G.",
+        "For the present heat-time supremum, V(Mf-Mg)/V(f-g)=4/3 for positive f,g while each P_t has variation norm e^{-t}; hence the desired value is not inferable by naively transferring fixed-time contraction."
+      ],
+      "reasoning": "The prior results have different quantified statements and/or different smoothing kernels. The first time a two-input amplification occurs is P3; the exact coefficient and sharp witness are new relative to all checked closest statements.",
+      "searches": [
+        "exact sharp two-input total variation Lipschitz coefficient for continuous heat-flow maximal operator on the 3-vertex path, 4/3 amplification, nonnegative signals",
+        "Finite complete graph heat maximal operator P_t f supremum t, maximum identity and arithmetic mean, sharp path total variation norm two inputs",
+        "Carneiro Svaiter heat maximal graph finite path variation stability between two signals supremum heat time finite path P3",
+        "arxiv:1309.1529v1",
+        "arxiv:2005.03146v3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1309.1529 Theorem 3 on infinite Z uses V(Mf) <= V(f), not V(Mf-Mg)/V(f-g) for P3.",
+        "The nonnegative witness uses the standard maximal heat convention, since |f|=f and |g|=g.",
+        "The analytic envelope is an exact form of the time supremum, allowing comparison under time variable z=e^{-t}."
+      ],
+      "reasoning": "Graph-ball maximal operators, signed-input absolute-value maxima, one-input variation inequalities and fixed-time semigroup norms are not equivalent to the two-input Lipschitz norm of the continuum heat-time supremum on P3. The corresponding P2 factor is one half, while the P3 witness has factor four thirds.",
+      "searches": [
+        "exact sharp two-input total variation Lipschitz coefficient for continuous heat-flow maximal operator on the 3-vertex path, 4/3 amplification, nonnegative signals",
+        "Carneiro Svaiter heat maximal graph finite path variation stability between two signals supremum heat time finite path P3",
+        "discrete heat-flow maximal operator two-input BV Lipschitz constant first amplification three sites",
+        "arxiv:1309.1529v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed three-vertex result concerns the centered Hardy–Littlewood graph-ball maximal variation, including vertex masses; its kernel family differs.",
+        "The closest indexed two-input star result concerns centered graph-ball maximal operators, not continuous heat-maximal time envelopes.",
+        "Available own ledgers include ball maximal claims for finite stars and cycles but no recovered P3 heat-time maximal claim."
+      ],
+      "reasoning": "A matching constant alone would not imply coverage. Actual closest indexed objects and their operators were compared in the 3-vertex case, and the heat-time coefficient 4/3 did not appear as an equivalent or special case.",
+      "searches": [
+        "exact sharp two-input total variation Lipschitz coefficient for continuous heat-flow maximal operator on the 3-vertex path, 4/3 amplification, nonnegative signals",
+        "discrete heat-flow maximal operator two-input BV Lipschitz constant first amplification three sites",
+        "Sharp weighted variation of the centered maximal operator on a three-vertex path",
+        "Sharp two-input graph variation stability of the centered maximal operator on stars"
+      ]
+    },
+    "rationale": "Primary text from 2013 treats one-input heat-maximal variation for infinite discrete lines; finite-graph maximal results of 2020 and 2022 concern graph-ball averaging and mainly one-input variation. Scientific-index searches and comparison with related published mathematical claims found no statement that entails the exact P3 two-input heat-time supremum coefficient. Historical priority remains qualified.",
+    "residual_risks": [
+      "Published indexes are incomplete; a historical equivalent exact P3 constant may exist unindexed.",
+      "Full relevant sections of accessible primary papers were read; not every historical monograph was exhaustively examined.",
+      "No claim of novelty on general finite graphs or of any signed absolute-value-input Lipschitz theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the two-input P3 coefficient; treats discrete heat maximal on Z^d with one-input variation.",
+        "evidence": [
+          "arxiv:1309.1529; initial version 2013-09-06; Theorem 3 in section 2.2.1; proof section 3.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.1529",
+        "material_read": "Full accessible article text: definitions 2.1–2.2, Theorem 3, and discrete-heat proof section 3, together with discussion of one-input variation.",
+        "method": "Arxiv HTML full text, with theorem/proof and main definitions compared to the claimed operator and quantifiers",
+        "title": "On the variation of maximal operators of convolution type",
+        "trigger": "Exact historical heat-flow maximal operator and 2013 archival date"
+      },
+      {
+        "assessment": "Not covering: graph-ball Hardy–Littlewood maximal rather than continuous heat-flow time supremum, and chiefly one-input variation.",
+        "evidence": [
+          "arxiv:2005.03146v3, sections 1.1–1.2, Theorems 1–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2005.03146v3",
+        "material_read": "Full-text introduction, operator definition (1.1), Theorems 1–3 and statements of their proof sections.",
+        "method": "Arxiv HTML text, definitions and theorems compared directly",
+        "title": "Sharp inequalities for maximal operators on finite graphs",
+        "trigger": "Finite graph maximal variation, including 3-vertex star"
+      },
+      {
+        "assessment": "Not covering: directed metric-ball averages and one-input BV norms are distinct from undirected continuous-time heat-maximal two-input stability.",
+        "evidence": [
+          "Mathematics 10 (2022), 950, sections 1–4"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10060950",
+        "material_read": "Accessible full-text introduction, central theorem statements, proof context, and conclusions on finite directed graphs.",
+        "method": "Publisher OA HTML full text",
+        "title": "Variation Inequalities for the Hardy-Littlewood Maximal Function on Finite Directed Graphs",
+        "trigger": "Finite graph BV maximal bounds and possible 3-site cases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "56845dc3-516b-4f31-ab56-069576693d56",
+  "value": {
+    "rationale": "The smallest nontrivial open path P3 is a natural cutoff: the P2 coefficient equals 1/2, while the exact P3 coefficient jumps to 4/3, despite each fixed-time heat map contracting variation by e^{-t}. This sharp minimal witness isolates how maximalization destroys perturbation stability, supplying a precise benchmark for a classical smoothing method without an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
