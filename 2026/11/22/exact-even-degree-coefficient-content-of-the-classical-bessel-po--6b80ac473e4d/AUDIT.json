@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For every odd p, Legendre reduces the valuation of a(n,k) to a sum over prime powers q of counts in the 2k-term interval minus floor(k/q). Each term is nonnegative, and each power q dividing one of n-1,n,n+1,n+2 contributes at least one to every even-k coefficient. Four consecutive central integers contain two multiples of 3 exactly for n=1 mod 3, but never two multiples of a prime power at least five or nine. The coefficient k=2 attains every remaining odd-prime bound, and k=4 attains the exceptional 3-bound. An even power-of-two degree k yields an odd coefficient by Lucas, so v2(gcd)=0. This proves the exact all-n formula, including n=2,3,4 and without extrapolating finite checks; CHECK.py independently passed 34000 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published statement titled Universal row content of strong-divisibility binomial arrays concerns generalized binomial coefficients arising from strong divisibility sequences, not the parity-filtered Bessel coefficients.",
+        "The published statement titled Exact common divisors of interior Narayana counts in prime rows concerns a different combinatorial triangle and prime-index domain.",
+        "Han–Seo study inverse formulas and log-concavity for Bessel numbers, not coefficient-content congruences."
+      ],
+      "reasoning": "The Bessel term a(n,k)=binomial(n+k,2k)(2k-1)!! is not the n-th row of the generalized binomial array of one fixed strong divisibility sequence: both shifted upper binomial index and odd double-factorial weight depend on k. Results stated for other row-gcd arrays provide neither a specialization nor a dominating theorem for the even Bessel subrow. The established whole Bessel-row divisibility is weaker than the claimed exact even-subrow gcd.",
+      "searches": [
+        "gcd of coefficients in inverse reverse Bessel polynomial number triangle row divisibility",
+        "Bessel polynomial even part modulo odd primes coefficients exact gcd 4 consecutive integers",
+        "even-degree Bessel polynomial coefficient gcd complete row content parity restriction 3-adic n modulo 3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0406378 (initial public version 2004-06-18)",
+      "https://doi.org/10.1155/2013/242815 (2013)",
+      "https://oeis.org/A001498",
+      "https://mathoverflow.net/questions/503276/divisibility-properties-of-bessel-numbers-oeis-a001498",
+      "https://dlmf.nist.gov/18.34",
+      "Published result: Universal row content of strong-divisibility binomial arrays (different generalized-binomial array; published description compared)",
+      "Published result: Exact common divisors of interior Narayana counts in prime rows (different object; published description compared)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Han–Seo (2004), sections 1 and 4, give coefficient formulas and prove inverse relations and log-concavity, without parity-constrained gcds.",
+        "Yang–Zheng (2013), sections 3–4, give Bessel-matrix, Sheffer and determinant identities.",
+        "The MathOverflow answer (2025) proves n+1 divides all positive-degree coefficients for even n and n divides all positive-degree coefficients for odd n; it does not quantify over the even-degree subset or establish its complete gcd.",
+        "For n=7 the latter common factor is 7 while the exact even-degree content is 63; for n=4 the degree-two coefficient is 45 but the even-degree gcd is 15, exhibiting the necessary three-adic drop."
+      ],
+      "reasoning": "The earlier Bessel arithmetic statement supplies universal factors, not an exact content of an even-degree slice. Its factorization identities could motivate new work but do not logically imply equality or the unique exceptional loss of one power of three. The new argument shows all prime powers required for the gcd and constructs separate sharp witnesses for p=3, all other odd p, and p=2.",
+      "searches": [
+        "https://arxiv.org/pdf/math/0406378",
+        "https://onlinelibrary.wiley.com/doi/10.1155/2013/242815",
+        "https://mathoverflow.net/questions/503276/divisibility-properties-of-bessel-numbers-oeis-a001498",
+        "Bessel number coefficients degree even restricted greatest common divisor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The coefficient equality is a(n,k)=(n+k)!/(2^k k!(n-k)!), and the even-part coefficient content selects only positive even k.",
+        "OEIS A001498 displays the full coefficient triangle, without a corresponding uniform even-degree gcd identity.",
+        "The 2025 MathOverflow discussion concerns parity of the row index and unfiltered positive-degree divisibility, not coefficient degree parity."
+      ],
+      "reasoning": "The gcd of coefficients of the even projection (y_n(X)+y_n(-X))/2-1 is invariant under polynomial parity symmetrization. Neither the unfiltered row-divisibility statement nor the raw coefficient table states or implies the three-adic correction. In particular the n=7 even content is 63, whereas the 2025 odd-row common divisor is only 7.",
+      "searches": [
+        "Bessel polynomial coefficient content primitive gcd nonconstant coefficients odd part of n(n+1) divisibility prime powers",
+        "\"Bessel polynomials\" \"even coefficients\" greatest common divisor gcd",
+        "\"Bessel polynomials\" \"divisibility\" \"coefficients\" 3",
+        "https://oeis.org/A001498",
+        "https://mathoverflow.net/questions/503276/divisibility-properties-of-bessel-numbers-oeis-a001498"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001498 lists row coefficients, including first cases that give contents 3,15,15,105,... by calculation.",
+        "The accessible table does not encode a theorem over all orders nor a 3-primary exception in the even-degree gcd."
+      ],
+      "reasoning": "An integer triangle listing finitely many values is not an exhaustive all-index result. The new uniform formula includes a prime-power argument over all row orders, not a recomputation of a finite tabulation.",
+      "searches": [
+        "OEIS number odd coefficients Bessel polynomial row parity count sequence",
+        "https://oeis.org/A001498",
+        "Bessel polynomial coefficients gcd n(n+1) double factorial common divisor"
+      ]
+    },
+    "rationale": "The earliest inspected same-object archival paper, Han–Seo (2004, arxiv:math/0406378), supplies the Bessel coefficients but treats inverse relations and log concavity. Yang–Zheng (2013) supplies polynomial determinant structure. The publicly available OEIS A001498 is a coefficient table, not an all-n parity-filtered content theorem. MathOverflow 503276 (2025) proves only unfiltered row-index parity divisibility and does not determine even-degree gcds; the n=7 even-degree content is 63 rather than the cited common factor 7. Published nearby repository results involve other arrays and do not logically imply the Bessel formula. No equivalent or stronger covering theorem was identified, but inaccessible Carlitz/Grosswald literature could contain an unlocated equivalent; priority is qualified.",
+    "residual_risks": [
+      "Grosswald (1978) Bessel Polynomials monograph and Carlitz (1957) A note on the Bessel polynomials were not available for complete full-text comparison; an implicit older exact parity-filtered gcd cannot be categorically excluded.",
+      "No search exhausts all historical indexing or informal presentations; priority is not a mathematical proof of uniqueness.",
+      "The full-row 2025 divisibility identities provide an easy starting point, although their stated claims do not include the sharp even-degree content and three-adic exception."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Coefficient formula and log-concavity supplied, but no stated coefficient-content classification for even-degree terms.",
+        "evidence": [
+          "p.2 Bessel coefficient formula (n+k)!/(2^k k!(n-k)!)",
+          "p.8 Theorem 4.2, log-concavity of signless Bessel numbers"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0406378",
+        "material_read": "Nine-page PDF parsed text: introduction and §1.2 coefficient formula, the inverse-relation discussion, and §4.2 log-concavity statement and proof; page images of pages 2 and 8.",
+        "method": "Read accessible PDF text and checked page images; searched full PDF text for gcd and divisibility terminology.",
+        "title": "Combinatorial proofs of inverse relations and log-concavity for Bessel numbers",
+        "trigger": "Identical classical Bessel coefficients and signless Bessel numbers; closest archival primary source."
+      },
+      {
+        "assessment": "Structural representation results; no explicit all-index even-degree gcd or sharp three-adic content.",
+        "evidence": [
+          "Section 3, Bessel coefficient matrices and Theorems 3–6",
+          "Section 4, Theorem 7 and determinant representations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/242815",
+        "material_read": "Open HTML full article, introduction, sections 3 and 4, including Sheffer and determinant theorems.",
+        "method": "Read accessible HTML article and searched its text for divisibility and congruence terminology.",
+        "title": "A Determinant Expression for the Generalized Bessel Polynomials",
+        "trigger": "Generalized Bessel polynomial coefficient representations could dominate a special classical arithmetic claim."
+      },
+      {
+        "assessment": "Partial unfiltered row divisibility only, with a comment assessing its basic nature; neither even-degree content nor the 3-adic correction is stated.",
+        "evidence": [
+          "Question October 30, 2025 and answer November 1, 2025; factor n or n+1 depending on parity of n",
+          "Converse/stronger exact even-degree content not given"
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/503276/divisibility-properties-of-bessel-numbers-oeis-a001498",
+        "material_read": "Full question, answer and relevant visible comments, including original parity-of-index conjecture and proof.",
+        "method": "Read publicly accessible Q&A text and directly compared quantified index sets and divisibility implications.",
+        "title": "Divisibility properties of Bessel numbers",
+        "trigger": "Same arithmetic objects and published whole-row divisibility claims from 2025."
+      },
+      {
+        "assessment": "The coefficient triangle is recorded, but no exhaustive even-degree gcd theorem was identified.",
+        "evidence": [
+          "A001498 row data and matchings interpretation of its coefficients"
+        ],
+        "identifier_or_url": "https://oeis.org/A001498",
+        "material_read": "Sequence header, coefficient table, definitions, provenance and linked related arrays.",
+        "method": "Inspected public entry and cross-checked direct coefficient computations.",
+        "title": "OEIS A001498, Bessel polynomial coefficients",
+        "trigger": "Exact known integer triangle and potential tabulated divisor sequence."
+      },
+      {
+        "assessment": "Confirms the standard polynomial normalization but not arithmetic coefficient gcds.",
+        "evidence": [
+          "DLMF Eq. 18.34.1–18.34.2, classical Bessel polynomial normalization"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/18.34",
+        "material_read": "Definition and recurrence subsection, classical normalization and connections.",
+        "method": "Read formulae and definition in the accessible HTML entry.",
+        "title": "DLMF §18.34, Bessel Polynomials",
+        "trigger": "Normalization and possible standard equation equivalent to the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6b80ac47-3e4d-4890-88cb-811892f0c651",
+  "value": {
+    "rationale": "The even projection (y_n(X)+y_n(-X))/2-1 is a canonical algebraic operation, not an arbitrary slice. Its coefficient content is a natural exact invariant for the classical Bessel polynomial and has a complete all-index prime-power classification. The unique 3-adic defect, sharp in degree four, distinguishes it from the first retained coefficient and from known full-row divisibility; the four-consecutive-factor mechanism explains this structural boundary rather than merely tabulating gcds.",
+    "status": "PASS"
+  }
+}
