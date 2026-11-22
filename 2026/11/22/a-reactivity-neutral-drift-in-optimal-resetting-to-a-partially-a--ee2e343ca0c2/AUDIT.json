@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Directly differentiating the cited drifted mean produces the stationarity function B(s). Its derivative has a single sign transition, and B is positive at small positive s and negative at large s; thus exactly one transverse global optimum exists. At the optimum, the reactivity derivative vanishes exactly when a two-coefficient pencil has a common zero. That condition forces the inward relation m=u sqrt((u-1)/(u+1)) and one strictly decreasing scalar equation with exactly one root. The sign on the low-drift side is fixed by the exact B(1)=e/2-1>0 at zero drift. The high inward-drift sign is fixed at m=1 by the eta-downarrow-zero limit and propagated by continuity because no other zero is possible. The critical optimum is stationary for every finite eta, hence globally optimal by uniqueness. The packaged standard-library checker passed 534 finite tests; no finite test is used to certify the all-parameter result. The theorem requires only D,L,k>0 and arbitrary real mu; the singular k endpoints are not included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mazzolo Appendix A.4 proves k monotonicity at zero drift; Appendix A.5 gives a general drifted objective but not the all-drift k sensitivity sign.",
+        "Known all-drift optimizer uniqueness is accepted as prior and reused; the strength-sensitivity problem is a different quantification.",
+        "Perfect-absorber Péclet thresholds use an infinite sink and have no finite-reaction-strength derivative."
+      ],
+      "reasoning": "Having an exact objective or a global unique minimizer is not itself a theorem about the sign of its parameter derivative. The new common-root threshold is an additional structural statement, not a renaming of the earlier unique optimizer.",
+      "searches": [
+        "partial absorbing delta trap drift optimal Poisson reset rate monotonic with target reactivity for all drift",
+        "arxiv:2609.22527v1 Appendix A.4 and Appendix A.5",
+        "published result: cubic-root rounding of drift-controlled optimal resetting transition"
+      ]
+    },
+    "checked_sources": [
+      "Diffusion with stochastic resetting in the presence of a delta killing trap: Drift-controlled survival regimes",
+      "Effect of Partial Absorption on Diffusion with Resetting",
+      "Péclet number governs transition to acceleratory restart in drift-diffusion",
+      "Unique optimal resetting and a finite-reactivity drift-orientation gap",
+      "A persistent reactivity gap between optimal opposite-drift resetting rates",
+      "Cubic-root rounding of the drift-controlled optimal-resetting transition at a partially reactive point trap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The forward formula is an established input; differentiating it produces the new simultaneous coefficient cancellation.",
+        "Zero-drift monotonicity is the strictly increasing half of the new classification, not the whole signed-drift statement.",
+        "Opposite-drift ordering with the same strength cannot force the derivative with respect to strength to reverse sign at a unique inward drift.",
+        "The strong inward-drift perfect-target limit covers a boundary not the all-positive-strength stationary pencil."
+      ],
+      "reasoning": "The stated new theorem adds a unique reactivity-neutral critical drift and strict sensitivity signs for all finite k, neither a mere corollary of drift orientation ordering nor a special case of a perfect-target zero-rate transition. There remains a risk that an earlier analysis implicitly contains the derivative cancellation.",
+      "searches": [
+        "arxiv:2609.22527v1 Appendix A.5 equation (185)",
+        "arxiv:1301.2489 Section 4.1",
+        "arxiv:1811.08239 Section IV",
+        "published result: a persistent reactivity gap between optimal opposite-drift resetting rates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Setting the reactivity derivative to zero is exactly the simultaneous vanishing of the eta-linear and eta-independent coefficients of the same-model stationarity equation.",
+        "The uniqueness and opposite-drift comparison result does not state or imply that simultaneous coefficient-vanishing condition."
+      ],
+      "reasoning": "An implicit formulation could be a stationary-point pencil with a common root for all trap strengths. The six inspected texts supply the objective but not the unique common-root solution or its global sensitivity partition.",
+      "searches": [
+        "inward drift partially absorbing point target optimal reset frequency reactivity reversal stronger reactivity lowers optimal reset rate sharp dimensionless drift boundary",
+        "\"reactivity inversion\" optimal reset rate inward drift dependence k sign crossover",
+        "published result: unique optimal resetting and a finite-reactivity drift-orientation gap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published result IDs are the 2026-11-02 drift-orientation gap, 2026-11-08 persistent reactivity gap and 2026-10-26 cubic-root rounding items; their relevant full results were inspected.",
+        "No relevant exact table of the universal constants 0.464240177926471 and 1.461382226893605 or of the all-k sign partition was identified in the checked material."
+      ],
+      "reasoning": "Search absence cannot certify novelty. The known published same-object results were compared at the level of their exact quantifiers and equations, and no table of this critical parameter was found.",
+      "searches": [
+        "published-finding corpus: inward drift partially absorbing point target optimal reset frequency reactivity reversal stronger reactivity lowers optimal reset rate sharp dimensionless drift boundary",
+        "published-finding corpus: reactivity inversion optimal reset rate inward drift dependence k sign crossover",
+        "Brownian drifted delta killing point finite reactivity optimal restart uniqueness nonmonotonic drift toward trap exact root"
+      ]
+    },
+    "rationale": "Novelty is the complete sign classification of the finite-strength point-sink reactivity derivative of the optimal resetting rate, with one uniquely specified inward drift making that optimal rate exactly independent of every positive trap strength. The exact forward mean, driftless sign, and global uniqueness are credited. Full primary text and published same-model results were compared by mathematical implication, not titles alone. An unstated implicit equivalent in other variational or resetting literature remains an explicit risk.",
+    "residual_risks": [
+      "The exact drifted mean formula is previously published; a derivative-based reformulation in other work might already contain this implicit threshold.",
+      "The originality comparison is limited to inspected primary sources and searched published mathematical records, not a proof of global publication priority.",
+      "The new theorem has no independent scientific validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact mean and driftless reactivity monotonicity as prior work; Appendix A.5 studies drift dependence and numerical examples, not the unique critical inward drift at which the optimizer is independent of every finite sink strength.",
+        "evidence": [
+          "Appendix A.4, equations (172)–(175): reactivity derivative derived at zero drift only.",
+          "Appendix A.5, equation (185) and its discussion: drifted mean and drift-sign numerical optima; no all-reactivities invariant rate or global response reversal.",
+          "Section III.3.2 provides the exact time expression used as the starting identity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.22527",
+        "material_read": "Entire accessible article context with emphasis on Section III.3.2 and Appendix A.1 through A.5, equations (116), (153)–(185), particularly reactivity sensitivity and drifted optimizer.",
+        "method": "Read full accessible scholarly text and compare the stated formula, parameter dependence and optimized-rate results.",
+        "title": "Diffusion with stochastic resetting in the presence of a delta killing trap: Drift-controlled survival regimes",
+        "trigger": "Exact same physical particle, constant drift, delta killing and Poisson resetting; any optimizer result could dominate."
+      },
+      {
+        "assessment": "Zero-drift finite-reactivity setting, establishing an earlier optimizer response; no constant-drift threshold, so cannot imply the reversal for inward drift.",
+        "evidence": [
+          "Section 4.1 obtains optimum without drift and discusses strong and weak absorption regimes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.2489",
+        "material_read": "Accessible full scholarly text, Section 4 and 4.1, equations (34)–(47) and surrounding parameter discussion.",
+        "method": "Read mean absorption formulas and minimization; compared whether constant drift or reactivity-neutral geometry was covered.",
+        "title": "Effect of Partial Absorption on Diffusion with Resetting",
+        "trigger": "Foundational exact mean-reaction-time formula and optimal reset rate at finite sink strength."
+      },
+      {
+        "assessment": "Perfectly absorbing boundary with no tunable finite sink reactivity; the zero-reset regime is absent from the finite point-killing optimization at issue.",
+        "evidence": [
+          "Section IV exhibits a Péclet-one perfect-absorber threshold rather than a finite-sink reactivity derivative."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.08239",
+        "material_read": "Accessible full scholarly text, Section IV, equations (12)–(19), restart boundary and Péclet-controlled phase.",
+        "method": "Read optimization and compare the boundary object, target reactivity and parameter quantifiers.",
+        "title": "Péclet number governs transition to acceleratory restart in drift-diffusion",
+        "trigger": "Drift-dependent optimal Poisson restart might imply a covering threshold."
+      },
+      {
+        "assessment": "Already proves global uniqueness and strict opposite-drift ordering; does not assert a reactivity-neutral negative drift or classify the sign of the derivative in sink strength.",
+        "evidence": [
+          "The stated main results are global uniqueness, orientation ordering and strong-drift finite offset, not a fixed-drift strength-response threshold."
+        ],
+        "identifier_or_url": "published mathematical result: unique-optimal-resetting-and-a-finite-reactivity-drift-orientation-gap (2026-11-02)",
+        "material_read": "Full published result statement, assumptions, five proof subsections, comparison and limitations.",
+        "method": "Compared same-model formula (1), uniqueness proof, paired drift orientation statement and limiting gap with the derivative in trap strength.",
+        "title": "Unique optimal resetting and a finite-reactivity drift-orientation gap",
+        "trigger": "The same point-sink drifted reset process; global uniqueness and drift ordering can cover nearby claims."
+      },
+      {
+        "assessment": "A nonzero finite-reactivity limiting gap for opposite drifts does not determine monotonicity in k for fixed signed drift; no reactivity-neutral locus is stated.",
+        "evidence": [
+          "The result fixes k for the strong-drift limit and compares opposite drift signs rather than differentiating with respect to k."
+        ],
+        "identifier_or_url": "published mathematical result: a-persistent-reactivity-gap-between-optimal-opposite-drift-resetting-rates (2026-11-08)",
+        "material_read": "Full published result, the orientation theorem, large-drift analysis and comparative literature section.",
+        "method": "Compared implications of ordering at fixed reactivity and of fixed-k asymptotics versus a complete sign law as k varies.",
+        "title": "A persistent reactivity gap between optimal opposite-drift resetting rates",
+        "trigger": "Closely related identical physical model, reactivity dependence of a strong-drift optimal-rate difference."
+      },
+      {
+        "assessment": "Large-reactivity asymptotics and the perfect-target threshold neither state nor yield a k-independent optimizer at one inward drift for every finite positive reactivity.",
+        "evidence": [
+          "The paper restricts the critical scaling to k approaching infinity at its perfect-target threshold, while the new crossing holds at all finite k."
+        ],
+        "identifier_or_url": "published mathematical result: cubic-root-rounding-of-the-drift-controlled-optimal-resetting-transition (2026-10-26)",
+        "material_read": "Full published result with exact objective, optimizer argument, large-k crossover and limitation statement.",
+        "method": "Compared the claimed singular k-to-infinity asymptotics to a fixed finite drift and all-k derivative sign theorem.",
+        "title": "Cubic-root rounding of the drift-controlled optimal-resetting transition at a partially reactive point trap",
+        "trigger": "Same local-time point trap with a strong-reactivity scaling crossover could subsume sensitivity reversal."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ee2e343c-a0c2-4519-acc9-593a24c0e6be",
+  "value": {
+    "rationale": "The natural fixed-drift chemical control question—whether increasing point-trap reactivity should raise or lower the optimal Poisson reset frequency—is not resolved by the known mean formula or driftless result alone. The proof gives a sharp global parameter classification and an isolated rate invariant under arbitrary positive reactivity changes. This marks a qualitative reversal in the optimal kinetic-design response and a nontrivial boundary between transport-limited and reaction-limited restarting. It is a structural, motivated all-parameter theorem rather than an arbitrary computed slice or tiny numerical improvement; robustness to noisy drift estimation is explicitly outside its scope.",
+    "status": "PASS"
+  }
+}
