@@ -1,0 +1,217 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T01:53:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform recursive trees are parent-choice vectors on labels 1..n with probability 1/(n-1)!, all h>=1 and n>=h+1, and L_n counts outdegree-zero vertices. Root SET decomposition gives T_0,z=y-1+exp(T_0) and T_h,z=exp(T_{h-1})-1; differentiating in y gives A_h_prime=exp(A_{h-1})-1, B_h_prime=exp(A_{h-1})B_{h-1}. Independently checked A0=-log(1-z), B0=z+z²/[2(1-z)], D_1=D_2=0 for D_h=2B_h-zA_h_prime+(h-1)A_h. Direct differentiation gives D_h_prime=exp(A_{h-1})D_{h-1}+(h-2)[exp(A_{h-1})(1-A_{h-1})-1]. The bracket is -sum_{k>=2}(k-1)A_{h-1}^k/k!, and A_j has first nonzero z^{j+1} and positive coefficients at every later degree. D3 begins strictly negative at degree7 and stays so; induction produces first negative D_h at n=h+4 for all h>=3 with every greater coefficient negative. Positive A_h denominator follows from increasing paths with extra terminal attachments; the coefficient ratio is exactly the conditional expectation. Exact independent Bell-series rational evaluation checked 210 (h,n) pairs (h<=12,n<=24), while a separate parent-vector enumeration checked 45 conditional means through n=10, including 54 trees, profile (1,31,21,1), and E[L7|H7>=3]=65/27. Independently reconstructed seven-blobs Git tree SHA matches assigned tree. Finite checks corroborate, but infinite proof is the coefficientwise algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://the-examples-book.com/personal/mdw/_attachments/paper029.pdf",
+          "https://doi.org/10.1137/1.9781611975505.5",
+          "https://www.cirm-math.fr/RepOrga/1940/Slides/golebiewski_AofA19.pdf",
+          "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-the-maximum-protection-number-in-simply-generated-trees/01ADD10CB937911C02275F69CC57DB58",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-protected-roots-increase-global-path-length-by-a-logarithmic-amo--2192fb2b7d3e/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-conditional-leaf-erasure-and-the-depth-leaf-covariance-profile-o--4e2828958fad/RESULT.md"
+        ],
+        "reasoning": "Known scalar protected-root marginal U_h and protected-vertex counts alone do not specify mixed leaf statistics. 2024 maximum-protection theorem is about an extremum across all vertices in simply generated trees, not uniform increasing recursive conditional total leaves. Source access limitation for the 2019 same-model article remains; it could in principle conceal a bivariate refinement despite the author slides.",
+        "searches": [
+          "random recursive tree root minimum root-to-leaf protection depth h conditional expected total leaf count equals (n-h+1)/2 first deviation n=h+4 (Resultary_Search)",
+          "Gołębiewski Klimczak 2019 Protection Number of Recursive Trees pdf ANALCO 2019 45 53 (web search)",
+          "Protection Number of Recursive Trees Golębiewski Klimczak pdf joint distribution leaves 2019 (web search)",
+          "site:arxiv.org \"Protection Number of Recursive Trees\" \"Klimczak\" (web search)",
+          "web source turn688647view1; Resultary_Search q1-q3"
+        ]
+      },
+      "checked_sources": [
+        "https://the-examples-book.com/personal/mdw/_attachments/paper029.pdf",
+        "https://doi.org/10.1137/1.9781611975505.5",
+        "https://www.cirm-math.fr/RepOrga/1940/Slides/golebiewski_AofA19.pdf",
+        "https://arxiv.org/html/2210.05016v1",
+        "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-the-maximum-protection-number-in-simply-generated-trees/01ADD10CB937911C02275F69CC57DB58",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-protected-roots-increase-global-path-length-by-a-logarithmic-amo--2192fb2b7d3e/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-conditional-leaf-erasure-and-the-depth-leaf-covariance-profile-o--4e2828958fad/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-exact-leaf-regression-for-pendant-root-branches-in-random-rec--7e29cb2dc1dd/RESULT.md",
+        "Resultary_Search q1-q3 exact mirror and related hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://the-examples-book.com/personal/mdw/_attachments/paper029.pdf",
+          "https://doi.org/10.1137/1.9781611975505.5",
+          "https://www.cirm-math.fr/RepOrga/1940/Slides/golebiewski_AofA19.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-exact-leaf-regression-for-pendant-root-branches-in-random-rec--7e29cb2dc1dd/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-protected-roots-increase-global-path-length-by-a-logarithmic-amo--2192fb2b7d3e/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-conditional-leaf-erasure-and-the-depth-leaf-covariance-profile-o--4e2828958fad/RESULT.md"
+        ],
+        "reasoning": "From E[L|Z=z]=(n-1+z)/2 one gets exactly E[L|H>=2]=(n-1)/2; no formula for E[L|H>=3] follows without a new joint conditional restriction. The derivative of the marked EGF yields D_h_prime=e^{A_{h-1}}D_{h-1}+(h-2)(e^{A_{h-1}}(1-A_{h-1})-1). Its negative kernel and support order prove a stronger new statement not implied by unmarked marginal U_h, protected-vertex moment or path-length results.",
+        "searches": [
+          "random recursive tree root minimum root-to-leaf protection depth h conditional expected total leaf count equals (n-h+1)/2 first deviation n=h+4 (Resultary_Search)",
+          "conditional leaf count under root protected h random recursive trees generating function (Resultary_Search)",
+          "Gołębiewski Klimczak 2019 Protection Number of Recursive Trees pdf ANALCO 2019 45 53 (web search)",
+          "random recursive trees conditional root protection leaf count generating functions prior published literature (web search)",
+          "Resultary_Search q1-q3; web sources turn916174view0, turn916174view1, turn916174view3, turn688647view1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://doi.org/10.1137/1.9781611975505.5",
+          "https://www.cirm-math.fr/RepOrga/1940/Slides/golebiewski_AofA19.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-exact-leaf-regression-for-pendant-root-branches-in-random-rec--7e29cb2dc1dd/RESULT.md",
+          "https://arxiv.org/html/2210.05016v1"
+        ],
+        "reasoning": "H_n>=2 is exactly absence of pendant children at the root, Z_n=0. Thus the previously published regression E[L|Z=z] yields the h=2 equality, not new. The h>=3 event demands deeper protection and the proof shows a nonzero deficit from n=h+4, so it is not a mere reformulation of Z=0 or rank-one bijection.",
+        "searches": [
+          "random recursive tree root minimum root-to-leaf protection depth h conditional expected total leaf count equals (n-h+1)/2 first deviation n=h+4 (Resultary_Search)",
+          "conditional leaf count under root protected h random recursive trees generating function (Resultary_Search)",
+          "site:arxiv.org \"Protection Number of Recursive Trees\" \"Klimczak\" (web search)",
+          "Resultary_Search q1-q3 source ids: 2026/11/8/SCOPE-a-sharp-protection-depth-barrier-for-conditional-leaf-means-in-r--56b733d8e712; 2026/10/18/SCOPE-an-exact-leaf-regression-for-pendant-root-branches-in-random-rec--7e29cb2dc1dd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-protected-roots-increase-global-path-length-by-a-logarithmic-amo--2192fb2b7d3e/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-conditional-leaf-erasure-and-the-depth-leaf-covariance-profile-o--4e2828958fad/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-exact-leaf-regression-for-pendant-root-branches-in-random-rec--7e29cb2dc1dd/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-protection-depth-barrier-for-conditional-leaf-means-in-r--56b733d8e712"
+        ],
+        "reasoning": "The exact Resultary title matching h,n coefficients is the present record mirrored publicly, not a separate earlier mathematical proof. Other relevant full-text Resultary packages compute path length under root protection, depth covariance under fixed-leaf erasure, or conditional leaf mean given pendant branches, and do not contain all-depth h>=3 deficit classification.",
+        "searches": [
+          "random recursive tree root minimum root-to-leaf protection depth h conditional expected total leaf count equals (n-h+1)/2 first deviation n=h+4 (Resultary_Search)",
+          "conditional leaf count under root protected h random recursive trees generating function (Resultary_Search)",
+          "recursive tree protected root versus leaf count negative conditional mean sharp threshold (Resultary_Search)",
+          "Resultary_Search q1-q3 hits for 2026/10/25 protected root path length, 2026/11/8 conditional leaf erasure, 2026/10/18 pendant branches"
+        ]
+      },
+      "rationale": "The general all-depth conditional first-moment sign boundary goes beyond available marginal protection-number theorems and beyond the exact depth-two root-singleton regression. The unmarked recursive-tree protection EGF was already known (Gołębiewski–Klimczak), as was h=2 baseline (the pendant-root-branch regression). The submitted novelty is the marked-leaf deficiency D_h, first strict order h+4 for every h>=3 and persistent sign for every larger n. An exact self-mirror of this same submitted finding appears in Resultary (2026/11/8); it is not independent antecedent prior work. No stronger implication found in inspected actual primary sources; 2019 full text inaccessible is retained as a substantive risk.",
+      "residual_risks": [
+        "Full text of Gołębiewski–Klimczak (2019) remained inaccessible following arXiv/OA checks; authorized Oxford connection returned vpn_disconnected. Its uninspected pages could contain implicit deeper mixed marking.",
+        "Broad classical increasing-tree generating functions could imply the same coefficientwise deficit without this wording; searchable results do not prove worldwide novelty.",
+        "Author presentation provides partial evidence, not substitute for full primary article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "X_n counts protected vertices, not total leaves L_n; the mixed root event term E[X_n 1_R] is neither E[L_n 1_{H>=h}] nor a uniform all-h sharp sign theorem.",
+          "evidence": [
+            "Theorem 2.1 gives E[X_n], a protected-vertex mean (PDF pp. 292-293).",
+            "(2.4) gives probability of root two-protection; Lemma 3.1 estimates E[X_n 1_R], not conditional leaf mean."
+          ],
+          "identifier_or_url": "https://the-examples-book.com/personal/mdw/_attachments/paper029.pdf",
+          "material_read": "Entire available eight-page PDF text, theorem 2.1, equations (2.1)-(2.4), lemma 3.1, second moment arguments and references; screenshot attempt failed 404 at source endpoint, so text extraction used.",
+          "method": "Read searchable full-text PDF text through web PDF extraction; checked definition of X_n and R_n and all relevant conditional terms.",
+          "title": "Asymptotic properties of protected nodes in random recursive trees",
+          "trigger": "Uniform non-plane random recursive tree and protected-root event in exact same probability space."
+        },
+        {
+          "assessment": "Accessible abstract reports univariate protection-number law, not marked-leaf mixed expectation; cannot certify that the unavailable full paper lacks an implicit proof.",
+          "evidence": [
+            "SIAM 2019 proceedings pp.45-53: distribution of root protection number by generating-function singularity analysis.",
+            "Unavailability of primary full text is an explicitly retained originality risk, not evidence of noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/1.9781611975505.5",
+          "material_read": "Publisher full abstract and bibliographic details; not the 9-page primary paper.",
+          "method": "arXiv and open access searches without accessible article; institutional Oxford request returned vpn_disconnected, job c7231011acc5ba82544dd4b639a537ca; no bypass or retry.",
+          "title": "Protection Number of Recursive Trees",
+          "trigger": "Exactly same protection statistic H_n and random recursive tree model; high-priority potential overlap."
+        },
+        {
+          "assessment": "Explicit U_h(z)=int_0^z exp(U_{h-1}(t))dt-z reproduces unmarked counting recursion, and root-protection marginal results; no leaf-marker derivatives, negative deficit theorem or sharp n=h+4 threshold in presented material. Slides cannot rule out unpresented results in the paper.",
+          "evidence": [
+            "Slides 20-22: U_h(z) recurrence, U_1 and U_2, derangement correspondence."
+          ],
+          "identifier_or_url": "https://www.cirm-math.fr/RepOrga/1940/Slides/golebiewski_AofA19.pdf",
+          "material_read": "Available 23-slide searchable text, especially slides 20-23 about non-plane recursive trees; screenshot attempt failed 403.",
+          "method": "Read presentation text through web PDF extraction; comparison of unmarked U_h(z) against submitted marked T_h(z,y).",
+          "title": "Protection Number in Trees (AofA 2019 author presentation)",
+          "trigger": "Slides by the first author based in part on the same 2019 primary paper, helpful partial substitute."
+        },
+        {
+          "assessment": "Establishes global bijection involving marked rank-one vertices, not total leaf expectation conditional on root protection depth h>=3.",
+          "evidence": [
+            "Theorem counts increasing trees with a marked rank-one vertex against derangements; does not mark total leaves under a root event."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2210.05016v1",
+          "material_read": "Entire accessible HTML article, sections 1-3, bijection cases and references.",
+          "method": "Read arXiv open HTML main statement and constructive proof, compare rank-one vertex totals with root-protected conditioning.",
+          "title": "A bijection between vertices of rank 1 in increasing trees and derangements",
+          "trigger": "Possible rank/protection and permutation equivalences for small depth."
+        },
+        {
+          "assessment": "Maximum protection asymptotic distributions do not determine the conditional total-leaf mean for all h,n in this different random tree model.",
+          "evidence": [
+            "Definition 1.1 protection number; theorem investigates maximum over vertices and limiting double-exponential regimes."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-the-maximum-protection-number-in-simply-generated-trees/01ADD10CB937911C02275F69CC57DB58",
+          "material_read": "Accessible HTML abstract, introduction/protection definitions, scope and theorem overview, relevant methods and reference entries; not every proof line.",
+          "method": "Compared maximum over vertices for simply generated tree classes versus minimum root-leaf distance under uniform increasing labeling.",
+          "title": "The distribution of the maximum protection number in simply generated trees",
+          "trigger": "Possible broader protection distribution theory and general functional-equation implication."
+        },
+        {
+          "assessment": "Computes E[P_n|H>=2] and logarithmic path-length excess, not E[L_n|H>=h] nor all-depth sign cutoff.",
+          "evidence": [
+            "Exact protected-root path-length formula and positive excess H_{n-1}-1+o(1), distinct from leaf-count expectation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-protected-roots-increase-global-path-length-by-a-logarithmic-amo--2192fb2b7d3e/RESULT.md",
+          "material_read": "Entire 7173-character actual RESULT.md from GitHub blob SHA c618f76403ac95545f7db3749e38a3694676a2ed.",
+          "method": "Read finding, proof and scope; compare P_n path length with L_n leaf count.",
+          "title": "Protected roots increase global path length by a logarithmic amount in uniform recursive trees",
+          "trigger": "Resultary same conditioning event but different statistic; possible stronger mixed law."
+        },
+        {
+          "assessment": "Derives conditional distribution given named vertices are leaves and Cov(D_j,L_n), not E[L_n|H_n>=h] where event depends jointly on unknown leaf locations.",
+          "evidence": [
+            "Erasure theorem conditions on fixed S subset of birth labels remaining leaves; not on avoiding all root-to-leaf paths shorter than h."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-conditional-leaf-erasure-and-the-depth-leaf-covariance-profile-o--4e2828958fad/RESULT.md",
+          "material_read": "Entire 9032-character actual RESULT.md from GitHub blob SHA 022b49415fbc163170cac26905163e6211f3c0f5.",
+          "method": "Compared fixed-label leaf conditioning/deletion to root min-path depth event.",
+          "title": "Conditional leaf erasure and the depth–leaf covariance profile of recursive trees",
+          "trigger": "Joint leaf and depth statistics in same model."
+        },
+        {
+          "assessment": "E[L_n|Z_n=z]=(n-1+z)/2 implies h=2 (Z_n=0) baseline, but cannot determine h>=3 because depth-three survival also constrains grandchildren branches.",
+          "evidence": [
+            "Exact finite leaf regression as function of Z_n; its Z_n=0 specialization yields E[L_n|H>=2]=(n-1)/2, already covered and not independently novel."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-exact-leaf-regression-for-pendant-root-branches-in-random-rec--7e29cb2dc1dd/RESULT.md",
+          "material_read": "Entire 7926-character actual RESULT.md from GitHub blob SHA 0e6c4387f097f9f610799374e422a9a2fe2f6a04.",
+          "method": "Compared conditioning Z_n=# singleton root branches with protection H>=h.",
+          "title": "An exact leaf regression for pendant root branches in random recursive trees",
+          "trigger": "Exact conditional global leaf mean given root-local leaf statistic."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Root protection depth is an intrinsically motivated survival-distance observable; global leaf count measures tree branching. A complete exact boundary across all integer depths and sizes resolves whether the classical half-linear conditional mean persists. The universal first failure four vertices past the minimum tree, and strict permanent negative sign thereafter, follow from a structurally nontrivial positivity/deficit induction. This is not simply rechecking a known table, a single selected small n, or an unsupported downstream application; future branching/protection studies can use the sharp uniform sign cutoff.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://the-examples-book.com/personal/mdw/_attachments/paper029.pdf",
+    "https://doi.org/10.1137/1.9781611975505.5",
+    "https://www.cirm-math.fr/RepOrga/1940/Slides/golebiewski_AofA19.pdf",
+    "https://arxiv.org/html/2210.05016v1",
+    "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-the-maximum-protection-number-in-simply-generated-trees/01ADD10CB937911C02275F69CC57DB58",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-protected-roots-increase-global-path-length-by-a-logarithmic-amo--2192fb2b7d3e/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-conditional-leaf-erasure-and-the-depth-leaf-covariance-profile-o--4e2828958fad/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-exact-leaf-regression-for-pendant-root-branches-in-random-rec--7e29cb2dc1dd/RESULT.md",
+    "Resultary_Search q1-q3 exact mirror and related hits"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Limited to uniform labeled increasing recursive trees, not plane-oriented or arbitrary simply generated trees.",
+    "Only a conditional first moment and sign boundary, not the full joint distribution.",
+    "No formal Lean/expert attestation: VERIFICATION.md labels both not_performed.",
+    "2019 inaccessible same-object source is residual historical-priority risk, not a failure of C or a definitive O coverage finding.",
+    "PDF rendered-page screenshot requests failed at public source, but searchable entire 2015 text and the author presentation were read."
+  ],
+  "residual_risks": [
+    "Full text of Gołębiewski–Klimczak (2019) remained inaccessible following arXiv/OA checks; authorized Oxford connection returned vpn_disconnected. Its uninspected pages could contain implicit deeper mixed marking.",
+    "Broad classical increasing-tree generating functions could imply the same coefficientwise deficit without this wording; searchable results do not prove worldwide novelty.",
+    "Author presentation provides partial evidence, not substitute for full primary article."
+  ],
+  "schema_version": 1
+}
