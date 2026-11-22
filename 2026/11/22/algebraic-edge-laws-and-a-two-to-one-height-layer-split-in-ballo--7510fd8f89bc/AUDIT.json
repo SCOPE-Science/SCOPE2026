@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The unique differing alternating interval, proven in the deletion-intersection literature and reconstructed in RESULT.md, bijects graph edges with marked D-first alternating factors. The flip preserves all ballot heights. Prefix P_h=C(z²)T^h and suffix F_h=(1-T^(h+1))/(1-2z) are proved by Catalan decomposition and first-passage splitting; summing gives exact series. Algebraic singularity transfer gives the constants. Independent deletion-set enumeration n=2..10, factor DP and formal power-series calculations n<=60 agree. Unbounded validity rests on proof, not tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2001.01376, Section III, proves general binary single-deletion intersection mechanism, but not ballot-constrained edge enumeration.",
+        "The published Dyck-restricted two-read deletion graph result counts returning-to-zero Dyck words, not all ballot prefixes.",
+        "The published Complete degree spectrum of the binary two-read deletion-reconstruction graph counts unrestricted binary graphs."
+      ],
+      "reasoning": "Unrestricted two-read confusability theorems cover the pairwise edge criterion but not the induced ballot-graph edge total. A Dyck-only edge graph is an induced subgraph on balanced terminal height, not the union of all ballot levels. The stated cross-height edges do not exist in the Dyck-only vertex class.",
+      "searches": [
+        "exact edge counts ballot prefix single deletion two read graph same final altitude cross altitude generating function",
+        "Dyck meander nonnegative binary prefix reconstruction two common deletion reads graph",
+        "binary two deletion graph fixed weight coloring Dyck Motzkin profiles"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1004.2710",
+      "https://arxiv.org/pdf/1510.01952",
+      "https://arxiv.org/html/2001.01376v2",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v18i1p74",
+      "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph (published record, 2026)",
+      "Dyck-restricted two-read deletion graph: a vertex-marked bijection and sharp degree (published record, 2026)",
+      "Complete degree spectrum of the binary two-read deletion-reconstruction graph (published record, 2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1004.2710v1 treats avoidance of a prescribed ballot pattern; its introduction distinguishes this from occurrence counting.",
+        "arXiv:1510.01952v1 defines equality of occurrence positions for a fixed short string; sections 2 and 3 enumerate such classes.",
+        "arXiv:2001.01376, Proposition 9 and its proof supply the alternating-interval relation.",
+        "The published unrestricted and Dyck-only graph results give neither the algebraic edge functions nor the two-to-one asymptotic cross-layer split."
+      ],
+      "reasoning": "The present result uses the known alternating-interval characterization as a premise, then enumerates *all* marked occurrences over all ballot prefixes with nonnegative-suffix constraints and tracks change in terminal height. Neither a theorem about one prescribed pattern nor a formula for the unrestricted graph directly implies this constrained split by substitution of parameters. The full proofs of all historical papers were not exhaustively checked; remaining priority risk is explicit.",
+      "searches": [
+        "arxiv:1004.2710",
+        "arxiv:1510.01952",
+        "arxiv:2001.01376",
+        "exact edge counts ballot prefix single deletion two read graph same final altitude cross altitude generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published record titled Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph treats unrestricted binary source words.",
+        "arXiv:1510.01952v1, pages 1–3, defines equivalence using positions of a single short factor, not overlapping deletion-output sets.",
+        "arXiv:1004.2710v1, introduction and Section 2, counts paths avoiding one selected pattern."
+      ],
+      "reasoning": "The graph relation is equality of two distinct length-(n-1) deletion descendants, equivalent to an alternating mismatch interval. It is not equivalence by positions or counts of a fixed short factor. The new enumeration is for every nonnegative prefix with any terminal height, including edges crossing adjacent terminal-height layers; previous fixed-pattern equivalences do not identify these edges.",
+      "searches": [
+        "exact edge counts ballot prefix single deletion two read graph same final altitude cross altitude generating function",
+        "alternating down-up factors counted over all ballot prefixes length n, algebraic generating series average degree",
+        "Dyck meander nonnegative binary prefix reconstruction two common deletion reads graph",
+        "arxiv:1510.01952",
+        "arxiv:1004.2710"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct enumeration gives edges 1,4,11,31,70,174,370,865 at n=3..10; no exact matching attribution was returned by these queries.",
+        "No cited checked table includes both the within-height and cross-height counts."
+      ],
+      "reasoning": "Failed numerical lookup does not establish sequence novelty. Even an existing numerical sequence under another description would not by itself imply the ballot-specific edge bijection and exact layer split. Claims do not assert novelty of bare numeric coefficients.",
+      "searches": [
+        "1,4,11,31,70,174 edge count ballot binary words",
+        "\"1, 4, 11, 31, 70, 174, 370, 865\" ballot",
+        "site:oeis.org \"1, 4, 11, 31, 70, 174\"",
+        "ballot prefixes two-read deletion confusability graph total edges generating function 1 4 11 31 70 174"
+      ]
+    },
+    "rationale": "Compared the exact restricted-graph statements and implication relationships against same-language ballot pattern papers, the binary deletion criterion, unrestricted and Dyck-only graph records. No inspected source implies the all-ballot edge generating functions or equal-height/cross-height 2:1 asymptotic split. Earlier unindexed or inaccessible pattern-count literature remains a genuine priority risk.",
+    "residual_risks": [
+      "Historical Sapounakis–Tasoulas–Tsikouras (2007) fixed-string paper was identified from citation and bibliographic metadata, but full text was not inspected. A special pattern-occurrence formula or prior interpretation could cover some coefficients.",
+      "The journal 2011 general Dyck string-enumeration article was evaluated from its abstract only; stronger uninspected statements may exist.",
+      "The published graph results in the search index were compared by mathematical titles and summaries when full primary text was unavailable; exact prior claim coverage cannot be guaranteed solely from a summary.",
+      "A prior result might use another name for nonnegative meanders or alternate reads; search is not a mathematical proof of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The target is avoidance of a prescribed pattern; no all-alternating-factor deletion-graph split in examined material.",
+        "evidence": [
+          "arXiv v1 publicly dated 15 April 2010; abstract and introduction explicitly say only paths avoiding a given pattern are counted."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1004.2710",
+        "material_read": "page 1 introduction, Section 2 finite-operator setup, pages 5–6 pattern-avoidance formulas",
+        "method": "open-access PDF text and first-page visual inspection",
+        "title": "Ballot Paths Avoiding Depth Zero Patterns",
+        "trigger": "same ballot language and alternating short-pattern example"
+      },
+      {
+        "assessment": "The equivalence is exact positions of a fixed pattern rather than pairwise equality of two deletion reads; not a stronger version of the present result.",
+        "evidence": [
+          "arXiv v1 publicly dated 7 October 2015; introduction defines alpha ~_tau alpha-prime iff sets of occurrence positions agree."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.01952",
+        "material_read": "pages 1–3, including definition of occurrence-position equivalence and statements of Sections 2–4, and summary tables",
+        "method": "open-access PDF text and first-page visual inspection",
+        "title": "Equivalence classes of ballot paths modulo strings of length 2 and 3",
+        "trigger": "ballot paths and another use of observational equivalence"
+      },
+      {
+        "assessment": "Proves the deletion-intersection condition used here, not ballot restricted edge generating functions. The proof of alternating-interval necessity and sufficiency is the imported fact.",
+        "evidence": [
+          "Proposition 9 and proof discuss all q-ary words and maximal two deletion intersection."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2001.01376v2",
+        "material_read": "Section III, Theorem 7, Definition 8, Proposition 9 and proof (lines 202–251), with original statement and local interval argument",
+        "method": "open-access arXiv HTML full-text segment",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "direct same graph edge relation over unrestricted words"
+      },
+      {
+        "assessment": "Relevant methods but the material read does not decide whether a special aggregate formula can be derived; remaining risk, not claimed wholly excluded.",
+        "evidence": [
+          "Abstract specifies Dyck paths, a prescribed string tau and occurrence generating functions."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v18i1p74",
+        "material_read": "abstract and published summary describing fixed-string statistics in returning Dyck paths",
+        "method": "official journal abstract; no complete primary-text conclusion drawn",
+        "title": "General Results on the Enumeration of Strings in Dyck Paths",
+        "trigger": "potential stronger fixed-pattern occurrence-count statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7510fd8f-89bc-44cc-bf0b-5b9614f9135f",
+  "value": {
+    "rationale": "The binary ballot-prefix language is a natural constrained stack/channel source. The result provides exact all-n edge counts and a structurally meaningful within-terminal-height versus between-neighboring-height split. Its limit gives 2:1 relative edge frequencies and average ambiguity degree asymptotic to n, information not contained in unrestricted estimates. This is an all-length motivated graph invariant and is not an arbitrary finite census.",
+    "status": "PASS"
+  }
+}
