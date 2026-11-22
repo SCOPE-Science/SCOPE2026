@@ -1,0 +1,197 @@
+{
+  "correctness": {
+    "rationale": "From the exact gamma shape–rate mixture, its Laplace transform and PGF follow algebraically. The continuous Lévy density is positive; its kernel decreases exactly when the derivative at zero is nonpositive. All compound-Poisson coefficients are positive because \\(0\\le a\\le q<1\\). The candidate Bernoulli-thinning innovation has exact degree-\\(n\\) log coefficient \\(\\nu_n(c)=[b_n(1)-b_n(c)]/n\\). The derivative identity and global bound show its nonnegativity at every degree and retention exactly when \\((r+1)(\\theta+s)^2\\ge s(\\theta+1)^2\\). Outside this region, the degree-one coefficient is negative for retentions close to one, proving necessity. The factorial-Palm formula follows by differentiation at every nonnegative integer order. Exact rational checks passed after executing the embedded script; finite checks do not substitute for the all-index proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pakes, Mutant Number Laws and Infinite Divisibility, 2022: Section 2 definitions characterize general discrete and continuous self-decomposability.",
+        "Kella and Löpker, arXiv:2202.10296: analyzes general thinning and mixing, including INAR implications, but no adjacent-gamma sharp comparison.",
+        "Irshad et al. 2023 DOI 10.1080/10543406.2022.2152832: model is the algebraic subfamily s=theta/(theta+1), r=alpha-1, not the full independent-weight class.",
+        "Papageorgiou and Vardaki 2022 DOI 10.1007/s42519-022-00261-z: bivariate Poisson–Lindley models and marginal properties; only abstract accessible.",
+        "2015 gamma mixture hazard-shape paper DOI 10.1017/S0269964814000321: classifies failure-rate shapes rather than Levy/self-decomposability."
+      ],
+      "reasoning": "General SD criteria are necessarily broader in their *classes* but do not explicitly imply this concrete parameter threshold without checking the mixture-specific Levy and thinning-remainder coefficients; those derivations are supplied. The gamma-mixture hazard paper solves a different invariant. No directly dominating specialized result was identified.",
+      "searches": [
+        "Mixture of adjacent negative binomial distributions negative binomial r and r+1 with same probability, infinitely divisible thinning self decomposable iff weight exceeds 1/(r+1) uniformly over rate, canonical sequence (r+1)q^n-s^n/(s+theta)^n",
+        "Two adjacent gamma components shape r and r+1 same rate mixture, Poissonization, exact threshold for selfdecomposability with rate scaling",
+        "\"mixture of two gamma\" \"self-decomposable\" same scale consecutive shape",
+        "\"mixed Poisson\" \"self-decomposable\" \"mixture\" \"negative binomial\" exact",
+        "turn823875view1",
+        "turn823875view3"
+      ]
+    },
+    "checked_sources": [
+      "Irshad et al., 2023/2024, DOI 10.3390/math12010081, indexed sections 1, 2.1, 2.2 and conclusion",
+      "Pakes, 2022, DOI 10.3390/axioms11110584, accessible Section 2 and definitions",
+      "Kella and Löpker, 2022, arXiv:2202.10296v3, accessible HTML",
+      "Ong et al., 2023, DOI 10.3390/stats6030059, publisher HTML",
+      "2015 mixture of two gamma hazard-shape article DOI 10.1017/S0269964814000321, abstract only",
+      "Irshad et al., 2023, DOI 10.1080/10543406.2022.2152832, published two-parameter Poisson generalized Lindley specialization, accessible metadata",
+      "Papageorgiou and Vardaki, 2022, DOI 10.1007/s42519-022-00261-z, publisher abstract only",
+      "Vardaki and Papageorgiou, 2026, DOI 10.3934/math.2026154, publisher abstract and bibliography",
+      "published-finding corpus semantic searches q1–q5 plus external scientific searches named in the four comparison objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ong et al. 2023 equation (1), section 2.1: PGF \\((1-p+pz)G_{\\mathrm{NB}}(z)\\) describes Bernoulli plus NB, not an adjacent-shape mixture \\(s g(z)^r+(1-s)g(z)^{r+1}\\).",
+        "The established two-parameter Poisson generalized Lindley PGF agrees only along \\(s=\\theta/(\\theta+1)\\), \\(r=\\alpha-1\\); this known specialization is not claimed as a new distribution.",
+        "PNXL published PGF and mixed-Poisson density coincide with the m=0 case; subsequent explicit all-m factorial-Palm distributions are not part of the retrieved published model results.",
+        "The 2026 Vardaki–Papageorgiou review notes PNXL belongs to a class of Poisson quasi-Lindley models and analyzes univariate/bivariate derivations; its accessible abstract does not claim selfdecomposability boundaries or factorial-Palm preservation.",
+        "Pakes 2022 continuous Levy and discrete canonical criteria do not alone state the difference between the rate-independent mixing SD boundary and the rate-dependent count thinning SD boundary."
+      ],
+      "reasoning": "The covered prior generalized Lindley parameter curve is explicitly conceded. The current independently variable mixing weight and all-order factorial-Palm family remain beyond this parameter curve. A positive Bernoulli-shifted NB law also differs: the current PGF can be written as \\(g^{r+1}[1+(s/\\theta)(1-z)]\\), whose multiplier has a negative coefficient of \\(z\\), unlike a positive Bernoulli PGF. General canonical criteria support the proof method but do not alone supply the sharp independent-weight boundary, the continuous/discrete separation, or the PNXL factorial-Palm hierarchy.",
+      "searches": [
+        "turn823875view2",
+        "turn823875view3",
+        "turn823875view1",
+        "Mixture of adjacent negative binomial distributions negative binomial r and r+1 with same probability, infinitely divisible thinning self decomposable iff weight exceeds 1/(r+1) uniformly over rate, canonical sequence (r+1)q^n-s^n/(s+theta)^n",
+        "\"mixture of two gamma\" \"self-decomposable\" same scale consecutive shape"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Irshad et al. 2023: published PNXL PGF \\(\\theta(1-z+2\\theta)/[2(\\theta+1-z)^2]\\) matches \\(r=1,s=1/2\\) of the gamma mixture.",
+        "Pakes 2022: canonical r-sequence and Levy-density monotonicity are general known characterizations, not model-specific closed boundaries.",
+        "The two-parameter Poisson generalized Lindley PGF \\(\\theta^\\alpha(\\theta+2-z)/[(\\theta+1)(\\theta+1-z)^\\alpha]\\) equals the present law precisely on \\(s=\\theta/(\\theta+1),\\ r=\\alpha-1\\) (for \\(\\alpha>1\\)); that distributional curve is known."
+      ],
+      "reasoning": "PNXL is an exact specialization (same probability law, not merely similar title). Its source does not state the all-rate critical line or factorial-Palm critical closure in the accessible sections. The prior generalized Lindley curve occupies only one relation between the independent weight and the mixing rate, not the full domain. Theorems of Pakes supply tools; explicit parameter classifications require new algebra and are not automatic statements of the general criteria.",
+      "searches": [
+        "Poisson new X-Lindley distribution PNXL 2023 factorial Palm size-bias NB mixtures infinite divisibility self-decomposability",
+        "Poisson new X-Lindley PNXL mixed Poisson gamma shape 1 shape 2, compound Poisson Levy coefficients, Bernoulli thinning self decomposability",
+        "negative binomial adjacent-shape mixture binomial thinning self-decomposable Poisson gamma",
+        "turn280897search4",
+        "turn468400search0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest: 2026/10/18/SCOPE-sharp-infinite-divisibility-threshold-for-zero-inflated-negative--e4339a2d413f: zero-inflation, a different transformation.",
+        "published-finding corpus nearest: 2026/10/18/SCOPE-sharp-thinning-self-decomposability-phase-diagram-for-folded-ske--6d990cd0685b: folded discrete Laplace, not mixed adjacent NB shapes.",
+        "published-finding corpus nearest: 2026/10/13/SCOPE-the-three-parameter-epql-marginal-is-exactly-two-parameter-poiss--98f85955e0b5: Poisson quasi-Lindley marginal identification, not the PNXL factorization or thinning condition."
+      ],
+      "reasoning": "The searches returned no table of the exact common-rate adjacent-gamma thinning threshold or the all-order PNXL factorial-Palm boundary. Exact equality of objects and implications was checked against the closest titles and summaries rather than inferred from absent matching words; exhaustive database coverage is not asserted.",
+      "searches": [
+        "Mixture of adjacent negative binomial distributions negative binomial r and r+1 with same probability, infinitely divisible thinning self decomposable iff weight exceeds 1/(r+1) uniformly over rate, canonical sequence (r+1)q^n-s^n/(s+theta)^n",
+        "Poisson new X-Lindley distribution PNXL 2023 factorial Palm size-bias NB mixtures infinite divisibility self-decomposability",
+        "Poisson new X-Lindley PNXL mixed Poisson gamma shape 1 shape 2, compound Poisson Levy coefficients, Bernoulli thinning self decomposability",
+        "Two adjacent gamma components shape r and r+1 same rate mixture, Poissonization, exact threshold for selfdecomposability with rate scaling",
+        "factorial Palm size bias of a Poisson gamma mixture, neighboring negative binomial distributions, all orders",
+        "Poisson new X-Lindley PNXL mixed Poisson gamma shape 1 shape 2, compound Poisson Levy coefficients, Bernoulli thinning self decomposability"
+      ]
+    },
+    "rationale": "The introduced PNXL PGF, the existing two-parameter Poisson generalized Lindley parameter curve, and classical self-decomposability criteria are not asserted new. The full sharp rate-vs-mixing-shape boundary, its continuous/discrete separation, and the factorial-Palm-critical hierarchy are compared as implications to the relevant sources. No inspected source covers these combined results; residual uncertainty about unread portions and historical specialized literature is disclosed.",
+    "residual_risks": [
+      "The complete direct publisher PDF of the originating PNXL article was not accessible; indexed sections 1, 2.1, 2.2 and 6 were compared but uninspected sections cannot be cleared with the same confidence.",
+      "The two-parameter Poisson generalized Lindley law already covers the s=theta/(theta+1) parameter curve; any priority claim about that curve alone would be invalid. The new claim concerns the full independent-weight classification, its mixing/count separation and the Palm hierarchy.",
+      "Older literature on general gamma mixtures and self-decomposability may include an equivalent specialization not found in the bounded source search; no absolute historical priority claim is made.",
+      "A standard criterion explains how to test self-decomposability, so scientific originality is specifically in the exact parametric separation and critical factorial-Palm hierarchy, not the classical criterion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the one-parameter PNXL model, its known pgf and INAR innovation application; no specific all-m factorial-Palm-thinning closure or continuous-versus-discrete phase comparison in the material read",
+        "evidence": [
+          "Publisher DOI 10.3390/math12010081, equations (1) and (2), sections 2.1-2.2; first posted 2023-12-26",
+          "https://www.mdpi.com/2227-7390/12/1/81"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math12010081",
+        "material_read": "Publisher indexed full mathematical text of sections 1, 2.1 (density and mass), 2.2 (PGF and moments), and 6 (conclusions), plus publication-date/abstract page; direct publisher PDF unavailable",
+        "method": "Publisher indexed HTML/text and direct publisher abstract page; mathematical formulas read and matched to gamma mixture",
+        "title": "New One-Parameter Over-Dispersed Discrete Distribution and Its Application to the Nonnegative Integer-Valued Autoregressive Model of Order One",
+        "trigger": "Exact originating law for the central PNXL specialization, including its density and PGF"
+      },
+      {
+        "assessment": "General known characterizations are fully acknowledged; they do not provide the sharp concrete adjacent-gamma parameter classification or PNXL Palm hierarchy",
+        "evidence": [
+          "Publisher Axioms 2022, 11(11),584, section 2, definitions 1-3, equations 4 and 7-12",
+          "https://www.mdpi.com/2075-1680/11/11/584"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/axioms11110584",
+        "material_read": "Full accessible publisher HTML, especially introduction and Section 2 definitions, the continuous SD characterization and discrete r-sequence/INAR properties",
+        "method": "Publisher HTML mathematical definitions/equations and specific sections",
+        "title": "Mutant Number Laws and Infinite Divisibility",
+        "trigger": "General discrete canonical and continuous Levy criteria potentially implying the result"
+      },
+      {
+        "assessment": "General thinning/mixing framework and examples, not the specified gamma shape-adjacent distribution or criterion",
+        "evidence": [
+          "arXiv:2202.10296, first submitted 2022-02-21, introduction and Section 2",
+          "https://arxiv.org/html/2202.10296v3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.10296",
+        "material_read": "Accessible full arXiv HTML version 3, sections introduction and thinning preliminaries, section headings and examples",
+        "method": "arXiv full HTML https://arxiv.org/html/2202.10296v3",
+        "title": "On Binomial Thinning and Mixing",
+        "trigger": "Broader exact thinning and Poisson mixture theorems"
+      },
+      {
+        "assessment": "The Bernoulli-plus-shifted-NB family differs algebraically from the adjacent-shape NB mixture; no coverage of the claimed thinning threshold",
+        "evidence": [
+          "Publisher Stats 2023 6(3)942-955, Eq.(1), Section 2.1",
+          "https://www.mdpi.com/2571-905X/6/3/59"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/stats6030059",
+        "material_read": "Full publisher HTML, especially section 2.1 equation (1), section 2.2 negative-binomial instance, and conclusions",
+        "method": "Publisher mathematical HTML with PGF and mass expressions",
+        "title": "A Family of Finite Mixture Distributions for Modelling Dispersion in Count Data",
+        "trigger": "Potentially identical mixture of neighboring negative-binomial terms"
+      },
+      {
+        "assessment": "The established two-parameter generalized Lindley distribution is a strict curve s=theta/(theta+1) in the three-parameter family; it does not cover all independent weights or the continuous/discrete phase difference",
+        "evidence": [
+          "DOI 10.1080/10543406.2022.2152832, PubMed PMID 36662165, first public 2023-01-20"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/10543406.2022.2152832",
+        "material_read": "Bibliographic record, abstract and generating-function form recovered for the prior model, with the exact algebraic parameter-curve comparison; full article not retrieved",
+        "method": "PubMed 36662165, open science metadata and exact PGF parameter comparison",
+        "title": "Inferential properties with a novel two parameter Poisson generalized Lindley distribution with regression and application to INAR(1) process",
+        "trigger": "Earlier law algebraically intersecting the proposed family"
+      },
+      {
+        "assessment": "Establishes the general distribution family and bivariate extensions as prior work, but accessible abstract does not give the self-decomposability classification",
+        "evidence": [
+          "Springer Journal of Statistical Theory and Practice 16,30, published 2022-04-22"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s42519-022-00261-z",
+        "material_read": "Abstract and publisher bibliography; full article gated by institutional subscription",
+        "method": "Springer publisher article preview and indexed summary",
+        "title": "Bivariate Discrete Poisson–Lindley Distributions",
+        "trigger": "Earlier general two-parameter Lindley Poisson mixtures overlapping the shape-one/two class"
+      },
+      {
+        "assessment": "Identifies PNXL as a special case of broader quasi-Lindley models and lists alternative derivation techniques; no explicit thinning/continuous SD or factorial-Palm critical boundary in the accessible material",
+        "evidence": [
+          "AIMS Mathematics 2026 11(2),3772-3810, published 2026-02-09"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/math.2026154",
+        "material_read": "Publisher abstract and reference list; full text link returned publisher summary only",
+        "method": "Publisher abstract indexed February 2026",
+        "title": "Poisson quasi-Lindley and Poisson-new XLindley univariate and bivariate models: derivation techniques and automobile insurance applications",
+        "trigger": "Later scientific paper specifically revisiting PNXL family and its reductions"
+      },
+      {
+        "assessment": "Different functional (hazard-rate shape) with no reported Levy or Bernoulli-thinning classification; full content not inspected",
+        "evidence": [
+          "University of Haifa institutional publication abstract, DOI 10.1017/S0269964814000321"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0269964814000321",
+        "material_read": "Abstract, publication metadata and statement of investigated failure-rate invariant",
+        "method": "Public institutional abstract/metadata",
+        "title": "The failure rate shape for a mixture of two gammas",
+        "trigger": "Possible older complete gamma-mixture shape classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6076ca6a-a947-4741-9c61-0dfa0ca27690",
+  "value": {
+    "rationale": "The originating PNXL model is motivated by count-data autoregressions, where stationary-marginal Bernoulli-thinning closure is a materially different question from merely using a distribution as innovations. The exact global rate threshold provides a complete model feasibility boundary and explicit innovations; the structural separation shows Poissonization can restore discrete self-decomposability despite non-self-decomposable continuous mixing. The all-order factorial-Palm critical family follows naturally from size-biased/event-sampled counts rather than an arbitrary small parameter slice. A concrete rational witness shows actual nontrivial contrast. The work claims neither a general mixed-Poisson theorem nor an independent audit.",
+    "status": "PASS"
+  }
+}
