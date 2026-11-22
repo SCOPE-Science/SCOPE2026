@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The search-line coordinate solves the exact exponential ODE \(\dot u=-2\gamma\lambda u\). Equal-magnitude opposite Hessian eigenvalues reduce the position coefficient matrix to a scalar plus a skew matrix, giving an exact integral of the squared norm. Its logarithmic derivative has one sign change precisely when \(|u_0|>1\), proving the unique peak, its height, its first return time, and the global basin and exceptional wrong eigenline. The supplied executable checks exact symbolic identities and 192 directly integrated initial-value configurations. Numerical tests are supporting evidence only; the proof covers all parameters in the domain.
+## correctness
 
-## Originality
-**PASS within examined evidence.** The primary Shi–Zhang–Zheng–Zhu source establishes asymptotic stability only subject to local initialization bounds. The original E–Zhou paper introduces coupled gentlest ascent but does not state the hyperbolic-secant trajectory or global amplification classification. The Bofill–Quapp–Caballero nonlinear examples discuss turning curves, while Chu–Lin investigates generalized search geometry and convergence; neither gives this quantitative balanced-quadratic pulse. Actual targeted published-record and literature searches found no equal-or-stronger statement. Residual risk: a less-indexed exact solution in older optimization/chemical-dynamics work may exist.
+PASS
 
-## Mathematical value
-**PASS.** Initial eigendirection error is a central practical constraint in saddle search. This exact solvable canonical model shows that almost every search-line initialization converges even though worst-case transient position amplification is unbounded, and quantifies its sharp exponent, the full pulse and recovery times, and an exact heavy-tailed random-initialization law with an infinite-mean threshold. That separation between global attraction and transient behavior is not supplied by local asymptotic stability rates. The exact equal-curvature assumption is material; this is not a general nonlinear potential theorem.
+Correctness PASS. With H=diag(-lambda,lambda), v2/v1=u0 exp(-2 gamma lambda t) except v1=0. The exact position generator is (beta lambda/(1+u²))[(u²-1)I + 2uJ] with J a skew quarter-turn; its radial logarithmic derivative is beta lambda (u²-1)/(1+u²). Exact integration gives exp(-beta lambda t)[(1+u0²)/(1+u0² exp(-4gamma lambda t))]^(beta/(2gamma)), hence a hyperbolic-cosine peak at t*=log|u0|/(2gamma lambda) when |u0|>1, gain ((|u0|+|u0|^-1)/2)^(beta/(2gamma)), and return at 2t*. Direction v1=0 instead makes X'=beta lambda X; the zero position and u0=0 boundaries are explicit. Haar RP1 initial acute angle uniform on [0,pi/2]; for gain >z, theta exceeds (pi-arcsin(z^-2gamma/beta))/2, giving exact arcsin/pi tail and p-moment threshold p<2gamma/beta. Independently checked radial identity, peak and random-tail quadrature for three parameter triples; all-parameter conclusion follows from integration.
 
-## Closest literature and limitations
-See the four cited primary works in `RESULT.md`, especially the 2026 coupled theorem and the original 2011 construction. Only the balanced planar quadratic and unaccelerated coupled flow are proved. Priorities outside examined works remain a possible risk. Computational checks are not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality PASS (bounded literature). Gentlest-ascent search dynamics originate with E–Zhou (2011), and Shi et al. (2026) investigate general local high-index saddle stability; neither inspected result yields the balanced planar global basin, arbitrary transient peak, or Haar random-initialization distribution. Published related sharp angle thresholds concern fixed inexact projectors/momentum or different gradient algorithms; they do not imply this self-adjusting projective-slope ODE. The exact solvable-case restriction is openly credited.
+
+## value
+
+PASS
+
+Value PASS. The exact basin and unbounded transient amplification reveal a genuine numerical stability risk that local asymptotic convergence conceals. A closed pulse, sharp misalignment law, and exact random-start moments clarify what uncontrolled initialization may cost despite almost-sure convergence; significant mathematically motivated boundary case of a standard saddle search method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

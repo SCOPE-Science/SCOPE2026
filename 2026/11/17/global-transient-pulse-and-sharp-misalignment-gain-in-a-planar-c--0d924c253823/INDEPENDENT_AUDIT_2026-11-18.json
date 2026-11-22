@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T04:56:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Correctness PASS. With H=diag(-lambda,lambda), v2/v1=u0 exp(-2 gamma lambda t) except v1=0. The exact position generator is (beta lambda/(1+u²))[(u²-1)I + 2uJ] with J a skew quarter-turn; its radial logarithmic derivative is beta lambda (u²-1)/(1+u²). Exact integration gives exp(-beta lambda t)[(1+u0²)/(1+u0² exp(-4gamma lambda t))]^(beta/(2gamma)), hence a hyperbolic-cosine peak at t*=log|u0|/(2gamma lambda) when |u0|>1, gain ((|u0|+|u0|^-1)/2)^(beta/(2gamma)), and return at 2t*. Direction v1=0 instead makes X'=beta lambda X; the zero position and u0=0 boundaries are explicit. Haar RP1 initial acute angle uniform on [0,pi/2]; for gain >z, theta exceeds (pi-arcsin(z^-2gamma/beta))/2, giving exact arcsin/pi tail and p-moment threshold p<2gamma/beta. Independently checked radial identity, peak and random-tail quadrature for three parameter triples; all-parameter conclusion follows from integration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shi et al. give local high-index stability with projection restrictions; inexact-projector robustness permits time-varying errors below fixed 45° but not unbounded transient from near-orthogonal initial lines."
+        ],
+        "reasoning": "Neither general local convergence nor fixed error-angle bound dominates this exact global initial-direction distribution, including initial angles arbitrarily near 90°.",
+        "searches": [
+          "arXiv:2611.09049 2026-11-06",
+          "Resultary 2026/11/17/SCOPE-sharp-global-forty-five-degree-robustness-of-inexact-high-index--c68374e7359e",
+          "Resultary 2026/11/17/SCOPE-a-sharp-momentum-induced-angular-instability-frontier-for-planar--c2ea1aec9099"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1011.0042",
+        "arXiv:2611.09049",
+        "DOI:10.1137/24M1710905",
+        "Resultary semantic search gentlest ascent exact gain"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "E–Zhou supplies equations; linearization of the target gives local stability but permits giant nonnormal transient; explicit scalar-plus-skew formula proves global radial envelope."
+        ],
+        "reasoning": "The new exact gain and infinite-moment boundary are not logical consequences of the prior local theorems without additional calculations and measure transformation.",
+        "searches": [
+          "arXiv:1011.0042 Sections 1-2",
+          "arXiv:2611.09049 abstract/§2",
+          "Resultary saddle robustness and momentum results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source E–Zhou equations match the model; the time-variable direction is not a fixed inexact Householder projector."
+        ],
+        "reasoning": "Source methods yield direction and position equations but not the explicit projective integration and Haar tail; this is a special solvable computation rather than a rename of a covered formula.",
+        "searches": [
+          "arXiv:1011.0042",
+          "arXiv:2611.09049",
+          "Resultary: gentlest ascent planar saddle exact transient amplification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact tail P(G>z)=arcsin(z^-2gamma/beta)/pi or complete equilibrium basin in inspected sources."
+        ],
+        "reasoning": "The invariant is an analytical random-start tail, not a finite table. An unrelated beta/heavy-tail numerical algorithm does not give the same law.",
+        "searches": [
+          "Resultary: gentlest ascent global exact sech pulse and heavy tail",
+          "E Zhou 2011 and Shi et al 2026 abstracts"
+        ]
+      },
+      "rationale": "Originality PASS (bounded literature). Gentlest-ascent search dynamics originate with E–Zhou (2011), and Shi et al. (2026) investigate general local high-index saddle stability; neither inspected result yields the balanced planar global basin, arbitrary transient peak, or Haar random-initialization distribution. Published related sharp angle thresholds concern fixed inexact projectors/momentum or different gradient algorithms; they do not imply this self-adjusting projective-slope ODE. The exact solvable-case restriction is openly credited.",
+      "residual_risks": [
+        "Recent 2026 high-index saddle paper PDF was not accessible for a complete negative comparison; abstract/theorem scope alone cannot rule out buried solvable example.",
+        "Balanced opposite-curvature planar Hessian, not general potentials or acceleration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original model and algorithm established; present exact balanced planar pulse not found in those inspected sections",
+          "evidence": "Primary arXiv 2011 page 2 equations and method context.",
+          "identifier_or_url": "https://arxiv.org/pdf/1011.0042",
+          "material_read": "Downloaded primary PDF; inspected title, first pages and original defining equations",
+          "method": "PDF pages visually inspected and equations compared to assigned RESULT.md",
+          "title": "The Gentlest Ascent Dynamics",
+          "trigger": "Original coupled gentlest-ascent evolution equations"
+        },
+        {
+          "assessment": "Local stability with restrictions does not state complete global balanced-planar gain; uninspected text is residual risk",
+          "evidence": "2026-11-06 preprint; abstract and theorem scope.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09049",
+          "material_read": "Search-indexed abstract, section headings and bibliographic information; complete PDF not obtained",
+          "method": "arXiv abstract and source-level comparison",
+          "title": "Asymptotic stability of high-index saddle dynamics",
+          "trigger": "Very recent high-index source with stability conditions"
+        },
+        {
+          "assessment": "Householder high-index generalizations not known to include exact planar random-init pulse",
+          "evidence": "Generalized direction geometry distinct from fixed equal-curvature 2D formula.",
+          "identifier_or_url": "https://doi.org/10.1137/24M1710905",
+          "material_read": "Article abstract and mathematical method description; full article not read",
+          "method": "Primary literature discovery and method comparison",
+          "title": "Generalized Gentlest Ascent Dynamics Methods for High-Index Saddle Points",
+          "trigger": "Possible broader method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Value PASS. The exact basin and unbounded transient amplification reveal a genuine numerical stability risk that local asymptotic convergence conceals. A closed pulse, sharp misalignment law, and exact random-start moments clarify what uncontrolled initialization may cost despite almost-sure convergence; significant mathematically motivated boundary case of a standard saddle search method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Every initial position allowed, but norm ratio requires nonzero X0; v1=0 is exceptional expanding eigenline.",
+    "Equal magnitude Hessian eigenvalues needed; not a statement for anisotropic/nonlinear Hessians."
+  ],
+  "schema_version": 1
+}
