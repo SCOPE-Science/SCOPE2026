@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** A constant-preserving step decomposition reduces the seminorm to cut profiles. The cross-block is a bipartite fractional matching; matching-polytope integrality reduces convex variation maxima to cross-cut transpositions. Run counting plus the forbidden even-radius deepest cross-pair gives the global upper bound. Explicit bandwidth-feasible involutions attain every asserted case. An integer-only checker verifies all 1,373 feasible small binary cut profiles and additional constructed witnesses. The finite checker does not replace the analytical proof.
+
+**Originality: PASS, qualified.** Targeted semantic searches for symmetric banded stochastic variation, parity, path seminorms, local permutations and matching reductions returned no implication-equivalent published mathematical record. The closest material in Nochetto–Salgado (2012) treats a particular contractive interpolant; Girdziušas (2008, inspected chapter-2 text) studies cyclic variation and double stochasticity for diffusion schemes; Milanfar (2013) studies symmetrization of image filters. These works do not state the present all-matrix path-variation envelope in the material inspected. Milanfar's complete paper could not be inspected, and unindexed combinatorial matrix literature remains a priority risk. Missing search matches are not proof of global novelty.
+
+**Value: PASS.** This determines a natural operator norm on the entire class of spatially local reversible averaging filters, including exactly how locality and symmetry constrain worst-case edge creation. The parity plateaus are a structural distinction from unrestricted banded doubly-stochastic filters. Explicit extremizers show that symmetry and double stochasticity alone do not guarantee path-variation diminution; the result is useful when selecting additional filter-design assumptions.
+
+Self-review: passed. Independent audit: not yet performed.
