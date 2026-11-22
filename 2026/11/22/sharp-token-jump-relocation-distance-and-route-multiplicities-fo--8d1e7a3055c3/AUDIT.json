@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The separator bijection follows from three disjoint row paths, a two-row bypass when adjacent cut columns differ by two or more, and a discrete intermediate-value barrier when all differences are at most one. The stated initial and terminal move constraints force the sharp lower bound. Parity of coordinate sums and the exact eligibility rule for length-two jumps classify every shortest route; the two outer-jump orders give the closed multiplicities, with boundary cases L=0,1 handled separately. A direct original-graph BFS verified L=0..6, and an independently represented coordinate BFS checked L=0..30. These finite checks corroborate but are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 12 of arXiv:2307.07782 gives NP-completeness of optimizing token jumps in general; Section 7 gives FPT algorithms, not a formula for this entire grid family.",
+        "The same paper proves polynomial shortest token-slide algorithms, but its slide move set is strictly smaller than the jump move set here."
+      ],
+      "reasoning": "A broad decision or algorithmic result does not imply the explicit closed length and optimal-route multiplicities merely by citing the theorem. There is no published broader closed-form jump geodesic classification in the inspected material. Lack of an indexed result alone is not uniqueness proof.",
+      "searches": [
+        "Minimum Separator Reconfiguration Gomes Legrand-Duchesne Mahmoud Mouawad Okamoto Santos Zanden 2023 pdf",
+        "shortest token jumping minimum separator three row grid exact sequence count",
+        "three-row minimum separator jump versus slide graph"
+      ]
+    },
+    "checked_sources": [
+      "Gomes et al., Minimum Separator Reconfiguration, arXiv:2307.07782 (2023), relevant full-text sections",
+      "Heinz, OEIS A227665 (2013), complete entry",
+      "AMS MSC2020 68R10 classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 source shows how optimum minimum-separator reconfiguration behaves generally under both models, but does not derive this three-row inequality representation plus jump geodesic classification.",
+        "The 2013 OEIS statement constrains every move to one unit, whereas the two-step moves are essential for the shorter routes."
+      ],
+      "reasoning": "The claimed parity count follows from a new double-jump eligibility and parity argument, not directly from general reachability, polynomial-time shortest sliding or the lattice-walk recurrence. The state representation overlaps classical cut/lattice geometry and is not individually claimed as novel.",
+      "searches": [
+        "Gomes et al. minimum separator reconfiguration Theorem 8 Theorem 12 jump slide",
+        "three row grid minimum separator token jumping parity number shortest reconfiguration sequences",
+        "graph reconfiguration extreme left to right minimum vertex cuts rectangular grid"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A227665 (Heinz, 2013) counts single-unit-coordinate moves in the Lipschitz-triple region; it explicitly gives 44 routes at L=2. The present minimum-jump graph allows two-column changes and has two shortest routes at L=2.",
+        "Gomes et al., arXiv:2307.07782, pp. 5-9, describe terminal separator exchanges and forward shortest routes but do not state the explicit three-row jump-route count."
+      ],
+      "reasoning": "Both the old lattice-walk sequence and the current problem live in the same three-coordinate feasible region. Their adjacency rules are different: single unit steps versus changing one coordinate by one or two in one jump. The old sequence is not the claimed jump-geodesic sequence, even after a rescaling; the exact parity count and sharp jump length require a separate classification.",
+      "searches": [
+        "minimum s-t separators of three-row rectangular grid token jumping extreme configurations exact shortest number 3L/2+1",
+        "one Lipschitz triple jump graph states coordinates distance count 2^m",
+        "https://oeis.org/A227665",
+        "https://arxiv.org/pdf/2307.07782"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A227665 contains the series 1,6,44,320,... for unit-step paths. At L=2 the present result yields exactly two optimal jump routes instead of forty-four.",
+        "Independent grid enumeration verifies 1,6,2,8,4,16,8,... for the jump-route counts at L=0,1,2,3,4,5,6."
+      ],
+      "reasoning": "The close public table measures a different adjacency relation and cannot cover the proposed jump-route sequence. Search did not locate a same-parameter exact jump-route table; historical unindexed tables remain a priority risk.",
+      "searches": [
+        "\"1, 6, 44, 320, 2328, 16936\" sequence",
+        "OEIS A227665 lattice paths neighboring coordinate differences at most one",
+        "3 by n ladder grid minimum vertex cut reconfiguration token jumping length and shortest sequence count"
+      ]
+    },
+    "rationale": "The guiding 2023 primary paper develops minimum-separator reconfiguration and general complexity but not these extreme three-row token-jump exact values. The closest OEIS 2013 table enumerates unit-step Lipschitz triples, a strictly different reconfiguration rule with a different numeric sequence at L=2. Targeted semantic literature checks found no statement with equal or stronger implication; an unindexed equivalent remains possible.",
+    "residual_risks": [
+      "Older unindexed jump-route counts for Lipschitz triples may exist.",
+      "The 2023 primary paper was read in relevant sections and searched as a full text, rather than line-by-line inspection of every appendix.",
+      "The OEIS unit-step enumeration covers the same feasible state set but not the jump move set; this shared structure requires explicit qualification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NO_COVERAGE_FOUND_IN_READ_MATERIAL",
+        "evidence": "Theorem 8 concerns shortest slides and Theorem 12 establishes NP-completeness for general shortest jumps; none states a closed count of extreme routes in a three-row grid.",
+        "identifier_or_url": "https://arxiv.org/pdf/2307.07782",
+        "material_read": "37-page arXiv PDF: abstract, sections 1-6 including canonical-path lemma, forward-move lemma, shortest-slide algorithm, shortest-jump hardness and example reduction; searched whole extracted text for grid and exact-route counting; looked at page-one rendered image.",
+        "method": "Read PDF text and inspect original page; compare the exact statements and permitted moves",
+        "title": "Minimum Separator Reconfiguration",
+        "trigger": "Same parameter and token-jumping move model; direct threat from a more general theorem"
+      },
+      {
+        "assessment": "CLOSE_BUT_DISTINCT_UNIT_STEP_METRIC",
+        "evidence": "The entry counts single-coordinate increments/decrements by one: at L=2 it gives 44, whereas shortest token jumps at L=2 count 2.",
+        "identifier_or_url": "https://oeis.org/A227665",
+        "material_read": "Full online sequence entry, definition, 2013 author/date, initial terms and recurrence",
+        "method": "Read the entry and compare unit-step adjacency and length with the claimed jump adjacency and shortest-path count",
+        "title": "OEIS A227665, three-coordinate bounded-difference lattice paths",
+        "trigger": "Exact shared feasible state space and potentially dominating exact enumeration"
+      },
+      {
+        "assessment": "MATCH",
+        "evidence": "68R10 is graph theory (including graph drawing) in computer science.",
+        "identifier_or_url": "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=68R10",
+        "material_read": "68R10 entry and surrounding discrete mathematics classifications",
+        "method": "Read classification page",
+        "title": "MSC2020 68R10 classification",
+        "trigger": "Confirm primary computer-science graph-theory ownership"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8d1e7a30-55c3-418c-9c48-a9b975c9f686",
+  "value": {
+    "rationale": "Minimum separators are a natural network-continuity object; migrating a three-vertex barrier from an ingress boundary to an egress boundary without ever opening a path is a motivated optimal-sequence problem. The first width with a central token constrained by two neighbors exhibits a sharp parity-dependent shortest jump-route multiplicity and an asymptotic halving of the slide budget, contrasting the NP-complete general shortest-jump problem. The result is an exact infinite-family optimal-route benchmark, not a table lookup or arbitrary small-sample census.",
+    "status": "PASS"
+  }
+}
