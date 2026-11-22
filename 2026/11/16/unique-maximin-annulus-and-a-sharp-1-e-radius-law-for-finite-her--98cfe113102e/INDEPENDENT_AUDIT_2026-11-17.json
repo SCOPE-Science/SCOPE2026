@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:06:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/unique-maximin-annulus-and-a-sharp-1-e-radius-law-for-finite-her--98cfe113102e/RESULT.md (Git blob b6c7341315599042f0c425d7ed1873a73bf66ad4)",
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/unique-maximin-annulus-and-a-sharp-1-e-radius-law-for-finite-her--98cfe113102e/check_annulus.py (Git blob 3f2ef6022835d08cd3c6444bba01ea726b88c27d)"
+      ],
+      "rationale": "For normalized Gaussian STFT, angular orthogonality diagonalizes every radial annulus on Hermite modes: lambda_j(a,s)=1/j!∫_a^(a+s)e^-u u^j du. Integration by parts gives lambda_(j+1)-lambda_j=p_(j+1)(a)-p_(j+1)(a+s), whose sign switches at most once from + to -, so the minimum on 0..K is min(lambda_0,lambda_K), with strict interior gap at their positive crossing for K>=2. The ratio lambda_K/lambda_0 grows strictly from below 1 to infinity, so unique a_K(s)>0 satisfies ∫_0^s e^-t(a+t)^K dt=K!(1-e^-s). At crossing lambda'_K=lambda_(K-1)-lambda_K>0, and lambda_K increases until crossing; lambda_0 decreases afterwards, establishing global unique maximin and bottom eigenspace span{h0,hK}. For fixed s, a/K->1/e from Stirling; uniform bounded-t limit gives J_s=∫_0^s e^((e-1)t)dt and log corrections as claimed. Independently checked numerical crossing and intermediate-mode inequalities at K=2,3,8,40, with no extrapolation of finite checks to large K; K100 naive incomplete-gamma evaluation underflows, so excluded as evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2503.07069v1 Theorem 1 and Section 5",
+          "https://arxiv.org/html/2106.03423v1 Gaussian STFT maximum concentration among domains"
+        ],
+        "reasoning": "Global maxima, sums of leading eigenvalues and second-largest optimization do not dominate minimum observability of every signal in the first K+1 Hermite modes. Daubechies diagonalization is a shared premise, not a ready-made fixed K maximin optimizer.",
+        "searches": [
+          "Nicola Riccardi Tilli 2025 radial fixed area annulus optimum second eigenvalue and higher eigenvalue sum",
+          "Faber Krahn inequality Gaussian STFT max captured energy all domains"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2503.07069v1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-hermite-mode-staircase-and-oscillatory-norm-correction-for--0c0c5a98ddf3/RESULT.md",
+        "https://arxiv.org/html/2106.03423v1",
+        "https://arxiv.org/html/2503.07069v1 Section 5 maximizes second largest eigenvalue",
+        "https://arxiv.org/html/2503.07069v1 Theorem 1 and Section 5",
+        "https://arxiv.org/html/2106.03423v1 Gaussian STFT maximum concentration among domains",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-hermite-mode-staircase-and-oscillatory-norm-correction-for--0c0c5a98ddf3/RESULT.md: mode staircase for maximum",
+        "https://arxiv.org/html/2503.07069v1: Theorem maximizes second largest"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-hermite-mode-staircase-and-oscillatory-norm-correction-for--0c0c5a98ddf3/RESULT.md: mode staircase for maximum",
+          "https://arxiv.org/html/2503.07069v1: Theorem maximizes second largest"
+        ],
+        "reasoning": "Unimodality in the previously published mode staircase is useful for the min-at-endpoints reduction, but finding and globally optimizing the crossing and deriving its sharp bandwidth expansion requires additional analysis. No prior implication to full claim identified; claims about K=1 overlap are expressly excluded.",
+        "searches": [
+          "annulus largest eigenvalue exact Hermite mode staircase does it imply min endpoint balance",
+          "Nicola Riccardi Tilli section 5 second eigenvalue vs worst finite Hermite band"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2503.07069v1 Section 5 maximizes second largest eigenvalue",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-hermite-mode-staircase-and-oscillatory-norm-correction-for--0c0c5a98ddf3/RESULT.md"
+        ],
+        "reasoning": "The current problem optimizes the LEAST eigenvalue in a fixed finite Hermite subspace (indices 0..K). The primary 2025 result optimizes the SECOND LARGEST eigenvalue of the infinite Fock Toeplitz spectrum and agrees with endpoint balancing only in excluded K=1-like special case. The published staircase maximizes the LARGEST eigenvalue for each preselected annulus, the opposite spectral edge.",
+        "searches": [
+          "Gaussian STFT fixed area annulus first K Hermite modes minimum eigenvalue worst-mode design",
+          "Fock Toeplitz annulus maximizing second eigenvalue vs first finite Hermite-band minimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result is a continuous optimizing equation and K→∞ law, not merely a finite eigenvalue table",
+          "Resultary 30-hit scan found annulus largest-eigenvalue staircase and finite first-Hermite special cases but no finite-band worst-case design"
+        ],
+        "reasoning": "Finite gamma-function tables do not prove the unique crossing and 1/e law. Older finite-section observability/control theory may contain an equivalent min eigenvalue optimization; not located in these searches.",
+        "searches": [
+          "maximin Hermite first K Gaussian annulus fixed area unique radius 1/e asymptotic logarithmic correction",
+          "numerical Poisson interval eigenvalues annulus optimize min 0..K"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison of aliases, stronger coverage and tables does not show domination of precise claim. The current problem optimizes the LEAST eigenvalue in a fixed finite Hermite subspace (indices 0..K). The primary 2025 result optimizes the SECOND LARGEST eigenvalue of the infinite Fock Toeplitz spectrum and agrees with endpoint balancing only in excluded K=1-like special case. The published staircase maximizes the LARGEST eigenvalue for each preselected annulus, the opposite spectral edge. Unimodality in the previously published mode staircase is useful for the min-at-endpoints reduction, but finding and globally optimizing the crossing and deriving its sharp bandwidth expansion requires additional analysis. No prior implication to full claim identified; claims about K=1 overlap are expressly excluded.",
+      "residual_risks": [
+        "Equivalent finite-section Poisson-mass maximin formulation could appear under observability/control or Fock sampling terminology outside surveyed sources; K>=2 and fixed area are essential boundaries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Second-largest eigenvalue and top spectral sums, not fixed-band least observability for K>=2",
+          "evidence": "Abstract states disk for largest sums, annulus for second eigenvalue",
+          "identifier_or_url": "https://arxiv.org/html/2503.07069v1",
+          "material_read": "Accessible mathematical HTML introduction, Theorem and Section 5 on second eigenvalue",
+          "method": "Primary preprint full relevant section reading",
+          "title": "The Faber–Krahn inequality for partial sums of eigenvalues of Toeplitz operators",
+          "trigger": "Same Gaussian radial annulus and extremal eigenvalue optimization"
+        },
+        {
+          "assessment": "Maximizes highest eigenvalue over j for each fixed a; current theorem maximizes minimum over 0..K by moving a",
+          "evidence": "Their argmax index floor(s/log(1+s/a)) is the peak, not smallest endpoint",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-hermite-mode-staircase-and-oscillatory-norm-correction-for--0c0c5a98ddf3/RESULT.md",
+          "material_read": "Entire published RESULT.md including adjacent-difference identity, asymptotics and scope",
+          "method": "Published source full reading",
+          "title": "Exact Hermite-mode staircase and oscillatory norm correction for Gaussian annular localization",
+          "trigger": "Exactly same Hermite radial eigenvalue formula, potential logical domination"
+        },
+        {
+          "assessment": "Optimizes maximal energy and domains; different objective",
+          "evidence": "Theorem optimizes upper concentration for arbitrary inputs, no finite Hermite-band lower edge",
+          "identifier_or_url": "https://arxiv.org/html/2106.03423v1",
+          "material_read": "Mathematical HTML introduction, main concentration theorem and Fock reduction",
+          "method": "Primary preprint relevant text reading",
+          "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "General Gaussian time-frequency concentration norm upper bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2503.07069v1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-hermite-mode-staircase-and-oscillatory-norm-correction-for--0c0c5a98ddf3/RESULT.md",
+        "https://arxiv.org/html/2106.03423v1"
+      ],
+      "rationale": "Unique maximin annulus is an exact worst-case observability design for a natural finite-dimensional Hermite subspace. It gives the unique geometry, precise two-dimensional worst-signal space and a sharp 1/e asymptotic with logarithmic correction for growing bandwidth; useful as a robust time-frequency sensing benchmark, not merely textbook diagonalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/unique-maximin-annulus-and-a-sharp-1-e-radius-law-for-finite-her--98cfe113102e/RESULT.md (Git blob b6c7341315599042f0c425d7ed1873a73bf66ad4)",
+    "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/unique-maximin-annulus-and-a-sharp-1-e-radius-law-for-finite-her--98cfe113102e/check_annulus.py (Git blob 3f2ef6022835d08cd3c6444bba01ea726b88c27d)",
+    "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/unique-maximin-annulus-and-a-sharp-1-e-radius-law-for-finite-her--98cfe113102e/METADATA.json (Git blob a7d1b7db23ef87a51b90ab1c155d2b34c7078f71)",
+    "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/unique-maximin-annulus-and-a-sharp-1-e-radius-law-for-finite-her--98cfe113102e/AUDIT.json (Git blob 2d5d53048fd7800fccd055553662e4f1905ed11c)",
+    "https://arxiv.org/html/2503.07069v1",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-hermite-mode-staircase-and-oscillatory-norm-correction-for--0c0c5a98ddf3/RESULT.md",
+    "https://arxiv.org/html/2106.03423v1",
+    "https://arxiv.org/html/2503.07069v1 Section 5 maximizes second largest eigenvalue",
+    "https://arxiv.org/html/2503.07069v1 Theorem 1 and Section 5",
+    "https://arxiv.org/html/2106.03423v1 Gaussian STFT maximum concentration among domains",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-hermite-mode-staircase-and-oscillatory-norm-correction-for--0c0c5a98ddf3/RESULT.md: mode staircase for maximum",
+    "https://arxiv.org/html/2503.07069v1: Theorem maximizes second largest"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent finite-section Poisson-mass maximin formulation could appear under observability/control or Fock sampling terminology outside surveyed sources; K>=2 and fixed area are essential boundaries.",
+    "Frozen public METADATA.json and AUDIT.json both contain scope_run_id operational UUID; complete public-file sanitization and precise import guards were not produced in this read-only review.",
+    "No GitHub write or dispatcher closeout occurred; historical broken rows and gaps were not modified."
+  ],
+  "schema_version": 1
+}

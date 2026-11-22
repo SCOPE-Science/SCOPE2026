@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized Gaussian STFT orthogonalizes the Hermite modes on concentric masks and yields exact incomplete-gamma concentration eigenvalues. The adjacent-eigenvalue integration-by-parts identity proves unimodality across the prescribed band, and hence reduction of the least eigenvalue to the endpoint modes. Strict monotonicity of the endpoint ratio gives a unique balance; the unique peak of the upper-order integral proves that the balance is the unique global maximin configuration. Exact Stirling expansion gives the logarithmic second term and the full leading sharp stability constant. The standalone checker independently samples spectra and optimizer comparisons; its finite tests are supplementary.
+PASS
 
-## Originality — PASS (bounded assessment)
+For normalized Gaussian STFT, angular orthogonality diagonalizes every radial annulus on Hermite modes: lambda_j(a,s)=1/j!∫_a^(a+s)e^-u u^j du. Integration by parts gives lambda_(j+1)-lambda_j=p_(j+1)(a)-p_(j+1)(a+s), whose sign switches at most once from + to -, so the minimum on 0..K is min(lambda_0,lambda_K), with strict interior gap at their positive crossing for K>=2. The ratio lambda_K/lambda_0 grows strictly from below 1 to infinity, so unique a_K(s)>0 satisfies ∫_0^s e^-t(a+t)^K dt=K!(1-e^-s). At crossing lambda'_K=lambda_(K-1)-lambda_K>0, and lambda_K increases until crossing; lambda_0 decreases afterwards, establishing global unique maximin and bottom eigenspace span{h0,hK}. For fixed s, a/K->1/e from Stirling; uniform bounded-t limit gives J_s=∫_0^s e^((e-1)t)dt and log corrections as claimed. Independently checked numerical crossing and intermediate-mode inequalities at K=2,3,8,40, with no extrapolation of finite checks to large K; K100 naive incomplete-gamma evaluation underflows, so excluded as evidence.
 
-The 2018 Hermite-STFT large-sieve literature motivates the restricted-stability question. The 2019 ring paper supplies the known diagonalization and largest-eigenvalue asymptotics, not the proposed min-over-band optimization. The 2021 STFT Faber–Krahn theorem optimizes the best signal, not the worst prescribed-band signal. The 2024 generalized Daubechies treatment is spectral background. The 2025 radial Toeplitz theorem already handles the two-mode case (first two Hermite modes), which is excluded here; it optimizes the full-operator second eigenvalue rather than the finite-band least eigenvalue for at least three modes. Matching records were not located in the bounded scientific searches. Equivalent terminology and uninspected specialist references remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact maximin annulus is a natural sensing-region design solution for guaranteed Gaussian STFT energy on a fixed finite Hermite signal class. The theorem classifies the only least-observable modes at the optimum and determines the high-bandwidth \(1/e\) location, logarithmic drift, and exponentially small sharp floor with its prefactor. The result does not assert general nonradial, arbitrary-set, or varying-area optimality.
+Best-of-knowledge statement-level comparison of aliases, stronger coverage and tables does not show domination of precise claim. The current problem optimizes the LEAST eigenvalue in a fixed finite Hermite subspace (indices 0..K). The primary 2025 result optimizes the SECOND LARGEST eigenvalue of the infinite Fock Toeplitz spectrum and agrees with endpoint balancing only in excluded K=1-like special case. The published staircase maximizes the LARGEST eigenvalue for each preselected annulus, the opposite spectral edge. Unimodality in the previously published mode staircase is useful for the min-at-endpoints reduction, but finding and globally optimizing the crossing and deriving its sharp bandwidth expansion requires additional analysis. No prior implication to full claim identified; claims about K=1 overlap are expressly excluded.
 
-## Verification and limits
+## value
 
-Run `python3 check_annulus.py` from the package. The script verifies sampled gamma-integral ratios, endpoint dominance and strict off-optimality, plus numerical asymptotics; it does not certify the infinite proof. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Unique maximin annulus is an exact worst-case observability design for a natural finite-dimensional Hermite subspace. It gives the unique geometry, precise two-dimensional worst-signal space and a sharp 1/e asymptotic with logarithmic correction for growing bandwidth; useful as a robust time-frequency sensing benchmark, not merely textbook diagonalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
