@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** All probability conventions are fixed: the coupon completion time includes the first draw, and a chain reaching its terminal state is killed on the following transition. A direct step-basis operator-norm reduction and a monotone substochastic gradient chain prove the equality for every deck size and iteration count. Independent rational enumeration and occupancy recursions agree for the tested range; the Gumbel limit follows from explicit factorial moments. The reverse-shuffle formula follows from enumerated inverse permutations.
+## correctness
 
-**Originality — PASS, qualified.** Historical work describes the full top-to-random shuffle distribution and a coupon-collector mixing phenomenon, not the sharp adjacent-signal variation norm of its averaged positional action. The coupon-collector identity here requires establishing the operator's gradient semigroup, dominance of the final jump, and the one-step transpose asymmetry. Searches of research records and available literature found no covering norm theorem. The 1992 paper by Diaconis, Fill and Pitman is particularly plausible prior art; only its publisher abstract and references were accessible, and an institutional full-text request was blocked by disconnected access. The original claim is therefore provisional against uninspected passages, not certified unique.
+PASS
 
-**Value — PASS.** The theorem distinguishes a concrete operator stability invariant from permutation mixing distance, identifies the precise horizon of the first loss beyond geometric contraction, supplies an all-time finite formula and a nontrivial Gumbel critical profile, and proves a sharp reversal between adjoint shuffles. The object and scale are naturally motivated by perturbing an ordered numerical signal by random rearrangements; the result is not just a single small-size computation.
+PASS: Signals decompose in the jump basis h^(k) modulo constants; the variation norm is exactly the maximum l1-column sum of D S_n^r D^{-1}. Direct counting of all n insertions yields a nonnegative upper-bidiagonal gradient matrix B, zero first column and common surviving column total q=(n-1)/n. After division by q it is a substochastic downward-stay Markov kernel with monotone coupling; hence the last jump is a global maximizer at every r. From the largest state the independent geometric waits to descend have success probabilities 1/(n-1),..., (n-2)/(n-1), whose sum equals T_{n-1}-1, so survival after r steps is exactly P(T_{n-1}>r) (including r=0 and n=2). Inclusion-exclusion and the first all-distinct coupon completion give the exact formula and first deficit; factorial moments of unseen coupons yield Poisson(e^-t) and the critical profile. Inverse-permutation enumeration gives the transpose norm 0 for n=2,1 for n=3 and 2-2/n for n>=4. Independently constructed rational insertion matrices and step seminorms for n=2..7 and powers 0..11 agree; finite runs do not prove the all-n claim.
 
-**Closest literature and limits.** Jonasson, arXiv:math/0607124v1, sections 1–2, discusses random-to-top mixing and coupon collectors but not this quotient operator seminorm. Diaconis–Fill–Pitman (1992) provides general shuffle distributions and remains only abstract-level inspected here. The work does not address biased shuffles, cyclic path variation, or norms on full permutation distributions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Classical top-to-random full-permutation mixing/coupon stopping-time results do not themselves state the induced adjacent-numeric-signal quotient operator norm, the maximizing last-jump column, or the transpose asymmetry. It is important not to conflate total variation *distance* between distributions with adjacent variation of real vectors. The 1992 Diaconis–Fill–Pitman full paper could not be read through authorized access and is an explicit residual priority risk, but no decisive covering theorem appeared in inspected full Jonasson or public summaries.
+
+## value
+
+PASS
+
+PASS: The natural operator describes repeated averaging of an ordered numerical signal under a standard card shuffle. Its exact all-time contraction strength has a coupon-collector stopping-time interpretation, a surprising delayed strict-deficit horizon, a nontrivial Gumbel-shaped critical-window norm, and an adjoint contraction/amplification contrast. Those are useful stability invariants, not merely the known mixing time rephrased.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
