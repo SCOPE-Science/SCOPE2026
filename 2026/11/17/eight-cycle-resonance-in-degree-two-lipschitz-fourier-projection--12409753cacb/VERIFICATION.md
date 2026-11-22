@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
-Run `python3 verify.py` from the same directory as this document, with Python 3 and its standard library. No external packages are required.
 
-The exact arithmetic checker uses rational interval enclosures of \(\pi\) from Machin's identity, rational cosine Taylor enclosures with certified remainder, and exact rational comparisons. The fifteen cases \(5\le n\le20\) with \(n\ne8\) pass the stronger ceiling \(B_n<163/100\). The remaining infinite range \(n\ge21\) follows analytically from the periodic-derivative variation bound and the verified rational comparison \(250/157+(44/(3\cdot21^2))(22/7)<17/10\).
+# Independent mathematical audit
 
-On the recorded replay the checker reported:
+## correctness
 
-```
-CERTIFIED_FINITE_N5_TO_N20_EXCEPT_N8_PASS 15 largest_upper (13, 1.6270737478770116)
-ANALYTIC_ALL_N_GE_21_RATIONAL_BOUND_PASS 1.6968810373203977
-INDEPENDENT_SAMPLED_MEDIAN_N5_TO_N100_PASS
-EXPLICIT_EIGHT_CYCLE_ZERO_SUM_NORMING_GRADIENT_PASS
-ALL_FIVE_CHARACTER_LIPSCHITZ_PROJECTION_CHECKS_PASS
-```
+PASS
 
-The numerical sampled-median comparisons are diagnostics, not proof of a universal inequality. The quotient-duality reduction, uniqueness of the invariant projector, continuous median identity, and infinite-range Fourier-series bound are proved in `RESULT.md`. The certificate covers only its listed finite dimensions. This verification is not an independent mathematical audit.
+Reconstructed derivative isometry D:Lip_0(C_n)->H_n={g:sum g=0} in l_infinity; group averaging of any idempotent onto the 4-real-dimensional two-harmonic range preserves norm and gives the unique Fourier multiplier. The row dual norm over H_n is 1/n times minimum absolute deviations from a median c of the sampled D2 kernel, not the full-space l_infinity Lebesgue constant. For n=8 the exact 8 values have median 1/2 and sum 8+4sqrt2 giving 1+1/sqrt2; zero-sum gradient ±1 attains it. Independently integrated |D2(t)-1/2| across its four analytic zeros, obtaining exactly 10 (mean 5/pi). Reconstructed rational Machin arctan enclosures for pi and degree-30 cosine Taylor intervals with degree-32 remainder; all 15 n=5..20, n!=8 have rigorous average comparison upper <1.63 (largest certified bound approx1.62708 at n=13). For n>=21 distributional integration-by-parts of F=|D2-1/2| and Var(Fprime)<=88 proves B_n<=5/pi+44pi/(3n^2)<17/10. Independent direct median values n=5..100 confirm n=8 unique among them but only analytic plus rational certification proves all n. Uniform Riemann sums in c give limit 5/pi.
+
+## originality
+
+PASS
+
+Best-of-knowledge original two-harmonic real Lipschitz projection constant across ALL n>=5, its global unique 8-cycle optimum, and limit 5/pi. Older exact one-harmonic projector theorem works with one conjugate pair only; general Dirichlet endpoint projections act on the WHOLE l_infinity rather than the mean-zero edge quotient, and may have norms above the current claimed sharp bound. Group averaging and median quotient duality are standard tools, not this particular global maximality assertion. No stronger inspected statement covers simultaneous ±1 and ±2 on H_n.
+
+## value
+
+PASS
+
+The natural exact invariant is the minimum norm of projection onto the first TWO real Fourier harmonic pairs in the Lipschitz Banach space on each metric cycle. Median quotient duality and averaging give a meaningful sharp finite metric-complementability question; the globally unique n=8 resonance and strict discrete-versus-continuum separation are not routine consequences of the one-harmonic classification or full-space Dirichlet kernel norm. The explicit exact rational finite cutoff and analytic infinite tail make the complete all-n classification reproducible and mathematically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
