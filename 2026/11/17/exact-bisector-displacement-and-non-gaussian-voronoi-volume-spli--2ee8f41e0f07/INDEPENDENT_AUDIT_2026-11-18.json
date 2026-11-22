@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:00:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use M=(X+Y)/2 and D=(X−Y)/2. Transformation (M,D)→(X,Y) has Jacobian 2^d. Polar D=r u and decompose M=h u+w, w⊥u; signed bisector H=(||X||²−||Y||²)/(2||X−Y||)=h. Ball constraints are ||w||²+(r+|h|)²≤1. Integrating w-slice volume κ_{d−1}[1−(r+|h|)²]^((d−1)/2), radial factor r^(d−1), sphere area dκ_d and sampling normalization κ_d² gives exactly coefficient 2^d dκ_{d−1}/κ_d. Site X cell is z·u≥h, so signed normalized imbalance is −2 κ_{d−1}/κ_d∫_0^h(1−t²)^((d−1)/2)dt. Independently integrated 3D polynomial: f3 normalizes, E[H3²]=1/20, E[I3²]=421/4200. For high dimension, the normalized r density r^(d−1)(1−r²)^((d−1)/2) concentrates at 1/√2. For fixed z, f_d(z/d)/f_d(0)→exp(−√2|z|), f_d(0)/d→1/√2 by Γ-ratios; Scheffé upgrades pointwise density to TV. The cap map T_d(z)=√d I(z/d) has derivative →−√(2/π) and inverse locally uniformly, so density change-of-variables and Scheffé give Laplace scale 1/√π in TV. No finite-dimensional Monte Carlo proves these limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Devroye et al. 2015 Theorems 1–2 concern n μ(S_1) as site number n→∞ at fixed dimension and then properties in d, not one fixed two-site hyperplane.",
+          "Hörrmann et al. 2014/15 study zero cells of Poisson hyperplane tessellations with random numbers of planes and mean face counts/shape ratios."
+        ],
+        "reasoning": "Neither many-site nor Poisson zero-cell results specializes by parameter substitution to a single bisector between two independent uniform sites in a fixed ball. Their asymptotic regimes do not dominate the exact finite-d density and Laplace law.",
+        "searches": [
+          "two uniformly random points in unit ball perpendicular bisector offset signed Voronoi two-cell volume imbalance Laplace limit high dimension",
+          "arXiv:1512.04267",
+          "arXiv:1403.8017",
+          "2026/11/17/SCOPE-corner-universality-and-independent-rare-shape-marks-for-two-sit--f968ad4c6c9a",
+          "two uniformly random points in unit ball perpendicular bisector offset signed Voronoi two-cell volume imbalance Laplace limit high dimension",
+          "exact bisector central displacement two uniform points unit ball Voronoi cell fraction density probability Laplace high dimensional"
+        ]
+      },
+      "checked_sources": [
+        "two uniformly random points in unit ball perpendicular bisector offset signed Voronoi two-cell volume imbalance Laplace limit high dimension",
+        "arXiv:1512.04267",
+        "arXiv:1403.8017",
+        "2026/11/17/SCOPE-corner-universality-and-independent-rare-shape-marks-for-two-sit--f968ad4c6c9a",
+        "exact bisector central displacement two uniform points unit ball Voronoi cell fraction density probability Laplace high dimensional",
+        "https://arxiv.org/pdf/1512.04267",
+        "https://arxiv.org/pdf/1403.8017",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-corner-universality-and-independent-rare-shape-marks-for-two-sit--f968ad4c6c9a/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A typical cell as number of sites tends to infinity is not the union of exactly two clipped spherical caps determined by one hyperplane.",
+          "The rectangle corner tail P(T/S<ε)~(8/3)ε² has a different small-cap limit and cannot imply f_d(h), E[I3²], or growing-d Laplace limits."
+        ],
+        "reasoning": "The present exact full probability density requires a full midpoint/separation Jacobian and rotational slice integral; TV limits require separate high-d Laplace and Scheffé analysis, not supplied by cited prior models.",
+        "searches": [
+          "two uniformly random points in unit ball perpendicular bisector offset signed Voronoi two-cell volume imbalance Laplace limit high dimension",
+          "arXiv:1512.04267",
+          "arXiv:1403.8017",
+          "2026/11/17/SCOPE-corner-universality-and-independent-rare-shape-marks-for-two-sit--f968ad4c6c9a",
+          "two uniformly random points in unit ball perpendicular bisector offset signed Voronoi two-cell volume imbalance Laplace limit high dimension",
+          "exact bisector central displacement two uniform points unit ball Voronoi cell fraction density probability Laplace high dimensional"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The signed bisector offset H and the cell imbalance I=−2c_d∫_0^H(1−t²)^((d−1)/2)dt are strictly monotone equivalent statistics, so a prior exact law for either would cover both.",
+          "Closest same-two-site rectangle finding studies a small rare corner cell on rectangles, not the offset of a random hyperplane in a ball."
+        ],
+        "reasoning": "Compared exact formulations via bisector displacement, spherical cap fraction, site-radius gap and ball-chord midpoint; monotone equivalence was acknowledged and older random-ball chord formulas remain a priority risk.",
+        "searches": [
+          "two uniformly random points in unit ball perpendicular bisector offset signed Voronoi two-cell volume imbalance Laplace limit high dimension",
+          "arXiv:1512.04267",
+          "arXiv:1403.8017",
+          "2026/11/17/SCOPE-corner-universality-and-independent-rare-shape-marks-for-two-sit--f968ad4c6c9a",
+          "two uniformly random points in unit ball perpendicular bisector offset signed Voronoi two-cell volume imbalance Laplace limit high dimension",
+          "exact bisector central displacement two uniform points unit ball Voronoi cell fraction density probability Laplace high dimensional"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned assigned record, rectangle two-site corner limit and random polytope/spherical pair results but no independent exact f_d(h) all dimensions or high-d Laplace split.",
+          "Devroye and Poisson primary sources have different sample spaces and asymptotics; none presents this bisector table in read sections."
+        ],
+        "reasoning": "Queried density via offset, normalized volume split, two-sites Euclidean ball and non-Gaussian Laplace limit; lack of a matching table is qualified by unindexed older integral geometry sources.",
+        "searches": [
+          "two uniformly random points in unit ball perpendicular bisector offset signed Voronoi two-cell volume imbalance Laplace limit high dimension",
+          "arXiv:1512.04267",
+          "arXiv:1403.8017",
+          "2026/11/17/SCOPE-corner-universality-and-independent-rare-shape-marks-for-two-sit--f968ad4c6c9a",
+          "two uniformly random points in unit ball perpendicular bisector offset signed Voronoi two-cell volume imbalance Laplace limit high dimension",
+          "exact bisector central displacement two uniform points unit ball Voronoi cell fraction density probability Laplace high dimensional"
+        ]
+      },
+      "rationale": "Devroye–Györfi–Lugosi–Walk 2015 primary studies n sites with n→∞ in fixed dimension and typical cell conditional on a selected site; the d→∞ part concerns asymptotic typical-cell concentration after that limit, not exactly two sites. Hörrmann–Hug–Reitzner–Thäle 2014/2015 full text studies Poisson hyperplane zero cells/Poisson–Voronoi typical cells, not the clipped two-point ball partition. Published 17 November rectangle two-site result concerns rare minimum area at fixed d=2, not centered ball displacement or Laplace high-dimensional distribution. Equivalent bisector-offset versus cap fraction was compared. PASS best-of-knowledge with genuine possibility of older random-chord or circumcenter formulas.",
+      "residual_risks": [
+        "Older exact random-chord, perpendicular-bisector or ball-circumcenter integral formula might be equivalent even if not labelled Voronoi.",
+        "A published general convex-body two-point distribution or high-dimensional sphere geometry could imply portions by specialization; none found in inspected sources.",
+        "Asymptotic result uses integer d→∞ and volume-uniform interior sampling, not surface-uniform random sites."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different n→∞ fixed-d typical-cell law; does not cover fixed two uniform sites d→∞",
+          "evidence": "Theorem 2 explicitly nμ(S1)|X1=x ⇒ Z as n→∞",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.04267",
+          "material_read": "19-page primary paper abstract, setup, Theorems 1 and 2, Section 2 and relevant proof organization",
+          "method": "Full PDF text and page 3 screenshot (zero-index 2)",
+          "title": "On the measure of Voronoi cells",
+          "trigger": "Closest traditional Voronoi cell-volume probability theory"
+        },
+        {
+          "assessment": "Poisson hyperplane tessellation/zero-cell asymptotics distinct from one bisector in a ball",
+          "evidence": "Theorems concern expected faces, isoperimetric ratios and normalized Poisson cells",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.8017",
+          "material_read": "30-page primary PDF introduction and main result definitions, Theorem 1.1 and 1.2, Sections 3 overview",
+          "method": "PDF text and page 2 screenshot (zero-index 1)",
+          "title": "Poisson polyhedra in high dimensions",
+          "trigger": "Potential stronger high-dimensional Voronoi cell theorem"
+        },
+        {
+          "assessment": "COVERS two-site rectangle rare corner event, not ball H density or high-d fluctuation",
+          "evidence": "d=2 fixed rectangle; ε→0 rare minimum cell area, not d→∞ ball imbalance",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-corner-universality-and-independent-rare-shape-marks-for-two-sit--f968ad4c6c9a/RESULT.md",
+          "material_read": "Full source RESULT.md, finding/geometry, proof and limitations",
+          "method": "Direct GitHub raw text read",
+          "title": "Corner universality and independent rare-shape marks for two-site rectangle Voronoi cells",
+          "trigger": "Two uniform sites and two clipped Euclidean cells on a different body"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete finite-dimensional density and a non-Gaussian high-dimensional fluctuation law for how two uniform sites split a Euclidean ball are natural stochastic geometry invariants. The total-variation strength of both Laplace limits, and exact 3D moments, go beyond routine half-space volume integration or large-site Voronoi results; the fixed-two-site versus growing-dimension phenomenon is genuinely distinct and well motivated.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "two uniformly random points in unit ball perpendicular bisector offset signed Voronoi two-cell volume imbalance Laplace limit high dimension",
+    "arXiv:1512.04267",
+    "arXiv:1403.8017",
+    "2026/11/17/SCOPE-corner-universality-and-independent-rare-shape-marks-for-two-sit--f968ad4c6c9a",
+    "exact bisector central displacement two uniform points unit ball Voronoi cell fraction density probability Laplace high dimensional",
+    "https://arxiv.org/pdf/1512.04267",
+    "https://arxiv.org/pdf/1403.8017",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-corner-universality-and-independent-rare-shape-marks-for-two-sit--f968ad4c6c9a/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two independent volume-uniform sites in the Euclidean unit ball B_d (integer d≥2), the signed bisector displacement H has an exact all-d integral density, and the signed normalized two-cell volume imbalance is its explicit spherical-cap transform. In d=3 f_H(h)=3(4+|h|)(1−|h|)^4/5 and E[I_3^2]=421/4200; as d→∞ both dH and √d I converge in total variation to Laplace laws with scales 1/√2 and 1/√π, respectively.",
+  "limitations": [
+    "Two independent volume-uniform sites inside same unit Euclidean ball, fixed two sites for each d≥2; no general convex body or more-than-two-site claim.",
+    "Best-of-knowledge scientific assessment only. Finite code checks and literature searches are not certificates of universal proof or absolute novelty."
+  ],
+  "residual_risks": [
+    "Older exact random-chord, perpendicular-bisector or ball-circumcenter integral formula might be equivalent even if not labelled Voronoi.",
+    "A published general convex-body two-point distribution or high-dimensional sphere geometry could imply portions by specialization; none found in inspected sources.",
+    "Asymptotic result uses integer d→∞ and volume-uniform interior sampling, not surface-uniform random sites."
+  ],
+  "schema_version": 1
+}
