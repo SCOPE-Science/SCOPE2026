@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The isotonic-block Jacobian from Blondel et al. has row sum 2(1-mu_i/mass_block), universally bounded by 2(1-bmin/B). Interior points approaching a permutahedron vertex give matching lower derivatives. Strict finite-pair inequality follows from strict derivatives on smooth/tie strata. Reproduced 7000 random pairs plus seven sharpness constructions from the packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2002.08871 / PMLR 119, Proposition 3, Lemma 2, Proposition 4, inspection of main PDF text.",
+        "PMLR 51 2016, §§1 and 4–5, Bregman projection reduction and KL pooling formulas."
+      ],
+      "reasoning": "The general projection algorithms and derivative formulas strongly imply a local route to the answer but do not state the global optimized modulus, nonattainment or entropy-versus-quadratic sharp gap. A result stating only nonexpansivity in Euclidean norm cannot cover this different coordinate norm.",
+      "searches": [
+        "web: \"fast soft sort\" \"stability\" \"Lipschitz\" \"entropy\"",
+        "web: Fast Differentiable Sorting and Ranking 2020 full PDF",
+        "web: Efficient Bregman Projections onto the Permutahedron and Related Polytopes 2016 full PDF"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2002.08871 (first posted 2020-02-20)",
+      "https://proceedings.mlr.press/v119/blondel20a/blondel20a.pdf",
+      "https://proceedings.mlr.press/v51/lim16.pdf",
+      "https://arxiv.org/abs/2302.01425 (related sparse top-k abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blondel 2020 already proves the block-softmax Jacobian used here, so that lemma is NOT claimed novel.",
+        "Lim–Wright 2016 gives isotonic pooling, not the row-norm extremal over all inputs.",
+        "The new proof optimizes over every output block and obtains a sharp near-vertex lower construction."
+      ],
+      "reasoning": "A local Jacobian theorem gives the essential premise but not the global extremal claim without the block mass comparison and boundary construction. The entropy and quadratic maps act on the same ranking problem but have distinct sharp norm constants.",
+      "searches": [
+        "published-finding corpus: sharp global Lipschitz log KL projection permutahedron entropy regularized soft ranks minimum vertex mass infinity norm (service internal error)",
+        "web: Lim Wright 2016 efficient Bregman projections permutahedron full paper",
+        "web: Blondel et al 2020 fast differentiable sorting ranking full paper"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blondel et al. 2020 Proposition 4 local Jacobian; no global row-max theorem in §§4–5.",
+        "published-finding corpus closest 2026/10/25/published-record treats a distinct entropic least-squares object."
+      ],
+      "reasoning": "A log-KL map is not the unlogged Bregman projection: its Jacobian is I minus blockwise weighted averaging. None of the inspected claims gives a sharp global coefficient determined by minimum permutahedron vertex mass.",
+      "searches": [
+        "published-finding corpus: entropy regularized soft rank KL permutahedron sharp Lipschitz norm",
+        "published-finding corpus: logarithmic KL projection onto permutahedron exact two input infinity norm minimal positive coordinate weight",
+        "web: \"log KL projection\" \"Lipschitz\" \"permutahedron\"",
+        "web: \"entropy regularized\" \"soft rank\" \"Lipschitz constant\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/11/2/published-record is Frobenius Birkhoff projection, not logarithmic KL rank.",
+        "published-finding corpus 2026/10/26/published-record is Euclidean simplex projection in cyclic variation."
+      ],
+      "reasoning": "No covering table or same-object exact global coefficient was located in these actual records/queries. A negative query cannot prove uniqueness.",
+      "searches": [
+        "published-finding corpus: weighted softmax block pooling permutahedron worst case derivative 2(1-min b / sum b)",
+        "published-finding corpus: permutahedron projection sharp max entrywise Lipschitz constant differentiable soft ranking",
+        "web: \"log\" \"Kullback\" \"permutation polytope\" \"infinity norm\" \"Lipschitz\""
+      ]
+    },
+    "rationale": "The source supplies the differentiable log-KL permutahedron map and its Jacobian but not the optimized sharp global input-output coordinate norm, boundary extremal geometry, or exact comparison with quadratic soft rank. Lim–Wright supplies earlier Bregman isotonic reduction but not that claim. Direct and alias searches did not reveal covering records. Earlier equivalent work is possible.",
+    "residual_risks": [
+      "Earlier equivalent global result could appear in another vocabulary (e.g. Jacobian optimization of log Bregman projection).",
+      "Published primary 2020 Jacobian makes the optimization closely related; significance is the exact global sharpness rather than a new projection algorithm.",
+      "A published-finding corpus query returned a temporary internal error before subsequent successful focused queries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PREMISE_COVERED, GLOBAL_COEFFICIENT_NOT_FOUND",
+        "evidence": "Proposition 3, eq. (8), Lemma 2, Proposition 4 describe blockwise softmax derivative; source does not state optimized global l-infinity modulus.",
+        "identifier_or_url": "https://proceedings.mlr.press/v119/blondel20a/blondel20a.pdf",
+        "material_read": "Main text §§3–5, derivative statements and optimization formulas, plus PDF pages 2 and 4 visually inspected",
+        "method": "Parsed full-text passages and page screenshots",
+        "title": "Fast Differentiable Sorting and Ranking",
+        "trigger": "Defines exactly the logarithmic KL projection and differentiable ranking object"
+      },
+      {
+        "assessment": "ALGORITHMIC_PREMISE_COVERED, SHARP_GLOBAL_STATEMENT_NOT_FOUND",
+        "evidence": "Relative-entropy pooling formula and permutahedron reduction given; does not state global log-output maximum-coordinate coefficient.",
+        "identifier_or_url": "https://proceedings.mlr.press/v51/lim16.pdf",
+        "material_read": "Main paper introduction, related work, §§4–5, pooling formulas; PDF pages 0 and 4 visually inspected",
+        "method": "Parsed PDF text and page screenshots",
+        "title": "Efficient Bregman Projections onto the Permutahedron and Related Polytopes",
+        "trigger": "Older general Bregman algorithm could dominate derivative-based claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58773a94-95f6-4d63-9cab-edb445d94ec6",
+  "value": {
+    "rationale": "A sharp global robustness constant for a concrete differentiable ranking map, a nonattaining extremal mechanism near hard-ranking vertices, and a strict dimension-dependent gap relative to quadratic soft ranking are intrinsically motivated by stable ranking systems. Dimension/exponent laws are mathematically meaningful and not arbitrary test slices.",
+    "status": "PASS"
+  }
+}
