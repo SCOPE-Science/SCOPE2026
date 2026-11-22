@@ -1,0 +1,19 @@
+# Scientific review of the backward-Euler Hopf bistability theorem
+
+## Correctness — PASS
+
+The theorem's exact domain is \(h>0\), \(\omega\ne0\), \(\lambda\in\mathbb R\), and a globally smooth unique implicit step. Reconstructing the map \(\Psi(w)=(1-h\lambda+h|w|^2-ih\omega)w\) gives its radial function and the exact Jacobian determinant \(3u^2+4au+a^2+b^2\), where \(u=h|w|^2\), \(a=1-h\lambda\), and \(b=h|\omega|\). Its minimum yields precisely \(a>-\sqrt3 b\) for global smooth invertibility. Two positive invariant-circle radii exist precisely at \(u=-a\pm\sqrt{1-b^2}>0\). Requiring both within the diffeomorphism range is equivalent to \(1/2<b<1\) and \(-\sqrt3 b<a<-\sqrt{1-b^2}\). The origins and radial multipliers, radial comparison signs, complete attraction basins, and rigid rotation angles all follow analytically. Exact-rational tests and a standalone radial iterator passed for two parameter choices. Numerical convergence is supplementary, not a proof of the universal statement.
+
+**Boundaries and limits:** Strict inequalities matter. At \(a=-\sqrt3 b\), the implicit inverse is not a smooth diffeomorphism; at \(b=1\), there can be one neutral nonzero radius but not the claimed two circles. At the inner-circle radius the orbit remains on that circle rather than converging to the origin or outer circle. The conclusion is about distance to a circle, not necessarily convergence to one point on it.
+
+## Originality — PASS within inspected sources
+
+Oliveira's arXiv:2611.03336v1 addresses local cyclic Lyapunov–Schmidt reductions at real multipliers \(+1\) and \(-1\); its implicit planar example is a fixed-point cusp. Its conclusion explicitly reserves two-dimensional center questions. Buescu–Oliveira's arXiv:2611.12327v1 treats singular evolution folds and a different backward-Euler planar model interacting with period doubling. Neither inspected development supplies this smooth globally invertible Hopf-map threshold or its two circles and basins. The closest indexed numerical-map finding, *An exact supercritical Euler-induced oscillatory circle below a descending prey nullcline*, treats an explicit Euler predator–prey map with a single induced attracting circle. The closest indexed general global-invertibility finding concerns a cosine normal-return map instead. Classical Hopf normal forms and backward-Euler numerical stability are acknowledged as established, not new. Search results and local comparison support the combined theorem's originality under currently inspected evidence but cannot prove absence of every older equivalent.
+
+**Residual priority risk:** The extensive older literature on spurious dynamics under implicit numerical integration, including *Dynamical Approach Study of Spurious Steady-State Numerical Solutions on Nonlinear Differential Equations*, was not exhaustively inspected at full-text level. The combined exact smooth-inverse frequency threshold may have an unindexed equivalent; this remains a bounded originality risk, not a claim of a conclusive worldwide uniqueness search.
+
+## Mathematical value — PASS
+
+Backward Euler is a standard numerical step whose extra damping is well known, but the present exact example proves a **non-obvious coexistence**: an artificially stabilized equilibrium and an attracting oscillatory circle persist simultaneously, divided by a repelling circle, while the continuous equation has an unstable equilibrium. The sharp frequency threshold \(h|\omega|=1/2\) is forced by the intersection of the two-circle and global-invertibility conditions, not by a merely chosen example. Exact basins, radii, and transverse multipliers make the criterion useful for diagnosing qualitative failure of coarse implicit integration in oscillatory normal forms. No general implicit-bifurcation theorem or robustness under arbitrary perturbations is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The planar Jacobian determinant is exactly \\(3u^2+4au+a^2+b^2\\); positivity on \\(u\\ge0\\) is equivalent to global diffeomorphism \\(a>-\\sqrt3b\\) for \\(b>0\\). Fixed nonzero radii solve \\((a+u)^2+b^2=1\\), and the two positive roots coexist with the diffeomorphism precisely for \\(1/2<b<1\\), \\(-\\sqrt3b<a<-\\sqrt{1-b^2}\\). Radial inverse monotonicity gives the full basins; exact normal multipliers and phase rotations follow. Rational checker and bisection stress tests pass, supplementary to the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The cyclic Lyapunov–Schmidt paper assumes regular implicit steps and proves local reductions at +1/-1, not a global classification of two nonzero invariant circles.",
+        "The singular-bifurcation paper classifies local evolution folds and their period-doubling interactions; the present family remains forward regular at every state in its bistability interval.",
+        "Indexed finding An exact supercritical Euler-induced oscillatory circle below a descending prey nullcline treats an explicit Euler predator–prey map."
+      ],
+      "reasoning": "Neither general local existence theorem entails the exact parameterized global invertibility inequality, two positive radial fixed points, and all forward basins for the specific backward-Euler Hopf equation without additional analysis. A potentially stronger general theorem remains a residual historical risk.",
+      "searches": [
+        "arXiv:2611.03336v1 Sec. 1, 8 and 9",
+        "arXiv:2611.12327v1 Sec. 1, 7.6",
+        "implicit Euler Stuart Landau exact bistability repelling inner invariant circle attracting outer invariant circle and stable origin",
+        "Neimark Sacker resonance implicit backward Euler bifurcation fold of invariant circles radial injectivity threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.03336v1, Secs. 1, 8.2, 9",
+      "arXiv:2611.12327v1, Secs. 1, 2, 7.6",
+      "Wolfram MathWorld, Stuart–Landau Equation",
+      "An exact supercritical Euler-induced oscillatory circle below a descending prey nullcline (indexed summary)",
+      "Sharp global invertibility threshold and basin geometry of a cosine normal-return map (indexed summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior implicit-periodic-orbit reduction provides a method for special real multiplier bifurcations, not a closed expression for the Hopf backward-Euler radial inverse.",
+        "The prior numerical fold example is built from the system \\(\\dot u=u-u^3\\), \\(\\dot v=(\\alpha-u)v-v^2\\), whose forward singularity conditions are unlike the present global-diffeomorphism regime.",
+        "The proposed threshold follows by intersecting the global inverse criterion \\(a>-\\sqrt3b\\) with two-circle existence \\(a<-\\sqrt{1-b^2}\\), yielding \\(b>1/2\\)."
+      ],
+      "reasoning": "The novel joint conclusion is not a logical corollary of the cited prior statements as they stand: the explicit Jacobian polynomial, its minimum, and the exact two-circle radial fixed-point analysis are needed. Their generic techniques and underlying stability concepts are acknowledged as prior.",
+      "searches": [
+        "arXiv:2611.03336v1 full text, Sec. 8.2 and 9",
+        "arXiv:2611.12327v1 full text, Sec. 7.6",
+        "backward Euler Hopf normal form Stuart Landau bistable origin and outer invariant circle separated by repelling invariant circle sharp h omega > 1/2 global diffeomorphism",
+        "implicit Euler Stuart Landau exact bistability repelling inner invariant circle attracting outer invariant circle and stable origin"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Oliveira (arXiv:2611.03336v1), Sec. 8.2 is a planar implicit fixed-point cusp, with conclusion reserving two-dimensional center dynamics; no formula for the backward-Euler cubic Hopf map or its two circles.",
+        "Buescu and Oliveira (arXiv:2611.12327v1), Sec. 7.6 gives a different planar backward-Euler fold/period-doubling example.",
+        "Classical Stuart–Landau normal form and backward Euler linear stability are known, but do not by themselves state the global smooth-inverse threshold and complete basin diagram."
+      ],
+      "reasoning": "The proposed map is a rotation-equivariant cubic implicit inverse with a global smooth-diffeomorphism parameter condition and two nested transverse circle multipliers. Compared literature has different nonlinear maps or local multiplier/fold results, not a proved equivalent of the sharp combined statement. Similar nomenclature without these same equations is insufficient for implication.",
+      "searches": [
+        "backward Euler Hopf normal form Stuart Landau bistable origin and outer invariant circle separated by repelling invariant circle sharp h omega > 1/2 global diffeomorphism",
+        "implicit complex cubic map z=(a+h|w|²-i b)w two concentric invariant circles under globally invertible evolution Jacobian positivity b>1/2",
+        "\"backward Euler\" \"Hopf normal form\" \"bistability\" circle",
+        "\"implicit Euler\" \"Stuart Landau\" \"two\" \"invariant circles\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed explicit Euler oscillatory-circle result concerns a different predator–prey map.",
+        "The closest indexed sharp global-invertibility record concerns a cosine normal-return map, not the complex Hopf implicit step.",
+        "Inspected arXiv papers have neither a table nor an equation giving the proposed \\(1/2<b<1\\) existence window."
+      ],
+      "reasoning": "No exact numerical table, database entry or previously recorded theorem found in the performed searches covers the joint strict frequency window, circular radii and radial basins. Negative search evidence is not proof of priority.",
+      "searches": [
+        "backward Euler Hopf normal form Stuart Landau bistable origin and outer invariant circle separated by repelling invariant circle sharp h omega > 1/2 global diffeomorphism",
+        "implicit complex cubic map z=(a+h|w|²-i b)w two concentric invariant circles under globally invertible evolution Jacobian positivity b>1/2",
+        "spurious stable equilibrium two rotation circles implicit backward Euler Neimark Sacker exact complete radial basins",
+        "backward Euler discretization Hopf Stuart Landau normal form global invertible planar implicit map two invariant circles bistability sharp step frequency one half"
+      ]
+    },
+    "rationale": "The two primary implicit-map papers were inspected at the relevant formulas and treat different bifurcation mechanisms; classical Hopf and backward-Euler results do not give the sharp joint global smooth-inverse/two-circle/basin classification. Targeted indexed searches returned distinct models. This is a best-knowledge judgment with explicit unindexed-literature residual risk.",
+    "residual_risks": [
+      "Extensive historical research on implicit integration and spurious numerical limit cycles is not exhaustively indexed or full-text checked.",
+      "The older study titled Dynamical Approach Study of Spurious Steady-State Numerical Solutions on Nonlinear Differential Equations was accessible as snippets but not compared through its entire document; its described models did not establish a decisive matching theorem.",
+      "Indexed scientific summaries cannot certify whole-paper noncoverage; no stronger matching claim was found in the inspected primary mathematical texts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different local fixed-point cusp; two-dimensional Neimark–Sacker questions explicitly left open; does not supply the radial global theorem.",
+        "evidence": [
+          "Sec. 8.2 uses a coupled fifth-degree planar system and studies the multiplier +1.",
+          "Sec. 9 names two-dimensional center dynamics and Neimark–Sacker bifurcations as future work."
+        ],
+        "identifier_or_url": "arXiv:2611.03336v1; https://arxiv.org/abs/2611.03336",
+        "material_read": "Accessible full-text introduction, definitions, Sec. 8.2 example, and Sec. 9 conclusion; searched for relevant model terms.",
+        "method": "Direct reading and statement-level comparison of its local cusp and center-multiplier scope.",
+        "title": "Lyapunov–Schmidt reduction for periodic orbits of implicit discrete dynamical systems",
+        "trigger": "Recent primary implicit-bifurcation paper with first-listed MSC 37G15 and a backward-Euler planar example."
+      },
+      {
+        "assessment": "Analyzes transition folds/period doubling and an unrelated two-real-variable cubic system; no covering global-circle bifurcation.",
+        "evidence": [
+          "Sec. 7.6 system has \\(\\dot u=u-u^3\\) and \\(\\dot v=(\\alpha-u)v-v^2\\).",
+          "Its first section states the focus on local singular forward evolution."
+        ],
+        "identifier_or_url": "arXiv:2611.12327v1; https://arxiv.org/abs/2611.12327",
+        "material_read": "Accessible full-text abstract, introduction, regularity definitions, and Sec. 7.6 implicit-integration example; queried text for Stuart–Landau and Neimark–Sacker.",
+        "method": "Direct comparison of the displayed backward-Euler vector fields and singularity conditions.",
+        "title": "Singular bifurcations in implicit discrete dynamical systems",
+        "trigger": "Same subject, later paper with numerical implicit integration and a backward-Euler planar example."
+      },
+      {
+        "assessment": "Confirms the continuous model and its single attracting positive radius; does not address the implicit map.",
+        "evidence": [
+          "Polar radial equation has cubic saturation and one positive equilibrium radius when the growth rate is positive."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/Stuart-LandauEquation.html",
+        "material_read": "Definition and polar amplitude dynamics, including nonzero steady-radius formula and references.",
+        "method": "Read mathematical definition and compare continuous-time radial dynamics.",
+        "title": "Stuart–Landau Equation",
+        "trigger": "Check whether the continuous cubic oscillator already has nested circles or a stable origin when growth is positive."
+      },
+      {
+        "assessment": "Distinct explicit-Euler predator–prey system with a local circle; cannot imply the combined implicit Hopf result from available summary.",
+        "evidence": [
+          "Reported critical step \\(h=2\\) and a local supercritical oscillatory circle, with different dynamics."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-an-exact-supercritical-euler-induced-oscillatory-circle-below-a--78117fcac753",
+        "material_read": "Indexed title and scientific summary only; full article not inspected.",
+        "method": "Scientific summary comparison of explicit versus backward Euler, predator–prey versus complex Hopf and local versus global phase portrait.",
+        "title": "An exact supercritical Euler-induced oscillatory circle below a descending prey nullcline",
+        "trigger": "Closest indexed finding about numerical integration creating an invariant circle."
+      },
+      {
+        "assessment": "Distinct geometric normal-return map and fixed-point basins, not a complex cubic implicit Euler map.",
+        "evidence": [
+          "Its threshold is an eccentricity of a cosine-modulated convex curve, not a normalized oscillator frequency."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-global-invertibility-threshold-and-basin-geometry-of-a-cos--19f3f27a2804",
+        "material_read": "Indexed title and scientific summary only; full article not inspected.",
+        "method": "Compare formulas and objects for logical inclusion.",
+        "title": "Sharp global invertibility threshold and basin geometry of a cosine normal-return map",
+        "trigger": "Closest indexed result combining invertibility and basin structure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9f7f39e8-1e7e-462c-af00-c2f504ec3f41",
+  "value": {
+    "rationale": "The proved \\(h|\\omega|>1/2\\) threshold is the exact condition allowing a spurious stable origin and a physically relevant attracting outer circle to coexist under a globally smooth unique implicit numerical step, with a repelling circular basin boundary. This natural structural bifurcation and complete global basin classification are more than a linear stability check or a chosen finite example; they expose a distinct qualitative artifact of coarse implicit integration.",
+    "status": "PASS"
+  }
+}
