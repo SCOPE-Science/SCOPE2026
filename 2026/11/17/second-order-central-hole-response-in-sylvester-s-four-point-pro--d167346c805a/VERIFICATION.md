@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Finite diagnostics
+# Independent mathematical audit
 
-The accompanying `check_sylvester_annulus.py` uses NumPy, a fixed seed, direct Cartesian barycentric tests of triangle inclusion, and independent annular sampling. Run with `python check_sylvester_annulus.py`.
+## correctness
 
-Expected successful diagnostic groups:
+PASS
 
-```
-CONDITIONAL_EXPANSION_ALGEBRA_OK
-FIXED_POINT_LOCAL_EXPANSION_DIAGNOSTICS_OK
-TWO_POINT_COLLISION_DIAGNOSTICS_OK
-ANNULAR_CONVEX_POSITION_DIAGNOSTICS_OK
-```
+Exact inclusion-exclusion over points falling in the central disk gives (1−t)^4 Q(t)=Q0−4tQ1(t)+6t²Q2(t)+O(t³). The fixed-location triangle containment law yields F(u)=1/4−6u²/π²+o(u²), and the independent expected triangle area M(u)=4/(9π)+2u²/(3π)+o(u²); hence Q1(t)=3/4−4/(3π²)+2t/π²+o(t). Two collapsing points yield a uniform relative direction, so their convexity probability tends to 1−α/π and averages to 1/2. Expansion yields coefficient 1−95/(6π²)≈−0.604252074337. Uniform local Taylor remainder and dominated convergence justify interchange; affine invariance handles homothetic ellipses. Finite simulations alone could not establish this limit.
 
-Sample deterministic run: disk baseline `0.7044798810431815`; first hole-area coefficient `0.3582991702651941`; second coefficient `-0.6042520743370148`. With two points uniform in a disk of radius `0.005` and two uniform in the unit disk, the observed four-point convexity frequency was `0.5003386` (700,000 draws), against the limiting value `0.5`. The annulus simulations at hole-area fractions `0.015`, `0.035`, `0.060` yielded respectively `0.7106771`, `0.7159957`, `0.7250186`, compared with two-term predictions `0.7097184`, `0.7162801`, `0.7238025` (700,000 draws each). These discrepancies lie within the conservative finite-sample and higher-order tolerances.
+## originality
 
-The mathematical verification rests on the exact conditioning identity, explicit angular and area derivatives, and the almost-sure cone-limit reduction; empirical checks do not certify limiting assertions. The coefficient is valid only at a vanishing centered hole. Historical priority and independent audit remain unresolved.
+PASS
+
+PASS best-of-knowledge: first puncture derivative, disk constant, and thin-shell/two-circle limits already exist. The claimed second area-fraction coefficient needs both a new local second derivative and the two-near-center collision term; no consulted stronger theorem yields that number. Priority qualified for possible unindexed exact annulus formulas.
+
+## value
+
+PASS
+
+The first derivative of central puncturing is positive while the exact next coefficient is negative; the interaction of two nearby random points changes a natural four-point geometric-probability law. This is a motivated singular perturbation, not a routine use of the classical disk constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

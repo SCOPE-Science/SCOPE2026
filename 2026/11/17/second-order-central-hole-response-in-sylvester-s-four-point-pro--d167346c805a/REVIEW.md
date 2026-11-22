@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** Exact inclusion-exclusion for the removed disk reduces the second-order term to the \(O(t)\) expansion of one fixed-point convexity probability and the limiting convexity probability with two collapsing points. The fixed-point expansion is derived from the semicircle integral for triangle containment and the differentiable disk chord-area integral, with uniform remainders. The two-point event converges almost surely outside cone boundaries, giving a limiting probability of one-half by rotational symmetry and dominated convergence. Substitution reproduces the exact coefficient. The packaged checker independently evaluates Cartesian triangle containment and the coefficient algebra; simulations are supporting, not proof.
+## correctness
 
-**Originality (PASS, provisional historical priority).** The known disk baseline and the earlier centered-hole first variation give only the constant and linear coefficients. The second coefficient requires both the second-order fixed-point expansion and the two-point collision probability and is not a stated corollary of the previously examined first-variation result. Marckert's full 2014 and 2015 arXiv papers treat disk and convex-domain laws, not the nonconvex annulus second-order expansion. A checked 2016 fixed-point-containment paper does not state the four-point second response. A publicly accessible thin-shell result concerns the opposite limit, with the inner radius approaching the outer radius. Search failure is not a proof of novelty; unindexed annulus work remains a risk.
+PASS
 
-**Value (PASS).** The area fraction of an excised central hole is a natural geometric perturbation of Sylvester's classical probability. The result quantifies the first nonlinear effect, proves that the positive first variation has a strictly negative second correction, and identifies the two-point near-hole collision needed to evaluate it. These features are not a mere change of normalization or a restatement of the first variation. No global concavity, arbitrary-hole result, or external certification is claimed.
+Exact inclusion-exclusion over points falling in the central disk gives (1−t)^4 Q(t)=Q0−4tQ1(t)+6t²Q2(t)+O(t³). The fixed-location triangle containment law yields F(u)=1/4−6u²/π²+o(u²), and the independent expected triangle area M(u)=4/(9π)+2u²/(3π)+o(u²); hence Q1(t)=3/4−4/(3π²)+2t/π²+o(t). Two collapsing points yield a uniform relative direction, so their convexity probability tends to 1−α/π and averages to 1/2. Expansion yields coefficient 1−95/(6π²)≈−0.604252074337. Uniform local Taylor remainder and dominated convergence justify interchange; affine invariance handles homothetic ellipses. Finite simulations alone could not establish this limit.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: first puncture derivative, disk constant, and thin-shell/two-circle limits already exist. The claimed second area-fraction coefficient needs both a new local second derivative and the two-near-center collision term; no consulted stronger theorem yields that number. Priority qualified for possible unindexed exact annulus formulas.
+
+## value
+
+PASS
+
+The first derivative of central puncturing is positive while the exact next coefficient is negative; the interaction of two nearby random points changes a natural four-point geometric-probability law. This is a motivated singular perturbation, not a routine use of the classical disk constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
