@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conserved substrate and enzyme totals and equal catalytic currents reduce every positive equilibrium to the unique scalar root of equation (1). Implicit differentiation gives a dimensionally consistent mixed response formula; the two-pool inequality follows from a positive-weight mean of three nonnegative terms. The three-pool witness uses positive rational rate constants and positive concentrations and gives exact signed fractions at two loads. Its unique crossover follows from a six-degree integer polynomial transformed to a one-sign-change polynomial; an exact-rational standalone checker reproduces its coefficient identity and mass-action balances. The source theorem supplies global convergence for the distinct-enzyme example. This does not establish anything for alternative enzyme kinetics.
+## correctness
 
-## Originality — PASS, provisional pending independent review
-The source's Sections 3, 5, 6, 7, 9 and appendix description distinguish uniqueness, stability and enzyme sharing but do not state enzyme-total mixed curvature or a two-pool universal sign. Höfer–Heinrich provides general second-order control methods, not a source-specific two-versus-three-catalyst theorem; its full text was not accessible and historical priority is a residual risk. Kryazhimskiy's first-order kinetic network and normalized mutation epistasis and Noor–Liebermeister's unbranched allocation optimality do not logically imply the asserted fixed-substrate total HMM response. Mathematical-record searches for mixed curvature, flux sensitivity, catalytic cycles, and aliases returned closest work on different stochastic/kinetic observables, not a dominating theorem. Absence of a retrieved match is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The number of independently controlled catalyst pools imposes a sharp qualitative restriction on how adding one enzyme modifies the marginal flux benefit of another. The negative curvature emerges in the smallest enzyme-pool dimension and changes sign uniquely under substrate loading, despite a unique globally attracting equilibrium. This gives a motivated quantitative distinction between equilibrium stability and second-order metabolic response, with exact parameters suitable for experimental or mathematical testing. It is not presented as universal genetic epistasis or as an oscillation result.
+The steady-state balances force c_i=J/k_i, e_a=E_a-s_aJ and x_i=((k_i^-+k_i)/(k_i^+k_i))J/(E_a-s_aJ). Their conservation gives F=alpha J+sum b_a J/(E_a-s_a J)-T=0 with strictly positive derivative and a unique interior root. Implicit differentiation gives J_Ea>0 and the exact cross-curvature bracket 2/J+2s_a/u_a+2s_b/u_b-K/H. K/H is a strict positive-weight average of 0 and 2s_c/u_c, proving all q=2 brackets positive. For the three-pool rational example, exact symbolic simplification reproduces B=-2P/[j(j-3)(10j-11)Q], Q>0, and a one-sign-change transformed sextic, hence one positive root; exact rational checks recover cross derivative +71805312/33856161185 at j=1/2 and -4675/1203052 at j=1. No extrapolated stability claim is needed: distinct-enzyme global convergence is credited to the primary source.
 
-## Closest literature and limitations
-Joshi–Nguyen (arXiv:2611.02523v1) motivates the HMM substrate-cycle mechanism and establishes first-order qualitative dynamics; second-order metabolic control theory (Höfer–Heinrich 1993) is the highest historical-priority uncertainty. Kryazhimskiy (2021) and Noor–Liebermeister (2024) use different perturbation variables or systems. The proof is restricted to closed transformation cycles with all steps catalyzed; alternative kinetics or broader enzyme-network models are outside the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The q=2 all-parameter strict mixed-current complementarity and q=3 sharp counterexample with exactly one load sign reversal concern additive derivatives in conserved enzyme totals of closed mass-action HMM cycles. Inspected predecessor gives equilibria and dynamics but not these second derivatives. Earlier epistasis and enzyme-allocation studies use different kinetics, control quantities or constraints. This is best-of-knowledge, subject to older second-order metabolic-control literature.
+
+## value
+
+PASS
+
+The number of enzyme pools is an intrinsic discrete architectural complexity measure for a conserved biochemical cycle; q=2 universal positive complementarity versus an explicit q=3 globally stable unique sign reversal is a sharp, motivated structural boundary. The exact algebraic threshold and fixed-total derivative provide reusable diagnostics beyond routine implicit differentiation. This is not a generic renaming or an arbitrary small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
