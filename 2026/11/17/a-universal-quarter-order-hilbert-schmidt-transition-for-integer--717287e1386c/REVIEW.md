@@ -1,11 +1,21 @@
-# Scientific review: integer-power Fock composition transition
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim fixes the radial Fock normalization, an entire Mittag–Leffler symbol, a strict real dilation, and an exact spatial Hilbert–Schmidt energy. Compactness follows from a global beta-integral profile bound and local compactness of analytic restrictions. Tonelli's theorem turns the Hilbert–Schmidt norm into a kernel integral. Exact angular orthogonality reduces this to a single nonnegative gamma-series; a discrete Gaussian saddle, together with the kernel's established Mittag–Leffler asymptotic, yields the radial exponent and all constants. Near-zero integrability and a locally uniform parameter estimate justify both the endpoint logarithm and the pole. The checker gives finite diagnostics only, not a substitute for the proof.
+## correctness
 
-**Originality — PASS, qualified.** Barik–Sen–Paul (2026) provide the general compactness and Hilbert–Schmidt tests and pose the compact-versus-Hilbert–Schmidt question; Mengestie–Takele (2023) provide broader integrability tests for fast radial weights. These general results are credited, not claimed. Two inspected previously published Gaussian Fock constructions already settle the existence question at radial power \(m=2\); that case is explicitly excluded from the new existence contribution. The newly evaluated Mittag–Leffler family gives one *uniform*, sharp \(\gamma=1/4\) boundary and exact spatial energy leading constants at \(m=1\) and all integer \(m\ge3\), including the sub-Gaussian/faster-growth divide. These are not stated in any inspected source, and the Gaussian Fourier-edge statements do not imply them at other radial powers. A potentially equivalent older specialized saddle-point evaluation remains a publication-priority risk.
+PASS
 
-**Mathematical value — PASS.** Barik–Sen–Paul's compact-to-Hilbert–Schmidt question is meaningful separately for each radial exponent. The explicit family negatively resolves it at every positive integer power, while the sharp cutoff and exact logarithmic/power-law constants explain a cancellation between angular concentration and kernel growth. The threshold's independence from the radial exponent is the structural point; the work is not merely another Gaussian compact counterexample. It does not claim arbitrary real radial exponents or singular-value counting asymptotics.
+PASS. Using normalized radial Fock monomial norms Gamma((2k+2)/m)/(alpha^(2k/m)Gamma(2/m)), the reproducing kernel is exactly the series in the frozen proof. The entire Mittag-Leffler weight has beta-integral and decaying weighted evaluation profile, yielding boundedness and compactness by cutoff in output radius plus Montel. Basis-Tonelli gives exact S2 energy ∫|psi_gamma|² K(az,az)dmu. Distinct angular monomials z^(mk) make angular integral 2pi sum x^(2k)/Gamma(k+1+gamma)². A Stirling saddle at k≈x has e^(-2x) sum ~x^(-2gamma-1/2)/(2sqrt(pi)), and the positive-real kernel has leading (m/2)Gamma(2/m)alpha^((m-2)/m)a^(m-2)r^(m-2) exp(alpha a^m r^m). Combining gives H'_gamma~[m²alpha a^(m-2)/(4sqrt(pi))]c^(-2gamma-1/2)r^(m/2-1-2m gamma). Integrating yields HS iff gamma>1/4, all three spatial energy asymptotics, and parameter residue C_(m,1/4)/(2m). Independently recomputed the saddle ratio at x=40,160 (gamma=.2,.45), ~1.00157 and 1.00039, not a proof.
 
-**Closest sources and limits.** The primary 2026 source is arXiv:2607.17170, Section 7, Question 7.1 and Theorems 1.1–1.4. The broad Schatten source is Mengestie–Takele, 2023, Theorem 3.2, DOI 10.1007/s40840-023-01476-4. The earlier published Gaussian constructions of October 18 and November 8, 2026 were compared through their full available scientific RESULT texts. Carroll–Gilmore's 2019 abstract and a published excerpt identify earlier entire Gaussian examples but their full paper was not read in this review. No independent mathematical or bibliographic verification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge with important access risk). General Fock compactness/Hilbert–Schmidt criteria and Gaussian compact/non-HS examples are prior, including exact Gaussian Fourier-edge thresholds; the proposed theorem is not novel as an existence claim at m=2. Full published October/November Fourier-edge RESULT files do not cover Mittag–Leffler z^m angular coefficients and uniform m=1/m>=3 spatial-energy constants. The general Barik–Sen–Paul primary full article could not be newly read because legitimate retrieval and authorized Oxford service returned VPN disconnected; its abstract and theorem statements do not give a directly covering evaluated family.
+
+## value
+
+PASS
+
+PASS. A sharp exact endpoint threshold, divergence constants and pole law valid simultaneously in sub-Gaussian m=1, Gaussian m=2 and every higher integer radial power is a meaningful analytic family, extending beyond the already-known Gaussian existence question. The Mellin/Gamma saddle and kernel normalization make the cross-power constant nontrivial. This does not claim a general Schatten-class classification or novelty of compact non-HS in Gaussian Fock space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
