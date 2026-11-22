@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 check_three_site_heat.py` using Python 3 with only the standard library. The checker independently evaluates the original Markov heat via stochastic-matrix uniformization, then compares it with the two spectral gradient-column formulas over 350 deterministic random positive-rate and weight selections. It tests the initial-slope incompatibility, the one-peak formula, strict contraction of the opposite column, unique positive recovery root (via bisection), and exact-algebra golden-ratio identity.
+## correctness
 
-Observed output:
+PASS
 
-```
-INDEPENDENT_MARKOV_UNIFORMIZATION_350_CASES_PASS
-SINGLE_PEAK_AND_UNIQUE_RECOVERY_CHECKS_PASS
-EXACT_GOLDEN_RATIO_RECOVERY_IDENTITY_PASS
-ALL_THREE_SITE_HEAT_CHECKS_PASS
-```
+Read RESULT.md full proof and independently reconstructed DQ=BD with D=[[-1,1,0],[0,-1,1]], B=[[-(a+b),c],[b,-(c+d)]]. D is onto, positive 2x2 Metzler semigroup has exact weighted l1 norm equal its largest positive column sum. u,v are positive distinct roots of lambda^2-(alpha+beta)lambda+alpha beta-bc; g_j solves second-order scalar ODE with g_j(0)=1, derivative delta_j. Delta1 and delta2 cannot both positive because (a+b)(c+d)>bc. Each positive-slope profile has one maximum and a unique subsequent crossing of 1; negative/zero slope profiles strictly decrease for positive time. Unit rates w=(1,3) yield 2e^-t-e^-3t and q=e^-T=(sqrt5-1)/2. Reconstructed steps attain columns. Independently checked 200 direct exp(tQ) matrix norms for randomized positive rates/weights against formulas with maximum absolute difference 3.15e-14. No inference of general proof from these finite checks.
 
-Numerical uniformization tests are not proofs for arbitrary rates or times. The proof in `RESULT.md` handles the unrestricted positive-real parameter domain analytically. No external independent mathematical audit has occurred.
+## originality
+
+PASS
+
+First-gradient intertwining and tree all-time nonexpansiveness predate this claim; those are credited and not newly claimed. Full temporal exact two-column spectral norm, single peak and unique global recovery for arbitrary positive three-site parameters appear not implied by inspected prior work. We inspected the exact broader tree nonexpansivity result, which stops at small-time violation and exponential norm bound, not positive-time recovery.
+
+## value
+
+PASS
+
+A natural, sharp complete temporal answer to whether and exactly when a positive three-site birth–death semigroup transiently amplifies total edge variation; the non-symmetric two-input/weighted gradient norm, unstable edge and recovery time are meaningful quantitative dynamics beyond the familiar infinitesimal curvature test. The golden-ratio instance is a transparent sharp witness rather than sole value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
