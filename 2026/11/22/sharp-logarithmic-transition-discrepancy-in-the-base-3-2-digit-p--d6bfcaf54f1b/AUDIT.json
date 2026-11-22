@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Starting with the exact nonoverlapping pair substitution, construct t_n=w_(2n), derive the 3-to-2 recursion, the triple identity for signed adjacent signs, and the three exact D(N) formulas. Index contraction yields the O(log N) bound. The φ block decomposition gives precise Q01/Q10 transfer formulas with correct endpoint and noncircular boundary terms. For each k, CRT gives m0 and a k-step integer 4-adic chain remaining divisible by 3, making each two-step signed defect increase by exactly 2; both tested endpoints are bounded by 30*9^k at the original-word scale, proving the matching Omega(log X) lower bound for all sufficiently large X. The extracted exact checker compares digit extraction with block recursion and verifies 18 witness chains. Finite checks are supplementary, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full indexed all-order run-statistics result proves existence and exact rational values for all finite run-pattern frequencies using a 9-to-4 Toeplitz template, but states no finite-prefix O(log N) or Omega(log N) estimate.",
+        "The 2026 primary paper proves symbol frequency 1/2 for a sibling and records factor frequency as a further direction; it does not provide a sharp transition error law.",
+        "The older base-two Thue-Morse result 2026/10/12/29efb4b8c4fd addresses 01 occurrences of a different word and so is not a dominating theorem for rational base 3/2."
+      ],
+      "reasoning": "All-order limiting factor/runs distributions imply the 2/5 density, which this claim explicitly does not treat as new. Neither their conclusions nor their finite periodic approximants directly supply the matching logarithmic lower drift; the new proof exploits a separate 3-to-2 signed-prefix recurrence and a 4-adic Chinese-remainder chain.",
+      "searches": [
+        "published-finding corpus: Thue-Morse base 3/2 block substitution length two factor frequencies proof 2026 Cassaigne Rigo",
+        "published-finding corpus: rational-base Thue Morse letter change counts prefix logarithmic discrepancy 2026",
+        "GitHub public full text: 2026/11/8/SCOPE-all-order-rational-run-statistics-and-the-exact-five-state-run-t--03f7bfb4e7e7/RESULT.md",
+        "arXiv:2602.21895 sections 1.4, 1.5, and concluding discussion"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A357448",
+      "https://oeis.org/history?seq=A357448&start=10",
+      "https://arxiv.org/html/2301.13563v1",
+      "https://arxiv.org/abs/2602.21895",
+      "https://orbi.uliege.be/bitstream/2268/342033/1/merge_version.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-all-order-rational-run-statistics-and-the-exact-five-state-run-t--03f7bfb4e7e7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 original recurrence is used as a premise; its stated conjectured transition frequencies are weaker than logarithmic optimality.",
+        "2026 published all-order result already covers the existence of the limiting 2-letter frequency by the run-boundary identity; this corollary is excluded from the novelty claim.",
+        "The specific nonperiodic sequence of CRT-length witnesses and forced signed discrepancy increment of 2 per two recursive steps is absent from the closest inspected full results."
+      ],
+      "reasoning": "The finite-prefix uniform O(log M) bound and matching Omega(log X) maximal discrepancy together are strictly stronger than mere existence of limiting density; recovering them needs the new signed-prefix recurrence and explicit lower-chain arithmetic. Residual equivalent derivations cannot be excluded by keyword search alone.",
+      "searches": [
+        "arXiv:2301.13563 full HTML, Theorem 1, Theorem 2, Conjecture 6",
+        "arXiv:2602.21895 full PDF, Lemma 4, theorem summary, pp. 34-35",
+        "published-finding corpus published run-profile 2026/11/8/03f7bfb4e7e7 full RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dekking 2023, arXiv:2301.13563, Conjecture 6 explicitly conjectures adjacent frequencies, not logarithmic prefix bounds.",
+        "Cassaigne et al. 2026, arXiv:2602.21895, concluding discussion pp. 34-35 discusses unproved two-letter frequency calculations.",
+        "The closest indexed published-finding corpus run-statistics finding 2026/11/8/03f7bfb4e7e7 has an exact limiting run-pattern matrix but no prefix discrepancy statement."
+      ],
+      "reasoning": "Binary transition counts, signed adjacent correlation, and run-boundary frequencies are equivalent after the exact phi and telescoping identities. Existing limiting-frequency claims cover the density 2/5; they do not establish an error uniform in every prefix with a logarithmically large sequence of counterexamples to o(log X). The proof supplies a genuinely additional infinite lower construction.",
+      "searches": [
+        "published-finding corpus: Thue Morse sequence base 3/2 adjacent pair word frequencies 00 01 10 11 1/10 4/10 Dekking 2023",
+        "published-finding corpus: rational base 3/2 Thue Morse two-block substitution pair correlation 1/5 logarithmic discrepancy",
+        "published-finding corpus: base 3/2 Thue Morse signed adjacent equality difference exact O(log N) discrepancy 1/5 pair transitions",
+        "web: A357448 logarithmic discrepancy adjacent patterns 01 10",
+        "web: base 3/2 Thue Morse transition count logarithmic discrepancy rational base 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A357448 has the fixed-point rule, digit formulas, and conjectured limiting 2-letter frequencies, but no exact signed-prefix count or logarithmic discrepancy table.",
+        "published-finding corpus top matching entry 2026/11/8/03f7bfb4e7e7 concerns full limiting run statistics, not sharp prefix error."
+      ],
+      "reasoning": "The recorded sequence data and conjectured asymptotic frequencies do not give an exact prefix discrepancy order. The construction applies to arbitrarily many CRT scales rather than reproducing a finite table.",
+      "searches": [
+        "OEIS A357448 approved 2022 revision history #8, 2022-09-30",
+        "OEIS A357448 sequence and conjectured mu[00]=1/10 mu[01]=4/10",
+        "published-finding corpus: Dekking base 3/2 digits pair 01 4/10 sharp discrepancy logarithm"
+      ]
+    },
+    "rationale": "The novel claim is the optimal Theta(log X) maximal prefix error, not the already known or directly implied limiting two-letter frequencies. Full 2023 founding article, the 2022 published OEIS sequence/history, relevant 2026 primary work, and the most directly related published 2026 all-order run-statistics proof were compared at statement/implication level. The latter establishes limiting run/factor frequencies for the half-scaled sibling, not any finite-prefix logarithmic bound or a matching arithmetic lower construction. Searches and source inspection did not reveal this precise sharp-error theorem; no absolute priority claim is made.",
+    "residual_risks": [
+      "A distinct unindexed proof of optimal logarithmic prefix discrepancy could exist under the terms rational-base word, Toeplitz difference, or block-substitution discrepancy.",
+      "The strongest related run-statistics publication supplies the limiting density and a Toeplitz template. A quantitative extension of its proof could recover the upper bound, but its published statement does not provide the lower-bound construction; full absolute priority requires external review.",
+      "The 39-page 2026 paper was inspected at the relevant theorem and conclusion sections, not line-by-line for every ancillary result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the word, recurrence, and adjacent frequency conjectures, not a quantitative prefix law",
+        "evidence": [
+          "The two-block rule and recurrence a(3n)=a(2n), a(3n+1)=1-a(2n), a(3n+2)=a(2n) are given.",
+          "The revision dated 2022-09-30 records approved public status."
+        ],
+        "identifier_or_url": "https://oeis.org/A357448",
+        "material_read": "Entire current sequence entry and older approval/revision-history entries at https://oeis.org/history?seq=A357448&start=10; approved 2022-09-30 in EDT, also 2022-09-30 UTC",
+        "method": "Original sequence source and dated history read directly",
+        "title": "OEIS A357448: Fixed point of the two-block substitution",
+        "trigger": "Exact object and earliest verified public date"
+      },
+      {
+        "assessment": "Establishes word and substitution; does not establish sharp logarithmic transition-discrepancy order",
+        "evidence": [
+          "Conjecture 6 gives expected frequencies mu[00]=1/10 and mu[01]=4/10.",
+          "Theorem 1 gives the two-block substitution."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.13563v1",
+        "material_read": "Complete six-page article in HTML, especially the definition, Theorem 1, Theorem 2, and Conjecture 6, plus discussion of two rational-base conventions",
+        "method": "Primary arXiv full HTML text read and compared",
+        "title": "The Thue-Morse sequence in base 3/2",
+        "trigger": "Original theorem and conjectured factor frequencies for same sequence"
+      },
+      {
+        "assessment": "Proves symbol balance and structural properties, and explicitly identifies factor frequencies as a further problem; no logarithmic prefix error or sharp lower construction in inspected key material",
+        "evidence": [
+          "Lemma 4 identifies the φ relation.",
+          "Discussion pp. 34-35 presents numeric frequencies for two-letter factors as expectations rather than a bound for all prefixes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.21895",
+        "material_read": "PDF abstract, introduction, definitions and recurrence pp. 1-2, 7-10, main theorem overview, and full concluding discussion pp. 34-35; text-search for pair frequency and discrepancy; inspected page-35 image",
+        "method": "Open-access preprint read and relevant PDF page visually inspected",
+        "title": "Symbols frequencies in the Thue-Morse word in base 3/2 and related conjectures",
+        "trigger": "Most relevant later primary progress and plausible dominating result"
+      },
+      {
+        "assessment": "Its all-order limiting run-frequency statement dominates simple two-letter density assertions but does not cover sharp prefix discrepancy of this specific word",
+        "evidence": [
+          "Computes limiting run-boundary density 2/5 by a regular Toeplitz recursion.",
+          "No O(log M) finite-prefix theorem, CRT logarithmic witness, or matching lower-order claim appears."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-all-order-rational-run-statistics-and-the-exact-five-state-run-t--03f7bfb4e7e7",
+        "material_read": "Entire public RESULT.md, including all-order proof, explicit 5-by-5 matrix, limitations, references",
+        "method": "Read published raw RESULT.md through public GitHub connection",
+        "title": "All-order rational run statistics and the exact five-state run-transition law for the base-3/2 Thue-Morse word",
+        "trigger": "Closest published-finding corpus result, potential stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d6bfcaf5-4f1b-467b-b9fb-503d07032a80",
+  "value": {
+    "rationale": "Two-letter frequencies were explicitly conjectured in the defining source and studied in a later 2026 analysis. The optimal worst-prefix logarithmic error gives the first quantitatively sharp finite-prefix control identified in inspected literature for these natural adjacency events. The lower bound requires a new arbitrary-depth CRT construction and prevents a bounded-error or smaller-order strengthening. The result is structural and all-length, not a routine finite census; it deliberately excludes novelty already covered by published qualitative run-frequency laws.",
+    "status": "PASS"
+  }
+}
