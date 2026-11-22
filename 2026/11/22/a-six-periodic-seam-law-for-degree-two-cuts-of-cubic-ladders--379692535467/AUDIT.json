@@ -1,0 +1,165 @@
+{
+  "claim_to_evidence": {
+    "computational_evidence": [
+      "verify.py: exact 16x16 integer characteristic-polynomial calculation",
+      "verify.py: exhaustive explicit adjacency-list checks n=3..8",
+      "verify.py: seam involution n=3..8 and recurrence comparisons n=3..100"
+    ],
+    "domain": "Cubic prism C_n square K_2 and Möbius ladder M_{2n}, n >= 3, unordered nonempty degree-two cuts.",
+    "nonstandard_steps": [
+      "Local three-column admissibility precisely encodes all cubic same-colour-neighbor constraints.",
+      "Trace(U^n) and trace(U^n J) enumerate straight and twisted seam colourings.",
+      "Exact characteristic polynomials of the row-swap blocks determine recurrences and seam difference.",
+      "Monochromatic-rung involution independently isolates all potentially differing colourings."
+    ],
+    "unproved_limits": [
+      "The theorem does not address all cubic graphs or cut-size-refined distributions.",
+      "No independent review or absolute historical priority proof."
+    ]
+  },
+  "correctness": {
+    "rationale": "The local same-colour-neighbor predicate is equivalent to a cubic 2-cut, and the 16-state trace counts all valid binary colourings. The positive and negative seam-swap blocks have integer-verified characteristic polynomials x^4(x^2+2)(x^4-3x^3-x^2+2) and x^4(x^2-x+1), proving both recurrences and the six-periodic difference. Removal of the two constant colourings and division by global complement gives precisely the unordered, nonempty cuts. A separate direct graph enumerator checks n=3..8 and an exhaustive seam bijection plus recurrences check extra boundaries. The proof is all-n, not an extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kwon–Park–Sano, arXiv:2611.00572 (2026-10-31), discusses two disjoint total dominating sets and related four-colourings of planar triangulations, not counts of all degree-two cuts.",
+        "Rotenberg–Rutschmann–Thomassen, DOI:10.1002/jgt.70032, proves existence of disjoint total dominating sets in a planar setting.",
+        "Lopez-Bonilla–Allagan–Morgan, preprint 202606.0590 (first posted June 9, 2026), computes proper chromatic polynomials through twisted transfer traces rather than 2-cut counts.",
+        "Gomes–Sau, arXiv:1905.03134, establishes d-Cut complexity and algorithms without a family-wise enumeration."
+      ],
+      "reasoning": "A two-total-dominating-set partition implies that every vertex has a same-side neighbor, but is a strict subclass of the degree-two cuts being counted. Existence of such partitions, or a general d-cut algorithm, does not imply the two exact all-length recurrence formulas or their signed difference.",
+      "searches": [
+        "2-cut census and bivariate cut-size polynomial of cubic prism and Möbius ladders",
+        "Exact number of internal bipartitions of cubic Möbius ladders and prism graphs; each vertex retains a monochromatic adjacent vertex; period-six difference of two partitions",
+        "\"d-cut\" \"Möbius ladder\" \"prism\""
+      ]
+    },
+    "checked_sources": [
+      "preprints:202606.0590 (first posted June 9, 2026), journal DOI:10.3390/sym18071180",
+      "arXiv:2611.00572 (first posted October 31, 2026)",
+      "arXiv:1905.03134 (2019)",
+      "DOI:10.1002/jgt.70032 (2026)",
+      "arXiv:2611.26556 (November 19, 2026, comparison only)",
+      "Published results: “A parity-reversing twist law for period-two chip-firing orbits on cubic ladders”; “Fully flipping majority two-cycles on cubic prisms and Möbius ladders”; “Six-periodic rigidity of neighborhood 3-balanced colorings on prisms and Möbius ladders”"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published result titled “A parity-reversing twist law for period-two chip-firing orbits on cubic ladders” counts two-cycle chip-firing states, not degree-two cuts.",
+        "Published result titled “Fully flipping majority two-cycles on cubic prisms and Möbius ladders” concerns strict-majority dynamics, not static cut partitions.",
+        "Published result titled “Boundary-twist cancellation for exact-two public-goods equilibria on Möbius ladders” counts exact-two-neighbor equilibria rather than all same-colour-neighbor colourings.",
+        "Lopez-Bonilla–Allagan–Morgan (preprint 202606.0590) counts proper chromatic colourings, not 2-cuts.",
+        "Gomes–Sau, arXiv:1905.03134, and Kwon–Park–Sano, arXiv:2611.00572, do not state an equivalent enumerative identity."
+      ],
+      "reasoning": "Sharing the ladder families, a transfer-matrix method, or a six-periodic correction does not imply equality of state sets. The proper-colouring traces of Lopez-Bonilla–Allagan–Morgan have a different state predicate and no specialization yielding the required same-colour-neighbor colourings. The published dynamical/configurational conditions are distinct; none has a proved reduction onto nonempty bipartitions with maximum cross-degree two. Conversely the two-total-domination existence theorem cannot supply the count of the larger d-cut family.",
+      "searches": [
+        "Unordered 2-cuts of cubic prism graphs and Möbius ladder graphs enumerated by cycle transfer matrices, difference 2cos(n pi/3) or periodic signed difference",
+        "Number of cuts of degree at most two (2-cuts) in prism graphs C_n square K_2 and Möbius ladders, exact recurrence, two-colouring no singleton component",
+        "Unordered bipartitions of Möbius ladders and cycle prisms into induced subgraphs of minimum degree one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gomes–Sau (arXiv:1905.03134) defines d-cut as an unordered nontrivial bipartition with cross-degree at most d.",
+        "The same predicate in cubic graphs is a two-colouring in which each vertex has at least one neighbor of its own colour.",
+        "Related published mathematical results on six-periodic 3-balanced colorings of prisms and on open-packing/dissociation constraints involve different local predicates."
+      ],
+      "reasoning": "Both equivalent descriptions were directly compared. The investigated literature includes closely named coloring conditions but does not yield the exact two-sided, same-colour-neighbor count. A 3-balanced local colouring need not be a 2-cut and vice versa.",
+      "searches": [
+        "Number of cuts of degree at most two (2-cuts) in prism graphs C_n square K_2 and Möbius ladders, exact recurrence, two-colouring no singleton component",
+        "Unordered bipartitions of Möbius ladders and cycle prisms into induced subgraphs of minimum degree one",
+        "\"circular ladder\" \"no isolated\" \"2-colorings\" graph",
+        "\"cut\" \"every vertex has at least one same-colored neighbor\" \"ladder\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact independently enumerated initial pairs are (16,18), (58,59), (181,180), (581,579), (1912,1911), (6230,6231) for rung counts 3 through 8.",
+        "Targeted web and published-result searches did not return a table stating either these initial pairs or an all-n periodic difference."
+      ],
+      "reasoning": "No located table or sequence result dominates the proposed theorem. The displayed finite values alone are not used as evidence of mathematical novelty, and unindexed or inaccessible tables remain a priority risk.",
+      "searches": [
+        "Number of cuts of degree at most two (2-cuts) in prism graphs C_n square K_2 and Möbius ladders, exact recurrence, two-colouring no singleton component",
+        "2-cut census and bivariate cut-size polynomial of cubic prism and Möbius ladders",
+        "\"number of 2-cuts\" graph cubic ladder",
+        "\"matching cut\" \"Möbius ladder\" counts"
+      ]
+    },
+    "rationale": "The precise new claim is the two all-parameter exact counts and their bounded six-periodic difference for unordered degree-two cuts in cyclic prisms versus Möbius ladders. Lopez-Bonilla, Allagan and Morgan already derive ordinary and twisted transfer traces for proper chromatic polynomials of these same graph families, but those count proper colourings and do not yield the nonproper same-colour-neighbor 2-cut counts. Gomes and Sau treat general d-cut algorithms and existence, not the two exact enumerators. Kwon, Park and Sano, and Rotenberg, Rutschmann and Thomassen, treat the stricter two-total-dominating-set condition, which implies a degree-two cut on cubic graphs but does not determine its count. Published calculations of six-periodic colorings, independent sets and two-cycle dynamics on similar graph families have different predicates; their conclusions do not imply this count. Several targeted source searches found no direct equivalent; historical priority remains provisional.",
+    "residual_risks": [
+      "Search and the inspected papers cannot establish global historical uniqueness; some indexing of older enumerations may be incomplete.",
+      "Closest published results on related local constraints were compared at statement/abstract level, not all at full-text level; different state predicates make direct implication implausible.",
+      "Independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general twisted transfer methodology and proper chromatic polynomial enumeration, not the nonproper same-colour-neighbor 2-cut recurrence or bounded six-periodic correction. Method credited, enumerative result not implied.",
+        "evidence": [
+          "Preprints.org 202606.0590, posted June 9, 2026",
+          "DOI:10.3390/sym18071180, Section 4.1, proper q-coloring and tr(T_q^n J) formula"
+        ],
+        "identifier_or_url": "https://www.preprints.org/manuscript/202606.0590",
+        "material_read": "Preprint abstract, Section 1, transfer-matrix framework, and detailed published open-access Section 4.1 on the Möbius ladder; first posted date verified on preprint landing page.",
+        "method": "First-public-version preprint lookup followed by direct open-access paper full-text investigation of the relevant main theorems and transfer trace.",
+        "title": "Quartic Equimodular Curves and Spectral Reductions in Prism-Derived Chromatic Polynomials",
+        "trigger": "Earliest verified public motivating source, first posted June 9, 2026; same prism/Möbius families and a twisted transfer trace."
+      },
+      {
+        "assessment": "Not covering: counts neither all degree-two cuts nor cyclic-prism/Möbius comparison. A two-total-dominating-set partition is a stronger constraint than the counted one.",
+        "evidence": [
+          "arXiv:2611.00572, introduction paragraphs defining coupon colorings and Theorem 1.2/1.5; Section 2 Proposition 2.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.00572",
+        "material_read": "Direct PDF pages 1 and 4, abstract, introduction, Section 2 reformulations, theorems 1.2, 1.3, 1.5 and Proposition 2.3.",
+        "method": "Read first public preprint through full-text arXiv HTML and PDF page images.",
+        "title": "Total dominating sets and four-colorings of planar triangulations",
+        "trigger": "First publicly dated recent motivating graph-colouring paper, October 31, 2026, considering strong local two-color-class constraints."
+      },
+      {
+        "assessment": "Not covering in inspected material: general complexity and algorithmic treatment, without exact enumerators of the two named cubic ladders.",
+        "evidence": [
+          "arXiv:1905.03134, Abstract and Introduction §§1–3; Definition of d-Cut"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.03134",
+        "material_read": "PDF abstract, pages 1–4, d-cut definition, summary of algorithms; whole parsed document checked for prism, Möbius and enumeration terms.",
+        "method": "Direct preprint PDF text and page images; targeted searches in complete extracted text.",
+        "title": "Finding Cuts of Bounded Degree: Complexity, FPT and Exact Algorithms, and Kernelization",
+        "trigger": "Original general d-cut definitions and strongest directly relevant algorithmic literature."
+      },
+      {
+        "assessment": "Does not determine numbers of degree-two cuts or the two ladder seam formulas; covers existence under stronger constraints in a planar setting.",
+        "evidence": [
+          "Rotenberg, Rutschmann and Thomassen, Journal of Graph Theory, DOI:10.1002/jgt.70032"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.70032",
+        "material_read": "Accessible full-text journal page, abstract, statement of the existence result and related terminology.",
+        "method": "Direct scholarly article full-text page.",
+        "title": "Disjoint Total Dominating Sets in Planar Graphs",
+        "trigger": "Strong earlier existence results related to local two-class domination constraints."
+      },
+      {
+        "assessment": "Treats sparse-graph degree-bounded cut existence/density; no two-prism counting formula or six-periodic seam law. Later publication does not determine priority of the anchored motivating source.",
+        "evidence": [
+          "arXiv:2611.26556, main statements and the sparse-graph cut bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.26556",
+        "material_read": "Five-page preprint: abstract, relevant theorems, introduction and PDF page images.",
+        "method": "Direct public full-text PDF and page inspection.",
+        "title": "Edge cuts of bounded degree in sparse graphs",
+        "trigger": "Later closely worded source checked for possible stronger coverage; its November 19, 2026 date is AFTER the November 15 primary-source eligibility anchor and is not the motivating source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "37969253-5467-4a4a-9c3a-ab5996e4571a",
+  "value": {
+    "rationale": "This is a complete exact enumeration and a structural cancellation theorem for an infinite pair of natural cubic graph families, motivated by degree-bounded cuts and local graph colouring. The seam twist changes counts by no more than two despite each family having at least 2^(n-1)-1 cuts. The combinatorial involution isolates the exceptional configurations that can detect the twist, and the recurrences allow reproducible counts for arbitrary n. These are mathematically motivated invariants, not an arbitrary finite table.",
+    "status": "PASS"
+  }
+}
