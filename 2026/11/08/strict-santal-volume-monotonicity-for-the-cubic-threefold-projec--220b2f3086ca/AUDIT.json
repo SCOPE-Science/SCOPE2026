@@ -1,129 +1,134 @@
 {
   "correctness": {
-    "rationale": "The support-curvature Hessian proves a nonempty bounded convexity interval; symmetry forces the Santaló point to the origin. The support-volume integral with Bochner identity gives V=4π/3(1-s/7), the polar integral is an absolutely convergent series of exact spherical moments, and the explicit factorization of the ratio inequality proves every nonconstant product coefficient negative for all k≥1. A standalone independent exact/numerical checker corroborates key computations; endpoints follow by continuity.",
+    "rationale": "The original proof uses the spherical support-curvature matrix, Bochner identity, exact sphere even moments, geometric Santaló centering symmetry, and an all-k positive polynomial. Finite computational checks provide corroboration but not infinite-dimensional certification.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The classical Blaschke–Santaló inequality bounds the product by the ball product and characterizes equality, but does not order two distinct nonzero perturbations.",
-        "The 2026 symmetry paper proves that small cubic perturbations have threefold-symmetric projections but contains no global Santaló product ordering."
+        "The general Blaschke–Santaló theorem gives vol(K)vol((K−s(K))°)≤κ3², with equality only for ellipsoids; the reviewed path includes nonspherical constant-width bodies.",
+        "The curvature theorem covers the entire exact admissible interval, hence it can supplement the domain but not the polar integrals or coefficient inequalities.",
+        "Spherical support-volume and moment identities are classical ingredients but do not entail the all-parameter monotonic product result without explicit evaluation and positivity."
       ],
-      "reasoning": "A global maximum does not imply strict monotonicity along a parameterized path or the exact negative power-series coefficients, and the standard constant-width primal-volume identity does not determine the polar-volume factor.",
+      "reasoning": "A global upper bound at the ball neither orders two different nonball parameters nor yields the sharp 3/35 in-family quadratic coefficient. Known broad support-function inequalities therefore do not dominate the final claim by direct specialization.",
       "searches": [
-        "\"Mahler product\" \"constant width\" \"monotone\" Minkowski interpolation",
-        "full parameter range monotonicity of polar volume times primal volume for cubic constant-width three-fold projection body",
-        "Blaschke Santalo inequality volume product equality ellipsoid convex bodies overview"
+        "volume product convex bodies constant width perturbation harmonic local stability Blaschke Santalo series",
+        "Blaschke Santalo inequality volume product equality ellipsoid convex bodies overview",
+        "volume product polar volume cubic constant width convex body support 1+epsilon u1u2u3 hypergeometric"
       ]
     },
     "checked_sources": [
-      "arxiv:2609.27192, full accessible HTML and sections 1,3,5",
-      "Encyclopedia of Mathematics: Blaschke–Santaló inequality",
-      "Full published primary result texts for the cubic-family convexity threshold and brightness formula",
-      "Targeted published mathematical-record search for Mahler/polar-product/constant-width/cubic-harmonic aliases"
+      "https://arxiv.org/abs/2609.27192",
+      "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-convexity-threshold-for-the-cubic-constant-width-support-f--b3681da24cdc/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-brightness-profile-of-the-cubic-threefold-projection-excep--a6ac80c263be/RESULT.md",
+      "https://link.springer.com/article/10.1007/s11587-026-01184-8"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Myroshnychenko–Ryabogin–Saroglou, Theorem 5.4: the cubic harmonic is an example of threefold-symmetric projection bodies for sufficiently small amplitude.",
-        "Blaschke–Santaló: an ellipsoid maximizes the Santaló volume product among convex bodies.",
-        "Other searched results with the same cubic support function determine a convexity threshold or directional brightness, rather than polar-volume monotonicity.",
-        "Complete published RESULT.md texts for the same cubic family separately compute a sharp curvature threshold and planar brightness; neither contains the Santaló-volume product or polar-integral formula."
+        "Myroshnychenko–Ryabogin–Saroglou Theorem 5.4 proves support admissibility for small ε, not the Santaló center or product.",
+        "The full curvature source proves εc=3√6/8, so the new work does not claim this endpoint as new.",
+        "The full brightness source is a two-dimensional projection-area result, with no reciprocal support integral.",
+        "The Blaschke–Santaló theorem implies merely a nonstrict upper bound by the unit ball; it does not imply derivative negativity or exact b_k<0."
       ],
-      "reasoning": "The motivating projection-symmetry construction and general ball extremality provide ingredients and context but neither separately nor jointly give the hypergeometric formula or strict ordering of nonspherical bodies without the additional explicit polar integral and coefficient argument.",
+      "reasoning": "Taken individually or together, the earlier statements leave an explicit nontrivial calculation: polar volume from all even moments, its combination with the primal factor 1−s/7, and the strict inequality 7a_k<a_{k−1} for every k≥1. This survives as a bounded best-of-knowledge exact invariant.",
       "searches": [
-        "arxiv:2609.27192 Sections 1,3,5",
-        "Exact Santaló Mahler volume product for support h(u)=1+t u1u2u3 in R3, coefficient formula and strictly decreasing with |t|",
-        "full parameter range monotonicity of polar volume times primal volume for cubic constant-width three-fold projection body"
+        "https://arxiv.org/abs/2609.27192",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-convexity-threshold-for-the-cubic-constant-width-support-f--b3681da24cdc/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-brightness-profile-of-the-cubic-threefold-projection-excep--a6ac80c263be/RESULT.md",
+        "https://link.springer.com/article/10.1007/s11587-026-01184-8",
+        "Santaló volume Mahler product strict monotonicity cubic harmonic xyz support function threefold symmetric planar projections",
+        "volume product polar volume cubic constant width convex body support 1+epsilon u1u2u3 hypergeometric"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "arXiv:2609.27192 Sections 1, 3, 5 state the cubic symmetry construction and small-amplitude convexity; no Santaló-product formula is present in the inspected text.",
-        "Related descriptions titled \"Exact brightness profile of the cubic threefold-projection exception\" involve planar projection areas, not a three-dimensional polar volume product.",
-        "Complete published RESULT.md texts for the same cubic family separately compute a sharp curvature threshold and planar brightness; neither contains the Santaló-volume product or polar-integral formula."
+        "The motivating 2026 primary article, Proposition 5.1 and Theorem 5.4, constructs the exact odd cubic support perturbation and establishes threefold planar projection symmetry only for sufficiently small amplitude.",
+        "The earlier same-family brightness theorem gives b(n)=π−πε²∏(1−n_i²)/4, an area of 2D shadows, rather than a 3D polar volume or product.",
+        "The earlier same-family curvature theorem gives the exact support admissibility |ε|≤3√6/8 but no Santaló volume or monotonicity."
       ],
-      "reasoning": "The same support-function parameters alone do not imply equivalence: the novel claim evaluates a centered polar integral, then proves all-order negativity and full-path Santaló monotonicity. Brightness and support-curvature assertions do not state those conclusions.",
+      "reasoning": "Matching support h=1+εxyz is not equivalent mathematical content. Its planar brightness profile and endpoint curvature threshold concern different invariants and do not determine E[(1+εxyz)^−3], the hypergeometric profile, or the sign of every coefficient of the full volume product.",
       "searches": [
-        "Exact Santaló Mahler volume product for support h(u)=1+t u1u2u3 in R3, coefficient formula and strictly decreasing with |t|",
-        "\"Mahler product\" \"xyz\" support function body convex",
-        "\"threefold\" projection \"Mahler\" convex body"
+        "Santaló volume Mahler product strict monotonicity cubic harmonic xyz support function threefold symmetric planar projections",
+        "volume product polar volume cubic constant width convex body support 1+epsilon u1u2u3 hypergeometric",
+        "threefold projection symmetry cubic convex body Santalo product polar",
+        "\"u1u2u3\" \"Santalo\" volume product convex body",
+        "\"threefold\" \"Santaló\" \"projection\" cubic support volume"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The displayed coefficients arise from exact sphere even moments rather than lookup tables.",
-        "Searches for the same triple-product support family together with Mahler/Santaló, coefficient and hypergeometric aliases did not surface a matching exact table."
+        "Resultary semantic searches returned the present record and distinct Mahler families; the same-family convexity and brightness records do not tabulate the Santaló product.",
+        "The displayed a_k are exact uniform-sphere even moments and an ordinary hypergeometric series; no matching published coefficient table was found in the searched sources."
       ],
-      "reasoning": "No known table or database coverage was identified, but searches do not rule out unpublished, poorly indexed, or differently named exact formulas.",
+      "reasoning": "No matching exact database or table was identified. The negative searches are not a proof of absolute novelty; an unindexed exact-moment calculation remains a residual priority risk.",
       "searches": [
-        "Negative Taylor coefficients of volume product for xyz cubic harmonic perturbation of Euclidean ball",
-        "Mahler product spherical harmonic cubic perturbation exact coefficients convex body of constant width",
-        "\"volume product\" \"constant width\" \"cubic\" spherical harmonic"
+        "\"volume product\" \"constant width\" \"cubic\" spherical harmonic",
+        "\"Mahler product\" \"xyz\" support function body convex",
+        "Santaló volume Mahler product strict monotonicity cubic harmonic xyz support function threefold symmetric planar projections",
+        "published mathematical records cubic polar Mahler coefficient hypergeometric"
       ]
     },
-    "rationale": "Full inspection of the 2026 primary symmetry paper and direct comparisons with the general Santaló inequality and same-family convexity/brightness statements establish no implication of the new exact polar-integral profile or all-orders sign. Targeted mathematical-record and web searches found no equivalent or dominating result; historical priority remains provisional.",
+    "rationale": "The motivating projection-symmetry article and earlier exact same-family curvature and brightness records were compared on statements, hypotheses and implications; neither entails this exact polar product and global strict monotonicity. Absolute historical priority remains provisional.",
     "residual_risks": [
-      "Obscure or unindexed literature may contain an equivalent one-parameter polar-volume calculation or a stronger general theorem.",
-      "Only searchable summaries, not complete original documents, were available for the same-family curvature and brightness records; their described statements are distinct, but this is not a full-document novelty certificate.",
-      "The theorem does not provide a new sharp radical endpoint of the convexity interval; it operates intrinsically on the entire interval."
+      "Searches cannot certify worldwide historical priority; exact polar-volume expressions for xyz or harmonic constant-width perturbations may exist under older terminology.",
+      "The Blaschke–Santaló comparison was theorem-level rather than complete full-text review; its statement suffices for the limited non-implication asserted.",
+      "The exact convexity endpoint is earlier known and not new; the new theorem appropriately defines εc intrinsically and works up to it."
     ],
     "source_inspections": [
       {
-        "assessment": "Introduces and proves the projection-symmetry example and small-amplitude convexity, without stating the Mahler-product profile or path monotonicity.",
+        "assessment": "Cubic perturbation is the earlier construction; the paper does not compute the polar integral or Santaló product along its full convex path.",
         "evidence": [
-          "Theorem 1.2 and Theorem 5.4, Proposition 5.1, and Section 5.2 provide the exception.",
-          "Sections 1–6 and references focus on projection symmetries; no polar-volume formula or Santaló product theorem identified."
+          "Proposition 5.1: only Fourier modes 1 and 3 on any great circle; Theorem 5.4: sufficiently small nonzero ε has convex support and 3-fold projection symmetry; the section 5 proof is entirely about projection symmetry."
         ],
         "identifier_or_url": "https://arxiv.org/abs/2609.27192",
-        "material_read": "Accessible full HTML material, including Introduction, projection Fourier framework, and Section 5.1–5.2 and references",
-        "method": "Primary full text review and targeted volume/polar/Santaló terminology searches",
+        "material_read": "Complete accessible HTML full text (sections 1–6, especially Proposition 5.1, Remark 5.2 and Theorem 5.4 in section 5.2) plus references",
+        "method": "Full-text reading and targeted searches for Mahler, Santaló and volume; proposition/theorem implication comparison",
         "title": "On convex bodies with rotationally symmetric planar projections",
-        "trigger": "Exact cubic support family and its geometric motivation"
+        "trigger": "Identical support perturbation xyz and projection-symmetry motivation"
       },
       {
-        "assessment": "Only the upper envelope at the ball and equality class; insufficient to deduce strict monotonicity at every pair of nonzero amplitudes.",
+        "assessment": "Sharp domain |ε|≤3√6/8 is earlier known, but polar volume, Santaló center, global volume-product ordering and hypergeometric profile are not claimed.",
         "evidence": [
-          "The theorem supplies the ellipsoid upper bound, not an exact one-parameter formula."
+          "Eigenvalues of tangent curvature and extremum 4√6/9 yield |ε|≤3√6/8. No polar integral or volume product appears."
         ],
-        "identifier_or_url": "https://encyclopediaofmath.org/wiki/Blaschke-Santal%C3%B3_inequality",
-        "material_read": "Encyclopedia theorem statement, equality condition and discussion of affine isoperimetric context",
-        "method": "Textual statement-level implication comparison",
-        "title": "Blaschke–Santaló inequality",
-        "trigger": "Potential general theorem dominating the new volume-product comparison"
-      },
-      {
-        "assessment": "Computes every planar projected area for the same cubic support family, but neither defines nor computes the three-dimensional polar volume or Santaló product.",
-        "evidence": [
-          "Statement b(n)=π−(πε²/4)∏(1−n_i²), proved using restriction to planar Fourier harmonics; no polar-volume or product theorem anywhere in full result."
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-brightness-profile-of-the-cubic-threefold-projection-excep--a6ac80c263be/RESULT.md",
-        "material_read": "Complete public RESULT.md, including statement, support-function Fourier proof, verification, relationship and limitations",
-        "method": "Fetched complete primary result text and compared definitions, all theorem conclusions, and proof implications",
-        "title": "Exact brightness profile of the cubic threefold-projection exception",
-        "trigger": "Exact same cubic support parameters"
-      },
-      {
-        "assessment": "Proves the sharp admissibility interval |ε|≤3√6/8 using the tangent curvature operator, and no polar-volume or Mahler-product result. Its endpoint result is prior known; not a novelty claim of the current theorem.",
-        "evidence": [
-          "Theorem computes sup||∇²f+fI||=4√6/9 and sharp convexity range; no polar integral, Santaló center, hypergeometric formula, or strict Mahler-product monotonicity."
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-sharp-convexity-threshold-for-the-cubic-constant-width-support-f--b3681da24cdc/RESULT.md",
-        "material_read": "Complete public RESULT.md, including sharp support-curvature theorem, proof, verification, and prior-work discussion",
-        "method": "Fetched complete primary result text and compared equivalent support domains and computed invariants",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-convexity-threshold-for-the-cubic-constant-width-support-f--b3681da24cdc/RESULT.md",
+        "material_read": "Entire public primary RESULT.md including theorem, tangent eigenvalues, optimization proof, verification, relationship and scope",
+        "method": "Full primary statement and proof inspection through authorized GitHub read",
         "title": "Sharp convexity threshold for the cubic constant-width support family",
-        "trigger": "Same cubic family and convex parameter domain"
+        "trigger": "Identical cubic support family and possible stronger parameter range"
+      },
+      {
+        "assessment": "Computes 2D projection area b(n)=π−(πε²/4)∏(1−n_i²), not 3D polar volume or Santaló-product monotonicity.",
+        "evidence": [
+          "Planar support-area integral uses first/third Fourier harmonics; no 3D reciprocal support integral."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-brightness-profile-of-the-cubic-threefold-projection-excep--a6ac80c263be/RESULT.md",
+        "material_read": "Entire primary RESULT.md, from exact projected-area formula through proof, verification and prior work",
+        "method": "Full primary text and mathematical implication comparison",
+        "title": "Exact brightness profile of the cubic threefold-projection exception",
+        "trigger": "Identical support family and precise optical-area invariant"
+      },
+      {
+        "assessment": "Gives general ellipsoid upper bound, no ordering of two distinct ε or exact coefficient series.",
+        "evidence": [
+          "Theorem 2.8: |Ω| |Ω°_{s(Ω)}|≤ω_N², equality exactly for ellipsoids."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11587-026-01184-8",
+        "material_read": "Accessible theorem 2.8 statement and equality case; not claimed to have inspected the entire paper",
+        "method": "Theorem-level comparison of scope and implications",
+        "title": "Sharpness and planar stability of the Alexandrov–Bakelman–Pucci estimate: a convex geometric approach",
+        "trigger": "Contemporary explicit theorem statement of a potentially dominating Blaschke–Santaló upper bound"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "review_type": "scientific_assessment",
   "schema_version": 1,
-  "scope_run_id": "220b2f30-86ca-436b-9533-ff4480990094",
   "value": {
-    "rationale": "This canonical recently discovered obstruction to threefold-projection rigidity has a motivated affine invariant, its Santaló volume product. The theorem determines its complete convex-parameter profile and global monotonicity, yielding a sharp quadratic stability benchmark and an all-orders sign structure; these are not supplied by generic ball optimality or by known projection-area/convexity analyses.",
+    "rationale": "Determines the exact affine Santaló-product profile and sharp quadratic deficit for the canonical cubic threefold-projection family over its whole convex parameter interval, beyond previously known convexity and brightness invariants.",
     "status": "PASS"
   }
 }
