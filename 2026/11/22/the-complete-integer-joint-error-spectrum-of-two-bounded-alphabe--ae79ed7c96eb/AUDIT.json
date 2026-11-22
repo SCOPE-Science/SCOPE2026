@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each determinant fibre, modal row A, modal column B and modal cell M give exact deletion counts s-A, s-B, s-M. Four elementary capacity inequalities yield the stated endpoints after summing fibres. For each admissible integer m, the explicit four-block fractional matrix satisfies every capacity and exact marked-row/column/cell constraint. The lower-bounded bipartite network has integer capacities, so integral feasible circulation produces a table with precisely those maxima. The b=1 or c=1 cases reduce to a one-dimensional distribution. The proof covers all sizes, all target alphabets, and all integer values in the interval. Independent small-instance enumeration and a separate integral-flow construction checked 339613 tables, 3373 constructions, and 9984 multi-fibre instances; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miller and Harrison (2011) handle complete margins by recursive counting; the result does not state a closed feasible cell-maximum spectrum conditioned only on two marginal maxima.",
+        "Fröhlich et al. (2026) treat general approximate dependencies, but the highlighted inference deficiency involves a different multi-atom hypothesis set.",
+        "Cell-bounded contingency table counting techniques may algorithmically decide special instances but do not directly yield the claimed formula without a further extremal theorem."
+      ],
+      "reasoning": "Generality of objects is not a domination test by itself: a fixed-margin enumeration algorithm does not prove a sharp closed threshold when only the largest margins are specified. The new statement is all-n, all-b,c, all-admissible-error and integer-interpolating. A hidden stronger theorem in this broader literature remains a residual risk.",
+      "searches": [
+        "\"approximate functional dependencies\" \"joint\" \"binary\" \"error\"",
+        "\"maximum cell\" \"maximum row\" \"maximum column\" contingency table bounds",
+        "\"An FPRAS for Cell-Bounded Contingency Tables\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2608.16570",
+      "https://arxiv.org/abs/1104.0323",
+      "https://arxiv.org/abs/2402.05161",
+      "Selected published scientific summaries of two-dependence-atom disjunctions, finite obstruction spectra, and soft FD repairs; compared by their mathematical claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2608.16570 §2 gives deletion-based approximate dependence; §3 presents an additional semantic entailment, not the simultaneous two-output exact error frontier.",
+        "arXiv:1104.0323 Theorem 2.1 and Algorithm 2.2 enumerate matrices for a specified full row/column margin sequence, not an explicit largest-cell realizability threshold at prescribed largest row and column sums.",
+        "arXiv:2402.05161 §2 treats NULL-imputation strongly possible worlds and tuple addition as well as deletion, different hypotheses."
+      ],
+      "reasoning": "Our bound specializes to an alphabet-sensitive sharp implication from separate approximate dependencies to the joint output, with a complete spectrum rather than a single bound. A union bound r<=p+q follows from standard rules and is strictly weaker in some regimes (for example 20,2,3,8,12). Neither a strict inference rule for arbitrary alphabets nor fixed-margin enumeration explicitly implies the exact integer cutoffs without the new transportation argument.",
+      "searches": [
+        "\"Approximate Functional Dependencies—Implication Problem Revisited\" arXiv:2608.16570",
+        "\"Exact Enumeration and Sampling of Matrices with Specified Margins\" arXiv:1104.0323",
+        "\"Approximate Keys and Functional Dependencies in Incomplete Databases With Limited Domains\" arXiv:2402.05161"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fröhlich et al., arXiv:2608.16570 §§2–3 define row deletion errors and study a separate missing inference rule.",
+        "Miller and Harrison, arXiv:1104.0323 §§1–2 study nonnegative matrices with complete prescribed margin vectors, not fixed maxima of margins and cells.",
+        "Fréchet-type intersection inequalities imply one lower constraint on a modal cell but not the full integral feasibility interval."
+      ],
+      "reasoning": "The equivalent contingency-table translation is fixed total n, largest row A, largest column B, largest cell m. The four inequalities are necessary; an integral-flow sufficiency argument supplies the complete integer interval. No inspected source states this equivalence as a proved exact spectrum.",
+      "searches": [
+        "\"exact joint approximate functional dependency error spectrum with prescribed individual deletion errors and finite output alphabet sizes b c\"",
+        "\"finite contingency tables with fixed largest row sum A, largest column sum B, and attainable largest cell M interval\"",
+        "\"maximum joint probability\" \"maximum marginal probabilities\" coupling bounds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published records on exact satisfying-team enumerators for two dependence-atom disjunctions address lax splitting, not joint deletion cost.",
+        "Published records on two-FD soft repairing address weighted penalties or maximizing a subset subject to different constraints.",
+        "arXiv:2402.05161 studies strongly possible FDs with missing values and g3/g5 measures, not this complete-data pair-output spectrum."
+      ],
+      "reasoning": "No indexed exact table of all admissible triples with these parameter quantifiers was located. Checking the object, operation, and quantification rules out direct implication by the closest identified disjunction/repair statements; failure to find a table alone is not proof of uniqueness.",
+      "searches": [
+        "\"exact possible triples of largest row column cell sums nonnegative integer matrices\"",
+        "\"quantitative team semantics union dependence (x,y) and (x,z), sharp cardinality bounded implication\"",
+        "\"minimum deletions to satisfy two functional dependencies\""
+      ]
+    },
+    "rationale": "The 2026 full-text approximation paper gives a deletion-distance definition, missing-rule example and unary completeness, but does not present a closed feasible triple spectrum at fixed n and two target alphabet bounds. Classical fixed-margin contingency-table enumeration solves a richer numerical data input problem but does not state the compressed max-row/max-column/max-cell feasible interval or sharp approximate-dependence inference rule. Relevant published comparisons involving splitting disjunctions, soft repairs and minimal falsifiers concern distinct operations or measures. Current searched evidence shows no dominating explicit statement; residual historical-priority risk is acknowledged.",
+    "residual_risks": [
+      "A historical contingency-table theorem may have the same modal-marginal/cell feasibility interval under different names.",
+      "Search-index summaries cannot replace full-text comparison for every potentially relevant paper; no exhaustive priority certification is claimed.",
+      "Weighted samples, fixed identifier-free team schemas, and three-output dependence are not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the right error notion and motivates interaction, but inspected claims are a different general-implication witness and complexity results, not the exact two-output spectrum",
+        "evidence": [
+          "Definition 2.1 line 69: approximate dependence by removal of at most p-fraction of team",
+          "Section 3 Example 3.1: a composite 5-premise approximate entailment not produced by earlier rules",
+          "Section 5 Theorems 5.1–5.2: complexity results"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.16570",
+        "material_read": "Full-text HTML §§1–3, §5, and selected Appendix A argument as served in accessible text; §§4 and 6 contextual excerpts",
+        "method": "Read and compared formal definition, missing-rule example, unary restriction, model-checking claims, and appendix calculation",
+        "title": "Approximate Functional Dependencies—Implication Problem Revisited",
+        "trigger": "Same deletion-error semantics and joint-output interaction"
+      },
+      {
+        "assessment": "It computes counts for fully prescribed row and column sums; it does not state the present simple threshold for largest margin and cell values",
+        "evidence": [
+          "Section 2 Theorem 2.1 gives recursions indexed by complete margins",
+          "Algorithm 2.2 takes complete margins as input"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1104.0323",
+        "material_read": "Accessible full-text §§1–2 including Theorem 2.1, Algorithm 2.2 and their assumptions",
+        "method": "Read theorem and algorithm inputs, compared fixed full margins versus fixed maxima and a cell cap",
+        "title": "Exact Enumeration and Sampling of Matrices with Specified Margins",
+        "trigger": "Potential complete enumerator dominating contingency-table formulation"
+      },
+      {
+        "assessment": "Focuses on incomplete tables, imputation and different error measures; inspected sections do not cover the complete-data integer spectrum",
+        "evidence": [
+          "Introduction describes strongly possible worlds and NULL imputation",
+          "Definition section uses multiset/bag records and possible worlds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.05161",
+        "material_read": "Accessible full-text §§1–2 and abstract",
+        "method": "Read definitions and emphasized missing-data possible worlds, bag semantics and g3/g5 scope",
+        "title": "Approximate Keys and Functional Dependencies in Incomplete Databases With Limited Domains—Algorithmic Perspective",
+        "trigger": "Potential existing deletion-error g3 treatment for bounded alphabets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ae79ed7c-96eb-4f4e-af1a-f875cee08e6d",
+  "value": {
+    "rationale": "Approximate joint functional dependence is a natural database/team-semantic error measure. The theorem determines the entire exact feasible integer region for two output alphabets of arbitrary sizes, all team sizes and determinants, including a sharp alphabet-sensitive logical implication that can strictly improve the ordinary additive deletion bound. The integer interpolation and circulation construction allow exact stress-case generation rather than numerical examples. The quantified family and sharp optimality make this a motivated structural classification, not an arbitrary isolated finite table.",
+    "status": "PASS"
+  }
+}
