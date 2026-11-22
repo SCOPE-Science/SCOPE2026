@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T07:51:58.285105Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen source tree Git SHA-1 independently recomputed from 7 exact returned blob SHA-1 identities and matches 5444c52d0bd49ee39db8b8f033cb2b9f90bad473",
+        "Original RESULT.md Git blob 983875f91f7f762089d6097783d762c96bbeaf63 and verify.py Git blob 850f85d4383eb5763eff0037692f2a06d3ae424b actually read in full.",
+        "Independent computation file scope03_computation_evidence.json: 18 finite Toeplitz-Fp-lift SNF cases, 182 character-jet leading checks, with separate flat truncation cases; checked against proof, not used to infer all-prime claim.",
+        "Character orthogonality and unique extremal coefficients in RESULT.md §2 and exact Newton polynomial diagonal divisibilities in §3 support all p."
+      ],
+      "rationale": "The pair of parametrized parabolas has dot product st+ab s²t², exactly the displayed M. Over O=Z_p[ζ_p], the p−1 Fourier character table is invertible since p−1 is a unit; the nonzero-coordinate matrix becomes a 2×2 origin/trivial block with determinant Δ_c=Σ_{u≠0}(ζ^{u+c u²}−1) and a monomial diagonal of L_r(c)=Σ_{u≠0}ω(u)^r ζ^{u+c u²}. For E=p−1−r, the first nonzero binomial jet of L_r is at k=ceil(E/2), and its coefficient ±c^floor(E/2)/(floor(E/2)!) (or c^k/k!) is nonzero mod p for c≠0. Lower coefficients divisible by p carry valuation ≥p−1>k, preventing cancellation. For Δ_c, the first nonzero jet is at m=(p−1)/2 and a unit c^m/m!, while constant term vanishes; hence vπ(Δ_c)=m. The resulting complete curved sequence is 0,1,1,...,m,m. When c=0, an integral unitriangular monomial-to-Newton basis change of the p×p Fourier matrix and π^k-divisibility by column give diagonal exact valuations 0,...,p−1. The sums yield determinant valuations (p²−1)/4 and p(p−1)/2, nonsingularity and exact maximum inverse denominator exponents. Independently checked actual Git tree and 18 Toeplitz rank SNF cases plus 182 leading coefficients. Finite checks corroborate; proof handles every odd prime and each c including flat boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adolphson–Sperber 2012, eqs. (1.1)-(1.3), (6.3)-(6.4), Theorem 6.6: all twisted finite-field Laurent-polynomial additive sums have explicit minimum-weight Hasse coefficients and equality criterion.",
+          "This is a strictly broader exact valuation mechanism encompassing the nontrivial-character coefficients for all p and c.",
+          "The earlier same-matrix rank theorem gives the multiplicative-Hankel character factorization for every h(st), and standard quadratic Gauss-sum evaluation computes the remaining r=0 difference Δ_c to valuation (p−1)/2."
+        ],
+        "reasoning": "The two-part combination is mathematically decisive: the universal older twisted-exponential-sum result supplies every nontrivial Smith exponent via one substitution, while an earlier published exact-matrix decomposition supplies the Smith reduction; the trivial-character 2×2 block is a classical quadratic Gauss sum, and the flat case is the standard cyclotomic Fourier Newton–Vandermonde argument. The prior general theorem need not print the specialized Smith tuple to cover it as a corollary. Neither distinct hyperbola nor conic valuation spectra alone imply it.",
+        "searches": [
+          "arXiv:1209.2448 full primary §1,§5-6 p-adic valuation and Hasse invariants for A={1,2}",
+          "arXiv:2604.26234v1 §1-2 general twisted Laurent-polynomial sum valuation results",
+          "Resultary Nov 1 exact quadratic phase matrix rank proof",
+          "Resultary Nov 8 conic/hyperbola Smith valuation classifications"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1209.2448",
+        "https://arxiv.org/html/2604.26234v1",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-cyclotomic-smith-form-and-quadratic-obstruction-for-cross-hyperb--03c160dd087e/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-local-smith-invariants-and-self-fourier-uniqueness-for-prime-fie--00de0fcdd929/RESULT.md",
+        "Resultary semantic search: 3 actual queries (parabolic Smith, twisted quadratic valuations, parabola determinant)",
+        "Assigned seven-file frozen Git tree https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/curvature-dichotomy-for-cyclotomic-smith-invariants-of-finite-pa--df4add206c9d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier same-matrix formula h(u)=αu+βu² and multiplicative-character eigenvalue decomposition in Nov 1 RESULT.md. Setting α=1, β=ab gives the precise assigned matrix.",
+          "Adolphson–Sperber 2012 (6.3)-(6.4) with A={1,2}, e=p−1−r, coefficients (1,c), gives vπ(L_r)=ceil((p−1−r)/2) for c≠0, since there is a unique leading monomial with coefficient a p-adic unit.",
+          "Δ_c = ζ_p^(−(4c)^−1)(c/p) G_p − p by completing the square, where quadratic Gauss sum G_p has local valuation (p−1)/2; this yields the remaining 2×2 Smith block. The flat Fourier matrix 0..p−1 exponents follow from Newton/Vandermonde."
+        ],
+        "reasoning": "All essential nontrivial curved valuations are an immediate specialization of a theorem published in 2012. The earlier exact-matrix character reduction plus classical Gauss and Fourier-Vandermonde complete the submitted classification, including determinants and maximal denominators. Therefore the central advertised prime-uniform arithmetic invariant is previously determined by mathematical implication. The assigned proof is a valid self-contained derivation but cannot claim an independently unknown theorem based solely on an unprinted specialized tuple.",
+        "searches": [
+          "arXiv:1209.2448v1 original PDF page 1 and pp. 16-17 eq (6.3), Theorem 6.6",
+          "Published Resultary 2026/11/1 Sharp rank trichotomy quadratic-phase Fourier sampling RESULT.md full text",
+          "arXiv:2604.26234v1 The p-powers dividing certain exponential sums full HTML §§1-2",
+          "Resultary 2026/11/8 cross-hyperbola and norm-one-conic Smith RESULTS full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matrix M(s,t)=ζ_p^{h(st)} with h(u)=u+c u²; the published same-matrix determinant factorization reduces M to a trivial-character/origin block plus twisted multiplicative Fourier coefficients.",
+          "Adolphson–Sperber S(f_λ,e)=Σ_{x∈F_p^×}ω(x)^{-e} ζ_p^{λ1 x+λ2 x²} is exactly L_r upon e=p−1−r, λ1=1, λ2=c.",
+          "Their §6 first-jet congruence and Hasse-nonvanishing equality test calculate the exact local valuation of each such L_r."
+        ],
+        "reasoning": "This is a literal identity of exponential sums, not a title or parameter resemblance. Every r=1,...,p−2 corresponds to e=p−1−r. For e between 1 and p−2, the unique minimal nonnegative solution of u1+2u2≡e mod p−1 has (u1,u2)=(e mod 2,floor(e/2)), so the general leading coefficient is ±c^floor(e/2)/((e mod2)!floor(e/2)!), nonzero mod p for c≠0. The resulting valuation is ceil(e/2) exactly. The denominator/Smith conclusion then follows by already published integral character diagonalization and elementary block decomposition.",
+        "searches": [
+          "Resultary semantic: cyclotomic local Smith invariant Fourier restriction finite parabola P_a P_b quadratic multiplicative phase",
+          "Resultary semantic: p-adic twisted quadratic Gauss sum valuation characters finite field Fourier matrices diagonal via multiplicative characters",
+          "Web: cyclotomic Smith parabolic Fourier matrix st+c s²t² twisted Gauss exact p-adic valuations",
+          "arXiv:1209.2448v1 §1 and §6 equation (6.3) and Theorem 6.6",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search surfaced the assigned exact-record mirror (self, excluded from prior art), Nov 1 exact-matrix rank theorem, and distinct conic and hyperbola Smith records, but not a separate earlier same-table listing.",
+          "The 2012 primary paper already supplies a general exact calculation framework whose explicit specialization yields the same complete nontrivial valuation table, so absence of an independently indexed identical table does not make this table original."
+        ],
+        "reasoning": "An exact pre-existing database row for this precise parabolic pair was not independently verified, but database absence is immaterial: the earlier published stronger general formula determines the entries. The assigned record itself is excluded as independent evidence of priority.",
+        "searches": [
+          "Resultary semantic: parabola finite-field Fourier determinant Smith normal form cyclotomic",
+          "Resultary semantic: exact local Smith exponents 0,1,1,2,2 quadratic product Fourier matrix",
+          "Web search finite parabola Fourier minor Smith invariant factors cyclotomic",
+          "arXiv 1209.2448 eq 6.3 exact polynomial leading-coefficient formula"
+        ]
+      },
+      "rationale": "The full old primary 2012 Adolphson–Sperber theorem (arXiv:1209.2448v1, eqs (1.2)-(1.3),(6.3)-(6.4), Theorem 6.6) explicitly computes exact first nonzero p-adic coefficients of all twisted finite-field exponential sums. For its A={1,2}, e=p−1−r, and λ=(1,c≠0), the unique minimal weight monomial directly yields the submitted all-prime valuations vπ L_r=ceil((p−1−r)/2). An earlier published 2026-11-01 exact-matrix rank theorem supplies the same product-phase Fourier matrix and its multiplicative-character determinant splitting, while classical quadratic Gauss evaluation yields the remaining two-dimensional block and Newton/Vandermonde gives the flat boundary. Thus the complete Smith tuple and claimed curvature dichotomy are short specializations/corollaries of stronger published theory plus the same-matrix reduction. No independent non-implied invariant remains. A negative exact-table search does not rescue originality; assessed mathematical implications rather than matching titles.",
+      "residual_risks": [
+        "Full global priority bibliography is necessarily bounded. The 2012 theorem is an implication-based coverage argument, not an explicit printed matrix Smith list.",
+        "A separate independently useful higher-level physical sampling synthesis might be motivated, but the submitted exact valuation tuple has no non-implied part after the older Hasse-invariant formula and same-matrix reduction.",
+        "Signed continuation recovery preserves sequence but does not certify this or previous science."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader exact local valuation formula. Specialization determines every nontrivial multiplicative-character Smith mode, with unique nonzero Hasse monomial for nonzero c. Does not literally formulate the final Smith tuple; combined with already published exact-matrix block decomposition it implies it.",
+          "evidence": "§1 equation (1.1) definition of S(fλ,e), §6 equations (6.3),(6.4), Theorem 6.6 and subsequent H(λ) nonvanishing valuation equality; page 17 displays the explicit congruence.",
+          "identifier_or_url": "arXiv:1209.2448v1 (11 September 2012), https://arxiv.org/pdf/1209.2448",
+          "material_read": "Full 22-page PDF accessible; material examined: statement/definitions pages 1-2, relevant minimum-weight section and pages 16-17 equations (6.2)-(6.5) and Theorem 6.6; original page images inspected for mathematical signs and congruences",
+          "method": "Primary arXiv PDF text, targeted full-text search, original page screenshots of pages 16 and 17; direct substitutions of A={1,2}, e=p−1−r and λ=(1,c)",
+          "title": "Hasse invariants and mod p solutions of A-hypergeometric systems",
+          "trigger": "Same multiplicatively twisted additive quadratic exponential sums and exact p-adic first nonzero coefficient"
+        },
+        {
+          "assessment": "Documents broad existing valuations and connects to Adolphson–Sperber; its lower bounds alone do not establish every exact Smith exponent, so decisive exact coverage rests on the earlier 2012 Hasse congruence.",
+          "evidence": "§1 defines ω(x)^b ψ(F(x)) for arbitrary Laurent polynomial, and §2 derives divisibility/valuation controls; introduction identifies 1993 and later Adolphson–Sperber theory.",
+          "identifier_or_url": "arXiv:2604.26234v1 (29 April 2026), https://arxiv.org/html/2604.26234v1",
+          "material_read": "Accessible complete HTML; examined introduction, definitions, Theorem 1.2 and section 2 valuation context and cited Adolphson–Sperber results",
+          "method": "Full public arXiv HTML opened and material sections searched and read",
+          "title": "The p-powers dividing certain exponential sums",
+          "trigger": "Potential general valuation bound for same mixed additive/multiplicative character sums"
+        },
+        {
+          "assessment": "Prior work proves rank and the exact multiplicative character reduction for the identical quadratic product-phase Fourier matrix; it does not print the Smith list but supplies its essential reduction.",
+          "evidence": "RESULT.md §§1-3: det H_h=∏χ∑_{u≠0}χ(u)(ζ^{h(u)}−1), and for α≠0 the exact rank is p. Take α=1, β=ab.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md",
+          "material_read": "Entire published RESULT.md including definitions, determinant factorization, rank proof and scope",
+          "method": "Read GitHub public full mathematical source",
+          "title": "Sharp rank trichotomy for quadratic-phase Fourier sampling on a prime-field parabola",
+          "trigger": "Exact same p×p matrix family and Fourier-character decomposition"
+        },
+        {
+          "assessment": "Distinct Laurent phase u+c/u on hyperbola without zero index. It illustrates known local character methods but does not itself specialize to u+c u².",
+          "evidence": "The full theorem uses st+ab/(st) and square-class vanishing, unlike the parabolic st+ab(st)² matrix.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-cyclotomic-smith-form-and-quadratic-obstruction-for-cross-hyperb--03c160dd087e/RESULT.md",
+          "material_read": "Full published RESULT.md including all formulae, proofs and limitations",
+          "method": "Read GitHub public mathematical source",
+          "title": "Cyclotomic Smith form and quadratic obstruction for cross-hyperbola Fourier sampling",
+          "trigger": "Close prime-field cyclotomic-local Smith classification by character diagonalization"
+        },
+        {
+          "assessment": "Conic Bessel/torus convolution is a different support set and phase; no direct implication to parabolic matrix, though technical character diagonalization is shared.",
+          "evidence": "Exact conic multiplicative characters have exponents min(r,N−r); geometric index set and two-dimensional origin block differ.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-local-smith-invariants-and-self-fourier-uniqueness-for-prime-fie--00de0fcdd929/RESULT.md",
+          "material_read": "Full published RESULT.md with proof and assumptions",
+          "method": "Read GitHub public mathematical source",
+          "title": "Local Smith invariants and self-Fourier uniqueness for prime-field norm-one conics",
+          "trigger": "Prior cyclotomic Smith valuations of another natural quadratic curve"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "https://arxiv.org/pdf/1209.2448 eq (6.3), Thm 6.6",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md",
+        "Independent source proof and computation checks show correct but covered special case"
+      ],
+      "rationale": "Prime-field parabolic Fourier sampling and the arithmetic precision of its inverse are natural and physically/mathematically motivated. Nevertheless the supposed exact new p-adic invariant is mechanically determined by the older general Hasse-invariant coefficient theorem plus previously published matrix character reduction, with only standard quadratic Gauss-sum and Newton-Vandermonde boundary calculations left. The submitted phase transition is an instructive application/benchmark but introduces no independently unknown exact natural invariant, structural obstruction or new lemma beyond this specialization. Correct proof and reproducible finite tests alone do not establish separate contribution.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1209.2448",
+    "https://arxiv.org/html/2604.26234v1",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-cyclotomic-smith-form-and-quadratic-obstruction-for-cross-hyperb--03c160dd087e/RESULT.md",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-local-smith-invariants-and-self-fourier-uniqueness-for-prime-fie--00de0fcdd929/RESULT.md",
+    "Resultary semantic search: 3 actual queries (parabolic Smith, twisted quadratic valuations, parabola determinant)",
+    "Assigned seven-file frozen Git tree https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/curvature-dichotomy-for-cyclotomic-smith-invariants-of-finite-pa--df4add206c9d"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Claims are for odd prime fields, positive standard additive character, unnormalized p×p Fourier matrix, and local cyclotomic DVR Smith factors; not global integer Smith or Archimedean condition number.",
+    "Finite Toeplitz/character checks corroborate finitely many primes only; the proof uses universal character orthogonality and polynomial degree arguments.",
+    "The scientific rejection is substantive known general valuation coverage, not source-access failure.",
+    "Publication transport not ready owing to public-file confidentiality and antecedent-date issues."
+  ],
+  "residual_risks": [
+    "Full global priority bibliography is necessarily bounded. The 2012 theorem is an implication-based coverage argument, not an explicit printed matrix Smith list.",
+    "A separate independently useful higher-level physical sampling synthesis might be motivated, but the submitted exact valuation tuple has no non-implied part after the older Hasse-invariant formula and same-matrix reduction.",
+    "Signed continuation recovery preserves sequence but does not certify this or previous science."
+  ],
+  "schema_version": 1
+}
