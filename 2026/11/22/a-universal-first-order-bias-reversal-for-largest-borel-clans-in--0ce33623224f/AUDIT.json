@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact Poisson no-exceedance exponent uses the Borel mass and the pooled intensity n*mu*delta. A uniform weighted Stirling expansion of p_k at k/n >= x0 bounds all higher terms after summation and gives the n^-1/2 coefficient; moving threshold discretization has order n^-1 only. J's derivative proves a single root. Direct exact numerical Borel-tail calculations for n=400, 1600, 6400 and 4 thresholds converge to the stated coefficient; these tests are corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Basrak–Milinčević–Žugec, arXiv:2203.13507, pp. 1–5 and 14–16: maxima of marks in renewal/Hawkes clusters; the Borel total cluster size appears as background.",
+        "General Poisson process and inverse-Gaussian subordinator representations are standard."
+      ],
+      "reasoning": "Generic point-process convergence implies a possible leading extreme law once the model-specific Borel scaling is proved, but does not establish the explicit O(n^-1/2) signed coefficient or a unique cancellation point. The cluster-extremes paper concerns mark maxima with fixed offspring parameters, not this moving critical branch-size maximum.",
+      "searches": [
+        "\"Borel\" \"maximum\" \"near critical\" \"correction\" Poisson branching forest",
+        "Galton Watson forest largest tree second order asymptotics near critical Borel finite size scaling correction",
+        "Basrak Milincevic Zugec On extremes of random clusters marked renewal cluster processes arxiv pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1017/S1748499524000198",
+      "https://arxiv.org/pdf/2203.13507",
+      "https://reference.wolfram.com/language/ref/PoissonConsulDistribution.html",
+      "https://doi.org/10.1515/dma-2023-0019"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The claimed theorem follows from the exact Poisson no-exceedance identity and a second-order weighted Stirling expansion of the Borel mass, rather than from the known total-sum IG limit.",
+        "Faroughi–Li–Ren (2024) establishes the exact Borel mass; Basrak et al. (2022) addresses maxima of marks, not a signed critical-window clan-size correction."
+      ],
+      "reasoning": "Earlier results provide premises, not a dominating assertion: neither a formula for the total sum nor a general leading-order extreme-value convergence supplies the model-specific n^-1/2 coefficient or proves its one-root sign phase. This comparison does not establish absolute historical uniqueness.",
+      "searches": [
+        "generalized Poisson random variable Borel total progeny fixed mean near critical maximum clan size signed finite size CDF correction",
+        "\"Borel\" \"maximum\" \"near critical\" \"correction\" Poisson branching forest",
+        "\"largest\" \"Borel\" \"inverse Gaussian\" \"correction\" Poisson",
+        "Galton Watson forest largest tree second order asymptotics near critical Borel finite size scaling correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Faroughi–Li–Ren (2024) §2.3 gives the Poisson–Borel decomposition, but not an extreme-of-clans first correction.",
+        "Wolfram Research PoissonConsulDistribution Properties & Relations gives an inverse-Gaussian limit for a normalized total count, not the maximum clan statistic."
+      ],
+      "reasoning": "The equivalent branching-forest/compound-Poisson formulation was explicitly checked. A sum limit cannot furnish the signed correction for the maximum because the sum and maximum are different nonlinear functionals of the clan-size point process.",
+      "searches": [
+        "generalized Poisson random variable Borel total progeny fixed mean near critical maximum clan size signed finite size CDF correction",
+        "Borel maximum Galton Watson forest near critical Stirling correction Poisson excursion family threshold",
+        "maximum Borel family inverse Gaussian Levy jump intensity sharp first-order correction sign crossing upper tail"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram reference https://reference.wolfram.com/language/ref/PoissonConsulDistribution.html lists distributional transformations and total-count IG limit but no Borel clan maximum or asymptotic correction.",
+        "The 2024 generalized-Poisson article gives probability and moment formulas but no tabulated maximal-clan correction."
+      ],
+      "reasoning": "No checked table provides the stated first-order coefficient J or its root; a special limit of sums or a fixed-parameter moment table would not imply the statement.",
+      "searches": [
+        "maximum Borel family inverse Gaussian Levy jump intensity sharp first-order correction sign crossing upper tail",
+        "PoissonConsulDistribution BorelTanner inverse Gaussian limit Wolfram documentation"
+      ]
+    },
+    "rationale": "The exact law and the Borel compound representation are established, and the inverse-Gaussian limit for *sums* is already in Wolfram documentation. Neither the model source nor the closely related full-text cluster-extremes paper gives the explicit first finite-sample correction to the largest Borel-clan CDF or its universal unique cancellation threshold. Relevant local-history claims and the research search engine were checked by statement and mathematical implication, not only titles. Some historical-priority risk remains.",
+    "residual_risks": [
+      "The abstract-only 2023 maximal-tree forest article is not full-text inspected; its model appears different but historical priority is not exhaustively settled.",
+      "Older branching-process monographs and every possible second-order extreme-value result could not be exhaustively inspected.",
+      "Known inverse-Gaussian total-count asymptotics must not be misrepresented as novel; only the maximum-clan first signed finite-size correction is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains Borel/GP structure, no critical moving-window largest-clan finite-size correction",
+        "evidence": [
+          "Cambridge full article §§2.3–5: compound Poisson of Borel variables, actuarial total/claims, size-bias transforms; first online date September 18, 2024"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S1748499524000198",
+        "material_read": "Accessible full HTML: Sections 2.2–2.4, 3–5 and references including moment transforms and compound representation",
+        "method": "Read publicly accessible paper text; compared actual pmf/PGF, extremal statistic, asymptotic regime and stated results",
+        "title": "Generalized Poisson random variable: its distributional properties and actuarial applications",
+        "trigger": "Exact same generalized Poisson objects and natural Borel compound representation"
+      },
+      {
+        "assessment": "Maximizes event marks, uses Borel clan size as background; no first order largest-clan-size CDF correction",
+        "evidence": [
+          "arXiv:2203.13507 pp. 14–16, Hawkes subsection, H=max of X_j marks; Borel variable K+1 is the number of events in a cluster"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2203.13507",
+        "material_read": "Lawful arXiv full text: abstract, Introduction, Section 2 and Section 4.3 including pp. 14–16, plus relevant theorem statements",
+        "method": "Inspected PDF text and page images, focusing on what is maximized and whether parameters approach criticality",
+        "title": "On extremes of random clusters and marked renewal cluster processes",
+        "trigger": "Most plausible general extreme-value domination; Borel cluster sizes in Hawkes case"
+      },
+      {
+        "assessment": "Strong coverage of the total-sum IG limit; does not imply maximum-clan signed correction",
+        "evidence": [
+          "Wolfram 2016 modified documentation, lines headed Properties & Relations; parameter product kept constant for total count IG limit"
+        ],
+        "identifier_or_url": "https://reference.wolfram.com/language/ref/PoissonConsulDistribution.html",
+        "material_read": "Full relevant Properties & Relations, sum-closure and IG limit examples, original 2010/modified 2016 attribution",
+        "method": "Compared normalized total counts and infinite divisibility to the different maximum statistic and signed finite-size term",
+        "title": "PoissonConsulDistribution",
+        "trigger": "Well-known inverse Gaussian near-critical limit of the same generalized Poisson distribution"
+      },
+      {
+        "assessment": "The abstract uses power-tail offspring and forest conditioned on fixed total size, not the Poisson-offspring unconditional critical path; historical comparison remains limited",
+        "evidence": [
+          "2023 abstract: offspring mass difference of shifted power functions; N and conditioned number of nonroot vertices n tend to infinity"
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/dma-2023-0019",
+        "material_read": "Abstract and bibliographic record; full paper not accessible",
+        "method": "Compared offspring law, conditioning, and asymptotic target from abstract; did not infer noncoverage from unread full text",
+        "title": "Limit theorems for the maximal tree size of a Galton–Watson forest in the critical case",
+        "trigger": "Plausible title on maximal tree sizes in GW forests"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0ce33623-224f-46f9-b575-2b31a8b70571",
+  "value": {
+    "rationale": "For a fixed-mean, near-critical count model the maximal offspring clan is a natural severe-cascade risk statistic. A signed n^-1/2 error quantifies which extreme tail estimates are conservative, and a unique universal cutoff specifies where the error reverses and cancels to order n^-1. This is materially stronger than known total-count inverse-Gaussian convergence or elementary moment calculations; the correction is a model-specific, exact and naturally needed calibration.",
+    "status": "PASS"
+  }
+}
