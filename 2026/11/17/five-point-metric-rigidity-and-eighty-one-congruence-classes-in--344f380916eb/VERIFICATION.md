@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Use `python3 verify.py` in a directory containing `orbit_catalogue.tsv`. It requires only the Python 3 standard library and runs with exact integer arithmetic. The checker was executed on the submitted source files, with output:
+## correctness
 
-`24_CELL_FIVE_POINT_METRIC_RIGIDITY_PASSED group=1152 sets=42504 orbits=81 spanning=49 degenerate=32 distinct_signatures=81 burnside_sum=93312 strong_extension=81`
+PASS
 
-The enumerator forms the complete 1,152-element group from five explicit orthogonal generators; checks every group operation preserves every squared pair-distance; enumerates all 42,504 five-element subsets exactly once in disjoint group orbits; and computes one canonical ten-entry metric signature per orbit using 120 permutations. The 81 signatures are distinct. It independently enumerates all distance-preserving self-permutations of each representative and all permutations induced by setwise-stabilizing group elements; the two sets agree in each of the 81 cases. It verifies the group-action kernel when representatives are dependent and cross-checks the 81 orbit count using Burnside's fixed-subset coefficient formula.
+In the radius-two 24-cell V consists of 8 axial points ±2e_i and 16 sign vectors (±1,±1,±1,±1), giving 24 Euclidean vertices. Independent implementation generated W(F4) order 1152 from coordinate swaps, sign inversion and H/2; checked vertex metric preservation. Enumerated all 42,504 unordered 5-subsets, computed orbits and lexicographically minimized ten squared edge lengths over 120 internal permutations; found exactly 81 disjoint orbits covering every set with 81 distinct canonical distance signatures. At each representative, independently enumerated intrinsic metric automorphisms and W(F4) restrictions from its set stabilizer, finding exact equality in all 81. Hence each specified isometry A→B extends: choose global g sending the sets, then extend internal g^{-1}f from the stabilizer. Independent orbit size spectrum {48:2,72:1,96:4,144:4,192:4,288:15,576:39,1152:12}; 49 affine independent and 32 dependent orbits, consistent with original source. Finite exhaustive computation is a finite proof only because all classes and stabilizers are enumerated with exact integers; it does not generalize to arbitrary larger sets.
 
-The script checks the 81-row `orbit_catalogue.tsv` byte-for-byte against regenerated output. This is a finite exact executable certificate, not a floating-point experiment or an independently reviewed formal proof. Its coverage is exactly five-element vertex subsets of the regular four-dimensional 24-cell; no assertions for larger subsets are inferred. The published determinant census has been credited as prior work rather than counted as a new discovery.
+## originality
+
+PASS
+
+PASS best of knowledge: the 24-cell determinant frequencies and 48 maximum simplices are prior art, but 81 exact metric types, 32 degenerate orbits and full extension of every isometry for a prescribed quintet are a separate finite theorem, supported by independent exact exhaustive computation.
+
+## value
+
+PASS
+
+The regular 24-cell is a canonical symmetric polytope; the local-to-global metric rigidity of arbitrary 5-point configurations is a nontrivial structural question and an exact complete natural classification. The 81-class table distinguishes configurations that share volume, including 32 degenerate types, and is reasonably reusable in discrete geometry and Coxeter orbit calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

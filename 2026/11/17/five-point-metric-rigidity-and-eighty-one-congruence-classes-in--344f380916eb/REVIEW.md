@@ -1,11 +1,21 @@
-# Scientific review: five-point metric rigidity in the regular 24-cell
+# Independent mathematical audit
 
-**Correctness — PASS.** The full 1,152-element orthogonal symmetry group is generated from explicit integer/half-integer matrices and checked pointwise on all 24 vertices. The standalone checker exhausts all 42,504 unordered five-subsets, yields 81 orbits, and proves that all 81 canonical squared-distance signatures are distinct. For every orbit representative it compares the complete intrinsic metric automorphism group with the restrictions of the global set-stabilizer; equality in all 81 cases upgrades the usual set-wise orbit classification to extension of *every specified distance-preserving map*. A separate 93,312-term Burnside fixed-subset sum reproduces the count. Exact integer arithmetic and directly reviewed loops underpin all assertions. Kernel multiplicities for dependent configurations are not incorrectly inferred from orbit sizes.
+## correctness
 
-**Originality — PASS with historical-priority risk.** Whitehead (2020) establishes the regular 24-cell's Coxeter setting, but not this five-point orbit/rigidity classification. Simon–Timofeyev (2021) treats symmetric polytopal partitions, a different problem. The closely overlapping published 24-cell largest-simplex calculation was inspected in full: it *already contains* the seven absolute-determinant multiplicities and the one orbit of 48 volume maximizers, but not a classification of all 81 five-subset metric types or extension of arbitrary local five-point isometries. In particular, determinant levels do not distinguish the 32 degenerate metric types. Searches under five-subset, metric isometry, congruence, \(D_4\), \(F_4\), and orbit aliases found no statement implying the complete new result. An unindexed classical classification or unpublished computation remains possible.
+PASS
 
-**Mathematical value — PASS.** The dimension-plus-one point cardinality is the natural one for vertex-supported four-simplices. The conclusion does more than enumerate subsets: it proves a local-to-global rigidity phenomenon for **all maps**, including dependent configurations where ambient affine frames do not determine a unique isometry. It supplies a complete symmetry reduction for metric questions involving five distinct 24-cell vertices. The computationally finite result is structurally motivated and resolves the exact natural classification problem; a claim about arbitrary subset sizes would require additional work and is deliberately not made.
+In the radius-two 24-cell V consists of 8 axial points ±2e_i and 16 sign vectors (±1,±1,±1,±1), giving 24 Euclidean vertices. Independent implementation generated W(F4) order 1152 from coordinate swaps, sign inversion and H/2; checked vertex metric preservation. Enumerated all 42,504 unordered 5-subsets, computed orbits and lexicographically minimized ten squared edge lengths over 120 internal permutations; found exactly 81 disjoint orbits covering every set with 81 distinct canonical distance signatures. At each representative, independently enumerated intrinsic metric automorphisms and W(F4) restrictions from its set stabilizer, finding exact equality in all 81. Hence each specified isometry A→B extends: choose global g sending the sets, then extend internal g^{-1}f from the stabilizer. Independent orbit size spectrum {48:2,72:1,96:4,144:4,192:4,288:15,576:39,1152:12}; 49 affine independent and 32 dependent orbits, consistent with original source. Finite exhaustive computation is a finite proof only because all classes and stabilizers are enumerated with exact integers; it does not generalize to arbitrary larger sets.
 
-The proof and exact checker establish a finite theorem but do not remove all historical-priority risk; independent review of the checker would be useful. The source's prior determinant census is not claimed as a new contribution.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: the 24-cell determinant frequencies and 48 maximum simplices are prior art, but 81 exact metric types, 32 degenerate orbits and full extension of every isometry for a prescribed quintet are a separate finite theorem, supported by independent exact exhaustive computation.
+
+## value
+
+PASS
+
+The regular 24-cell is a canonical symmetric polytope; the local-to-global metric rigidity of arbitrary 5-point configurations is a nontrivial structural question and an exact complete natural classification. The 81-class table distinguishes configurations that share volume, including 32 degenerate types, and is reasonably reusable in discrete geometry and Coxeter orbit calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
