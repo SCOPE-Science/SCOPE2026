@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The formula C_theta-uv=theta (u f(u))(v f(v))/(1-theta f(u)f(v)) is exact. Hoeffding integration by parts identifies this kernel with the centered one-step covariance form. Positive theta with theta f(0)^2<1 yields a uniformly differentiable Gram series and a trace-class nonnegative operator; Vandermonde linear independence on any distinct nodes gives infinite positive rank, and the spectral measure on [0,1] implies complete monotonicity at every lag. For theta=-a<0, the Cauchy determinant of every m-by-m kernel sample equals (-1)^{m(m+1)/2} a^{m(m+1)/2} times a strictly positive factor; leading pivot signs (-1)^j give precisely floor(m/2) positive and ceil(m/2) negative eigenvalues. Smooth derivative-bump approximation transfers arbitrarily large signed subspaces to the compact Markov operator, proving infinitely many nonzero eigenvalues of each sign. Finite determinant calculations were replayed from the included checker through m=6 and a two-node exponential example was numerically corroborated; the all-m proof is analytic. The copula and positive-denominator assumptions are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1007/s00362-024-01559-9, Theorems 2.2-2.3, spectral representation for all square-integrable symmetric copula densities",
+        "Classical Cauchy double-alternant identity yields finite determinant formula when the ratio covariance kernel is explicitly recognized"
+      ],
+      "reasoning": "A general Hilbert-Schmidt eigenfunction theorem ensures that real eigenvalues exist but does not determine their signs, let alone show infinitely many of both signs for all negative admissible ratios. The standard Cauchy determinant identity is a critical proof ingredient; its matrix algebra alone makes no assertion about the stationary copula-chain observable spectrum, and the bump-function/spectral transfer is supplied explicitly. No stronger published model-specific result implying the final sign phase theorem was found.",
+      "searches": [
+        "symmetric ratio copula kernel inertia Cauchy infinite negative positive spectrum",
+        "copula stationary Markov chain indefinite spectrum negative quadrant dependent positive eigenvalues rational kernels Cauchy determinant",
+        "reversible copula Markov kernel stationary covariance completely monotone autocorrelation for positive dependence parameter negative parameter mixed spectrum"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/math12111743",
+      "https://doi.org/10.1007/s00362-024-01559-9",
+      "https://doi.org/10.1007/s44199-022-00045-1",
+      "https://doi.org/10.3390/sym15050977",
+      "https://arxiv.org/abs/1305.1173"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://doi.org/10.3390/math12111743, Section 2, signs of C_theta-uv and quadrant dependence",
+        "https://doi.org/10.1007/s00362-024-01559-9, Section 2.1, generic expansion C=uv+sum lambda_k Phi_k(u)Phi_k(v)",
+        "https://doi.org/10.1007/s44199-022-00045-1, Section 2.2.1, Markov mixing for Ali-Mikhail-Haq"
+      ],
+      "reasoning": "NQD or PQD controls covariance for ordered observables, not the signs of all spectral modes. The generic signed-eigenfunction expansion does not imply a fixed inertia without a new kernel calculation. The previous mixing results do not provide the all-observable moment sequence or exact negative-parameter inertia. The new bridge is the explicit Cauchy kernel obtained from the specific symmetric separable ratio expression, followed by the exact signs and compact operator argument.",
+      "searches": [
+        "\"Ali Mikhail Haq\" positive and negative eigenvalues Markov operator",
+        "\"symmetric ratio-type copula\" \"spectrum\" Markov",
+        "2024 2023 ratio type copulas exponential f(u)=(1-u)exp(-u) spectral sign signature Markov operator positive negative eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.1007/s44199-022-00045-1, Section 2.2.1, explicitly studies the Ali-Mikhail-Haq special case and its mixing properties",
+        "https://doi.org/10.3390/math12111743, Section 2 and Table 1, identifies the 2024 symmetric ratio-type examples"
+      ],
+      "reasoning": "For f(u)=1-u the formula reduces to the classical Ali-Mikhail-Haq copula, a known special case. The inspected Markov paper provides bounded-density mixing bounds, not its finite-grid inertia or signed spectral multiplicities. No equivalent Markov-spectrum theorem for the ratio family was located in the inspected statements; the familiar copula formula itself is not asserted to be new.",
+      "searches": [
+        "\"Ali-Mikhail-Haq\" \"negative eigenvalues\" copula Markov",
+        "\"ratio-type copula\" \"eigenvalue\" Markov",
+        "Ali Mikhail Haq symmetric rational ratio copulas covariance kernel C(u,v)-uv Cauchy determinant Sylvester inertia alternating sign positive negative modes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://doi.org/10.3390/math12111743, Table 1 row D^(7), tabulates f(u)=(1-u)e^{-u} and theta in [-e^2,1]",
+        "https://doi.org/10.3390/math12111743, Table 2, records four concordance ranges, not operator spectra"
+      ],
+      "reasoning": "The published parameter and rank-dependence tables establish existing model facts but contain no grid-inertia values or eigenvalue sign counts. The final statement does not recompute those tables. Searches revealed no indexed table with the claimed positive/negative signature.",
+      "searches": [
+        "2024 On the Ratio-Type Family of Copulas El Ktaibi Bentoumi Mesfioui publication date June 2024",
+        "\"ratio-type copula\" \"eigenvalue\" Markov",
+        "On the Ratio-Type Family of Copulas El Ktaibi Bentoumi Mesfioui 2024 Dtheta7 exponential f(u)=(1-u)exp(-u) Markov chain spectral signature negative parameter infinite positive and negative eigenvalues"
+      ]
+    },
+    "rationale": "The result is the exact all-grid inertia and infinite Markov-spectrum sign phase classification for the symmetric separable ratio family, with an all-observable complete-monotonicity consequence. The 2024 defining article provides the copula and parameter ranges but not operator signs. The 2024 generic spectral representation supplies a background decomposition without determining this family-specific inertia. The 2022 Ali-Mikhail-Haq Markov article concerns mixing rather than infinite signed modes; the 2023 ratio scheme concerns constructions and dependence coefficients. The Cauchy determinant formula and compact spectral theorem are classical, acknowledged ingredients. Available search comparisons did not identify a prior theorem with the same model and conclusions, subject to residual historical priority risk.",
+    "residual_risks": [
+      "The Cauchy determinant formula is classical, so older sign-regular kernel or operator literature may express an equivalent specialization without using copula terminology.",
+      "No exhaustive search of all books, non-indexed theses or all Markov-copula spectral works is claimed.",
+      "The original published admissible interval of the 2024 exponential example is treated as an established model premise; the new theorem independently proves the conditional spectral assertions and excludes the singular-denominator endpoint."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the model, its admissible exponential example [-e^2,1], and PQD/NQD; does not state the all-dimensional inertia or Markov spectral signature",
+        "evidence": [
+          "Equation (2) D_theta(u,v)=uv/(1-theta f(u)g(v))",
+          "Table 1 row D^(7): f(u)=(1-u)e^{-u}",
+          "Section 2, PQD/NQD criterion"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math12111743",
+        "material_read": "Open-access HTML mathematical sections on the model formula, assumptions and quadrant dependence; Table 1 rows 1-8, Table 2 and references",
+        "method": "Inspected the original mathematical expressions and parameter table, searched for a Markov or eigen-spectrum theorem",
+        "title": "On the Ratio-Type Family of Copulas",
+        "trigger": "Direct source for the 2024 symmetric exponential-ratio example and the separable family"
+      },
+      {
+        "assessment": "Provides prior general eigenfunction theory but not the exact sign-inertia classification for symmetric ratio-type copulas",
+        "evidence": [
+          "Theorem 2.2 generic symmetric-copula spectral decomposition",
+          "Section 2.1 C=uv+sum eigenvalue-weighted factors"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00362-024-01559-9",
+        "material_read": "Accessible full-text mathematical Sections 1 and 2.1, Theorems 2.2 and 2.3, eigenfunction and mixing framework",
+        "method": "Compared the generic Hilbert-Schmidt eigenfunction representation, parameterized constructions and implications with the claimed sign counts",
+        "title": "New copula families and mixing properties",
+        "trigger": "Most relevant possible broader spectral coverage for symmetric square-integrable copulas"
+      },
+      {
+        "assessment": "Establishes mixing for earlier special models; it does not state the proposed Cauchy-inertia result",
+        "evidence": [
+          "Section 2.2.1: C_theta=uv/[1-theta(1-u)(1-v)]",
+          "Corollary 2.2.6: psi-star mixing for interior Ali-Mikhail-Haq parameters"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s44199-022-00045-1",
+        "material_read": "Accessible full-text introduction, Markov copula operation, Section 2.2.1 including Ali-Mikhail-Haq equations and Corollary 2.2.6",
+        "method": "Checked whether mixing or dependence results supplied signed eigenmodes, exact matrix inertia or all-observable autocovariance moments",
+        "title": "On Some Mixing Properties of Copula-Based Markov Chains",
+        "trigger": "Earlier stationary Markov-chain study of a special member (Ali-Mikhail-Haq)"
+      },
+      {
+        "assessment": "Describes distinct ratio-type constructions and dependence measures; no same Markov spectral classification was located",
+        "evidence": [
+          "Equation (1) C=(b+1)uv/[b+phi(u,v)]",
+          "Section 2 first ratio-type copula and dependence discussion"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym15050977",
+        "material_read": "Open-access HTML introduction, ratio scheme, and the first Section 2 construction and its dependence discussion; searched the remaining text for Markov spectral claims",
+        "method": "Compared the ratio construction's functional forms and stated properties with the symmetric separable covariance kernel and Markov spectra",
+        "title": "A Collection of Two-Dimensional Copulas Based on an Original Parametric Ratio Scheme",
+        "trigger": "Earlier plausibly overlapping ratio constructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6a5bc9be-e357-4955-aa02-daaf760a6f0a",
+  "value": {
+    "rationale": "This is an exact infinite-dimensional structure theorem for a motivated, published class of copula Markov chains, not a finite table or numerical increment. It determines the sign phase of the full centered operator on both sides of the independence parameter, exact inertia for every finite observation grid, all-observable complete monotonicity in one regime, and alternating modes in the other. It shows why negative quadrant dependence of a stationary pair cannot be substituted for nonpositive eigenvalues or negative covariance of arbitrary nonmonotone statistics. The distinction is pertinent to serial-covariance and spectral assumptions in count-free dependence modeling.",
+    "status": "PASS"
+  }
+}
