@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-The proof is contained in `RESULT.md`. A separate numerical checker, `checker.py`, uses NumPy eigendecompositions to compute graph Laplacians, their pseudoinverses, facet-normal cosine matrices, and the proposed inverse. Execute `python checker.py` in the directory containing the checker, with Python 3 and NumPy.
+## correctness
 
-The checked version ran successfully and printed `GRAPH_LAPLACIAN_ANGULAR_INVERSE_PASS connected_simple=770 rational_weighted=770`, `NON_GRAPH_POSITIVE_OFFDIAGONAL_REJECT_PASS`, and `CHECKER_PASS`. The 770 simple graphs exhaust the connected labeled loopless graphs on 3, 4, and 5 vertices; each was tested both with unit weights and with a deterministic assignment of positive rational weights. Tests checked reconstruction up to one scalar, equality of the full reconstructed angular Gram, nonedge zeros, and equal unit-edge conductances. One non-graph centered positive-semidefinite matrix with positive off-diagonal was rejected by the sign criterion.
+PASS
 
-Computational enumeration here is finite. The general proof uses positivity, the one-dimensional kernel, exact facet normal products, and the positive-semidefinite functional calculus. The checker uses nonzero tolerances for eigenvalue truncation and matrix comparisons. Exact recognition of whether a weight equals zero is a mathematical sign condition, not a certified floating-point decision. No third-party independent mathematical audit has been performed.
+For connected weighted graph L, Q=L† satisfies QL=I-11^T/n. Thus inward facet normals to conv{Le_i} are Qe_i, and their normalized Gram matrix is C=D_b^-1 Q² D_b^-1 with positive null vector b_i=||Qe_i||. For a=t b one recovers K=D_a C D_a=t²Q², and (K†)^1/2=t^-1 L by spectral calculus, proving necessity, edge weights and uniqueness up to scale. Conversely a rank n-1 PSD cosine candidate C with diag 1 and positive null vector produces R=(K†)^1/2 PSD, row sums zero, and offdiag <=0 implies exactly a connected weighted graph Laplacian. Its facet Gram reconstructed from (R†)²=K returns C, proving sufficiency. Explicit four-path L† and Q² computed in the frozen proof show Q²_{12}=7/16>0 and interior dihedral cosine -7/sqrt(105), establishing that the criterion is not the standard hyperacute/simplex Gram criterion. Checked the submitted checker.py source, which numerically covers 770 connected n<=5 graphs with two weightings each; this is only finite stress testing of an all-dimensional spectral proof.
+
+## originality
+
+PASS
+
+Braun–Meyer 2017 defines and studies the graph Laplacian-column simplex for lattice/Ehrhart properties. Devriendt and Van Mieghem 2018 and Devriendt 2020 characterize a different graph-simplex representation whose vertex Gram matrix equals L; they give the general pseudoinverse angle relation. Here the column simplex has vertex Gram L² and the inverse operation is the positive matrix square root of the pseudoinverse of a rescaled normal Gram. The two sign tests differ, with an explicit obtuse path example. No inspected full source states this exact all-dimensional weighted edge/conductance reconstruction from angle data. Claim is a novel combination beyond only renaming a known standard Laplacian simplex; residual risk of an implicit general result is acknowledged.
+
+## value
+
+PASS
+
+Recovering a weighted connected graph including its zero pattern and all relative edge conductances from geometric facet-angle observations is a natural inverse problem. The if-and-only-if PSD sign criterion and unique reconstructed edge data are reusable in spectral graph geometry and distinguish a genuinely non-hyperacute class. The proof is analytic for all graph orders and not merely n<=5 enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

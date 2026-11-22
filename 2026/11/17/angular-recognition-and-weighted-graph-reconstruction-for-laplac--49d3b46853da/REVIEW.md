@@ -1,19 +1,21 @@
-# Review of angular recognition for Laplacian-column simplices
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For a connected weighted graph Laplacian \(L\), the facet normal opposite \(Le_i\) is \(L^\dagger e_i\), since its product with \(Le_j\) is \(\delta_{ij}-1/n\). The unnormalized normal Gram is therefore \((L^\dagger)^2\); its positive-kernel vector consists of the facet-normal lengths. Positive-kernel rescaling recovers that Gram up to common scale, and the unique positive-semidefinite square root of its pseudoinverse recovers \(L\) up to the reciprocal scale. Conversely, a centered positive-semidefinite candidate root with nonpositive off-diagonals is exactly a connected weighted Laplacian, and recomputing its facet Gram reproduces the specified angles. The proof covers all \(n\ge3\) and does not infer the infinite theorem from finite computation. An analytic four-vertex-path example independently verifies the distinction from nonobtuse simplices.
+PASS
 
-## Originality
+For connected weighted graph L, Q=L† satisfies QL=I-11^T/n. Thus inward facet normals to conv{Le_i} are Qe_i, and their normalized Gram matrix is C=D_b^-1 Q² D_b^-1 with positive null vector b_i=||Qe_i||. For a=t b one recovers K=D_a C D_a=t²Q², and (K†)^1/2=t^-1 L by spectral calculus, proving necessity, edge weights and uniqueness up to scale. Conversely a rank n-1 PSD cosine candidate C with diag 1 and positive null vector produces R=(K†)^1/2 PSD, row sums zero, and offdiag <=0 implies exactly a connected weighted graph Laplacian. Its facet Gram reconstructed from (R†)²=K returns C, proving sufficiency. Explicit four-path L† and Q² computed in the frozen proof show Q²_{12}=7/16>0 and interior dihedral cosine -7/sqrt(105), establishing that the criterion is not the standard hyperacute/simplex Gram criterion. Checked the submitted checker.py source, which numerically covers 770 connected n<=5 graphs with two weightings each; this is only finite stress testing of an all-dimensional spectral proof.
 
-**PASS, subject to independent historical priority review.** Braun and Meyer (2017, arXiv:1706.07085) introduce exactly the Laplacian-column simplex but focus on lattice and Ehrhart properties. Devriendt and Van Mieghem (2018, arXiv:1807.06475) review a distinct Fiedler realization whose **vertex Gram** equals a graph Laplacian. Devriendt (2020, arXiv:2010.04521) establishes the general dihedral-angle/normal-Gram identity and the hyperacute-simplex characterization. The proposed theorem combines these mathematical ingredients in a different non-hyperacute class to obtain a sharp *image test* and a constructive inverse recovering the original weighted graph. The general angle/Gram identity and classical graph--simplex bijection are expressly attributed; they are not claimed as new. Previously treated fixed-family dihedral-angle spectra do not give the all-graph weighted inverse. A possible unpublished or unindexed equivalent criterion is the principal remaining priority risk. Full mathematical originality is not independently certified.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a natural complete classification, not merely a new invariant of one small graph: it decides precisely which complete Euclidean facet-angle matrices arise from the graph-constrained Laplacian-column realization and reconstructs graph edges plus all relative conductances. It distinguishes a metric property of the canonical embedding that is invisible under arbitrary lattice unimodular equivalence, and exposes why the classical hyperacute correspondence is insufficient. The exact nonpositive-off-diagonal spectral sign condition is directly usable for graph inverse questions. It does not assert noise stability or reconstruction from the unordered list of angles.
+Braun–Meyer 2017 defines and studies the graph Laplacian-column simplex for lattice/Ehrhart properties. Devriendt and Van Mieghem 2018 and Devriendt 2020 characterize a different graph-simplex representation whose vertex Gram matrix equals L; they give the general pseudoinverse angle relation. Here the column simplex has vertex Gram L² and the inverse operation is the positive matrix square root of the pseudoinverse of a rescaled normal Gram. The two sign tests differ, with an explicit obtuse path example. No inspected full source states this exact all-dimensional weighted edge/conductance reconstruction from angle data. Claim is a novel combination beyond only renaming a known standard Laplacian simplex; residual risk of an implicit general result is acknowledged.
 
-## Closest literature and limitations
+## value
 
-The closest direct source of the *objects* is Braun--Meyer (2017); the closest source of the *normal Gram identity* and the strongest potential implication is Devriendt (2020, §2.2--2.3). Those ingredients are sufficient to motivate the derivation, but the checked relevant sections do not state the weighted inverse-and-image characterization for the Laplacian-**column** embedding. The 2018 correspondence treats vertex Gram matrices, not the square of the Laplacian as vertex Gram. The complete pair-indexed matrix is essential; global conductance scale is invisible; exact zero tests require exact arithmetic; the available literature search cannot rule out every unindexed equivalent statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Recovering a weighted connected graph including its zero pattern and all relative edge conductances from geometric facet-angle observations is a natural inverse problem. The if-and-only-if PSD sign criterion and unique reconstructed edge data are reusable in spectral graph geometry and distinguish a genuinely non-hyperacute class. The proof is analytic for all graph orders and not merely n<=5 enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T20:04:43.405862Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected weighted graph L, Q=L† satisfies QL=I-11^T/n. Thus inward facet normals to conv{Le_i} are Qe_i, and their normalized Gram matrix is C=D_b^-1 Q² D_b^-1 with positive null vector b_i=||Qe_i||. For a=t b one recovers K=D_a C D_a=t²Q², and (K†)^1/2=t^-1 L by spectral calculus, proving necessity, edge weights and uniqueness up to scale. Conversely a rank n-1 PSD cosine candidate C with diag 1 and positive null vector produces R=(K†)^1/2 PSD, row sums zero, and offdiag <=0 implies exactly a connected weighted graph Laplacian. Its facet Gram reconstructed from (R†)²=K returns C, proving sufficiency. Explicit four-path L† and Q² computed in the frozen proof show Q²_{12}=7/16>0 and interior dihedral cosine -7/sqrt(105), establishing that the criterion is not the standard hyperacute/simplex Gram criterion. Checked the submitted checker.py source, which numerically covers 770 connected n<=5 graphs with two weightings each; this is only finite stress testing of an all-dimensional spectral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Devriendt’s general theorem identifies hyperacute simplices with graph Laplacian inverse Gram; same-angle data for a column simplex need spectral square root because vertex Gram=L².",
+          "Braun–Meyer 2017 specifically study Laplacian column simplices but their Section 3 is definitions/lattice geometry, not complete weighted edge-ratio angle inverse."
+        ],
+        "reasoning": "Adjacent broader correspondence exists but its object is a Gram-L simplex, not the canonical Euclidean L-column realization. Neither inspected statement dominates the submitted reconstruction.",
+        "searches": [
+          "arXiv:2010.04521 Effective resistance more than distance Laplacians Simplices Schur complement",
+          "arXiv:1807.06475 The Simplex Geometry of Graphs",
+          "Resultary angular recognition weighted graph Laplacian simplex"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 0d283ae7752cd1073d8faa75ac7903e3896fe59c",
+        "Frozen checker.py blob 41000af61e60e80f68787da1ba9c007eae5fef67",
+        "https://arxiv.org/pdf/1706.07085 Section 3",
+        "https://arxiv.org/pdf/2010.04521 Section 2",
+        "https://arxiv.org/abs/1807.06475"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For column vertex Gram L², normals have unnormalized Gram (L†)², so recovering L requires an inverse positive square root; the cited hyperacute test applies to Gram L and not this matrix.",
+          "For P4, (L†)²_12=7/16 gives obtuse angle even though L is a graph Laplacian."
+        ],
+        "reasoning": "The submitted R sign criterion is related to, but not a mere special case of, the cited nonobtuse Laplacian Gram correspondence; its proof uses a different matrix functional calculus and yields a graph inverse over all connected weighted graphs.",
+        "searches": [
+          "Braun Meyer 2017 §3",
+          "Devriendt 2020 §2.2–2.3",
+          "Resultary 2026/11/17 matching-deleted angular fingerprint"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Braun–Meyer define the simplex formed by Laplacian rows/columns and treat lattice properties.",
+          "Devriendt 2020 §2.2–2.3 describes normal Gram/inverse vertex Gram in the Fiedler representative with Gram L; column representative Gram is L²."
+        ],
+        "reasoning": "The customary inverse Gram = graph Laplacian/hyperacute angle criterion is not equivalent to (diag(a) C diag(a))^{†/2} off-diagonal sign recognition. A four-path gives an actual obtuse instance, excluding equivalence.",
+        "searches": [
+          "Resultary weighted graph Laplacian column simplex recover edge weights from dihedral angles inverse squared pseudoinverse Gram",
+          "arXiv:1706.07085 Laplacian simplices",
+          "arXiv:2010.04521 graph simplex angles pseudoinverse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 2026/11/17 matching-deleted and clique-windmill angle tables are special graph families, not all connected positive-weight graphs.",
+          "Submitted n<=5 checker is finite numerical and lacks exact zero conductance certification."
+        ],
+        "reasoning": "No exact preexisting database gives the universal inverse sign condition and unique all-graph weighted edge recovery; specialized angle fingerprints do not imply the theorem for arbitrary graphs.",
+        "searches": [
+          "Laplacian simplices angle spectrum graph reconstruction tables",
+          "Resultary angular fingerprint matching-deleted Laplacian simplices",
+          "Resultary clique-windmill Laplacian dihedral angles"
+        ]
+      },
+      "rationale": "Braun–Meyer 2017 defines and studies the graph Laplacian-column simplex for lattice/Ehrhart properties. Devriendt and Van Mieghem 2018 and Devriendt 2020 characterize a different graph-simplex representation whose vertex Gram matrix equals L; they give the general pseudoinverse angle relation. Here the column simplex has vertex Gram L² and the inverse operation is the positive matrix square root of the pseudoinverse of a rescaled normal Gram. The two sign tests differ, with an explicit obtuse path example. No inspected full source states this exact all-dimensional weighted edge/conductance reconstruction from angle data. Claim is a novel combination beyond only renaming a known standard Laplacian simplex; residual risk of an implicit general result is acknowledged.",
+      "residual_risks": [
+        "An unindexed general inverse-geometry theorem that explicitly handles Laplacian column simplices may exist; current uniqueness is best-of-knowledge.",
+        "Zero conductances cannot be certified by float tolerances; the theorem is an exact real-algebraic criterion.",
+        "The dihedral input is the entire labeled angle matrix, not the multiset; weights only up to a single positive factor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines identical column geometry, but checked material centers lattice equivalence and does not state exact dihedral-angle reconstruction.",
+          "evidence": "Section 3 describes rows of L transformed by integral basis to give simplex T_G.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.07085",
+          "material_read": "Section 3 Definition 3.3 and graph Laplacian column construction on PDF page 5",
+          "method": "Open full PDF and visually inspect definition page",
+          "title": "Laplacian Simplices",
+          "trigger": "Same Laplacian-column simplex terminology"
+        },
+        {
+          "assessment": "Provides general Gram-pseudoinverse background and hyperacute graph condition, not weighted Laplacian-COLUMN inverse after L².",
+          "evidence": "Effective-resistance simplex uses a vertex Gram L† or Fiedler-type Gram L, not the same Euclidean L-column gram L².",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.04521",
+          "material_read": "Section 2.2–2.3, angle-normal and pseudoinverse Gram relations on PDF pages 10–11",
+          "method": "Open full PDF and visually inspect relevant two pages",
+          "title": "Effective resistance is more than distance: Laplacians, Simplices and the Schur complement",
+          "trigger": "Strong graph/simplex inverse normal-angle theorem"
+        },
+        {
+          "assessment": "The graph as vertex Gram correspondence differs from the column realization.",
+          "evidence": "Graph-simplex representation foundational relationship between graph Laplacian and simplex Gram.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.06475",
+          "material_read": "Relevant published descriptions, no full text material claimed",
+          "method": "Source/abstract and cited theorem comparison",
+          "title": "The Simplex Geometry of Graphs",
+          "trigger": "Alternate simplex representation and graph-geometry correspondence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Recovering a weighted connected graph including its zero pattern and all relative edge conductances from geometric facet-angle observations is a natural inverse problem. The if-and-only-if PSD sign criterion and unique reconstructed edge data are reusable in spectral graph geometry and distinguish a genuinely non-hyperacute class. The proof is analytic for all graph orders and not merely n<=5 enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 0d283ae7752cd1073d8faa75ac7903e3896fe59c",
+    "Frozen checker.py blob 41000af61e60e80f68787da1ba9c007eae5fef67",
+    "https://arxiv.org/pdf/1706.07085 Section 3",
+    "https://arxiv.org/pdf/2010.04521 Section 2",
+    "https://arxiv.org/abs/1807.06475"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed general inverse-geometry theorem that explicitly handles Laplacian column simplices may exist; current uniqueness is best-of-knowledge.",
+    "Zero conductances cannot be certified by float tolerances; the theorem is an exact real-algebraic criterion.",
+    "The dihedral input is the entire labeled angle matrix, not the multiset; weights only up to a single positive factor."
+  ],
+  "schema_version": 1
+}
