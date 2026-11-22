@@ -1,15 +1,21 @@
-# Review: Two contact singularities and cone-angle recovery from one off-apex ball-area profile
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact intrinsic metric-cone cosine law identifies all balls with disks intersected with a convex developed sector. The two disjoint circular caps and then the origin-containing polar integration yield the three exact area branches. The cap expansion has order \(3/2\), while explicit one-sided derivatives give a finite jump \(2\tan(\alpha/2)\) at the later radius. A full analytic proof handles every \(0<\alpha<\pi\), \(s>0\); 70 independent finite numerical comparisons are supplemental only.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Izmestiev's 2014 full-text cone-surface inequality and Cabré–Ros-Oton–Serra's 2012 weighted-cone isoperimetry have different objectives. A publicly available later theorem on small-distance laws of compact cone surfaces has a general integral representation for off-apex cone-ball deficits: that representation is a genuine stronger prior ingredient and is not claimed as new. However, it does not give the complete positive singularity locus, exact derivative jump, or the explicit two-feature reconstruction. Closely related full-text studies of cone-disk distance moments and finite-cone center sets also do not assert these contact results. See `AUDIT.json` for query-level equivalence/coverage comparisons and material inspected. An unindexed equivalent theorem or broad representation resolving the same contacts remains a priority risk.
+PASS
 
-## Value — PASS
-One point's intrinsic ball-area growth uniquely reveals two geometric parameters through **finite positive radius events**, separating first contact with the cut locus from arrival at a cone apex. The exact \(3/2\) onset and curvature-jump constant provide an interpretable, sharp geometric signature. This is a complete natural classification for an entire nondegenerate cone-angle range, not a table recomputation or arbitrary finite slice.
+For flat cone total angle 0<alpha<pi, the shorter angular separation from a nonapical center is <pi/2 and the developed wedge is convex. The intrinsic disk develops to a Euclidean disk of radius r centered at s intersected with the wedge. For r<=d=s sin(alpha/2) no cap escapes; for d<r<s the two disjoint escaped caps give middle formula; for r>=s direct radial polar integration gives the last formula. Circular cap expansion gives (8/3)sqrt(2d)*(r-d)^(3/2). Differentiating the two analytic branches yields matching V' at s and jump V''(s+)-V''(s-)=2 tan(alpha/2). Only d and s are nonanalytic on positive r, yielding both exact inverse formulas. Independent disk-sector quadrature across 15 angle/radius choices confirmed piecewise formulas, not universal proof.
 
-## Limits
-The cone angle is strictly below \(\pi\), the point lies off the apex, and the cone is unbounded and flat away from one singularity. Exact inverse identities do not imply stability for noisy data. Full historical priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The completed best-of-knowledge review compares the exact theorem (not just title) with the closest published records and primary source statements. The audited quantitative derivative jump and inversion do not follow by direct parameter substitution in the earlier result, though they follow by carrying out fresh evaluation; originality PASS is best of knowledge with explicit strong-coverage risk. Access and priority risks are explicitly retained.
+
+## value
+
+PASS
+
+The two distinct contact mechanisms and ability to recover cone angle and the center-apex distance from a single off-apex intrinsic ball-area growth profile provide a motivated, exact inverse-geometric invariant. The finite V'' jump has direct geometric meaning, not merely a restatement of cone distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
