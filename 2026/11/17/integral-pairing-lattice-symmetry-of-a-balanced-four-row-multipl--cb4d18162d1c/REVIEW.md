@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is a fully defined twenty-vertex simplicial complex. The face census examines all \(2^{20}\) subsets, confirming exactly \(2401\) faces including the empty set. The augmented lexicographic matching has \(1178\) pairs; an orientation of all \(9220\) Hasse incidences admits a topological sort of all faces. The critical three- and four-cell counts are respectively \(3\) and \(42\). The signed integer Morse boundary has \(126\) zero entries; a three-skeleton Hurewicz argument converts this into the exact homotopy decomposition. Three explicitly computed integral cycles have independently checked zero simplicial boundaries. Their orientation-preserving or reversing actions are calculated for all \(24+120\) row and column permutations. A unimodular change of basis (determinant \(-1\)) identifies the three-pairing permutation lattice integrally. A thirty-five-class Lefschetz calculation and integer Specht orthogonality determine the rational fourth-homology action. Risks: there is no unbounded-parameter claim, and no use is made of finite samples to prove an infinite statement.
+PASS
 
-## Originality — PASS with named residual risk
+For exact row capacities (2,2,2,2), four rows and five unit-capacity columns, independently counted augmented face vector (1,20,160,600,1020,600), total2401. Source verify.py exhaustively compares columnwise generation to all 2^20 masks, constructs an acyclic 1178-pair matching over all 9220 incidence arrows with exactly three critical 3-cells and 42 critical 4-cells. Its signed integer 42x3 Morse attaching matrix is identically zero, so the 3-connected CW model wedges 3 S3 and 42 S4, since pi3 of a wedge of S3 agrees with H3. Exact 3-cycles with original zero boundaries and critical basis coordinates are transformed by all 24 row and 120 column permutations; the unimodular determinant -1 basis maps to three row-pairings, column permutations act by sign. This proves integral Z[three pairings] tensor column sign, not mere rational equality. Lefschetz fixed-simplex character on five row types/seven column types and symmetric-group character orthogonality gives the three rational 4th-degree Specht constituents of dimensions 15,12,15. Source inspected fully; independent face count corroborates but not a complete separate replay of the 2880 actions.
 
-The central claim is the explicit integral pairing-lattice action on third homology, not the previously derivable numerical Betti ranks. Limonchenko–Yu's October 2026 work proves results for at most three rows and particular larger-row torsion families, not this integral symmetry module. The complementary degree-two matching complex of \(K_{4,5}\) is already known to have an exact homotopy type, so numerical homology and possibly the nonequivariant wedge type should not be treated as independent discoveries. Reiner–Roberts provides a characteristic-zero representation framework, and Kustin an equivariant duality, but neither examined result explicitly identifies the present integral pairing permutation lattice. The inspected complementary-complex result does not compute automorphism actions. Residual risks: unindexed equivalent lattice computations, and full details of Kustin's 2008 paper not available during source inspection. The rational Specht decomposition is a useful concrete verification and not asserted independently to supersede general characteristic-zero formulas.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four-row equal-bound problem is the first balanced configuration beyond the 2026 three-row uniform homotopy classification. Its low-degree integral homology supports a non-obvious \(S_4\to S_3\) quotient action, while \(S_5\) acts through sign; this is intrinsic equivariant information not recoverable from the homology ranks or rational character alone. The explicit unimodular basis, fully verified group action and complementary multiplicity-free rational decomposition provide a structural benchmark for symmetric configuration-space topology. This is more than a routine Betti-number recomputation.
+PASS best-of-knowledge for the concrete integral degree-three S4×S5 pairing-permutation lattice and signed action. Known Kustin complement duality and prior M2(K4,5) homotopy determine ranks and potentially rational character through Reiner–Roberts; none of the fully read complementary result states the integral 3-generator module. No novelty asserted for the nonequivariant 3/42 ranks by themselves.
 
-## Scope and sources
+## value
 
-Primary comparisons: Limonchenko and Yu, arXiv:2610.37827 (full mathematical text, especially Introduction, Proposition 2.2 and Sections 3–5); Reiner and Roberts, *Minimal resolutions and the homology of matching and chessboard complexes* (rational representation framework); Kustin, *An Explicit, Characteristic-Free, Equivariant Homology Equivalence Between Koszul Complexes* (available abstract); and the full public `RESULT.md` of *A mixed-dimensional sphere wedge for the two-matching complex of* \(K_{4,5}\). The latter provides nonequivariant homotopy and explicitly leaves automorphism actions outside its conclusions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first balanced four-row/five-column multiple chessboard boundary near known torsion families is a natural small equivariant case. An exact integral lattice resolves information invisible to rational Specht characters and provides a reusable symmetry module; explicit 42-dimensional rational higher character gives useful adjacent data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
