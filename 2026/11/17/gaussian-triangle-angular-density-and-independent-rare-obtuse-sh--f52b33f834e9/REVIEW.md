@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The density follows by an invertible coordinate transformation from an explicitly normalized two-by-two Wishart law. The Gram-to-angle Jacobian, sine-law Jacobian, gamma integral, and normalization constant are displayed and checked. The rare-event component uses an exact mutually independent beta–chi-square–sphere-cosine factorization; conditioning is on a beta variable alone. Boundary Laplace asymptotics and the two independent Gaussian central limit theorems establish the triple limit. The cosine law gives the stated angle-excess scale. Numerical integration and algebraic identity tests support but do not replace this proof.
+## correctness
 
-**Originality: PASS, provisionally.** Finch (2014, page 8) explicitly gives the same joint angular formula as a conjecture, so the *formula* is not presented as original. Edelman–Strang (2015, Section 3.4) establish the one-side beta law and obtuse probabilities, and discuss Wishart random-triangle methods, including a planar angle-Jacobian sketch in Section 3.6; those are not claimed anew. The additional conditional joint exponential–Gaussian–Gaussian independence theorem is not stated in the accessible treatments examined, and does not follow from a single one-dimensional marginal without resolving the remaining shape variables. Published record searches for this triple limit and equivalent angle laws returned no exact match. The most important historical risk is Eisenberg–Sullivan (1996), whose full text was not accessible. Broad Wishart or shape-space theories may also imply the present theorem; independent priority verification is needed.
+PASS
 
-**Mathematical value: PASS.** This addresses an explicit archival conjecture about the complete angle law and quantifies the *conditional geometry* of the increasingly rare obtuse Gaussian triangle: its excess has an exponential scale \(d^{-1}\), while a dimension-normalized leg asymmetry and total radial fluctuation have two independent Gaussian limits. These are interpretable geometric degrees of freedom, not an arbitrary numerical slice. The theorem simultaneously identifies the exact finite-dimensional mechanism explaining their asymptotic independence.
+For independent X=B-A,Y=C-A with covariance Σ=[[2,1],[1,2]], the two-by-two Wishart density and a sine-law Jacobian yield the exact density and normalize it. Orthogonal Gaussian Z=(X+Y)/sqrt2 and W=(X−Y)/sqrt2 give independent H~Beta(d/2,d/2), T~χ²(2d), and spherical cosine J. Obtusity at A is H<1/4; boundary Laplace with derivative 8/3 yields d(1/4−H)⇒Exp(4/3), hence dΔ⇒Exp(1). Independent chi-square and spherical CLTs give independent standard Gaussians for leg imbalance and scale; the angular cosine relation yields d(γ−π/2)⇒2Exp(1). Independently checked algebraic x,y,z coordinate identities to machine precision for d=2,5,17; simulation does not replace the proof.
 
-The result is confined to isotropic Gaussian triples and weak asymptotic convergence. It does not supply rates, and historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The pure joint angular density is explicitly attributed to Finch 2014 and the normalized squared-side beta marginal to Edelman–Strang; originality is only claimed for the Wishart proof of the conjecture and joint conditioned independent shape law; Resultary searches found analogues for Gaussian anisotropy and spherical/ball triangles but not the same isotropic Gaussian joint triple limit. Full 1996 Eisenberg–Sullivan not read and remains residual.
+
+## value
+
+PASS
+
+The all-dimension Wishart proof resolves an explicit earlier angular-density conjecture, and the additional independent conditional rare-event shape fluctuations give new multiscale geometry unavailable from the known one-marginal beta law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

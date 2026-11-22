@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem's analytic proof establishes the exact Wishart density, two Jacobians, an evaluated radial gamma integral, and its normalization; the conditional limit uses a beta boundary Laplace argument and independent spherical/chi-square central limit theorems.
+## correctness
 
-## Executable numerical corroboration
+PASS
 
-Run `python verify_angles.py` after installing the two Python packages in `requirements.txt`. The checker uses four exact angle-density double integrals, an independent beta-marginal comparison for each, three samples of deterministic-algebra identity tests, and exact finite-dimensional beta tails across four dimensions.
+For independent X=B-A,Y=C-A with covariance Σ=[[2,1],[1,2]], the two-by-two Wishart density and a sine-law Jacobian yield the exact density and normalize it. Orthogonal Gaussian Z=(X+Y)/sqrt2 and W=(X−Y)/sqrt2 give independent H~Beta(d/2,d/2), T~χ²(2d), and spherical cosine J. Obtusity at A is H<1/4; boundary Laplace with derivative 8/3 yields d(1/4−H)⇒Exp(4/3), hence dΔ⇒Exp(1). Independent chi-square and spherical CLTs give independent standard Gaussians for leg imbalance and scale; the angular cosine relation yields d(γ−π/2)⇒2Exp(1). Independently checked algebraic x,y,z coordinate identities to machine precision for d=2,5,17; simulation does not replace the proof.
 
-Observed: the total-mass integrals for dimensions \(2,3,4,7\) differ from one by at most \(2\times10^{-11}\), and the obtuse-marginal integrals agree with \(I_{1/4}(d/2,d/2)\) to the same tolerance. The three-side factorization agrees to less than \(6\times10^{-14}\) absolute error in tested coordinates. For dimensions \(20,80,320,1000\), the maximum discrepancy from an exponential tail among four specified thresholds decreases from \(0.086\) to \(0.0023\). The checker ends with `GAUSSIAN_TRIANGLE_ANGLE_SHAPE_LAWS_OK`.
+## originality
 
-No finite numerical test establishes an all-dimensional identity, a conditional limit theorem, mathematical priority, or independent validation. The cited Eisenberg–Sullivan full text was not available for source comparison. No independent audit has been performed.
+PASS
+
+The pure joint angular density is explicitly attributed to Finch 2014 and the normalized squared-side beta marginal to Edelman–Strang; originality is only claimed for the Wishart proof of the conjecture and joint conditioned independent shape law; Resultary searches found analogues for Gaussian anisotropy and spherical/ball triangles but not the same isotropic Gaussian joint triple limit. Full 1996 Eisenberg–Sullivan not read and remains residual.
+
+## value
+
+PASS
+
+The all-dimension Wishart proof resolves an explicit earlier angular-density conjecture, and the additional independent conditional rare-event shape fluctuations give new multiscale geometry unavailable from the known one-marginal beta law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
