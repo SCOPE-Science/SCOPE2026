@@ -1,0 +1,21 @@
+Requirements: Python 3.8+; optional C++17 compiler.
+
+Run the two independent programs in the same directory as the files:
+    python3 verify_attack.py
+    c++ -O2 -std=c++17 verify_independent.cpp -o verify_independent
+    ./verify_independent
+
+Observed Python final line:
+    VERIFIED 10 cases 215298 direct assignments, all polynomial coefficients
+
+Observed C++ final line:
+    INDEPENDENT_CHECK_OK
+
+Independent C++ data points (petal count, petal size, minimum weight, number of minima):
+    (2,2,4,4), (3,2,6,20), (2,3,6,63), (3,3,8,108),
+    (2,4,6,16), (2,5,6,25), (3,4,8,64).
+
+Both programs implement the original one-/two-zero-vertex neighborhood condition directly.
+The Python program also computes the independent symbolic convolution expression for
+homogeneous and heterogeneous cases. Computations test finite cases only; the
+all-parameter proof is in RESULT.md.
