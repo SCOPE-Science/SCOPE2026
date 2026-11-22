@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact real and complex Haar-frame representations from independent Gaussian matrices and checks that the Hopf/square edge length equals the row norm squared. The simultaneous covariance bound transfers both extreme tails at once; the independent exact order-statistic formula proves the two endpoint laws and their independence. Multinomial rare-bin Laplace functionals yield the marked Poisson processes. Differentiating the explicit row-norm CDFs and sandwiching the all-edge event gives the claimed compact-threshold error. The packaged numerical script checks finite geometric identities and probability comparisons, not the infinite theorem.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Under a real/complex n×2 Gaussian matrix G, U=G(G*G)^(-1/2) is exactly Haar Stiefel and edge length ell_i=||U_i||², sum ell_i=2. With S=G*G/n, n ell_i=G_i S^-1 G_i*: a fixed-dimensional covariance tail gives uniformly over all i (1−δ)T_i≤n ell_i≤(1+δ)T_i, δ=O(sqrt(log n/n)) with exceptional O(n^-3). The T_i are iid χ²_2 (real) or Gamma(2,1) (complex). Their minimum and maximum exact joint CDF [F(b)−F(a)]^n proves planar Exp/Gumbel and spatial Rayleigh/Gumbel independence, with the claimed scales. Disjoint rare small/large bins give independent marked PPP Laplace functionals; simultaneous sandwich transfers under vague convergence. Differentiating F at a=O(1/n) or O(1/sqrt n) and b≈log n bounds the compact-threshold joint comparison by O_R((log n)^{3/2}/sqrt n). Independent real/complex polar-factor constructions checked frame identities and simultaneous inequalities, not asymptotic limits.
 
-The closest primary work is Cantarella, Deguchi and Shonkwiler, arXiv:1206.3161 (2012), which defines these exact Haar-frame polygon measures and computes single-edge beta marginals; Section 11 explicitly treats independent edges as a simplifying approximation for a rejection sampler. Those statements do not imply the simultaneous lower/upper marked Poisson limits or the stated quantitative all-edge joint probability. Kabluchko and Prochno, arXiv:2110.12977 (2021), prove random-frame large-deviation statements on a different scale, not the two-tail Poisson theorem. A projector-leverage-score formulation is an alias that was searched. Historical priority is not independently certified and analogous fixed-rank projector extreme-value work remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The independent-edge approximation used in sampling random closed polygons has no a priori justification from one-coordinate marginals because the polygon is closed and its edge lengths sum exactly to two. The theorem provides simultaneous extremes and their spatially marked rare-edge process, differentiating planar and spatial universality classes; it also gives a reusable quantitative error for an all-edge cut-off and practical diagnostic for balanced-edge sampling.
+Cantarella–Deguchi–Shonkwiler 2012 defines exactly these quaternionic/Hopf Haar polygon measures, gives single-edge beta marginals and explicitly assumes edge independence only for an approximation in its Section 11. Neither that assumption nor marginal beta laws proves the two-sided joint marked Poisson law. Kabluchko–Prochno 2022 studies random Stiefel large deviations at a different speed; its theorem statement does not imply the extreme rare-bin law or compact-threshold rate. Equivalent projector diagonal leverage scores were searched. PASS with residual potential unindexed projector-extrema theorem.
 
-## Scope and limitations
+## value
 
-The theorem only concerns unconditioned Haar-induced closed polygons of perimeter two. It does not cover equilateral, embedded, knot-conditioned, or general exchangeable-edge measures. The simulations are diagnostics, not infinite proofs. The independent audit and priority check remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Extreme short and long edges drive the feasibility of rejection sampling and shape irregularities of a natural closed polygon ensemble; the closure dependence prevents treating exact marginals as independent. The theorem establishes both marked limits and a quantitative justification of that practical approximation, and separates planar from spatial universality classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

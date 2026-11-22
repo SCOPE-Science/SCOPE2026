@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The derivation relies on the exact Gaussian polar-factor representation of Haar orthonormal two-frames, an exponentially concentrated two-by-two sample covariance matrix, the explicit chi-square (planar) or gamma (spatial) row norm law, and Laplace convergence of two disjoint rare-event bins. These analytic steps prove the distribution limits and mark-process independence. The shared covariance sandwich supplies the finite-\(n\) comparison and is uniform over all edge indices.
+## correctness
 
-`check_extremes.py` (run using `python check_extremes.py`, with NumPy installed) performs numerical checks of exact frame normalization, polygon closure, perimeter two, edge-length formulas, the pathwise row-norm sandwich, independent-reference formulas, and finite-sample frequencies. The expected final marker is `STIEFEL_TWO_SIDED_EXTREMES_CHECKS_OK`. These computations do not replace the proof and do not constitute external certification.
+PASS
 
-The independent audit was not performed. Relevant mathematical limitations and comparison scope are stated in `RESULT.md` and `REVIEW.md`.
+Under a real/complex n×2 Gaussian matrix G, U=G(G*G)^(-1/2) is exactly Haar Stiefel and edge length ell_i=||U_i||², sum ell_i=2. With S=G*G/n, n ell_i=G_i S^-1 G_i*: a fixed-dimensional covariance tail gives uniformly over all i (1−δ)T_i≤n ell_i≤(1+δ)T_i, δ=O(sqrt(log n/n)) with exceptional O(n^-3). The T_i are iid χ²_2 (real) or Gamma(2,1) (complex). Their minimum and maximum exact joint CDF [F(b)−F(a)]^n proves planar Exp/Gumbel and spatial Rayleigh/Gumbel independence, with the claimed scales. Disjoint rare small/large bins give independent marked PPP Laplace functionals; simultaneous sandwich transfers under vague convergence. Differentiating F at a=O(1/n) or O(1/sqrt n) and b≈log n bounds the compact-threshold joint comparison by O_R((log n)^{3/2}/sqrt n). Independent real/complex polar-factor constructions checked frame identities and simultaneous inequalities, not asymptotic limits.
+
+## originality
+
+PASS
+
+Cantarella–Deguchi–Shonkwiler 2012 defines exactly these quaternionic/Hopf Haar polygon measures, gives single-edge beta marginals and explicitly assumes edge independence only for an approximation in its Section 11. Neither that assumption nor marginal beta laws proves the two-sided joint marked Poisson law. Kabluchko–Prochno 2022 studies random Stiefel large deviations at a different speed; its theorem statement does not imply the extreme rare-bin law or compact-threshold rate. Equivalent projector diagonal leverage scores were searched. PASS with residual potential unindexed projector-extrema theorem.
+
+## value
+
+PASS
+
+Extreme short and long edges drive the feasibility of rejection sampling and shape irregularities of a natural closed polygon ensemble; the closure dependence prevents treating exact marginals as independent. The theorem establishes both marked limits and a quantitative justification of that practical approximation, and separates planar from spatial universality classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
