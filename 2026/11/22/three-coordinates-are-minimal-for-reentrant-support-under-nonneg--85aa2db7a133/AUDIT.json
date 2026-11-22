@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Positive definiteness is certified by principal minors 3, 2, 23/4. For every t>=0, the unconstrained first coordinate equals q/D with q=(t-1/2)(t-1), and the other two are strictly positive via positive-coefficient D±q. When q<=0 the x1=0 solution has nonnegative reduced gradient -q/((t+1)(t+4)); otherwise full unconstrained solution is feasible, so strict convex KKT gives global uniqueness. In two dimensions the x1=0 iff c max(b2,0)/(d+t)-b1>=0 test is monotone, proving the minimal dimension. Eigenvalue ratio declines strictly; strict KKT witness signs at three t values imply robust reentry. verify_ridge.py independently checks exact identities and nine sample active sets; the analytical proof, not sampling, establishes infinite range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schmelzer and Stoll (2026) Proposition 5.1 bounds and lowers spectral condition number under regularization",
+        "Rojas and Steihaug (2002) describe an interior-point regularized nonnegative least-squares scheme"
+      ],
+      "reasoning": "General KKT and complementarity theorems provide a way to verify any candidate but do not by themselves assert or subsume the exact dimension-minimal support-nesting failure under isotropic ridge continuation. Improvement of condition number concerns a different quantity.",
+      "searches": [
+        "Public mathematical-record search: regularization ridge changes NNLS support multiple times as lambda increases",
+        "Public mathematical-record search: nonnegative quadratic program regularization path support can be nonmonotone despite condition number improves",
+        "Schmelzer and Stoll (2026) entire arXiv HTML including Section 5.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.22121",
+      "https://www.math.kent.edu/~reichel/publications/tik.constr.pdf",
+      "https://www.marielbarojas.com/Academic/Docs/rojas-steihaug.pdf",
+      "https://academic.oup.com/jrsssb/article/69/4/659/7109430",
+      "A two-turn conditioning path for arbitrarily accurate reused ridge sketches (2026)",
+      "Two sharp regularization transitions for nonnegative Gauss–Newton steps on SPD quadratics (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schmelzer and Stoll (2026): Section 4 fixed-parameter finite termination; Section 5.1 conditioning under SPD regularization",
+        "Calvetti et al. (2004): algorithmic handling of nonnegative Tikhonov, not path-support classifications",
+        "Rojas and Steihaug (2002): trust-region numerical scheme, not a theorem forbidding reentry in n=2"
+      ],
+      "reasoning": "Finite termination for each individual t and faster spectral convergence do not imply nested t-dependent active sets. Algorithmic convergence and global path topology are separate assertions. L1 path entry/exit studies have a different parameterized objective and therefore do not cover this L2 conclusion.",
+      "searches": [
+        "arxiv:2607.22121 5.1 Regularisation, support, active-set, matrix-free",
+        "Calvetti et al. 2004 Tikhonov regularization with nonnegativity constraint",
+        "Rojas and Steihaug 2002 non-negative regularization",
+        "Public mathematical-record search: Tikhonov regularization support loss regain 3 dimensional nonnegative quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.22121 Sections 2 and 5.1: fixed-parameter nonnegative quadratic KKT and regularizing split",
+        "Calvetti et al. (2004): Tikhonov with nonnegativity formulated as regularized constrained least squares"
+      ],
+      "reasoning": "The equivalent NNLS formulation uses any full-rank Gram factor M with A=M^T M and data d chosen so M^T d=b. The compared work treats this model class but does not imply support loss and reentry as t changes, the minimal n, or the exact thresholds.",
+      "searches": [
+        "Public mathematical-record search: nonnegative least squares ridge Tikhonov regularization path active set reentrant support monotonicity 3x3",
+        "web: nonnegative ridge regression active set nonmonotonic path support regularization lambda variables leave reenter",
+        "web: Tikhonov nonnegative least squares support monotonicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A two-turn conditioning path for arbitrarily accurate reused ridge sketches (2026)",
+        "Two sharp regularization transitions for nonnegative Gauss–Newton steps on SPD quadratics (2026)"
+      ],
+      "reasoning": "The first mathematical research record concerns ridge sketch preconditioner condition-number turns, not the optimizer support; the second concerns fixed-step Gauss–Newton convergence factors. No exact counterexample, equivalent table or claim was identified in the checked records. Failure to retrieve does not prove nonexistence.",
+      "searches": [
+        "Public mathematical-record search: ridge regularization nonnegative least squares active support reentry 3 variables two switching thresholds positive right hand side",
+        "Public mathematical-record search: Tikhonov nonnegative least squares three-by-three support disappears and reappears monotone in dimension two",
+        "web: ridge positivity constraints support path non-monotonic 3 variables"
+      ]
+    },
+    "rationale": "The motivating 2026 paper analyzes fixed-parameter active-set solvers and improving ridge conditioning, not monotonicity of optimal supports across regularization. The 2002 and 2004 nonnegative Tikhonov papers analyze methods to solve regularized problems rather than the sharp dimension-two monotonicity theorem and explicit three-dimensional support reentry at exact thresholds. Closest identified mathematical-record findings concern different quantities, and lasso path results concern the L1 penalty. An unindexed equivalent example remains possible.",
+    "residual_risks": [
+      "The compared literature may omit an unindexed or concurrent equivalent three-dimensional construction.",
+      "Classical parametric complementarity papers could contain an equivalent support-path example not exposed by title or abstracts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source studies fixed-t active-set termination and spectral regularization but not three-dimensional support reentry or its minimality",
+        "evidence": [
+          "arXiv:2607.22121, initial public version 2026-07-24",
+          "Sections 2, 4, 5.1; Proposition 5.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.22121",
+        "material_read": "Accessible HTML full document, including Introduction, complementarity, active-set algorithm, Section 5.1 regularizing split, and numerical/summary discussion",
+        "method": "Read arXiv HTML text; compared KKT and support statements directly",
+        "title": "Non-Negative Conjugate Gradients",
+        "trigger": "Identical nonnegative quadratic objective and regularization strategy"
+      },
+      {
+        "assessment": "Regularized nonnegative inverse problem computation, not an exact full-support versus boundary-support path with minimal dimension",
+        "evidence": [
+          "Electronic Transactions on Numerical Analysis, volume 18 (2004), 153-173"
+        ],
+        "identifier_or_url": "https://www.math.kent.edu/~reichel/publications/tik.constr.pdf",
+        "material_read": "PDF introductory model, algorithm construction and numerical discussion; title, abstract and conclusions examined",
+        "method": "Examined openly accessible publisher-style PDF text and page images",
+        "title": "Tikhonov regularization with nonnegativity constraint",
+        "trigger": "Potential earlier broad nonnegative regularization coverage"
+      },
+      {
+        "assessment": "Algorithm and regularization parameter selection rather than exact regularization support path reentry",
+        "evidence": [
+          "Inverse Problems, volume 18 (2002), 1291-1307"
+        ],
+        "identifier_or_url": "https://www.marielbarojas.com/Academic/Docs/rojas-steihaug.pdf",
+        "material_read": "PDF problem statement, method, numerical analysis and conclusions examined",
+        "method": "Examined openly available PDF text and page image",
+        "title": "An interior-point trust-region-based method for large-scale non-negative regularization",
+        "trigger": "Cited precursor to nonnegative Tikhonov solvers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "85aa2db7-a133-4db6-8290-a640723c73fa",
+  "value": {
+    "rationale": "Parametric active-set warm starts often assume nesting or use cheap support continuation during regularization. A minimal n=3 robust counterexample with positive forcing and strictly improving conditioning shows no such guarantee follows from ridge regularization or SPD structure. The universal n<=2 theorem makes the boundary precise, the explicit rational thresholds make it reproducible, and the robustness check shows it is not a numerical coincidence. No all-dimensional claim is made.",
+    "status": "PASS"
+  }
+}
