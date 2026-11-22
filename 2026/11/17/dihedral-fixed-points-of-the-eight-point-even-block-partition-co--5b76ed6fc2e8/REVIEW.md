@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-space identification follows because each order-complex simplex contains at most one partition with a given block count. Every nonidentity dihedral permutation has one of four explicitly enumerated cycle types. The standalone checker regenerates all 4,140 underlying set partitions, identifies 378 even-block nonmaximum partitions, and checks all 1,995 comparable pairs and 1,890 three-term chains. The independent `collapse_certificate.json` records every required free-edge/triangle collapse; replay verifies 134 valid elementary collapses, final connected graphs, and the graph cycle rank 16 in the all-transposition case, zero in the other three cases. Relabeling conjugacy proves the other eleven cases. Boundaries are exactly eight labels, two-block through four-block partitions, and fifteen nonidentity dihedral elements; no infinite extrapolation is involved.
+## correctness
 
-**Originality — PASS relative to inspected sources and accessible records.** Hanlon's 1981 full-partition fixed lattices, Wachs's 1996 2-divisible partition shelling and top homology action, and Arone–Brantner's 2018 full-partition fixed-space branching formulas were compared at the level of objects and mathematical implications. Wachs's equivariant homology representation can imply fixed Euler characteristics but not the collapse of all fixed two-cells or the complete fixed-point homotopy type. The full-partition fixed spaces cannot be substituted for the even-block restricted spaces. Related published partial-partition-complex fixed-space results have a different poset. Semantic searches found no equivalent claim, but lack of an indexed hit is not uniqueness proof; unindexed papers are a genuine residual priority risk.
+PASS
 
-**Value — PASS.** This is a natural complete classification at the first two-dimensional 2-divisible partition order complex. Five involutions acquire one-dimensional fixed-point topology with sixteen independent circle classes, despite the ambient complex having homology concentrated two dimensions higher than a point. It distinguishes full geometric fixed-point homotopy from a Lefschetz-character calculation and includes a compact, checkable finite certificate. No general theorem about all dimensions is claimed.
+Every allowed partition has 2, 3 or 4 blocks and any comparable chain has distinct block counts; hence no nontrivial automorphism can exchange vertices of a setwise fixed simplex, proving |Δ(P)|^g = |Δ(P^g)| exactly. There are 4140 set partitions, 378 even-block proper vertices, 1995 comparable pairs and 1890 three-term chains. Every nonidentity D8 permutation has cycle type (8),(4,4),(2,2,2,2) or (1,1,2,2,2), with multiplicities 4,2,5,4. Independently regenerated all vertices and full chain complex and greedily found all requested free-edge/triangle elementary collapses for representatives: 0/2/90/42 collapses and remaining connected graph ranks 0/0/16/0, respectively; no residual triangles. This independent collapse algorithm did not reuse the provided collapse ordering; the provided finite certificate and its verifier were also inspected. S8 relabeling conjugacy reduces the fifteen cases to those four. These are exact finite exhaustions, with no claim for larger n.
 
-Closest literature: Hanlon (1981), Wachs (1996), and Arone–Brantner (2018/2021). Important limits: a finite eight-point statement, only individual elements of the natural dihedral group, and no priority guarantee beyond material searched and inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hanlon 1981 computes fixed-point partitions in the ordinary unrestricted partition lattice. Wachs 1996 analyzes 2-divisible partition shellability and a full Sn top homology basis/character, but does not specify geometric fixed-space homotopy types of the restricted eight-label fixed subposets; Lefschetz traces do not force collapsibility or a circle-wedge type. Arone–Brantner 2021 concerns the *full* partition complex rather than restricting to all-even blocks, and fixed spaces can change under deletion. No exact 16-circle fixed-space table found in Resultary beyond the assigned self-indexed record. The older restricted-partition literature remains a priority risk, not proof of coverage.
+
+## value
+
+PASS
+
+The natural first two-dimensional 2-divisible partition order complex admits a complete element-fixed homotopy classification, not merely its homology character. Five particular involutions have 16 independent 1-cycles while the other ten fixed spaces collapse to points; the distinction is geometrically surprising and fully certified by replayable finite elementary collapses. A complete exact classification of this canonical small case is mathematically motivated without needing a conjectural all-n extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
