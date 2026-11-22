@@ -1,0 +1,19 @@
+# Scientific review: fixed-reproduction epidemic outcome inversion
+
+## Correctness — PASS
+Both scalar fixed-point constraints are obtained directly from the deterministic two-class mass-action equations and the independently derived *exponential-lifetime* offspring generating functions. The reproduction matrix has rank one and eigenvalue \(R(1-p+pA)\), fixing the threshold. Strict root uniqueness, sign-controlled implicit derivatives and the positive monotonic integral \(e^u[-f'(u)]\) establish the final-size decrease for every \(c\). The rational generating function and its scalar constraint establish the strictly increasing random-founder nonextinction risk. Derivation of the sign does not rely on simulation. Exact endpoint fractions and 16,816 diagnostic assertions passed on 1,700 parameter tuples.
+
+The strict results require \(p\in(0,1)\), \(A>1\), and \(R(1-p+pA)>1\). At the threshold there is no positive survival branch. The stochastic nonextinction probability is an early-stage branching quantity, not an exact probability of an infinite epidemic in a finite population.
+
+## Originality — PASS, literature-bounded
+The model and its product-only invasion threshold occur in Mazza et al. (2026) and are credited. Harris et al. (2025), Sections 3.3–3.5 and Figures 4–6, already studied fixed-reproduction or comparable-regime differences between epidemic final burden and outbreak probability under susceptibility–infectivity covariation. The qualitative separation is therefore **not** presented as new. The current refinement proves strict *opposite* monotonicity for the entire one-parameter reciprocal-allocation family and every supercritical parameter combination. It also supplies the correct Markovian early-stage survivor root and both classwise orderings.
+
+Kawagoe et al. (2021) derive general inhomogeneous-SIR final-size equations and discuss fixed-reproduction heterogeneity effects; their result does not address Markovian uniform-founder survival on this reciprocal trait-allocation family. El Khalifi (2026) orders outcomes by concordance under fixed trait marginals; these marginal laws vary here. General final-size formulae and numerical comparisons are not assumed to imply this parameter-monotonicity theorem. The closest indexed mathematical files inspected in full describe either temporal susceptibility changes at fixed marginals or cross-only Poisson branching, so neither covers both claim components. Actual query strings, mathematical implication comparisons, source inspection details and priority risks are in `AUDIT.json`. Historical priority is not independently established; a publisher full text on two-group infectivity/susceptibility was not completely accessible.
+
+## Value — PASS
+Even with \(\mathcal R_0\) identical, a shift toward higher susceptibility and lower infectivity of one class can make a major outbreak **more likely** but its eventual attack fraction **smaller**. This is a natural and relevant comparison because prevention of acquisition and prevention of onward transmission are distinct mechanisms. The theorem holds for all supercritical strengths, not an arbitrary numerical slice, and distinguishes founder-type effects from population-weighted risk. It demonstrates why a reproduction-number-only assessment cannot order these two epidemiologically different outcomes.
+
+## Verification and limits
+Run `python3 verify.py` from the included package. The checks are computational corroboration of the self-contained analytic proof. Limitations include mean-field mixing, fixed traits and population fractions, common exponential removal, a vanishing initial macroscopic seed, and branching-limit rather than finite-population outbreak probabilities. No global network or empirical behavioral assertion is made.
+
+Self-review: passed. Independent audit: not yet performed.
