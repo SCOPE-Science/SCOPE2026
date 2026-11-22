@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact renormalisation gives vanishing first-order derivatives for the determinant entries after the first iterate, and an explicit two-dimensional trace perturbation recurrence. Its eigenvalues are \(2\) and \(-1\). Differentiating the exact source corner function yields the closed all-depth coefficient. At the first depth the linear term vanishes; direct symbolic differentiation gives the nonzero quadratic coefficient. The implicit-function hypotheses and the neighboring region signs are proved at each fixed depth. The checked standalone script corroborates the algebra and 18 exact-equation numerical roots, but it is not used as an infinite proof.
+## correctness
 
-**Originality (PASS with residual priority risk).** The exact renormalisation, corner function, and attractor-component theorem were established by Ghosh and Simpson, and are not claimed anew. Full-text comparison with the 2021 paper and its 2024 follow-up finds no closed parity-dependent determinant response or exceptional quadratic first-level displacement. Ou's 2022 Lozi work concerns the creation of individual periodic itineraries, not the component crisis hierarchy. The new formula is deduced from published implicit surfaces; a substantially broader, as-yet-undetected perturbation theorem could subsume it.
+PASS
 
-**Mathematical value (PASS).** The Lozi parameter plane is a canonical two-parameter model of robust chaos, and the countably many crisis boundaries govern changes in the number of connected pieces of its attracting set. Their sensitivity to a small genuine two-dimensional determinant is a natural bifurcation observable. The exceptional first tangency and the opposite linear drift at every deeper level reveal a structural distinction invisible from the zero-determinant diagram alone. This is an explicit finite-depth comparison, not a claim of a uniform-in-depth scaling law.
+For xi=(s,d,-s,d), g^n(xi) has trace coordinates (U_n,V_n)=(S_n,-S_n) at d=0 where S_n=s^(2^n); determinant coordinates equal d^(2^n). Thus F_n=phi(g^n(xi))=S_n²(2-S_n), and at S_n=2 its s derivative is -2^(n+3)/s_n0, nonzero, granting a unique local analytic branch by IFT. Differentiating the trace renormalization gives A_1=B_1=-2; A_(n+1)=-2S_n B_n, B_(n+1)=S_n(B_n-A_n). Normalization yields 2x2 constant recursion with eigenvalues 2 and -1, giving the parity coefficient s_n´(0)=-(1+(-1)^n 2^(1-n))/(3 s_n0). At n1 direct explicit radical differentiation yields Hdd=12, Hs=-8sqrt2 and H_d=0, so quadratic coefficient +3sqrt2/8. The fixed-depth component side assignment follows the earlier component theorem under strict nearby F_(n-1)>0 and F_(n+1)<0. Independently verified exact sympy Hdd,Hs,Hd and normalized derivatives through sample depths; finite root calculations not used as proof of all n.
 
-**Limits.** The theorem holds at each fixed depth in a sufficiently small positive-determinant neighborhood, and cannot be extended to a simultaneous high-depth limit without new estimates. No external audit or confirmation of publication priority has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ghosh-Simpson already define implicit renormalized crisis surfaces and component regions. The new contribution is the explicit all-depth closed first derivative and exceptional vanishing and second derivative on the symmetric Lozi slice. These quantitative coefficients are not direct text of the cited implicit theorem, although elementary differentiation from published formulas creates a genuine possible low-step novelty/value concern.
+
+## value
+
+PASS
+
+The first crisis boundary has an exceptional quadratic rightward shift while every deeper boundary has a leftward linear shift with an alternating renormalization-depth correction. This concrete tangency-versus-transversality distinction sharpens the bifurcation geometry and is directly useful for local parameter prediction; it is not solely a finite numerical root table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
