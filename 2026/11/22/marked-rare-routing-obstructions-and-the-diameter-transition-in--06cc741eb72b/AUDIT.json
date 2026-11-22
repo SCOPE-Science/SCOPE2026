@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The proof derives an exact inclusion/two-hop equivalence, independent ternary conditional coordinate distribution with covariance 1/9, vanishing shared-index local-dependence errors O(m^3(3/4)^(2n)+m^3(5/8)^n+m^2(1/2)^n), and a direct union bound for the diameter reduction. Under m^2(3/4)^n -> lambda in (0,infinity), all errors vanish; standard multivariate Stein-Chen and the bivariate CLT finish the marked process. The standalone checker passed 79,561 finite assertions. Infinite results do not rely on that enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "D. Stark, Convergence in distribution for subset counts between random sets, Electron. J. Combin. 11 (2004), R59, doi:10.37236/1812, especially pp. 1-7 and equations (12)-(19).",
+        "J. W. Moon and L. Moser, On the distribution of 4-cycles in random bipartite tournaments, Canad. Math. Bull. 5 (1962), 5-12, doi:10.4153/CMB-1962-002-0 (accessible publisher extract).",
+        "B. Bollobás, O. Frank and M. Karoński, On 4-cycles in random bipartite tournaments, J. Graph Theory 7 (1983), 183-194, doi:10.1002/jgt.3190070207 (publisher abstract and references).",
+        "A. D. Barbour, L. Holst and S. Janson, Poisson Approximation (1992), general local-dependence methods.",
+        "Choi et al. (arXiv:1611.01901), Theorem 9, proves diameter at most 3 for a nontrivial component of C_(1,2)(D), not the directed diameter of D, and does not sample orientations probabilistically."
+      ],
+      "reasoning": "Stark gives stronger retention-parameter coverage for the count marginal, but no spatial/degree marking and no diameter reduction. The general Poisson approximation machinery can be applied after deriving the new dependency and mark computations; it does not explicitly give these network assertions. Accessible early bipartite-tournament literature treats four-cycle counts/acyclicity. Residual priority risk remains for inaccessible early material and more general point-process results. The 2016 competition-graph paper is not dominating because its distance is measured on the undirected auxiliary competition graph C_(1,2)(D), not inside D.",
+      "searches": [
+        "random bipartite tournament diameter four asymptotic probability complete bipartite orientation diameter 3 probability",
+        "diameter distribution random fair orientations unbalanced complete bipartite graph Poisson obstruction 3 4",
+        "Poisson threshold directed diameter 3 versus 4 in random bipartite tournaments",
+        "random orientation complete bipartite graph probability strong diameter exact asymptotic",
+        "On (1,2)-step competition graphs of bipartite tournaments arXiv:1611.01901 full text Theorem 9 diameter"
+      ]
+    },
+    "checked_sources": [
+      "D. Stark, Convergence in distribution for subset counts between random sets, Electron. J. Combin. 11 (2004), R59, doi:10.37236/1812, especially pp. 1-7 and equations (12)-(19).",
+      "J. W. Moon and L. Moser, On the distribution of 4-cycles in random bipartite tournaments, Canad. Math. Bull. 5 (1962), 5-12, doi:10.4153/CMB-1962-002-0 (accessible publisher extract).",
+      "B. Bollobás, O. Frank and M. Karoński, On 4-cycles in random bipartite tournaments, J. Graph Theory 7 (1983), 183-194, doi:10.1002/jgt.3190070207 (publisher abstract and references).",
+      "Bagga and Beineke, A survey of bipartite tournaments, doi:10.22049/cco.2025.30326.2415.",
+      "published-finding corpus closest: 2026/11/8/SCOPE-a-signed-binomial-correction-for-directed-reachability-on-k-2-n--b3fab112a807.",
+      "published-finding corpus closest: 2026/11/8/SCOPE-second-order-rare-obstruction-law-for-kings-in-random-tournament--cd69f9872e0a.",
+      "published-finding corpus closest: 2026/10/12/SCOPE-universal-poisson-defect-law-for-unary-inclusion-in-random-finit--f48995d9590e.",
+      "Choi, Eoh, Kim and Lee, On (1,2)-step competition graphs of bipartite tournaments, arXiv:1611.01901 (full accessible arXiv text), distinct derived-graph diameter."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "D. Stark, Convergence in distribution for subset counts between random sets, Electron. J. Combin. 11 (2004), R59, doi:10.37236/1812, especially pp. 1-7 and equations (12)-(19).",
+        "J. W. Moon and L. Moser, On the distribution of 4-cycles in random bipartite tournaments, Canad. Math. Bull. 5 (1962), 5-12, doi:10.4153/CMB-1962-002-0 (accessible publisher extract).",
+        "B. Bollobás, O. Frank and M. Karoński, On 4-cycles in random bipartite tournaments, J. Graph Theory 7 (1983), 183-194, doi:10.1002/jgt.3190070207 (publisher abstract and references).",
+        "published-finding corpus: 2026/11/8/SCOPE-a-signed-binomial-correction-for-directed-reachability-on-k-2-n--b3fab112a807",
+        "Full arXiv text Choi et al. (2016) defines a (1,2)-step competition graph C_(1,2)(D) and Theorem 9 concerns only that graph, not the directed diameter of D.",
+        "published-finding corpus closest for the exact bipartite orientation diameter query was 2026/11/8/SCOPE-poisson-cross-orientations-and-the-first-rank-three-probability--f9d4d162d719, which studies independently marked complete tournaments and logical formulas, not oriented biclique diameter."
+      ],
+      "reasoning": "Stark directly entails the Poisson count marginal, so that portion is credited rather than original. Its marginal theorem does not state the independence of Gaussian marks of simultaneous rare inclusions or the directed routing claim; deriving the full assertion additionally requires multitype local-dependence estimates and a finite global routing lemma. Counts of directed four-cycles do not determine diameter or degree-marked rare two-hop failures. The claim is original only to this additional marked-and-diameter extent; a general theorem proving exactly this process would dominate it.",
+      "searches": [
+        "marked Poisson process inclusion witness random subsets sizes source target Gaussian rare comparable pairs",
+        "diameter distribution random fair orientations unbalanced complete bipartite graph Poisson obstruction 3 4",
+        "Poisson threshold directed diameter 3 versus 4 in random bipartite tournaments",
+        "Poisson limit number of comparable pairs among randomly selected subsets Boolean lattice threshold",
+        "Stark 2004 theorem 1 full text equations 12-19",
+        "On 4-cycles in random bipartite tournaments 1983 abstract",
+        "fair random bipartite tournament directed diameter three four sharp Poisson critical exponential part size subset inclusion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "D. Stark, Convergence in distribution for subset counts between random sets, Electron. J. Combin. 11 (2004), R59, doi:10.37236/1812, especially pp. 1-7 and equations (12)-(19).",
+        "published-finding corpus: 2026/10/12/SCOPE-universal-poisson-defect-law-for-unary-inclusion-in-random-finit--f48995d9590e",
+        "published-finding corpus closest to marked Bernoulli subset inclusion was 2026/10/12/SCOPE-universal-poisson-defect-law-for-unary-inclusion-in-random-finit--f48995d9590e, which concerns database team unary-inclusion violations rather than pairwise inclusion of random subsets with degree marks."
+      ],
+      "reasoning": "An ordered pair without a left-to-left two-hop path in a fair bipartite tournament is exactly a Bernoulli subset-comparability pair. Stark proves its unmarked Poisson count and the conditional ternary coordinate law. The new claim is not that unmarked limit: it identifies a four-coordinate marked Poisson process, jointly Gaussian degree marks, asymptotic disjointness, and the bipartite directed-diameter transition. The published-finding corpus unary-inclusion finding concerns dependence semantics for data-table column values, not oriented graph diameter or sampled-set degree marks.",
+      "searches": [
+        "marked Poisson process inclusion witness random subsets sizes source target Gaussian rare comparable pairs",
+        "random binary matrix rows pairwise incomparable antichain probability exponential threshold",
+        "Poisson limit number of comparable pairs among randomly selected subsets Boolean lattice threshold",
+        "Convergence in Distribution for Subset Counts Between Random Sets, doi:10.37236/1812",
+        "marked Poisson comparability Bernoulli subsets source target degrees Gaussian labels independent rare inclusions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus: 2026/11/8/SCOPE-a-signed-binomial-correction-for-directed-reachability-on-k-2-n--b3fab112a807",
+        "published-finding corpus: 2026/11/8/SCOPE-second-order-rare-obstruction-law-for-kings-in-random-tournament--cd69f9872e0a",
+        "D. Stark, Convergence in distribution for subset counts between random sets, Electron. J. Combin. 11 (2004), R59, doi:10.37236/1812, especially pp. 1-7 and equations (12)-(19)."
+      ],
+      "reasoning": "No searched table/result entry reported the critical directed diameter 3/4 law coupled with the Gaussian degree-marked obstruction process. The fixed two-vertex biclique result concerns a different scaling, and the king-result concerns complete (not bipartite) tournaments. A negative database search alone is not evidence of global originality.",
+      "searches": [
+        "marked Poisson process inclusion witness random subsets sizes source target Gaussian rare comparable pairs",
+        "two-hop connectivity marked failures in random bipartite tournaments conditional degrees one third two thirds",
+        "randomly oriented complete bipartite graph diameter two three random bipartite tournament 1990",
+        "published-finding corpus semantic searches for degree-marked bipartite tournament diameter and Poisson subset witness"
+      ]
+    },
+    "rationale": "The unmarked Poisson comparison-count law and conditional one-pair ternary coordinates are known from Stark (2004) and expressly excluded from the novelty claim. The assessed addition is independent Gaussian marks across the rare exceptional process and a sharp directed diameter-three/four mixture with an all-finite-parameter routing error estimate. Searches did not identify the full combined statement, but some older primary texts remain inaccessible; priority is qualified.",
+    "residual_risks": [
+      "Stark (2004) contains the full unmarked count theorem and the one-pair conditional coordinate distribution: any stronger novelty claim for those is precluded.",
+      "The Moon–Moser (1962) and Bollobás–Frank–Karoński (1983) original texts were unavailable for a full claim-level search; a deeper historical review could discover prior stronger coverage.",
+      "General marked rare-event Poisson point-process approximation theorems may yield the marked part after model-specific computation, reducing novelty; the directed global diameter reduction remains an explicit additional assertion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the unmarked Poisson subset count and single-pair coordinate law; DOES NOT state joint Gaussian marked obstruction process or a bipartite directed-diameter transition.",
+        "evidence": [
+          "D. Stark, Convergence in distribution for subset counts between random sets, Electron. J. Combin. 11 (2004), R59, doi:10.37236/1812, especially pp. 1-7 and equations (12)-(19).",
+          "PDF parsed lines 23-216, 325-473, 494-595."
+        ],
+        "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_11/PDF/v11i1r59.pdf",
+        "material_read": "Full nine-page parsed article, including Introduction, Theorem 1, conditional coordinate laws (12)-(14), dependence covariances (15)-(19), and Section 3; web page-image rendering failed with a 403.",
+        "method": "Line-range full-text inspection of the accessible PDF extraction; close claim-level comparison.",
+        "title": "Convergence in distribution for subset counts between random sets",
+        "trigger": "Identical Bernoulli-subset comparability alias and Poisson intensity."
+      },
+      {
+        "assessment": "Extract explicitly describes directed four-cycle counts, not a marked two-hop obstruction or diameter law; full-text noncoverage cannot be certified.",
+        "evidence": [
+          "J. W. Moon and L. Moser, On the distribution of 4-cycles in random bipartite tournaments, Canad. Math. Bull. 5 (1962), 5-12, doi:10.4153/CMB-1962-002-0 (accessible publisher extract)."
+        ],
+        "identifier_or_url": "https://doi.org/10.4153/CMB-1962-002-0",
+        "material_read": "Accessible publisher extract, bibliographic information and reference list; full eight-page text not available through the page.",
+        "method": "Publisher page extract and citation comparison.",
+        "title": "On the distribution of 4-cycles in random bipartite tournaments",
+        "trigger": "Foundational same-object random bipartite tournament study."
+      },
+      {
+        "assessment": "Abstract explicitly identifies 4-cycle moments and acyclicity; cannot exclude an unmentioned diameter corollary without full text.",
+        "evidence": [
+          "B. Bollobás, O. Frank and M. Karoński, On 4-cycles in random bipartite tournaments, J. Graph Theory 7 (1983), 183-194, doi:10.1002/jgt.3190070207 (publisher abstract and references)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.3190070207",
+        "material_read": "Publisher abstract and bibliographic references; complete article inaccessible through public display.",
+        "method": "Abstract-level scope comparison; no whole-document NOT_COVERING claim.",
+        "title": "On 4-cycles in random bipartite tournaments",
+        "trigger": "Same fair orientation model with possibly very unequal part sizes."
+      },
+      {
+        "assessment": "No reported exact exponentially unbalanced random-diameter Poisson law; survey full text not reviewed.",
+        "evidence": [
+          "Bagga and Beineke (2025), publisher abstract and cited references."
+        ],
+        "identifier_or_url": "https://doi.org/10.22049/cco.2025.30326.2415",
+        "material_read": "Publisher abstract, subject headings and bibliography excerpt.",
+        "method": "Abstract and bibliography inspection.",
+        "title": "A survey of bipartite tournaments",
+        "trigger": "Possible later survey summarizing exact diameter and random orientation results."
+      },
+      {
+        "assessment": "NOT_COVERING: the diameter is that of the derived undirected (1,2)-step competition graph C_{1,2}(D), not the directed diameter Delta(D); all results are structural rather than random marked Poisson diameter thresholds.",
+        "evidence": [
+          "J. Choi, S. Eoh, S.-R. Kim, S. J. Lee, On (1,2)-step competition graphs of bipartite tournaments, arXiv:1611.01901 (2016), Definition in Section 1, Theorem 9 in Section 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.01901",
+        "material_read": "Accessible full arXiv article in text/HTML (introduction, Section 2 and Theorem 9 on diameter, later structural and extremal claims).",
+        "method": "Whole-document HTML text inspection and targeted search for diameter, random and distribution; compared actual distance definitions in Theorem 9.",
+        "title": "On (1,2)-step competition graphs of bipartite tournaments",
+        "trigger": "Exact same oriented complete bipartite graph objects, including a theorem mentioning diameter three."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "06cc741e-b72b-41b1-b010-de44edde0669",
+  "value": {
+    "rationale": "The 3-versus-4 directed diameter phase at exponential bipartition imbalance is a motivated natural network invariant. The marked result identifies that rare diameter failure is caused by source/target outward degrees near n/3 and 2n/3 with correlated Gaussian fluctuations, not ordinary vertices near n/2; it also gives the location law and a finite global-routing error bound. This is more than a new parametrization of the known unmarked count distribution.",
+    "status": "PASS"
+  }
+}
