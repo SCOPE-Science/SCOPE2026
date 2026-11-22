@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The exact scalar map and independently symbolically verified factorizations establish the invariant interval and strict contraction for any capped sequence; compactness yields uniform decay even for history-dependent choices. Polynomial square/Gram functional calculus extends the proof to the stated square and rectangular inputs. A one-dimensional critical nonunit fixed point proves failure at the boundary and a>critical produces monotone unbounded growth. The bundled verifier passed 1651 exact/finite checks, not used in place of analytic reasoning. Exact real arithmetic only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Amsel–Persson–Musco–Gower arXiv:2505.16932v5 §3 uses Remez/minimax polynomial selection on a moving spectral interval with general odd degree-five coefficients; its full text gives no sharp uniform a-cap for the PRISM one-parameter subfamily.",
+        "Topollai–Choromanska arXiv:2609.33047v1 abstract describes estimating spectral moments and choosing matrix-polynomial routines; its full text was unavailable to inspect.",
+        "The full PRISM text states a d=1 theorem and only empirical d=2 recommendation, not a universal arbitrary-coefficient guarantee."
+      ],
+      "reasoning": "Generic pointwise optimal polynomial approximation theorems and fixed-polynomial Padé local convergence do not themselves imply stability for *every* adaptive sequence in a coefficient box nor specify its exact sharp box endpoint. The one full-text inaccessible related paper is a priority risk, not treated as disproven coverage.",
+      "searches": [
+        "arxiv:2505.16932v5 §§1.2–3 and Appendix B: adaptive minimax odd degree-five polar sign",
+        "arxiv:2609.33047v1: Cost-free Spectral Estimation for Adaptive Newton--Schulz in Matrix Optimizers",
+        "published-finding corpus: adaptive fifth-order Newton-Schulz polar coefficient cap sharp convergence initial singular values in (0,1]",
+        "Web: \"adaptive Newton Schulz\" \"sharp\" \"coefficient\" \"matrix sign\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.22137v1 full HTML",
+      "arxiv:2505.16932v5 full HTML",
+      "arxiv:2609.33047v1 public abstract only",
+      "published-finding corpus published-finding corpus record 3a5f825b4d70 (critical two-level Frobenius-fitted matrix-sign overshoot)",
+      "published-finding corpus published-finding corpus record bbfe2911afcf (Newton–Schulz inverse residual safety)",
+      "published-finding corpus published-finding corpus record 5f6e926df82f (scalar polar-express surrogate)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "PRISM §4.1 concludes for d=2 that [3/8,29/20] is empirically good; its formal Theorem 1 and proof are for d=1, and it does not assert the sharpness of any d=2 cap.",
+        "Polar Express defines different adaptively chosen minimax quintic polynomials; its standard quintic coefficient is 3/8, but the sharp global coefficient frontier for the one-free-parameter family is not supplied.",
+        "published-finding corpus published-finding corpus record bbfe2911afcf (Newton–Schulz inverse residual safety) concerns Newton-Schulz matrix inversion and nonnormal transient residual spikes, not normal sign or polar Gram residuals."
+      ],
+      "reasoning": "The original result motivates the interval but does not imply the boundary or sharp counterexample. The higher-level Newton–Schulz convergence theorem with specially chosen Taylor coefficients does not imply arbitrary coefficient-schedule convergence through the maximal cubic root; nor do optimal approximation results over different polynomial families give this constraint-specific threshold.",
+      "searches": [
+        "arxiv:2601.22137v1 Section 4.1, Appendix B.1, Theorems 1–2",
+        "arxiv:2505.16932v5 Sections 1.2, 3.5 and Appendix B",
+        "published-finding corpus: PRISM matrix sign fifth order residual polynomial coefficient alpha safe interval 3/8 29/20",
+        "published-finding corpus: sharp parameter convergence of modified fifth-order Newton Schulz sign function polar decomposition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.22137v1 §4.1 explicitly calls [3/8,29/20] an empirical d=2 choice; Appendix B.1 analyzes h(x,a)=1-(1-x)(1+ax)^2, the d=1 map.",
+        "published-finding corpus published-finding corpus record 3a5f825b4d70 (critical two-level Frobenius-fitted matrix-sign overshoot) addresses unconstrained nonnegative d=1 Frobenius-fitted sign iterations, not this d=2 universal coefficient interval.",
+        "The new cubic P(a)=128a^3+496a^2-1026a+27 and exact nonunit fixed-point witness do not follow from the recoverable comparison statements."
+      ],
+      "reasoning": "The object is the *fixed one-parameter degree-five* polynomial x(1+(1-x^2)/2+a(1-x^2)^2), equivalent to a three-term odd quintic with a specific affine coefficient constraint. General Newton-Schulz or degree-one sign iteration results lack its a-dependent global fixed point; changing notation, squaring residuals, or taking polar reductions does not supply the exact cap unless the critical scalar cubic is already established.",
+      "searches": [
+        "published-finding corpus: PRISM matrix sign fifth order residual polynomial coefficient alpha safe interval 3/8 29/20",
+        "published-finding corpus: quintic Newton Schulz sign residual h(r,a) 1-(1-r)(1+r/2+a r^2)^2 convergence",
+        "Web: \"fifth-order\" \"Newton-Schulz\" \"parameter\" \"convergence\" coefficient stability",
+        "arxiv:2601.22137v1 Sections 4.1 and Appendix A.1: g_2 coefficient bounds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating paper lists the empirical degree-two coefficient interval [3/8,29/20], not the cubic root 1.47222926097203 or a sharp cap.",
+        "No table or exact bound matching P(a)=0 was identified in the inspected source full texts or the actual targeted database searches."
+      ],
+      "reasoning": "The source coefficient 29/20 and classical Taylor coefficient 3/8 are known. This finding is neither a recomputation of that table nor a claim about a new matrix-function formula: its exact invariant domain, unique sharp coefficient cap, all-sequence guarantee and failure witness are distinct.",
+      "searches": [
+        "Web: \"1.472229\" Newton Schulz",
+        "Web: \"128\" \"496\" \"1026\" \"27\" \"Newton-Schulz\"",
+        "published-finding corpus: PRISM fifth-order polynomial matrix sign 29/20 maximum safe coefficient divergence cycle",
+        "arxiv:2601.22137v1 Table 1 and §4.1 coefficient ranges"
+      ]
+    },
+    "rationale": "Primary PRISM full text introduces this polynomial but supplies only an empirical degree-two cap, while its theorem addresses degree one; the compared minimax Polar Express paper concerns different variable coefficient families. Targeted mathematical-record searches produced related, noncovering d=1 or inversion results. The exact cubic safety boundary and its sharp failure witness do not appear in inspected claims; unindexed historical equivalences and an abstract-only related paper remain residual risks.",
+    "residual_risks": [
+      "Older matrix-sign or polynomial Padé convergence papers might contain this frontier under an equivalent polynomial parameterization.",
+      "One related 2026 moment-adaptive Newton–Schulz paper was available only at abstract level; full-text noncoverage was not inferred.",
+      "Database searching does not prove global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Construction and empirical [3/8,29/20] are prior; no explicit exact degree-two universal coefficient frontier or nonunit critical fixed-point witness in the inspected material",
+        "evidence": "Section 4.1 identifies d=2 interval empirically; Theorem 1 and Lemma B.1 use d=1 residual h(x,a); Appendix A.1 repeats d=2 interval as empirical recommendation.",
+        "identifier_or_url": "arxiv:2601.22137v1; https://arxiv.org/html/2601.22137v1",
+        "material_read": "Full accessible HTML including Section 4.1, Section 5/Table 1, Appendix A.1 and Appendix B.1–B.3",
+        "method": "Read formula definitions, theorem hypotheses, recommended coefficient intervals and proof polynomial; compare quantifiers and degree-two/d=1 scopes",
+        "title": "PRISM: Distribution-free Adaptive Computation of Matrix Functions for Accelerating Neural Network Training",
+        "trigger": "Same update family and empirical fifth-degree coefficient interval"
+      },
+      {
+        "assessment": "Different minimax design over spectral intervals; does not explicitly give the exact constant cap of this fixed one-dimensional coefficient subfamily",
+        "evidence": "Section 1.2 cites the standard quintic Taylor/Padé; Section 3 uses interval-dependent minimax odd polynomials; Appendix B surveys Padé families and domain restrictions.",
+        "identifier_or_url": "arxiv:2505.16932v5; https://arxiv.org/html/2505.16932v5",
+        "material_read": "Full accessible HTML, Sections 1–3 and Appendix B on Newton–Schulz, Padé and minimax polynomial adaptations, including algorithm construction",
+        "method": "Compare odd quintic parameter family, objective, input interval and claimed convergence implications",
+        "title": "The Polar Express: Optimal Matrix Sign Methods and Their Application to the Muon Algorithm",
+        "trigger": "Plausibly broader fast degree-five matrix sign/polar convergence and safeguarding"
+      },
+      {
+        "assessment": "Abstract describes spectral-moment estimation and routine selection; exact coefficient-frontier coverage could not be ruled out from available text",
+        "evidence": "Public abstract discusses Gram spectral moments and adaptively selected routines, with no stated exact scalar coefficient cap.",
+        "identifier_or_url": "arxiv:2609.33047v1; https://arxiv.org/abs/2609.33047",
+        "material_read": "Accessible arXiv abstract only; full primary HTML access failed",
+        "method": "Compare abstract-level stated algorithm and objectives to exact uniform-coefficient safety claim without inferring full-text noncoverage",
+        "title": "Cost-free Spectral Estimation for Adaptive Newton--Schulz in Matrix Optimizers",
+        "trigger": "Contemporary adaptive Newton–Schulz coefficient selection and spectra"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b861457d-b7cd-4eb3-a017-73ca6e30dcf0",
+  "value": {
+    "rationale": "The natural and practically used safety parameter of an emerging coefficient-fitted matrix function algorithm is characterized exactly, closing an empirical tuning gap. A robust guarantee against any adaptive/sketched coefficient choices and the exact fixed-point/divergence failure at its threshold give more than a routine coefficient increment; no general training-speed claim is made.",
+    "status": "PASS"
+  }
+}
