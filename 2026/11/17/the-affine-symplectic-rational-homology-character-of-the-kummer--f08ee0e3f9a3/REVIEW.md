@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The face description, polar symplectic action, unique-block incidence of all faces of size at least three, and Lefschetz trace identity establish the formula. A separate full direct signed-chain trace agrees for each of the 11520 group elements. Exact integral Smith reduction independently establishes the rational homology premise and the quotient conclusions follow by rational transfer.
+## correctness
 
-## Originality — PASS
-The exact Kummer biplane open-neighborhood homotopy classification and the 240 missing-triangle mod-two cycle orbit are credited. Neither their statements nor the full inspected published materials give the rational degree-two character on the 11520 affine symmetries. The closest closed-neighborhood Čech homology character is a different complex. Missing or unindexed literature could contain an equivalent representation; originality is a best-evidence assessment, not a uniqueness certificate.
+PASS
 
-## Value — PASS
-A full natural finite-group character of a nontrivial 55-dimensional rational homology module is more informative than its sphere count or a small symmetry test. It distinguishes the ten-dimensional translation invariant subspace from the vanishing full-group invariant subspace and yields two distinct quotient-homology consequences. The invariant is intrinsic to a classical symmetric design.
+The quadratic form on F2^4 has six q=1 points, sixteen translates with pairwise block intersection two, and 808 nonempty simplices; all faces of cardinality >=3 lie in unique six-point blocks. Signed simplicial Lefschetz traces give tr_H2=f_g-C(f_g,2)+t_g-1+sum_fixedblocks(1-f_C+C(f_C,2)-t_C), using rational H0=Q and H2=Q^55; the previously published exact open-rook neighborhood complex gives the requisite homology. Independent enumeration of all 720 symplectic linear maps and sixteen translations reconstructed character histogram {-5:240,-1:4230,0:2304,1:4640,7:105,55:1} and averages 10 over translations, zero over full G. Rational geometric quotient invariants follow from barycentric subdivision plus transfer. No integral quotient claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known nonequivariant RP2 wedge 55 S2 theorem fixes rational dimension, but not an affine symplectic character. The published 240 shortest mod-two 1-cycles classify a different characteristic and degree; the closed-neighborhood rook Čech character uses different faces. The exact 11520-element trace distribution is not a restatement of those results or a general-Lefschetz tautology without fixed-set enumeration.
+
+## value
+
+PASS
+
+The Kummer 2-(16,6,2) biplane is a natural highly symmetric incidence structure. The exact rational representation and contrasting 10-versus-zero quotient Betti numbers are natural new group-theoretic invariants that refine a known nonequivariant topology and are useful for symmetry-equivariant topological combinatorics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
