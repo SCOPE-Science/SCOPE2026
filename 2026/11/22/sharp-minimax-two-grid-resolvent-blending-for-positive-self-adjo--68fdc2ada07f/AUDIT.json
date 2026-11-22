@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The exact scalar-symbol identity reduces the infinite-dimensional estimate to sup_{z>0}|L(z)-a tanh(z)|/4. An entire-series coefficient-ratio argument rigorously proves strict monotonicity of L'(z)/sech²(z), establishing one negative interior contact and one positive limiting contact. Their unique equioscillation gives a global minimax optimizer, while the self-adjoint multiplication spectrum [0,infinity) supplies a matching lower bound; real-part comparison establishes uniqueness against complex weights. Root bracketing, finite-grid diagnostics and exact scalar checks are supplementary, not relied upon for infinite-dimensional proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2611.15563v1 Corollary 5.2: fixed Romberg coefficient and smoother data rate, not weight optimization",
+        "Berrut–Trummer, DOI 10.1007/s11075-022-01462-0: extrapolation from jump integrands",
+        "Dahal, A Matrix-Based Perspective on Multi-Level Richardson Extrapolation: inspected smooth-expansion Section 4"
+      ],
+      "reasoning": "Classical Richardson cancels terms in a smooth-data expansion; an unbounded self-adjoint spectrum retains O(h) large-frequency error, so that mechanism cannot supply this minimax constant. The general equioscillation principle is applicable but by itself does not establish the needed strict turning-point structure, root or operator sharpness. Broad implicit coverage remains possible.",
+      "searches": [
+        "optimal Richardson weights non-smooth unbounded generator norm Q_h Q_h/2 resolvent Chebyshev Langevin function",
+        "optimal coefficient tanh approximation Langevin function maximum uniform error Chebyshev",
+        "minimax two level extrapolation weights trapezoidal sums e^{-xt} infinity continuous spectrum selfadjoint"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.15563",
+      "https://doi.org/10.1007/s11075-022-01462-0",
+      "https://www.siam.org/media/ixnd5ck3/s185720r.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited preprint supplies the definition of P_h, Richardson coefficient w=4/3 and scalar first-order spectral bounds",
+        "Our theorem determines a strictly smaller coefficient 0.0639228974... with a unique non-Romberg weight 1.7443084104... and an exact full-spectrum lower-bound witness"
+      ],
+      "reasoning": "A bound for w=4/3, even a sharp bound, does not imply optimality over complex weights; indeed the new optimum gives a strict improvement. Qualitative O(h) theorems and general existence principles do not imply the exact sharp coefficient and uniqueness. Related sampled-resolvent aliasing and Schatten-class claims study other observables, not this norm minimax.",
+      "searches": [
+        "\"resolvent\" \"extrapolation\" \"operator norm\" \"self-adjoint\" quadrature",
+        "\"two-level\" \"Laplace\" \"quadrature\" \"minimax\" \"extrapolation\" spectral",
+        "arxiv:2611.15563 Corollary 5.2 Proposition 5.10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2611.15563v1: its trapezoid correction and Proposition 5.10(a) express a scalar error using the Langevin function",
+        "Our equation (1) reduces the two-grid operator problem exactly to minimization of sup_{z>0}|L(z)-a tanh(z)|"
+      ],
+      "reasoning": "The scaled Langevin-versus-hyperbolic-tangent approximation is the precise equivalent scalar problem, not a merely similar topic. The referenced single-grid and standard Romberg expressions leave its unrestricted affine minimax coefficient undetermined; no matching closed optimum was found in the stated searches.",
+      "searches": [
+        "\"Langevin\" \"tanh\" \"trapezoidal\" \"resolvent\" \"minimax\"",
+        "best uniform approximation 1/x with two coth functions weighted trapezoidal Laplace integral positive halfline",
+        "best uniform approximation Langevin function by tanh constant multiple uniform norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit constants arise from the uniquely determined zero of J(z)(1+tanh z)-1-L(z); no published exact-constant table was identified by these searches"
+      ],
+      "reasoning": "The result is not a finite census or table lookup; numeric decimals report an analytic transcendental extremal defined uniquely by the proof. Nonmatching searches are not independent proof of novelty.",
+      "searches": [
+        "minimax sampled resolvent trapezoid two grids 1.74430841041328",
+        "Romberg sampled resolvent exact error constant 0.0639229 1.744308",
+        "weighted coth Langevin minimax 0.0639228974"
+      ]
+    },
+    "rationale": "The inspected motivating preprint fixes the classical Romberg coefficient and gives first-order analytic-semigroup operator-norm estimates; it does not provide the unique minimax two-grid weight or the strict Langevin quotient monotonicity needed to determine the exact universal coefficient. The present claim explicitly excludes prior sampled-resolvent identities, classical Romberg convergence, and general Chebyshev equioscillation principles from the novelty assertion. Searches targeting exact scaled-hyperbolic/Langevin minimax formulations and broader extrapolation theories did not identify a dominating theorem; an unlocated implicit general theorem remains a documented risk.",
+    "residual_risks": [
+      "An older general one-parameter Chebyshev approximation theorem could implicitly encode the optimal scaled Langevin constant without these names.",
+      "The Berrut–Trummer full article and portions of the Dahal paper were not independently checked theorem by theorem; neither has been represented as conclusively excluding coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the sampled-resolvent formulation, the fixed smooth-data Romberg weight, and an unoptimized Langevin extremal; no optimized all-frequency two-level minimax coefficient was identified in the inspected result statements.",
+        "evidence": [
+          "arxiv:2611.15563v1, Corollary 5.2; Proposition 5.10(a); operator-norm rate discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.15563",
+        "material_read": "Full preprint, including introductory definition, Corollary 5.2, Proposition 5.10(a), and surrounding derivations",
+        "method": "Read open-access preprint and compared actual two-level weights, quantifiers and spectral sharpness objectives",
+        "title": "Sampled resolvents of C0-semigroups: aliasing and sharp rates on the Crandall–Pazy scale",
+        "trigger": "Exact object: sampled Laplace resolvents and corrected nested trapezoidal/Romberg levels"
+      },
+      {
+        "assessment": "The accessible material concerns jump-function extrapolation and equispaced finite quadrature. It does not establish the present operator-norm minimax constant; full implicit coverage cannot be ruled out from this limited inspection.",
+        "evidence": [
+          "Published Numerical Algorithms article, DOI 10.1007/s11075-022-01462-0"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11075-022-01462-0",
+        "material_read": "Accessible abstract and introductory method description, not a complete theorem-by-theorem full-text inspection",
+        "method": "Compared the stated jump-integrand quadrature setting to continuous spectral semigroup resolvents",
+        "title": "Extrapolation quadrature from equispaced samples of functions with jumps",
+        "trigger": "Potentially dominating extrapolation-quadrature theorem"
+      },
+      {
+        "assessment": "The inspected excerpt works with algebraic smooth-expansion cancellation, not the operator-norm spectral equioscillation objective. Unread sections remain a limited bibliographic risk.",
+        "evidence": [
+          "Section 4 smooth-expansion/Richardson analysis of the accessible article"
+        ],
+        "identifier_or_url": "https://www.siam.org/media/ixnd5ck3/s185720r.pdf",
+        "material_read": "Section 4 accessible excerpt only",
+        "method": "Compared smooth-expansion error equations with uniform error on a continuum of unbounded spectral parameters",
+        "title": "A Matrix-Based Perspective on Multi-Level Richardson Extrapolation",
+        "trigger": "Possible general Richardson minimax formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68fdc2ad-a07f-4c67-857a-e183e5ba6c1b",
+  "value": {
+    "rationale": "This is an exact best-constant optimization for the naturally available two successive sampled-semigroup grids: the standard smooth-data Romberg coefficient is not best for the unbounded spectral operator norm. The theorem finds and proves the unique optimal coefficient, a strict factor 2.6073... improvement, and a natural unbounded multiplication semigroup that makes the bound sharp. It clarifies a motivated stability-versus-extrapolation trade-off without asserting faster convergence or broader operator classes.",
+    "status": "PASS"
+  }
+}
