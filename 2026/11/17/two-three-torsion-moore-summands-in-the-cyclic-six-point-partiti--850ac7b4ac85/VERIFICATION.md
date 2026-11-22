@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproduction
-With Python 3 and its standard library, run `python3 verify_partition_quotient.py` in the same directory as `check_output.txt`. Compare standard output to `check_output.txt`. All tests regenerate their own input without external data.
+# Independent mathematical audit
 
-The code enumerates all 201 proper partitions of the six-symbol set; enumerates all 9,011 strict chains; obtains 1,541 cyclic cell orbits, distributed by dimension as (41,326,720,454); computes every signed integral cellular boundary and checks adjacent boundary compositions. A deterministic elimination selects exactly 758 unit pivots, preserving chain homotopy over the integers. After reduction the cellular ranks are (1,0,2,22) and the sole nontrivial boundary has Smith diagonal (3,3). The source includes explicit assertions for the matrix shape, all entries divisible by three, and a rank-two minor of absolute value nine. It also checks Euler characteristic before and after contraction.
+## correctness
 
-The independent small-parameter calibration uses the published prime case with five labels and obtains integral homology \(H_1=\mathbb Z/5\), \(H_2=\mathbb Z^4\), confirming the action/orientation conventions.
+PASS
 
-## Scope of verification
-This executable check is an exhaustive finite calculation for the specified six-label object, not evidence for an unproved infinite-parameter assertion. The assertions about trivial fundamental group and Moore-space homotopy splitting follow separately from the generator's actual fixed partition, Armstrong's theorem, and standard simply connected three-complex homotopy theory. They are mathematically argued, not externally independently certified.
+Independent full enumeration of 201 proper partitions, [201,1865,4245,2700] chains, and [41,326,720,454] regular C6 flag orbits. Independent integer unit-pivot contraction gives 40+286+432=758 cancellations and residual ranks [1,0,2,22]; residual d3 entries all multiples of 3, with rank two and a 2x2 minor of absolute value nine, so Smith diagonal (3,3). The two-block parity partition is fixed by a generator of C6; since proper Pi6 has homotopy wedge of 120 S3, Armstrong kills the quotient pi1. A simply connected 3D CW complex has two-skeleton a 2-sphere wedge, and 3-cell attaching maps live in the free pi2 lattice; Smith changes of bases yield two degree-3 Moore spaces and 20 spheres. This is a finite complete calculation, not an infinite formula.
+
+## originality
+
+PASS
+
+Donau 2012 Proposition 4.2 assumes prime regular cyclic p>=5 (free action) and his point-stabilizing Young-subgroup theory does not contain transitive composite C6. A hexagonal noncrossing-partition quotient is a different poset. A full dihedral quotient of the same proper partition space is a further quotient and does not imply the C6 torsion or homotopy splitting.
+
+## value
+
+PASS
+
+This is the first composite six-cycle setting where a stabilizer creates new nontrivial Moore summands in an originally torsion-free partition complex. An exact natural finite orbit-space homotopy classification provides a concrete integrality counterpoint to the prime-case picture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

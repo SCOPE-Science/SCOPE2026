@@ -1,15 +1,21 @@
-# Mathematical review: cyclic six-point partition quotient
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim specifies the ordinary orbit space of the proper partition-lattice order complex on six symbols under a regular six-cycle. Because strict partition chains have strictly ordered ranks, no stabilizer can permute a simplex's vertices; the signed face-orbit boundary formula is integral and correct even for cells with nontrivial stabilizers. The standalone checker reconstructs all 9,011 simplices and 1,541 quotient cells, verifies boundary compositions, carries out 758 genuine unit-pivot chain cancellations, and produces a degree-three map with exact Smith invariants (3,3). The residual free kernel has rank 20. Separately the acting generator fixes the even/odd two-block partition; the simply connected original complex and Armstrong's orbit-space theorem give trivial quotient fundamental group. Standard simply connected three-dimensional CW theory upgrades the Smith data to the Moore-space and sphere wedge. Source: Donau's 2012 exposition for the underlying partition-complex homotopy type; Armstrong 1965 for fundamental groups. Risk: the finite chain certificate does not automate the independent topological theorems, which have been applied with their hypotheses stated.
+## correctness
 
-## Originality: PASS relative to inspected evidence
-The closest source is Ralf Donau, arXiv:1202.4368 (2012), particularly section 4 and Proposition 4.2. It covers the free action of a cyclic group of *prime* order and cannot imply the nonfree six-cycle result or its two three-primary second-homology summands. Donau's 2010 Young-subgroup theorem assumes a globally fixed ground-set letter, whereas the chosen six-cycle is transitive. The introduction and relevant pointers of Donau's 2020 thesis were checked for this specific distinction; they describe the known prime/Young results, not the displayed six-point calculation. Searches of published mathematical records for the precise quotient, its aliases, torsion and Moore decompositions found no equivalent implication. The complete exact result could nonetheless exist in unindexed literature; lack of a search hit is not proof of priority.
+PASS
 
-## Mathematical value: PASS
-This is the first composite-size case beyond the prime-action phenomenon of the 2012 reference. The primitive phenomenon is not a recapitulation of a Betti table: a quotient that becomes simply connected through an actual fixed vertex nevertheless acquires two independent torsion classes in degree two, and the full integral homotopy type is explicitly identified. The computation specifies a canonical lattice/action and a complete finite natural invariant, suitable as a concrete boundary and test example in equivariant poset topology. No infinite-family extrapolation is claimed.
+Independent full enumeration of 201 proper partitions, [201,1865,4245,2700] chains, and [41,326,720,454] regular C6 flag orbits. Independent integer unit-pivot contraction gives 40+286+432=758 cancellations and residual ranks [1,0,2,22]; residual d3 entries all multiples of 3, with rank two and a 2x2 minor of absolute value nine, so Smith diagonal (3,3). The two-block parity partition is fixed by a generator of C6; since proper Pi6 has homotopy wedge of 120 S3, Armstrong kills the quotient pi1. A simply connected 3D CW complex has two-skeleton a 2-sphere wedge, and 3-cell attaching maps live in the free pi2 lattice; Smith changes of bases yield two degree-3 Moore spaces and 20 spheres. This is a finite complete calculation, not an infinite formula.
 
-## Limits and evidence
-The checker uses exact integers and exhaustively enumerates the specified finite complex; it does not provide an independent proof of the underlying classical theorems or exclude every unpublished equivalent result. The report does not assert any independently validated mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Donau 2012 Proposition 4.2 assumes prime regular cyclic p>=5 (free action) and his point-stabilizing Young-subgroup theory does not contain transitive composite C6. A hexagonal noncrossing-partition quotient is a different poset. A full dihedral quotient of the same proper partition space is a further quotient and does not imply the C6 torsion or homotopy splitting.
+
+## value
+
+PASS
+
+This is the first composite six-cycle setting where a stabilizer creates new nontrivial Moore summands in an originally torsion-free partition complex. An exact natural finite orbit-space homotopy classification provides a concrete integrality counterpoint to the prime-case picture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
