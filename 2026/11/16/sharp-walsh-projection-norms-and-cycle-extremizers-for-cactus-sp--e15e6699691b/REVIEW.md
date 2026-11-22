@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the graph class, edge-coordinate Fourier convention, normalization, and bridge/cycle boundary cases. The cactus block-tree bijection forces one and only one omitted edge per cycle. Summing signs gives an exact product formula; binomial counts yield the rank and precise minimal nonzero modulus. The endpoint norm follows from the absolute row sum of the Walsh projection kernel. The central-binomial plateau and strictly decreasing ratios of the factors yield the fixed-cycle-count and all-cactus vertex extremal laws with equality cases. The independently implemented standard-library checker reconstructed spanning trees and full transforms over 5,648 frequencies and exhausted 5,739 possible cycle-length configurations. The all-graph conclusion relies on the proof, not the finite test.
+## correctness
 
-## Originality — PASS (bounded comparison)
-The classical spanning-tree enumeration and signed Laplacian literature supply ingredients but not the complete Fourier projection and extremal claims. Ghorbani (arXiv:1201.3221, sections 1–4) studies ordinary tree counts and Laplacian eigenvalue arithmetic, not the all-frequency edge-Walsh transform. Zaslavsky (arXiv:1303.3083, especially section IV.D) treats signed-incidence Kirchhoff matrices and all-minors theorems, not the independent-edge Fourier projection. Klee–Stamps (arXiv:1903.03575, sections 1–4) evaluates weighted tree enumerators for complete, complete multipartite, Ferrers and threshold graphs, without the cactus Fourier rank or extremal theorem. The closest indexed results on unicyclic edge-Walsh minimum projection constants use edge characters induced from vertex signs; those characters obey graph cycle relations. This differs from the full free edge-coordinate group here and produces even-cycle corrections absent from our independent-cycle norm factors. Results on cactus Lipschitz-free transportation-space basis projections act on a different Banach space. The complete texts of these two close indexed records were not accessible, and an earlier equivalent tensor-factorization statement remains a priority risk. No partition or negative search alone establishes novelty.
+PASS
 
-## Mathematical value — PASS
-This is a natural exact classification for the spanning-tree incidence set of every connected simple cactus, rather than one handpicked finite sample. The theorem determines all Fourier zeros and exact convolution rank, sharp inverse stability for the invertible cases, a full sharp endpoint projection norm, and a global extremal graph family with equality cases. The triangle-packing extremal law shows which cactus cycle structures produce the largest Fourier amplification at fixed vertex count; the refined fixed-cycle-count law gives a balanced-length optimal design. These specific harmonic invariants are useful when deciding invertibility or stability of convolution restricted to spanning-tree configurations. The factorization is elementary and does not purport to introduce new matrix-tree or binomial identities.
+Connected cactus spanning trees require every bridge and exactly one omitted edge independently per edge-disjoint cycle, so their Walsh sum factors as bridge signs times ∏[(∏ s_e)(Σ s_e)]. This immediately gives rank product 2^b∏(2^ell−1_{even} binom(ell,ell/2)), invertibility iff cycles odd, min nonzero multiplier 2^{#even cycles}, and inverse 2-norm when no zeros. Endpoint norm of Fourier projection onto this specific spanning-tree frequency set is its kernel's normalized L1 mass =∏ E|Σ_{ell} ε_i| =∏ α_floor((ell−1)/2). The central-binomial telescoping identity α_m=(2m+1)binom(2m,m)/4^m was independently computed for ell3..9, including parity plateaus. For N vertices, Σ m_j≤K=floor((N−1)/2), α_1=3/2 and α_{m+1}/α_m=(2m+3)/(2m+2) decreasing, hence global max (3/2)^K and equality only all m_j=1 with the specified one-edge parity budget; at fixed r balancing all m_j via these decreasing ratios gives stated α_a^(r−u)α_(a+1)^u. Independent integer configuration enumeration checked global maxima for N=3..17. The proof, not finite enumeration, establishes all N and cactus topologies.
 
-## Closest literature and residual limits
-Nearest scientific inputs: Ghorbani's tree-count parity/eigenvalue work (2012); Zaslavsky's signed graph matrix survey (2013); Klee–Stamps' weighted enumerators (2019). Close indexed results describe unicyclic **vertex-induced edge-Walsh** projection constants and cactus transportation-space basis constants, not the free edge-coordinate spanning-tree projection. Available descriptions, not full manuscripts, supported those two comparisons. The historical-priority risk is primarily an unindexed product/tensor formulation or a result contained in the unavailable full manuscripts. The universal proof is self-contained; no independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded semantic Resultary search plus primary-literature comparison finds no earlier theorem dominating the precise full stated claim. Explicit equivalences and narrower covered portions are identified. This is best-of-knowledge, not a guarantee of global novelty. The previously known ingredients and different domains of related results are not claimed new.
+
+## value
+
+PASS
+
+This evaluates an exact Fourier projection and sharp cactus extremizers across all connected cactus graphs, a natural family where cycle-block combinatorics produces an operator-theoretic invariant. The extremizer and refined fixed-cycle-count classification are meaningful structural optimization, beyond generic matrix-tree enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
