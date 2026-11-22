@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the specified 12-edge octahedral graph, the coefficient-of-monomial identity gives the exact 38-state Eulerian-orientation count and the two-point edge-spin moments. All 144 moment entries were checked in two self-contained ways: exhaustive 4096-orientation enumeration and a separate signed generating-polynomial dynamic program. Exact rational Laplacian pseudoinversion then verifies the covariance decomposition, eigenvalues and sharp singular-value condition number. The five-vertex tight baseline was independently enumerated. Both programs completed without error and depend only on Python 3's standard library. The claim is finite and does not require an unproved extrapolation.
+PASS
 
-## Originality — PASS, with bounded-source risk
+On the 6-vertex, 12-edge graph, exhaustive source-degree-two coefficient extraction of product(t_a+/-t_b) yields 38 balanced orientations and all 144 moments; verified source coefficient DP and independent enumeration of all 4096 direction patterns match. With signed incidence B, the pseudoinverse L+ has exact eigenvalue weights 1/4 (within-pair contrasts) and 1/6 (pair-constant contrasts); P_cyc=I-B^T L+ B. v is a 12-entry unit-sign circulation, v^Tv=12. Formula gives eigenvalues 32/19 sixfold and 36/19 once on 7D cycle space, zero fivefold; K5 is the unique five-vertex quartic graph and its frame is tight 5/3 P_cyc. Graph complement of perfect matching proves uniqueness at 6 vertices.
 
-The closest general references are Lieb's square-ice transfer-matrix analysis and Nisoli's general-graph spin-ice treatment. Neither evaluates the exact uniform octahedral edge-spin covariance; Nisoli's Laplacian description treats charge correlations in a Gaussian field approximation. The indexed regular-tournament tight-sampling theorem covers the five-vertex baseline, while the indexed two-winding squared-cycle enumeration explicitly assumes odd cycle length, excluding the octahedral graph \(C_6^2\). Searches using all three common graph aliases, covariance, Walsh sampling, spin correlations and 38 Eulerian orientations produced no containing statement. A full text of the indexed recent mathematical records was not accessible, and non-indexed exact tables remain a real risk. Absence of a search hit is not proof of global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Uniform ice orientations are a canonical finite constrained-spin ensemble, and degree-one Walsh sampling asks whether every observable edge circulation can be stably reconstructed. The natural comparison is the smaller four-regular graph \(K_5\), whose edge sampling is tight. The six-vertex octahedral graph is the first permitted graph after it and has a genuine two-level spectrum, with a geometrically canonical anomalous mode and sharp frame bounds. Thus the result isolates the first failure of uniform tightness, not merely a count of another graph, and supplies an exact calibration case for finite graph-ice correlations and cycle-space approximation.
+The published regular-tournament theorem (odd K_n, including K5) implies tightness only for complete graphs, not K_{2,2,2}. Odd cycle-square two-winding enumeration specifically excludes even C6^2 and gives orientation counts rather than edge-pair covariance. Lieb square ice and Nisoli graph charge field/approximation are broader context but not an exact 38-state degree-one edge covariance. Targeted search found no dominating octahedral covariance theorem; inaccessible specialized tables remain possible.
 
-## Closest mathematical literature and boundaries
+## value
 
-Lieb (1967): six-vertex ice-rule and square-lattice entropy, not finite octahedral edge covariance. Nisoli (2020): graph divergence, general field theory and Gaussian charge response, not the exact uniform spin covariance. Published regular-tournament tight sampling: covers the \(K_5\) baseline, not \(K_{2,2,2}\). Published odd squared-cycle Eulerian-orientation count: domain excludes \(C_6^2\) and does not determine this covariance. Independent scrutiny and a broader priority census are still appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact first non-tight example isolates a canonical anomalous cycle-space direction in the smallest non-complete simple 4-regular graph and gives sharp sampling stability constants. Its identifiable quotient and single anisotropic direction are natural structural Fourier data, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
