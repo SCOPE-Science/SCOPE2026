@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundaries
+# Independent mathematical audit
 
-Run `python checks/cycle_hypersimplex.py` from the package root with Python 3 and `numpy`/`scipy` installed. The exact-rational component needs only the Python standard library. The script checks all unordered pairs of hypersimplex vertices for every integer order from 3 to 40, with rational convex weights, residuals, and variational inequalities. It checks the complete distance-level multiplicities and that the farthest vertices have pairwise distinct residuals. A separate numerical constrained optimization phase compares the formulas for 219 instances of orders 3 through 11.
+## correctness
 
-Observed successful output:
+PASS
 
-`CYCLE_HYPERSIMPLEX_PASS exact_pairs=10659 independent_qps=219 max_squared_gap=1.01e-14 farthest_residuals_distinct=PASS`
+For n≥3, verified P(C_n)=conv{e_i+e_{i+1}} inside Δ(2,n), unnormalized ℓ2. Applied projection criterion r·u_k ≤ r·p for all k. δ=1 gives0; n4 opposite chord projects to (1/2)1 squared distance1. For n≥5 two-step chords use weights (1/3,1/6,1/6,1/3), residual +1/2 at targets and −1/3 at three other vertices giving 5/6 and maximum active edge dot 1/6. For n≥6 δ≥3 use four incident edges weight1/4, residual +1/2 targets and −1/4 at four neighbors giving 3/4. Counts n,n,n(n−5)/2; strict residual variance excludes all nonvertex farthest points. Fresh independent support inequalities exhaustively verified for every chord through n=45 (15,179 unordered pairs), not extrapolated for general n.
 
-The exact mathematical argument is the finite-form variational projection certificate with a uniform case distinction; the program's finite tests are consistency checks, not proofs for unbounded dimension. The residual vectors, support conditions, equality cases, and farthest-point variance argument are given explicitly in the proof. No independent mathematical audit is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge original natural exact Euclidean metric spectrum for a cycle edge polytope inside Δ(2,n): unique nearest-point maps at each cyclic chord distance, entire farthest locus and n=4 exception. Graph-edge embedding and affine dimensions are established prior art; direct sharp 5/6 versus 3/4 shell metric not found in read primary sources.
+
+## value
+
+PASS
+
+Exact complete chord-distance shells of the canonical unsigned cycle edge polytope quantify robust approximation of a hypersimplex by its natural sparse graph subpolytope. The sharp n4 exceptional boundary, stabilizing distance 5/6 from n5, explicit projection points and unique extremal locus are motivated metric geometry, not just arbitrary small graph table values; the proof is short but the exact all-size invariant is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
