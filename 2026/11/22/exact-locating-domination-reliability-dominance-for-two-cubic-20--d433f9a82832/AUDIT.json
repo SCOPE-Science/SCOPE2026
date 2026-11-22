@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For each fixed 20-vertex graph, the decision predicate accepts exactly those subsets whose unselected vertices have pairwise distinct nonempty open-neighborhood intersections with the subset. The C++ program loops over all 1,048,576 masks with a 2-subset-disjointness Desargues model and the generalized Petersen dodecahedral model. The Python program independently loops over all combinations using GP(10,3) and GP(10,2), checks an explicit Desargues graph isomorphism, and reproduces all 21 coefficients. Both executed successfully. Subtracting the two vectors leaves positive differences at exactly cardinalities 7 through 13; summing the corresponding positive Bernoulli monomials proves strict reliability dominance for every \\(0<p<1\\), with endpoint equality. The conclusion is only for the two graphs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Balbuena–Foucaud–Hansberg give girth-based minimum-size bounds and a structural test for location domination. Foucaud–Henning prove that a twin-free cubic graph has a locating-dominating set of at most half its vertices."
+      ],
+      "reasoning": "A minimum-size existence bound does not imply exact numbers of successful k-vertex sets for each k, or stochastic domination of complete locating-domination enumerators on two particular nonisomorphic graphs. The full relevant primary texts were inspected at their statements and conclusions.",
+      "searches": [
+        "locating-dominating sets exact enumeration minimum locating domination number Desargues graph GP(10,3) generalized Petersen dodecahedral graph 20 vertex 3 regular",
+        "complete cardinality polynomial of locating dominating sets of Desargues graph and dodecahedral graph reliability comparison 20 vertices cubic graphs coefficientwise",
+        "https://arxiv.org/abs/1412.2865",
+        "https://arxiv.org/abs/1407.7263"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1407.7263",
+      "https://arxiv.org/abs/1412.2865",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-all-1-475-minimum-locating-dominating-sets-of-the-desargues-grap--d4faf2202a7f",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-location-dominating-code-reconfiguration-on-the-dodecahedral-gra--c7294558cbe4",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2021/8147514"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest two exact results fix only the first nonzero coefficient in each polynomial. The new verified difference has seven nonzero coefficients from degrees seven to thirteen, including six beyond the first dodecahedral coefficient. The resulting strict reliability inequality is valid for every p in the open unit interval."
+      ],
+      "reasoning": "An optimal set count does not determine the polynomial coefficients at greater cardinalities because many larger subsets may be valid or invalid; nor does a scalar upper bound imply coefficientwise domination. Thus prior statements do not logically imply the complete spectrum or its reliability consequence.",
+      "searches": [
+        "locating-dominating sets exact enumeration minimum locating domination number Desargues graph GP(10,3) generalized Petersen dodecahedral graph 20 vertex 3 regular",
+        "location-domination polynomial reliability connected cubic symmetric graphs dodecahedron Desargues graph minimum locating dominating sets reconfiguration",
+        "complete cardinality polynomial of locating dominating sets of Desargues graph and dodecahedral graph reliability comparison 20 vertices cubic graphs coefficientwise",
+        "counting all locating dominating sets by cardinality Desargues graph 20 vertex and dodecahedron exact spectrum",
+        "2026/10/12/SCOPE-all-1-475-minimum-locating-dominating-sets-of-the-desargues-grap--d4faf2202a7f",
+        "2026/11/8/SCOPE-location-dominating-code-reconfiguration-on-the-dodecahedral-gra--c7294558cbe4",
+        "https://arxiv.org/abs/1412.2865"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Both 2014 primary sources define an ordinary locating-dominating set by nonempty, pairwise-distinct neighborhoods of unselected vertices. The equivalent selected-neighborhood bitmask predicate is exactly tested. Searches also considered test-cover and separating-code formulations."
+      ],
+      "reasoning": "Ordinary locating domination is weaker than identifying codes, which also distinguish selected vertices; thus identifying-code counts cannot be substituted. Fixed-budget success and Bernoulli reliability are two equivalent formulations of the new full-coefficient comparison, neither obtained from only the optimum size.",
+      "searches": [
+        "location-domination polynomial reliability connected cubic symmetric graphs dodecahedron Desargues graph minimum locating dominating sets reconfiguration",
+        "locating domination reliability test cover separating codes location-identifying set polynomial dodecahedral Desargues 20 vertex",
+        "https://arxiv.org/abs/1407.7263",
+        "https://arxiv.org/abs/1412.2865"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public Desargues record enumerates 1475 minimum eight-vertex sets and symmetry orbits. The dodecahedral record enumerates 220 minimum seven-vertex sets and their reconfiguration geometry. Their full result statements were inspected, with no full 21-coefficient polynomial in either."
+      ],
+      "reasoning": "These minimum-layer counts are recovered as checks but supply no counts of larger sets. Targeted exact coefficient and complete-spectrum searches did not locate a covering table. Non-indexed tables remain a residual risk.",
+      "searches": [
+        "counting all locating dominating sets by cardinality Desargues graph 20 vertex and dodecahedron exact spectrum",
+        "cubic girth five six 20-vertex graph locating domination complete polynomial coefficients 3935 21760 49826 83840",
+        "2026/10/12/SCOPE-all-1-475-minimum-locating-dominating-sets-of-the-desargues-grap--d4faf2202a7f",
+        "2026/11/8/SCOPE-location-dominating-code-reconfiguration-on-the-dodecahedral-gra--c7294558cbe4"
+      ]
+    },
+    "rationale": "The closest 2014–2015 primary literature establishes ordinary locating domination and upper bounds for cubic or girth-five graphs, not these complete 21-coefficient enumerators. The two closest accessible public mathematical results enumerate minimum Desargues and dodecahedral code families but not the complete nonminimum spectra; their reported minimum counts agree with this result. Both full previous statements, the relevant primary-paper theorem sections and conclusions, and actual mathematical-result searches for exact coefficients, aliases, and reliability were compared by implication. No covering full polynomial or all-probability inequality was identified; unindexed priority remains possible.",
+    "residual_risks": [
+      "Unindexed published or historical computer enumerations could have determined the same 21 coefficients under alternate locating/test-cover terminology.",
+      "The result is computationally exhaustive for two fixed graphs and has no independent scholarly validation; the source code and exact predicates are supplied to make such checks possible.",
+      "Only inspected source sections support comparisons with the two arXiv papers; no assertion that every historically relevant paper was retrieved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives class bounds and distinguishing lemma; no exact complete polynomial or two-graph comparison identified",
+        "evidence": [
+          "Original posting date 2014-07-27; main paper defines locating domination and proves size bounds for girth at least five; conclusion summarizes bound focus."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.7263",
+        "material_read": "Introduction and Definition 1; Lemma 4 and proof; size bounds; conclusion on pages 17–18; full-text term checks for Desargues and dodecahedron",
+        "method": "Direct reading of accessible arXiv paper including visually checked relevant page and its concluding statements",
+        "title": "Locating-dominating sets and identifying codes in graphs of girth at least 5",
+        "trigger": "Same predicate and cubic high-girth class; plausible dominating structural statement"
+      },
+      {
+        "assessment": "Theorem 3 controls only minimum location-domination cardinality; does not imply complete spectra",
+        "evidence": [
+          "arXiv submission 2014-12-09, Theorem 3: location-domination number at most half the order for twin-free cubic graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.2865",
+        "material_read": "Introduction, definitions, statement of Theorem 3, proof setup and accessible searchable full text for graph names",
+        "method": "Direct reading of accessible arXiv full text and visually checked theorem page",
+        "title": "Location-Domination and Matching in Cubic Graphs",
+        "trigger": "Broad cubic result might dominate our named graph result"
+      },
+      {
+        "assessment": "Covers the known minimum eight-sets and automorphism orbits; no full 21-coefficient polynomial or Bernoulli comparison",
+        "evidence": [
+          "Minimum cardinality 8 and 1475 optima, matching the new degree-eight coefficient."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-all-1-475-minimum-locating-dominating-sets-of-the-desargues-grap--d4faf2202a7f",
+        "material_read": "Entire publicly accessible RESULT.md including theorem, proof, verification, literature and limitations",
+        "method": "Read public complete research statement and compared formal mathematical implications",
+        "title": "All 1,475 minimum locating-dominating sets of the Desargues graph",
+        "trigger": "Exact same graph and location-domination predicate"
+      },
+      {
+        "assessment": "Covers 220 minimum seven-sets and their reconfiguration, not the complete polynomial",
+        "evidence": [
+          "Minimum cardinality 7 and 220 optima, matching the new degree-seven coefficient."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-location-dominating-code-reconfiguration-on-the-dodecahedral-gra--c7294558cbe4",
+        "material_read": "Entire publicly accessible RESULT.md including construction, finite test, and exact result",
+        "method": "Read public complete research statement and compared formal mathematical implications",
+        "title": "Location-dominating code reconfiguration on the dodecahedral graph: token jumps are already slides",
+        "trigger": "Exact same graph and location-domination predicate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d433f9a8-2832-4521-8172-fa5c81724581",
+  "value": {
+    "rationale": "The location-domination polynomial is the exact natural enumerator for deployments of local monitors that must both cover and distinguish every unmonitored location. Known minima alone do not determine success probabilities at intermediate deployment densities. These two canonical cubic order-20 networks have strictly ordered success counts for every budget 7 through 13, equal counts beyond the sharp cutoff, and consequently strict reliability dominance over the whole open probability interval. The complete finite invariant and the uniform stochastic comparison have direct mathematical significance even without an infinite-family theorem.",
+    "status": "PASS"
+  }
+}
