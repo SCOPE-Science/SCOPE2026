@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The integral symmetric-power substitution B_d of Fibonacci matrix A has B_d^5≡I (mod 5) for all d divisible by 4. Lifting gives B_d^(5^(r−1))=I+5^(r−1)D and ∑_{j=0}^4B_d^(j·5^(r−1))≡5I (mod 5^r), proving S_r(n)≡5S_(r−1)(n) (mod 5^r). The Fibonacci indicator pattern gives S_1(n)≡−1 mod 5. Induction yields uniform S_r(n)≡−5^(r−1) mod 5^r. Every window of length 5^r u has valuation exactly r−1; when 5∤k the first two windows differ by F_k^d≡1 mod5. The executable performed 600 block tests and 1120 exact GCD tests. Quantifiers include all n,k and all positive d divisible by four; finite checks are corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The complete text of published 2026/10/18/SCOPE-all-prime-factors-at-least-seven-in-fourth-power-fibonacci-windo--d68afecbf84e/RESULT.md establishes precisely p≥7, explicitly reserving p=2,3,5.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-all-prime-factors-at-least-seven-in-fourth-power-fibonacci-windo--d68afecbf84e",
+        "The complete text of 2026/10/26/SCOPE-prime-order-factorization-of-odd-quartic-fibonacci-and-lucas-win--45586db4c178/RESULT.md assumes odd k and 5∤k.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-prime-order-factorization-of-odd-quartic-fibonacci-and-lucas-win--45586db4c178",
+        "Mbirika–Spilker (arxiv:2204.12626) studies second powers and Section 6 asks about higher powers."
+      ],
+      "reasoning": "The published p≥7 theorem cannot imply the p=5 result through its local Vandermonde proof: its discriminant is divisible by five and the condition p≥7 is explicit. The odd-length quartic formula excludes every length divisible by five, whereas the present theorem determines exactly their new valuation and all exponents divisible by four. The general quadratic-window formulas address d=2 and do not assert the present exponent family.",
+      "searches": [
+        "gcd of sums of k consecutive Fibonacci 4m powers five primary p=5 window",
+        "Fibonacci fourth powers gcd sum k consecutive terms prime five 5-adic valuation windows",
+        "Fibonacci higher powers sum consecutive fourth eighth 5 primary gcd"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2204.12626",
+      "https://www.mathstat.dal.ca/FQ/Papers1/60-5/mbirika.pdf",
+      "https://arxiv.org/pdf/1706.00407",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-all-prime-factors-at-least-seven-in-fourth-power-fibonacci-windo--d68afecbf84e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-prime-order-factorization-of-odd-quartic-fibonacci-and-lucas-win--45586db4c178",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL24/Mbirika/mb5.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-all-prime-factors-at-least-seven-in-fourth-power-fibonacci-windo--d68afecbf84e: p≥7 and 2,3,5 excluded.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-prime-order-factorization-of-odd-quartic-fibonacci-and-lucas-win--45586db4c178: only odd 5-coprime k.",
+        "https://www.mathstat.dal.ca/FQ/Papers1/60-5/mbirika.pdf: Question 6.1 explicitly raises higher powers.",
+        "https://arxiv.org/pdf/1706.00407: closed formulas for individual fourth-power sums.",
+        "Accessible prior claim 15fb0388-5e39-4859-96ff-e706bcf322ab concerns quartic Lucas-balancing windows C_(n+2)=6C_(n+1)-C_n and different five-primary valuations; it does not cover Fibonacci initial conditions or their symmetric-power five-step operator."
+      ],
+      "reasoning": "A prior quartic sum identity gives values of each W for degree four but not the exact five-adic gcd for every length; neither published prime-order classification covers the excluded ramified prime. In particular, at k=25 the new theorem yields ν5(C_4(25))=1, which is outside both published theorems; the general exponent d=4m is likewise not a corollary of a single-quartic identity. An accessible prior local quartic result for Lucas-balancing numbers has a different recurrence and different valuation criterion; no specialization maps its recurrence and initial conditions to the present Fibonacci sequence.",
+      "searches": [
+        "Fibonacci arbitrary exponents divisible four 5-adic gcd consecutive block sums v5(k)-1",
+        "gcd of sums of k consecutive Fibonacci 4m powers five primary p=5 window",
+        "v5 gcd of k consecutive fourth powers of Fibonacci numbers equals max v5(k)-1",
+        "Fibonacci fourth power window sum p=5 ramification exact valuation every starting index"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact matrix argument gives ν5(C_d(k))=max(0,ν5(k)-1) and S_r(n)≡−5^(r−1) (mod 5^r). published-finding corpus searches returned the prime-at-least-seven quartic theorem as closest, but its explicit exclusions include p=5.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-all-prime-factors-at-least-seven-in-fourth-power-fibonacci-windo--d68afecbf84e",
+        "arxiv:1706.00407 describes fourth-power individual sums, without translated-window gcd or fourth-multiple exponent law."
+      ],
+      "reasoning": "Synonyms checked include five-primary component, prime-five ramification, consecutive quartic power sums, sliding-window gcd, uniform block congruences, and symmetric-power period lifting. The published fourth-power summation formula is not an equivalent gcd valuation statement: deriving the latter requires proving a uniform congruence at every five-power level and sharpness. No indexed equivalent statement was found; indexing absence is not proof of priority.",
+      "searches": [
+        "Fibonacci arbitrary exponents divisible four 5-adic gcd consecutive block sums v5(k)-1",
+        "five-primary valuation quartic Fibonacci window gcd 5^r k fourth power consecutive Fibonacci sums",
+        "5-adic fourth power Fibonacci block sums universal congruence 5^r -5^(r-1)",
+        "\"Fibonacci\" \"fourth power\" \"gcd\" \"window\" p=5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The first 650 quartic lengths, 230 eighth-power lengths, 145 twelfth-power lengths and 95 twentieth-power lengths were checked with exact integer gcds, not an existing published table.",
+        "Adegoke (arxiv:1706.00407) gives explicit sum identities, not a tabulation of the five-primary gcd over all translates."
+      ],
+      "reasoning": "No exact table asserting the 5-primary gcd function for all k and all d≡0 mod4 surfaced. A complete finite table could not, by itself, dominate the stated infinite theorem. We do not infer novelty merely from lack of a table.",
+      "searches": [
+        "five-primary valuation quartic Fibonacci window gcd 5^r k fourth power consecutive Fibonacci sums",
+        "v5 gcd of k consecutive fourth powers of Fibonacci numbers equals max v5(k)-1",
+        "\"Fibonacci\" \"fourth powers\" \"5\" \"consecutive\" gcd window"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and literature searches identified the closest published quartic local theorem, whose explicitly excluded small primes include five. A second odd-quartic theorem excludes lengths divisible by five, so it cannot cover the first nontrivial five-primary case k=25. Mbirika–Spilker studies squares and asks about higher powers; Adegoke studies exact individual sums, not translated-window gcds. Direct full-text implication comparisons do not cover the stated all-fourth-multiple exponent law. Absence of an indexed equivalent is not treated as a proof of uniqueness.",
+    "residual_risks": [
+      "An unindexed or differently formulated recurrence-theoretic congruence theorem could imply this result.",
+      "Classical individual quartic-sum identities might permit a further derivation not identified in the inspected work; this is a bibliographic rather than a proof gap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Second powers treated; questions for powers at least three, no proof of the five-primary law for fourth-multiple powers",
+        "evidence": "Section 6 explicitly asks for higher-power extensions; Section 1 and Table 2 establish first and second powers.",
+        "identifier_or_url": "arxiv:2204.12626; https://www.mathstat.dal.ca/FQ/Papers1/60-5/mbirika.pdf",
+        "material_read": "Full abstract, introductory results and Table 2, Section 6.1 Question 6.1 on pages 267–268",
+        "method": "Read searchable full text and visually checked PDF page 268",
+        "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+        "trigger": "Motivating explicit question about higher-power consecutive-window GCDs"
+      },
+      {
+        "assessment": "Supplies exact individual sums at exponent four; does not establish simultaneous gcd valuations or all fourth-multiple exponents",
+        "evidence": "Theorem 3.1 gives 25 times a sum of fourth powers as a Fibonacci–Lucas expression plus a linear term.",
+        "identifier_or_url": "arxiv:1706.00407; https://arxiv.org/pdf/1706.00407",
+        "material_read": "PDF abstract, the stated nonalternating sums on page 2, and Theorem 3.1 and its setup",
+        "method": "Read full-text PDF passages and visually inspected PDF page 2",
+        "title": "Sums of fourth powers of Fibonacci and Lucas numbers",
+        "trigger": "Closest classical explicit fourth-power summation identity potentially implying gcd factors"
+      },
+      {
+        "assessment": "Determines p≥7 components; explicitly makes no claim for p=5, and its Vandermonde inversion fails at five",
+        "evidence": "Finding explicitly excludes prime factors 2,3,5; limitations state same.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-all-prime-factors-at-least-seven-in-fourth-power-fibonacci-windo--d68afecbf84e",
+        "material_read": "Entire published RESULT.md including theorem, proof, scope, limitations",
+        "method": "Read complete published primary text by exact repository path",
+        "title": "All prime factors at least seven in fourth-power Fibonacci window gcds",
+        "trigger": "Strongest existing local quartic window gcd theorem"
+      },
+      {
+        "assessment": "Restricts k odd and 5∤k, establishing no five-primary factor only where the new law also predicts zero",
+        "evidence": "Finding assumes k odd and 5∤k; proof paragraph “The prime five” handles only 5∤k.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-prime-order-factorization-of-odd-quartic-fibonacci-and-lucas-win--45586db4c178",
+        "material_read": "Entire published RESULT.md including prime-five case and theorem hypotheses",
+        "method": "Read complete published primary text by exact repository path",
+        "title": "Prime-order factorization of odd quartic Fibonacci and Lucas window GCDs",
+        "trigger": "Plausible stronger full quartic gcd formula"
+      },
+      {
+        "assessment": "Distinct recurrence and different five-primary valuation; does not imply present Fibonacci law",
+        "evidence": "Lucas-balancing recurrence C_(n+2)=6C_(n+1)-C_n, prime-five factor already for 5|k, unlike Fibonacci threshold 25.",
+        "identifier_or_url": "accessible deduplication ledger item 15fb0388-5e39-4859-96ff-e706bcf322ab",
+        "material_read": "Recoverable finding claim and primary source identifier",
+        "method": "Compared exact hypotheses, recurrence parameters, length and valuation implications",
+        "title": "A complete five-adic valuation law for quartic Lucas-balancing window gcds",
+        "trigger": "Nearest accessible in-house prime-five quartic window result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a16d5bf5-7f16-433c-b269-16b75e70d952",
+  "value": {
+    "rationale": "The prime-five factor of the full quartic window GCD is an explicit missing case of a published prime-by-prime classification. Its valuation is ν5(k)−1 for 25|k rather than full ν5(k), with no factor until k=25; this explains a ramified-prime cancellation phenomenon. A uniform congruence proves all translates have the same sharp valuation and extends the mechanism to every exponent divisible by four, giving a motivated structural family rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
