@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coordinate-zero anchoring converts the polar graph Lipschitz inequalities into the Cartesian product of two complete-clique Lipschitz polytopes; the linear centering map has a constant nonzero Jacobian and hence preserves uniformity. Equal-volume order chambers and Dirichlet spacing moments yield the exact clique covariance \((r+2)/(12r)\) on the centered contrast space. Projection to the global zero-sum hyperplane yields two contrast eigenclasses and a residual symmetric two-by-two matrix. Its calculated trace and determinant prove the eigenvalue formulas, and exact characteristic-polynomial signs prove that these are the extreme eigenvalues. A strictly increasing rational function of the clique-size product proves the full fixed-vertex extremal theorem, including both dimension-two boundary factors. The independently implemented exact-rational chamber integrals corroborate the calculations on finite profiles. Risks: normalization between anchored and intrinsic coordinates is essential; it is explicitly handled by the projection.
+PASS
 
-## Originality — PASS (best-knowledge, historical priority provisional)
+The anchored-potential representation fixes the articulation vertex, gives a constant-Jacobian map to the zero-sum Euclidean hyperplane, and factors the two complete-clique Lipschitz domains. Permutation symmetry and Dirichlet(1,...,1) order-gap moments give the covariance c_r(I+J) with c_r=(r+2)/(12r). Projecting the independent anchored blocks yields contrast eigenvalues c_a (a−2) and c_b (b−2) and a two-dimensional Gram reduction of trace (ab+a+b)/(6N), determinant (a+2)(b+2)/(144N), yielding the stated radical eigenvalues. Evaluating det(B−c_a I) and det(B−c_b I) negative locates each contrast strictly between λ− and λ+, including zero-dimensional edge classes. For fixed N=a+b−1, the trace-squared/determinant parameter 4(s+N+1)^2/[N(s+2N+6)] increases strictly in s=ab, establishing every balance extremum and κ=N iff equal cliques. Dividing the radical by the enlarging b confirms the finite fixed-a limit. Independently diagonalized projected covariance for (a,b)=(2,2),(2,5),(3,3),(4,7): condition ratios 3, 14/3, 5, about 9.157466; all match the formulas.
 
-The central published 2019 literature [2] identifies graph-metric Lipschitz polars and records the primal direct-sum relationship under vertex identification, but does not evaluate the continuous-volume polar covariance eigenvalues or optimize their ratio over clique sizes. The 2018 arithmetic paper [1] concerns facets and Ehrhart properties of symmetric edge polytopes. General polytope moment theory [3] supplies methods without the evaluated spectral or extremal classification. Public mathematical-record searches for clique-sum polar covariance, anchored complete-clique Lipschitz moments, and balance-extremal anisotropy found instead inball geometry of clique-windmill **primal** polytopes and vertex-uniform covariance of **graphical zonotopes**. The latter is also the closest accessible prior claim and concerns a different random variable and polytope. Residual historical-priority risk: an equivalent covariance computation may appear in metric-space, lattice-Voronoi, or moment literature under another term.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact spectrum answers a natural intrinsic second-moment question for an infinite graph-polytope family, and the strict balance law identifies the unique most and least anisotropic graph configurations at every fixed vertex count. The exact bound \(\kappa\le N\), rigid equality at equal clique sizes, and fixed-small-clique finite limit show a nontrivial difference between growing dimension via balance and growing dimension via a single block. These are geometric classification and extremal statements, not merely a coordinate renaming or an isolated numerical invariant.
+No located primary theorem or published record gives the uniform-continuous-volume covariance of the exact two-clique articulation graph polar and its strict fixed-vertex-count balance extremum. Closest work covers edge-polytope face/Ehrhart structure or covariance of another graph or another distribution. This is best-of-knowledge rather than a global priority guarantee.
 
-## Limits and related work
+## value
 
-The theorem does not address weighted cliques, other graph families, arbitrary Euclidean metrics or independent validation. Closest published primary references: [1] arXiv:1807.07678; [2] arXiv:1910.05193; [3] arXiv:1807.10258. The mathematical-record overlap comparison includes a result on vertex-uniform weighted graphical zonotopes for the identical underlying graph, which neither implies nor is implied by this continuous-volume polar law.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A concrete natural graph operation—identifying two complete blocks—produces a nonorthogonal coupling in the intrinsic polar metric. The full covariance eigenspectrum and strict balance extremum answer a motivated shape/conditioning question with exact boundary cases, which cannot be obtained by renaming a known uniform-vertex formula. This is a useful family benchmark for polar graph-polytope geometry; no broader conjecture is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
