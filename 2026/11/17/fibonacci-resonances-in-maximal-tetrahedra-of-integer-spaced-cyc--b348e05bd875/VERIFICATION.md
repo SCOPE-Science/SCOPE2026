@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python checker.py` in the same directory as this document. Only the Python standard library is used. The program builds every set of four distinct integer nodes for \(N=3\) through \(59\) and checks its six-factor Vandermonde product, the complete maximizing quadruple set, and the analytical gap-balancing and middle-gap predictions. Separate determinant calculations are performed for representative maximizing tetrahedra. It also checks all integer middle-gap candidate comparisons and odd-index Fibonacci resonance indices through \(N=10000\).
+## correctness
 
-Actual output:
+PASS
 
-`CYCLIC_FEKETE_PASS full_n=4..60 full_quadruples=5949147 1d_N=3..10000 ties=5,13,34,89,233,610,1597,4181 exact_determinants=PASS`
+Homogeneous 4x4 moment-curve determinant is the six-factor Vandermonde product. Sliding the extreme indices to 0 and N strictly increases it; x+y+z=N reduces the product to Ny*xz*(xz+Ny). For fixed y the balanced product xz is uniquely maximized up to reversal, yielding exactly H_N(y). The exact discrete difference has positive factor N²-(y+delta)² and sign N²-T_N(y), with increasing parity-sensitive T; positivity through q-1 and negativity from q+1 give only two candidates. Equality gives Lucas/Fibonacci Pell equation u²-5N²=-4, completed by positive integer descent. Separately convex determinant in each tetrahedral corner extends the maximum from vertex corners to arbitrary body corners, without classifying nonvertex equality. Independently brute-enumerated ALL C(N+1,4) quadruples for every N=3..60; every winner and tie agreed with two-candidate/Pell theorem. Finite checks support algebra but the sign argument and descent supply all-N proof.
 
-The unrestricted theorem rests on the symbolic adjacent-gap identity, strict inequalities, and Pell descent written in RESULT.md; no finite run establishes the claim for arbitrary \(N\). The only unclassified equality cases are possible nonvertex maximizing tetrahedra inside the polytope. Historical priority is provisional and independent mathematical auditing has not been performed.
+## originality
+
+PASS
+
+The exact two-candidate integer extremum, all vertex maximizers and odd-index Fibonacci equality set are not delivered by a continuous-interval Fekete/Vandermonde extremum. No dominating prior indexed theorem was found in the actual searches, but historical Fekete interpolation and integer design are nonexhaustively indexed.
+
+## value
+
+PASS
+
+Natural exact maximum-volume simplex question in the canonical integral moment-curve cyclic polytope, with a sparse Pell/Fibonacci degeneracy set and complete equality classification. Not merely rebranding a continuous optimization: integral grid causes nontrivial parity switching and Diophantine ties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

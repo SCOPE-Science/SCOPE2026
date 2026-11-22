@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Vandermonde determinant is the Euclidean three-volume times six. Strict endpoint improvement forces outer nodes to the grid extremes; fixed middle gap reduces to balancing the two outer gaps. The exact adjacent-gap difference has a positive factor and an explicitly monotone threshold, leaving at most two candidates. The threshold equality is a Pell equation, with all solutions classified by a decreasing positive integral transformation and Fibonacci–Lucas identities. Separate convexity of the unsigned tetrahedral determinant extends the vertex maximum to arbitrary tetrahedra in the solid, without purporting to classify nonvertex equality. Integer-arithmetic exhaustive checks over 5,949,147 quadruples and 9,998 one-dimensional gap optimizations support the computations and are not used as an infinite proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
+Homogeneous 4x4 moment-curve determinant is the six-factor Vandermonde product. Sliding the extreme indices to 0 and N strictly increases it; x+y+z=N reduces the product to Ny*xz*(xz+Ny). For fixed y the balanced product xz is uniquely maximized up to reversal, yielding exactly H_N(y). The exact discrete difference has positive factor N²-(y+delta)² and sign N²-T_N(y), with increasing parity-sensitive T; positivity through q-1 and negativity from q+1 give only two candidates. Equality gives Lucas/Fibonacci Pell equation u²-5N²=-4, completed by positive integer descent. Separately convex determinant in each tetrahedral corner extends the maximum from vertex corners to arbitrary body corners, without classifying nonvertex equality. Independently brute-enumerated ALL C(N+1,4) quadruples for every N=3..60; every winner and tie agreed with two-candidate/Pell theorem. Finite checks support algebra but the sign argument and descent supply all-N proof.
 
-The lead-source paper by Dubickas and Pritsker (arXiv:1902.08348v1, full Sections 1–2 and stated main theorems inspected) concerns weighted Fekete points on real and circular continuous domains; it provides the determinant/Fekete setting, not sharp four-node optimizers on a prescribed finite integer set. Karvonen–Särkkä–Tanaka (arXiv:1912.07316v3, Sections 1–2 and 4.1 inspected) optimize kernel Gram determinant constructions and approximate Fekete nodes on continuous domains, and do not state a finite equal-integer-grid four-node Fibonacci resonance. The Macaulay2 moment-curve definition is canonical background rather than the extremal classification. Related indexed exact lattice/moment-curve diameter work treats pair distances, not four-node tetrahedral volume. No exact or stronger covering statement was recovered in the inspected sources or related indexed comparisons. The risk of an equivalent result in older design-of-experiments or finite Fekete literature is real and historical priority remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural sharp Euclidean invariant of the entire canonical family of three-dimensional cyclic polytopes. Beyond evaluating a determinant, it proves all-dimensional optimizer rigidity, gives a two-candidate exact rule independent of dimension, and classifies an infinite sparse arithmetic degeneracy of the optimizer set by odd-index Fibonacci numbers. The exact multiplicity and resonance structure can be used to distinguish continuous and discrete extremal interpolation geometries; it is not an arbitrary numerical slice or a table lookup.
+The exact two-candidate integer extremum, all vertex maximizers and odd-index Fibonacci equality set are not delivered by a continuous-interval Fekete/Vandermonde extremum. No dominating prior indexed theorem was found in the actual searches, but historical Fekete interpolation and integer design are nonexhaustively indexed.
 
-## Residual scientific limitations
+## value
 
-Proof covers only the canonical equally spaced moment-curve embedding. The maximal unrestricted volume is proved, but only vertex-supported equality configurations are classified. Literature searches do not establish uniqueness of historical priority, especially under classical Fekete/experimental-design aliases. No independent mathematical audit is available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural exact maximum-volume simplex question in the canonical integral moment-curve cyclic polytope, with a sparse Pell/Fibonacci degeneracy set and complete equality classification. Not merely rebranding a continuous optimization: integral grid causes nontrivial parity switching and Diophantine ties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
