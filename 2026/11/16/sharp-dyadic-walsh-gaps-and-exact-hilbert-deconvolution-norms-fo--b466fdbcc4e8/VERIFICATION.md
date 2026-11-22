@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 wheel_checker.py` with Python 3.8 or later and no third-party packages. The script computes exact indicator Walsh transforms for rim lengths 3 through 9 and checks the 349,504 coefficients against parity, four-divisibility, singularity, sharp positive gaps, the weighted matrix-tree determinant at sampled signings, exact transfer products, and Parseval. It also checks sharpness witnesses through rim length 90 and determinant evaluations through length 20. Expected terminal marker: `WHEEL_SPANNING_TREE_WALSH_GAP_PASS coefficients=349504 witnesses=88`. This does not verify the result for infinitely many rim lengths; those conclusions use the proof in `RESULT.md`. No independent audit or independent validation is asserted.
+## correctness
+
+PASS
+
+Every signed spanning-tree Walsh coefficient is the hub-reduced wheel signed-weight Laplacian determinant; universal parity for 3∤n and 4-divisibility for 3|n follow from the modulo-2 nullity of I+S+S^{-1} plus even edge marginals. For rim signs ±1 the signed cyclic determinant equals (prod rim r_i)(tr(P_{n-1}...P_0)-2), where det product=1. Transfer B=[[1,-1],[1,0]] obeys B^6=I, while D=[[3,-1],[1,0]]; the explicit sign sequences by n mod6 attain -1 for 3∤n and -4 for 3|n. Three-periodic (+1,+1,-1) spokes yield zero vector (1,1,2) at 3|n. Maximum |W|=number of spanning trees L_(2n)-2, giving exact Moore-Penrose and positive condition-number formula in counting normalization. Independently checked explicit signed-Laplacian determinants for wheel sizes 3..14, each matching the six-periodic proposed value. These finite checks do not prove the transfer identity in arbitrary size.
+
+## originality
+
+PASS
+
+The already published same-object wheel result gives the divisibility and singularity classes, but explicitly does not determine the least surviving coefficient. This new claim adds explicit sharp six-periodic attainment and the quantitative positive-spectrum inverse norm; classical unsigned wheel counts do not give any signed gap.
+
+## value
+
+PASS
+
+For a natural wheel spanning-tree convolution, the sharp smallest recoverable Fourier mode and exact Hilbert pseudoinverse norm govern stable deconvolution even at singular three-periodic dimensions; this is a specific and mathematically meaningful strengthening of the known modular dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
