@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T06:53:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two vertically open rows and horizontal ring n>=3, the exact column rule is: 0->2 iff neighbor occupancy v=3; 2->2 iff v in {1,2}; a singleton either dies (v<=1), becomes full (v=2), or persists unchanged (v=3). No singleton is created. If S decreases then (n+1)S+D decreases by at least one, since 0<=D<=n. If S is conserved every singleton requires neighbors of types 1 and 2, so empty-to-full birth is forbidden, and every other change decreases D; hence Phi=(n+1)S+D strictly decreases on nonfixed steps. Bound Phi<=n(n+1) proves fixation; lexicographic finite (S,D) proves finite-support infinite-strip fixation, without a uniform bound. One-row no births; an explicit three-row four-column blinker proves sharp width. Fixed points are exactly closed walks in a 16-pair-state transfer graph, and exact Newton identities give det(I-zT)=1-z-5z^3+4z^4-4z^5+4z^6. An independently written pure-Python/SymPy check verifies determinant, counts 16,5,26,82,43,213 for n=3..8 and strict decrease for all two-row states through n=6. Finite tests corroborate, not prove, all n; n=1,2 excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buckingham–Callahan 1998 Theorems 1–2 construct planar oscillators for periods >=58 using Herschel loops and stable reflectors, not classify all two-row vertically dead dynamics. A three-row open-cylinder fixed/dynamic spectrum in https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-narrow-cylinder-entropy-reversal-in-conway-life-exact-still-li--fd822b7f05ca addresses a different width."
+        ],
+        "reasoning": "Neither general oscillator existence nor height-three analysis implies a height-two all-period exclusion, or its transfer determinant. The one-row no-birth fact does not settle the two-row case.",
+        "searches": [
+          "Conway Game of Life two row strip cylinder fixation no oscillators Lyapunov potential fixed point transfer matrix still lives",
+          "https://emis.de/ft/51932",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-narrow-cylinder-entropy-reversal-in-conway-life-exact-still-li--fd822b7f05ca"
+        ]
+      },
+      "checked_sources": [
+        "https://emis.de/ft/51932",
+        "https://conwaylife.com/wiki/Oscillator",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-narrow-cylinder-entropy-reversal-in-conway-life-exact-still-li--fd822b7f05ca",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-short-return-rigidity-and-traveling-triominoes-on-two-row-life-t--18953ac84dfc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Buckingham–Callahan is for infinite planar Life oscillators, using large footprints; toroidal two-row cylinders differ in neighbor multiplicities."
+        ],
+        "reasoning": "There is no implication from existence of high-period planar oscillators to a two-row impossibility, nor from torus periodic cycles to vertically dead two-row dynamics; the result uses a new monotone column potential.",
+        "searches": [
+          "https://emis.de/ft/51932",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-short-return-rigidity-and-traveling-triominoes-on-two-row-life-t--18953ac84dfc",
+          "Conway Game of Life two row strip cylinder fixation no oscillators Lyapunov potential fixed point transfer matrix still lives"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Life with dead vertical boundaries and horizontal ring is not a two-row torus; Resultary two-row torus record https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-short-return-rigidity-and-traveling-triominoes-on-two-row-life-t--18953ac84dfc has moving triominoes while this open-vertical rule has no oscillators."
+        ],
+        "reasoning": "Compared the boundary topologies and neighborhood multiplicities. In a vertical 2-torus the repeated vertical neighbors alter Life counts; those moving cycles cannot imply or contradict the dead-boundary theorem.",
+        "searches": [
+          "Conway Game of Life two row strip cylinder fixation no oscillators Lyapunov potential fixed point transfer matrix still lives",
+          "two row Conway Game of Life dead vertical boundaries oscillator exclusion potential"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact transfer calculation yields characteristic polynomial 1-z-5z^3+4z^4-4z^5+4z^6 and labelled counts n=3..8; LifeWiki oscillator catalogue lists patterns but no matching whole-ring two-row determinant."
+        ],
+        "reasoning": "Checked labelled fixed-state enumeration as a possible known-count-table overlap; finite sequence lookup is not historical novelty proof. The all-n transfer determinant and descent potential are joint contribution; a generic transfer-matrix method alone does not give the stated spectrum.",
+        "searches": [
+          "\"16,5,26,82,43,213\" Conway Life two row still life cylinder",
+          "Conway Game of Life two row strip cylinder fixation no oscillators Lyapunov potential fixed point transfer matrix still lives",
+          "https://conwaylife.com/wiki/Oscillator"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge; exact two-row vertically dead boundary potential and full all-n zeta denominator not implied by general Life oscillator construction papers or separate periodic vertical torus work. Literature review searched alternate boundary names and still-life count sequences; no decisive earlier exact result identified.",
+      "residual_risks": [
+        "Search for forgotten strip automata transfer matrices, old exhaustive classifications, and unpublished literature is not complete; historical priority remains best-of-knowledge.",
+        "New n>=3 definition deliberately excludes circumference one/two, where left/right neighborhoods need special conventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the exact dead-boundary two-row cylinder; proves existence of planar high-period oscillators by reflectors",
+          "evidence": "Theorems 1–2 construct K_n,D_n for n>=58 with bounded population or small diameter; underlying model is usual infinite square grid.",
+          "identifier_or_url": "https://emis.de/ft/51932",
+          "material_read": "Full extracted 21-page article, especially introduction, Theorems 1–2, Sections 4–7 constructions and conclusion",
+          "method": "Lawful open-access PDF text and page screenshot",
+          "title": "Buckingham and Callahan, Tight Bounds on Periodic Cell Configurations in Life (1998)",
+          "trigger": "Potential older all-period Life oscillator classification"
+        },
+        {
+          "assessment": "CONTEXT_ONLY; does not classify the vertically open cyclic two-row state space",
+          "evidence": "Distinguishes oscillator (periodic stationary configuration), still life, and shifting spaceship. A catalogue cannot prove absence of all periods.",
+          "identifier_or_url": "https://conwaylife.com/wiki/Oscillator",
+          "material_read": "Definitions and sections describing oscillators and standard configurations",
+          "method": "Public wiki HTML",
+          "title": "LifeWiki, Oscillator",
+          "trigger": "Terminology and possible width-two oscillator catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp impossibility boundary for all temporal periods on a natural minimum-width strip is structural, and a closed rational generating function for every fixed-point count is a reusable exact invariant, not a small-instance tabulation. The proof is an explicit descent principle in otherwise oscillatory cellular automata.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "No oscillators on the two-row Conway Life cylinder: strict descent, sharp width and exact still-life spectrum",
+  "limitations": [
+    "Search for forgotten strip automata transfer matrices, old exhaustive classifications, and unpublished literature is not complete; historical priority remains best-of-knowledge.",
+    "New n>=3 definition deliberately excludes circumference one/two, where left/right neighborhoods need special conventions."
+  ],
+  "schema_version": 1
+}

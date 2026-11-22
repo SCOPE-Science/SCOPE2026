@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The ordinary Python 3 program `verify.py` constructs the 16-state fixed-column transfer graph and computes all coefficients of its determinant using integer Newton identities. It also performs independent direct Moore-neighborhood updates on all configurations of two-row cylinders of circumferences three through eight (87,360 one-step cases), comparing them against the independent column update, checking the strict potential, and comparing exact fixed-point counts to matrix traces. The 3-by-4 width-three two-cycle is checked in the same direct-neighbor engine. Run `python3 verify.py`; the expected single-line JSON is embedded as `verify_output.json`.
+# Independent mathematical audit
 
-The finite test is not relied upon for the proof at arbitrary circumference. The all-length correctness comes from the exhaustive symbolic three-column occupancy cases in `RESULT.md`, integer descent, and the closed-walk bijection. The upper bound on convergence time is not claimed sharp. The reader can independently inspect the core transition cases, the integer matrix, and the direct witness.
+## correctness
+
+PASS
+
+For two vertically open rows and horizontal ring n>=3, the exact column rule is: 0->2 iff neighbor occupancy v=3; 2->2 iff v in {1,2}; a singleton either dies (v<=1), becomes full (v=2), or persists unchanged (v=3). No singleton is created. If S decreases then (n+1)S+D decreases by at least one, since 0<=D<=n. If S is conserved every singleton requires neighbors of types 1 and 2, so empty-to-full birth is forbidden, and every other change decreases D; hence Phi=(n+1)S+D strictly decreases on nonfixed steps. Bound Phi<=n(n+1) proves fixation; lexicographic finite (S,D) proves finite-support infinite-strip fixation, without a uniform bound. One-row no births; an explicit three-row four-column blinker proves sharp width. Fixed points are exactly closed walks in a 16-pair-state transfer graph, and exact Newton identities give det(I-zT)=1-z-5z^3+4z^4-4z^5+4z^6. An independently written pure-Python/SymPy check verifies determinant, counts 16,5,26,82,43,213 for n=3..8 and strict decrease for all two-row states through n=6. Finite tests corroborate, not prove, all n; n=1,2 excluded.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge; exact two-row vertically dead boundary potential and full all-n zeta denominator not implied by general Life oscillator construction papers or separate periodic vertical torus work. Literature review searched alternate boundary names and still-life count sequences; no decisive earlier exact result identified.
+
+## value
+
+PASS
+
+A sharp impossibility boundary for all temporal periods on a natural minimum-width strip is structural, and a closed rational generating function for every fixed-point count is a reusable exact invariant, not a small-instance tabulation. The proof is an explicit descent principle in otherwise oscillatory cellular automata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
