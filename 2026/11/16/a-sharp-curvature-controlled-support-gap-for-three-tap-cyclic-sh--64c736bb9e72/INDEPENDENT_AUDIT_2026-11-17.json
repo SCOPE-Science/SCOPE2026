@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T08:43:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Active translation rows are indexed by S-{0,1,2}; m>=min(N,s+2) and sum row support sizes=3s. Factoring frequency monomials yields Z<=3s-m+B for endpoint-only rows B<=s, hence |supp V_gf|>=(N+1)m-3s-B. The proof handles s>=3 and N=6 edge cases separately and correctly enforces >=4N; 826 support subsets for N=6..9 were independently checked against these exact row-counting bounds. For s=2, separated supports have >=5N-2 or 6N, while adjacent supports have four rows and exactly two possible one-root cancellations. Their ratio cosets C1=-bar a/bar b mu_N and C2=-bar b/bar c mu_N coincide iff ac/b² in mu_N. Independent direct N=6 composite-cycle complex Fourier sums confirm 4N-2 vs 4N-1 and singleton 3N. Finite checks are illustrative, not a proof for all N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krahmer-Pfander-Rashkov give support inequalities depending on signal and window sparsities.",
+          "Nicola 2022 characterizes equality at the universal bottom support level, rather than a fixed three-tap second level."
+        ],
+        "reasoning": "These results supply bounds or different equality strata; the precise forbidden gap depends on complex tap curvature and is not a corollary of a cardinality-only bound.",
+        "searches": [
+          "finite cyclic STFT three consecutive nonzero window two-point signal support curvature phase root cosets",
+          "https://arxiv.org/abs/math/0611493",
+          "https://arxiv.org/abs/2204.14176"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0611493",
+        "https://arxiv.org/abs/2204.14176",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-low-support-spectrum-and-inverse-rigidity-of-three-tap-cross--9566ceddf117"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General KPR inequality gives 4N-2 lower bound in relevant prime two-by-three situation without equality criterion.",
+          "The earlier exact two-point-window result requires |supp g|=2, violating the current |supp g|=3 assumption."
+        ],
+        "reasoning": "Neither the known bound nor a two-tap equality condition determines the tap-curvature-dependent attainable level or shows every three-or-more-site signal lies >=4N, especially composite N.",
+        "searches": [
+          "finite cyclic STFT three consecutive nonzero window two-point signal support curvature phase root cosets",
+          "https://arxiv.org/abs/math/0611493",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adjacent two-site signals reduce to cancellations of two binomial Fourier rows.",
+          "The ratio condition is a coset coincidence iff ac/b² is an N-th root of unity."
+        ],
+        "reasoning": "Equivalent cyclic Gabor ambiguity, cross-ambiguity and polynomial-zero formulations were compared; none of the inspected alternatives states the all-signal second-support gap.",
+        "searches": [
+          "finite cyclic STFT three consecutive nonzero window two-point signal support curvature phase root cosets",
+          "\"two-site\" \"three-tap\" short-time Fourier phase root of unity",
+          "https://arxiv.org/abs/math/0611493"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full earlier Resultary two-sparse prime STFT result concerns a two-tap window and support values 3p-1,3p,4p.",
+          "The present window has three taps and values 4N-2 or 4N-1 for N>=6."
+        ],
+        "reasoning": "A matching three-tap arbitrary-N phase table was not found; prior pair table does not cover this configuration.",
+        "searches": [
+          "finite cyclic STFT three consecutive nonzero window two-point signal support curvature phase root cosets",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c"
+        ]
+      },
+      "rationale": "The Krahmer-Pfander-Rashkov universal two-by-three lower bound 4N-2 (prime case) is acknowledged. Its inequality and existing two-sparse-pair trichotomy do not imply the curvature/root-of-unity phase distinction or all-signal sharp second level on composite cycles.",
+      "residual_risks": [
+        "Possible unindexed exact row-cancellation table for fixed consecutive three-tap windows.",
+        "Only support zeros are classified; no quantitative near-zero stability or nonconsecutive tap sets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Has stronger general lower-bound framework but no inspected sharp three-tap coset-equality classification",
+          "evidence": "2006 finite Abelian group inequality applies broadly, with no ac/b² invariant in stated bound.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+          "material_read": "Primary full arXiv PDF, setup and row support argument, key support inequalities (including Theorem 4.5)",
+          "method": "Compared support cardinality hypotheses and equality information to exact phase-dependent support gap",
+          "title": "Uncertainty in time–frequency representations on finite Abelian groups and applications",
+          "trigger": "General lower bound and equality could subsume three-tap theorem"
+        },
+        {
+          "assessment": "Does not subsume present three-tap second-support theorem",
+          "evidence": "Its values 3p-1,3p,4p and condition require both f and g to have exactly two nonzeros.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+          "material_read": "Full public RESULT.md: theorem, all cases, proof and limitations",
+          "method": "Compared window cardinality two versus three, prime-only versus all N>=6, and all-signal versus two-sparse",
+          "title": "Exact support trichotomy for two-sparse prime cyclic STFTs",
+          "trigger": "Closest Resultary exact root-of-unity STFT support classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp forbidden support levels and complete extremizers for a physically natural shortest nontrivial three-tap STFT window give a useful all-orders finite-uncertainty boundary not determined by the coarse general uncertainty lower bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/math/0611493",
+    "https://arxiv.org/abs/2204.14176",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-low-support-spectrum-and-inverse-rigidity-of-three-tap-cross--9566ceddf117"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a consecutive three-nonzero-tap cyclic window on Z_N (N>=6), exact second STFT support level 4N-2 iff ac/b² in mu_N, otherwise 4N-1, with adjacency/equality classification and >=4N for signal support >=3.",
+  "limitations": [
+    "Possible unindexed exact row-cancellation table for fixed consecutive three-tap windows.",
+    "Only support zeros are classified; no quantitative near-zero stability or nonconsecutive tap sets.",
+    "In the verified current frozen tree, METADATA.json and AUDIT.json contain an operational scope_run_id and same_model_review provenance fields that must not flow into public metadata/certificates. No verified complete guarded sanitization replacements of those public source files were prepared in this run; publication is withheld."
+  ],
+  "residual_risks": [
+    "Possible unindexed exact row-cancellation table for fixed consecutive three-tap windows.",
+    "Only support zeros are classified; no quantitative near-zero stability or nonconsecutive tap sets."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Has stronger general lower-bound framework but no inspected sharp three-tap coset-equality classification",
+      "evidence": "2006 finite Abelian group inequality applies broadly, with no ac/b² invariant in stated bound.",
+      "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+      "material_read": "Primary full arXiv PDF, setup and row support argument, key support inequalities (including Theorem 4.5)",
+      "method": "Compared support cardinality hypotheses and equality information to exact phase-dependent support gap",
+      "title": "Uncertainty in time–frequency representations on finite Abelian groups and applications",
+      "trigger": "General lower bound and equality could subsume three-tap theorem"
+    },
+    {
+      "assessment": "Does not subsume present three-tap second-support theorem",
+      "evidence": "Its values 3p-1,3p,4p and condition require both f and g to have exactly two nonzeros.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+      "material_read": "Full public RESULT.md: theorem, all cases, proof and limitations",
+      "method": "Compared window cardinality two versus three, prime-only versus all N>=6, and all-signal versus two-sparse",
+      "title": "Exact support trichotomy for two-sparse prime cyclic STFTs",
+      "trigger": "Closest Resultary exact root-of-unity STFT support classification"
+    }
+  ]
+}

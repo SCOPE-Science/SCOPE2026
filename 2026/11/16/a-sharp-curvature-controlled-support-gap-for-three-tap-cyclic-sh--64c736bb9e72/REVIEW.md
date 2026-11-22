@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(N\ge6\), the active-row count and Fourier-zero bound reduce the problem to a sharp cyclic interval expansion. The small boundary case \(N=6\) is handled separately; it cannot be inferred from a coarse asymptotic bound. For two-site signals, the exact two-overlap-row calculation gives two cosets that are identical exactly when the tap curvature lies in \(\mu_N\), proving the full equality and forbidden-gap statements. A five-cycle counterexample confirms the sharpness of the dimension restriction. Exact cyclotomic computations and an exhaustive finite support-bound check independently support the symbolic identities; neither is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual historical priority risk
-Nicola's original 2022 result identifies all transforms attaining universal support \(N\), not the second support of a fixed three-tap window. Krahmer–Pfander–Rashkov give the *known* prime two-by-three support lower bound \(4N-2\), but do not give the sharp curvature-determined attainability/nonattainability split, the full minimizer class, or the arbitrary-signal composite-order cutoff. The nearest three publicly accessible focused results respectively concern two-tap windows, two-by-two sparse pairs, and phase-only three-by-three pairs; their full statements do not imply this theorem. A differently formulated or unindexed earlier equivalent calculation remains a risk.
+PASS
 
-## Value — PASS
-The first nontrivial support threshold and its extremal classification are natural invariants of finite STFT uncertainty for a fixed short window. The dichotomy says exactly when the strong two-frequency cancellation allowed by an adjacent two-site signal can occur simultaneously, without an equal-modulus assumption, and excludes *all* larger signal supports from near-minimal levels. The sharp six-cycle cutoff and exact forbidden support level materially strengthen a mere numerical support bound. No noise-stability or approximate-recovery guarantee is claimed.
+Active translation rows are indexed by S-{0,1,2}; m>=min(N,s+2) and sum row support sizes=3s. Factoring frequency monomials yields Z<=3s-m+B for endpoint-only rows B<=s, hence |supp V_gf|>=(N+1)m-3s-B. The proof handles s>=3 and N=6 edge cases separately and correctly enforces >=4N; 826 support subsets for N=6..9 were independently checked against these exact row-counting bounds. For s=2, separated supports have >=5N-2 or 6N, while adjacent supports have four rows and exactly two possible one-root cancellations. Their ratio cosets C1=-bar a/bar b mu_N and C2=-bar b/bar c mu_N coincide iff ac/b² in mu_N. Independent direct N=6 composite-cycle complex Fourier sums confirm 4N-2 vs 4N-1 and singleton 3N. Finite checks are illustrative, not a proof for all N.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The Krahmer-Pfander-Rashkov universal two-by-three lower bound 4N-2 (prime case) is acknowledged. Its inequality and existing two-sparse-pair trichotomy do not imply the curvature/root-of-unity phase distinction or all-signal sharp second level on composite cycles.
+
+## value
+
+PASS
+
+Sharp forbidden support levels and complete extremizers for a physically natural shortest nontrivial three-tap STFT window give a useful all-orders finite-uncertainty boundary not determined by the coarse general uncertainty lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
