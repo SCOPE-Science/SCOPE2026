@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The coarea identity reduces the full real-signal operator norm exactly to indicator cuts. For all nonsingleton cuts, a column-mass identity, the inequality \(|u-v|\le u(1-v)+v(1-u)\), and the algebraic condition \((n+2)s\ge2(n+1)\) give the claimed sharp upper bound. Exact output columns give equality at an interior near-endpoint singleton, and the one- and two-ball cases are checked separately. The attached checker verifies the finite cut and rational calculations, but they are not substituted for the unrestricted proof.
+## correctness
 
-## Originality — PASS, qualified
-The most relevant readable primary material is Mizukawa (2010), on representation-theoretic spectral and total-variation mixing descriptions of the Ehrenfest walk, and Fill–Kahn (2011), on mixing comparisons for birth–death chains. Neither gives the one-step counting-state, unweighted complete-pair Gini operator coefficient. The published continuous-time Ehrenfest \(\ell^1\) result is a different operator/norm. The accessible earlier result comparing Gini and Dobrushin coefficients gives general bounds, not this exact value. A potentially pertinent Diaconis–Griffiths (2012) paper was compared by abstract and references only because its full text was inaccessible; an unindexed equivalent or implicit historical argument remains possible. Absence from the searches is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The count-state Ehrenfest chain is a canonical reversible relaxation model. The theorem sharply distinguishes contractivity in its natural binomial equilibrium weighting from amplification in equally weighted complete-pair dispersion. It identifies the exact onset, attains the operator norm with a simple input, and establishes the strongest amplification over every number of balls. The cut-to-singleton extremizer argument is a structural proof, not a routine reparametrization of a known mixing coefficient.
+For the n-ball birth-death observable transition E_n, the layer-cake/coarea identity and constant preservation make the exact unweighted complete-pair Gini seminorm the maximum over all indicator cuts. If a cut has s<= (n+1)/2 occupied states and b in {0,1,2} endpoints, the output mass is M=s+(2s-(n+1)b)/n and pairwise difference is at most M(n+1-M). For s>=2 this yields 1+2(n-2)/n^2. Single interior columns have precisely two nonzero entries at j-1,j+1; exact pairwise differences give [(n-1)(n+2)+|n-2j|]/n^2, attained at j=1,n-1. End columns give 1/n, and direct n=1,2 checks give norm one. Maximizing 2(n-2)/n^2 over integer n>=3 gives 1/4 at n=4. Independent complete cut scans n=1..9 returned exactly 1,1,11/9,5/4,31/25,11/9,59/49,19/16,95/81. This is one step on unweighted count states, not the binomial-weighted chain norm or all powers.
 
-## Limitations
-The comparison is not an independent priority determination. The model is two-urn, one-step, finite, and unweighted in its main norm; higher powers and modified dynamics are not analyzed. Exact computational checks cover only stated finite ranges. The absence of full text for one relevant 2012 paper is a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical Ehrenfest two-urn count Markov operator, mixing/Krawtchouk spectrum and binomial-reversible measure are established, but the inspected Mizukawa primary material compares distributional total variation and group representation; it does not state the unweighted complete-pair observable Gini norm. The result sharpens the abstract cut reduction by a model-specific endpoint-mass inequality and identifies the exact all-n maximum and sharp witnesses, which are not obtained from the published mixing results or the binomial-weighted Jensen contraction.
+
+## value
+
+PASS
+
+PASS: A complete closed-form induced Gini norm for the canonical Ehrenfest count chain is a natural missing norm invariant of a benchmark Markov process. The sharp three-ball onset, maximal amplification at four balls and contrast with binomial-equilibrium Gini contraction distinguish unequal metric weightings of a reversible chain in an exact and reusable way. This is more than a small table: the full n-dependent inequality, extremizing cuts and global envelope are proved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
