@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T10:57:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized degree-0/1 real spherical reproducing kernel K(x,y)=1+d<x,y> gives one-pair MSE = (d-1)||f||²/2 + E[f(X)f(Y)(1+d<X,Y>)]/2. Haar symmetrization cannot raise the top error eigenvalue, and yields levels A=d(1+u)/2 and B=(d-1+u+dv)/2 with u=E<T>, v=E<T²>=u²+Var T. The exact factorization A-B(u,u²)=(1-u)(1+du)/2 yields unique minimizer u=-1/d and v=u², hence T=-1/d almost surely even for nonsymmetric originals. Explicit Haar-invariant tangent-circle coupling realizes the equality; independent and antipodal baselines checked. Separate Sympy calculations reran key identities for d=3,4,8; empirical spectrum is only corroboration, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brauchart et al., QMC designs, arXiv:1208.3267 Theorem 1 bounds worst-case equal-weight integration error for spherical designs in H^s; design rates do not quantify over correlated random pairs",
+          "Needlets Liberated arXiv:2207.12838 Sections 2,4 handles multiscale generalized cubature, not covariance-minimax dependence"
+        ],
+        "reasoning": "Broader cubature/spherical-design frameworks neither imply this unique fixed pair angle under all couplings nor exclude an as-yet unlocated generic optimal-coupling theorem; the latter is a genuine residual risk.",
+        "searches": [
+          "Resultary semantic search: paired uniform sphere sampling first-degree spherical harmonics minimax RKHS quadrature optimal coupling simplex angle -1/d",
+          "spherical t-design deterministic QMC optimal order Sobolev integration"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2207.12838 (full manuscript theorem/proof)",
+        "arxiv:1208.3267 (full manuscript)",
+        "arxiv:2510.12027 (abstract only)",
+        "Resultary five-topic semantic index query paired uniform sphere sampling first-degree spherical harmonics minimax RKHS quadrature optimal coupling simplex angle -1/d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Needlets Liberated Theorem 4.1 concerns multiscale Sobolev needlet approximation",
+          "QMC designs Theorem 1 concerns deterministic spherical cubature worst-case integration",
+          "Monte Carlo quasi-interpolation arxiv:2510.12027 abstract concerns scaled zonal RBF multilevel sampling"
+        ],
+        "reasoning": "The quantified worst-case input over H_1, minimum over every uniform-marginal pairing, and iff a.s. simplex angle are not corollaries of these checked statements. No full-text noncoverage claim is made for the 2025 abstract-only item.",
+        "searches": [
+          "Resultary semantic search: paired uniform sphere sampling first-degree spherical harmonics minimax RKHS quadrature optimal coupling simplex angle -1/d",
+          "arxiv:2207.12838",
+          "arxiv:1208.3267",
+          "arxiv:2510.12027"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brauchart et al., arXiv:2207.12838 Theorem 4.1 is a generalized needlet cubature error estimate, not fixed-marginal two-point random covariance optimization",
+          "Resultary closest exact match is the assigned 2026-11-16 result; nearby sphere random-walk records optimize a different operator"
+        ],
+        "reasoning": "Antithetic covariance and orthogonal RKHS-kernel pairings are mathematically natural aliases; no inspected prior claim imposes or characterizes all optimal joint uniform-marginal pair laws via inner product -1/d.",
+        "searches": [
+          "Resultary semantic search: paired uniform sphere sampling first-degree spherical harmonics minimax RKHS quadrature optimal coupling simplex angle -1/d",
+          "spherical RKHS paired covariance coupling first harmonic antithetic variates optimal fixed marginals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits include the same assigned sharp simplex-angle result and related fixed-angle sphere walks; no separately identified same-operator equality table"
+        ],
+        "reasoning": "No independent older exact two-sector MSE minimax table was located, which is bounded evidence rather than proof of novelty.",
+        "searches": [
+          "Resultary semantic search: paired uniform sphere sampling first-degree spherical harmonics minimax RKHS quadrature optimal coupling simplex angle -1/d",
+          "Resultary searches for exact RKHS antithetic spherical simplex-angle coupling",
+          "uniform hypersphere -1/d paired Monte Carlo minimax covariance"
+        ]
+      },
+      "rationale": "Fresh claim-vs-prior, equivalent-statement, stronger-coverage and exact-table comparisons identified no decisive covering implication in inspected evidence; priority remains best-of-knowledge with named full/partial reading and risks.",
+      "residual_risks": [
+        "Unlocated general optimal covariance coupling theorem on compact homogeneous spaces could imply the angle classification",
+        "2025 spherical quasi-interpolation was not reviewed in full; no assertion of whole-document noncoverage",
+        "Dimension-large improvement is small; scientific value depends on full equality classification rather than gain alone"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different Sobolev QMC/hybrid needlet error estimate; no coupled-sample minimax theorem in inspected material",
+          "evidence": [
+            "Theorem 4.1, main approximation (4.1) and proof (4.6) on https://www.researchgate.net/publication/362277097_Needlets_Liberated"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.12838",
+          "material_read": "Full author-manuscript readable transcript: introduction, generalized cubature setup, Theorem 4.1, its proof, Section 4.1 bounds, conclusion",
+          "method": "ResearchGate readable author manuscript plus arXiv identification",
+          "title": "Needlets Liberated",
+          "trigger": "Direct primary source for non-exact spherical Fourier/needlet cubature"
+        },
+        {
+          "assessment": "Deterministic equal-weight quadrature design error, not random fixed-marginal pair coupling",
+          "evidence": [
+            "Theorem 1, arxiv:1208.3267, error bound for N-point spherical t-designs"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.3267",
+          "material_read": "Full paper accessible transcript: theorem 1 and proof sections about spherical t-designs and Sobolev worst-case error",
+          "method": "ResearchGate full text",
+          "title": "QMC designs: Optimal order Quasi Monte Carlo integration schemes on the sphere",
+          "trigger": "Possible dominant spherical sampling result"
+        },
+        {
+          "assessment": "No matching theorem asserted from abstracts; full-text implication left as risk",
+          "evidence": [
+            "arxiv:2510.12027 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.12027",
+          "material_read": "ArXiv and publisher abstract; full main text not inspected",
+          "method": "Abstracts only",
+          "title": "Monte Carlo quasi-interpolation of spherical data",
+          "trigger": "Later stochastic spherical approximation potential alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First-band projection is a natural, nontrivial baseline for replacing exact cubature with randomized sampling; complete minimax over ALL uniform-marginal pair dependence and sharp iff geometry are motivated design facts, unlike a routine variance bound. Distinguishing optimal simplex-angle from harmful antipodal sampling gives a precise reusable principle without claiming higher-harmonic or deterministic-cubature optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real degree-at-most-one spherical Fourier space only; d>=3; independent identical pairs and fixed equal weights; no higher-degree optimality",
+    "Best-knowledge originality does not establish historical independence or external certification."
+  ],
+  "schema_version": 1
+}

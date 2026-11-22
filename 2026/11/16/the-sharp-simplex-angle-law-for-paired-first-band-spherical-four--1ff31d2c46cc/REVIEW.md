@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The normalized spherical degree-one reproducing kernel is verified using sphere second moments. The pair mean-square formula is reconstructed from Hilbert-space polarization. A Haar-averaging argument handles every coupling, not only isotropic ones. The resulting constant/linear two-level spectra and Jensen inequality prove the bound with equality **only** for fixed inner product \(-1/d\). The exact symbolic checker verifies the difference factorization and comparison cases. Twenty independent empirical spectral comparisons agree within their declared Monte Carlo tolerance. The proof does not use finite experiments as a substitute for quantification over all dimensions or couplings.
+PASS
 
-## Originality: PASS (best-knowledge, provisional priority)
+Normalized degree-0/1 real spherical reproducing kernel K(x,y)=1+d<x,y> gives one-pair MSE = (d-1)||f||²/2 + E[f(X)f(Y)(1+d<X,Y>)]/2. Haar symmetrization cannot raise the top error eigenvalue, and yields levels A=d(1+u)/2 and B=(d-1+u+dv)/2 with u=E<T>, v=E<T²>=u²+Var T. The exact factorization A-B(u,u²)=(1-u)(1+du)/2 yields unique minimizer u=-1/d and v=u², hence T=-1/d almost surely even for nonsymmetric originals. Explicit Haar-invariant tangent-circle coupling realizes the equality; independent and antipodal baselines checked. Separate Sympy calculations reran key identities for d=3,4,8; empirical spectrum is only corroboration, not proof.
 
-The motivating first-public source is Brauchart et al., *Needlets Liberated* (arXiv:2207.12838), primary MSC 42C10, first public July 26, 2022; its actual text was examined through the introduction, generalised cubature setup, Theorem 4.1, proof, Section 4.1 and conclusions. Its multiscale QMC-design needlet error bound does not imply the sharp covariance/minimax coupling formula for **this** first-band random estimator. QMC designs (arXiv:1208.3267) concern deterministic Sobolev cubature asymptotics, not the fixed-\(2m\)-sample paired error operator. The 2025 Monte Carlo spherical quasi-interpolation study is related later context but addresses scaled radial-basis kernels and multilevel concentration; its abstract was checked, not its full theorem text. Multiple semantic searches of the published finding collection returned no same-statement match. Residual priority risk: general optimal antithetics/coupling theory or a specialized spherical sampling paper could imply this precise two-sector minimax result, including after a non-obvious reduction.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The first nonconstant spherical Fourier band is the natural finite-dimensional test case for replacing exact cubature by stochastic measurement. Rather than a generic rate or a routine point estimate, the theorem classifies **all** dependence structures that are minimax-optimal under fixed uniform marginals, identifies a non-antipodal optimal angle in all dimensions, and quantifies why the default antithetic choice can increase error. The distinction between pairwise kernel orthogonality and antipodal geometric symmetry provides a generalizable design principle, though no higher-band theorem is claimed.
+Fresh claim-vs-prior, equivalent-statement, stronger-coverage and exact-table comparisons identified no decisive covering implication in inspected evidence; priority remains best-of-knowledge with named full/partial reading and risks.
 
-## Limitations and comparative literature
+## value
 
-The sharp conclusion applies only to the specified real first-band estimator, independent identically distributed pairs, uniform marginals and equal weights. It is not a substitute for deterministic spherical designs, which can be exact on the entire band with more nodes. Historical priority is provisional until expert review and specialized general coupling literature comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+First-band projection is a natural, nontrivial baseline for replacing exact cubature with randomized sampling; complete minimax over ALL uniform-marginal pair dependence and sharp iff geometry are motivated design facts, unlike a routine variance bound. Distinguishing optimal simplex-angle from harmful antipodal sampling gives a precise reusable principle without claiming higher-harmonic or deterministic-cubature optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
