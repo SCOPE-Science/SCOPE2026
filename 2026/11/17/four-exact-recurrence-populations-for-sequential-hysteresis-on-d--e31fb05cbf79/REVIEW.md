@@ -1,11 +1,21 @@
-# Scientific review — recurrent clocks on double-star trees
+# Independent mathematical audit
 
-**Correctness (PASS).** The explicit closed-neighborhood update formula is derived for the stipulated hub-first sweep. The leaf synchronization dichotomy is valid on any periodic orbit; its four mutually exclusive hub-status cases cover all possibilities. In the two one-hub-fixed cases, a three-step hub clock combined with alternating nonuniform leaf subsets necessarily gives six-cycles. In the two-hubs-fixed case, nonempty proper leaf subsets give all two-cycles. The complete sixteen-state uniform reduction gives only zero and, if both arms have at least two leaves, one three-cycle. The formulas count labelled phases without dividing prematurely by temporal orbit length. Two independently implemented checkers validate finite parameter ranges, and the proof handles arbitrary positive sizes.
+## correctness
 
-**Originality (PASS, qualified).** The original 2011 bi-threshold paper establishes the model and selected cyclic tree examples; it does not give a closed two-parameter recurrent census for all double-star trees. The closest published finite-tree period-maximization record covers all trees only through fourteen vertices and focuses on maximal period, not individual orbit populations on the unbounded double-star family. Semantic searches for double stars, hysteretic thresholds, periods three/six and the exact binomial formula returned no equivalent published statement. This is evidence, not a guarantee of historical priority; unindexed enumerations and uninspected literature remain risks.
+PASS
 
-**Value (PASS).** The result solves a natural all-size family of sequential Boolean dynamics rather than tabulating an arbitrary finite sample. Its full orbit census reveals a sharp six-cycle onset, an independent three-cycle threshold and a striking recurrence bifurcation: one-leaf arms admit no two-cycles, while two-cycles asymptotically dominate the recurrent population when both arms grow. This answers a motivated dynamical question about how coupling two star cores changes phase locking.
+PASS: The exact closed-neighborhood sequential update yields H from old h,j,A, J from new H and old j,B, followed by A′=complement(A) when H=1 (else empty), and analogously B′. For any periodic orbit, an arm whose hub ever becomes zero must thereafter be all-uniform; an always-one hub complements its leaf set, exhausting the two-hub on/off dichotomy. Both always-on yields all nonempty proper subsets independently and precisely R2=(2^a−2)(2^b−2). Exactly one always-on hub forces the other hub through the three-step 0→1→1 clock, with the always-on arm subset size between two and m−2, yielding 3[T(a)+T(b)] period-six labelled states. With neither hub always on both arms synchronize; all sixteen binary-uniform hub/leaf profiles are exhausted in four predicates a≥2,b≥2, giving unique zero fixed point and exactly one three-cycle if both sizes≥2. This establishes no other periods, sharp six onset at max(a,b)=4, and R6/R2=O(2^−a+2^−b) as both grow. Fresh independent whole-state functional graph enumeration for all 25 pairs 1≤a,b≤5 agrees exactly with every formula; the general proof uses uniform-profile reduction, not bounded extrapolation.
 
-The six-cycle threshold does not establish a minimum over **all trees**; the theorem explicitly concerns double stars. Transient times and attraction basin sizes are not claimed. An earlier finite-tree extremal census determines various shortest-support consequences but does not settle this all-size double-star enumeration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): The original bi-threshold paper proves long cycles on selected tree families, while the broader published all-tree computation gives only bounded-size maximal periods. Neither covers the exact all-size, labelled four-population double-star census and its sharp two- versus six-cycle onset and exponential asymptotic composition.
+
+## value
+
+PASS
+
+PASS: A natural two-hub tree class receives a complete unbounded exact labelled attractor census, identifying independent three-/six-cycle emergence thresholds and dominance of period-two configurations in large balanced arms. This is a structural classification, not a renamed finite maximum-period table or merely a cheaply verified small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
