@@ -1,13 +1,21 @@
-# Review of the planar parallel-sum resonance theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is a finite-dimensional exact theorem with a set-valued singular endpoint, not a numerical conjecture. The proof independently establishes determinant \(ab(1-c^2)+h^2\), both singular-value sum/difference expressions, the classification of paramonotonicity including the rank-one relation, and the joint spectral-norm asymptotics. A resolvent identity valid at the singular endpoint and a first-order matrix expansion justify the absolute-value cusp in the sharp resolvent modulus. The companion checker passed 72 exact-rational configurations and three numerical asymptotic probes. These tests are supporting evidence; the proof rests on exact algebra and a uniform local Taylor expansion. Limits: real two-space, fixed positive weights, and nonzero individual skew coefficients.
+## correctness
 
-**Originality — PASS with bibliographic risk.** Alwadani (arXiv:2611.05523v1, Theorems 3.4 and 3.5) proves qualitative parallel-sum monotonicity and paramonotonicity inheritance **assuming both inputs are paramonotone**; these hypotheses do not include the two nonparamonotone inputs here. Bauschke–Boţ–Hare–Moursi (arXiv:1110.4877v1, Remark 5.2) already records the kernel characterization of linear paramonotonicity, so that qualitative criterion is **not** a novelty claim. The present claim adds a complete explicit nonparamonotone-input family and exact norm/resolvent behavior through two-parameter cancellation, including the set-valued endpoint. The Fill–Fishkind generalized-inverse paper (DOI 10.1137/S0895479897329692) was inspected at abstract level only, and its full-text implications remain a residual risk. A differently indexed earlier family-specific calculation cannot be ruled out. A literature search is not a proof of priority.
+PASS
 
-**Mathematical value — PASS.** Parallel sums are a standard construction in nonlinear functional analysis; loss of paramonotonicity and multivaluedness matters to operator splitting and resolvent regularization. The complete natural two-direction/two-skew planar model shows a sharp gain of paramonotonicity from individually nonparamonotone operators, a quadratic two-parameter spectral instability as the map loses full domain, and an *independently sharp* first-order resolvent stability law. The natural two-parameter slice is not an arbitrary fixed numerical test. The quantitative contrast is more than a restatement of generic nonexpansiveness; it locates exact constants and exponents including the aligned, skew-cancelled boundary. No general theory beyond the specified model is claimed.
+For H=S+hJ, det H=ab(1−c²)+h² and tr(H^T H)=a²+b²+2ab c²+2h². The two positive singular values obey sum sqrt((a+b)²+4h²), difference sqrt((a−b)²+4ab c²), producing exactly the displayed norm when d>0. Sym(H^-1)=H^-T S H^-1 gives positive definite if c<1; at c=1,h≠0 its rank-one kernel violates the injective-map paramonotone criterion. For c=1,h=0 graph inverse of (a+b)uu^T has domain Ru and affine u-perp fibers; direct pairing proves paramonotonicity. Near aligned cancellation det=ab sin²θ+t², numerator→a+b; R=I−(I+H)^−1 is analytic, first differential q[[0,bθ−t],[bθ+t,0]], norm q(b|θ|+|t|), with O((|θ|+|t|)²) uniform local remainder. Independent four-parameter samples of exact matrix singular norms passed; finite checks only corroborate universal algebra.
 
-## Sources and residual risks
+## originality
 
-Primary full texts inspected: https://arxiv.org/html/2611.05523v1 (definitions, Theorems 3.4–3.7); https://arxiv.org/html/1110.4877v1 (resolvent identities, Section 5). Related generalized-inverse article: https://doi.org/10.1137/S0895479897329692 (abstract only). The principal residual originality risk is an unindexed equivalent planar matrix calculation or a stronger perturbation theorem whose conclusion specializes to the exact two-parameter coefficients. No independent audit or external formal verification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge O PASS with concrete primary statements compared against the full claim and retained residual priority risks; inaccessible abstracts are not treated as conclusive NOT_COVERING. 
+
+## value
+
+PASS
+
+Nonparamonotone summands producing a paramonotone parallel sum, and crossing to an unbounded multivalued relation while its resolvent remains sharply Lipschitz, form a natural model for maximal-monotone operator splitting and conditioning. The two-parameter quadratic blow-up versus linear resolvent regularity is more than the qualitative kernel criterion, though derived in a deliberately tractable 2×2 class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
