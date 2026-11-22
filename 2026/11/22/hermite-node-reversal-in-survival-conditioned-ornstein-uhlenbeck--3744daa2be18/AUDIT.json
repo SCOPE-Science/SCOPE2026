@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The killed generator on the positive half-line is solved by reflected OU Gaussian kernels, with correct variance D/kappa*(1-e^-2kappa t) and survival denominator 2Phi(v)-1. The truncated Gaussian integral is analytic in q² after factoring its common interval length, giving exact c2=w(w-3)/6 and c4=w*(3w³-38w²+165w-180)/360; c4(3)=9/20>0. Differentiation of the analytic expansion proves eventual signs. The short-time Gaussian increment gives a strictly negative sqrt(t) correction, yielding at least one strict interior local minimum for 0<w<3 without claiming uniqueness. The independent checker passed 56 symbolic/numerical assertions, including direct integral comparisons. No finite test is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dubey and Pal, First-passage functionals for Ornstein Uhlenbeck process with stochastic resetting, arXiv:2304.05226v1, §2/§4/§5, https://arxiv.org/html/2304.05226v1",
+        "Kishore and Kundu, Local time of an Ornstein-Uhlenbeck particle, arXiv:2010.06262, §4.1.2 and Hermite spectrum, https://arxiv.org/abs/2010.06262"
+      ],
+      "reasoning": "The 2023 paper treats all reset rates in a broader integrated-residence setting but does not dominate this conditional instantaneous-time law; the 2020 paper is broader in survival-conditioned local-time spectral moments but not a direct claim of the phase boundary. Their scope is not conflated with this different observable. Generic QSD convergence bounds do not determine the sign of the first nonzero conditional tail correction at a specified spatial threshold.",
+      "searches": [
+        "arxiv:2304.05226v1 sections 2,4,5",
+        "arxiv:2010.06262 section 4.1.2",
+        "Ornstein Uhlenbeck killed at zero survival conditioned probability above initial position non-monotone threshold sqrt 3 exponential relaxation e^-2kt e^-4kt",
+        "absorbing Ornstein Uhlenbeck quasi stationary conditional upper tail relaxation Hermite spectral eigenmode cancellation"
+      ]
+    },
+    "checked_sources": [
+      "Dubey and Pal, First-passage functionals for Ornstein Uhlenbeck process with stochastic resetting, arXiv:2304.05226v1, §2/§4/§5, https://arxiv.org/html/2304.05226v1",
+      "Kishore and Kundu, Local time of an Ornstein-Uhlenbeck particle, arXiv:2010.06262, §4.1.2 and Hermite spectrum, https://arxiv.org/abs/2010.06262",
+      "Kolb and Steinsaltz, arxiv:1004.5044 abstract (general QSD background only)",
+      "MSC2020 82C31 description, https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=82C26"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The existing image method and Hermite spectrum supply the kernel/possible starting tools; they do not themselves assert the w=3 and 4kappa transition.",
+        "Dubey and Pal, First-passage functionals for Ornstein Uhlenbeck process with stochastic resetting, arXiv:2304.05226v1, §2/§4/§5, https://arxiv.org/html/2304.05226v1",
+        "Kishore and Kundu, Local time of an Ornstein-Uhlenbeck particle, arXiv:2010.06262, §4.1.2 and Hermite spectrum, https://arxiv.org/abs/2010.06262"
+      ],
+      "reasoning": "The first moment of accumulated residence is an integral of an *unconditional* killed exceedance over time and renewal cycles; it cannot be inverted to recover all conditional-age exceedance values or their direction of convergence. Survival-conditioned local-time moments are different functionals. Even though an exact killed propagator logically permits computation of the conditional ratio, the specific sharp threshold/critical cancellation is not stated as a prior result in inspected materials; this remains a claim of specialized analysis, not of discovering the Gaussian propagator.",
+      "searches": [
+        "Ornstein Uhlenbeck absorbing boundary conditional one-time exceedance stationary quasi stationary convergence sharp sign bifurcation starting position",
+        "Ornstein Uhlenbeck killed at zero survival conditioned probability above initial position non-monotone threshold sqrt 3 exponential relaxation e^-2kt e^-4kt",
+        "absorbing Ornstein Uhlenbeck quasi stationary conditional upper tail relaxation Hermite spectral eigenmode cancellation",
+        "arxiv:2304.05226v1 Section 4",
+        "arxiv:2010.06262 Section 4.1.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kishore and Kundu, Local time of an Ornstein-Uhlenbeck particle, arXiv:2010.06262, §4.1.2 and Hermite spectrum, https://arxiv.org/abs/2010.06262",
+        "Analytic equivalence: one-time conditional exceedance is a ratio of integrals of the killed propagator; the source local-time transform concerns an accumulated path functional, not this ratio."
+      ],
+      "reasoning": "Equivalent formulations include normalized killed semigroup tail, Yaglom conditional exceedance, odd-Hermite mode cancellation and conditional age-resolved residence probability. The spectral formalism can generate this ratio but the precise coefficient, sharp threshold and mandatory local minimum require the specialized calculation. A general formula allowing derivation is acknowledged, without claiming generic kernels themselves original.",
+      "searches": [
+        "killed Ornstein Uhlenbeck starting a conditioned survival P(X_t>a | tau0>t) Hermite third threshold kappa a squared over D equals 3 quasi stationary tail crossing",
+        "time-resolved occupation above restart point Ornstein Uhlenbeck excursion survival conditional nonmonotone approach quasi stationary Rayleigh exact asymptotic e^-4kt",
+        "Ornstein Uhlenbeck absorbing boundary conditional one-time exceedance stationary quasi stationary convergence sharp sign bifurcation starting position",
+        "arxiv:2010.06262 §4.1.2 Hermite survival-conditioned local time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Dubey and Pal, First-passage functionals for Ornstein Uhlenbeck process with stochastic resetting, arXiv:2304.05226v1, §2/§4/§5, https://arxiv.org/html/2304.05226v1",
+        "Kishore and Kundu, Local time of an Ornstein-Uhlenbeck particle, arXiv:2010.06262, §4.1.2 and Hermite spectrum, https://arxiv.org/abs/2010.06262",
+        "Focused published-record semantic searches returned neighboring OU-reset and quasi-stationary results; none identified a numerical table or exact identity with this specified observable."
+      ],
+      "reasoning": "No exact database/table containing these coefficients was identified; searching is not proof of novelty. The explicitly reproducible coefficients are derived analytically and checked symbolically rather than inferred from enumerated data.",
+      "searches": [
+        "killed Ornstein Uhlenbeck starting a conditioned survival P(X_t>a | tau0>t) Hermite third threshold kappa a squared over D equals 3 quasi stationary tail crossing",
+        "time-resolved occupation above restart point Ornstein Uhlenbeck excursion survival conditional nonmonotone approach quasi stationary Rayleigh exact asymptotic e^-4kt",
+        "arxiv:2304.05226v1 Section 4",
+        "arxiv:2010.06262 Section 4.1.2"
+      ]
+    },
+    "rationale": "This result classifies the time-resolved, survival-conditioned exceedance of a killed OU reset excursion, including a sharp cancellation of its leading odd-Hermite relaxation mode at w=3. The directly relevant 2023 paper instead derives integrated residence-time moments and resetting optima; the 2020 work gives survival-conditioned local-time spectral background, not an explicit exceedance-mode phase boundary. Search matches to other quasi-stationary and reset processes were compared by mathematical implication rather than titles alone. Classical reflection and QSD facts are acknowledged; independent publication priority is not asserted.",
+    "residual_risks": [
+      "An older generic odd-Hermite spectral representation could contain an equivalent corollary unnoticed in unindexed literature; independent scientific novelty verification is not available.",
+      "The 2010 general QSD source was abstract-reviewed only and is not used for a whole-document negative novelty claim.",
+      "No exhaustive literature search or certification of publication priority is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the conditioned age-resolved tail, sharp w=3 late-time sign reversal, or e^-4kappa critical cancellation.",
+        "evidence": "Section 4 equations (31)-(42) treat transform and first moment of integrated residence time; figure 3 concerns optimal resetting rate; no time-indexed conditional tail classification in inspected sections.",
+        "identifier_or_url": "arxiv:2304.05226v1; https://arxiv.org/html/2304.05226v1",
+        "material_read": "Full HTML sections 1-5, including the general formulation and residence-time results in section 4, with the conclusion checked.",
+        "method": "Compared definitions and quantifiers: integrated occupation up to absorption versus conditional instantaneous exceedance at age t with no reset.",
+        "title": "First-passage functionals for Ornstein Uhlenbeck process with stochastic resetting",
+        "trigger": "Same OU Langevin particle, zero absorption, Poisson resets to the exceedance/reference point and integrated residence above that point."
+      },
+      {
+        "assessment": "Provides compatible general spectral groundwork and survival-conditioned local-time moments but not the stated threshold classification; generic expansion can imply pieces after nontrivial specialization.",
+        "evidence": "Section 4.1.2 treats cumulants/correlations of local time; Hermite eigenvalue formula supplies modes but no w=3 conditional exceedance threshold.",
+        "identifier_or_url": "arxiv:2010.06262; https://arxiv.org/abs/2010.06262",
+        "material_read": "Open-access HTML sections about absorbing OU, Hermite expansion (equation 35), survival-conditioned local-time statistics (§4.1.2), and the unconditioned first-passage-functional sections.",
+        "method": "Compared random observables and time dependences, and checked whether a mode cancellation for one-time threshold exceedance was developed.",
+        "title": "Local time of an Ornstein-Uhlenbeck particle",
+        "trigger": "Survival conditioning for an absorbing OU and explicit Hermite eigenfunctions might imply an alternative formulation."
+      },
+      {
+        "assessment": "Background on conditions for convergence to a quasi-stationary distribution, but no claim about absence of an explicit one-threshold law is made from abstract-only material.",
+        "evidence": "Abstract concerns principal eigenfunctions and convergence criteria, not the particular observable; unread portions remain an originality risk.",
+        "identifier_or_url": "arxiv:1004.5044; https://arxiv.org/abs/1004.5044",
+        "material_read": "Abstract and visible summary, not full primary text.",
+        "method": "Used for general setting only and not a whole-document novelty exclusion.",
+        "title": "Quasilimiting behavior for one-dimensional diffusions with killing",
+        "trigger": "Possible stronger general quasi-stationary convergence statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3744daa2-be18-441c-8038-8c0c3106a04e",
+  "value": {
+    "rationale": "The exceedance event is the physically natural spatial threshold used to define residence above the reset point. Conditioning by excursion survival selects atypically persistent trajectories, so knowing whether above-threshold occupation approaches its quasi-stationary fraction from above or below is useful for age-resolved observation and integrated residence dynamics. The exact dimensionless Hermite threshold w=3 causes both a compulsory nonmonotone subcritical response and a doubling of the asymptotic relaxation exponent, not a trivial change of units or a table recomputation.",
+    "status": "PASS"
+  }
+}
