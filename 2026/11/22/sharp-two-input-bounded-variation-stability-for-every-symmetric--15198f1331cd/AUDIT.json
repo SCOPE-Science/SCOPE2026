@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The exact common-core lemma supplies one-per-window-edge binary selection difference. Step decomposition and integration through piecewise-linear ranking chambers establish the global bound; the explicit even/odd permutation has an exactly counted, unit-jump middle-rank tag sequence on all window edges. Endpoint extension and the strict shorter-path edge-count bound give attainment and the minimum saturation length. The accompanying checker reproduced all exact arithmetic identities for radii 1 through 30 and all trimming levels, exhaustively tested small ranking chambers and performed 1,500 supplementary random two-input checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bednar–Watt (1984), DOI 10.1109/TASSP.1984.1164279, indexed abstract discusses the alpha-trimmed/median relationship and median root signals; full original was not readable.",
+        "Restrepo–Bovik (1988), DOI 10.1109/29.1660, indexed abstract discusses adaptation and noise-tail characteristics.",
+        "Pitas–Venetsanopoulos (1992), full accessible review, explicitly distinguishes the alpha-trimmed mean from other L-filters."
+      ],
+      "reasoning": "No accessible stronger theorem was identified giving exact two-input variation coefficients for all symmetric trims and all radii on clamped paths. Inaccessible originals remain an explicit residual risk, not definitive negative evidence.",
+      "searches": [
+        "running trimmed mean filters two input bounded variation exact sensitivity compared to moving median",
+        "sliding trimmed mean filter bounded variation stability difference of two signals",
+        "\"Alpha-trimmed means and their relationship to median filters\" pdf"
+      ]
+    },
+    "checked_sources": [
+      "Bednar–Watt (1984), DOI 10.1109/TASSP.1984.1164279, abstract only",
+      "Pitas–Venetsanopoulos (1992), DOI/reference full accessible PDF, relevant sections read",
+      "Restrepo–Bovik (1988), DOI 10.1109/29.1660, abstract only",
+      "Rashed (2013), DOI 10.3997/1873-0604.2013024, date and abstract read",
+      "Cai–Yang–Song (2018), DOI 10.1049/iet-ipr.2017.0470, relevant article sections read",
+      "Closest published median and cyclic five-point central-trim records, by claim/implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously recorded all-rank finite-path theorem: the sharp coefficient for an individual rank is \\(2\\min(q-1,w-q)+1\\); averaging these bounds does not yield the sharper \\(w/(w-2q)\\) due to cancellations.",
+        "Previously recorded cyclic five-point middle-three average: \\(5/3\\) sharp coefficient eventually occurs on cycles, but finite paths have distinct clamped boundaries and attain it at six sites.",
+        "The moving mean and median are endpoint cases of the present formula, acknowledged as previously understood."
+      ],
+      "reasoning": "Individual-rank Lipschitz bounds imply a generally larger triangle upper estimate, not the exact middle-rank average factor or the explicit saturation threshold. A cyclic special case does not prove the statement under clamped boundaries or for arbitrary radii and trim counts; those claims require the new common-core argument and simultaneous extremizer.",
+      "searches": [
+        "bounded variation exact norm order statistics trimmed mean path clamped boundary",
+        "bounded variation exact norm order statistics trimmed mean path clamped boundary",
+        "\"trimmed mean\" \"bounded variation\" filter exact norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pitas–Venetsanopoulos (1992) defines alpha-trimmed means as rank sums, Section III-C/III-D, but analyzes robustness and statistical performance.",
+        "Cai–Yang–Song (2018) analyzes selected-middle-rank smoothing and edge preservation, not the variation of filtered differences."
+      ],
+      "reasoning": "Equivalent names include symmetric alpha-trimmed means, middle-rank L-filters, central order-statistic averages, and robust running averages. The source text inspected for these names did not present the claimed two-input seminorm or finite-length threshold; absence of a phrase alone is not treated as proof of priority.",
+      "searches": [
+        "sharp Lipschitz constant total variation alpha-trimmed mean sliding order statistic filter (2r+1)/(2r+1-2q)",
+        "sliding trimmed mean filter bounded variation stability difference of two signals",
+        "L filters sliding middle order statistics Lipschitz bounded variation sharp width"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic result 2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42 concerns a three-point median.",
+        "Closest related prior record for cyclic five-point symmetric trimmed means has different path geometry and a length-dependent cyclic coefficient.",
+        "No inspected published table or catalog gave the formula for all \\(r,q\\) on finite paths."
+      ],
+      "reasoning": "Searches of mathematical finding records and published literature returned related filters but not the exact clamped-path all-trim coefficient. The negative database result is evidence of a search, not a proof of uniqueness.",
+      "searches": [
+        "sharp Lipschitz constant total variation alpha-trimmed mean sliding order statistic filter (2r+1)/(2r+1-2q)",
+        "L filters sliding middle order statistics Lipschitz bounded variation sharp width",
+        "trimmed mean sliding window filter total variation Lipschitz stability"
+      ]
+    },
+    "rationale": "An exact all-radius, all-symmetric-trim, two-input BV seminorm classification with an optimal finite-path length cutoff was not covered by the related statements actually inspected. Special median and cyclic five-point instances were distinguished by implication, not titles. Priority remains provisional owing to inaccessible original literature.",
+    "residual_risks": [
+      "1984 Bednar–Watt and 1988 Restrepo–Bovik primary full texts were not available; indexed summaries cannot rule out an older equivalent statement.",
+      "A more general unindexed theorem for piecewise-linear robust L-filters could subsume the result.",
+      "No claim of independent historical priority audit is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines trimmed rank averages and robust properties, not an exact two-input path-variation Lipschitz norm",
+        "evidence": "Page 1904, Eq. (55), and page 1905, L-filter formula Eq. (61); no total variation or Lipschitz theorem found in relevant sections.",
+        "identifier_or_url": "https://web.eecs.utk.edu/~hqi/ece472-572/reference/order-statistics.pdf",
+        "material_read": "Abstract; introductory order-filter discussion; Section III-C (page 1904) and Section III-D (page 1905); paper references",
+        "method": "Opened searchable lawful PDF and visually inspected page 1904; compared operator definition and quantities studied",
+        "title": "Order Statistics in Digital Image Processing",
+        "trigger": "Direct definition and classification of alpha-trimmed mean and L filters"
+      },
+      {
+        "assessment": "Describes noise removal and edge preservation, not the two-input variation coefficient",
+        "evidence": "Middle-rank averaging and median/mean endpoints are explicit in Section 3; no matching variation bound.",
+        "identifier_or_url": "https://doi.org/10.1049/iet-ipr.2017.0470",
+        "material_read": "Abstract, algorithm definition Section 3.1.1 and alpha-trimmed analysis Section 3.2.2",
+        "method": "Read accessible article HTML and searched for variation/Lipschitz terminology",
+        "title": "Image filtering method using trimmed statistics and edge preserving",
+        "trigger": "Central trimmed rank averages may already have a stability result"
+      },
+      {
+        "assessment": "Could not justify a whole-document not-covering assertion; abstract describes median filtering algorithms and root signals, not this exact seminorm",
+        "evidence": "1984 indexed title/abstract and 1992 review citation; residual priority risk explicitly retained.",
+        "identifier_or_url": "https://doi.org/10.1109/TASSP.1984.1164279",
+        "material_read": "Bibliographic record and detailed secondary abstract only; original full text inaccessible",
+        "method": "Searched arXiv and lawful open-access copies; the full text could not be obtained",
+        "title": "Alpha-trimmed means and their relationship to median filters",
+        "trigger": "Earliest natural exact source and potential stronger structural theory"
+      },
+      {
+        "assessment": "Discusses adaptive tail estimates and visual quality rather than the fixed all-trim BV norm; full contents remain a risk",
+        "evidence": "1988 bibliographic abstract mentions Monte Carlo studies and local edge classification.",
+        "identifier_or_url": "https://doi.org/10.1109/29.1660",
+        "material_read": "Indexed abstract and bibliographic information; not original full text",
+        "method": "Compared abstract against assumptions and claimed norm",
+        "title": "Adaptive trimmed mean filters for image restoration",
+        "trigger": "Historically plausible general filter analysis"
+      },
+      {
+        "assessment": "Documents use of alpha-trimmed estimation in seismic stacking, with a different scientific question",
+        "evidence": "Publisher states first published 01 February 2013; compares alpha-trimmed stacks in an application.",
+        "identifier_or_url": "https://doi.org/10.3997/1873-0604.2013024",
+        "material_read": "Publisher publication-date metadata, abstract, references",
+        "method": "Read accessible article landing text; date explicitly verified 2013-02-01",
+        "title": "Application of alternative seismic-stacking techniques to ringing noise removal from GPR data",
+        "trigger": "Day-verified public evidence of the pre-2016 alpha-trimmed estimator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "15198f13-31cd-42e1-a6c9-089c40a458f6",
+  "value": {
+    "rationale": "The theorem gives a natural, complete exact stability tradeoff between moving averages and running medians for all discrete central trimming fractions and all radii. The common-core cancellation is not implied by averaging individual rank stability estimates. The sharp minimum path length identifies the first record length at which full perturbation sensitivity is possible, a meaningful finite-size boundary for robust sliding smoothers.",
+    "status": "PASS"
+  }
+}
