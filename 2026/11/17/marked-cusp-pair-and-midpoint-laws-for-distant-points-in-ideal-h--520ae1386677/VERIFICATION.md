@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Exact symbolic steps checked: cusp chart width identities, normalized \(e^{-u}\) area density, distance expansion from \(\cosh D\), positive change-of-variables Jacobian, bounded same-cusp/core contributions, conditional \(L^1\) convergence and midpoint hyperboloid formula. The quadrilateral unordered cusp-pair weights add to one, opposite pairs total one half, all midpoint row-sums equal one quarter, and the labelled cross-ratio is recovered algebraically.
+## correctness
 
-Run `python -m pip install -r requirements.txt` and `python verify_marked_cusps.py`. The checker uses independent area sampling in an ideal triangle decomposition and two separate quadrilateral parameter values. Successful output ends with `CUSP_MARKED_CONDITIONAL_GEOMETRY_OK`. Its conditional importance-proposal simulation is an asymptotic consistency test, not an exact sampler of the true rare-event conditional law. Finite-threshold ratios differ systematically by lower-order effects. No computer sampling replaces the analytical proof, and no independent external validation is implied.
+PASS
+
+Reviewed complete RESULT.md at frozen blob 08889fa6...: exact cusp strip area w_i/(A H_i)e^{-u}, distinct cusp separation D=u+v+log(g_ij H_iH_j)+O(e^{-u}+e^{-v}) and derivative in v. Exponential convolution gives (s+1)e^{-s} and O(e^{-R}) same-cusp/core error. On u/R in [delta,1-delta] transform (u,v) to (q=u/R,e=D-R), Jacobian tends 1; Scheffe with tight end/depth tails gives categorical p_ij times three uniform and Exp(1) marks in TV, while the singular full-depth vector and midpoint are correctly asserted only weakly. Hyperbolic midpoint identity selects deeper cusp and height |U-1/2|R. Independently reconstructed all six quadrilateral weight formulas and equal midpoint row-sums for t=1.3,2,3.7, confirming t recovery, not treating finite checks as infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after direct source comparisons: the previously covered scalar/elementary precursors were credited, and no inspected stronger claim gives the specified complete marks or section classification. The exponential-sum conditional split is a standard mechanism, but the geometric transfer of this law into exact labelled cusp, transverse and midpoint information is not an equivalent theorem in the inspected sources.
+
+## value
+
+PASS
+
+The joint rare-event cusp identity, conditional TV geometry, asymptotic midpoint location and explicit shape recovery expose information unavailable from the scalar distance tail; labelled quadrilateral reconstruction gives a natural geometric inverse statistic with mathematical interest.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

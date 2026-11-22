@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the exact normalized cusp chart area, the two-point distance expansion and its derivative, and independently verifies the previously known scalar tail normalization via bounded same-cusp/core contributions and a controlled indicator replacement. On interior normalized-depth intervals, the change to logarithmic fraction and exact positive distance overshoot has Jacobian converging to one. Tightness and Scheffé yield the six-component joint total-variation limit. The midpoint formula follows directly from hyperboloid addition, giving weak midpoint-depth convergence; the two-depth singular limit is explicitly not claimed in total variation. An independent numerical checker passed direct sampling, pair-weight identities, asymptotic distance expansion and importance-proposal checks. Simulations alone do not prove infinite asymptotics.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Reviewed complete RESULT.md at frozen blob 08889fa6...: exact cusp strip area w_i/(A H_i)e^{-u}, distinct cusp separation D=u+v+log(g_ij H_iH_j)+O(e^{-u}+e^{-v}) and derivative in v. Exponential convolution gives (s+1)e^{-s} and O(e^{-R}) same-cusp/core error. On u/R in [delta,1-delta] transform (u,v) to (q=u/R,e=D-R), Jacobian tends 1; Scheffe with tight end/depth tails gives categorical p_ij times three uniform and Exp(1) marks in TV, while the singular full-depth vector and midpoint are correctly asserted only weakly. Hyperbolic midpoint identity selects deeper cusp and height |U-1/2|R. Independently reconstructed all six quadrilateral weight formulas and equal midpoint row-sums for t=1.3,2,3.7, confirming t recovery, not treating finite checks as infinite proof.
 
-The closest published published-finding corpus paper, *Cusp-pair tails for random distances in ideal hyperbolic polygons* (November 8, 2026), has been read in full. Its general scalar tail and the cusp-width coefficient are explicitly credited as prior knowledge. It contains no corresponding conditional joint total-variation theorem, cusp-midpoint asymptotic or inverse labelled quadrilateral table. A scalar sum does not logically specify a marked distribution. The full available arXiv:1607.07383 text and publisher abstract of Castle–Peyerimhoff–Siburg concern deterministic closed billiard lengths. The owned ledger was checked for claim overlap, including the previously recorded intrinsic quotient-cusp random distance law, which concerns different objects. Search coverage is finite; generic conditional convolution and older unavailable ideal-polygon literature remain priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new theorem converts a scalar rare-distance estimate into a complete description of rare-event geometry. The endpoint cusp identities reveal the polygon's labelled cross-ratio and exhibit shape-independent opposite-cusp and midpoint-cusp statistics in ideal quadrilaterals. The deeper-cusp midpoint law explains where a geodesic's midpoint goes when its endpoints become far apart. These distinguish conditional geometric mechanisms rather than reprinting the previously known survival probability.
+Best-of-knowledge originality after direct source comparisons: the previously covered scalar/elementary precursors were credited, and no inspected stronger claim gives the specified complete marks or section classification. The exponential-sum conditional split is a standard mechanism, but the geometric transfer of this law into exact labelled cusp, transverse and midpoint information is not an equivalent theorem in the inspected sources.
 
-## Limitations
+## value
 
-Fixed convex all-ideal polygons in curvature minus one only; no uniformity under degeneration. The continuous chart marks converge in total variation, while the full two-depth singular vector and midpoint law converge weakly. The exact normalization uses a known scalar theorem whose underlying cusp calculation is independently reconstructed. Definitive priority and independent mathematical validation are unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The joint rare-event cusp identity, conditional TV geometry, asymptotic midpoint location and explicit shape recovery expose information unavailable from the scalar distance tail; labelled quadrilateral reconstruction gives a natural geometric inverse statistic with mathematical interest.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
