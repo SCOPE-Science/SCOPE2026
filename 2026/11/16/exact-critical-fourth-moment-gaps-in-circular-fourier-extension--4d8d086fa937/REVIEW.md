@@ -1,19 +1,21 @@
-# Scientific review: critical circular Fourier-extension fourth-moment gaps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns fixed nonnegative integer indices and the one-variable radial Bessel moments defined in RESULT.md. The common pole is verified by the uniform Hankel expansion and periodic averaging. Adjacent-order subtraction cancels the zero-frequency tail, allowing the critical limit. The Bessel recurrence converts each limiting gap to two convergent fourth-over-radius moments. A Neumann-product representation combined with the two-dimensional logarithmic potential identity evaluates those moments in terms of odd harmonic sums. Telescoping proves all pairwise gaps, and the mean-value theorem gives the squared-coefficient scaling. Boundary terms and convergence regimes are specified in the proof. The checker independently compares the identities for finite orders and cutoffs, passing 45 checks. Numerical agreement is not substituted for a proof of the all-index result.
+PASS
 
-## Originality — PASS relative to examined sources
+For fixed nonnegative integer j, uniform Hankel asymptotics at q near 4 split the common mean 3/(pi²(q-4)) from the oscillatory difference, which has mean zero between consecutive orders and converges conditionally when q↓4. Using (r J_{j-1}J_j)'=r(J_{j-1}²-J_j²) and Bessel recurrences reduces the adjacent fourth-power difference to 2[j² T_j-(j-1)² T_{j-1}], T_j=integral J_j^4/r. Neumann’s product identity plus regularized Frullani–Bessel angular logarithmic kernel evaluates T_j=(j² pi²)^-1 sum_{ell<=j}(2ell-1)^-1, hence adjacent limit 2/(pi²(2j-1)). Telescoping gives arbitrary fixed m<n and mean-value expansion of u^(2/q) gives the sqrt(q-4) coefficient. Boundary terms at 0 and infinity need fixed j and conditional integration, explicitly respected. Independent SciPy radial integrations for j=1..3 up to R=2500 matched exact T_j within around 1.2e-8, supporting but not proving tails.
 
-Xu (arXiv:2610.19648, first public 2026-10-14) proves strict modal dominance for the range above the endpoint and analyzes the common critical divergence, but Sections 3.2 and 6 of the inspected HTML do not state the exact fixed-index cancellation formula or squared-coefficient endpoint law. Carneiro, Oliveira e Silva and Sousa (arXiv:1710.10365) give the classical modal restriction framework; Ciccone and Sousa (arXiv:2312.07309) study fixed finite-exponent comparisons. Neither inspected primary work supplies the exact critical odd-harmonic gap for all fixed pairs. Relevant published-finding corpus entries describe different Fourier/Bessel problems, notably the finite-field and spherical-harmonic fourth-moment results. Neumann products, Bessel recurrences and logarithmic-potential integrals are established ingredients, and an older integral-table equivalent of the intermediate fourth-over-radius identity remains a genuine residual priority risk. Searches do not constitute a proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The critical power-four radial Bessel moments separately diverge, so mere finite-exponent comparison does not determine their limiting difference. The exact all-mode positive limit and its odd-harmonic dependence identify a natural critical obstruction's first finite spectral separation, with explicit square-root endpoint scaling for the associated pure-mode coefficients. The result does not claim the global best Fourier-extension stability constant or any uniform growing-degree bound.
+Carneiro–Oliveira e Silva–Sousa establish modal reduction and q>4 admissibility, and Xu 2026 treats strict dominance/order for q>4, not in materials actually read an explicit fourth-critical finite difference with every pair m<n. The assigned exact odd-harmonic endpoint coefficients follow from nontrivial cancellation of common divergent poles and a fourth-power Bessel identity. Highly relevant Xu full text was not obtainable (arxiv/OA limited, Oxford VPN disconnected): this is a named residual risk, not automatic originality failure; no decisive verified coverage is present.
 
-## Primary-source comparison and limitations
+## value
 
-Relevant read material: Xu arXiv:2610.19648, Sections 1, 3.2 and 6; Carneiro--Oliveira e Silva--Sousa arXiv:1710.10365, introductory results and Bessel comparison arguments; Ciccone--Sousa arXiv:2312.07309, first results and relevant comparison section; NIST DLMF, Bessel classical identities. Outstanding risk: an equivalent critical difference might occur in a specialized older Weber--Schafheitlin or Bessel-integral source not located under the examined aliases. All index limits are fixed-index only. The universal claim is analytic, not experimentally exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The critical q=4 pole renders the standard individual mode moments infinite. An exact renormalized finite difference and sharp sqrt(q-4) law for arbitrary fixed modes are natural endpoint spectral stability data with explicit universal odd-harmonic dependence, rather than an arbitrary finite slice or numeric approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

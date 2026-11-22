@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:14:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and CHECK.py",
+        "independent finite SciPy quadratures for T_1..T_3",
+        "standard DLMF Bessel formulas"
+      ],
+      "rationale": "For fixed nonnegative integer j, uniform Hankel asymptotics at q near 4 split the common mean 3/(pi²(q-4)) from the oscillatory difference, which has mean zero between consecutive orders and converges conditionally when q↓4. Using (r J_{j-1}J_j)'=r(J_{j-1}²-J_j²) and Bessel recurrences reduces the adjacent fourth-power difference to 2[j² T_j-(j-1)² T_{j-1}], T_j=integral J_j^4/r. Neumann’s product identity plus regularized Frullani–Bessel angular logarithmic kernel evaluates T_j=(j² pi²)^-1 sum_{ell<=j}(2ell-1)^-1, hence adjacent limit 2/(pi²(2j-1)). Telescoping gives arbitrary fixed m<n and mean-value expansion of u^(2/q) gives the sqrt(q-4) coefficient. Boundary terms at 0 and infinity need fixed j and conditional integration, explicitly respected. Independent SciPy radial integrations for j=1..3 up to R=2500 matched exact T_j within around 1.2e-8, supporting but not proving tails.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu abstract announces sharp mixed-norm/global stability and strict q>4 modal comparisons; stronger optimization could include the endpoint, but no readable full-text section established equivalence. Carneiro et al prove finite-q modal expressions and bounds."
+        ],
+        "reasoning": "A potentially stronger result was identified; inaccessible Xu full text is recorded as a priority risk without fabricating a negative whole-paper assessment.",
+        "searches": [
+          "Resultary: Bessel fourth moment renormalized difference integer order J_n integral fourth power r dr Fourier extension critical exponent",
+          "https://arxiv.org/abs/2610.19648",
+          "https://arxiv.org/abs/1710.10365",
+          "https://arxiv.org/abs/2312.07309"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1710.10365",
+        "https://arxiv.org/abs/2610.19648",
+        "https://arxiv.org/abs/2312.07309",
+        "https://dlmf.nist.gov/10.22",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-critical-fourth-moment-gaps-in-circular-fourier-extension--4d8d086fa937"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Divergent I_j(q) share the 3/(pi²(q-4)) pole but a strict q>4 comparison does not by itself fix the exact difference coefficient or O(sqrt(q-4)) squared-norm gap. The proof uses cancellation and evaluates T_j via a logarithmic angular kernel."
+        ],
+        "reasoning": "Read results do not logically entail coefficients by simple restatement; the highly relevant 2026 paper remains unverified in full.",
+        "searches": [
+          "Resultary: Bessel fourth moment renormalized difference integer order J_n integral fourth power r dr Fourier extension critical exponent",
+          "https://arxiv.org/abs/2610.19648",
+          "https://arxiv.org/abs/1710.10365"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing modal Bessel integrals I_k(q) are identified in Carneiro et al. The present claim is a renormalized difference of divergent I_k at q↓4; full new endpoint formula not identified in inspected text."
+        ],
+        "reasoning": "Same modal objects but different limiting operation; standard existence of modal integrals does not alone evaluate their finite pole cancellation.",
+        "searches": [
+          "Resultary: Bessel fourth moment renormalized difference integer order J_n integral fourth power r dr Fourier extension critical exponent",
+          "arxiv 1710.10365 mixed norm spherical restriction",
+          "arxiv 2610.19648 Fourier extension Bessel endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical Bessel product/recurrence integral tools cover the J_j^4/r calculation; no verified exact table entry for the full q→4 difference was identified."
+        ],
+        "reasoning": "This is an analytic continuous fixed-index limit, not a new finite enumeration; known special-function integral tables might encode a component and remain a specific risk.",
+        "searches": [
+          "Resultary: Bessel fourth moment renormalized difference integer order J_n integral fourth power r dr Fourier extension critical exponent",
+          "DLMF Bessel integrals J_n fourth powers over r odd harmonic sum"
+        ]
+      },
+      "rationale": "Carneiro–Oliveira e Silva–Sousa establish modal reduction and q>4 admissibility, and Xu 2026 treats strict dominance/order for q>4, not in materials actually read an explicit fourth-critical finite difference with every pair m<n. The assigned exact odd-harmonic endpoint coefficients follow from nontrivial cancellation of common divergent poles and a fourth-power Bessel identity. Highly relevant Xu full text was not obtainable (arxiv/OA limited, Oxford VPN disconnected): this is a named residual risk, not automatic originality failure; no decisive verified coverage is present.",
+      "residual_risks": [
+        "Xu, Sharp radial--angular mixed norm Fourier extension and global stability on spheres, arxiv:2610.19648 (first posted 2026-10-14), plausible high relevance but only abstract and cited context readable; full text inaccessible due institutional VPN, so an equivalent appendix formula remains possible.",
+        "Classical integral tables may already evaluate T_j or modal adjacent fourth-power gaps in differently indexed form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING explicit critical renormalized pairs in sections read",
+          "evidence": "Provides Bessel mode integrals and q>4 setup without fixed-pair pole-cancellation formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.10365",
+          "material_read": "PDF introduction and radial-angular modal integrals and exponent conditions",
+          "method": "full PDF opened, relevant pages inspected",
+          "title": "Sharp mixed norm spherical restriction",
+          "trigger": "original modal Bessel framework and q>4 admissibility"
+        },
+        {
+          "assessment": "INACCESSIBLE: no whole-document negative comparison",
+          "evidence": "Abstract indicates strict q>4 modal dominance and partial adjacent ordering; unknown whether Section 3.2 or appendices prove exact q↓4 gap; named priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19648",
+          "material_read": "arXiv abstract and bibliographic metadata; full PDF and HTML not accessible, authorized Oxford source returned vpn_disconnected",
+          "method": "abstract/search and failed lawful full-text access",
+          "title": "Sharp radial--angular mixed norm Fourier extension and global stability on spheres",
+          "trigger": "same objects and recent directly relevant q>4 stability"
+        },
+        {
+          "assessment": "classical tools acknowledged",
+          "evidence": "Recurrence, product and Frullani identities alone require additional conditional endpoint cancellation to produce theorem.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.22",
+          "material_read": "cited classical identities as used in assigned proof; independent formula manipulation",
+          "method": "reference formula comparison, not a claim of full DLMF inspection",
+          "title": "NIST Digital Library of Mathematical Functions, Chapter 10",
+          "trigger": "recurrence, Neumann product and Bessel integral identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1710.10365",
+        "https://arxiv.org/abs/2610.19648",
+        "https://dlmf.nist.gov/10.22"
+      ],
+      "rationale": "The critical q=4 pole renders the standard individual mode moments infinite. An exact renormalized finite difference and sharp sqrt(q-4) law for arbitrary fixed modes are natural endpoint spectral stability data with explicit universal odd-harmonic dependence, rather than an arbitrary finite slice or numeric approximation.",
+      "residual_risks": [
+        "The q↓4 limit is for fixed orders, not uniform in order; claim does not prove global second-best mode or full sphere stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Xu 2026 source inaccessible after lawful attempts (Oxford VPN disconnected); the prior comparison is best-of-knowledge and exact classical table priority remains uncertain."
+  ],
+  "schema_version": 1
+}
