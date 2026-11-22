@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The prey equations force the two distinct prey densities into \((0,1)\); an exact factored difference proves the predator densities rise with the prey density along one half of the cycle. The predator multiplier must then fall from \(k>1\) to \(k^{-1}<1\), forcing both strict ratio bounds. Conversely, for every ratio in the open interval, the construction defines positive orbit coordinates and parameter values. The positive-mortality limit is explicitly proved. The rational witness and 36 additional exact examples were checked, and the nonstandard symbolic identities were expanded independently. Computation is supporting evidence, not a substitute for the general proof.
+## correctness
 
-**Originality — PASS under best-knowledge accessible comparisons.** The original 2022 Shoyimardonov preprint contains this exact map and analyzes fixed points and a Neimark–Sacker bifurcation, rather than the existential prime-two feasibility criterion at fixed saturation and toxin-to-conversion ratio. A published linear-response no-two-cycle result has no saturating denominator and no negative toxin-dependent predator term, so its conclusion neither excludes nor constructs the cycles here. Relevant 2021 papers use respectively a Holling-III functional response and a distinct positivity-preserving discretization. The full 2022 Khan–Alayachi article, whose abstract mentions periodic points, was unavailable for direct claim-level comparison; it is an explicit residual publication-priority risk. No claim of exhaustive literature coverage or independently established priority is made.
+PASS
 
-**Mathematical value — PASS.** This is an exact, complete and sharp parameter-fiber feasibility classification for a natural predator–prey recurrence: a prime-two coexistence orbit is possible precisely when toxicity makes the predator multiplier sufficiently nonmonotone, but not so strong as to preclude predator reproduction. The two exact boundaries depend only on the Holling saturation, despite freedom in mortality and conversion rates. The construction establishes nonvacuity at **every** allowed ratio, not only one isolated parameter example. Stability and positive-quadrant invariance are deliberately outside the claim.
+The prey equations of a positive prime-2 orbit force 0<a<b<1 and give uniquely positive v1=(1+ca)(2-a-b/a) and v2=(1+cb)(2-b-a/b). Their exact difference is (b-a)[a+b-ab+abc(3-a-b)]/(ab)>0. Thus predator multiplier R(a)=k>1 and R(b)=1/k<1 force q=theta/beta>[(1+ca)(1+cb)]^-1>(1+c)^-2; R(a)>1,r>0 force q<(1+ca)^-1<1. For every interior q pick z=1+ca in (q^-1/2, min(1+c,q^-1)), then sufficiently close b>a; beta=(k-k^-1)/((b-a)(q-[(1+ca)(1+cb)]^-1))>0 and r=1-k+a beta((1+ca)^-1-q)>0 as b->a. All four orbit equations follow exactly; boundary strictness is proved. A rational witness at c=1,q=1/2 was independently checked.
 
-## Closest prior literature and limitations
+## originality
 
-- S. Shoyimardonov, arXiv:2207.01961 (2022; corresponding JAAC publication, DOI 10.11948/20220345): same recurrence, equilibrium and local-bifurcation results; inspected substantive text.
-- A. Q. Khan and M. B. Javaid, DOI 10.1186/s13662-021-03523-5 (2021): different Holling-III recurrence and periodic-points discussion; inspected relevant model and periodic-points sections.
-- M. S. Khan et al., DOI 10.1186/s13662-021-03599-z (2021): nonstandard rational discretization; inspected the actual recurrence and qualitative results.
-- A. Q. Khan and H. S. Alayachi, DOI 10.1142/S0218127422501760 (2022): relevant title and abstract, full text not accessible, leaving a precise source-comparison risk.
-- published-finding corpus finding `2026/11/8/SCOPE-global-exclusion-of-prime-two-coexistence-cycles-in-the-discrete--8dd374b0e558`: statement accessible as a short indexed summary for a different linear-response map; full text was not inspected.
+PASS
 
-The theorem makes no global dynamics, attractor or ecological-observability assertion. Publication priority remains open to further independent literature review.
+Shoyimardonov 2022/2023 treats equilibria, stability and Neimark–Sacker in this discrete Holling-II toxic plankton map, not an identified necessary-and-sufficient existential parameter-fiber window for strictly positive primitive 2-cycles. A published linear-response plankton no-2-cycle theorem has a different predator multiplier. The potentially close Khan–Alayachi 2022 paper includes periodic points in abstract, but its full equation-specific text was inaccessible (Oxford institutional VPN disconnected). A named material uncertainty remains, not automatic FAIL; the exact constructive feasibility interval survives best-of-knowledge review.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Determines the complete strict toxin-to-conversion feasibility region for positive prime-two coexistence in a natural saturating/toxic plankton map; proves impossibility outside it for every choice of remaining parameters and constructs examples for every interior ratio. Both exact strict endpoints and positivity constraints are motivated biological/dynamical barriers, not just a finite trial or local bifurcation heuristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
