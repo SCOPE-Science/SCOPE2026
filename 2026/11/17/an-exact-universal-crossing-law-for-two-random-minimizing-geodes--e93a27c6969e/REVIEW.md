@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sampling law of nearest horizontal displacement is uniform over a centered half-circumference; its initial phase and vertical endpoints are independent. Conditioning on two vertical intervals gives a relative horizontal displacement interval whose length cannot exceed the circumference; this justifies the crossing probability and excludes multiple crossings. Direct averaging over two centered uniform slopes, an exact Fubini overlap formula, and four exact iterated integrals prove the claimed constant for all positive geometric parameters. The checker repeats the symbolic identities and tests crossings directly in three distinct aspect regimes. Remaining correctness risks are limited to unexamined extensions outside the stated domain; no finite experiment is treated as proof.
+PASS
 
-## Originality — PASS, provisionally
+Nearest-lift angular differences U,V are independent uniform(-L/2,L/2), and each vertical pair is independent uniform[0,H]. On overlap of vertical ranges length h, relative horizontal coordinate traverses a lifted interval length ell=h|U/a-V/b|<=|U|+|V|<=L. Its starting phase is Haar-uniform modulo L, yielding conditional crossing probability ell/L and at most one intersection outside null degeneracies. Averaging two centered uniform slopes of half-ranges L/(2|a|),L/(2|b|) yields 1/(4m)+m/(12M²), m=min(|a|,|b|), M=max. The normalized vertical interval-overlap kernel is J(A,B)=r s(1-s)-r³/3 with r=min(A,1-A,B,1-B) and s=max(min(A,1-A),min(B,1-B)). Integrating over 0<A<B<1 after four-region partition yields exact 65/216-2log2/9. Anisotropic scaling of x,y preserves intersections and nearest angular lifts, not a claim of isometry. The proof is exact and all-ratio.
 
-A published two-segment crossing theorem on flat two-tori was read in full and is the closest record. It concerns a closed two-periodic surface and gives probabilities between \(22/243\) and \(5/54\), not the exact cylinder probability. Unlike a torus, the finite cylinder has a boundary, and vertical interval overlap carries a triangular-displacement law. Related published works on torus triangle null-homotopy, random walks, and spherical shortest geodesics use different objects or measures. Multiple semantic database searches for finite-cylinder shortest-segment crossings, exact constants, equivalent periodic-strip models, and direct implications found no covering statement. Historical priority remains provisional because complete indexing of older probabilistic geometry literature is not guaranteed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A finite flat cylinder is a canonical metric surface with one periodic dimension and a real boundary. The intersection probability of independent endpoint-determined shortest arcs is a natural global metric statistic; a shape-independent exact constant is not predicted by the nonuniform distributions of each arc's slope or vertical span. The result sharply contrasts the rectangular flat-torus value and supplies an exact benchmark for random geodesic-intersection models. The exact value and universality cover every aspect ratio, rather than an arbitrary finite parameter slice.
+On the stated bounded primary literature and Resultary comparisons, the exact final claim is neither stated nor directly implied by the identified relevant antecedents; known special cases and methodology were credited. This is best-of-knowledge, not proof of global novelty. See four explicit implication checks, actual source inspections, and residual risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This exact crossing probability is a natural integral-geometric invariant of two minimizing arcs on the flat cylinder with boundary, with unexpectedly aspect-independent constant and single-intersection rigidity. It differs substantively from closest closed-torus, round-sphere, and random-walk segment laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
