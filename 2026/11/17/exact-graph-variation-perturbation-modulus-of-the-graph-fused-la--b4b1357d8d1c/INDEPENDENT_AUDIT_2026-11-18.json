@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T01:10:39.385896Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inspected real graph-TV proximal KKT proof. Positive-weight connected graph makes J_w a seminorm modulo constants, and strict quadratic fidelity yields unique continuous polyhedral prox T_lambda. At each full-dimensional active face its derivative is the orthogonal averaging projection P_pi to connected fused blocks (Tibshirani-Taylor local affine projection). Graph layer-cake/coarea reduces its J_w seminorm exactly to indicators 1_S and weighted cuts. Crucially, every connected-block partition is truly locally attainable: start with distinct block levels u, cross-edge saturated dual signs and interior dual zero, then solve the mean-zero within-block residual h-P_pi h by a spanning-tree dual flow of size O(epsilon) strictly within capacities. This yields exact difference epsilon P_pi 1_S and attains all candidate ratios for any lambda>0. A full line segment crosses finitely many affine pieces, establishing global upper bound. For two q-cliques with one bridge, the single-bridge input cut has J=1; joining t vertices per clique in a single fused connected block gives J(P_pi 1_L)=t(q-t), maximizing to floor(q^2/4). Independent q=4,6,8 cases produced ratios 4,9,16, while global <= |E| <= n(n-1)/2 proves quadratic growth. Infinite graphs, zero weights, nonquadratic penalties excluded. RESULT.md blob 911220bf533a1f54d7e049eea862648f33c3a74d.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ROF universal convex-minimality concerns the absolute denoised signal of one input, not differences of denoisers at two inputs.",
+          "Star fused-lasso Gini-stability results use all-pairs Gini, not edge-weighted graph TV on arbitrary graphs."
+        ],
+        "reasoning": "Neither per-input convex order nor special-graph Gini bounds imply the candidate graph-TV difference modulus for all connected weighted graphs.",
+        "searches": [
+          "Resultary search: fused lasso graph total variation denoiser perturbation Lipschitz connected partition cut exact",
+          "Kirisits Scherzer Setterqvist graph ROF universal phi-minimality arxiv:1807.10514",
+          "Padilla et al arxiv:1608.03384",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-stability-and-reciprocal-mass-thresholds-for-star-gra--cdbf64e27ce9"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c",
+        "https://arxiv.org/pdf/1005.1971",
+        "https://arxiv.org/abs/1807.10514",
+        "https://arxiv.org/abs/1608.03384",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-stability-and-reciprocal-mass-thresholds-for-star-gra--cdbf64e27ce9",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-graph-cut-formula-for-the-anchored-variation-lipschitz-mod--c718bc284c19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tibshirani-Taylor Eq(46), Lemma3 and Corollary1 establish orthogonal block projections and fused groups almost everywhere.",
+          "Candidate uses those local pieces plus graph coarea and KKT interior-flow witnesses to attain every connected partition and cut."
+        ],
+        "reasoning": "The cited local affine and convex order results do not control J_w(T(y)-T(z))/J_w(y-z), nor give n^2 barbell amplification; no implication without the nonstandard global attainment lemma.",
+        "searches": [
+          "Resultary search: fused lasso graph total variation denoiser perturbation Lipschitz connected partition cut exact",
+          "Tibshirani-Taylor arxiv:1005.1971 Lemma3 and Corollary1",
+          "Kirisits et al arxiv:1807.10514",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-stability-and-reciprocal-mass-thresholds-for-star-gra--cdbf64e27ce9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tibshirani-Taylor derive local affine generalized-lasso fit P_ker(D_-B)(y-c) and interpret its graph fused components.",
+          "Candidate further computes the induced two-input graph-TV seminorm as a max over every connected partition and cut and proves all such slopes are attainable."
+        ],
+        "reasoning": "The local projection description is a known ingredient, not equivalent to the globally optimized input-difference graph variation norm; the latter requires binary cut reduction and exact branch realizability.",
+        "searches": [
+          "Resultary search: fused lasso graph total variation denoiser perturbation Lipschitz connected partition cut exact",
+          "Tibshirani-Taylor arxiv:1005.1971 Section 10 Lemma 3, Section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved anchored scalar-superposition graph-cut Lipschitz theorem concerns a different nonlinear pointwise scalar map.",
+          "Candidate supplies finite but exponential maximum over connected graph partitions and all cuts, with quadratic barbell witness."
+        ],
+        "reasoning": "There is no known indexed table assigning these graph-proximal Lipschitz coefficients for all positive edge weights, and graph enumeration cannot replace the general formula.",
+        "searches": [
+          "Resultary search: fused lasso graph total variation denoiser perturbation Lipschitz connected partition cut exact",
+          "graph cut operator norm fused-lasso proximal map partitions",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-graph-cut-formula-for-the-anchored-variation-lipschitz-mod--c718bc284c19"
+        ]
+      },
+      "rationale": "Foundational generalized-lasso local projection theory and graph ROF contraction of individual signals are correctly credited; the sharp two-input all-graph weighted-TV modulus, exact all-partition/cut attainment and quadratic barbell sensitivity were not previously established in inspected claims.",
+      "residual_risks": [
+        "Generic polyhedral proximal derivative norms could implicitly encode the max-cut formula; no prior explicit full-graph exact equality found.",
+        "Full text of Kirisits et al and DFS rates was not independently read in entirety."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_LOCAL_PIECEWISE_PROJECTION_ONLY",
+          "evidence": [
+            "Lemma 3 affine local projector onto null(D_-B); corollary counts fused groups; does not give all-graph two-input TV Lipschitz cut maximum or exact saturation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.1971",
+          "material_read": "Full text relevant graph fused-lasso sections 6 and 10, Lemma 3, Eq (46), Theorem 1 and Corollary 1; page screenshots and extraction",
+          "method": "Full original arXiv PDF",
+          "title": "The Solution Path of the Generalized Lasso",
+          "trigger": "Exact graph-fusion prox and possible pre-existing projection norm theory"
+        },
+        {
+          "assessment": "RELATED_PER_INPUT_INVARIANCE",
+          "evidence": [
+            "Universal phi-minimality compares output and input distributions for one datum, not graph variation of differences. Do not make whole-paper absence claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.10514",
+          "material_read": "Abstract and known universal convex-minimality result; full primary text not confirmed read",
+          "method": "Open-access abstract and source bibliography",
+          "title": "Invariant phi-Minimal Sets and Total Variation Denoising on Graphs",
+          "trigger": "Potential stronger graph-TV denoiser monotonicity"
+        },
+        {
+          "assessment": "DISTINCT_RISK_BOUNDS",
+          "evidence": [
+            "Statistical rates and graph DFS comparison do not yield exact two-input graph variation Lipschitz operator modulus."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.03384",
+          "material_read": "Abstract and stated DFS estimation bounds, not full text",
+          "method": "Open-access abstract",
+          "title": "The DFS Fused Lasso: Linear-Time Denoising over General Graphs",
+          "trigger": "Graph total-variation denoiser prior theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides an exact, graph-structured sensitivity coefficient for a widely used nonlinear denoiser, identifies every active partition/cut witness rather than a loose Euclidean contraction, and proves quadratic two-input variation amplification on a natural bridge-barbell family. This resolves a genuine stability gap and yields useful worst-case counterexamples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c",
+    "https://arxiv.org/pdf/1005.1971",
+    "https://arxiv.org/abs/1807.10514",
+    "https://arxiv.org/abs/1608.03384",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-stability-and-reciprocal-mass-thresholds-for-star-gra--cdbf64e27ce9",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-graph-cut-formula-for-the-anchored-variation-lipschitz-mod--c718bc284c19"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific correctness is based on reconstructed analytic proof; bounded independent tests do not establish universal claims by themselves.",
+    "Best-of-knowledge originality retains specific primary-literature and indexing risks recorded in source_inspections and residual_risks.",
+    "Package METADATA.json contains a public operational scope_run_id requiring sanitation. All possible public files must be inspected before any publication; no full verified replacement or source-tree guards prepared."
+  ],
+  "schema_version": 1
+}
