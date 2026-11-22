@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The executable `check_biclique_cycle_diameter.py` requires only Python 3 standard-library modules. Run `python3 check_biclique_cycle_diameter.py` from the same directory as the scientific files. The checker enumerates all sign matrices for thirteen small biclique sizes, compares their exact rational projection energies against the proposed sharp values, and checks that the equality criterion identifies exactly the maximizing sign matrices. Separately, for each of 2,401 pairs with both dimensions from 2 through 50, it constructs an explicit sign matrix attaining the proposed rational value. The expected success line starts `BICLIQUE_CYCLE_DIAMETER_PASS`.
+## correctness
 
-These are finite tests. The proof for every possible size uses two exact orthogonal-variance identities, sign parity and explicit cyclic/paired witnesses, followed by strict convexity. The checker does not establish an infinite quantifier, does not certify bibliographic priority, and is not an independent mathematical audit.
+PASS
+
+H_p X H_q is the orthogonal projection of the complete-bipartite edge cube to the cycle space. A sign matrix has projected squared norm pq - sum(row²)/q - sum(col²)/p + total²/(pq); completing row or column means gives nonnegative variance. Odd p forces at least q/p deficit and odd q at least p/q; even/even has zero deficit. Explicit checkerboard, opposite-column and odd cyclic-shift constructions attain the max of the parity deficits. Equality conditions force all unit minimal-parity sums and opposite equal sums. Strict convexity excludes nonvertices from outer contacts; opposite outer contacts are all diametral pairs and force unique sphere center zero. Independent exhaustive sign checks for six profiles up to 4×4 matched radii and every equality criterion. No assertion for weights or other Gale metrics.
+
+## originality
+
+PASS
+
+An earlier same-biclique theorem establishes the exact double-centering map H_p X H_q and its optimized ℓ_1→ℓ_1 and ℓ_∞→ℓ_∞ norms; these identical operators and same-exponent formulas must be credited. The mixed ℓ_∞→ℓ_2 norm is not determined by same-exponent norms: its sign-matrix maximization, parity deficit and all maximizing contact matrices are additional. Bach et al. study lattice Gale tocyclotopes, a distinct Euclidean realization and Ehrhart theory.
+
+## value
+
+PASS
+
+Canonical cycle-space zonotope diameter under Frobenius edge metric records maximal bounded-sign cycle energy, with exact parity/aspect-ratio transitions, unique minimal sphere and rigorous equality classification. A motivated all-two-parameter geometric invariant, not a tiny special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

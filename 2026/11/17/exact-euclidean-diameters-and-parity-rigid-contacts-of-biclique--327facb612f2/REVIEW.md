@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is reconstructible for all integers \(p,q\ge2\). The Euclidean orthogonal projector has the explicit form \(H_p XH_q\). The two exact and symmetric variance decompositions show that the norm-square deficit is at least \(q/p\) for odd \(p\), at least \(p/q\) for odd \(q\), and zero otherwise. Equality forces every minimal-parity row or column sum and the opposite-class sum-variance to be zero. Four explicit constructions (even-even checkerboard, one-odd opposite column pairs, its transpose, and both-odd cyclic shifts plus opposite pairs) attain the sharp bound in every parameter case, including the unequal odd case. Strict convexity certifies that the entire outer contact locus consists of vertices and equality in the diameter triangle inequality forces antipodal contacts; a diametral antipodal pair forces the unique sphere center to be zero. The exact rational program checks sign witnesses across 2,401 size pairs and exhaustive equality criteria in 13 small cases. Computation is corroborative, not the proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The 2024 study by Bach, Beck and Rehberg develops lattice Gale cographic zonotopes and Ehrhart theory but does not determine these Euclidean metric invariants in the full inspected text. The 2023 paper by Dilworth, Kutzarova and Ostrovskii studies invariant cycle projections, but not the mixed \(\ell_\infty\to\ell_2\) norm or biclique diameter contacts. A directly relevant published biclique result identifies the same double-centering projector and its optimized same-exponent endpoint norms; this **known projection formula is credited**, and its statement does not imply the claimed mixed-norm maximum. A separately inspected complete-graph circulation-zonotope result gives a tournament-based outer shell on a different graph. Searches for double-centered sign matrix maxima, cographic zonotope diameter, biclique cycle-space cube projection, and parity-based extremal contact geometry found no exact claim-equivalent statement. Prior publication or an unindexed related mixed-norm computation remains possible; a negative search is not itself evidence of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The quantity is a canonical geometric invariant of the Euclidean cographic image of an edge cube, not an arbitrary numerical slice. It resolves the entire two-parameter bipartite family, gives a sharp parity and aspect-ratio transition, characterizes every outer contact, and determines all diametral pairs and the unique enclosing sphere. The effect quantitatively measures maximal cycle-flow energy available from bounded edge assignments and distinguishes even-even balancing from the minimal odd-degree obstruction. No downstream theorem beyond this exact invariant is claimed or necessary for the stated motivation.
+H_p X H_q is the orthogonal projection of the complete-bipartite edge cube to the cycle space. A sign matrix has projected squared norm pq - sum(row²)/q - sum(col²)/p + total²/(pq); completing row or column means gives nonnegative variance. Odd p forces at least q/p deficit and odd q at least p/q; even/even has zero deficit. Explicit checkerboard, opposite-column and odd cyclic-shift constructions attain the max of the parity deficits. Equality conditions force all unit minimal-parity sums and opposite equal sums. Strict convexity excludes nonvertices from outer contacts; opposite outer contacts are all diametral pairs and force unique sphere center zero. Independent exhaustive sign checks for six profiles up to 4×4 matched radii and every equality criterion. No assertion for weights or other Gale metrics.
 
-## Scope and residual risks
-All coordinates have unit weights and the metric is the Euclidean metric on the original graph edges, not arbitrary Gale-basis coordinates. The contact characterization is given by sign matrices, not a closed all-size contact count. The all-dimensional theorem requires the parity argument and explicit constructions; finite enumeration is not a proof of the infinite claim. Equivalent older results under mixed operator norms or binary-matrix ANOVA terminology cannot be completely ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An earlier same-biclique theorem establishes the exact double-centering map H_p X H_q and its optimized ℓ_1→ℓ_1 and ℓ_∞→ℓ_∞ norms; these identical operators and same-exponent formulas must be credited. The mixed ℓ_∞→ℓ_2 norm is not determined by same-exponent norms: its sign-matrix maximization, parity deficit and all maximizing contact matrices are additional. Bach et al. study lattice Gale tocyclotopes, a distinct Euclidean realization and Ehrhart theory.
+
+## value
+
+PASS
+
+Canonical cycle-space zonotope diameter under Frobenius edge metric records maximal bounded-sign cycle energy, with exact parity/aspect-ratio transitions, unique minimal sphere and rigorous equality classification. A motivated all-two-parameter geometric invariant, not a tiny special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
