@@ -1,0 +1,12 @@
+# Scientific review: geometric-mean threshold for reentrant Monod growth rankings
+
+## Correctness — PASS
+The exact equal-duty-cycle mean is \(M_K(v)=[m(m+K)-v]/[(m+K)^2-v]\). Positivity of all denominators on \(0\leq v\leq m^2\) permits a logarithmic derivative of the Monod-mean ratio. The comparison function \(H(v)\) is strictly increasing for \(K_2>K_1\). The derivative at zero has the sign of \(m^2-K_1K_2\), and the derivative at maximal admissible variance is strictly negative, yielding one interior maximum exactly in the supercritical regime. The explicit witness has two simple roots in the physical interval. The included independent calculation script passes 10,906 exact-rational diagnostic assertions. Limits: the tests are not a proof of the full continuous-parameter statement; the inequalities in RESULT.md provide that proof.
+
+## Originality — PASS relative to inspected material; priority remains provisional
+Hsu (1980, DOI 10.1007/BF00275917) analyzes feedback-coupled, sinusoidally supplied nutrient and coexistence. Grover (1990, DOI 10.1086/285131) treats fluctuating Monod resource competition; the available abstract does not settle whether a related comparison appears in inaccessible full text. Grover (2008, DOI 10.1086/595751) studies spatially heterogeneous nutrient storage. Yamamichi–Letten (2022, DOI 10.1111/1365-2656.13813) treat instantaneous growth-curve crossings and nonconcave responses. Stump et al. (2022, DOI 10.1002/ecm.1493) use sinusoidal nutrient forcing. None of the inspected corresponding statements implies the two-reversal criterion under exogenous equal-mean, equal-duty forcing, common mortality, and both strictly concave Monod functions. A general algebraic fractional-linear ratio theorem, or unexamined passages in the 1990 paper, remain risks. Search absence is not independent priority certification.
+
+## Value — PASS
+Nutrient fluctuation intensity can change the ranking of two microbial growth exponents twice even though both Monod uptake curves are concave and nutrient mean and mortality stay fixed. The exact condition \(m>\sqrt{K_1K_2}\) separates single-switch rigidity from possible reentrance, giving an interpretable experimental design constraint and a non-obvious analytic benchmark for ecological fluctuation models. The result does not imply coexistence or competitive exclusion in feedback-coupled chemostats.
+
+Self-review: passed. Independent audit: not yet performed.
