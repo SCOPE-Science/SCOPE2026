@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "An exact signed-pair identity proves the all-frequency formula, cyclic-change parity provides the parameterization, modulo-eight squares and explicit feasible (k,j) give both directions of singularity, and an exact marked-run count gives nullity. The included standard-library checker directly enumerated 65,520 Walsh coefficients for n=4..15; finite checks are not substituted for the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brown–Hoshino, Section 3 gives full univariate independence polynomials for powers of cycles, including coefficient of degree two.",
+        "Alon–Dinur–Friedgut–Sudakov, Sections 1–4, concern independent sets in weak graph products and low-degree Fourier concentration."
+      ],
+      "reasoning": "Univariate independence counts collapse all sign patterns and imply only the zero-frequency multiplier. General Boolean Fourier diagonalization supplies a method but does not imply the residue classification or multiplicities. All-size independent sets of cycles and first-Walsh-band Gram problems are distinct measures/operators.",
+      "searches": [
+        "Boolean Fourier spectrum of stable sets of cycle of size two, low weight independent sets and mod 8 singularity",
+        "Fourier graph exclusion sampling Krawtchouk independent pairs cycle rank",
+        "signed independence polynomial of cycles at degree two with vertex-dependent activities",
+        "Fourier spectral support of circulant independent pairs, nonedges of cycle, Walsh Hadamard"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "Univariate support counts, not full Walsh cancellation",
+        "title": "Brown and Hoshino 2008/2009",
+        "url": "https://www.mscs.dal.ca/~hoshino/music.pdf"
+      },
+      {
+        "comparison": "Weak graph products, not cycle nonedge-pair Fourier operator",
+        "title": "Alon, Dinur, Friedgut and Sudakov 2003/2004",
+        "url": "https://doi.org/10.1007/s00039-004-0478-3"
+      },
+      {
+        "comparison": "Foundational Fourier diagonalization, not this arithmetic classification",
+        "title": "O'Donnell 2014",
+        "url": "https://doi.org/10.1017/CBO9781139814782"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brown–Hoshino Theorem 3.3: independent polynomial I(C_n,x)=sum n/(n-k) binom(n-k,k)x^k.",
+        "Alon et al. Graph Products, Fourier Analysis and Spectral Techniques, Theorems 1.1–1.5 and Section 2: weak-product extremal independent sets."
+      ],
+      "reasoning": "Theorem 3.3 implies W_n(empty)=n(n-3)/2; it does not determine W_n(S) for nonempty masks, and different supports can share the same independence polynomial. Weak-product extremal Fourier statements concern another graph and operator; no implication to the mod-eight zero classification is evident from the material read.",
+      "searches": [
+        "Fourier nullspace rank of convolution by independent vertex pairs of cycle C_n, cyclic two-subset exclusion, Walsh coefficients degree two, mod eight",
+        "Boolean Fourier spectrum of stable sets of cycle of size two, low weight independent sets and mod 8 singularity",
+        "cycle C_n two-particle hard-core lattice gas Fourier transform Walsh zero eigenspectrum mod 8",
+        "Fourier spectral support of circulant independent pairs, nonedges of cycle, Walsh Hadamard"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brown–Hoshino Theorem 3.3 gives the univariate coefficient of two-element independent sets, not signed positional evaluations.",
+        "No direct frequency-wise claim was identified by the recorded targeted search."
+      ],
+      "reasoning": "The signed two-particle partition function is a quadratic sign form: W(S)=1/2((sum signs)^2-n)-sum over cycle edges of sign products. This is equivalent to the stated Walsh formula, and the comparison explicitly checked this form rather than relying only on the title. An unindexed equivalent representation remains possible.",
+      "searches": [
+        "Fourier nullspace rank of convolution by independent vertex pairs of cycle C_n, cyclic two-subset exclusion, Walsh coefficients degree two, mod eight",
+        "Walsh transform indicator of size two stable sets of a cycle graph, cyclic autocorrelation zero, integer square resonance",
+        "cycle C_n two-particle hard-core lattice gas Fourier transform Walsh zero eigenspectrum mod 8",
+        "signed independence polynomial of cycles at degree two with vertex-dependent activities"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Brown–Hoshino example I(C_6,x)=1+6x+9x^2+2x^3 records only independent-set cardinalities.",
+        "Existing indexed mathematical results on Walsh spectra of small arbitrary supports and on cycle Fourier sampling are not this all-length two-independent-pair operator."
+      ],
+      "reasoning": "The found independent-set tables provide support size n(n-3)/2 but no sign-change indexed nullity table. No exact all-length cycle-pair Fourier zero census was surfaced; that absence alone is not novelty proof.",
+      "searches": [
+        "exact convolution rank of stable 2-subsets cyclic graph C_n modulo 8 periodic",
+        "character sums on 2-independent vertex subsets of a cycle Hamming-weight and sign changes",
+        "Fourier spectral support of circulant independent pairs, nonedges of cycle, Walsh Hadamard"
+      ]
+    },
+    "rationale": "Closest full primary source Brown–Hoshino provides only ordinary independence-polynomial counts, whereas the claim determines position-sensitive zeros and all-length convolution nullity. Alon et al. provide a distinct weak-product Fourier theory. Targeted actual literature and published mathematical searches were compared by mathematical implications; no source establishing the same cancellation criterion was identified, subject to residual signed-weight-enumerator risk.",
+    "residual_risks": [
+      "An older specialized signed hard-core partition function or quadratic Seidel-sum identity may encode the same mod-eight zero criterion under different terminology.",
+      "The claim is a complete natural two-particle classification, not a statement about larger independent-set sectors."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Full size-count formula, but no Walsh multiplier nor residue-class cancellation classification",
+        "evidence": [
+          "Theorem 3.3 computes ordinary independence polynomial of cycle powers",
+          "Example cycle 6 gives coefficient nine for two-element independent sets",
+          "Available-online date 2008-09-11 printed in paper front matter"
+        ],
+        "identifier_or_url": "https://www.mscs.dal.ca/~hoshino/music.pdf",
+        "material_read": "13-page original PDF, introduction and sections 2–4 including Theorem 3.3 statement and derivation, Theorem 3.9 and applications; reference material reviewed",
+        "method": "Publisher-version author-hosted PDF opened, textual theorem and proof inspected, original page images 1 and 5 inspected",
+        "title": "Independence polynomials of circulants with an application to music",
+        "trigger": "Same cycle independent-set objects and complete size-count formula"
+      },
+      {
+        "assessment": "Weak graph product maximal independent sets and Fourier stability; no two-subset cycle convolution rank",
+        "evidence": [
+          "Theorem 1.1 and Theorem 1.2 concern independent-set extremality in weak graph products",
+          "Section 2 develops Fourier concentration and related inequalities"
+        ],
+        "identifier_or_url": "https://www.academia.edu/8347840/Graph_Products_Fourier_Analysis_and_Spectral_Techniques",
+        "material_read": "Author manuscript abstract, Sections 1–4 and theorem statements, Fourier framework, final references",
+        "method": "Lawfully accessible full-text HTML manuscript (October 21, 2003 version) inspected",
+        "title": "Graph Products, Fourier Analysis and Spectral Techniques",
+        "trigger": "Plausible stronger finite-abelian Fourier results on independent sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3bd0dc9a-1e20-4f02-b64f-dbfeb668ffd2",
+  "value": {
+    "rationale": "The first genuinely exclusion-sensitive cardinality of the cycle independence polynomial is two, and the exact Walsh convolution rank is a natural information-recovery invariant of that sector. The theorem supplies an all-length, three-residue arithmetic boundary and exact unseen-frequency multiplicities, not a routine recount of the ordinary polynomial.",
+    "status": "PASS"
+  }
+}
