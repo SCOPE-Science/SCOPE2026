@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite exact verification
+# Independent mathematical audit
 
-Run `python check_clique_corona.py` with Python 3 and no external dependencies. The checker generates graph adjacency lists, enumerates all vertex-incidence masks and tests independence, applies an unnormalized fast Walsh--Hadamard transform to the full Boolean indicator, and compares the resulting **signed** multiplier counts with the three-case formula. It also checks the spectral rank and the least positive multiplier and independently applies a second transform to the computed zero/nonzero frequency support to evaluate the endpoint projection norm as an exact rational number.
+## correctness
 
-The twelve fully checked pairs \((h,b)\) are \((2,1)\), \((2,2)\), \((3,1)\), \((3,2)\), \((3,3)\), \((4,1)\), \((4,2)\), \((4,3)\), \((5,1)\), \((5,2)\), \((6,1)\), and \((7,1)\). These cover both the added-Hamming-shell resonance and its absence, including values of \(q\) below and above the core dimension, with at most sixteen graph vertices. All comparisons use integers or exact rational arithmetic. The observed terminal output is `CLIQUE_CORONA_EXACT_PASS 12 complete transforms`.
+PASS
 
-Computed examples: \((h,b)=(4,1)\) gives rank \(76\), least positive multiplier \(8\), and sharp endpoint norm \(97/32\); \((4,2)\) gives rank \(207\), multiplier \(64\), and norm \(7809/2048\); \((4,3)\) gives rank \(464\), multiplier \(512\), and norm \(9251/2048\). Both resonant and nonresonant formulas agree with direct transforms. The all-parameter statements rely on the complete algebraic proof in `RESULT.md`; these finite tests are not a substitute for a proof and are not an independent audit.
+Every clique-core independent set contains zero or one core vertex. Summing pendant choices conditional on this yields W=prod_i A_i+sum_i u_i prod_(r≠i) A_r, with A_i=0 or q=2^b. Cases z≥2, z=1, z=0 give respectively 0, ±q^(h-1), q^(h-1)(q+h-2j). For even h and q≤h the last vanishes exactly on the Hamming shell j*=(h+q)/2, giving rank and sharp spectral gap. Fourier inversion of the support of at-most-one-bad leaf blocks gives the kernel δ_(ycore,0)q^-h(1-h+qz); subtract the Krawtchouk j* core-shell kernel exactly if resonant. Summing absolute kernel entries proves the displayed endpoint norms, with the simplified no-resonance negative mass (h-1)(1-1/q)^h. Translation-averaging any range projection proves the Fourier convolution projection minimizes ℓ1 and ℓ∞ norms. The rank fraction and fixed-h limit follow from the formulas.
+
+## originality
+
+PASS
+
+Standard independence-polynomial corona substitution and Fourier projection norm principle are known, but all signed multipliers, an additional arithmetic null shell, and exact optimal endpoint norm for this specific infinite two-parameter family are distinct. Related general G∘K1 at b=1 covers one special slice, not the full b≥1 spectrum and projection norm.
+
+## value
+
+PASS
+
+A clique-core corona with private leaf bundles is a natural two-parameter graph family. Its exact signed Fourier spectrum, resonance shell and optimal endpoint range-projection norms distinguish spectral invertibility/rank from endpoint amplification, with a sharp limit 2h-1 even when the rank fraction tends to zero. These are reusable graph-harmonic invariants and natural infinite-family classification, not a single finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

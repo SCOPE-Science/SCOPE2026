@@ -1,15 +1,21 @@
-# Scientific review: clique-corona Walsh spectrum and sharp projection norms
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, independent-set indicator, unnormalized Walsh transform, and operator normalizations are explicitly fixed. A clique contributes either no core vertex or one, giving the signed partition identity (1). The three cases for vanishing leaf blocks are exhaustive, and the resonance equation \(2j=q+h\) has a solution with \(0\le j\le h\) exactly for even \(h\) and \(q\le h\). A one-bad-block assignment realizes \(\pm q^{h-1}\); every value is divisible by that power, so the least positive multiplier is exact. Fourier inversion of the support union and the missing core shell gives the two kernel terms (2)--(3), and summing their absolute values yields the sharp endpoint norms. Translation averaging proves minimum projection norms among all projections, not just convolution operators. The checker independently enumerates all independent sets and performs exhaustive integer Walsh transforms for twelve parameter pairs; its output is corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS under bounded historical comparison
-Levit--Mandrescu (2003, arXiv:math/0305227, particularly Theorem 2.1) treats the unsigned independence polynomial for single-leaf whiskering. Levit--Mandrescu (2013, arXiv:1303.2564, Theorem 1.2 and Section 2) develops unsigned corona transformations and coefficient symmetries. The known subject-specific root-phase study for clique coronas addresses complex zeros of their one-variable independence polynomials, not the Fourier spectrum across all independently signed vertex variables. Neither the inspected primary statements nor the accessible related mathematical findings supply the shell resonance, complete signed multipliers, exact least positive Walsh magnitude, and sharp endpoint range-projection norms. The general Fourier norm identity alone does not identify the range support, which is the essential new input. Historical priority is not certified: earlier signed-activity or Krawtchouk treatments may contain an equivalent formulation, and a closely related root-phase manuscript could not be read in full.
+PASS
 
-## Mathematical value — PASS
-The family \(K_h\circ(bK_1)\) is the canonical clique-core corona with independent leaf bundles, a natural two-parameter model in graph independence-polynomial theory. The theorem gives a complete operator-spectrum and recovery-stability classification for its independent-set convolution; its additional null shell occurs at a sharp arithmetic threshold, while the least surviving magnitude has a simple exact power law. The endpoint formula distinguishes Hilbert-space pseudoinverse stability from the nontrivial range-projection amplification: as bundle size grows with core size fixed, the Fourier-rank fraction tends to zero and the pseudoinverse norm vanishes, while the optimal endpoint projection norm tends to \(2h-1\). These are structural, infinite-family invariants and not merely a finite table or a renamed parameter.
+Every clique-core independent set contains zero or one core vertex. Summing pendant choices conditional on this yields W=prod_i A_i+sum_i u_i prod_(r≠i) A_r, with A_i=0 or q=2^b. Cases z≥2, z=1, z=0 give respectively 0, ±q^(h-1), q^(h-1)(q+h-2j). For even h and q≤h the last vanishes exactly on the Hamming shell j*=(h+q)/2, giving rank and sharp spectral gap. Fourier inversion of the support of at-most-one-bad leaf blocks gives the kernel δ_(ycore,0)q^-h(1-h+qz); subtract the Krawtchouk j* core-shell kernel exactly if resonant. Summing absolute kernel entries proves the displayed endpoint norms, with the simplified no-resonance negative mass (h-1)(1-1/q)^h. Translation-averaging any range projection proves the Fourier convolution projection minimizes ℓ1 and ℓ∞ norms. The rank fraction and fixed-h limit follow from the formulas.
 
-## Limits and closest literature
-The exact formulas concern only equal-size pendant bundles on clique cores. The resonance formula retains a finite Krawtchouk absolute-value sum. Potential earlier equivalent signed independence-polynomial and union-of-axes Fourier-kernel formulas remain the main originality risks. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard independence-polynomial corona substitution and Fourier projection norm principle are known, but all signed multipliers, an additional arithmetic null shell, and exact optimal endpoint norm for this specific infinite two-parameter family are distinct. Related general G∘K1 at b=1 covers one special slice, not the full b≥1 spectrum and projection norm.
+
+## value
+
+PASS
+
+A clique-core corona with private leaf bundles is a natural two-parameter graph family. Its exact signed Fourier spectrum, resonance shell and optimal endpoint range-projection norms distinguish spectral invertibility/rank from endpoint amplification, with a sharp limit 2h-1 even when the rank fraction tends to zero. These are reusable graph-harmonic invariants and natural infinite-family classification, not a single finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
