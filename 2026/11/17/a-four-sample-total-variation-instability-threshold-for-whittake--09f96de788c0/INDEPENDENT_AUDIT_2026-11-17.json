@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:48:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real path data on n observations, quotient seminorm V(x)=||D1 x||_1 and step reconstruction R with D1 R=I give the exact induced matrix norm max absolute column sum of A=D1 S R. For p=1, A=(I+lambda D1 D1^T)^(-1), an entrywise positive irreducible M-matrix inverse with every row/column sum strictly <1 due to Dirichlet edge losses. For p=2, S is self-adjoint and fixes exactly affine sequences; since A 1=1, if no column endpoint contrast exceeded 1 then S would fix e_n-e_1 in addition to affine sequences, contradiction for n>=4. The resulting positive column-sum witness is a monotone binary jump for every lambda>0. At n=3, A has unit column sums, and at n=4 direct inversion and sign-separated outer-column estimates prove exact L=(1+12lambda)/(1+10lambda) with central step. Inspected package RESULT.md and check.py verify symbolic A for n3,n4, and independently repeated SymPy rational-function checks plus rational parameter examples; finite examples corroborate but all n and all strengths follow from the self-adjoint affine fixed-space proof. The n=2 p2 case is explicitly excluded; no unsupported norm formula for longer n is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://eprints.whiterose.ac.uk/id/eprint/97954/1/HP_ACM.pdf — All-n closed inverse S of Hodrick Prescott smoother"
+        ],
+        "reasoning": "A parameterized matrix representation lets one calculate entries, but a general coefficient formula does not itself state or prove the uniform affine-fixed-space l1 obstruction; no found theorem dominates the latter.",
+        "searches": [
+          "Hodrick Prescott Whittaker second difference smoothing sharp total variation BV seminorm threshold dimension four binary step monotone"
+        ]
+      },
+      "checked_sources": [
+        "https://eprints.whiterose.ac.uk/id/eprint/97954/1/HP_ACM.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-path-variation-amplification-at-the-minimal-stencil-of-eve--affb5b96ac7f",
+        "https://doi.org/10.1111/j.1368-423X.2008.00230.x",
+        "https://doi.org/10.1162/REST_a_00523"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://eprints.whiterose.ac.uk/id/eprint/97954/1/HP_ACM.pdf — Exact finite filter weight formulas and comparison at n3,n4"
+        ],
+        "reasoning": "The n4 sharp quotient is obtained from induced GRADIENT column sums and a nontrivial sign split, not simply the filter value; prior coefficient formula remains acknowledged input but does not give the claim as a stated corollary.",
+        "searches": [
+          "Hodrick Prescott Whittaker second difference smoothing sharp total variation BV seminorm threshold dimension four binary step monotone"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6 — Range failure can occur at n3 while TV operator norm is still exactly 1"
+        ],
+        "reasoning": "Endpoint undershoot is not the same operator seminorm as total path variation; the counterexample does not prove strict BV amplification or the n4 factor.",
+        "searches": [
+          "Hodrick Prescott Whittaker second difference smoothing sharp total variation BV seminorm threshold dimension four binary step monotone"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-path-variation-amplification-at-the-minimal-stencil-of-eve--affb5b96ac7f — Table of minimal-stencil p/n behavior, including p2,n3 norm1"
+        ],
+        "reasoning": "The earlier minimal n=p+1 table is exactly the stable boundary n3 for p2, not n4 or n>=4 at fixed p2. No full all-n p2 TV table was located.",
+        "searches": [
+          "Hodrick Prescott Whittaker second difference smoothing sharp total variation BV seminorm threshold dimension four binary step monotone"
+        ]
+      },
+      "rationale": "Best-of-knowledge original BV-norm threshold at FOUR samples and all-length self-adjoint affine obstruction. Exact HP coefficient and range-preservation results are genuine antecedents, but neither asserts or directly entails the sharp variation statement. The 2016 complete source access limitation remains explicit.",
+      "reasoning": "Best-of-knowledge original BV-norm threshold at FOUR samples and all-length self-adjoint affine obstruction. Exact HP coefficient and range-preservation results are genuine antecedents, but neither asserts or directly entails the sharp variation statement. The 2016 complete source access limitation remains explicit.",
+      "residual_risks": [
+        "de Jong–Sakarya 2016 complete primary paper on finite HP smoothing was not available for full-text inspection; its abstract cannot justify a whole-paper exclusion.",
+        "Full finite-sample filter coefficients could allow a specialization to four-point TV constants; existing matrix formulas are acknowledged as mathematical inputs, and originality is claimed for the exact BV norm boundary and mechanism rather than the inverses.",
+        "An older variation-diminishing/endpoint-contrast stability paper could state an equivalent all-length fact under a different alias."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides finite-sample coefficients, not an asserted sharp gradient induced l1 norm or universal four-site strict BV-instability theorem.",
+          "evidence": [
+            "The coefficient formulas are strong earlier information but its objective is efficient filter evaluation; no variation seminorm or all-size binary-step amplification was located in inspected full text."
+          ],
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/97954/1/HP_ACM.pdf",
+          "material_read": "Full institutional open manuscript PDF (18 pages): definition S=(I+alpha F)^(-1), explicit matrix coefficient formulas, optimization motivation, conclusion and references; text scanned for variation, total variation, monotonicity, negative entries; first page visual screenshot and section comparison",
+          "method": "Lawful OA PDF primary full-text reading and page screenshots, exact equations compared",
+          "title": "The Explicit Formula for the Hodrick–Prescott Filter in Finite Sample",
+          "trigger": "Exact same smoothing matrix for arbitrary finite sample lengths; a stronger coefficient theorem might dominate"
+        },
+        {
+          "assessment": "Does not cover n>=4 at FIXED p=2: its p=2 claim is n=3 exactly and cannot yield general affine-fixed-space obstruction.",
+          "evidence": [
+            "Statement p=2,n=3 has norm 1; p=3,n=4 amplifies a different higher-order smoother."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-path-variation-amplification-at-the-minimal-stencil-of-eve--affb5b96ac7f",
+          "material_read": "Complete primary RESULT.md theorem and algebraic proof inspected: rank-one n=p+1 case, p2 implies n3 with norm 1; p3 implies n4 but DIFFERENT difference order p3",
+          "method": "GitHub read of published full RESULT.md and implication comparison",
+          "title": "Sharp path-variation amplification at the minimal stencil of every Whittaker–Henderson order",
+          "trigger": "Same metric and exact family at minimal length may cover low-order claim"
+        },
+        {
+          "assessment": "An n=3 range undershoot can coexist with TV norm exactly one, so range failure is not the proposed BV boundary.",
+          "evidence": [
+            "The gradient 2-by-2 matrix entries (1+3lambda,3lambda)/(1+6lambda) are nonnegative with unit column sums."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6",
+          "material_read": "Published claim summary and prior complete claim/proof comparison; no new full primary read in this run",
+          "method": "Resultary semantic match plus comparison with exact n=3 gradient matrix",
+          "title": "Only first-difference Whittaker–Henderson smoothing is universally range-preserving",
+          "trigger": "Same smoothing orders and dimension threshold but different norm"
+        },
+        {
+          "assessment": "ACCESS_LIMITED: cannot certify noncoverage; risk explicitly retained, not an automatic originality failure.",
+          "evidence": [
+            "Accessible abstract discusses econometric finite/large sample HP properties, but does not permit a full theorem-by-theorem implication comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1162/REST_a_00523",
+          "material_read": "Abstract, citation information and repository availability; full paper not read in this run",
+          "method": "Bibliographic/abstract lookup only; no inference from absence in full paper",
+          "title": "The Econometrics of the Hodrick–Prescott Filter",
+          "trigger": "Relevant primary finite-filter asymptotics may contain TV norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unweighted quadratic first- and second-difference Whittaker filters are standard signal-processing objects; adjacent total variation is a natural stability norm independent of the quadratic objective. The theorem locates a sharp universal transition at four samples, gives the exact first unstable amplification factor and an attaining monotone binary jump for any smoothing strength, and explains it through an all-dimension affine-fixed-space obstruction. The fact that 3-sample range-undershoot still has TV norm exactly 1 makes this a distinct motivated stability classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://eprints.whiterose.ac.uk/id/eprint/97954/1/HP_ACM.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-path-variation-amplification-at-the-minimal-stencil-of-eve--affb5b96ac7f",
+    "https://doi.org/10.1111/j.1368-423X.2008.00230.x",
+    "https://doi.org/10.1162/REST_a_00523"
+  ],
+  "disposition": "passed",
+  "limitations": "Finite equally-spaced real paths only; lambda>0; sharp explicit norm only n4, not general longer n; inaccessible de Jong–Sakarya text is priority risk.",
+  "residual_risks": [
+    "de Jong–Sakarya 2016 complete primary paper on finite HP smoothing was not available for full-text inspection; its abstract cannot justify a whole-paper exclusion.",
+    "Full finite-sample filter coefficients could allow a specialization to four-point TV constants; existing matrix formulas are acknowledged as mathematical inputs, and originality is claimed for the exact BV norm boundary and mechanism rather than the inverses.",
+    "An older variation-diminishing/endpoint-contrast stability paper could state an equivalent all-length fact under a different alias."
+  ],
+  "schema_version": 1
+}

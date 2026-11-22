@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The induced-gradient norm equality follows from step reconstruction and constant preservation. The first-difference inverse is a strictly positive substochastic gradient matrix, hence is strictly variation-contracting. For the second-difference smoother, the affine-fixed-space obstruction proves a monotone jump amplifier for every \(n\ge4\) and \(\lambda>0\). Exact symbolic inversion and a two-case absolute-value comparison establish the sharp four-point formula. The exact-rational diagnostics in `check.py` were run successfully at 105 dimension/parameter combinations; finite checking is corroborative rather than a substitute for the all-length proof.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The closest publicly available claim is *Only first-difference Whittaker–Henderson smoothing is universally range-preserving* (2026), whose second-difference three-point range undershoot does not imply an increase in path total variation: at three points the induced gradient matrix is doubly stochastic and variation norm remains exactly one. Cornea-Madeira's deposited finite-sample formula concerns entries of the HP filter, while McElroy (2008) concerns bi-infinite spectral factorization. A highly relevant 2016 source by de Jong–Sakarya was available through its abstract but not full primary text, with no full text obtainable for inspection; this is an explicitly unresolved bibliographic risk. No equivalent BV norm statement was found in the queried mathematical records or accessible sources. This is not a uniqueness certificate.
+PASS
 
-## Value — PASS
-The theorem resolves a natural path-variation stability boundary for the standard quadratic difference-penalty filters. It makes the four-sample threshold, exact first instability factor, monotone binary witness, and the difference between affine-preserving and constant-preserving smoothing structurally explicit. It is applicable to arbitrary lengths and strengths without dimension-specific searches, and provides a diagnostic reason that curvature regularization does not guarantee TV contraction.
+For real path data on n observations, quotient seminorm V(x)=||D1 x||_1 and step reconstruction R with D1 R=I give the exact induced matrix norm max absolute column sum of A=D1 S R. For p=1, A=(I+lambda D1 D1^T)^(-1), an entrywise positive irreducible M-matrix inverse with every row/column sum strictly <1 due to Dirichlet edge losses. For p=2, S is self-adjoint and fixes exactly affine sequences; since A 1=1, if no column endpoint contrast exceeded 1 then S would fix e_n-e_1 in addition to affine sequences, contradiction for n>=4. The resulting positive column-sum witness is a monotone binary jump for every lambda>0. At n=3, A has unit column sums, and at n=4 direct inversion and sign-separated outer-column estimates prove exact L=(1+12lambda)/(1+10lambda) with central step. Inspected package RESULT.md and check.py verify symbolic A for n3,n4, and independently repeated SymPy rational-function checks plus rational parameter examples; finite examples corroborate but all n and all strengths follow from the self-adjoint affine fixed-space proof. The n=2 p2 case is explicitly excluded; no unsupported norm formula for longer n is claimed.
 
-## Scope and limitations
-The closed sharp norm is asserted only at four sites; for longer paths a strict inequality and explicit finite choice of a binary amplifier are proved. The model is unweighted, equally spaced, real, finite and nonperiodic. No higher-order, weighted, or nonsymmetric stability result is claimed. Accessible published sources were compared at the implication level; unindexed antecedents and inaccessible primary full text remain risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original BV-norm threshold at FOUR samples and all-length self-adjoint affine obstruction. Exact HP coefficient and range-preservation results are genuine antecedents, but neither asserts or directly entails the sharp variation statement. The 2016 complete source access limitation remains explicit.
+
+## value
+
+PASS
+
+Unweighted quadratic first- and second-difference Whittaker filters are standard signal-processing objects; adjacent total variation is a natural stability norm independent of the quadratic objective. The theorem locates a sharp universal transition at four samples, gives the exact first unstable amplification factor and an attaining monotone binary jump for any smoothing strength, and explains it through an all-dimension affine-fixed-space obstruction. The fact that 3-sample range-undershoot still has TV norm exactly 1 makes this a distinct motivated stability classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
