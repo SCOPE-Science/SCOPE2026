@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The central counting argument is a bijection between the specified labeled three-nilpotent semigroup tables and \(B\)-valued matrices whose image includes all nonzero labels. The graph-class count uses two independent entries for every unordered distinct generator pair, followed by inclusion–exclusion for the required labels. The conditional-law total-variation bound follows from an explicit coupling. The asymptotic uses the exact critical scaling \(r/b_r=\log r+c+o(1)\), Poisson convergence of isolated-vertex counts by factorial moments, and a uniform two-range spanning-tree bound ruling out other disconnected components. The center and maximal-commutative-subsemigroup descriptions follow from the annihilating square ideal. Exhaustive finite checker results support the algebraic counts and graph interpretation; they are not treated as asymptotic proofs.
+
+## Originality — PASS, subject to residual priority risks
+Distler–Mitchell (2012) and Dolinka–FitzGerald–Mitchell (2024) already provide the full combinatorial multiplication-table model and enumeration of such semigroups. That construction is not claimed as new. Araújo–Kinyon–Konieczny (2010) study commuting graph paths, and Bauer–Greenfeld (2016/2017) realize star-free graphs as semigroup commuting graphs. The present mathematical comparison identifies no earlier statement of the *distribution* of the graph conditioned on the exact square-ideal size, the exchangeable graph probability formula, or the sharp critical connectivity probability. The standard Erdős–Rényi threshold is known, and its value is not claimed as new in graph theory; the extension to the canonical surjectivity-conditioned semigroup ensemble and exact finite law are the proposed contribution. A broader unindexed probabilistic result could still imply this finding. Grillet's related counting article could be inspected only at the abstract level.
+
+## Value — PASS
+The semigroup's commuting graph is a natural invariant, and the canonical degree-three class is foundational in asymptotic semigroup enumeration. An exact law across *all labeled graph configurations*, not just a commuting-pair mean or a total semigroup count, permits graph invariants to be studied in a natural uniform semigroup model. The sharp connectivity threshold shows a qualitative phase change as the square ideal changes scale relative to the minimal generating set. The result does not purport to solve the unconditioned or isomorphism-class sampling problem.
+
+## Closest literature and limitations
+The main dependence is the known canonical presentation of three-nilpotent multiplication tables. Published graph realizability and path-length results concern possible deterministic graphs rather than the fixed-parameter random law. The complete text of Grillet's *Counting Semigroups* was not available; only its abstract was inspected. Priority remains provisional pending independent assessment and broader historical review.
+
+Self-review: passed. Independent audit: not yet performed.
