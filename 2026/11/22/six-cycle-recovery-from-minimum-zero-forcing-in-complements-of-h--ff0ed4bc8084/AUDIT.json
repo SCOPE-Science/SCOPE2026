@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers specify finite simple H, δ(H)≥2 and no 3- or 4-cycles. The complement has no isolated vertices. A four-white initial state either has no first move or, after its first move, three remaining H-neighbors of a common center are an immovable white obstruction, ruling out all more-white states by monotonicity. For any three whites, a first move exists exactly when an outside vertex H-sees two of them; minimum degree and absence of C4 then force the other two. Every two-white start succeeds. Counting J=H-distance-two edges gives |E(J)|=∑C(d,2), t(J)=∑C(d,3)+2c6; subtract all 3-white obstructing paths and common-neighborhood triples to obtain (n−3)A−B+2c6. Both independent sequential Python and synchronous C++17 whole-subset verifiers agree across all size-2/3/4 white choices on seven explicitly reconstructed graphs, including irregular examples. Finite tests are not the proof of the unbounded theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davila–Kenter (2014) bound zero forcing for graphs whose own girth is at least five, while the present theorem forces the typically dense complement.",
+        "The present conclusion requires no regularity, connectedness, or specific cage structure, and includes regular cubic and irregular high-girth examples."
+      ],
+      "reasoning": "A large-girth theorem for the graph actually undergoing forcing cannot be applied to dense complements in general; likewise results for individual small graphs or single-degree families do not dominate the arbitrary high-girth underlying graph case.",
+      "searches": [
+        "minimum zero forcing set complement of Petersen and triangle-free cubic graphs high girth",
+        "arxiv:1406.0482 Theorems 3 and 7",
+        "complement of regular graphs girth at least five zero forcing minimum sets count six cycles graph complements"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1402.1962 (full mathematical HTML, Theorem 2.5, Remark 2.6, Sections 3–5)",
+      "https://arxiv.org/abs/1406.0482 (main theorems in full mathematical HTML)",
+      "https://arxiv.org/abs/2608.27972 (abstract only)",
+      "Previously indexed exact complement-of-path and complement-of-cycle results (public statement comparison)",
+      "Relevant indexed zero-forcing complement/girth/cycle and optimizer records (statement-level comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 result bounds the scalar optimum but does not determine its multiplicity.",
+        "A degree-two exact cycle count is a special case, whereas the all-order formula depends on the second-neighborhood degree distribution and simple hexagons even for cubic and irregular graphs.",
+        "The 2026 abstract discusses forbidden induced structures and the scalar parameter; full-text comparison was unavailable."
+      ],
+      "reasoning": "The claim implies the known cycle-complement case and is consistent with the general scalar bound. Neither prior statement as inspected logically implies the uniform first-force characterization, complete polynomial, or two-c6 correction. Residual risk from the unseen 2026 full text is recorded rather than treating an abstract as conclusive disproof of coverage.",
+      "searches": [
+        "zero forcing number complements of girth at least five graphs n minus three, all optimal forcing sets",
+        "complement of regular graphs girth at least five zero forcing minimum sets count six cycles graph complements",
+        "zero forcing complement cubic girth 5 graphs number minimal forcing sets six-cycle count formula",
+        "arxiv:1402.1962 Theorem 2.5 and Theorem 3.2",
+        "arxiv:2608.27972"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eroh–Kang–Yi (2014) Theorem 2.5 proves Z(G)≤n−3 for connected complementary pairs, with cycle complements sharp (Remark 2.6).",
+        "Alfaro et al. (2026) abstract treats the complementary parameter n−Z(G) and forbidden induced configurations for n−Z(G)≤3, but supplies no accessible enumeration theorem."
+      ],
+      "reasoning": "Rewriting the claim as a bound on n−Z(G) recovers a known scalar boundary, but neither this bound nor the forbidden-family characterization known from the abstract counts all successful three-white sets or reconstructs six-cycles. The full 2026 text was inaccessible; an implicit stronger result has not been excluded.",
+      "searches": [
+        "zero forcing number complements of girth at least five graphs n minus three, all optimal forcing sets",
+        "zero forcing complement cycles and 2-regular graphs classification minimal 3 white vertices",
+        "arxiv:1402.1962 Theorem 2.5 Remark 2.6",
+        "arxiv:2608.27972 abstract"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published exact cycle-complement counts yield n(n−4)+2 when the sole component is a six-cycle, and n(n−4) for cycles of other eligible lengths.",
+        "The new degree-two specialization agrees with these known counts; neither published scope includes the cubic or irregular formula.",
+        "The two independent checkers recover 720 versus 760 optimum sets for complements of the dodecahedral and Desargues graphs."
+      ],
+      "reasoning": "The cycle-complement boundary is subsumed and excluded from novelty. The substantive assertion encompasses all minimum-degree-two high-girth graphs and exposes 6-cycles through the enumerator; no exact table covering this higher-degree or irregular class was found among indexed results. Search absence alone is not a proof of priority.",
+      "searches": [
+        "zero forcing complement cycles and 2-regular graphs classification minimal 3 white vertices",
+        "zero forcing complement cubic girth 5 graphs number minimal forcing sets six-cycle count formula",
+        "zero forcing minimizer enumerator detects 6 cycles in sparse complement girth five",
+        "indexed title: Zero-forcing polynomials and well-forcedness of complements of paths and cycles",
+        "indexed title: Zero-forcing polynomials of complements of paths and cycles"
+      ]
+    },
+    "rationale": "The 2014 scalar complementary zero-forcing bound and previously enumerated complements of individual cycles are credited. None of the inspected exact statements or accessible indexed records establishes the general all-order three-white optimizer criterion or the enumerator with two times the six-cycle count for irregular and cubic high-girth graphs. A 2026 potentially related paper could not be fully inspected; its unexamined results remain a disclosed priority risk.",
+    "residual_risks": [
+      "The full text of the 2026 forbidden-structure paper was inaccessible; an unexamined general theorem or enumerative corollary could affect priority.",
+      "Unindexed earlier computations or a general characterization equivalent under complementation might cover part of the claimed result.",
+      "Previously published degree-two cycle enumerators already cover this theorem when the underlying graph is a single cycle; no novelty is asserted there."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the newly claimed exact enumeration; the published n−3 scalar bound and cycle case are credited.",
+        "evidence": [
+          "Theorem 2.5: connected graph and connected complement imply Z(G)≤n−3.",
+          "Remark 2.6: sharpness on complements of simple cycles.",
+          "Sections 3–5 address equality in sums of scalar zero-forcing numbers on trees/unicyclic graphs, not arbitrary girth-five complement optimal-set counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.1962",
+        "material_read": "Complete accessible mathematical HTML including introductory definitions, Theorem 2.5 and proof, Remark 2.6, Theorem 3.2, and the subsequent unicyclic/tree characterizations.",
+        "method": "Read freely accessible mathematical HTML transcription of the full article.",
+        "title": "On Zero Forcing Number of Graphs and Their Complements",
+        "trigger": "Closest archival complement-zero-forcing scalar theorem and qualifying earliest source."
+      },
+      {
+        "assessment": "NOT_COVERING; large girth is imposed on the graph being forced, whereas the current graph being forced is the complement.",
+        "evidence": [
+          "Theorem 3 assumes the forced graph itself has girth at least five.",
+          "Theorem 7 continues with girth/degree lower bounds for that graph, without enumerating optimal configurations of its complement."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.0482",
+        "material_read": "Accessible mathematical HTML introduction and main results, including Theorems 3 and 7 and the graph-variable assumptions.",
+        "method": "Inspected open-access HTML version of the primary paper.",
+        "title": "Bounds for the Zero-Forcing Number of Graphs with Large Girth",
+        "trigger": "Potentially dominant high-girth zero-forcing bounds."
+      },
+      {
+        "assessment": "UNRESOLVED_PRIORITY_RISK; abstract does not establish this exact enumerator but full-text NOT_COVERING cannot be concluded.",
+        "evidence": [
+          "Abstract studies forbidden induced subgraphs for complementary zero-forcing parameter n−Z(G)≤3 and partial girth characterizations.",
+          "No exact high-girth-complement optimal-set census or hexagon coefficient appears in the abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.27972",
+        "material_read": "ArXiv abstract only; complete text inaccessible after public-access alternatives.",
+        "method": "Read primary abstract; attempted primary and open-access full-text routes.",
+        "title": "The forbidden structure for zero forcing number",
+        "trigger": "Potentially broader contemporary classification of the n−Z(G)=3 boundary."
+      },
+      {
+        "assessment": "COVERS_DEGREE_TWO_SPECIAL_CASE, NOT GENERALIZED_CUBIC_IRREGULAR_SCOPE.",
+        "evidence": [
+          "For complements of C_n, the optimum-count formula is n(n−4)+2 indicator(n=6), which is the specialization of the present formula when underlying graph is a single cycle."
+        ],
+        "identifier_or_url": "public indexed mathematical result (8 November 2026)",
+        "material_read": "Publicly indexed summary and explicit formulas; complete supporting text not inspected.",
+        "method": "Statement-level indexed record comparison, no full-text exclusion claim.",
+        "title": "Zero-forcing polynomials and well-forcedness of complements of paths and cycles",
+        "trigger": "Strong exact enumerator of degree-two special cases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ff0ed4bc-8084-4eb0-8dd5-963034c15cc3",
+  "value": {
+    "rationale": "An all-orders structural enumerator recovers the precise count of hexagons in an arbitrary minimum-degree-two high-girth graph from the multiplicity of minimum zero-forcing sets in its dense complement. It distinguishes the Desargues and dodecahedral graphs, same order and regular degree, by a nontrivial 40-set difference traced to 20 hexagons. This offers a natural information link between forcing optimization and cycle statistics, unlike a routine scalar special case or arbitrary finite parameter.",
+    "status": "PASS"
+  }
+}
