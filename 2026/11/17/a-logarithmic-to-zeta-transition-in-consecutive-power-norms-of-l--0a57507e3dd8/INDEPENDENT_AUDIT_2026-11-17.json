@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:07:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified bounded backward shift on complex ell^1, W^k e_j=(j/(j-k))^alpha e_{j-k} for k<j. The exact coefficient of T^{n+1}-T^n on each distinct output coordinate is delta(b_{n,k-1}-b_{n,k}), giving the exact positive column maximum over 1<=j<=n+2 with d_{n,k}=|b_{n,k}-b_{n,k-1}|. Independently verified by rational finite-dimensional operator iterations for n=0..5 and alpha=1,2, delta=1/3 (12 cases), not merely logs. Stirling plus the exact binomial ratio imply sigma_n^2 d_{n,k}->g(s)=|s|phi(s) centrally with a Gaussian polynomial envelope and sum_k d_{n,k}=2 max b_{n,k}=O(1/sigma). For alpha>1, reindex h=j-k, apply dominated summability of h^-alpha to obtain zeta(alpha)g(s), leading coefficient delta^alpha/(1-delta)*n^{alpha-1}. For alpha=1, harmonic sum over h<=eta sigma_n gives (1/2)log n while h>eta sigma_n contributes only O_eta(1); the sharp coefficient is delta/[2(1-delta)] g(s). Columns outside [mu/2,2mu] are negligible by Chernoff; within, Gaussian flank escape is excluded using the envelope and summability/tail split. g has exactly two global maxima s=+-1, value 1/sqrt(2pi e). Spectral radius/eigenvectors and renewal lower bound for lack of absolute Cesaro boundedness use their stated regimes. The proof is infinite dimensional via exact columns plus analytic local limits, not an inference from the 87 finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arnold 2026 Example 3.2/Section7 covers weighted shifts and lazy-averaged dynamics, not the alpha>=1 sharp difference constants.",
+          "Abbar–Arnold–Coine analyze absolutely-Cesaro conditions; Katznelson–Tzafriri assumes power boundedness and so cannot imply exact growth of these non-power-bounded alpha>=1 shifts.",
+          "Resultary reflexive-space sharp growth result is p>1 and alpha<1/p, disjoint range."
+        ],
+        "reasoning": "Stronger abstract operator results do not give the claimed sharp non-power-bounded norm growth; their hypotheses or quantified alpha ranges differ.",
+        "searches": [
+          "weighted backward shift lazy binomial powers norm consecutive difference alpha one logarithm zeta alpha supercritical",
+          "Gaussian sharp constants for lazy positive weighted shifts alpha below one power difference 2026 critical logarithmic",
+          "arxiv:2610.00271 weighted shift positive Cesaro boundedness",
+          "arxiv:2609.24601 weighted shifts"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-gaussian-sharp-constants-for-lazy-positive-weighted-shifts--57373dad5d93/RESULT.md",
+        "https://arxiv.org/abs/2610.00271",
+        "https://arxiv.org/abs/2609.24601",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-logarithmic-to-zeta-transition-in-consecutive-power-norms-of-l--0a57507e3dd8/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior 2026-10-18 theorem assumes 0<alpha<1 and describes ||T^{n+1}-T^n||~ n^{(alpha-1)/2}, whereas new alpha=1 is ~log n and alpha>1 is ~n^{alpha-1}.",
+          "Fractional Gaussian integral ceases to be integrable at alpha=1, preventing the old theorem from logically yielding these values by continuity or relabeling.",
+          "The exact binomial column representation and W spectrum were already known and are not treated as innovations."
+        ],
+        "reasoning": "No inspected prior theorem implies the proposed endpoint and all-supercritical sharp constants; the proof adds a singular harmonic versus summable-zeta boundary layer and global maximizer localization.",
+        "searches": [
+          "weighted backward shift lazy binomial powers norm consecutive difference alpha one logarithm zeta alpha supercritical",
+          "Gaussian sharp constants for lazy positive weighted shifts alpha below one power difference 2026 critical logarithmic",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-gaussian-sharp-constants-for-lazy-positive-weighted-shifts--57373dad5d93/RESULT.md",
+          "https://arxiv.org/abs/2610.00271"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary 2026-10-18 full RESULT.md is exact same model with 0<alpha<1 and fractional Gaussian integrals, explicitly requiring local integrability at the singularity.",
+          "The present exact column formula is known, but the range alpha>=1 and its harmonic/zeta limits are not a parameter substitution from the old theorem."
+        ],
+        "reasoning": "Recognized aliases: weighted binomial convolution, lazy positive backward shift and Katznelson–Tzafriri norm difference. Existing same-object proof breaks at the critical alpha=1 singularity.",
+        "searches": [
+          "weighted backward shift lazy binomial powers norm consecutive difference alpha one logarithm zeta alpha supercritical",
+          "Gaussian sharp constants for lazy positive weighted shifts alpha below one power difference 2026 critical logarithmic",
+          "operator norm binomial first difference singular harmonic convolution zeta(alpha)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact Resultary table is the 2026-10-18 alpha in (0,1) coefficient defined by a fractional integral.",
+          "A survey of semantic hits found no pre-existing endpoint logarithmic or zeta(alpha) constants in these same operator norm parameters."
+        ],
+        "reasoning": "No exact database/table of endpoint constants was found; this negative search is not a priority certificate.",
+        "searches": [
+          "weighted backward shift lazy binomial powers norm consecutive difference alpha one logarithm zeta alpha supercritical",
+          "Gaussian sharp constants for lazy positive weighted shifts alpha below one power difference 2026 critical logarithmic",
+          "exact lazy shift alpha=1 logarithm norm difference 1/sqrt(2 pi e)",
+          "zeta alpha positive weighted backward shifts"
+        ]
+      },
+      "rationale": "This exact same shift family is known for 0<alpha<1, but the critical alpha=1 logarithmic constant and every alpha>1 zeta constant fall outside its theorem and require a different nonintegrable-kernel analysis. No compared primary source or Resultary theorem covers the endpoint/supercritical sharp limits.",
+      "residual_risks": [
+        "Unindexed weighted-binomial convolution or singular kernel asymptotic theorem might express the exact endpoint constants.",
+        "The result is explicitly outside the absolute Cesaro bounded regime and not a counterexample to the power-bounded Katznelson–Tzafriri theorem.",
+        "No joint scaling alpha-1 vs n is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object but disjoint alpha domain; no alpha>=1 formula.",
+          "evidence": "Finding assumes 0<alpha<1; proof Step 2 explicitly requires integrability alpha<1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-gaussian-sharp-constants-for-lazy-positive-weighted-shifts--57373dad5d93/RESULT.md",
+          "material_read": "Full Resultary RESULT.md including exact column formula, theorem alpha in (0,1), singular local-limit proof and stated boundary limitations.",
+          "method": "Direct GitHub full-text read",
+          "title": "Gaussian sharp constants for lazy positive weighted shifts",
+          "trigger": "Identical weighted shift and lazy average"
+        },
+        {
+          "assessment": "Model/properties known, but no sharp alpha>=1 difference norm constants in read material.",
+          "evidence": "Example 3.2, Section 7",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00271",
+          "material_read": "Primary paper relevant Example 3.2, Section 7 and surrounding operator assumptions as available in PDF text; PDF rendering attempt limited.",
+          "method": "Primary open-access article text inspection",
+          "title": "Self-improvement for absolutely Cesàro bounded operators",
+          "trigger": "Same polynomial weighted backward shift model and Cesàro theory"
+        },
+        {
+          "assessment": "General ACB and weight criteria, not endpoint difference asymptotics.",
+          "evidence": "Section 3",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24601",
+          "material_read": "Primary paper background and Section 3 scope discussed; not a full audit of all statements.",
+          "method": "ArXiv primary theorem/section examination",
+          "title": "On absolutely Cesàro bounded operators",
+          "trigger": "Potential dominating theorem for weighted shifts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same operator family exhibits a genuinely singular mathematical boundary when alpha reaches one; an integrable fractional Gaussian integral switches to a harmonic-logarithmic contribution, then zeta(alpha) times power growth. Exact sharp constants and location of norming columns are natural operator-norm invariants with plausible use in ergodic/operator asymptotics; they are not a routine continuation of the previous alpha<1 result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-logarithmic-to-zeta-transition-in-consecutive-power-norms-of-l--0a57507e3dd8/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-logarithmic-to-zeta-transition-in-consecutive-power-norms-of-l--0a57507e3dd8/check.py",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-gaussian-sharp-constants-for-lazy-positive-weighted-shifts--57373dad5d93/RESULT.md",
+    "https://arxiv.org/abs/2610.00271"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Specialized older binomial-singular convolution reference could potentially cover alpha>=1 under a different name.",
+    "Scientific finding is independent of mechanical publication import; source public metadata requires sanitization.",
+    "No formal Lean or expert attestation is inferred from numerical or exact finite checks."
+  ],
+  "schema_version": 1
+}

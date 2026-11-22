@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The calculation is made for one precisely specified bounded positive operator on complex \(\ell^1\), with fixed \(0<\delta<1\) and \(\alpha\ge1\). The exact binomial column formula includes the terminal \(k=n+1\) coefficient and handles cancellation before applying absolute values. The global Gaussian bound on the first-difference kernel justifies both the summable \(\alpha>1\) zeta limit and the critical harmonic cutoff at \(\alpha=1\); separate outer-region and off-central estimates justify global maximization, and the unique Gaussian peak locations are \(\pm1\). The proof is analytical. `python check.py` passed 87 finite rational/numerical diagnostic assertions. The finite checks are not substitutes for the limiting argument.
+PASS
 
-## Originality — PASS, with priority risk
+For the specified bounded backward shift on complex ell^1, W^k e_j=(j/(j-k))^alpha e_{j-k} for k<j. The exact coefficient of T^{n+1}-T^n on each distinct output coordinate is delta(b_{n,k-1}-b_{n,k}), giving the exact positive column maximum over 1<=j<=n+2 with d_{n,k}=|b_{n,k}-b_{n,k-1}|. Independently verified by rational finite-dimensional operator iterations for n=0..5 and alpha=1,2, delta=1/3 (12 cases), not merely logs. Stirling plus the exact binomial ratio imply sigma_n^2 d_{n,k}->g(s)=|s|phi(s) centrally with a Gaussian polynomial envelope and sum_k d_{n,k}=2 max b_{n,k}=O(1/sigma). For alpha>1, reindex h=j-k, apply dominated summability of h^-alpha to obtain zeta(alpha)g(s), leading coefficient delta^alpha/(1-delta)*n^{alpha-1}. For alpha=1, harmonic sum over h<=eta sigma_n gives (1/2)log n while h>eta sigma_n contributes only O_eta(1); the sharp coefficient is delta/[2(1-delta)] g(s). Columns outside [mu/2,2mu] are negligible by Chernoff; within, Gaussian flank escape is excluded using the envelope and summability/tail split. g has exactly two global maxima s=+-1, value 1/sqrt(2pi e). Spectral radius/eigenvectors and renewal lower bound for lack of absolute Cesaro boundedness use their stated regimes. The proof is infinite dimensional via exact columns plus analytic local limits, not an inference from the 87 finite checks.
 
-Arnold's 2026 preprint introduces the weighted shift and lazy convex-average framework; these components are acknowledged. The complete closely matching *Gaussian sharp constants for lazy positive weighted shifts* result covers only \(0<\alpha<1\); the proof there explicitly requires local integrability of its fractional Gaussian kernel. Its boundary limit does not prove either the new logarithmic constant or the supercritical zeta constant. The published reflexive-space counterpart has \(1<p<\infty\), \(0<\alpha<1/p\), while Abbar–Arnold–Coine address ACB growth and weighted shifts without a corresponding endpoint difference formula. published-finding corpus and public-literature queries for exact equivalents, broader consequences, and possible tables did not identify direct coverage. An older rephrasing in weighted binomial convolution theory remains possible and independent priority checking is required.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact boundary is not a numerical curiosity: it is the divergence threshold of the already-motivated singular Gaussian kernel in the operator power regularity problem. The harmonic coefficient at \(\alpha=1\), the zeta coefficient above it, and the localization of extremal columns give a sharp new phase classification for every fixed supercritical exponent. These operators are not absolutely Cesàro bounded for \(\alpha\ge1\), so the result does not resolve the universal positive ACB version of Katznelson–Tzafriri; it delineates its boundary model. The statement is deliberately restricted to this sequence-space family, with no joint critical-window uniformity or exhaustive novelty certificate.
+This exact same shift family is known for 0<alpha<1, but the critical alpha=1 logarithmic constant and every alpha>1 zeta constant fall outside its theorem and require a different nonintegrable-kernel analysis. No compared primary source or Resultary theorem covers the endpoint/supercritical sharp limits.
 
-## Closest sources and limitations
+## value
 
-L. Arnold, arXiv:2610.00271v1, Example 3.2 and Section 7; A. Abbar, L. Arnold, C. Coine, arXiv:2609.24601v1, Section 3; *Gaussian sharp constants for lazy positive weighted shifts* (2026), complete published RESULT.md; *Sharp power growth and power-difference decay for positive lazy backward shifts on reflexive sequence spaces* (2026), complete published RESULT.md; Katznelson–Tzafriri (1986). Independent mathematical validation and exhaustive priority determination have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same operator family exhibits a genuinely singular mathematical boundary when alpha reaches one; an integrable fractional Gaussian integral switches to a harmonic-logarithmic contribution, then zeta(alpha) times power growth. Exact sharp constants and location of norming columns are natural operator-norm invariants with plausible use in ergodic/operator asymptotics; they are not a routine continuation of the previous alpha<1 result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
