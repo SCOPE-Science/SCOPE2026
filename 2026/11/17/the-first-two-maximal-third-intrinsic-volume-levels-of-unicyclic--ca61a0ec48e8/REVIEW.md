@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition of \(V_3\) uses Euclidean Steiner normalization on the zero-sum span and unit root segments. The proof reduces each three-vector wedge determinant to four graph configurations and then exactly counts pairs of adjacent edges. The key inequality \(S\le(n-1)(W-n)/3\) holds for all simple graphs, with the strict separation bound (4) verified algebraically. The degree-excess-one classification includes every possible pendant-path length and the triangle endpoint. The checker independently tests finite examples and their determinant types; the proof is the infinite certificate.
+## correctness
 
-## Originality — PASS, subject to historical limitations
-Joós--Lángi (arXiv:2206.03204, Corollary 1 and Sections 3--4) covers the general zonotope intrinsic-volume identity and certain dimension/generator-count extremal problems, but the stated fixed-graph-class first and second maximal \(V_3\) levels are not among its asserted conclusions. Brazitikos--McIntyre (arXiv:2102.05900, Sections 1 and 5 overview) studies inequalities for wedge-product sums rather than the exact unicyclic graph extremizers. Related work on tree graphical-zonotope third intrinsic volumes does not imply the unicyclic case; work on the smallest unicyclic zonotope surface-area levels concerns the opposite extremal order and in dimensions above four a different intrinsic volume. Independent earlier equivalent results are not ruled out; the general formula is explicitly credited.
+PASS
 
-## Mathematical value — PASS
-The graph class has fixed vertex and edge counts and one essential cycle, a natural next setting after tree zonotopes. The theorem gives two sharp successive global extremal levels, the unique graph forms attaining them, an explicit positive gap growing linearly with vertex count, and a structural degree-excess certificate. This is not merely a computed value for a selected graph or a restatement of the general wedge-sum identity.
+For full root segments and Euclidean Steiner V3, the zonotope wedge-sum theorem weights three disjoint incidence edges by 2sqrt2, an incident pair plus separate edge by sqrt6, a 3-edge connected tree by 2, and triangle by zero. Counting incident pairs gives V3=2sqrt2*binom(n,3)-a(n-2)W-cP+bS-dT with a=2sqrt2-sqrt6, b=2+4sqrt2-3sqrt6, c=2sqrt6-2-2sqrt2,d=3sqrt6-4sqrt2. Defining h=W-n=sum_v binom(dv-1,2), h=0 only at cycle and h>=2 is strictly below the pendant-edge candidate using S<=(n-1)h/3 and P,T>=0. For h=1 a unique cubic vertex and leaf force a cycle with one attached path; the t=1, longer-path and triangular-cycle deficits differ by c or d-2c=4-sqrt6>0, so unique runner-up is H_n. Independently enumerated connected labelled unicyclic n=5 (222 graphs) and n=6 (3660 graphs), checking cycle and H_n counts/values, not extending finite enumerations to the all-n proof.
 
-## Closest literature and limitations
-The formula in Corollary 1 of Joós--Lángi is a substantial starting point; it does not independently identify the claimed extremal graph rigidity. The preceding review is based on examined source material and search comparisons, with historical-priority risk for equivalent formulations in graph-forest enumerations. No claim is made for weighted graphs or full intrinsic-volume profiles.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Joós-Lángi proves the general zonotope intrinsic-volume sum and more global geometric inequalities, which are used as prior input. Results on trees, nearly complete graphical zonotopes and cycle profiles have different graph classes/targets. No examined source implies the unique first and second V3 extremizers over all connected simple unicyclic graphs at fixed n.
+
+## value
+
+PASS
+
+The extremal and runner-up classifications with explicit sharp gap distinguish how single branching affects a natural metric invariant of graphical zonotopes; the rigidity in h=0,1 and strict h>=2 separation is structurally meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

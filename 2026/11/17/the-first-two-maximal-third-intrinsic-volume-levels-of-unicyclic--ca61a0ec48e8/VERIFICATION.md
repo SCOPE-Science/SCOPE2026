@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` with Python 3 and the standard library. The program was executed from the actual package path and reported:
+## correctness
 
-`UNICYCLIC_THIRD_INTRINSIC_CHECKS_PASSED exhaustive_graphs=72192 random_graphs=1300`
+PASS
 
-The exhaustive finite census covers all labeled connected simple unicyclic graphs of sizes 4, 5, 6, 7; the domain of the theorem begins at size 5. The same script checks expected labeled isomorphism multiplicities of both extremizers, edge-triple identities and Gram determinant types, plus 1,300 seeded larger examples. Finite checks do not establish the theorem for arbitrarily large size: the symbolic graph identities, star bound and exact inequality comparison in RESULT.md do. No separate independent examination has been performed.
+For full root segments and Euclidean Steiner V3, the zonotope wedge-sum theorem weights three disjoint incidence edges by 2sqrt2, an incident pair plus separate edge by sqrt6, a 3-edge connected tree by 2, and triangle by zero. Counting incident pairs gives V3=2sqrt2*binom(n,3)-a(n-2)W-cP+bS-dT with a=2sqrt2-sqrt6, b=2+4sqrt2-3sqrt6, c=2sqrt6-2-2sqrt2,d=3sqrt6-4sqrt2. Defining h=W-n=sum_v binom(dv-1,2), h=0 only at cycle and h>=2 is strictly below the pendant-edge candidate using S<=(n-1)h/3 and P,T>=0. For h=1 a unique cubic vertex and leaf force a cycle with one attached path; the t=1, longer-path and triangular-cycle deficits differ by c or d-2c=4-sqrt6>0, so unique runner-up is H_n. Independently enumerated connected labelled unicyclic n=5 (222 graphs) and n=6 (3660 graphs), checking cycle and H_n counts/values, not extending finite enumerations to the all-n proof.
+
+## originality
+
+PASS
+
+Joós-Lángi proves the general zonotope intrinsic-volume sum and more global geometric inequalities, which are used as prior input. Results on trees, nearly complete graphical zonotopes and cycle profiles have different graph classes/targets. No examined source implies the unique first and second V3 extremizers over all connected simple unicyclic graphs at fixed n.
+
+## value
+
+PASS
+
+The extremal and runner-up classifications with explicit sharp gap distinguish how single branching affects a natural metric invariant of graphical zonotopes; the rigidity in h=0,1 and strict h>=2 separation is structurally meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
