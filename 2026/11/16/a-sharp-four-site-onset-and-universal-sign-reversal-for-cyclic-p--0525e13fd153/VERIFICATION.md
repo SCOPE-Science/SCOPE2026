@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof uses an exact full Fourier alias sum for the classical Poisson kernel, not a truncated Fourier series. Its inverse DFT is normalized by \(1/n\), and the sample covariance retains \(P_r(0)=(1+r)/(1-r)\). The asymptotic small-\(r\) coefficients include both central Fourier classes for odd sample counts. The near-\(r=1\) expansion controls the remainder at fixed finite \(n\).
+## correctness
 
-For four points the opposite-pair zero is equivalent to \(u^2-2u-4=0\) with \(u=r+r^{-1}>2\). For five points it is equivalent to \(2u^2-(3+\sqrt5)u-2=0\). In both cases \(u\) is strictly decreasing in \(r\), and nearest-neighbor factors remain strictly negative. No arbitrary-size zero-count claim is inferred from finite experiments.
+PASS
 
-The bundled standard-library script `CHECKER.py` was actually executed and printed `PASS: 3084 finite independently reconstructed checks; analytic generality in RESULT.md`. It compares Fourier inverse entries with independently inverted spatial Gram matrices for regular polygons, checks both explicit algebraic formulas, and tests the limiting asymptotic profiles. Rerun by placing the files together and executing `python3 CHECKER.py`.
+Discrete Fourier aliasing gives exact positive covariance eigenvalues λ_j=n(r^j+r^(n-j))/(1-r^n); the inverse is the inverse-DFT of their reciprocals. The unique farthest even- or paired odd-N modes dominate as r→0, giving parity (-1)^d r^-floor(n/2) and the stated coefficients. As r→1 the diagonally dominant Neumann expansion produces -δ^3/[4(1-cos(2πd/n))]+O_n(δ^4) for every nonzero distance. Thus even d changes sign and n=4 is first; n=2,3 have strict negative off-diagonals by compound symmetry. For n=4 and n=5 the explicit q2 factorizations reduce to polynomials in u=r+1/r with exactly one root u>2; q1<0, so the exact graph claim follows. Independent numerical direct covariance inversion vs Fourier diagonalization at n=4,5,7,10 and 3 radii, and independent q2 root/sign checks at n=4,5, agreed. These finite checks corroborate analytic endpoint limits and uniqueness calculations, not replace them.
 
-Independent mathematical audit: not performed. Historical novelty beyond the cited and inspected literature: not independently established.
+## originality
+
+PASS
+
+The classical Poisson kernel Fourier series and circulant diagonalization are prior, as is circular Matérn conditional-autoregression theory for a different spectral family. No read primary or Resultary record implies the every-even-distance sign reversal for THIS stationary Poisson covariance, the sharp four-site onset, or exact n=4,5 cycle-graph thresholds. Best-of-knowledge priority only.
+
+## value
+
+PASS
+
+The first sample size at which Gaussian conditional independences emerge as a covariance-scale parameter changes is mathematically natural; exact sign switches distinguish inverse covariance from marginal correlation. The n=4,5 closed thresholds and uniform even-distance onset give a finite structural classification with direct graphical interpretation, rather than a mere Fourier transform identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

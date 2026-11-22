@@ -1,15 +1,21 @@
-# Scientific review: cyclic Poisson-kernel precision
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim covers every integer \(n\ge2\), every \(0<r<1\), and every shortest cyclic distance \(1\le d\le\lfloor n/2\rfloor\). Strict positivity follows from strictly positive Poisson Fourier weights and invertibility of the finite DFT. Summing positive spectral aliases gives \(\lambda_j=n(r^j+r^{n-j})/(1-r^n)\) and the exact inverse DFT. When \(r\downarrow0\), the central one or two aliased Fourier classes dominate, with explicit parity-sensitive coefficients. When \(r\uparrow1\), diagonal dominance and the first Neumann correction give an explicitly negative \((1-r)^3\) law for every off-diagonal. This yields an intermediate zero at *every even* cyclic distance for \(n\ge4\), not a uniqueness assertion. Separate four- and five-point rational factorizations prove strict negative nearest-neighbor precision and exactly one opposite-pair zero with the specified algebraic radii. For \(n=2,3\), positive equicorrelation matrices have strictly negative inverse off-diagonals. The included checker executed successfully with 3,084 comparisons, supplementing rather than replacing the exact arguments.
+## correctness
 
-## Originality — PASS, bounded literature comparison
-Related circular Gaussian-process covariance construction, circular Matérn Markov/conditional-autoregressive structure, and Fourier-grid kernel approximation were compared in the primary full texts, including relevant definitions, theorems and appendices. Their conclusions concern different Fourier weights, Markov properties or approximation error, not the sign and cancellation structure of the *regular-grid inverse of the classical Poisson covariance*. A published study of nonstationary Poisson-kernel modulation concerns positive-semidefinite amplitude boundaries and polygon singularity, not the inverse-entry sign transition at zero modulation; its mathematical statement and proof were inspected. Database queries on Poisson semigroup precision, roots-of-unity inverse kernels, sign switches, and Gaussian conditional independence did not identify a directly equivalent assertion. This is a bounded originality determination, not independent proof of historical priority. Older general circulant inverse formulas could encode the four-/five-point result and remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-Conditional-independence graphs are controlled by zeros of precision entries, not covariance entries. The theorem identifies the first number of samples where a natural smooth circular covariance develops conditional-independence edges as its correlation length varies; it distinguishes the exact four- and five-cycle transitions from the dense graph away from their critical parameters. The arbitrary-size even-distance sign reversal is a structural statement, while the exact radii resolve two canonical minimal cases. This is not a reparametrization of the already-known Poisson Fourier series.
+Discrete Fourier aliasing gives exact positive covariance eigenvalues λ_j=n(r^j+r^(n-j))/(1-r^n); the inverse is the inverse-DFT of their reciprocals. The unique farthest even- or paired odd-N modes dominate as r→0, giving parity (-1)^d r^-floor(n/2) and the stated coefficients. As r→1 the diagonally dominant Neumann expansion produces -δ^3/[4(1-cos(2πd/n))]+O_n(δ^4) for every nonzero distance. Thus even d changes sign and n=4 is first; n=2,3 have strict negative off-diagonals by compound symmetry. For n=4 and n=5 the explicit q2 factorizations reduce to polynomials in u=r+1/r with exactly one root u>2; q1<0, so the exact graph claim follows. Independent numerical direct covariance inversion vs Fourier diagonalization at n=4,5,7,10 and 3 radii, and independent q2 root/sign checks at n=4,5, agreed. These finite checks corroborate analytic endpoint limits and uniqueness calculations, not replace them.
 
-## Limits
-General \(n\ge6\) zeros are proved to exist, not to be unique, and odd-distance precision signs are not classified there. No irregular-point or noisy observation result is claimed. Historical priority remains provisional and merits external review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical Poisson kernel Fourier series and circulant diagonalization are prior, as is circular Matérn conditional-autoregression theory for a different spectral family. No read primary or Resultary record implies the every-even-distance sign reversal for THIS stationary Poisson covariance, the sharp four-site onset, or exact n=4,5 cycle-graph thresholds. Best-of-knowledge priority only.
+
+## value
+
+PASS
+
+The first sample size at which Gaussian conditional independences emerge as a covariance-scale parameter changes is mathematically natural; exact sign switches distinguish inverse covariance from marginal correlation. The n=4,5 closed thresholds and uniform even-distance onset give a finite structural classification with direct graphical interpretation, rather than a mere Fourier transform identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

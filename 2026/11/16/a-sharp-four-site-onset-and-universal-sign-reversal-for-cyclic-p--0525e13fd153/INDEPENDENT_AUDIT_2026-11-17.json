@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T02:15:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Discrete Fourier aliasing gives exact positive covariance eigenvalues λ_j=n(r^j+r^(n-j))/(1-r^n); the inverse is the inverse-DFT of their reciprocals. The unique farthest even- or paired odd-N modes dominate as r→0, giving parity (-1)^d r^-floor(n/2) and the stated coefficients. As r→1 the diagonally dominant Neumann expansion produces -δ^3/[4(1-cos(2πd/n))]+O_n(δ^4) for every nonzero distance. Thus even d changes sign and n=4 is first; n=2,3 have strict negative off-diagonals by compound symmetry. For n=4 and n=5 the explicit q2 factorizations reduce to polynomials in u=r+1/r with exactly one root u>2; q1<0, so the exact graph claim follows. Independent numerical direct covariance inversion vs Fourier diagonalization at n=4,5,7,10 and 3 radii, and independent q2 root/sign checks at n=4,5, agreed. These finite checks corroborate analytic endpoint limits and uniqueness calculations, not replace them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manifold GP spectral framework covers arbitrary positive Fourier weights, but does not supply inverse signs; nonstationary modulated Poisson paper determines PSD/singularity, not stationary inverse signs."
+        ],
+        "reasoning": "A general spectral framework alone does not imply this specialized precision sign phase diagram; source differences were checked by Fourier weights and mathematical implication.",
+        "searches": [
+          "arXiv:2006.10160",
+          "arXiv:2201.12856",
+          "Resultary 2026/10/25/SCOPE-sharp-harmonic-modulation-cutoff-and-polygonal-singularities-for--0f4219b7a6a9"
+        ]
+      },
+      "checked_sources": [
+        "Huang–Li arXiv:2201.12856 §3",
+        "Borovitskiy et al arXiv:2006.10160",
+        "Barnett–Greengard–Rachh arXiv:2305.11065 (background)",
+        "Resultary Poisson-modulation and cycle covariance semantic records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huang–Li exact Markov order-one conditional structure arises from different circular Matérn spectral eigenvalues; modulation result concerns positive definiteness of a perturbed kernel rather than inverse of stationary sampled P_r."
+        ],
+        "reasoning": "No cited stronger theorem was found giving the uniform-in-n sign reversal and closed r4/r5 roots; the conditioning/PD statements do not infer inverse-entry signs.",
+        "searches": [
+          "Huang–Li arXiv:2201.12856 §3",
+          "Borovitskiy et al arXiv:2006.10160",
+          "Resultary Poisson modulation SCOPE-2026-10-25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q_ij=0 is Gaussian conditional independence, and inverse-circulant DFT gives same sign structure as eigenvalue aliases; circular Matérn/CAR uses (κ²+k²)^-1 rather than r^|k| Fourier spectrum."
+        ],
+        "reasoning": "Checked equivalent Gaussian graphical-model, circulant inverse and harmonic-analysis language. Matérn Markov sparsity is not equivalent to Poisson inverse sign changes.",
+        "searches": [
+          "Resultary: cyclic Poisson kernel covariance precision matrix sign reversals equispaced Gaussian circle conditional independence q2 roots n4 n5",
+          "arXiv:2201.12856"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest records treated Gaussian graph-distance covariance, Poisson modulation PSD, and different cycle covariance models; no table of stationary P_r sampled-precision q_d zero radii appeared."
+        ],
+        "reasoning": "Looked for q_d sign tables as well as title synonyms; a failed search is not proof of global novelty.",
+        "searches": [
+          "Resultary cyclic Poisson precision sign query",
+          "published SCOPE circle covariance and Gaussian cyclic results"
+        ]
+      },
+      "rationale": "The classical Poisson kernel Fourier series and circulant diagonalization are prior, as is circular Matérn conditional-autoregression theory for a different spectral family. No read primary or Resultary record implies the every-even-distance sign reversal for THIS stationary Poisson covariance, the sharp four-site onset, or exact n=4,5 cycle-graph thresholds. Best-of-knowledge priority only.",
+      "residual_risks": [
+        "An unindexed formula for inverse circulant matrices with geometric aliases might imply this exact sign classification, even without mentioning Gaussian graphs.",
+        "Only uniqueness for n=4 and 5 is asserted; nothing is concluded for n≥6."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT equivalent to sampled classical Poisson kernel; Fourier weights different",
+          "evidence": "Circular Matérn spectral and CAR formulas, not r^|k|",
+          "identifier_or_url": "https://arxiv.org/abs/2201.12856",
+          "material_read": "Fourier spectrum and conditional autoregression construction in §3",
+          "method": "Read full-text mathematical formulas/equations",
+          "title": "The Circular Matérn Covariance Function and its Link to Markov Random Fields on the Circle",
+          "trigger": "Most plausible circular covariance precision/conditional independence competitor"
+        },
+        {
+          "assessment": "General spectral framework only; no Poisson sampled inverse signs",
+          "evidence": "Matérn Laplace spectra versus Poisson r^|k|",
+          "identifier_or_url": "https://arxiv.org/abs/2006.10160",
+          "material_read": "Kernel spectral construction, manifold examples and distinction from Poisson",
+          "method": "Inspected accessible full-text sections and cited statements",
+          "title": "Matérn Gaussian processes on Riemannian manifolds",
+          "trigger": "Spectral construction of circular and manifold Gaussian kernels"
+        },
+        {
+          "assessment": "Not used as whole-document NOT_COVERING; mathematical subject differs",
+          "evidence": "Modulated P_r(x-y)[1+εcos(k(x+y))] PSD, not stationary P_r inverse signs",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-harmonic-modulation-cutoff-and-polygonal-singularities-for--0f4219b7a6a9",
+          "material_read": "Published finding and exact modulation/PSD/singularity summary",
+          "method": "Resultary full returned mathematical summary, NOT whole text",
+          "title": "Sharp harmonic-modulation cutoff and polygonal singularities for circle Poisson covariances",
+          "trigger": "Published SCOPE record involving same Poisson kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first sample size at which Gaussian conditional independences emerge as a covariance-scale parameter changes is mathematically natural; exact sign switches distinguish inverse covariance from marginal correlation. The n=4,5 closed thresholds and uniform even-distance onset give a finite structural classification with direct graphical interpretation, rather than a mere Fourier transform identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Huang–Li arXiv:2201.12856 §3",
+    "Borovitskiy et al arXiv:2006.10160",
+    "Barnett–Greengard–Rachh arXiv:2305.11065 (background)",
+    "Resultary Poisson-modulation and cycle covariance semantic records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No general uniqueness/sign classification for n≥6; the novelty comparison is best-of-knowledge."
+  ],
+  "residual_risks": [
+    "An unindexed formula for inverse circulant matrices with geometric aliases might imply this exact sign classification, even without mentioning Gaussian graphs.",
+    "Only uniqueness for n=4 and 5 is asserted; nothing is concluded for n≥6."
+  ],
+  "schema_version": 1
+}
