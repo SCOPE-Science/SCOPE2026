@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T13:04:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/17/a-cubic-logarithmic-pole-containment-transition-for-three-random--fae1c063a7b1/RESULT.md at e445181e127b2110093a44c41a607a46ab3f47e9",
+        "2026/11/17/a-cubic-logarithmic-pole-containment-transition-for-three-random--fae1c063a7b1/VERIFICATION.md",
+        "2026/11/17/a-cubic-logarithmic-pole-containment-transition-for-three-random--fae1c063a7b1/check_cap.py",
+        "/mnt/data/audit08_independent_checks.py bounded independent exact checks (where applicable)"
+      ],
+      "rationale": "For independent uniform-surface points in a cap of radius alpha, heights z_i are i.i.d. uniform in [cos alpha,1] and azimuths i.i.d. uniform; horizontal cone enclosing has probability 1/4. Sorting azimuths yields positive complementary gaps b_i with sum pi, unconditional planar simplex density 1/(2pi^2). On that event pole inclusion is exactly sum sin(b_i) z_i/sqrt(1-z_i^2)>0. For alpha<=pi/2 all z_i>=0 so plateau 1/4 holds. When h=-cos alpha>0, the excluded volume integral over [-h,1]^3 is exact. In any region m=min sin b_i>=h^gamma, q(z)=z/sqrt(1-z^2) linearizes uniformly on the contributing O(h^(1-gamma)) positive heights; translating by +h gives simplex volume h^3(sum a_i)^3/(6 product a_i). For one b_i=t to zero, integrand ~4sin(beta)/(3t); sum of three edge integrals gives 8gamma log(1/h), hence loss (4/pi^2)h^3log(1/h) after bounding t<h^gamma and gamma to 1. At one degenerate gap the logarithmic coefficient partitions two negative heights versus one as 1 versus 1/3 (3:1); the three edges have equal symmetry weights; restrictions h^v<=t<=h^u give logarithmic-scale uniformity and factorized weak marked law. The discarded all-three-negative mass is O(h^3). The bundle contains an independent Cartesian determinant test and Sobol integral but these finite checks do not prove logarithmic asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bárány–Hug–Reitzner–Schneider title and Theorems focus on n to infinity for a fixed halfsphere",
+          "Bürgisser–Cucker–Lotz arXiv:0712.2816 concerns full sphere cap coverage/condition numbers with random centers rather than marked pole sample-cone crossing"
+        ],
+        "reasoning": "These do not supply the all-small-h correction of the three-point pole-containment probability, nor the partition into 1/2 southern vertices and logarithmic gap conditional law.",
+        "searches": [
+          "Resultary semantic search: random three points spherical cap pole inclusion probability beyond hemisphere cubic logarithmic asymptotic",
+          "arXiv:1505.04672 halfspheres n to infinity",
+          "arXiv:0712.2816 coverage processes sphere"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1505.04672 (Bárány, Hug, Reitzner, Schneider 2015), inspected abstract and theorem scope",
+        "Wendel 1962 Math. Scand. 11, origin separability formula",
+        "arXiv:0712.2816 Bürgisser–Cucker–Lotz coverage processes, distinct sphere coverage problem",
+        "Resultary semantic search: random three points spherical cap pole inclusion probability beyond hemisphere cubic logarithmic asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wendel assumes point distribution symmetric under v to -v, violated for an enlarged northern cap",
+          "Bárány et al. Theorems give asymptotic expected combinatorial characteristics as sample count grows, with no alpha>pi/2 perturbation"
+        ],
+        "reasoning": "Neither statement has the same distribution and limit regime; recovering coefficient 4/pi^2 and independent rare marks requires the singular integral boundary analysis, not a substitution of n=3.",
+        "searches": [
+          "Resultary semantic search: random three points spherical cap pole inclusion probability beyond hemisphere cubic logarithmic asymptotic",
+          "Wendel 1962 Math Scand",
+          "Bárány Hug Reitzner Schneider 2015 fixed halfsphere"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wendel 1962 is origin separability of centrally symmetric samples",
+          "Bárány et al. (2015), arXiv:1505.04672, addresses independent points within halfsphere and asymptotic n to infinity, not n=3 with cap crossing hemisphere"
+        ],
+        "reasoning": "Polarity/hemisphere coverage is geometrically related, but crossing the SUPPORT boundary alpha=pi/2 for three nonsymmetric cap points and a fixed pole is not a direct reformulation of Wendel’s centered symmetric formula.",
+        "searches": [
+          "Resultary semantic search: random three points spherical cap pole inclusion probability beyond hemisphere cubic logarithmic asymptotic",
+          "random cap pole spherical convex hull triangle positive cone near hemisphere"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 1/4 plateau is a classical semicircle probability, already known",
+          "No inspected formula in Wendel, Bárány et al., or published spherical coverage index gives an h^3 log(1/h) coefficient and marked sign/gap law"
+        ],
+        "reasoning": "A known baseline probability is credited, not sold as novelty; the new quantity is a sharp one-sided asymptotic plus marked law. No exact published table identified, but search cannot prove nonexistence.",
+        "searches": [
+          "Resultary semantic search: random three points spherical cap pole inclusion probability beyond hemisphere cubic logarithmic asymptotic",
+          "spherical cap three points pole containment coefficient table 4/pi^2 logarithm"
+        ]
+      },
+      "rationale": "Four statement-level comparisons distinguish the specified result from the inspected primary-source coverage; best-of-knowledge priority, not an absence-of-search novelty guarantee. ",
+      "residual_risks": [
+        "An unidentified specialized n=3 spherical cap containment integral might implicitly contain the cubic-log boundary expansion.",
+        "The thin-gap bound and marked weak convergence were checked by reconstructing the proof arguments, not independent uniform-error numerical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover enlarged-cap near-hemisphere n=3 pole loss",
+          "evidence": "Abstract explicitly studies n tending to infinity for points in a hemisphere; fixed alpha enlarged cap not within assumptions",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.04672",
+          "material_read": "Full paper abstract, introduction, theorem scope and limiting sample-size setting, with page-1 screenshot",
+          "method": "Primary arXiv PDF page image and parsed mathematical text",
+          "title": "Random points in halfspheres",
+          "trigger": "Nearest halfsphere random spherical convex hull primary article"
+        },
+        {
+          "assessment": "Baseline probability under symmetry only; enlarged cap outside hypotheses",
+          "evidence": "Wendel formula 2^{-n+1} sum_{k=0}^{d-1} binomial(n-1,k), not h-dependent enlarged cap law",
+          "identifier_or_url": "https://doi.org/10.7146/math.scand.a-10655",
+          "material_read": "Original theorem’s central-symmetry and linear-separability conditions, formula and problem statement",
+          "method": "Primary theorem comparison via available academic source and cited theorem context",
+          "title": "Wendel, A Problem in Geometric Probability",
+          "trigger": "Classical 1/4 baseline and possible all-angle formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1505.04672 (Bárány, Hug, Reitzner, Schneider 2015), inspected abstract and theorem scope",
+        "Wendel 1962 Math. Scand. 11, origin separability formula",
+        "arXiv:0712.2816 Bürgisser–Cucker–Lotz coverage processes, distinct sphere coverage problem"
+      ],
+      "rationale": "A fixed-pole hull crossing the hemispherical convexity boundary is a natural geometric probability transition. The cubic-log rather than analytic Taylor law is caused by angular-gap degeneracy; its exact coefficient, signs 3:1 and uniform logarithmic gap mark resolve a nontrivial geometric rare-event mechanism distinct from the classical 1/4 plateau.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/17/a-cubic-logarithmic-pole-containment-transition-for-three-random--fae1c063a7b1/RESULT.md source blob tree dd84a8182b7f639ed62345719b77efa5fc5f4d34",
+    "2026/11/17/a-cubic-logarithmic-pole-containment-transition-for-three-random--fae1c063a7b1/AUDIT.json",
+    "2026/11/17/a-cubic-logarithmic-pole-containment-transition-for-three-random--fae1c063a7b1/METADATA.json",
+    "2026/11/17/a-cubic-logarithmic-pole-containment-transition-for-three-random--fae1c063a7b1/VERIFICATION.md",
+    "arXiv:1505.04672 (Bárány, Hug, Reitzner, Schneider 2015), inspected abstract and theorem scope",
+    "Wendel 1962 Math. Scand. 11, origin separability formula",
+    "arXiv:0712.2816 Bürgisser–Cucker–Lotz coverage processes, distinct sphere coverage problem",
+    "Resultary semantic search: random three points spherical cap pole inclusion probability beyond hemisphere cubic logarithmic asymptotic"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unidentified specialized n=3 spherical cap containment integral might implicitly contain the cubic-log boundary expansion.",
+    "The thin-gap bound and marked weak convergence were checked by reconstructing the proof arguments, not independent uniform-error numerical certification.",
+    "Source code diagnostics and prior VERIFICATION_OK do not establish infinite theorems, originality or value.",
+    "Source public METADATA.json and AUDIT.json contain operational scope_run_id; publication withheld pending complete sanitization."
+  ],
+  "schema_version": 1
+}
