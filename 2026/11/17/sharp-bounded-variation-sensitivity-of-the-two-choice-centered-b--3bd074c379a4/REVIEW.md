@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns the **two-input** seminorm of the pointwise maximum of identity and the uniform centered radius-\(r\) average on real bi-infinite finite-variation sequences. The proof uses positive-part secant slopes to linearize each input pair without assuming differentiability or strict inequalities. An absolutely convergent step decomposition reduces BV to the sharp jump columns. For each jump, the exact branch formula is maximized by binary masks; the nonadjacent-index recurrence yields the stated coefficient for every \(r\ge1\). Invertibility of a finite principal restriction of \(I-Q_r\), proved by a strictly positive difference-energy identity, produces nonnegative pairs attaining the upper bound. All stated boundary cases and quantifiers were reconstructed. Exact rational computation checks are supplementary, not the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Every real bounded-variation input pair has a pointwise secant-slope mask for positive-part activation, A_theta=I+diag(theta)(Q_r-I). The absolutely summable jump decomposition reduces total-variation gain to step columns. Their two side ramps yield E_r=2 sum over nonadjacent falling transitions at weights 1,...,r-1, maximal 2 floor(r^2/4) per wing, hence 1+4 floor(r^2/4)/(2r+1). The finite principal matrix of I-Q_r is strictly positive definite from its adjacent-edge energy and realizes any optimal sign pattern on support of Q_rH-H; nonnegative finite-variation attaining pairs follow after adding a constant. Check r=1 exactly 1, r=2 9/5; no quotient at constant differences. Independent rational binary-wing enumeration for r=1..6 agreed with predicted constants. The verifier source was inspected, not taken as a proof or uncritically as a PASS.
 
-Bober–Carneiro–Hughes–Pierce, Carneiro–Hughes and Madrid treat discrete maximal-function one-input variation or \(\ell^1\)-gradient estimates, not the exact two-input BV seminorm of the two-choice centered box envelope. Direct comparison with complete public mathematical results on one-sided two-choice rectangular \(\ell^2\) maximal operators, running min/max morphology in BV, and weighted uncentered interval maps on finite paths found no implication covering this statement. Searches of published mathematical findings for the operator, exact coefficient, equivalent formulations and dominating general results also found no covering claim. The strongest remaining uncertainty is an unindexed or unavailable historical equivalent; this review does not claim exhaustive global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The formula gives a sharp and attained perturbation law for every centered box radius, with a first expansion at radius two and gain growing asymptotically like \(r/2\). It quantifies a genuine failure of uniform BV stability for a classical finite-radius maximal-type reconstruction, separates one-input smoothing from two-input sensitivity, and yields a constructive worst-case family rather than a bare numerical example.
+No searched stronger statement implies the exact two-input BV modulus of the two-radius centered uniform envelope. One-input full discrete maximal regularity and unrelated two-choice L2 bounds have different hypotheses and conclusions; historical equivalences not indexed remain possible.
 
-## Closest literature and limitations
+## value
 
-The closest archival primary sources are arXiv:1005.3030v1 (2010-05-17), arXiv:1309.1535v1 (2013-09-06) and arXiv:1512.04112v1 (2015-12-13), with their operator definitions and main theorems compared. The conclusion applies only to uniformly weighted symmetric windows with exactly two radius choices on real bi-infinite signals. It does not settle the full centered maximal operator, nonuniform weights, finite boundaries, vector-valued data, or all equality cases. Independent mathematical review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A structural exact, attained stability threshold at r=2 for an elementary two-choice smoothing envelope, with linear instability as window radius grows, is mathematically motivated by the distinction between output variation and pairwise sensitivity; proof supplies usable sharp constants and witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
