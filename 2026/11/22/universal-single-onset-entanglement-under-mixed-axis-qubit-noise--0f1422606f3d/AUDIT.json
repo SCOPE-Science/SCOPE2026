@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Exact master-equation reduction and stationary resolvent yield a positive normalized X-state for every J,a,b,r>0. Its competing concurrence branch is ruled out by a symbolic all-positive-monomial certificate Q. The remaining branch sign is determined by a degree-eight polynomial with P0..P2<0, P5..P8>0, and P3>=0 forcing P4>0; Descartes rule yields exactly one positive root, with opposite endpoint signs. The exact algebra and full independent 16x16 Liouvillian have been replayed via embedded checker.py (880 numerical assertions in addition to exact symbolic identities).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni–Majumdar (2023), arXiv:2307.07485, Secs. II–III, provides the renewal stationary matrix for CLOSED unitary dynamics, with no local Lindblad noise.",
+        "Hartmann–Dür–Briegel (2007), arXiv:quant-ph/0703138, Secs. 2.3–2.4 and 3.2, applies separately acting ONE-QUBIT reset terms and distinct dissipative generators; it does not supply a joint reset plus the mixed-axis Pauli generator.",
+        "Rose et al. (2018), arXiv:1806.01298, develops the general quantum stationary-reset resolvent; this already implies how to set up, not how to factor, the present entanglement sign polynomial.",
+        "General 2018 resolvent covers stationary *existence and calculation method* but does not state the eighth-degree polynomial or its sign classification."
+      ],
+      "reasoning": "Prior general frameworks determine a resolvent in principle and do not, without a nontrivial elimination and sign argument, imply this exact all-positive-parameter concurrence classification. The 2007 master equation uses local resetting; the 2023 spin example uses closed dynamics.",
+      "searches": [
+        "Ising ZZ two qubits Poisson global quantum resetting product plus state dephasing entanglement concurrence threshold",
+        "quantum resetting local dephasing stationary entanglement Ising ZZ two spin exact noise threshold",
+        "https://arxiv.org/abs/2307.07485",
+        "https://arxiv.org/abs/1806.01298",
+        "https://arxiv.org/abs/quant-ph/0703138",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-a-sharp-geometric-mean-noise-threshold-for-entanglement-under-gl--25a4a404999e",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-reset-rate-reciprocity-and-thermal-entanglement-boundary-f--1e0867d1d987"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2307.07485",
+      "https://arxiv.org/abs/1806.01298",
+      "https://arxiv.org/abs/quant-ph/0703138",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-a-sharp-geometric-mean-noise-threshold-for-entanglement-under-gl--25a4a404999e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-reset-rate-reciprocity-and-thermal-entanglement-boundary-f--1e0867d1d987"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Same-axis two-bit-flip prior: no entanglement for J^2<=ab. New mixed-axis case: for every fixed J,a,b>0, C(r)~2J/r>0 above one threshold.",
+        "Pure-dephasing pair-conversion prior: fixed spectator occupation and optional bounded reciprocal entanglement window; new case: active bit-flip-generated spectator occupations and an unbounded positive interval.",
+        "Kulkarni–Majumdar 2023: unitary evolution between resets; new case: two independent noncommuting local jump operators."
+      ],
+      "reasoning": "Neither the geometric-mean no-go theorem nor the dephased pair-conversion theorem logically implies this mixed-channel statement; their hypotheses and phase behaviors differ. The generic resolvent alone is not the classified sign result.",
+      "searches": [
+        "two qubit XX interaction Poisson reset one bit flip other dephasing anisotropic Pauli noise stationary entanglement monotone threshold",
+        "mixed transverse longitudinal Pauli channel spin pair resetting concurrence stationary onset uniqueness",
+        "Lindblad quantum resetting two qubits unequal noise axes sigma x and sigma z concurrence entanglement",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-a-sharp-geometric-mean-noise-threshold-for-entanglement-under-gl--25a4a404999e",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-reset-rate-reciprocity-and-thermal-entanglement-boundary-f--1e0867d1d987",
+        "https://arxiv.org/abs/2307.07485",
+        "https://arxiv.org/abs/quant-ph/0703138"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Local Clifford rotation on the second qubit sends (XX,X1,Z2) to (XZ,X1,X2), not to the previously proved (XX,X1,X2) triple; the interaction/error commutation relation is different.",
+        "Previously published two-X-channel result has the necessary and sufficient J^2>ab condition absent from the mixed-axis model.",
+        "Previously published dephasing pair-conversion result has no generated odd-sector populations and shows a different reset-window geometry."
+      ],
+      "reasoning": "Unitary reparametrization preserving channel commutators cannot identify the mixed-axis generator with either checked model. The sign of commutators with H is a physical invariant; changing only the noise label without transforming H is invalid.",
+      "searches": [
+        "two qubit XX interaction Poisson reset one bit flip other dephasing anisotropic Pauli noise stationary entanglement monotone threshold",
+        "mixed transverse longitudinal Pauli channel spin pair resetting concurrence stationary onset uniqueness",
+        "Lindblad quantum resetting two qubits unequal noise axes sigma x and sigma z concurrence entanglement",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-a-sharp-geometric-mean-noise-threshold-for-entanglement-under-gl--25a4a404999e",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-reset-rate-reciprocity-and-thermal-entanglement-boundary-f--1e0867d1d987"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact full RESULT.md for the nearest two published results was read and compared, not merely matched by title.",
+        "MSC2020 81P42 explicitly covers concurrence and separability criteria."
+      ],
+      "reasoning": "The nearest indexed quantitative classifications apply to non-equivalent generator triples. No exact polynomial or table for the X1/Z2 error pair was found; search absence alone is not a uniqueness proof.",
+      "searches": [
+        "two qubit XX interaction Poisson reset one bit flip other dephasing anisotropic Pauli noise stationary entanglement monotone threshold",
+        "mixed transverse longitudinal Pauli channel spin pair resetting concurrence stationary onset uniqueness",
+        "Lindblad quantum resetting two qubits unequal noise axes sigma x and sigma z concurrence entanglement",
+        "site:mathscinet.ams.org/mathscinet/msc/msc2020.html 81P42",
+        "2026/10/25/SCOPE-a-sharp-geometric-mean-noise-threshold-for-entanglement-under-gl--25a4a404999e",
+        "2026/11/8/SCOPE-exact-reset-rate-reciprocity-and-thermal-entanglement-boundary-f--1e0867d1d987"
+      ]
+    },
+    "rationale": "Specific global reset model with XX coupling and unequal Pauli error axes is not covered by the inspected sources: two X channels commute with XX and possess a J^2>ab feasibility obstruction, whereas the present X and Z channels do not and yield high-reset concurrence 2J/r; the pure-dephasing pair-conversion model freezes spectator populations. The full exact single-onset classification with an eighth-degree threshold was not identified. Generic resetting and earlier qualitative entanglement phenomena are expressly excluded from the novelty claim.",
+    "residual_risks": [
+      "The inspected sources are bounded; a general unindexed channel-theoretic classification may subsume the result.",
+      "The sign polynomial may be implicit in a broader all-channel stationary-state resolvent, even though no dominating explicit comparison was identified.",
+      "Independent publication-priority review was not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unitary closed-system between resets; no local mixed-axis noise and no eighth-degree threshold",
+        "evidence": [
+          "arXiv:2307.07485v2, Secs. II–III; first posted 2023-07-14"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.07485",
+        "material_read": "Full arXiv HTML v2: introduction, general reset framework, two-spin model and stationary concurrence section",
+        "method": "Open-access HTML inspection of equations, Hamiltonian assumptions and model scope",
+        "title": "Generating Entanglement by Quantum Resetting",
+        "trigger": "Earliest public supporting two-spin reset entanglement paper and closest baseline"
+      },
+      {
+        "assessment": "Acts by separate one-qubit resets, not complete-pair reset; offers qualitative antecedent but no same generator theorem",
+        "evidence": [
+          "arXiv:quant-ph/0703138v1, Eqs. (7), (16)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/quant-ph/0703138",
+        "material_read": "Open-access full HTML: local-reset master equations 2.3–2.4, strongly coupled model 3.2",
+        "method": "Read dynamical generators and qualitative phase comparison",
+        "title": "Entanglement and its dynamics in open, dissipative systems",
+        "trigger": "Historical high-noise and two-qubit entanglement reset antecedent"
+      },
+      {
+        "assessment": "Methodologically stronger for existence; no specific mixed-axis threshold or concurrence analysis",
+        "evidence": [
+          "arXiv:1806.01298v2, general reset stationary-state treatment"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.01298",
+        "material_read": "Open-access HTML: general quantum Markov reset spectral formulation, stationary mode expansion and quantum examples",
+        "method": "Compared scope of general stationary resolvent to claimed entanglement polynomial",
+        "title": "Spectral properties of simple classical and quantum reset processes",
+        "trigger": "Potentially dominating general reset resolvent"
+      },
+      {
+        "assessment": "Both jumps are X and commute with XX; predicts J^2>ab feasibility boundary, unlike this mixed-axis generator",
+        "evidence": [
+          "Full RESULT.md: Section Proof, two-bit-flip stationary matrix and quartic P"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-a-sharp-geometric-mean-noise-threshold-for-entanglement-under-gl--25a4a404999e",
+        "material_read": "Complete publicly hosted RESULT.md proof, assumptions, phase polynomial and limitations",
+        "method": "Compared Hamiltonian, each local Lindblad operator, preparation, critical polynomial, strong-reset asymptotics",
+        "title": "A sharp geometric-mean noise threshold for entanglement under global quantum resetting",
+        "trigger": "Most plausible exact two-local-noise comparison"
+      },
+      {
+        "assessment": "No bit flips or odd-sector pumping; does not dominate new mixed noise case",
+        "evidence": [
+          "Full RESULT.md: Section Proof, pair conversion plus two Z noises"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-reset-rate-reciprocity-and-thermal-entanglement-boundary-f--1e0867d1d987",
+        "material_read": "Complete publicly hosted RESULT.md proof, assumptions, stationary matrix and limitations",
+        "method": "Compared pair-only Hamiltonian, frozen odd populations, reset preparation and entanglement intervals",
+        "title": "Exact reset-rate reciprocity and thermal entanglement boundary for a dephased qubit pair",
+        "trigger": "Plausible broader dephasing-based exact concurrence phase classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0f142260-6f3d-4765-8793-f6f7bf44e14e",
+  "value": {
+    "rationale": "The all-rate classification answers the natural physical control question of whether mismatched Pauli-error axes admit entanglement rescue under joint resets. Unlike the established commuting same-axis model, the anticommuting second noise channel removes a previously sharp geometric-mean feasibility obstruction for every fixed finite noise pair, with an exact positive single-onset interval. The unique polynomial boundary is useful for model calibration and control and not simply an evaluated textbook limit.",
+    "status": "PASS"
+  }
+}
