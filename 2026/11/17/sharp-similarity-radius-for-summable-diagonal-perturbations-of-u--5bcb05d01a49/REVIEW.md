@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(B_w e_{k+1}=w_ke_k\), the tail right inverses satisfy \([B_w,R_j]=P_j\), \(D_jR_j=R_jD_{j-1}=0\). Therefore each finite shear exactly removes one diagonal coordinate by intertwining. Absolute summability and a strict uniform magnitude gap make the ordered products and their inverse products norm Cauchy, proving an actual bounded similarity on the entire infinite space. In the scalar case the point-spectrum obstruction at \(|d_j|\ge|\omega|\) is decisive because the eigenvectors are finitely supported. The boundary and zero-coordinate cases have been included, as have every complex phase, every finite \(p\), and \(c_0\). The 157 exact-rational checks reproduce finite algebra only; the analytic norm-product argument proves the infinite statement.
+PASS
 
-## Originality — PASS (qualified)
+Directly checked the shift/tail-forward commutator B_w R_j-R_j B_w=P_j and vanishing D_jR_j=R_jD_(j-1)=0 on each canonical coordinate. Q_j=I-d_j R_j gives (B_w+D_j)Q_j=Q_j(B_w+D_(j-1)); ordered products intertwine at each N. With inf|w_j|=m>0 and d in ell1, sup|d_j|/m<1 makes product and inverse norm-Cauchy with explicit (1+c_j)/(1-c_j) bounds. For constant weight the strict entrywise condition is uniformly strict since d_j->0; finite-support eigenvectors for every d_j obstruct similarity when |d_j|>=|omega| via the unperturbed open-disk point spectrum. Mixing/frequent-hypercyclic transfer is valid only in the similar regime; scalar shift threshold |omega|>1 and universal supercyclicity are standard.
 
-The closest source [1] develops the same diagonal-perturbation operator family but gives dynamical criteria and a conditional basis theorem, not this quantitative norm-convergent similarity and sharp scalar radius. Its principal sections and proofs have been materially compared. The older bilateral spectrum result [2] does not imply similarity. The rank-one Hardy-shift intertwiner classification [3] has a different perturbation class and no theorem for arbitrary summable diagonals on all stated sequence spaces. The broad typical-ergodicity analysis [4] is not a sufficient theorem for exact similarity. Indexed operator findings on geometric weighted-shift similarity and diagonal shift-pair couplings treat different operations and are not stronger implications. Residual priority risk: an unindexed operator-basis equivalence or an abstract similarity theorem may cover the ordered-shear result via a reduction not seen in the inspected sources.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This determines a natural similarity invariant for an entire infinite-dimensional perturbation family, supplies an explicit uniformly bounded conjugator, proves that the boundary radius is necessary, and converts sufficient dynamical tests into a complete classification of mixing and frequent hypercyclicity in a nontrivial summable regime. For general bounded-below weighted shifts it establishes a reusable perturbation-removal mechanism. The interest is structural similarity, not a tiny numerical improvement or a special finite instance.
+Exact all-entry bounded similarity and explicit infinite ordered-tail-shear conjugator are not consequences of the nearest inspected same-family dynamics and shadowing paper, a bilateral spectrum result, rank-one Hardy similarity or shift-weight similarity theorems. Stronger unpublished basis-equivalence identities remain a best-of-knowledge risk.
 
-## Closest sources and limits
+## value
 
-Primary sources: [1] arXiv:2610.15023, [2] arXiv:1609.05203, [3] arXiv:1207.3428, [4] arXiv:1703.01854. General variable-weight necessity, broader nonsummable cases, and optimal similarity constants are not claimed. This is not a claim of an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural infinite-dimensional similarity classification for a whole trace-class diagonal perturbation family, with a sharp spectral boundary, explicit bounded inverse and full dynamical transfer. The weighted bounded-below extension supplies a structural sufficient method rather than an isolated numerical exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

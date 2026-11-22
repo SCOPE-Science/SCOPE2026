@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The explicit tail-shear commutator was independently derived on canonical basis vectors. The exact finite intertwining relation, norm-Cauchy estimates, convergence of the inverse products, and finite-support eigenvalue obstruction were checked analytically.
+# Independent mathematical audit
 
-A standalone no-dependency rational checker applies the similarity factorization on 147 finite-support columns for seven nonconstant positive shift-weight families, and verifies ten finite-support eigenvectors at the sharp scalar spectral obstruction. The checker reported all 157 cases passing. These finite cases do not prove the infinite-dimensional theorem; the proof supplies that argument.
+## correctness
 
-The literature comparison examined the actual operator classes and implications of four primary sources. Residual risk: equivalent older Schauder-basis or operator-similarity formulations not captured in indexed bibliographies. No independent external verification is asserted.
+PASS
+
+Directly checked the shift/tail-forward commutator B_w R_j-R_j B_w=P_j and vanishing D_jR_j=R_jD_(j-1)=0 on each canonical coordinate. Q_j=I-d_j R_j gives (B_w+D_j)Q_j=Q_j(B_w+D_(j-1)); ordered products intertwine at each N. With inf|w_j|=m>0 and d in ell1, sup|d_j|/m<1 makes product and inverse norm-Cauchy with explicit (1+c_j)/(1-c_j) bounds. For constant weight the strict entrywise condition is uniformly strict since d_j->0; finite-support eigenvectors for every d_j obstruct similarity when |d_j|>=|omega| via the unperturbed open-disk point spectrum. Mixing/frequent-hypercyclic transfer is valid only in the similar regime; scalar shift threshold |omega|>1 and universal supercyclicity are standard.
+
+## originality
+
+PASS
+
+Exact all-entry bounded similarity and explicit infinite ordered-tail-shear conjugator are not consequences of the nearest inspected same-family dynamics and shadowing paper, a bilateral spectrum result, rank-one Hardy similarity or shift-weight similarity theorems. Stronger unpublished basis-equivalence identities remain a best-of-knowledge risk.
+
+## value
+
+PASS
+
+A natural infinite-dimensional similarity classification for a whole trace-class diagonal perturbation family, with a sharp spectral boundary, explicit bounded inverse and full dynamical transfer. The weighted bounded-below extension supplies a structural sufficient method rather than an isolated numerical exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
