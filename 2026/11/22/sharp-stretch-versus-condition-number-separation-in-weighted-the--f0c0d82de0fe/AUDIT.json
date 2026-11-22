@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Proof enumerates every admissible spanning tree and uses the exact rank-two incidence update. Tree effective resistances and shared current path yield each Gram entry independently of deleted-edge positions; the positive generalized spectrum and smallest eigenvalue one follow from rank and n>=5. Strict one-variable monotonicity and exact radical factorization give the two distinct thresholds; the five-vertex equal-length Gram matrix proves minimality. A standalone checker replayed 152 grounded eigenspectrum/trace cases and seven symbolic identities. Finite tests are supplementary, not a proof for all parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Daniel A. Spielman and Jaeoh Woo, A Note on Preconditioning by Low-Stretch Spanning Trees (2009), https://arxiv.org/abs/0903.2816 (low-stretch and eigenvalue-count bounds for arbitrary weighted graphs)",
+        "Zhuo Feng, GRASS: Graph Spectral Sparsification Leveraging Scalable Spectral Perturbation Analysis (2019), https://arxiv.org/abs/1911.04382 (graph-wide sparsification algorithms and generalized eigenvalue discussion)",
+        "A preconditioner that is a tree, https://www.numerical-linear-algebra.com/essays/a-preconditioner-that-is-a-tree/ (grid-based reversal examples)"
+      ],
+      "reasoning": "The general support/trace theory controls eigenvalues but does not optimize the two retained/nonretained paths on this family. A known grid reversal dominates any claim that reversal exists somewhere, so the accepted claim is specifically the exact minimal theta-family threshold and full all-tree classification, not the generic fact of reversal.",
+      "searches": [
+        "Theta network with three internally disjoint terminal-to-terminal resistor paths; spanning tree preconditioner spectral condition number, low stretch spanning tree not minimizing condition number, sharp finite-dimensional counterexample.",
+        "graph laplacian tree preconditioning spectral condition number total stretch not minimized by minimum stretch tree exact counterexample",
+        "support graph theory spanning tree preconditioner theta graph generalized eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "Zhuo Feng, GRASS: Graph Spectral Sparsification Leveraging Scalable Spectral Perturbation Analysis (2019), https://arxiv.org/abs/1911.04382",
+      "Daniel A. Spielman and Jaeoh Woo, A Note on Preconditioning by Low-Stretch Spanning Trees (2009), https://arxiv.org/abs/0903.2816",
+      "A preconditioner that is a tree, https://www.numerical-linear-algebra.com/essays/a-preconditioner-that-is-a-tree/",
+      "Ittai Abraham and Ofer Neiman, Using Petal-Decompositions to Build a Low Stretch Spanning Tree, DOI 10.1137/17M1115575 (abstract/context)",
+      "Exact endpoint norms of electrical projections on parallel-path networks (public research record indexed November 2026)",
+      "Sharp endpoint stability of Hodge projections on generalized theta networks (public research record indexed October 2026)",
+      "Even-theta spectral rigidity and simultaneous metric–Laplacian equality (public research record indexed November 2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Daniel A. Spielman and Jaeoh Woo, A Note on Preconditioning by Low-Stretch Spanning Trees (2009), https://arxiv.org/abs/0903.2816 (general trace equals total stretch)",
+        "Zhuo Feng, GRASS: Graph Spectral Sparsification Leveraging Scalable Spectral Perturbation Analysis (2019), https://arxiv.org/abs/1911.04382 (relative condition number as spectral criterion)",
+        "A preconditioner that is a tree, https://www.numerical-linear-algebra.com/essays/a-preconditioner-that-is-a-tree/ (stretch ordering can fail in grids)"
+      ],
+      "reasoning": "The published trace result yields only the sum of generalized eigenvalues and does not order their maxima; the example uses rank-two eigenvalue splitting to demonstrate different minimizers. A previously shown grid-based ordering failure does not entail the explicit small-theta universal all-tree formula, the disjoint threshold interval, or the five-vertex obstruction. The algebraic reduction is reconstructed in the proof rather than assumed novel.",
+      "searches": [
+        "Weighted three-arm theta graph pathwise constant conductance, exact spectrum of spanning-tree-preconditioned Laplacian 1+two rank-two eigenvalues; tree choice independent of omitted-edge positions; spectral versus total-stretch optimizer reversal with exact transition 30/7.",
+        "Theta network with three internally disjoint terminal-to-terminal resistor paths; spanning tree preconditioner spectral condition number, low stretch spanning tree not minimizing condition number, sharp finite-dimensional counterexample.",
+        "graph laplacian tree preconditioning spectral condition number total stretch not minimized by minimum stretch tree exact counterexample",
+        "fundamental cycle matrix tree preconditioner eigenvalues maximum stretch relative condition number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Daniel A. Spielman and Jaeoh Woo, A Note on Preconditioning by Low-Stretch Spanning Trees (2009), https://arxiv.org/abs/0903.2816 (Theorem 2.1 and Lemma 2.4 give general trace/stretch and resistance)",
+        "Zhuo Feng, GRASS: Graph Spectral Sparsification Leveraging Scalable Spectral Perturbation Analysis (2019), https://arxiv.org/abs/1911.04382 (Section III-B gives stretch-based estimates)",
+        "Exact endpoint norms of electrical projections on parallel-path networks (public research record indexed November 2026)"
+      ],
+      "reasoning": "Electrical effective-resistance and fundamental-cycle Gram formulations reduce tree-relative eigenvalues to a two-edge matrix, but the generic identities do not state the complete pathwise weighted theta optimizer or the pair of six-vertex thresholds. A projection endpoint-norm result on parallel paths is a different operator norm and does not imply this generalized spectral condition-number comparison.",
+      "searches": [
+        "Weighted three-arm theta graph pathwise constant conductance, exact spectrum of spanning-tree-preconditioned Laplacian 1+two rank-two eigenvalues; tree choice independent of omitted-edge positions; spectral versus total-stretch optimizer reversal with exact transition 30/7.",
+        "Theta network with three internally disjoint terminal-to-terminal resistor paths; spanning tree preconditioner spectral condition number, low stretch spanning tree not minimizing condition number, sharp finite-dimensional counterexample.",
+        "Theta graph tree Laplacian preconditioner rank two eigenvalues, best spanning tree retain shortest path, spectral condition number",
+        "theta graph preconditioner spanning tree eigenvalue",
+        "theta graph tree preconditioner condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact endpoint norms of electrical projections on parallel-path networks (public research record indexed November 2026)",
+        "Sharp endpoint stability of Hodge projections on generalized theta networks (public research record indexed October 2026)",
+        "Even-theta spectral rigidity and simultaneous metric–Laplacian equality (public research record indexed November 2026)",
+        "A preconditioner that is a tree, https://www.numerical-linear-algebra.com/essays/a-preconditioner-that-is-a-tree/ (tables of grid condition numbers, no theta-family table)"
+      ],
+      "reasoning": "The closest search records concern ordinary theta Laplacian eigenvalues or Hodge/electrical projection endpoint norms; these are not a table of the generalized spectrum against inherited-weight spanning trees, and their descriptions do not settle the two threshold comparisons. Those research-record full texts could not be retrieved through the available page reader; no whole-document NOT_COVERING assertion is made.",
+      "searches": [
+        "Weighted three-arm theta graph pathwise constant conductance, exact spectrum of spanning-tree-preconditioned Laplacian 1+two rank-two eigenvalues; tree choice independent of omitted-edge positions; spectral versus total-stretch optimizer reversal with exact transition 30/7.",
+        "Theta network with three internally disjoint terminal-to-terminal resistor paths; spanning tree preconditioner spectral condition number, low stretch spanning tree not minimizing condition number, sharp finite-dimensional counterexample.",
+        "theta graph preconditioner spanning tree eigenvalue",
+        "theta graph optimal low stretch spanning tree",
+        "theta graph tree preconditioner condition number",
+        "theta graph optimal low stretch spanning tree"
+      ]
+    },
+    "rationale": "The exact all-tree two-eigenvalue spectrum and independence from omitted-edge positions, the complete six-vertex conductance phase diagram, and its minimality do not occur in the inspected relevant passages of the cited primary papers. General stretch trace bounds and the existence of stretch/condition-number reversals are expressly credited as prior results. Semantic comparisons distinguish spectral generalized eigenvalues from endpoint projection norms and ordinary Laplacian spectra. This is a best-knowledge assessment, not historical uniqueness proof.",
+    "residual_risks": [
+      "Equivalent formulas may exist in older fundamental-cycle resistance/Gram preconditioning literature not indexed by title or abstract.",
+      "Public repository records on theta electrical projections were searchable by title and summary, but their full texts were not accessible; only objective-level nonimplication is established.",
+      "Full text of one additional 2021 graph Laplacian multilevel/cycle-space paper was unavailable; its abstract does not indicate this exact theta selection problem.",
+      "The finite graph counterexample validates spectral ordering, not practical wall-clock solver speed or performance for reweighted trees."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes spectral condition number objective and total stretch trace proxy, but not the theta pathwise exact pair spectrum and phase-optimal tree selection",
+        "evidence": [
+          "arxiv:1911.04382 Sections II-C and III-B",
+          "generalized eigenvalue formula (3)-(4), trace/stretch formula (8)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.04382",
+        "material_read": "Full accessible structured text; particularly Introduction, Section II-C and Section III-A/B, including formulas (3),(4),(6)-(8) and the tree-backed sparsifier discussion",
+        "method": "Read structured full text with mathematical expressions",
+        "title": "GRASS: Graph Spectral Sparsification Leveraging Scalable Spectral Perturbation Analysis",
+        "trigger": "Direct motivating analysis of spanning-tree spectral similarity and stretch"
+      },
+      {
+        "assessment": "Proves general effective resistance/stretch trace and eigenvalue-count bounds, which are assumed as prior results; does not give exact globally optimal trees for the three-arm weighted theta family",
+        "evidence": [
+          "arxiv:0903.2816 Theorem 2.1, Lemma 2.4, Corollary 2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0903.2816",
+        "material_read": "Full accessible article, Sections 1-2, Theorem 2.1, Lemma 2.4 and proof, Corollary 2.2",
+        "method": "Read structured full text",
+        "title": "A Note on Preconditioning by Low-Stretch Spanning Trees",
+        "trigger": "Strong prior theorem on arbitrary graph tree preconditioning"
+      },
+      {
+        "assessment": "Explicitly demonstrates that stretch ordering may reverse on grid graphs, so existence of reversal is prior; no analytic theta-graph six-vertex thresholds or all-tree spectrum therein",
+        "evidence": [
+          "Sections reporting 6-by-6 and 7-by-7 grid reversals",
+          "grounded generalized eigenvalue methodology"
+        ],
+        "identifier_or_url": "https://www.numerical-linear-algebra.com/essays/a-preconditioner-that-is-a-tree/",
+        "material_read": "Full available essay, especially sections A condition number with no arithmetic in it, What the bound is for, How the spectrum is computed, The measurement that does not go the way it should",
+        "method": "Read online HTML essay and compared numerical examples",
+        "title": "A preconditioner that is a tree",
+        "trigger": "Potential dominating published examples of stretch ranking reversal"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f0c0d82d-e0fe-4fa5-8b17-205e16907352",
+  "value": {
+    "rationale": "Tree preconditioners and stretch minimization are established numerical linear algebra tools; exact disagreement on the smallest eligible theta topology is a motivated structural benchmark. A continuous parameter interval with two distinct sharp crossings identifies precisely when a cheap combinatorial proxy selects the wrong tree, and the all-tree spectrum makes this a reusable calibration family. Not merely an arbitrary finite table or a claimed generic reversal; no runtime gain is asserted.",
+    "status": "PASS"
+  }
+}
