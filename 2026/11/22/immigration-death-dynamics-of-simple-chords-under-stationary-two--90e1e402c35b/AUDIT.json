@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The transition on any fixed edge has exact conditional survival 1-2/n and creation 1/[n(n-1)]; this makes the centered simple-chord count an exact eigenfunction, yielding the temporal covariance with known stationary variance. The static factorial moments imply a Pois(1) start. Stationary rare simultaneous events have O(n^-2) probability by matching enumeration and reversibility, so the n-accelerated compensators converge in L1 to generator 2 birth + 2s death. Expected birth budgets and conditional jump bounds prove tightness, and uniqueness of the nonexplosive immigration–death martingale problem proves full path convergence. The included standard-library script exhaustively checks n=2..6 matching states and every transition, with exact rational arithmetic; finite tests do not substitute for the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full-text comparison of 2021 matching rewiring chain and its mixing theorem",
+        "Flajolet/Noy 2000 analyzes global chord diagram components and crossings"
+      ],
+      "reasoning": "Static laws cannot determine temporal dependence or path limits. Global total-variation mixing results do not determine the local count process on the shorter O(n) scale. A generic dynamical Poisson approximation might cover it but none identified after actual searches.",
+      "searches": [
+        "random chord diagram perfect matching local chord switch Markov chain number of simple chords stationary immigration death Poisson process",
+        "dynamic simple chords chord diagram nearest neighbor switch random walk",
+        "stationary Poisson immigration-death dynamic short chord count under random 2-pair perfect matching switch rewiring, exact covariance",
+        "Cutoff for Rewiring Dynamics on Perfect Matchings arXiv:2108.11890"
+      ]
+    },
+    "checked_sources": [
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "https://arxiv.org/abs/1501.01489",
+      "https://arxiv.org/abs/2108.11890",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-total-variation-constant-for-simple-chords-in-a-uniform-ch--f3c18b7beed6",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-short-chord-crossing-transfer-and-independent-poisson-gaus--0749abe76974"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Static source establishes S_n(0) ⇒ Pois(1)",
+        "2021 source proves a global mixing cutoff for a lazy chain, not local martingale generator convergence",
+        "Exact local conditional edge survival and creation probabilities are newly derived for the forced chain"
+      ],
+      "reasoning": "The original 3-outcome chain and the forced kernel are linearly related, but mixing times have no logical implication to a local count generator, its full path law, or exact autocovariance. The new theorem implies the static Poisson result, not conversely. No primary text read stated stronger local dynamic coverage.",
+      "searches": [
+        "random chord diagram perfect matching local chord switch Markov chain number of simple chords stationary immigration death Poisson process",
+        "short chords random matching local re-pairing two chords dynamics simple chords birth death process",
+        "dynamic simple chords chord diagram nearest neighbor switch random walk",
+        "stationary Poisson immigration-death dynamic short chord count under random 2-pair perfect matching switch rewiring, exact covariance",
+        "Olesker-Taylor 2021 full-text",
+        "Acan 2015 full-text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Static chord Poisson count and covariance are already covered by 2026/11/8/SCOPE-sharp-total-variation-constant-for-simple-chords-in-a-uniform-ch--f3c18b7beed6 and 2026/10/18/SCOPE-exact-short-chord-crossing-transfer-and-independent-poisson-gaus--0749abe76974",
+        "The forced-switch kernel is the nonholding component of Olesker-Taylor 2021; his global cutoff law is a different claim"
+      ],
+      "reasoning": "Aliases tested: short/simple chords, adjacent endpoint matched pairs, two-pair re-pairing, rewiring, immigration–death, Poisson process. Same stationary marginal is a proper consequence of the dynamic theorem, not an equivalent dynamic statement.",
+      "searches": [
+        "random chord diagram perfect matching local chord switch Markov chain number of simple chords stationary immigration death Poisson process",
+        "short chords random matching local re-pairing two chords dynamics simple chords birth death process",
+        "stationary Poisson immigration-death dynamic short chord count under random 2-pair perfect matching switch rewiring, exact covariance",
+        "2026/11/8/SCOPE-sharp-total-variation-constant-for-simple-chords-in-a-uniform-ch--f3c18b7beed6",
+        "2026/10/18/SCOPE-exact-short-chord-crossing-transfer-and-independent-poisson-gaus--0749abe76974"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published static exact factorial moments for simple chords",
+        "Full published bivariate simple-chord/crossing enumerator"
+      ],
+      "reasoning": "No exact lag autocovariance table or functional Markov limit located among retrieved comparable records. Static factorial tables contain no transition kernel across times; re-deriving static mean or variance is not claimed original.",
+      "searches": [
+        "short chords random matching local re-pairing two chords dynamics simple chords birth death process",
+        "stationary Poisson immigration-death dynamic short chord count under random 2-pair perfect matching switch rewiring, exact covariance",
+        "2026/11/8/SCOPE-sharp-total-variation-constant-for-simple-chords-in-a-uniform-ch--f3c18b7beed6",
+        "2026/10/18/SCOPE-exact-short-chord-crossing-transfer-and-independent-poisson-gaus--0749abe76974"
+      ]
+    },
+    "rationale": "The new single claim is the stationary n-time-scaled adjacent-chord counting process limit with an exact full-time covariance eigenmode and two-time void law. Flajolet/Noy, Acan and the two fully inspected static published-finding corpus works cover the equilibrium statistics, which are credited. Olesker-Taylor proves global perfect-matching mixing cutoff for a lazy version of the local chain, not this fine local path law. Targeted published-finding corpus and accessible own-ledger claim searches found no equivalent or dominating result; potential general local-process literature remains a stated priority risk.",
+    "residual_risks": [
+      "A broader theorem on Poisson processes of rare local motifs under random matching transpositions could imply the path law without naming simple chords.",
+      "The inspected rewiring literature may have additional older corollaries on additive local eigenfunctions; exact historical priority is not independently certified.",
+      "Search indexes and accessible full-text sources are not a comprehensive proof of absence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Static component and crossing distributions do not specify fixed-size Markov two-pair rewiring or temporal adjacency-count laws",
+        "evidence": "Title page is explicitly dated March 4, 2000; article studies components and crossings; no matching rewiring dynamics",
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Dated title page, introduction, component theorem and crossing-count analysis in the author research report",
+        "method": "Full PDF text extraction and title-page visual inspection",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Earliest dated archival source and same uniformly random chord-diagram object"
+      },
+      {
+        "assessment": "Proves static short-chord counts and Poisson limits; its growing-diagram construction is not the stationary fixed-size two-pair switch chain",
+        "evidence": "Simple-chord Poisson asymptotics and graph structure, but no accelerated stationary adjacency-count path limit",
+        "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+        "material_read": "Accessible arXiv full text with sections on short chords and extension of random diagrams",
+        "method": "Full-text inspection including local chord-count discussion and construction descriptions",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Same simple-chord observable and static Poisson marginal"
+      },
+      {
+        "assessment": "Analyzes global mixing for a 3-outcome replacement including holding; the current forced switch is the nonholding component. Cutoff statements do not imply a local observable immigration–death process or the exact lag formula",
+        "evidence": "Original chain picks a uniform pairing of four endpoints; hence P_lazy=(1/3)I+(2/3)P_forced. Theorem concerns mixing times.",
+        "identifier_or_url": "https://arxiv.org/abs/2108.11890",
+        "material_read": "Author full-text preprint, abstract and transition kernel, global mixing/cutoff statements",
+        "method": "Open-access full-text inspection and comparison of two-pair kernels",
+        "title": "Cutoff for Rewiring Dynamics on Perfect Matchings",
+        "trigger": "Exact matching-rewiring operation and possible dominating Markov theorem"
+      },
+      {
+        "assessment": "Establishes static Poisson(1) refinement with exact stationary moments, no temporal dynamics. All shared static ingredients treated as known.",
+        "evidence": "Static signed local law and error constant; no rewire transition operator or temporal generator",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-total-variation-constant-for-simple-chords-in-a-uniform-ch--f3c18b7beed6",
+        "material_read": "Complete RESULT.md including factorial moments, Poisson refinement, and limitations",
+        "method": "Read-only full RESULT text inspection",
+        "title": "Sharp total-variation constant for simple chords in a uniform chord diagram",
+        "trigger": "Closest archived published static law from relevant claims search"
+      },
+      {
+        "assessment": "Proves complete one-matching joint simple-chord/crossing generating polynomial, plus stationary mean and variance. Does not couple matchings across update times.",
+        "evidence": "Finite static formula E S=2n/(2n-1), Var(S)=4n(n-1)/(2n-1)^2 already proved there, acknowledged explicitly.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-short-chord-crossing-transfer-and-independent-poisson-gaus--0749abe76974",
+        "material_read": "Complete RESULT.md including proof and joint distribution statement",
+        "method": "Read-only full RESULT text inspection",
+        "title": "Exact short-chord/crossing transfer and independent Poisson–Gaussian limits",
+        "trigger": "Strongest static multivariate coverage and exact moments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "90e1e402-c35b-4849-908e-8721628d80b0",
+  "value": {
+    "rationale": "Simple chords are a natural adjacency-defect statistic of random pairings; static Poisson laws do not give their persistence under the canonical local rewiring chain. A nontrivial exact eigenfunction and n-scale full stationary immigration–death trajectory give quantitative decorrelation, defect lifetimes, and two-time absence probabilities. These are structural rather than cosmetic consequences for sequential/randomized matching dynamics.",
+    "status": "PASS"
+  }
+}
