@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+All finite permutations decompose into directed cycles. For a fixed depth \(d\), an individual point's visible period is its true cycle length when at most \(d\), and otherwise unknown. Cross-term equalities from a shared long cycle form one residue class within the signed difference interval \([-d,d]\), hence have zero, one, or two representatives. The four exhaustive and disjoint type families give \(2d^2+5d+2\). Mandatory distinct short cycles, mandatory intermediate lengths from two-difference signatures, and a large cycle for the extreme singleton give the lower bound; explicit cycles attain it. A smaller-size alternative cannot evade any forced family. The embedded verifier independently constructs raw equality matrices for five depths, checks each extremal witness, and exhausts smaller permutations at depths one and two. This does not replace the infinite proof.
+
+## Originality — PASS within examined sources
+The principal recent starting point is Kuželka, arXiv:2608.30580 (initial public date 2026-08-31). Its finite unary-function model-counting, automorphism-marking and permutation-axiom results concern enumeration of models and computational complexity, not this 2-point bounded-depth universal realizability. Albert–Bouvel–Féray, arXiv:1808.05459, study a distinct permutation logic encoding. Campercholi–Tellechea–Ventura, arXiv:2303.17017, give general algorithms for quantifier-free definability and full tuple-generated types. Published records of finite-variable permutation-digraph theories count sentence equivalence classes, whereas this theorem counts ordered-pair signatures and proves unique optimal simultaneous realization. A one-point arbitrary-function saturation statement does not entail two-point permutation cross-equality types. published-finding corpus semantic searches and primary comparisons did not locate a stronger prior theorem entailing these exact formulas. Historical priority remains provisional owing to possible older equivalent formulations under alternative terminology.
+
+## Value — PASS
+The object is a minimal finite permutation that simultaneously exhibits every consistent two-point bounded-term equality environment. The sharp quadratic resource budget, exact all-depth number of types, and rigid optimal cycle structure are motivated by small test-model construction in finite-model theory and unary permutation structures. No general complexity bound is claimed.
+
+## Limits and closest literature
+The assertion is restricted to one bijective unary function, two free variables, quantifier-free equality atoms and \(d\ge1\). No conclusion about nonbijective functions, arbitrarily many variables, first-order quantifier rank or unbounded term depth follows. Primary references and evidence appear in `RESULT.md`; the exact search comparisons are recorded in `AUDIT.json`. No independent mathematical or historical-priority audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
