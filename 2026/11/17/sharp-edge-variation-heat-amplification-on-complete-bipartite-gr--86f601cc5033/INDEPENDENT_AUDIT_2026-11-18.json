@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:56:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any real input on K_{a,b}, coarea reduces edge-TV bounds to cut indicators. Bernoulli differences P−Q for the two part choices and integrality b−ell≥a−k+1 (or its negative-delta counterpart) force the sharp 2(b−1)/b partwise centering bound; the B-only projection has the same bound by scalar ℓ1-centering and Jensen. Laplacian modes b,a,a+b then give H_t edge differences as the nonnegative-coefficient combination (r−s)T_B+(s−z)T_AB+zI with r=e^(−at), s=e^(−bt), z=e^(−(a+b)t). The bound is attained by a B singleton for every t, yielding exactly 2(b−1)/b r−(b−2)/b z. Its derivative has sign (a+b)(b−2)e^(−bt)−2a(b−1), proving the b−a≤2 threshold, unique positive peak otherwise and b→∞ limit two. The a=b=1, t=0 and b=2 cases are covered. Independent rational small-graph cut enumeration reproduced 1,257 inequalities and all singleton equalities; it corroborates rather than replaces the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing complete-multipartite theorem: J_G(H_t f)≤J_G(f) for all t iff 2max n_i≤N+2, including K_{a,b} iff b−a≤2.",
+          "Its stated scope excludes the exact norm for all positive times when there is transient growth and excludes the sharp centering bound."
+        ],
+        "reasoning": "The broad theorem dominates the contractivity portion; that portion is credited and not counted separately as new. It does not supply the complete two-exponential operator norm or centering lemma.",
+        "searches": [
+          "Resultary semantic: sharp heat semigroup total variation operator norm complete bipartite graph edge total variation amplification vertex cut",
+          "Resultary: 2026/11/1/SCOPE-sharp-heat-variation-contraction-threshold-for-complete-multipar--69f54e5d81fc"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE complete-multipartite TV threshold 2026-11-01 full RESULT",
+        "SCOPE K_{a,b} Lipschitz heat 2026-11-02 full RESULT",
+        "arXiv:1306.2561 bibliographic result and source package literature comparison",
+        "arXiv:1712.00875 bibliographic abstract and source package comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strong same-graph Lipschitz result bounds each edge separately and multiplying by ab yields at best an ab-loss, not the sharp summed-TV bound.",
+          "Earlier multipartite contraction result covers all-time nonexpansivity regime but leaves operator norm above one uncomputed."
+        ],
+        "reasoning": "Converse inference from coincident final formulas is invalid; new BV centering proof supplies a valid route to equality, while earlier theorem owns threshold.",
+        "searches": [
+          "Resultary semantic: sharp heat semigroup total variation operator norm complete bipartite graph edge total variation amplification vertex cut",
+          "Ollivier graph W1 Lipschitz heat versus BV edge TV",
+          "Bauer Horn Lin Li Yau graph 2013 arXiv:1306.2561"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete-bipartite Lipschitz result gives 2(b−1)e^(−at)/b−(b−2)e^(−(a+b)t)/b but is the maximum edge gradient, not the sum of all absolute cross-edge differences.",
+          "New package explicitly proves a different graph-TV operator bound via sharp coarea/centering on K_{a,b}."
+        ],
+        "reasoning": "Scalar equality does not imply an operator norm identity for different domain seminorms. I checked the old proof of the Lipschitz result, which optimizes one edge using graph-metric potentials; it does not prove the all-signal cross-edge summed inequality.",
+        "searches": [
+          "Resultary semantic: sharp heat semigroup total variation operator norm complete bipartite graph edge total variation amplification vertex cut",
+          "graph-BV heat semigroup ℓ1 edge-gradient induced norm complete bipartite",
+          "Resultary: 2026/11/2/SCOPE-sharp-finite-time-lipschitz-amplification-for-heat-flow-on-compl--75c673356ae1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching *TV* full-time two-exponential table was found among the retrieved published SCOPE records; one matching *Lipschitz* profile exists."
+        ],
+        "reasoning": "This is an analytic all-integers invariant, not a database-only result; the visible exact table alias is a different seminorm, so recorded searches do not prove absolute novelty.",
+        "searches": [
+          "Resultary semantic: sharp heat semigroup total variation operator norm complete bipartite graph edge total variation amplification vertex cut",
+          "Resultary complete bipartite variation contraction threshold",
+          "published K_{a,b} Lipschitz heat norm"
+        ]
+      },
+      "rationale": "PASS for the actual all-time graph BV norm and sharp bipartite centering lemma, with strong prior credit: complete-multipartite edge-TV literature already determines contractivity and Lipschitz-heat calculations already give the same scalar profile for a different seminorm. Neither equality of the numeric profiles nor the threshold alone yields the graph-TV operator inequality for all real signals; the centering argument supplies that missing implication. Potential old polyhedral/Markov ℓ1-gradient norm aliases remain a priority risk.",
+      "residual_risks": [
+        "Earlier graph BV and finite Markov semigroup matrix operator norms may contain an equivalent implicit all-time formula.",
+        "Münch–Wojciechowski primary full text not inspected in this run; no whole-text exclusion inferred.",
+        "The previously known contraction criterion and numerical equality with the Lipschitz norm are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers b−a≤2 contraction threshold but no exact amplifying-time graph-TV operator norm",
+          "evidence": "2max_i n_i≤N+2 iff nonexpansive; singleton cut derivative = degree*(2s−N−2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-heat-variation-contraction-threshold-for-complete-multipar--69f54e5d81fc/RESULT.md",
+          "material_read": "Full RESULT.md theorem, cut derivative, partition-pair E inequality, sufficiency and limitations",
+          "method": "GitHub primary full-text read",
+          "title": "Sharp heat-variation contraction threshold for complete multipartite graphs",
+          "trigger": "Exact graph-TV and dominating larger graph class"
+        },
+        {
+          "assessment": "Gives exact Lipschitz/Wasserstein profile; no proof of summed cross-edge TV inequality",
+          "evidence": "Optimization is over max_{edge}|H_tf(u)-H_tf(v)| with max_{edge}|f(u)-f(v)|≤1, not edge-TV sum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-finite-time-lipschitz-amplification-for-heat-flow-on-compl--75c673356ae1/RESULT.md",
+          "material_read": "Full RESULT.md theorem, edge Lipschitz potential argument, heat eigenspaces, peak and limitations",
+          "method": "GitHub primary full-text read",
+          "title": "Sharp finite-time Lipschitz amplification for heat flow on complete bipartite graphs",
+          "trigger": "Identical scalar formula on same graph"
+        },
+        {
+          "assessment": "Cannot assert that the whole paper lacks a related endpoint result without full-text inspection",
+          "evidence": "Primary abstract concerns curvature/heat comparison; full text not verified in this run.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.00875",
+          "material_read": "Repository bibliography and public arXiv abstract; HTML full text retrieval failed",
+          "method": "Public abstract/metadata only, not full-document assessment",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "Possible graph heat-gradient implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Edge-gradient ℓ1 total variation is a natural stability quantity for finite graph diffusion, distinct from the Lipschitz sup-edge gradient. A sharp *all-time* seminorm and extremizer with the exact amplification transition is mathematically more informative than known sign-of-derivative thresholds. The cross-difference centering inequality is a reusable structural lemma, not a direct renaming of the earlier Lipschitz theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE complete-multipartite TV threshold 2026-11-01 full RESULT",
+    "SCOPE K_{a,b} Lipschitz heat 2026-11-02 full RESULT",
+    "arXiv:1306.2561 bibliographic result and source package literature comparison",
+    "arXiv:1712.00875 bibliographic abstract and source package comparison"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact all-time induced edge-total-variation semigroup norm on unweighted K_{a,b}, a≤b, with sharp centering inequality, singleton extremizer and contractivity boundary b-a≤2.",
+  "limitations": [
+    "Only unit-weight finite K_{a,b}, real functions and counting-measure combinatorial Laplacian; not normalized/random-walk heat.",
+    "All norm extremizers are not classified, and absolute bibliographic priority is provisional."
+  ],
+  "residual_risks": [
+    "Earlier graph BV and finite Markov semigroup matrix operator norms may contain an equivalent implicit all-time formula.",
+    "Münch–Wojciechowski primary full text not inspected in this run; no whole-text exclusion inferred.",
+    "The previously known contraction criterion and numerical equality with the Lipschitz norm are not new."
+  ],
+  "schema_version": 1
+}

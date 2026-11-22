@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph variation is explicitly defined as the cross-edge \(\ell_1\) gradient. A finite coarea decomposition reduces the centering bound to cut indicators. The exact three-point distribution calculation, integer lower bounds for the relevant cross-cut mass, and a one-sided \(\ell_1\) mean-centering estimate prove both inequalities for all real inputs. The Laplacian's three nonconstant spectral modes give an exact nonnegative-coefficient decomposition of the heat operator. Singleton indicators attain the upper bound at every time, and differentiation supplies the threshold and unique peak. The packaged exact rational checker confirms systematic finite cases, equality witnesses, semigroup composition and derivative identities. Computation is corroboration, not infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Full text of Bauer et al., arXiv:1306.2561, was inspected at its main results and examples: the results are Li–Yau/curvature-dimension inequalities, not exact edge-\(\ell_1\) semigroup norms. Theorem 3.8 of Münch–Wojciechowski, arXiv:1712.00875, treats the supremum-gradient Lipschitz norm. Theorem 1.1 of Chen–Coulhon–Hua, arXiv:1708.05476, gives \(1<p\le2\) estimates rather than exact endpoint variation constants. The previously obtained complete-multipartite Lipschitz norm has the same scalar specialization on bicliques; it is explicitly credited and is not relabeled as new. The present cross-difference centering inequality and total-variation norm do not follow from simply substituting the name of that different seminorm. Targeted literature and mathematical-record queries found no direct match. Residual risk: a strong older polyhedral-norm or graph heat-kernel result could imply the claim under another formulation.
+PASS
 
-**Mathematical value — PASS.** The exact endpoint \(\ell_1\) stability of a linear diffusion operator is a natural graph BV invariant and is not automatically supplied by Hilbert-space contraction or supremum-gradient estimates. The sharp centering inequality and its extremizer form a structural argument over every biclique size; the all-time profile gives a precise nonexpansivity boundary and transient amplification. The numerical coincidence with a distinct endpoint norm is worth recording, while the claim remains limited to an explicitly identified graph family.
+For any real input on K_{a,b}, coarea reduces edge-TV bounds to cut indicators. Bernoulli differences P−Q for the two part choices and integrality b−ell≥a−k+1 (or its negative-delta counterpart) force the sharp 2(b−1)/b partwise centering bound; the B-only projection has the same bound by scalar ℓ1-centering and Jensen. Laplacian modes b,a,a+b then give H_t edge differences as the nonnegative-coefficient combination (r−s)T_B+(s−z)T_AB+zI with r=e^(−at), s=e^(−bt), z=e^(−(a+b)t). The bound is attained by a B singleton for every t, yielding exactly 2(b−1)/b r−(b−2)/b z. Its derivative has sign (a+b)(b−2)e^(−bt)−2a(b−1), proving the b−a≤2 threshold, unique positive peak otherwise and b→∞ limit two. The a=b=1, t=0 and b=2 cases are covered. Independent rational small-graph cut enumeration reproduced 1,257 inequalities and all singleton equalities; it corroborates rather than replaces the general proof.
 
-**Limits and priority.** No claim is made about weighted graphs, normalized heat flow, arbitrary graph topologies, or classification of all maximizers. Publication priority has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the actual all-time graph BV norm and sharp bipartite centering lemma, with strong prior credit: complete-multipartite edge-TV literature already determines contractivity and Lipschitz-heat calculations already give the same scalar profile for a different seminorm. Neither equality of the numeric profiles nor the threshold alone yields the graph-TV operator inequality for all real signals; the centering argument supplies that missing implication. Potential old polyhedral/Markov ℓ1-gradient norm aliases remain a priority risk.
+
+## value
+
+PASS
+
+Edge-gradient ℓ1 total variation is a natural stability quantity for finite graph diffusion, distinct from the Lipschitz sup-edge gradient. A sharp *all-time* seminorm and extremizer with the exact amplification transition is mathematically more informative than known sign-of-derivative thresholds. The cross-difference centering inequality is a reusable structural lemma, not a direct renaming of the earlier Lipschitz theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
