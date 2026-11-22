@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The independent covariance integrals give C_n(t)=t(1-t^n)/(n+1) and V_n=n²/[(n+1)²(2n+1)]. Gaussian projection yields risk; derivative sign is an explicit degree-(n+2) polynomial. By Descartes plus known signs it has one interior simple root for all eta>0, and the factored eta=0 case has one interior root. Noise ordering and three information asymptotics follow from the exact critical-point balance and uniqueness of the positive exponential root. Exact rational checks (322) and >48000 high-precision comparisons support but are not replacements for these arguments. Boundary cases n=1, eta=0 and t∈{0,1} explicitly handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai–Lam–Scarlett arXiv:2202.10615: general RKHS average-case error rates, not an exact finite-sample Brownian-bridge weighted optimum with exponent-varying target.",
+        "Karvonen–Kanagawa–Särkkä 2019: optimal-weight positivity/stability theorems under other designs; no given single noisy Beta-weighted bridge location formula."
+      ],
+      "reasoning": "General GP regression formula does not entail the explicit unique polynomial root and the singular limits without further nonstandard analysis. Bounds from broader Bayesian quadrature cannot be specialized by matching an exponent to obtain these sharp constants or crossover.",
+      "searches": [
+        "one point optimal recovery Brownian bridge weighted integral t power moment sensor noise",
+        "Beta(n,1) weighted Brownian bridge integral one noisy point, optimal location 1 - c/n versus 1 - log(n)/n",
+        "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature arxiv 2202.10615 (full-text noisy bounds)",
+        "On the positivity and magnitudes of Bayesian quadrature weights doi 10.1007/s11222-019-09901-0"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1904.06998",
+      "arxiv:2202.10615",
+      "arxiv:2210.15959",
+      "doi:10.1007/s11222-019-09901-0",
+      "2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+      "2026/11/2/SCOPE-beta-weighted-independent-stratification-cancels-quadratic-noise--e084e24d045d",
+      "2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus record 2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c: one point per stratum (many observations), uniform target, random sampling, different risk.",
+        "Foster et al. approximate entire paths from polynomial-integral coordinates, a dual task to observing a single path point to estimate one coordinate.",
+        "Cai et al. derive convergence bounds rather than the precise unique optimizer and noncommuting order/noise limits."
+      ],
+      "reasoning": "The prior claims do not imply the new exact root and singular limit: neither a dual full-path reconstruction theorem nor a multi-sample uniform-integral theorem yields the single observation Beta(n,1) numerical-optimization problem by specialization. The new proof reduces it to a signed polynomial root and proves its global uniqueness and three asymptotic regimes.",
+      "searches": [
+        "Brownian bridge polynomial moment integral one noisy observation optimal time high degree log n boundary layer",
+        "noisy quadrature weighted Brownian bridge monomial path integral unique location",
+        "Beta(n,1) weighted Brownian bridge integral one noisy point, optimal location 1 - c/n versus 1 - log(n)/n",
+        "published-finding corpus: Exact design loss and Gaussian fluctuations for stratified Brownian kernel quadrature",
+        "arxiv:1904.06998 (full text)",
+        "arxiv:2202.10615 (full text)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Foster–Lyons–Oberhauser, arXiv:1904.06998, sections 2–3: polynomial Brownian coordinates and covariance-operator approximation; does not optimize a single noisy point conditional mean.",
+        "Santin, arXiv:2210.15959: Brownian-bridge power-function interpolation and multi-node worst-case setting, not one-point Beta-weighted Bayes design."
+      ],
+      "reasoning": "The obvious rephrasing is one-point noisy Gaussian conditional estimation of the integral against the Beta(n,1) density, equivalently a linear-kernel BQ weight optimized over t. Covariance projection is known and credited, but no inspected exact Beta-weighted one-point design or order/noise boundary layer appears.",
+      "searches": [
+        "Brownian bridge polynomial moment integral one noisy observation optimal time high degree log n boundary layer",
+        "noisy quadrature weighted Brownian bridge monomial path integral unique location",
+        "Brownian bridge optimal recovery weighted integrals point observations 2019 2020",
+        "arxiv:1904.06998 (integrated polynomial coordinates; full text)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4: two iid random nodes for uniform integration, not one deterministic point for polynomially weighted target.",
+        "published-finding corpus record 2026/11/2/SCOPE-beta-weighted-independent-stratification-cancels-quadratic-noise--e084e24d045d: deterministic quadratic-exact stratification for Beta(2,2), not stochastic bridge integration."
+      ],
+      "reasoning": "An exact existing table for this time/noise/exponent-parameter family was not found. Existing related records cover distinct targets, sample budgets and loss criteria. This is a bounded search, not a global nonexistence proof.",
+      "searches": [
+        "polynomially weighted Gaussian bridge path functional one point quadrature asymptotics",
+        "monomial moment Brownian bridge noisy sample information fraction 0.814528755 2019",
+        "published-finding corpus: Beta-weighted independent stratification cancels quadratic noise using only endpoint interpolation",
+        "published-finding corpus: Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature"
+      ]
+    },
+    "rationale": "The generic Gaussian projection and Brownian covariance are not new. Literature full/partial-text inspections and real research-record semantic queries found no implication covering the unique noisy Beta-weighted optimal time and three sharp order/noise regimes; the motivating Brownian polynomial-coordinate paper has the inverse observation/approximation direction. Historical priority risk persists; the search does not demonstrate global novelty.",
+    "residual_risks": [
+      "Unidentified older specialized optimal-recovery result on weighted Wiener/bridge integrals could cover a special case or stronger theorem.",
+      "Not every older potentially relevant source was inspected in complete full text; independent historical-priority review is unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING after full-text comparison: uses integrated moments to approximate Brownian paths, not one point plus Gaussian noise to estimate a Beta-weighted bridge moment.",
+        "evidence": [
+          "arxiv:1904.06998, §§2–3 (orthogonal polynomial coefficients, Brownian bridge covariance operator)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.06998",
+        "material_read": "Full 27-page preprint including sections 2–3 on monomial integral coordinates, covariance-operator approximation, and numerical applications; source title, abstract, and main text inspected",
+        "method": "Open-access preprint PDF visual pages plus extracted full-text examination",
+        "title": "An optimal polynomial approximation of Brownian motion",
+        "trigger": "Same polynomial Brownian integral coordinates and covariance operator; closest motivating source"
+      },
+      {
+        "assessment": "No identified exact single-point Beta-weighted Brownian-bridge time optimum or high-order noise crossover; generic BQ bounds differ, with residual full-text-priority risk.",
+        "evidence": [
+          "arxiv:2202.10615, abstract and main average-case quadrature bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.10615",
+        "material_read": "Open-access paper introduction and principal bound statements, plus methods overview; relevant statements inspected rather than asserted full inspection",
+        "method": "PDF text/visual check of introduction, major theorem and setup",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Strong candidate for general noisy Bayesian quadrature coverage"
+      },
+      {
+        "assessment": "Examines multipoint interpolation and worst-case kernel power functions rather than one noisy scalar observation for Beta-weighted integral.",
+        "evidence": [
+          "arxiv:2210.15959, power-function and Brownian-bridge interpolation theorem section"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.15959",
+        "material_read": "Relevant early sections and power-function interpolation results including theorem in the body; no exhaustive entire document coverage asserted",
+        "method": "PDF text and page visual inspection of introduction, interpolation results and theorem statement",
+        "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+        "trigger": "Exact Brownian-bridge kernel could subsume a one-point optimal-recovery statement"
+      },
+      {
+        "assessment": "Does not identify the exact polynomial-weight Brownian-bridge single-point design or its high-order measurement-noise asymptotics.",
+        "evidence": [
+          "Karvonen–Kanagawa–Särkkä (2019), weight stability/positivity sections"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11222-019-09901-0",
+        "material_read": "Available scholarly full-text HTML sections on quadrature weight signs, bounds and optimal node conditions",
+        "method": "HTML full-text reading of relevant sections on Bayesian quadrature and weight structure",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Could supply a general weight positivity/local optimization theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4854c484-cc2c-4707-8039-fd22104fb7e1",
+  "value": {
+    "rationale": "The normalized Beta(n,1) family is a canonical endpoint-concentrating sequence of polynomial integral functionals in Brownian approximation, not an arbitrarily chosen one-off weight. The theorem resolves a natural one-measurement sensor-design decision for all integer n and eta, with a nontrivial singular noncommutation between fixed positive noise and high polynomial order; it quantifies a new high-order information-collapse and exact n*eta crossover for path-integral sensing, rather than simply computing a known covariance.",
+    "status": "PASS"
+  }
+}
