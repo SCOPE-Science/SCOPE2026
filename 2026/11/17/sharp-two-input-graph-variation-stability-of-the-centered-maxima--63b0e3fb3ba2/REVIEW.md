@@ -1,19 +1,21 @@
-# Review of the centered-star maximal-function perturbation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns nonnegative inputs and explicitly distinguishes the absolute-value maximal operator on signed inputs. In edge coordinates the centered maximal function is the finite maximum-of-linear-forms map \(F_i(x)=\max\{x_i,x_i/2,\mu\}-\max\{0,\mu\}\), with \(\mu=\sum_jx_j/(m+1)\). All differentiability cells have explicitly bounded \(\ell_1\) Jacobian column sums. The negative-mean case needs the crucial fact that at most \(m-1\) leaves select the global mean; its contradiction proof holds for every integer \(m\ge2\). Continuity of a finite piecewise-affine map extends cellwise bounds globally. Explicit positive inputs attain the constant; the two-vertex case is handled separately. An explicit signed sequence gives a divergent quotient. The standalone exact-rational tests passed, but are not substituted for the universal proof.
+PASS
 
-## Originality — PASS (qualified)
+Enumerating centered balls yields, after removing a common nonnegative baseline, the map F_i(x)=max(x_i,x_i/2,mu)-max(0,mu) with mu=sum(x_i)/(m+1). Its strict affine-cell ℓ1 Jacobian columns are bounded by 2m/(m+1): for mu>0 only direct or mean-selected leaves occur, with sums 1+(s-2)/(m+1) or s/(m+1); for mu<0 the center selects zero and at most m-1 leaves can choose the mean (otherwise summing x_i/2<mu contradicts mu<0), giving at most 1+(m-1)/(m+1). Continuity handles ties. A strict witness with hub=3, first leaf=3+(m-1)/2 and other leaves=2, perturbing first leaf, attains 2m/(m+1), and m=1 reduces to x/2. For signed absolute-value averages f=(1,-1,...,-1), g=(2,epsilon,0,...,0) have input TV epsilon but output TV m-epsilon/2, forcing divergence. Independently reproduced rational equality for m<=16, 5600 rational pair bounds; these bounded examples are not an infinite proof.
 
-The foundational 2014 paper determines vertex \(\ell_p\) bounds for finite-graph maximal operators, whereas the present target is a two-input graph-edge BV stability constant. González-Riquelme–Madrid's 2020 work gives a sharp *one-input* star variation contraction and a qualitative continuity theorem for general data, neither of which yields the sharp difference estimate. Their 2020 sequel and the 2026 general-graph variational paper likewise concern single-input or vertex-norm constants. The available abstract for Liu–Xue concerns one-input variation and continuity; its full text was not examined. The prior comparison searches found no explicit identical or stronger two-input formula. Risks: the exact piecewise-affine calculation could be implicit in unindexed special cases or continuity proofs; absence from index searches does not establish historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-The two-input modulus is the natural robustness constant for a nonlinear maximal filter measured in discrete BV. It differs sharply from the known single-input variation-diminishing constant: the optimal perturbation factor for \(m\ge2\) is exactly twice that factor, increasing toward \(2\). Explicit attaining input pairs give a concrete instability mechanism. The signed-domain infinite-modulus boundary is not a standalone trivial result: it explains why the nonnegative restriction is indispensable and aligns with published continuity restrictions. The result covers every star order, including the singular two-vertex case.
+The concrete external and published-record searches compared mathematical statements, operator domains, norms and implied subcases, not simply titles. Closest strong antecedents were read to their stated scope. No earlier theorem subsuming the final exact result was established. This is a best-of-knowledge conclusion, not priority certification; disclosed archival and nomenclature risks remain.
 
-## Remaining limits
+## value
 
-No classification of all extremizing pairs is asserted. No generalization to weighted, fractional or uncentered maximal operators is claimed. Historical-priority certainty is limited by incomplete inspection of the Liu–Xue full text and possible alternate nonlinear-map formulations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It supplies the exact full-star nonlinear stability modulus and explicit signed-domain obstruction, sharply separating one-input variation contraction from genuine pairwise BV sensitivity. The factor tends to 2, has attained leaf perturbations, and contrasts with the same star family under uncentered balls; this is a motivated all-size structural graph inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
