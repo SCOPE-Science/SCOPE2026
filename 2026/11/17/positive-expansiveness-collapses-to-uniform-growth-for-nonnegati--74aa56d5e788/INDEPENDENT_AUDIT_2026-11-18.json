@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:49:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob 63c3ba1f6c02b134f95bb04224a81d1c2c3127c2",
+        "https://arxiv.org/pdf/2611.01005",
+        "https://arxiv.org/abs/0805.3654"
+      ],
+      "rationale": "The exact Lp norm change of variables gives the minimum modulus exp(m_a(t)) for m_a(t)=inf_s int_s^(s+t) a, continuous in s and superadditive in t. For nonnegative a, total mass divergent iff each nonzero orbit diverges by monotone convergence, hence kinematic positive expansiveness via Huynh Theorem 3.3. If m(L)=c>0, splitting t=kL+r gives m(t)>=(c/L)t-c and uniform exponential lower bound; Huynh Theorem 4.2 gives Bowen–Walters positive expansiveness. Conversely if m(N)=0 for every integer N, choose intervals with int a<1/N and f_N=phi((x-s_N)/N): ||f_N||~N^(1/p), ||f_N prime||~N^(1/p-1), ||a f_N||^p<=||a||_infty^(p-1)/N. Therefore ||A f_N||/||f_N||->0, and 0 in approximate generator point spectrum contradicts Huynh Theorem 3.6. Generator coercivity follows comparing T(L)f-f to integral T(s)Af and bounding ||T(s)|| by exp(Ms). Superadditive Fekete limit alpha=sup m(t)/t is sharp; a(x)=x/(1+x) has m(t)=t-log(1+t) and no endpoint constant at beta=1. Separately checked normalization and the two monotone example integrals; M=0 case is trivial shift. Analytic proof covers all finite p, not a numerical search.",
+      "residual_risks": [
+        "Generator A=-f prime +af and domain zero trace require p<infinity and bounded scalar multiplier; no L-infinity or signed weight claim.",
+        "Coercivity constant written only for M>0 and positive c, so a=0 is an excluded branch by the hypothesis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huynh Theorems 3.3, 3.6, 4.2 and Chapter 5 are abstract general implications; Section 4.3 constant-weight shift is special. Lods et al study spectral mapping/advection, not explicit Bowen time-change equivalence for spatially varying bounded nonnegative potentials."
+        ],
+        "reasoning": "A broad abstract semigroup result supplies ingredients but does not automatically force generator coercivity equivalent to uniform interval mass for this particular weight family; the explicit approximate-null construction closes that logical gap.",
+        "searches": [
+          "positive expansive weighted right translation semigroups Bowen Walters uniform expansion nonnegative weight generator approximate spectrum",
+          "https://arxiv.org/pdf/2611.01005",
+          "https://arxiv.org/abs/0805.3654"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2611.01005",
+        "https://arxiv.org/abs/0805.3654",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-variance-shifted-expansivity-trichotomy-for-periodic-square-root--c47eb9cf27c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huynh proves only implication uniform growth -> positive expansiveness for all semigroups; its converse is false in that generality. The audited family proves converse using m(L)=0 -> approximate-null generator functions."
+        ],
+        "reasoning": "The audited logical converse is not implied by Huynh general hypotheses alone, as Huynh counterexamples show separations. It becomes true due to nonnegative interval-accumulation structure; endpoint nonattainment is also explicit.",
+        "searches": [
+          "positive expansive weighted right translation semigroups Bowen Walters uniform expansion nonnegative weight generator approximate spectrum",
+          "https://arxiv.org/pdf/2611.01005",
+          "https://arxiv.org/abs/0805.3654"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huynh defines kinematic vs Bowen–Walters time-change positive expansiveness; his right-translation Example 4.6 is T(t)=e^(at)V(t), constant a. The audited scalar weight is variable in space and nonconstant, with interval-minimum m_a(t)."
+        ],
+        "reasoning": "Precisely distinguish time-reparametrized positive expansiveness from kinematic equal-time growth and from hyperexpansive higher-order weighted translations.",
+        "searches": [
+          "positive expansive weighted right translation semigroups Bowen Walters uniform expansion nonnegative weight generator approximate spectrum",
+          "https://arxiv.org/pdf/2611.01005",
+          "https://arxiv.org/abs/0805.3654",
+          "positive expansive weighted translation semigroup interval mass characterization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite table is relevant: the claim classifies an infinite L-infinity potential class through a continuous infimum of interval integrals."
+        ],
+        "reasoning": "A numeric or spectral table cannot replace a necessary-and-sufficient functional condition; this schema branch is mathematically inapplicable to continuous potential classification.",
+        "searches": [
+          "positive expansive weighted right translation semigroups Bowen Walters uniform expansion nonnegative weight generator approximate spectrum",
+          "https://arxiv.org/pdf/2611.01005",
+          "https://arxiv.org/abs/0805.3654",
+          "weighted right shift semigroup minimum modulus m_a(t) positive expansiveness"
+        ]
+      },
+      "rationale": "Huynh proves abstract kinematic criterion, approximate-generator obstruction, sufficient uniform exponential expansion, and Example 4.6 for a constant scalar multiple of the right translation; those are credited. The audited statement handles arbitrary bounded nonnegative *spatially varying* potential and proves necessity of a uniformly positive lower interval mass with an explicit normalized approximate-null construction, so Bowen expansiveness collapses to uniform growth within that family. Huynh abstract hierarchy allows strict separation in general, and his constant-weight example does not imply this full family classification. Older weighted-advection spectral mapping addresses different spectral questions, not a located exact Bowen time-change classification.",
+      "residual_risks": [
+        "A general older weighted-shift cocycle theorem giving equivalence to a minimum-interval log-weight condition may exist; not all such literature full text inspected.",
+        "Abstract Huynh necessity plus generator null construction heavily supports new statement, but is not itself a separate new semigroup concept."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong coverage of abstract ingredients and constant weights, but no quoted spatial-variable nonnegative-potential iff interval-mass theorem",
+          "evidence": [
+            "Huynh Theorem 3.3/3.6, Theorem 4.2, Chapter 5, Example 4.6"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.01005",
+          "material_read": "Available complete 43-page arXiv PDF examined, including abstract, Definitions 2.2–2.3, Theorems 3.3/3.6/4.2/5.2 and Example 4.6; first-page screenshot checked.",
+          "method": "arXiv full-text PDF, theorem lookup and rendered inspection",
+          "title": "Positive expansiveness of operator semigroups: orbit growth and spectral criteria",
+          "trigger": "Same definition, abstract theorems and right-translation Example 4.6"
+        },
+        {
+          "assessment": "Spectral mapping for advection, not verified to rule out analogous Bowen-expansiveness classification; priority risk remains",
+          "evidence": [
+            "arXiv:0805.3654 abstract and weighted translation scope"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0805.3654",
+          "material_read": "ArXiv abstract/bibliographic description and relevant cited characterization only; complete text not read in this run.",
+          "method": "arXiv abstract/citation comparison",
+          "title": "Spectral properties of general advection operators and weighted translation semigroups",
+          "trigger": "Potentially more general source on weighted cocycle spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2611.01005",
+        "pinned variable-potential normalized approximate-null and superadditive growth proof"
+      ],
+      "rationale": "Provides an explicit necessary-and-sufficient criterion for a natural infinite-dimensional semigroup family and resolves an actual distinction between two meaningful dynamical expansiveness notions. The nontrivial lower-interval-mass to generator-coercivity converse, sharp growth-rate supremum, and nonattainment counterexample are useful for operator-semigroup stability; more than merely substituting a constant in Huynh’s example.",
+      "residual_risks": [
+        "Bounded nonnegative scalar potentials only; outside this family the abstract notions can separate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Generator A=-f prime +af and domain zero trace require p<infinity and bounded scalar multiplier; no L-infinity or signed weight claim.",
+    "Coercivity constant written only for M>0 and positive c, so a=0 is an excluded branch by the hypothesis.",
+    "A general older weighted-shift cocycle theorem giving equivalence to a minimum-interval log-weight condition may exist; not all such literature full text inspected.",
+    "Abstract Huynh necessity plus generator null construction heavily supports new statement, but is not itself a separate new semigroup concept.",
+    "Bounded nonnegative scalar potentials only; outside this family the abstract notions can separate."
+  ],
+  "schema_version": 1
+}
