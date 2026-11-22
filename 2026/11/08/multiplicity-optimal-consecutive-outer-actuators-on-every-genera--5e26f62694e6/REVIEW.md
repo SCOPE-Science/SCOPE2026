@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unweighted graph is explicitly defined with \(n\ge5\) and \(2\le k<n/2\); every Fourier block is the real-symmetric two-by-two matrix displayed in RESULT.md. Each block has distinct eigenvalues, and a corresponding vector cannot vanish on the outer layer. Hence a full Laplacian eigenspace consists of one Fourier column for each distinct frequency realizing its eigenvalue. The PBH lower bound is the maximum eigenspace dimension; the square Vandermonde restriction of that many **consecutive outer** coordinates has full column rank for every eigenspace, proving equality. The nonzero leading coefficient of the Chebyshev polynomial gives the \(2k+2\) bound without any approximation. The \(\operatorname{GP}(11,2)\) illustration is established by an explicit degree-ten resultant and a characteristic-two squarefreeness argument, with further integer-modular finite checks. Remaining limits: the proof applies to the stated fixed unweighted Laplacian, not all admissible edge weightings.
+PASS
 
-## Originality — PASS on inspected evidence, with publication-priority residual risk
+Reconstructed unweighted GP(n,k) Fourier block diagonalization for every n>=5 and 2<=k<n/2. Each real-symmetric two-by-two block M_j has simple eigenvalues; its outer component is nonzero. At a common eigenvalue the outer components of the indexed Fourier eigenvectors form a Vandermonde matrix on the first m outer coordinates (m=|J_lambda|), so the first r=max eigenvalue multiplicity outer coordinates pass the complexified PBH criterion simultaneously; eigenspace dimension proves the matching lower bound. Chebyshev F_lambda(t) has degree k+1 with leading coefficient 2^(k+1), giving r<=min(n,2k+2), and mirror frequencies give r>=2. Independently rederived the GP(11,2) tenth-degree resultant from its five-degree cyclotomic trace polynomial; mod-2 squarefreeness plus exclusion of lambda=0,2 establishes r=2, with Z(GP(11,2))=6 from Rashidi et al. Independently constructed integral Laplacians and modular Kalman matrices for seven (n,k) cases, obtaining full rank at the exact r and deficient rank at r-1. These finite computations corroborate examples, not the universal proof; deficient modular rank alone is not generally a real upper-rank certificate, which here comes from spectral PBH.
 
-Gera--Stănică (2011) derive the underlying two-band spectral formula but do not solve optimal coordinate-actuator placement. Parlangeli--Notarstefano (2011) prove reachability for paths and cycles, not generalized Petersen graphs. Rashidi--Poursalavati--Tavakkoli (2020), Theorem 2.2, already give a zero-forcing set of \(2k+2\) consecutive outer vertices; their Theorem 2.5 already gives the six-vertex zero-forcing number for \(\operatorname{GP}(n,2)\), \(n\ge10\). Those facts are excluded from the novelty claim. Their uniform zero-forcing construction does not imply the multiplicity-adaptive optimal placement, and the exact eleven-circumference example distinguishes the properties sharply. Dai (2022) analyzes minimal leader sets generally and for other graph families, without this all-parameter result. Relevant indexed research comparisons returned no claim with equivalent or stronger implication. Residual risk: specialist work outside the accessible indexed literature may contain an equivalent result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification settles both the minimum number of independent coordinate inputs and an explicit attaining placement in an infinite two-parameter family of cubic networks. For general graphs the eigenvalue-multiplicity lower bound need not be achievable by coordinate actuators, so equality is a structural fact, not a definition. The \(\operatorname{GP}(11,2)\) example quantitatively separates a two-input fixed-dynamics solution from a six-vertex zero-forcing requirement. This gives an actionable exact design rule not implied by the existing zero-forcing bound.
+The all-n,k, fixed-Laplacian dedicated-coordinate placement at maximum eigenspace multiplicity is not established by the primary cited works or relevant published SCOPE theorems inspected. The earlier GP Fourier spectrum and 2k+2 zero-forcing prefix are fully credited. The Resultary identical mirror is the same submitted finding and is not a separate predecessor. Originality is a best-of-knowledge conclusion, conditional on residual risk in unindexed specialist control literature.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For an infinite two-parameter family of canonical cubic networks, a natural fixed-matrix control-design invariant (minimum number of independently actuated coordinates) equals a clear algebraic lower bound, with an explicit sharp attaining placement. This is not automatic for arbitrary graphs or for predetermined coordinate-restricted inputs. GP(11,2) demonstrates a motivated strict distinction from the established six-vertex zero-forcing requirement: two sufficient fixed-Laplacian actuators. The theorem is appropriately bounded to unweighted Laplacians, not robust independent perturbation models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

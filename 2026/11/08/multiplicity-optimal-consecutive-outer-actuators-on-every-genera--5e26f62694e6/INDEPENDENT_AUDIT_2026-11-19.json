@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T15:08:14.800820Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed unweighted GP(n,k) Fourier block diagonalization for every n>=5 and 2<=k<n/2. Each real-symmetric two-by-two block M_j has simple eigenvalues; its outer component is nonzero. At a common eigenvalue the outer components of the indexed Fourier eigenvectors form a Vandermonde matrix on the first m outer coordinates (m=|J_lambda|), so the first r=max eigenvalue multiplicity outer coordinates pass the complexified PBH criterion simultaneously; eigenspace dimension proves the matching lower bound. Chebyshev F_lambda(t) has degree k+1 with leading coefficient 2^(k+1), giving r<=min(n,2k+2), and mirror frequencies give r>=2. Independently rederived the GP(11,2) tenth-degree resultant from its five-degree cyclotomic trace polynomial; mod-2 squarefreeness plus exclusion of lambda=0,2 establishes r=2, with Z(GP(11,2))=6 from Rashidi et al. Independently constructed integral Laplacians and modular Kalman matrices for seven (n,k) cases, obtaining full rank at the exact r and deficient rank at r-1. These finite computations corroborate examples, not the universal proof; deficient modular rank alone is not generally a real upper-rank certificate, which here comes from spectral PBH.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rashidi et al. (2020) Theorem 2.2 gives 2k+2 consecutive outer zero-forcing vertices and Theorem 2.5 establishes Z(GP(n,2))=6 for n>=10.",
+          "Yuan et al. (2013), arXiv:1310.5806, derive a maximum-multiplicity input budget for an unrestricted control matrix B, rather than a uniform given coordinate placement."
+        ],
+        "reasoning": "The larger zero-forcing prefix is not a minimum for the fixed matrix when the spectral multiplicity is smaller. The general maximum-multiplicity bound for unrestricted B does not specify or prove that the constrained outer-prefix coordinate matrix attains it.",
+        "searches": [
+          "\"generalized Petersen\" zero forcing consecutive outer",
+          "Rashidi Poursalavati Tavakkoli Theorem 2.2 2.5",
+          "Yuan Zhao Di Wang Lai exact controllability max multiplicity 2013"
+        ]
+      },
+      "checked_sources": [
+        "https://ajc.maths.uq.edu.au/pdf/49/ajc_v49_p039.pdf",
+        "https://arxiv.org/pdf/1109.3556",
+        "https://jacodesmath.com/index.php/jacodesmath/article/download/133/109/244",
+        "https://arxiv.org/pdf/1310.5806",
+        "https://arxiv.org/pdf/1203.0129",
+        "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12385",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/jacobi-cyclic-fiber-control-and-a-sharp-robust-budget-for-anisot--e6e0e98dc25e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/jacobi-cyclic-fiber-control-and-a-sharp-robust-budget-for-anisot--e6e0e98dc25e/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-multiplicity-optimal-consecutive-outer-actuators-on-every-genera--5e26f62694e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dai (2022) studies minimal perfect critical sets for scale-free networks and Cayley trees, with no generalized Petersen classification.",
+          "Notarstefano and Parlangeli (2012), arXiv:1203.0129, prove polynomial/determinant tests for Cartesian grid graphs, not the twisted two-layer circulant family."
+        ],
+        "reasoning": "The nearest general input-budget and grid results do not establish this particular all-(n,k) constrained coordinate placement. The submitted spectral sampling deduction requires the nonvanishing outer Fourier coefficient and a simultaneous Vandermonde restriction at every eigenvalue.",
+        "searches": [
+          "Parlangeli Notarstefano grid controllability 2012 determinant",
+          "Dai minimal perfect critical sets undirected networks 2022",
+          "generalized Petersen exact controllability leader selection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gera and Stanica (2011) Theorem 2.4 supplies exact two-band eigenvalues and their Fourier eigenvector construction.",
+          "Parlangeli and Notarstefano, arXiv:1109.3556, treat paths and cycles, not the two-layer generalized Petersen graph."
+        ],
+        "reasoning": "The eigenvalue formula is prior work. The new stated placement asserts that the first maximum-multiplicity-many outer coordinates simultaneously separate every eigenspace, a fixed coordinate-control statement not explicitly given by the cited spectrum or cycle results.",
+        "searches": [
+          "\"generalized Petersen\" controllability leaders Fourier",
+          "\"generalized Petersen\" \"optimal\" \"actuators\" Laplacian",
+          "Gera Stanica generalized Petersen spectrum Fourier PBH"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2011 spectral polynomial determines eigenvalues, but records no exact optimal coordinate-input location.",
+          "Rashidi et al. tabulate and prove zero-forcing bounds rather than fixed-Laplacian dedicated actuation."
+        ],
+        "reasoning": "An adjacency spectral table, even when sufficient to compute the number, does not list a prefix placement or prove joint controllability for all eigenvalues. No identified exact placement table already settles the all-parameter claim.",
+        "searches": [
+          "GP(11,2) Laplacian coordinate two adjacent leaders spectral multiplicities",
+          "generalized Petersen graph exact Laplacian controllability table",
+          "Gera Stanica generalized Petersen eigenvalues multiplicities"
+        ]
+      },
+      "rationale": "The all-n,k, fixed-Laplacian dedicated-coordinate placement at maximum eigenspace multiplicity is not established by the primary cited works or relevant published SCOPE theorems inspected. The earlier GP Fourier spectrum and 2k+2 zero-forcing prefix are fully credited. The Resultary identical mirror is the same submitted finding and is not a separate predecessor. Originality is a best-of-knowledge conclusion, conditional on residual risk in unindexed specialist control literature.",
+      "residual_risks": [
+        "An unindexed specialist network-sampling or I-graph control paper might present the same consecutive-outer minimum theorem.",
+        "The Fourier/PBH/Vandermonde deduction is short and uses established spectrum results; novelty is the explicit joint placement claim, not an invention of those methods.",
+        "A very short PBH/Vandermonde deduction from a known 2011 spectrum may have appeared under multi-leader controllability, I-graph, periodic sampling, or block-circulant terminology outside indexed sources; no exclusive priority is certified.",
+        "The identical Resultary mirror has the same record identity and cannot establish independent precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Fourier spectrum, not a dedicated coordinate placement theorem",
+          "evidence": [
+            "Theorem 2.4 gives the two roots for each frequency and the Fourier eigenvector structure."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/49/ajc_v49_p039.pdf",
+          "material_read": "Seven-page full text, Theorem 2.4 and eigenvector derivation, Corollary 2.5 and related spectral conclusions",
+          "method": "Read primary journal PDF including theorem and proof",
+          "title": "The spectrum of generalized Petersen graphs",
+          "trigger": "Identical graph family and full Fourier spectral theorem"
+        },
+        {
+          "assessment": "Covers paths and cycles, not generalized Petersen graphs",
+          "evidence": [
+            "Scope and results explicitly restricted to path and cycle graphs; adjacent cycle inputs are separately treated."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.3556",
+          "material_read": "Preprint introduction, PBH preliminaries, stated results and Section IV path/cycle reachability; source is 26 pages",
+          "method": "Read arXiv primary preprint and compare graph family",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "Neighboring Laplacian controllability and adjacent leader mechanism"
+        },
+        {
+          "assessment": "Known zero-forcing construction and gap, not the multiplicity-optimal fixed-Laplacian placement",
+          "evidence": [
+            "Theorem 2.2 uses 2k+2 outer vertices. Theorem 2.5 proves six for k=2, n>=10."
+          ],
+          "identifier_or_url": "https://jacodesmath.com/index.php/jacodesmath/article/download/133/109/244",
+          "material_read": "Eleven-page journal text and figures; Theorem 2.2, Theorem 2.5, their proofs and boundaries",
+          "method": "Read full primary PDF and inspect figure of consecutive outer seeds",
+          "title": "Computing the zero forcing number for generalized Petersen graphs",
+          "trigger": "Same graph, identical larger consecutive outer prefix and six-node gap"
+        },
+        {
+          "assessment": "Prior maximum-multiplicity number for unrestricted control matrices; no universal GP outer-prefix coordinate placement",
+          "evidence": [
+            "Equation (3) optimizes min rank(B) for general B; method constructs Q=P^{-1}B."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.5806",
+          "material_read": "ArXiv primary paper abstract, equations (3)-(4), maximum-multiplicity control argument and input-matrix assumptions",
+          "method": "Read primary preprint and its max-multiplicity equation and assumptions",
+          "title": "Exact Controllability of Complex Networks",
+          "trigger": "Broadest published maximum-multiplicity theory, possibly dominant"
+        },
+        {
+          "assessment": "Cartesian grid networks, not generalized Petersen block-circulant graphs",
+          "evidence": [
+            "Graph class is Cartesian products of paths; coordinate criteria depend on grid eigenvector geometry."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1203.0129",
+          "material_read": "Preprint abstract, graph-product setup, Section V result statement and determinant approach",
+          "method": "Read primary arXiv PDF and scope/technique comparisons",
+          "title": "Controllability and observability of grid graphs via reduction and symmetries",
+          "trigger": "Nearest prior polynomial-evaluation approach for multiple grid eigenvalues"
+        },
+        {
+          "assessment": "General framework with concrete tree and scale-free examples, not GP fixed-placement theorem",
+          "evidence": [
+            "Demonstrated classifications are scale-free networks and Cayley trees."
+          ],
+          "identifier_or_url": "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12385",
+          "material_read": "HTML introduction, MPCS definitions, main statements and tree/scale-free examples",
+          "method": "Read open article and inspect statements and graph examples",
+          "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+          "trigger": "General exact graph-coordinate leader optimization"
+        },
+        {
+          "assessment": "Applies to Jacobi tensor sums with cyclic rooted second factor; GP(n,k) has different outer/inner circulant operators and is not a tensor sum of this form",
+          "evidence": [
+            "Its H=A tensor I+t I tensor B hypothesis does not include distinct outer C and inner C^k."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/jacobi-cyclic-fiber-control-and-a-sharp-robust-budget-for-anisot--e6e0e98dc25e/RESULT.md",
+          "material_read": "Complete RESULT.md theorem, determinant proof, hypotheses, examples and limitations",
+          "method": "Read full original Git content and compared operator factorization",
+          "title": "Jacobi–cyclic fiber control and a sharp robust budget for anisotropic square grids",
+          "trigger": "Recent published general theorem about spectral-multiplicity optimal consecutive inputs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an infinite two-parameter family of canonical cubic networks, a natural fixed-matrix control-design invariant (minimum number of independently actuated coordinates) equals a clear algebraic lower bound, with an explicit sharp attaining placement. This is not automatic for arbitrary graphs or for predetermined coordinate-restricted inputs. GP(11,2) demonstrates a motivated strict distinction from the established six-vertex zero-forcing requirement: two sufficient fixed-Laplacian actuators. The theorem is appropriately bounded to unweighted Laplacians, not robust independent perturbation models.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/multiplicity-optimal-consecutive-outer-actuators-on-every-genera--5e26f62694e6/AUDIT.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/multiplicity-optimal-consecutive-outer-actuators-on-every-genera--5e26f62694e6/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/multiplicity-optimal-consecutive-outer-actuators-on-every-genera--5e26f62694e6/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/multiplicity-optimal-consecutive-outer-actuators-on-every-genera--5e26f62694e6/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/multiplicity-optimal-consecutive-outer-actuators-on-every-genera--5e26f62694e6/SLOGAN.txt",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/multiplicity-optimal-consecutive-outer-actuators-on-every-genera--5e26f62694e6/VERIFICATION.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/multiplicity-optimal-consecutive-outer-actuators-on-every-genera--5e26f62694e6/verify_gp.py",
+    "https://ajc.maths.uq.edu.au/pdf/49/ajc_v49_p039.pdf",
+    "https://arxiv.org/pdf/1109.3556",
+    "https://jacodesmath.com/index.php/jacodesmath/article/download/133/109/244",
+    "https://arxiv.org/pdf/1310.5806",
+    "https://arxiv.org/pdf/1203.0129",
+    "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12385",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/jacobi-cyclic-fiber-control-and-a-sharp-robust-budget-for-anisot--e6e0e98dc25e/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-multiplicity-optimal-consecutive-outer-actuators-on-every-genera--5e26f62694e6"
+  ],
+  "disposition": "passed",
+  "final_claim": "Unchanged: universal maximum-eigenspace-multiplicity sharp coordinate actuator number and explicit consecutive-outer placement for every stated GP(n,k), with the exact GP(11,2) example. No formal generalization, weighted perturbation robustness, or classification of all optimizers is asserted.",
+  "limitations": [
+    "No classification of every minimum placement, conditioning, control energy, generic edge perturbations, or strong structural controllability.",
+    "Maximum multiplicity is defined by exact eigenvalue equality; numerical rounding does not prove spectral collisions.",
+    "Best-of-knowledge originality, with residual unindexed literature risk; not a claim of human priority certification.",
+    "The present publication plan stages public metadata sanitization only and does not itself publish or modify GitHub.",
+    "Original operational source metadata is preserved in the frozen Git history; guarded neutral replacements remove sensitive identifiers from the proposed public files.",
+    "Historical ledger gaps remain unchanged."
+  ],
+  "schema_version": 1
+}
