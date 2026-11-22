@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly constructs iid packet labels for an a=2^k GSR shuffle, localizes correct guesses to the first/last packets except on a Chernoff-exponentially small event, and exactly reduces packet hits to occupation of {-a,...,-1} by a centered span-one geometric-increment random walk. The uniform Fourier local limit and ordered-visit moment expansion, with a Dirichlet integral and moment determinacy, establish the half-normal limits and every fixed moment. Separate packet halves yield independent copies and the Gaussian rotation yields the CDF and variance. The packaged standard-library checker passes 86 exact rational marginal comparisons and 3806 pathwise/finite numerical checks. Assumptions and normalization have been verified, with no reliance on finite simulation as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 optimal-strategy theorem determines only the maximizing label and leading expected score; it states that higher moments require joint laws.",
+        "Full text of the published unique-label result proves only expectation asymptotics under the additional permutation restriction; it explicitly disclaims score-distribution conclusions.",
+        "A published Brownian top-rank local-time result analyzes complete-feedback multiset decks, not fixed no-feedback guessing after GSR shuffles."
+      ],
+      "reasoning": "An expectation optimum or an exact single-position marginal does not determine the joint law of correctness indicators. A strategy constrained to use every label exactly once is a different decision problem. The complete-feedback fixed-type model is a different experiment. Hence these results do not subsume the asserted limit.",
+      "searches": [
+        "optimal no-feedback card guessing after riffle shuffles success count variance distribution binary labels deck positions",
+        "optimal guessing permutation riffle shuffle no feedback sharp success distribution",
+        "Krityakierne Thanatipanonda 2611.04339 question distribution X^G* for fixed k >= 2",
+        "2026/11/8/SCOPE-sharp-fixed-shuffle-score-for-unique-label-no-feedback-riffle-gu--7af61d909478",
+        "2026/10/27/SCOPE-brownian-top-rank-local-time-for-fixed-type-complete-feedback-ca--e924899928c8"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.04339v1",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-fixed-shuffle-score-for-unique-label-no-feedback-riffle-gu--7af61d909478/RESULT.md",
+      "https://doi.org/10.1016/j.aam.2024.102689",
+      "https://doi.org/10.3934/math.20251075",
+      "https://arxiv.org/abs/2308.15782",
+      "https://doi.org/10.1214/aoap/1177005705"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.2 of the 2026 paper gives E[X]=2 sqrt(n/((a−1)pi))+O(1); many non-equivalent laws have this mean.",
+        "Corollary 4.1 controls which deterministic guesses are optimal; it does not supply correlations between correct-guess events.",
+        "The unique-label source optimizes a permutation-restricted expectation and explicitly does not determine its own score distribution."
+      ],
+      "reasoning": "Combining an optimal expected score with one-time marginals is logically insufficient to infer a law of the sum, its variance, or moments. The new packet-coupling, concentration, and occupation arguments bridge precisely that gap. The k=1 special case is subsumed by historical work and not claimed original.",
+      "searches": [
+        "arxiv:2611.04339v1 (Theorem 1.1, Theorem 1.2, Corollary 4.1, Section 6)",
+        "arxiv:2308.15782",
+        "doi:10.3934/math.20251075",
+        "2026/11/8/SCOPE-sharp-fixed-shuffle-score-for-unique-label-no-feedback-riffle-gu--7af61d909478"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new score has the equivalent max-of-two-half-normals representation and CDF erf(x sqrt((a−1)/2)) squared.",
+        "The originating paper Section 6 explicitly identifies multishuffle score distribution as an unresolved question.",
+        "The 2024 Kuba–Panholzer work establishes a one-shuffle limit law, not k≥2."
+      ],
+      "reasoning": "Compare a sum of two independent half-normals and an equivalent maximum of two independent half-normals after orthogonal Gaussian rotation, as well as local-time occupation formulations. The k=1 limit is covered and credited; the fixed k≥2 class is outside its scope. No searched equivalent multishuffle law was located.",
+      "searches": [
+        "fixed k≥2 Gilbert Shannon Reeds riffle no-feedback card guessing normalized score weak limit sum independent half-normal variables",
+        "2^k packet riffle optimal guessing number correct guesses distribution local time negative-binomial renewal random walk",
+        "exact half normal limit no feedback multi riffle score convolution of two Gaussian absolute values",
+        "arxiv:2611.04339v1, Sections 1 and 6",
+        "doi:10.1016/j.aam.2024.102689"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full primary text for arXiv:2611.04339v1, including further remarks and all references, reports the fixed-k≥2 score law as unknown.",
+        "Related published RESULT.md has only a fixed-k unique-label expected-score coefficient and no tabulation of the repeated-guess score distribution."
+      ],
+      "reasoning": "No examined exact finite distribution table or cited asymptotic formula determines the claimed CDF, convergence of all fixed moments, or sharp variance coefficient. A complete absence claim about all existing databases is not made.",
+      "searches": [
+        "fixed k≥2 Gilbert Shannon Reeds riffle no-feedback card guessing normalized score weak limit sum independent half-normal variables",
+        "Krityakierne Thanatipanonda 2611.04339 question distribution X^G* for fixed k >= 2",
+        "optimal no-feedback card guessing after riffle shuffles success count variance distribution binary labels deck positions",
+        "2026/11/8/SCOPE-sharp-fixed-shuffle-score-for-unique-label-no-feedback-riffle-gu--7af61d909478"
+      ]
+    },
+    "rationale": "The 2026 primary full text, Section 6, explicitly leaves the score distribution for k≥2 open after proving the fixed-k optimum and its mean. The new distributional law uses joint a-packet labels and independent geometric occupation counts, not derivable from one-position marginals or the earlier fixed-k expectation alone. The known 2024 one-riffle limit is credited as the k=1 boundary. A highly related published published-finding corpus RESULT.md was read in full: it optimizes the expected score when every card is guessed exactly once, with a different optimum and without a score distribution. No exact or stronger covering claim arose in actual searches; residual historical equivalence risk remains.",
+    "residual_risks": [
+      "An older equivalent result phrased as a renewal occupation limit for repeated-guess riffle scores could have escaped title/semantic searches.",
+      "Not all historical card-guessing and random-walk papers were examined in full; the 2024 and 2025 related sources were compared using accessible material and the 2026 full-text discussion.",
+      "No independent expert priority or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines model and optimal strategy and mean, explicitly leaves distribution for fixed k>=2 open",
+        "evidence": [
+          "Theorem 1.1 gives g_n(i); Corollary 4.1 gives uniqueness away from odd midpoint",
+          "Section 6 states distribution of optimal score for fixed k≥2 is another question"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.04339v1",
+        "material_read": "Full available arXiv HTML: abstract, both theorems, binomial mixture, proofs, corollary, Section 6 and references",
+        "method": "Primary open-access full-text reading and implication comparison",
+        "title": "Optimal no-feedback card guessing after a fixed number of riffle shuffles",
+        "trigger": "Exact same model and proposed optimal strategy; potential direct coverage"
+      },
+      {
+        "assessment": "Distinct permutation-restricted game; provides expected-score constant, not score law",
+        "evidence": [
+          "This source forces every label to occur exactly once in predictions and maximizes only expected score",
+          "Its limitations explicitly say distribution of correct guesses is not characterized"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-fixed-shuffle-score-for-unique-label-no-feedback-riffle-gu--7af61d909478/RESULT.md",
+        "material_read": "Entire RESULT.md, including theorem, complete proof, assumptions, prior-work comparison and limits",
+        "method": "Primary repository full file read and quantifier/strategy comparison",
+        "title": "Sharp fixed-shuffle score for unique-label no-feedback riffle guesses",
+        "trigger": "Closest same-shuffle no-feedback published claim returned by semantic overlap search"
+      },
+      {
+        "assessment": "Addresses exactly one GSR riffle and cannot directly assert the fixed k≥2 limit",
+        "evidence": [
+          "2026 paper Introduction describes its k=1 limit and separate open k≥2 score-distribution problem"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.aam.2024.102689",
+        "material_read": "Accessible journal/publication description, arXiv abstract and bibliographic coverage; full manuscript not established as read for this comparison",
+        "method": "Scope and implication comparison with the 2026 citing paper",
+        "title": "On card guessing games: Limit law for no feedback one-time riffle shuffle",
+        "trigger": "Known one-shuffle limiting distribution could dominate if multiple shuffles reduce to one case"
+      },
+      {
+        "assessment": "Single-position generating functions do not contain the joint indicators needed for the asserted score limit",
+        "evidence": [
+          "The 2026 paper derives equation (2.2) from the 2025 framework and identifies higher-moment dependence as unresolved"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/math.20251075",
+        "material_read": "Available article page, abstract and described generating-function results; 2026 paper Sections 1–2 cites the precise marginal formula",
+        "method": "Published-source abstract and subsequent primary theorem comparison",
+        "title": "A generating function framework for the no-feedback card guessing game after riffle shuffles",
+        "trigger": "Exact n,k marginal distribution machinery might already imply a score law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "314e4e9f-3541-44c3-833a-aada387b3dfa",
+  "value": {
+    "rationale": "The 2026 primary paper identifies the fixed-k≥2 distribution as an outstanding next problem: its expected value and optimal strategy do not determine higher moments. This result supplies the entire nondegenerate probability law, all fixed moments, the sharp variance coefficient and a transparent independent-boundary-local-time mechanism for arbitrary fixed shuffle count. It is a natural central statistic for this established game and has direct dependence-level significance beyond the known leading mean.",
+    "status": "PASS"
+  }
+}
