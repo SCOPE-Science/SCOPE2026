@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Finding.** A metastable circular mean and threefold global nonuniqueness for embedded periodic trajectories.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The theorem states its full functional domain, exactly three sample curves, the strict parameter range \( (5-2\sqrt3)/4<u<1/2 \), and the phase-only quotient gauge. The Hilbert variance identity proves that every global optimum is an aligned sample average, not merely one found by a Fourier ansatz. The explicit alignment \( (0,-\pi/6,\pi/6) \) improves the objective and yields the stated positive gap. All optimal sums have nonzero first and second harmonic coefficients; cyclic label permutation generates three distinct classes through the invariant \(W/Z^2\). The Hessian at the unaligned mean is uniformly positive on the normal phase slice for \(u<1/2\), proving strict local minimality even among all \(L^2\) competitors. The exact arithmetic initialization is therefore a stable yet suboptimal alignment fixed point. The realizability vector fields are polynomial, with two strictly negative transverse exponents. A standalone finite checker supports these algebraic steps but does not replace their proofs.
+The exact Hilbert variance identity reduces ALL full-L2 Fréchet minimizers to arithmetic averages over three phase alignments; no finite Fourier ansatz assumption is needed. Orthogonal harmonics give norm-score [|Z|^2+u|W|^2]/9. At shifts (0,-pi/6,+pi/6), |Z|^2+u|W|^2=4+2sqrt3+4u>9 for u>(5-2sqrt3)/4, so c0 with F=u is suboptimal with gap >=(4u-5+2sqrt3)/9. At any global maximizer Z,W≠0; cyclicly permuting theta_j multiplies W by cube root of unity while Z unchanged, and W/Z^2 distinguishes three time-shift classes; Z≠0 makes their planar coordinate nondegenerate embeddings. At c0, each alignment has unique nondegenerate maximum cos(s); implicit-function theorem yields C2 Fréchet functional, with normal Hessian >=2(1-2u)>0 after removing orbit tangent; hence strict local minimum. Exact alternating update returns c0. Polynomial radial error rdot=r(1-r²) and graph error e_dot=-e yield orbital attraction and Floquet multipliers e^-4pi,e^-2pi. At u=.4 independent algebra gives score 9.064101615>9, gap .0071224 and normal curvature lower .4. Finite checks do not establish infinite-dimensional claims.
 
-## Originality — PASS, with priority limitations
+## originality
 
-The motivating open 2026 paper develops the quotient and proposed algorithm, rather than the present three-input symmetry construction. Direct inspection of the close published two-harmonic algorithm-trap result finds a **nonlocally minimizing** trapped point, unlike our strictly locally minimizing fixed point. A separate two-input embedded-loop bifurcation proves at most two explicitly classified means; an opposite-chirality circle family yields a continuum via a different mechanism. published-finding corpus searches of aliases, phases, local/global mean distinctions and multiple-sample Fourier alignment revealed no dominating exact claim. This is evidence of originality, not a proof of absolute historical priority; broader unindexed and partially inspected work remains a risk.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge originality based on exact theorem-level comparison, not a negative search as proof. The relevant established input does not imply this complete marked or homotopy assertion in the material inspected.
 
-The result separates a genuine *local* stability property of the phase-alignment objective from global estimator correctness, in a family of regular analytic periodic curves coming from attracting polynomial flows. The coexisting three global embedded mean classes constitute a nontrivial ambiguity not implied by a generic nonconvexity slogan. The constructive nonempty parameter interval is sufficient and mathematically interpretable; exact sharp endpoint and exact class count are not asserted.
+## value
 
-## Sources and limits
+PASS
 
-Primary: Hering and Kuehn, arXiv:2606.10748v1, first public 2026-06-09. Close published comparisons: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-two-harmonic-bifurcation-of-periodic-orbit-fr-chet-means-a--6edf7370e38b ; https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-a-sharp-bifurcation-of-phase-aligned-means-of-embedded-periodic--46a4a3015050 ; https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-chirality-balanced-phase-quotient-means-collapse-and-are-discont--a834cfd6398b . General orbit-space certification abstract: arXiv:2610.24191v1. Historical priority is provisional. Independent mathematical audit is not claimed.
+A rigorous stable local but globally wrong arithmetic-initialized phase-alignment fixed point is a stronger optimization pathology than an earlier example whose trap is a saddle. At least three inequivalent embedded global means in a concrete family of attracting polynomial limit cycles provides an explicit nonuniqueness and algorithm-design benchmark.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

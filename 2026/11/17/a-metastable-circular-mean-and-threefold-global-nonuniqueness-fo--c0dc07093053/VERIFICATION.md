@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-From a complete extracted package, run `python3 verify_threefold.py`. The standard-library script tests four parameters in the stated open interval against the exact competitor identity, two cyclic permutations of a nontrivial phase triple, nine Fourier-Hessian instances by periodic quadrature, and twelve graph-flow derivative identities. Expected output is `VERIFY_OK interval=4 cyclic_shifts=2 hessian_cases=9 polynomial_flow_cases=12`.
+## correctness
 
-The actual mathematical certificates are Steps 1–6 of RESULT.md: the global Hilbert variance identity and compact aligned sums, the exact three-phase competitor, the phase-invariant \(W/Z^2\) separating global means, the normal-slice Hessian with lower bound \(2(1-2u)\), and polynomial-flow transverse equations. Numerical quadrature and finite sample tests do not prove the infinite-dimensional Hessian assertion or the global optimization bound. No claim is made about sharpness of the sufficient parameter range or exact global mean count. No independent review has been performed.
+PASS
+
+The exact Hilbert variance identity reduces ALL full-L2 Fréchet minimizers to arithmetic averages over three phase alignments; no finite Fourier ansatz assumption is needed. Orthogonal harmonics give norm-score [|Z|^2+u|W|^2]/9. At shifts (0,-pi/6,+pi/6), |Z|^2+u|W|^2=4+2sqrt3+4u>9 for u>(5-2sqrt3)/4, so c0 with F=u is suboptimal with gap >=(4u-5+2sqrt3)/9. At any global maximizer Z,W≠0; cyclicly permuting theta_j multiplies W by cube root of unity while Z unchanged, and W/Z^2 distinguishes three time-shift classes; Z≠0 makes their planar coordinate nondegenerate embeddings. At c0, each alignment has unique nondegenerate maximum cos(s); implicit-function theorem yields C2 Fréchet functional, with normal Hessian >=2(1-2u)>0 after removing orbit tangent; hence strict local minimum. Exact alternating update returns c0. Polynomial radial error rdot=r(1-r²) and graph error e_dot=-e yield orbital attraction and Floquet multipliers e^-4pi,e^-2pi. At u=.4 independent algebra gives score 9.064101615>9, gap .0071224 and normal curvature lower .4. Finite checks do not establish infinite-dimensional claims.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality based on exact theorem-level comparison, not a negative search as proof. The relevant established input does not imply this complete marked or homotopy assertion in the material inspected.
+
+## value
+
+PASS
+
+A rigorous stable local but globally wrong arithmetic-initialized phase-alignment fixed point is a stronger optimization pathology than an earlier example whose trap is a saddle. At least three inequivalent embedded global means in a concrete family of attracting polynomial limit cycles provides an explicit nonuniqueness and algorithm-design benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
