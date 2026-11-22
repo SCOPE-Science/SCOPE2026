@@ -1,0 +1,15 @@
+# Review of the quaternary Fuss–Catalan valuation census
+
+## Correctness — PASS
+Legendre's identity gives the integer valuation exactly: \(\nu_2(F_n)=s_2(3n)-\nu_2(3n+1)\). The six-state carry matrix is explicitly defined, and the terminal carry vector completes all bits of \(3n\), yielding a polynomial at every finite binary index depth without boundary assumptions. Inverting the matrix produces the stated rational function; its polynomial recurrence and coefficient extractions establish the complete histogram, exact extremal multiplicities and first two moments. A unique simple dominant pole near \(t=1\) yields the Gaussian limit. A standalone standard-library checker passed 623 exact assertions on fourteen consecutive depths and additionally compared direct binomial integers through depth eight. The proof, not these finite observations, supplies universal quantifiers. Risk: independent verification of symbolic matrix inversion and the distributional asymptotic remains outstanding.
+
+## Originality — PASS, with bounded historical risk
+The originating Fuss–Catalan tree objects are classical (Aval, arXiv:0711.0906). Kauers–Krattenthaler–Müller (arXiv:1107.2015, Sections 6 and 13) evaluates algorithms and parity conditions for related Fuss–Catalan sequences modulo powers of two, not this complete quaternary depth-by-depth valuation distribution. Krattenthaler–Müller (arXiv:1508.02580, Section 7) covers general coefficient congruences when arity is a power of the modulus prime but does not evaluate the claimed finite-block histogram. Closely indexed work on ternary Fuss–Catalan binary valuation polynomials concerns a distinct sequence: no implication of its formula for the four-ary case is available from the cited statement. A stronger general published formula might cover this as a specialization, and its absence cannot be proven by searches.
+
+## Mathematical value — PASS
+The four-ary Fuss–Catalan sequence is a standard enumeration of ordered full quaternary trees. The theorem gives a complete family of nontrivial exact finite-block valuation counts for all binary depths. It further identifies a unique maximizer for every even depth, an odd-depth edge multiplicity linear in depth, a logarithmically sparse parity support, exact variance scaling \(L/4\), and a limiting Gaussian law. These are structural changes relative to the known ternary arity and are not equivalent to a mere valuation identity or a single numerical experiment. This value claim makes no assertion of a downstream application or a general theorem for every arity.
+
+## Closest literature and limitations
+Aval (2007) supplies the standard object. Kauers–Krattenthaler–Müller (2011/2012) and Krattenthaler–Müller (2015) provide stronger general modular computational frameworks, but not the particular evaluated distribution in the passages inspected. The closest indexed 2026 ternary valuation results do not cover quaternary input. Older/unindexed digit-sum distribution results and stronger universal transducer theorems remain a possible priority risk. No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
