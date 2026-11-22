@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional-variance identity follows from the two-state Markov covariance (1-m²)rho^k; a bounded stopped-martingale argument proves the unsigned renewal variance rate, and dominated geometric summation handles the sign covariance. Stationarity bounds rho below by -(1-|m|)/(1+|m|), attained by an irreducible aperiodic matrix. The complete proof is in RESULT.md. Finite and tilted-kernel independent algebra checks passed in verify.py; numerical checks are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Clark and Kiessler (2007), DOI 10.1239/jap/1183667407, state a general method to compute Markov-renewal asymptotic variances; full text was not accessible.",
+        "Salmon and Rosenthal (2026) study reversible-chain asymptotic variance comparison; abstract concerns generic MCMC kernels, not an explicitly optimized marked-renewal physical current.",
+        "published-finding corpus 2026/10/4/SCOPE-two-autocorrelations-give-the-sharp-reversible-chain-variance-fl--91597e4391a6 gives a sharp reversible-chain variance floor from two specified autocorrelations, a distinct information-constrained optimization."
+      ],
+      "reasoning": "General Markov-additive CLTs encompass the known covariance-rate method, which is credited rather than claimed new. Their existence does not by itself establish an all-parameters sharp optimizer under a fixed biased marginal and independently fluctuating cycle rewards/durations, or the precise domain-of-validity counterexample to the 2026 renewal-bound expression. Unseen specialized corollaries remain a priority risk.",
+      "searches": [
+        "A Diffusion Approximation for Markov Renewal Processes Clark Kiessler 2007 asymptotic variance",
+        "Comparing the Efficiency of General State Space Reversible MCMC Algorithms 2026 Salmon Rosenthal",
+        "2026/10/4/SCOPE-two-autocorrelations-give-the-sharp-reversible-chain-variance-fl--91597e4391a6",
+        "alternating renewal reward Markov direction two-state variance formula autocorrelation reward fluctuations"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2606.16339",
+      "https://arxiv.org/abs/1903.01972",
+      "https://doi.org/10.1239/jap/1183667407",
+      "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/comparing-the-efficiency-of-general-state-space-reversible-mcmc-algorithms/4A5C3F1CF00F8A65F2803489393B1D9B",
+      "2026/10/18/SCOPE-a-sharp-two-thirds-variability-threshold-for-bias-efficient-rene--48e478570fde",
+      "2026/10/18/SCOPE-limiting-bernoulli-parameter-spectrum-of-antipersistent-markov-o--e657978f31a7",
+      "2026/10/4/SCOPE-two-autocorrelations-give-the-sharp-reversible-chain-variance-fl--91597e4391a6",
+      "2026/11/8/SCOPE-optimal-directional-switching-and-a-two-thirds-cusp-on-a-persist--c09278824633"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Karimi–Jafarpour, Section II, formulas (2)–(6), derive the iid orientation variance decomposition; the published hypotheses explicitly prohibit the Markov sign correlations used here.",
+        "Shreshtha–Harris 2019 work is an earlier renewal-reward TUR for run-and-tumble classes; only abstract/metadata were accessible, so exact specialization cannot be excluded.",
+        "published-finding corpus 2026/10/18/SCOPE-a-sharp-two-thirds-variability-threshold-for-bias-efficient-rene--48e478570fde explicitly fixes iid signs, and 2026/10/18/SCOPE-limiting-bernoulli-parameter-spectrum-of-antipersistent-markov-o--e657978f31a7 fixes an observation index n and optimizes no direction mechanism."
+      ],
+      "reasoning": "The earlier iid renewal formulas imply the special case rho=0 of the new identity and are credited. The present theorem's rho<0 sharp extremum and outside-domain information-boundary example are not consequences of the earlier statement under its hypotheses; broad Markov-renewal methods could derive the variance component but do not assert the complete physical optimization. Residual priority uncertainty is explicit.",
+      "searches": [
+        "arXiv 2606.16339 independent sign cycle rewards 2026",
+        "arXiv 1903.01972 thermodynamic uncertainty run tumble type",
+        "Thermodynamic uncertainty renewal reward run and tumble persistent correlated Markov two-state sign orientations alternating noise exact variance negative correlations",
+        "Markov additive renewal reward process correlated signs anti persistent sharp minimal asymptotic variance fixed bias",
+        "2026/10/18/SCOPE-a-sharp-two-thirds-variability-threshold-for-bias-efficient-rene--48e478570fde",
+        "2026/10/18/SCOPE-limiting-bernoulli-parameter-spectrum-of-antipersistent-markov-o--e657978f31a7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karimi and Jafarpour arXiv:2606.16339 explicitly assume iid sign variables independent of the cycle marks, whereas the new orientation signs have nonzero two-time covariance.",
+        "The full published RESULT.md of 2026/10/18/SCOPE-a-sharp-two-thirds-variability-threshold-for-bias-efficient-rene--48e478570fde optimizes a reversal-information-adjusted efficiency over the mean sign for iid directions only.",
+        "The full published RESULT.md of 2026/10/18/SCOPE-limiting-bernoulli-parameter-spectrum-of-antipersistent-markov-o--e657978f31a7 studies zeros of fixed-horizon Markov-binomial occupation polynomials; it does not contain marked renewal times or this fixed-bias switching optimization."
+      ],
+      "reasoning": "A Markov-binomial occupation variance is recovered in the special deterministic unit-cycle case, so that part alone is prior background. Neither inspected result gives the exact bounded marked-renewal variance plus its sharp all-transition fixed-marginal optimizer and the comparison to the 2026 iid-sign information bound. The new theorem claims precisely this combined statement, not invention of binary-chain covariance summation.",
+      "searches": [
+        "Thermodynamic uncertainty renewal reward run and tumble persistent correlated Markov two-state sign orientations alternating noise exact variance negative correlations",
+        "Markov additive renewal reward process correlated signs anti persistent sharp minimal asymptotic variance fixed bias",
+        "fixed bias binary Markov chain minimal long time current dispersion renewal rewards precision",
+        "2026-06-15 arXiv:2606.16339 renewal reward sign independence Eq. (4)-(6)",
+        "2026/10/18/SCOPE-a-sharp-two-thirds-variability-threshold-for-bias-efficient-rene--48e478570fde",
+        "2026/10/18/SCOPE-limiting-bernoulli-parameter-spectrum-of-antipersistent-markov-o--e657978f31a7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned the independently directed renewal efficiency result 2026/10/18/SCOPE-a-sharp-two-thirds-variability-threshold-for-bias-efficient-rene--48e478570fde and an anti-persistent Markov occupation root-spectrum result 2026/10/18/SCOPE-limiting-bernoulli-parameter-spectrum-of-antipersistent-markov-o--e657978f31a7 as closest thematic findings; both published RESULT.md were read and compared by hypotheses and conclusions.",
+        "The published 2026/11/8/SCOPE-optimal-directional-switching-and-a-two-thirds-cusp-on-a-persist--c09278824633 concerns optimal spectral-gap tuning for a directionally biased particle on a ring, not the renewal-current variance envelope."
+      ],
+      "reasoning": "No inspected table/database records the same sharp marked-renewal current-precision envelope or the concrete marginal-information inequality failure. A semantic search is not a uniqueness proof; it is combined with direct implications comparisons and source inspection.",
+      "searches": [
+        "sharp asymptotic variance two-state Markov signs with independent random renewal rewards optimal switching bias",
+        "anti-correlated tumbles Markov sequence sharp precision limit entropy production violation 2026",
+        "stationary binary Markov fixed bias anti-persistence variance optimal",
+        "2026/10/18/SCOPE-a-sharp-two-thirds-variability-threshold-for-bias-efficient-rene--48e478570fde",
+        "2026/10/18/SCOPE-limiting-bernoulli-parameter-spectrum-of-antipersistent-markov-o--e657978f31a7",
+        "2026/11/8/SCOPE-optimal-directional-switching-and-a-two-thirds-cusp-on-a-persist--c09278824633"
+      ]
+    },
+    "rationale": "Published formulas for iid direction signs and known two-state Markov occupation statistics are explicitly credited. The inspected sources do not state the combined bounded marked-renewal exact current variance, its sharp fixed-marginal switch-rate envelope, and the precise boundary of applying independent-sign reversal-information precision bounds to correlated signs. Source-access and potentially broader Markov-renewal coverage risks remain.",
+    "residual_risks": [
+      "General Markov renewal variance literature may imply the variance formula as a straightforward specialization; the claimed contribution relies on sharp fixed-bias Markov optimization and the precise marginal-boundary counterexample.",
+      "Complete primary text of Shreshtha–Harris 2019 and Clark–Kiessler 2007 was not accessible; full Karimi–Jafarpour source beyond the inspected sections was not fully retrieved.",
+      "The physical mechanism realizing a prescribed Markov sign chain may have further entropy costs; no physical TUR is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected principal variance theorem imposes iid signs, so it cannot imply the Markov-correlation formula by its stated hypotheses. Later sections were not fully inspected; residual specialized overlap is possible.",
+        "evidence": "Section II states X_i are iid independent of (N_i,R_i) and gives sigma^2=[Var X ER^2+m^2 Var(R-rbar N)]/EN. The new formula reduces to this at rho=0 only.",
+        "identifier_or_url": "https://arxiv.org/html/2606.16339",
+        "material_read": "Primary HTML abstract, introduction, Section II assumptions and variance equations through Eq. (6); secondary indexed section summaries for later sections. Subsequent full-text retrieval failed.",
+        "method": "Read primary mathematical statements and compare exact independence hypotheses, then cross-check indexed section outline",
+        "title": "Thermodynamic Uncertainty Relation For a Multi-Phase Alternating Renewal Random Walk",
+        "trigger": "Direct motivating paper and its precise iid-direction uncertainty inequality"
+      },
+      {
+        "assessment": "NOT covering the new claim: optimizes over mean bias with iid sign sequence, whereas the current result optimizes transition probabilities at fixed mean and explicitly uses nonzero inter-cycle sign memory.",
+        "evidence": "Prior has iid X_i and variance [(1-m²)ER² +m²Var(R-rbarN)]/EN; no transition correlation rho or maximally alternating stationary chain.",
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/18/SCOPE-a-sharp-two-thirds-variability-threshold-for-bias-efficient-rene--48e478570fde/RESULT.md",
+        "material_read": "Complete published RESULT.md including Finding, assumptions, proof, comparison and limitations",
+        "method": "Compare entire formula, optimization parameter, and iid versus Markov orientation assumptions",
+        "title": "A sharp two-thirds variability threshold for bias-efficient renewal transport",
+        "trigger": "Same bounded renewal reward object, the closest direct overlap"
+      },
+      {
+        "assessment": "Covers the fixed-horizon two-state occupation count context but not random renewal durations and magnitude marks, nor fixed-bias optimization of the transition mechanism or reversal-information comparison.",
+        "evidence": "Prior theorem concerns zeros of F_n(z)=E z^{S_n} and a weak zero-parameter measure; no current-time normalization with marked (N,R).",
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/18/SCOPE-limiting-bernoulli-parameter-spectrum-of-antipersistent-markov-o--e657978f31a7/RESULT.md",
+        "material_read": "Complete published RESULT.md, including generating-polynomial recurrence, limiting spectral density and limitations",
+        "method": "Check whether its fixed-horizon Markov occupation theorem dominates marked-renewal variance optimization",
+        "title": "Limiting Bernoulli-parameter spectrum of antipersistent Markov occupation counts",
+        "trigger": "Strong possible coverage of binary Markov sign-sum fluctuations"
+      },
+      {
+        "assessment": "Potential broad background; cannot claim the full text excludes the special correlated orientation claim.",
+        "evidence": "Abstract describes a specific run-and-tumble renewal-reward bound using run-length statistics and entropy of tumbles.",
+        "identifier_or_url": "https://arxiv.org/abs/1903.01972",
+        "material_read": "Abstract and metadata; full primary PDF was not accessible",
+        "method": "Compare documented subject and scope, retain unknown-coverage risk",
+        "title": "Thermodynamic uncertainty for run-and-tumble type processes",
+        "trigger": "Predecessor renewal-reward uncertainty framework"
+      },
+      {
+        "assessment": "May subsume derivation of variance rate by a general theorem; no inspected evidence of the sharp extremal optimization or marginal-sign cost example.",
+        "evidence": "2007 abstract advertises a general method to compute the asymptotic variance for Markov renewal processes.",
+        "identifier_or_url": "https://doi.org/10.1239/jap/1183667407",
+        "material_read": "Article abstract only, full text unavailable",
+        "method": "Contrast method-level scope with fixed-bias extremal statement",
+        "title": "A Diffusion Approximation for Markov Renewal Processes",
+        "trigger": "Broad mathematical coverage of marked Markov-renewal fluctuation rates"
+      },
+      {
+        "assessment": "Related general framework, not an inspected direct statement of the complete claimed sharp envelope.",
+        "evidence": "Abstract concerns MCMC efficiency dominance for reversible kernels and functional asymptotic variance; no marked time-reward system.",
+        "identifier_or_url": "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/comparing-the-efficiency-of-general-state-space-reversible-mcmc-algorithms/4A5C3F1CF00F8A65F2803489393B1D9B",
+        "material_read": "Publisher abstract and scope headings",
+        "method": "Check whether general efficiency comparison asserts the physical renewal-sign marked-cycle optimum",
+        "title": "Comparing the Efficiency of General State Space Reversible MCMC Algorithms",
+        "trigger": "General reversible-chain variance comparisons and antithetic efficiency"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9fd28832-7862-4798-b426-1cdbcce6ef8d",
+  "value": {
+    "rationale": "Provides a sharp, physically interpretable quantification of how directional anti-persistence suppresses current fluctuations without changing any one-time orientation or cycle-mark statistics. The attainability characterization and explicit failure of naive marginal reversal-information transfer identify a substantive boundary of the independence hypothesis in active renewal transport, beyond a bare change of notation or numerical exercise.",
+    "status": "PASS"
+  }
+}
