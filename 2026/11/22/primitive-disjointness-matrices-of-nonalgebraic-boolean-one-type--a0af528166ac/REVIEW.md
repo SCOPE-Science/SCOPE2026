@@ -1,0 +1,15 @@
+# Scientific review: primitive disjointness of Boolean one-types
+
+## Correctness — PASS
+Every complete one-type over the old finite subalgebra is determined by the three-way status in each old atom, by the back-and-forth extension property of the countable atomless Boolean algebra. Algebraic types are exactly the binary statuses; deleting them yields precisely the designated principal submatrix of \(B^{\otimes m}\). The local disjointness matrix and its integral inverse are checked directly. Jacobi's complementary-minor identity on the binary index set gives the determinant as a unit, and the Schur-complement identity supplies the complete real inertia. An independent exact checker confirms the local cases and determinant for the first four values of \(m\). The finite checker is corroboration, not an infinite proof.
+
+## Originality — PASS, with residual priority risk
+A full read of Vermeeren's 2010 presentation establishes the atomless Boolean-algebra substrate, not the arithmetic feasibility matrix. Full reads of reports on nonzero powerset compatibility-frame rank-three theories and bounded morphisms concern a finite atomic frame indexed by *nonzero subsets*, not a complete one-type space over a fixed finite subalgebra. The independently indexed Fourier interpolation result concerns a different character kernel and support-constrained index set. Its general tensor method is mathematically adjacent, but does not state this submatrix's determinant or inertia. The comparison is by object, indexing, kernel and claimed consequences, not titles alone. There remains a risk that an unindexed classical result on complementary minors of ternary tensor products subsumes the specific numeric identities; the general Jacobi identity itself is acknowledged as standard.
+
+## Mathematical value — PASS
+The object is intrinsic to model theory: complete nonalgebraic one-types over a finite Boolean parameter algebra, paired by existential disjointness. Removing the exponentially many algebraic types could ordinarily create singularity or finite cokernel torsion. The full all-size theorem shows a rigid opposite extreme: all invariant factors remain units, every field has full rank, and the real signature remains exactly one while the dimension grows as \(3^m-2^m\). These facts convey integral and spectral information unavailable from the simple type count alone. The mechanism is a primitive complementary inverse block rather than an arbitrary finite census.
+
+## Closest work and limitations
+The principal historical source is Vermeeren, arXiv:1006.4479v1 (2010-06-23); additional exact-object comparisons include the published finite-powerset compatibility-frame and graph-exclusion Fourier reports listed in RESULT.md. The proof is limited to pair disjointness in the pure atomless Boolean algebra over a finite nonempty named subalgebra; higher-arity joint realizability and other relations remain open to separate analysis. A broad historical priority search and independent mathematical validation have not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
