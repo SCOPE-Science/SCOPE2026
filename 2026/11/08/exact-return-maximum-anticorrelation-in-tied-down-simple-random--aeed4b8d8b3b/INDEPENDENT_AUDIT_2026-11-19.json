@@ -1,0 +1,218 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T10:52:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md (blob b7086aff782d9e41908c3016fe4959c5867cd945)",
+        "Assigned verify.py inspected, not trusted as mathematical proof",
+        "Fresh independent_checks.py: 577 exact rational diagnostics and analytic symbolic identity check"
+      ],
+      "rationale": "For every integer n>=1 the sample space is exactly C(2n,n) equally weighted tied-down +/-1 bridges; positive-time returns include the last endpoint and one-sided maximum includes time zero. Reflection at h+1 gives B_h(z)=B(z)(1-q(z)^(h+1)); marking completed first-return excursions gives derivative B_h^2-B_h. Summing level exceedances and rationalizing yields mixed GF 3/(4s^3)-1/s^2+1/(4s), hence E(K_n M_n)=3n/2+1-R_n. Second derivatives and tail-square binomial identities give every stated marginal and variance. The exact positive ratio [R_(n+1)^2/(3n+4)]/[R_n^2/(3n+1)]=1+n/((2n+1)^2(3n+4)) with equality at n=1 proves strictly negative covariance for all n>=2. Stirling then proves the covariance/correlation limits. Independent exact DP through n=34, complete stepping-word enumeration through n=9 and 199 exact ratio instances (577 checks total) agree; finite tests merely corroborate the universal proof. A separate symbolic simplification checked the mixed GF identity.",
+      "residual_risks": [
+        "The binary bridge model and the endpoint counting convention are essential; claims do not include absolute maxima, biased walks, or negative association for all functions.",
+        "No executable proof assistant certification or external expert attestation is present; analytic steps were manually reconstructed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perman–Wellner gives Brownian local-time-conditioned extrema, relevant to asymptotic limit but not a finite exact lattice 2n identity.",
+          "The published unconditioned-walk mixed generating function concerns a different law; conditioning on endpoint cannot be read from its univariate time series.",
+          "Csáki–Hu's ranked-height marginals in bridges do not give their dependence with K_n."
+        ],
+        "reasoning": "Inspected plausible stronger sources by mathematical implication rather than whether titles matched. None states or straightforwardly specializes to the complete discrete binomial moment, strict sign for every n>=2, and endpoint-count convention; the continuous law may overlap the asymptotic consequence.",
+        "searches": [
+          "https://arxiv.org/pdf/0904.3473",
+          "https://dmtcs.episciences.org/en/articles/3337/download",
+          "https://www.math.tugraz.at/~prodinger/inference.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-mixed-generating-function-and-negative-limiting-dependence-of-wa--83173eafc17d/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.tugraz.at/~prodinger/inference.pdf",
+        "https://dmtcs.episciences.org/en/articles/3337/download",
+        "https://doi.org/10.1239/jap/1197908824",
+        "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/539.pdf",
+        "https://arxiv.org/pdf/0904.3473",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-mixed-generating-function-and-negative-limiting-dependence-of-wa--83173eafc17d/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-excursion-conditional-transfer-between-bridge-energy-and-signed--1a0b1166c1c0/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-exact-area-return-dependence-law-for-conditioned-nonnegative--cafac1f20e17/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two marginal laws E K_n and E M_n do not determine E K_n M_n; even ranked excursion maxima alone do not give the dependence with excursion count.",
+          "A known bridge squared-height-energy or integrated-height covariance is a different random variable and cannot be substituted for one-sided maximum.",
+          "Brownian conditional maximum/local-time formulas may yield the limiting dependence, but they do not entail the full finite n formula without a discrete theorem."
+        ],
+        "reasoning": "Comparisons were made at the level of sample conditioning and statistic definitions. Earlier exact same-bridge results do not cover the new cross moment; the most important possible implicit implication remains a broader two-variable lattice-path generating function not found in accessible originals.",
+        "searches": [
+          "https://dmtcs.episciences.org/en/articles/3337/download",
+          "https://www.math.tugraz.at/~prodinger/inference.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-excursion-conditional-transfer-between-bridge-energy-and-signed--1a0b1166c1c0/RESULT.md",
+          "local time at zero supremum tied-down simple walk excursion count height maximum joint distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_n equals the number of complete first-return excursions and positive-time local time at zero; M_n is the maximum excursion height, or sum of positive height-level exceedances.",
+          "Csáki–Hu rank excursion heights in the same bridge; Kirschenhofer–Prodinger count visits to *maximum level*, not maximum numerical value jointly with returns."
+        ],
+        "reasoning": "The relevant formulations use excursion number, local time, maximum-level barrier events, and ranked excursion heights. The exact desired E[K_n M_n] weights level exceedances by excursion count, which is not specified by the inspected ranked-height marginal or visits-to-maximum-level enumerators.",
+        "searches": [
+          "local time at zero supremum tied-down simple walk excursion count height maximum joint distribution",
+          "simple symmetric random walk bridge return count local time maximum height exact mixed moment covariance",
+          "https://dmtcs.episciences.org/en/articles/3337/download",
+          "https://www.math.tugraz.at/~prodinger/inference.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic published-finding retrieval returned the assigned record itself and adjacent return/maximum-energy findings, but no independent earlier exact table of Cov(K_n,M_n)=(3n+1-R_n^2)/2.",
+          "The closest same finite bridge literature contains marginal generating functions, not the mixed table."
+        ],
+        "reasoning": "Exact-formula and symbolic-alias searches did not locate a previously published table or sequence proving the whole assertion; this is bounded best-of-knowledge evidence only, not a proof that a hidden database or old identity does not exist.",
+        "searches": [
+          "\"number of returns\" \"maximum\" \"random walk bridge\" covariance",
+          "3n+1 4^n binomial 2n n maximum return covariance bridge",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-return-maximum-anticorrelation-in-tied-down-simple-random--aeed4b8d8b3b",
+          "simple symmetric random walk bridge return count local time maximum height exact mixed moment covariance"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge novelty for the exact finite conditioned-bridge mixed return-count/one-sided-height-maximum moment and all-n sign classification. Fresh searches of published findings plus full primary examination of the most relevant lattice excursion/maximum sources identified the separate marginal and ranked-height laws but not the precise mixed cross moment. Earlier unconditioned walk and continuous Brownian results overlap the general subject and possible limit information, but do not directly imply the exact finite uniform bridge formula. This is not a proof of historical first discovery.",
+      "residual_risks": [
+        "Classical reflection and excursion renewal techniques could already encode E[K_n M_n] in an older two-parameter ballot path enumeration without naming the covariance explicitly.",
+        "Csáki–Hu (2003) ranked excursion heights and Kirschenhofer–Prodinger (1996) same-bridge return/maximum-level visiting equations are especially plausible implicit predecessors; mathematical rederivation from stronger formulas may be possible.",
+        "The Brownian continuum local-time-conditioned maximum literature may already imply the leading correlation constant, so the asymptotic subclaim cannot automatically be advertised as wholly independent.",
+        "Indexed semantic search and accessed primary sources are bounded; historical priority is a best-of-knowledge assessment, not a uniqueness certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: enumerates visits to zero and separately visits to the attained maximum; these are not the numerical maximum height jointly with zero returns.",
+          "evidence": [
+            "Section 2 uses first-return generating functions for the number of zero visits; Section 3 studies number of visits to the maximum level, a different statistic from maximum height. No inspected statement supplies E[K_n M_n] or its all-n sign."
+          ],
+          "identifier_or_url": "https://www.math.tugraz.at/~prodinger/inference.pdf",
+          "material_read": "Entire eight-page mathematical article, definitions, main generating-function theorems in Sections 2–3, and bridge-specialization discussion.",
+          "method": "Lawful openly accessible author PDF, text-layer reading with page-image inspection.",
+          "title": "Return statistics of simple random walks (Kirschenhofer and Prodinger, 1996)",
+          "trigger": "Closest same finite path model: return count and maximum-level visiting statistics, including bridge conditioning."
+        },
+        {
+          "assessment": "PARTIAL COVERAGE: ranked excursion-height distributions and max-height/duration mixtures imply maximum marginals; inspected theorem statements do not determine cross moment with the number of excursions.",
+          "evidence": [
+            "Theorems 2.1–2.2 treat ordered excursion heights under finite walk/bridge conditioning; Theorem 2.4 couples height to excursion duration. They do not condition those maxima on the total excursion count K_n or give its product moment."
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/3337/download",
+          "material_read": "Full eight-page article: introduction, excursion-height definitions, Theorems 2.1, 2.2 and 2.4, and supporting exact combinatorial equations.",
+          "method": "Lawful open mathematical journal PDF, text and a page image inspected.",
+          "title": "Lengths and heights of random walk excursions (Csáki and Hu, 2003)",
+          "trigger": "Same excursion height object, including ranked extrema conditioned on a random-walk bridge; particularly plausible implicit coverage."
+        },
+        {
+          "assessment": "PARTIAL BACKGROUND: the ranked statistic is time duration of excursions, not the global spatial maximum M_n.",
+          "evidence": [
+            "The primary generating functions and results rank time lengths; the mixed return-count/one-sided-height-maximum theorem does not follow directly from a length marginal."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1197908824",
+          "material_read": "Full 12-page publisher PDF, Sections 1–4 and stated excursion distribution/counting theorems.",
+          "method": "Publisher-hosted full PDF read with text layer and page image.",
+          "title": "Distributions of the longest excursions in a tied down simple random walk and in a Brownian bridge (Lindell and Holst, 2007)",
+          "trigger": "Exact same tied-down symmetric bridge and component decomposition, but ranked longest excursion duration."
+        },
+        {
+          "assessment": "CONTINUUM BACKGROUND: not the exact 2n-step lattice covariance or finite sign classification.",
+          "evidence": [
+            "The Brownian local-time distribution and excursion identities are in continuum normalization; they cannot by themselves yield every finite bridge binomial identity."
+          ],
+          "identifier_or_url": "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/539.pdf",
+          "material_read": "Complete nine-page technical report including its local-time transformations, formulas, proofs and references.",
+          "method": "Open institutional report PDF, full text and representative page image.",
+          "title": "The distribution of local times of a Brownian bridge (Pitman, 1998)",
+          "trigger": "Continuous bridge local-time/maximum analog and Lévy path identities can imply limiting moment relations."
+        },
+        {
+          "assessment": "CONTINUUM PARTIAL COVERAGE: conditional local-time Brownian maxima can be used for limiting covariance, but no finite simple-bridge K_n M_n coefficient or strict finite-n sign is stated.",
+          "evidence": [
+            "Its conditional-on-local-time Brownian maximum formulas concern a continuous Brownian bridge. This is relevant for asymptotic priority and is not dismissed simply because variables use different wording."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0904.3473",
+          "material_read": "Available full public preprint, introduction, main extremum/local-time transforms and Theorem 5 with formulas and accompanying proof sections.",
+          "method": "Lawful arXiv PDF text and page-image examination.",
+          "title": "An excursion approach to maxima of the Brownian bridge (Perman and Wellner, 2014)",
+          "trigger": "Potentially strong limit coverage: conditional Brownian excursion maxima under the total local time."
+        },
+        {
+          "assessment": "RELATED NOT COVERING as stated: unconditioned walk yields covariance/n = 7/12-2/pi, whereas bridge-conditioned statement has (3-pi)/2 and exact every-n formula.",
+          "evidence": [
+            "Unconditioned result sums over arbitrary endpoints, so extraction without an endpoint marker cannot isolate bridges; its limiting coefficient differs numerically and no bridge-conditioned mixed exact statement is given."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-mixed-generating-function-and-negative-limiting-dependence-of-wa--83173eafc17d/RESULT.md",
+          "material_read": "Entire available RESULT.md with exact generating function, proof, normalization, asymptotic statements and limitations.",
+          "method": "Public primary finding retrieved and read through the published GitHub Git raw content.",
+          "title": "Mixed generating function and negative limiting dependence of walk maxima and zero-return counts (published October 18, 2026)",
+          "trigger": "Exactly the same two types of observables, but an unconditioned walk; possible stronger generating function."
+        },
+        {
+          "assessment": "RELATED, DISTINCT OBSERVABLE: a conditional identity for quadratic height energy and signed occupation imbalance, neither of which determines the one-sided supremum.",
+          "evidence": [
+            "Its central E[Q-2X^2 | excursion lengths]=-n and resulting return-energy covariance concern time sums and excursion lengths, not global height maximum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-excursion-conditional-transfer-between-bridge-energy-and-signed--1a0b1166c1c0/RESULT.md",
+          "material_read": "Entire published RESULT.md, conditional theorem, proof, normalization and limitations.",
+          "method": "Public GitHub raw content and theorem comparison.",
+          "title": "Excursion-conditional transfer between bridge energy and signed occupation (published November 2, 2026)",
+          "trigger": "Same random bridge and excursion-count K_n; might dominate return-count mixed-moment family."
+        },
+        {
+          "assessment": "RELATED NOT COVERING: uniform nonnegative Dyck paths rather than unrestricted bridges; integrated height rather than the maximum.",
+          "evidence": [
+            "The theorem is Cov(area, returns) on Catalan bridges; neither its sample law nor its height functional equals the audited K_n, M_n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-exact-area-return-dependence-law-for-conditioned-nonnegative--cafac1f20e17/RESULT.md",
+          "material_read": "Entire RESULT.md proof, conditional return-area witness and normalizations.",
+          "method": "Public GitHub raw source reading.",
+          "title": "An exact area–return dependence law for conditioned nonnegative random walks (published November 8, 2026)",
+          "trigger": "Closely related excursion decomposition and negative return-height correlation on constrained bridges."
+        },
+        {
+          "assessment": "MARGINAL CONTEXT ONLY; no fresh claim of whole-document absence.",
+          "evidence": [
+            "The return-count generating function gives E K_n, but a marginal alone does not determine its covariance with M_n."
+          ],
+          "identifier_or_url": "https://www.seehuhn.de/blog/6.html",
+          "material_read": "Public explanatory article and return-count marginal as read in the research package; not used as an independent full-document noncoverage finding this run.",
+          "method": "Original source identifier and mathematical marginal cross-checked against first-return renewal derivation.",
+          "title": "Random walk bridges (Voss, 2007)",
+          "trigger": "Direct return-count enumeration for tied-down nearest-neighbor walk, a marginal input."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual assigned RESULT.md and seven-file source tree",
+        "Csáki–Hu (2003) excursion height distribution",
+        "Kirschenhofer–Prodinger (1996) zero-return and maximum-visits statistics",
+        "Perman–Wellner (2014) continuum extremum-local-time transform",
+        "Published unconditioned max-return generating function, October 18, 2026"
+      ],
+      "rationale": "The two observables are naturally central to conditioned random walks: K_n counts first-return excursions (discrete origin local time), whereas M_n records a spatial extreme. Even complete individual marginals leave their dependence undetermined. A closed formula for every length, strict n>=2 anticorrelation, linear covariance decay with coefficient (3-pi)/2 and nonvanishing limiting Pearson correlation (3-pi)/(4-pi) form a useful exact discrete benchmark for bridge renewal/excursion methods and Brownian limits. This is a motivated joint-invariant result rather than an arbitrary small parameter slice or renaming of a known area/energy covariance.",
+      "residual_risks": [
+        "Known reflection and renewal methods make the derivation relatively short and may limit novelty if stronger equivalent joint enumerators are subsequently located.",
+        "The continuum limiting correlation can be implicit in older Brownian joint-law literature, so primary new utility is the exact finite-size bridge identity and all-n sign rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict covariance sign only for n>=2, equality at n=1; correlation defined where variances are positive.",
+    "Global maximum is one-sided and includes the initial origin; return count includes the final time 2n.",
+    "One may not replace the maximum with integrated height, absolute height, or longest excursion duration.",
+    "Best-of-knowledge originality is qualified by possible broader, implicit classic enumerations.",
+    "Scientific review does not imply GitHub publication, a Lean proof or expert attestation."
+  ],
+  "schema_version": 1
+}
