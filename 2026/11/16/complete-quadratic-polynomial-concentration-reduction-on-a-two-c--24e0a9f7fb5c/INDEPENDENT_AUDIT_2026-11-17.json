@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T03:51:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All-dimensional d>=3 solid-ball normalized Lebesgue polynomial degree<=2 space decomposes under swaps of x1,x2 and O(d-2) on remaining y: symmetric scalar 4, antisymmetric scalar 2, (d-2) copies of symmetric vector 2 and antisymmetric vector 1, and residual quadratics dimension C(d-1,2). Beta/Gamma moment formula for |x|^alpha is exact, with the quarter-ball moments one fourth of signed absolute moments for first two coordinates, and odd residual exponents killed. Conditional expectation E(|y|²|x1,x2)=(d-2)/d(1-x1²-x2²) yields orthogonal radial-residual polynomial, plus trace-free y modes with eigenvalue 1/4. Gram normalization yields antisymmetric A_d and vector V_d with off diagonal c_d and 2c_d; 4x4 generalized spectrum uses explicit b0..b3 moment matrices. Multiplicities sum C(d+2,2). Independently constructed full monomial Gram moment pencil and invariant reduced blocks (not executing unchecked package code): eigenvalue lists match numerically at d=3,4,5,7; analytic orthogonality gives all-d proof. Trace = dim/4 and Rayleigh extrema sharp.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Positive orthant all-d result uses S_d 4-3-1 representation and a 2^-d scalar; current operator has O(d-2) residual modes and quarter-energy block with dimension C(d-1,2).",
+          "Spherical quarter-wedge result is pure harmonics on a sphere, missing radial and constant/linear polynomial modes of solid ball."
+        ],
+        "reasoning": "Neither stronger claim subsumes all eigenvalues of the full solid-degree<=2 two-coordinate wedge. Background asymptotic concentration theorems do not give its exact finite-rank spectrum.",
+        "searches": [
+          "polynomial degree two Slepian concentration two coordinate quarter ball exact eigenvalues dimension",
+          "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-an-exact-4-3-1-spectral-reduction-for-quadratic-polynomial-conce--6e32a6409481/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-spectral-staircase-for-quadratic-spherical-quarter-wedge-c--e0da39681828"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2308.03543",
+        "https://arxiv.org/abs/1403.5553",
+        "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-an-exact-4-3-1-spectral-reduction-for-quadratic-polynomial-conce--6e32a6409481/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-spectral-staircase-for-quadratic-spherical-quarter-wedge-c--e0da39681828"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All-positive-orthant spectrum concerns x_i>=0 for i=1..d; trace 2^-d*C(d+2,2) vs present trace 1/4*C(d+2,2).",
+          "Spherical wedge pure quadratic excludes constant and radial polynomials. Same geometry but smaller operator; its eigenvalues cannot recover full solid ball block coupling."
+        ],
+        "reasoning": "No stronger inspected result mathematically implies the target exact spectral multiset; general representation/moment calculus supplies a method, not the computed theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-an-exact-4-3-1-spectral-reduction-for-quadratic-polynomial-conce--6e32a6409481/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-spectral-staircase-for-quadratic-spherical-quarter-wedge-c--e0da39681828",
+          "https://arxiv.org/html/2308.03543v5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gerhards–Huang gives spectral concentration framework for polynomial bandwidth on balls and asymptotic distributions; no constant degree-two x1,x2 halfspace intersection full spectrum.",
+          "The Resultary positive orthant result cuts all d coordinates (measure 2^-d) not just x1,x2 (measure 1/4)."
+        ],
+        "reasoning": "Same general Slepian notion but different mask/symmetry; equivalence under rotation impossible for d>2 (2-coordinate vs d-coordinate cone measure).",
+        "searches": [
+          "polynomial degree two Slepian concentration two coordinate quarter ball exact eigenvalues dimension",
+          "https://arxiv.org/html/2308.03543v5",
+          "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-an-exact-4-3-1-spectral-reduction-for-quadratic-polynomial-conce--6e32a6409481/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected exact published 4-3-1 positive-orthant result; it is a formula for a different mask and cannot act as a table for this quarter wedge.",
+          "No precise prior all-d gamma 4+2+2(d-2) block table in inspected primary or Resultary search results."
+        ],
+        "reasoning": "No known exact target-operator table found; lack of search hit is not proof; mathematical nonimplication from the different region and bandwidth is key.",
+        "searches": [
+          "polynomial degree two Slepian concentration two coordinate quarter ball exact eigenvalues dimension",
+          "https://arxiv.org/abs/2308.03543",
+          "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-an-exact-4-3-1-spectral-reduction-for-quadratic-polynomial-conce--6e32a6409481/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge new exact full polynomial degree-two two-coordinate solid-ball wedge spectrum. Compared actual full text of Gerhards–Huang polynomial Slepian high-band theory; an all-positive-orthant solid-ball polynomial reduction and spherical quarter-wedge harmonic result differ in mask or function space. Neither directly implies the four/two/two block spectrum stated here; common gamma moments and Schur decomposition alone are frameworks requiring nontrivial new block evaluation.",
+      "residual_risks": [
+        "Earlier non-indexed specialized ball wedge polynomial result might give equivalent eigenvalues; finite d checks do not replace proof, and all-d gamma normalization merits independent human checking."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING finite quadratic two-coordinate wedge spectrum",
+          "evidence": "General polynomial-band framework and high-degree asymptotic distribution, no exact finite d 4+2 blocks",
+          "identifier_or_url": "https://arxiv.org/html/2308.03543v5",
+          "material_read": "Full arXiv HTML text, Sections 2-4 and appendices, including polynomial-bandwidth asymptotic theorem and domain definitions",
+          "method": "arXiv lawful full HTML",
+          "title": "Spatiospectral localization within the ball—studies on the influence of the spectral shape",
+          "trigger": "Polynomial concentration on balls"
+        },
+        {
+          "assessment": "NOT COVERING two-coordinate mask; all-d orthant differs",
+          "evidence": "2^-d orthant trace vs 1/4 quarter trace and distinct invariant group",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-an-exact-4-3-1-spectral-reduction-for-quadratic-polynomial-conce--6e32a6409481/RESULT.md",
+          "material_read": "Entire RESULT.md Finding, Assumptions, all four Proof steps and limitations",
+          "method": "Resultary full GitHub text",
+          "title": "An exact 4–3–1 spectral reduction for quadratic polynomial concentration in a ball orthant",
+          "trigger": "Exact same total degree <=2 and solid ball, different geometry"
+        },
+        {
+          "assessment": "Exact proof and reproducible reduction with d3 edge case",
+          "evidence": "Gamma moments, O(d-2) sectors and full dimension check",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/complete-quadratic-polynomial-concentration-reduction-on-a-two-c--24e0a9f7fb5c/RESULT.md",
+          "material_read": "Entire RESULT.md and complete verify.py; exact_check.py present in the package tree, its assertions summarized in source RESULT.md",
+          "method": "Frozen GitHub full-text and independent Gram matrices",
+          "title": "Complete quadratic-polynomial concentration reduction on a two-coordinate quarter-ball",
+          "trigger": "Assigned original"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete fixed-band concentration spectrum for a geometrically canonical two-coordinate quarter-ball with total-degree-two polynomials is a motivated exact Slepian localization invariant; reducing O(d²) operators to constant 4x4/2x2 blocks and enumerating protected quarter-energy multiplicities is useful without a higher-degree theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2308.03543",
+    "https://arxiv.org/abs/1403.5553",
+    "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-an-exact-4-3-1-spectral-reduction-for-quadratic-polynomial-conce--6e32a6409481/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-spectral-staircase-for-quadratic-spherical-quarter-wedge-c--e0da39681828"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier non-indexed specialized ball wedge polynomial result might give equivalent eigenvalues; finite d checks do not replace proof, and all-d gamma normalization merits independent human checking."
+  ],
+  "residual_risks": [
+    "Earlier non-indexed specialized ball wedge polynomial result might give equivalent eigenvalues; finite d checks do not replace proof, and all-d gamma normalization merits independent human checking."
+  ],
+  "schema_version": 1
+}
