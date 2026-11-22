@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Absolute convergence for all p>=2; exact characteristic-function and DFT normalization; circular symmetric-unimodal convolution gives the Nyquist minimum; strict B-spline support gives exact rank and invertibility; outer-edge simplex volume gives the exact two-edge crossover and critical coefficient. Exact rational diagnostics checked 3,627 full spectra, 2,232 rank identities, 2,142 edge identities and 21 odd critical gaps; these are supportive, not a proof of the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pillai arXiv:2611.08401v1 Theorem 1 requires support below the first wrap, and discusses asymptotic quantiles of Toeplitz eigenvalues, not the exact cyclic first-wrap crossover.",
+        "Gray, Toeplitz and Circulant Matrices: A Review, describes the DFT spectral calculus but does not specialize to sharp B-spline boundary scaling."
+      ],
+      "reasoning": "General circular convolution/unimodality theorems provide useful proof methods, but a complete all-order, all-grid finite-bandwidth classification requires strict support endpoints, exact arithmetic mode counting and edge constants; no checked result directly states a dominating version.",
+      "searches": [
+        "critical circular B-spline band overlap even odd finite-grid invertibility threshold and exact crossover under N inverse bandwidth drift",
+        "critical bandwidth p-fold sinc kernel Toeplitz circulant eigenvalues Nyquist parity exact smallest eigenvalue even odd N B-spline Fourier",
+        "periodization sinc powers critical bandwidth circulant matrix invertibility parity B spline"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.08401v1, first public 2026-11-05, PDF definitions/Theorem 1/appendix",
+      "Novakovíc–Singer–Singer 2010 B-spline collocation PDF",
+      "Published records for cyclic sinc-power, wrapped splines, and related Nyquist effects, searched by scientific claim/equivalences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pillai, arXiv:2611.08401v1, pp. 3–5 and Appendix A: B-spline symbol and a Toeplitz Szegő-quantile edge law under no-aliasing.",
+        "Novakovíc–Singer–Singer (2010): B-spline collocation matrix condition-number estimates, not periodized sinc-power covariance."
+      ],
+      "reasoning": "The Toeplitz quantile does not imply an exact finite cyclic Nyquist eigenvalue because the matrix operator is different. The B-spline edge monomial and DFT diagonalization together permit a new finite-grid derivation; they do not by themselves assert or classify the wrap and the two parity scaling functions. The original contribution is the latter exact classification, not the individual tools.",
+      "searches": [
+        "periodized powers of sinc positive definite circulant Fourier spectrum exact nullity parity Nyquist threshold rank 2ceil(Npa/2pi)-1",
+        "critical circular B-spline band overlap even odd finite-grid invertibility threshold and exact crossover under N inverse bandwidth drift",
+        "sharp eigenvalue and least singular value of cyclic sinc-power convolution at critical pi support, parity odd n gap n to negative p-1",
+        "Spectral Regimes of Truncated sinc-Power and Pulse-Train Kernels Theorem 1 Appendix A"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pillai arXiv:2611.08401v1, setup and Theorem 1, distinguishes a principal finite Toeplitz block from a periodic convolution; its eigenvalues require asymptotic analysis.",
+        "Standard circulant DFT yields exact symbol samples but, alone, contains no specialized B-spline support/endpoint and grid-parity phase diagram."
+      ],
+      "reasoning": "Equivalent language includes periodized sinc-power covariance, cyclic convolution by p-fold box coefficients, wrapped Irwin-Hall spectral symbol and circular B-spline sampling. The closest inspected results establish generating symbols or collocation, not the exact parity/critical formulas as a stated conclusion.",
+      "searches": [
+        "periodized powers of sinc positive definite circulant Fourier spectrum exact nullity parity Nyquist threshold rank 2ceil(Npa/2pi)-1",
+        "periodic cardinal B spline Fourier sampling critical support spectral gap smallest eigenvalue finite circulant",
+        "circular sinc kernel p-fold convolution eigenvalues even odd N exact smallest"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published numerical experiments for sinc-power Toeplitz matrices in Pillai are asymptotic edge estimates rather than all-size circulant tables.",
+        "The exact rational finite tests included here were recomputed independently of any prior table."
+      ],
+      "reasoning": "No searched exact finite-N spectral table supplies both the all-N nullity/invertibility conditions and the critical two-edge crossing coefficient. Finite computations are diagnostics, not evidence of novelty by themselves.",
+      "searches": [
+        "periodized powers of sinc positive definite circulant Fourier spectrum exact nullity parity Nyquist threshold rank 2ceil(Npa/2pi)-1",
+        "sharp eigenvalue and least singular value of cyclic sinc-power convolution at critical pi support, parity odd n gap n to negative p-1",
+        "periodic sinc squared cubic convolution kernel cyclic positive definite spectral rank parity phase transition Nyquist"
+      ]
+    },
+    "rationale": "No checked primary-source theorem or comparable indexed scientific claim implies the exact finite cyclic periodization spectrum, all-N rank formula, even-odd sharp strict-positive-definiteness criterion or scale-resolved first-band-wrap crossover. The motivating Toeplitz paper proves a different asymptotic quantile theorem; classic B-spline and circulant facts are used as ingredients and not claimed as innovations. Residual risk: a historical wrapped-spline/cyclic-covariance theorem not indexed by the searched sources may exist.",
+    "residual_risks": [
+      "A historical but unindexed wrapped B-spline circulant calculation may already imply this exact theorem.",
+      "The general circulant result plus the standard B-spline identity makes this theorem relatively elementary algebraically; its value is the complete sharp, parity-sensitive phase boundary, not those ingredients.",
+      "Independent source-by-source validation remains to be performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATING_NOT_COVERING: principal Toeplitz block and asymptotic support quantile; not exact periodized finite spectra, parity rank or first-wrap crossover",
+        "evidence": [
+          "arXiv:2611.08401v1 publicly submitted 2026-11-05; PDF pp. 1–5, Appendix A; finite Toeplitz T_N and pW<1/2 condition; Theorem 1 gives a limiting quantile."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.08401",
+        "material_read": "Complete available paper text: introduction; operator definitions; Theorem 1; no-aliasing hypothesis; appendix B-spline derivation; conclusions and references",
+        "method": "Full PDF rendered and its equations and operator definitions compared with the finite-periodization theorem",
+        "title": "Spectral Regimes of Truncated sinc-Power and Pulse-Train Kernels: Edge Exponents, Per-Edge Plunges, and the Landau-Widom Limit",
+        "trigger": "Same sampled sinc powers and B-spline spectral edge"
+      },
+      {
+        "assessment": "DIFFERENT_OPERATOR: spline collocation matrices have different entries and do not imply sharp wrapped sinc-power edge conditions",
+        "evidence": [
+          "The paper studies collocation of cardinal spline basis at sampling nodes rather than the periodization of integer samples of a p-th power sinc kernel."
+        ],
+        "identifier_or_url": "Novakovíc, Singer and Singer (2010), public PDF",
+        "material_read": "Main definitions, B-spline collocation operators, circulant embedding discussion, condition-number inequalities",
+        "method": "PDF text and rendered page compared with matrix construction",
+        "title": "Estimates for the spectral condition number of cardinal B-spline collocation matrices",
+        "trigger": "Plausible stronger spline/circulant spectral result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6076636d-2982-4b5c-bd6e-c31951ba49f2",
+  "value": {
+    "rationale": "A natural infinite family of cyclic signal-covariance matrices admits a complete finite-size sharp stable-versus-singular criterion and a parity-sensitive Nyquist crossover. All p and N are covered, and two distinct exact critical-scale profiles describe how a positive odd-cycle gap collapses while an even-cycle zero persists. These are meaningful finite-bandwidth operator properties, not a one-off numerical parameter fact.",
+    "status": "PASS"
+  }
+}
