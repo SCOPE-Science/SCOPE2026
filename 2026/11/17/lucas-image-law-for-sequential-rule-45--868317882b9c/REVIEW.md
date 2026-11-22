@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The tested Rule \(45\) truth table is equivalent to \(f(a,b,c)=a\oplus(b\lor\neg c)\). Explicit separate treatment of the first and last updated cells yields three boundary equations. Consecutive equality marks in the output would require incompatible interior inputs, and the reverse construction supplies actual preimages for every permitted mark word. The Fibonacci decomposition counts every output once because its starting bit, equality marks and final XOR bit determine the output uniquely. All hypotheses and the \(n=3\) boundary case are covered. Direct exhaustive checks through \(n=20\) and a separately implemented existential-preimage solver through \(n=11\) matched the full characterization. The infinite result rests on the proof, not the finite tests.
+PASS
 
-## Originality — PASS, with residual priority risk
+For sequential one-pass left-to-right Rule45 on each labelled cyclic ring n>=3, checked the local Boolean identity f(a,b,c)=a xor (b or not c) and the asymmetric first/last boundary equations, which must use old x_{n-1} at i=0 and already-updated y0 at i=n-1. Interior equality marks encode exactly old 0->1 pairs, hence cannot be adjacent. Endpoint constraints recover y0 and q=y_{n-1} xor y_{n-2}. The constructive proof realizes every nonadjacent-mark word with prescribed single endpoint, giving the complete iff output language. Counting independent sets in a line gives F_n+2F_(n-1)=L_n; image entropy is log phi, not a recurrent entropy. Inspected repository check_constructive.py and separately enumerated every input and every candidate output for each n=3..13; exact reachable sets satisfy all three boundary tests and Lucas counts n=3..13 (4,7,11,18,29,47,76,123,199,322,521). Finite checks corroborate all-n constructive proof.
 
-Macauley, McCammond and Mortveit's *Order Independence in Asynchronous Cellular Automata* (arXiv:0707.2360; full text inspected, especially definitions and theorems on periodic-state invariance) classifies independence of recurrent sets from update order; it does not assert the specific one-sweep Rule \(45\) image language or its Lucas count. Goles and collaborators' *Block Invariance in Elementary Cellular Automata* (2015; available author-posted full text inspected, especially introduction and classification) addresses block-update invariance of periodic points, not exact one-sweep image size. Donoso-Leiva and collaborators' *On the Convergence of Elementary Cellular Automata under Sequential Update Modes* (arXiv:2509.07797; full text inspected, especially Rule \(45\) subsection and conjecture) gives fixed points and an open convergence question, neither of which implies the image classification.
+## originality
 
-Searches for sequential Rule \(45\) Lucas/Fibonacci image ranks, Garden-of-Eden language, and exact forward-image size found no matching theorem. Nearby published image enumerations concern **synchronous, different** elementary rules (for example Rule \(54\) and Rule \(126\)), so their propositions neither include nor imply this statement. Sequence coincidence with classical Lucas numbers is not a prior identification of these images. Full historical priority cannot be guaranteed, particularly for materials not indexed by search engines.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge the full single-sweep output language and Lucas image count for fixed sequential Rule45 differ from existing results on eventual convergence or asynchronous order-independent periodic states. The Rule45 convergence conjecture is not settled by this image result.
 
-The one-sweep image is a natural finite-state dynamical invariant: it measures how much state information a prescribed deterministic updating schedule discards before recurrent behavior begins. The result is an exact **all-circumference reachability test**, an exact image count and entropy, and a complete count of one-step Garden-of-Eden configurations. The left-to-right update of Rule \(45\) is singled out in the recent sequential-convergence literature. Knowing that a single sweep has the Lucas-number image provides a concrete regular-language reduction for further analysis, without pretending to resolve the still-separate question of repeated-sweep convergence. Its significance does not rely on a conjectured downstream theorem.
+## value
 
-## Limits and residual risks
+PASS
 
-The theorem does not count inverse multiplicities, classify attractors, or prove convergence for any unspecified circumference. Finite experiments are corroboration only. Historical coverage by an unindexed source is a residual risk; a negative search result is not novelty proof. External independent review has not been performed.
+An exact complete image-language characterization for a naturally studied fixed-order cellular automaton gives predecessor reachability, exact Garden-of-Eden population 2^n-L_n, and a nontrivial exponential information-loss rate. These are mathematically useful even without settling the separate convergence conjecture.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

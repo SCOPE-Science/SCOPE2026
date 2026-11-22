@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:03:30.156037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For sequential one-pass left-to-right Rule45 on each labelled cyclic ring n>=3, checked the local Boolean identity f(a,b,c)=a xor (b or not c) and the asymmetric first/last boundary equations, which must use old x_{n-1} at i=0 and already-updated y0 at i=n-1. Interior equality marks encode exactly old 0->1 pairs, hence cannot be adjacent. Endpoint constraints recover y0 and q=y_{n-1} xor y_{n-2}. The constructive proof realizes every nonadjacent-mark word with prescribed single endpoint, giving the complete iff output language. Counting independent sets in a line gives F_n+2F_(n-1)=L_n; image entropy is log phi, not a recurrent entropy. Inspected repository check_constructive.py and separately enumerated every input and every candidate output for each n=3..13; exact reachable sets satisfy all three boundary tests and Lucas counts n=3..13 (4,7,11,18,29,47,76,123,199,322,521). Finite checks corroborate all-n constructive proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/0707.2360 (asynchronous order-independence of periodic states)",
+          "https://arxiv.org/abs/2509.07797 (Rule45 Conjecture 1)"
+        ],
+        "reasoning": "Prior results broadly classify periodic behavior/order dependence. None of the inspected primary results gives this all-n one-step image language or dominates it by a general fixed-order output theorem.",
+        "searches": [
+          "Resultary search: sequential elementary cellular automaton Rule 45 one sweep image count Lucas Fibonacci Garden of Eden",
+          "arXiv:0707.2360",
+          "Rule 45 convergence Conjecture 1 Donoso-Leiva et al"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2509.07797",
+        "https://arxiv.org/abs/0707.2360",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/lucas-image-law-for-sequential-rule-45--868317882b9c/check_constructive.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2025/2026 paper poses Rule45 convergence of repeated sequential sweeps at 3|n; submitted theorem asserts exactly |image(S_n)|=L_n for one sweep for every n>=3."
+        ],
+        "reasoning": "Image entropy and Garden-of-Eden states do not prove convergence, and a convergence theorem without the finite-step image characterization does not imply this exact count. Different quantified dynamical questions.",
+        "searches": [
+          "Resultary search: sequential elementary cellular automaton Rule 45 one sweep image count Lucas Fibonacci Garden of Eden",
+          "arXiv:2509.07797"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2509.07797 (fixed sequential Rule45 convergence question and period analysis)",
+          "Full output iff based on nonadjacent equality marks and boundary bit q."
+        ],
+        "reasoning": "The update convention and ring order agree with the primary Rule45 paper, but convergence of repeated sweeps is not equivalent to cardinality or language of a single sweep. The latter requires a separate predecessor existence proof.",
+        "searches": [
+          "Resultary search: sequential elementary cellular automaton Rule 45 one sweep image count Lucas Fibonacci Garden of Eden",
+          "arXiv:2509.07797",
+          "asynchronous ECA rule45 one sweep image Lucas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent full image count n=3..13 and direct iff characterization.",
+          "Resultary queries returned other synchronous ECA images (Rule54, Rule110, Rule18), not this fixed-order Rule45 enumeration."
+        ],
+        "reasoning": "A Lucas count occurs naturally for independent binary marks, but this specific image is not an obvious table lookup: endpoint constraints are update-order-specific. Search failure is not conclusive priority.",
+        "searches": [
+          "Resultary search: sequential elementary cellular automaton Rule 45 one sweep image count Lucas Fibonacci Garden of Eden",
+          "Rule45 one-sweep image Lucas L_n"
+        ]
+      },
+      "rationale": "Best-of-knowledge the full single-sweep output language and Lucas image count for fixed sequential Rule45 differ from existing results on eventual convergence or asynchronous order-independent periodic states. The Rule45 convergence conjecture is not settled by this image result.",
+      "residual_risks": [
+        "No exhaustive review of all asynchronous cellular automata image-language papers; unindexed fixed-order calculations may exist.",
+        "The n>=3 domain excludes the degenerate shorter sequential rings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies repeated-sweep convergence/periodicity and poses Rule45 conjecture, not one-step image enumeration in inspected relevant sections.",
+          "evidence": "Theorem 14, Conjecture 1; arXiv:2509.07797, particularly pages 24-28.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.07797",
+          "material_read": "Accessible full article PDF, 42 pages; inspected relevant Rule45 Theorem 14 / Conjecture 1 sections, text around pages 24-28, and rendered pages 0,24,28.",
+          "method": "arXiv full PDF text and screenshots",
+          "title": "On the Convergence of Elementary Cellular Automata under Sequential Update Modes",
+          "trigger": "exact Rule45 and update order in primary literature"
+        },
+        {
+          "assessment": "Relates to update-order independence of periodic dynamics; no claim of all-document noncoverage.",
+          "evidence": "arXiv:0707.2360",
+          "identifier_or_url": "https://arxiv.org/abs/0707.2360",
+          "material_read": "Abstract, title and bibliographic context; not read full.",
+          "method": "arXiv literature retrieval",
+          "title": "Order Independence in Asynchronous Cellular Automata",
+          "trigger": "broader asynchronous cellular-automata source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact complete image-language characterization for a naturally studied fixed-order cellular automaton gives predecessor reachability, exact Garden-of-Eden population 2^n-L_n, and a nontrivial exponential information-loss rate. These are mathematically useful even without settling the separate convergence conjecture.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2509.07797",
+    "https://arxiv.org/abs/0707.2360",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/lucas-image-law-for-sequential-rule-45--868317882b9c/check_constructive.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Not a claim about iterates S_n^t, recurrent counts, convergence, starting-vertex changes or individual fiber multiplicity.",
+    "Best-of-knowledge originality; no claim of exhaustive priority or formal/expert certification.",
+    "Scientific pass is separate from publication transport not_ready."
+  ],
+  "schema_version": 1
+}
