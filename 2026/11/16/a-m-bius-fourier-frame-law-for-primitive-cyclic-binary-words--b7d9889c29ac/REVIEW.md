@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-Möbius inclusion–exclusion is applied pointwise to exact cyclic period, then to each coordinate-product sum. The resulting circulant Gram is diagonalized by the spatial Fourier basis. The decisive monotonicity lemma is not an unverified alternating-sum claim: its right side is a squared-coordinate-sum average on the precisely defined period-exclusion words. The one-negative-coordinate witness proves strictness for auxiliary lengths at least three; length two gives the unique exception, forcing the composite period to be twice an odd prime. The lower eigenvalue is positive and the constant eigenvalue lies between the extreme coordinate eigenvalues. The finite exact checker independently confirms representative Gram and integer-divisor identities but is not used as an infinite proof.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The closest publicly indexed first-Walsh result on surjective words covers prime-length primitive binary words, but at composite length a word can be onto and have a proper cyclic period. The first-public necklace paper provides enumeration and ranking, not first-Walsh Gram spectra. The individual binary autocorrelation paper treats individual sequences, not covariance of uniformly sampled primitive necklaces. Lucas-cube and primitive-residue Fourier-frame results have different domains and do not imply this spectrum. Equivalent formulation, broader-coverage, known-table and implication searches found no exact all-composite result, but absence in searches does not establish uniqueness. The closest indexed source's full linked text and some older necklace-transform texts were inaccessible; these remain priority risks.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete exact and sharp injective first-order Fourier sampling theorem for a natural period-exclusion ensemble, with explicit eigenvectors, arithmetic multiplicities, and uniform asymptotic stability. The weakest-mode degeneracy at twice an odd prime is a structural boundary rather than a trivial reparametrization. The claim excludes the already-covered prime specialization.
+Pointwise period Mobius identity 1_primitive=sum_{q|n}mu(q)1_period_divides(n/q) gives exact N_n and coordinate covariance: for period dividing n/q, coordinate product sums 2^(n/q) if positions coincide mod n/q, otherwise zero. This circulant matrix diagonalizes in spatial DFT: B_{n/q} acts with scalar q iff q|k. Global sign-flip kills all constant-to-coordinate correlations. To show extrema, F_n(S)-F_n(S union {p})=p H(T,m), T=n/p, m=prod primes S, and H(T,m) equals (1/T) sum over words excluding periods T/r (r|m) of the square of their coordinate sum. It is nonnegative, strictly positive when T>=3 by one-negative-coordinate primitive witness, positive T=1, and for T=2 is zero only at m=2. This yields unique equality when n=2p odd prime, S={2}, adding p. For n>=3 the one-negative word gives H_n>0; trace n of normalized coordinate Gram and maximum 2^n/N_n>1 place constant eigenvalue 1 between coordinate extremes. n=2p Mobius cancellation gives exact closed form. Bound 2^n-H_n<=n^2 2^(n/2) implies exponential tightness. Direct independent enumeration at composite n=4,6,8,9,10 confirmed exact Mobius Gram and spatial DFT eigenvalues; source checker directly enumerates through n13 and exact subset inequalities through n200, but all-n proof uses squared-sum identity.
 
-## Scientific limitations
-The result requires uniform weighting of all indexed primitive cyclic binary words and bandwidth one. It says nothing about higher Walsh degrees, arbitrary necklace-weight measures or phase retrieval. The checked finite lengths are verification only; they are not used to extrapolate. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primitive-cycle covariance differs from one-color-binary surjective words for composite n: the latter only exclude constant words and have full position-permutation symmetry, while true primitive words exclude every proper-period pattern and possess only cyclic symmetry. Exact composite Fourier bands and twice-odd-prime degeneracy are not supplied by the compared surjective-word theorem.
+
+## value
+
+PASS
+
+Complete eigenvalues of a natural signal-restriction frame on indexed primitive necklaces, a sharp conditioning formula and a non-obvious arithmetic equality mechanism n=2p are useful structural invariants. Not a mere Mobius necklace count: the position-dependent Gram spectrum is an additional new operator fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

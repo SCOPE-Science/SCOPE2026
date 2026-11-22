@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T02:46:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pointwise period Mobius identity 1_primitive=sum_{q|n}mu(q)1_period_divides(n/q) gives exact N_n and coordinate covariance: for period dividing n/q, coordinate product sums 2^(n/q) if positions coincide mod n/q, otherwise zero. This circulant matrix diagonalizes in spatial DFT: B_{n/q} acts with scalar q iff q|k. Global sign-flip kills all constant-to-coordinate correlations. To show extrema, F_n(S)-F_n(S union {p})=p H(T,m), T=n/p, m=prod primes S, and H(T,m) equals (1/T) sum over words excluding periods T/r (r|m) of the square of their coordinate sum. It is nonnegative, strictly positive when T>=3 by one-negative-coordinate primitive witness, positive T=1, and for T=2 is zero only at m=2. This yields unique equality when n=2p odd prime, S={2}, adding p. For n>=3 the one-negative word gives H_n>0; trace n of normalized coordinate Gram and maximum 2^n/N_n>1 place constant eigenvalue 1 between coordinate extremes. n=2p Mobius cancellation gives exact closed form. Bound 2^n-H_n<=n^2 2^(n/2) implies exponential tightness. Direct independent enumeration at composite n=4,6,8,9,10 confirmed exact Mobius Gram and spatial DFT eigenvalues; source checker directly enumerates through n13 and exact subset inequalities through n200, but all-n proof uses squared-sum identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published surjective q-color theorem has coordinate permutation invariance and only three Gram levels; the composite primitive-word law has arithmetic Fourier levels controlled by divisors q|k and generally many levels.",
+          "Necklace enumeration and ranking studies do not state full first-Walsh covariance eigenspaces."
+        ],
+        "reasoning": "The surjective theorem dominates the prime n specialization but not the presented composite n result. General necklace counts N_n do not determine second moments or the equality at n=2p.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-first-band-fourier-sampling-spectra-on-surjective-words--38dfe55b7163",
+          "https://arxiv.org/abs/2108.01990",
+          "Resultary: primitive cyclic binary necklace words first Walsh Gram Möbius Fourier eigenvalues condition number"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/16/...b7d9889c29ac/RESULT.md and check.py at source tree ea47ce074337a0f2629f11342f4dc6632751e9c5",
+        "same record METADATA.json,AUDIT.json,REVIEW.md,SLOGAN.txt,VERIFICATION.md at frozen commit",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-first-band-fourier-sampling-spectra-on-surjective-words--38dfe55b7163",
+        "https://arxiv.org/abs/2108.01990",
+        "https://arxiv.org/abs/2308.07467",
+        "Resultary: primitive cyclic binary necklace words first Walsh Gram Möbius Fourier eigenvalues condition number"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prime-length binary primitive words coincide with onto 2-color words, so that part is correctly treated as covered.",
+          "Composite primitive sample excludes nonconstant periodic strings, breaks full coordinate permutation symmetry, and the published 3-level surjective Gram formula cannot imply divisor-frequency eigenvalue multiplicities.",
+          "Katz-Rahman-Ward discuss identical autocorrelation of individual words, not expectation under the primitive-word ensemble."
+        ],
+        "reasoning": "The restrictions and sample spaces distinguish the claims; no stronger implication from individual-sequence autocorrelation or full-surjective symmetry to composite primitive ensemble operator spectrum.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-first-band-fourier-sampling-spectra-on-surjective-words--38dfe55b7163",
+          "https://arxiv.org/abs/2308.07467",
+          "Resultary: primitive cyclic binary necklace words first Walsh Gram Möbius Fourier eigenvalues condition number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniformly sampled indexed primitive words are uniform rotation-aperiodic necklaces followed by random rotation, not sampling a single lexicographic representative per orbit.",
+          "For prime n, primitive binary words are exactly nonconstant/surjective words; for composite n these sets differ."
+        ],
+        "reasoning": "Compared necklace, primitive-orbit and first Fourier restriction frame formulations; only prime case reduces to the published surjective result, intentionally excluded from the final composite theorem.",
+        "searches": [
+          "Resultary: primitive cyclic binary necklace words first Walsh Gram Möbius Fourier eigenvalues condition number",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-first-band-fourier-sampling-spectra-on-surjective-words--38dfe55b7163",
+          "https://arxiv.org/abs/2108.01990"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical primitive necklace count N_n=sum mu(q)2^(n/q) is known, but the coordinate Gram requires weighted q terms and DFT spectral decomposition.",
+          "Explicit all-composite eigenvalue formula and exception are not a finite precomputed word table."
+        ],
+        "reasoning": "No prior exact first-Walsh Gram table/classification for uniformly indexed primitive binary words found; old necklace enumeration alone is not an equivalent exact spectral table.",
+        "searches": [
+          "Resultary: primitive cyclic binary necklace words first Walsh Gram Möbius Fourier eigenvalues condition number",
+          "https://arxiv.org/abs/2108.01990"
+        ]
+      },
+      "rationale": "Primitive-cycle covariance differs from one-color-binary surjective words for composite n: the latter only exclude constant words and have full position-permutation symmetry, while true primitive words exclude every proper-period pattern and possess only cyclic symmetry. Exact composite Fourier bands and twice-odd-prime degeneracy are not supplied by the compared surjective-word theorem.",
+      "residual_risks": [
+        "Unindexed cyclic-ensemble covariance/primitive word DFT calculations could coincide; historical originality not independently guaranteed.",
+        "Result limited to degree-one Walsh frame and indexed primitive words, not representative necklaces or higher-bandwidth sampling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers primitive binary words for prime length only; not composite primitive words and divisor-dependent Gram spectrum",
+          "evidence": [
+            "onto binary words=nonconstant strings; for prime n these are exactly primitive, but not for composite n"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-first-band-fourier-sampling-spectra-on-surjective-words--38dfe55b7163",
+          "material_read": "Complete primary RESULT.md including theorem, exact three-level spectrum, proof and limiting condition number",
+          "method": "read GitHub published primary full text",
+          "title": "Exact first-band Fourier sampling spectra on surjective words",
+          "trigger": "published SCOPE result covering prime specialization and possibly full first-Walsh sampling"
+        },
+        {
+          "assessment": "necklace counting, ranking and generation, not first-Walsh Gram or n=2p eigenvalue degeneracy",
+          "evidence": [
+            "necklace generation and counting rather than Gram of coordinate characters"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.01990",
+          "material_read": "Abstract and algorithms/necklace-counting theorem overview",
+          "method": "primary arXiv manuscript description",
+          "title": "Combinatorial Algorithms for Multidimensional Necklaces",
+          "trigger": "same primitive necklace objects and Mobius enumeration"
+        },
+        {
+          "assessment": "single-sequence autocorrelation equivalence, not primitive-word ensemble average",
+          "evidence": [
+            "autocorrelation of individual words vs expectation E_primitive x_i x_j"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.07467",
+          "material_read": "Abstract and described autocorrelation equality problem",
+          "method": "primary abstract and stated problem inspection",
+          "title": "Sequences with identical autocorrelation functions",
+          "trigger": "possible alias via cyclic autocorrelation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete eigenvalues of a natural signal-restriction frame on indexed primitive necklaces, a sharp conditioning formula and a non-obvious arithmetic equality mechanism n=2p are useful structural invariants. Not a mere Mobius necklace count: the position-dependent Gram spectrum is an additional new operator fact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed cyclic-ensemble covariance/primitive word DFT calculations could coincide; historical originality not independently guaranteed.",
+    "Result limited to degree-one Walsh frame and indexed primitive words, not representative necklaces or higher-bandwidth sampling."
+  ],
+  "schema_version": 1
+}
