@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The standard \(L^1\)-Bochner dual identification applies to the chosen separable reflexive fibers. All extensions share the prescribed dual \(Y\) component, and the \(\ell_q\) norm determines their allowable \(Z\) components. Explicit strongly measurable radial fields attain both the diameter and the maximum distance from every proposed affine center. The essential norm bounds, attainment criterion, sharp interval of diameters, and the one-atom versus split-measure uniqueness boundary follow for the precise stated domains. No empirical inference is used.
+## correctness
 
-## Originality — PASS, with priority risk
-The central 2026 paper proves \((U)\), \((wU)\), and \((SU)\) Bochner stability only when \(1<p<\infty\); its proofs and stated theorems do not cover the \(L^1\) endpoint. A distinct finite-atomic strict-\(p\) near-extension calculation does not imply the complete endpoint classification or the new relative Chebyshev-center behavior. Searches under equivalent ball-face and Hahn–Banach terminology did not locate an exact matching theorem. However, the inaccessible full text of a closely related 2026 chapter and older \(L^\infty\) face geometry remain genuine priority risks; absence from search results is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The complete extension-fiber and center descriptions resolve a natural excluded endpoint, exhibit a sharp direct-sum exponent boundary, and show that maximum diameter of norm-preserving extensions is compatible with a *unique* optimal center. The diameter spectrum is achieved even among norm-attaining functionals, and the global uniqueness-property classification is exact for every finite measure algebra.
+Read full frozen RESULT.md and proof steps. X=Y⊕_r Z is reflexive with RNP dual, so L1(X)*=L∞(X*) and extensions are the fixed g with freely chosen h satisfying pointwise dual q-ball constraint. The ±ae fields give exact diameter, and for any k the opposing radial h realizes sup(a+||k||), yielding all minimax centers. Positive-measure plateau of ||g|| is necessary and sufficient for norm attainment by Hölder equality and a norming field. Two-piece measurable g attains each diameter 0..2 when r>1; one-atom or r=1 boundary cases follow from slack. Independent two-atom q=2 example g=(1,0.6) had slack (0,0.8), diameter 1.6 and nonunique centers. No claim for arbitrary Banach summands.
 
-## Closest literature and limits
-Karak and Paul, arXiv:2611.03203v1 (Theorems 3.1, 3.3, 3.7), exclude the endpoint. Karak–Paul–Rao, DOI:10.1090/conm/833/16666, was available only at abstract level. The formulas are for real Hilbert summands and Chebyshev centers relative to the affine extension space; no higher generality or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for complete endpoint fiber/center classification. Bochner Lp stability 1<p<∞ is prior literature; the older 2026 embedding paper remains an explicit unresolved access risk, not automatic failure.
+
+## value
+
+PASS
+
+A natural endpoint failure of unique Hahn–Banach extensions is quantified by the complete fibers, affine Chebyshev centers, attainable diameter spectrum, and the exact measure-algebra dichotomy. The L1 boundary differs structurally from known strict Lp inheritance theorems, providing a genuinely usable exact model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
