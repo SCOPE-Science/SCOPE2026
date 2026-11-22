@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "The 1D circle can be cut at an uncovered point, unless footprints partition the entire circle; ordered equal-length intervals then show every multiplicity >=2 point lies in the middle arc, so m2+m3<=ell. The success probability is an exact affine function of multiplicity lengths constrained by a sharp triangle whose three vertices are geometrically attainable. Comparing them gives the exact maximum, necessary-and-sufficient regimes and the two equality boundaries; symbolic algebra validates the threshold differences. An independent endpoint-partition checker passed 18,000 random continuous samples plus 14 boundary checks. Finite sampling is supplementary to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shan–Xu–Cheng (2016): minimum sensor count for discrete target detection probability.",
+        "Ammari (2023): planar k-covering tile constructions and sensor-density bounds.",
+        "Kim et al.: 3-coverage subject to minimum spacing; inspected abstract only."
+      ],
+      "reasoning": "These are broader in geographical dimensions and number of sensors but constrain every point to k-coverage, optimize sensor density, or assume prescribed placements. Their implications do not enforce the new average-payoff classification. A general algorithm might be adapted to this setting but that is not a statement or proof of the specific sharp result.",
+      "searches": [
+        "sensor network probabilistic 1 coverage 2 coverage tradeoff three sensors optimal placement intervals redundancy",
+        "\"A Computational Geometry-based Approach for Planar k-Coverage\" pdf Ammari 2023",
+        "\"Sensor placement for 3-coverage with minimum separation requirements\" pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/ter.12647",
+      "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
+      "https://www.jaist.ac.jp/~t-asano/papers/Disc-covering.pdf",
+      "https://doi.org/10.3390/s16091372",
+      "https://doi.org/10.1145/3564272",
+      "https://doi.org/10.1177/87552930231153424",
+      "https://snu.elsevierpure.com/en/publications/sensor-placement-for-3-coverage-with-minimum-separation-requireme/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang et al. 2023 Section 4 studies network-trigger counts and different blind-zone sizes but not exact independent receiver probabilities for every circular point.",
+        "Litvak et al. 2-sensor optimum has only disjoint/overlapping endpoints, lacking the 3-sensor middle-coverage vertex.",
+        "Asano et al. optimize exactly once, which assigns zero or negative weight to higher coverage; the newly studied two-confirmation rule assigns a positive benefit to double coverage."
+      ],
+      "reasoning": "Even assuming known binomial formulas and interval-rearrangement facts, a rigorous global multiplicity constraint m2+m3<=ell and a comparison of three attainable vertices are needed. Neither the journal source nor the closest read coverage work supplies that implication for the new mixed probability. The two-sensor result cannot yield the three-receiver intermediate regime.",
+      "searches": [
+        "earthquake early warning tradeoff single sensor versus two sensor confirmation station spacing detection reliability false alarm network 2023",
+        "\"three\" \"coverage\" \"one\" \"two\" \"weighted\" intervals sensor optimal",
+        "\"circular\" \"k-coverage\" \"sensor\" optimum two coverage one coverage"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Litvak et al. Section 5.2 derives a two-sensor overlap formula using independent reporting probabilities.",
+        "Asano–Brass–Sasahara formulate exact-one interval coverage and derive interval overlap accounting."
+      ],
+      "reasoning": "The new objective is equivalently a weighted integral of multiplicity-one, -two and -three arcs. Prior interval counting and binomial detection ideas recover the ingredients, but the inspected work does not explicitly optimize all positions of three equal arcs under the stochastic mixture, nor state its sharp intermediate placement phase.",
+      "searches": [
+        "\"three sensors\" \"single\" \"double\" \"coverage\" \"optimal\" probability placement",
+        "\"coverage\" \"exactly once\" \"at least twice\" sensor placement maximize weighted",
+        "three equal arcs circle probabilistic sensing optimal disjoint pair co-located triple overlap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published finding on epidemic sentinels on cycles considers bond-transmission reaching at least one monitor versus the expected number of alarms with two monitors; neither circular hard-footprint triple nor weighted two-confirmation probability.",
+        "Closest geophysical circular receiver designs concern Fisher-information inverse-source estimation, not alarm coverage probabilities."
+      ],
+      "reasoning": "Semantic publication-record results have different event/measurement laws and decision functionals. A partition of published records is not a mathematical uniqueness proof; the actual comparisons are based on conditional coverage indicators and the scopes of the statements.",
+      "searches": [
+        "three identical equal interval circular sensor placement one detection or two independent confirmations weighted reliability optimal three geometric regimes separated chain coincident",
+        "seismic early warning three station independent detection mixed one station two station threshold confirmation circular earthquake source placement",
+        "three interval overlap multiplicity at least two exactly one optimization binomial alarm probabilities"
+      ]
+    },
+    "rationale": "In the read motivating full text, single- versus network-station blind zones are studied, but no exact three equal circular footprint solution for mixed one-/two-positive-signal alert classes appears. Closest surveillance work already covers two-sensor overlap and binomial alarms; exactly-once interval optimization and planar k-coverage are acknowledged. Their stated objectives and feasible regions do not imply the particular sharp threshold 1/2, (2-p)/(4-3p), the intermediate multiplicity optimum and the complete equality cases. Priority remains provisional because wider geometric coverage literature is substantial and an older 3-coverage source was abstract-only.",
+    "residual_risks": [
+      "Exhaustive priority over classical weighted interval covering, reliability engineering, and general sensor-placement results was not established.",
+      "Publisher original full text for Ammari (2023) not directly fetched and Kim et al. 3-coverage article remained abstract-only; available material indicates different objectives, but whole-document exclusion is not asserted.",
+      "Distinct co-located receivers may have correlated observation failures in applications; independence is an explicit theorem assumption, not a field validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Physical motivation and temporal warning constraint are prior results; its many-station geographic analysis and single-station switch do not state an optimal three equal-arclength mixed-confirmation placement theorem.",
+        "evidence": [
+          "Full manuscript Section 4 treats mode switching and station requirements and Appendix 1 derives wave-arrival blind zones.",
+          "Publisher first published date 2023-03-03 at https://onlinelibrary.wiley.com/doi/10.1111/ter.12647."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/ter.12647",
+        "material_read": "Full open-access publisher-format manuscript, including introduction, mode-switching strategy, figures/discussion, Appendix 1 blind-zone equations and conclusions; also original publisher first-online metadata.",
+        "method": "Read the full public manuscript text at https://arts.units.it/retrieve/80c7613b-13b7-46d0-8ef6-de936e9c18de/Terra%20Nova%20-%202023%20-%20Zhang.pdf and publisher article page.",
+        "title": "Earthquake Early Warning System (EEWS) empowered by Time-Dependent Neo-Deterministic Seismic Hazard Assessment (TD-NDSHA)",
+        "trigger": "Exact motivating 2023 primary study compares single versus multi-station early-warning blind zones and station density."
+      },
+      {
+        "assessment": "Its two-sensor nonoverlap rule and binomial alarm formulations are established prior art. Its mixed grouped co-location detection analysis differs from global placement of three freely located equal arcs with one- versus two-confirmation action classes.",
+        "evidence": [
+          "Section 5.2.1 maximizes detection with exactly two intervals and one alarm; Section 5.3.2 models groups of completely overlapping sensors but does not give the asserted three-arc threshold."
+        ],
+        "identifier_or_url": "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
+        "material_read": "Complete relevant Sections 5.2 and 5.3 of accessible chapter; examined original page image 89 and the two-sensor optimization equation.",
+        "method": "Full-text inspection of Sections 5.2.1–5.3.2 and direct inspection of source PDF page image.",
+        "title": "Increasing Detection Performance of Surveillance Sensor Networks",
+        "trigger": "Closest general surveillance literature for imperfect sensor overlap, co-located groups and false alarms."
+      },
+      {
+        "assessment": "This proves interval set-selection results for maximizing singly-covered area and shows that triple overlap can be avoided for that objective. It does not imply the positive double-confirmation incentive or three-regime optimum of the new fixed-three-receiver mixed objective.",
+        "evidence": [
+          "Lemma 1 admits optimal interval subset without triple intersections because only exactly-once coverage contributes; its optimization variable is a subset of given intervals, not arbitrary positions of three fixed equal arcs."
+        ],
+        "identifier_or_url": "https://www.jaist.ac.jp/~t-asano/papers/Disc-covering.pdf",
+        "material_read": "Full abstract, introduction, section on one-dimensional exact-one coverage, Lemmas 1–2 and source page image of interval diagrams.",
+        "method": "Read original PDF text and inspected page image containing Lemma 1 and the interval diagram.",
+        "title": "Disc Covering Problem with Application to Digital Halftoning",
+        "trigger": "Classical nontrivial overlap lemma on intervals and exact one-covered measure optimization."
+      },
+      {
+        "assessment": "Minimizes number of active randomly deployed sensors meeting a target-detection threshold at discrete targets; objective and feasible sets differ from optimizing three freely placed equal arcs against a weighted one/two-confirmation payoff.",
+        "evidence": [
+          "Shan, Xu and Cheng (2016) define minimum epsilon-detection coverage, prove NP-hardness and propose an approximation algorithm."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/s16091372",
+        "material_read": "Public full HTML paper abstract, introduction, problem formulation and theoretical/algorithm-design overview.",
+        "method": "Inspected accessible journal article on MDPI website including exact problem definition and conclusions.",
+        "title": "Target Coverage in Wireless Sensor Networks with Probabilistic Sensors",
+        "trigger": "Probabilistic detection, independent sensors, multi-coverage and coverage algorithms could dominate a simple mixed-sensor criterion."
+      },
+      {
+        "assessment": "Develops planar hexagonal tiling and sensor-density bounds for mandatory k-fold coverage, not expected success under a stochastic mixture of 1/2 alarm rules for three equal arcs. Full inaccessible publisher text is a residual historical-priority risk.",
+        "evidence": [
+          "Abstract specifies optimal planar convex tiles and sensor density for k-covering a field, not three-arc mixed alarm optimization.",
+          "Publisher reports the initial online accepted manuscript on 2022-09-26 and article on 2023-02-03."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/3564272",
+        "material_read": "Publicly indexed detailed article text covering abstract, mathematical problem definition, planar tiling, coverage degree, sensor density, related work, conclusions and limitations; direct publisher full-HTML fetch returned 403.",
+        "method": "Compared available indexed full-length text and structured section descriptions against exact theorem domain and objective; publisher document access incomplete.",
+        "title": "A Computational Geometry-based Approach for Planar k-Coverage in Wireless Sensor Networks",
+        "trigger": "Potentially stronger 2023 k-coverage geometric result, with multi-sensor placement, co-location and probabilistic detection."
+      },
+      {
+        "assessment": "General earthquake risk reduction and risk-exceedance framework, not an extremal three-arc event-coverage theorem with weighted one/two station confirmations.",
+        "evidence": [
+          "Article motivates why early-warning benefits depend on false-alarm tolerance, timing and target-specific protection, but assesses regional event-based probabilistic risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.1177/87552930231153424",
+        "material_read": "Public journal full HTML: abstract, introductory risk formulation and warning performance objectives; inspected available article sections on risk assessment.",
+        "method": "Direct article HTML reading rather than abstract-only inference.",
+        "title": "A framework to quantify the effectiveness of earthquake early warning in mitigating seismic risk",
+        "trigger": "Could contain a stronger probabilistic early-warning optimization subsuming the simple circle model."
+      },
+      {
+        "assessment": "Its required threefold coverage and minimum separation differ from a mixed one/two Bernoulli alert criterion on a one-dimensional fault. Residual risk of uninspected methods is retained.",
+        "evidence": [
+          "Accessible abstract describes 3-coverage with minimum sensor separation and overlaying/TRE-based placement methods."
+        ],
+        "identifier_or_url": "https://snu.elsevierpure.com/en/publications/sensor-placement-for-3-coverage-with-minimum-separation-requireme/",
+        "material_read": "Abstract and bibliographic description only; no accessible primary full text located in bounded search.",
+        "method": "Bibliographic and abstract comparison, explicitly not a full-document exclusion.",
+        "title": "Sensor placement for 3-coverage with minimum separation requirements",
+        "trigger": "Same count of three sensors and minimum-spacing concern."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d44cac4-63e1-43d0-8cfc-c634eab2c47e",
+  "value": {
+    "rationale": "Seismic early-warning protocols face an established scientific tradeoff between acting on one receiver and requiring network confirmation. The result identifies the smallest receiver count with a genuinely intermediate redundancy optimum, constructs three spatially separate stations achieving it, and establishes a complete sharp phase diagram and equality cases independent of footprint size under a motivated sparse limit. The result is an analytic design benchmark and is not claimed to be a measured real-world policy; the precise mixed-alarm payoff and station-layout optimization are motivated by source literature, not arbitrary numerical slicing.",
+    "status": "PASS"
+  }
+}
