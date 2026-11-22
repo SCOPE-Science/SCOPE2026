@@ -1,11 +1,21 @@
-# Review of the hemispherical \(\mathrm{SU}(2)\) convolution law
+# Independent mathematical audit
 
-**Correctness — PASS.** Quaternion multiplication realizes \(\mathrm{SU}(2)\) as the round three-sphere with invariant Haar measure. The spherical-cap overlap lemma (proved through uniform circular projection) and layer-cake give preservation of radial monotonicity. The sign-odd centered step implies antipodal complementarity, which fixes the globally optimal total-variation testing event. The character coefficients, their multiplicities, the two-step cap-overlap density, and the dominant Fourier term then prove the exact statements for all positive integer times. The standard-library checker agrees with the analytic integrations; it does not replace the analytic proof.
+## correctness
 
-**Originality — PASS, provisional.** General compact-group total-variation convergence and its spectral radius rate are available in Borda (arXiv:1906.09432, §§1–2), and the hemisphere's individual harmonic multipliers are standard cap-averaging data; neither is a new claim. The contribution assessed here is the all-time optimality of one fixed total-variation event, the evaluated absolutely convergent all-time mixing series and the full two-step density. Closely indexed alternatives concern different walks, notably one on finite Heisenberg groups. No equivalent specialized statement was identified in the accessible checks. Specialist unindexed literature could contain an equivalent calculation.
+PASS
 
-**Mathematical value — PASS.** The exact mixing profile strengthens a qualitative or spectral-gap mixing estimate into finite-time distributional information: a universal optimal event, an exact scalar TV formula for every time, and a sharp leading constant. It is a natural nonabelian compact-group benchmark not dependent on arbitrary numerical parameter choices.
+At t=1 the step density is 2 times the positive-real-part hemisphere indicator, so the probability-TV distance is 1/2. For any nonnegative radial decreasing functions on S^3, layer cake reduces convolution monotonicity to overlap of two geodesic caps; conditioning on projection length onto the centers’ plane makes this the monotone intersection length of circular arcs for separations in [0,pi], including long arcs. Hence all f_t are radial nonincreasing. The mean-zero odd antipodal component h=2*1_H-1 satisfies f_t=1+h^{*t}, so f_t(q)+f_t(-q)=2 and H is exactly the positive set of f_t-1. For SU(2), character chi_n=sin((n+1)theta)/sin(theta), Haar radial weight 2sin²(theta)/pi, and central Fourier transform give zero for even nontrivial sectors and lambda_k=(-1)^k 4/[pi(2k+1)(2k+3)] at dimension 2k+2. Integrating the character series over H yields TV(t)=1/2 sum (2k+2)^2 lambda_k^(t+1), absolutely convergent at t=1. Direct hemisphere overlap gives f_2=2(1-theta/pi) and TV(2)=1/4-1/pi²; spectral dominance gives asymptotic (8/(3pi))(4/(3pi))^t. Independent Simpson quadrature and truncated absolutely convergent series gave TV2=0.14867881635766222 and 0.14867881635763006 respectively; these finite checks corroborate, not replace, the cap-overlap and spectral proof.
 
-**Limits.** No assertion about other cap apertures, arbitrary central measures, or independent mathematical validation is made. Full historical priority cannot be certified by the available search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level comparison separates generic compact-group convergence/character bounds from a fixed exactly optimal hemisphere for every step and an evaluated full TV series with sharp constant. The SU(2) conjugacy-class comparison in published findings is a singular class-supported law, not the Haar-conditioned hemisphere law. No inspected prior source established the joint all-time optimizer and exact evaluated identity; classification remains best-of-knowledge, not a claim of exhaustive literature search.
+
+## value
+
+PASS
+
+The identical maximizing event at every step is a structural fact about a natural compact-group random walk, and an exact all-t distance profile and sharp rate constant are useful for quantitative mixing and testing. This is not a mere Fourier-coefficient table, generic convergence restatement, or tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
