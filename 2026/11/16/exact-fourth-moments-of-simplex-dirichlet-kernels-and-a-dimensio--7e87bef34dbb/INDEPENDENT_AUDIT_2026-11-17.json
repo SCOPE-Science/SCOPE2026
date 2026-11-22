@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:50:09.820761Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On probability Haar torus, the fourth power is exactly the additive energy sum_h r(h)^2. If h has positive and negative coordinate totals P and Q, then lattice simplex intersection counts are r(h)=binom(n-max(P,Q)+d,d) when max(P,Q)<=n. For each sign-pattern with p positive and q negative coordinates, positive compositions with sum<=t and negative compositions contribute binom(t,p)binom(t,q); summing multinomial choices counts A_d(t). The exact shell difference supplies the finite formula. Direct independent pair-difference energy enumeration and the binomial formula agree for (d,n)=(2,2):102,(2,4):1443,(3,3):2364,(4,2):835. The degree-d leading coefficient of A_d is binom(2d,d)/d! by Vandermonde; beta integration and the simplex lattice count yield the stated factorial constants. Stirling gives the precise (16/27)^d rate; box product correlation gives (2/3)^d. Limits are iterated n->infinity at fixed d, then d->infinity, not simultaneous uniformity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ash theorem gives Lp triangular-kernel order ~n^{2-2/p} in the two-variable setting, not a precise L4 fourth-power polynomial.",
+          "General Dirichlet-kernel inequalities do not furnish the exact n,d coefficient."
+        ],
+        "reasoning": "General upper/lower bounds constrain but do not imply the finite binomial identity or exact R_d without additional enumeration.",
+        "searches": [
+          "Resultary: simplex lattice Dirichlet kernel exact L4 fourth moment additive energy dimension leading coefficient",
+          "doi:10.1007/s00041-026-10263-1",
+          "doi:10.1007/s00041-009-9115-8"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and simplex_fourier_checker.py",
+        "Resultary search Resultary: simplex lattice Dirichlet kernel exact L4 fourth moment additive energy dimension leading coefficient",
+        "Marshall Ash DOI 10.1007/s00041-009-9115-8, lawful author PDF",
+        "Nursultanov-Tikhonov-Weisz DOI 10.1007/s00041-026-10263-1",
+        "de Dios Pont et al arXiv:2112.09352"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical fourth-moment/additive-energy identity is prior art; it alone leaves a nontrivial all-dimensional shell count and beta-integral evaluation.",
+          "The evaluated R_d implies a strict exponential simplex-versus-box decay contrast unavailable from order-only estimates."
+        ],
+        "reasoning": "The derived invariant is not a direct restatement of the inspected Lp growth bound; any exact old covariogram formula remains a concrete historical risk.",
+        "searches": [
+          "Resultary: simplex lattice Dirichlet kernel exact L4 fourth moment additive energy dimension leading coefficient",
+          "doi:10.1007/s00041-009-9115-8",
+          "arXiv:2112.09352"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fourth moment is additive energy of the lattice simplex, equivalently the squared discrete covariogram of simplex translates.",
+          "General additive-energy inequalities do not directly equal the evaluated simplex shell sum."
+        ],
+        "reasoning": "The exact result may be restated as a lattice-covariogram identity; compare the exact coefficient rather than only the language of Dirichlet kernels.",
+        "searches": [
+          "Resultary: simplex lattice Dirichlet kernel exact L4 fourth moment additive energy dimension leading coefficient",
+          "arXiv:2112.09352",
+          "doi:10.1007/s00041-009-9115-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier six-character d=2,n=2 energy 102 is contained as an acknowledged special case.",
+          "No different indexed exact all-d R_d table was identified."
+        ],
+        "reasoning": "The known n=2 row does not dominate the general n,d result; no inference of novelty from search failure.",
+        "searches": [
+          "Resultary: simplex lattice Dirichlet kernel exact L4 fourth moment additive energy dimension leading coefficient",
+          "Resultary: exact simplex Dirichlet fourth moments",
+          "Resultary: six-term triangular aperture fourth moment"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the combination of exact all-d finite norm, evaluated factorial leading coefficient, and asymptotic comparison with boxes. The energy identity and simplex-lattice intersection principle are standard ingredients; Ash states Lp growth order for triangular kernels, and Nursultanov–Tikhonov–Weisz give general analytic inequalities, not an evaluated all-d exact fourth-moment constant in the inspected scope. General B-spline/covariogram literature could encode an equivalent formula; prioritize this as residual risk rather than novelty proof by search failure.",
+      "residual_risks": [
+        "Older discrete simplex covariogram/B-spline literature may derive equivalent exact shell polynomials.",
+        "Some primary general Dirichlet-kernel works were only abstract/selected-section inspected.",
+        "Asymptotic statements are iterated, not uniform for d growing with n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_ESTABLISH_EXACT_CONSTANT",
+          "evidence": "Gives relevant growth order but not the all-n two-dimensional polynomial or all-dimensional R_d in checked theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-009-9115-8",
+          "material_read": "Lawful author-hosted full PDF, including opening and Theorem 1 growth bounds; page image was inspected",
+          "method": "PDF text + visual page check, theorem comparison",
+          "title": "Triangular Dirichlet Kernels and Growth of Lp Lebesgue Constants",
+          "trigger": "Same triangular Dirichlet kernel and fourth moment"
+        },
+        {
+          "assessment": "FULL_TEXT_PRIORITY_RISK",
+          "evidence": "Estimates and weighted inequalities do not visibly state exact finite simplex fourth moment, though full comparisons remain incomplete.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-026-10263-1",
+          "material_read": "Abstract/section summaries on bounds, not a complete verified full-paper read",
+          "method": "bibliographic and statement comparison",
+          "title": "Pitt’s Inequalities and Bounds for Dirichlet Kernels",
+          "trigger": "Potential later stronger general polyhedral kernel result"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": "Discrete cubes rather than lattice simplices; energy comparisons may inspire bounds but no demonstrated implication of exact simplex coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.09352",
+          "material_read": "Public arXiv summary of discrete cube inequalities; full proof not asserted read",
+          "method": "object/parameter comparison",
+          "title": "Additive Energies on Discrete Cubes",
+          "trigger": "Possible stronger additive-energy evaluation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-dimensional exact additive energy of a standard simplex is a natural Fourier invariant, with a sharp dimension-dependent normalized contrast to a box; the finite formula and factorial profile go substantially beyond the previously known six-character special case and order-of-growth estimates. Such an exact object/invariant pair can serve as a baseline for Fourier truncation and additive combinatorics without needing a downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Standard unit-coefficient lattice simplex and probability Haar normalization only.",
+    "No weighted Fourier coefficients or arbitrary rational polytope.",
+    "Fixed-d asymptotics precede d->infinity."
+  ],
+  "schema_version": 1
+}

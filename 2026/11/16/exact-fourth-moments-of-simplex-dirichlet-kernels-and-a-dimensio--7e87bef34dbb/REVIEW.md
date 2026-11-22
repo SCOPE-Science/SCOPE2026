@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the integer simplex, probability-Haar torus normalization, the fourth-power norm and iterated limits. Four-character orthogonality reduces the norm to an integral additive-energy count. The intersection count follows by shifting each coordinate by the negative part of the difference vector. The number of difference vectors in each max-positive/max-negative-sum shell follows from positive-integer composition counts and a multinomial sign choice. These prove the exact finite identity for all parameters. The two-dimensional factorization follows from the explicit shell size \(6t\) and polynomial summation. The leading constant follows from Vandermonde and beta integration; the high-dimensional contrast follows from an exact box product and Stirling. Critical boundaries \(n=0\) and \(d=1\) are included. A standalone exact-rational checker cross-compares direct enumerations at finite \(d,n\) and exercises the polynomial and factorial identities; finite checks do not substitute for the proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+On probability Haar torus, the fourth power is exactly the additive energy sum_h r(h)^2. If h has positive and negative coordinate totals P and Q, then lattice simplex intersection counts are r(h)=binom(n-max(P,Q)+d,d) when max(P,Q)<=n. For each sign-pattern with p positive and q negative coordinates, positive compositions with sum<=t and negative compositions contribute binom(t,p)binom(t,q); summing multinomial choices counts A_d(t). The exact shell difference supplies the finite formula. Direct independent pair-difference energy enumeration and the binomial formula agree for (d,n)=(2,2):102,(2,4):1443,(3,3):2364,(4,2):835. The degree-d leading coefficient of A_d is binom(2d,d)/d! by Vandermonde; beta integration and the simplex lattice count yield the stated factorial constants. Stirling gives the precise (16/27)^d rate; box product correlation gives (2/3)^d. Limits are iterated n->infinity at fixed d, then d->infinity, not simultaneous uniformity.
 
-The 2026 Dirichlet-kernel inequalities of Nursultanov, Tikhonov and Weisz and Ash's 2010 triangular estimates determine growth orders, not the explicit all-dimensional finite fourth moment and leading factorial constant. De Dios Pont and collaborators analyze energy bounds for arbitrary subsets of discrete cubes, not this standard simplex. A published six-mode triangular calculation already contains the value \(102\) at \(d=2,n=2\); this special value is explicitly known and cannot support a novelty claim. Additional published-index searches for equivalent additive-energy, simplex-covariogram and Fourier-fourth-moment language did not reveal a stronger covering theorem. The main residual priority risk is an older discrete-convolution/covariogram formula not discovered under these queries. Search absence is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The standard simplex cutoff is a natural geometric Fourier summation domain; exact fourth moments are the additive energies controlling its \(L^4\) concentration. A uniform-in-cutoff exact formula for every dimension refines earlier order bounds with reproducible, precise constants. The comparison with complete integer boxes shows a distinct exponential high-dimensional suppression of normalized additive energy, with an explicit ratio \((8/9)^d\), rather than merely another small finite example. Both the infinite-dimensional family and its sharp asymptotic invariant are central to the object, not arbitrary parameter slices.
+Best-of-knowledge PASS for the combination of exact all-d finite norm, evaluated factorial leading coefficient, and asymptotic comparison with boxes. The energy identity and simplex-lattice intersection principle are standard ingredients; Ash states Lp growth order for triangular kernels, and Nursultanov–Tikhonov–Weisz give general analytic inequalities, not an evaluated all-d exact fourth-moment constant in the inspected scope. General B-spline/covariogram literature could encode an equivalent formula; prioritize this as residual risk rather than novelty proof by search failure.
 
-## Limitations and closest literature
+## value
 
-Only all-ones coefficients and the standard axis simplex are treated, not arbitrary polyhedral slopes or arbitrary Fourier coefficients. High-dimensional asymptotics are iterated limits. See RESULT.md and AUDIT.json for inspected statements, searches, and unresolved older-formula priority risk. This is a review of the stated claim and proof, not independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-dimensional exact additive energy of a standard simplex is a natural Fourier invariant, with a sharp dimension-dependent normalized contrast to a box; the finite formula and factorial profile go substantially beyond the previously known six-character special case and order-of-growth estimates. Such an exact object/invariant pair can serve as a baseline for Fourier truncation and additive combinatorics without needing a downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
