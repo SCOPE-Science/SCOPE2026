@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The C++17 verifier exhaustively scans every source through complement-equivariant representatives for all 3<=n<=22, enumerates all (n-2)(n+1) ordered histories, exactly constructs each reversed inserted triple by checked bit masks, and counts every distinct output by sorting fixed-length encoded integers. A separate plain-string reference checks all outputs for n<=10. Completed output reports 4,194,300 representatives, maxima and populations for every length, exactly two period-four complementary maximizers at n=6..22, and zero failed assertions. This is a finite exhaustive certificate; no all-n extension is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "For arbitrary symbols the disjoint-window commutation proves the upper bound U(n), not binary attainment; the verified binary maximum is smaller by 2n-9 for 6<=n<=22.",
+        "The all-odd-length distinct-symbol sharpness theorem assumes q>=n. The binary case has q=2<n for all tested lengths.",
+        "The all-maximizers theorem for PAL length two assumes two-symbol copied blocks, not the three-symbol blocks in the final claim."
+      ],
+      "reasoning": "None of the larger-domain results covers this parameter slice via a reduction: parity is fixed to odd and changing the alphabet reduces available sources, so q>=n sharpness gives no lower bound or maximizing binary classification. The universal bound is strictly larger and cannot imply equality.",
+      "searches": [
+        "maximum two successive palindromic duplication length three binary sources exact sphere size",
+        "arxiv:2609.00779 Theorem 5.1",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.00779v4",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f/RESULT.md",
+      "https://arxiv.org/abs/2602.01151",
+      "https://arxiv.org/abs/1712.09345"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The only general implication common to nearby two-step works is the commutation upper bound U(n); it does not imply any sharp binary value because U(n)>M(n) at every n from 4 to22.",
+        "A q>=n maximizing construction consists of pairwise distinct symbols and is impossible over a two-letter alphabet when n>=3.",
+        "Lenz et al. analyze single-duplication coding sphere bounds, not this two-step binary extremizer census."
+      ],
+      "reasoning": "The finite calculation supplies both the missing matching lower bound and a complete exclusion of all other binary sources at each length. No inspected theorem with stronger coverage yields the two complementary period-four extremizers by specialization. The count of exactly two maximizers is genuinely additional to an upper bound.",
+      "searches": [
+        "arxiv:2609.00779 Section 5.1 and Appendix",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f/RESULT.md",
+        "arxiv:1712.09345 abstract and metadata"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The manuscript arXiv:2609.00779 uses the same PAL operation and ordered two-step history model, but its exact sharpness theorem in Section 5.1 explicitly requires even k.",
+        "Public odd-length large-alphabet result defines the identical operation but assumes q>=n, excluding binary inputs n>=3.",
+        "The submitted finite result counts output strings rather than histories; equality of histories is fully quotiented."
+      ],
+      "reasoning": "The channel terminology and operation coincide with the main 2026 PAL manuscript, so wording cannot create novelty. The critical differences are k=3 (odd), q=2 (fixed smaller than source length), exact finite ranges and complete maximizer populations. Those quantifiers are absent from the inspected covering statements.",
+      "searches": [
+        "PAL_3 binary 011001 period four two duplication exact sphere 24 32 41 51",
+        "Binary length three palindrome duplications maximum descendants 227 length 20",
+        "Two length-three palindromic duplications over binary symbols 0110 extremal exact family",
+        "011001100110 two palindromic duplications sphere",
+        "two-step palindromic duplication exact-two descendant spheres binary block length three",
+        "arxiv:2609.00779 Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The cited 2026 full-text paper presents no table of the 20 binary length-three exact-two maxima.",
+        "The indexed source comparisons returned binary PAL length-two code-size results and odd-block q>=n sphere results, not a binary k=3 length 3..22 table or optimizer census.",
+        "An actual complete enumeration supplied here computes the exact maximum and all equality cases over 8,388,600 labeled sources."
+      ],
+      "reasoning": "A failed indexed search is not proof of novelty. In the material inspected no exact binary k=3 finite table was present, including after checking numerical values 24,32,41,51,227 and the optimizer 0110. A nonindexed table may still exist.",
+      "searches": [
+        "PAL_3 binary 011001 period four two duplication exact sphere 24 32 41 51",
+        "Binary length three palindrome duplications maximum descendants 227 length 20",
+        "Two length-three palindromic duplications over binary symbols 0110 extremal exact family",
+        "011001100110 two palindromic duplications sphere",
+        "Binary length 3 palindromic duplication sphere sizes 4 9 16 24 32 41 51 62",
+        "published-finding corpus search of PAL length-three two-error sphere maximum"
+      ]
+    },
+    "rationale": "Comparison of mathematical statements shows that the accessible full papers and public results prove an even-length exact-two maximum, a large-alphabet odd-length maximum, or a length-two extremizer characterization; none entails the exact finite binary odd-length maximum or its two-source optimizer classification at every length 6..22. Actual indexed searches included names, equivalent sphere terminology, exact capacity values and the periodic optimizer. Historical priority is not certified; an unindexed equivalent finite table remains a material residual risk.",
+    "residual_risks": [
+      "A standalone unpublished or unindexed binary length-three exact-two sphere table could already contain these twenty values and optimizer classes.",
+      "The foundational 2017 paper was not examined in complete full-text form; its abstract did not establish relevant coverage.",
+      "The finite-range theorem does not extend beyond n=22 and does not identify any exact binary codebook packing capacity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING binary odd k=3 finite maximum: Section 5.1 explicitly assumes even k; the shared universal history upper bound is too large.",
+        "evidence": [
+          "Theorem 5.1 assumes k even. Its proof has a disjoint-window universal upper bound for every word, while the sharp construction is an even-k alternating word.",
+          "The submitted binary finite values fall below the universal bound for all lengths n>=4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.00779v4",
+        "material_read": "Complete rendered article navigation, introduction and Section 5.1 including Theorem 5.1, Lemmas 5.2-5.3 and commutation proof, plus version history confirming 2026-09-01 first submission",
+        "method": "Read arXiv HTML full article and compared theorem hypotheses and two-step operation definitions",
+        "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+        "trigger": "Same PAL channel, same two-operation history, possible stronger sphere maximum"
+      },
+      {
+        "assessment": "NOT_COVERING q=2,n>=3: theorem requires q>=n and distinct original symbols.",
+        "evidence": [
+          "The scope states q>=n and explains that pairwise distinct symbols recover all original gaps. Binary words with n>=3 violate the condition."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1/RESULT.md",
+        "material_read": "Entire RESULT.md including theorem, all proof steps, verification and limitations",
+        "method": "Read public research result full text and checked parameter quantifiers",
+        "title": "Sharp exact-two palindromic-duplication spheres for odd block lengths over large alphabets",
+        "trigger": "Same odd k=3 and two-step sphere, plausible stronger coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: its operation copies a two-symbol block, not a three-symbol block; its formula and structural source characterization do not transfer automatically.",
+        "evidence": [
+          "The theorem quantifies k=2 and gives S_n=(n^2+5n-8)/2 with adjacent-unequal maximizers.",
+          "The present finite binary k=3 extremizers are period four and do have adjacent equalities."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f/RESULT.md",
+        "material_read": "Entire RESULT.md including shape normal form and all-maximizers proof",
+        "method": "Read public research result full text and compared duplicated block length",
+        "title": "All maximizers of two-step length-two palindromic-duplication spheres",
+        "trigger": "Potential general classification of two-error binary palindromic spheres"
+      },
+      {
+        "assessment": "No covering statement found in inspected material; direct finite comparisons rest primarily on the more relevant full-text sources above.",
+        "evidence": [
+          "The abstract lists coding schemes for disjoint long duplications, arbitrary-length single-duplication bounds, and length-one reverse-complement corrections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.01151",
+        "material_read": "Article abstract and introduction with the enumerated main constructions and parameter regimes; no claim to have inspected its complete article",
+        "method": "Read accessible arXiv rendered opening sections",
+        "title": "On the Palindromic/Reverse-Complement Duplication Correcting Codes",
+        "trigger": "Recent general duplication coding methods might imply finite sphere maxima"
+      },
+      {
+        "assessment": "The abstract provides one-step coding context but not a decisive whole-document exclusion; residual uninspected-text risk disclosed.",
+        "evidence": [
+          "The abstract discusses correction of tandem and palindromic duplications and sphere-packing bounds. The checked primary two-step papers supply the decisive parameter comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1712.09345",
+        "material_read": "arXiv abstract, metadata and description of scope; HTML full text was unavailable in this inspection",
+        "method": "Read arXiv abstract and metadata",
+        "title": "Duplication-Correcting Codes",
+        "trigger": "Foundational sphere-packing and single-step palindromic error work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bbc52bcb-5ef0-42ea-86e0-42464653590e",
+  "value": {
+    "rationale": "This addresses the natural first alphabet-size boundary q=2 of the odd-length palindromic duplication sphere problem, where the distinct-letter sharpness proof cannot be used. It determines twenty consecutive exact maximum output-sphere sizes and all maximizing binary sources, giving a persistent rigidity pattern (two complementary period-four sources at every n=6..22) and an exact binary loss 2n-9 from the general commutation upper bound. Such a full finite ambiguity benchmark and optimizer classification are reusable for comparing finite-length synchronization channels and future binary all-length bounds, without requiring a paper-sized infinite theorem.",
+    "status": "PASS"
+  }
+}
