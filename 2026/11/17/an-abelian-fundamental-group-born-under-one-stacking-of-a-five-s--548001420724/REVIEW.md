@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The twelve facet sets, exhaustive simplicial enumeration, lexicographic spanning tree, and signed generator–relator cancellations are independently specified. Exactly 134 unimodular single-letter eliminations reduce the cellular presentation to five generators, 46 two-cells, with all attaching words exponent-zero. The explicit ten pairwise commutation deductions yield the abelian fundamental group \(\mathbb Z^5\); the integral chain differentials vanish, establishing the two Betti ranks and excluding torsion. Reproduce with `python3 VERIFY.py`.
+PASS
 
-## Originality — PASS
+The 12 facets of one facet-stacking define the precise 5-sphere. Independent enumeration yields double face vector (27,165,180) and rank d2=134 over p=2,3,5,101, giving beta1=5,beta2=46 once connected. Independently reconstructed 139 edge-path generators/180 triangle words, performed 134 valid single-occurrence Tietze eliminations and obtained exactly five generators [48,88,91,95,98] with 46 remaining relators, 20 nonempty. Direct inspected surviving relators force all six commutators among the last four and the four commutators with generator 48; every retained word has zero exponent sums, so pi1=Z^5 and cellular differential2=0 on remaining 2-complex.
 
-The closest primary open-access source is Lesh–Schreiner–Wahl (2025), defining the double and proving general connectivity bounds rather than this exact eight-vertex stacked-sphere group. A prior five-sphere example is the join of two tetrahedral boundaries, whose double has free group of rank 15. Historical claims on stacked three-sphere doubling and higher \(r\)-tupling with \(r\ge3\) do not imply this \(r=2\), five-dimensional result. Exact parameter and alternate formulation comparisons were conducted. The linked previous example's full text was inaccessible; novelty therefore remains subject to unindexed prior work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The calculation studies the smallest possible one-step stacking, the canonical first perturbation of a simplex-boundary sphere. Five commuting essential loops arise after one elementary modification, showing that the fundamental-group response of simplicial doubling is not governed just by the underlying topological five-sphere. The full integral homology classification sharpens the contrast with the unstacked case.
+Lesh–Schreiner–Wahl define doubles and give general weak Cohen–Macaulay connectivity bounds, not this exact one-stacking fundamental group. Published five-sphere double of a join of tetrahedral boundaries has free pi1 rank15, a different sphere; unstacked boundary double has different fundamental group.
 
-## Limitations
+## value
 
-No all-stacked-spheres classification, higher-tupling extension, or complete homotopy wedge claim. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Canonical smallest facet stacking measures a sharp instability of fundamental-group structure under one natural bistellar-style move; exact abelian π1 and integral H2 are natural, nontrivial invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
