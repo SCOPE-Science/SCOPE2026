@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "On the exact domain L,lambda>0, 0<p<=1, all sensor positions in [0,L], the conditional independence model yields equation (1) by direct integration; its center derivative has a strictly positive multiplier and is maximized only at the midpoint. The centered gap derivative factors as positive p*d*exp(-d) times p-exp(-ell/2) H(d), with H strictly increasing, H(0)=1, and exp(-ell/2)H(ell)=(exp(ell)-1)/ell>1. This gives the unique global optimum, with all p and ell boundaries covered. Series inversion yields linear onset, the p=1 small-ell limit yields quarter-points, and logarithmic inversion yields the large-ell law. verify.py independently checked 13036 finite numerical assertions, supplementing rather than replacing the proof. Scientific risk: conditional independence and exponential distance response are modelling assumptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Frasca et al., arXiv:1404.7711, Section 1 and the theorem statements, minimize expected maximum nearest-active-sensor distance under device failures, not Bernoulli event-detection probability.",
+        "Michaelides and Panayiotou (2011), model and coverage sections, optimize fusion schemes under spatially correlated received signals and false-alarm limits, not the independent conditional Bernoulli exponential response.",
+        "A related Gaussian activity-centre calculation in prior scientific records assumes a planar Gaussian target, squared-distance half-normal detector responses, and only symmetric-pair design. Its closed co-location threshold does not imply this uniform finite-interval model or the free-pair centering proof."
+      ],
+      "reasoning": "The closest broad sensor-placement studies optimize non-equivalent functionals. Standard symmetry alone cannot establish a unique global optimal gap; the present exact center derivative and H monotonicity are needed. The Gaussian theorem concerns a non-equivalent probability law and detection kernel, with no dominance by specialization.",
+      "searches": [
+        "optimum locations two detectors uniform line exponential distance sensing probability independent co-location critical threshold",
+        "probabilistic spatial coverage two sensors same location versus separated sensors one dimensional exponential decay location placement",
+        "optimal deployment two identical sensors exponential detection intensity overlap limited line two sensors co-location critical",
+        "https://arxiv.org/abs/1404.7711",
+        "https://doi.org/10.1186/1687-6180-2011-11"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1186/1687-6180-2011-11",
+      "https://doi.org/10.1371/journal.pone.0088025",
+      "https://arxiv.org/abs/1404.7711",
+      "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published 2026 discrete theorem: initial on-site success exactly one, traps must be distinct and integral; even its strongest complete claim cannot address an optimal co-location pair with p<1.",
+        "Litvak Lemma 5.2.1: fixed-support constant-detection intervals under a uniform target favor no overlap; exponential detection has nonzero tails and admits optimal co-location, so the hypotheses conflict.",
+        "Sun et al. (2014): half-normal detector kernel and population-estimator loss, no exact global location optimization for the probability of one detection.",
+        "A previously recorded planar Gaussian-half-normal model identifies a co-location threshold but is restricted to symmetric detectors in an unbounded plane; direct substitution to a bounded uniformly located individual and exponential absolute-distance law is impossible."
+      ],
+      "reasoning": "The present claim entails a complete new continuous spatial design phase diagram on a specified kernel and animal location law, not merely an instance of the stronger discrete or fixed-footprint results. The thirds/quarters limiting geometry is acknowledged as connected prior knowledge; novelty is instead the exact global imperfect-response classification, sharp critical dimensionless length and singular limit.",
+      "searches": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35",
+        "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
+        "https://doi.org/10.1371/journal.pone.0088025",
+        "https://doi.org/10.1186/1687-6180-2011-11",
+        "two independent imperfect spatial ecological detection traps uniform interval p exponential negative absolute distance global optimum both midpoint when p below exp(-L/2) threshold separated",
+        "wildlife trap placement single encounter probability detection kernel exp(-distance) co-located vs symmetric separated optimal threshold continuous interval",
+        "quarter point perfect detection limit co-location long range two continuous independent traps geometric probability p0 one dimensional"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The objective is the spatial integral of an OR-fusion probability 1-(1-q1(x))(1-q2(x)); compared to Litvak et al. Section 5.2.1, which uses independent OR detection but a fixed-footprint probability p and proves no overlap for uniform locations.",
+        "The 2026 discrete-path trap theorem uses OR detection but q^{integer distance} with unit on-site response, prohibits co-location, and optimizes only integer sites; its theorem does not cover p<1 or continuous free placement.",
+        "The original PLOS ONE study uses half-normal detection and estimator precision, not the current OR integral under the exponential-absolute-distance model."
+      ],
+      "reasoning": "Equivalent OR-probability algebra is recognized, but the cited no-overlap law relies on discontinuous fixed-range footprints and the 2026 study rules out exactly the co-located regime. Their hypotheses cannot be specialized, dualized, or rescaled into the present imperfect peak p, continuous domain and exponential-absolute-distance kernel; no exact matching theorem found.",
+      "searches": [
+        "two animal camera traps ecological occupancy detection p0 exp(-lambda distance) optimal separation co-location transition short transect uniform wildlife spatial center",
+        "two spatial capture-recapture detectors baseline probability less than one independent detect either average landscape optimum exact co-locate threshold",
+        "distance decay exponential wildlife traps independent detection compact interval two cameras optimal centered placement long range limit one quarter one half",
+        "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35",
+        "two independent imperfect spatial ecological detection traps uniform interval p exponential negative absolute distance global optimum both midpoint when p below exp(-L/2) threshold separated",
+        "wildlife trap placement single encounter probability detection kernel exp(-distance) co-located vs symmetric separated optimal threshold continuous interval",
+        "quarter point perfect detection limit co-location long range two continuous independent traps geometric probability p0 one dimensional"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest 2026 published result gives a discrete q-dependent seven-site crossover and thirds/quarters limits only for unit on-site response and distinct integer trap sites, not the continuous p-threshold formula.",
+        "The PLOS ONE study reports simulated estimator accuracy tables under clustered, regular and sequential arrays, not exact probability-maximizing coordinates."
+      ],
+      "reasoning": "No searched exact table or database supplies the continuous co-location frontier, its linear onset and the singular perfect-response limit. Absence of a search hit is not a universal nonexistence proof.",
+      "searches": [
+        "two animal camera traps ecological occupancy detection p0 exp(-lambda distance) optimal separation co-location transition short transect uniform wildlife spatial center",
+        "two spatial capture-recapture detectors baseline probability less than one independent detect either average landscape optimum exact co-locate threshold",
+        "distance decay exponential wildlife traps independent detection compact interval two cameras optimal centered placement long range limit one quarter one half",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35",
+        "two independent imperfect spatial ecological detection traps uniform interval p exponential negative absolute distance global optimum both midpoint when p below exp(-L/2) threshold separated",
+        "wildlife trap placement single encounter probability detection kernel exp(-distance) co-located vs symmetric separated optimal threshold continuous interval",
+        "quarter point perfect detection limit co-location long range two continuous independent traps geometric probability p0 one dimensional"
+      ]
+    },
+    "rationale": "The exact continuous free-placement co-location-to-separation boundary p=exp(-lambda L/2), its linear onset and the p=1 versus p<1 long-range singularity are not supplied or implied by the compared complete primary sources, their general formulations, the closest published discrete result, or the closest recoverable Gaussian-half-normal result. Global historical novelty remains provisional.",
+    "residual_risks": [
+      "Broader probabilistic set coverage and facility-location literature may contain a stronger analytically equivalent theorem not identified in the bounded searches.",
+      "Exact original public release date of the fixed-footprint mathematical industry report was not independently established; it is cited as comparison, not as the dated anchor.",
+      "No independent scientific novelty or field validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different detection functional: spatially correlated physical signals, fixed false-alarm rate, and selectable collaboration schemes; does not optimize two conditionally independent Bernoulli exponential-distance detectors on a finite uniform transect.",
+        "evidence": [
+          "Full text https://link.springer.com/article/10.1186/1687-6180-2011-11; Sections Introduction, Signal propagation model, coverage and Simulation results"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1687-6180-2011-11",
+        "material_read": "Full publicly accessible article: abstract, signal propagation assumptions, detector-fusion methods, coverage formula comparisons, results and conclusions",
+        "method": "Primary open HTML full text",
+        "title": "Improved coverage in WSNs by exploiting spatial correlation: the two sensor case",
+        "trigger": "Pair separation, joint detection and exponential spatial signal-decay model in 2011 primary literature"
+      },
+      {
+        "assessment": "Uses multiple trap arrays and half-normal animal activity-center detection; primary evaluation is bias/precision of population parameter estimators, not exact two-device single-encounter maximum.",
+        "evidence": [
+          "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0088025; especially full methods, Results, Discussion and Conclusion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1371/journal.pone.0088025",
+        "material_read": "Complete publisher open full text: abstract, introduction, methods, sampling configuration, simulated results, discussion and conclusion",
+        "method": "PLOS ONE publisher HTML",
+        "title": "Trap Configuration and Spacing Influences Parameter Estimates in Spatial Capture-Recapture Models",
+        "trigger": "Wildlife detector baseline probabilities, trap clustering and spacing"
+      },
+      {
+        "assessment": "Expected maximum closest-active-sensor distance is not equivalent to independent distance-decaying event detection; results do not dominate the present claim.",
+        "evidence": [
+          "https://arxiv.org/abs/1404.7711; abstract and Sections 1–4, theorem descriptions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1404.7711",
+        "material_read": "ArXiv primary abstract, introduction and full text sections describing the objective, linear-program formulation and large-sensor asymptotic theorems",
+        "method": "ArXiv open primary preprint HTML and PDF inspection",
+        "title": "Optimal One-Dimensional Coverage by Unreliable Sensors",
+        "trigger": "Possible general sensor-placement theorem allowing co-location and imperfect devices"
+      },
+      {
+        "assessment": "Constant within-range response and zero beyond fixed footprint yield no-overlap rule for uniform target, not valid for continuously decaying nonzero tails; source public date not firmly established.",
+        "evidence": [
+          "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf; pages 89–91 of source (PDF page 5 and neighboring pages)"
+        ],
+        "identifier_or_url": "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
+        "material_read": "PDF original, Sections 5.1–5.2.2 including Lemma 5.2.1, its proof, Examples 5.2.2–5.2.3, and relevant rendered page image",
+        "method": "Primary report PDF text and rendered page image",
+        "title": "Increasing Detection Performance of Surveillance Sensor Networks",
+        "trigger": "Same probability-of-at-least-one-detection objective with two devices and target spatial distribution"
+      },
+      {
+        "assessment": "Distinct integer-coordinate traps with certain on-site detection q^0=1 and a different limiting parameter order. It proves related thirds/quarters positions but excludes co-location and imperfect onsite p, so does not imply the present threshold or linear opening law.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35/RESULT.md; Finding, Proof, Limitations"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35",
+        "material_read": "Complete publicly accessible RESULT.md, including exact statement, all proof parts, assumptions, and limitations",
+        "method": "Public GitHub source document fetched via repository content read",
+        "title": "Noncommuting detection-range and landscape-size limits for two ecological traps",
+        "trigger": "Closest exact published OR-detection placement theorem and potentially equivalent quarter/third limits"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ce1cdc3b-4725-4895-83f3-4adfd17c9ac3",
+  "value": {
+    "rationale": "Choosing two wildlife detectors to maximize one-individual encounter probability under incomplete on-site detection is a clear ecological-design question. The proof resolves all unconstrained continuous detector positions, reveals a sharp length-versus-detection-quality frontier, linear separation onset, noncommuting perfect-detection/long-range limits and exact large-habitat thirds. This is an interpretable global design classification rather than a trivial normalization or arbitrary finite calculation; it is not a claim about field practice without calibration.",
+    "status": "PASS"
+  }
+}
