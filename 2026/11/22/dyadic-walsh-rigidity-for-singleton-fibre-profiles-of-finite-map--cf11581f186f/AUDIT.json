@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Full proof: exact singleton-intersection count (n)_j(n-j)^(n-j), inclusion-exclusion, and a unique-minimum 2-adic valuation at j=1 for all even n>=4; odd n congruence and order-two direct computation. Exact checker 13,296 assertions: independent enumeration through n=6, EGF through n=12, all n<=160 valuation, determinants n<=40. Endpoints n=1,2 and j=n are explicitly checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Milenkovic–Compton develop Poisson independent-urn transforms and de-Poissonization for labelled boxes, including general inverse transform tables.",
+        "Riedel provides the bivariate singleton count generating function and finite counting computation, not a Fourier valuation theorem.",
+        "Barbour–Gnedin study asymptotic small occupancy counts for infinitely many boxes."
+      ],
+      "reasoning": "Broad generating functions determine unsigned occupancy distributions and can serve as ingredients to derive signed moments; these do not give the specific all-dimensional dyadic cancellation analysis without a separate argument. The infinite-urn asymptotic regime does not imply a finite exact valuation.",
+      "searches": [
+        "DOI:10.1017/S0963548304006285 full-text sections 1,2,4.1",
+        "Math Stack Exchange question 801454 full answers and formulas",
+        "arXiv:0809.4387 abstract",
+        "published-finding corpus: Occupancy exactly-one position vector 2-adic Fourier eigenvalues invertibility random mapping"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1017/S0963548304006285 (full-text sections read)",
+      "https://math.stackexchange.com/questions/801454/probability-of-k-boxes-contain-exactly-1-ball/1379701 (full answer)",
+      "arXiv:0809.4387 (abstract only)",
+      "published-finding corpus published checkerboard occupancy covariance finding (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known bivariate occupancy generating functions imply the raw coefficient extraction, which is not asserted novel.",
+        "Vacant-image characters use the event of occupancy zero and the factor (n-j)^n, whereas singleton events have prescribed distinct preimages and the different factor (n)_j(n-j)^(n-j). At n=2 the vacant-image nullity is 1, the singleton-fibre nullity is 2."
+      ],
+      "reasoning": "The exact result is not the formula for joint counts, but the arithmetic statement nu2=1+nu2(n)+nu2(k) and its rank/determinant consequences. Prior vacant-image valuation nu2=1+nu2(k) does not imply this distinct signed enumeration, and the different n=2 kernel proves they are not the same profile under a trivial affine relabelling.",
+      "searches": [
+        "DOI:10.1017/S0963548304006285",
+        "Math Stack Exchange question 801454 (Riedel, 2015)",
+        "Accessible historical comparison: Dyadic Fourier recovery from vacant images of finite random mappings",
+        "published-finding corpus: Parity of singly occupied boxes Walsh coefficients binomial alternating sum nonzero 2-adic valuation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Walsh transform equals n![z^n]e^((n-k)z)(e^z-2z)^k, which is a specialization of the known singleton-count EGF after selecting signed coordinates.",
+        "Math Stack Exchange 2015 answer gives G(z,u)=(e^z-z+uz)^M, but no p-adic valuation or nonvanishing classification."
+      ],
+      "reasoning": "Unlike a title-only search, compared the exact signed coefficients and their valuation. A general count coefficient identity is acknowledged as known; the required strict unique-lowest 2-adic valuation across every Walsh band is not included in the inspected formulations.",
+      "searches": [
+        "published-finding corpus: Fourier spectrum of indegree-one vertex sets for all functions from n to n, singleton fibers, exact 2-adic valuations and only singular n=2",
+        "published-finding corpus: Parity of singly occupied boxes Walsh coefficients binomial alternating sum nonzero 2-adic valuation",
+        "Web: signed occupancy exactly one urns alternating binomial sums n^n Fourier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked table listed the unnormalized band multipliers and their complete valuations.",
+        "The directly relevant online answer tabulates a single occupancy-count polynomial example, not exact signed Fourier bands for all n."
+      ],
+      "reasoning": "An unsigned distribution table and a characteristic transform are distinct from an all-order spectral valuation table; no exact covering table identified. Database retrieval cannot prove absolute uniqueness.",
+      "searches": [
+        "published-finding corpus: Occupancy exactly-one position vector 2-adic Fourier eigenvalues invertibility random mapping",
+        "Web: Fourier analysis random allocation singleton urn occupancy parity bin count",
+        "Web: occupancy singleton indicators joint moments formula exactly one boxes n balls n boxes 2005 2006"
+      ]
+    },
+    "rationale": "Milenkovic-Compton 2004 gives urn transforms, Riedel 2015 gives bivariate singleton occupancy counts; their raw enumeration does not state or establish the exact nonvanishing and dyadic band valuation theorem. Barbour-Gnedin 2008 treats infinite-bin asymptotics. Bounded search found no exact spectral theorem; residual risk of unindexed equivalent identity remains.",
+    "residual_risks": [
+      "An unindexed theorem on parity/signed occupancy-count factorial moments could contain this exact valuation law.",
+      "Only the abstract of Barbour–Gnedin 2008 was inspected, but its infinite-urn asymptotic regime is not a decisive same-parameter coverage comparison.",
+      "No search exhausts all unpublished or older mathematical literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general occupancy transform and inverse counting, but does not display singleton-coordinate Walsh 2-adic valuations",
+        "evidence": [
+          "DOI:10.1017/S0963548304006285",
+          "Section 4.1 labelled urns, Poisson transform/inverse tables; example model analysis"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/232015333_Probabilistic_Transforms_for_Combinatorial_Urn_Models",
+        "material_read": "Author-hosted full-text HTML rendering: introduction, conditional Poissonization, inversion framework, section 4.1 on labelled urns, and selected enumerative examples",
+        "method": "Read accessible full-text HTML sections, inspect terminology and counting identities",
+        "title": "Probabilistic Transforms for Combinatorial Urn Models",
+        "trigger": "Same labelled occupancy model and potentially stronger transform framework"
+      },
+      {
+        "assessment": "Raw coefficient generating function pre-exists; no spectral nonvanishing or dyadic valuation theorem stated",
+        "evidence": [
+          "The stated G(z,u)=(exp(z)-z+u z)^M",
+          "Date of Riedel answer: 2015-07-30"
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/801454/probability-of-k-boxes-contain-exactly-1-ball/1379701",
+        "material_read": "Full mathematical answer including bivariate EGF, Stirling expansion and Maple checks",
+        "method": "Line-by-line formula comparison, signed specialization u=-1 and partial Walsh character product",
+        "title": "Probability of k boxes contain exactly 1 ball (Marko Riedel answer)",
+        "trigger": "Direct unsigned singleton occupancy enumeration and EGF potentially dominating the coefficient identity"
+      },
+      {
+        "assessment": "Infinite-box asymptotics, not an exact finite n-to-n Fourier classification; limited inspection recorded",
+        "evidence": [
+          "arXiv:0809.4387, first posted 2008-09-25"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0809.4387",
+        "material_read": "Abstract and accessible bibliographic summary, not full manuscript",
+        "method": "Compare objects and quantifiers from abstract",
+        "title": "Small Counts in the Infinite Occupancy Scheme",
+        "trigger": "Singleton box count in an asymptotic occupancy regime"
+      },
+      {
+        "assessment": "Covariance signs do not yield the high-order Fourier bands or valuation classification",
+        "evidence": [
+          "published-finding corpus indexed summary: covariance of odd-load boxes with singleton counts"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-checkerboard-covariance-phases-for-parity-and-occupancy-frequenc--c6ffbeff2d78",
+        "material_read": "Indexed title and abstract summary only",
+        "method": "Compare pairwise covariance classification with high-order signed Walsh character expectations",
+        "title": "Checkerboard covariance phases for parity and occupancy frequencies",
+        "trigger": "Published nearby parity/singleton occupancy result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cf11581f-186f-49d0-b8b5-a61c83ed3a1c",
+  "value": {
+    "rationale": "The singleton-fibre indicator of finite labelled maps is a canonical dependent occupancy profile. Proving exact binary Fourier invertibility for all orders and a fully explicit 2-adic eigenvalue stratification determines a natural full-spectrum arithmetic invariant, including a two-dimensional exceptional nullspace and all determinant exponents. This is substantially more informative than the known unsigned singleton-count generating functions; no unproved downstream application or Euclidean norm claim is needed.",
+    "status": "PASS"
+  }
+}
