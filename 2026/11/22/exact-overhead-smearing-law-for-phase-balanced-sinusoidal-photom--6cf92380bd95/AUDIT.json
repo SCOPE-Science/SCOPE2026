@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Under the explicit balanced-harmonic Gaussian model, direct integration and phase orthogonality prove the exact Fisher-rate formula. The logarithmic derivative is strictly decreasing on (0,pi/2), has exactly one zero, is negative to pi, and all later lobes have a provably smaller envelope. Implicit differentiation proves monotone overhead response, and a verified dominant-balance expansion gives x cubed ~3a/2 and loss ~(3a/2)^(2/3). Direct reconstruction and the extracted Python checker pass 36,583 supplementary tests, not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Price and Rogers, arXiv:1408.4124, §§VI–VII, treat finite integration, Fisher information, photon noise and readout intervals for trapezoidal transits.",
+        "Morello, Dyrek and Changeat, arXiv:2210.14194, §§2–3, provide the harmonic time-integration sinc transfer and phase-curve context.",
+        "Price–Rogers evaluates a trapezoidal transit light curve, whose Fisher matrix and optimal choice of integration time differ from the known-frequency single sinusoidal regression here."
+      ],
+      "reasoning": "A general readout-aware experiment design could subsume this problem only if it entails the exact objective under equal photon-noise scale and gives an all-positive-duration unique global maximizer; neither the inspected trapezoidal-transit treatment nor the phase-curve harmonic attenuation article contains that stronger inference. Broader concavity/optimization methods may eventually prove coverage, and this is a specific remaining historical risk.",
+      "searches": [
+        "optimal exposure time phase smearing photon noise readout overhead sinusoidal signal information",
+        "radial velocity exposure time optimal overhead phase smearing sin sinc observational information optimal time",
+        "photometric time averaging periodic source amplitude attenuation sinc Fourier exposure duty cycle optimize per observation dead time",
+        "arxiv:1408.4124 §§VI–VII",
+        "arxiv:2210.14194 §§2–3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:astro-ph/0101513",
+      "arxiv:1004.3741 (abstract only)",
+      "arxiv:1408.4124",
+      "arxiv:2210.14194",
+      "published-index comparison: sharp-spectral-variance-cost-of-periodic-poisson-count-sampling--ce7808e766d8",
+      "published-index comparison: exact-phase-locking-law-for-oscillatory-pit-calibration-bins--46854c15cc24"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Morello, Dyrek and Changeat, arXiv:2210.14194, §§2–3, provide the harmonic time-integration sinc transfer and phase-curve context.",
+        "Price and Rogers, arXiv:1408.4124, §§VI–VII, treat finite integration, Fisher information, photon noise and readout intervals for trapezoidal transits.",
+        "Watson and Dhillon, arXiv:astro-ph/0101513, §3.6, give an orbital-velocity-smearing exposure constraint.",
+        "The present theorem takes the published sinc factor, multiplies by a duty-cycle information rate, then proves a strict global sign classification over all exposure lengths, a monotone root and quantified limits."
+      ],
+      "reasoning": "The published sinc multiplier implies the exposure-smearing factor exactly, and readout accounting motivates the duty-cycle term; therefore neither is claimed new. The asserted contribution is the exact full-domain maximizer and sharp asymptotic law. Existing coverage of these elementary consequences in other optimization literature has not been excluded.",
+      "searches": [
+        "sinusoidal signal exposure smearing fisher information readout overhead optimal duration harmonic astronomy",
+        "optimal exposure time phase smearing photon noise readout overhead sinusoidal signal information",
+        "finite integration of periodic sinusoidal signals under fixed setup overhead optimal exposure length shot noise sinc squared Fisher information unique first lobe cube root law",
+        "photometric time averaging periodic source amplitude attenuation sinc Fourier exposure duty cycle optimize per observation dead time",
+        "arxiv:astro-ph/0101513 §3.6",
+        "arxiv:1408.4124 §§VI–VII",
+        "arxiv:2210.14194 §§2–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Morello, Dyrek and Changeat, arXiv:2210.14194, §§2–3, provide the harmonic time-integration sinc transfer and phase-curve context.",
+        "Price and Rogers, arXiv:1408.4124, §§VI–VII, treat finite integration, Fisher information, photon noise and readout intervals for trapezoidal transits.",
+        "The amplitude sinc is equivalent to averaging a harmonic over a boxcar, but attenuation alone does not determine the maximizer of t/(t+h) times sinc squared."
+      ],
+      "reasoning": "A complete equivalent theorem would fix an overhead-positive Gaussian information-per-charged-time functional and globally optimize every sinc lobe, including a monotone implicit root and both sharp asymptotics. The inspected harmonic-transfer and transit-information material provides ingredients and other observables, not that whole theorem; an unpublished or differently named equivalent remains possible.",
+      "searches": [
+        "sinusoidal signal exposure smearing fisher information readout overhead optimal duration harmonic astronomy",
+        "sinc square exposure integration overhead optimum 2 cot x 1/x 1/(x+a) astrophotometry radial velocity",
+        "finite integration of periodic sinusoidal signals under fixed setup overhead optimal exposure length shot noise sinc squared Fisher information unique first lobe cube root law",
+        "arxiv:2210.14194 §2.1 harmonic transfer; arxiv:1408.4124 §§VI–VII finite integration Fisher"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Watson and Dhillon, arXiv:astro-ph/0101513, §3.6, give an orbital-velocity-smearing exposure constraint.",
+        "Morello, Dyrek and Changeat, arXiv:2210.14194, §§2–3, provide the harmonic time-integration sinc transfer and phase-curve context.",
+        "The limiting root tan(x)=2x and the normalized ceiling x/pi were calculated from the new stationarity equation; no matching exact table was found in the inspected works."
+      ],
+      "reasoning": "The proposed result is a continuum optimizer theorem, not a finite table or evaluation of a known special-function table. An exact tabulation of the same root alone would not imply the full monotone and asymptotic optimization theorem, but could reduce the novelty of the numerical constant.",
+      "searches": [
+        "sinc square exposure integration overhead optimum 2 cot x 1/x 1/(x+a) astrophotometry radial velocity",
+        "finite integration of periodic sinusoidal signals under fixed setup overhead optimal exposure length shot noise sinc squared Fisher information unique first lobe cube root law",
+        "arxiv:astro-ph/0101513 §3.6",
+        "arxiv:2210.14194 §2.1"
+      ]
+    },
+    "rationale": "The checked sources establish sinc attenuation and finite-integration/readout Fisher ingredients, but the material inspected did not state or imply as a published special case the unique all-exposure positive-overhead optimum, its monotonic scalar root, its sharp overhead cube-root and efficiency-loss two-thirds laws, and its universal first-lobe ceiling for a balanced sinusoidal quadrature design. This is a best-knowledge originality judgment with residual risk from generic elementary optimization literature; finite unsuccessful searches alone are not novelty evidence.",
+    "residual_risks": [
+      "An optimization textbook or independently developed scalar attenuation-versus-duty-cycle theorem could subsume the present statement without matching astronomical keywords.",
+      "The standard sinc response and readout-duty-cycle ingredients are explicitly known; the independent historical priority of their exact constrained maximization is not established.",
+      "Kipping (2010) was inspected only at abstract level; its complete text is not asserted to lack relevant optimization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains orbital velocity-smearing rules; does not establish the phase-balanced photon-information duty-cycle optimum.",
+        "evidence": "Section 3.6 addresses orbital smearing and line-profile artifacts, not optimal sinusoidal quadrature Fisher efficiency.",
+        "identifier_or_url": "https://arxiv.org/abs/astro-ph/0101513",
+        "material_read": "Public arXiv metadata and primary full text §3.6",
+        "method": "Direct full-text and passage comparison with exposure-width recommendations",
+        "title": "Roche tomography of cataclysmic variables: I. artefacts and techniques",
+        "trigger": "Oldest dated archival orbital-smearing motivation"
+      },
+      {
+        "assessment": "Establishes relevance of binning distortion; no whole-paper noncoverage inference claimed.",
+        "evidence": "The abstract concerns morphological light-curve distortion of transits, rather than an all-harmonic-duration overhead optimization.",
+        "identifier_or_url": "https://arxiv.org/abs/1004.3741",
+        "material_read": "Abstract and arXiv metadata; complete text not independently read",
+        "method": "Public abstract/topic and result comparison only",
+        "title": "Binning is sinning: morphological light-curve distortions due to finite integration time",
+        "trigger": "Directly relevant effects of finite exposures on photometric curves"
+      },
+      {
+        "assessment": "Precedes photon-noise and readout objective ingredients but is a different signal class; its equations do not state the present unique sinusoidal root or fractional-power overhead law.",
+        "evidence": "A finite-integration sampling rate proportional to 1/(integration time + readout time) is explicitly treated, with transit-shape Fisher information.",
+        "identifier_or_url": "https://arxiv.org/abs/1408.4124",
+        "material_read": "Primary arXiv full text, focusing on §§VI–VII and readout-time equation",
+        "method": "Direct inspection of readout interval and Fisher matrix discussion; comparison of trapezoidal transit versus a single balanced sinusoid",
+        "title": "Transit Light Curves with Finite Integration Time: Fisher Information Analysis",
+        "trigger": "Closest photon-information/readout optimization background"
+      },
+      {
+        "assessment": "The harmonic sinc attenuation is directly prior; the inspected source does not optimize all positive exposure durations against fixed per-visit overhead.",
+        "evidence": "§2.1 derives a sinc suppression for a harmonic, and §3 discusses uncertainties; no matching all-lobe optimum was located.",
+        "identifier_or_url": "https://arxiv.org/abs/2210.14194",
+        "material_read": "Primary arXiv HTML text, especially §§2.1 and 3",
+        "method": "Full-text mathematical comparison of harmonic sinc response and phase-curve uncertainty discussion",
+        "title": "Is binning always sinning? The impact of time-averaging for exoplanet phase curves",
+        "trigger": "Direct same-harmonic transfer function and observational scope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6cf92380-bd95-4679-b304-757ecb469d7d",
+  "value": {
+    "rationale": "The exact unique exposure length, sharp 37.101%-of-period upper limit and nonanalytic 1/3 exposure, 2/3 efficiency-loss laws are concrete benchmark designs when setup overhead competes with harmonic temporal smearing. This solves all positive integration times for a motivated Fisher information objective, rather than merely restating the known sinc attenuation. The idealized assumptions prevent empirical extrapolation; the significance is the mathematically sharp design characterization.",
+    "status": "PASS"
+  }
+}
