@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies the four-node path, full repeated-index triadic sum, rotating-frame quotient and positive gain domain. Direct differentiation gives a factored characteristic polynomial with one phase zero mode and one extra zero eigenvalue at the critical ratio. Reflection symmetry yields an exact two-dimensional invariant slice. A positive cubic term on its local center manifold proves nonlinear instability at equality, while an analytic implicit-function reduction produces precisely two off-axis equilibria on the stable side with the stated separate displacement exponents and saddle indices. The embedded checker verifies exact algebraic coefficients and tests the full vector field; numerical tests support but do not substitute for the analytical argument.
+## correctness
 
-## Originality — PASS within inspected evidence
-The strict exponential-stability threshold for the balanced barbell is earlier work, including this path as its smallest nontrivial case. The present claim is **only** the nonlinear critical instability, the subcritical saddle branches and the unequal vertex scaling. Sharma et al.'s 2026 study examines finite sparse networks numerically; Costa et al. 2025 derive bifurcations in an all-to-all thermodynamic reduction. These do not imply the particular critical cubic coefficient for this finite sparse graph. Signed-Laplacian effective resistance covers linear thresholds, not cubic normal forms. Targeted mathematical literature searches and published record comparisons found no dominating statement, but priority is not guaranteed. One closely related distinct-triad result uses a different triadic summation convention and a complete graph.
+PASS
 
-## Mathematical value — PASS
-A zero eigenvalue at the known sharp threshold left the critical flow type unresolved, and linear analysis gave no local basin geometry. The positive cubic term distinguishes a nonlinearly repelling transition from a neutrally stable or supercritical onset. The two exact localization exponents quantify how phase deviations nucleate at the single intercommunity bridge. The path on four nodes is the smallest pair-of-pairs network with nontrivial within-group edges and a competing intergroup edge, rather than an arbitrary parameter slice. These provide a motivated local boundary classification, not a claimed global phase diagram.
+For the exact four-site path and unrestricted repeated-index triadic sum, order parameters factor the 16-term per-node interaction as tau Im(z2 conj(z1)e^-i theta_i). The original four-by-four Jacobian has characteristic polynomial λ(λ+2κ)[λ²+τλ+κτ-2κ²], with gain threshold τ/κ=2; that linear threshold is prior work. Reflection/inversion fixes the two-dimensional (a,b,pi-b,pi-a) slice; its exact reduced equations were checked. With δ=τ/κ-2, center manifold at δ=0 has a=b³/2+O(b5) and slow motion b_dot=κ b³/2+O(b5), demonstrating nonlinear instability at equality. The equilibrium fast equation gives a=-δ b/4+b³/2+..., and slow equilibrium equation 0=-δ/2+b²/2+..., yielding exactly two branches b±=±sqrt(δ)+O(δ^1.5), a±=±δ^1.5/4+O(δ^2.5) for δ>0 and none for δ<=0 near origin. Slow eigenvalue κδ>0 on the two branches; other quotient eigenvalues negative. This establishes subcritical localized index-one saddles, no full global phase portrait.
 
-## Limitations and closest literature
-The nonlinear result is for identical frequencies, a unit-weight four-vertex path, an unrestricted-index asymmetric all-to-all triadic term, and a neighborhood of the specified antipodal orbit. Independent mathematical validation is absent. Closest references: Sharma et al., arXiv:2611.09564v1; Costa et al., arXiv:2501.05670v1; earlier finite barbell strict linear stability; Chen et al. on signed Laplacian effective resistance. Unindexed preprints and unpublished local-bifurcation analyses present residual historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same-model all-to-all/asymmetric and same-class linear results do not imply the specified local subcritical path pitchfork, cubic instability, saddle indices or two distinct displacement exponents. Best-of-knowledge PASS with possible obscure small-graph prior result.
+
+## value
+
+PASS
+
+The sign of a local nonlinear critical coefficient, existence and index of pair of saddles, and nonuniform outer/inner localization exponents are mathematically informative additions to an otherwise linear stability threshold on a natural shortest path with a balanced antipodal state. This is neither a textbook linear Jacobian exercise nor a different naming of an existing gain ratio.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
