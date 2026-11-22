@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Geometric Weierstrass support/count from arXiv:2303.00376 Lemma 3.11 and Theorems 4.6/5.2. Exact representation of F_(11^6) as F_11[t]/Phi_9(t) gives two primitive ninth-root Frobenius orbits of length three; explicit modular fourth/twelfth-power identities for both orbit representatives give all 4*12 coordinate roots inside F_(11^6). The base-field Frobenius order of the primitive ninth-root ratio prevents shorter point degrees; hence precisely 96 cubic orbits and 540 rational fixed points. Standalone checker replays arithmetic and counts; no infinite theorem is inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 general theorem includes q=11, characterizes all exceptional Weierstrass points, and supplies cardinalities, but does not state or prove the present Frobenius splitting.",
+        "The 2024/2025 follow-up papers treat other congruence cases of q, not the q=11 model."
+      ],
+      "reasoning": "The new theorem is a special case of the *geometric* classification plus a separate arithmetic computation, but is not a formal consequence of the geometric cardinality without the Kummer lift test; its precise descent information is additive rather than a restatement.",
+      "searches": [
+        "arXiv:2303.00376v1: complete family q congruent 2 mod 3",
+        "doi:10.1016/j.ffa.2023.102300",
+        "Weierstrass points of maximal curves Frobenius degree three Kummer cover q11"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2303.00376",
+      "https://doi.org/10.1016/j.ffa.2023.102300",
+      "exact finite field calculation in verify_weierstrass.py"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior: all rational points are Weierstrass, and exactly (q+1)^2 phi(3)=288 points of P-order 2 are nonrational at q=11.",
+        "New: both z=a^4 and v=b^12 for all six primitive ninth-root parameters are required to be fourth/twelfth powers over F_(11^6); the prior formulas alone do not force such roots to exist in that specific extension."
+      ],
+      "reasoning": "The previous geometric result is a necessary input, not sufficient to identify field of definition; the Kummer-power certificate and residue-degree minimality supply the missing implication.",
+      "searches": [
+        "arXiv:2303.00376v1 Lemma 3.11 Theorems 4.6 5.2 Proposition 5.4",
+        "doi:10.1016/j.ffa.2023.102300 abstract and introduction",
+        "maximal curve X3 q11 nonrational Weierstrass Frobenius splitting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original paper describes six primitive-ninth-root ratios and 288 nonrational points; the present statement is equivalent to all associated fourth- and twelfth-power Kummer lifts already existing in F_(11^6).",
+        "No residue-degree formula or reduced-support zeta function found in the inspected preprint passages or targeted search results."
+      ],
+      "reasoning": "Geometric point counts do not specify arithmetic Frobenius permutations. The two separate root-existence checks are needed to exclude degree-6 or degree-12 lifts.",
+      "searches": [
+        "third-largest-genus maximal curve X3 q=11 288 nonrational Weierstrass points Frobenius 96 cubic orbits zeta",
+        "Beelen Montanucci Vicino q11 non-rational Weierstrass points splitting F11^6 degree three",
+        "y^12 + x^8 + x^4 nonrational Weierstrass 288 points Frobenius field",
+        "arXiv:2303.00376v1 Section 3 Lemma 3.11 and Section 5 Theorem 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published mathematical database hits concern genus-two Weierstrass divisors on unrelated curves; the Beelen--Montanucci--Vicino paper contains a semigroup count but no tabulated Frobenius degrees for this genus-19 case."
+      ],
+      "reasoning": "Comparison was made to degree/orbit statements and zeta implications, not titles alone; no matching 540 fixed plus 96 three-cycles distribution was located. Search incompleteness is explicit.",
+      "searches": [
+        "third-largest-genus maximal curve X3 q=11 288 nonrational Weierstrass points Frobenius 96 cubic orbits zeta",
+        "Beelen Montanucci Vicino q11 non-rational Weierstrass points splitting F11^6 degree three",
+        "y^12 + x^8 + x^4 nonrational Weierstrass 288 points Frobenius field",
+        "exact Weierstrass point splitting fields Frobenius profiles algebraic curves finite fields"
+      ]
+    },
+    "rationale": "The original Beelen--Montanucci--Vicino theorem gives every gap semigroup, the exceptional P-order condition, and the cardinality 288, but not the first residue extension and zeta function of the reduced locus; the new extra step proves two Kummer coordinates are respectively fourth and twelfth powers in F_(11^6), with a precise minimality argument. Literature and mathematical-record searches did not locate a matching field-of-definition theorem. Absence of a match is not proof of novelty; an unindexed exact computation or journal revision remains a risk.",
+    "residual_risks": [
+      "The journal revision was not independently read in full; a later or obscure source may already contain the stated cubic splitting.",
+      "The result depends on the cited published completeness theorem for the underlying Weierstrass points.",
+      "The theorem only classifies reduced support and one finite field, not weights, other q, or all twists."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers full geometric Weierstrass classification and count but not the stated q11 arithmetic Frobenius cycles and field-of-definition lifting test",
+        "evidence": [
+          "arXiv:2303.00376v1 pp. 1, 3-4, 11-12, 19, 23, 26; Lemma 3.11, Theorem 4.6, Theorem 5.2, Proposition 5.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.00376",
+        "material_read": "Abstract, model and normalization, Lemma 3.11, Theorem 4.6, Theorems 5.1 and 5.2, Proposition 5.4 and conclusion, including PDF page images",
+        "method": "Inspected open-access full preprint text and relevant original pages",
+        "title": "Weierstrass semigroups and automorphism group of a maximal curve with the third largest genus",
+        "trigger": "Exactly the same curve family and all possible Weierstrass semigroups"
+      },
+      {
+        "assessment": "Publication correspondence verified, no distinct arithmetic Frobenius formula evident in material read; full journal text not separately verified",
+        "evidence": [
+          "Finite Fields and Their Applications 92 (December 2023), article 102300"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ffa.2023.102300",
+        "material_read": "Bibliographic record, abstract, accessible introduction and section headings; later redirect was not accessible",
+        "method": "Available lawful publisher preview; arXiv original used for full mathematical reading",
+        "title": "Weierstrass semigroups and automorphism group of a maximal curve with the third largest genus, journal version",
+        "trigger": "Potential later same-paper version"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f48fb23e-92ba-4a13-9b20-39737a083c86",
+  "value": {
+    "rationale": "A complete reduced Weierstrass-support zeta function and precise field of definition at q=11, the first member of the maximal-curve family with nonrational Weierstrass points. The datum is intrinsic, motivated by availability of exceptional marked points over finite extensions and not an arbitrary parameter slice. The published cardinality does not already fix Frobenius cycles, while the exact cubic distinction is potentially useful for pointed-curve arithmetic. Scientific scope is a natural finite classification, not a universal all-q contribution.",
+    "status": "PASS"
+  }
+}
