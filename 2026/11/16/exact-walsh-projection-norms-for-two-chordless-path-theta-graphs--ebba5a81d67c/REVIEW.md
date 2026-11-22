@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph's spanning trees are classified by deleting one edge from each of two different terminal paths; this yields the exact Walsh coefficient identity. The endpoint convolution norms equal the normalized absolute Walsh sum. Averaging over the direct-edge sign and using the integer maximum identity reduces the norm to Rademacher sums whose zero and unit-magnitude probabilities are exact central binomial coefficients. The four parity cases give the stated norm. Solving a two-factor integer equation identifies every Fourier zero. The equal-length asymptotics follow from Stirling's formula. The standalone checker independently enumerates actual trees and Walsh-transforms the resulting indicator in 24 finite cases. Finite testing is corroboration, not the infinite proof.
+## correctness
 
-## Originality
-**PASS under bounded comparison.** Andrew Goodall (2007) treats Fourier methods on finite groups and spanning-tree counts of Cayley graphs, not the absolute Walsh transform of graphic-matroid basis indicators. Dall and Pfeifle (arXiv:1404.3876) establish the weighted matrix-tree polynomial for arbitrary regular matroids but do not evaluate its sign-averaged absolute value or classify all Walsh zeroes on this graph family. A public theta-graph result on algebraic gnarledness concerns a chain-extension invariant; a public cactus result concerns coordinate projections on a transportation quotient. They act on different spaces and supply no implication to this Boolean Fourier norm. The known exact calculation for \(K_{2,n}\) trees does not cover this direct-edge theta family. Residual risk: unindexed classical observations about signed theta-tree polynomials or exact Boolean Fourier norms could contain the closed formula; no exhaustive priority guarantee is offered.
+PASS
 
-## Mathematical value
-**PASS.** A two-terminal theta graph with two long paths and a direct edge is the first natural noncactus, overlapping-cycle graphic-matroid family. The frequency set is the canonical set of spanning-tree incidence vectors. Its sharp Fourier multiplier amplification is nonlinear in the signed spanning-tree enumerator and is not given by the weighted matrix-tree formula alone. The two-parameter exact central-binomial formula, complete nullity classification, and two different parity-dependent asymptotic constants quantify a genuine interaction between its two cycles. They provide a reusable exact test family for graphic-matroid Fourier projections rather than an arbitrary finite calculation.
+At frozen tree ec171182 verified the graph is a simple theta network with terminal edge plus two internally disjoint paths of lengths a,b>=2. A spanning tree omits one edge from two different terminal paths, giving ab+a+b trees; the unnormalized tree-indicator Walsh transform is (product of all edge signs)[XY+delta(X+Y)]. Taking kernel absolute average over independent Rademacher path sums X,Y and terminal sign delta gives E max(|XY|,|X+Y|). Checked integer correction exactly for zero variables and equal/opposite-sign nonzero integer pairs; binomial identities for E|S_n|, Pr(S_n=0), and Pr(S_n=1) yield the claimed parity-sensitive norm for ALL a,b>=2. Exact zeros solve (X+delta)(Y+delta)=1, so require both path lengths even and have the stated binomial multiplicity. An independently implemented connected-spanning-tree enumeration, complete Walsh transform and norm/zero calculations for all 24 test pairs from 2..6 with a+b<=11 matched the formula. In particular finite checks supplement, not replace, the all-parameter analytic proof. Translation-averaged projection optimality follows if optimizing all projections onto the range; the stated theorem directly concerns the indicated Fourier projection and convolution zeros.
 
-## Limits
-No independent audit has been performed. Published-priority coverage is bounded. General three-path theta graphs and other graphic matroids remain open to separate analysis; they are not claimed here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A uniform signed-tree character formula, complete exact parity zero law, sharp endpoint norm in central binomial coefficients and parity-sensitive asymptotics for the two-path-plus-direct-edge theta family are absent from the inspected general matrix-tree theorem and other graph-family Walsh results. It is not a cactus because its three cycles overlap in edges.
+
+## value
+
+PASS
+
+Unlike a routine fixed finite case, this is a uniform theorem for a natural noncactus bicyclic graph family with sharp parity classification of convolution invertibility and an exact endpoint projection invariant. The two long-path lengths represent independent structural degrees of freedom, and the closed central-binomial expression could be used as a benchmark for harmonic operators on graphic matroid bases. Distinct parity asymptotics reveal a genuine analytic boundary rather than a cosmetic table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

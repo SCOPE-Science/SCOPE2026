@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:01:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At frozen tree ec171182 verified the graph is a simple theta network with terminal edge plus two internally disjoint paths of lengths a,b>=2. A spanning tree omits one edge from two different terminal paths, giving ab+a+b trees; the unnormalized tree-indicator Walsh transform is (product of all edge signs)[XY+delta(X+Y)]. Taking kernel absolute average over independent Rademacher path sums X,Y and terminal sign delta gives E max(|XY|,|X+Y|). Checked integer correction exactly for zero variables and equal/opposite-sign nonzero integer pairs; binomial identities for E|S_n|, Pr(S_n=0), and Pr(S_n=1) yield the claimed parity-sensitive norm for ALL a,b>=2. Exact zeros solve (X+delta)(Y+delta)=1, so require both path lengths even and have the stated binomial multiplicity. An independently implemented connected-spanning-tree enumeration, complete Walsh transform and norm/zero calculations for all 24 test pairs from 2..6 with a+b<=11 matched the formula. In particular finite checks supplement, not replace, the all-parameter analytic proof. Translation-averaged projection optimality follows if optimizing all projections onto the range; the stated theorem directly concerns the indicated Fourier projection and convolution zeros.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full cactus theorem RESULT.md: requires every edge in at most one simple cycle; full K2n theorem: complete bipartite graph with n independent two-edge leaf paths and no direct terminal edge"
+        ],
+        "reasoning": "Theta_{a,b} with direct edge is genuinely bicyclic: any two of its three terminal paths form overlapping cycles. Hence cactus factorization theorem cannot specialize, and K2n graph has n parallel length-2 paths with no direct edge; neither is a superfamily of a,b>=2 direct-edge theta graphs.",
+        "searches": [
+          "Boolean group Fourier projection spanning tree incidence all theta graphs",
+          "Resultary cactus Walsh spectrum/endpoint theorem e15e6699691b",
+          "Resultary K2n spanning tree Walsh theorem 89f45551846c"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1404.3876",
+        "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-walsh-projection-norms-and-cycle-extremizers-for-cactus-sp--e15e6699691b/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c/RESULT.md",
+        "Resultary searches: two path theta graph spanning trees Boolean Walsh signed tree indicator projection norm parity; theta graph 3 parallel paths spanning tree signed Fourier Walsh projection c_n; Boolean group Fourier projection spanning tree incidence all theta graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weighted tree determinant and its specializations imply a general evaluable signed polynomial, whereas the theta result explicitly evaluates E|XY+delta(X+Y)| and parity counts"
+        ],
+        "reasoning": "Knowing a determinant representation does not logically entail a formula for its L1 norm without additional Rademacher probability analysis; no covering theorem with both a,b general and a direct terminal edge was identified. Claim does not seek novelty for the tree count or Matrix-Tree principle.",
+        "searches": [
+          "theta graph 3 parallel paths spanning tree signed Fourier Walsh projection c_n",
+          "Dall–Pfeifle arXiv:1404.3876 Theorem 15",
+          "Resultary K2n 89f45551846c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dall–Pfeifle Theorem 15 gives signed weighted tree count as determinant; current coefficient factors as XY+delta(X+Y) and norm is an absolute average over all independent signs"
+        ],
+        "reasoning": "The weighted matroid theorem computes each signed coefficient at prescribed weights but does not calculate the distribution/absolute expectation over the 2^(a+b+1) signings, the exact zero counts, or n-parity norm formula.",
+        "searches": [
+          "two path theta graph spanning trees Boolean Walsh signed tree indicator projection norm parity",
+          "theta graph 3 parallel paths spanning tree signed Fourier Walsh projection c_n",
+          "Dall–Pfeifle arXiv:1404.3876 weighted regular matroid matrix-tree formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Goodall discusses Fourier analysis and graph counts, including Cayley-graph tree counts; separately indexed theta record treats proper ternary colouring zeros, not spanning-tree edge indicators"
+        ],
+        "reasoning": "No exact Walsh-nullity or projection-norm table for this incidence family was found. Similar graph names or the shared term theta do not make the functions and groups equivalent.",
+        "searches": [
+          "two path theta graph spanning trees Boolean Walsh signed tree indicator projection norm parity",
+          "Goodall graph Fourier survey",
+          "Dall–Pfeifle weighted matrix tree",
+          "Resultary theta proper-colouring record 746166f5e7e7"
+        ]
+      },
+      "rationale": "A uniform signed-tree character formula, complete exact parity zero law, sharp endpoint norm in central binomial coefficients and parity-sensitive asymptotics for the two-path-plus-direct-edge theta family are absent from the inspected general matrix-tree theorem and other graph-family Walsh results. It is not a cactus because its three cycles overlap in edges.",
+      "residual_risks": [
+        "An older specialized theta-network exact signed-tree distribution or Rademacher norm paper might exist under electrical-network terminology.",
+        "The transform polynomial is elementary and matrix-tree principles predate this work; originality is its all-a,b absolute average, nullity law and parity asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_WEIGHTED_PREMISE_NOT_NORM_FORMULA",
+          "evidence": "Weighted tree sum theorem allows computing coefficients for given weights but does not give the absolute Walsh first moment or its parity closed form.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.3876",
+          "material_read": "Primary PDF Theorem 15 and weighted regular-matroid spanning-tree identity, around page 14",
+          "method": "arXiv full PDF theorem/pages inspected",
+          "title": "A Polyhedral Proof of the Matrix Tree Theorem (Dall and Pfeifle)",
+          "trigger": "Direct possible dominance by weighted regular-matroid determinant"
+        },
+        {
+          "assessment": "INAPPLICABLE_OVERLAPPING_CYCLES",
+          "evidence": "The theta family has cycles sharing path edges and is not a cactus. Its signed transform XY+delta(X+Y) does not factor into independent cycle factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-walsh-projection-norms-and-cycle-extremizers-for-cactus-sp--e15e6699691b/RESULT.md",
+          "material_read": "Full actual RESULT.md including proof, assumptions, cactus decomposition and the norm product formula",
+          "method": "Primary GitHub full-text read",
+          "title": "Sharp Walsh projection norms and cycle extremizers for cactus spanning trees",
+          "trigger": "Closest broad graph-family signed tree theorem"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY",
+          "evidence": "K2n has n two-edge branches but no direct terminal edge; not a specialization dominating the two-path-plus-edge theta claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c/RESULT.md",
+          "material_read": "Full actual RESULT.md, exact transform, norm and scope read",
+          "method": "Primary GitHub full-text read",
+          "title": "Complete Walsh spectrum and sharp Fourier projection norms for spanning trees of K_{2,n}",
+          "trigger": "Another general two-terminal signed-tree spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unlike a routine fixed finite case, this is a uniform theorem for a natural noncactus bicyclic graph family with sharp parity classification of convolution invertibility and an exact endpoint projection invariant. The two long-path lengths represent independent structural degrees of freedom, and the closed central-binomial expression could be used as a benchmark for harmonic operators on graphic matroid bases. Distinct parity asymptotics reveal a genuine analytic boundary rather than a cosmetic table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1404.3876",
+    "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-walsh-projection-norms-and-cycle-extremizers-for-cactus-sp--e15e6699691b/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c/RESULT.md",
+    "Resultary searches: two path theta graph spanning trees Boolean Walsh signed tree indicator projection norm parity; theta graph 3 parallel paths spanning tree signed Fourier Walsh projection c_n; Boolean group Fourier projection spanning tree incidence all theta graphs",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-walsh-projection-norms-for-two-chordless-path-theta-graphs--ebba5a81d67c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only a single direct terminal edge with a,b>=2, not arbitrary three-long-path theta networks.",
+    "Finite verification 24 instances is supplementary to the symbolic all-parameter proof.",
+    "A differently named general electrical-network formula remains a priority risk."
+  ],
+  "residual_risks": [
+    "An older specialized theta-network exact signed-tree distribution or Rademacher norm paper might exist under electrical-network terminology.",
+    "The transform polynomial is elementary and matrix-tree principles predate this work; originality is its all-a,b absolute average, nullity law and parity asymptotics.",
+    "Only a single direct terminal edge with a,b>=2, not arbitrary three-long-path theta networks.",
+    "Finite verification 24 instances is supplementary to the symbolic all-parameter proof.",
+    "A differently named general electrical-network formula remains a priority risk."
+  ],
+  "schema_version": 1
+}
