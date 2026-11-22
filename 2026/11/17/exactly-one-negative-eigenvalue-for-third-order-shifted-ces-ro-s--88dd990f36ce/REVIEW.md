@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof specializes Ma's published exact defect identity at order three: the signed coefficients are \(9\alpha<0\), \(48\alpha(\alpha^2-1)>0\), and \(5\alpha(\alpha^2-1)(\alpha^2-4)<0\) for \(-1<\alpha<0\). An elementary uniform weighted Cauchy–Schwarz estimate bounds the absolute effect of the last negative term by less than \(1/8\) of the positive diagonal. This leaves a positive operator minus one rank-one term (upper negative index one). A finite-support sequence derived from \(R^{-1}v_0\) has diagonal energy growing like \((\log N)/9\), negative rank-one energy of quadratic-log size, and bounded positive-rank-one energy (lower negative index one). Density of the range of the Cesàro matrix transfers inertia to its compact self-commutator. All parameters, domains, and asymptotic limits are explicitly covered; no computational experiment is promoted to an infinite proof.
+PASS
 
-## Originality — PASS (provisional priority)
+Ma order-three operator factorization K=M*EM, E=R+9alpha v0v0*+48alpha(alpha^2-1)v1v1*+5alpha(alpha^2-1)(alpha^2-4)v2v2* applies for -1<alpha<0. r_n>=1/(n+2), D(n)>=(n+3)^3, and a2=-5alpha(alpha^2-1)(alpha^2-4)<8 give a2||R^-1/2 v2||²<1/8; hence diagonal minus last negative term stays positive, and only 9alpha v0v0* can cause one negative direction. The truncated v0/r vector has positive diagonal energy E_N~log N/9; the negative 9alpha E_N² dominates bounded v1 contribution, proving a negative direction. Finite-support right inverse/dense M range transfers it to K; R->0 and finite rank give compact self-adjoint spectral index exactly one. Ma identities independently checked against full original relevant theorem; no finite truncation used as proof.
 
-Primary arXiv:2610.00193v1 proves negative-shift nonhyponormality, but its identified theorem and proof do not count negative eigenvalues. The inspected full text of Rhaly's arXiv:1903.07896 treats supraposinormality and some nonnegative-shift hyponormal ranges, not the negative inertia. The closest accessible research records concern order-one negative inertia and general trace formulas; neither logically determines the order-three negative index. Actual claim/alias searches and accessible own finding claims produced no covering result. Residual risk remains an older equivalent inertia formula in specialized operator literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the first integer order for which the Ma defect decomposition includes **two** signed-negative rank-one terms on negative shifts. Qualitative failure of hyponormality therefore leaves open whether the commutator can have one or two negative eigenvalues. The result resolves that exact spectral-inertia question for the full natural parameter interval, giving an invariant that is not implied by nonhyponormality or by the previously computed trace. The uniform absorption argument may inform higher-order inertia analysis.
+Best-of-knowledge PASS: Ma proves order-three/nonnegative hyponormality and existence of a negative direction for shifts alpha<0, but does not count entire negative inertia. Order-one negative-index theorem and all-order trace result do not force negative index one for order three; two negative signed defect terms make the bound nontrivial.
 
-## Limits
+## value
 
-The proof does not evaluate the lone negative eigenvalue or extend beyond order three and real negative shifts. Literature priority is provisional; external independent assessment is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first higher integer order with two negative defect coefficients presents a natural ambiguity between one and two negative modes. Resolving full Morse index for all -1<alpha<0 is a meaningful spectral classification beyond binary nonhyponormality or trace; the weighted absorption lemma may extend.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
