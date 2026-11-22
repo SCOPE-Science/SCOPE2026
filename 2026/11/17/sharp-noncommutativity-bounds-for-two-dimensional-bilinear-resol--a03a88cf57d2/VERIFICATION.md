@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and analytical checks
+# Independent mathematical audit
 
-The stated domain is complex two-dimensional Hermitian matrices with both eigenvalues strictly positive and unequal, with noncommutation. The external moment-completion equivalence used in the proof is Tian's Theorem 4.1, Section 4 of arXiv:2611.03081v1, for precisely this domain.
+## correctness
 
-The exact eigenvalue computation for the rank-one sum can be reconstructed from its trace and determinant. The commutator norm is the magnitude of one off-diagonal entry after diagonalizing the first projection. The global optimization is a one-variable calculus identity whose maximum is attained at overlap \(1/2\), and each equality condition can be checked explicitly.
+PASS
 
-Run `python3 checker.py` with Python 3 and NumPy. It verifies exact witness relations and evaluates both fixed-ratio regimes on a deterministic mesh of spectra and overlaps. The executable is supplemental verification of finite calculations only: it does not establish the continuous optimum or the existence of the representing positive operator-valued measure. Those facts rest on the provided proof and the cited source respectively.
+From Tian Theorem 4.1’s exact qualitative criterion for this positive noncommuting 2x2 domain, X+Y ⪰ I, write X=I-uP,Y=I-vQ with rank-one lower-eigenvalue projectors P,Q and overlap z∈(0,1). The larger eigenvalue of uP+vQ <=1 iff uv z²<=lambda mu, a necessary-and-sufficient bound. Direct matrix multiplication gives ||[X,Y]||=uv z sqrt(1-z²); optimize z² at min(lambda mu/(uv),1/2) to derive the two stated branches. Inequality sqrt((u-v)²+4uv z²)>=(u+v)z and AM–GM give uv<=(1+z)^(-2); maximum z=1/2, u=v=2/3 gives 1/(3sqrt3) with the stated semidefinite C witness. Independently computed feasible 2x2 projection matrices and commutator norm across 36 eigenratio pairs, including strict X,Y positivity and exact global witness. Important external dependency is the fully inspected Tian criterion, not inferred from grid computations.
 
-The source-inspection limits concern older general commutator results, not the algebraic proof. Independent audit and publication-priority certification have not been carried out.
+## originality
+
+PASS
+
+Tian’s full accessible Section 4 establishes the normalized X+Y⪰I completion equivalence and unique C, but does not optimize noncommutativity conditional on spectral gaps. Older Kittaneh commutator inequalities and Conde two-projection sum identity apply to raw positive operators, without this specific moment compatibility region and sharp two-parameter attained envelope; some older full texts not inspected. Novelty is the full constrained envelope/equality cases, not the rank-one commutator identity or qualitative completion criterion.
+
+## value
+
+PASS
+
+The existence theorem leaves a quantitative gap: how incompatible noncommuting marginals can be while having a positive joint moment completion. A sharp spectrum-conditioned envelope, transition between active sum constraint and unconstrained angular optimum, universal sharp constant and equality rigidity are useful precise refinements in operator moments; not routine rebranding of a norm bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
