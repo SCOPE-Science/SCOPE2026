@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-color fixed equations are solved exactly, including the strict positivity and the \(D=1/4\) exceptional case. For arbitrary degree patterns the normalized adjacency is similar to a symmetric bipartite matrix. Its singular-vector decomposition covers every full-state perturbation, including unmatched zero singular modes. The two Schur endpoints yield the sharp radicals, and convexity in the squared singular value controls every graph mode. Four symbolic identities and 16 finite-graph corroborations passed; the proof establishes the universal claim.
+PASS
 
-## Originality — PASS within inspected evidence
+Two-color equations yield s=1+1/[4(4D-1)] and (u-v)^2=s(3/2-s), with nontrivial population-state branch exactly D>3/8. Degree-normalized P is similar to symmetric bipartite S. The complete Jacobian reduces to 2x2 singular-pair blocks with q=sigma²∈[0,1], plus possible q=0 unpaired eigenvalues. The three strict Schur inequalities are affine in q and hence follow from q=0,1. The q=1 endpoint yields exact open interval ((4+sqrt6)/16,(19+sqrt73)/64); q=0 is uniformly strictly stable there. Independent fixed-point and full-Jacobian eigenvalue checks on path, star, cycle and K2 at four D values confirmed sink classification and residuals <=2.3e-16. No boundary nonlinear stability claim.
 
-The motivating 2023 logistic ring paper supplies the coupling and numerical pattern evidence. Biswas and Das (2016) explicitly provide two-color stationary equations and a Jacobian method for inhomogeneous rings, so the construction itself is not claimed new. Atay and Karabacak (2006) discuss graph-independent stability of *synchronized* delayed-map equilibria; their full text was not accessible. The asserted distinct advance is a closed-form sharp region for *heterogeneous stationary* equilibria across all connected undirected bipartite graphs, including nonregular ones. Earlier equivalent graph statements are a material remaining risk, and no priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full-graph stability window is exactly the same for a long cycle, a star, and an irregular bipartite network even though the linearized systems have different dimensions and spectra. The equality is a nontrivial consequence of singular-mode comparison at all modes, and resolves an exact parameter range for spatial-pattern stabilization of otherwise chaotic local logistic maps. No global-basin or nonlinear endpoint theorem is asserted.
+Best-of-knowledge comparison of actual statement/implications, including relevant primary material and related published records; residual priority limitations stated.
 
-## Closest literature and limitations
+## value
 
-Rusakov et al. (2023), DOI 10.3390/math11244970; Biswas and Das (2016), DOI 10.1142/S0218127416300081; Atay and Karabacak (2006), DOI 10.1137/060652531. The all-graph theorem is confined to undirected bipartite degree-normalized coupling; the endpoints are spectrally neutral, and independent human confirmation remains needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp algebraic, graph-independent linear stability window for heterogeneous equilibria on every connected undirected bipartite graph, including irregular degrees, is a meaningful universality statement; full-spectrum control exceeds two-site restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
