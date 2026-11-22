@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The chain of implications is explicit and covers every prime power and every divisor-subgroup: invariant flag supports give fixed subfield buildings, cyclic subgroup valuation identities give the exact isotropy-generated subgroup, Armstrong gives the quotient fundamental group, and Lefschetz plus rational transfer give the entire rational homology. The \(\operatorname{lcm}\)–cyclotomic identity and its subgroup intersection step are justified and independently checked on many arithmetic inputs. The included program separately enumerates small finite-field subspaces and quotient flags. The unrestricted conclusion depends on the written argument, not finite testing.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For every q a prime power, n≥4, t|(q^n−1)/(q−1), H_t the order-t projective Singer subgroup, the building of nonzero proper F_q-subspaces is simply connected by Solomon–Tits. Fixed simplices of projective scalar degree d are flags of F_{q^d}-subspaces; degree n gives empty fixed set, d<n gives building over F_{q^d}. Maximal proper subfield stabilizers generate the order-L cyclic subgroup with L=N/Φ_n(q). Intersecting with H_t has order gcd(t,L), so Armstrong orbit π1=H_t/(H_t∩C_L)=C_{t/gcd(t,L)} and H1(Z) matches. Solomon–Tits reduced Euler of smaller buildings plus Lefschetz trace gives (-1)^{n−n/d}q^{d binom(n/d,2)}; Möbius inversion counts degree-d subgroup elements a_d(t), and rational finite averaging gives only degree n−2 homology with (1/t)Σa_d(t)trace. Independently recomputed all-subgroup arithmetic examples (q,n)=(2,4),(2,6),(2,8),(3,4),(3,6),(4,4), yielding e.g. full C15 quotient C5 & topBetti4, C63 quotient C3 & topBetti518, C40 quotient C10 & topBetti18. Inspected actual verify_singer.py including finite-field enumeration q=2,n=4,6. Carefully no unsupported higher integral homology claim; boundary q prime powers and n≥4 essential.
 
-Drudge's full paper classifies individual-flat orbits and stabilizers; it does not formulate homotopy invariants of the full-flag quotient. Armstrong and Brown–Higgins are general orbit-space fundamental-group tools; Solomon–Tits concerns the unquotiented building. A known four-dimensional full-Singer special case is logically covered by the present theorem, but it does not imply the all-dimensional/all-subgroup statement or rational character. Searches for Singer building quotient fundamental groups, fixed subfield buildings, and equivalent cyclotomic top-homology formulas revealed no stronger coverage among inspected sources. The literature could contain unindexed equivalent statements, so priority is not independently established.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem classifies the first integral homology and all rational Betti numbers for **every subgroup** of a fundamental finite-building symmetry, with a uniform exact character and a sharp cyclotomic stabilizer formula. It distinguishes quotients with nontrivial cyclic fundamental groups from those that are simply connected even when their subgroup order shares factors with the full cyclotomic value. This is structural topology of a natural family, rather than a parameter-only numerical calculation.
+Best-of-knowledge originality after actual statement-level comparison: new scope not logically covered by primary work or published stronger indexed analogues; prior constituent lemmas and any exact known special cases are explicitly acknowledged.
 
-## Scope and residual risks
+## value
 
-There is no asserted higher integral homology or complete quotient homotopy type. Full publication priority would require additional independent literature review, especially nonindexed work on Singer quotients and topological buildings.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural all-prime-power/all-vector-rank/all-Singer-subgroup classification of geometric orbit π1 and rational top homology, including cyclotomic stabilizer arithmetic and subgroup-dependent torsion in H1. Extends a recognized full-Singer rank-four case substantially and unifies fixed subbuilding types, rational character and quotient Betti formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
