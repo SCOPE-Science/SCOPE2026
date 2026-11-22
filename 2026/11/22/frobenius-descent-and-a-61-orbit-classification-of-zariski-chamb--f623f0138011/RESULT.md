@@ -1,0 +1,62 @@
+# Frobenius descent and a 61-orbit classification of Zariski chambers on the Cayley cubic resolution
+
+## Finding
+Let \(k=\mathbb F_q\) have characteristic at least five. Let \(X/k\) be the minimal resolution of a finite-field form of the four-nodal Cayley cubic, equivalently the blow-up, after geometric extension, of the six pairwise intersections of four lines in \(\mathbb P^2\), with no three concurrent. Its four geometric nodes have a well-defined Frobenius cycle partition \(\lambda\) of four. Write \(Z_X(t)\) for the polynomial counting the geometric Zariski chambers fixed by Frobenius, graded by the number of geometric negative curves in the negative support. Then \(Z_X(t)\) depends only on \(\lambda\), and all five possibilities are exactly:
+
+| Frobenius cycle partition | Number of conjugate permutations | Polynomial \(Z_{X,\lambda}(t)\) | Rational chambers |
+|:--|--:|:--|--:|
+| \((1,1,1,1)\) | 1 | \(1+13t+69t^2+186t^3+260t^4+168t^5+29t^6\) | 726 |
+| \((2,1,1)\) | 6 | \(1+5t+11t^2+16t^3+16t^4+12t^5+5t^6\) | 66 |
+| \((2,2)\) | 3 | \(1+5t+9t^2+18t^3+16t^4+20t^5+5t^6\) | 74 |
+| \((3,1)\) | 8 | \(1+t+3t^3+2t^4+2t^6\) | 9 |
+| \((4)\) | 6 | \(1+t+t^2+2t^4+2t^5+t^6\) | 8 |
+
+The full natural \(S_4\)-action on the \(726\) geometric chambers has exactly **61 orbits**, with orbit-size distribution \(1^3 3^5 4^6 6^6 12^{28}24^{13}\). In particular, the two involution types both have precisely five fixed individual negative curves and four pairs of negative curves, yet fix different numbers of chambers, \(66\) and \(74\). The ordinary \(726\)-chamber geometric total and its polynomial are established prior facts, not claimed as new; the five equivariant distributions and the orbit decomposition are the claim here.
+
+## Assumptions and scope
+Over \(\bar k\), choose four distinct lines \(L_0,L_1,L_2,L_3\subset\mathbb P^2\) with no triple concurrence, and write \(p_{ij}=L_i\cap L_j\), for \(0\le i<j\le3\). Let \(X_{\bar k}\to\mathbb P^2_{\bar k}\) blow up those six points. Denote the class of a line by \(H\), the exceptional curves by \(E_{ij}\), the four original line transforms by \(D_i=H-\sum_{j\ne i}E_{\min(i,j),\max(i,j)}\), and the three opposite-edge diagonal transforms by \(R_{ij\mid kl}=H-E_{ij}-E_{kl}\), with \(\{i,j,k,l\}=\{0,1,2,3\}\). The \(D_i\) have self-intersection \(-2\), and the other nine curves self-intersection \(-1\).
+
+A chamber is counted when its *geometric negative support* is setwise Frobenius-stable. This is equivalent to the existence of a big rational divisor defined over \(k\) whose Zariski decomposition has that geometric support, as shown below. The chamber coefficients count **geometric components**, not Frobenius-orbits of components. Every partition in the table is realized by a quartic finite étale algebra over every field in the stated characteristic range, and thus by a corresponding twist of the Cayley surface.
+
+## Proof
+**1. Completeness of negative curves.** The anticanonical class satisfies
+\[
+-K_X=3H-\sum_{i<j}E_{ij}=H+\frac12\sum_{i=0}^{3}D_i.
+\]
+The pullback \(H\) is nef, and distinct irreducible curves have nonnegative intersection. Also \((-K_X)\cdot D_i=0\), hence \(-K_X\) is nef. Adjunction and arithmetic genus show that an irreducible negative curve \(C\) must have \((C^2,(-K_X)\cdot C)=(-1,1)\) or \((-2,0)\). For a nonexceptional curve of plane degree \(d\) with multiplicities \(m_{ij}\ge0\) at the six points, the former case gives
+\[
+\sum m_{ij}=3d-1,\qquad\sum m_{ij}^2=d^2+1,
+\]
+so Cauchy–Schwarz yields \(d\le2\). For \(d=1\), the two-point lines are irreducible transforms of class \((-1)\) precisely when the two selected points correspond to opposite edges of the complete quadrilateral; this gives the three \(R\)-curves. For \(d=2\), there must be five simple base points, necessarily containing three collinear points, impossible for an irreducible conic. In the \((-2)\) case, \(\sum m_{ij}=3d\) and \(\sum m_{ij}^2=d^2+2\), again giving \(d\le2\). Degree one yields precisely the four original lines; degree two would require a conic passing through all six points and hence through three points on each of the original lines, impossible for an irreducible conic. The exceptional curves are the six \(E_{ij}\). There are exactly thirteen negative curves in total.
+
+**2. Exact support criterion.** Let \(G\subseteq E(K_4)\) index the chosen exceptional curves \(E_{ij}\). At most one diagonal \(R_{ij\mid kl}\) may occur, and it may occur only if its two indexed edges are absent from \(G\): pairs of distinct meeting \((-1)\)-curves have a singular principal intersection matrix. Every \(R\)-curve is disjoint from every \(D_i\). The \(D_i\) are pairwise disjoint, while \(E_{ij}\cdot D_h=1\) exactly when \(h=i\) or \(h=j\). Thus the exceptional plus chosen \(D\) intersection matrix is, up to simultaneous ordering, \(\bigl(\begin{smallmatrix}-I&B^T\\B&-2I\end{smallmatrix}\bigr)\), where \(B\) is the selected vertex-edge incidence matrix. The Schur complement is negative definite precisely when \(2I-BB^T\) is positive definite. Its diagonal at a chosen vertex \(v\) is \(2-\deg_G(v)\), and its off-diagonal is \(-1\) if an edge in \(G\) joins both chosen vertices, otherwise zero. Consequently a chosen \(D_v\) must have \(\deg_G(v)\le1\), and the two endpoints of an *isolated selected edge* may not both be selected as \(D\)-curves. Conversely, these restrictions make the Schur complement a direct sum of positive scalars and at most one chosen endpoint from each isolated selected edge, hence positive definite. They are necessary and sufficient. Equivalently, for every \(G\) the allowed generating polynomial is \(t^{|G|}(1+r(G)t)(1+t)^{f(G)}(1+2t)^{b(G)}\), where \(r(G)\) is the number of opposite-edge pairings avoiding \(G\), \(b(G)\) is the number of isolated-edge components, and \(f(G)\) is the number of eligible degree-zero or degree-one vertices not already endpoints of such isolated edges.
+
+**3. Geometric chambers and Frobenius.** By the negative-definite-support criterion [1], every permitted nonempty geometric support corresponds to exactly one geometric Zariski chamber, in addition to the nef chamber. For a finite-field form, Frobenius permutes the four original-line labels and hence the four \(D_i\), six \(E_{ij}\) and three \(R_{ij\mid kl}\). An arithmetic big divisor has Frobenius-invariant geometric negative support by uniqueness of Zariski decomposition. Conversely, for any invariant negative-definite support \(S\), choose an ample \(k\)-divisor \(A\) and let \(T=\sum_{C\in S}C\), a reduced effective \(k\)-divisor. For sufficiently large positive integer \(m\), the divisor \(A+mT\) is big and its geometric Zariski negative part has support exactly \(S\), by the constructive proof of [1, Proposition 1.1]. Thus every invariant support is realized arithmetically.
+
+**4. Exhaustive permutation classification.** The four line labels are permuted by \(S_4\). Enumerating the \(64\) exceptional-edge subsets \(G\), the admissible subsets of the four \(D_i\), and the optional opposite-edge diagonal gives exactly \(726\) admissible supports. For each of the 24 permutations \(\sigma\in S_4\), act on these thirteen labels and retain the invariant supports. Classifying the 24 permutations by their five cycle partitions gives the five exact polynomials stated above. This is an exhaustive finite computation on all thirteen proven negative curves, not extrapolation from sample surfaces. As a separate check, the entire intersection matrix is reconstructed in the \((H,E_{ij})\) basis and all \(2^{13}=8192\) principal-support tests are performed by exact integer determinants. The determinant and graph-criterion methods agree term by term for each conjugacy class.
+
+**5. Global orbit count and realization.** Burnside's lemma gives
+\[
+\#(\text{chambers}/S_4)=\frac{726+6\cdot66+3\cdot74+8\cdot9+6\cdot8}{24}=61.
+\]
+Direct orbit enumeration yields lengths \(1,3,4,6,12,24\) with multiplicities \(3,5,6,6,28,13\). The three support sets fixed by **all** of \(S_4\) are exactly the empty support, the four original-line transforms \(\{D_i\}\), and the six exceptional curves \(\{E_{ij}\}\): invariant supports are unions of the three natural \(S_4\)-orbits on individual negative curves, and the graph restrictions exclude every other possible union. The Frobenius cycle classes are all realized: a finite étale algebra of degree four with factor degrees \(\lambda\) yields the corresponding twist via the symmetric Cayley equation, and each possible partition occurs over every finite field. The abstract \(S_4\)-classification is therefore a complete arithmetic descent classification for the stated forms.
+
+## Verification
+The standalone `verify_cayley_lattice.py` constructs the thirteen integral divisor classes, checks intersection numbers, tests all \(8192\) support subsets using fraction-free integer determinants, enumerates all 24 label permutations and confirms the five polynomials. The independent `verify_cayley_graph.py` generates permitted supports using only the Schur-complement graph rule, checks the same five tables, applies Burnside's lemma, and directly enumerates all \(S_4\)-orbits. Both use only the Python 3 standard library. Their exact expected output is in `verification_output.txt` and they can be replayed from this directory. The proofs of curve completeness and the Schur-complement restriction establish why the finite enumeration proves the stated infinite-field assertions.
+
+## Relationship to prior work
+Bauer–Funke–Neumann [1] prove the general correspondence between negative-definite supports and Zariski chambers, not the five Frobenius-fixed distributions here. Derenthal–Hausen–Heim–Keicher–Laface [2] give the thirteen-generator Cox-ring data for the \(4A_1\) cubic resolution, not arithmetic chamber counts. The earlier complete-quadrilateral chamber calculation [3] already establishes the nonequivariant \(726\)-chamber polynomial and a graph support formula; these are credited, not claimed. A separate previous analysis of finite-field Cayley twists [4] gives five point-count and zeta-function formulas for a *line-free open locus*, which neither determine nor imply the fixed negative-support distributions. Hanumanthu–Ray [5] treat relationships between Weyl and Zariski chambers over \(\mathbb C\), not this arithmetic classification. The new assertions are the five fixed polynomials and the orbit-size decomposition; in particular, the distinction of the two involution classes is not implied by their identical action cycle partitions on the thirteen negative curves.
+
+## Limitations
+The statement applies to the minimal resolution and its geometric chambers, not chambers on the singular cubic's Weil divisor class space. Characteristic two and three, other singularity types, and arbitrary non-Cayley surface degenerations are excluded. Chamber counts use setwise-invariant supports; the graded variable counts geometric support components. The abstract group orbits are not orbits of \(k\)-rational automorphisms of each individual twisted model. Historical priority for these exact five arithmetic distributions remains provisional; an unindexed earlier classification could exist. Independent mathematical audit has not been performed.
+
+## References
+[1] T. Bauer, M. Funke and S. Neumann, *Counting Zariski chambers on Del Pezzo surfaces*, arXiv:0912.0958v1, first public 2009-12-04, especially Proposition 1.1 and Proposition 1.5. https://arxiv.org/abs/0912.0958
+
+[2] U. Derenthal, J. Hausen, A. Heim, S. Keicher and A. Laface, *Cox rings of cubic surfaces and Fano threefolds*, arXiv:1409.0799, first public 2014-09-02, especially Theorem 3.1 and the \(4A_1\) case. https://arxiv.org/abs/1409.0799
+
+[3] *Zariski-chamber support polynomial of the maximally nodal cubic resolution*, exact geometric support classification, published 2026-11-08. https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-zariski-chamber-support-polynomial-of-the-maximally-nodal-cubic--496f00e7e487
+
+[4] *Five arithmetic spectra for the line-free locus of Cayley cubic twists*, exact arithmetic point-count classification for Cayley twists, published 2026-11-02. https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-five-arithmetic-spectra-for-the-line-free-locus-of-cayley-cubic--c7d5886403e1
+
+[5] K. Hanumanthu and N. Ray, *Weyl and Zariski chambers on projective surfaces*, dated 2020-04-16. https://www.cmi.ac.in/~krishna/weyl-zariski-chambers-surfaces.pdf
