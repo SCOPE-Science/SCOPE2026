@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The normal equations supply the exact fitted slope and the output-dispersion identity. An all-input layer-cake proof identifies the precise Gini dual functional norm, with attaining cut indicators. A norm-one supporting-functional argument forces arithmetic sampling locations; direct sums prove sufficiency. Exact first-order expansions and strict weighted-average inequalities establish the full perturbation claim. Critical finite identities and rational examples were additionally checked by the embedded exact-arithmetic program. No finite enumeration is used to justify an infinite-dimensional or all-sample conclusion.
+## correctness
 
-## Originality: PASS, qualified
-Targeted mathematical-record searches, recoverable historical findings, a publicly available related Gini-variance theorem's full RESULT text, and archival primary sources were compared by their statements and implications. The related Gini-variance theorem classifies an extremizer of a **different** dispersion-to-variance inequality, not an operator's two-input Gini stability, its sharp cut witnesses or its directional stability defect. The classical least-squares and Gini primary literature covers the separate ingredients, not the identified joint result in the inspected material. A plausible 1964 source on irregularly spaced polynomial regression could not be inspected in full; it remains a specific historical-priority risk. Novelty is assessed at best knowledge, not certified as unique.
+PASS
 
-## Mathematical value: PASS
-This is a complete rigidity classification for an important least-squares map under a natural pairwise-dispersion seminorm, together with an exact all-design norm formula and explicit first-order penalty for irregular sampling. The instability occurs in arbitrarily small violations of equal spacing, rather than at an arbitrary finite-size cutoff. Sharp two-level witnesses make the result operational for sensitivity and outlier-response analysis without requiring a downstream theorem.
+C PASS: Unweighted affine regression normal equations yield P_t y=bar(y)1 + c(sum c_i y_i)/S. Hence G(P_t y)=(B/S)|sum c_i y_i| with B=sum_{i<j}(t_j-t_i), S=sum c_i². Any real y modulo constants decomposes into a nonnegative sum of upper-level binary cut indicators, and G of that decomposition is the corresponding positive sum k(n-k). This proves the exact dual norm as the maximum over subsets. Rearrangement of strictly increasing c_i makes the largest size-k subset a terminal k-set; its complementary lower set handles signs. Every displayed maximum is attained. Since P_t fixes nonconstant t, L>=1; if L=1, its support inequality is tight at the strictly increasing t where G is differentiable with gradient 2i-n-1, forcing centered design c proportional to index ranks. Thus only arithmetic grids are nonexpansive; conversely exact B=2S/beta and terminal cut coefficient beta/2 yield L=1. For r_i=i-(n+1)/2 and t=r+epsilon h, all terminal normalized cuts are 1/2+epsilon d_k and B/S=2-4epsilon bar(d)+O(epsilon²), giving the claimed positive one-sided cusp for any non-affine h. Independent rational brute-force comparisons of all binary cuts on 78 designs n=2..7 confirm the exact norm and rigidity. The finite enumeration is not the general proof.
 
-## Scope and remaining risks
-Equal least-squares weights, real response vectors and strictly ordered sites are essential. The result does not address weighted designs, polynomial degree above one or other dispersion measures. Historical priority may be affected by an unindexed or inaccessible result, especially Berztiss (1964). The checks and arguments were reviewed within the same research process and are not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS (qualified): A published polynomial-Gini theorem already proves the degree-one nonexpansive case on equally spaced sites; it does not classify irregular observation designs, provide their exact induced norm or first-order defect. Published convex-cone regression Gini amplification is a nonlinear projection and does not dominate this linear affine-grid theorem. The earlier Gini-variance support result optimizes a statistic rather than fitting-operator sensitivity. Thus the sharp iff grid rigidity and local directional penalty are additional results. Berztiss 1964 on irregularly spaced polynomial regression is a plausible older source, but its full article remained institutionally inaccessible; this is a concrete priority risk, not a reason to manufacture a FAIL.
+
+## value
+
+PASS
+
+V PASS: Stability of fitted responses under the complete-pair Gini distance is a natural robustness criterion distinct from Euclidean least-squares fit error. The characterization of exactly which designs are nonexpansive, sharp binary worst-case perturbations, explicit 28/25 witness, and nonsmooth linear perturbation penalty solve a motivated full-design parameter classification. This is not a textbook normal-equation identity alone, and neither finite examples nor raw reproducibility were used as a substitute for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
