@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-The proof's exact finite certificate is `pappus_fixed_certificate.json`. Execute `python3 pappus_fixed_core.py verify pappus_fixed_certificate.json` with Python 3 and its standard library, from the directory holding the code and certificate. Its output is included in `pappus_fixed_output.txt`.
+## correctness
 
-The verifier independently rebuilds the 18-vertex 27-edge graph and its full 216-element automorphism group; exhaustively generates the 380 subgroups and 44 conjugacy classes; constructs geometric fixed-point orbit complexes; checks each of the 1,616 matched face pairs, every one of the 13,096 face-poset covers, and every critical-cell signature. It checks the aggregate table equals 380 and 44. `python3 pappus_fixed_core.py generate pappus_fixed_certificate.json` can regenerate the deterministic certificate.
+PASS
 
-This finite experiment is not being extrapolated to an unbounded family: completeness is justified by full permutation and subgroup-generation algorithms, and the homotopy conclusion uses a mathematical fixed-point-model argument plus the acyclic discrete-Morse theorem. No expert or independent mathematical audit has been performed. Substantive publication-priority uncertainty remains.
+Exact Pappus LCF adjacency yields 18 vertices and 27 edges. Independently reconstructed all 216 distance-preserving automorphisms and validated 44 certificate representatives covering 380 unique subgroup conjugates. For geometric fixed points, barycentric weights constant on vertex H-orbits yield the eligible-orbit independence complex. Independently read and verified the 44 subgroup/certificate matchings: 1616 matched facet pairs and all 13096 Hasse covers have no directed cycle; critical signatures yield precisely the ten integral homotopy types with the published multiplicities, including 52 empty, 153 contractible, 60 pairs, 9 triples, and sphere wedges. A complete *finite* certificate legitimately proves this finite graph case, not an arbitrary-graph theorem.
+
+## originality
+
+PASS
+
+Earlier published Pappus results classify the rational fourth-homology character, 4+6 irreducible modules or non-equivariant homotopy, which do not determine geometric |Ind(P)|^H for all 380 subgroups. Tsukuda and Barmak provide general nonequivariant incidence/suspension methods but not this complete integral subgroup fixed-space census.
+
+## value
+
+PASS
+
+A natural incidence graph with a large 216-element automorphism group has a distinctive fixed-point stratification across all subgroups, including mixed dimensions absent from ordinary homology. Complete integral homotopy classification via verifiable matching is a meaningful finite equivariant topological invariant, not a mere character-table reproduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Pappus graph, its automorphism action and geometric fixed-point definition are explicit. Backtracking over distance-preserving permutations proves the automorphism census exhaustive. Closure under adjoining each group element proves the subgroup census exhaustive, and direct conjugation checks give 44 classes. The orbit-barycenter construction is PL-homeomorphic to the geometric fixed locus for every subgroup. The supplied finite certificate records all 44 acyclic matchings; replay checks 1,616 matched pairs, all 13,096 face-poset covers, critical-cell signatures and all multiplicities. Discrete Morse theory upgrades the exact matching signatures to integral homotopy classifications. Independent mathematical validation has not occurred; software errors remain a residual risk.
+## correctness
 
-## Originality — PASS relative to inspected literature
-The closest full-text sources are the published Pappus full-automorphism rational homology character calculations (https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-complete-automorphism-character-of-the-pappus-independence-compl--9a42f6d28b4b and https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-the-full-rational-homology-character-of-the-pappus-independence--03b67feab9d4). They classify 13 element conjugacy-class traces, the known ten-four-sphere ordinary homotopy, and quotient rational homology, but do not determine fixed simplicial models and integral homotopy types for all 380 subgroups. Barmak's 2010 full preprint provides nonequivariant star-cluster homotopy methods. Comparison of statements and implications shows the present geometric fixed-space assertion is not an immediate consequence of their stated theorems. Search-index and unavailable-source limits remain: a plausible 2017 incidence-graph paper was inspected by its description, not its complete PDF, and an unindexed exact census cannot be excluded.
+PASS
 
-## Mathematical value — PASS
-The all-subgroup classification has a motivated, canonical object and determines a full ten-type equivariant fixed-space spectrum. The appearance of disconnected loci and several positive homotopy degrees, although the underlying complex is a wedge of fourth-spheres, is a structural refinement inaccessible from the complete rational homology character alone. The full table is useful for distinguishing simultaneous subgroup symmetries and for testing equivariant graph-complex arguments; no conjectured downstream theorem is assumed.
+Exact Pappus LCF adjacency yields 18 vertices and 27 edges. Independently reconstructed all 216 distance-preserving automorphisms and validated 44 certificate representatives covering 380 unique subgroup conjugates. For geometric fixed points, barycentric weights constant on vertex H-orbits yield the eligible-orbit independence complex. Independently read and verified the 44 subgroup/certificate matchings: 1616 matched facet pairs and all 13096 Hasse covers have no directed cycle; critical signatures yield precisely the ten integral homotopy types with the published multiplicities, including 52 empty, 153 contractible, 60 pairs, 9 triples, and sphere wedges. A complete *finite* certificate legitimately proves this finite graph case, not an arbitrary-graph theorem.
 
-## Limitations
-This is an exact finite theorem, not an infinite graph-family classification. The certificate is a reproducible computation, not an independently reviewed mathematical proof; publication priority remains qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier published Pappus results classify the rational fourth-homology character, 4+6 irreducible modules or non-equivariant homotopy, which do not determine geometric |Ind(P)|^H for all 380 subgroups. Tsukuda and Barmak provide general nonequivariant incidence/suspension methods but not this complete integral subgroup fixed-space census.
+
+## value
+
+PASS
+
+A natural incidence graph with a large 216-element automorphism group has a distinctive fixed-point stratification across all subgroups, including mixed dimensions absent from ordinary homology. Complete integral homotopy classification via verifiable matching is a meaningful finite equivariant topological invariant, not a mere character-table reproduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
