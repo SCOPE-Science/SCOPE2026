@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The homogeneous \(K_5\)-free extension rule gives the exact adjacency criterion: a proposed new edge fails precisely when its common old neighborhood contains a triangle. A Boolean-zeta matrix is integer-unimodular on the hereditary type family, so the Möbius alternating coefficients are a valid congruence diagonal. The supplied independent labelled-graph enumerator checks every simple graph through seven vertices and classifies each exceptional graph without appealing to a catalogue. The independently constructed wheel matrix and exact finite-difference reduction give the stated full Smith form.
+
+**Originality — PASS, provisional.** The source paper on the generic clique-free graph treats model-theoretic independence, not the arithmetic matrix classification. General clique-free complex literature studies shellability and the published icosahedral computation studies a different graph's homotopy type. Published prior finite-base work using similar Möbius diagonalization supplies an overarching method, not this distinct seven-vertex extremal cutoff for the five-clique-free structure. Searches under wheel, induced-subgraph Euler characteristic, one-type feasibility and Smith invariants found no statement implying the theorem. An unindexed finite graph table or equivalent Euler-characteristic classification is a residual historical-priority risk.
+
+**Mathematical value — PASS.** This is the sharp first field-dependent rank obstruction in a natural all-bases family of logical compatibility matrices: no finite torsion through six parameters, a unique seven-point graph with exactly one order-two factor, and no other seven-point exception. The exact identity connects model-theoretic amalgamation to the topology of triangle-free vertex-set complexes, while the independent exhaustive certificate closes a natural minimality and uniqueness question rather than reporting an isolated example.
+
+**Scope and limitations.** The sharp uniqueness theorem ends at seven named vertices. The proof of the cutoff is an exhaustive finite enumeration with a source-level certificate. The historical literature comparison cannot eliminate all unindexed equivalents. This review is not an independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.
