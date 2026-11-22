@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof reduces arbitrary complex Bessel duals to two-position translation fibers through the verified Ron–Shen equations for the painless lattice. The exact amplitude-constrained two-variable minimization is unique because the larger and smaller power-tent coefficients are strictly ordered almost everywhere. The same constructive dual attains the lower bounds for both \(L^1\)-norm and essential support measure. The differentiations and critical expansions are derived from the exact fiber integrals. The standalone checker provides 9,913 rational fiber checks, 51 integrated-value comparisons and 36 support comparisons. Finite tests supplement, not replace, the proof.
+
+**Originality — PASS relative to examined literature.** The new constrained portion is the complete cap-dependent norm/support Pareto law and critical cusp for power-tent windows. Díaz Martín et al., arXiv:2607.16915, Theorems 2.1 and 2.7 and Corollary 2.8, already imply the large-cap plateau; that portion is fully attributed, not counted as new. Perraudin et al., arXiv:1401.6033, provide generic numerical convex optimization, not this closed curve. Nearby literature on power tents and hat splines optimizes analysis-frame bounds, a distinct object. Residual risk: an equivalent exact capped-dual calculation not retrieved by bibliographic searches may exist.
+
+**Mathematical value — PASS.** Peak-limited synthesis duals are a natural design constraint for controlling reconstruction amplitudes under coefficient perturbations, and the precise cost is not apparent from the unrestricted optimum. The theorem supplies a unique optimizer, exact support tradeoff, nontrivial threshold in the power exponent and a sharp logarithmic/fractional regularity dichotomy; it is not a mere restatement of the unconstrained \(L^1\) theorem.
+
+**Scope and limitations.** Only \(r>0\), \(0<\beta\le1/2\), integer translations and an essential-supremum constraint are covered. The formula asserts no new general condition-number, continuity or outside-regime statements. Primary published sources were read in publicly accessible full HTML; an index cannot prove absence of older equivalent results.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Painless Ron–Shen equations reduce even arbitrary complex Bessel duals to two-site fibers. The strict coefficient-order fiber optimization proves the unique \\(L^1\\) extremizer, cap feasibility, exact support minimum, integral expression and threshold behavior. Differentiation and local asymptotics provide the logarithmic and fractional coefficients. The standalone checker completed 9913 rational vertex LP cases, 51 independent integral comparisons, and 36 support-measure checks. None of these finite checks substitutes for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2607.16915 addresses arbitrary Gabor generators in painless regime but only the unrestricted minimal-\\(L^1\\) problem; its theorems impose no peak cap.",
+        "https://arxiv.org/html/1401.6033v4 numerically handles convex design objectives but does not prove sharp parametric formulas."
+      ],
+      "reasoning": "The broad unconstrained theorem covers the large-cap endpoint and the minimum support achievable without a cap but does not imply the intermediate-cap cost; a generic algorithm also does not establish the exact boundary-law constants. Nearby broader frame-bound and condition-number theorems concern analysis systems, not capped synthesis duals.",
+      "searches": [
+        "finite Gabor painless window triangular compactly supported l1 peak norm minimax dual stability",
+        "amplitude constrained dual Gabor support size under peak bound power tent r",
+        "\"dual windows\" \"L1 L∞\" constraint minimization",
+        "\"hat spline\" \"dual window\" \"minimum\" \"L1\" \"L∞\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.16915 (original record and theorem statements)",
+      "Díaz Martín et al., Journal of Fourier Analysis and Applications 32 (2026), article 105, full relevant HTML",
+      "arXiv:1401.6033v4 (full relevant HTML Sections 1–3)",
+      "Published indexed summaries, Sharp nonlattice two-coset Gabor frames for the entire power-tent family (2026-11-01) and Two Zak-fiber transitions in sharp half-density hat-spline Gabor frame bounds (2026-11-08), abstract-only comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.7 of Díaz Martín et al. characterizes unrestricted minimizers as pointwise weights supported only at maxima of the analysis window; with cap below \\(\\beta2^r\\) the maximizing-only dual violates the cap on positive-measure fibers.",
+        "The constrained theorem must instead place nonzero mass on the smaller coefficient on such fibers; it has strictly increased \\(L^1\\)-norm and support, which cannot be inferred as a special case of the unrestricted equality characterization."
+      ],
+      "reasoning": "Existing unrestricted results imply exactly the cap \\(T\\ge\\beta2^r\\) plateau. For \\(\\beta\\max\\{1,2^{r-1}\\}\\le T<\\beta2^r\\) the unrestricted minimum is not peak-feasible; a distinct constrained optimization is required. The nonanalytic tent cusp and fractional exponent arise from its new cutoff. The generic convex-optimization framework can in principle numerically find these solutions but does not state or mathematically imply their exact values without further reasoning.",
+      "searches": [
+        "arXiv:2607.16915 Theorem 2.1 Theorem 2.7 Corollary 2.8",
+        "arXiv:1401.6033 Section 3 dual design",
+        "Gabor dual window sharp L1 L∞ tradeoff Pareto frontier triangular hat window tent B spline amplitude constrained",
+        "exact Pareto curve L1 L∞ capped dual window power tent spline Gabor beta at most half"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Díaz Martín et al., Theorems 2.1 and 2.7 of https://doi.org/10.1007/s00041-026-10315-6 characterize the unconstrained dual minimum, with no imposed essential-peak bound.",
+        "Perraudin et al., Sections 2–3 of https://arxiv.org/html/1401.6033v4 set up constrained convex dual optimization without an analytic continuous power-tent Pareto formula."
+      ],
+      "reasoning": "An amplitude cap on dual coefficients, a pointwise two-site linear program and joint support-minimization can be formulated as weighted ℓ1 minimization, capped dual synthesis or sparse dual design. These aliases were searched. The cited closest general theories contain the starting duality constraints but not the explicit T-dependent optimizers, all-exponent cap threshold or cusp. The unconstrained plateau is expressly prior-covered.",
+      "searches": [
+        "Gabor dual window sharp L1 L∞ tradeoff Pareto frontier triangular hat window tent B spline amplitude constrained",
+        "exact Pareto curve L1 L∞ capped dual window power tent spline Gabor beta at most half",
+        "joint L1 L0 Linfty optimization dual Gabor windows B-spline logarithmic cusp",
+        "\"Gabor dual\" \"Pareto\" \"sparsity\" exact",
+        "\"Gabor dual\" \"power tent\" \"window\" minimization 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly indexed finding Sharp nonlattice two-coset Gabor frames for the entire power-tent family gives frame bounds of power-tent windows, not a capped dual table.",
+        "The publicly indexed finding Two Zak-fiber transitions in sharp half-density hat-spline Gabor frame bounds covers Zak frame-bound transitions.",
+        "No retrieved table tabulates the continuum of peak cap T and resulting support, norm and cusp."
+      ],
+      "reasoning": "The sought output is a continuum of analytically parametrized sharp norms, not merely a finite database entry. Exact parameterizations and equivalent sharp cap tables were queried. No matching tabulation was retrieved; this does not prove one does not exist.",
+      "searches": [
+        "Gabor dual window sharp L1 L∞ tradeoff Pareto frontier triangular hat window tent B spline amplitude constrained",
+        "exact Pareto curve L1 L∞ capped dual window power tent spline Gabor beta at most half",
+        "amplitude constrained dual Gabor support size under peak bound power tent r",
+        "\"B-spline\" \"dual window\" \"L∞\" \"L1\" bound"
+      ]
+    },
+    "rationale": "The original contribution is the full peak-limited dual Pareto curve and its unique joint sparsity norm optimizer, including cusp constants. The fully inspected 2026 Díaz Martín–Lammers–Miller–Powell unrestricted theorem covers the large-T plateau but not the constrained interior. Perraudin et al. offer a general convex design methodology, not these exact formulas. Closest publicly indexed findings on same power-tent/hat-spline objects prove analysis-frame bounds and distinct spectral optimization claims.",
+    "residual_risks": [
+      "An unindexed exact capped dual or weighted pointwise linear-program treatment may duplicate the new theorem.",
+      "Two relevant published claim detail pages were inaccessible; comparison used their indexed scientific summaries, which state different objectives.",
+      "The novelty assessment excludes the saturated \\(T\\ge\\beta2^r\\) case, which is covered by the cited unrestricted theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unrestricted large-cap plateau and normalization; not capped continuous T optimization, joint capped support curve or regularity cusp.",
+        "evidence": [
+          "Section 1.1 equation (1.4) gives the duality normalization β.",
+          "Section 2 Theorem 2.1 and Theorem 2.7 optimize unconstrained \\(L^1\\); Corollary 2.8 describes minimal support among unrestricted minimizers."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-026-10315-6",
+        "material_read": "Full accessible HTML introduction, Ron-Shen normalization (eq. 1.4), Section 2 Theorems 2.1 and 2.7, Corollary 2.8, Example 2.9 and Section 3 context.",
+        "method": "Read complete relevant original theorem statements, proofs and surrounding assumptions in full text.",
+        "title": "On Gabor Duals with Minimal L1-Norm",
+        "trigger": "Same dual-window minimization, painless \\(\\beta\\le1/2\\) and compact support"
+      },
+      {
+        "assessment": "First public July 18, 2026; primary MSC 42C15; same paper as November 2026 journal edition.",
+        "evidence": [
+          "ArXiv record states Sat Jul 18 18:11:00 2026; MSC 42C15, 42C40."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.16915",
+        "material_read": "ArXiv public record date, authors, MSC and abstract/introduction; associated journal full text used for detailed theorems.",
+        "method": "Read arXiv record and corresponding full journal HTML, compare title, date and mathematical scope.",
+        "title": "Gabor duals with minimal L1-norm (arXiv first version)",
+        "trigger": "Verify earliest public date and MSC ownership for motivator"
+      },
+      {
+        "assessment": "Covers generic numerical convex dual design; no parametric sharp power-tent cap and support law.",
+        "evidence": [
+          "Section 3 equation (10) formulates a generic constrained convex optimization; it does not supply an exact closed-value theorem for peak-capped continuous power tents."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1401.6033v4",
+        "material_read": "Full HTML abstract, introduction, duality preliminaries and Section 3 convex design construction, with support constraints and experiments.",
+        "method": "Read primary HTML sections and stated analytic scope.",
+        "title": "Designing Gabor windows using convex optimization",
+        "trigger": "Potential stronger coverage from general constrained Gabor dual design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a9e25f3e-73f6-4b85-a2f9-819dbb77db07",
+  "value": {
+    "rationale": "An essential-supremum cap on the synthesis window directly bounds pointwise amplification of ℓ1 coefficient errors; the resulting optimal norm/support tradeoff is a meaningful constraint in time-frequency synthesis design. The result gives the exact feasible cap, a unique dual, sharp support cost, strict convexity and exponent-dependent logarithmic/fractional boundary behavior, not a mere textbook restatement or arbitrarily chosen finite cutoff.",
+    "status": "PASS"
+  }
+}
