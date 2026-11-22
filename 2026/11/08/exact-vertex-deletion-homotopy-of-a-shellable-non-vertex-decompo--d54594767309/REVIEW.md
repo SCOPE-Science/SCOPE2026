@@ -1,19 +1,21 @@
-# Review of Exact vertex-deletion homotopy of a shellable non-vertex-decomposable circulant
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is integral and concerns all sixteen cyclically equivalent vertex deletions, not arbitrary circulants. The exact graph edge set has 40 edges of degree five. The two face-enumeration methods agree; full, deleted, and linked face vectors are recorded in the proof. Acyclic face-poset matchings were checked by exhausting every nonempty covering relation, and exact signed Morse boundaries are the columns \(\begin{pmatrix}-1\\0\end{pmatrix}\) and row \(\begin{pmatrix}1&0&1\end{pmatrix}\). The unit entry gives a homotopy cancellation in dimension three for the deletion; the primitive row kills the link's sole fundamental-group generator. The long exact sequence with the previously proven shellability of the full complex gives the claimed link inclusion. The verifier is embedded and complete. Limitations: implementation and topological translation are subject to independent review.
+PASS
 
-## Originality — PASS, conditional on indexed coverage
+For G=C16(1,4,8) on Z/16Z, checked every one of 2^16 vertex subsets and reconstructed the exact face vectors K=(1,16,80,144,80), D=(1,15,70,117,60), L=(1,10,27,20,0). An independent Python matching implementation found for D 129 nonempty matched pairs, critical cells (one 0, two 2, one 3), all 731 directed nonempty cover relations acyclic, and exact signed Morse boundary (-1,0)^T. Hence D≃S² by integral CW cancellation. For L: 26 matched pairs, one 0, one 1, three 2, 114 acyclic directed covers, signed Morse boundary (1,0,1), giving L≃S²∨S². Existing Earl et al. full-complex shelling and computed Euler characteristic imply K≃S³; Mayer–Vietoris for K=D∪(v*L) gives a split primitive surjection H2(L)=Z²→H2(D)=Z. The rotations cover all 16 vertices. Verified the earlier primitive top cycle: 80 tetrahedra, 64 unit and 16 double coefficients, with 16 unit and 4 double tetrahedra incident at each vertex. No leap from mod-two ranks to integral homotopy was made.
 
-The strongest exact-object sources [1,2] explicitly give shellability, non-vertex-decomposability, and the deletion's negative \(h\)-vector; neither determines the deleted complex's homotopy type or the induced integral link map. The lexicographic-product theorem [3] is broader in graph count but does not supply that homotopy information. Searches for equivalent names, independence/Stanley–Reisner deletion, puncturing, homology and primitive inclusions did not identify coverage. Negative search evidence is not a proof of priority; unindexed or unpublished results are residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact local topological calculation for the central sixteen-vertex example presented in [1,2]: the deletion is non-Cohen–Macaulay but has the simple homotopy type of a single two-sphere. The precise primitive map explains how a two-dimensional class survives while an integral three-dimensional class of the full shellable complex is created. The exact boundary information, rather than a renaming or the already known negative \(h\)-vector, is the substantive mathematical point.
+Qualified historical-priority PASS. The original assigned source was publicly committed 2026-11-08 at 17:29:40 UTC. Earlier 2015/2023 primary papers established shellability, deletion face/h vectors and non-Cohen–Macaulayness, not D≃S² or its primitive link map. The published October 25 local-homology theorem already implies L≃S²∨S² and that portion receives priority credit. Importantly, the now-published Resultary primitive-top-cycle and nonorientable-core theorems, when combined with the local-homology theorem, DO mathematically imply the entire audited finding via the primitive coefficient and Mayer–Vietoris/van Kampen/Whitehead. However their public Git commits were 2026-11-08 at 20:01:35 UTC, after the audited public source at 17:29:40 UTC, and cannot retroactively be counted as earlier published priority. An unindexed prior theorem remains possible; this is not novelty proof by negative search.
 
-## Boundaries
+## value
 
-No classification of larger graphs, independent priority determination, or externally reviewed certificate is asserted. The full complex's shellability and \(S^3\) consequence are acknowledged as known or implied; the new statement concerns vertex deletion and inclusion only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact vertex deletion of the canonical minimal shellable but nonvertexdecomposable circulant is a natural local-topology test, not an arbitrary small slice. Its integral S² homotopy type and primitive Z²→Z map explain more than the known non-Cohen–Macaulay h-vector: one vertex-link generator survives deletion and one accounts for the ambient 3-sphere attaching class. At original public priority it was an independently motivated exact topological invariant beyond the earlier partial local-link classification. It is finite but complete and mathematically meaningful; it does not pretend to classify other circulants or offer new novelty over later overlapping top-cycle findings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
