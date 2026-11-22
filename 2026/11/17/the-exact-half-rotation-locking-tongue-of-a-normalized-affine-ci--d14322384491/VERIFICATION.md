@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` in this directory with Python 3 and SymPy installed. The code checks the exact formula for the modulus polynomial evaluated at the geometric cutoff, the symbolic Floquet multiplier factorization after eliminating the angular parameter, the rational boundary instance \(\alpha=4/5\), and the central half-turn multipliers. It additionally constructs and replays 12 pairs of noncentral primitive two-cycles for three choices of \(\alpha\), testing unit norms, return equations and sink/source multiplier ordering.
+## correctness
 
-The mathematical proof in `RESULT.md` establishes the continuum of parameter values: the finite diagnostics test implementation and normalization only, and are neither an exhaustive search nor an infinite-parameter certificate. The source-publication comparisons concern the cited propositions and remarks. The complete wording of an earlier published erratum was unavailable; no conclusion about its content is made.
+PASS
+
+The full RESULT.md at blob df7941008788d9053b5a342e35b935422bc1872a derives t+u=-2cos(theta) for any primitive noncentral 2-cycle and a positive quadratic Q(P)=P²+(2+alpha²−4cos²(theta))P+(1−alpha²)=0. The positive-root/discriminant test gives exactly the half-width arcsin((1−sqrt(1−alpha²))/2); at theta=pi two cycles are classified separately. Differentiating arg normalization gives multiplier factor (q−P²)(q+3P)/(4P³). Independent reconstruction for alpha=.2,.5,.8 with interior fractions .5,.99 yielded two cycles and at 1.01 exterior zero; finite tests do not replace discriminant proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: 2022/2024 Choudhuri–Faraco–Yadav Proposition 8 asserts a neighborhood of -1 with four period-two points and a coarse nonexistence region, while Proposition 10 handles precisely theta=pi; neither gives the exact boundary formula and saddle-node multiplier. Earlier 2016 Shah–Yadav article and 2022 erratum remain priority risks.
+
+## value
+
+PASS
+
+The sharp mode-locking tongue boundary, complete multiplicity, and attractive/repulsive versus neutral transition are natural dynamical phase-diagram invariants of an explicitly studied analytic family; not merely reproducing its known center example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
