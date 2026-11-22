@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The Stern block identity and exact eight-state zero-offset lookup cover all indices. The binary substitution on twenty adjacent-state pairs is closed, irreducible and aperiodic, so its exact rational stationary vector gives natural block frequencies. The checker recomputes all rational stationary identities and the gap-weight table from the package and verifies direct enumeration. No finite sample is used to infer the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reznick establishes general modular primitive-pair distributions and the exact ternary zero-index recursion, but not the distribution of distances between successive zeros in its relevant sections.",
+        "Coons–Shallit establish patterns evaluating Stern values from binary digits; that more general evaluative representation is not itself an explicit successive-zero return-frequency computation."
+      ],
+      "reasoning": "General formulas for individual Stern residues or finite adjacent residue patterns could in principle be combined to derive these statistics, so they are a genuine implication risk. The six-gap law additionally requires correlations across variable return times up to eight, established here through an explicit 20-state adjacent-block computation; no inspected broader theorem supplied the numeric table.",
+      "searches": [
+        "Stern diatomic sequence modulo p longest run without zero contiguous index",
+        "Stern diatomic sequence divisibility zero gap maximum bounded for all primes",
+        "arxiv:math/0610601 §§4–5",
+        "arxiv:1105.0086 §§1–3"
+      ]
+    },
+    "checked_sources": [
+      "B. Reznick, arXiv:math/0610601, relevant sections 1, 2, 4–5",
+      "OEIS A071911 sequence/comments",
+      "M. Coons and J. Shallit, arXiv:1105.0086, sections 1–3",
+      "Lansing, Largest Values for the Stern Sequence, complete paper",
+      "Published three-term Stern residue law (2026), joint local residues rather than return gaps",
+      "Published four-term Stern residue law (2026), fixed window rather than six-step return statistics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.1 completely specifies zero membership; the asserted gap lengths and limiting frequencies are new explicit consequences only after a nontrivial pair-state transfer and stationary calculation.",
+        "Prior published results on three- and four-consecutive Stern residue laws describe fixed-length local distributions, while this claim concerns first returns and a six-valued distribution with denominator fourteen."
+      ],
+      "reasoning": "The claim does not repackage the one-point density or assert a new definition of the zero set. Although established recursive membership theoretically implies every fact about the set, it does not directly yield the precise listed six-gap distribution without additional return analysis. A hidden earlier derivation remains a residual priority risk.",
+      "searches": [
+        "arxiv:math/0610601 Theorem 5.1",
+        "arxiv:1105.0086 pattern sequence Stern",
+        "Stern diatomic sequence modulo 3 exact gaps between zero values 2 3 4 5 6 8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reznick Theorem 5.1 gives a recursive enumeration of precisely the indices where the Stern value is divisible by three, so it defines the same ordered set, but its statement does not give a consecutive-index gap-frequency table.",
+        "OEIS A071911 includes the indexed set and language/automaton descriptions, rather than an explicit limiting six-gap probability vector."
+      ],
+      "reasoning": "The equivalent problem is the return-time distribution to zero among Stern residues modulo three, or the spacing law of A071911. These descriptions determine the underlying set and hence logically determine gaps after additional analysis. Their known zero-set characterization is explicitly credited; the claimed novelty is the computed exact six-gap return law and its stationary-pair proof.",
+      "searches": [
+        "Reznick A_3 Stern sequence consecutive zeros gaps 2 3 4 5 6 8 limiting frequencies",
+        "Stern A3 set gaps 2,3,4,5,6,8 return words density",
+        "arxiv:math/0610601 §§4–5",
+        "oeis:A071911"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A071911 lists exactly the divisible indices, not the rational probabilities for six different successive gaps.",
+        "The indexed numbers permit computing arbitrarily many gaps but numerical entries alone cannot certify limiting probabilities."
+      ],
+      "reasoning": "A known exact sequence is a weaker output form than a proved asymptotic spacing law. No matching exact published gap probability table was found in the inspected database entry or searched indexed results; this is not proof against unpublished tables.",
+      "searches": [
+        "oeis:A071911",
+        "Stern gap frequency 2/7 1/7 1/14",
+        "Stern modular three missing zero index gaps rational density six possible differences"
+      ]
+    },
+    "rationale": "The nearest known full index-set classification is Reznick Theorem 5.1 and OEIS A071911. Their established results imply the zero set, but do not state the exact six-gap limiting probability vector; the additional correlated adjacent-block state census is the claimed contribution. Full relevant text was inspected and high-priority historical-equivalence risk acknowledged.",
+    "residual_risks": [
+      "Reznick and Dijkstra fully characterize the underlying zero-index set; an earlier author could have computed the same return-gap frequencies from that description without being indexed as a separate result.",
+      "Historical material outside accessible current relevant literature may contain an exact six-gap table.",
+      "Older local archives beyond the accessible current-part ledger were not available for a complete content-level deduplication; the first-return claim was compared with available published research search results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers original zero-index set and one-point density, not an explicit six-gap return distribution in material read",
+        "evidence": [
+          "Theorem 5.1 determines set A3 recursively and its stated density is one quarter."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0610601",
+        "material_read": "Sections 1, 2, and 5 (particularly Theorem 5.1), plus the modular-pair distribution discussion in Section 4",
+        "method": "Read accessible full arXiv text and inspect relevant theorem and surrounding statements",
+        "title": "Regularity properties of the Stern enumeration of the rationals",
+        "trigger": "Same zero-index set and complete modulo-three recursion"
+      },
+      {
+        "assessment": "Gives digit-pattern formula for Stern values; no equal explicit six-gap law in inspected relevant sections",
+        "evidence": [
+          "The paper treats evaluations of s(n) using patterns; the return-gap distribution is not among its stated theorems in the inspected portions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1105.0086",
+        "material_read": "Introduction and principal binary-pattern formulas in Sections 1 through 3",
+        "method": "Read arXiv full-text HTML and compare claims on evaluations versus joint spacing",
+        "title": "A pattern sequence approach to Stern's sequence",
+        "trigger": "Strong digit-automaton evaluation of all Stern values"
+      },
+      {
+        "assessment": "Exact index list and language descriptions are covered; exact six-gap frequency vector not found",
+        "evidence": [
+          "The indexed zero-set is prior work and is explicitly acknowledged."
+        ],
+        "identifier_or_url": "https://oeis.org/A071911",
+        "material_read": "Sequence title, examples, comments and linked historical automaton descriptions",
+        "method": "Inspected entry text and searched for gap and consecutive-gap descriptions",
+        "title": "OEIS A071911: indices where Stern's diatomic sequence is divisible by 3",
+        "trigger": "Possible exact database containing the six gaps or their frequencies"
+      },
+      {
+        "assessment": "Determines maximal values in dyadic rows rather than distributions of zeros modulo three",
+        "evidence": [
+          "The central objects are largest values and positions, not the six modular zero gaps."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Lansing/lansing3.pdf",
+        "material_read": "Complete PDF text with first-page screenshot inspected",
+        "method": "Read full paper and checked topic against claimed return gaps",
+        "title": "Largest Values for the Stern Sequence",
+        "trigger": "Related full Stern sequence analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2cd4f80e-f4e0-4a36-af4b-1167a85f5646",
+  "value": {
+    "rationale": "An exact spatial return-time law of the natural positive-density set of Stern indices divisible by three is not furnished by its known one-point density or individual residue formulas. The theorem resolves all gap lengths and frequencies, the sharp maximum, forbidden gap values and variance with exact rational certificates, and the answer is structurally motivated rather than an arbitrary enumeration.",
+    "status": "PASS"
+  }
+}
