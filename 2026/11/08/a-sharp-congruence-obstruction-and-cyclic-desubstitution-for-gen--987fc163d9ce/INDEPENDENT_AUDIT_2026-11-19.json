@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T01:04:01.817584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the transition identity d(bk+r)=0 at r=0..b-3, 1 at r=b-2, and 1 or 0 at r=b-1 depending on parent-letter equality. Every b-window of the coded transition string 0^(b-2)1e has unique residue phase for b>=3: a single 1 is mandatory, while two 1s identify the mandatory one as first of adjacent pair or last of endpoint pair. Circular (b+1)-windows occur when n>=b+2, so phase increments round the circle force b|n. For n=bm, an aligned circular word decomposes uniquely into mu_b-blocks; rotating one symbol into each block enforces each length-(m+1) periodic source extension and proves both surjection and injection. Short n<=b+1 classification follows from maximal constant-run lengths 1,b-1,b and absence of four-letter alternation, plus explicit base-3 length-four factor enumeration. The three source classes 00,01,11 generate distinct surviving length-2b^k images using 000,010,101,111 source triples and the imbalance (b-2)^k. Independently regenerated fixed points, checked all phases at b=3..8 and Lie values/extension equivalence at n=1..50, plus b=3,4 at n=2b^3; these finite tests corroborate but do not establish all b,n. No nonstandard lemma remains unproved within the stated elementary phase/run argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bell–Shallit Theorem 1.1 bounds Lie complexity by factor-complexity difference+1 and Section 6 proves automaticity; its Section 7 examples are Thue–Morse, ternary variant, Cantor, Fibonacci and Tribonacci, not the 001/110 generalized family.",
+          "Li Theorems 1–4 give Rauzy graph bounds, extended-Lie and prefix-Lie statements, and Theorem 18 automaticity; not a sharp all-b support law for this family.",
+          "Kishi Theorem 22 preserves exact morphic pattern occurrences for interference-free images, while Theorem 19 yields image recognizability. Neither determines whether all cyclic rotations occur in the infinite fixed-point language, or the sharp b+1 exception, or L_b(2b^k)."
+        ],
+        "reasoning": "These stronger structural frameworks cover parts of the mechanism (phase and occurrence recognition) or generic complexity bounds, but the desired rotation-complete language support and circular one-extra-letter extension require additional model-specific analysis. A future general theorem may imply the result; no such implication established in checked primary texts.",
+        "searches": [
+          "Bell–Shallit arXiv:2102.03821v1, Theorems 1.1–1.4, §§6–7",
+          "Li arXiv:2207.05859v1, Theorems 1–4 and 18, §§3–6",
+          "Kishi et al. CPM 2026, Corollary 15 and Theorems 19,22",
+          "Resultary Rudin–Shapiro Lie and same-family Abelian complexity full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2102.03821",
+        "https://arxiv.org/pdf/2207.05859",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.24/LIPIcs.CPM.2026.24.html",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-square-spectrum-and-conjugacy-count-for-the-mephisto-wa--af6b89112a09",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-substitution-scale-abelian-complexity-of-complementary-bin--e7fed85fd174",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-lie-complexity-of-the-binary-rudin-shapiro-word--56200583f0ee",
+        "https://mathworld.wolfram.com/MephistoWaltzSequence.html",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-congruence-obstruction-and-cyclic-desubstitution-for-gen--987fc163d9ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The present Phase lemma establishes every b-consecutive transition segment uniquely determines residue mod b for all integer b>=3; a cyclic chain then forces n divisible b for n>=b+2.",
+          "Kishi b=3 interference-free result is about factorization of the image of a source word, with no membership guarantee for all rotations in an infinite fixed point; it does not give b>=4 or the E_b(m) source test.",
+          "Square factors uu of period 3^k guarantee two binary pure-parent cyclic families, but the current result has three Lie classes at n=2b, including the source 01 mixed family.",
+          "Abelian complexity counts weights, not cyclic classes. Other-word Rudin–Shapiro phase proof is nonidentical to the present morphism and cannot be specialized via parameter substitution."
+        ],
+        "reasoning": "No checked stronger result implies all four theorem clauses merely by specialization. Generic phase recognizability covers a key ingredient only; the source m+1 cyclic extension equivalence and sharp boundary still require proof. The same-record published copy was excluded as independent evidence of priority.",
+        "searches": [
+          "Kishi–Guo–Urbina–Bannai CPM 2026 Cor. 15, Def. 17, Thm. 19, Thm. 22",
+          "Resultary Mephisto square-spectrum theorem, exact starts and conjugate squares",
+          "Resultary complementary-morphic Abelian complexity theorem, 2026-11-08",
+          "Resultary Rudin–Shapiro exact Lie theorem, 2026-10-13",
+          "Bell–Shallit arXiv:2102.03821 §§6–7; Li arXiv:2207.05859 §§3–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kishi et al., Corollary 15 identifies 001/110 as strongly interference-free; Definition 17 and Theorem 19 establish unique circular image factorization for morphic images, not the Lie support n>=b+2 or source-window E_b(m) criterion.",
+          "The square theorem classifies squares uu of periods 3^k (b=3) and their two conjugacy families; Lie classes require every rotation of the length-n word as a factor, not occurrence of its square.",
+          "Resultary Rudin–Shapiro exact Lie paper has a different generating word, binary parity of adjacent 11 digits."
+        ],
+        "reasoning": "Circular recognizability is a partial equivalent of the unique-image-phase ingredient, not of the complete requested theorem. The b=3 square spectrum does not enumerate the mixed Lie class at n=6 and does not imply the all-base sharp congruence. Generalized binary complements under Abelian equivalence are a different quotient from cyclic conjugacy.",
+        "searches": [
+          "Resultary semantic query \"Lie complexity cyclically rotation complete factors generalized Mephisto Waltz binary morphism 0->0^(b-1)1 1->1^(b-1)0 sharp divisibility support\"",
+          "Resultary query \"Mephisto Waltz binary word 001 110 exact square factors powers generalized palindrome cyclic complexity\"",
+          "Web exact queries \"Mephisto Waltz\" \"Lie complexity\" \"001\" 110; \"cyclic conjugacy\" \"Mephisto Waltz\" fixed point",
+          "Kishi–Guo–Urbina–Bannai CPM 2026, Corollary 15, Definition 17, Theorem 19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bell–Shallit Example 7.1–7.5 explicitly tabulates other words; no generalized Mephisto Lie table.",
+          "Resultary same-family Abelian theorem counts Hamming-weight classes at lengths b^k, not rotation-complete conjugacy classes.",
+          "The full ordinary-square paper counts 2*3^k square factors of length 2*3^k for b=3, which is a distinct exact database of factors and omits the third mixed Lie conjugacy class at n=6."
+        ],
+        "reasoning": "No inspected table supplies this invariant for the same word and every base. Failure of these searches alone does not certify novelty, and unindexed computational tables remain a genuine residual risk.",
+        "searches": [
+          "Resultary targeted semantic search \"automatic words Lie complexity b-ary uniform morphism 0^(b-1)1 and 1^(b-1)0 support nonmultiples of b\"",
+          "Web: \"Mephisto Waltz\" \"all rotations\" factors; \"generalized Mephisto Waltz\" \"Lie\"",
+          "Bell–Shallit Section 7 explicit example tables, Li Section 4 examples",
+          "Resultary exact Mephisto ordinary-square and same-family Abelian full results"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct theorem: full all-base sharp b-divisibility of rotation-complete factors plus a cyclic one-extra-source-letter desubstitution criterion. General recognizability of the b=3 substitution is known and is explicitly not credited as original; occurrence-preservation, ordinary-square, Abelian-factor and other-word Lie results do not state or imply the full cyclic-factor theorem without additional new cyclic arguments.",
+      "residual_risks": [
+        "Kishi et al. (2026) already prove strong interference-freeness and circular recognizability in the base-three case; the novelty is the further Lie-specific sharp support and extension theorem, not unique circular factorization in isolation.",
+        "A general recognizable substitution theorem or older 2003 textbook passage may imply part of the congruence obstruction beyond the inspected texts.",
+        "Search ranking and checked tables do not exclude an unindexed exact all-base Lie formula; best-of-knowledge is not an exhaustive priority certificate.",
+        "The same assignment was previously published as a Resultary copy; it is not counted as independent antecedent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic bounds and automaticity do not furnish the target all-base congruence or source-extension bijection.",
+          "evidence": "Theorem 1.1 L_w(n)<=p_w(n)-p_w(n-1)+1; Example 7.1–7.5 list distinct named words and their evaluated spectra.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.03821",
+          "material_read": "Primary 13-page arXiv PDF: abstract/introduction and Theorems 1.1–1.4, Section 6 automatic sequence argument, Section 7 printed page 11 complete examples (Thue–Morse, variant, Cantor, Fibonacci, Tribonacci); PDF screenshot of page 11 inspected.",
+          "method": "Open-access complete PDF text, line navigation and visual screenshot",
+          "title": "Lie complexity of words",
+          "trigger": "Foundational exact invariant, general automaticity and published example spectra"
+        },
+        {
+          "assessment": "General Rauzy/extended/prefix inequalities and automaticity, no calculated Lie spectrum for the complementary family.",
+          "evidence": "Theorems 1–4 concern general complexity inequalities; Theorem 18 extended-Lie automaticity; Section 4 analyzes different periodic examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.05859",
+          "material_read": "Open-access 14-page arXiv PDF sections 1, 3–6, including printed page 6 image, Section 4 Theorem 9, Section 6 Theorem 18 and its automaticity constructions.",
+          "method": "Full PDF text and page screenshot",
+          "title": "A note on the Lie complexity and beyond",
+          "trigger": "Closely related Rauzy-graph and extended Lie generalization"
+        },
+        {
+          "assessment": "Prior for interference-free property and circular image recognizability of b=3; not a Lie-complexity evaluation and not a theorem for the entire b>=3 family. Significant partial mathematical prior coverage is explicitly credited.",
+          "evidence": "Corollary 15: a->aab,b->bba strongly interference-free; Definition 17 and Theorem 19: unique circular image factorization; Theorem 22: morphism occurrence counts, not all-rotation membership.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.24/LIPIcs.CPM.2026.24.html",
+          "material_read": "Open-access CPM 2026 HTML paper, Sections 1–5, particularly Corollary 15, Definition 17, Theorem 19, Theorem 22 and Lemma 28 with proofs.",
+          "method": "Read original publisher full-text HTML and the definitions/theorem proofs",
+          "title": "On Occurrence-Preserving Morphisms",
+          "trigger": "Primary 2026 paper explicitly identifies the exact b=3 Mephisto morphism; closest stronger recognizability comparator"
+        },
+        {
+          "assessment": "Two conjugacy families of square words at triadic periods do not cover cyclically rotation-complete factors that do not appear as squares.",
+          "evidence": "At square period 3^k exactly 2*3^k square words, from two conjugacy families; source cyclic word 01 yields a third Lie class at length 2b in present theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-square-spectrum-and-conjugacy-count-for-the-mephisto-wa--af6b89112a09",
+          "material_read": "Full published RESULT.md, exact squares and starts, proof steps 1–5, distinct conjugate square count and scope.",
+          "method": "Read exact source blob via connected GitHub read action",
+          "title": "Complete square spectrum and conjugacy count for the Mephisto Waltz word",
+          "trigger": "Same exact base-3 word and cyclic conjugacy, plausible implied coverage"
+        },
+        {
+          "assessment": "Same object but Abelian complexity at lengths b^k has no implication determining all-rotation factor membership.",
+          "evidence": "Counts distinct one-weights of factors, whereas Lie condition requires each conjugate string occur.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-substitution-scale-abelian-complexity-of-complementary-bin--e7fed85fd174",
+          "material_read": "Full RESULT.md finding, assumptions, signed-block prefix recurrence and extrema, all-factor imbalance proof.",
+          "method": "Read published source text from GitHub",
+          "title": "Exact substitution-scale Abelian complexity of complementary binary morphic words",
+          "trigger": "Same b>=3 substitution family, potentially stronger invariant implication"
+        },
+        {
+          "assessment": "Different generating morphism and language; useful methodological antecedent but no parameter specialization to complementary Mephisto words.",
+          "evidence": "Rudin–Shapiro uses a four-letter substitution and a 16-block length-eight parity recognition criterion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-lie-complexity-of-the-binary-rudin-shapiro-word--56200583f0ee",
+          "material_read": "Finding, exact phase-obstruction and desubstitution proof, construction of surviving classes from full RESULT.md.",
+          "method": "Read primary published research result via GitHub",
+          "title": "Exact Lie complexity of the binary Rudin–Shapiro word",
+          "trigger": "Same invariant and phase/desubstitution method, possible generic prior theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Lie complexity is a natural conjugacy-sensitive invariant of automatic-word languages, strictly different from square counts or Abelian factor counts. The all-base sharp divisibility support and one-symbol source-window bijection settle a motivated infinite structural question, with exceptional boundary b+1, nontrivial mixed class at 2b and an infinite family of nonzero multiples. These nontrivial restrictions are not mechanical consequences of recognizability alone, automaticity or known square spectra. No full numeric formula at all multiples or paper-sized extension is required.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2102.03821",
+    "https://arxiv.org/pdf/2207.05859",
+    "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.24/LIPIcs.CPM.2026.24.html",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-square-spectrum-and-conjugacy-count-for-the-mephisto-wa--af6b89112a09",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-substitution-scale-abelian-complexity-of-complementary-bin--e7fed85fd174",
+    "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-lie-complexity-of-the-binary-rudin-shapiro-word--56200583f0ee",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-congruence-obstruction-and-cyclic-desubstitution-for-gen--987fc163d9ce"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer b>=3, L_b(1)=2,L_b(2)=3,L_b(n)=4 (3<=n<=b),L_b(b+1)=3 for b=3 or 2 for b>=4; if n>=b+2 and b does not divide n, L_b(n)=0; at each n=bm,m>=2, the rotation-complete conjugacy classes are exactly mu_b-images of circular length-m words whose every periodic source window of length m+1 occurs in w_b; L_b(2b)=3 and L_b(2b^k)>=3 for every k>=1. No numeric closed formula at arbitrary surviving lengths is claimed.",
+  "limitations": [
+    "The result is an exact classification via E_b(m), not a simplified formula for all surviving multiples. Base b=2 excluded: the phase code loses uniqueness.",
+    "Kishi 2026 already provides base-three strong interference-freeness and circular recognizability, which are materially credited; the remaining Lie-specific support and extension comparison is best-of-knowledge.",
+    "The source AUDIT.json and METADATA.json contain scope_run_id operational provenance, REVIEW.md and VERIFICATION.md contain pre-audit status. Complete sanitized, guarded byte replacements of these public files were not prepared; publication is not_ready, no operations.",
+    "No claim of formal verification or expert attestation; original computational logs are corroboration only.",
+    "Original source tree hash taken from signed assignment; individual inspected files were fetched from the exact frozen commit, but full raw tree listing was not independently available."
+  ],
+  "schema_version": 1
+}
