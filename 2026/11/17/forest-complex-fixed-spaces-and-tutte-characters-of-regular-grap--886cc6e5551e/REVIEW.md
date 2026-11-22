@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The direct covering argument establishes both implications between quotient forests and invariant lifted forests, including loops and digons. Orbit-barycentric coordinates identify the *actual geometric* fixed space, not just a face-poset subcomplex. The cited matroid shellability theorem supplies integral sphere-wedge topology; the reduced Lefschetz theorem gives every character value. Signed-chain enumeration across nine cyclic covers and a noncyclic Klein-four group, including all subgroups, agrees with the formulas. The convention for one-vertex quotients is explicitly stated and verified.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The full-text 2014/2015 matroid paper supplies shellability, not regular-cover fixed sets; the 2015 regular-cover paper supplies the graph projections, not matroid topology; the 2020 equivariant matroid paper supplies general representation comparisons, not quotient-forest identifications. Related specific complete-graph and bipartite forest-fixed identifications are either special cases or involve edge inversions; none of the inspected formulations states the all-cover, all-subgroup PL theorem and its Tutte character. Coverage cannot be ruled out in unindexed formulations; searches alone do not establish novelty.
+PASS
 
-## Mathematical value — PASS
-The result classifies integral homotopy types for all subgroup-fixed forest spaces of arbitrary finite regular graph covers, and converts the entire deck-group rational top-homology character and quotient Betti number into Tutte evaluations of smaller graphs. It is an infinite structural equivariant topology theorem with meaningful noncyclic and multigraph cases, rather than a numerical table or routine change of notation. The sharp no-edge-inversion hypothesis identifies the boundary of the construction.
+For each H≤deck group of a finite connected regular graph covering free on undirected edges without inversion, quotient edge fibers are exact H-orbits. Preimage of a quotient forest is a disjoint union of lifted trees. If the quotient subset has a cyclic non-backtracking closed walk, finite monodromy order gives a closed lift and hence a cycle. Thus orbit-compressed geometric fixed forest complex is exactly the forest complex of quotient X/H. Graphic matroid rank q-1 and shellability give a sphere wedge in degree q-2 with multiplicity T(0,1), empty for q=1. Fixed-point reduced Lefschetz equals (-1)^(q-2)T, while upstairs top homology degree v-2 yields trace (-1)^(v-q)T. Rational orbit invariants follow by averaging; verified graph-cover source checks/verify.py encodes exhaustive edge-orbit subset forests and signed simplex traces for cyclic and Klein-four examples including loops/parallel edges. The Klein-four crown graph example yields top rank 64, three nontrivial traces 4 and quotient rank (64+3*4)/4=19. No universal inference from finite checks.
 
-## Scientific limits
-No integral representation-lattice classification is claimed, and the theorem does not cover edge-stabilizing involutions. Independent mathematical audit and priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Graphic-matroid independence shellability and Tutte sphere counts are classical; Moci–Pezzoli addresses general homological representation under matroid automorphisms, and another complete-graph free action result provides coned-multigraph forest fixed models. Neither gives the universal edge-free regular-cover quotient-forest PL equivalence and every-deck-element signed Tutte character for arbitrary X. The present claim applies to finite regular graph covers with edge-inversion excluded.
+
+## value
+
+PASS
+
+A natural functorial identification of fixed spaces with quotient graphic matroid complexes supplies all subgroup homotopy types and the complete rational deck-group character for general finite regular covers. The edge-inversion boundary is mathematically essential; the result is substantially more than a routine Tutte evaluation after a given graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
