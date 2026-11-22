@@ -1,15 +1,21 @@
-# Review of the resonant predator–prey Lyapunov theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(m>1,d>0\), the resonance \(a=d(m-1)/(d+1)\), \(b=m(d+1)/(m-1)\) gives the exact multiplicative map with error \(e=mx+ay-(m-1)\). Every positive step obeys \(-1/k<e<1\), and weighted AM–GM makes \(V=x^k y\) strictly decrease except at an equilibrium. This rules out every strictly positive nonfixed recurrent orbit, not merely the finite periods checked computationally. Positivity bounds \(mx+ay\), ensuring boundedness. With positive limiting product, compactness away from the axes forces \(e_n\to0\), and a unimodal restriction of \(V\) to the equilibrium segment, together with vanishing increments, gives convergence to one point. The transverse eigenvalue and sharp normally contracting interval follow by direct differentiation. `checker.py` executed successfully and independently re-evaluated exact symbolic identities and a rational parameter witness. The analytical proof, not the checker, supports the infinite-iterate claims.
+## correctness
 
-## Originality — PASS within inspected evidence
-The defining Type-2 polynomial map is Equation (20) of Lee, Chan, Im, Chan and Cheang, arXiv:2301.11669 (initial release 2023-01-27). Its full accessible forty-page version was inspected across the model, fixed-point analysis, bifurcation discussions, and conclusions. It does not present the strict monomial Lyapunov law, all-period positive-orbit exclusion, or the stated conditional convergence theorem on this doubly constrained resonance. Relevant semantically indexed mathematics records were searched for equivalent monomial laws, fixed-line reductions and dominating conclusions. The closest results treat exponential Ricker competition, a different linear-response plankton model, or a clipped logistic invariant ray. Baigent et al.'s Ricker theorem uses a different exponential map and its parameter conditions do not imply the present Type-2 polynomial claim. Kon's related invariant-curve study concerns a Ricker competitor system, but only abstract-level material was accessible; its full text remains an explicitly recorded publication-priority risk. Neither no search hit nor a distinct title proves absolute novelty.
+PASS
 
-## Value — PASS
-The resonance is an intrinsic positive-equilibrium degeneracy of an independently introduced biological map, not an arbitrary chosen invariant. A strict global scalar Lyapunov function gives a structural classification of all positive recurrence and a nontrivial convergence dichotomy despite a one-dimensional continuum of fixed points. It distinguishes an interior transverse multiplier \(-1\) from the emergence of positive two-cycles and identifies an open normally attracting subsegment. This resolves a motivated qualitative question beyond local eigenvalue or finite-iteration computations.
+For m>1,d>0 the specified a,b,k give exact x_next=x(1-e), y_next=y(1+k e) with e=mx+ay-(m-1), and e_next=e(1-mx+dy). On each strictly positive step -1/k<e<1 and weighted AM-GM makes x^k y strictly decrease unless e=0. I independently simplified the three exact algebraic identities. Strict monotonicity excludes nonfixed recurrent and all positive periodic points. Forward-positive orbits have d/k<H<m, hence bounded; positive limiting Lyapunov value keeps both coordinates away from axes, forces e_n->0 and intersects the equilibrium line in at most two points, and vanishing increments force a single limit. V=0 implies min(x_n,y_n)->0, not coordinatewise convergence. The tangent eigenvalue is 1 and the normal eigenvalue 2-m+(a+d)y; the strict normal contraction interval is exactly max(0,(m-3)/(a+d))<y<(m-1)/(a+d). Local attraction is to the segment, not to an isolated point. No global quadrant invariance or endpoint nonlinear classification is claimed.
 
-## Boundaries and remaining risks
-The theory applies to forever-positive states, not every point of the quadrant. It does not claim uniqueness of the attracting equilibrium across initial conditions, convergence to a particular endpoint on the zero-product branch, or endpoint nonlinear stability. The 2023 invariant-curve article's complete text was not accessible after open-access attempts, and unindexed equal or stronger formulations cannot be excluded. Independent review is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On inspection of the original Type-2 model, its resonant equilibrium problem is explicitly singular; the strict global monomial Lyapunov principle and positive-orbit convergence are separate nonlinear conclusions. Resultary comparisons concern different maps or weaker period-two results. Best-of-knowledge PASS with documented inaccessible related source.
+
+## value
+
+PASS
+
+A global recurrence rigidity theorem for a natural singular parameter surface of a named predator-prey map fills the gap between local multipliers and all forward-positive dynamics. The strict Lyapunov mechanism, sharp normally contracting subsegment and precise boundary alternative are structural, not a routine eigenvalue calculation or arbitrary numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
