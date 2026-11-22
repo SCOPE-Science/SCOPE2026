@@ -1,11 +1,21 @@
-# Review of the complete two-shell Voronoi–Delaunay census
+# Independent mathematical audit
 
-**Correctness (PASS).** The site description and weighted metric are explicit. A verified 41-vertex chamber certificate bounds the origin cell inside squared radius \(27/50\), which makes the 74-site cutoff \(q(s)\le54/25\) exhaustive by the triangle inequality. Exact fraction calculations prove the chamber equals the true Voronoi chamber, identify six chamber vertices with rank-five genuine bisectors, expand to 864 simple vertices, and certify 74 facets. All face counts arise from unique incident-facet subsets, and exact five-by-five determinants prove both Delaunay simplex types. The two per-period counts follow from incidences, not a numerical hull approximation. The full code and proof are included; no unproved infinite extrapolation from a finite sample is used.
+## correctness
 
-**Originality (PASS, subject to historical-priority risk).** Ahrend–Dutour Sikirić give the metric and a 41-vertex *outer chamber certificate*, not the actual Voronoi face vector. The closest earlier complete finding determines the 576 deepest holes and \(4/5\) large-simplex volume fraction, while the diagonal-parameter result optimizes the metric. Neither implies 74 facets, 864 total simple vertices, the 288 shallower vertices, the full face vector, or 96 remaining Delaunay simplices without new incidence information. Actual published-finding corpus semantic queries for the geometry, numbers, aliases and dual formulation revealed these two closest records but no dominating or equivalent theorem. The companion note cited by the original paper remains inaccessible and could contain overlap; standard general Voronoi theory does not itself settle this specific finite census.
+PASS
 
-**Mathematical value (PASS).** The exact face vector and full two-radius Delone decomposition complete a natural and significant geometric invariant of the exceptional five-dimensional nonlattice packing, with a fully reproducible exact certificate and a precise division of space into the two simplex orbits. The contribution is structural, not a naming change or a recomputation of the covering radius. It supplies all cell facet types, simplex counts, and volumes, usable for further local geometric and stability analysis.
+PASS. Independently implemented a separate Fraction-based exact finite certificate after reading pinned verify_voronoi.py. Enumerated the complete two-coset nonzero site cutoff q(s)<=54/25: 74 sites in shells 18,16,16,24. Solved all 792 five-constraint chamber candidates: 455 nonsingular, exactly 41 feasible vertices, all with q<=27/50 and satisfying 74 true bisectors. Since any farther site has norm >2sqrt(27/50), the triangle inequality eliminates it on P, so this finite check covers the infinite point set. Six true chamber vertices have five linearly independent active genuine bisectors. Their 384 signed-permutation orbit gives exactly 864 simple V vertices, split 576 at 27/50 and 288 at 481/900. Independently enumerated tight site-index subsets to recover f-vector (864,2160,1872,648,74), affine rank-4 facet support for all 74 facets, and exact site-coordinate determinants ±1 or ±1/2 at the two shells. Double counting six site incidences per Delaunay simplex across two sites per D5 period yields 192+96 simplices and volume fractions 4/5+1/5. All arithmetic exact rational; the cutoff and symmetry justify exhaustive extension.
 
-The classification applies only to one fixed metric and point set. Historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete 74-facet face lattice and the missing 288 shallower Voronoi / 96 Delaunay simplex shell. The originating packing paper and October deepest-hole theorem already cover 41 outer-chamber vertices, covering radius 27/50, 576 deepest vertices and 4/5 volume. These prior claims are credited rather than relabeled novel; actual new finite geometric census and structural simplicity remain.
+
+## value
+
+PASS
+
+PASS. Completion of a natural extremal nonlattice five-dimensional packing configuration from only deepest-hole data to its entire simple Voronoi cell and 96 previously unclassified Delaunay simplices gives an independently reusable exact cell decomposition and facet incidence structure. Exact f-vector and submaximal radius shell are meaningful intrinsic geometric data not derivable by simple substitution from the known 4/5 result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
