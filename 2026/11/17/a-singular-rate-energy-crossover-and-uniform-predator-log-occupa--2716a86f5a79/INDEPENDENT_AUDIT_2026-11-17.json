@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T17:01:18.212646Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For u,v>0, x=log u,y=log v, E=λ^(−1)f(x)+λ f(y), f(z)=e^z−z−1 is proper strictly convex; each E>0 is a compact regular Hamiltonian oval. Under λ=cE, M=λ E=cE² and g(y)=1−c f(y) on [y−,y+] where f(y±)=1/c, the inverse x branches solve f(x)=Mg(y). Exact original-time branch densities λd±(Mg(y))dy use d−=1/(1−e^s−),d+=1/(e^s+−1). Near simple endpoint zeros of g, d±=O(h^(−1/2)); for large h, d−−1 decays exponentially while d+=O(h^(−1)). Hence integrals of d−−1 and d+ are O(1/M) and O(log M/M), yielding T=cE(y+−y−)+O_c(log E/E). Exact negative-branch identity |−s−(h)−h|≤1 gives uniform first-coordinate fold error 1/M; small positive-branch mass and bounded support yield W1 original-time occupancy to law (1−cf(Z),Z) with Z uniform [y−,y+] at O_c(log E/E²). The supplied check_lv_crossover.py reconstructs LambertW inverse branches and quadratures for finite c/E (inspected, not relied on as proof); analytical estimates justify infinite limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boulnois 2026 section on period quadratures and fixed/moderate coupling, plus Shih 1997 period integral: broad exact T(E,λ) expressions.",
+          "Symmetric λ=1 occupation result gives straight segment and different original-time coordinate scaling."
+        ],
+        "reasoning": "A closed exact integral could be asymptotically analyzed in λ=cE, but fixed-parameter error bounds do not automatically establish a quantified uniform turning-point limit or nonlinear joint occupation law.",
+        "searches": [
+          "Lotka Volterra varying rate lambda proportional to energy period asymptotics uniform predator logarithm occupation",
+          "https://doi.org/10.3390/math14173162",
+          "https://doi.org/10.11650/twjm/1500406122",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-dual-high-energy-occupation-laws-and-beta-reaction-flux-moments--e4a32fb7fc9a/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3390/math14173162",
+        "https://arxiv.org/abs/2301.00673",
+        "https://doi.org/10.11650/twjm/1500406122",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-dual-high-energy-occupation-laws-and-beta-reaction-flux-moments--e4a32fb7fc9a/RESULT.md",
+        "https://doi.org/10.1016/0025-5564(73)90029-1",
+        "Lotka Volterra varying rate lambda proportional to energy period asymptotics uniform predator logarithm occupation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing λ=1 result samples Z uniform on scaled negative-prey-log straight line at energy→∞ with fixed λ; cannot take λ=cE by formal substitution in that theorem.",
+          "Boulnois direct exact quadrature holds for finite λ,E but does not by itself assert M=cE² leading concentration and W1 rate."
+        ],
+        "reasoning": "The new theorem derives an explicit old-parameter-dependent scaling with nontrivial c width and nonlinear fold; fixed parameter results do not dominate it as claimed without new uniform estimates.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-dual-high-energy-occupation-laws-and-beta-reaction-flux-moments--e4a32fb7fc9a/RESULT.md",
+          "https://doi.org/10.3390/math14173162",
+          "https://arxiv.org/abs/2301.00673"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boulnois uses equivalent logarithmic Hamiltonian and fixed-parameter periods; symmetric normalized model has fixed λ=1 straight-segment occupation limit under a different scaling."
+        ],
+        "reasoning": "Changing variables to log u,v recovers existing integrable system but the specific simultaneous λ=cE and W1 pushforward to the curved fold is not a reparametrization of λ=1 results.",
+        "searches": [
+          "Lotka Volterra varying rate lambda proportional to energy period asymptotics uniform predator logarithm occupation",
+          "Lotka Volterra rate lambda grows with energy period uniform log predator time distribution",
+          "https://arxiv.org/abs/2301.00673",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-dual-high-energy-occupation-laws-and-beta-reaction-flux-moments--e4a32fb7fc9a/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact existing table for y±(c), cE[y+−y−], uniform predator-log coordinate on finite y interval, or quantitative fold-curve W1 limit located.",
+          "Historical high-energy period asymptotic references could overlap period coefficient; 1973 full text inaccessible."
+        ],
+        "reasoning": "Originality of the joint transport-law and leading coefficient survives bounded search; failed discovery is not a proof of novelty or exclusion of archival parameter-uniform calculations.",
+        "searches": [
+          "Lotka Volterra rate lambda grows with energy period uniform log predator time distribution",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-dual-high-energy-occupation-laws-and-beta-reaction-flux-moments--e4a32fb7fc9a/RESULT.md",
+          "https://doi.org/10.1016/0025-5564(73)90029-1"
+        ]
+      },
+      "rationale": "Classical finite-energy exact Lotka–Volterra quadratures, fixed-rate large-energy periods and fixed λ=1 straight-line log-occupation theorem are acknowledged prior. The simultaneous λ=cE→infinity/E→infinity regime has a finite nonzero predator-log excursion and nonlinear fold time-law, with a new coefficient and uniform W1 bound, not furnished by fixed-λ asymptotics or static quadrature alone.",
+      "residual_risks": [
+        "Grasman–Veling (1973), Shih (1997) and other older asymptotic primary full texts not all inspected; exact period coefficient may be historically derivable.",
+        "No uniformity in c near 0 or infinity; only fixed c>0."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL: exact quadrature and fixed/moderate-λ estimates, not full joint occupation theorem",
+          "evidence": "Section 4 period formulas and practical moderate λ conditions versus λ=cE→∞.",
+          "identifier_or_url": "https://doi.org/10.3390/math14173162",
+          "material_read": "Full open-access article HTML: Hamiltonian solution, period quadrature and high-energy approximation discussion, including moderate coupling regime",
+          "method": "scientific primary journal full-text HTML reading",
+          "title": "On Hybrid-Function Solutions of the Lotka–Volterra Equations",
+          "trigger": "same normalized equations and period asymptotic"
+        },
+        {
+          "assessment": "PARTIAL: fixed λ=1, different energy scaling and straight-line limit",
+          "evidence": "Dual uniform log-share and flux-weighted linear-population limits at λ=1; no c dependent curved fold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-dual-high-energy-occupation-laws-and-beta-reaction-flux-moments--e4a32fb7fc9a/RESULT.md",
+          "material_read": "Finding and full main inverse-branch/occupation argument plus its limitations in published RESULT.md",
+          "method": "pinned GitHub source reading",
+          "title": "Dual high-energy occupation laws and beta reaction-flux moments for the classical Lotka–Volterra oscillator",
+          "trigger": "same integrable flow, original-time occupation"
+        },
+        {
+          "assessment": "MATERIAL_ACCESS_RISK: cannot exclude older double-scaling period term",
+          "evidence": "Possible historical formula for period in broad unequal-rate regime; no evidence of W1 occupation law from abstract",
+          "identifier_or_url": "https://doi.org/10.1016/0025-5564(73)90029-1",
+          "material_read": "Bibliographic citation and indexed abstract only, not full paper",
+          "method": "public abstract/bibliography",
+          "title": "An asymptotic formula for the period of a Volterra–Lotka system",
+          "trigger": "historical period asymptotics may cover coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simultaneous rate-energy regime produces a qualitatively different time-sampling geometry from fixed-rate Lotka–Volterra oscillations: uniform predator log coordinate with nonlinear fold coupling and an explicit c-dependent physical-time period. Quantitative O(log E/E²) transport convergence is a natural nontrivial invariant for singular highly asymmetric cycles.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned SCOPE RESULT.md and check_lv_crossover.py",
+    "Exact inverse-branch time densities, endpoint estimates and W1 coupling argument",
+    "https://doi.org/10.3390/math14173162",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-dual-high-energy-occupation-laws-and-beta-reaction-flux-moments--e4a32fb7fc9a/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed c>0 and E→infinity, deterministic orbits; no uniform c endpoint or stochastic assertion.",
+    "Bounded primary literature survey and full older period studies remained incomplete; science is best-of-knowledge.",
+    "Grasman–Veling (1973), Shih (1997) and other older asymptotic primary full texts not all inspected; exact period coefficient may be historically derivable.",
+    "No uniformity in c near 0 or infinity; only fixed c>0."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source-normalized flow has the exact convex Hamiltonian used in the statement. At each positive energy its level is a smooth compact period orbit. Substitution \(\lambda=cE\), \(M=cE^2\) turns the two inverse-x branches into exact positive-time y-densities. The two endpoints of the fixed y-interval are simple zeros of \(g=1-cf\). The negative-branch excess has integrable reciprocal-square-root turning points and exponentially decreasing interior tail; the positive branch has the same endpoint singularities and a reciprocal interior tail. Direct change of variables establishes the uniform error integrals. These imply the claimed period, positive-branch mass and Wasserstein bound. The x-negative inverse identity gives pointwise coordinate error ≤1/M; coupling then proves the infinite-energy limit. Source code re-executed for finite checks; it does not substitute for analysis.
+## correctness
 
-## Originality — PASS within inspected coverage
-The exact period quadrature and Hamiltonian are known (Boulnois; Waldvogel; Rothe; Shih). Fixed-coupling high-energy and small-energy analyses cannot be interchanged freely with this \(\lambda=cE\) limit. In particular, the earlier symmetric-rate dual time/flux occupation statement assumes \(\lambda=1\) and has a different limit; it does not imply a nonuniform nonlinear folded joint measure with a finite y excursion. The 2026 source follow-up explicitly treats moderate-parameter approximations rather than the joint diverging-coupling regime. Database semantic searches also identified related oscillator period and occupation results on different vector fields, not a theorem of the same objects/parameters. Residual risk: a sufficiently general singular-perturbation or period-convolution theorem might contain this as a consequence; older Grasman–Veling full text was unavailable and its abstract does not justify ruling it out.
+PASS
 
-## Mathematical value — PASS
-The result exhibits a genuine rate–energy crossover: at fixed coupling both population logarithms have large negative excursions and the normalized time law approaches a line segment, whereas with coupling proportional to energy one predator logarithm retains order-one positive and negative variation and becomes uniform on a whole interval; the other coordinate is slaved to a nonlinear graph. It quantifies original-time occupation and period with explicit, strong error rates. Both are natural observables of the classical predator–prey flow, not an arbitrary parameter slice.
+For u,v>0, x=log u,y=log v, E=λ^(−1)f(x)+λ f(y), f(z)=e^z−z−1 is proper strictly convex; each E>0 is a compact regular Hamiltonian oval. Under λ=cE, M=λ E=cE² and g(y)=1−c f(y) on [y−,y+] where f(y±)=1/c, the inverse x branches solve f(x)=Mg(y). Exact original-time branch densities λd±(Mg(y))dy use d−=1/(1−e^s−),d+=1/(e^s+−1). Near simple endpoint zeros of g, d±=O(h^(−1/2)); for large h, d−−1 decays exponentially while d+=O(h^(−1)). Hence integrals of d−−1 and d+ are O(1/M) and O(log M/M), yielding T=cE(y+−y−)+O_c(log E/E). Exact negative-branch identity |−s−(h)−h|≤1 gives uniform first-coordinate fold error 1/M; small positive-branch mass and bounded support yield W1 original-time occupancy to law (1−cf(Z),Z) with Z uniform [y−,y+] at O_c(log E/E²). The supplied check_lv_crossover.py reconstructs LambertW inverse branches and quadratures for finite c/E (inspected, not relied on as proof); analytical estimates justify infinite limit.
 
-## Closest literature and limitations
-Boulnois (2022, 2023, 2026) provides the normalized oscillator, Hamiltonian, exact period and large-energy approximations. Shih (1997) proves equivalence of period quadratures including Rothe's method; Waldvogel (1983) and Grasman–Veling (1973) address periods/asymptotics. A prior symmetric-rate result gives two high-energy occupation laws only for a fixed rate. None of the material actually read states the coupled \(\lambda=cE\) theorem; inaccessible older full texts remain priority risks. This review is for the stated new fixed-\(c\) family only, not uniformity over all c or stochastic systems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical finite-energy exact Lotka–Volterra quadratures, fixed-rate large-energy periods and fixed λ=1 straight-line log-occupation theorem are acknowledged prior. The simultaneous λ=cE→infinity/E→infinity regime has a finite nonzero predator-log excursion and nonlinear fold time-law, with a new coefficient and uniform W1 bound, not furnished by fixed-λ asymptotics or static quadrature alone.
+
+## value
+
+PASS
+
+The simultaneous rate-energy regime produces a qualitatively different time-sampling geometry from fixed-rate Lotka–Volterra oscillations: uniform predator log coordinate with nonlinear fold coupling and an explicit c-dependent physical-time period. Quantitative O(log E/E²) transport convergence is a natural nontrivial invariant for singular highly asymmetric cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
