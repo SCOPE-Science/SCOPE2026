@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The state encoding explicitly fixes all normalization choices. A constructive inverse proves that all states are periodic. One finite covering certificate checks bijectivity, every symmetry commutation relation, the primitive periods of eight seeds, their pairwise disjoint symmetry-time closures, and exhaustive coverage of all 18,432 states. A distinct C++17 implementation enumerates every temporal orbit directly, checks an explicit reverse transition, and obtains the identical eight counts. The source code and complete outputs accompany the result. This finite exhaustion is a proof for the specified finite system, not an inference about larger grids.
+## correctness
 
-## Originality
-PASS, with a bounded historical-priority risk. Published work and the full primary texts inspected contain reversibility, planar symmetry/Truchet methods, finite-torus period observations, and colour-complementing reflections; these are explicitly credited. The closest exact \(3\times3\) datum is the 66-step full return from a uniform board, which determines only one of eight period types and does not imply the other counts or the eight-class covering. No matching complete all-state symmetry-resolved permutation decomposition was found in the recorded indexed-result and literature searches. Negative search results alone cannot prove historical uniqueness.
+PASS
 
-## Mathematical value
-PASS. The \(3\times3\) periodic square lattice is the first square torus where north, south, east and west neighbors remain distinct in both directions; it is a canonical minimal genuinely two-dimensional periodic test case. The all-configuration decomposition reveals seven recurrence periods absent from the formerly tabulated uniform state, and reduces 288 cycles to precisely eight symmetry types under a natural physical symmetry group. This is a motivated exact dynamical invariant and a reproducible base case, not a chosen artificial collection of special initial states. No claim of wider universality is made.
+The transition on 512 board colour masks, nine positions and four directions has an explicit inverse, so no preperiods. Independently enumerated all 18,432 states: 24 cycles each of lengths 18,30,42,66,78,102; 72 each of lengths 70,74, totaling 288 cycles and 18,432 states. Independently checked that 72 translations/quarter rotations/reflections with colour complement commute with F, and temporal+group orbits of representatives [116,128,43,0,40,42,120,385] are pairwise disjoint, respectively of sizes 432,720,1008,1584,5040,5328,1872,2448, covering the entire finite state set. This is a genuine exhaustive finite proof, not an extrapolation.
 
-## Literature and limits
-The 1995 ant preprint studies planar paths and states explicitly that a key planar argument need not hold on the torus. The 2011 complexity paper treats generalized ants on infinite square and hexagonal lattices. The 2019 torus discussion already includes the underlying symmetry and the uniform period 66, but not the exhaustive eight-class decomposition; OEIS A386970 records the same kind of uniform-state data. The result remains conditional on the ordinary, fully inspectable finite certificate and awaits independent external mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 1995 generalized-ant paper treats infinite planar dynamics and symmetry, not this full torus state census. The 2011 complexity theorem concerns repeatable generalized ant configurations in unbounded systems. The 2019 finite-torus discussion and OEIS specify the all-white period 66, not the 288-cycle/8-group-orbit census. Related 2xn, 3x4 and 4x4 results concern different torus sizes and do not imply this precise table.
+
+## value
+
+PASS
+
+A natural complete permutation-cycle classification of the smallest nondegenerate square torus, verifying every state rather than one celebrated seed. Eight symmetry types compress 288 distinct temporal cycles in a mathematically meaningful way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

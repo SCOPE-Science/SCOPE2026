@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The two standalone programs require no external scientific data or libraries. The C++17 program `exhaustive_cycles.cpp` is compiled with `g++ -std=c++17 -O2 -Wall -Wextra -pedantic exhaustive_cycles.cpp -o exhaustive_cycles`, then run with `./exhaustive_cycles`. The Python 3 program `cover_certificate.py` is run with `python3 cover_certificate.py`.
+## correctness
 
-The C++ program covers each of the 18,432 labelled states by a direct forward cycle trace, reconstructs a true predecessor for every state, and checks that its independently computed cycle count map equals \(\{18:24,30:24,42:24,66:24,70:72,74:72,78:24,102:24\}\). It ends in `FULL_ENUMERATION_OK states=18432 cycles=288`.
+PASS
 
-The Python program independently builds the transition permutation, checks equivariance for all 72 extended spatial transformations on every state, then proves exact disjoint coverage from eight specified primitive-cycle representatives. Its final marker is `CERTIFICATE_OK states=18432 cycles=288 symmetry_period_classes=8`. Exact actual outputs are stored in the accompanying `.out` files.
+The transition on 512 board colour masks, nine positions and four directions has an explicit inverse, so no preperiods. Independently enumerated all 18,432 states: 24 cycles each of lengths 18,30,42,66,78,102; 72 each of lengths 70,74, totaling 288 cycles and 18,432 states. Independently checked that 72 translations/quarter rotations/reflections with colour complement commute with F, and temporal+group orbits of representatives [116,128,43,0,40,42,120,385] are pairwise disjoint, respectively of sizes 432,720,1008,1584,5040,5328,1872,2448, covering the entire finite state set. This is a genuine exhaustive finite proof, not an extrapolation.
 
-These checks establish precisely the finite torus claim, and are not a proof for larger boards or altered movement conventions. The theoretical argument for reversibility and for symmetry commutation is additionally given in `RESULT.md`. The comparison with earlier literature is limited to the identified sources and does not establish absolute priority.
+## originality
+
+PASS
+
+The 1995 generalized-ant paper treats infinite planar dynamics and symmetry, not this full torus state census. The 2011 complexity theorem concerns repeatable generalized ant configurations in unbounded systems. The 2019 finite-torus discussion and OEIS specify the all-white period 66, not the 288-cycle/8-group-orbit census. Related 2xn, 3x4 and 4x4 results concern different torus sizes and do not imply this precise table.
+
+## value
+
+PASS
+
+A natural complete permutation-cycle classification of the smallest nondegenerate square torus, verifying every state rather than one celebrated seed. Eight symmetry types compress 288 distinct temporal cycles in a mathematically meaningful way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

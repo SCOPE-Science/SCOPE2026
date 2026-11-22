@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-20",
+  "audited_at_utc": "2026-11-20T01:44:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The transition on 512 board colour masks, nine positions and four directions has an explicit inverse, so no preperiods. Independently enumerated all 18,432 states: 24 cycles each of lengths 18,30,42,66,78,102; 72 each of lengths 70,74, totaling 288 cycles and 18,432 states. Independently checked that 72 translations/quarter rotations/reflections with colour complement commute with F, and temporal+group orbits of representatives [116,128,43,0,40,42,120,385] are pairwise disjoint, respectively of sizes 432,720,1008,1584,5040,5328,1872,2448, covering the entire finite state set. This is a genuine exhaustive finite proof, not an extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2xn family is degenerate 2-row torus, not 3x3.",
+          "3x4 contains 20 periods and 74 types, while 4x4 contains 376 types; those are independent finite enumerations."
+        ],
+        "reasoning": "No general theorem among examined results implies the 3x3 exact finite permutation decomposition.",
+        "searches": [
+          "Resultary Langton ant 2xn reflector gap census",
+          "Resultary Langton ant 3x4 and 4x4 symmetry types"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/eight-symmetry-types-classify-every-langton-ant-orbit-on-the-3-t--3c61af5d4a6f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/eight-symmetry-types-classify-every-langton-ant-orbit-on-the-3-t--3c61af5d4a6f/cover_certificate.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/eight-symmetry-types-classify-every-langton-ant-orbit-on-the-3-t--3c61af5d4a6f/exhaustive_cycles.cpp",
+        "https://arxiv.org/pdf/math/9501233",
+        "https://doi.org/10.3390/a4010001",
+        "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Invertibility establishes periodicity on any finite torus but yields neither eight possible lengths nor the 288 cycle and group-orbit counts.",
+          "The hardness theorem does not provide small-torus exact counts."
+        ],
+        "reasoning": "The new contribution is the exhaustive table and symmetry classification, not generic reversibility or the period-66 seed.",
+        "searches": [
+          "Gale Propp Sutherland Troubetzkoy Further Travels with My Ant 1995",
+          "Tsukiji Hagiwara 2011 recognizing repeatable configurations PSPACE-hard"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2019 torus discussion determines a special all-white seed with period 66, not all initial masks, ant positions and headings."
+        ],
+        "reasoning": "No independently published equivalent 3x3 full labeled-state classification found; matching all-white data is not equivalent.",
+        "searches": [
+          "Resultary Langton ant 3x3 torus complete orbit spectrum symmetry",
+          "Langton ant 3x3 finite torus temporal cycle census 288"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All-white seed period 66 appears in community/OEIS data; many other periods 18,30,42,70,74,78,102 and their primitive counts are not supplied by this special table."
+        ],
+        "reasoning": "An isolated period number or entry in a special-seed sequence cannot cover complete 18432-state census.",
+        "searches": [
+          "Mathematics StackExchange 3296855 period Langton ant torus",
+          "OEIS A386970 Langton ant n by 3 torus"
+        ]
+      },
+      "rationale": "The 1995 generalized-ant paper treats infinite planar dynamics and symmetry, not this full torus state census. The 2011 complexity theorem concerns repeatable generalized ant configurations in unbounded systems. The 2019 finite-torus discussion and OEIS specify the all-white period 66, not the 288-cycle/8-group-orbit census. Related 2xn, 3x4 and 4x4 results concern different torus sizes and do not imply this precise table.",
+      "residual_risks": [
+        "An unindexed historical full census of 3x3 states could exist; exact priority is best-of-knowledge.",
+        "The classification is strictly 3x3 and does not imply arbitrary torus dimensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Planar/generalized dynamics, no identified labeled 3x3 torus census",
+          "evidence": "General planar methods are not a numerical finite torus decomposition",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9501233",
+          "material_read": "Abstract, set-up, relevant introductory planar-theory claims and PDF pages inspected; not represented as full exhaustive whole-paper novelty proof",
+          "method": "Lawful open arXiv preprint PDF",
+          "title": "Further Travels with My Ant",
+          "trigger": "Foundational ant symmetry/periodicity work"
+        },
+        {
+          "assessment": "Complexity result for generalized ant not exact small-torus enumerative table",
+          "evidence": "PSPACE-hardness concerns recognition/complexity, not complete 3x3 cycle spectrum",
+          "identifier_or_url": "https://doi.org/10.3390/a4010001",
+          "material_read": "Accessible open full HTML abstract, introductions, model and theorem overview",
+          "method": "Publisher open primary HTML",
+          "title": "Recognizing the Repeatable Configurations of Time-Reversible Generalized Langton’s Ant Is PSPACE-Hard",
+          "trigger": "Potential broad finite-ant periodicity theorem"
+        },
+        {
+          "assessment": "All-white orbit only",
+          "evidence": "Period 66 does not enumerate other 18,431 states",
+          "identifier_or_url": "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+          "material_read": "Question/answers relevant to 3x3 all-white recurrence",
+          "method": "Community primary discussion",
+          "title": "What is the period of Langton’s ant on a torus?",
+          "trigger": "Prior exact example and symmetries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete permutation-cycle classification of the smallest nondegenerate square torus, verifying every state rather than one celebrated seed. Eight symmetry types compress 288 distinct temporal cycles in a mathematically meaningful way.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/eight-symmetry-types-classify-every-langton-ant-orbit-on-the-3-t--3c61af5d4a6f/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/eight-symmetry-types-classify-every-langton-ant-orbit-on-the-3-t--3c61af5d4a6f/cover_certificate.py",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/eight-symmetry-types-classify-every-langton-ant-orbit-on-the-3-t--3c61af5d4a6f/exhaustive_cycles.cpp",
+    "https://arxiv.org/pdf/math/9501233",
+    "https://doi.org/10.3390/a4010001",
+    "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus"
+  ],
+  "disposition": "passed",
+  "final_claim": "The reversible turn–flip–move Langton ant on the labelled 3x3 torus has exactly 18,432 periodic states, 288 primitive cycles, eight least periods 18,30,42,66,70,74,78,102, and one orbit-class per period under the 72-element translation/rotation/colour-complementing reflection group.",
+  "limitations": [
+    "An unindexed historical full census of 3x3 states could exist; exact priority is best-of-knowledge.",
+    "The classification is strictly 3x3 and does not imply arbitrary torus dimensions."
+  ],
+  "residual_risks": [
+    "An unindexed historical full census of 3x3 states could exist; exact priority is best-of-knowledge.",
+    "The classification is strictly 3x3 and does not imply arbitrary torus dimensions."
+  ],
+  "schema_version": 1
+}
