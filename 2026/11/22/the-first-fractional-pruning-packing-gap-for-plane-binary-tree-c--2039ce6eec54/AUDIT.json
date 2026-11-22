@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The recursive pruning operation is proved by structural induction and all source/output incidences are completely reproduced in two independently structured Python verifiers. For every size 1 through 6, exact rational primal and dual witnesses satisfy their constraints and have equal objective, while the explicit codebooks have pairwise disjoint deletion shadows. Weak duality and the floor bound prove the stated exact integer maxima. Replayed checks return VERIFY_OK and ALTERNATE_OK; no claim at larger sizes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koperwas–Walczak (2011) study edit distance between leaf-labelled phylogenetic structures, not zero-error packings of unlabelled ordered shapes.",
+        "Kulkarni–Kiyavash (2012), arXiv:1211.3128, derive deletion-code bounds via hypergraphs for string alphabets; their method is general but no exact six-node binary-tree incidence classification is supplied."
+      ],
+      "reasoning": "General hypergraph duality implies that the exhibited exact dual weights upper-bound a code, but does not imply their numerical values or the matching 15-tree construction. Leaf-labelled unordered phylogenetic edit-distance bounds do not dominate the unlabelled ordered-tree packing optimum because labels and allowed operations differ.",
+      "searches": [
+        "tree deletion codes ranked ordered rooted trees subsequence error correcting",
+        "error correcting codes on trees single leaf deletion ordered rooted trees coding theory 2015",
+        "2014 tree edit distance code tree deletion one leaf phylogenetic coding",
+        "https://arxiv.org/abs/1211.3128"
+      ]
+    },
+    "checked_sources": [
+      "Koperwas and Walczak, BMC Bioinformatics 12, 204 (2011), doi:10.1186/1471-2105-12-204",
+      "Kulkarni and Kiyavash, arXiv:1211.3128 (2012)",
+      "Zhang, Yang and Kieffer, arXiv:1304.7392 (2013)",
+      "Božinovski et al. (2013) Catalan cipher vectors (abstract and metadata only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Koperwas–Walczak: labelled-tree edit distances and algorithms, without an unlabelled plane-tree packing classification.",
+        "Kulkarni–Kiyavash: correct generic incidence/LP setup for deletion codes, but exact coefficients here are additional certificates not their corollaries.",
+        "Zhang–Yang–Kieffer: grammar-based lossless compression of binary trees, not error correction after missing terminal leaves."
+      ],
+      "reasoning": "Neither a tree-metric result nor a lossless compression rate nor a generic linear-program relaxation produces the precise code sizes and rational optimum \\(205/13\\) for these finite source and output sets. The new assertion requires the explicit complete incidence and independent exact primal/dual witnesses. Residual risk is unindexed same-channel work.",
+      "searches": [
+        "https://link.springer.com/article/10.1186/1471-2105-12-204",
+        "https://arxiv.org/abs/1304.7392",
+        "single leaf pruning correction ordered full binary trees Catalan fractional shadow packing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The channel can be recast as ordered plane full binary tree shapes with one leaf and parent suppressed, or as a set-packing problem on the resulting tree-shape shadows.",
+        "Matched Dyck parenthesis deletion removes an arbitrary enclosing pair, including pairs whose two child subtrees are nontrivial; it is not the one-terminal-leaf-pruning shadow.",
+        "A single-bit Dyck-word deletion does not preserve the binary-tree shape grammar and is another channel."
+      ],
+      "reasoning": "The same tree can be represented by parenthesizations, Dyck encodings, or explicit ordered-pair shapes; these are only equivalent after the deletion transformation itself is preserved. Generic balanced-word deletions have different output sets, so their results cannot imply exact optima for the defined channel. Searches for shape and parenthesization language did not find a matching capacity classification.",
+      "searches": [
+        "\"Catalan\" \"deletion-correcting\" \"tree\" codes",
+        "\"plane binary\" \"deletion\" \"error-correcting\" \"trees\" code",
+        "ordered full binary expression tree single leaf deletion channel zero error code",
+        "Dyck matched-parenthesis pair deletion code capacity optimal codebook Catalan trees single leaf pruning"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact sequence \\(1,1,2,3,7,15\\) accompanied by fractional optimum \\(205/13\\) was found in the inspected materials or targeted searches.",
+        "Related Catalan enumeration studies count tree shapes or analyze random-tree statistics rather than packing disjoint leaf-pruning shadows."
+      ],
+      "reasoning": "A matching numerical sequence alone would be insufficient to establish coverage; exact table comparisons require the same source class, same deletion-output relation and the same code/LP objects. Inspected sources did not supply those together. This is search evidence, not proof of uniqueness.",
+      "searches": [
+        "Catalan tree pruning deletion code single leaf correction binary plane trees",
+        "\"rooted binary tree\" \"single leaf\" \"error correcting code\"",
+        "tree codes for reconstruction under leaf pruning shape without labels coding theory",
+        "single leaf pruning deletion correction codes plane full binary trees Catalan fractional shadow packing first integrality gap at six internal nodes 15 205/13"
+      ]
+    },
+    "rationale": "The exact six-node code capacity and \\(205/13\\) fractional deletion-shadow optimum are not implied by the inspected published tree-distance, binary-tree compression, or generic string deletion hypergraph results. Matched-pair deletion and one-bit Dyck deletion have different output incidence, so their optima cannot be transferred. Exact scientific priority remains qualified by unindexed prior results and partially inspected tree-enumeration material.",
+    "residual_risks": [
+      "An older or unindexed tree-pruning coding table or thesis could cover the same shape channel.",
+      "Alternative parenthesization/leaf-suppression conventions could produce an equivalent formulation under different terminology.",
+      "Full text of the 2013 Catalan cipher-vectors paper was not inspected; abstract only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Tree-label and distance questions differ from the unlabelled ordered-shape deletion-shadow packing and its fractional optimum.",
+        "evidence": [
+          "BMC Bioinformatics 12, 204 (May 25, 2011), sections on distance definition and tree-edit algorithms."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1471-2105-12-204",
+        "material_read": "Full open-access HTML: definitions of leafset and tree edit distance, the algorithmic main results, discussion/conclusion.",
+        "method": "Read full HTML, compared input model, edit operations, and theorem conclusions.",
+        "title": "Tree edit distance for leaf-labelled trees on free leafset and its comparison with frequent subsplit dissimilarity and popular distance measures",
+        "trigger": "Closest primary source for physical leaf removal from trees."
+      },
+      {
+        "assessment": "Supplies an established bounding method, not the exact tree-shape pruning incidence, sharp finite capacity, or six-node gap.",
+        "evidence": [
+          "arXiv:1211.3128, initially posted November 13, 2012, hypergraph bounds and fractional dual formulations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+        "material_read": "Full 18-page open preprint: abstract, channel definition and hypergraph method, fractional LP formulation and bounds, including pages 4 and 6 of the PDF.",
+        "method": "Read and visually inspected pages of the open PDF, compared mathematical implication.",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "General deletion-correcting hypergraph and fractional covering framework might dominate the proposed LP method."
+      },
+      {
+        "assessment": "Encodes binary tree shapes without deletion noise; no corresponding correction capacity or packing result.",
+        "evidence": [
+          "arXiv:1304.7392, submitted April 27, 2013, introduction and grammar-based tree compression results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1304.7392",
+        "material_read": "Full open preprint: statement of lossless coding problem, encoded structures, grammar construction and main theorem discussion; page images also inspected.",
+        "method": "Read open PDF, checked whether unknown one-leaf edit correction is addressed.",
+        "title": "A Universal Grammar-Based Code For Lossless Compression of Binary Trees",
+        "trigger": "Binary-tree coding could imply finite tree-shape code bounds by a stronger statement."
+      },
+      {
+        "assessment": "Abstract concerns ranking/numbering of trees and makes no stated leaf-pruning-correcting capacity claim; full-document noncoverage is not established.",
+        "evidence": [
+          "Journal abstract and metadata, 2013; restricted material-read scope."
+        ],
+        "identifier_or_url": "https://doisrpska.nub.rs/index.php/jita/article/view/970",
+        "material_read": "Accessible title, abstract and source metadata only; full text was not inspected.",
+        "method": "Compared stated enumeration objective from abstract with the proposed code/LP objects.",
+        "title": "Enumeration, Ranking and Generation of Binary Trees Based on Level-Order Traversal Using Catalan Cipher Vectors",
+        "trigger": "A binary-tree enumeration source might contain an exact table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2039ce6e-ec54-41bd-ad20-6be670ad62d6",
+  "value": {
+    "rationale": "Recovering unlabelled ordered tree shapes from one unknown terminal-leaf pruning is a natural error-control problem for tree-structured representations. The complete finite six-length exact capacity and first strict fractional-packing gap identify a motivated structural limit of the standard output-shadow relaxation, with explicit independently checkable benchmark artifacts. The result is not merely a counting exercise and does not assert a general capacity theorem.",
+    "status": "PASS"
+  }
+}
