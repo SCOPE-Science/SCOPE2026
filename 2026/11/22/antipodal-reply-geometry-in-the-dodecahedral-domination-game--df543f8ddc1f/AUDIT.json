@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The exact alternating minimax equations strictly increase dominated masks, giving a finite induction on 2^20 masks. C++ bottom-up and independent Python memoization reproduced root scores 9 and 8, all 20 opening states, 760 two-ply conditional scores, and 20 distance profiles. The standalone source and saved outputs are included; no infinite inference is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kinnersley, West and Zamani (2013), DOI:10.1137/120884742, accessible abstract presents general bounds and realizable pairs, not a graph-specific list",
+        "Klavžar, Košmrlj and Schmidt (2016), DOI:10.2298/AADM160207003K, sections 3-4 describe graphs with game scores two and three, not the eight/nine case"
+      ],
+      "reasoning": "A general difference inequality permits a (9,8) pair but does not imply that the dodecahedral graph attains it. Low-score and diameter characterizations cannot imply its exact game values or reply classifications.",
+      "searches": [
+        "\"Extremal Problems for Game Domination Number\" 10.1137/120884742",
+        "\"On graphs with small game domination number\" DOI 10.2298/AADM160207003K",
+        "\"domination game\" \"dodecahedron\" \"8\" \"9\""
+      ]
+    },
+    "checked_sources": [
+      "Brešar–Klavžar–Rall (2010), DOI 10.1137/100786800",
+      "Kinnersley–West–Zamani (2013), DOI 10.1137/120884742, abstract only",
+      "Klavžar–Košmrlj–Schmidt (2016), DOI 10.2298/AADM160207003K",
+      "Indexed mathematical records on dodecahedron power domination, total domination and competitive matching"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2010 general inequalities and C6 example apply but are consistent with many possible dodecahedral values",
+        "2016 sections on game values two or three are inapplicable to a score eight/nine graph",
+        "The similarly named 2026 dodecahedral results analyze static or different-process invariants, not a perfect-play adversarial game"
+      ],
+      "reasoning": "None of the actually read statements or inspected indexed descriptions yields the precise minimax state values or the distance-sphere characterization as a corollary. The inaccessible 2013 full text leaves a priority risk, but its publisher-described results do not decisively cover the claim.",
+      "searches": [
+        "Domination game and an imagination strategy https://users.fmf.uni-lj.si/klavzar/preprints/GameDomFinal.pdf",
+        "On graphs with small game domination number https://pefmath.etf.bg.ac.rs/accepted/rad2349.pdf",
+        "Published dodecahedron graph power-domination and static total-domination reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brešar et al. (2010), DOI:10.1137/100786800, section 3 discusses the smaller six-cycle with unequal starting scores",
+        "Game recurrence in RESULT.md is exactly the usual closed-neighborhood domination game; it is not the Maker–Breaker or total-domination game"
+      ],
+      "reasoning": "Aliases game domination number, Staller-start game domination number, standard D-game and S-game all refer to this minimax invariant. The familiar six-cycle example proves the phenomenon can occur but does not determine the dodecahedral values or optimal reply geometry.",
+      "searches": [
+        "\"domination game\" \"dodecahedron\" Staller",
+        "\"dodecahedral\" \"Staller\" game domination",
+        "2010 domination game SIAM 10.1137/100786800 pp 8-9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed dodecahedral findings concern optimal total-dominating sets, locating-dominating sets, power domination, minimum feedback sets, and competitive matching games, whose legal moves and payoffs differ",
+        "The 2010 and 2016 mathematical full texts inspected contain no dodecahedron evaluation in the relevant results"
+      ],
+      "reasoning": "No exact score-and-distance-response table was located. A general graph database could of course permit recomputation, but no verified table with these game values or two-ply strategy classes was found; this lack of discovery is qualified, not presented as proof of universal novelty.",
+      "searches": [
+        "Platonic graph game domination numbers cube octahedron dodecahedron icosahedron",
+        "Dodecahedral domination game exact scores 9 8 optimal reply distances",
+        "Ordinary domination game on the 20-vertex dodecahedral graph, Dominator-start 9 moves and Staller-start 8 moves; optimal second moves by graph distance"
+      ]
+    },
+    "rationale": "Inspected primary 2010 and 2016 full-text sections specify game rules, general bounds, the six-cycle starting disadvantage and low-score/diameter characterizations, without a dodecahedral exact evaluation. The accessible 2013 publisher abstract states bounds and realization examples, not the graph-specific 9/8 values or complete response spheres. Indexed similarly named graph results study static domination, power domination, or a distinct matching game. Residual risk of unindexed full-text priority is recorded; search absence is not a uniqueness certificate.",
+    "residual_risks": [
+      "The complete 2013 SIAM paper was not accessible in this check; an unindexed graph-specific computation may exist",
+      "Indexed mathematical search does not prove absolute priority",
+      "No independent mathematical referee has validated the finite-game classification"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes formal game rules and prior C6 reversal; does not establish the specified twenty-vertex scores or two-move response classes in material inspected",
+        "evidence": [
+          "DOI 10.1137/100786800; section 3 explicitly uses C6 as starting-score example",
+          "Theorem 6 is a general inequality rather than a dodecahedral evaluation"
+        ],
+        "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/GameDomFinal.pdf",
+        "material_read": "First page, definitions, theorems on starting players in section 3, constructions and subsequent graph-product theorems in section 5",
+        "method": "Publisher-author full-text PDF text and page-1 image review; inspected relevant mathematical passages and searched for dodecahedron/icosahedron terms",
+        "title": "Domination game and an imagination strategy",
+        "trigger": "Foundational source defining the same game and starting-score reversal"
+      },
+      {
+        "assessment": "The analyzed score-two and score-three families do not entail the dodecahedral score-eight/nine theorem; diameter-five condition alone is not sufficient",
+        "evidence": [
+          "DOI 10.2298/AADM160207003K; theorem 4.15 requires a Staller-start score of three and diameter five",
+          "No direct dodecahedron mention located in the full text"
+        ],
+        "identifier_or_url": "https://pefmath.etf.bg.ac.rs/accepted/rad2349.pdf",
+        "material_read": "First page and sections 2-4, including the gamburger and double-gamburger characterizations, theorem 4.15",
+        "method": "Author-accessible full-text PDF text and page-1 image review; inspected theorem statements and hypotheses; searched for dodecahedron/icosahedron",
+        "title": "On graphs with small game domination number",
+        "trigger": "Plausible whole-graph structural theorem and diameter-five material"
+      },
+      {
+        "assessment": "Abstract gives general possible-pair/bound results, not a graph-specific dodecahedral solution. Whole-text comparison remains an explicitly recorded priority risk",
+        "evidence": [
+          "Kinnersley, West and Zamani, SIAM J. Discrete Math. 27 (2013), DOI 10.1137/120884742; publisher summary discusses general constructions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/120884742",
+        "material_read": "Full publisher abstract, bibliographic metadata and named theorem claims; complete paper unavailable",
+        "method": "Searched arXiv and lawful open access, then attempted authorized institutional retrieval; no full text was obtained",
+        "title": "Extremal problems for game domination number",
+        "trigger": "Introduces sharper differences and existence of pairs like nine/eight"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "df543f8d-dc1f-41f0-8071-e83e18f6c31f",
+  "value": {
+    "rationale": "Both optimal adversarial game numbers and all optimal replies are determined on a natural cubic planar vertex-transitive graph, with a full five-shell geographic rule explaining why starting as minimizer costs one additional move. Unlike a mere numeric optimum or arbitrary slice, the complete strategic classification links game score to antipodal/distance-three geometry and quantifies the gap from six static dominating vertices to eight/nine game moves.",
+    "status": "PASS"
+  }
+}
