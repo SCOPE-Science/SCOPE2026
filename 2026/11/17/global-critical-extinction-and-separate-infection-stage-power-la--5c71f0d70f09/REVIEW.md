@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is global over every initially infected state in the closed simplex, not just a local center-manifold expansion. The simplex is invariant for \(0<b\le1/3\), the eventual sign \(q_n=y_n-u_n-v_n\le0\) forces monotone \(z_n=u_n+2v_n\), and an explicit contradiction excludes a positive limit. The stable-response lemma yields \(v_n/z_n^2\to2\) and \(q_n/z_n^2\to-4\), hence \(z_{n+1}^{-2}-z_n^{-2}\to16b\). Symbolic checks reproduce the exact update identities; numerical trajectories only supplement the analytic proof. The infection-free face is handled separately.
+PASS
 
-## Originality — PASS within inspected evidence
+On the exact critical probability slice b in (0,1/3], simplex invariance follows because 1-b-2bi >= 1-3b >=0; first-infected y/v boundary cases are included. Direct symbolic elimination with x=1-u-y-v verifies z=u+2v, q=y-u-v, i=u+v obey z_next=z+2biq, q_next=(1-b-2bi)q-2bv, v_next=(1-b)v+2biy. An initially infected orbit generates v>0 by time 2; then q crosses to nonpositive and cannot recover. Positivity and eventual monotone z give limit L; if L>0, sum(-q)<infinity forces q,v->0 but recurrence v_next contains 2bi y tending to 2bL², contradiction. Thus z->0. The stable-response contraction lemma gives v/z²->2 and q/z²->-4, so z_next=z-8bz³(1+o(1)); summing reciprocal-square differences yields n z²->1/(16b). Therefore sqrt(n) u,y->1/(4sqrt b), n v->1/(8b), and sqrt(n)(1-x)->1/(2sqrt b). Infection-free seeds instead have y_n=(1-b)^n y_0. Independent SymPy simplification of all three recurrences and total mass produced zero residual; package VERIFY.py separately source-inspected.
 
-The 2020 Shoyimardonov article (Eq. (6) and Conjecture 2) gives the map and conjectures disease-free convergence in the relevant double-equality regime, but does not supply this slice's global proof or quantitative stage-dependent powers. The 2021 follow-up provides fixed-point threshold analyses and conditional convergence statements without the derived \(n^{-1/2}\) versus \(n^{-1}\) hierarchy. Searches comparing parameter aliases, quadratic stochastic representations, and stronger global results did not find the same four-compartment theorem. Closest indexed epidemic critical-decay results concern different multiple-exposure or SIS network maps, so they do not logically cover this recurrence. Absence from indexed results does not prove publication priority; unindexed equivalent derivations remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves a mathematically motivated, conjectured global-convergence boundary on a natural probability-admissible symmetric slice of a six-parameter epidemiological map. The cancellation of the ordinary quadratic slow drift produces a cubic critical mechanism and **two distinct measured powers** for first infections and reinfections. These are not determined by the previously known local multiplier or fixed-point census; the explicit amplitudes give concrete, initial-condition-independent predictions.
+Shoyimardonov 2020 specifies precisely the discrete SISI map, admissibility, and a global extinction conjecture at these critical inequalities; it does not prove this doubly critical slice or separate n^-1/2 and n^-1 stage constants. 2021 follow-up addresses fixed points and noncritical regions. Nearby published SIS/SIRS critical exponents arise in different models and cannot imply this four-compartment SISI result by parameter matching alone.
 
-## Scope and scientific limitations
+## value
 
-The slice does not resolve the full SISI convergence conjecture and does not describe neighboring parameter unfolding or stochastic finite-population processes. Priority risk from possible unindexed equivalent results remains. Self-review is mathematical and computational only, not independent peer review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The global resolution of a natural equality case in a named epidemic extinction conjecture plus two distinct universal compartment exponents is a motivated boundary result. The two rates distinguish infection-stage persistence even though all infection clears; no full nearby-parameter classification is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
