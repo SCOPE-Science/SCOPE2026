@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact orbit-distance formula follows by exhausting even and odd powers of the glide and minimizing over integer horizontal shifts. The nearest-integer distance of twice a uniform transverse coordinate is uniform, giving a one-variable mean integral. Four elementary integration regimes account for all positive aspect ratios. The unique stationary ratio and global decrease outside its regime are proved by sign-controlled derivatives, including a strict elementary inverse-hyperbolic-tangent inequality. The checker independently enumerates deck images; finite computations corroborate but do not replace the analysis.
+PASS
 
-## Originality — PASS, with a specific priority boundary
+Reconstructed all even and odd deck transforms of a(x,y)=(x+L,y), b(x,y)=(-x,y+H): twice the injectivity radius is min(L,2H,sqrt(H^2+dist(2x,LZ)^2)). Uniform x gives delta/H uniform on [0,q/2], hence M(q)=q^(-3/2) int_0^(q/2) min(q,2,sqrt(1+u^2)) du. Four integral branches cover every q>0; on (1,2/sqrt3) derivative has sign of Psi(q)=q^2-q sqrt(q^2-1)-3 arcosh(q), strictly decreasing from 1 through zero; other branches strictly decrease. Independent high-precision root/integral checks gave q*=1.03526637121326352489, M*=0.50278123528050473982 and M(1)=0.5, agreeing with package. No nonflat shapes are covered; numbers are corroboration, derivative proof supplies global uniqueness.
 
-The quotient description is classical. Crucially, Sabourau (arXiv:2606.06777v1, Section 6.4, Proposition 6.18) **already calculates the pointwise displacement function and the maximal embedded-disk radius**. Neither that source nor the inspected Klein-bottle systolic papers determines the unique optimizer of the **area-averaged** injectivity radius. The accepted claim is precisely this sharp metric optimization, not novelty of the pointwise formula or its routine probability pushforward. An earlier optimization of the same average under other terminology remains possible; no worldwide novelty guarantee is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The area-normalized mean injectivity radius measures the typical size of a disk on which geodesic coordinates are unambiguous. It is a natural global Riemannian observable, distinct from the systole and maximal pointwise embedded-disk radius. Its unique optimizer is demonstrably not the square Klein bottle, despite the square's sharp systolic role. The nontrivial equality characterization holds throughout the complete one-parameter moduli space, rather than an arbitrary parameter slice. The improvement is small, but it reveals a genuine change of extremal geometry for the two canonical invariants.
+Best-of-knowledge distinct sharp mean-area-normalized injectivity-radius optimizer. The deck displacement / pointwise embedded disk expression is prior, and Sabourau already optimizes the SINGLE largest disk; separate Katz-Sabourau theorem optimizes the worst-case systolic length. The earlier flat Klein metric-radius result optimizes the minimax farthest-point distance, a different functional. None implies the mean optimizer without a new integration and global optimization; exact priority remains non-exhaustive.
 
-## Limits and comparison
+## value
 
-No nonflat metric is covered; the pointwise input is known and explicitly credited. The available primary sources and research records do not settle historical priority of this precise average-maximization problem. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An intrinsic typical embedded-disk radius, averaged over the whole flat manifold and normalized by area, is a natural geometric invariant; the unique nonsquare optimizer differs from the square systolic optimizer throughout a complete one-dimensional moduli space. The numerical improvement is small but the change of extremal shape and strict equality theorem give substantive mathematical motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

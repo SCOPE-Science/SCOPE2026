@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T16:53:18.412891Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed all even and odd deck transforms of a(x,y)=(x+L,y), b(x,y)=(-x,y+H): twice the injectivity radius is min(L,2H,sqrt(H^2+dist(2x,LZ)^2)). Uniform x gives delta/H uniform on [0,q/2], hence M(q)=q^(-3/2) int_0^(q/2) min(q,2,sqrt(1+u^2)) du. Four integral branches cover every q>0; on (1,2/sqrt3) derivative has sign of Psi(q)=q^2-q sqrt(q^2-1)-3 arcosh(q), strictly decreasing from 1 through zero; other branches strictly decrease. Independent high-precision root/integral checks gave q*=1.03526637121326352489, M*=0.50278123528050473982 and M(1)=0.5, agreeing with package. No nonflat shapes are covered; numbers are corroboration, derivative proof supplies global uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Katz-Sabourau: square minimizes systolic area; 2026/11/2 Resultary: two maximizers of area-normalized metric radius/minimax eccentricity, not mean injectivity; Sabourau: maximum pointwise injectivity."
+        ],
+        "reasoning": "Changing from worst-case/minimax to area-average is not a logical specialization of these results; none dominates this mean criterion.",
+        "searches": [
+          "Resultary: flat Klein bottle mean injectivity radius expected injectivity radius area average optimum nonsquare unique q",
+          "Katz-Sabourau DOI 10.1007/s10455-026-10057-0",
+          "Resultary: 2026/11/2/SCOPE-two-sharp-aspect-ratios-for-the-area-normalized-metric-radius-of--c966123667e7"
+        ]
+      },
+      "checked_sources": [
+        "Systole, inradius and rigidity of cusped hyperbolic 3-manifolds: https://arxiv.org/abs/2606.06777",
+        "Klein bottle and optimal systolic inequality for nonpositively curved surfaces: https://link.springer.com/article/10.1007/s10455-026-10057-0",
+        "Two sharp aspect ratios for the area-normalized metric radius of flat Klein bottles: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-sharp-aspect-ratios-for-the-area-normalized-metric-radius-of--c966123667e7/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior pointwise formula is a proof ingredient and not independently sufficient as a stated optimized mean; two known farthest-distance optimizers differ from the claimed nonsquare mean optimizer."
+        ],
+        "reasoning": "Mean optimizer needs computing an integral and proving all-branch derivative signs, neither follows by direct parameter substitution from prior radius/systolic theorems.",
+        "searches": [
+          "Sabourau Proposition 6.18",
+          "Resultary 2026/11/2 flat Klein two-shape metric radius result",
+          "Katz-Sabourau Theorem A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same even/odd deck displacement, injectivity as half shortest orbit displacement, known from Sabourau; mean is an integral of the known pointwise profile."
+        ],
+        "reasoning": "The exact pointwise formula can be pushed forward but does not itself specify the stationary condition or global optimum of the mean; claim is this evaluated and globally optimized quantity, not novelty of the deck formula.",
+        "searches": [
+          "Resultary: flat Klein bottle mean injectivity radius expected injectivity radius area average optimum nonsquare unique q",
+          "Sabourau arxiv:2606.06777 Proposition 6.18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected table provides q*=1.035266... or M*=0.502781... for the area average; nearby exact parameter lists describe different distance/inradius objectives."
+        ],
+        "reasoning": "A numeric coincidence alone would not prove novelty; searched source statements/tables give pointwise and extremal quantities rather than a mean-injectivity maximizer.",
+        "searches": [
+          "Resultary: flat Klein bottle mean injectivity radius expected injectivity radius area average optimum nonsquare unique q",
+          "Sabourau arxiv:2606.06777 Section 6.4"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct sharp mean-area-normalized injectivity-radius optimizer. The deck displacement / pointwise embedded disk expression is prior, and Sabourau already optimizes the SINGLE largest disk; separate Katz-Sabourau theorem optimizes the worst-case systolic length. The earlier flat Klein metric-radius result optimizes the minimax farthest-point distance, a different functional. None implies the mean optimizer without a new integration and global optimization; exact priority remains non-exhaustive.",
+      "residual_risks": [
+        "A differently indexed source could already optimize mean pointwise injectivity radius under mean convexity/typical disk terminology.",
+        "Metric claim confined to intrinsically flat Klein bottles; no curved or general metric class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING mean optimization",
+          "evidence": "Known shortest displacement and single-largest embedded disk; does not solve mean-area-normalized argmax.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.06777",
+          "material_read": "Section 6.4, Proposition 6.18 and orbit-displacement comparison",
+          "method": "Full-text mirror and source result comparison",
+          "title": "Systole, inradius and rigidity of cusped hyperbolic 3-manifolds",
+          "trigger": "Same flat Klein deck and pointwise radius"
+        },
+        {
+          "assessment": "NOT_COVERING different invariant",
+          "evidence": "Unique square equality is for systolic area, not integral injectivity radius.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10455-026-10057-0",
+          "material_read": "Open full-text article abstract, theorem A and geometric scope",
+          "method": "Publisher open HTML and theorem statement",
+          "title": "Klein bottle and optimal systolic inequality for nonpositively curved surfaces",
+          "trigger": "Square shape optimum might dominate"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Optimizes minimax farthest distance with two ratios, q=1/(2sqrt3),sqrt3/2, rather than typical injectivity with unique q*=1.0352.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-sharp-aspect-ratios-for-the-area-normalized-metric-radius-of--c966123667e7/RESULT.md",
+          "material_read": "Entire published RESULT.md including precise formulas, optimizer ratios and proof",
+          "method": "Actual GitHub blob file read",
+          "title": "Two sharp aspect ratios for the area-normalized metric radius of flat Klein bottles",
+          "trigger": "Same Klein moduli and similar optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An intrinsic typical embedded-disk radius, averaged over the whole flat manifold and normalized by area, is a natural geometric invariant; the unique nonsquare optimizer differs from the square systolic optimizer throughout a complete one-dimensional moduli space. The numerical improvement is small but the change of extremal shape and strict equality theorem give substantive mathematical motivation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Systole, inradius and rigidity of cusped hyperbolic 3-manifolds: https://arxiv.org/abs/2606.06777",
+    "Klein bottle and optimal systolic inequality for nonpositively curved surfaces: https://link.springer.com/article/10.1007/s10455-026-10057-0",
+    "Two sharp aspect ratios for the area-normalized metric radius of flat Klein bottles: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-sharp-aspect-ratios-for-the-area-normalized-metric-radius-of--c966123667e7/RESULT.md",
+    "Independent cross-checks /mnt/data/independent_scope03_checks_20261118.json (numerical/rational tests only)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A differently indexed source could already optimize mean pointwise injectivity radius under mean convexity/typical disk terminology.",
+    "Metric claim confined to intrinsically flat Klein bottles; no curved or general metric class."
+  ],
+  "residual_risks": [
+    "A differently indexed source could already optimize mean pointwise injectivity radius under mean convexity/typical disk terminology.",
+    "Metric claim confined to intrinsically flat Klein bottles; no curved or general metric class."
+  ],
+  "schema_version": 1
+}
