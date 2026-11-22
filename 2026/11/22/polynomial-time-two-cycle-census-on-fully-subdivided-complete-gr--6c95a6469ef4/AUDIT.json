@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For each connected graph the two complementary firing phases have exactly product_v c_v compatible chip states; this follows directly from the Laplacian return identity and explicit degree-threshold intervals. On fully subdivided K_n, monochromatic original edges force opposite subdivision colors with weight two, while cross edges independently select one endpoint. Expanding the original-vertex degree factors and excluding mutually selected cross edges by a reciprocal-pair inclusion-exclusion yields the stated quadruple sum for all n>=3. O(n^4) index combinations and polynomial precomputation give the arithmetic bound. Independently, the delivered exact-rational program matches direct cut enumeration at n=3,4,5 and counts through n=8; delivered C++ dynamics enumerates 4096 and 5308416 confined chip states at n=3,4 and obtains 100 and 12312 orbits. All needed computations were rerun from actual delivered-package source paths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Universal cut-degree polynomial https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-cut-degree-census-and-maximum-cut-thresholds-for-period-two-chip--5004d505b623/RESULT.md",
+        "Jiang 2010 treats complete bipartite graph period possibilities, not subdivision clique orbit counts (https://arxiv.org/abs/1003.0943)."
+      ],
+      "reasoning": "A broader earlier result covers exact two-cycle counts for all graphs but not with the new O(n^4) complexity; the family-specific closed formulas for K_n, K_{a,b}, trees, and ladders do not evaluate S(K_n) because it is bipartite with original degree n-1 and subdivision degree two, but is neither complete bipartite nor a tree once n>=3.",
+      "searches": [
+        "published-finding corpus semantic search: counting primitive two cycles parallel chip firing graph subdivision closed form",
+        "published-finding corpus semantic search: primitive two-cycle parallel chip firing on subdivided complete graphs exact count",
+        "Web: \"incidence graph\" \"parallel chip firing\" period two counting"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1003.0943",
+      "https://arxiv.org/abs/1211.6786",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-cut-degree-census-and-maximum-cut-thresholds-for-period-two-chip--5004d505b623/RESULT.md",
+      "published-finding corpus: 2026/11/1/SCOPE-cut-degree-census-and-maximum-cut-thresholds-for-period-two-chip--5004d505b623",
+      "Accessible current-week private ledger claims, 102 records including ledger_init"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior universal formula is P_G(1)=sum over cuts of product cut degrees, with no stated polynomial-time incidence-complete-graph evaluator.",
+        "The new proof replaces 2^(n+binom(n,2)) firing colorings by O(n^4) inclusion-exclusion terms."
+      ],
+      "reasoning": "The general formula logically determines T_n as a number, so a bare numerical restatement would be subsumed and fail novelty. Its exponential representation alone does not assert or derive a polynomial-operation evaluation on S(K_n). The claimed result is precisely the nontrivial symmetry compression and reciprocal-pair sieve with explicit complexity, a strictly stronger computational statement for that family.",
+      "searches": [
+        "published-finding corpus: cut-degree census and maximum-cut thresholds for period-two chip-firing (ID 2026/11/1/SCOPE-cut-degree-census-and-maximum-cut-thresholds-for-period-two-chip--5004d505b623)",
+        "Full RESULT.md comparison https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-cut-degree-census-and-maximum-cut-thresholds-for-period-two-chip--5004d505b623/RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full-text prior RESULT.md on universal cut-degree period-two polynomial: https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-cut-degree-census-and-maximum-cut-thresholds-for-period-two-chip--5004d505b623/RESULT.md",
+        "Full-text Jiang 2010, Proposition 2.5: https://arxiv.org/abs/1003.0943"
+      ],
+      "reasoning": "The general cut-degree polynomial enumerates the same primitive orbits but requires a priori a sum over exponentially many firing cuts. The new statement is a polynomial-size summation and O(n^4) evaluator for S(K_n), not a claim to invent the general orbit-cut correspondence. No equivalent polynomial-time evaluation for this family was found in these searches.",
+      "searches": [
+        "published-finding corpus semantic search: subdivision graph of a complete graph incidence K_n parallel chip-firing primitive period two exact orbit counts and cut degree polynomial",
+        "published-finding corpus semantic search: parallel chip firing two cycles edge subdivision general graph cut-degree polynomial",
+        "Web: \"parallel chip firing\" \"subdivision\" complete graph \"two cycles\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching indexed exact table or sequence for this dynamical system in the returned records.",
+        "The accessible own current-week ledger contains one adjacent edge-subdivided clique XOR result, but its finite-field neighbor-sum map is a different system."
+      ],
+      "reasoning": "Absence from indexed tables is only limited negative evidence. The formula itself has a complete derivation and exact crosschecks; no database claim of uniqueness is made.",
+      "searches": [
+        "published-finding corpus semantic search: subdivided complete graph incidence bipartite parallel chip firing two-cycle count 100 12312 3759616",
+        "Web: \"12312\" \"subdivided complete\" \"chip firing\"",
+        "Accessible own private ledger current week: case-insensitive title/claim scan for chip-firing, subdivid, incidence graph, rook polynomial, two-cycle"
+      ]
+    },
+    "rationale": "The earlier unrestricted cut-degree polynomial already implies the numerical answer via exponential cut summation, so that identity and the resulting raw counts are not claimed as novel. The distinct new contribution is the explicit four-index expression and O(n^4) exact-arithmetic algorithm for full subdivisions of complete graphs, obtained via a reciprocal-orientation sieve not stated in inspected prior work. Related complete-bipartite and arbitrary-tree results concern nonisomorphic families or different evaluation schemes. Priority remains qualified by possible unindexed formulas.",
+    "residual_risks": [
+      "The original 1992 Bitar–Goles full paper and the 2012 motors paper full text were not inspected; no decisive matching statement surfaced from the examined material.",
+      "An unindexed exact subdivision-clique counting formula or optimized algorithm may exist.",
+      "An external independent originality or correctness audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the equal two-step firing-count criterion but no closed S(K_n) primitive two-orbit count or polynomial evaluation",
+        "evidence": [
+          "Proposition 2.5 equates return to equal firing counts at each vertex",
+          "Theorem 3.8 concerns attainable periods on complete bipartite graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1003.0943",
+        "material_read": "Full accessible text, focusing on Sections 1, 2 (Proposition 2.5), 3 and discussion",
+        "method": "Read mathematical assertions, relevant proof and named graph families in arXiv HTML text",
+        "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+        "trigger": "Original period and firing-count theory, primary MSC 37B15"
+      },
+      {
+        "assessment": "A universal exponential cut-degree enumeration; no four-index complete-subdivision evaluator or O(n^4) algorithm is stated",
+        "evidence": [
+          "General expression P_G(z)=sum_S z^(2m-|S|) product_v[c_v(S)]_z",
+          "Special fast evaluation stated only for trees"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-cut-degree-census-and-maximum-cut-thresholds-for-period-two-chip--5004d505b623/RESULT.md",
+        "material_read": "Complete publicly accessible RESULT.md, including finding, hypotheses, proof, relationships and limitations",
+        "method": "Direct public GitHub repository file read",
+        "title": "Cut-degree census and maximum-cut thresholds for period-two chip-firing",
+        "trigger": "Closest stronger general cycle-count theorem found by published-finding corpus semantic search"
+      },
+      {
+        "assessment": "Describes characterization of possible firing patterns, not an inspected theorem on S(K_n) two-cycle counts; absence of full text remains a bounded risk",
+        "evidence": [
+          "2012-11-29 abstract describes motorized games and realizable periodic firing sequences"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.6786",
+        "material_read": "ArXiv abstract only; full text not obtained",
+        "method": "Read publicly indexed abstract and bibliographic information",
+        "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+        "trigger": "Related classic study of periodic firing sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c95a646-9ef4-4492-9572-6f8eceb0ca6b",
+  "value": {
+    "rationale": "S(K_n) is a canonical incidence graph with n+binom(n,2) vertices and exponentially many firing patterns. The exact invariant counts genuine conserved-chip periodic orbits; compressing the universal exponential cut count to O(n^4) arithmetic terms by a reciprocal-pair obstruction is a substantive new efficient evaluation and gives a reproducible benchmark on a dense-origin graph family. The result is not a routine numeric table or an arbitrary bounded slice.",
+    "status": "PASS"
+  }
+}
