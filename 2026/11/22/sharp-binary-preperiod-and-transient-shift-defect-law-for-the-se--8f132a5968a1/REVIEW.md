@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The finite Stirling recurrence and exact inclusion-exclusion agree in the packaged checker, but correctness at every depth rests on two symbolic lemmas: the explicit parity-branch Mahler coefficient bounds prove scaled isometries, and the even-base remainder has valuations exactly \(n-3\) on odd inputs and \(n-2\) on even inputs from index seven onward. Ultrametric comparison yields the exact two-scale nonresonant law and the strict resonant bounds; the last failing periodic index proves the sharp preperiod. The displayed least eventual period is independently obtained from the odd branch. No unclassified resonance valuation is asserted as exact.
+
+**Originality — PASS (best-knowledge, qualified).** Kwong's least-period theorem is explicitly credited, and Bennett–Mosteig's stable seventh-column valuation-class split is explicitly credited. Those stable congruence results do not evaluate the transient shift defect at every original index or its exact first-periodic index; no inspected paper states a dominating all-index transient law. Zhao–Hong–Zhao's published difference theorem expressly excludes Mersenne columns such as seven. Specific historical risk remains because a broader unlocated shift-defect result could subsume the theorem.
+
+**Mathematical value — PASS.** A least eventual period alone leaves the first valid index unspecified, which matters in modular recurrences and exact finite-block counting. The seventh column is the first substantial Mersenne-column test beyond the lower simple Stirling cases and is excluded from a prominent general difference-valuation theorem. The sharp parity-dependent cutoff and the identification of precisely two cancellation resonances explain the finite transient rather than merely giving a routine period bound; the cutoff is sharp at every modulus.
+
+**Closest literature and limits.** Bennett and Mosteig, *J. Integer Seq.* 16 (2013), Article 13.3.6, Section 6.2; Kwong, *Fibonacci Quarterly* 27 (1989), Theorem 3.6; Zhao, Hong and Zhao, *J. Number Theory* (2014), DOI:10.1016/j.jnt.2014.01.005 (accessible theorem statement only). Exact valuations on the two exceptional resonant indices remain unresolved here, and the numerical replay does not verify the infinite proof independently.
+
+Self-review: passed. Independent audit: not yet performed.
