@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The cyclic Dirichlet spacing identity gives each consecutive block the exactly normalized Beta(j,N-j) law. Substitution of two finite beta-log expectations and an explicit harmonic-number interchange establishes the exact mean. The strict trapezoidal remainder yields positive and strictly decreasing increments of F_N, then strictly decreasing G_N=N(F_{N+1}-F_N)-F_N; rational interval checks certify the only four boundary signs needed for the global transition and unique maximum. The expansion follows from the same integral. The standalone standard-library checker reproduced all four rational signs, two independent finite-expectation formulas, and seeded Dirichlet simulations; simulations are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu, arXiv:2209.08050, Section 6.3.2 gives asymptotic Gaussian-circulant kernel and approximate mean one",
+        "Zhang (2002) develops likelihood-ratio goodness-of-fit statistics, earlier than the circularization method"
+      ],
+      "reasoning": "The source construction and classical beta logarithmic expectations permit the new calculation but do not supply a stronger stated all-sample-size monotonicity and reference-crossing theorem. Previous work on spectral approximation covers limiting distributions rather than exact bias of the nonlinear finite statistic.",
+      "searches": [
+        "Reweighted and Circularized Anderson-Darling Tests of Goodness-of-Fit Section 6 kernel mean exact finite",
+        "Powerful goodness-of-fit tests based on the likelihood ratio Zhang 2002 order statistics logarithmic score expectation",
+        "finite sample Beta order statistic log-score centering correction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.08050 (primary full-text sections)",
+      "arXiv:2209.08150 (abstract only)",
+      "doi:10.1080/10485252.2023.2213782 (publication abstract)",
+      "doi:10.1111/1467-9868.00337 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2209.08050, (4.8) is an exact definition; its Remark 6.3 concerns the Gaussian approximation",
+        "arXiv:2209.08050 (2.2) introduces the parent nonlinear score",
+        "arXiv:2209.08150 abstract contains no exact finite-size claim"
+      ],
+      "reasoning": "Prior definitions plus classical Beta laws logically support computing a mean, but the cited large-sample Gaussian mean is not an exact finite-sample equality. Neither source material inspected nor database results provide the two global strict classifications. The conclusion does not assert independent discovery of beta moments or existence of the score.",
+      "searches": [
+        "Liu 2209.08050 equation 4.8 section 6.3.2 Remark 6.3 mean one",
+        "Liu 2209.08150 exact mean circularized statistic",
+        "statistic tilde W_n^2 mean finite sample null Beta order statistics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2209.08050 eqs. (2.2) and (4.8) define the modified pooled log score",
+        "arXiv:2209.08050 Remark 6.3 states an approximate unit mean for the Gaussian-based statistic, not the exact finite expectation",
+        "arXiv:2209.08150 abstract concerns circularization and large-sample spectra"
+      ],
+      "reasoning": "The statistic can also be written as a cyclic weighted logarithm of consecutive Dirichlet block sums; beta-digamma and harmonic/hyperfactorial representations are mathematically equivalent. The searches targeted these aliases, and the global finite-sample crossing and unique peak were not identified.",
+      "searches": [
+        "circularized W expectation Liu Anderson Darling exact finite sample null mean",
+        "circularized goodness of fit Zhang Liu sample mean hyperfactorial",
+        "circularized Anderson Darling finite sample null mean formula bias hyperfactorial",
+        "Chuanhai Liu Reweighted and Circularized Anderson-Darling Tests of Goodness-of-Fit 2209.08050 2022 exact finite sample expectation pooled W_n square",
+        "statistic tilde W_n^2 mean finite sample null Beta order statistics",
+        "weighted average circularized log-Beta spacing statistic unique sample-size bias crossing exact mean"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The defining work reports numerical asymptotic approximation comparisons for n=10,20,50 rather than the exact mean classification",
+        "The present four boundary values are certified by rational atanh series in checker.py"
+      ],
+      "reasoning": "No exact matching published table or formula appeared in the checked material; numerical plots of the null distribution do not imply the all-integer strict unimodality theorem.",
+      "searches": [
+        "exact circularized log-score finite n mean table n=19 20 54",
+        "circularized Anderson Darling hyperfactorial bias exact finite sample",
+        "Chuanhai Liu Reweighted and Circularized Anderson-Darling Tests of Goodness-of-Fit 2209.08050 2022 exact finite sample expectation pooled W_n square"
+      ]
+    },
+    "rationale": "The 2022 defining work gives the circularized statistic explicitly and uses a Gaussian-kernel approximation suggesting a mean near one. The accessible primary sections do not state an exact finite-sample expectation or the global sign/unimodality theorem. Source/alias/equivalence searches and relevant prior finding comparisons found no dominating implication. General Beta-log identities and hyperfactorial asymptotics are classical and are not claimed as new; an earlier equivalent under different notation remains a disclosed priority risk.",
+    "residual_risks": [
+      "Earlier mathematically equivalent exact finite score means might exist under likelihood-ratio/logarithmic-score notation.",
+      "The full text of related arXiv:2209.08150 was not available; its abstract alone cannot establish noncoverage.",
+      "Search results and accessible text are not proof of exhaustive bibliographic novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_OBJECT_BUT_NO_EXACT_MEAN_FOUND",
+        "evidence": [
+          "Equation (4.8) matches the present normalization",
+          "Remark 6.3 says approximate mean one in a Gaussian kernel approximation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.08050",
+        "material_read": "Readable full-text sections 2.1, 4.1-4.2, 6.3.1-6.3.3, equations 2.2 and 4.3-4.9, and Remarks 6.3-6.4; PDF opening and references pages visually inspected",
+        "method": "Full-text focused mathematical comparison and PDF visual inspection",
+        "title": "Reweighted and Circularized Anderson-Darling Tests of Goodness-of-Fit",
+        "trigger": "Original definition of the exact statistic and closest null-calibration claim"
+      },
+      {
+        "assessment": "SAME_PAPER_VERSION_ABSTRACT",
+        "evidence": [
+          "First journal publication online 2023-05-18; original arXiv source predates it"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/10485252.2023.2213782",
+        "material_read": "Journal landing page and abstract, publication dates, title and authors",
+        "method": "Public abstract/metadata only; mathematical comparison based on corresponding accessible arXiv version",
+        "title": "Reweighted and circularised Anderson-Darling tests of goodness-of-fit",
+        "trigger": "Published version and priority dating"
+      },
+      {
+        "assessment": "UNRESOLVED_PRIORITY_RISK_NOT_DECISIVE",
+        "evidence": [
+          "Abstract presents circularization and large-sample spectral results without naming a finite-sample exact mean"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.08150",
+        "material_read": "arXiv abstract only; complete text unavailable",
+        "method": "Abstract-only risk review",
+        "title": "Circularly Symmetric Tests of Goodness-of-Fit",
+        "trigger": "Same author and related circularization construction"
+      },
+      {
+        "assessment": "EARLIER_FRAMEWORK_POSSIBLE_EQUIVALENCE_RISK",
+        "evidence": [
+          "Introduces likelihood-ratio goodness-of-fit family, not the cyclic pooling of Liu"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1467-9868.00337",
+        "material_read": "Publisher abstract and bibliographic references, not full article",
+        "method": "Background/coverage check limited to accessible metadata",
+        "title": "Powerful goodness-of-fit tests based on the likelihood ratio",
+        "trigger": "Pre-circularization family of likelihood-ratio goodness-of-fit scores"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d3e356c4-0ee3-4179-a8a0-034265f7d2d1",
+  "value": {
+    "rationale": "The statistic is a named, naturally normalized goodness-of-fit score for fully specified continuous nulls. Its defining paper uses approximate unit-mean null calibration. The exact nonlinear finite-sample mean, unique crossing at n=19/20, unique maximum at n=54 and asymptotic discrepancy characterize the entire natural sample-size parameter, replacing an approximation by an exact benchmark for moment-matched calibration and simulation validation. The gap is large for tiny samples, while its modest peak above one is stated without exaggeration; no power gain or exact critical-value claim is made.",
+    "status": "PASS"
+  }
+}
