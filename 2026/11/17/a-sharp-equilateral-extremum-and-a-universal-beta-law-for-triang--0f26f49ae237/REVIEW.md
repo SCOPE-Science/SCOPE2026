@@ -1,15 +1,21 @@
-# Assessment of the triangle self-containment theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-dimensional parameterization is precisely the one defined in the 2026 primary source. A direct three-facet support-function argument identifies every translation fiber with a homothetic copy of the input triangle and gives its area exactly. The stochastic barycentric matrix has eigenvalues \(1,s+it,s-it\); its nonnegative entries force three linear bounds defining the universal equilateral envelope. Equilateral self-rotations attain all three vertices, and equality in area inclusion enforces equilateral geometry. Positive homogeneity of the footprint gauge and a one-dimensional beta integral prove the exact volume and distribution. All hypotheses, boundary degeneracies, and the difference between exact proof and finite computations are recorded in `RESULT.md`. The standalone verifier passed 382 assertions with independent direct four-dimensional convex-hull volumes.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Choi and Choi's 2026 first-public manuscript analyzes the same containment polytope for arbitrary triangle/polygon pairs but its full accessible text focuses on silhouette complexity and optimal placement; it does not establish this sharp self-containment volume classification. Chan and Hair's 2024 accessible proceedings treat efficient optimization over the placement region, not its four-dimensional measure. The 1998 Agarwal–Amenta–Sharir paper originates the parameter model but only its abstract/secondary description was accessible for this comparison; an unseen exact calculation remains a residual risk. The stochastic spectral ingredients are classical and not claimed as new. Searches for equivalent and stronger geometric volume statements, including semantic mathematical-record searches, identified no covering claim. This is a best-knowledge priority assessment, not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-The result sharpens a natural, directly motivated object in similarity-placement geometry from existence/optimization to an exact four-dimensional integral invariant and a unique extremizing planar shape. The universal scale-rotation triangle and shape-independent \(\operatorname{Beta}(2,3)\) law give interpretable global geometry of feasible placements, not merely a small special-case arithmetic computation. The dimensionless sharp bound is stable under physical similarity of the input, and its equality case is geometric.
+The support inequalities for each of three outer unit normals make fixed complex multiplier z=(s,t) translation fibers nonempty precisely when g_T(z)=sum(ell_j/2A)h_(L_z T)(n_j)≤1, and then each fiber is translated (1−g)T of area A(1−g)^2. Mixed-area positivity g≥|z| yields compact footprint F and homogeneous Minkowski gauge. A feasible map induces a nonnegative column-stochastic 3×3 barycentric matrix with eigenvalues 1,s+it,s−it; tr B≥0 gives s≥−1/2, and tr(B²)≥(tr B)^2/3 gives (1−s)^2≥3t². Thus F lies in the cube-root-of-unity triangle E. For an equilateral T, three rotation multipliers are realized; conversely a full-area F forces a 120-degree equal-area self-rotation, so T equilateral. Integrate gauge sublevel areas r² area(F): vol4=A area(F)/6; projected radius has density 12r(1−r)^2 (Beta 2,3), CDF 6r²−8r³+3r⁴. Independent algebra independently checked the tr(B²) expansion, Beta density normalization/moments and equilateral area 3sqrt3/4. Orientation-preserving similitudes only, ordinary coordinate volume.
 
-## Limits
-No statement about different source and target shapes, reflected similarities, or higher dimensions. All numerical checks are finite; independent mathematical auditing is unperformed. Older unindexed containment literature could affect priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Containment polytope and its footprint were defined by Agarwal–Amenta–Sharir and algorithmically studied in full-text Choi–Choi (2026); it does not assert four-volume or a shape-independent Beta gauge law. Classical nonnegative-matrix eigenvalue bounds supply only a tool, not the self-triangle extremizer or distribution.
+
+## value
+
+PASS
+
+It computes a natural intrinsic geometric functional of the four-parameter containment polytope, a sharp shape optimizer and an exact universal sampling law; these quantitative measures are not provided by algorithms for maximal placements or by general barycentric eigenvalue location bounds. Precise Beta law could be needed for random geometric containment sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

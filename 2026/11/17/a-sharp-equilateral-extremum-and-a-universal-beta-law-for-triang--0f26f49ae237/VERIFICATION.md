@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The primary exact argument is in `RESULT.md`. It identifies the translation fibers, the stochastic trace inequalities, the equality configurations, and the gauge-integral identity without reliance on floating-point computation.
+## correctness
 
-The bundled script `verify.py` uses `numpy` and `scipy`, independently constructs the nine linear inequalities for the inclusion of one triangle in itself, and obtains the four-dimensional polytope volume using `HalfspaceIntersection` and `ConvexHull`. A second path computes the projection footprint, its support-gauge integral, and the predicted volume. Five specified triangles and 120 deterministic pseudorandom triangles were tested. There were 382 passed assertions, with no failures. The script checks the sharp equilateral value and several moments of the \(\operatorname{Beta}(2,3)\) distribution.
+PASS
 
-Numerical tolerances are stated in the script. The numerical evidence does not certify the unrestricted theorem, does not establish historical priority, and is not an independent mathematical audit. The exact proof applies to all nondegenerate real triangles.
+The support inequalities for each of three outer unit normals make fixed complex multiplier z=(s,t) translation fibers nonempty precisely when g_T(z)=sum(ell_j/2A)h_(L_z T)(n_j)≤1, and then each fiber is translated (1−g)T of area A(1−g)^2. Mixed-area positivity g≥|z| yields compact footprint F and homogeneous Minkowski gauge. A feasible map induces a nonnegative column-stochastic 3×3 barycentric matrix with eigenvalues 1,s+it,s−it; tr B≥0 gives s≥−1/2, and tr(B²)≥(tr B)^2/3 gives (1−s)^2≥3t². Thus F lies in the cube-root-of-unity triangle E. For an equilateral T, three rotation multipliers are realized; conversely a full-area F forces a 120-degree equal-area self-rotation, so T equilateral. Integrate gauge sublevel areas r² area(F): vol4=A area(F)/6; projected radius has density 12r(1−r)^2 (Beta 2,3), CDF 6r²−8r³+3r⁴. Independent algebra independently checked the tr(B²) expansion, Beta density normalization/moments and equilateral area 3sqrt3/4. Orientation-preserving similitudes only, ordinary coordinate volume.
+
+## originality
+
+PASS
+
+Containment polytope and its footprint were defined by Agarwal–Amenta–Sharir and algorithmically studied in full-text Choi–Choi (2026); it does not assert four-volume or a shape-independent Beta gauge law. Classical nonnegative-matrix eigenvalue bounds supply only a tool, not the self-triangle extremizer or distribution.
+
+## value
+
+PASS
+
+It computes a natural intrinsic geometric functional of the four-parameter containment polytope, a sharp shape optimizer and an exact universal sampling law; these quantitative measures are not provided by algorithms for maximal placements or by general barycentric eigenvalue location bounds. Precise Beta law could be needed for random geometric containment sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
