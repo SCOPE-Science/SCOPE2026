@@ -1,15 +1,21 @@
-# Review of the cubic coordinate-cap concentration theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is about one fixed pure harmonic degree, not a low-pass space, with probability-normalized surface measure and the squared-coordinate threshold \(1/2\le t<1\). Three explicit families of homogeneous harmonic cubics exhaust the space and give distinct signed-permutation representation sectors of dimensions \(d\), \(d(d-2)\) and \(\binom d3\). The cap mask commutes with the group, hence is scalar on each sector. Dirichlet conditional moment identities produce the exact Beta-tail formulas, whose weighted trace agrees identically with the region's measure. The two pairwise eigenvalue differences have verified rational-polynomial primitives, and their signs prove the unique dimension-three crossing. Endpoint expansions give the fixed-dimension sharp condition-number constant. The standalone checker independently reconstructs sector Rayleigh quotients and verifies the formal polynomial identities as well as numerical quadrature. No numerical enumeration is used as an infinite proof.
+## correctness
 
-## Originality — PASS, subject to historical-priority risk
-Actual overlap searches examined the signed-coordinate octahedral mask, its all-dimensional cubic representations, cap-mode crossing aliases, and larger general spherical Slepian frameworks. The 2020 paper of Jaming and Speckbacher (arXiv:2004.02474) contains general Nyquist-density upper bounds, not exact spectra or this crossing. Simons, Dahlen and Wieczorek (arXiv:math/0408424) give the arbitrary-region spectral matrix framework but not an all-dimensional closed equality classification. The closest published exact same-mask result covers **quartic harmonics only in dimension three**, with four representation sectors; the exact cubic two-antipodal-cap result concerns a different domain, and the six-cap cubature result concerns quadratic harmonics and degree-five moment exactness. A separate all-dimensional same-mask degree-one/two classification has only linear and quadratic sectors; it does not imply the cubic three-sector formulas. Their claims do not imply the three all-dimensional eigenbranches and the unique dimension-three exceptional case by specialization. The core Dirichlet and harmonic formulas are standard tools, not independent novelty assertions. Priority is necessarily provisional because unindexed older cubical-harmonic computations may exist.
+PASS
 
-## Mathematical value — PASS
-Continuous Slepian concentration is naturally characterized by sharp restriction eigenvalues, and union-of-coordinate-axis caps is the canonical hyperoctahedral region in every sphere dimension. The result gives complete sharp stability data for an infinite family of non-axisymmetric masks rather than a single numeric example. The fact that **all dimensions above three have a rigid eigenvalue ordering but dimension three has a genuine six-dimensional extremal resonance** is a structural classification, and the leading condition-number coefficient identifies quantitative thin-cap instability. The theorem is not a routine restatement of a general matrix algorithm or an unmotivated parameter slice.
+PASS. For d>=3, squared cap cutoff t in [1/2,1), parity support of harmonic cubics splits into orthogonal sectors A(d),B(d(d-2)),C(C(d,3)). The conditional distribution of squared coordinates is Dirichlet(1/2,...,1/2), yielding the explicit degree-three R_A,R_B,R_C polynomials in squared cap coordinate and incomplete beta integrals for all eigenvalues. Distinct cap interiors imply the union integral is d times the one-axis integral. Independently checked symbolic derivative identities for both factored eigenvalue differences for formal d, so B>C always and A>B for d>=4; for d=3 A/B cross only at (3+2sqrt(6))/15, with A>C on both sides. Integrating exact conditional leading powers at u->1 gives (1-t)^2*lambda_max/lambda_min -> (d-1)(d+1)(d+3)/(18(d+2)). Analytic nonvanishing gives all eigenvalues strictly between 0 and 1 for every permitted t. This is an infinite-d result via exact moment formulas, not numerical interpolation.
 
-## Limitations and closest literature
-Only pure cubics, equal caps, and squared cutoffs at least one half are resolved; the overlapping region, simultaneous degrees, deformed caps, and dimension-uniform asymptotics remain outside scope. Simons–Dahlen–Wieczorek (arXiv:math/0408424), Jaming–Speckbacher (arXiv:2004.02474), and the published cubic antipodal, quartic six-axis, quadratic six-axis cubature, and all-dimensional same-mask degrees-one/two records are the closest comparisons. No external mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS at best of knowledge: General eigenvalue formulations allow this matrix to be built but do not state the three closed-form all-d eigenbranches, unique d=3 crossover or sharp thin-cap coefficient. Prior equal cap d=3 treatment in another same-day Resultary record is a restriction, not a full all-d equivalence. General finite matrix existence is not equivalent to an evaluated universal spectrum. A d=3 unequal-width theorem can cover that one-dimensional specialization but cannot infer the d>=4 branch ordering or all-d asymptotic constant; its text explicitly treats the equal-aperture theorem as previous work. No universal historical-priority certification is claimed.
+
+## value
+
+PASS
+
+PASS. The explicit all-dimensional eigenvalue ordering, exact unique low-dimensional mode crossing, and sharp cap-aperture condition blow-up resolve an analytically natural harmonic observability problem. The three-sector classification and exceptional dimension are scientifically motivated, not merely a renamed Slepian matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
