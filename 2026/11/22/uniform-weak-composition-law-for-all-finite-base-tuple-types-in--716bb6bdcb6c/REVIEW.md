@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact circle model partitions nonparameter vertices into three lifts of each quotient-circle gap. Distinct unary fingerprints identify lifted gaps; each pair relation, together with lift labels, recovers projected order inside a gap. Conversely arbitrary gap occupancies, lifts and orders are realized by density. Thus every type is counted exactly once and the all-arity formula follows. The actual embedded checker independently enumerates ternary edge fingerprints, with exact rational sampling sufficient for the tested finite arities; checks agree in 13 cases. The infinite assertion rests on the geometric argument, not extrapolation.
+
+**Originality — PASS, provisional.** Full accessible material from Bodirsky–Nešetřil (S(3) construction), Macpherson's survey (homogeneous circular family and orbit growth) and Hamann (classification context) was compared to the marked-base type normal form. The source material establishes the circular model but none of the inspected passages states the exact count conditional on a nonempty arbitrary pointwise base together with uniform weak-composition distribution. Actual semantic database and literature searches likewise returned no dominating equivalent. This absence is not a proof of uniqueness; a specialized older circular-group orbital enumeration may imply it.
+
+**Mathematical value — PASS.** This determines an entire naturally motivated logical invariant for every named finite base of a non-free-amalgamation homogeneous digraph. The exact order-and-lift normal form is more informative than a scalar count: the induced uniform occupancy law gives an exact random-type sampler and quantifies how the pointwise stabilizer constrains finite extensions. The independence from the base's induced graph is a structural universality assertion, not a choice of isolated parameters.
+
+Closest background: Bodirsky–Nešetřil, §7, and Macpherson, §2.3, plus Cherlin's original classification. Boundaries: nonempty pointwise base, injective new coordinates, logical rather than geometric probability; the day-level historical priority of the origin is not certified. An independently performed audit is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
