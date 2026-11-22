@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "With M(d)=[[1-d,d],[d,1-d]], H=diag(r,1), L=diag(1,r), P=MLMLMH, exact trace is (r+1)(1-d)[r-2rd+(r+1)^2d^2] and determinant r^3(1-2d)^3. For d<=1/2 the lesser eigenvalue is at most sqrt(det)<=r^(3/2)<r^2; for d>1/2 it is negative. Thus sign of rho(P)-r^2 is exactly negative sign of Q_r(d) where chi_P(r^2)=r^2 d(r-1)Q_r(d). Q has discriminant (r^2-4r+1)(r^2+4r+1), positive endpoint values and interior vertex, giving exactly the two roots and the threshold 2+sqrt(3); at equality the positive double root gives a distinct tied optimum. Its vertex exceeds 1/2 for all r>1; Q(1/2)=(-r^2+4r+1)/4 gives the secondary onset 2+sqrt(5). Cyclic permutation and patch swaps exhaust binary 3-phase words. The included SymPy checker independently passed 721 assertions (ten exact symbolic identities, 707 rational diagnostic matrix checks, four extra exact sign checks). Its finite grid alone is not a continuum proof.",
+    "risks": [
+      "No uniqueness of the global optimizer above the threshold is asserted.",
+      "The derivation applies only to lossless symmetric two-patch linear models with fixed season rates; the inferred growth factor does not equal finite-population survival."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schreiber & Li arXiv:1007.5267v1 and Journal of Biological Dynamics HTML: evolutionary selected-rate criteria and period-two symmetrizable dispersal; no complementary three-phase contrast classification located in inspected sections.",
+        "Katriel arXiv:2104.01589v4 HTML §§1–2: continuous-time ODE with migration rate m and periodically varying instantaneous growth rates, distinct from M(d)G_t products.",
+        "Indexed 2026/10/26/SCOPE-two-season-endpoint-optimality-and-the-first-interior-dispersal--4bf78d70bf53 presents a universal two-season endpoint theorem and an example of three-season interior superiority, not an all-r binary three-season threshold."
+      ],
+      "reasoning": "General Perron-Floquet methodology and the fact that three seasons can yield interior advantage are existing mathematics. The complete sharp contrast parameter diagram, jump location, and capped-exchange comparison require statements not supplied by these more general context results. A broad existence statement does not entail an exact iff on r and d.",
+      "searches": [
+        "periodic two patch growth migration three-step resource pulse, sedentary versus moving, spectral radius dispersal threshold 3.732",
+        "ecological dispersal induced growth: repeated season in one patch and one season in the other, migration tradeoff Floquet eigenvalue",
+        "three season two patches two identical environments one reversed fertility, sharp spectral radius improvement relative to sedentary",
+        "Schreiber Li evolution of unconditional dispersal periodic environments three period two patch migration 2010 theorem",
+        "periodic spatial environments optimal dispersal rate two patch temporal periodic matrix alternating environment 1980 1990"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1007.5267v1 (abstract and substantial HTML text)",
+      "arxiv:2104.01589v4 (HTML sections 1–2.3)",
+      "McPeek & Holt DOI 10.1086/285453 (abstract only)",
+      "2026/10/26/SCOPE-two-season-endpoint-optimality-and-the-first-interior-dispersal--4bf78d70bf53 (entire scientific RESULT.md)",
+      "2026/10/12/SCOPE-four-seasons-are-necessary-and-sufficient-for-interior-optimal-d--277a84601303 (entire scientific RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In 2026/10/12/SCOPE-four-seasons-are-necessary-and-sufficient-for-interior-optimal-d--277a84601303, the full three-season endpoint comparison is stated for equal-pool d/2<=1/2, and it is compatible with the present lower bound r>2+sqrt(5) on benefit within that cap.",
+        "In 2026/10/26/SCOPE-two-season-endpoint-optimality-and-the-first-interior-dispersal--4bf78d70bf53, the specific three-season witness has a neutral season and provides no r-dependent continuum classification.",
+        "Schreiber and Li distinguish ecological growth and evolutionary invasion objectives; those results do not deliver the present fixed-environment optimal contrast thresholds."
+      ],
+      "reasoning": "The current direct-exchange claim is not a corollary of equal-pool endpoint optimality because it uses allowed exchange fractions >1/2. Conversely, the independent capped-threshold proof follows from Q_r(1/2), not a retelling of their universal endpoint theorem. A general three-season witness does not imply the two exact radical constants, strict winning interval, or optimizer jump for all binary season profiles.",
+      "searches": [
+        "three season alternating favorable habitat two patch periodic dispersal matrix, threshold 2 + square root of 3, optimum discontinuous migration, dispersal induced growth",
+        "three season two patches two identical environments one reversed fertility, sharp spectral radius improvement relative to sedentary",
+        "three-season unequal duration two habitat local reproduction benefit of migration above one half; direct swapping vs complete redistribution",
+        "evolution dispersal periodic three phase two patch complete mixing dispersal optimal 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full RESULT.md inspected for indexed 2026/10/26/SCOPE-two-season-endpoint-optimality-and-the-first-interior-dispersal--4bf78d70bf53; its season sequence uses I,diag(1,4),diag(4,1), not one H_r and two L_r.",
+        "Full RESULT.md inspected for indexed 2026/10/12/SCOPE-four-seasons-are-necessary-and-sufficient-for-interior-optimal-d--277a84601303; its M(d) has off-diagonal d/2 and d<=1, whereas the current M(d) has off-diagonal d up to 1.",
+        "No equivalent closed contrast boundary surfaced in the searched mathematical and ecological abstracts."
+      ],
+      "reasoning": "The two exchange operators are equivalent only after rescaling within d<=1/2; the new advantage onset occurs at d=(3-sqrt(3))/2>1/2 and therefore is outside that model. Both indexed results are closely related, but neither states the exact Q_r(d) sign classification for complementary three-season binary profiles.",
+      "searches": [
+        "three season alternating favorable habitat two patch periodic dispersal matrix, threshold 2 + square root of 3, optimum discontinuous migration, dispersal induced growth",
+        "critical 2+sqrt3 fitness contrast for three season two patch symmetric dispersal",
+        "two patch period three binary high low fertility seasonal swapping versus equal-pool mixing contrast thresholds square roots 3 and 5",
+        "\"2+sqrt(3)\" \"dispersal\" \"three\" patches seasons",
+        "\"2 + sqrt(3)\" \"periodic\" dispersal population two patches"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches yielded the two close mathematical records 2026/10/26/SCOPE-two-season-endpoint-optimality-and-the-first-interior-dispersal--4bf78d70bf53 and 2026/10/12/SCOPE-four-seasons-are-necessary-and-sufficient-for-interior-optimal-d--277a84601303, but not a table or record with the displayed two exact r thresholds.",
+        "Keyword searches for the radical constant and periodic patch model did not locate an exact published parameter table."
+      ],
+      "reasoning": "The theorem is an all-continuum analytic classification, not a finite database census. Search absence alone is insufficient for novelty; the novelty assessment uses the material-reading and implication comparisons below.",
+      "searches": [
+        "critical 2+sqrt3 fitness contrast for three season two patch symmetric dispersal",
+        "discontinuous onset of optimal dispersal in periodic two habitat three season fitness contrast",
+        "two patch period three binary high low fertility seasonal swapping versus equal-pool mixing contrast thresholds square roots 3 and 5",
+        "\"2+sqrt(3)\" \"dispersal\" \"three\" patches seasons",
+        "\"2 + sqrt(3)\" \"periodic\" dispersal population two patches",
+        "exact abrupt onset of migration advantage under two consecutive seasons with the same favored patch"
+      ]
+    },
+    "rationale": "The new claim is a complete binary three-season, all-fitness-contrast comparison with exact winning fractions, a sharp onset r=2+sqrt(3), a distinct capped-rate onset r=2+sqrt(5), and discontinuity of global-optimizer locations. The closest indexed three-season witness is for a different profile with a neutral phase; the closest complete equal-pool theorem restricts physical cross-patch exchange to d<=1/2. Neither theorem states these thresholds or implies their equality cases without a new exact factorization and discriminant analysis. Scientific noncoverage is qualified by the residual risks, including restricted access to older primary texts.",
+    "residual_risks": [
+      "Older dispersal papers, including McPeek and Holt (1992), were not fully accessible; an equivalent hidden appendix cannot be excluded.",
+      "Positive-matrix spectral-radius optimization results with non-ecological terminology could imply the factorization-based special case; independent historical-priority validation is absent.",
+      "This is a natural restricted binary three-season model, not a proof of a universal three-season threshold under arbitrary positive fecundity matrices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the present 1:2 binary-calendar all-contrast threshold; related 3-season existence witness has a neutral reproduction phase",
+        "evidence": "Its specific three-season matrices are I, diag(1,4), diag(4,1) and its statement gives an existence witness, not r_c or d_±.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-two-season-endpoint-optimality-and-the-first-interior-dispersal--4bf78d70bf53/RESULT.md",
+        "material_read": "Entire RESULT.md, including statement, scope, proof, relationship and limitations",
+        "method": "Read-only GitHub file retrieval",
+        "title": "Two-season endpoint optimality and the first interior dispersal optimum",
+        "trigger": "Strong match: reversible periodic 2-patch growth, 3-season counterexample"
+      },
+      {
+        "assessment": "Not covering direct exchange d>1/2; consistent with the capped part of the new result",
+        "evidence": "Its M(d) entries are 1-d/2,d/2 for d in [0,1], so the cross-patch fraction is at most 1/2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-four-seasons-are-necessary-and-sufficient-for-interior-optimal-d--277a84601303/RESULT.md",
+        "material_read": "Entire RESULT.md, including model definition, all-phase proof and limitations",
+        "method": "Read-only GitHub file retrieval",
+        "title": "Four seasons are necessary and sufficient for interior-optimal dispersal in a two-patch periodic model",
+        "trigger": "Possible stronger 3-season full comparison"
+      },
+      {
+        "assessment": "Related fitness selection theory and period-two conditions but no same binary 3-season exact threshold in read material",
+        "evidence": "Theorem 2 concerns 2-period evolutionary stability and source/sink conditions; dated arXiv posting 2010-07-29.",
+        "identifier_or_url": "https://arxiv.org/abs/1007.5267",
+        "material_read": "ArXiv abstract and publisher free HTML introduction, model and Theorem 2 / periodic examples; not every appendix",
+        "method": "Full HTML article excerpts and arXiv bibliographic record",
+        "title": "Evolution of unconditional dispersal in periodic environments",
+        "trigger": "Exact discrete-time periodic dispersal background"
+      },
+      {
+        "assessment": "Continuous-time patch migration different from discrete post-growth exchange; supports motivation only",
+        "evidence": "Equation (1) is an ODE x_i prime = r_i(ωt)x_i + m sum L_ij(x_j-x_i), rather than a product of M(d)G_t.",
+        "identifier_or_url": "https://arxiv.org/html/2104.01589v4",
+        "material_read": "Full HTML opening sections 1, 2.1–2.3 including model and central statement; not every proof section",
+        "method": "ArXiv HTML material inspection",
+        "title": "Dispersal-induced growth in a time-periodic environment",
+        "trigger": "Potential general domination by two-patch periodic dispersal theory"
+      },
+      {
+        "assessment": "Insufficient material to rule out an older equivalent specialized result",
+        "evidence": "The abstract concerns spatiotemporally varying carrying capacities and evolved dispersal; source is McPeek and Holt (1992).",
+        "identifier_or_url": "https://doi.org/10.1086/285453",
+        "material_read": "Publisher indexed abstract only; full paper not accessible during this check",
+        "method": "Web indexed metadata and abstract",
+        "title": "The evolution of dispersal in spatially and temporally varying environments",
+        "trigger": "Older relevant two-patch dispersal model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8d9ff6f0-b92c-4ca8-af2e-412533eef434",
+  "value": {
+    "rationale": "Two complementary patch-quality states are the simplest seasonally displaced resources, and all nonconstant binary three-season calendars collapse to this one exact classification. The theorem identifies a sharp physical-fitness contrast at which direct migration can improve linear growth, a discontinuous migration onset, and a different sharp threshold for the policy constraint of complete equal-pool redistribution. These are structural regimes with consequences for how movement constraints interact with a one-versus-two season bias, not a small numerical gain or a cosmetic reformulation of the known existence of dispersal benefit. It motivates comparison of different migration mechanisms while clearly restricting biological interpretation.",
+    "risks": [
+      "Fixed contrast and deterministic three-step calendar are a benchmark, not a calibrated conservation prescription."
+    ],
+    "status": "PASS"
+  }
+}
