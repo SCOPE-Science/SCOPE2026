@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The integer half-shadow weights have counts (12,32,4) at weights (0,1,2), total 40; a sign-case proof shows each of the 384 source decks has weight at least 2. Hence every code has at most 20 words. The ten explicit tuples and their negations yield 20 distinct codewords with pairwise disjoint deletion sets. The actual standalone script checks forward deletions and independently generated inverse insertions on every source/recipient incidence; it verifies the 384 dual constraints and 46 distinct outputs. No optimizer termination or numerical estimate is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gabrys et al. theorem gives asymptotic bounds for source alphabet S_n without signs: https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf",
+        "Galvão et al. results are distances for signed reversals/transpositions: https://link.springer.com/article/10.1186/s13015-015-0040-x"
+      ],
+      "reasoning": "An unsigned capacity upper bound does not automatically dominate the signed code because sign retention expands the output alphabet and alters collisions. Signed-reversal distance results do not bound zero-error deletion packings. No stronger theorem directly covering the signed four-rank incidence problem was identified.",
+      "searches": [
+        "single deletion correcting codes over permutations asymptotic bound Gabrys Yaakobi 2014",
+        "Codes correcting erasures and deletions for rank modulation permutation invariant unsigned",
+        "type B permutation signed sequence deletions genome sorting 2015"
+      ]
+    },
+    "checked_sources": [
+      "https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf",
+      "https://link.springer.com/article/10.1186/s13015-015-0040-x",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-permutation-successions-classification-of-optimal-ternary-sparse--9818c4545657",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-two-marker-systematic-permutation-invariant-single-deletio--e0a01394b7e2",
+      "https://cris.technion.ac.il/en/publications/codes-correcting-erasures-and-deletions-for-rank-modulation/",
+      "https://arxiv.org/abs/2609.37578"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 paper Section III and Section IV: unsigned consecutive runs and VT-signature constructions, but no orientation bits: https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf",
+        "2015 paper sections Background, Preliminaries, Conclusions: signed representation with sorting tasks: https://link.springer.com/article/10.1186/s13015-015-0040-x"
+      ],
+      "reasoning": "The theorem is the exact cardinality of a largest family with pairwise disjoint sign-preserving standardized deletion decks in B_4. No checked prior statement entails both the upper bound 20 and existence of a 20-codeword family; the upper bound here uses a new explicit source-uniform signed sign-pattern weighting. Known definitions and an unsigned deletion-equality lemma are credited.",
+      "searches": [
+        "Single-Deletion-Correcting Codes over Permutations consecutive-run lemma construction 2014",
+        "Sorting signed permutations by short operations short reversals results 2015",
+        "type B signed permutation rank-standardized single deletion code maximum cardinality orientation preserved"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The complete signed source has 384 distinct four-tuples and the sign-retaining received alphabet has 48 three-tuples. Neither rank-standardized unsigned deletion in Gabrys et al. nor sorting by signed reversals in Galvão et al. has this incidence relation.",
+        "2014 unsigned definition and consecutive-run Lemmas 2–3: https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf",
+        "2015 signed-order representation, Preliminary definitions: https://link.springer.com/article/10.1186/s13015-015-0040-x"
+      ],
+      "reasoning": "A direct equivalence would need to preserve both sign tuples and the absolute-rank renormalization of every deletion. Ordinary unsigned permutations collapse sign variants, while signed sorting acts on equal-sized objects and retains all ranks. Therefore the cited results do not identify the forty-unit weighted certificate or a twenty-source disjoint signed-deck packing.",
+      "searches": [
+        "signed permutations deletion correcting codes hyperoctahedral ranks signed permutation deletion channel literature",
+        "signed permutation standardized deletion shadow intersection packing 4 entries",
+        "type B signed permutation rank-standardized single deletion code maximum cardinality orientation preserved",
+        "exact 20 code signed permutations length four deletion correction",
+        "\"signed permutation\" \"deletion correcting\" code 20 rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research record: Permutation-successions classification of optimal ternary sparse deletion codes: the source consists of ternary words with one 1 and one 2, not signed permutations.",
+        "Published research record on two-marker full-systematic unsigned permutation correction: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-two-marker-systematic-permutation-invariant-single-deletio--e0a01394b7e2",
+        "Prior signed-successions record: https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-permutation-successions-classification-of-optimal-ternary-sparse--9818c4545657"
+      ],
+      "reasoning": "The searched finite-code tables and nearby published records have different source languages or channels. No exact signed four-rank 20-value tabulation was recovered. Available repository summaries are not substitutes for full-text inspections and leave a residual database-coverage risk.",
+      "searches": [
+        "\"signed permutation\" \"deletion correcting\" code 20 rank",
+        "\"hyperoctahedral\" \"deletion\" \"rank\" codes permutation",
+        "signed permutations orientation preserving deletion code maximum 20",
+        "published signed-successions deletion codes ternary sparse codebook classification"
+      ]
+    },
+    "rationale": "The unsigned deletion model and its consecutive-run lemma are known and credited; a signed permutation orientation representation is also known. Neither checked primary theorem, nor the inspected nearby published research summaries, states or implies the precise B_4 signed one-deletion packing capacity of 20, attained by a sign-symmetric construction with a sharp half-integral shadow weight. The available evidence supports a qualified originality assessment, not guaranteed historical priority.",
+    "residual_risks": [
+      "Earlier unindexed exact signed-permutation deletion packing results cannot be ruled out by search alone.",
+      "The two nearby repository full texts were not retrievable; their scientific summaries indicate different source languages, but only those summaries were compared.",
+      "The 2014 conference paper has an established publication year but an unverified earliest public day; 25 March 2015 is the earliest day-verified public source used for archival attribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes unsigned rank-standardized deletion and consecutive runs; does not attach independent signs or state an exact signed B_4 capacity",
+        "evidence": "Sections II–IV, equations defining ordinary S_n and VT-signature construction; the state space is unsigned permutations.",
+        "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf",
+        "material_read": "Full five-page paper as parsed text; specifically Definitions 1–2, Lemmas 2–3, Corollary 2, Theorem 1, and Construction 1; visual inspection of page 1",
+        "method": "Full-text reading with page-image verification",
+        "title": "Single-Deletion-Correcting Codes over Permutations",
+        "trigger": "Closest primary origin of the rank-standardized permutation deletion model"
+      },
+      {
+        "assessment": "Defines signed order and orientation but addresses sorting by reversals/transpositions rather than deletion correction",
+        "evidence": "Preliminaries define B_n, and Conclusions describe only signed sorting and approximation algorithms; originally published 25 March 2015.",
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s13015-015-0040-x",
+        "material_read": "Full accessible HTML article including Background, Preliminaries, Results, Conclusions and publication metadata",
+        "method": "Complete public article text inspection",
+        "title": "Sorting signed permutations by short operations",
+        "trigger": "Natural source model for orientation-carrying signed permutations"
+      },
+      {
+        "assessment": "Different ternary sparse-word deletion coding problem; its signed permutation is a parameterization of optimizers, not source B_4",
+        "evidence": "The published abstract identifies words of composition (n-2,1,1), with maximum n-1 and signed permutations encoding equality cases.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-permutation-successions-classification-of-optimal-ternary-sparse--9818c4545657",
+        "material_read": "Published title and full indexed summary only; full repository page retrieval unavailable",
+        "method": "Indexed claim comparison, attempted repository access",
+        "title": "Permutation-successions classification of optimal ternary sparse deletion codes",
+        "trigger": "Nearby indexed research result with \"signed permutation\" in its summary"
+      },
+      {
+        "assessment": "The source model is systematic ordinary permutation coding with additional redundancy markers, not signed four-rank non-systematic packing",
+        "evidence": "Summary concerns insertion of two markers to retain 3 or 4 message symbols, with no signed input alphabet.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-two-marker-systematic-permutation-invariant-single-deletio--e0a01394b7e2",
+        "material_read": "Published title and full indexed summary only; full repository page retrieval unavailable",
+        "method": "Indexed claim comparison, attempted repository access",
+        "title": "Sharp two-marker systematic permutation-invariant single-deletion codes for three and four information symbols",
+        "trigger": "Nearby four-symbol permutation deletion code construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5ea46e0c-ed18-4506-b64d-c2c9d00d03b1",
+  "value": {
+    "rationale": "The problem is a natural first small benchmark for unknown deletion of one oriented rank, where the missing rank and sign are lost but relative order and surviving signs remain. Its exact 20-message capacity has a short transparent weight certificate and an explicitly sign-complement-closed optimum, demonstrating a genuinely nontrivial interaction between orientation and standardized ranks. It does not claim a paper-scale general capacity formula or arbitrary extensions.",
+    "status": "PASS"
+  }
+}
