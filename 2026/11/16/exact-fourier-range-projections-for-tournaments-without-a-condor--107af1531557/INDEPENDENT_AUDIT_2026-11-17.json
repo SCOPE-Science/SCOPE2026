@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:50:09.820753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every Condorcet-winner event is a disjoint codimension-(n-1) Boolean face. Inclusion-exclusion is exactly 1 minus the sum of the n face indicators, so nonzero Walsh sums vanish except on incident-edge stars; singleton frequencies cancel between the two endpoint faces. At each nonzero allowed frequency the magnitude is B=2^(E-n+1), while the zero multiplier is B*(2^(n-1)-n). For any projection to this character span, translation averaging preserves its range and cannot increase endpoint norm, and the unique translation-invariant projection is Fourier multiplication by 1_Omega, proving global (not just convolution) minimality. Fourier inversion gives kernel numerator 2^(n-1)H(G)+4e(G)-n²+1. Independent complete Walsh computations for orders 3,4,5 give rank 4,17,56 and exact norms 1,101/32,355/64. The n->infinity constant follows after separating the rare isolate contribution (uniformly O(n^3 2^-n)) and applying a binomial central limit theorem with uniform integrability to 4e(G)-n²+1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Regular seven-vertex tournaments are a constrained degree-balanced subset, not no-Condorcet-winner tournaments across all n.",
+          "Translation averaging is a general known projection argument; it does not supply the explicit idempotent kernel of this combinatorial ensemble."
+        ],
+        "reasoning": "General projection-norm methodology is prior art, but the exact graph-statistic formula and asymptotic do not follow without a new ensemble-specific Walsh calculation.",
+        "searches": [
+          "Resultary: tournaments no Condorcet winner Walsh Fourier range projection l1 norm asymptotic graph isolated vertex",
+          "Resultary: Walsh spectrum and sharp endpoint projection norm for regular seven-vertex tournaments",
+          "doi:10.1007/s00013-003-0582-x"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and check_tournaments.py",
+        "Resultary semantic query Resultary: tournaments no Condorcet winner Walsh Fourier range projection l1 norm asymptotic graph isolated vertex",
+        "Altman-Kleinberg AAAI 2010 DOI 10.1609/aaai.v24i1.7613",
+        "Kolesnik-Sanchez arXiv:2009.09322",
+        "Gilbert-Rzeszotnik DOI 10.5802/aif.2556",
+        "Resultary regular 7-vertex tournament Walsh projection findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Altman–Kleinberg analyzes nonmanipulable randomized tournament selections, not the Fourier range of the no-winner indicator.",
+          "General Fourier transform norms on finite abelian groups do not directly evaluate the n-dependent idempotent graph-sum constant."
+        ],
+        "reasoning": "The claimed asymptotic requires a random-graph binomial CLT and isolate correction not found in compared tournament selection statements.",
+        "searches": [
+          "Resultary: tournaments no Condorcet winner Walsh Fourier range projection l1 norm asymptotic graph isolated vertex",
+          "doi:10.1609/aaai.v24i1.7613",
+          "doi:10.5802/aif.2556"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Condorcet winner means deleting disjoint Boolean faces; the transform is a star-supported Walsh function.",
+          "Minimum endpoint projection norm is the l1 norm of the unique translation-invariant Fourier idempotent."
+        ],
+        "reasoning": "Tournament winner rules and the same Boolean face ensemble can be described differently, but published voting-rule formulations do not assert this Fourier projection operator invariant.",
+        "searches": [
+          "Resultary: tournaments no Condorcet winner Walsh Fourier range projection l1 norm asymptotic graph isolated vertex",
+          "doi:10.1609/aaai.v24i1.7613"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n=3,4,5 finite constants independently checked were not identified as a preexisting all-order tournament projection table.",
+          "Prior exact regular-seven tournament norm 11155/256 concerns regular outcomes, not no-winner outcomes."
+        ],
+        "reasoning": "No exact same-ensemble all-n table was located; prioritize the proved symbolic identity over absence-of-match inference.",
+        "searches": [
+          "Resultary: tournaments no Condorcet winner Walsh Fourier range projection l1 norm asymptotic graph isolated vertex",
+          "doi:10.1609/aaai.v24i1.7613",
+          "Resultary: complete Walsh recovery and sharp projection constant for regular seven-vertex tournaments"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact all-order endpoint Fourier projection constant and evaluated asymptotic. Tournament voting methods study Condorcet selection mechanisms; score sequences and regular-tournament Walsh results involve different sets. Classical idempotent-averaging projection minimality is explicitly a known method, not the new assertion. No inspected source supplied the particular graph isolate/edge formula or the limiting constant, but specialized character sums may exist.",
+      "residual_risks": [
+        "Unindexed historic character-sum formulas for winner-free tournaments might imply the Fourier support.",
+        "The complete literature on endpoint projection constants for tournament indicators has not been exhaustively checked.",
+        "No intermediate-lp optimal projections or biased-tournament extensions are claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECTLY_COVERING",
+          "evidence": "Selection rules and manipulations do not include Fourier coefficients of the indicator of lacking a winner or endpoint projection norms.",
+          "identifier_or_url": "https://doi.org/10.1609/aaai.v24i1.7613",
+          "material_read": "Complete five-page article text as available via public PDF extraction; a screenshot was blocked by provider",
+          "method": "read introduction, mechanisms and results; compare operator statement",
+          "title": "Nonmanipulable Randomized Tournament Selections",
+          "trigger": "Same labelled-tournament winner event"
+        },
+        {
+          "assessment": "NO_ESTABLISHED_IMPLICATION",
+          "evidence": "Score-sequence geometry does not immediately yield Walsh support and projection norms; full-paper coverage not ruled out.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.09322",
+          "material_read": "Abstract and accessible published source description; full article not verified as read here",
+          "method": "bibliographic and theorem-topic check",
+          "title": "The Geometry of Random Tournaments",
+          "trigger": "Potential stronger tournament structural results"
+        },
+        {
+          "assessment": "GENERAL_BUT_NOT_EXACT",
+          "evidence": "General operator-norm theory is not itself a tabulation of this tournament-range Fourier idempotent.",
+          "identifier_or_url": "https://doi.org/10.5802/aif.2556",
+          "material_read": "Abstract/bibliography and known general method, not a full source comparison",
+          "method": "abstract + mathematical reduction comparison",
+          "title": "The norm of the Fourier transform on finite abelian groups",
+          "trigger": "Potential dominating Fourier projection bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The range-projection constant is a natural sharp stability/amplification invariant of a structured Boolean convolution, optimized over *all* projections and with a derived asymptotic constant. Its exact dependence on graph isolates and edges is a useful structural bridge from Fourier analysis to random graphs, not merely another count of winner-free tournaments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All-orders theorem is proven symbolically; direct exhaustive checks were at n<=5, not evidence for infinite n by themselves.",
+    "Endpoint projection norms concern l1 and l-infinity, not all l^p.",
+    "No unbiased-noise or noncomplete-tournament extension is asserted."
+  ],
+  "schema_version": 1
+}

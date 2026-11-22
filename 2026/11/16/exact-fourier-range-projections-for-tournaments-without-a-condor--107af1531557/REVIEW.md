@@ -1,15 +1,21 @@
-# Scientific review of winner-free tournament Fourier projections
+# Independent mathematical audit
 
-## Correctness
-PASS. Each excluded Condorcet-winner event fixes an edge star and is disjoint from every other such event. Character orthogonality gives the exact Fourier support, including cancellation at singleton-edge frequencies. The inverse transform gives a graph polynomial in edge count and isolated-vertex count. Translation averaging is applied to arbitrary projections, not merely convolution projections. The graph-sum expression follows exactly; the asymptotic uses a binomial CLT plus a controlled exponentially rare isolated-vertex correction. The included checker independently verifies every coefficient through six vertices and the exact binomial count through twenty.
+## correctness
 
-## Originality
-PASS under bounded documentary comparison. Altman–Kleinberg (2010) studies tournament winner selection and incentives, not Fourier ranges. Kolesnik–Sanchez (2020/2023) studies attainable score sequences through zonotopes and forests rather than winner-free character sums; its open full article was inspected. Zippin (2004) establishes the general averaging principle; this general method is explicitly acknowledged and is not claimed novel. Gilbert–Rzeszotnik (2010) concerns norms of the whole Fourier transform, not this particular idempotent multiplier. Relevant indexed mathematical findings concern regular-tournament first-coordinate sampling, random score-histogram covariance and other supports, not the non-winner range. Exact equivalent formulations and full-text historical coverage beyond these sources remain residual risks.
+PASS
 
-## Mathematical value
-PASS. The projection constant is the exact smallest norm over all bounded linear projections, not just the norm of a convenient Fourier projection. Its all-order expression unexpectedly mixes a central-limit contribution with a rare-graph-isolation contribution of the **same linear order**. The explicit coefficient \(1+2e^{-1/4}/\sqrt\pi+\operatorname{erf}(1/2)\) and the associated sparse Fourier rank distinguish operator geometry from the classical count of tournaments admitting a winner. The result describes a natural constraint on the complete orientation cube and provides a reproducible family of sharp endpoint stability benchmarks.
+Every Condorcet-winner event is a disjoint codimension-(n-1) Boolean face. Inclusion-exclusion is exactly 1 minus the sum of the n face indicators, so nonzero Walsh sums vanish except on incident-edge stars; singleton frequencies cancel between the two endpoint faces. At each nonzero allowed frequency the magnitude is B=2^(E-n+1), while the zero multiplier is B*(2^(n-1)-n). For any projection to this character span, translation averaging preserves its range and cannot increase endpoint norm, and the unique translation-invariant projection is Fourier multiplication by 1_Omega, proving global (not just convolution) minimality. Fourier inversion gives kernel numerator 2^(n-1)H(G)+4e(G)-n²+1. Independent complete Walsh computations for orders 3,4,5 give rank 4,17,56 and exact norms 1,101/32,355/64. The n->infinity constant follows after separating the rare isolate contribution (uniformly O(n^3 2^-n)) and applying a binomial central limit theorem with uniform integrability to 4e(G)-n²+1.
 
-## Limits
-Only the complete labelled tournament family and endpoint projection norms are settled; a full intermediate-\(p\) theory is not claimed. Historical-priority verification is bounded and independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact all-order endpoint Fourier projection constant and evaluated asymptotic. Tournament voting methods study Condorcet selection mechanisms; score sequences and regular-tournament Walsh results involve different sets. Classical idempotent-averaging projection minimality is explicitly a known method, not the new assertion. No inspected source supplied the particular graph isolate/edge formula or the limiting constant, but specialized character sums may exist.
+
+## value
+
+PASS
+
+The range-projection constant is a natural sharp stability/amplification invariant of a structured Boolean convolution, optimized over *all* projections and with a derived asymptotic constant. Its exact dependence on graph isolates and edges is a useful structural bridge from Fourier analysis to random graphs, not merely another count of winner-free tournaments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
