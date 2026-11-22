@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof bounds noncorner equilibria by two per edge, then uses cyclic alternation on the invariant boundary. The sole potentially problematic 12-equilibrium case is handled by the constant signs of the common quadratic leading coefficients on paired sides: only one corner can attract along both incident edges and each open side admits at most one tangential sink. Perturbation handles stationary edges without destroying hyperbolic sinks. The exact witness has four attracting open-edge equilibria and one attracting corner, all with strictly negative planar Jacobian eigenvalues; the accompanying standard-library exact-arithmetic checker confirms every root and all twelve local stability types. The general bound is analytic, not inferred from finite computations.
+## correctness
 
-**Originality — PASS within inspected literature.** Gasull–Gouveia–Santana (arXiv:2410.15354v1) discuss centers and interior limit cycles of the broad quartic family, rather than the sharp full-planar boundary-sink capacity. Grau–Szántó (DOI 10.1007/s12346-024-01106-9) restrict to a six-parameter center/focus subfamily and obtain interior limit cycles. A closely related published equilibrium census concerns the *total number* of boundary equilibria for that restricted family (at most eleven), not maximal hyperbolic boundary sinks in the unrestricted class; the distinction in assumptions and claim is material. General alternation of attracting and repelling boundary flow is classical and is not claimed as new. Residual publication-priority risk remains from unindexed uses of other terminology.
+PASS
 
-**Value — PASS.** The capacity of simultaneously stable boundary outcomes is a natural dynamical invariant of an invariant-square evolutionary game flow, distinct from a count of algebraic equilibria or interior periodic orbits. The upper bound is attained robustly by a coefficient-open family, with twelve hyperbolic boundary equilibria and five attracting outcomes. The result supplies a complete and sharp answer to this stability-capacity question without asserting results about interior dynamics.
+For arbitrary real polynomials f,g of total degree ≤2, all four lines of Q=[-1/2,1/2]^2 are invariant. If finitely many boundary equilibria, each open edge contributes ≤2 and four fixed corners give N≤12. On an oriented invariant circle, each full hyperbolic sink is attracting from both adjacent arcs, requiring a separate intervening zero; 2S≤N, so N≤11 implies S≤5. If N=12, each edge has two distinct quadratic roots, exactly one tangential sink per edge. Opposite horizontal restricted quadratics share the x² leading coefficient and opposite vertical ones share y² coefficient, fixing simultaneous end orientations; at most one corner can attract along both incident edges. Hence ≤4 open-edge plus 1 corner sinks. For an identically stationary edge, hyperbolic sinks persist under generic coefficient perturbation, reducing to finite case. Independent direct evaluation of stated explicit f,g yields horizontal roots ≈(-0.204024,0.404024) and vertical roots ≈(0.0351978,0.3648022), 12 boundary hyperbolic equilibria classified as 5 sinks, 6 saddles, 1 source; all signs are strict, so open coefficient realization. Source exact checker check_boundary_sinks.py uses rational quadratic fields to certify witness; finite check not used for infinite coefficient bound.
 
-**Scope and integrity.** All polynomial factors have total degree at most two; the square is \([-1/2,1/2]^2\); boundary sinks are hyperbolic in the *full plane*. The coefficient-open assertion rests on strict eigenvalue inequalities and the persistence of simple edge roots. Independent validation has not been performed; potential equivalent unindexed results remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: older boundary count restricts coefficients and counts all equilibria; the general arbitrary-quadratic-factor bound counts full-planar hyperbolic sinks, and its 12-equilibrium five-sink witness is outside the restrictive counting conclusion.
+
+## value
+
+PASS
+
+Five is a sharp boundary capacity for a natural broad quartic invariant-square model. It distinguishes full-plane stability from one-dimensional tangential attraction and from total equilibrium counts, with synchronized opposite-edge leading coefficients producing a genuine structural sharp bound. Useful when examining boundary attractor configurations in planar polynomial dynamics; not an arbitrary unmotivated sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

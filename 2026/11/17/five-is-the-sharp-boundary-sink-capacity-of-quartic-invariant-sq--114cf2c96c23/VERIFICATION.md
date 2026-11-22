@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The reproducibility script `check_boundary_sinks.py` uses only the Python standard library. Its exact quadratic-field arithmetic verifies the four edge-root formulas, all root bounds, the two Jacobian eigenvalues at each of the eight open-edge equilibria, and the two diagonal eigenvalues at each corner. Its asserted classification is five sinks, six saddles, and one source, with no zero eigenvalues.
+## correctness
 
-The universal five-sink bound is proved in `RESULT.md` using a boundary equilibrium count, one-dimensional sign alternation, and common leading-coefficient signs across opposite sides. It does not rely on the finite checker. The degeneracy argument uses structural persistence of hyperbolic equilibria within this invariant-square coefficient family.
+PASS
 
-The literature comparison concerns statements and their logical implications: interior limit-cycle counts and boundary-equilibrium counts for a constrained subfamily do not furnish the all-factor maximal boundary-sink count. Equivalent statements in unindexed literature remain possible. Independent mathematical verification has not been performed.
+For arbitrary real polynomials f,g of total degree ≤2, all four lines of Q=[-1/2,1/2]^2 are invariant. If finitely many boundary equilibria, each open edge contributes ≤2 and four fixed corners give N≤12. On an oriented invariant circle, each full hyperbolic sink is attracting from both adjacent arcs, requiring a separate intervening zero; 2S≤N, so N≤11 implies S≤5. If N=12, each edge has two distinct quadratic roots, exactly one tangential sink per edge. Opposite horizontal restricted quadratics share the x² leading coefficient and opposite vertical ones share y² coefficient, fixing simultaneous end orientations; at most one corner can attract along both incident edges. Hence ≤4 open-edge plus 1 corner sinks. For an identically stationary edge, hyperbolic sinks persist under generic coefficient perturbation, reducing to finite case. Independent direct evaluation of stated explicit f,g yields horizontal roots ≈(-0.204024,0.404024) and vertical roots ≈(0.0351978,0.3648022), 12 boundary hyperbolic equilibria classified as 5 sinks, 6 saddles, 1 source; all signs are strict, so open coefficient realization. Source exact checker check_boundary_sinks.py uses rational quadratic fields to certify witness; finite check not used for infinite coefficient bound.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: older boundary count restricts coefficients and counts all equilibria; the general arbitrary-quadratic-factor bound counts full-planar hyperbolic sinks, and its 12-equilibrium five-sink witness is outside the restrictive counting conclusion.
+
+## value
+
+PASS
+
+Five is a sharp boundary capacity for a natural broad quartic invariant-square model. It distinguishes full-plane stability from one-dimensional tangential attraction and from total equilibrium counts, with synchronized opposite-edge leading coefficients producing a genuine structural sharp bound. Useful when examining boundary attractor configurations in planar polynomial dynamics; not an arbitrary unmotivated sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
