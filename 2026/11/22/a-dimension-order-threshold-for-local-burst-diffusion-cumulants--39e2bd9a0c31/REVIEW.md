@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The exact factorial cumulant identity follows from the marked Poisson exponential formula and independent Brownian/death thinning. Its Gaussian scaling asymptotics yield the three regimes separated by \(dk=2\), with an integrable majorant in each application of dominated convergence. The logarithm has a bounded remainder because \(Q_d(u)^k=c_{d,k}/u+O(u^{-2})\) at criticality. The off-source limit uses a small-time Gaussian exponential bound. Exact \(C_{2,2}\) and \(C_{3,1}\) are reconstructed analytically, and 26 finite computations provide consistency checks rather than proof of infinite results. The scope requires a finite, strictly positive \(k\)-th falling-factorial burst moment.
+
+## Originality — PASS, with residual historical risk
+The closest original is Mercado-Vásquez and Boyer (2026), which gives stationary mean density and bursty first-passage laws, not the microscopic factorial-cumulant hierarchy. Cottrell, Swain and Tupper (2012) provide broad branching-generating-function methods and spatial second-order correlations. Their general method is compatible with the present proof, but the assessed dimension/order threshold, sharp local coefficients, and fixed-off-source contrast are not results identified in their displayed analysis. Miles (2025) studies a distinct, switching-intensity gene-expression model and mean/variance quantities. Related indexed claims on far-field normalized burst correlations address large-distance, not shrinking source-centred detector balls. Actual searches, primary material, and implication comparisons are detailed in AUDIT.json. The conceptual frameworks can possibly contain unreported implicit equivalents; this is not a priority certificate.
+
+## Value — PASS
+Local molecular detectors provide a natural length scale, and factorial cumulants quantify correlations due specifically to common synthesis bursts, after subtracting ordinary Poisson shot noise. The \(dk=2\) boundary is a structural recurrence threshold for simultaneous observation of \(k\) independent \(d\)-dimensional motions, rather than a numerical slice. It explains why source-centred cumulants cease to obey naive volume-power scaling, proves independence of death rate in the saturated leading amplitude, and supplies closed-form benchmarks for planar pair clustering and three-dimensional means. It makes a measurable on-/off-source prediction without claiming a general theory of interacting reaction-diffusion systems.
+
+## Literature and limitations
+Sources: https://arxiv.org/abs/2611.04843 ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3382520/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC11978452/ . Primary limitations: instantaneous shared-origin births, no interaction, uniform Brownian diffusion and exponential mortality, arbitrary fixed order only with sufficiently many finite burst moments. Full independent assessment of hidden general-theory corollaries and publication priority is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
