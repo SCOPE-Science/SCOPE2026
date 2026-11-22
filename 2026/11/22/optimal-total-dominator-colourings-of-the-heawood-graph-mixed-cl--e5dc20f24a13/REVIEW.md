@@ -1,0 +1,15 @@
+# Scientific review of optimal total-dominator colourings on the Heawood graph
+
+## Correctness — PASS
+The graph, open-neighbourhood requirement, colour-name quotient and one-vertex-move semantics are precisely defined. The C++17 checker enumerates every restricted-growth set partition of fourteen labelled vertices for all class counts one through eight; exact proper-colouring and total-domination predicates retain \(2751\) at eight, none below. The independently written Python checker enumerates the Fano-side partitions, allowed mixed-block matchings and all moves, and reproduces \(2751\), \((2401,322,28)\), \(11{,}662\) edges, component distribution \(21K_1\sqcup\mathcal C_{966}\sqcup\mathcal C_{1764}\), and the degree histogram. It independently checks the flag structure of each isolate. Both checkers were executed from their included complete sources, not merely read as transcripts. The mathematical completeness proof for both finite encodings appears in `RESULT.md`. There is no conjectural extrapolation to larger projective planes.
+
+## Originality — PASS, with residual risk
+Kazemi's 29 July 2013 initial source defines total-dominator colouring and gives general results. Alaei and Kazemi's 2024 Theorem 4.3 explicitly gives the already-known **minimum eight** for the Heawood graph; this scalar is not claimed as new. Their primary available paper's relevant theorem and proof, which treat the \(q+1\)-regular girth-six Moore graphs, do not classify all optimal colourings, mixed classes or the one-vertex recolouring graph. Henning's 2015 paper provides general bounds; the source material inspected for it was abstract-level only. Two fully inspected related archived mathematical findings concern dominated colourings (the opposite logical quantifiers) and overlapping four-fold total-domination witnesses (not proper optimal partitions). A fully inspected proper three-colouring result shares Fano flags but not this eight-class invariant or its enumerator. No directly covering implication or exact census was found in the accessible searches. Unindexed literature and inaccessible full texts remain priority risks, not claimed nonexistent.
+
+## Value — PASS
+A complete optimizer census and sharp local-mobility decomposition materially extend the previously known scalar eight-colour minimum on the unique cubic girth-six cage. The \(350\) mixed optima distinguish the vertex-first total-dominator condition from the colour-class-first dominated-colouring condition, and \(21\) isolated incident flags coexist with two nontrivial sectors of sizes \(966\) and \(1764\). This is a naturally motivated finite classification rather than an arbitrary parameter slice; no general all-order theorem is asserted.
+
+## Scope and reproducibility limits
+All findings concern the fourteen-vertex Heawood incidence graph, with the incidence model and explicit commands in `RESULT.md`. Counts are exact because the mathematical state space is exhaustively traversed by two independent finite algorithms. There is no external independent validation or full bibliographic priority certification.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,168 @@
+{
+  "correctness": {
+    "rationale": "The C++17 code enumerates all distinct restricted-growth proper partitions with one through eight classes on exactly 14 labeled vertices, tests every vertex against every class by open-neighborhood inclusion, and proves no smaller valid coloring plus 2751 optimal partitions. Its complete one-vertex-move enumeration/BFS yields 11662 edges, 21 isolates and two larger components of 966 and 1764. Independently the Python program enumerates all 877 Fano-side partitions, valid one-to-one nonincident class mergers and the same complete graph, reproducing the full 2401/322/28 mixed breakdown, components and degree histogram and checking 21 flags. Both were run successfully from the actual provided source paths. The proof explains why both finite encodings are complete, rather than mistaking partial sampling for a proof. No infinite extension is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Filomat 38(25) (2024) Theorems 4.2–4.3 prove gamma_t=2(q+1) and chi_td=2q+4 for projective-plane incidence graphs; the proof and Table 1 report scalar invariants only.",
+        "Henning 2015 abstract states general bounds for chi_td in terms of gamma_t, without listing the complete Heawood optimizer and move graph."
+      ],
+      "reasoning": "The broad 2024 theorem covers the scalar optimum eight and gives one construction; those components of the new statement are credited and not counted as novel. A number-plus-existence theorem does not imply an optimizer count, mixed-class breakdown or adjacency structure. The relevant full text was inspected to check whether stronger details already occur there.",
+      "searches": [
+        "total dominator coloring Moore graphs projective plane graph 2q+4 optimizer",
+        "total dominator chromatic number incidence graph projective plane",
+        "The Moore graphs total domination total dominator chromatic numbers Theorem 4.3",
+        "Total Dominator Colorings and Total Domination in Graphs Henning 2015"
+      ]
+    },
+    "checked_sources": [
+      "Kazemi 2013 arXiv:1307.7486; open original-definition evidence",
+      "Alaei and Kazemi 2024 Filomat 38(25) 8947–8960 Section 4 and Table 1; primary full text",
+      "Henning 2015 Graphs and Combinatorics 31 953–974; abstract-level only",
+      "Archived dominated coloring result 29c49fb8469d; full scientific text",
+      "Archived four-fold total domination result 0b0ea03f39a5; full scientific text",
+      "Archived Heawood proper three-color reconfiguration result 78dac1ccb780; relevant full text",
+      "Targeted web literature searches for TDC Heawood census and recoloring"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Filomat 2024 proves only the scalar chi_td value (already known).",
+        "Record 29c49fb8469d classifies partitions in which each class is dominated by a vertex; it has opposite quantifiers.",
+        "Record 0b0ea03f39a5 classifies four overlapping total-dominating sets with exactly two memberships per vertex, not partitions.",
+        "Record 78dac1ccb780 classifies proper named three-color states; although it includes flag-indexed frozen colorings, its states are not TDC eight-class partitions."
+      ],
+      "reasoning": "A known scalar optimum and a known construction can coexist with many more optima. The new result involves complete optimizer enumeration and all one-vertex transitions. The three closest archived claims lack the same feasible-state set and therefore cannot logically imply the full current claim, even though some underlying Fano flags are shared.",
+      "searches": [
+        "total dominator colouring total dominator chromatic Heawood graph Fano projective plane incidence graph exact minimum 8 colorings classification",
+        "total dominator colouring reconfiguration Heawood 11662 transitions disconnected two components 966 1764",
+        "Pencil rigidity and recoloring components of dominated colorings in finite projective planes",
+        "Exact four-fold total-domination witnesses of the Heawood graph",
+        "Fano flags and the unique mobile sector of Heawood 3-colourings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kazemi 2013 arXiv:1307.7486 defines TDC by every vertex adjacent to every vertex in some class.",
+        "Alaei–Kazemi 2024 Filomat Theorem 4.3 uses the same total-dominator definition on girth-six Moore graphs.",
+        "Archive record 29c49fb8469d defines dominated coloring with the reversed class-first quantifier, and is therefore non-equivalent."
+      ],
+      "reasoning": "The genuine aliases total dominator chromatic number and TD-coloring have been searched. Dominated coloring is not an alias: ∀class ∃vertex differs from ∀vertex ∃class. The 350 mixed optimum classes in the claimed theorem cannot lie in any open neighborhood, making the quantified separation explicit.",
+      "searches": [
+        "total dominator colouring total dominator chromatic Heawood graph Fano projective plane incidence graph exact minimum 8 colorings classification",
+        "Heawood graph 2751 optimum eight-color total dominator coloring partitions 350 mixed classes 21 frozen flags",
+        "Fano plane incidence graph total dominator chromatic 8 coloring exact partitions count and one vertex recoloring",
+        "total dominator colouring total domination partition incidence graph Heawood exact configurations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Alaei–Kazemi 2024 Table 1 records chi_td=8 for the cubic girth-six Moore graph but no optimizer table.",
+        "Archive 29c49fb8469d gives 441 optimum dominated-coloring partitions for the Fano incidence graph, not TDC partitions.",
+        "Archive 78dac1ccb780 gives 2106 proper named three-colourings, including 126 frozen states, not optimum eight-class TDC partitions.",
+        "The two provided independent programs produce exactly 2751 full optimal partitions with class profiles and 11662 moves."
+      ],
+      "reasoning": "Exact-number and geometry queries were made in addition to topical searches. No accessible primary table or archived result gave the claimed 2751-coloring spectrum or the (21,966,1764) reconfiguration decomposition. The numbers 441 and 2106 relate to mathematically different coloring predicates and palettes, and are not alternate indexing of the 2751 states.",
+      "searches": [
+        "Heawood graph 2751 optimum eight-color total dominator coloring partitions 350 mixed classes 21 frozen flags",
+        "total dominator colouring reconfiguration Heawood 11662 transitions disconnected two components 966 1764",
+        "Heawood minimum total dominator colorings enumerate 2751 21 isolated",
+        "Fano plane proper 8 color total dominator coloring reconfiguration",
+        "result comparison IDs 29c49fb8469d 0b0ea03f39a5 78dac1ccb780"
+      ]
+    },
+    "rationale": "The 2013 origin and 2024 scalar minimum are expressly credited. The full relevant 2024 Section 4 proof determines only the least number of classes, not the complete 2751 unlabelled optimum partitions, their 350 mixed cases, or 11662 single-vertex exchanges with 23 components. Three especially close mathematical archive claims were inspected as complete research statements: class-first dominated coloring (opposite quantifier), four-fold total dominating witness systems (overlapping sets rather than proper partitions), and ordinary three-color recoloring (different palette and predicate). Their statements and results do not imply the new census or exchange graph. Targeted literature and mathematical-result searches yielded no covering claim. Residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "Mathematical publication priority cannot exclude an unindexed exact Heawood TDC enumeration under different terminology.",
+      "Henning 2015 full text was not accessed; only its abstract, so it is not designated as fully NOT_COVERING.",
+      "Other journal supplements, theses or unpublished enumerations might give equivalent finite optimizer data.",
+      "These are priority/access risks, not evidence of incorrect finite counts; independent external scholarly validation has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original TDC definition/general results; no identified Heawood exact optimizer or reconfiguration classification",
+        "evidence": [
+          "arXiv timestamp 2013-07-29T07:23:45Z",
+          "2015 journal text defines vertex-first TDC; searches Heawood and Fano returned no text matches"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.7486",
+        "material_read": "Author/title and first-public timestamp in public preprint index; 2015 journal text mirror including definitions and searched for Fano/Heawood",
+        "method": "Public bibliographic index and openly available mirror full-text text",
+        "title": "Toat Dominator Chromatic number of a Graph",
+        "trigger": "Earliest verified public definition of the mathematical invariant"
+      },
+      {
+        "assessment": "Covers chi_td(H)=8, but not 2751 optima, mixed partitions, or the 23-component recoloring graph",
+        "evidence": [
+          "Theorem 4.3 proves 2q+4 color minimum",
+          "Table 1 lists scalar pair (6,8) at degree three girth six",
+          "Proof constructs one 8-class coloring from q+1 singleton points, q+1 singleton lines and two bulk classes"
+        ],
+        "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2024/38-25/38-25-21-23911.pdf",
+        "material_read": "Full accessible text around introduction, Table 1, Section 4 Theorems 4.2–4.3 and their proof, page 8953 visually inspected",
+        "method": "Public OA journal PDF text and rendered page inspection",
+        "title": "The Moore graphs; total domination and total dominator chromatic numbers",
+        "trigger": "Direct same graph same minimum coloring and plausible stronger coverage"
+      },
+      {
+        "assessment": "General bounds are documented; full-paper coverage cannot be ruled out from abstract alone, retained as specific priority risk",
+        "evidence": [
+          "Henning 2015, Graphs and Combinatorics 31, pp 953–974; abstract addresses general bounds in terms of total domination"
+        ],
+        "identifier_or_url": "https://pure.uj.ac.za/en/publications/total-dominator-colorings-and-total-domination-in-graphs/",
+        "material_read": "Published abstract and bibliographic metadata, not full paper",
+        "method": "University research publication landing page",
+        "title": "Total Dominator Colorings and Total Domination in Graphs",
+        "trigger": "Potential general implication and historic source"
+      },
+      {
+        "assessment": "Different class-first dominated-coloring invariant, 441 optima at q=2, not eight-class TDC; no implication to the present exact result",
+        "evidence": [
+          "Its definition explicitly requires every color class to lie inside the neighborhood of some vertex",
+          "Its proof finds 2(q+1) classes and 441 Fano optima, compared with TDC eight classes and 2751 optima"
+        ],
+        "identifier_or_url": "29c49fb8469d",
+        "material_read": "Complete accessible finding, definitions, proof, verification and prior-work sections",
+        "method": "Read full publicly archived scientific result",
+        "title": "Pencil rigidity and recoloring components of dominated colorings in finite projective planes",
+        "trigger": "Same Fano graph, optimal coloring enumeration and recoloring sectors"
+      },
+      {
+        "assessment": "Overlapping four-tuple total-dominating families, not proper-color-class partition; no coverage",
+        "evidence": [
+          "Four labelled sets each containing each vertex exactly twice",
+          "1008 squared assignments, not a partition into eight independent classes"
+        ],
+        "identifier_or_url": "0b0ea03f39a5",
+        "material_read": "Complete accessible finding, assumptions, proof, verification and limits",
+        "method": "Read full publicly archived scientific result",
+        "title": "Exact four-fold total-domination witnesses of the Heawood graph",
+        "trigger": "Same host graph with total-domination witness families"
+      },
+      {
+        "assessment": "Proper named 3-color recoloring yields 126 frozen states; different invariant and coloring count, no implication for the 8-class TDC state space",
+        "evidence": [
+          "It counts 2106 proper three-colourings and 126 named frozen flags",
+          "Here the 21 unlabelled frozen flags arise among 2751 optimal total-dominator partitions with eight classes"
+        ],
+        "identifier_or_url": "78dac1ccb780",
+        "material_read": "Complete accessible theorem, definitions, finite enumeration and flag proof; relevant later paragraphs inspected",
+        "method": "Read scientific full result text",
+        "title": "Fano flags and the unique mobile sector of Heawood three-colourings",
+        "trigger": "Same graph and point-line flags indexing frozen recolorings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5dc20f2-4a13-49e1-ac76-bcb441119d66",
+  "value": {
+    "rationale": "The previously known eight-color minimum leaves a nontrivial and naturally motivated optimizer landscape on the unique cubic girth-six cage. The new complete count distinguishes 350 optimal mixed classes (which cannot themselves witness total domination) from 2401 unmixed optima, and resolves all single-vertex transitions into 21 rigid incidence flags plus two large sectors with distinct geometry. This is a meaningful finite classification and sharp stability/mobility boundary for a standard graph and graph-coloring invariant; it does not rest on code correctness or numerical novelty alone.",
+    "status": "PASS"
+  }
+}
