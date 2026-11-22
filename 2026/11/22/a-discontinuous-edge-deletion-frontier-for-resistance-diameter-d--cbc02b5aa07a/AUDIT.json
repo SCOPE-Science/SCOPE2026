@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact endpoint series/parallel lower bound and equality cases, computes every pair resistance on the critical face, establishes strict improvement below the cutoff, and uses compactness and scaling to prove convergence of ALL subcritical optimizers to one critical endpoint. Exact-rational tests (2883) replay successfully from packaged verifier; finite checks do not replace all-real proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh--Boyd--Saberi supplies a general optimization formulation but not a solved phase classification",
+        "2026/11/2/...mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71 solves generalized Laplacian spectral-gap design rather than pairwise effective-resistance diameter"
+      ],
+      "reasoning": "The spectral-gap optimum shares a critical price in the unit-price cycle, but the high-price optimal path conductances are different. General convex solver formulations do not logically imply the explicit all-size critical face or discontinuous limit without nontrivial extra derivation.",
+      "searches": [
+        "published-finding corpus: Minimax effective resistance on priced cycle, one exceptional edge, exact square-length threshold and optimal conductance distribution",
+        "published-finding corpus: Full optimality threshold and unique edge conductance allocation minimizing resistance diameter on cycles under heterogeneous prices"
+      ]
+    },
+    "checked_sources": [
+      "https://www.web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "https://doi.org/10.1137/050645452",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-quadratic-price-threshold-for-retaining-the-closing-edge-o--4f89042df17b",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-sharp-shortcut-cost-phase-transition-for-fastest-mixing-on-a-f--798a42b2934c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-an-exact-dominant-price-threshold-for-resistance-diameter-design--51ff8fe407b5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026/11/2/...sharp-quadratic-price-threshold-for-retaining-the-closing-edge-o--4f89042df17b concerns sum-of-resistances, has a different cutoff and a unique critical optimum",
+        "2026/10/26/...an-exact-dominant-price-threshold-for-resistance-diameter-design--51ff8fe407b5 concerns star topology",
+        "Ghosh--Boyd--Saberi (2006) states the generic min-max effective-resistance SDP, but not this complete cycle solution"
+      ],
+      "reasoning": "The closest different-objective theorems do not dominate the claimed worst-pair property; the genuinely shared elementary circuit laws are acknowledged. A generic convex framework entails formulability, not the explicit optimizer limit or full support-phase classification.",
+      "searches": [
+        "published-finding corpus: For any n-cycle with one edge price (n-1)^2, minimizing maximum effective resistance with fixed conductance budget, exact interval of optimizers and first order edge deletion transition",
+        "published-finding corpus: Kirchhoff index minimum total effective resistance optimal edge conductance allocation under fixed sum on a cycle with an attached pendant path and nonuniform pair demands"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh, Boyd, Saberi (2006), https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf, extensions section identifies maximum effective resistance as a convex SDP, without an explicit priced-cycle phase law",
+        "published-finding corpus search closest 2026/10/26/...an-exact-dominant-price-threshold-for-resistance-diameter-design--51ff8fe407b5 addresses a priced star, not a cycle"
+      ],
+      "reasoning": "Equivalent objective aliases maximum effective resistance, resistance diameter, and worst-pair effective resistance were checked. The explicit general-cycle critical interval and optimizer jump are not stated by the inspected sources. Search non-detection cannot prove absence.",
+      "searches": [
+        "published-finding corpus: Path of length m with an optional closing edge priced c, minimize resistance diameter, discontinuous optimal support at c=m^2, exact coexistence family",
+        "Web: optimal effective resistance diameter cycle edge prices minimax weights circle budget"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/13/...a-sharp-shortcut-cost-phase-transition-for-fastest-mixing-on-a-f--798a42b2934c gives a four-cycle spectral-gap table, not a pairwise resistance table",
+        "Own accessible archived claims included priced conductance spectral and Kirchhoff objectives, but no equivalent minimax resistance-diameter cycle claim"
+      ],
+      "reasoning": "A numeric coincidence at the four-cycle cutoff does not reproduce the explicit minimax resistance diameter or its full critical optimizer face. No matching exact table was found in actual searches; this is qualified non-detection.",
+      "searches": [
+        "published-finding corpus: On a four-cycle C4 with one expensive edge cost p, minimizing maximum pairwise effective resistance under conductance budget: critical cost 9, continuum of optimal designs at threshold and discontinuous edge deletion",
+        "published-finding corpus: Sharp first-order discontinuous link deletion transition in minimax effective resistance diameter conductance budgets"
+      ]
+    },
+    "rationale": "Inspected prior work formulates minimax resistance as convex SDP and solves related Kirchhoff-index and spectral-gap variants, but does not yield the critical exact resistance-diameter face or nonzero one-sided support jump. Numeric threshold coincidences do not imply optimizer identity. Publication priority is not independently established.",
+    "residual_risks": [
+      "Search is not exhaustive: specialized cycle resistance-diameter theory may contain an equivalent statement.",
+      "Generic convex network-design duality might entail the statement through a specialized, previously known derivation.",
+      "The older conference source has a July 2006 proceedings window, not a timestamped earliest online upload; the conservative evidence is its documented July 24–28 conference period."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convex formulation and extensions identified; not a closed-form priced-cycle minimax classification",
+        "evidence": [
+          "July 24–28 2006 Kyoto proceedings; extensions explicitly state maximum effective resistance is a convex objective representable by an SDP"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "conference full text with emphasis on network examples and extensions specifying maximum effective resistance",
+        "method": "Author-hosted PDF, page inspection and searchable body",
+        "title": "Minimizing Effective Resistance of a Graph (conference version)",
+        "trigger": "Focal archived source defines the minimax resistance optimization problem"
+      },
+      {
+        "assessment": "Primarily total effective resistance, mentions max-pair variant but does not provide claimed transition",
+        "evidence": [
+          "SIAM Review 50(1) 2008, pp.37–66, section on extensions"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Author-hosted journal text, including introduction and max-effective-resistance extension",
+        "method": "Public author PDF text and inspected sections",
+        "title": "Minimizing Effective Resistance of a Graph (journal article)",
+        "trigger": "Longer version of focal conference source"
+      },
+      {
+        "assessment": "Minimizes Kirchhoff index, giving different cutoff and critical uniqueness; not a covering result",
+        "evidence": [
+          "Critical price approaches (pi^2/4-2)n^2; critical optimizer is unique with deleted edge"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-quadratic-price-threshold-for-retaining-the-closing-edge-o--4f89042df17b",
+        "material_read": "Complete published RESULT.md including theorem, assumptions, proof, references",
+        "method": "Read public GitHub RESULT.md",
+        "title": "Sharp quadratic price threshold for retaining the closing edge of an optimally weighted cycle",
+        "trigger": "Exact same graph family with one priced link"
+      },
+      {
+        "assessment": "Optimizes continuous-time generalized spectral gap, distinct from pairwise resistance diameter; optimal weights differ",
+        "evidence": [
+          "Cutoff (sum of ordinary sqrt prices)^2; high-price optimal path has weights depending on Fiedler eigenvector rather than equal paths"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71",
+        "material_read": "Complete published RESULT.md with theorem, proof and critical endpoint",
+        "method": "Read public GitHub RESULT.md",
+        "title": "Mass-independent edge screening and complete critical optimizers for priced reversible cycles",
+        "trigger": "Shared graph/price threshold and critical optimal face"
+      },
+      {
+        "assessment": "Exact spectral-gap optimization, not worst-pair electrical resistance; even at price above 9 path weights are unequal",
+        "evidence": [
+          "Spectral-gap high-price edge rates (0,3B/10,2B/5,3B/10), vs resistance diameter equal path weights"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-sharp-shortcut-cost-phase-transition-for-fastest-mixing-on-a-f--798a42b2934c",
+        "material_read": "Complete published RESULT.md including full optimizer classification",
+        "method": "Read public GitHub RESULT.md",
+        "title": "A sharp shortcut-cost phase transition for fastest mixing on a four-vertex cycle",
+        "trigger": "Same C4 threshold 9 and critical line-segment phenomenon"
+      },
+      {
+        "assessment": "Algebraic connectivity not minimax effective resistance",
+        "evidence": [
+          "Different optimal cost allocations; cutoff numerical coincidence does not imply matching criterion"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-edge-price-transition-in-spectral-gap-design-of-a-four-c--7f96525dec6d",
+        "material_read": "Complete published RESULT.md",
+        "method": "Read public GitHub RESULT.md",
+        "title": "A sharp edge-price transition in spectral-gap design of a four-cycle",
+        "trigger": "Another same-graph high-relevance result"
+      },
+      {
+        "assessment": "Star tree and dominance of one edge price; does not address cyclic parallel pathways",
+        "evidence": [
+          "Dominant cost cutoff max price vs sum other prices; all conductances positive"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-an-exact-dominant-price-threshold-for-resistance-diameter-design--51ff8fe407b5",
+        "material_read": "Complete published RESULT.md including proof",
+        "method": "Read public GitHub RESULT.md",
+        "title": "An exact dominant-price threshold for resistance-diameter design on stars",
+        "trigger": "Same objective but different topology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cbc02b5a-a07a-4be2-9a76-8e3671244708",
+  "value": {
+    "rationale": "The natural robust diameter of effective resistance has a genuine all-size critical edge-price and complete nontrivial optimizer interval with an extremal-selection discontinuity. Unlike a one-line screening bound, this supplies all equality cases, a universal one-sided limit and a meaningful comparison with prior total-resistance and spectral-gap designs.",
+    "status": "PASS"
+  }
+}
