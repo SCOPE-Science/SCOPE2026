@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Differentiating the convex subproblems yields an exact affine linear iteration. The zero-sum decomposition is invariant, and the remaining two-state characteristic polynomial admits an exact Schur test. The rate-minimization proof uses strict opposite monotonicity before the first zero of the determinant and a direct root bound thereafter; the optimizer is the unique positive root of a displayed quadratic. The extracted symbolic/rational checker verifies the critical identities for representative dimensions. Limits: finite tests are not infinite verification, and spectral asymptotics are not transient Euclidean-norm guarantees.
+
+**Originality — PASS, qualified.** The closest directly matching classical source is He–Xu–Yuan (2013), which proves the general sufficient condition \(s\ge m-1\) and expressly notes the importance of smaller parameters, without the exact scalar sharp threshold or all-block unique optimum proved here. The recent Maia–Monteiro–Silva method uses adaptive inexact updates and a guarded multiplier, and He–Hou–Yuan analyze under-relaxed correction. Published sequential block results concern different maps. Targeted mathematical-record searches did not identify a statement implying the exact all-block spectral minimizer. Priority cannot be certified exhaustively and a historical coverage risk remains.
+
+**Value — PASS.** Parallel multi-block splitting needs proximal damping to control a sum/dual instability, but excessive damping slows disagreement relaxation. The sharp balance between these naturally competing modes gives an operationally interpretable coefficient and an explicit \(4/3\) asymptotic spectral-gap improvement over a standard sufficient choice on a canonical strongly convex benchmark. The result does not purport to optimize the actual adaptive method or all heterogeneous problems.
+
+Self-review: passed. Independent audit: not yet performed.

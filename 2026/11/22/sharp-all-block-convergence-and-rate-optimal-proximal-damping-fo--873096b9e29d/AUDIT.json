@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact block stationarity gives a linear (m+1)-state iteration with an (m−1)-fold disagreement eigenvalue and explicit 2-by-2 sum/dual block. Jury inequalities give the necessary-and-sufficient strict stability threshold, including nonconvergent boundary eigenmode. The spectral minimum is uniquely where strictly decreasing negative sum/dual modulus intersects strictly increasing disagreement modulus. For s≥m−1 both sum/dual eigenvalues have modulus less than disagreement. Algebra and exact rational finite checks verified from a standalone program; they do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "He–Xu–Yuan (2013), eq. (1.6), Sec. 3 / Remark 3.1 and conclusions: fixed parallel proximal Jacobi ALM; proves sufficient s≥m−1 and calls for smaller values, not necessary/sufficient scalar boundary or unique spectral optimum.",
+        "Maia–Monteiro–Silva (2026), arXiv:2611.00570, pp. 1–3, Secs. 2–3: adaptive Jacobi proximal method with inexact solves and selective multiplier/penalty safeguards; different map.",
+        "He–Hou–Yuan (2014 revision), first section and Algorithm 1: full parallel Jacobi prediction corrected by under-relaxation, distinct from fixed proximal-Jacobi map.",
+        "Published sequential quadratic ADMM statements use order-dependent Gauss–Seidel sweeps, not simultaneous updates."
+      ],
+      "reasoning": "A general convergence guarantee at s≥m−1 does not entail the sharp smaller stable range, optimal rate, or the signed mode crossing. The 2014 under-relaxed prediction correction has a separate update. Gauss–Seidel all-order isospectrality applies to a different full-sweep map.",
+      "searches": [
+        "Jacobi simultaneous ADMM n equal quadratic blocks sharp spectral stability parameter n penalty proximal damping",
+        "full Jacobi proximal ADMM uniform curvature exact global stability s > (3m-6)/4 penalty one",
+        "Jacobi augmented Lagrangian optimal proximal coefficient 3m/4 compared m-1 scalar quadratic",
+        "https://optimization-online.org/wp-content/uploads/2013/11/4142.pdf",
+        "https://optimization-online.org/wp-content/uploads/2013/05/3894.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.00570",
+      "https://arxiv.org/pdf/2611.00570",
+      "https://optimization-online.org/wp-content/uploads/2013/11/4142.pdf",
+      "https://optimization-online.org/wp-content/uploads/2013/05/3894.pdf",
+      "Published record: Critical damping penalty for symmetric three-block ADMM (sequential variant, summary inspected)",
+      "Published record: An all-order isospectrality law for scalar-constraint quadratic ADMM (sequential variant, summary inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "He–Xu–Yuan (2013), eq. (1.6), Sec. 3 / Remark 3.1 and conclusions: fixed parallel proximal Jacobi ALM; proves sufficient s≥m−1 and calls for smaller values, not necessary/sufficient scalar boundary or unique spectral optimum.",
+        "Maia–Monteiro–Silva (2026), arXiv:2611.00570, pp. 1–3, Secs. 2–3: adaptive Jacobi proximal method with inexact solves and selective multiplier/penalty safeguards; different map.",
+        "He–Hou–Yuan (2014 revision), first section and Algorithm 1: full parallel Jacobi prediction corrected by under-relaxation, distinct from fixed proximal-Jacobi map.",
+        "Published sequential quadratic ADMM statements use order-dependent Gauss–Seidel sweeps, not simultaneous updates."
+      ],
+      "reasoning": "The 2013 s≥m−1 sufficient condition covers stable points only to the right of the theorem’s optimum s*<m−1; it cannot imply a smaller sharp boundary or the unique optimum. No cited primary source optimizes the full simultaneous operator spectral radius. The reported cyclic quadratic penalty optimizer and nonconvex chain inequality are mathematically different.",
+      "searches": [
+        "2026 Jacobi parallel adaptive proximal ADMM linearly constrained separable composite optimization nonlinear penalty multiplier cycle exact scalar quadratic",
+        "parallel Jacobi proximal ADMM identical scalar quadratic n blocks sharp stabilizing proximal parameter eigenvalue threshold stationary consensus disagreement modes",
+        "full Jacobi proximal ADMM uniform curvature exact global stability s > (3m-6)/4 penalty one",
+        "Jacobi augmented Lagrangian optimal proximal coefficient 3m/4 compared m-1 scalar quadratic",
+        "unrelaxed parallel ADMM equal quadratic blocks spectral split sum disagreement eigenvalue one minus m"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "He–Xu–Yuan (2013), eq. (1.6), Sec. 3 / Remark 3.1 and conclusions: fixed parallel proximal Jacobi ALM; proves sufficient s≥m−1 and calls for smaller values, not necessary/sufficient scalar boundary or unique spectral optimum.",
+        "Maia–Monteiro–Silva (2026), arXiv:2611.00570, pp. 1–3, Secs. 2–3: adaptive Jacobi proximal method with inexact solves and selective multiplier/penalty safeguards; different map.",
+        "He–Hou–Yuan (2014 revision), first section and Algorithm 1: full parallel Jacobi prediction corrected by under-relaxation, distinct from fixed proximal-Jacobi map."
+      ],
+      "reasoning": "The same fixed-plus-sign iteration maps by dual sign reversal onto classical 2013 proximal Jacobian decomposition. That identity is acknowledged, not claimed new; the new all-block eigenanalysis below its sufficient parameter region is absent from the accessible source. The 2026 adaptive algorithm is not an equivalent iteration.",
+      "searches": [
+        "2026 Jacobi parallel adaptive proximal ADMM linearly constrained separable composite optimization nonlinear penalty multiplier cycle exact scalar quadratic",
+        "parallel Jacobi proximal ADMM identical scalar quadratic n blocks sharp stabilizing proximal parameter eigenvalue threshold stationary consensus disagreement modes",
+        "proximal Jacobian augmented Lagrangian parallel scalar identical quadratic m blocks exact optimal s spectral radius sqrt(9m^2+4m+4)",
+        "unrelaxed parallel ADMM equal quadratic blocks spectral split sum disagreement eigenvalue one minus m",
+        "https://optimization-online.org/wp-content/uploads/2013/11/4142.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for the discriminant formula and exact homogeneous full-parallel eigenvalue tuning returned no matching tabulated sharp coefficient; available mathematical-record hits instead concerned cyclic ADMM and linearized schemes."
+      ],
+      "reasoning": "This is an analytic continuous optimization over proximal scales, not a previously published exact database invariant. Search absence alone does not prove novelty.",
+      "searches": [
+        "proximal Jacobian augmented Lagrangian parallel scalar identical quadratic m blocks exact optimal s spectral radius sqrt(9m^2+4m+4)",
+        "unrelaxed parallel proximal Jacobian augmented Lagrangian homogeneous strongly convex scalar quadratic sum equality exact all block spectral radius minimax parameter sum dual disagreement m blocks",
+        "classical proximal Jacobi ADMM sharp threshold proximal coefficient three quarters number of blocks optimal spectral damping signed modes",
+        "\"proximal Jacobi\" \"optimal\" quadratic \"parameter\" convergence factor"
+      ]
+    },
+    "rationale": "Closest directly matching primary literature (He–Xu–Yuan 2013) proves only general sufficient s≥m−1 for proximal Jacobi and states the smaller-coefficient question; the exact all-initial scalar threshold, unique spectral minimizer and leading factor 4/3 are not its stated results. Recent Maia–Monteiro–Silva concerns a different safeguarded adaptive scheme; other closest items are sequential or under-relaxed. Priority remains best-knowledge and unverified independently.",
+    "residual_risks": [
+      "Historical literature may contain equivalent eigenvalue optimization under a different proximal splitting nomenclature; searches and accessible principal texts are not an exhaustive priority proof.",
+      "The exact source algorithm is a known classical method; only the sharp homogeneous spectral classification is proposed as new.",
+      "All claims are restricted to unit, identical scalar blocks and an unrelaxed dual update."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different adaptive safeguarded and inexact algorithm, no coverage of exact baseline all-block spectral optimum",
+        "evidence": [
+          "arXiv public v1 2026-10-31; pp. 1–3 specify simultaneous blocks, inexactness, backtracking, multiplier tests; contrasts prior convex proximal Jacobi work"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.00570",
+        "material_read": "Abstract, introduction pages 1–3 and source account of adaptive block updates, inexactness and multiplier safeguards",
+        "method": "arXiv full PDF text and rendered page inspection",
+        "title": "A Parallel Adaptive Proximal ADMM for Linearly Constrained Separable Composite Optimization Problems",
+        "trigger": "New public 2026 Jacobi scheme motivating the fixed-parallel baseline"
+      },
+      {
+        "assessment": "Exact algorithm already known, but its general sufficient s≥m−1 and recommendation do not state the novel sharp homogeneous spectral minimizer below it",
+        "evidence": [
+          "Eq. (1.6), p. 3; sufficient s≥m−1 p. 7; conclusion pp. 11–12 expressly motivates investigating smaller coefficients"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2013/11/4142.pdf",
+        "material_read": "Material from the accessible 13-page PDF: abstract, equation (1.6), Section 3 including Remark 3.1, conclusions on pages 11–12 and pertinent bibliography",
+        "method": "Open-access full-text reading plus rendered PDF page 3",
+        "title": "On the Proximal Jacobian Decomposition of ALM for Multiple-block Separable Convex Minimization Problems and its Relationship to ADMM",
+        "trigger": "Exact classical underlying proximal-Jacobi family and strongest overlap risk"
+      },
+      {
+        "assessment": "Provides relaxed Jacobi prediction-correction stability, not the fixed-proximal unrelaxed map or its optimal parameter",
+        "evidence": [
+          "Abstract p. 1 and Section 3 pp. 7 onward feature the correction w^{k+1}=w^k−α_k(w^k−tilde w^k)"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2013/05/3894.pdf",
+        "material_read": "Abstract and introduction, Section 3 prediction/correction and Algorithms 1–2, step-size discussion; rendered first page",
+        "method": "Open-access PDF parsed and page image",
+        "title": "On full Jacobian decomposition of the augmented Lagrangian method for separable convex programming",
+        "trigger": "Competing older full-parallel decomposition and correction method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "873096b9-e29d-4ba3-b5f4-2e430a019d31",
+  "value": {
+    "rationale": "The classical full-Jacobi proximal coefficient recommendation s=m−1 suppresses potentially unstable coupled dual/sum modes but over-damps disagreement. The exact global stable threshold and unique signed-mode balancing parameter show a nontrivial operating regime previously outside the general sufficient guarantee; the factor 4/3 in the large-block spectral gap quantifies the practical structural tradeoff on a natural all-block strongly convex quadratic, not a cosmetic substitution.",
+    "status": "PASS"
+  }
+}
