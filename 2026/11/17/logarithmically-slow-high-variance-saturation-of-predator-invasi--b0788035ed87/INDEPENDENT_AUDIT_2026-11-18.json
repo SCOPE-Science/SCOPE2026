@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T06:54:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed 0<p<1, 0<epsilon<min(p,1-p) and all positive model coefficients, stationary OU forcing has N(0,s^2) marginal, so even symmetry reduces the invasion exponent gap to sqrt(2/pi)/s ∫_0^infty Q(t)e^{-t²/(2s²)}dt. Expand arctan t at infinity: Q(t)=A/t+O(t^-2), A positive from strict decrease of Holling-II Phi prime. Subtract A*1_{t>=1}/t to obtain integrable R with B=∫R; dominated convergence gives B. Exact 1/2 E1(1/(2s²)) expansion yields log s+(log2-EulerGamma)/2 and the stated o(1/s). Window identity follows algebraically from its two endpoint definitions, without any sample-path or extinction-probability claim. Independently evaluated the rational benchmark A=96/(1225*pi)=0.0249451012846... and scaled leading coefficient 192/(1225*pi*sqrt(2*pi))=0.01990331118265..., matching the formula. No uniformity in degenerate ecological parameters is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source predator model uses logistic prey, Holling-II response and bounded OU refuge arctangent.",
+          "Other source population papers use bounded transformations in other models and persistence criteria, not this stationary Gaussian invasion-exponent asymptotic."
+        ],
+        "reasoning": "General transformed-noise setting contains this class but does not imply model-specific sharp rate and finite-part constant.",
+        "searches": [
+          "Resultary published-finding semantic search: bounded random refuge Ornstein Uhlenbeck arctan predator invasion Gaussian strong noise asymptotic log variance",
+          "arxiv:2611.11026v1",
+          "arxiv:2401.06934",
+          "doi:10.1002/mma.9061"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2611.11026v1",
+        "https://arxiv.org/pdf/2401.06934",
+        "https://doi.org/10.1002/mma.9061"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normalized limit alone is compatible with arbitrarily slow nonnegative rates.",
+          "The new proof uses a 1/t tail subtraction and E1 expansion to identify a positive logarithmic coefficient and finite-part constant."
+        ],
+        "reasoning": "Standard E1 asymptotics are prior tools, not themselves the evaluation of the ecological nonlinear response; quantitative source implication is absent.",
+        "searches": [
+          "Resultary published-finding semantic search: bounded random refuge Ornstein Uhlenbeck arctan predator invasion Gaussian strong noise asymptotic log variance",
+          "arxiv:2611.11026v1 Section 8.2",
+          "generic Gaussian E1 asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original source proves monotone finite-s variance dependence and two-point infinite-s endpoint.",
+          "The claimed strong-noise rate is a boundary-layer calculation of its exact integral, not the original exact limit itself."
+        ],
+        "reasoning": "The source states a limit but no expansion in inverse variance or 1/s log s; the new theorem is a genuine quantitative refinement.",
+        "searches": [
+          "Resultary published-finding semantic search: bounded random refuge Ornstein Uhlenbeck arctan predator invasion Gaussian strong noise asymptotic log variance",
+          "arxiv:2611.11026v1 §8.2 Proposition 8.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked published exact table of two-term coefficients for this particular Holling-II arctangent Gaussian integral."
+        ],
+        "reasoning": "The source supplies the integral and endpoint, so it enables direct computation, but it does not tabulate A or B or the mortality-window deficit.",
+        "searches": [
+          "Resultary published-finding semantic search: bounded random refuge Ornstein Uhlenbeck arctan predator invasion Gaussian strong noise asymptotic log variance",
+          "arxiv:2611.11026v1 formula (8.7), Proposition 8.6",
+          "Resultary predator semantic query"
+        ]
+      },
+      "rationale": "The source 2026 bounded-refuge predator paper supplies exactly the Gaussian expectation, monotonicity in stationary standard deviation, endpoint limit and reversal window; these are credited. Neither its inspected Proposition 8.6 nor earlier bounded-forcing population papers states the sharp (log s)/s rate, explicit endpoint derivative coefficient and finite-part B, and Resultary found no preceding stronger source. Qualified PASS relative to checked primary text.",
+      "residual_risks": [
+        "An unindexed general asymptotic-integral or regular-variation table could mechanically imply the analytic pattern; no exhaustiveness or independent priority certification is claimed.",
+        "Only fixed-coefficient stationary ergodic exponent is covered, not sample-path convergence or finite-time extinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes exact integral, monotonicity and endpoint, not the rate (log s)/s or B.",
+          "evidence": [
+            "Cruzado-Quispe et al. 2026, §8.2 Proposition 8.6, 8.7 mortality window."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.11026v1",
+          "material_read": "Full arXiv HTML, §§2,8, formula (8.7), Proposition 8.6, its proof and references examined.",
+          "method": "Primary exact model/limit and quantitative implication comparison.",
+          "title": "Forward and Pullback Attraction under Worst-case and Ergodic Exponents in a Predator–prey Model with Bounded Random Refuge",
+          "trigger": "Exact biological model and same stationary Gaussian expectation."
+        },
+        {
+          "assessment": "Different generic population dynamics, no direct proof of same predator invasion integral rate established.",
+          "evidence": [
+            "Caraballo et al. 2019 bounded environmental perturbations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.06934",
+          "material_read": "Published abstract and background description; not a full-text proof comparison.",
+          "method": "Abstract/secondary model identification only.",
+          "title": "A way to model stochastic perturbations in population dynamics models with bounded realizations",
+          "trigger": "Alternative general bounded-OU perturbation framework."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp rate and finite-part constant for the high-variance saturation of an ecologically motivated invasion threshold is a specific, usable quantitative refinement of an already known monotone limit. The exact (log s)/s boundary-layer sensitivity and mortality-window deficit can affect finite-noise approximations. Although Gaussian E1 asymptotics are standard, identifying the correct model-specific amplitude and finite part for the nonlinear bounded refuge is not simply restating the original endpoint theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2611.11026v1",
+    "https://arxiv.org/pdf/2401.06934",
+    "https://doi.org/10.1002/mma.9061"
+  ],
+  "disposition": "passed",
+  "final_claim": "For bounded arctangent Ornstein–Uhlenbeck random refuge predator-invasion Gaussian exponent, the high-stationary-standard-deviation limit has the exact positive two-term (sqrt(2/pi)/s)*(A log s+B+A*(log2-EulerGamma)/2)+o(1/s) asymptotic, with A=epsilon/pi*(Phi prime(p-epsilon)-Phi prime(p+epsilon)); the existing mortality reversal-window deficit is identical.",
+  "limitations": [
+    "Completed scientific judgment is best-of-knowledge and not a formal proof certificate or exhaustive publication-priority search.",
+    "Public metadata contains execution/provenance identifiers; import/publication withheld without sanitized complete file guards.",
+    "No GitHub edits, dispatcher closeout, or modifications to protected Lean/expert attestation."
+  ],
+  "residual_risks": [
+    "An unindexed general asymptotic-integral or regular-variation table could mechanically imply the analytic pattern; no exhaustiveness or independent priority certification is claimed.",
+    "Only fixed-coefficient stationary ergodic exponent is covered, not sample-path convergence or finite-time extinction."
+  ],
+  "schema_version": 1
+}

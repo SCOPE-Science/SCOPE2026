@@ -1,19 +1,21 @@
-# Scientific review: high-variance bounded-refuge invasion asymptotic
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns a fixed-parameter Gaussian expectation (the ergodic predator invasion exponent), not a random-orbit convergence statement. The symmetry reduction is exact. The nonstandard step is the endpoint expansion of the even Holling-II arctangent response: its tail is \(Q(t)=A/t+O(t^{-2})\) with \(A>0\). Subtracting the singular asymptotic tail leaves an absolutely integrable function; dominated convergence then reduces the complete second term to the elementary exponential integral. All denominators remain strictly positive under the parameter hypotheses. The coefficient and the finite part have consistent normalization \(s=\sigma/\sqrt{2\kappa}\). The supplemental numerical checker verifies one exact rational coefficient and the decreasing scaled two-term errors, but is not used as a proof of the limit. The main uncertainty is not a missing analytic lemma but the separate question of historical priority.
+PASS
 
-## Originality — PASS within inspected evidence
+For fixed 0<p<1, 0<epsilon<min(p,1-p) and all positive model coefficients, stationary OU forcing has N(0,s^2) marginal, so even symmetry reduces the invasion exponent gap to sqrt(2/pi)/s ∫_0^infty Q(t)e^{-t²/(2s²)}dt. Expand arctan t at infinity: Q(t)=A/t+O(t^-2), A positive from strict decrease of Holling-II Phi prime. Subtract A*1_{t>=1}/t to obtain integrable R with B=∫R; dominated convergence gives B. Exact 1/2 E1(1/(2s²)) expansion yields log s+(log2-EulerGamma)/2 and the stated o(1/s). Window identity follows algebraically from its two endpoint definitions, without any sample-path or extinction-probability claim. Independently evaluated the rational benchmark A=96/(1225*pi)=0.0249451012846... and scaled leading coefficient 192/(1225*pi*sqrt(2*pi))=0.01990331118265..., matching the formula. No uniformity in degenerate ecological parameters is claimed.
 
-The closest primary source is Cruzado-Quispe, López-de-la-Cruz and Seminario-Huertas, arXiv:2611.11026v1, specifically its Gaussian integral (2.21), reversal window (8.7) and Proposition 8.6. This source already proves strict monotonicity and the infinite-variance endpoint limit, so neither is claimed as new. The new statement supplies the sharp logarithmic saturation rate, both coefficient and finite-part constant, and transfers that calculation to the width of the previously defined mortality window. Older bounded-noise literature introduces the Ornstein–Uhlenbeck arctangent transformation and analyzes attraction and extinction, but the inspected portions do not give this specific Holling-II ergodic-exponent asymptotic. Search results on stochastic predator variability, stationary Gaussian diffusions, invasion exponents, bounded-noise attractors and Gaussian logarithmic corrections concern different state variables or limits. Generic Tauberian or Gaussian integration principles might recast the argument, and unindexed special-function tables remain a residual priority risk; this is not represented as a proof of uniqueness or mathematical independence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An infinite-noise endpoint alone does not determine the finite-variance risk of predator invasion. The arctangent refuge transformation has only an inverse-argument approach to its bounds, while the Gaussian driver retains positive central density; this produces a logarithmic enhancement absent from a naive inverse-standard-deviation estimate. The exact positive amplitude depends on the contrast of the marginal feeding response at the refuge endpoints, and the finite-part constant supplies the next term. The result directly quantifies the already-motivated mortality-reversal threshold at large but finite noise, for every admissible parameter tuple, not merely an arbitrary numerical instance. No separate ecological dynamics or pathwise rate is inferred.
+The source 2026 bounded-refuge predator paper supplies exactly the Gaussian expectation, monotonicity in stationary standard deviation, endpoint limit and reversal window; these are credited. Neither its inspected Proposition 8.6 nor earlier bounded-forcing population papers states the sharp (log s)/s rate, explicit endpoint derivative coefficient and finite-part B, and Resultary found no preceding stronger source. Qualified PASS relative to checked primary text.
 
-## Evidence and limitations
+## value
 
-Full theorem-relevant text inspected: https://arxiv.org/html/2611.11026v1, Sections 2 and 8. Closely related bounded-noise methodology: https://arxiv.org/pdf/2401.06934, Sections 1–2 (including its Ornstein–Uhlenbeck parameterization); and https://doi.org/10.1002/mma.9061, introduction and Sections 2–3. The older study https://www.ornl.gov/publication/stochastic-gause-predator-prey-model-noise-induced-extinctions-and-invariance was accessible at abstract level only and uses multiplicative noise. All are credited for the facts they establish. The two-term expansion is pointwise as \(s\to\infty\), not uniform in jointly vanishing refuge amplitude or saturation parameters. The absolute finite-part integrals, not numerics, define the next-order coefficient.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp rate and finite-part constant for the high-variance saturation of an ecologically motivated invasion threshold is a specific, usable quantitative refinement of an already known monotone limit. The exact (log s)/s boundary-layer sensitivity and mortality-window deficit can affect finite-noise approximations. Although Gaussian E1 asymptotics are standard, identifying the correct model-specific amplitude and finite part for the nonlinear bounded refuge is not simply restating the original endpoint theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
