@@ -1,0 +1,19 @@
+# Scientific review: exact-degree vector-harmonic one-ring reconstruction
+
+## Correctness — PASS
+
+The theorem uses the complex dimension \(4\ell+2\) of poloidal and toroidal tangent modes, and fixes the full-sphere probability source norm and the \(M^{-1}\) sample norm. Fourier orthogonality for \(M\ge2\ell+1\) isolates the pair of tangential components in each azimuthal order. Their matrix has determinant \(a^2-m^2b^2\); Jacobi factorization of the two helicity branches and the zonal Legendre derivative give every exceptional latitude, including the equatorial parity rule. For degree two, direct normalized associated-Legendre calculations give five squared levels with multiplicity two. Every minimax comparison is a polynomial factorization, including the strict monotonicity of the two crossing ratios and the larger-height lower bound. No infinite conclusion is inferred from finite tests. The independently assembled direct pointwise-matrix checker matches the claimed full singular spectrum and rank, and separately checks symbolic identities.
+
+## Originality — PASS with historical-priority limits
+
+The 2018 spin-weighted sampling paper constructs full-band transforms on *multiple* latitude rings and uses numerical conditioning-based placement. Its spin harmonics and Wigner identities are pre-existing foundations, but its inspected construction does not state the simultaneous exact-degree vector-helicity forbidden-latitude multiset and sharp five-site quadrupolar minimax with cubic optimum. The 2019 fast vector-harmonic-transform paper works with global cubature rather than a five-point one-ring acquisition design. The 2021 random tangent-field paper discusses harmonic tangent fields but not ring sampling. The closest indexed exact-quadrupole results use scalar values on two rings or scalar Funk averages on one; scalar values do not supply the poloidal-toroidal two-component sampling block or its cubic minimax. The indexed tangential vector result treats hemisphere Slepian concentration, not discrete one-latitude point evaluation. Retrieved full statements of these relevant published results do not imply the new claim. Search and indexing cannot certify historical novelty; an older specialized spin-one calculation remains possible.
+
+## Mathematical value — PASS
+
+One-ring tangential vector sampling is a natural fixed-latitude acquisition geometry for poloidal and toroidal vector spherical harmonics, which appear in surface-flow, electromagnetic, and vector-harmonic transform models. The all-degree nodal criterion specifies precisely which instrument latitudes lose vector polarization, while the degree-two ten-dimensional case is the first quadrupolar test requiring five two-component stations. Its exact forbidden heights, complete singular spectrum, and globally minimizing algebraic height quantify a genuine design/stability boundary, rather than simply checking a numerically chosen ring. The result is a sharply scoped self-contained structural classification and optimization, with no unsupported application performance claims.
+
+## Literature comparisons and residual limits
+
+Read material included the mathematical construction of Elahi–Khalid–Kennedy–McEwen (arXiv:1809.01321, Sections II–III), vector harmonic transform and quadrature sections of Le Gia–Li–Wang (arXiv:1908.00041), and the harmonic tangent-field setup of Anh–Olenko–Wang (arXiv:2107.03717). Indexed published primary statements were inspected in full for *Sharp quadrupole conditioning on paired spherical latitude rings*, *Sharp one-eighth hemisphere leakage for monochromatic tangential spherical harmonics*, and *Optimal five-view Funk quadrupole tomography on a latitude ring*. Classical Wigner and Jacobi identities are not asserted to be discoveries. General all-degree minimax conditioning and arbitrary irregular-grid optimality are outside the proof.
+
+Self-review: passed. Independent audit: not yet performed.
