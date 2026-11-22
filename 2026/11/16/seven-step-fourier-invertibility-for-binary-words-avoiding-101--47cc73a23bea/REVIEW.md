@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The three-state automaton encodes exactly the forbidden factor \(101\). Its length-generating transfer matrix gives an order-seven parity period modulo two. The three exact eigenvector identities for seven-step signed blocks give an explicit zero coefficient for every singular residue and a coefficient of one for every nonsingular residue. Matrix products in the proof have the stated lengths and signs, including lengths one, two, and three. Counting convolution is diagonal in the Walsh character basis, so the minimum coefficient magnitude gives the claimed Hilbert-space inverse norm. The standalone checker confirms the defining matrix identities, the witness products to length 120, and every frequency through length 17. Finite tests are supporting checks; the identities prove all lengths.
+## correctness
 
-## Originality
-**PASS under bounded literature comparison.** The closest papers are Bilotta–Grazzini–Pergola–Pinzani (2012, arXiv:1210.7620), on generating alternating-pattern-avoiding **balance-constrained** words, and Bilotta–Grazzini–Pergola (2013, Journal of Integer Sequences 16, 13.4.8), on their generating functions. Their counting questions are not full coordinatewise signed Fourier sums. A related published Fourier result for graph-exclusion sampling concerns a restriction matrix, not counting convolution by this avoidance indicator. Existing Fourier work on other forbidden-word and independent-set families is not an implication: the present word counts and forbidden local rule differ. Full historical coverage cannot be guaranteed; the possible existence of an earlier equivalent signed-automaton theorem remains a residual risk.
+PASS
 
-## Value
-**PASS.** The zero-free condition is an infinite and exact, natural spectral classification for a simple regular language, with a sharp inverse-stability constant in every invertible dimension. The period seven is not a cosmetic relabeling: two nontrivial invariant-vector relations create explicit resonant sign patterns at exactly the three remaining residues. Ordinary word counts detect only the safe odd-cardinality classes; the proof supplies the converse singularity and exact frequency witnesses, which the unsigned enumeration alone cannot establish.
+For length-n binary strings avoiding the ordinary contiguous factor 101, the three-state prefix automaton tracks suffix empty/1/10 with weighted transition matrix M(s)=[[1,s,0],[0,s,1],[1,0,0]], initial e=(1,0,0) and terminal all-ones. Its signed matrix product equals each genuine Walsh character sum. The unsigned count satisfies a_n=2a_(n-1)-a_(n-2)+a_(n-3), with A^7 congruent identity mod2 and residue parities odd exactly n mod7 in {0,3,5,6}; every coefficient is therefore nonzero in those classes. Explicit exact integer matrices C=BA^6, D=A^6B and identities L C=L, C R=R, D R'=R' prove the table of zero witnesses in residues {1,2,4} and multiplier-one witnesses in all others, for all k and short n including 1,2. The counting-convolution inverse norm on zero-free classes is exactly 1. Read frozen RESULT.md and actual CHECK.py, independently checked matrix products and entire spectra for n<=17. This is an all-length matrix identity proof; finite tests alone are not used as inference.
 
-## Scope of validation
-All algebraic steps have exact integer proofs and direct finite spot checks. Exact singular nullities, endpoint projection constants and other forbidden factors are not determined. Historical-priority verification was bounded. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Bilotta–Grazzini–Pergola enumerations for avoiding alternating patterns constrain balance/#zeros and count by weight; they do not assert the Walsh spectrum for unrestricted 101-avoiding strings. The nearest published pattern-avoidance theorem for unbordered patterns cannot specialize to 101, whose length-one prefix/suffix coincide. The different '001' three-phase result is also a distinct nonoverlapping pattern and its residue period is three, not seven. New exact seven-step cancellation witnesses and full invertibility classification survive these statement-level comparisons.
+
+## value
+
+PASS
+
+The unrestricted 101-avoiding language is a classical automaton-constrained binary code. A complete infinite periodic criterion for its all-character Fourier invertibility and an exact inverse norm supplies a meaningful spectral property not contained in its generating-tree enumerator, with constructive witness signs explaining the seven-phase obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

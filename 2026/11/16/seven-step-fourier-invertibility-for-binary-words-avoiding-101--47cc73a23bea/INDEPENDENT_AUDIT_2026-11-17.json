@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T08:00:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For length-n binary strings avoiding the ordinary contiguous factor 101, the three-state prefix automaton tracks suffix empty/1/10 with weighted transition matrix M(s)=[[1,s,0],[0,s,1],[1,0,0]], initial e=(1,0,0) and terminal all-ones. Its signed matrix product equals each genuine Walsh character sum. The unsigned count satisfies a_n=2a_(n-1)-a_(n-2)+a_(n-3), with A^7 congruent identity mod2 and residue parities odd exactly n mod7 in {0,3,5,6}; every coefficient is therefore nonzero in those classes. Explicit exact integer matrices C=BA^6, D=A^6B and identities L C=L, C R=R, D R'=R' prove the table of zero witnesses in residues {1,2,4} and multiplier-one witnesses in all others, for all k and short n including 1,2. The counting-convolution inverse norm on zero-free classes is exactly 1. Read frozen RESULT.md and actual CHECK.py, independently checked matrix products and entire spectra for n<=17. This is an all-length matrix identity proof; finite tests alone are not used as inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unbordered-pattern theorem assumes no proper prefix/suffix overlap, violated by 101; the JIS paper studies balanced/constrained words and ordinary generating functions."
+        ],
+        "reasoning": "Neither broader-looking result implies unrestricted pattern 101 Walsh zero-free residue classes. In particular 101 has a one-letter border and is excluded by the disjoint-occurrence proof.",
+        "searches": [
+          "binary words avoiding 101 Walsh Fourier transform seven-periodic invertibility convolution",
+          "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL16/Grazzini/grazzini2.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 47100e671e990cb44ad9647d4d6d274263f55925",
+        "CHECK.py SHA 78344ac5ec37e66459ad9533ef5c843d1f3f5612",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL16/Grazzini/grazzini2.pdf",
+        "https://arxiv.org/abs/1210.7620",
+        "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The JIS paper includes the factor 101 in a family subject to #0<=#1 and counts by number of ones, not by all independent Fourier character signs."
+        ],
+        "reasoning": "A weight generating function or classical automaton implies unsigned count recurrence and parity, but cannot by itself construct zero Walsh multipliers in the even-count classes. The explicit 7-step signed product identities furnish that additional implication.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL16/Grazzini/grazzini2.pdf",
+          "https://arxiv.org/abs/1210.7620",
+          "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted automaton signed sum is exactly Fourier evaluation of the language indicator on each Boolean character; counting convolution is invertible iff none vanish."
+        ],
+        "reasoning": "A finite-state automaton exists classically, but no inspected source supplies the exact integer BA^6/A^6B eigenvector identities or the resulting seven-residue all-sign theorem.",
+        "searches": [
+          "binary words avoiding 101 Walsh Fourier transform seven-periodic invertibility convolution",
+          "101 avoiding binary words signed transfer matrix Walsh zero inverse convolution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Automata counting tables give only W_n(0) and its parity; finite exhaustive Walsh spectra n<=17 verify, but do not prove, the infinite seven-block witnesses."
+        ],
+        "reasoning": "No catalogued complete exact characterwise table/sequence giving this all-n invertibility criterion was identified. The claim is a quantified classification rather than the recomputation of a known small table.",
+        "searches": [
+          "binary words avoiding 101 Walsh Fourier transform seven-periodic invertibility convolution",
+          "Walsh zeros binary forbidden 101 transfer matrices complete spectrum table"
+        ]
+      },
+      "rationale": "Earlier Bilotta–Grazzini–Pergola enumerations for avoiding alternating patterns constrain balance/#zeros and count by weight; they do not assert the Walsh spectrum for unrestricted 101-avoiding strings. The nearest published pattern-avoidance theorem for unbordered patterns cannot specialize to 101, whose length-one prefix/suffix coincide. The different '001' three-phase result is also a distinct nonoverlapping pattern and its residue period is three, not seven. New exact seven-step cancellation witnesses and full invertibility classification survive these statement-level comparisons.",
+      "residual_risks": [
+        "Unindexed work on signed automata/transfer-matrix zeros may contain an equivalent period-seven classification; novelty is best-of-knowledge only.",
+        "The theorem does not give complete nullity/magnitude histograms or pseudoinverse norms in singular classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING unrestricted Walsh invertibility",
+          "evidence": "The enumerated family has the extra #0<=#1 balance restriction and analyzes generating trees/Riordan counts, not all-sign Walsh frequencies.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL16/Grazzini/grazzini2.pdf",
+          "material_read": "Full 17-page primary PDF, first and final pages visually checked and main sections/definitions read",
+          "method": "Read PDF full text and viewed page screenshots to verify definitions and scope",
+          "title": "Counting Binary Words Avoiding Alternating Patterns",
+          "trigger": "Same forbidden factor 101 and plausible exact enumeration coverage"
+        },
+        {
+          "assessment": "NOT_COVERING bordered 101",
+          "evidence": "Its unbordered hypothesis fails because 101 has first/last symbol equal to 1; no admissible specialization covers the target.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md",
+          "material_read": "Complete RESULT.md full theorem and hypotheses",
+          "method": "Read full published theorem",
+          "title": "Sharp dyadic Walsh gaps for avoidance of unbordered binary words",
+          "trigger": "Potential stronger pattern-avoidance Walsh theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unrestricted 101-avoiding language is a classical automaton-constrained binary code. A complete infinite periodic criterion for its all-character Fourier invertibility and an exact inverse norm supplies a meaningful spectral property not contained in its generating-tree enumerator, with constructive witness signs explaining the seven-phase obstruction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 47100e671e990cb44ad9647d4d6d274263f55925",
+    "CHECK.py SHA 78344ac5ec37e66459ad9533ef5c843d1f3f5612",
+    "https://cs.uwaterloo.ca/journals/JIS/VOL16/Grazzini/grazzini2.pdf",
+    "https://arxiv.org/abs/1210.7620",
+    "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": "Unindexed work on signed automata/transfer-matrix zeros may contain an equivalent period-seven classification; novelty is best-of-knowledge only.; The theorem does not give complete nullity/magnitude histograms or pseudoinverse norms in singular classes.",
+  "residual_risks": [
+    "Unindexed work on signed automata/transfer-matrix zeros may contain an equivalent period-seven classification; novelty is best-of-knowledge only.",
+    "The theorem does not give complete nullity/magnitude histograms or pseudoinverse norms in singular classes."
+  ],
+  "schema_version": 1
+}
