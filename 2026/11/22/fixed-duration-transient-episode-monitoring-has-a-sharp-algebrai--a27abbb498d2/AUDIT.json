@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "For independent A,L~Exp(lambda) the probability a single window [s,s+w] intersects [A,A+L) equals exp(-lambda*s)*(lambda*s+1-exp(-lambda*w)). Disjoint first-interception events exactly sum as exp(-lambda*T_previous)*F(g_i,w). Dynamic programming reduces every gap to e^(-y)[y+1-x+x*v], with unique maximizer y=x(1-v) and optimum exp[-x(1-v)]. Induction yields the unique calendar and all-n value. The increasing Bellman values force strictly increasing chronological gaps. epsilon_(n+1)=1-exp(-x epsilon_n) has a positive infinite product epsilon_n/x^n for 0<x<1 because sum epsilon_n converges; at x=1 its inverse increment tends to 1/2, proving n epsilon_n ->2. The cumulative gap bound follows by a geometric majorant. The extracted standard-library checker passed 16596 tests including direct overlap quadrature and perturbed/random alternative calendars. It is finite supplementary evidence, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yau et al. full text (2010), Introduction, sections 2, 4–6: recurrent alternating event stays and absences, long-run QoM and periodic sharing schedules.",
+        "Guillera-Arroita et al. (2014), DOI 10.1002/ece3.1056, full methods and optimization sections concern Poisson detections conditioned on site occupancy, with removal after detection.",
+        "Yu, Karaman and Rus (2013), arXiv:1309.6041, abstract presents cyclic multi-station patrolling and steady stochastic arrivals, not a finite one-off observation window schedule."
+      ],
+      "reasoning": "A general sensor-coverage/inspection formulation could in principle specialize to this stochastic one-off process; inspected relevant coverage studies optimize different functional objectives and schedule classes. The older general literature creates a residual priority risk, but there is no identified prior statement whose hypotheses and conclusions imply the exact present finite-window theorem.",
+      "searches": [
+        "published-finding corpus: passive sampler versus grab sample transient species event Poisson capture optimal multi window placement circular sampling gap",
+        "published-finding corpus: pulse signal capture with exponential DNA desorption, finite-duration occupancy, optimal sampler retrieval timing",
+        "Web: optimal periodic monitoring finite duration survey windows exponential arrival departure target detection scheduling",
+        "Web: optimally spaced finite duration observation windows single transient event exponential arrival lifetime monitoring",
+        "Web: \"Quality of monitoring of stochastic events by periodic and proportional-share scheduling\" pdf full text"
+      ]
+    },
+    "checked_sources": [
+      "Chen et al. (2024), DOI 10.1016/j.envint.2024.108706, PubMed PMID 38696978, full available article sections read",
+      "Yau et al. (2010), DOI 10.1145/1824766.1824774, substantial full article read",
+      "Public 2026 snapshot-calendar record, complete RESULT.md read from https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-optimal-snapshot-calendars-for-a-single-transient-ecological-pre--b2d028296c40",
+      "Guillera-Arroita et al. (2014), DOI 10.1002/ece3.1056, full relevant article sections read",
+      "Yu et al. arXiv:1309.6041, abstract inspected",
+      "Own accessible current-week claim record with 87 entries screened for overlap without historical recertification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The snapshot record has assumptions of n strictly instantaneous monitoring times; its specific alpha=mu recurrence is v_j=exp(v_(j-1)-1). It does not assert positive window widths or the x<1 constant.",
+        "Yau et al. model nonzero monitoring periods but a stationary recurring stochastic-event process and optimize long-run QoM over periodic schedules, not interception of exactly one transient event.",
+        "Guillera-Arroita et al. assume a detection Poisson process at occupied sites, not one transient presence interval with perfect overlap detection."
+      ],
+      "reasoning": "New statement has an exact value and unique gap vector for every n and every w>0 at equal exponential arrival and exit rates, plus sharp x^n vs 2/n missed probability regimes. It explicitly includes the known instantaneous x=1 case as a boundary, but no inspected theorem with more general assumptions supplies these x<1 quantitative conclusions directly. Formal dynamic programming is a tool of proof and not itself a novelty claim.",
+      "searches": [
+        "Full public-result inspection: Optimal snapshot calendars for a single transient ecological presence episode, RESULT.md",
+        "Full-text inspection: Yau et al., Quality of monitoring of stochastic events by periodic and proportional-share scheduling of sensor coverage",
+        "Full-text inspection: Guillera-Arroita et al., Optimal surveillance strategy for invasive species management when surveys stop after detection",
+        "Web: \"Optimal Search for a Moving Target in Discrete Time and Space\"",
+        "Web: \"finite duration\" \"exponential arrival\" \"exponential\" \"optimal sampling windows\" detection scheduling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest record https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-optimal-snapshot-calendars-for-a-single-transient-ecological-pre--b2d028296c40 gives the point-snapshot recursion when window duration is zero; RESULT.md fully examined.",
+        "Yau et al. (2010), DOI 10.1145/1824766.1824774, considers step capture utility for recurring events with periodic sensor schedules; full article text examined.",
+        "No retrieved exact-match positive-window all-size nested exponential theorem; search absence alone is not a priority proof."
+      ],
+      "reasoning": "The recurrence exp[-x(1-v)] at 0<x<1 is a quantitative deformation of the known snapshot x=1 case but has different n-asymptotics and bounded total idle time, which do not follow by substituting a different number of instantaneous observations. The finite-window observation event is an interval-overlap event; neither repeated occupancy snapshots nor recurring periodic coverage is statement-equivalent without a separate derivation.",
+      "searches": [
+        "published-finding corpus: single transient species first arrival exponential departure exponential finite-duration equal-length monitoring intervals optimal nonuniform gap scheduling nested exponentials",
+        "published-finding corpus: optimal fixed length passive ecological sampling windows exponential arrival extinction probability intercept one transient episode asymptotic exponential missed event",
+        "Web: \"optimal\" \"observation windows\" \"exponential\" \"arrival\" \"duration\" capture stochastic",
+        "Web: \"nonperiodic\" \"monitoring\" \"exponential\" \"event lifetime\" optimal windows"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus identified the public point-snapshot theorem https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-optimal-snapshot-calendars-for-a-single-transient-ecological-pre--b2d028296c40 as the closest mathematical record; not an exact positive-window formula.",
+        "Available previous claim summaries include finite listening windows on a circle under uniformly distributed starts and arbitrary durations and Markov-availability point surveys, but not this single exponential arrival/departure finite-window result.",
+        "There is no finite empirical database or integer table asserted by this continuous global optimization theorem."
+      ],
+      "reasoning": "This is a continuum-parameter analytic optimization, not a previously tabulated finite enumerative invariant. The corresponding check is exact source/record match rather than a numerical database lookup. Accessible own records were used only to screen current-claim overlap; no historical correctness was examined.",
+      "searches": [
+        "published-finding corpus: single transient species first arrival exponential departure exponential finite-duration equal-length monitoring intervals optimal nonuniform gap scheduling nested exponentials",
+        "Own ledger claim scan: all 87 accessible claims in part p0001 generation 87; terms transient, episode, passive sampler, arrival time, surveillance window, arrival and disappearance",
+        "Web: \"inspection\" \"event arrival\" \"event duration\" \"window\" optimal schedule"
+      ]
+    },
+    "rationale": "The positive-duration equal-window one-episode Bellman law, geometric asymptotic miss constant and bounded total idle time are not implied by the directly compared zero-duration snapshot theorem, by Yau et al.'s recurring-periodic monitoring formulas, by Chen et al.'s empirical passive sampling results, or by Guillera-Arroita et al.'s site-level surveillance-cost optimum. The x=1 snapshot recurrence and classical dynamic programming are explicitly acknowledged as prior knowledge. A broad 2010 on/off monitoring source was read in substantial full-text sections. The best-knowledge priority conclusion is qualified, particularly for older inspection scheduling work.",
+    "residual_risks": [
+      "General classical inspection scheduling and stochastic-event monitoring literature is extensive; historical priority beyond inspected sources is unproved.",
+      "Full text of Yu, Karaman and Rus (2013) not read; its abstract concerns cyclic patrolling with different objectives.",
+      "Perfect detection from arbitrarily short positive overlap and equal exponential arrival/departure rates are strong idealizations; extension to molecular capture with finite Poisson sensitivity is not proved.",
+      "No fixed monitoring deadline or switching/setup costs; optimized calendar may finish later than a contiguous benchmark."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Empirical fixed-submersion comparison; no nonperiodic one-off mathematical window timing theorem",
+        "evidence": [
+          "2024-04-26 e-publication date in PubMed",
+          "27 sampled locations and 24h passive collection described; no theorem on optimal idle gap recurrence"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.envint.2024.108706",
+        "material_read": "Online full text as retrieved in search: abstract, field sampling methods, rare-species results, discussion and limitations; publication day confirmed by PubMed PMID 38696978",
+        "method": "full-text HTML and PubMed bibliographic record",
+        "title": "Passive eDNA sampling facilitates biodiversity monitoring and rare species detection",
+        "trigger": "Motivating 2024 passive versus active sampling and transient-species detection study"
+      },
+      {
+        "assessment": "Uses event stays and absent times recurring in a stationary sequence, and periodic sensor sharing; not the same single irreversible episode finite optimally spaced windows",
+        "evidence": [
+          "Explicit utility U_I(x)=1 for positive overlap, matching one idealization",
+          "Explicit objective long-run QoM Q*, with periods p and active fraction q/p; not one-off finite schedule"
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/1824766.1824774",
+        "material_read": "Accessible full article text, introduction, model sections 2–3, monitoring utility and analytical periodic schedule sections 4–5 and comparative sections 6",
+        "method": "HTML extraction of the journal article on academia.edu, cross-referenced to DOI/abstract",
+        "title": "Quality of monitoring of stochastic events by periodic and proportional-share scheduling of sensor coverage",
+        "trigger": "Highly relevant possible broader on/off monitoring result with exponential events and step detection"
+      },
+      {
+        "assessment": "Directly covers point-snapshot x=1 special case but not positive-width x<1 recurrence and its exponential miss constant",
+        "evidence": [
+          "Equal-rate zero-width recursion b_k=exp(b_(k-1)-1)",
+          "Instantaneous observation n(1-b_n) ->2, and total horizon ~2 log n/lambda"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-optimal-snapshot-calendars-for-a-single-transient-ecological-pre--b2d028296c40",
+        "material_read": "Complete RESULT.md including assumptions, optimality proof, asymptotic and limitations",
+        "method": "public GitHub repository read",
+        "title": "Optimal snapshot calendars for a single transient ecological presence episode",
+        "trigger": "Closest published exact recurrence at zero window duration"
+      },
+      {
+        "assessment": "Optimizes management and survey resource allocation with occupied-site Poisson detection clock, not single one-time arrival/exit overlap",
+        "evidence": [
+          "Detection model success 1-exp(-gamma L) if occupied",
+          "Removal policy stops survey after detection and optimizes associated management costs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.1056",
+        "material_read": "Accessible full text abstract, introduction, detection model, methods and optimization results",
+        "method": "Wiley open-access full-text HTML",
+        "title": "Optimal surveillance strategy for invasive species management when surveys stop after detection",
+        "trigger": "Potentially stronger general analytic survey design theorem"
+      },
+      {
+        "assessment": "Cyclic multi-station arrival monitoring; full-text not inspected, leaving residual risk",
+        "evidence": [
+          "Objective described as long-run capture count and revisit delay on cyclic robot route"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.6041",
+        "material_read": "Abstract only",
+        "method": "arXiv abstract",
+        "title": "Persistent Monitoring of Events with Stochastic Arrivals at Multiple Stations",
+        "trigger": "General stochastic transient-event monitoring, potential broader coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a27abbb4-98d2-4253-b95e-f1ba664aa01e",
+  "value": {
+    "rationale": "For a fixed number and duration of intermittent survey windows on a one-time transient ecological episode, a unique all-size nonperiodic calendar with strictly increasing gaps is a concrete design invariant. The exact positive infinite-product factor 0<C(x)<1 quantifies the benefit of separating windows compared with uninterrupted observation from time zero with the same active effort. The sharp x=1 snapshot algebraic n^-1 miss law versus every fixed x<1 exponential x^n law, with bounded versus logarithmically divergent total idle time, supplies a substantive structural boundary and motivates the exact calculation. It is not a claim about empirical eDNA performance, and the strong perfect-overlap assumption is explicitly bounded.",
+    "status": "PASS"
+  }
+}
