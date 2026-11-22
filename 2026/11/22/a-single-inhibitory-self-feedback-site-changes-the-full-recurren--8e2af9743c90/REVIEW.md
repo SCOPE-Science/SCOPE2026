@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The NOR polarity argument proves first periodic entrance within one update with exact quantifiers; the fixed-state formula follows from maximal independent sets and a path exclusion bijection. The 16-state transfer trace bijects periodic pairs with closed walks and the exact matrix annihilator plus ten initial traces certifies the stated rational generating function for every ring length. The ratio is derived from its dominant pole, not from fitting sample values. The packaged all-integer verification tests the certificate and exhaustively enumerates \(3\le n\le12\).
+
+**Originality — PASS (qualified).** The Perrin theorem for unmarked cycles, the general AND-NOT fixed-point correspondence and published odd-ring Rule 5 preimage census were compared at the level of objects and implications. None of the inspected accessible mathematical statements gives the one-site self-loop feedback correction, its all-length rational generating function or the constant limiting retention fraction. Some relevant source content was inaccessible; an unindexed one-defect classification remains a residual priority risk, not an assertion of novelty proof.
+
+**Value — PASS.** The natural minimal local feedback perturbation changes an exponential family of periodic states by a nonvanishing asymptotic fraction. The all-length rational formula captures the counterintuitive four-site increase, a six-site equality, and asymptotic decrease within one coherent dynamical classification. These are not arbitrary selected table entries: they quantify the global effect of a single self-reading inhibitory input on a standard ring automaton.
+
+Closest literature: Bisdorff–Marichal (2007/2008) on homogeneous-cycle maximal independent sets; Veliz-Cuba–Laubenbacher (2011/2012) on AND-NOT fixed points; Aracena–Richard–Salinas (2014) on general fixed-point extremal bounds; a published odd-cycle Rule 5 result on homogeneous predecessor fibers. None implies the specified inhomogeneous recurrent-population sequence from its inspected statement. No independent mathematical or historical-priority audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
