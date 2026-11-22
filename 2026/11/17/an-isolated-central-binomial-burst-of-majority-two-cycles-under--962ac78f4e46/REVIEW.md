@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument uses the exact update rule at each matched endpoint of degree \(2q\) and at each unmatched endpoint of degree \(2q+1\). A two-step periodic state must have uniform unmatched shore bits; pair identities are preserved by the support-wise return requirement. Every possible adjacent threshold-level pair and pair-type support is treated as a linear inequality system in the actual population variables, with no numeric bound on \(q\). Integer Fourier–Motzkin elimination rules out 288 of 296 candidate systems for one restored edge, 484 of 488 for at least two, and 170 of 172 for none. Further exact tests force the six exceptional profiles to have counts \(q,q\). Direct substitution realizes the surviving profiles at every admissible order, and independently written vertex-level enumeration passes on 22 graphs. These steps imply the all-size orbit count; experiments are not used as proof of the infinite claim.
+## correctness
 
-**Originality — PASS, qualified.** Searches included equivalent near-crown, partial-crown, biclique-minus-matching descriptions and the exact central-binomial pulse. The closest identified prior majority results give only period restrictions or orbit counts at the unperturbed crown endpoint, and the relevant bipartite swap formula assumes odd degrees throughout, which fails at the matched endpoints here. A published mathematical record concerns non-CIS pairs for this same graph construction, but that is a static graph invariant and cannot imply dynamical orbit counts. Full-text inspected sources include the 2011 bi-threshold work (particularly its period theorem, graph examples, and appendix) and the 2014 majority-dynamics paper (introductory theorem and relevant framework). The original 1980 threshold paper was only accessible via bibliographic abstract; a plausible earlier unindexed enumeration remains a priority risk. Lack of a search hit is not treated as a uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** The natural one-parameter interpolation from a complete bipartite graph to its crown graph exhibits a sharply isolated, exponentially large period-two population at exactly one restored matching edge. The second restoration removes all additional oscillations. This discrete resonance is not a textbook consequence of the period-two theorem and gives a complete dynamical invariant across an infinite family.
+A missing matched pair has degree 2q; each restored-index endpoint has degree 2q+1. The exact four-level threshold maps L/M/P/H and four missing-pair types yield a complete finite symbolic decomposition of any F² state; all restored-index vertices are uniform in a recurrent state. The inspected standard-library rational Fourier–Motzkin code eliminates actual real inequality systems (stronger exclusion than integer infeasibility) without an arbitrary q cutoff: 172 systems for r=0 leave 2 uniform, 296 for r=1 leave 8 (six balanced type-pair families and two uniform), 488 for r≥2 leave 4 descriptions of only uniform. Twelve additional exact infeasibility checks force each exceptional type multiplicity to q. Explicit substitutions realize the six families for all q, with binom(2q,q) index choices per family, and temporal pairing divides six families by 2. Independently enumerated ALL 2^{2n} labelled configurations for each k at n=3,5,7, confirming the all-k finite cases, not used as the infinite proof.
 
-**Limitations.** Only odd equally sized shore graphs, matching deletions, and already-periodic temporal two-cycles are counted. No entry-time or basin census is claimed. Historical priority and external mathematical audit remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Goles–Olivos/Kuhlman period-two theory does not classify amplitudes or matching-defect orbits. Closest Resultary same graph full text examines ASYNCHRONOUS closed-neighborhood MINORITY recurrence, a different local update and state invariant. A one-cross-edge deleted-graph majority result covers k=1 at most, not the exceptional k=n−1 family across all odd n. No exact prior central-binomial pulse found in bounded semantic/title searches. Original 1980 paper inaccessible but that alone does not negate best-of-knowledge originality.
+
+## value
+
+PASS
+
+The one-parameter natural interpolation between the complete bipartite graph and an odd crown graph has a non-monotone isolated exponentially large oscillatory pulse at exactly one restored matching edge. The precise all-size orbit population is a structural cutoff beyond a routine period bound and has a plausible use as an exact benchmark for tie-sensitive network dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
