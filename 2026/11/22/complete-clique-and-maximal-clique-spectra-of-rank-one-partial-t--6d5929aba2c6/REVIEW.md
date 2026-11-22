@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The classification starts from a directly derived two-product commutation criterion for all distinct rank-one partial maps. Each clique has a unique set of image points and a unique external-versus-self choice at each image point; the criterion supplies the product enumeration. A complete extension test proves the two mutually exclusive maximality cases. The extremal inequality and boundary cases \(n=1,2,3\) are explicit. The independent enumerator uses direct partial-map composition, not the derived criterion, and exhaustively checks every coefficient for \(1\le n\le4\). The checker is finite supporting evidence, not a substitute for the proof.
+
+**Originality — PASS with residual priority risk.** The archival primary paper arXiv:1210.4775 studies generators, order and presentations of partial-transformation monoids, not rank-one commuting cliques; arXiv:1205.1664 restricts to partial bijections. The later arXiv:2511.09495 concerns largest commutative subsemigroups and the full graph's clique number; those results do not subsume the complete rank-one induced-graph clique and maximal-clique polynomials. The closest public rank-one Boolean-relation and square-zero-matrix graph results involve different vertex sets and multiplication. Searches for aliases, special cases and stronger coverage found no direct enumerator. An earlier equivalent hidden in broader semigroup graph work is still possible; independent priority review is not performed.
+
+**Value — PASS.** Exact size distributions of every clique and every maximal clique, and the sharp maximizer classification, are natural complete commutation invariants of the full partial-transformation monoid's rank-one stratum. They distinguish nilpotent-domain and idempotent-domain contributions, extend to all finite ranks of the underlying set, and organize induced-graph extremal questions beyond computation of a single clique number. This is not a restatement of the full-transformation or inverse-semigroup case.
+
+**Limits.** No assertion is made about maximal commutative subsemigroups of the entire partial-transformation semigroup. Source comparison and finite tests are not independent certification.
+
+Self-review: passed. Independent audit: not yet performed.
