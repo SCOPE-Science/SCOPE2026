@@ -1,15 +1,21 @@
-# Scientific review: cube–octahedron hull tetrahedron-volume transition
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(1<h<3\), there are precisely fourteen vertices and \(1001\) unordered vertex quadruples. The complete exact-arithmetic program tests 8008 Bernstein coefficients for the five sharp determinant envelopes; these inequalities certify the continuous interval rather than just sample parameters. Explicit maximizing quadruples attain the two globally controlling envelopes. A multiaffine convex-combination argument upgrades this to all tetrahedra in the body. The program also confirms that no two distinct maximizing vertex tetrahedra share three vertices, excluding all nonvertex maximizers in the claimed open interval. The cube and octahedral endpoint regimes and the volume decompositions are proved separately. No mathematical step relies on a numerical experiment as a substitute for an infinite assertion.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest published work calculates largest tetrahedra in the cube–octahedron **intersection**, not the **convex hull**, and its quadratic determinant phases do not imply the present cubic phase under polarity. General results of Akopyan and Glazyrin on centrally symmetric polytope simplices do not supply the claimed parameter-dependent sharp constants or unique normalized optimum. The 2021 rhombic-dodecahedron tiling literature motivates the family but concerns a different invariant. Searches of published mathematical records under the hull, polarity, maximal tetrahedron, and rhombic-dodecahedron aliases found no dominating statement. A 1995 general largest-simplex article could not be inspected in full, so equivalent earlier coverage cannot be completely excluded.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete three-phase extremal determinant and full five-phase normalized profile of a canonical geometric interpolation through the regular rhombic dodecahedron. The unique minimum of the largest-simplex volume fraction occurs at a nontrivial algebraic parameter before the regular polytope, demonstrating a sharp geometric/optimization phase separation. The proof additionally classifies all extremizing tetrahedra, including the absence of nonvertex optimizers, across the nondegenerate fourteen-vertex chamber. The exact threshold and full equality classification are substantive geometric invariants, not isolated numerical examples.
+For 1<h<3 the extreme vertices are the eight cube corners and six +/-h axis points. The determinant of any tetrahedron is multiaffine in its four points, so its absolute maximum reduces to 1001 vertex quadruples. Verified the actual standalone checker builds degree<=3 integer determinant polynomials and checks both signs of their gaps against five classwise envelopes in degree-3 Bernstein form on h=1+2s, s in [0,1]. Independently regenerated all 1001 determinants and EXACTLY 8008 nonnegative rational coefficients, with tight class counts 2,48,12,8,12 for 0..4 axial vertices. Comparing envelopes on (1,3) yields max{16,h²(h+3)}, with exactly two complementary cube maximizers and eight axis+opposite corner maximizers (ten at crossover r); independent pair comparison found no two maximal vertex tetrahedra sharing three vertices, and multiaffine convex combinations then exclude nonvertex optimizers. Cube volume 8, six pyramid extensions volume 8h on [1,2], and octahedron plus eight corner pyramids volume 4h² on [2,3], with 4h³/3 beyond; dividing determinant/6 gives five monotone branches, unique min 1/(3r). Boundary h=1,3 volumes match, but no equality-classification at those endpoints is asserted. This is an exact symbolic all-interval certificate combined with analytic vertex-reduction; not interpolation from numerical samples.
 
-## Residual risks
-Priority is checked against several relevant published mathematical records and accessible primary texts, not all historical sources. The older Gritzmann–Klee–Larman paper was not accessible in full. The symbolic computation is self-contained and replayable, but has not been independently audited. There is no claim beyond the explicitly parameterized family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. An older published theorem gives largest tetrahedra for the polar-related intersection K_c=[-1,1]^3 cap cB_1^3; polarity relates support geometry but does not preserve largest contained tetrahedron volumes or their normalized ratio, so its exact three-phase profile does not imply this hull result. Akopyan–Glazyrin (2014) provide general maximal-simplex/Radon structural results but not the specific h-dependent 14-vertex hull phase diagram; Gritzmann–Klee–Larman (1995) concern general qualitative/computational complexity, and full exhaustive priority remains a risk.
+
+## value
+
+PASS
+
+The cube–octahedron hull is a natural one-parameter transition including cube, rhombic dodecahedron and octahedron. Its exact largest-simplex occupancy and all equality types have a non-obvious algebraic switching point r<2 and unique worst ratio at a nonregular member, a motivated finite-dimensional extremal geometry result rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

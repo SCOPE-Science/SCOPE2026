@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:59:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1<h<3 the extreme vertices are the eight cube corners and six +/-h axis points. The determinant of any tetrahedron is multiaffine in its four points, so its absolute maximum reduces to 1001 vertex quadruples. Verified the actual standalone checker builds degree<=3 integer determinant polynomials and checks both signs of their gaps against five classwise envelopes in degree-3 Bernstein form on h=1+2s, s in [0,1]. Independently regenerated all 1001 determinants and EXACTLY 8008 nonnegative rational coefficients, with tight class counts 2,48,12,8,12 for 0..4 axial vertices. Comparing envelopes on (1,3) yields max{16,h²(h+3)}, with exactly two complementary cube maximizers and eight axis+opposite corner maximizers (ten at crossover r); independent pair comparison found no two maximal vertex tetrahedra sharing three vertices, and multiaffine convex combinations then exclude nonvertex optimizers. Cube volume 8, six pyramid extensions volume 8h on [1,2], and octahedron plus eight corner pyramids volume 4h² on [2,3], with 4h³/3 beyond; dividing determinant/6 gives five monotone branches, unique min 1/(3r). Boundary h=1,3 volumes match, but no equality-classification at those endpoints is asserted. This is an exact symbolic all-interval certificate combined with analytic vertex-reduction; not interpolation from numerical samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akopyan–Glazyrin paper Sections 1–3 gives general structural results, prisms, parallelotopes; Gritzmann–Klee–Larman abstract/full searchable text studies general stable, rigid and complexity properties; neither yields the computed five-branch normalized hull ratio in inspected material."
+        ],
+        "reasoning": "General attainment at vertices is used and credited, but structural and computational complexity results do not supply all 8008 signed parameter inequalities or the exact transition.",
+        "searches": [
+          "Resultary: regular cube octahedron convex hull max tetrahedron volume ratio exact parameter 14 vertices",
+          "Akopyan Glazyrin On maximum volume simplices in polytopes 2014",
+          "Gritzmann Klee Larman Largest j-simplices n-polytopes 1995"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-tetrahedral-volume-profile-in-the-cube-octahedron-intersec--9ba1a511dacf",
+        "https://users.mccme.ru/akopyan/papers/Akopyan-Glazyrin-Maximum-Volume.pdf",
+        "https://doi.org/10.1007/BF02574058"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "K_h=h(P_h)^polar but largest tetrahedron volume is not preserved by polarity. The intersection family normalized min 1/6 at c=3/2, whereas hull min is 1/(3r) at r~1.82164, distinct from rhombic dodecahedron h=2."
+        ],
+        "reasoning": "The earlier intersection theorem does not dominate the hull theorem, nor is the normalized ratio monotone under polarity; the new exact phase transition survives.",
+        "searches": [
+          "Resultary: Sharp tetrahedral-volume profile in cube–octahedron intersection family",
+          "Akopyan–Glazyrin maximum volume simplices polytopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published intersection family has D(c) piecewise quadratics in c; submitted hull has 16,h²(h+3),2h³ and corresponding volume 8,8h,4h²,4h³/3."
+        ],
+        "reasoning": "The two families are polar-related but not affine-equivalent and volume of largest inscribed simplex is not polar invariant; no equivalent formula follows by substitution.",
+        "searches": [
+          "Resultary: regular cube octahedron convex hull max tetrahedron volume ratio exact parameter 14 vertices",
+          "Resultary: cube octahedron intersection tetrahedral volume",
+          "DOI 10.1007/BF02574058"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The h-dependent family spans infinitely many real parameters; 1001 formal quadruples are exhausted symbolically, not an existing fixed-polytope table. A separate published regular truncated-octahedron spectrum concerns another fixed polytope."
+        ],
+        "reasoning": "Finite candidate enumeration here is a complete polynomial inequality certificate over [1,3], not reprinting a fixed small table.",
+        "searches": [
+          "Resultary: convex hull cube octahedron rhombic dodecahedron maximum tetrahedron volume",
+          "Resultary: max tetrahedron polytope exact tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. An older published theorem gives largest tetrahedra for the polar-related intersection K_c=[-1,1]^3 cap cB_1^3; polarity relates support geometry but does not preserve largest contained tetrahedron volumes or their normalized ratio, so its exact three-phase profile does not imply this hull result. Akopyan–Glazyrin (2014) provide general maximal-simplex/Radon structural results but not the specific h-dependent 14-vertex hull phase diagram; Gritzmann–Klee–Larman (1995) concern general qualitative/computational complexity, and full exhaustive priority remains a risk.",
+      "residual_risks": [
+        "The 1995 Gritzmann–Klee–Larman complete full document was not exhaustively inspected for every possible special family; historical priority remains provisional.",
+        "A large, but finite, 8008-inequality symbolic computation is a proof only because every degree<=3 polynomial is enumerated and represented nonnegatively in the Bernstein basis.",
+        "No formal Lean or expert verification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING convex hull: computes intersection family K_c and its different extremal ratio",
+          "evidence": [
+            "K_c=[-1,1]^3∩{||x||_1<=c}, D(c)=2(1+t+2t²),8t,8(1+u²), min1/6"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-tetrahedral-volume-profile-in-the-cube-octahedron-intersec--9ba1a511dacf",
+          "material_read": "Full published RESULT.md including three-branch determinant, cap-volume proof and normalized minimum",
+          "method": "Connected published GitHub full scientific RESULT inspected",
+          "title": "Sharp tetrahedral-volume profile in the cube–octahedron intersection family",
+          "trigger": "Closest exact-family prior"
+        },
+        {
+          "assessment": "General Radon volume/prism/parallelohedron structural theorems, no 14-vertex cube-octahedron hull parameterization",
+          "evidence": [
+            "2014 Periodica Mathematica Hungarica 69:251–256, Sections 1–3; abstract: Radon partitions and prisms/parallelotopes"
+          ],
+          "identifier_or_url": "https://users.mccme.ru/akopyan/papers/Akopyan-Glazyrin-Maximum-Volume.pdf",
+          "material_read": "Complete short original 2014 PDF text, plus visual page screenshot inspected",
+          "method": "Author-hosted primary PDF parsed plus web PDF screenshot",
+          "title": "On maximum volume simplices in polytopes",
+          "trigger": "Older primary general maximal simplex result"
+        },
+        {
+          "assessment": "UNKNOWN full-coverage beyond general qualitative and complexity work; retain priority risk, not a decisive negative conclusion",
+          "evidence": [
+            "Gritzmann–Klee–Larman 1995 Discrete Comput Geom 13:477–515 abstract stable/rigid simplex and complexity"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02574058",
+          "material_read": "Original abstract and searchable 39-page HTML rendition; targeted searches for octahedron/tetrahedral specific class gave no target theorem; not every page exhaustively read",
+          "method": "Institutional abstract and textual replica targeted mathematical search",
+          "title": "Largest j-simplices in n-polytopes",
+          "trigger": "Plausible general dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cube–octahedron hull is a natural one-parameter transition including cube, rhombic dodecahedron and octahedron. Its exact largest-simplex occupancy and all equality types have a non-obvious algebraic switching point r<2 and unique worst ratio at a nonregular member, a motivated finite-dimensional extremal geometry result rather than an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For P_h=conv([-1,1]^3 and six axis points +/-h e_i), the maximum contained tetrahedron determinant equals 16 for h<=r, h²(h+3) for r<=h<=3, and 2h³ for h>=3 where r²(r+3)=16. Its normalized maximum-volume ratio has a unique minimum 1/(3r), with complete maximizing tetrahedron classification for 1<h<3.",
+  "limitations": [
+    "The 1995 Gritzmann–Klee–Larman complete full document was not exhaustively inspected for every possible special family; historical priority remains provisional.",
+    "A large, but finite, 8008-inequality symbolic computation is a proof only because every degree<=3 polynomial is enumerated and represented nonnegatively in the Bernstein basis.",
+    "No formal Lean or expert verification is claimed."
+  ],
+  "schema_version": 1
+}

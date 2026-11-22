@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the exact tetrahedron-volume profile
 
-Run `python3 check_hull_tetra.py` with Python 3; no third-party packages are required. The attached file produces the exact result
+# Independent mathematical audit
 
-```
-CUBE_OCTAHEDRON_HULL_TETRAHEDRA_EXACT_PASS vertex_quadruples=1001 bernstein_nonnegative=8008 class_tight_counts=2,48,12,8,12 cube_maxima=2 axis_corner_maxima=8 three_vertex_overlap_pairs=0
-```
+## correctness
 
-The program constructs every unordered quadruple of the six axial and eight cube vertices; computes its signed determinant polynomial in \(h\); selects one of the five sharp polynomial envelopes based on the number of axial points; and verifies exact nonnegative rational degree-three Bernstein coefficients for each sign on the full closed interval \([1,3]\). A Bernstein polynomial with nonnegative coefficients is nonnegative throughout the interval, giving rigorous exhaustive bounds for uncountably many real parameter values. Independent constant and sharpness checks recover all exact classwise optimizer counts. It also constructs and compares the two cube and eight mixed extremal vertex sets and verifies no pair shares three vertices.
+PASS
 
-The mathematical argument in `RESULT.md` separately justifies the vertex classification, affine-to-vertex reduction, exclusion of nonvertex maximizers, the cube and octahedron parameter regimes, polytope-volume decompositions, and the monotonicity needed for the unique normalized optimum. No numerical random sampling, timeout, or failed search is treated as a proof. Independent audit and independent certification were not performed.
+For 1<h<3 the extreme vertices are the eight cube corners and six +/-h axis points. The determinant of any tetrahedron is multiaffine in its four points, so its absolute maximum reduces to 1001 vertex quadruples. Verified the actual standalone checker builds degree<=3 integer determinant polynomials and checks both signs of their gaps against five classwise envelopes in degree-3 Bernstein form on h=1+2s, s in [0,1]. Independently regenerated all 1001 determinants and EXACTLY 8008 nonnegative rational coefficients, with tight class counts 2,48,12,8,12 for 0..4 axial vertices. Comparing envelopes on (1,3) yields max{16,h²(h+3)}, with exactly two complementary cube maximizers and eight axis+opposite corner maximizers (ten at crossover r); independent pair comparison found no two maximal vertex tetrahedra sharing three vertices, and multiaffine convex combinations then exclude nonvertex optimizers. Cube volume 8, six pyramid extensions volume 8h on [1,2], and octahedron plus eight corner pyramids volume 4h² on [2,3], with 4h³/3 beyond; dividing determinant/6 gives five monotone branches, unique min 1/(3r). Boundary h=1,3 volumes match, but no equality-classification at those endpoints is asserted. This is an exact symbolic all-interval certificate combined with analytic vertex-reduction; not interpolation from numerical samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. An older published theorem gives largest tetrahedra for the polar-related intersection K_c=[-1,1]^3 cap cB_1^3; polarity relates support geometry but does not preserve largest contained tetrahedron volumes or their normalized ratio, so its exact three-phase profile does not imply this hull result. Akopyan–Glazyrin (2014) provide general maximal-simplex/Radon structural results but not the specific h-dependent 14-vertex hull phase diagram; Gritzmann–Klee–Larman (1995) concern general qualitative/computational complexity, and full exhaustive priority remains a risk.
+
+## value
+
+PASS
+
+The cube–octahedron hull is a natural one-parameter transition including cube, rhombic dodecahedron and octahedron. Its exact largest-simplex occupancy and all equality types have a non-obvious algebraic switching point r<2 and unique worst ratio at a nonregular member, a motivated finite-dimensional extremal geometry result rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
