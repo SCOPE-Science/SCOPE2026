@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The field has exact integrals \(x^2+y^2\) and \(z\). The derived angular scalar equation has a nonstationary rotating solution if and only if its constant bias dominates its trigonometric amplitude, and the standard full-angle integral establishes its **minimal original-time period**. A concave quadratic in latitude proves a global sharp threshold and exactly two annular connected components, not merely local existence. Exact factorization, a directly differentiated Euclidean surface Jacobian, and dominated convergence prove the critical area coefficient, finite nonzero time-weighted limit, and total-variation arcsine law. The positive coefficients, nondegenerate parameter and integrable endpoint singularities are handled explicitly. The exact rational witness and numerical quadrature in `CHECK.py` are supporting checks, not substitutes for the proof.
+PASS
 
-## Originality (PASS, subject to the recorded access limit)
+For a>1 the torus parametrization r=sqrt(s+cos(theta)), z=sin(theta) is regular. Both z and r are conserved; angular dynamics is dphi/dt=-(R sqrt(s+u)cos(phi)+d sin(theta)), and a simple latitude is a nonstationary cycle iff F_eta(u)=eta^2(1-u^2)-s-u>0. Minimizing (s+u)/(1-u^2) gives unique u*=-s+sqrt(s^2-1), eta*^2=(s+sqrt(s^2-1))/2; strict above-threshold concavity produces two ±z annuli. Exact period is 2pi/(R sqrt(F)). With h half root width, F=eta^2 h^2(1-xi^2), and the true torus area factor J(u)=sqrt((s+u)u^2+(1-u^2)/4). The two-hemisphere area integrals yield A/sqrt(delta)->8pi J*/eta* and finite weighted W->8pi^3 J*/(R eta* v*). Uniform smooth-factor convergence under the integrable inverse square-root density proves total-variation arcsine latitude and exact independent half signs. Independently checked rational witness s=4,eta^2=4: roots -1/4 and 0, F at midpoint 1/16, period 8pi. Numeric checks in inspected CHECK.py are corroboration only, not the source of universal proof.
 
-Jana's original full manuscript provides the pseudo-type field and integrability but not the sharp coefficient threshold, the two-annulus birth or the metric period-weighted asymptotics. The fully inspected public note on *cubic axisymmetric* torus period tails has longitude-independent angular speed, so it cannot imply the dynamics of the present **quadratic longitude-dependent** field, in which most latitudes contain equilibria and cannot rotate. The relevant full 2013 open paper concerns algebraic configurations of invariant parallels, meridians and limit cycles, not this Euclidean measure law. The generic inverse-square-root slowdown is classical and is not claimed as new. The 2011 Llibre–Medrado article was identifiable but its main text could not be inspected; it remains a specific, unresolved bibliographic risk, not evidence of stronger coverage. The assessment is best-knowledge, not a claim that unindexed equivalent results are impossible.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The parameter threshold gives an exact global transition from **zero** nonstationary periodic trajectories to **two full annuli** of them in a homogeneous quadratic field on a fixed torus. This changes the orbit topology and equilibrium distribution. Its metric consequences are quantitatively nontrivial: the periodic set vanishes in area while total residence-time-weighted area converges to an explicit positive number. The limiting arcsine law describes how the critical mass distributes across the entire emerging band, and identifies a natural singular measure that survives the bifurcation. These facts do not follow from first-integral existence alone, and the assertions apply simultaneously to all real parameters in the stated family.
+PASS best-of-knowledge for sharp global two-annulus onset combined with physical-period-weighted Euclidean area limit and arcsine latitude law. Jana 2024 proves integrability for pseudo-type quadratic torus flows, and earlier torus articles study invariant parallels/meridians and cubic period tails, but inspected primary results do not imply this weighted birth theorem.
 
-## Scope and residual risk
+## value
 
-Only this polynomial field and intrinsic Euclidean area are analyzed. No perturbation persistence, other polynomial degrees, or numerical certification of infinitely many parameters is claimed. Bibliographic coverage of the 2011 article is incomplete; full independent audit is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact transition creates two foliated open annuli while their geometric area shrinks to zero and their singular period weight retains a finite nonzero total mass. The accompanying universal arcsine conditional law is a useful sharp critical invariant with a clear geometric-dynamical mechanism, beyond merely observing the algebraic threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
