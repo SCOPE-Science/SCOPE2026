@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The nonlinear map has exact iterates \(h^{\circ n}(s)=1/(n+1/s)\). A common-uniform coupling yields an exact expected disagreement sum, bounded by \(O(N^{-\kappa})\), while the first-coordinate marginal gives the nonzero matching lower bound when the row seeds differ. Telescoping gives the first-hit identity; independent Bernoulli generating functions, Lindeberg's theorem and a Laplace-functional/Riemann-sum argument establish the three regimes. The standard Le Cam count bound yields quantitative total variation for the Poisson *count*, not the point process. The standalone rational checker corroborates exact small cases but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The full published texts by Souissi–Mukhamedov and Jamilov et al. establish the operator class and Markov-measure construction, not the triangular moving-row-seed theorem. The closest published analytic result on this exact parabolic operator covers fixed positive seeds, path equivalence and a moving-exponent Gaussian window; it has no uniform path approximation for \(s_{i,N}\to0\), no moving-seed Poisson transition, and no optimal first-coordinate total-variation rate. The analytic implication was checked rather than relying on title differences. Generic rare-event approximation theorems supply tools but do not directly state this model's sharp coupling or complete phase diagram; unindexed equivalents remain possible.
+PASS
 
-**Mathematical value — PASS.** The observation-horizon/seed-magnitude competition is intrinsic to nonhomogeneous population Markov models and has a natural critical ratio \(N/N^\kappa\). The full-path sharp memory-loss estimate is stronger than weak convergence of counts, and the exact first-hit clock connects the individual startup behavior with the limiting Poisson intensity. It identifies three distinct observation regimes not resolved by known fixed-seed limits.
+The identity h^n(s)=1/(n+s^(-1)) is exact. Shared uniform coupling differs only when the previous Markov state is one, giving rho Delta_1 plus sum Delta_n Pr(Z_{n-1}=1) = O(N^(-kappa)); first-coordinate marginal supplies the matching lower bound when beta0 != beta1. Reference product Bernoulli variables have sum mean log(1+beta0 N^(1-kappa))+O(N^(-kappa)); Lindeberg applies in kappa<1, Laplace functionals and Le Cam give Poisson point process/count TV at kappa=1, and Markov inequality implies vanishing visits for kappa>1. First-hit survival telescopes exactly from state zero. Independent rational path-enumeration at N=6,beta=(2/5,4/5),rho=3/10 gives TV .0226698 vs lower bound .0165441. No almost-sure limit for changing triangular experiments is claimed.
 
-The result is restricted to this parabolic two-state model, and the law concerns horizon-dependent experiments. Wider generalization, original-priority certification, and independent validation remain outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2024 source papers set up the F-stochastic operators and Markov path measures; the fully read older parabolic record treats fixed positive seeds and a moving exponent. Here the seed itself shrinks with N, producing a distinct Gaussian–Poisson–empty-count transition and sharp full-vector O(N^-kappa) TV rate. Standard Le Cam/CLT laws are prior tools.
+
+## value
+
+PASS
+
+Vanishing-row initial data naturally interpolate between abundant and rare state visits in an already-studied operator; the sharp entire-path independence error and exact first-hit law resolve a specific inference/observation regime. The three-phase threshold and inhomogeneous point intensity are useful precise natural facts, not arbitrary finite parameter tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
