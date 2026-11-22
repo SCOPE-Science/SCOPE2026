@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:03:30.155982Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem is about labelled circular configurations returning after t synchronous Rule-110 steps, not preimage sets or eventual basins, including n=1,2. Verified local map f(a,b,c)=(110>>(4a+2b+c))&1 and the radius-t block overlap/closed-walk bijection, valid even n<=2t by cyclic repetition. Inspected exact code verify_graph.py: it enumerates every 2^(2t+1) candidate edge for t=1..5, finds cyclic strongly connected components, and uses exact Newton trace/determinant coefficients, not numeric recurrence fitting. Component sizes 1; (1,4);(1,9);(1,4);(1,64), giving det(I-zA5)=(1-z)(1-2z^5)(1+z^5-z^10)^2 and log traces. Independently reimplemented graph edges and root closed-walk trace counts for all t=1..5 and n=1..20 (edges 5,17,66,250,1042); every value matches a1=1, a2=a4=1+4[4|n], a3=1+9[9|n], a5=1+5(2^m+2(-1)^m L_m) for n=5m, else 1. For prime period 5 all nonzero returning states are primitive 5, with absences exactly m=1,3 by Lucas recurrence and positive growth thereafter; the formal trace/determinant identity proves all circumferences, not a finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc/RESULT.md (zeta for shift on one-step image, not fixed(F^5))",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-thirty-site-gap-between-six-and-seven-step-recurrence-in--2dd8fa420e00/RESULT.md (return times 6 and 7, not fifth)"
+        ],
+        "reasoning": "The one-step image spatial zeta counts image configurations as periodic words. Fixed states of F^5 are a different subshift. The later six/seven-return theorem does not provide a five-return count as a corollary, absent explicit complete temporal-return characterization.",
+        "searches": [
+          "Resultary search: Rule 110 fifth iterate fixed points period five Lucas cycles zeta de Bruijn",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-thirty-site-gap-between-six-and-seven-step-recurrence-in--2dd8fa420e00/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0706.3348",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-thirty-site-gap-between-six-and-seven-step-recurrence-in--2dd8fa420e00/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/lucas-arithmetic-and-the-first-exponential-short-return-class-in--6da91943e80a/verify_graph.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc/RESULT.md",
+          "The root-walk graph for fixed(F^5) has 64-vertex cyclic SCC and determinant (1-2z^5)(1+z^5-z^10)^2."
+        ],
+        "reasoning": "Prior methods explain how to build de Bruijn diagrams but do not logically imply the submitted determinant coefficients without doing the new exact finite transfer calculation. The one-step Rule 110 image is not fixed(F^5).",
+        "searches": [
+          "Resultary search: Rule 110 fifth iterate fixed points period five Lucas cycles zeta de Bruijn",
+          "arXiv:0706.3348",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:0706.3348 (phase diagram and glider symbolic language)",
+          "In submitted claim a5(n)=1+5(2^(n/5)+2(-1)^(n/5)L_(n/5)) for 5|n"
+        ],
+        "reasoning": "Extended de Bruijn walks are standard; the independently verified 64-state t=5 SCC determinant and Lucas extraction are particular to fifth-iterate fixed states and do not follow from a generic phase-diagram method.",
+        "searches": [
+          "Resultary search: Rule 110 fifth iterate fixed points period five Lucas cycles zeta de Bruijn",
+          "arXiv:0706.3348",
+          "Rule 110 five-period temporal returns de Bruijn zeta Lucas exact circumference"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact determinant coefficient identity for finite graph G5; no matching public enumeration found in the searched corpus."
+        ],
+        "reasoning": "A table of glider phases or short-ring temporal cycles cannot supply all ring lengths. Lack of an indexed table is not proof of novelty; priority remains bounded.",
+        "searches": [
+          "Resultary search: Rule 110 fifth iterate fixed points period five Lucas cycles zeta de Bruijn",
+          "exact temporal Rule 110 fifth-return zeta lookup"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct all-circumference time-five fixed-iterate/lucas-zeta theorem; Rule-110 extended de Bruijn phase tools and other one-step spatial zetas are precedents, but not this exact temporal return set.",
+      "residual_risks": [
+        "Only finite targeted literature comparisons; an older unindexed full fifth-return enumeration remains possible.",
+        "Exact transfer code is human-inspectable, not a formally verified proof object."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Methodological predecessor; does not state an all-circumference fixed-fifth-iterate Lucas formula.",
+          "evidence": "arXiv:0706.3348, glider phase diagrams.",
+          "identifier_or_url": "https://arxiv.org/abs/0706.3348",
+          "material_read": "Public full PDF, especially title/diagrammatic development and relevant extended de Bruijn sections on glider phases, inspected including rendered pages.",
+          "method": "arXiv full PDF and page images",
+          "title": "Determining a regular language by glider-based structures called phases fi_1 in Rule 110",
+          "trigger": "same elementary rule and extended de Bruijn formalism"
+        },
+        {
+          "assessment": "Different invariant: spatial shift on one-step output image. Not a whole-document noncoverage claim.",
+          "evidence": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc/RESULT.md",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc/RESULT.md",
+          "material_read": "Resultary indexed abstract and mathematical formula only; not full paper.",
+          "method": "Resultary semantic retrieval",
+          "title": "Exact spatial dynamical zeta function and least periods of the Rule 110 one-step image",
+          "trigger": "same rule and zeta terminology"
+        },
+        {
+          "assessment": "Does not give fifth-return formula in inspected summary; full result not read.",
+          "evidence": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-thirty-site-gap-between-six-and-seven-step-recurrence-in--2dd8fa420e00/RESULT.md",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-thirty-site-gap-between-six-and-seven-step-recurrence-in--2dd8fa420e00/RESULT.md",
+          "material_read": "Resultary indexed summary and claimed period6/7 boundary only.",
+          "method": "Resultary retrieval",
+          "title": "A sharp thirty-site gap between six- and seven-step recurrence in Rule 110",
+          "trigger": "adjacent temporal periods of same rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Temporal return hierarchies for a universal elementary CA are natural; the sharp first exponentially populated fifth-return class, two exceptional ring lengths and rational zeta supply a complete non-obvious all-size invariant. The exact t<=4 comparison shows a structural jump, not merely a recomputation of a few finite rings.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0706.3348",
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-thirty-site-gap-between-six-and-seven-step-recurrence-in--2dd8fa420e00/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/lucas-arithmetic-and-the-first-exponential-short-return-class-in--6da91943e80a/verify_graph.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All lengths are covered by exact rational generating function only for temporal return t<=5; basins, higher temporal periods and formal-proof certification remain out of scope.",
+    "Best-of-knowledge originality; no claim of exhaustive priority or formal/expert certification.",
+    "Scientific pass is separate from publication transport not_ready."
+  ],
+  "schema_version": 1
+}
