@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T02:46:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fourier inversion of the first slice makes h_0(n)=f(n)conj(g(n-x0))=C omega^(an), nonzero pointwise, so f and g have no zero coordinate. The next slice gives ratio R(n)=h1/h0=alpha omega^(un)+beta omega^(vn); the telescoping product for j shifts factors into q-Pochhammer partial product with q=omega^(-s(c-b)) order d and z=omega^((c-b)n), z^d=1. The cyclotomic full-d block equals 1-(-t)^d and is nonzero because all window ratios are nonzero. For r<d, Gaussian q-binomial coefficient factors (1-q^h) have h<d and are nonzero, and distinct z^0..z^r frequencies cannot collide. Multiplicative character pre-factor shifts frequencies only. Summing N/d complete repetitions gives N(d+1)/2. Existence: alpha=(1+(-0.7)^d)^(1/d)>0.7, beta=0.7, R(n)=alpha+beta omega^(Nn/d), whose cyclic product is 1; nonvanishing then gives consistent nonzero g and f=1/conj(g). This algebra is valid for every composite N, not numerical FFT threshold extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nicola equality classification covers exactly minimum STFT support N, while here N(d+1)/2>N for d>1.",
+          "Krahmer-Pfander-Rashkov supply finite-group support uncertainty/generic-window phenomena rather than prescribed two neighboring nonvanishing full-window slices.",
+          "Resultary two-point-window and two-sparse-signal trichotomies impose time-domain sparsity incompatible with the forced everywhere-nonzero f,g."
+        ],
+        "reasoning": "Checked whether broader Gabor uncertainty and equality conditions logically imply the local-to-global support staircase; their inequalities and restricted classes do not determine row sizes.",
+        "searches": [
+          "https://arxiv.org/abs/2204.14176",
+          "https://arxiv.org/abs/math/0611493",
+          "Resultary: cyclic short time Fourier transform exact support one and two frequency slices Gaussian binomial staircase"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/16/...845c92516710/RESULT.md and check_staircase.py at source tree f3705ac9fff4edf3bb7e8da97c57274dc7936a35",
+        "same record METADATA.json, AUDIT.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md at frozen commit",
+        "https://arxiv.org/abs/2204.14176",
+        "https://arxiv.org/abs/math/0611493",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-support-geometry-for-a-two-point-cyclic-short-time-fourier--f7682ff5d741",
+        "Resultary: cyclic short time Fourier transform exact support one and two frequency slices Gaussian binomial staircase"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Absolute minimum-support STFT pairs have total support N, which cannot occur here since d>=2 implies >=3N/2.",
+          "General bound |supp V_g f|>=N does not imply exact support N(d+1)/2 or row-by-row values."
+        ],
+        "reasoning": "Neither equality-classification cases nor lower bounds imply full conditional arithmetic progression; compared two-point window support concerns a window with many zero coordinates, whereas this hypothesis forces g nowhere zero.",
+        "searches": [
+          "https://arxiv.org/abs/2204.14176",
+          "https://arxiv.org/abs/math/0611493",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-support-geometry-for-a-two-point-cyclic-short-time-fourier--f7682ff5d741"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first singleton slice is equivalent via Fourier inversion to a modulated nonvanishing constant product f conj(T_x g).",
+          "The second two-point Fourier profile forces a two-term character multiplier between consecutive translates, not a sparsely supported time-domain signal."
+        ],
+        "reasoning": "Translated into cyclic Gabor/STFT ratio-cocycle and q-binomial product vocabulary; exact cyclic row sizes are not stated by compared uncertainty principles.",
+        "searches": [
+          "Resultary: cyclic short time Fourier transform exact support one and two frequency slices Gaussian binomial staircase",
+          "https://arxiv.org/abs/2204.14176",
+          "https://arxiv.org/abs/math/0611493"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Conditional identities are proved for all N and all divisors d, with continuous nonzero coefficient ratios t subject to nonvanishing.",
+          "No exact previously tabulated complete neighbor-slice support staircase was located in the compared Resultary records."
+        ],
+        "reasoning": "The theorem is an infinite-parameter structural classification; its finite threshold-based checker is not an existing exact table.",
+        "searches": [
+          "Resultary: cyclic short time Fourier transform exact support one and two frequency slices Gaussian binomial staircase",
+          "https://arxiv.org/abs/2204.14176"
+        ]
+      },
+      "rationale": "Conditional neighboring-slice rigidity differs from both global STFT support minimizers and sparse window/signal support gaps. The discrete Gaussian-binomial expansion is classical; the asserted contribution is its forced all-row cyclic frequency staircase under two neighboring Fourier profiles.",
+      "residual_risks": [
+        "An earlier q-binomial Gabor cocycle classification could subsume the specific two-slice theorem; historical priority not established.",
+        "Numerical checker depends on NumPy and a coefficient threshold; exact zero support follows from proof, not reported FFT entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "all-minimum N support equality class, not higher-support constrained-neighbor staircase",
+          "evidence": [
+            "main equality case has total support N while required staircase has total N(d+1)/2 for d>1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.14176",
+          "material_read": "Abstract, stated equality classification, theorem 1.2 scope and relevant proof description",
+          "method": "primary arXiv journal/preprint text and theorem inspection",
+          "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+          "trigger": "same STFT domain and sharp-support equality classification"
+        },
+        {
+          "assessment": "global inequalities and generic behavior do not determine exact two-neighbor slice profile",
+          "evidence": [
+            "finite Abelian group STFT uncertainty principle and generic window support"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+          "material_read": "Abstract and support/uncertainty theorem descriptions in the paper",
+          "method": "primary arXiv source inspection",
+          "title": "Uncertainty in time–frequency representations on finite Abelian groups and applications",
+          "trigger": "finite group STFT general lower bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A local measurement of only two adjacent time slices forces the exact complete STFT support and its divisor arithmetic. This is a meaningful rigidity theorem in finite time-frequency analysis with constructive attainability, not a generic uncertainty bound or routine substitution into one such bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier q-binomial Gabor cocycle classification could subsume the specific two-slice theorem; historical priority not established.",
+    "Numerical checker depends on NumPy and a coefficient threshold; exact zero support follows from proof, not reported FFT entries."
+  ],
+  "schema_version": 1
+}

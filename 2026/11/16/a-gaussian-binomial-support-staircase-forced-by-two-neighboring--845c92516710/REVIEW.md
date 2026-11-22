@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The first singleton Fourier slice makes the product of the signal and shifted conjugate window an everywhere nonzero character. The next two-frequency slice gives an exact binomial ratio of successive window translates. Multiplying these ratios around the generating time step reduces every subsequent Fourier slice to a root-of-unity product. A full-order product is a nonzero constant and each partial product of length below the order has all Gaussian-binomial coefficients nonzero with pairwise distinct frequencies. These identities prove all slice counts, their sum, and the explicit realization for every divisor order. The standalone numerical construction checked 19,058 transform entries over all divisors for cyclic lengths 3 through 26. The infinite-family claim is proved algebraically, not inferred from computation.
+## correctness
 
-## Originality — PASS, subject to historical-priority limitations
-Nicola (2022, arXiv:2204.14176v1), Theorem 1.2 and its proof, classify exactly minimum-support cyclic STFTs and do not give the two-neighbor conditional staircase, whose support is strictly greater than the minimum. Krahmer–Pfander–Rashkov (2006, arXiv:math/0611493), Section 4, establish global and generic-window support bounds rather than this local-to-global row classification. Related published prime-cycle support-gap claims determine lower bounds but not the exact row-by-row arithmetic progression; sparse-time-window results assume a fundamentally different, incompatible signal/window support regime. Published summaries were inspected where full text was not accessible. Search incompleteness and possible earlier general root-of-unity product implications remain genuine risks; independent historical priority is unverified.
+PASS
 
-## Mathematical value — PASS
-The statement identifies a rigid, exactly realizable local-to-global law for cyclic STFT support: one monochromatic time slice and one adjacent two-frequency slice determine all remaining slice cardinalities without fixing amplitudes or phases. The additive order of a frequency difference gives a complete arithmetic classification and an exact global support total. This refines merely bounding global support and provides explicit nontrivial structured time-frequency support patterns for all composite and prime lengths.
+Fourier inversion of the first slice makes h_0(n)=f(n)conj(g(n-x0))=C omega^(an), nonzero pointwise, so f and g have no zero coordinate. The next slice gives ratio R(n)=h1/h0=alpha omega^(un)+beta omega^(vn); the telescoping product for j shifts factors into q-Pochhammer partial product with q=omega^(-s(c-b)) order d and z=omega^((c-b)n), z^d=1. The cyclotomic full-d block equals 1-(-t)^d and is nonzero because all window ratios are nonzero. For r<d, Gaussian q-binomial coefficient factors (1-q^h) have h<d and are nonzero, and distinct z^0..z^r frequencies cannot collide. Multiplicative character pre-factor shifts frequencies only. Summing N/d complete repetitions gives N(d+1)/2. Existence: alpha=(1+(-0.7)^d)^(1/d)>0.7, beta=0.7, R(n)=alpha+beta omega^(Nn/d), whose cyclic product is 1; nonvanishing then gives consistent nonzero g and f=1/conj(g). This algebra is valid for every composite N, not numerical FFT threshold extrapolation.
 
-## Unproved limits and risk
-No claims about near-zero coefficients under perturbations, arbitrary non-generating time steps, three-or-more-frequency adjacent slices, or absolute historical novelty. Some related published mathematical records were available only as indexed summaries, and no independent audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Conditional neighboring-slice rigidity differs from both global STFT support minimizers and sparse window/signal support gaps. The discrete Gaussian-binomial expansion is classical; the asserted contribution is its forced all-row cyclic frequency staircase under two neighboring Fourier profiles.
+
+## value
+
+PASS
+
+A local measurement of only two adjacent time slices forces the exact complete STFT support and its divisor arithmetic. This is a meaningful rigidity theorem in finite time-frequency analysis with constructive attainability, not a generic uncertainty bound or routine substitution into one such bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
