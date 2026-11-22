@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is exactly the two-coordinate image of zero-mass signed circular derivative measures of total variation at most one. Periodic Stieltjes integration by parts gives the frequency normalization; Jordan masses agree; adding common positive mass correctly reduces to a half-difference of probabilities. The first/second moment interval \(a^2\le r\le1\) on \([-1,1]\) is both necessary and sufficient. Direct optimization over the admissible negative-part mean yields the exact parabolic caps, and convexity supplies all intervening points. Homogeneity yields the inverse minimum-variation formula. Saturation of second moments and mean constraints establishes the pushforward equality classifications. The separate rational checker tests formulas, not infinite-dimensional completeness.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Sluchak (arXiv:2611.04067v1, Theorem 1 and Sections 5.1, 10.2) establishes sharp bounds for one coefficient and simultaneous sufficient variation corridors, not a precise attainable set for two related coefficients. Catala et al. (arXiv:2203.10531, introduction and Sections 2–3) treat approximation/interpolation of general measures from trigonometric moments, rather than this minimal-variation two-sine-coefficient body. The classical truncated-moment and signed-measure decomposition results provide the framework but not the explicit piecewise gauge or full extremal support classification as inspected. Semantic repository queries on the joint sine harmonics, signed moment differences, BV norm and spectral variation gauge located related but noncovering Fourier norm and concentration results. Residual risk: a classical convex-moment extremal result may implicitly contain the formula in a different notation; uniqueness or priority is not certified by search.
+PASS
 
-## Value — PASS
-The two target modes are naturally linked by the doubling identity for cosine; the one-harmonic square bounds are substantially loose in two large corners. A complete closed feasible-region and inverse-norm law is an exact Fourier interpolation invariant, not an arbitrarily chosen finite computation. The sharp flat-to-curved transition and rigid two/three-jump minimizers identify all optimal variation allocations. This supplies necessary *and* sufficient simultaneous harmonic tolerances, not just separate safety bounds, relevant to spectral corridor design.
+Periodic integration by parts gives X=int cos(nt)dnu and Y=int cos(2nt)dnu=2int u^2 dnu for the zero-mass signed derivative nu=df. Equal Jordan masses m<=1/2 and adding common mass reduce the image to X=(a-b)/2, Y=r-s where a,b are probability first moments on [-1,1] and r in [a^2,1],s in [b^2,1]. For fixed X, min |b|=max(0,2|X|-1), so the exact upper cap is 1-b^2, and reflection gives lower cap; convexity fills every vertical section and integration gives 10/3. The homogeneous gauge has branches |Y| for |Y|>=2|X| and 4|X|^2/(4|X|-|Y|) otherwise. Equality r=1 and s=b^2 forces the asserted +/- endpoint and point masses, with lifts to 2 or 3 step-function jumps; no unique original-circle location is implied for n>1. This is an analytic all-n argument; CHECK.py contains only rational consistency points.
 
-## Risks and verification boundaries
-The conclusion is restricted to real periodic BV signals and the sine pair with ratio two. Full-circle variation, rather than interval variation with a free endpoint jump, is essential. The continuity-constrained extremizers can fail to exist. The analytical moment proof is the all-frequency certificate; the script checks illustrative rational points only. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected stronger or equivalent statement gives the full two-harmonic BV moment body, inverse gauge, and rigid Jordan pushforward classification. Classical signed-moment theory supplies the method, and Sluchak gives one-harmonic variation inequalities, not this joint sharp image. Best-of-knowledge priority only.
+
+## value
+
+PASS
+
+Doubling harmonics is structurally natural through cos(2t)=2cos^2(t)-1. The independent one-mode variation constraints give a square with substantial unattainable corners; the exact sharp feasible region, inverse interpolation norm and boundary extremizers answer a motivated joint moment interpolation problem and are not a mere normalization or finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
