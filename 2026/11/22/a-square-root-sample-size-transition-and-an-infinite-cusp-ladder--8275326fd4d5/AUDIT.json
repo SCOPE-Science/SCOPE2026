@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "C PASS: Directly identify the published weighted L1 statistic with the full empirical/fitted Poisson mass-function L1 norm; Poisson Hellinger affinity removes estimated-mean noise with E|error|<=2/sqrt(n). Exact binomial absolute-deviation identity and bounded differences reduce the null limit to a Riemann integral. A uniform Poisson local central limit theorem and a Chebyshev tail cutoff give the critical n^2 scale; central-window L1 and overlap bounds prove the two endpoints. The Poisson modal mass has a strictly decreasing continuous envelope; its integer derivative jumps yield local 3/2-power singularities with an explicit nonzero coefficient. The included script actually passed 126 independent finite checks, which support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berend--Kontorovich 2012 provides concentration and expectation bounds for countable empirical distributions.",
+        "Barbour 2009 treats occupied-box counts and translated-Poisson approximations."
+      ],
+      "reasoning": "Known concentration and occupancy machinery motivates the approach, but concentration alone does not determine the precise square-scale Poisson Gaussian-occupancy integral; neither inspected theorem delivers its non-C2 singularities.",
+      "searches": [
+        "\"On the Convergence of the Empirical Distribution\" Berend Kontorovich",
+        "\"Univariate approximations in the infinite occupancy scheme\" Barbour",
+        "\"empirical multinomial\" \"total variation\" growing alphabet Poisson limit"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2402.12866",
+      "doi:10.37920/sasj.2025.59.1.2",
+      "Kirui 2023 North-West thesis pp. 16-23, 30-31",
+      "arxiv:1205.6711",
+      "arxiv:0902.0879"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source statistic identity is already implicit in Kirui Section 3.3 and is explicitly credited.",
+        "The source paper and thesis study nine distances and finite-parameter bootstrap power, with no varying lambda/n^2 hypothesis.",
+        "Berend--Kontorovich concentration yields a useful proof step; Barbour occupancy limit machinery addresses box-count functionals."
+      ],
+      "reasoning": "The claim is not a simple reformulation of the published fixed-parameter tests, nor a fixed-distribution corollary of the older concentration bound: the source distribution changes with n. Standard Poisson local limits and mode formulas do imply intermediate calculations, but the full sharp profile and infinitely many modal singularities require a separate argument.",
+      "searches": [
+        "Kirui thesis Chapter 3 section 3.3 and Chapter 5 conclusions",
+        "arxiv:2402.12866 sections 2,3,4",
+        "arxiv:1205.6711 Section 2",
+        "arxiv:0902.0879 Section 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kirui et al. arXiv:2402.12866, Section 2, defines w*(k)=p_hat(k)/q_hat(k) and L1 with weight q_hat; this equals the unhalved total-variation norm.",
+        "Berend--Kontorovich arXiv:1205.6711, Sections 1-2, studies the general empirical L1 deviation J_n."
+      ],
+      "reasoning": "The empirical Poisson L1 identity and general distribution estimation are credited, not claimed as new. Neither inspected source states the triangular-array kappa profile, strict monotonicity, or cusp ladder.",
+      "searches": [
+        "\"weighted Poisson\" \"empirical weight function\" \"L1\" fitted pmf",
+        "\"empirical distribution\" \"total variation\" \"Poisson\" increasing parameter",
+        "\"multinomial\" \"empirical L1\" \"Poissonized\" occupancy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original thesis Chapter 4 and article Section 3 present finite-sample simulation-power tables for fixed Poisson intensities.",
+        "Searches over mathematical research records returned distinct Poisson extremes, multinomial Pearson-moment, and infinite-urn frequency claims, not this fitted-empirical L1 curve."
+      ],
+      "reasoning": "This is a continuous, rigorously specified null-limit function, not a numerical table lookup. No exact matching table or claim was found in the inspected comparisons; negative search is not a proof of universal novelty.",
+      "searches": [
+        "\"empirical weight Poisson\" \"critical\" \"n squared\" \"modal\"",
+        "\"fitted-Poisson-weight\" \"L1\" phase threshold",
+        "\"empirical occupancy\" Poisson mode integer critical cusp"
+      ]
+    },
+    "rationale": "O PASS, qualified: Full source sections defining the exact statistic and the original source conclusions were inspected. The 2023 thesis discusses fixed-parameter weighted tests and Poisson modes, not an increasing-intensity n-squared transition, Gaussian occupancy curve or its singularity ladder. The 2012 empirical L1 paper supplies concentration bounds; the 2009 occupancy paper supplies occupied-box approximations; neither inspected text states the exact combined theorem. Record-search comparisons produced related Poisson and multinomial results, but none covering this statistic-specific claim or implying its nonanalytic curve directly. A more general uninspected theorem might subsume a component.",
+    "residual_risks": [
+      "The 2023 thesis public-deposit day was not confirmed; arXiv v1 date is earliest verified precise public date.",
+      "General multinomial-occupancy L1 asymptotics may imply part of the integral after specialization, although inspected related works do not state the modal-cusp ladder.",
+      "Independent priority examination has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINITIONS_COVERED; no increasing-mean n-squared null regime or modal cusp theorem in inspected material",
+        "evidence": [
+          "arxiv:2402.12866, Section 2.2, equations (2.2)-(2.4) and fitted-Poisson-weight L1; Section 3 studies n=30,50,100 and finite alternatives"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.12866",
+        "material_read": "Full web-rendered text Sections 1-4, particularly Section 2.1 weight definition, Section 2.2 weighted L1, Section 3 finite-power tables and Section 4 conclusions",
+        "method": "Read source HTML text and traced the definition w*=p_hat/q_hat and fitted-Poisson weight choice",
+        "title": "On new tests for the Poisson distribution based on empirical weight functions",
+        "trigger": "Primary introduction of exact tested statistic"
+      },
+      {
+        "assessment": "DEFINITIONS_AND_MODAL_FACT_COVERED; does not state the n-squared limit or the 3/2-cusp ladder in the inspected substantive chapters",
+        "evidence": [
+          "Thesis Chapter 3, pp. 20-23, eqs. (3.6)-(3.10); Chapter 5, pp. 30-31; graduation May 2023"
+        ],
+        "identifier_or_url": "https://repository.nwu.ac.za/bitstreams/6bc2adcb-3dbb-4312-b440-4d92cc48d5f6/download",
+        "material_read": "Chapter 3, pp. 16-23, with the formula on pp. 20-21 inspected also in page images; Chapter 4 finite-sample numerical setup and Chapter 5 conclusion, pp. 30-31",
+        "method": "Read extracted full-text regions and visual source pages 20 and 21",
+        "title": "On a new class of tests for the Poisson distribution based on empirical weight functions",
+        "trigger": "Earlier thesis with same objects and an explicit discussion of Poisson modal indices"
+      },
+      {
+        "assessment": "RELATED_BOUND; useful general concentration but no explicit high-mean Gaussian-occupancy profile in inspected material",
+        "evidence": [
+          "Berend and Kontorovich (2012), Sections 1-2, especially J_n and (3)-(4)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1205.6711",
+        "material_read": "Abstract, Introduction, Section 2 main concentration bounds, proof prerequisites",
+        "method": "Read mathematical HTML with the J_n definition, McDiarmid bound and finite alphabet bounds",
+        "title": "On the Convergence of the Empirical Distribution",
+        "trigger": "Strong general empirical L1 convergence and concentration results might dominate the present theorem"
+      },
+      {
+        "assessment": "RELATED_METHOD; studies box-count distributions, not this empirical L1 discrepancy or cusps",
+        "evidence": [
+          "Barbour (2009), Section 1, definitions of K_n and K_{n,r}"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0902.0879",
+        "material_read": "Abstract, Introduction and main theorem setup for occupied-box counts",
+        "method": "Read arXiv HTML and checked defined objects K_n and K_{n,r}",
+        "title": "Univariate approximations in the infinite occupancy scheme",
+        "trigger": "Occupancy Poissonization might directly yield the new limiting statistic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8275326f-d4d5-4192-9edc-2ed1b21f13b2",
+  "value": {
+    "rationale": "V PASS: When the Poisson count distribution spreads across a number of cells of order sqrt(lambda), the fitted empirical-mass test changes sharply from a vanishing to a maximal null discrepancy as the cell count overtakes sample size. The exact profile permits quantitative calibration of the full null statistic in this otherwise unaddressed large-intensity setting. The countable modal-cusp ladder reveals concrete non-smooth parameter dependence that is not captured by generic consistency bounds; it is a structural property rather than a trivial tiny improvement.",
+    "status": "PASS"
+  }
+}
