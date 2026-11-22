@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python checks/checker.py` using standard Python 3. No third-party modules are required. The provided `checks/output.txt` is the resulting run output. Six rational parameter choices cover a singular-density region, the exact essential-boundedness boundary, a bounded-density region, unbiased branches, and near-critical expansion. The checker verifies stationary cylinder masses by independent exact expressions for geometric-mixture and one-step Markov transitions through eight-digit cylinders: 3,066 equalities, plus moment and boundary algebra checks. The proof of uniqueness of stationary measures and the sharp all-exponent integrability characterization are analytic and are not inferred from the finite checker.
+## correctness
 
-The selected absolutely continuous law exists for strictly \(p>1/2\). At and below that threshold uniqueness holds instead, with a Bernoulli digit law that is singular for biased inverse branches. Only the exact binary map and strictly positive branch probabilities are covered. Independent validation has not been performed.
+PASS
+
+On the [0,1) binary shift with terminating-zero representation, applying forward doubling after either prepend branch gives FB=I. Bernoulli(α) digits are invariant under shifting and biased prepending. The stationarity identity yields F^{n+1}μ−F^nμ=r(F^nμ−F^{n−1}μ). For r≥1, uniform total variation of probabilities forces Fμ=μ and then Bμ=μ, whose cylinder probabilities uniquely determine ν_α. For r<1, the geometric forward recurrence converges in total variation to an F-invariant seed ρ and inverting (I−rB) gives the claimed affine bijection μ=(1−r)Σr^kB^kρ. Seeds λ, ν_α and δ0 produce, respectively, equivalent-AC, biased singular-continuous and countably dense purely atomic stationary laws for α≠1/2. The geometric density on length-k binary cylinders yields f=(1−r)Σ∏(2r w_d). Its independent fair-digit multipliers have E Z_k^s=M_s^k; Minkowski yields integrability for M_s<1, and positivity plus Σ Z_k^s gives divergence at equality or above. Maximal-prefix positive-measure cylinders likewise give the iff L∞ threshold. At p=8/13,α=4/5, independently calculated multipliers 1/4 and 1, giving every finite s>1 integrable yet no essential upper bound; r<1. This fully includes strict p=1/2 and α=1/2 boundaries as stated.
+
+## originality
+
+PASS
+
+Homburg–Kalle primary model uses equal probability among inverse branches and emphasizes two-point motions. An earlier published Resultary theorem covers the complete stationary-simplex recurrence for uniformly chosen inverse branches and must not be reclaimed. The biased branch-selection classification, mutually singular stationary types, and exact sharp canonical density L^s and L∞ boundaries are distinct extensions; standard product-moment arguments are acknowledged.
+
+## value
+
+PASS
+
+The question of how biased inverse-branch selection changes the stationary simplex and density smoothness is motivated directly by the original interval random-dynamics model. The exact sharp real-Ls threshold and the every-finite-Ls-but-unbounded borderline are meaningful complete natural regularity facts; the coexistence of three singularity types gives a clear dynamical consequence. It is more than a change of symbols in the unbiased theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

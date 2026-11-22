@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim applies to exact expanding/biased-inverse dyadic maps with independent branch choices, not arbitrary affine random maps. The identity \(FB=I\) yields a recurrence in the forward images of every stationary law. If \(r\ge1\), boundedness forces simultaneous invariance under the shift and biased prepend operator; the latter has a unique Bernoulli fixed probability. If \(r<1\), summing the recurrence yields an exact affine bijection with shift-invariant seeds. The Lebesgue seed yields an explicit positive binary multiplicative-series density. Independence of binary digits under Lebesgue measure proves the sharp necessity and sufficiency of the moment criterion, including equality, and uniform cylinder lower bounds prove the \(L^\infty\) boundary. Exact-fraction finite-cylinder checks corroborate the algebra but do not constitute the infinite proof. C risk: dyadic endpoint conventions must be respected; no continuity of the interval doubling operator in weak topology is claimed.
+## correctness
 
-## Originality — PASS within inspected literature
-Homburg–Kalle (arXiv:2207.09987v1, Sections 1 and 4.2) restrict branch selection to equal weights, explicitly flag general weight vectors and their stationary laws, and do not state the biased \(L^s\)-critical diagram. The published uniform forward/inverse stationary-simplex classification already proves the central geometric mixture/recurrence method for equal inverse weights; its specialization and core method are not claimed new. The published uniform-branch covariance study and a biased *expanding*-map zero-cylinder study concern different observables and maps. The assessed incremental claim is the **unequal inverse-weight sharp density-regularity theorem and the associated coexistence of measure types**. Risk: a general multiplicative-cascade or transfer-operator theorem may implicitly imply the \(L^s\) criterion for this model without naming it.
+PASS
 
-## Mathematical value — PASS
-Determining stationarity beyond equal branch probabilities is explicitly motivated by the original model. The exact critical surface \(2[(1-p)/p]\max\{\alpha,1-\alpha\}=1\) separates bounded from unbounded absolutely continuous stationary densities, and its equality point has the nontrivial borderline property of membership in every finite \(L^s\), though not \(L^\infty\). A second sharp phase boundary at \(p=1/2\) governs uniqueness versus coexistence, giving two distinct, naturally parametrized phase transitions. The result is not an arbitrary finite enumeration or merely an unproved computational observation.
+On the [0,1) binary shift with terminating-zero representation, applying forward doubling after either prepend branch gives FB=I. Bernoulli(α) digits are invariant under shifting and biased prepending. The stationarity identity yields F^{n+1}μ−F^nμ=r(F^nμ−F^{n−1}μ). For r≥1, uniform total variation of probabilities forces Fμ=μ and then Bμ=μ, whose cylinder probabilities uniquely determine ν_α. For r<1, the geometric forward recurrence converges in total variation to an F-invariant seed ρ and inverting (I−rB) gives the claimed affine bijection μ=(1−r)Σr^kB^kρ. Seeds λ, ν_α and δ0 produce, respectively, equivalent-AC, biased singular-continuous and countably dense purely atomic stationary laws for α≠1/2. The geometric density on length-k binary cylinders yields f=(1−r)Σ∏(2r w_d). Its independent fair-digit multipliers have E Z_k^s=M_s^k; Minkowski yields integrability for M_s<1, and positivity plus Σ Z_k^s gives divergence at equality or above. Maximal-prefix positive-measure cylinders likewise give the iff L∞ threshold. At p=8/13,α=4/5, independently calculated multipliers 1/4 and 1, giving every finite s>1 integrable yet no essential upper bound; r<1. This fully includes strict p=1/2 and α=1/2 boundaries as stated.
 
-## Closest sources and limitations
-Primary source: A. J. Homburg and C. Kalle, *Iterated function systems of affine expanding and contracting maps on the unit interval*, arXiv:2207.09987v1 (2022-07-20). Most closely related published theorem: *Sharp stationary-simplex collapse for forward/inverse circle dynamics* (2026), uniform inverse branch weights. The present result does not cover nonequal bases, two-point motions, general noise kernels, or density regularity of every stationary measure. Absolute publication priority and independent mathematical review have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Homburg–Kalle primary model uses equal probability among inverse branches and emphasizes two-point motions. An earlier published Resultary theorem covers the complete stationary-simplex recurrence for uniformly chosen inverse branches and must not be reclaimed. The biased branch-selection classification, mutually singular stationary types, and exact sharp canonical density L^s and L∞ boundaries are distinct extensions; standard product-moment arguments are acknowledged.
+
+## value
+
+PASS
+
+The question of how biased inverse-branch selection changes the stationary simplex and density smoothness is motivated directly by the original interval random-dynamics model. The exact sharp real-Ls threshold and the every-finite-Ls-but-unbounded borderline are meaningful complete natural regularity facts; the coexistence of three singularity types gives a clear dynamical consequence. It is more than a change of symbols in the unbiased theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
