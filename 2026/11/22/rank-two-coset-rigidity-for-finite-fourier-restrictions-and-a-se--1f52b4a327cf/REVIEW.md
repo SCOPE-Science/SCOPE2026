@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The unit-modulus rank-two lemma is independently reconstructible: two independent unimodular rows yield a phase ratio, and the affine modulus-one equation has at most two unit-circle roots unless a coefficient vanishes. This establishes an exhaustive row-class/column-class dichotomy. Character proportionality is exactly membership in the stated annihilator subgroups, yielding both directions of the minimum-rank identity, including rank one and rectangular boundary cases. For cyclic order \(3p\), four distinct elements cannot occupy a single \(p\)-residue fiber of size three. The resulting rank-two cases and the split \((1,3),(2,2),(3,1)\) are counted without overlaps. The attached exact integer checker independently tests all \(3969\) order-six rectangular restrictions and all \(1089\) ordered affine-orbit representative pairs at order 21; prime-field-to-complex lifting is justified by explicit cyclotomic norm bounds, not heuristic tolerance.
+
+## Originality — PASS under bounded comparisons
+The closest earlier published order-fifteen four-point rank census contains the special case \(4500\) but not the arbitrary-group equivalence or all-prime \(3p\) formula. Previous three-point semiprime classifications reuse an elementary three-by-three rigidity lemma but do not assert the rank-two dichotomy for every rectangular unimodular character table. The full inspected primary texts of Tao, Meshulam, Krahmer–Pfander–Rashkov and Delvaux–Van Barel (2006 report on Fourier matrices) concern full spark, uncertainty, small rank tables or constructive low-rank blocks; none states the necessary-and-sufficient arbitrary finite-abelian rank-two criterion. This is a bounded priority conclusion, not a uniqueness guarantee. The separate 2006 Kronecker-product paper was accessible only by abstract and may conceal an implicit implication.
+
+## Value — PASS
+The finding turns an arbitrary low-rank Fourier sampling question into a test of explicit annihilator cosets, uniformly for all finite abelian groups and all nonempty rectangular selections. The sharp boundary at rank two separates subgroup-forced losses from more complicated higher-rank deficiencies. As a substantive application, a complete infinite-family four-point rank-two incidence classification at all cyclic orders \(3p\) follows from structural reasoning, not from extending an isolated numerical table. This is relevant to exact multiband Fourier interpolation and rank-defect diagnosis.
+
+## Closest literature and unresolved priority risks
+The prior third-minor results on distinct prime products and order \(3p\) give only triple restrictions; the order-fifteen fourth-minor census gives only one modulus. Delvaux and Van Barel describe constructive subgroup block tilings but the complete 2007 Kronecker-product article was not materially accessible. A not-yet-indexed equivalent of the low-rank rigidity lemma remains possible. None of these uncertainties changes the self-contained proof's defined scope.
+
+Self-review: passed. Independent audit: not yet performed.
