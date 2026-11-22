@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T14:13:11Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "New independent script worker10_triangular_independent.py and output worker10_triangular_independent_output.txt: EDGES=75, row states=11, FACES=4216, matching pairs=2074, acyclic 4215/4215, 51x15 signed Morse boundary zero, GF2 ranks match.",
+        "Actual source RESULT.md defines graph, matching and signed projection; verify.py was read (not executed blindly), with independent code reconstructing every critical computation.",
+        "Exact reconstructed eight-blob Git tree SHA a70d42c35f9f79af42362519ceb4f4378f38ea8e; source constraints and all boundaries inspected.",
+        "Euler check χ=1−51+15=−35; sign-weighted independent-set count 36 agrees with prior known Witten index."
+      ],
+      "rationale": "For T on (Z/5)^2 with exactly six adjacency increments ±(1,0), ±(0,1), ±(1,1), independently enumerated all cyclic row-compatible independent sets and obtained exactly 4216 faces including empty, with f=(25,225,900,1600,1140,300,25). A newly authored row-transfer/bitmask checker reconstructed the deterministic vertex-by-vertex matching on all 4215 nonempty faces: exactly 2074 disjoint genuine Hasse pairs, and unmatched cells 1x dimension 0, 51x dimension 3, 15x dimension 4. It traversed all 17225 nonempty Hasse covers and a Kahn topological sort visited all 4215 faces, proving exact acyclicity. Separately propagated integer incidence signs through all 1236 needed degree-3 gradient elimination states: every one of the 51x15 integral Morse differential entries vanishes. Independent direct GF2 boundary elimination returned ranks (24,201,699,850,275,25) in degrees 1..6. The Morse CW 3-skeleton is a wedge of 51 S^3 (no 1/2 cells) and its 15 4-cell attaching maps have zero classes in π3 ≅ H3 by Hurewicz, hence are null; the claimed integral wedge follows. This finite exhaustive certificate covers precisely this 25-vertex torus, not other sizes; archived VERIFY_OK alone is not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamaszek, https://arxiv.org/html/1109.4914v2, Proposition 3.2 concerns triangular-derived lattices with periodic lines removed, not full triangular 5x5 quotient; Lemma 4.1 gives an induced-matching wedge summand, not the complete exact toroidal homotopy.",
+          "Jonsson 2010 bibliographic abstract, DOI:10.1007/s00454-009-9224-9, concerns the ranges of cross-cycle dimensions across quotients; the full source was unavailable in this run, so no whole-document noncoverage claim is made.",
+          "Full original result https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nine-integral-four-spheres-in-the-fully-periodic-five-by-five-ha--374b6b4d37f7/RESULT.md concerns Ind(C5 square C5), with four neighbors per vertex, while the assigned graph has six."
+        ],
+        "reasoning": "A general existence theorem for cross-cycles or selected wedge summands does not automatically force this torus entire integral wedge. The physically related hard-square result has different edges and a different independence complex. Accessible primary statements do not imply the result; Jonsson full-text limitation remains explicit.",
+        "searches": [
+          "Resultary: Jonsson Adamaszek independence complexes triangular lattice toroidal grid homotopy cross cycles",
+          "Adamaszek arXiv:1109.4914v2 HTML §3 and §4, in particular Proposition 3.2 and Lemma 4.1",
+          "Jonsson 2010 DOI:10.1007/s00454-009-9224-9 OA and arXiv searches; full author-hosted link attempted, Oxford authorized request returned vpn_disconnected"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 exact frozen Git tree a70d42c35f9f79af42362519ceb4f4378f38ea8e; RESULT.md, verify.py, VERIFICATION.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, verification_output.txt",
+        "Huijse et al., arXiv:1112.3314v1, full original HTML §§I.2, II, B.4",
+        "Adamaszek, arXiv:1109.4914v2, original full HTML §§3-5",
+        "Jonsson, Certain Homology Cycles, DOI:10.1007/s00454-009-9224-9, title and abstract only (full text unavailable)",
+        "Resultary published Oct25 5x5 hard-square and Nov8 5x6 hard-square full RESULT.md",
+        "Resultary semantic searches for equivalent/broader exact toroidal triangular independence complexes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier 51 and 15 rational Betti numbers plus Witten index 36 do not imply a wedge of 51 S3 and 15 S4 (the integral Morse attaching matrix is an additional condition).",
+          "Adamaszek Lemma 4.1 splits off spheres given suitable dominating transversal induced matchings but supplies no exhibited complete 5x5 torus matching with 66 critical cells and zero attaching coefficients.",
+          "Independent whole-poset check produced 2074 matched pairs and a 51x15 signed zero boundary, furnishing the asserted extra information."
+        ],
+        "reasoning": "There is no direct statement/implication from the inspected earlier same-graph ground-state paper, related lattice splitting paper or different-graph finite hard-square classification to the full assigned integral homotopy. The homology-to-homotopy gap here is material, despite the known ranks. Priority remains qualified by inaccessible Jonsson full text and possible other unindexed sources.",
+        "searches": [
+          "Huijse 2011 entire HTML sections I.2, II, B.4",
+          "Adamaszek 2012 original HTML sections 3-4; homotopical splitting lemma",
+          "Resultary published Oct25 hard-square five-by-five exact theorem full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huijse et al., https://arxiv.org/html/1112.3314v1, Appendix B.4 explicitly gives 5x5 N_gs=66, W=36, filling sectors 4 and 5; these are known rational reduced ranks 51 and 15 via the fermionic cohomology/independence complex correspondence.",
+          "The assigned claim concerns the stronger integral homotopy statement Ind(T) ≃ 51 S^3 ∨ 15 S^4, with a zero signed 4-to-3 Morse attaching matrix, not just its cohomology vector."
+        ],
+        "reasoning": "The ground-state dictionary gives dimensions of cohomology, not all attaching homotopy classes; adjacent-degree free homology can arise from CW complexes with nontrivial attachments. The exact integral wedge therefore does not follow from the known 66-state table or Witten index.",
+        "searches": [
+          "Resultary: 5x5 periodic triangular lattice hard hexagon independence complex integral homotopy wedge 51 15 spheres 3 4 discrete Morse",
+          "web: independence complex 5 by 5 triangular torus homotopy wedge of 51 3 spheres 15 4 spheres",
+          "Huijse et al. arXiv:1112.3314v1, Sections I.2 and Appendix B.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Huijse et al. 2012 original table exactly computes N_gs=66 and W=36 in the very same torus. Summing the table yields 51 states at four particles and 15 at five particles.",
+          "Resultary semantic search returns the assigned November 8 report itself, but the other close earlier finite homotopy calculations concern square-grid tori or different complexes."
+        ],
+        "reasoning": "The known exact ground-state table covers rational homology ranks, and the assigned record rightly disclaims novelty of these numbers. A table of dimensions cannot rule out integral attaching maps or determine the integral homotopy equivalence. No earlier exact 5x5 integral homotopy table was identified, a bounded negative search only.",
+        "searches": [
+          "Huijse et al. arXiv 1112.3314 Appendix B.4 table 5x5 66 W 36",
+          "Resultary: 5 by 5 triangular torus hard hexagon independence complex wedge 51 3 spheres 15 4 spheres homotopy",
+          "web: triangular lattice 5x5 homotopy 51 15 wedge independence complex"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the nontrivial integral homotopy equivalence, not for already-known rational homology. The exact same 5x5 periodic triangular graph and its 66=51+15 ground-state ranks occur in Huijse et al. 2011, Appendix B.4; they do not establish nullity of all 4-cell attaching maps. Adamaszek 2012 proves homotopical splittings from dominating-transversal induced matchings but for separately specified lattice families, with no complete 5x5 triangular-torus decomposition. Jonsson 2010 concerns cross-cycle homology; original full text was not obtained this run, so full-document noncoverage is not asserted. The closest inspected earlier published SCOPE 5x5 hard-square result is the square Cartesian torus (4-regular), not the triangular (6-regular) torus. Specific exact-result and implication searches located this assigned record but no earlier dominating integral homotopy calculation. Residual historical priority risk remains material; absence of search hits does not certify novelty.",
+      "residual_risks": [
+        "Historical equivalent 5x5 integral wedge computation could be unindexed or unpublished; search does not prove novelty.",
+        "Jonsson 2010 highly relevant full text remained inaccessible this run, despite arXiv/OA search and authorized Oxford attempt; its precise entire implications were not verified.",
+        "Prior 2011 physical literature already gives 51+15 rational dimensions and 66 ground states, so no novelty should be claimed for those figures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS rational 51+15 ranks and W=36; does not establish integral wedge homotopy or the full zero signed attaching matrix",
+          "evidence": [
+            "§I.2 explains ground-state/cohomology correspondence; Appendix B.4 lists 5x5 N_gs=66, W=36, f=4 and f=5 sectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1112.3314v1",
+          "material_read": "Full article HTML, especially Introduction §I.2, §II numerical and theoretical discussion, Appendix B.4 including explicit 5x5 momentum-sector table",
+          "method": "Read original full HTML via arXiv and checked table and independence-complex cohomology dictionary",
+          "title": "Supersymmetric lattice fermions on the triangular lattice: Superfrustration and criticality",
+          "trigger": "Same doubly periodic triangular five-by-five graph and exact known 66 ground-state ranks"
+        },
+        {
+          "assessment": "Gives general wedge-summand splitting for suitable induced matchings, but no complete 5x5 full triangular torus integral homotopy type",
+          "evidence": [
+            "Prop 3.2 treats triangular-derived lattices with every d-th line removed; Lemma 4.1 gives one sphere wedge summand under a dominating transversal."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1109.4914v2",
+          "material_read": "Full online HTML article, especially §§1,3,4,5, concluding remarks and Proposition 3.2 and Lemmas 4.1-4.2",
+          "method": "Read primary full-text HTML theorem statements and their lattice hypotheses",
+          "title": "Special cycles in independence complexes and superfrustration in some lattices",
+          "trigger": "Special homotopical cycle and splitting theorem for triangular-related lattices"
+        },
+        {
+          "assessment": "No whole-document NOT_COVERING judgment; accessible abstract describes cross-cycle homology ranges, but uninspected full text leaves historical priority risk",
+          "evidence": [
+            "2010 paper abstract focuses on rational ranges of cross-cycle degrees for triangular/square/hexagonal grid quotients."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00454-009-9224-9",
+          "material_read": "Bibliographic title/abstract only; author-hosted PDF returned 404 and no arXiv full version was found; Oxford authorized access returned vpn_disconnected",
+          "method": "Tried arXiv and lawful OA, reviewed bibliographic abstracts; requested authorized Oxford full text without bypass",
+          "title": "Certain Homology Cycles of the Independence Complex of Grids",
+          "trigger": "Same triangular-grid torus family, possible historical stronger coverage"
+        },
+        {
+          "assessment": "Related but different graph, cannot imply assigned toroidal triangular-homotopy classification by parameter substitution",
+          "evidence": [
+            "Prior graph is C5 □ C5, four regular, and result is wedge 9 S4; new graph has 6 neighbors and different face counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nine-integral-four-spheres-in-the-fully-periodic-five-by-five-ha--374b6b4d37f7/RESULT.md",
+          "material_read": "Full RESULT.md including exact Cartesian-product graph definition, proof and algorithm",
+          "method": "Retrieved actual original published RESULT.md and compared six-regular triangular edges with four-regular hard-square edges",
+          "title": "Nine integral four-spheres in the fully periodic five-by-five hard-square complex",
+          "trigger": "Same 5x5 toroidal size and integral homotopy method; check graph isomorphism/coverage"
+        },
+        {
+          "assessment": "Covers another 4-regular square torus of different shape, with no theorem covering the triangular 5x5 graph",
+          "evidence": [
+            "C5 □ C6 is a four-regular, 30-vertex grid with no diagonal edges, unlike assigned 25-vertex six-regular graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-five-by-six-toroidal-hard-square-independence-complex-is-a-f--d5437ea45cad/RESULT.md",
+          "material_read": "Full RESULT.md including graph definition, proof and scope",
+          "method": "Read earlier/same-date published RESULT and compared graph adjacency hypotheses",
+          "title": "The five-by-six toroidal hard-square independence complex is a five-sphere",
+          "trigger": "Potential broader systematic toroidal-grid homotopy result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Huijse et al. 5x5 torus had known 51/15 rational ranks and W=36; the integral wedge is a stronger natural object-specific topological invariant.",
+        "Complete 51x15 signed Morse differential vanishes, with independently verified finite certificate and homotopy inference; no general graph-family claim.",
+        "Related toroidal hard-square complexes have different integer wedge classifications, motivating exact dependence on lattice adjacency."
+      ],
+      "rationale": "The 5x5 periodic triangular hard-hexagon graph is a natural small two-dimensional frustrated fermion lattice already studied with exactly 66 rational ground-state classes. Those known ranks, especially in adjacent homological degrees 3 and 4, leave a genuine unstable integral homotopy ambiguity: 4-cell maps into a wedge of 3-spheres are not determined by rational ranks alone. A complete explicit acyclic Morse matching and integral zero attaching map resolve that exact natural finite invariant, yielding the full non-equivariant homotopy type and excluding torsion/other attachments for this specific physically motivated torus. The exact fact can be needed as a benchmark for larger triangular tori and further symmetry studies without pretending to solve an infinite-lattice problem. It is not merely recomputation of Huijse numbers or a renamed hard-square theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 exact frozen Git tree a70d42c35f9f79af42362519ceb4f4378f38ea8e; RESULT.md, verify.py, VERIFICATION.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, verification_output.txt",
+    "Huijse et al., arXiv:1112.3314v1, full original HTML §§I.2, II, B.4",
+    "Adamaszek, arXiv:1109.4914v2, original full HTML §§3-5",
+    "Jonsson, Certain Homology Cycles, DOI:10.1007/s00454-009-9224-9, title and abstract only (full text unavailable)",
+    "Resultary published Oct25 5x5 hard-square and Nov8 5x6 hard-square full RESULT.md",
+    "Resultary semantic searches for equivalent/broader exact toroidal triangular independence complexes"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original same-model code and logs were inspected but not treated as self-certification; full independent verifier was implemented and executed locally.",
+    "One earlier relevant primary Jonsson article remained abstract-only due to unavailable full text; no fabricated whole-document negative comparison.",
+    "The public source METADATA/AUDIT operational fields remain unsanitized; scientific PASS is not an import-ready publication plan.",
+    "The external connector response is not mounted into Python, so exact returned identity fields were transferred into the private manifest while all source Git entry hashes independently reproduce the tree."
+  ],
+  "residual_risks": [
+    "Historical equivalent 5x5 integral wedge computation could be unindexed or unpublished; search does not prove novelty.",
+    "Jonsson 2010 highly relevant full text remained inaccessible this run, despite arXiv/OA search and authorized Oxford attempt; its precise entire implications were not verified.",
+    "Prior 2011 physical literature already gives 51+15 rational dimensions and 66 ground states, so no novelty should be claimed for those figures."
+  ],
+  "schema_version": 1
+}
