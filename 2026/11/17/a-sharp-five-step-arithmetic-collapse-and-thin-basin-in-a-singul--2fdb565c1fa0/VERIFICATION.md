@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the integer-lattice theorem
 
-The included `verify.py` uses only standard-library Python and exact integer arithmetic. Run `python3 verify.py` to check both distinct primitive cycles, 20,301 cone states, five integer-square counts and the sharpness witness. The verified output is:
+# Independent mathematical audit
 
-```
-VERIFY_OK period_cycles=2 transformed_cases=20301 square_counts=5 sharpness=1
-```
+## correctness
 
-The proof of universal five-step capture and exact basin classification is the explicit exhaustive integer case split in `RESULT.md`; finite enumeration cannot establish universal assertions. No proof assistant or independent auditor was used. The result does not claim real-plane capture, parameters outside the specified one, or definitive novelty.
+PASS
+
+Exact conjugacy p=max(x,0)+max(-y,0)>=0, q=max(-x,0)-max(y,0) sends one step into the integer cone x=p+q-1,y=p-q-1. The four p>=2 q-regions and p=0,1 boundaries form an exhaustive integer case partition, each reaching E_s or E_l in <=4 additional steps; direct substitution checks each core is a primitive four-cycle. The transformed basin test pulls back to five disjoint lattice pieces and their square counts sum 2(N-1)+(N+2)+3+(N+2)+(N-1)=5N+4. Independent exact tests for every point of [-100,100]^2 verify capture, basin and counts; (-3,0) first reaches a core at step five. Finite tests corroborate, not replace universal symbolic casework.
+
+## originality
+
+PASS
+
+The primary four-partition research studies real state bifurcations and an absorbing interval, not an exact all-lattice five-step capture in this singular integer slice in the accessible abstract. Other published SCOPE exact eventual-periodicity examples concern a=0,c=1 or different absolute-value coefficients and maps. The 2020 related journal paper could not be read; priority of arithmetic specializations remains provisional.
+
+## value
+
+PASS
+
+Finite-time collapse and a complete thin lattice basin are a strongly delimited but mathematically motivated arithmetic boundary phenomenon for a singular map arising from the active four-partition dynamics literature. Exact two-cycle census, five-step optimality and zero-density basin classification go beyond a routine small-orbit search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

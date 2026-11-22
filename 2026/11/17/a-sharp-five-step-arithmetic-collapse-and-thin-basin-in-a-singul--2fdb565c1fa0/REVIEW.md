@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The result concerns exactly the integer lattice for one stated piecewise-affine map. The one-step parity-cone reduction is an identity for all integers. The exhaustive cone case partition in RESULT.md proves four-step capture from every cone state, and the explicit small-cycle decision transfers back to five disjoint original-coordinate sets. Direct cycle substitution, the five-step witness, and finite square counts establish the remaining conclusions. The checker performs 20,301 exact transformed-state checks and finite lattice counts but is not substituted for the universal argument. The boundary rows and axes are covered by closed weak inequalities and agree on overlaps.
+## correctness
 
-## Originality (O) — PASS within inspected evidence
-The relevant original four-partition paper analyzes period 1–4 and a different degenerate line, rather than providing the lattice-wide five-step classification at \((a,c)=(-1,1)\). Closest recorded results concern (i) the opposite singular slice \(a\ge1,c=-a\) with almost-everywhere real escape, (ii) the distinct parameter \((0,1)\) with a real periodic square, and (iii) different translated/sign-reversed absolute-value maps with graph collapse. None implies the exact sharp bound, both four-cycles, or the five-piece small-cycle lattice basin for this map. Relevant 2020 journal material was only accessible in abstract form, so historical priority is provisional; a negative search is not a uniqueness proof.
+PASS
 
-## Mathematical value (V) — PASS
-The other singular line of a naturally studied four-branch family is a motivated boundary. At the canonical integral parameter, the lattice is an invariant phase space and the map admits an exceptionally strong five-step global collapse. The sharp uniform cutoff and the exact infinite, zero-density exceptional basin provide structural information invisible to low-period real fixed-point analysis, and a natural benchmark for integer piecewise-affine dynamics.
+Exact conjugacy p=max(x,0)+max(-y,0)>=0, q=max(-x,0)-max(y,0) sends one step into the integer cone x=p+q-1,y=p-q-1. The four p>=2 q-regions and p=0,1 boundaries form an exhaustive integer case partition, each reaching E_s or E_l in <=4 additional steps; direct substitution checks each core is a primitive four-cycle. The transformed basin test pulls back to five disjoint lattice pieces and their square counts sum 2(N-1)+(N+2)+3+(N+2)+(N-1)=5N+4. Independent exact tests for every point of [-100,100]^2 verify capture, basin and counts; (-3,0) first reaches a core at step five. Finite tests corroborate, not replace universal symbolic casework.
 
-## Scientific limitations
-The proof does not cover noninteger initial conditions, perturbations of the parameter or global behavior of the full real plane. Some potentially relevant historical sources were inaccessible in full. This review is not an independent audit or assertion of definitive priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary four-partition research studies real state bifurcations and an absorbing interval, not an exact all-lattice five-step capture in this singular integer slice in the accessible abstract. Other published SCOPE exact eventual-periodicity examples concern a=0,c=1 or different absolute-value coefficients and maps. The 2020 related journal paper could not be read; priority of arithmetic specializations remains provisional.
+
+## value
+
+PASS
+
+Finite-time collapse and a complete thin lattice basin are a strongly delimited but mathematically motivated arithmetic boundary phenomenon for a singular map arising from the active four-partition dynamics literature. Exact two-cycle census, five-step optimality and zero-density basin classification go beyond a routine small-orbit search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
