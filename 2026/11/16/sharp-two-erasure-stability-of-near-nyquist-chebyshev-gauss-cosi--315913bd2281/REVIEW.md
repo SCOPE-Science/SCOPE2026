@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized DCT-II complementary-minor argument proves the full spectrum and invertibility for every integer \(N\ge4\). The lower bound on the second singular value, a strict comparison against the two outer adjacent pairs, and six exact four-node cases establish the global uniqueness statement. Taylor expansions yield the exact \(N^{-7}\) asymptotic coefficient. The standalone executable passed 5,346 finite consistency assertions; tests do not substitute for the infinite-family proof.
+PASS
 
-## Originality — PASS (priority provisional)
+The N×N probability-normalized DCT-II is orthogonal. Complementing its N−2 retained degree columns and two omitted rows reduces the surviving squared spectrum to N−4 unit eigenvalues and the two eigenvalues of the explicitly given 2×2 highest-cosine block B. Squared Frobenius norm and squared determinant of B give T_{jk}=(2/N)Σ sin²θ_i(1+4 cos²θ_i) and D_{jk}=16 sin²θ_j sin²θ_k(cosθ_j−cosθ_k)²/N²; strict cosine monotonicity proves invertibility. For N≥5 the D/T lower comparison, spacing inequalities for all other adjacent/nonadjacent pairs, and the edge-pair upper Rayleigh bound prove precisely two reflected endpoint-neighbor minimizers. The six pairs at N=4 are checked separately by exact radical values. Taylor expansion T*=25π²/N³+O(N^-5), D*=9π^8/N^10+O(N^-12) yields λ*~9π^6/(25N^7). The ordinary condition number is the square root of the stated squared-condition ratio. Independent local Python reconstructed all 451 sampled DCT/complimentary spectra for N=4..14 and both minimizers without depending on saved run logs.
 
-Full Salomon–Ur 2011 and Dirckx–Huybrechs–Ongenae 2022 texts and the complete 2026 Chebyshev–Lobatto one-erasure result were compared by statement, matrix family, norms and implications. None supplies this exact two-erasure Gauss–Chebyshev minimax formula. Goren–Zamir 2021 treats DCT irregular interpolation and has a relevant abstract; its full text was unavailable through accessible lawful sources. This remains a historical priority risk rather than a proven negative comparison. No claim of independent novelty certification is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem identifies a sharp global recovery-stability obstruction for loss of two Gauss nodes in a natural nearly Nyquist polynomial measurement system, proves all worst-case patterns and obtains an explicit seventh-power conditioning law. The special endpoint adjacency and asymptotic coefficient answer a concrete missing-sample design question rather than an arbitrary small computation.
+The exact N-dependent worst singular eigenvalue and unique Gauss-grid two-erasure patterns are not established by the inspected related DCT-I Chebyshev–Lobatto theorem or by the open generic gap-filling article. General Fourier-submatrix SVD identities supply the complement method but do not, as inspected, settle the strict all-pair minimizer or seventh-power constant. The nearest 2021 DCT interpolation full text was inaccessible through authorized routes: this is a concrete priority risk, not evidence against originality.
 
-## Limits
+## value
 
-Other sampling weights, additional erasures, perturbed nodes and finite-precision effects are not covered. The squared condition ratio must not be confused with its square root. Full-text historical comparison of the 2021 DCT irregular-interpolation work remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Loss of exactly two quadrature observations at the near-Nyquist sampling limit is a natural polynomial reconstruction stability question. Every pair is recoverable but worst endpoint-neighbor loss has a sharp seventh-power squared conditioning blowup, determining design-sensitive robustness and an exact universal extremizer within the model. The nontrivial all-pair comparison and exact coefficient are more than a routine determinant calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:49:37.335012Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The N×N probability-normalized DCT-II is orthogonal. Complementing its N−2 retained degree columns and two omitted rows reduces the surviving squared spectrum to N−4 unit eigenvalues and the two eigenvalues of the explicitly given 2×2 highest-cosine block B. Squared Frobenius norm and squared determinant of B give T_{jk}=(2/N)Σ sin²θ_i(1+4 cos²θ_i) and D_{jk}=16 sin²θ_j sin²θ_k(cosθ_j−cosθ_k)²/N²; strict cosine monotonicity proves invertibility. For N≥5 the D/T lower comparison, spacing inequalities for all other adjacent/nonadjacent pairs, and the edge-pair upper Rayleigh bound prove precisely two reflected endpoint-neighbor minimizers. The six pairs at N=4 are checked separately by exact radical values. Taylor expansion T*=25π²/N³+O(N^-5), D*=9π^8/N^10+O(N^-12) yields λ*~9π^6/(25N^7). The ordinary condition number is the square root of the stated squared-condition ratio. Independent local Python reconstructed all 451 sampled DCT/complimentary spectra for N=4..14 and both minimizers without depending on saved run logs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lobatto uses N+1 weighted endpoint nodes, N−1 degree columns and yields N^5, whereas Gauss uses N half-shifted nodes, N−2 columns and N^7; Fourier-submatrix SVD methods concern different transformed submatrices."
+        ],
+        "reasoning": "Different grids and weights change the complementary 2×2 block and extremal order, so no inspected broader theorem directly implies this Gauss DCT-II sharp constant.",
+        "searches": [
+          "sharp two erased Gauss Chebyshev nodes DCT-II near Nyquist singular values seventh power condition minimizer endpoints",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-quintic-two-erasure-stability-for-chebyshev-lobatto-cosine--bed06c9e7164",
+          "arxiv:2208.12583"
+        ]
+      },
+      "checked_sources": [
+        "https://onlinelibrary.wiley.com/doi/full/10.5402/2011/421502",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-quintic-two-erasure-stability-for-chebyshev-lobatto-cosine--bed06c9e7164",
+        "https://doi.org/10.1109/TIP.2021.3087404",
+        "arxiv:2208.12583"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited Chebyshev–Lobatto result explicitly contrasts its fifth-power law with a separate Gauss seventh-power law, not deriving one from the other. Salomon–Ur derives interpolation methods, not these spectral inequalities."
+        ],
+        "reasoning": "Prior complementary-minor and Vandermonde invertibility imply injectivity, not the stated sharp minimizer and precise asymptotic. The unavailable IEEE full article might still subsume aspects.",
+        "searches": [
+          "Chebyshev Gauss DCT-II deleted two rows critical sampling",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-quintic-two-erasure-stability-for-chebyshev-lobatto-cosine--bed06c9e7164",
+          "https://onlinelibrary.wiley.com/doi/full/10.5402/2011/421502",
+          "https://doi.org/10.1109/TIP.2021.3087404"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The DCT-II complement formula evaluates singular values of an N−2 column submatrix after two erased rows; Salomon–Ur uses DCT-II gap interpolation but not this exact extremizer or lower spectrum."
+        ],
+        "reasoning": "Equivalently this is a two-row deleted DCT-II partial orthogonal-matrix singular-value problem; generic minor identities supply a reduction but not the sharp global comparison.",
+        "searches": [
+          "sharp two erased Gauss Chebyshev nodes DCT-II near Nyquist singular values seventh power condition minimizer endpoints",
+          "Chebyshev Gauss DCT-II deleted two rows critical sampling",
+          "https://onlinelibrary.wiley.com/doi/full/10.5402/2011/421502"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical finite tests and coding literature are not exact all-N tables of 2-erasure patterns; no full indexed Chebyshev–Gauss two-erasure table was located."
+        ],
+        "reasoning": "The desired object is an exact parameterized spectral table and extremizer across all N; failed indexing by itself is not proof of novelty and the unread coding article remains a risk.",
+        "searches": [
+          "sharp two erased Gauss Chebyshev nodes DCT-II near Nyquist singular values seventh power condition minimizer endpoints",
+          "https://doi.org/10.1109/TIP.2021.3087404"
+        ]
+      },
+      "rationale": "The exact N-dependent worst singular eigenvalue and unique Gauss-grid two-erasure patterns are not established by the inspected related DCT-I Chebyshev–Lobatto theorem or by the open generic gap-filling article. General Fourier-submatrix SVD identities supply the complement method but do not, as inspected, settle the strict all-pair minimizer or seventh-power constant. The nearest 2021 DCT interpolation full text was inaccessible through authorized routes: this is a concrete priority risk, not evidence against originality.",
+      "residual_risks": [
+        "Goren–Zamir 2021 full text not read: Oxford tool returned vpn_disconnected; overlapping exact interpolation conditioning remains possible.",
+        "Older DCT-II deleted-row spectral tables and alternative normalizations may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related interpolation and recovery algorithm, no claimed all-N two-erasure singular spectrum",
+          "evidence": "General DCT quadrature and gap recovery do not yield λ* N^7 coefficient.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.5402/2011/421502",
+          "material_read": "Full accessible HTML, notably gap-filling method, discrete cosine reconstruction and numerical sections",
+          "method": "read public full-text HTML",
+          "title": "A Method for the Recovery of Gaps in General Analytic Signals",
+          "trigger": "DCT-II and missing node gap filling"
+        },
+        {
+          "assessment": "NOT_COVERING for current Gauss-grid theorem",
+          "evidence": "DCT-I weighted Lobatto nodes show N^5, not the Gauss DCT-II N^7 theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-quintic-two-erasure-stability-for-chebyshev-lobatto-cosine--bed06c9e7164",
+          "material_read": "Full published RESULT.md including theorem, proof and comparisons",
+          "method": "GitHub published source blob bb8c23a99da796fcb70f1795435dbdf2a1a4d9d9",
+          "title": "Sharp quintic two-erasure stability for Chebyshev–Lobatto cosine sampling",
+          "trigger": "Closest published Resultary two-erasure cosine case"
+        },
+        {
+          "assessment": "PRIORITY_RISK_NOT_FULLY_READ",
+          "evidence": "IEEE TIP 30 (2021) 5665–5677; no conclusion about entire article from abstract.",
+          "identifier_or_url": "https://doi.org/10.1109/TIP.2021.3087404",
+          "material_read": "Public abstract and bibliographic metadata only; full text inaccessible",
+          "method": "Lawful OA/preprint attempts, then authorized Oxford returned vpn_disconnected",
+          "title": "Diversity Image Coding Using Irregular Interpolation",
+          "trigger": "Direct DCT erasure-sensitivity paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Loss of exactly two quadrature observations at the near-Nyquist sampling limit is a natural polynomial reconstruction stability question. Every pair is recoverable but worst endpoint-neighbor loss has a sharp seventh-power squared conditioning blowup, determining design-sensitive robustness and an exact universal extremizer within the model. The nontrivial all-pair comparison and exact coefficient are more than a routine determinant calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://onlinelibrary.wiley.com/doi/full/10.5402/2011/421502",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-quintic-two-erasure-stability-for-chebyshev-lobatto-cosine--bed06c9e7164",
+    "https://doi.org/10.1109/TIP.2021.3087404",
+    "arxiv:2208.12583"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly N Gauss-Chebyshev nodes, N−2 retained polynomial degrees, two erased rows, coefficient L² norm and quadrature weights; not perturbed nodes, more erasures or L∞ interpolation.",
+    "Independent finite DCT spectrum checks verify N≤14 only; the proof supplies the all-N claim."
+  ],
+  "residual_risks": [
+    "Goren–Zamir 2021 full text not read: Oxford tool returned vpn_disconnected; overlapping exact interpolation conditioning remains possible.",
+    "Older DCT-II deleted-row spectral tables and alternative normalizations may be unindexed."
+  ],
+  "schema_version": 1
+}
