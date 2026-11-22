@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T18:13:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned Git RESULT.md, verify_pade77.py, VERIFICATION.md, REVIEW.md at frozen commit 3285a1744f5600128a1c74c65c4bca4aae6a999b",
+        "Independent exact-rational checker worker10_pade77_independent.py and its output",
+        "Scardino 2026 Lemma 8.1 partial fraction identity and Fasi–Higham 2019 normalized denominator definition"
+      ],
+      "rationale": "Verified the normalized diagonal [7/7] denominator term-by-term from the factorial formula, with constant coefficient 1. Independently reimplemented exact-Fraction Gaussian complex polynomial evaluation for four rational centers and their conjugates. The seven discs radius 10^-6 are pairwise disjoint, inside |z|<14, and each strict Rouché inequality holds with min positive rational margin about 5.08818e-9; the global bound sup |q''| <= 14.83776224 <15 is checked by rational coefficient majorization. Therefore all seven simple roots are isolated, including the unique positive real R near 9.9435737 with q'(R)<0. Independently verified 0<R<9.944, -q'(R)<0.0052, and the complex root modulus/derivative lower pairs (10.132,0.0071),(10.758,0.0202),(12.098,0.157). Hence positive real partial-fraction residue B>19 and conjugate coefficients have moduli below 15,5,1. At index n=32 the exact rational combined other-pole majorant 17.2853783363 is <19, and each modulus ratio is <1, proving c_n>0 for every n>=32, not only sampled n. The exact recurrence from q(z)c(z)=1 verifies c_0,...,c_31>0, with c_31 about 1.0287072e-30. All n>=0 are covered. Added checks n=32..99 are illustrations only. The source verifier and RESULT proof were read; an independent implementation performed the critical rational checks, not just a source VERIFY_OK log.",
+      "residual_risks": [
+        "Proof applies only to exactly q_{7,7}; no extrapolation across Padé degrees.",
+        "The root certificates are valid exact rational enclosures, not closed forms for the complex zeros.",
+        "The derived scalar sign theorem does not by itself certify a matrix-function implementation or a general complexity bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fasi–Higham (2019) page 8 Conjecture 3.2 proposes coefficient positivity for odd m and explicitly states no proof.",
+          "Scardino (2026) Theorem 8.2 assumes dominant positive pole and yields eventual n, Proposition 8.3 gives a threshold only after verifying poles/residues; Theorem 7.1 fixes m and takes k sufficiently large, so it does not prove fixed k=m=7.",
+          "Published m=3 all-k theorem is uniform only for cubic denominator, not m=7."
+        ],
+        "reasoning": "Conjectures are not prior proofs; a conditional eventual-n positivity theorem cannot imply all n=0,1,... for the given [7/7] case without verifying its antecedent and the finite indices. The assigned exact rational root disks and first 32 signs are essential new case-specific work.",
+        "searches": [
+          "https://arxiv.cnoctave.top/pdf/2610.39051",
+          "https://eprints.maths.manchester.ac.uk/2721/1/fahi19.pdf",
+          "Resultary: Fasi Higham conjecture diagonal Padé reciprocal positivity q 7 7 Scardino pole residue",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-coefficient-positivity-for-cubic-exponential-pad-denomi--7756127900e3/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Scardino, arXiv:2610.39051v1 (2026-10-28), primary sections 1,5–8,10",
+        "Fasi and Higham, SIAM J. Matrix Anal. Appl. 40 (2019), Conjecture 3.2, Manchester OA manuscript",
+        "Dunster, Gil, Ruiz-Antolín, Segura, Comput. Math. Methods 3 (2021), doi:10.1002/cmm4.1198, full HTML",
+        "Wolfram, Bull. Aust. Math. Soc. 110 (2024), doi:10.1017/S0004972724000285, full HTML",
+        "Resultary m=3 all numerator degrees, m=5 first failure k=66, and diagonal m=9,13 all-index statements (2026-11-08)",
+        "Wolfram MathWorld Fasi–Higham Positivity Conjecture (updated 2026)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scardino 2026 (8.1) provides the exact partial-fraction identity, but relies on an externally checked pole gap, and (8.2) provides only a sufficient tail bound.",
+          "The m=9,13 result proves the same style assertion at two different scalar polynomials and does not imply the one at degree 7; the m=5 theorem fixes another denominator and a bounded k interval.",
+          "Dunster et al. 2021 focus on evaluation and zeros, not sign of every reciprocal Taylor coefficient."
+        ],
+        "reasoning": "After acknowledging the known normalized denominator formula, partial-fraction method, and exact coefficient recurrence, no inspected prior statement logically yields the specific degree-seven strict inequalities at all indices. This is a distinct finite-degree certification, not a general positive-diagonal conjecture proof.",
+        "searches": [
+          "Scardino (2026) arXiv:2610.39051v1 Theorem 8.2, Proposition 8.3, Theorem 7.1, Section 10",
+          "Fasi and Higham 2019 Conjecture 3.2",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-all-index-reciprocal-positivity-for-the-ninth-and-thirteenth-dia--8046a470402f/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-failure-of-reciprocal-pad-positivity-at-denominator-de--e2ef02e4d19b/RESULT.md",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/cmm4.1198"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scardino 2026 Section 1 explicitly identifies diagonal exponential Padé denominators as normalized reverse Bessel polynomials and their coefficient-sign question as Conjecture 1.",
+          "Wolfram (2024) Theorem 3.1 concerns x^n expressed as a finite linear combination of reverse generalized Bessel polynomial basis elements, not 1/q_{7,7}(z) Taylor coefficients."
+        ],
+        "reasoning": "The reverse-Bessel normalized polynomial and the diagonal Padé denominator are an equivalent object, and an all-n coefficient sign theorem in either language would cover the assigned claim. The inspected reverse-Bessel inverse-connection paper instead inverts a finite change-of-basis matrix; its word inverse is not the analytic reciprocal of a polynomial.",
+        "searches": [
+          "Resultary semantic: strict positivity coefficients reciprocal q_{7,7} diagonal Pade exponential seventh order reverse Bessel polynomial",
+          "Web: reciprocal Bessel polynomial positive coefficients degree 7 diagonal exponential",
+          "https://arxiv.cnoctave.top/pdf/2610.39051",
+          "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/article/inverse-connection-formulae-for-generalised-bessel-polynomials/BF7D8E36F0CB65E01B487B0A65945578"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned published record plus m=9,13 and m=3,5 relatives; no distinct record giving an exact q_{7,7} all-index proof.",
+          "MathWorld conjecture page summarizes off-diagonal counterexamples and states that the diagonal case remains open.",
+          "No exact table alone would cover infinitely many indices; a proof of equivalent positivity for all n is required."
+        ],
+        "reasoning": "Exact database/table search gives no separately demonstrated covering all-index degree-seven theorem. Absence of a hit is weak evidence and is not being equated with historical novelty.",
+        "searches": [
+          "Resultary: strict positivity coefficients reciprocal q_{7,7} diagonal Pade exponential seventh order reverse Bessel polynomial",
+          "Resultary: reverse Bessel polynomial reciprocal Taylor positive coefficients degree seven diagonal exponential",
+          "Web: \"q_{7,7}\" positivity Padé coefficients",
+          "https://mathworld.wolfram.com/Fasi-HighamPositivityConjecture.html"
+        ]
+      },
+      "rationale": "Best-of-knowledge original, exact all-index strict positivity for the normalized exponential diagonal [7/7] denominator. The 2019 Fasi–Higham paper formulates the sign statement as Conjecture 3.2, not a proof. Scardino arXiv:2610.39051v1 (2026) proves conditional eventual positivity if the real pole uniquely minimizes modulus and states that its large-k fixed-m theorem and nondiagonal counterexamples do not resolve diagonal k=m. Scardino does not provide the exact (7,7) root separation nor positivity of the finite prefix. The published degree 9 and 13 certificates, m=3 all-k theorem, and m=5 finite k spectrum concern different denominator degrees and do not logically cover m=7. Dunster et al. compute reverse Bessel zeros, and Wolfram 2024 inverse connection coefficients are change-of-basis coefficients, not inverse Taylor coefficients. Literature priority remains qualified because an uncatalogued equivalent finite-degree computation may exist; negative searches alone do not prove novelty.",
+      "residual_risks": [
+        "An unindexed older theorem for reciprocal reverse Bessel polynomials may provide exactly degree-seven positivity; historical priority is not worldwide certified.",
+        "The source literature says general diagonal positivity is open, but the completed assessment concerns only k=m=7, not uniform diagonal positivity or numerical implementation stability.",
+        "Mathematical result here is an exact degree-seven special case, not a proof of the unrestricted Fasi–Higham conjecture, which has known off-diagonal counterexamples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conditional eventual positivity and explicit non-diagonal counterexamples; the diagonal k=m case is explicitly left open in Section 10, with no specific [7/7] exact certificate",
+          "evidence": [
+            "Scardino 2026 lines corresponding to Theorem 8.2 and Proposition 8.3: dominant-root condition and sufficient tail index",
+            "Section 10: diagonal k=m remains open; Theorem 7.1 is fixed odd m and all sufficiently large k"
+          ],
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2610.39051",
+          "material_read": "Full-text source sections 1, 2, 5–8 and 10 with Theorem 7.1, Lemma 8.1, Theorem 8.2, Proposition 8.3, Section 8.1 and Section 10 conclusion; other sections reviewed for stated scope",
+          "method": "Accessed the lawful arXiv preprint full text through readable mirror and inspected first-page PDF image; compared exact hypotheses/quantifiers and implication",
+          "title": "On a positivity conjecture of Fasi and Higham for Padé approximants to the matrix exponential",
+          "trigger": "The motivating preprint for precisely this q_{k,m} coefficient positivity conjecture; may provide dominating all-diagonal theorem"
+        },
+        {
+          "assessment": "States the full odd-degree sign assertion as conjecture rather than establishing the [7/7] case; relevant algorithmic motivation but not a stronger proof",
+          "evidence": [
+            "Conjecture 3.2 on manuscript p.8; next paragraph explicitly says proof of conjecture is unavailable"
+          ],
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2721/1/fahi19.pdf",
+          "material_read": "Primary paper Section 3.1, original printed page 8 Conjecture 3.2 and Corollary 3.3, Section 3 normalized Padé formula, concluding discussion; inspected page-image for exact conjecture",
+          "method": "Read open-access Manchester primary PDF text and page 8 screenshot",
+          "title": "An Arbitrary Precision Scaling and Squaring Algorithm for the Matrix Exponential",
+          "trigger": "Original paper defining the conjecture and motivating denominator positivity"
+        },
+        {
+          "assessment": "Numerical reverse Bessel polynomial and zero computation, no all-index 1/q_{7,7} sign theorem in inspected statement",
+          "evidence": [
+            "Dunster et al. 2021 Sections 1–3 and conclusion discuss polynomial recurrence, asymptotic evaluation and zero computation, rather than formal reciprocal Taylor signs"
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/cmm4.1198",
+          "material_read": "Open-access full-text HTML introduction, Sections 2–3, numerical algorithm and conclusion",
+          "method": "Read source HTML, checking definitions and claims about zeros versus Taylor reciprocity",
+          "title": "Computation of the reverse generalized Bessel polynomials and their zeros",
+          "trigger": "The same family of normalized reverse Bessel polynomials may contain a dominating zero/pole result"
+        },
+        {
+          "assessment": "Its inverse is a finite polynomial-basis change-of-coordinates formula; not coefficientwise positivity of the analytic reciprocal 1/q_{7,7}.",
+          "evidence": [
+            "Wolfram 2024 Theorem 3.1 explicitly expands monomials in the reverse Bessel polynomial basis using a change-of-basis matrix"
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/article/inverse-connection-formulae-for-generalised-bessel-polynomials/BF7D8E36F0CB65E01B487B0A65945578",
+          "material_read": "Open full text Section 1 formulation and Section 3 reverse-generalized-Bessel connection formulae including Theorem 3.1",
+          "method": "Read Cambridge open-access full-text HTML and compared inverse mappings with analytic reciprocal series",
+          "title": "Inverse connection formulae for generalised Bessel polynomials",
+          "trigger": "Plausible title collision using inverse and reverse Bessel polynomials"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fasi–Higham 2019 Conjecture 3.2 and discussion of reduced matrix-exponential forward-error computation",
+        "Scardino 2026 Section 10 explicit diagonal gap",
+        "Published diagonal m=9,13 and m=3/m=5 reciprocal positivity findings"
+      ],
+      "rationale": "The scalar coefficient positivity property is a motivated exact mathematical boundary in the widely used diagonal Padé family for matrix exponentials. Degree seven is one of the standard practical diagonal orders and follows the already investigated odd degrees three and five, so its numerator/denominator orders are not arbitrary slicing. The result gives strict positivity for an infinite sequence of rational coefficients, supported by an independently reconstructed exact Rouché/residue inequality and a finite-prefix certificate. Earlier conditional pole theorems do not mechanically imply the seven-root separation or the 32 required finite signs, so this new exact order-seven fact is independently reusable for the positivity-dependent step of matrix exponential forward-error estimates. It has no claimed all-order generalization, new runtime bound, or paper-sized result.",
+      "residual_risks": [
+        "Finite-degree result is narrow and does not settle the full odd diagonal case or numerical stability.",
+        "Historical priority is qualified by incomplete global literature indexing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical novelty assessed at best of knowledge, not a worldwide priority certificate.",
+    "All-index statement applies only to scalar q_{7,7}; numerical experiments alone cannot prove general positivity for other orders.",
+    "Existing source METADATA.json and AUDIT.json expose operational and model-review fields; complete guarded sanitization not staged. Publication must remain withheld.",
+    "No GitHub writes, dispatcher closeout or schedule changes; server administrative postprocessing has not occurred."
+  ],
+  "schema_version": 1
+}
