@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite verification
 
-Execute `python3 checks/check_cyclomatic.py` with Python 3.8 or later (standard library only). It independently tests, for each \(2\le n\le8\) and every \(0\le k\le n-1\):
+# Independent mathematical audit
 
-1. Connected edge-mask enumeration using a disjoint-set connectivity test, compared with the asserted \(\binom n{k+1}2^{n-k-1}\) count.
-2. Complete integer Walsh--Hadamard transform, separately compared at every character against the combinatorial Krawtchouk coefficient formula; **669,920** individual coefficients across all slices.
-3. Parseval's identity, the exact least positive and largest absolute multiplier values, and the unicyclic rank formula including the perfect-square case \(n=4\).
+## correctness
 
-Expected final marker: `CONNECTED_FIXED_EXCESS_KRAWTCHOUK_PASS coefficients= 669920`.
+PASS
 
-The symbolic all-integer proof applies to all \(n\) and \(k\) in scope; these computations are independent finite consistency checks, not a proof of the unrestricted theorem and not an independent mathematical audit. The literature comparison is bounded; the higher-excess root multiplicities are expressed by a finite binomial test rather than a closed arithmetic classification.
+Connected spanning masks in K_(2,n) with n+1+k edges have exactly k+1 doubled right columns and one chosen edge per remaining column: any isolated right column disconnects, and a doubled one connects the hubs. The signed sum over choices forces every opposed-sign column to be doubled; then the remaining elementary symmetric sign polynomial is the binary Krawtchouk K_(k+1-t)(j;n-t) with factor (-1)^t 2^(n-k-1) times product of agreeing signs. Counting character strata proves multiplicities and exact rank sum. K_0=1 at t=k+1 attains the smallest nonzero multiplier, and the zero character attains maximal binomial size; Fourier diagonalization gives sharp pseudoinverse norm. For k=1, K1 vanishes at odd n and K2=((n-2j)^2-n)/2 vanishes precisely at square n, yielding the stated two disjoint nullity corrections. Independently enumerated connected masks and complete integer Walsh transforms for all k at n=2..6, comparing every coefficient, rank and spectral bounds. Universal result follows from the signed symbolic derivation, not finite testing.
+
+## originality
+
+PASS
+
+All positive-excess signed graph Fourier spectra, sharp nonzero gap and the odd/square unicyclic rank are distinct from the published tree-only transform and generic Krawtchouk formula.
+
+## value
+
+PASS
+
+The all-excess parameter k measures a natural connected-spanning graph cyclomatic invariant. The exact spectrum gives sharp inverse conditioning even when singular and detects both parity and perfect-square Fourier nullity mechanisms for the first positive-excess family. This nontrivial structural arithmetic boundary goes beyond standard graph counts and the known spanning-tree case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

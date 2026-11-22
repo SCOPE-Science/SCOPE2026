@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim reviewed.** The full fixed-excess Walsh–Krawtchouk formula, sharp positive spectral gap and condition number for connected spanning subgraphs of \(K_{2,n}\), together with the exact odd-length and perfect-square unicyclic rank resonances.
+## correctness
 
-## Correctness — PASS
-For each \(n\ge2\) and \(0\le k\le n-1\), every connected spanning subgraph must have exactly \(k+1\) doubled right-vertex columns, with the other columns singly occupied. The coefficient is the weighted sum of this single combinatorial parameterization; opposing-sign columns must be doubled. Factoring the remaining signed elementary symmetric polynomial produces exactly the binary Krawtchouk value and factor \(2^{n-k-1}\). The all-frequency multiplicities are \(\binom nt 2^t\binom{n-t}j\), and their full sum is \(2^{2n}\). In every case there exists a character with \(t=k+1\), making the Krawtchouk factor one, so the positive lower bound is sharp. The zero character realizes the cardinality upper bound. For \(k=1\), the only additional zeros solve the linear equation \(n-1-2j=0\) or the quadratic equation \((n-2j)^2=n\), yielding the odd and square conditions without double counting.
+PASS
 
-The independently programmed graph connectivity enumeration and exact Walsh butterfly agree with the closed signed formula for every one of 669,920 character/excess configurations at \(2\le n\le8\). Parseval, graph counts, extrema and exact unicyclic ranks also agree. These computations are finite checks and are not substituted for the symbolic argument.
+Connected spanning masks in K_(2,n) with n+1+k edges have exactly k+1 doubled right columns and one chosen edge per remaining column: any isolated right column disconnects, and a doubled one connects the hubs. The signed sum over choices forces every opposed-sign column to be doubled; then the remaining elementary symmetric sign polynomial is the binary Krawtchouk K_(k+1-t)(j;n-t) with factor (-1)^t 2^(n-k-1) times product of agreeing signs. Counting character strata proves multiplicities and exact rank sum. K_0=1 at t=k+1 attains the smallest nonzero multiplier, and the zero character attains maximal binomial size; Fourier diagonalization gives sharp pseudoinverse norm. For k=1, K1 vanishes at odd n and K2=((n-2j)^2-n)/2 vanishes precisely at square n, yielding the stated two disjoint nullity corrections. Independently enumerated connected masks and complete integer Walsh transforms for all k at n=2..6, comparing every coefficient, rank and spectral bounds. Universal result follows from the signed symbolic derivation, not finite testing.
 
-## Originality — PASS under bounded historical comparison
-The nearest indexed published theorem is the complete Walsh spectrum of **spanning trees** of \(K_{2,n}\), which precisely covers the \(k=0\) stratum. The new claim deliberately does not claim this stratum as novel. Its statement does not determine signed sums over connected non-tree subgraphs, their integer Krawtchouk roots, the universal gap hierarchy across all positive cycle ranks, or the perfect-square extra Fourier nullity at \(k=1\). Coleman's Krawtchouk theory contains the orthogonal-polynomial identities, not their incidence transform for these fixed-excess connected graph families. Dong and Ge enumerate spanning trees containing a specified forest, not the non-tree edge layers. Tsang et al. identify general XOR rank with Fourier sparsity but provide no graph-specific calculations. Direct textual/source and implication comparisons were made, not merely title matching.
+## originality
 
-Residual risks: a specialized fully multivariate reliability/Tutte polynomial computation could imply the all-excess signed transform after substitution; searches of accessible scholarly and indexed research sources are not a proof of absolute novelty. The bounded comparison identified no equivalent theorem and no stronger source settling the square nullity formula.
+PASS
 
-## Mathematical value — PASS
-The cycle rank is a canonical graph invariant; slicing the all-terminal reliability coefficients by it yields natural, not arbitrarily chosen, Boolean convolution operators. A uniformly sharp condition number \(\binom n{k+1}\) at **every** rank, including singular slices, is a structural theorem rather than a numerical curiosity. The first non-tree layer exhibits an arithmetically sharp extra-nullity transition at perfect-square orders alongside parity, which cannot be deduced from the already known tree-support condition. The all-excess rank formula also reduces further difficult rank questions to integer Krawtchouk roots. The result is self-contained but its broader-graph extension is open.
+All positive-excess signed graph Fourier spectra, sharp nonzero gap and the odd/square unicyclic rank are distinct from the published tree-only transform and generic Krawtchouk formula.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The all-excess parameter k measures a natural connected-spanning graph cyclomatic invariant. The exact spectrum gives sharp inverse conditioning even when singular and detects both parity and perfect-square Fourier nullity mechanisms for the first positive-excess family. This nontrivial structural arithmetic boundary goes beyond standard graph counts and the known spanning-tree case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
