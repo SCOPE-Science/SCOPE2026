@@ -1,0 +1,12 @@
+# Scientific review: consecutive-power dyadic fibers
+
+## Correctness — PASS
+The exponent and modulus quantifiers are unrestricted within the stated positive-exponent and dyadic domain. For odd exponents the odd-power difference contributes exact valuation \(\nu_2(x-y)\) on each parity branch; the even-power difference has strictly larger valuation. The quadratic case is controlled by the two triangular-number isometries. For even exponents at least four, binary lifting gives exact valuation \(\nu_2(x-y)+\nu_2(k)\) when inputs agree modulo four; the even-base difference has strictly higher valuation. These valuation identities yield bijective normalized maps on each branch and the exact all-modulus fiber formula. The standalone checker independently verified complete fibers and raw valuation differences in 11,256 finite checks. Finite testing alone is not an infinite proof.
+
+## Originality — PASS on inspected evidence
+Arias–Borja–Anaya (2023) and the two relevant published modular power-sum results count residues or representation multiplicities for independently chosen summands; they do not determine the image of the line-constrained map \(x\mapsto x^k+(x+1)^k\). Patel–Siksek (2017) investigate integer perfect-power values of sums of consecutive powers, not every dyadic residue and its exact fiber size. Searches of related congruence formulas, dyadic valuations, consecutive-power sums and published mathematical records found no identical or broader result logically implying the complete map classification. Standard binary lifting provides much of the proof technique; priority risk remains from potentially unindexed general polynomial-image theorems or an unstated corollary.
+
+## Value — PASS
+Consecutive summands are an arithmetically natural one-dimensional constraint on the classical two-summand modular Waring map. Its output support and uniform multiplicities are substantially different from those of two independently chosen summands. The result gives the complete local image and fiber law at every binary precision and every exponent, identifies the exact exponent-dependent jump from odd exponents to the exceptional quadratic case to higher even exponents, and determines the limiting Haar distribution without numerical extrapolation. It does not claim a new lifting lemma or nonlocal integer representations.
+
+Self-review: passed. Independent audit: not yet performed.
