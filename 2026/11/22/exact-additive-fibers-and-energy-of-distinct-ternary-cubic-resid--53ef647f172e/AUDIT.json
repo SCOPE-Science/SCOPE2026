@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "The unit cube values modulo 3^k are exactly the disjoint cosets ±1 mod 9, each of size 3^(k-2), by cyclicity and cube-map kernel three. Nonunit values are exactly 27C_{k-3}. Each target has a disjoint sign-stratified sum-fiber enumeration, producing a complete all-k recursion with explicit base cases. Squaring and summing proves E_k=E_{k-3}+6*3^(3k-6)+12*3^(k-2)*s_{k-3}^2. Direct integer expansion and a three-step geometric limit prove 13851/1663129 and 2223/757; a standard-library verifier independently enumerated all 9828 target fibers from k=3 through k=8 and checked exact recurrences through k=15. Finite checks corroborate rather than prove the indefinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full RESULT.md of 2026/11/8/SCOPE-complete-pair-sum-fibers-of-the-cubic-graph-over-odd-residue-rin--1bbc7ea862f6 gives all graph-point sum fibers r_q(s,t) and graph energy in (Z/qZ)^2, with p=3 formula 3^(2k-1)(2k^2+4k+3).",
+        "Full RESULT.md of published p>=5 input cube-sum energy https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-finite-level-collision-moments-and-p-adic-fibres-for-sums--8251985a3185 excludes prime 3 and counts root inputs.",
+        "Schipani–Elia https://arxiv.org/abs/1107.1364 derives coset pair-sums over finite fields, not rings modulo 3^k for k>=3."
+      ],
+      "reasoning": "Projection of cubic-graph fibers onto the cubic-value coordinate counts input multiplicities; the graph fourth moment counts two simultaneous coordinate equalities. Its 3^(2k-1)(2k^2+4k+3) is a distinct invariant from E_k, and its theorem does not imply the present result by ordinary marginalization. The prime>=5 theorem omits the ramified ternary case. These known stronger-in-their-domain classifications do not dominate the unweighted image-set theorem.",
+      "searches": [
+        "additive energy set of cubic residues modulo powers of 3, count a+b=c+d for three-adic cubes",
+        "additive quadruples of cube residues as distinct modular values modulo 3^k, not weighted cubic roots, exact additive energy and 3-adic Fourier fourth moment",
+        "convolution indicator of ternary cube residue set C_k modulo powers of 3, limit E(C_k)*3^k/|C_k|^4",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-complete-pair-sum-fibers-of-the-cubic-graph-over-odd-residue-rin--1bbc7ea862f6",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-finite-level-collision-moments-and-p-adic-fibres-for-sums--8251985a3185"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0604465",
+      "https://arxiv.org/html/math/0604465v3",
+      "https://arxiv.org/abs/1107.1364",
+      "https://www.researchgate.net/publication/51915591_Additive_decompositions_induced_by_multiplicative_characters_over_finitefields",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-ternary-fibre-law-and-collision-moments-for-two-cubes--876b3ebf3861",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-representation-counts-for-two-cubes-modulo-powers-of-three--dd802b0bb880",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-finite-level-collision-moments-and-p-adic-fibres-for-sums--8251985a3185",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-complete-pair-sum-fibers-of-the-cubic-graph-over-odd-residue-rin--1bbc7ea862f6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finch–Sebah gives s_k but s_k alone admits many sets with different additive energies.",
+        "Weighted two-cube formulas encode a convolution of multiplicity-weighted cube values, while here the weights are all 1; root multiplicity is not constant across ternary valuation strata.",
+        "The cubic-graph formula r(s,t) counts pairs with x+y=s and x^3+y^3=t simultaneously, so summing over s returns a weighted count of input pairs, not a count of distinct cube images.",
+        "The proof computes exact separate image-value strata plus an E_{k-3} recurrence; these are additional calculations not asserted in the cited results."
+      ],
+      "reasoning": "The present result is neither a corollary that can be extracted by merely replacing variables, nor a special case of the explicit known formulas. It may be derivable from their combined machinery after fresh valuation-dependent reweighting; that potential implicit derivability is a residual risk and not asserted absent.",
+      "searches": [
+        "exact two-sum representation frequencies for distinct cubes modulo 3^k, not roots",
+        "additive quadruples of cube residues as distinct modular values modulo 3^k, not weighted cubic roots, exact additive energy and 3-adic Fourier fourth moment",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-ternary-fibre-law-and-collision-moments-for-two-cubes--876b3ebf3861",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-representation-counts-for-two-cubes-modulo-powers-of-three--dd802b0bb880",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-complete-pair-sum-fibers-of-the-cubic-graph-over-odd-residue-rin--1bbc7ea862f6",
+        "https://arxiv.org/html/math/0604465v3",
+        "https://arxiv.org/abs/1107.1364"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full RESULT.md of 2026/10/18/SCOPE-exact-ternary-fibre-law-and-collision-moments-for-two-cubes--876b3ebf3861 defines R_n(y) by ordered (x,z) with x^3+z^3=y, then R_n(y)/3^n as its fiber; unweighted r_k counts pairs (a,b) of image values. In general the root multiplicity of a cube value depends on its valuation.",
+        "Full RESULT.md of 2026/10/18/SCOPE-exact-representation-counts-for-two-cubes-modulo-powers-of-three--dd802b0bb880 similarly counts root-input pairs and states N_n(1)=2*3^n, not the unweighted image-set convolution.",
+        "At modulus 27 the cube-value pair count for target zero is 7, whereas the input-root count for the same target is 135. The unit cubes have three roots each and the zero cube has nine roots, so no constant reweighting maps the fiber functions."
+      ],
+      "reasoning": "Replacing input cubing counts by distinct output values is not a variable rename or a scalar factor: cube-root multiplicities depend on the target valuation. The prior weighted recurrences do not by direct statement or simple substitution determine every image-value fiber and its energy. Earlier zero/nonzero support is explicitly not claimed as novel.",
+      "searches": [
+        "exact two-sum representation frequencies for distinct cubes modulo 3^k, not roots",
+        "additive quadruples of cube residues as distinct modular values modulo 3^k, not weighted cubic roots, exact additive energy and 3-adic Fourier fourth moment",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-ternary-fibre-law-and-collision-moments-for-two-cubes--876b3ebf3861",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-representation-counts-for-two-cubes-modulo-powers-of-three--dd802b0bb880"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Finch–Sebah https://arxiv.org/html/math/0604465v3 Section 1.9 explicitly lists the three-periodic cube-value cardinality b(3^k), no target-by-target convolution or E_k table.",
+        "No matching r_k(y) fibers or E_k sequence was returned by the actual semantic index searches; nearest results are the root-weighted cube-sum theorem and cubic-graph theorem."
+      ],
+      "reasoning": "A known cube-set cardinality table does not determine the ordered additive energy. The checks did not locate an exact distinct-value fiber or energy table. An unindexed numerical sequence or older table could still contain the numbers, so negative search results are limited evidence.",
+      "searches": [
+        "additive energy set of cubic residues modulo powers of 3, count a+b=c+d for three-adic cubes",
+        "number of two-sums of cubic residues modulo p^k and fourth Fourier moment",
+        "cubic residue sum fibers without multiplicity in Z/3^k, additive energy rational 2223/757",
+        "https://arxiv.org/abs/math/0604465"
+      ]
+    },
+    "rationale": "The exact published cube-value cardinality result gives only |C_k|, not the convolution r_k or E_k. Schipani–Elia classify multiplicative-character coset sums in finite fields rather than prime-power rings with singular nonunit cube-value strata. The closest published two-cube results weight every residue by the number of input cube roots; the proposed theorem counts each image value once. The cubic-graph theorem constrains the sum of (x,x^3) in two coordinates and its scalar marginal is root-weighted. The exact distinct-value fiber and energy recurrence and constant 2223/757 were not found in the inspected full material or queried mathematical index. Search noncoverage is not a novelty proof; plausible implicit equivalents remain a documented priority risk.",
+    "residual_risks": [
+      "An older specialized local-convolution table for distinct cubic values may be unindexed or unpublished in searchable sources.",
+      "A general exact convolution theorem combined with nonconstant cube-root multiplicities could imply the new recurrence without matching its statement; exhaustive priority remains unverified.",
+      "Full primary literature coverage is necessarily bounded; publication search results are evidence against detected coverage, not proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact cardinality |C_k| but not its unweighted pair-sum fibers or additive energy",
+        "evidence": [
+          "https://arxiv.org/html/math/0604465v3",
+          "https://arxiv.org/abs/math/0604465"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0604465v3",
+        "material_read": "Complete accessible HTML with focus on abstract and Sections 1.5 and 1.9, including the displayed prime-power cube-image cardinalities and surrounding argument",
+        "method": "Read arXiv HTML and verified first public timestamp from arXiv submission history",
+        "title": "Squares and Cubes Modulo n",
+        "trigger": "Exact cubic-image counts and possible preexisting additive structure"
+      },
+      {
+        "assessment": "Finite-field coset sums do not include nonunit cube-value strata of Z/3^k for k>=3",
+        "evidence": [
+          "https://arxiv.org/abs/1107.1364",
+          "https://www.researchgate.net/publication/51915591_Additive_decompositions_induced_by_multiplicative_characters_over_finitefields"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1107.1364",
+        "material_read": "Open abstract and public full-text presentation including cubic-character pair-sum theorem; arXiv metadata and date",
+        "method": "Inspected publicly available text and theorem statements, distinguishing field from ternary ring objects",
+        "title": "Additive decompositions induced by multiplicative characters over finite fields",
+        "trigger": "Plausible finite-field cubic-coset pair-sum coverage"
+      },
+      {
+        "assessment": "Root-input counting formula, not distinct-value convolution or E_k",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-ternary-fibre-law-and-collision-moments-for-two-cubes--876b3ebf3861"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-ternary-fibre-law-and-collision-moments-for-two-cubes--876b3ebf3861",
+        "material_read": "Complete original RESULT.md, including fiber formula, definitions, proof, limitations and references",
+        "method": "Read published full text from repository; compared the quantified input sets and convolution weights",
+        "title": "Exact ternary fibre law and collision moments for two cubes",
+        "trigger": "Same prime, polynomial and target-by-target convolution"
+      },
+      {
+        "assessment": "Counts x,y inputs, not distinct cube values",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-representation-counts-for-two-cubes-modulo-powers-of-three--dd802b0bb880"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-representation-counts-for-two-cubes-modulo-powers-of-three--dd802b0bb880",
+        "material_read": "Complete original RESULT.md, including formulas, root-count proof and references",
+        "method": "Read published full text and checked the pair-count definition and nonunit branches",
+        "title": "Exact representation counts for two cubes modulo powers of three",
+        "trigger": "Direct exact ternary two-cube theorem"
+      },
+      {
+        "assessment": "Excludes p=3 and uses input-weighted cube sums",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-finite-level-collision-moments-and-p-adic-fibres-for-sums--8251985a3185"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-finite-level-collision-moments-and-p-adic-fibres-for-sums--8251985a3185",
+        "material_read": "Complete original RESULT.md, including exact p>=5 formulas and limitations",
+        "method": "Read published full text; compared excluded prime and multiplicity weighting",
+        "title": "Exact finite-level collision moments and p-adic fibres for sums of two cubes",
+        "trigger": "Potential more general prime-power convolution and collision theorem"
+      },
+      {
+        "assessment": "Graph energy counts simultaneous x-sum and cubic-sum equality, not energy of the distinct scalar image set",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-complete-pair-sum-fibers-of-the-cubic-graph-over-odd-residue-rin--1bbc7ea862f6"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-complete-pair-sum-fibers-of-the-cubic-graph-over-odd-residue-rin--1bbc7ea862f6",
+        "material_read": "Complete original RESULT.md, including the q=3^k branch, quadratic-root proof and 2D energy",
+        "method": "Read published full text and compared ambient groups, pair coordinates and projection to scalar target",
+        "title": "Complete pair-sum fibers of the cubic graph over odd residue rings",
+        "trigger": "Prime three cubic graph has explicit pair-sum fibers and a fourth moment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "53ef647f-172e-4989-b26e-62493bda147f",
+  "value": {
+    "rationale": "Distinct cubic residue images are a canonical local number-theory object. Unlike image cardinality or weighted root counts, the full target-by-target distinct-value pair-sum law and fourth Fourier/additive energy classify a natural nonlinear invariant. The exact value 2223/757 quantifies persistent additive collision amplification relative to the minimum for the same number of residues; the all-modulus 3-step recurrence is a motivated complete classification, not an arbitrary finite slice or unmotivated computed number. No broader unproved application is claimed.",
+    "status": "PASS"
+  }
+}
