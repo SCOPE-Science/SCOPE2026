@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** Every consecutive four-site clique forces a frustration bond; counting overlap gives \(n\le3m_1+2m_2+m_3\le3E/J\). Equality forces the distance-two and distance-three defect counts to vanish and every four-site clique to carry exactly one bad nearest-neighbour bond. The local bond indicators are three-periodic; the three named colours then force a nine-periodic spin word. Explicit construction and a complete choice count prove the iff and the 18-state degeneracy. Direct exhaustive and independent transfer checks were replayed from the packaged verifier.
+
+**Originality — PASS on the inspected evidence, with residual historical risk.** The closest primary 1985 article treats interactions only to second neighbours; its full manuscript is restricted and only publisher abstract/metadata could be examined. The full accessible 1993 Glumac–Uzelac paper treats power-law interactions and finite-range scaling of critical behaviour, not the stipulated equal-coupling three-neighbour antiferromagnetic zero-temperature equality classification. Research-record searches for cubic cycles, period-nine order, equivalent colour/ground-state language and degenerate cases returned other objects. A broader unindexed 1D spin-chain analysis might contain an equivalent result, and absence in searches is not a uniqueness proof.
+
+**Mathematical value — PASS.** The exact commensurability obstruction distinguishes infinitely many cycle lengths. It exposes a motivated frustration-versus-entropy phenomenon: unavoidable positive energy density but exactly 18 ground configurations in each commensurate ring. The period nine is an emergent rigidity consequence, not an arbitrary finite parameter slice. The theorem deliberately leaves off-commensurate minima undetermined.
+
+Self-review: passed. Independent audit: not yet performed.
