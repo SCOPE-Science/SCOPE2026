@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The proof derives the arbitrary-metric bound solely from automorphism invariance and triangle inequalities and constructs a shortest-path metric attaining equality. The real \(L^1\) part follows from a layer-cake representation of absolute differences, the exact combinatorial edge-boundary formula, monotonicity of the closed real envelope, and an explicit parity-sensitive endpoint check. These analytical steps establish the universal quantifiers over all \(n\ge3\) and all permitted targets.
+# Independent mathematical audit
 
-The reproducibility script `verify_crown_poincare.py` uses Python 3 standard-library exact rational arithmetic and breadth-first search. It checks all cuts modulo complement for \(3\le n\le8\), identifies every norming cut, verifies their predicted cardinalities, and checks all graph distances through \(n=39\). The observed terminal marker was `CROWN_POINCARE_DIAGNOSTICS_OK 125814`. The tested ranges are bounded and cannot establish the infinite theorem independently. There is no claim of independent external auditing.
+## correctness
+
+PASS
+
+PASS: For n>=3, symmetrize arbitrary induced pseudometric over index permutations and bipartition exchange, preserving edge/pair sums. Orbit distances a,b,c satisfy a<=2c and b<=a+c<=3c; normalized average ratio <=3/2 and shortest-path distances (2,3,1) attain it. For real L1, coarea reduces to cuts; with s selected vertices, k left, ell right, t fully selected matched pairs, boundary B=(n-1)s-2k ell+2t. The bound k ell<=floor(s²/4), t>=0 and monotone envelope yield even (n-1)/(n-2) and odd n/(n-1); equality requires s=n, t=0, |k-ell|<=1. Independent all-cut search for n=3..8 verifies optimum and cut strata; infinite result uses inequalities, not finite extrapolation.
+
+## originality
+
+PASS
+
+No earlier checked statement implies both crown-graph sharp constants plus the exact balanced opposite-pair equality layers; broad graph results and different operator/cut invariants are distinguished.
+
+## value
+
+PASS
+
+PASS: Canonical almost-complete bipartite family distinguishes unrestricted metric and real L1 exponent-one gaps from n=5 onward. Exact all-n parity formula and full layer-cake equality strata provide meaningful structural benchmarks, not a simple restatement of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
