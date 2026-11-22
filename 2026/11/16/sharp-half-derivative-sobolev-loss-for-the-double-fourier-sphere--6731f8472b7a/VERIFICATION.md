@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the DFS Sobolev threshold
 
-The statement and proof are in `RESULT.md`. The critical external ingredient is the fractional Hardy estimate \(\int_{\mathbb R^2}|u(x)|^2/|x|\,dx\le C\|u\|_{H^{1/2}(\mathbb R^2)}^2\), obtained by taking \(N=2\), \(p=2\), and fractional order \(1/2\) in Frank--Seiringer, *Non-linear ground state representations and sharp Hardy inequalities*, Theorem 1.1. The assumptions \(0<1/2<1\) and \(2<2/(1/2)\) hold, and the exponents are exactly one for the weight and three for the double-integral denominator. A local polar Jacobian and the chain rule give all integer bounds. Sobolev interpolation gives noninteger bounds. The annular smooth counterexamples supply the sharpness for each pair of nonnegative exponents below the boundary.
+# Independent mathematical audit
 
-Run `python3 check_scaling.py` to reproduce `SCALING_CHECK.txt`, which evaluates the exact sphere-versus-torus \(L^2\) and radial \(H^1\) formulas by numerical quadrature for a smooth profile and five shrinking annuli. The results exhibit the predicted \(\varepsilon^{-1/2}\) norm-ratio growth, but are not used to establish the abstract theorem.
+## correctness
 
-The source date of the motivating article is the first arXiv submission date 2021-08-12 (arXiv:2108.05662). The mathematical limitations and related literature are identified in `RESULT.md` and `REVIEW.md`. The numerical check does not test all real Sobolev exponents. Independent validation and historical-priority certification have not been performed.
+PASS
+
+With DFS Phi(lambda,theta)=(sin theta cos lambda,sin theta sin lambda,cos theta), the near-pole torus measure is dx/(|x|sqrt(1-|x|²)) up to finite multiplicity; derivatives of Phi are bounded. For each integer k, chain rule and Frank--Seiringer fractional Hardy at N=2,p=2,sigma=1/2 control weighted L² derivatives of chart functions by source H^(k+1/2), and on nonsingular charts standard Sobolev pullback suffices. Hilbert-scale interpolation yields every real target t>=0 and monotonic Sobolev inclusion all s>=t+1/2. Polar annular bump f_epsilon=epsilon^(s-1)h(dist/epsilon) has bounded sphere H^s norm, while torus H^t norm is bounded below by c epsilon^(s-t-1/2), diverging for s<t+1/2. Exact torus Fourier coefficient normalization (2pi)^-2 and poles/periodic patches are compatible. Verified exact Hardy hypotheses in primary paper, inspected full RESULT.md and check_scaling.py, and independently checked dimensional scaling. The finite scaling script only illustrates the analytic proof.
+
+## originality
+
+PASS
+
+The exact DFS transform and counterexample to H1 preservation are published; those facts are credited. The stronger complete endpoint mapping criterion is not given by Mildenberger--Quellmalz Theorem 6.3, and the Hardy theorem is an ingredient, not a composition-operator statement. A general unpublished or differently named composition-theorem specialization is a residual historical risk.
+
+## value
+
+PASS
+
+A sharp necessary-and-sufficient Sobolev regularity loss for a standard singular spherical parametrization gives a usable stability threshold for DFS Fourier approximation, including the critical endpoint. It decisively refines known same-order H1 failure and enables summability consequences for s>3/2; nontrivial combination of local Jacobian, fractional Hardy and interpolation, not just a routine title change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
