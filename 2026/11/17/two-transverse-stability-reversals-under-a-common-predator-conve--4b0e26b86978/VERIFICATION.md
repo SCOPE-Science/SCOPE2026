@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python check.py` with Python 3 and SymPy to reproduce the stationary solution, Jacobian characteristic coefficients and exact rational identities. The checker asserts the cubic discriminant, Descartes sign patterns and all rational root-bracket signs. It prints the two approximate crossing locations only after the exact assertions pass.
+## correctness
 
-The quartic has exactly three positive simple zeros by Descartes' upper bound together with three disjoint intervals of strict sign change; the fourth real zero is strictly negative by the sign variation of \(Q(-t)\). Only the middle and upper positive zeros belong to the coexistence interval. The cubic numerator of \(B\) has negative discriminant and strictly positive value at zero and leading coefficient; it therefore has no positive root. This supplies the analytic sign certificate, independent of floating-point root enumeration.
+PASS
 
-Reconstruction uses only the model equations as printed and the exact rational rates given in `RESULT.md`. The supplied code is a reproducibility aid, not an independent expert review, and it does not assert nonlinear bifurcation nondegeneracy or exclude uninspected historical priority.
+The three stationary equations form a nonsingular linear system (determinant -314/25), giving x=25(7t-3)/(157t), y=(703-175t)/(2512t), z=(97-17t)/(2512t). Positivity is equivalent to 3/7<t<703/175. Independently expanded the Jacobian cubic and verified its A,B,C, with H=AB-C equal to the stated quartic Q divided by 7925540864 t^3. The B numerator has negative discriminant and its unique real root is negative. Descartes signs and disjoint rational sign brackets imply precisely three positive Q-roots, of which only two are feasible. At each, (lambda+A)(lambda^2+B) and nonzero H-prime yield simple transversal imaginary crossings, first destabilizing then restabilizing. These are spectral/local results only; the nonlinear Hopf Lyapunov coefficient is not established.
+
+## originality
+
+PASS
+
+The exact feasible stable–unstable–stable conversion sweep is not implied by a generic cubic Routh–Hurwitz test or by two-Hopf findings in different functional-response models. The source contribution is a complete sharp one-parameter rational witness with two opposite spectral crossings; historical priority remains bounded by source coverage.
+
+## value
+
+PASS
+
+A rigorously isolated stable–unstable–stable reentrance of a positive three-species coexistence equilibrium under one physically interpretable predator-conversion parameter provides a motivated boundary example in competitive ecology. Exact open robustness and opposite transverse oscillatory crossings, not textbook application alone, are the useful findings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

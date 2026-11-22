@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The positive equilibrium follows from a nonsingular constant coefficient matrix; its exact positive existence interval is \(3/7<t<703/175\). The exact Jacobian coefficients and the identity \(AB-C=Q/(7925540864t^3)\) are recomputed by symbolic differentiation and determinant expansion in `check.py`. The numerator of \(B\) has a strictly negative cubic discriminant, unique negative real root, and hence remains positive throughout the feasible interval. Descartes' rule and three disjoint rational sign brackets isolate every positive root of \(Q\) and prove exactly two are feasible. The Routh–Hurwitz test and implicit differentiation prove opposite transverse imaginary crossings. Numerical root values are illustrations, not proof. At a boundary the nonlinear equilibrium stability is undecided.
+PASS
 
-## Originality — PASS within examined evidence
+The three stationary equations form a nonsingular linear system (determinant -314/25), giving x=25(7t-3)/(157t), y=(703-175t)/(2512t), z=(97-17t)/(2512t). Positivity is equivalent to 3/7<t<703/175. Independently expanded the Jacobian cubic and verified its A,B,C, with H=AB-C equal to the stated quartic Q divided by 7925540864 t^3. The B numerator has negative discriminant and its unique real root is negative. Descartes signs and disjoint rational sign brackets imply precisely three positive Q-roots, of which only two are feasible. At each, (lambda+A)(lambda^2+B) and nonzero H-prime yield simple transversal imaginary crossings, first destabilizing then restabilizing. These are spectral/local results only; the nonlinear Hopf Lyapunov coefficient is not established.
 
-The 2026 Huang–Yang primary full-text paper explicitly gives the eight-parameter two-prey–one-predator system and its general cubic Routh–Hurwitz criteria. Those antecedents are credited rather than claimed. Its introduction, the local-stability theorem, stability tables and discussion were read for the stronger specific statement of **two** crossings under one common predator-conversion factor with a fixed prey interaction matrix; that explicit parameter-path phase diagram was not identified. Braza's 2003 two-Hopf result is for Holling–Tanner, not the unsaturated three-population Lotka–Volterra competition ODE. Smith's 1982 result addresses two predators and one prey. A published three-species antagonistic-loop reentrance result varies a reciprocal antagonistic link, unlike the moving-equilibrium conversion-efficiency sweep here. Search results do not guarantee novelty; especially older Lotka–Volterra bifurcation literature remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two opposite oscillatory stability changes along a **single positive coexistence branch** occur in the standard unsaturated autonomous three-species ecological ODE, without delay, spatial coupling, seasonal switching or specially tuned higher-order response terms. The calculation gives exact global parameter ordering, both transversality signs and perturbation robustness, making the specific ecological parameter mechanism accessible for future nonlinear or global analysis. It is not a routine single-point linear stability exercise: the complete algebraic parameter scan is proved and the second stability restoration is nontrivial.
+The exact feasible stable–unstable–stable conversion sweep is not implied by a generic cubic Routh–Hurwitz test or by two-Hopf findings in different functional-response models. The source contribution is a complete sharp one-parameter rational witness with two opposite spectral crossings; historical priority remains bounded by source coverage.
 
-## Closest sources and remaining limits
+## value
 
-The Huang–Yang paper covers general equilibrium stability conditions, not an explicitly determined single-sweep double-transition theorem in the inspected sections. The Braza paper was available as a bibliographic abstract, not full text. A record of reentrance for antagonistic three-species links was available as a published summary, not complete source text. These access restrictions limit historical-priority confidence, but the models and parameter mechanisms in the descriptions differ in mathematically relevant ways. Nothing here proves a nonlinear Hopf branch or classifies global attractors.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A rigorously isolated stable–unstable–stable reentrance of a positive three-species coexistence equilibrium under one physically interpretable predator-conversion parameter provides a motivated boundary example in competitive ecology. Exact open robustness and opposite transverse oscillatory crossings, not textbook application alone, are the useful findings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
