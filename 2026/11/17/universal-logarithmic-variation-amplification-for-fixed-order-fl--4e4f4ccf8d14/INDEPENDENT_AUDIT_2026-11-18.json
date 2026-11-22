@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T19:12:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Constant reproduction and nodal jump decomposition reduce the exact real BV operator norm to the maximum response to one step. Equispaced binomial blending weights w_i=(−1)^iβ_i have total zero and prefix L_j bounded by 2^(d−1), with equality for d≤j≤n−d+1. The established 2012 nonzero-denominator inequality and alternating partial-fraction limit D∞=2^dπ/sinπx yield global inverse-denominator control. Abel summation on one-sided alternating tails gives numerator L_j/(distance)+O_d(distance^-2) and differentiated O_d(distance^-3), with uniformly integrable errors across left/right sides and bounded single crossing-cell contribution. Thus Var response = |L_j|/2^d(∫_1^j |cosπu|/u du + ∫_1^(n−j+1)|cosπu|/u du)+O_d(1); mean(|cos|)=2/π proves the sharp uniform jump profile and global (2/π)log n+O_d(1). Reproduction of degree d and fixed d are essential. Independent n=24,48,96 quadrature for d=1,2,3 agrees with slope, not a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bos–De Marchi–Hormann–Klein (2012) give degree-dependent logarithmic Lebesgue bounds and denominator positivity, not a sharp BV operator norm.",
+          "The earlier Berrut d=0 theorem gives (2/pi)log n+O(1), a separately weighted rational interpolant; 2011 derivative rates assume smooth targets."
+        ],
+        "reasoning": "Neither a pointwise norm bound nor a d=0 result dominates the uniform d>=1 discontinuous-data variation bound; new binomial-prefix arithmetic and uniform Abel tail control are necessary.",
+        "searches": [
+          "Resultary: Floater Hormann rational interpolation fixed blending order d BV total variation operator norm sharp leading (2/pi) log n uniform step-jump finite grid",
+          "https://www.math.unipd.it/~demarchi/papers/lebesgue.pdf",
+          "Resultary: Sharp logarithmic total-variation amplification for Berrut rational interpolation"
+        ]
+      },
+      "checked_sources": [
+        "Floater–Hormann 2007 author full PDF",
+        "Bos et al. 2012 author full PDF",
+        "Berrut–Floater–Klein 2011 derivative theory (description, not entire paper)",
+        "Resultary Berrut d=0 BV finding (published statement)",
+        "Resultary: Floater Hormann rational interpolation fixed blending order d BV total variation operator norm sharp leading (2/pi) log n uniform step-jump finite grid",
+        "Resultary: Barycentric rational polynomial-reproducing Floater-Hormann variation logarithmic fixed degree simultaneous all d jump profile"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Berrut d=0 shares its leading coefficient but not reproduction degree, endpoint weights or prefix profile.",
+          "The 2012 denominator bound is borrowed explicitly; its conclusion alone does not yield any logarithmic BV-to-BV coefficient."
+        ],
+        "reasoning": "A matching number 2/pi is not a logical implication: the sharp d>=1 theorem requires new jump-tail and derivative integrability arguments.",
+        "searches": [
+          "Resultary: Floater Hormann rational interpolation fixed blending order d BV total variation operator norm sharp leading (2/pi) log n uniform step-jump finite grid",
+          "Resultary: Sharp logarithmic total-variation amplification for Berrut rational interpolation",
+          "https://www.math.unipd.it/~demarchi/papers/lebesgue.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-order barycentric rational data interpolation is defined by alternating binomial blending weights; continuous total variation is the L1 norm of the derivative of each jump response.",
+          "Lebesgue stability is sup norm of cardinal-basis absolute sums rather than integrated derivative magnitude."
+        ],
+        "reasoning": "The BV-to-BV norm can be rewritten as a maximization over single jumps, but is not equivalent to the previously calculated L∞ Lebesgue constants. No matched alternative formula for this same seminorm was identified.",
+        "searches": [
+          "Resultary: Floater Hormann rational interpolation fixed blending order d BV total variation operator norm sharp leading (2/pi) log n uniform step-jump finite grid",
+          "Resultary: Barycentric rational polynomial-reproducing Floater-Hormann variation logarithmic fixed degree simultaneous all d jump profile",
+          "https://www.inf.usi.ch/hormann/papers/Floater.2007.BRI.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A four-node degree-one Floater–Hormann range-defect result is finite dimensional and controls overshoot, not variation.",
+          "Original paper includes approximation diagnostics but not all-grid step-response variation or exact n-dependent norms."
+        ],
+        "reasoning": "The asserted norm is a full n-asymptotic operator characterization, not recomputation of an existing numerical table or four-node shape defect.",
+        "searches": [
+          "Resultary: Floater Hormann rational interpolation fixed blending order d BV total variation operator norm sharp leading (2/pi) log n uniform step-jump finite grid",
+          "Resultary: Sharp monotone range defect of four-point degree-one Floater-Hormann interpolation",
+          "https://www.inf.usi.ch/hormann/papers/Floater.2007.BRI.pdf"
+        ]
+      },
+      "rationale": "The exact fixed-d positive-degree Floater–Hormann BV seminorm, sharp universal 2/pi coefficient, and uniform prefix-weight jump profile are not stated in the original construction, the Bos et al. Lebesgue-constant results, smooth-derivative interpolation theory or the related Berrut d=0 BV theorem. The last has the same leading constant but is a different operator, not an implication for all positive d. Full author manuscripts of the two most relevant published primary FH papers were inspected. Remaining risk is specialized historical variation norm work not indexed under BV terminology.",
+      "residual_risks": [
+        "A non-indexed derivative-integral or BV condition-number result might yield the same d>=1 uniform jump theorem.",
+        "The Berrut d=0 published proof was not inspected fully; its conclusion alone does not imply d>=1.",
+        "The leading coefficient is asymptotic for fixed d only, not a uniform growing-degree statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides standard weights and pole-free blending, not a sharp positive-degree BV jump law in inspected material",
+          "evidence": [
+            "Fixed d equispaced barycentric blended interpolation and polynomial reproduction",
+            "Smooth approximation framework differs from discontinuous-step variation"
+          ],
+          "identifier_or_url": "https://www.inf.usi.ch/hormann/papers/Floater.2007.BRI.pdf",
+          "material_read": "Full author PDF, barycentric weights, no-pole and approximation sections; representative pages visually inspected",
+          "method": "Downloaded/opened primary full text and PDF screenshot of the construction",
+          "title": "Barycentric rational interpolation with no poles and high rates of approximation",
+          "trigger": "Defines precisely the fixed-d rational operator"
+        },
+        {
+          "assessment": "Its nonvanishing denominator bound is a used premise; L∞ Lebesgue growth does not determine total-variation amplification",
+          "evidence": [
+            "Lower bound on |D| used to control inverse",
+            "Lebesgue constant based on pointwise interpolation operator"
+          ],
+          "identifier_or_url": "https://www.math.unipd.it/~demarchi/papers/lebesgue.pdf",
+          "material_read": "Full author manuscript §§1–4, denominator lemma and Lebesgue coefficient discussion; denominator page visually inspected",
+          "method": "Primary PDF full text and screenshot of Section 2 bound",
+          "title": "On the Lebesgue constant of barycentric rational interpolation at equidistant nodes",
+          "trigger": "Same operator and most relevant stability estimate"
+        },
+        {
+          "assessment": "Covers original d=0 alternating weights, not all fixed positive degrees",
+          "evidence": [
+            "Berrut BV gain 2/pi log n + O(1), extremized near an endpoint"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-logarithmic-total-variation-amplification-for-berrut-ratio--56220cdae3ba",
+          "material_read": "Indexed full scientific statement/summary, not whole manuscript",
+          "method": "Resultary targeted search and comparison of degree and weights",
+          "title": "Sharp logarithmic total-variation amplification for Berrut rational interpolation",
+          "trigger": "Precisely matching 2/pi variation coefficient but different d"
+        },
+        {
+          "assessment": "Smooth approximation assumptions do not automatically control discontinuous-step operator norm",
+          "evidence": [
+            "Derivative approximation of smooth targets as n grows is a different stability question"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2011.05.001",
+          "material_read": "Accessible description/sections cited in bibliography, full paper not inspected here",
+          "method": "Primary bibliographic description and mathematical hypotheses compared",
+          "title": "Convergence rates of derivatives of a family of barycentric rational interpolants",
+          "trigger": "Derivative estimates might imply BV bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Measures the precise total-variation cost of raising polynomial reproduction degree in a standard pole-free rational interpolation family. The universal log coefficient and location-sensitive jump profile are relevant to nonsmooth-data stability and are not determined by pointwise Lebesgue bounds or the Berrut d=0 case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed degree d≥1, equal grid, real sampled data, n≥2d; no uniform growing-d guarantee or exact finite-n maximizer classification.",
+    "Historical unindexed BV operator estimates could give closer coverage than the sources inspected.",
+    "A non-indexed derivative-integral or BV condition-number result might yield the same d>=1 uniform jump theorem.",
+    "The Berrut d=0 published proof was not inspected fully; its conclusion alone does not imply d>=1.",
+    "The leading coefficient is asymptotic for fixed d only, not a uniform growing-degree statement."
+  ],
+  "schema_version": 1
+}

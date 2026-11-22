@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The result uses a precise finite-dimensional variation seminorm and exact jump-vector decomposition, not random-input inference. The proof identifies the binomial prefix invariant \(L_j\), applies the published nonvanishing-denominator inequality with its scaling checked, develops uniform reciprocal-denominator and alternating-tail derivative estimates, and integrates the resulting periodic kernel with a uniform bounded error. Single-jump inputs provide the lower bound. Exact integer/rational checks and numerical quadrature corroborate the critical identities without substituting for the all-size proof.
+## correctness
 
-## Originality
-PASS subject to normal historical-priority risk. The complete 2007 construction and 2012 Lebesgue-constant studies concern pole avoidance, approximation and \(\ell_\infty\)-data to supremum-output conditioning; the 2011 derivative-convergence paper assumes smooth targets. These do not imply the real BV operator norm for discontinuous jumps or the sharp \(d\)-dependent jump-location law. A prior Berrut \(d=0\) variation result shares the numerical leading coefficient but has different barycentric weights and does not cover all fixed positive blending orders. A known finite four-node degree-one range-defect theorem is likewise neither an infinite-grid variation theorem nor an implication of it. Searches may miss older work in alternate terminology.
+PASS
 
-## Mathematical value
-PASS. Increasing Floater–Hormann degree improves reproduction and smooth-target approximation, while existing Lebesgue-constant estimates can deteriorate sharply with degree. The new law determines that for every fixed positive degree the sharp leading BV instability remains \(2/\pi\), and it gives the entire asymptotic jump-location profile, including reduced boundary coefficients and central extremal growth. This is an operator-stability statement for an unbounded family of classical interpolants, not a fixed small-table calculation.
+Constant reproduction and nodal jump decomposition reduce the exact real BV operator norm to the maximum response to one step. Equispaced binomial blending weights w_i=(−1)^iβ_i have total zero and prefix L_j bounded by 2^(d−1), with equality for d≤j≤n−d+1. The established 2012 nonzero-denominator inequality and alternating partial-fraction limit D∞=2^dπ/sinπx yield global inverse-denominator control. Abel summation on one-sided alternating tails gives numerator L_j/(distance)+O_d(distance^-2) and differentiated O_d(distance^-3), with uniformly integrable errors across left/right sides and bounded single crossing-cell contribution. Thus Var response = |L_j|/2^d(∫_1^j |cosπu|/u du + ∫_1^(n−j+1)|cosπu|/u du)+O_d(1); mean(|cos|)=2/π proves the sharp uniform jump profile and global (2/π)log n+O_d(1). Reproduction of degree d and fixed d are essential. Independent n=24,48,96 quadrature for d=1,2,3 agrees with slope, not a universal proof.
 
-## Limitations
-No claim is made for \(d=0\), degree growing with grid size, nonuniform nodes, complex data, exact finite-grid norms, or a degree-uniform remainder. Historical equivalence cannot be ruled out exhaustively, and full independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact fixed-d positive-degree Floater–Hormann BV seminorm, sharp universal 2/pi coefficient, and uniform prefix-weight jump profile are not stated in the original construction, the Bos et al. Lebesgue-constant results, smooth-derivative interpolation theory or the related Berrut d=0 BV theorem. The last has the same leading constant but is a different operator, not an implication for all positive d. Full author manuscripts of the two most relevant published primary FH papers were inspected. Remaining risk is specialized historical variation norm work not indexed under BV terminology.
+
+## value
+
+PASS
+
+Measures the precise total-variation cost of raising polynomial reproduction degree in a standard pole-free rational interpolation family. The universal log coefficient and location-sensitive jump profile are relevant to nonsmooth-data stability and are not determined by pointwise Lebesgue bounds or the Berrut d=0 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
