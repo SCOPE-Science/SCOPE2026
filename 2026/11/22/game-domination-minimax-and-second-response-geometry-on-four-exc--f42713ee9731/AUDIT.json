@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "An exact finite recurrence on dominated masks has a strictly increasing state measure; complete bottom-up C++17 and recursive Python implementations both reproduce every game value and second-reply count on all four explicitly generated graphs. Python tests all initial vertices; C++ evaluates all masks. All embedded sources and assertions were run successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kinnersley–West–Zamani (2013), DOI 10.1137/120884742, proves general upper bounds.",
+        "Henning–Kinnersley (2016), DOI 10.1137/140976935, proves a general 3n/5 bound when minimum degree is at least two."
+      ],
+      "reasoning": "The general inequalities do not force exact values (7/6,7/6,8/7,9/9) or the per-distance response counts. An arbitrary graph-size upper bound does not imply the numerical equalities.",
+      "searches": [
+        "game domination number cubic symmetric graphs optimal first move minimax",
+        "domination game cubic graphs 3/5 bound"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/100786800",
+      "doi:10.1137/120884742",
+      "doi:10.1137/140976935",
+      "doi:10.1016/j.jctb.2008.06.001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2008 cubic symmetric girth-six classification DOI 10.1016/j.jctb.2008.06.001 singles out this quartet for structural reasons, without game outcomes.",
+        "2010 game paper DOI 10.1137/100786800 gives bounds and example C6, not exact minimax of these four instances."
+      ],
+      "reasoning": "Graph classification plus a general domination-game bound supplies the setting, but neither exact tactical values nor the number and distance of optimal replies. Existing related results cannot logically imply the complete reported table without additional computation or argument.",
+      "searches": [
+        "game domination numbers of cubic symmetric graphs small graphs computational",
+        "Domination Game and an Imagination Strategy 2010 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brešar–Klavžar–Rall (2010), DOI 10.1137/100786800, defines the game in the identical closed-neighborhood sense and the two starting orders."
+      ],
+      "reasoning": "Ordinary domination game matches the recurrence and is distinct from Maker–Breaker domination or total-domination games; no terminology change creates novelty. All replies count both players under optimal continuation.",
+      "searches": [
+        "\"domination game\" \"Heawood\" \"Pappus\"",
+        "\"domination game\" \"Möbius-Kantor\"",
+        "\"domination game\" \"Desargues\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted indexed scholarly and web searches did not return an exact four-graph domination-game table.",
+        "The inspected 2010 full text does not mention Heawood or Pappus by name."
+      ],
+      "reasoning": "No observed table covers the claim; this is weak negative evidence, not a certification that all existing tables have been searched. Unindexed and inaccessible sources remain risks.",
+      "searches": [
+        "\"Heawood graph\" \"domination game\" number",
+        "\"Pappus graph\" \"domination game\" Staller",
+        "\"Möbius-Kantor\" \"domination game\"",
+        "\"Desargues graph\" \"domination game\" number"
+      ]
+    },
+    "rationale": "No inspected same-game source or available indexed mathematical record subsumes the exact four-graph values together with their optimal second-reply classification. General bounds and cubic-graph classification lack the conditional minimax information. Priority remains limited by unindexed and unread full texts.",
+    "residual_risks": [
+      "Publisher/author full text of the 2013 and 2016 general-bounds works was not completely inspected; an internal numerical table cannot be excluded.",
+      "Indexed search alone cannot prove no previous independent computation of the same finite game values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general inequality and a C6 example, not the four specified graphs or their second-response geometry",
+        "evidence": [
+          "Definitions and Game 1/Game 2 are explicit; result is general bounds and constructions, not exact exceptional graph tables."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/100786800",
+        "material_read": "Accessible author-full-text on researchgate, introduction, recurrence-relevant rules, sections 2–5 and references; text search for named target graphs",
+        "method": "Read HTML-transcribed full text and inspect the relevant sections plus graph-name searches",
+        "title": "Domination Game and an Imagination Strategy",
+        "trigger": "Foundational same-game definition and general comparison of starting-player outcomes"
+      },
+      {
+        "assessment": "Establishes natural quartet of graph objects, not game domination values",
+        "evidence": [
+          "The exception list comprises Heawood, Möbius–Kantor, Pappus and Desargues."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jctb.2008.06.001",
+        "material_read": "Publisher abstract identifying the four exceptional graphs",
+        "method": "Publisher and scholarly abstract inspection",
+        "title": "A complete classification of cubic symmetric graphs of girth 6",
+        "trigger": "Primary source defining the structurally natural quartet"
+      },
+      {
+        "assessment": "Known published general bounds do not determine the response tallies; uninspected full-text table remains a residual risk",
+        "evidence": [
+          "General extremal bounds are stated for forests and isolate-free graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/120884742",
+        "material_read": "Publisher abstract and publication information, not complete full text",
+        "method": "Abstract comparison of claimed inequalities with exact finite values",
+        "title": "Extremal Problems for Game Domination Number",
+        "trigger": "Possible stronger general bound"
+      },
+      {
+        "assessment": "Bounds for minimum-degree-two graphs are not equalities nor move-classifications; uninspected full text remains a residual risk",
+        "evidence": [
+          "The paper proves a 3n/5 upper bound for the Dominator-start game on minimum-degree-two graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/140976935",
+        "material_read": "Author-repository description and publisher abstract, not complete full text",
+        "method": "Compare 3n/5 general inequality to asserted exact values",
+        "title": "Domination Game: A Proof of the 3/5-Conjecture for Graphs with Minimum Degree at Least Two",
+        "trigger": "Potentially dominating 2016 cubic-graph bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f42713ee-9731-4daf-ab1a-cfd79d6a529b",
+  "value": {
+    "rationale": "The four graphs are a distinguished structural quartet rather than arbitrary small selections. Exact strategic lengths and second-move outcome landscapes expose a sharp three-versus-one start-order reversal and graph-dependent response restrictions, including only two legal optimal responses on Pappus versus universal responses on Heawood and Desargues. The result is not implied by ordinary domination numbers or general length bounds.",
+    "status": "PASS"
+  }
+}
