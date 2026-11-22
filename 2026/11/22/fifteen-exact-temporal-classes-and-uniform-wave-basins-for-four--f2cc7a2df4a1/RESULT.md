@@ -1,0 +1,53 @@
+# Fifteen exact temporal classes and uniform wave basins for four-state excitation on whiskered cliques
+
+## Finding
+For each integer \(n\ge4\), let \(G_n=K_n\circ K_1\) be the labelled clique on \(n\) vertices, each with one private pendant leaf. Under synchronous threshold-one four-state Greenberg–Hastings excitation, every labelled configuration becomes periodic by its **seventh** update, and seven is attained at every such \(n\). The only eventual least periods are one (all rest) and four. The global iterate identity is
+\[
+F^{11}=F^7,\qquad F^{10}\ne F^6.
+\]
+The second inequality means an identity of maps fails: there exist states with first periodic entry at step seven.
+
+Define \(h_{t,p,k}\) as the integer at entry-time \(t\), least period \(p\), and support cardinality \(k\) in the accompanying `SUPPORT_COUNTS.csv`. Exactly **fifteen** \((t,p)\) classes occur: \((t,1)\) for \(0\le t\le7\), and \((t,4)\) for \(0\le t\le6\). Their complete labelled populations for all \(n\ge4\) are
+\[
+N_{t,p}(n)=\sum_{k=1}^{16}h_{t,p,k}\sum_{j=0}^k(-1)^{k-j}\binom kj j^n.
+\]
+The inner expression counts surjective assignments to the \(k\) occupied initial core/leaf pair types, so this is an **explicit finite exponential formula**, not a recursive simulation at individual large \(n\).
+
+Write \(U_4(n)=4^n-4\cdot3^n+6\cdot2^n-4\). There are precisely \(U_4(n)/4\) primitive temporal four-cycle orbits and exactly one fixed point. Each four-cycle orbit has the same attraction-basin size \(4^{n+1}\), regardless of its core-color multiplicities. The total four-period basin has size \(4^nU_4(n)\); the all-rest basin has size \(4^n(4^n-U_4(n))\). Under uniform independent initial colors, the eventual oscillation probability is exactly
+\[
+1-4(3/4)^n+6(1/2)^n-4(1/4)^n.
+\]
+For example, at \(n=4\) the \(65{,}536\) states partition into \(59{,}392\) extinction-bound states and \(6{,}144\) four-period-bound states, with six distinct primitive four-cycle orbits. The fifteen \((t,p)\) populations are supplied by the certificate and independently reproduced by direct state enumeration.
+
+## Assumptions and scope
+The core vertices are labelled \(v_1,\ldots,v_n\), with each \(v_i\) adjacent to its own leaf \(w_i\); all distinct core vertices are mutually adjacent. Each state is one of \(0\) (rest), \(1\) (excited), \(2\) and \(3\) (successive refractory stages). At a simultaneous step, states \(1,2,3\) advance to \(2,3,0\); state \(0\) becomes \(1\) iff at least one *neighbor* has state \(1\), and otherwise remains \(0\). Vertices do not excite themselves. The least period is the temporal period of the entire labelled configuration. The first-entry time is the least nonnegative iterate lying on its eventual cycle. No asynchronous update, stochasticity or other threshold is included.
+
+## Proof
+**1. Reduction to sixteen tagged pair types.** For an initial configuration, record at each core/leaf pair the ordered state \((c,\ell)\in\{0,1,2,3\}^2\), encoded by \(a=4c+\ell\in\{0,\ldots,15\}\). Let \(H\) be the set of distinct pair types represented at time zero. All pairs with the same initial type remain identical, because every core sees the same Boolean signal \(e\) indicating whether any core has state \(1\) (and a core with current state zero cannot itself be this excited core), together with its own paired leaf's state. For a tagged pair the exact transition is
+\[
+\begin{aligned}
+c'&=\begin{cases}c+1\pmod4,&c\ne0,\\1,&c=0\text{ and }(e\text{ or }\ell=1),\\0,&\text{otherwise},\end{cases}\\
+\ell'&=\begin{cases}\ell+1\pmod4,&\ell\ne0,\\1,&\ell=0\text{ and }c=1,\\0,&\text{otherwise}.\end{cases}
+\end{aligned}
+\]
+Here \(e\) is computed from the *current* list of all originally occupied tagged pair types, so it is the exact existential signal on the entire clique. Crucially, after two initially different types merge, both original representatives are still tracked, preventing support collapse from being mistaken for microscopic periodic entry. The dynamics of every possible \(n\)-vertex initial state is therefore represented exactly by one of the \(2^{16}-1=65{,}535\) nonempty labelled-type subsets \(H\), including all tagged representatives.
+
+**2. Finite exhaustive identity and all-length population law.** The included `support_census.py` defines the displayed local transition and follows every tagged representative for each of the \(65{,}535\) nonempty initial supports until first repetition. All returns have least period one or four and first entry at most seven; supports of exactly the fifteen indicated classes occur. `SUPPORT_COUNTS.csv` gives the exhaustively enumerated integers \(h_{t,p,k}\), with each support counted once. This is a complete finite lemma because the tagged-pair reduction in Step 1 covers *every* initial state for *every* \(n\), not an extrapolation from small graphs. For each particular occupied support of size \(k\), the number of assignments of the \(n\) labelled core/leaf pairs realizing exactly that support is \(k!S(n,k)=\sum_{j=0}^k(-1)^{k-j}\binom kj j^n\). Distinct supports are disjoint. Summing produces the displayed exact fifteen-class formula and, upon summing all classes, \(16^n=4^{2n}\). The code also identifies seven-step cases with support cardinalities at most three, which occur for every \(n\ge4\); hence the cutoff is sharp and \(F^{11}=F^7\) while \(F^{10}\ne F^6\).
+
+**3. Independent structure of the recurrent waves.** If a core colouring initially represents all four colors, a color-one core exists. All cores currently at zero see a distinct excited core, so every core advances modulo four and all four colors remain present at every step. Thus the core rotates rigidly with least period four, independently of all leaf states. Each leaf is then driven by a periodic four-state core and approaches its unique phase-locked trajectory with \(\ell_i=c_i-1\pmod4\) (as verified by the four-by-four local transition, also an exhaustive subcase of Step 2). Conversely, the finite certificate in Step 2 establishes that no initial core coloring omitting one of the four colors enters a four-cycle: its entire state becomes all zero by step seven. The total number of core colorings using all four colors is the surjection count \(U_4(n)\), yielding \(U_4(n)/4\) distinct core phase-orbits. Given any particular orbit, its four possible initial core phase representatives each admit all \(4^n\) initial leaf colorings; none can enter any different core orbit. Thus each orbit has attraction basin exactly \(4^{n+1}\), and the remaining population is attracted to the sole fixed point. Dividing by \(16^n\) gives the claimed probability.
+
+## Verification
+With Python 3 and a C++17 compiler, run `c++ -O2 -std=c++17 direct_check.cpp -o direct_check` followed by `python3 support_census.py` in the directory containing `SUPPORT_COUNTS.csv`. The Python program completely rebuilds all \(65{,}535\) tagged-support histories, compares every coefficient with the supplied table, checks the derived population totals for \(2\le n\le8\), and compares every entry-time/period population to the independently constructed direct-graph C++ enumerator for \(2\le n\le5\), i.e. through \(4^{10}=1{,}048{,}576\) labelled states at the largest checked size. The independent C++ code uses full-state successor computation and functional-graph indegree pruning, not the sixteen-type quotient. The successful output ends `ALL_TESTS_PASSED`. Exhaustive support enumeration plus the exact reduction prove the unbounded-\(n\) statement; direct small-size enumeration is corroboration, not an infinite proof by sample.
+
+## Relationship to prior work
+Four-state Greenberg–Hastings dynamics on complete bipartite graphs has a 225-support classification and a sharp entry cutoff of five or six, but those graphs lack the complete core with separately attached leaves. Four-state excitation on complete tripartite graphs has a 3375-support quotient and a sharp six-step cutoff, but its independent-part graph cannot specialize to the whiskered clique. A published exact three-state pineapple-graph census puts all leaves at *one* clique vertex, rather than one at *each*, and uses a different number of refractory states. Thus these results do not entail the present fifteen-class exponential law or uniform individual four-cycle basin sizes. The general three-color circulation theory of Gravner, Lyu and Sivakoff is restricted to three colors and cannot imply the four-state first-entry classifications. The standard Greenberg–Hastings definition and the existence of excited waves are not claimed to be new; the claimed contribution is the complete, all-size, time-resolved orbit-and-basin census for this graph family.
+
+## Limitations
+The theorem applies only to the specified fully whiskered cliques with \(n\ge4\), four-state threshold-one synchronous dynamics and labelled configurations. Although the coefficient table is computationally exhaustive over a provably sufficient fixed finite quotient, no independent external mathematical validation has been performed. Search coverage cannot establish absolute historical priority; relevant older work may be unindexed, and the original 1978 full article was not read in full. No assertions are made for stochastic, asynchronous, higher-threshold or different graph dynamics.
+
+## References
+1. J. M. Greenberg and S. P. Hastings, *Spatial patterns for discrete models of diffusion in excitable media*, SIAM Journal on Applied Mathematics 34 (1978), 515–523, https://doi.org/10.1137/0134040 (original model; full text not inspected).
+2. J. Gravner, H. Lyu and D. Sivakoff, *Limiting behavior of 3-color excitable media on arbitrary graphs*, arXiv:1610.07320v1, first public 2016-10-24, https://arxiv.org/abs/1610.07320 (full text compared; three-color results).
+3. *Universal leaf-entry profiles and ten temporal basin classes for three-state excitation on pineapple graphs*, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-universal-leaf-entry-profiles-and-ten-temporal-basin-classes-for--abfea8cb94b5 (full mathematical statement compared).
+4. *Exact four-state excitation orbits and basins on complete bipartite graphs*, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-exact-four-state-excitation-orbits-and-basins-on-complete-bipart--14573b2e63f6 (full mathematical statement compared).
+5. *Four-state excitation on tripartite graphs: identical four-cycle orbits, different transients, and exact extinction*, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-four-state-excitation-on-tripartite-graphs-identical-four-cycle--6411c0882be0 (full mathematical statement compared).
