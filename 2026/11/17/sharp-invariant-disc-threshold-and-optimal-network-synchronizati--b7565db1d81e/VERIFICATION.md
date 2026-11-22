@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-The proof uses an exact complex-hyperbolic tangent integral identity, the maximal-modulus comparison principle, the undirected graph Laplacian Rayleigh inequality, and an integrable nonlinear perturbation in the Fiedler direction. The limiting Fiedler amplitude is nonzero for sufficiently small explicitly specified initial perturbations; no assertion of genericity is needed.
+# Independent mathematical audit
 
-A standalone standard-library Python checker is included as `check.py`. Its recorded output is:
+## correctness
 
-```text
-R=0.700000  tan(R)/R=1.203269114947 delta=0.578855809768
-lambda_2=1.0  optimal_exponent=1.850000000000  prefactor=1.239218848211
-t=0.00  e^(mu*t)*w(t)/w(0)=1.000000000  bound=1.239218848
-t=5.00  e^(mu*t)*w(t)/w(0)=0.982289561  bound=1.239218848
-t=10.00  e^(mu*t)*w(t)/w(0)=0.982289561  bound=1.239218848
-t=15.00  e^(mu*t)*w(t)/w(0)=0.982289561  bound=1.239218848
-t=20.00  e^(mu*t)*w(t)/w(0)=0.982289561  bound=1.239218848
-VERIFY_OK radial_boundary=1 derivative_supremum=1 ring_integrations=10000 upper_bounds=5
-```
+PASS
 
-Computational tests at finitely many points are corroboration only; the all-graph and all-time quantifiers are proved analytically in `RESULT.md`. The theorem does not identify the exact coefficient of a particular trajectory's Fiedler asymptotic, only nonvanishing for a suitable arbitrarily small family. Independent validation has not been performed.
+For |z|<=R<1, |sech²(sz)|<=sec²(sR) by |cosh(x+iy)|²=sinh²x+cos²y, hence |tanh z|<=c_R|z|, c_R=tan R/R, equality at z=iR. At a maximum-modulus vertex, undirected nonnegative Laplacian coupling cannot increase the modulus, so upper Dini M'<=-(alpha-beta c_R)M. Synchrony z_i=iR gives outward motion at negative delta and nonzero equilibria at delta=0. With delta>0 the analytic f' satisfies Re f'<=-alpha+beta+beta c_R² M(t)²; the Laplacian Poincare inequality integrates to ||Pz(t)||<=exp[beta tan²R(1-e^{-2delta t})/(2delta)]e^{-(alpha-beta+kappa lambda2)t}||Pz(0)||. A small Fiedler-vector perturbation has a nonzero limiting rescaled projection by an integrable cubic forcing, certifying uniform exponent sharpness. Euclidean-to-Kobayashi comparison on |z|<=R gives the pairwise metric bound. No claim extends beyond this polydisc.
+
+## originality
+
+PASS
+
+Sarkar 2026 full HTML specifically predicts the six-cycle transverse rate 1.85 from linearization and numerical observation and gives a weaker uniform node contraction estimate around 0.402; it does not prove all-initial-data all-graph nonlinear disagreement at exact optimal spectral-gap rate or an all-radius iff invariant-polydisc boundary. The pre-existing linear prediction is clearly credited. Generic 2014 synchronization and 2023 structural contraction papers do not supply these sharp model-specific quantified bounds.
+
+## value
+
+PASS
+
+The motivating holomorphic-network study explicitly exhibits a large gap between certified node-wise contraction (~0.402) and graph-spectral decay (~1.85) on a six-cycle. A theorem replacing that empiricism with a globally valid nonlinear all-graph optimal exponent, sharp invariant-disc radius and Kobayashi-distance control is a motivated quantitative contribution, beyond textbook linearization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
