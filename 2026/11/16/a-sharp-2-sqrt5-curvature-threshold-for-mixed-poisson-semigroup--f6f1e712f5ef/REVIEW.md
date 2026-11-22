@@ -1,19 +1,21 @@
-# Scientific review: mixed Poisson Fourier kernels
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each positive pair of scales and interior weight, the explicit second derivative reduces every real root to the level equation \(R_t(u)=W\) on \(1/3<u<t/3\); outside this interval its sign is fixed. The quotient-rule derivative factors into a strictly positive factor and the quadratic \(5u^2-(t+1)u+t\). Its discriminant becomes positive exactly for \(t>9+4\sqrt5\). The ordered critical levels then give the complete one-, two-, or three-positive-root census, with multiplicities at the boundaries; positive roots mirror to real roots. The rational quartic witness, three bracketing intervals, and Descartes bound are independently checked in check.py. The proof is analytic for all parameters; computational comparisons are not extrapolated.
+PASS
 
-## Originality — PASS relative to checked sources
+For u=(x/a)^2, K'' is proportional to (3u-1)/(1+u)^3+W(3u-t)/(u+t)^3, with t=(b/a)^2 and W=(b/a)(1-w)/w. Its roots are R_t(u)=W on (1/3,t/3). Independently differentiated R_t' and verified exact factor 6(t-1)(u+t)^2[5u^2-(t+1)u+t]/[(t-3u)^2(u+1)^4]. Discriminant t^2-18t+1 yields sharp t*=9+4sqrt5; monotonicity and endpoint limits give two/four/six distinct real roots and double/triple transition multiplicities. Exact rational quartic witness for (a,b,w)=(1,5,1/37) has three distinct positive roots. The proof, not finite evaluations, covers the entire continuum.
 
-The October 1, 2026 paper by Kwaśnicki studies representations of bell-shaped kernels using elliptic diffusion, while Kwaśnicki's January 2025 paper proves bell shape of individual Poisson kernels of a specified operator class. A convex **arithmetic average of distinct heights** is not asserted by either theorem to belong to that operator class; neither gives the exact second-derivative threshold or the weight chamber. Došlá (2009) gives conditions for *multiple modes* in mixtures of different-location densities, including Cauchy families, not curvature counts for a common center. The wider Kwaśnicki–Simon characterization was read at abstract level only and presents residual risk. Searches of published results returned a Cauchy-mixture quadrature paper and a distinct Cauchy-wavelet cusp paper, but no implication of this level-set discrimination. Searches cannot prove global priority. An older equivalent curvature calculation may remain undiscovered.
+## originality
 
-## Value — PASS
+PASS
 
-The Fourier multipliers \(w e^{-a|\xi|}+(1-w)e^{-b|\xi|}\) are natural positive blends of Poisson semigroup filters. A single Poisson kernel has exactly two curvature sign changes; even though every positive blend stays strictly unimodal, the exact criterion \(b/a>2+\sqrt5\) marks when it can have six, and the entire transition-weight chamber and multiplicity boundaries are classified. This identifies a sharp structural failure of curvature simplicity in a natural infinite two-parameter family, rather than a single counterexample or a routine reparameterization. It is limited to second derivatives, not full bell shape.
+The invariant concerns curvature zeros of centered arithmetic mixtures, not modes or individual elliptic-operator Poisson kernels. No inspected primary theorem or relevant indexed record yields the sharp 2+sqrt5 mixture criterion; a differently indexed elementary calculation remains possible.
 
-## Closest literature and limits
+## value
 
-Kwaśnicki, *Bell-shaped functions are Poisson kernels*, arXiv:2610.01717 (2026-10-01); Kwaśnicki, *Poisson kernels on the half-plane are bell-shaped*, arXiv:2501.16068 (2025-01-27); Došlá, *Conditions for bimodality and multimodality of a mixture of two unimodal densities*, *Kybernetika* 45 (2009) 279–292; Kwaśnicki and Simon, *Characterisation of the class of bell-shaped functions*, arXiv:1910.07752 (2019-10-17). The latter abstract was inspected but not the entire primary text; another unindexed direct Cauchy-mixture curvature theorem could subsume the result. No assertion of independent audit or global uniqueness is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural positive and strictly unimodal convolution family unexpectedly develops six curvature sign changes. The theorem classifies the whole parameter chamber and sharp onset of failure of two-inflection behavior, mathematically meaningful independent of higher-order bell-shape claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

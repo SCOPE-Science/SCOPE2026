@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof establishes all real-parameter cases by reduction of the second derivative to a rational level equation. The nontrivial quotient derivative factors by a quadratic with discriminant \(t^2-18t+1\), giving a complete root-collision classification. The positive witness uses an integer quartic and three disjoint rational brackets; Descartes' sign rule proves the brackets exhaust its positive roots.
+## correctness
 
-Run `python3 check.py` in the directory with this file and RESULT.md. The checker requires only the Python standard library. It independently constructs the witness quartic from its factors, verifies six exact bracket signs and the Descartes sign pattern, performs **239** separate rational quotient-derivative comparisons, and evaluates discriminant signs on both sides of the critical threshold. These finite computations corroborate the exact identities but do not replace the general argument. No independent audit has been carried out.
+PASS
+
+For u=(x/a)^2, K'' is proportional to (3u-1)/(1+u)^3+W(3u-t)/(u+t)^3, with t=(b/a)^2 and W=(b/a)(1-w)/w. Its roots are R_t(u)=W on (1/3,t/3). Independently differentiated R_t' and verified exact factor 6(t-1)(u+t)^2[5u^2-(t+1)u+t]/[(t-3u)^2(u+1)^4]. Discriminant t^2-18t+1 yields sharp t*=9+4sqrt5; monotonicity and endpoint limits give two/four/six distinct real roots and double/triple transition multiplicities. Exact rational quartic witness for (a,b,w)=(1,5,1/37) has three distinct positive roots. The proof, not finite evaluations, covers the entire continuum.
+
+## originality
+
+PASS
+
+The invariant concerns curvature zeros of centered arithmetic mixtures, not modes or individual elliptic-operator Poisson kernels. No inspected primary theorem or relevant indexed record yields the sharp 2+sqrt5 mixture criterion; a differently indexed elementary calculation remains possible.
+
+## value
+
+PASS
+
+A natural positive and strictly unimodal convolution family unexpectedly develops six curvature sign changes. The theorem classifies the whole parameter chamber and sharp onset of failure of two-inflection behavior, mathematically meaningful independent of higher-order bell-shape claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
