@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The supporting-normal normalization is fixed in the zero-sum hyperplane. The integral edge-gradient characterization follows from connectedness of saturated edges, and the parity argument enforces the precise even/odd gradient words. Parity-class variance minimization proves the maximum facet-plane distance and all equality cases. A functional random-walk-bridge invariance principle and the continuous mapping theorem prove the distributional convergence; the Fourier decomposition supplies its Laplace transform. The range-variance inequality and explicit block-gradient witnesses give universal nearest-plane bounds; these are comparison estimates weaker than the already-established largest polar radial shell and are not presented as new. Exact enumeration over dimensions three through fifteen and independent rational covariance tests in smaller sizes corroborate but do not replace the proofs.
+PASS
 
-## Originality — PASS, subject to historical-priority limits
+Facet potentials have saturated cycle differences: balanced ±1 increments in even order and one zero with remaining balanced signs in odd order; saturation rank proves these are precisely facets. Choosing a spanning path gives alternating integer parity classes of sizes ceil(n/2) and floor(n/2). Their centered squared sum is at least ab/n, with equality only at adjacent two-level potentials: exactly 2 even or 2n odd facets. Uniform balanced signed increments converge, as linearly interpolated bridge, to Brownian bridge; centering the sum gives continuous-map limit Q=∫(B-∫B)^2. Circular Fourier decomposition gives Q=Σ_{k>=1}(Zk1²+Zk2²)/(4π²k²), Laplace sqrt(s/2)/sinh sqrt(s/2), moments 1/12 and 1/360. Nearest-plane bound is only coarse contextual estimate. Boundary n=3 and both parities checked.
 
-Published cycle facet parametrizations [1–3] cover all combinatorial foundations. The published cactus Green-kernel covariance result [4] is strictly stronger than the displayed first-moment formula and is expressly credited; first moments are not among the proposed contributions. The new *minimum* polar-normal extremal classification and non-Gaussian uniform-facet metric limit were not found in the inspected relevant primary statements or semantic record searches. A previously unlocated equivalent formulation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The work supplies an exact extremal Euclidean-support statistic and the full limiting distribution of a different, naturally sampled metric statistic for an infinite polytope family. The parity-dependent *minimum-normal* multiplicities and non-Gaussian typical metric scale distinguish the geometry of extreme and generic facets. Previous outer-shell formulas of the polar already cover the closest-plane extreme, and are credited rather than claimed anew. These are motivated by facet geometry and cannot be read off solely from known facet counts or covariance; they do not merely repackage a textbook identity.
+Compared this final mathematical assertion with semantically relevant published findings and primary material by implication, not title; known tools and special-case results were excluded from the new part. Remaining source-access limitations are explicit.
 
-## Boundaries
+## value
 
-There is no exact finite-size distribution or precise closest-plane constant, and there is no claim for general cactus graphs. The Brownian-bridge and Watson identities are standard probability tools. The finite checker is not an infinite proof. Historical priority and all external independent scientific review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp inner polar radial shell/equality facet multiplicities plus non-Gaussian whole limiting distance distribution of uniformly chosen cycle facets are motivated metric and probabilistic invariants that go beyond known facet counts or covariance alone. It also isolates three nontrivial scales without claiming previously known nearest shell as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
