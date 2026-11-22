@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T17:01:18.212614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a graded source-sink DAG with L>=2, new arc s->t is traversable in no longer directed walk because s has no in-arcs and t no out-arcs. Hence only metric d(s,t) changes, L to 1; magnitude chain complexes at all other ordered endpoints remain unchanged. At endpoint (s,t), k>=2 chains have length L and identify with simplices of open reachability interval P, where differential at k>=3 is the ordinary simplicial boundary; k=2 boundary to (s,t) vanishes after shortcut, producing unaugmented C_*(Delta(P)) shifted by 2. Before shortcut, (s,t) in length L gives augmented complex. Since P nonempty, H0(Delta(P))=reduced H0 ⊕ Z abstractly (including disconnected P) and all positive homology agrees. The new (s,t) at length1 contributes a Z at (1,1). No other bigraded integral group differs; at L=2 both new summands are diagonal and all height-two graded open intervals are discrete, while L>=3 supplies nonzero off-diagonal (2,L). Source checker enumerates full directed distances and boundary matrices over F2,F3, but does not certify integral torsion: integral proof is the actual chain-level identification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ivanov–Mukoseev gives full MH_(2,k) for arbitrary digraphs; the new (2,L) class is already derivable from its basis theorem. Huntsman provides order-complex descriptions for layered st-DAGs, but D+ with shortcut length 1 is no longer graded if L>1."
+        ],
+        "reasoning": "These broader results dominate individual ingredients (degree-two and original layered complex), not the asserted simultaneous integral stability in all homological degrees for the nonlayered D+.",
+        "searches": [
+          "source sink shortcut directed acyclic graph magnitude homology unaugmented order complex extra degree (2,L) path digraph",
+          "https://arxiv.org/abs/2405.04748",
+          "https://arxiv.org/abs/2607.23357"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2405.04748",
+        "https://arxiv.org/abs/2607.23357",
+        "https://arxiv.org/abs/1803.04247",
+        "source sink shortcut directed acyclic graph magnitude homology unaugmented order complex extra degree (2,L) path digraph",
+        "layered DAG directed poset magnitude homology transitive shortcut edge s to t"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Static MH2 all-digraph theorem implies degree-two added class but cannot on its own rule out changes at k>=3; source graded interval result describes before D, not chain groups of non-graded D+.",
+          "The assigned direct metric localization plus unaugmented boundary comparison proves unchanged higher endpoint homology integrally."
+        ],
+        "reasoning": "The result is not novel merely because (2,L) was unknown: that component is covered. The joint all-bidegree comparison and stable endpoint chain complexes supply the distinct contribution.",
+        "searches": [
+          "https://arxiv.org/abs/2405.04748",
+          "https://arxiv.org/abs/2607.23357",
+          "https://arxiv.org/abs/1803.04247"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Open reachability interval P and its (reduced) order complex are the natural magnitude endpoint model; Kaneta–Yoshinaga compare magnitude homology with interval complexes statically."
+        ],
+        "reasoning": "Recognized and credited the augmented interval model rather than renaming it. The shortcut switches only degree-two augmentation; prior static statements do not themselves assert every other bidegree is invariant under adding an arc.",
+        "searches": [
+          "source sink shortcut directed acyclic graph magnitude homology unaugmented order complex extra degree (2,L) path digraph",
+          "layered DAG directed poset magnitude homology transitive shortcut edge s to t",
+          "https://arxiv.org/abs/1803.04247"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching all-bidegree single arc-addition change table found; relevant established degree-two table does give part of the answer."
+        ],
+        "reasoning": "Checked for exact source-sink edge insertion theorem, two exceptional bidegrees, and static database cases; exact operation-sensitive full-table statement not recovered, and search failure alone does not certify novelty.",
+        "searches": [
+          "source sink shortcut directed acyclic graph magnitude homology unaugmented order complex extra degree (2,L) path digraph",
+          "layered DAG directed poset magnitude homology transitive shortcut edge s to t",
+          "https://arxiv.org/abs/2405.04748"
+        ]
+      },
+      "rationale": "The general degree-two magnitude-homology theorem already entails the isolated (2,L) generator, but the assigned all-(k,l), integral two-bidegree perturbation/invariance under a new transitive arc was not found as a prior theorem. Its novelty is the exact change map for all endpoint groups, not the known static degree-two formula.",
+      "residual_risks": [
+        "Huntsman full manuscript was not available during this audit; abstract and secondary indexed notes cannot exclude an appendix or corollary on shortcut perturbations. Authorized retrieval reported a disconnected institutional connection.",
+        "A general functorial edge-addition exact sequence may subsume all-bidegree invariance but was not located; novelty best-of-knowledge, not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY COVERING: one new degree-two class may follow; not assessed entire inaccessible paper as NOT_COVERING",
+          "evidence": "Abstract explicitly announces all second magnitude homology; this preempts claiming originality of the (2,L) rank alone.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.04748",
+          "material_read": "Bibliographic abstract identifying complete MH_(2,k) description; theorem details summarized in assigned scientific record but not independently full-text read",
+          "method": "arXiv abstract and source-record cross-check",
+          "title": "On diagonal digraphs, Koszul algebras and triangulations of homology spheres",
+          "trigger": "complete second-magnitude homology for digraphs"
+        },
+        {
+          "assessment": "PARTIAL and priority risk; no full-text exclusion asserted",
+          "evidence": "Abstract focuses decategorification; indexed structural description relates layered magnitude chains and augmented open-interval complexes.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.23357",
+          "material_read": "ArXiv abstract and indexed analysis of layered-DAG order complex; full PDF inaccessible in this run",
+          "method": "open research abstracts and summaries",
+          "title": "Magnitude homology and Euler characteristics of directed acyclic graphs",
+          "trigger": "same layered source-sink DAG, open interval complex"
+        },
+        {
+          "assessment": "INAPPLICABLE distinct theory (multipath, cyclic digraph)",
+          "evidence": "The prior statement concerns a forward shortcut in directed cycle multipath complexes, not directed magnitude homology of st-DAGs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-shortcut-length-transition-in-directed-cycle-multipath-c--bafb14ca69f1/RESULT.md",
+          "material_read": "Published title/summary in actual semantic search",
+          "method": "Resultary semantic metadata",
+          "title": "A sharp shortcut-length transition in directed-cycle multipath complexes",
+          "trigger": "edge addition homology might be equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact integral edge-surgery formula on arbitrary graded st-DAGs is a reusable structural fact: one reachability-preserving shortcut changes only two groups for every k,l, and produces unbounded off-diagonal degree length while holding all others fixed. Separates combinatorial reachability from directed metric magnitude homology and works without torsion-freeness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned SCOPE RESULT.md and check_shortcut.py",
+    "Source/sink metric localization and integral augmented chain comparison",
+    "https://arxiv.org/abs/2405.04748",
+    "https://arxiv.org/abs/2607.23357"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Huntsman and Ivanov–Mukoseev full texts not downloaded/read completely; same-paper full-text comparison remains a material originality risk.",
+    "Finite modular checker not an integral torsion computation; all integral claims rely on chain-isomorphism proof.",
+    "Abstract isomorphisms, no canonical symmetry-equivariant splitting.",
+    "Huntsman full manuscript was not available during this audit; abstract and secondary indexed notes cannot exclude an appendix or corollary on shortcut perturbations. Authorized retrieval reported a disconnected institutional connection.",
+    "A general functorial edge-addition exact sequence may subsume all-bidegree invariance but was not located; novelty best-of-knowledge, not proof of priority."
+  ],
+  "schema_version": 1
+}
