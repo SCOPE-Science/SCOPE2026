@@ -1,0 +1,201 @@
+{
+  "correctness": {
+    "rationale": "The right-focus scalar recurrence has the explicit sine form for arbitrary positive-half-plane initial data, so the first nonpositive coordinate occurs by k; a single/two left-step reset reaches the positive ray or the origin by k+2. For positive-ray initial data the exact f_j formula makes the first crossing (-A u,-B u), and the one/two-step sign decision yields M and h. The multipliers are positive off the single possible resonance, from which all-real orbit stability, exact periodicity, divergence or extinction follow. The full-plane rational-grid and randomized regression in check_focus_return.py passed; universality rests on the analytic proof rather than the regression.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simpson 2016 proves a general homogeneous-map framework and stability implications, but its detailed planar criteria assume the opposite-sign determinants delta_L>0, delta_R<0, excluding the rank-one left case.",
+        "Simpson 2026 Eq. (2), §§1–5 fixes mu=1, and derives multiple affine first-return intervals, not the unforced one-ray law.",
+        "The homogeneous max-plus theorem assumes tau_L=0, tau_R>=0; its sharp annihilation index cannot specialize to tau_L<0."
+      ],
+      "reasoning": "Generic homogeneous-map stability theorems can infer uniform convergence if already known, but do not supply the specific sign-dependent k vs k+1 first-return clock, scalar multiplier, positive-gain nilpotence resonance or escape/periodic border. The closest highly general one-dimensional return-map study relies on nonzero forcing and does not dominate this mu=0 full-plane theorem.",
+      "searches": [
+        "published-finding corpus: zero determinant border collision map mu 0 homogeneous piecewise linear stability, global nilpotence, invariant rays, joint spectral radius",
+        "published-finding corpus: piecewise linear border collision fixed point zero parameter homogeneous flow basin dynamics",
+        "https://arxiv.org/html/1612.02932v1",
+        "https://link.springer.com/article/10.1007/s12346-026-01576-z",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-extinction-and-persistence-at-the-homogeneous-max-plus-bor--a2b1d9a86864"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier_or_url": "https://arxiv.org/abs/2408.04790",
+        "title": "The two-dimensional border-collision normal form with a zero determinant"
+      },
+      {
+        "identifier_or_url": "https://arxiv.org/html/1612.02932v1",
+        "title": "The stability of fixed points on switching manifolds of piecewise-smooth continuous maps"
+      },
+      {
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s12346-026-01576-z",
+        "title": "One-dimensional first return maps for the two-dimensional border-collision normal form with a zero determinant"
+      },
+      {
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-extinction-and-persistence-at-the-homogeneous-max-plus-bor--a2b1d9a86864",
+        "title": "Sharp extinction and persistence at the homogeneous max-plus border collision"
+      },
+      {
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-five-step-extinction-resonance-in-the-zero-determinant-bor--a76c8cea2c0d",
+        "title": "Sharp five-step extinction resonance in the zero-determinant border-collision map"
+      },
+      {
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-resonance-branch-spectrum-and-focus-node-threshold-in-degenerate--4bf508ce70a5",
+        "title": "Resonance-branch spectrum and focus–node threshold in degenerate border-collision maps"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.1142/S0218127423300197",
+        "title": "A Synopsis of the Noninvertible, Two-Dimensional, Border-Collision Normal Form with Applications to Power Converters"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2024 Simpson full open arXiv HTML §4.1 states dynamics at mu=0 do not concern that study.",
+        "2016 Simpson arXiv HTML §6 deliberately excludes delta_L=0; earlier generic theorem only establishes conditional stability facts.",
+        "2026 Simpson full Springer HTML main results use the forced mu=1 model, with an unrelated affine branch hierarchy.",
+        "published-finding corpus max-plus source proves uniform extinction for tau_L=0, tau_R>=0, delta_R>0; the present tau_L<0 is outside it.",
+        "published-finding corpus negative-negative resonance source proves d=ab extinction but assumes tau_R=-a<0; the present tau_R=r>0 has fundamentally different focus branch."
+      ],
+      "reasoning": "The main theorem is not a corollary of these prior claims under matching assumptions. In the negative-negative result every positive-axis state initially visits a negative right image and a short cancellation; in the present right-focus family it makes k-1 right steps and then k or k+1 total return steps, with a variable quadratic/linear multiplier. Complete finite annihilation, neutral periodic rays and global attraction/escape all require this new branch calculation.",
+      "searches": [
+        "https://arxiv.org/abs/2408.04790",
+        "https://arxiv.org/html/1612.02932v1",
+        "https://link.springer.com/article/10.1007/s12346-026-01576-z",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-extinction-and-persistence-at-the-homogeneous-max-plus-bor--a2b1d9a86864",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-five-step-extinction-resonance-in-the-zero-determinant-bor--a76c8cea2c0d",
+        "Web: piecewise homogeneous planar map negative trace left complex eigenvalue right finite time nilpotent return cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The coordinate form is Simpson 2024 Eq. (1.1) at mu=delta_L=0, tau_L=-b, tau_R=r, delta_R=d; §4.1 explicitly sets aside mu=0.",
+        "Simpson 2016 §6, Eq. (30), explicitly assumes delta_L>0 and delta_R<0 in the noninvertible planar treatment; it does not cover delta_L=0.",
+        "No inspected record asserted the mixed-trace positive-focus ray multiplier and all-initial-condition phase diagram."
+      ],
+      "reasoning": "The exact map matches the degenerate border-collision normal form under a direct parameter substitution, not a coordinate or time reversal of the negative-negative trace classification. Flipping both state coordinates preserves left/right traces rather than turning positive-right into negative-right. A focus rotation alone does not imply that the left reset gives a positive-ray return of a fixed length; the branch-sign and multiplier calculation is additional.",
+      "searches": [
+        "published-finding corpus: zero forcing border collision normal form left trace negative right trace positive right focus finite time nilpotence resonance one-sided return cycles 3 4",
+        "published-finding corpus: homogeneous two-dimensional border collision normal form tau_L=-b tau_R=r>0 determinant d>r^2/4 global scalar return and phase transition finite annihilation",
+        "Web: \"tau_L\" \"tau_R\" \"mu=0\" \"periodic\" \"delta_R\" zero determinant",
+        "https://arxiv.org/abs/2408.04790",
+        "https://arxiv.org/html/1612.02932v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hit 2026/11/2/SCOPE-sharp-five-step-extinction-resonance-in-the-zero-determinant-bor--a76c8cea2c0d is for tau_L=-b, tau_R=-a<0, delta_R=ab, which cannot match positive tau_R=r.",
+        "published-finding corpus hit 2026/11/1/SCOPE-resonance-branch-spectrum-and-focus-node-threshold-in-degenerate--4bf508ce70a5 concerns zero-slope algebraic roots for positive tau_L and explicitly does not assert admissible global orbits.",
+        "No matching exact multiplier, table entry or previously recorded owned claim was identified among inspected material."
+      ],
+      "reasoning": "An exact known table for the full same-parameter return multiplier would cover the claimed scalar dynamics; no such table was located. The known five-step extinction resonance has a different trace-sign quadrant, so agreement on degenerate Jacobian shape does not establish implication. Incomplete indexing remains a risk.",
+      "searches": [
+        "published-finding corpus: zero-determinant border collision nilpotent resonance right R^2 L 3-step global all initial trajectories",
+        "published-finding corpus: zero forcing border collision normal form left trace negative right trace positive right focus finite time nilpotence resonance one-sided return cycles 3 4",
+        "published-finding corpus: sharp finite transient capture to invariant ray in homogeneous piecewise-linear border collision normal form discriminant negative",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-five-step-extinction-resonance-in-the-zero-determinant-bor--a76c8cea2c0d"
+      ]
+    },
+    "rationale": "The originating Simpson 2024 §4.1 excludes mu=0. Simpson 2016 detailed noninvertible §6 excludes delta_L=0, and Simpson 2026 affine return-map theorem fixes mu=+1. Two closest indexed zero-forcing theorems assume tau_L=0 or both traces negative, so neither can imply the mixed-negative-left/positive-right focus classification. The present invariant section and exact, sign-dependent h/M pair are additional results. Unindexed equivalent presentations remain possible.",
+    "residual_risks": [
+      "An equivalent unindexed homogeneous-map classification may exist; the literature comparison is not exhaustive.",
+      "The 2023 Synopsis article was accessible in relevant excerpt but not independently inspected cover-to-cover."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The unforced mu=0 dynamics is explicitly excluded; no full-plane mixed-trace classification is stated.",
+        "evidence": [
+          "2024-08-08 first public version",
+          "Eq. (1.1) and §4.1: mu=0 will not concern us; origin stability difficult"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.04790",
+        "material_read": "Open-access full arXiv HTML, Eq. (1.1), discussion §4.1, research scope and parameter regions §§5–6",
+        "method": "Direct equation substitution and comparison of stated parameter scope and global conclusions",
+        "title": "The two-dimensional border-collision normal form with a zero determinant",
+        "trigger": "Originating exact normal form and same zero-determinant parameters"
+      },
+      {
+        "assessment": "General sufficient stability framework is known; §6 assumes delta_L>0, delta_R<0 after explicitly ignoring zero-determinant case. Not dominating.",
+        "evidence": [
+          "2016-12-09 public preprint",
+          "§6, lines 288–303: ignores special case of either determinant zero"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1612.02932v1",
+        "material_read": "Open-access full HTML introduction, §§3–4 homogeneous framework, and §6 noninvertible planar assumptions and results",
+        "method": "Check whether the required zero-left-determinant parameters fit the stated theorems and whether they provide finite-time/cycle formulas",
+        "title": "The stability of fixed points on switching manifolds of piecewise-smooth continuous maps",
+        "trigger": "Could a more general homogeneous stability theorem imply the claimed exact classification?"
+      },
+      {
+        "assessment": "Analysis sets mu=1, studies affine multimodal return intervals; not a full unforced mu=0 positive-ray return or phase diagram.",
+        "evidence": [
+          "2026-09-03 journal publication",
+          "Eq. (2) fixes mu=+1; main return-map statements are in that setting"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s12346-026-01576-z",
+        "material_read": "Open-access full HTML, introduction Eq. (1) and (2), main-result scope §§2–5 and return-region definitions",
+        "method": "Compare forcing parameter, symbolic section, and nature of return-map pieces",
+        "title": "One-dimensional first return maps for the two-dimensional border-collision normal form with a zero determinant",
+        "trigger": "Very close zero-determinant family and right focus with return maps"
+      },
+      {
+        "assessment": "Zero left trace, whereas present negative left trace induces different return multipliers and resonance.",
+        "evidence": [
+          "Their F has x<=0 branch (y,0), tau_L=0",
+          "Their extinction when r^2<4d is uniform for all parameters, unlike ours"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-extinction-and-persistence-at-the-homogeneous-max-plus-bor--a2b1d9a86864",
+        "material_read": "Full public RESULT.md, theorem, all four proof steps and prior-literature comparison",
+        "method": "Compare branch matrices and all-parameter theorem assumptions",
+        "title": "Sharp extinction and persistence at the homogeneous max-plus border collision",
+        "trigger": "Exact unforced piecewise-linear extinction theorem with same right focus"
+      },
+      {
+        "assessment": "Both left and right trace negative and two-step cancellation; right trace positive in present theorem, so no implication.",
+        "evidence": [
+          "Their tau_L=-b<0 and tau_R=-a<0",
+          "Their global extinction iff d=ab, five-step sharp; not the oscillatory right-focus condition"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-five-step-extinction-resonance-in-the-zero-determinant-bor--a76c8cea2c0d",
+        "material_read": "Full public RESULT.md, theorem, four proof steps and prior-literature comparison",
+        "method": "Compare trace signs and orbit itineraries, distinguish weaker/special-case implications",
+        "title": "Sharp five-step extinction resonance in the zero-determinant border-collision map",
+        "trigger": "Exact nilpotent resonance in the same rank-one normal form"
+      },
+      {
+        "assessment": "Algebraic only, and assumes positive left trace. Does not classify genuine return trajectories or extinction.",
+        "evidence": [
+          "Authors explicitly caution that algebraic resonances need not be visited by real orbits"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-resonance-branch-spectrum-and-focus-node-threshold-in-degenerate--4bf508ce70a5",
+        "material_read": "Full public RESULT.md and all proof steps",
+        "method": "Determine whether zero-trace roots imply actual admissible full-plane ray returns",
+        "title": "Resonance-branch spectrum and focus–node threshold in degenerate border-collision maps",
+        "trigger": "Zero-slope algebraic return resonances for general right blocks"
+      },
+      {
+        "assessment": "It focuses on nonzero forcing and opposite-sign nonzero determinants in the cited discussion; its accessible excerpt does not provide the present exact claim. Full text was not comprehensively inspected, leaving a bounded priority risk.",
+        "evidence": [
+          "Accessible excerpt states mu=±1 studied and mu=0 not further considered",
+          "The detailed fold-onto-same-half-plane case has delta_L delta_R<0, unlike delta_L=0"
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0218127423300197",
+        "material_read": "Accessible HTML excerpt including abstract, introductory normal-form equations and §2 scope",
+        "method": "Compare noninvertibility regime and the forcing slices selected for its dynamics",
+        "title": "A Synopsis of the Noninvertible, Two-Dimensional, Border-Collision Normal Form with Applications to Power Converters",
+        "trigger": "Earlier comprehensive noninvertible normal form treatment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6d691f86-a1db-4b9e-b9be-30e5d0e7a08a",
+  "value": {
+    "rationale": "The finding supplies a complete global phase portrait for a natural, otherwise delicate switching bifurcation boundary. It shows how a left negative-trace reset converts a positive right focus into sharply distinct decay, escape, genuine periodic rays or uniformly finite extinction, and determines the unique annihilation gain and both physical return lengths. The integer example has multiple stability changes and neutral periods three and four, giving meaningful exact benchmarks.",
+    "status": "PASS"
+  }
+}
