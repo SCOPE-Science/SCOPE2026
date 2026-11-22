@@ -1,9 +1,21 @@
-# Review of quantitative affine-hexagonal rigidity
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim requires nonzero noncollinear real vectors summing to zero and \(0\le R-3/2\le1/100\); the arithmetic bound \(3a_i\le t(S-a_i)\) controls all three vector norms. The vertex bounds establish the inner inclusion, and norming functionals at three explicit edge midpoints establish the outer inclusion. Verified identities \(2\kappa=4u+4\varepsilon\le9\delta\), \((1+6\delta/5)/(1-9\delta)\le1+12\delta\), and the two-case converse close all constants. Exact-rational tests corroborate calculations, not replace the infinite proof. No additional structural hypotheses are silently used.
+## correctness
 
-**Originality — PASS, qualified.** A focused search compared three-vector zero-sum geometry, Birkhoff–James/Fermat–Torricelli separation, quantitative hexagon stability, Banach–Mazur distances and equivalent supporting-functional formulations. The full Fang–Qi–Liu paper concerns a qualitative median convex-hull characterization, not the quantitative modulus; Kobos concerns maximal projection constants, not a single nearly extremal vector triple. The closest established equality-case statement gives only defect zero; it cannot imply a positive-defect Lipschitz estimate absent another stability theorem. Other relevant indexed hexagonal stability studies concern lattice blockers, moment functionals, or other invariants. Older geometric literature may still contain a statement equivalent under a different invariant; search failure does not prove uniqueness.
+PASS
 
-**Value — PASS.** The finding converts a single measurable three-vector extremality defect into a uniform affine-geometric description of the *entire* norm unit ball of its span. The explicit quantitative gap for planes bounded away from the hexagonal plane is directly reusable in rigidity and stability analyses; it is not a restatement of equality and does not assume an a priori polygonal ball. Constants are unoptimized and the gap applies only to the spanned plane.
+PASS: 3v_i=(v_i-v_j)+(v_i-v_k) gives R>=3/2 and individual norm balance c(1-u)<=||v_i||<=c(1+u/2), u=4delta/(4.5+delta)<=delta. The q vectors form a nondegenerate affine-regular hexagon. Triangle bounds give all vertex norms <=1+6delta/5, hence inner inclusion. Norm-one supports at alternate edge midpoints yield approximate edge-coordinate functionals and max(|x|,|y|,|x-y|)<=1+2kappa max(...), with 2kappa<=9delta; this is the outer inclusion and BM bound. Exact coefficient inequalities checked at 101 rationals, midpoint identities symbolically, plus independently read original checker; analytical inequalities are the universal proof, not samples.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Earlier same-threshold equality theorem states precisely R=3/2 iff the plane is hexagonal, but explicitly disclaims any quantitative near-equality Banach–Mazur closeness. The submitted uniform O(delta) stability modulus for a single triple is strictly stronger and not implied by the equality statement alone. Kobos concerns maximal projection constants, Fang/Qi/Liu concerns Fermat–Torricelli and Birkhoff–James orthogonality.
+
+## value
+
+PASS
+
+PASS: A quantitative stability enhancement of a sharp extremal geometry gives a reusable small-defect certificate of planar norm shape and a converse geometry gap. No smoothness or compactness hypotheses are imposed and the explicit constants make a single observed near-optimal triple informative; constant optimality is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

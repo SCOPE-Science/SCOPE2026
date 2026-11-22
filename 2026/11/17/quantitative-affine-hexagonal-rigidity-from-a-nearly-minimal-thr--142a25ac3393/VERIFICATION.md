@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-- Reconstruct the inequality from \(v_1+v_2+v_3=0\) and \(R\) for the three complementary indices.
-- Check that the three midpoints of the canonical hexagon equal \(v_1/c\), \(-v_3/c\), \(v_2/c\), respectively.
-- Check supporting-functionals' endpoint errors and the inequality \(N_H(z)\le1+2\kappa N_H(z)\).
-- Inspect and run `checker.py` (Python 3 standard library). The exact rational tests give coefficient checks and finite polygon consistency only.
-- The universal inclusions and Banach–Mazur gap are proved analytically, without computer enumeration or any assertion that the displayed constants are sharp.
-- Independent external audit has not been performed.
+## correctness
+
+PASS
+
+PASS: 3v_i=(v_i-v_j)+(v_i-v_k) gives R>=3/2 and individual norm balance c(1-u)<=||v_i||<=c(1+u/2), u=4delta/(4.5+delta)<=delta. The q vectors form a nondegenerate affine-regular hexagon. Triangle bounds give all vertex norms <=1+6delta/5, hence inner inclusion. Norm-one supports at alternate edge midpoints yield approximate edge-coordinate functionals and max(|x|,|y|,|x-y|)<=1+2kappa max(...), with 2kappa<=9delta; this is the outer inclusion and BM bound. Exact coefficient inequalities checked at 101 rationals, midpoint identities symbolically, plus independently read original checker; analytical inequalities are the universal proof, not samples.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Earlier same-threshold equality theorem states precisely R=3/2 iff the plane is hexagonal, but explicitly disclaims any quantitative near-equality Banach–Mazur closeness. The submitted uniform O(delta) stability modulus for a single triple is strictly stronger and not implied by the equality statement alone. Kobos concerns maximal projection constants, Fang/Qi/Liu concerns Fermat–Torricelli and Birkhoff–James orthogonality.
+
+## value
+
+PASS
+
+PASS: A quantitative stability enhancement of a sharp extremal geometry gives a reusable small-defect certificate of planar norm shape and a converse geometry gap. No smoothness or compactness hypotheses are imposed and the explicit constants make a single observed near-optimal triple informative; constant optimality is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
