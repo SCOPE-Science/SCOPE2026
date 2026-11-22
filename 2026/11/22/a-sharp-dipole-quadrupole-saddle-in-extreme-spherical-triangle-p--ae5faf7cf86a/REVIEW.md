@@ -1,0 +1,19 @@
+# Scientific assessment: anisotropic extreme spherical-triangle perimeters
+
+## Correctness — PASS
+
+The domain and normalizations are explicit: independent samples on the unit round sphere from either a positive affine-dipole or a positive traceless-quadrupole density, and the strict near-\(2\pi\) geodesic-perimeter event. The known uniform rare-shape limit has an independently reconstructible quadratic boundary-layer proof; its limiting angular measure is \(\sqrt{\sin x\sin y\sin(\pi-x-y)}\). Under a bounded density likelihood, dominated convergence transports this law to each nonuniform family. The rotational second-, fourth-, and sixth-moment identities give respectively the dipole suppression and the exact quadratic and cubic trace coefficients. The three-particle circular Fourier identity establishes the critical exact second angular moment. The sharp global quadrupole inequality uses the trace-cubic bound and the eigenvalue constraints. The standalone checker validates the crucial numerical angular moments, the spherical Haar product averages, the gamma normalization, and the cubic factor. Its finite diagnostics are not used as infinite proofs.
+
+## Originality — PASS, with historical-priority risk
+
+The 2010 Finch–Jones perimeter work gives an integral representation for the **uniform** scalar perimeter density; it does not assert harmonic perturbation responses. The two most pertinent publicly accessible 2026 works contain, respectively, a complete **uniform** marked boundary law and a dimension-generalized **uniform** Dyson gap law. Both have been read in full and expressly exclude nonuniform sampling from their claims. Those laws are the essential input here, so a simple reweighting *representation* of a new coefficient would not alone be a new result. The additional exact matrix trace polynomial, rational cubic term, universal opposite signs across degree-one and degree-two sectors, and sharp global stability constant require evaluations and inequalities not present in either predecessor. The 1989 Le shape-density article was identified and its abstract read; access to the full primary text failed. Its abstract treats uniform-on-cap generators rather than positive harmonic densities; potential stronger statements within are an unresolved historical risk. The 1994 Jones–Benyon-Tinker manuscript cited in Finch–Jones was also not obtained; its published description concerns the uniform scalar perimeter density.
+
+## Mathematical value — PASS
+
+Nonuniform sampling is an intrinsic concern in stochastic geometry, and the largest possible spherical-triangle perimeter is a natural singular tail rather than an arbitrary parameter slice. The result is a global exact coefficient for the full admissible five-dimensional quadrupole family, with a sharp rigidity inequality; the dipole family moves the same statistic in the strictly opposite direction. Thus even the *direction* of bias depends on spherical-harmonic degree, while isotropy is a saddle. The 11/420 optimal coefficient is a structural strength unavailable from normalization or the pre-existing marginal law. The result does not solve the entire nonuniform distribution, nor make a claim of independent validation.
+
+## Closest literature and residual limitations
+
+Finch–Jones (2010, arXiv:1009.5329) establishes the uniform triangle setting and presents older scalar perimeter integrals. The 2026 circular-ensemble boundary and Dyson all-dimensions records establish the underlying uniform limiting measure. Le (1989, DOI:10.2307/1427637) is a possible source of stronger shape-density tools but could not be read in full. Dyson's circular ensemble is used through the standard repulsion-density Fourier identity, which is derived in the proof. The present theorem is confined to degree-one and trace-free degree-two density perturbations and leading order in the rare-event threshold.
+
+Self-review: passed. Independent audit: not yet performed.
