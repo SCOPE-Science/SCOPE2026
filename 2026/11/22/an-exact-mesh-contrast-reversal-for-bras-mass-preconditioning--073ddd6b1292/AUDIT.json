@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact local mass/inverse assembly and period-two Bloch reduction give the complete eigenvalue branches. Calculus gives the two branch extrema and crossover at r=1+4/sqrt(3). Weighted mass-diagonal assembly gives an exact polynomial of M. Checked forty exact-rational finite configurations and the rational r=4 witness; general proof does not rely on finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Southworth seminar slides 8 and 13 establish grading-related deterioration and a weighted bound, but not exact alternating periodic eigenvalues.",
+        "The July 2026 paper establishes generic lower spectral bound >=1 and general operator-norm comparisons; these alone do not determine the sharp reversal against Jacobi."
+      ],
+      "reasoning": "General preconditioner SPD and spectral equivalence theorems are wider in mesh class but weaker in conclusions; no source inspected gives a bound that logically fixes the precise BRAS/Jacobi crossover on this two-periodic family.",
+      "searches": [
+        "BRAS broken-space additive Schwarz inverse mass on periodic one-dimensional alternating P1 finite elements mesh contrast condition number 1+4/sqrt3 versus Jacobi",
+        "mesh contrast reverses additive Schwarz BRAS advantage over Jacobi preconditioning at 3.309401",
+        "\"BRAS\" \"Jacobi\" \"mesh\" \"contrast\" mass inverse",
+        "\"BRAS\" strongly nonuniform adaptively refined mesh preconditioner 2026 exact spectrum",
+        "https://mfem.org/pdf/seminar/southworth2.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.12138",
+      "https://mfem.org/pdf/seminar/southworth2.pdf",
+      "https://mfem.org/seminar/",
+      "https://arxiv.org/abs/2607.07485",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=65F15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original operator and nonuniform warning are present in prior primary material; the 2026 weighted seminar explicitly motivates W=diag(M_br).",
+        "Our claim needs a calculation of both Bloch branches and their branch-minimum transition at r=3, none of which follows from generic beta/alpha spectral inequalities.",
+        "arXiv:2607.07485 is a Gram-based multilevel LS-AMG-DD method, so its theorem is about a distinct preconditioner."
+      ],
+      "reasoning": "The result does not rebrand known qualitative deterioration as new: it proves the exact sharp quantitative transition from improving to worsening relative to Jacobi and the complete weighted remedy. Prior qualitative statements do not imply this exact formula, even though they motivate it.",
+      "searches": [
+        "BRAS broken-space additive Schwarz inverse mass on periodic one-dimensional alternating P1 finite elements mesh contrast condition number 1+4/sqrt3 versus Jacobi",
+        "BRAS weighted mass preconditioner periodic alternating P1 mesh spectral condition number sharp identity versus diagonal weights",
+        "https://arxiv.org/abs/2607.12138",
+        "https://mfem.org/pdf/seminar/southworth2.pdf",
+        "\"A black-box, multilevel algebraic preconditioning framework for conforming finite elements\" 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Equation (3) of the indexed July preprint defines multiplicity-weighted local mass inverse; 2026-09-15 Southworth slides 6-7 define both weighting choices; no explicit alternating periodic Bloch spectrum appears in inspected slide text.",
+        "Exact new Bloch formulas involve P1 alternating lengths and two weightings, not an equivalent theorem about generic Schwarz bounds."
+      ],
+      "reasoning": "Operator equivalence was checked against the same mass inverse and the diagonal-local-mass-weighted extension. Identity of algorithms does not imply identity of sharp spectral thresholds: the source bounds and mesh examples do not supply the contrast r=1+4/sqrt(3) or the rational r=4 spectral separation.",
+      "searches": [
+        "BRAS broken-space additive Schwarz inverse mass on periodic one-dimensional alternating P1 finite elements mesh contrast condition number 1+4/sqrt3 versus Jacobi",
+        "alternating-element lengths broken-space mass matrix inverse exact Bloch spectrum finite element multiplicity scaling",
+        "BRAS weighted mass preconditioner periodic alternating P1 mesh spectral condition number sharp identity versus diagonal weights",
+        "https://arxiv.org/abs/2607.12138",
+        "https://mfem.org/pdf/seminar/southworth2.pdf",
+        "\"BRAS\" \"spectral\" \"tensor-product\" \"de Rham\" 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published mathematical-record IDs include 5a407f379fb4 (spline projector norm), 741ac3b6248b (FEM heat-step positivity), and 714da92ddf3c (block Jacobi spike); their invariants differ.",
+        "2026 BRAS paper and 34-slide seminar show numerical condition numbers for other mesh configurations, not a table of 169/49, 91/75 or the exact crossing r=1+4/sqrt(3)."
+      ],
+      "reasoning": "Retrieved numerical tables, same-mesh papers, and database results do not contain the stated invariant for the exact same operator and mesh. This is evidence of no identified coverage, not a proof of uniqueness.",
+      "searches": [
+        "mesh contrast reverses additive Schwarz BRAS advantage over Jacobi preconditioning at 3.309401",
+        "constant-and-alternating Bloch eigenmodes of broken-space mass inverse BRAS Jacobi condition 169/49 and 91/75",
+        "\"BRAS\" \"spectral\" \"tensor-product\" \"de Rham\" 2026",
+        "\"broken space\" additive Schwarz mass inverse deterioration alternating lengths"
+      ]
+    },
+    "rationale": "The BRAS operators, general spectral bounds, observed one-dimensional graded-mesh degradation and diagonal-local-mass remedy are credited. The additional exact alternating periodic spectral branches, sharp reversal versus Jacobi, and exact weighted contrast law are not implied by the inspected general estimates or examples. Search did not identify equivalent coverage; full July preprint and less accessible sources are recorded risks.",
+    "residual_risks": [
+      "Complete 2026-07-13 preprint could not be directly retrieved: source comparison used indexed passages, not a full-document negative coverage claim.",
+      "An unindexed or inaccessible exact alternating periodic Bloch calculation, or unpublished slides from related tensor-product developments, might preempt historical priority.",
+      "The result is limited to the exact scalar period-two P1 geometry and a fixed original/weighted BRAS definition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct operator match; earlier original BRAS and generic spectral bounds credited. No exact alternating-periodic crossing located in the accessed passages; full-document exclusion is NOT claimed.",
+        "evidence": [
+          "arXiv:2607.12138; initial preprint UTC 2026-07-13",
+          "Indexed equation (3): B_I=D^-1 P^T M_br^-1 P D^-1",
+          "Indexed spectral discussion: lower eigenvalue >=1; numerical 2D/3D condition numbers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.12138",
+        "material_read": "Search-indexed passages covering introduction, sections 2.2 and 2.3 (operator equations 3 and 4, general lower bound), numerical tables and conclusion; not the complete full text",
+        "method": "Attempted the freely available preprint and open-access routes; complete retrieval was unavailable. Compared search-indexed sections containing the definition and general eigenvalue bounds.",
+        "title": "Broken-space Additive Schwarz Mass Inverse Approximations and (Block) Preconditioning",
+        "trigger": "Original BRAS definition, general spectral analysis and condition-number tables"
+      },
+      {
+        "assessment": "Slides 7-8 discuss original and weighted variants, graded P1 counterexample; slides 13 and 20 give bounds/1D spectral theory. No indexed occurrence of alternating periodic mesh, Fourier spectrum or sharp Jacobi comparison.",
+        "evidence": [
+          "MFEM 2026-09-15 seminar page, https://mfem.org/seminar/",
+          "PDF page 8: W=diag(M_br) remedies strong grading in three P1 elements; page 13: general weighted spectral bound; page 20: one-dimensional closed-space spectral cluster"
+        ],
+        "identifier_or_url": "https://mfem.org/pdf/seminar/southworth2.pdf",
+        "material_read": "34-page public PDF text, especially pages 5-8, 12-20; page images 8, 13, 16, 20 inspected",
+        "method": "Read web-indexed PDF text, selected find queries and screenshots for key mathematical pages",
+        "title": "BRoken-Space Additive Schwarz (BRAS) for Mass Matrix Preconditioning — FEM@LLNL seminar slides",
+        "trigger": "Primary later presentation of mass-diagonal weighting and nonuniform 1D mesh behavior"
+      },
+      {
+        "assessment": "LS-AMG-DD and Gram-local decomposition differ from element mass inverse/BRAS; not a covering statement of its spectrum.",
+        "evidence": [
+          "arXiv:2607.07485, first public 2026-07-08",
+          "Defines multilevel Gram-based method, not the two inverse approximations of this result"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.07485",
+        "material_read": "Abstract and bibliographic description",
+        "method": "arXiv indexed abstract and topic comparison",
+        "title": "A black-box, multilevel algebraic preconditioning framework for conforming finite elements",
+        "trigger": "Same author group and finite-element preconditioning; plausible broader work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "073ddd6b-1292-4710-b921-699b24756903",
+  "value": {
+    "rationale": "Provides a decisive, sharp and mesh-size-uniform safety boundary for a method recently proposed as a replacement for Jacobi. The explicit r>1+4/sqrt(3) reversal and the exact locally weighted fix are directly useful in selecting preconditioners under mesh grading; the numerical scope is carefully bounded.",
+    "status": "PASS"
+  }
+}
