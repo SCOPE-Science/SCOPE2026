@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The face trichotomy for a join with one missing cross-edge and the exact link decomposition are proved in RESULT.md. The old deletion complex is a wedge of \(S^2\) and \(S^m\); the link is a wedge of one \(S^1\) and \((2m-2)(b-2)\) copies of \(S^2\). Explicit four-cycles in \(K_{2m,b-1}\) give a primitive basis for the attaching map on integral second homology, and the homotopy cofiber then gives the full asserted sphere wedge for all \(m,b\ge2\). The independent enumerator checks 11 finite examples only; no infinite proof is inferred from those tests.
+
+**Originality (PASS against inspected evidence).** The nearest strong published theorem is Carnero Bravo's graph-join splitting, which indeed implies the intact-join formula and is therefore explicitly credited. It does not cover deletion of an edge between the two join factors; in particular the damaged graph has triangles from its internal matching and is not a complete multipartite graph. Barton–Brown–Pike's polynomial theorem treats face enumeration rather than damaged-join integral homotopy. Published results for deleted cross-edges in bicliques or multipartite graphs address objects with different induced cycles and do not imply the present two-degree classification. No exact covering result was located in inspected literature or indexed comparisons, but unindexed equivalents remain possible.
+
+**Value (PASS).** The problem has a natural robustness interpretation: a single missing cross-edge in an otherwise complete attachment of a matching to an independent shore causes the previously large second-homology multiplicity to collapse to a parameter-independent count \(b-1\), while leaving \(b-1\) higher-dimensional sphere classes. This is an exact integral homotopy classification across two unbounded parameters, with a primitive-attachment mechanism explaining the abrupt change. The result is not merely a polynomial count or a small-case recomputation.
+
+**Scientific limitations.** Only one cross-edge defect and full induced-forest complexes are covered; no equivariance, further edge faults, or persistence map theorem is asserted. Novelty is assessed against indexed and materially inspected sources, not proven globally.
+
+Self-review: passed. Independent audit: not yet performed.
