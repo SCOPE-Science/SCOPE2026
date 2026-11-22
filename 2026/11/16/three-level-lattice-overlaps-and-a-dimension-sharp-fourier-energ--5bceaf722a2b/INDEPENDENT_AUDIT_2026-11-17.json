@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:09:36.801984Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed L=2^d-W as the count of removed simplex-corner representatives, indexed by binary vertices. For two losses, deficit sum >= Hamming distance, while each deficit sum <a<1; hence Hamming distance=1. Three pairwise adjacent binary vertices cannot exist, so L<=2 for every d. Each of d 2^{d-1} cube edges has coincidence volume 2h^d/d! where h=(a-1/2)_+, so p2=2^d h^d/(d-1)!; E[L]=2^d a^d/d!, p1=E[L]-2p2 and p0=1-p1-p2. Integer Fourier coefficients of W equal those of the polytope and Parseval yields Var(L)=E[L]+2p2-E[L]^2. Differentiating the nonanalytic term 2^{d+1}h^d/(d-1)! produces jump 2^{d+1}d at order d. Positive-measure support arguments and h->1/2 supremum checked. Independently sampled 20,000 uniform torus points at (d,a)=(3,.2),(3,.75),(4,.75),(5,.95); all removals <=2 and frequencies near analytic masses. This Monte Carlo does not establish the universal theorem; the graph/simplex proof does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lev–Liu, arXiv:1902.00876 Thm 1.1/1.2 and §4 Thm 4.1: spectrality, flag functionals, directional Fourier asymptotics; no exact multiplicity distribution for this family in inspected material.",
+          "General polytope Fourier-transform tools could compute coefficients but do not directly assert these masses and cusp."
+        ],
+        "reasoning": "Neither spectrality necessary conditions nor general transform algorithms imply exact corner-lattice double-loss probabilities without additional combinatorial integration.",
+        "searches": [
+          "corner clipped hypercube lattice periodization overlapping translates three levels Fourier energy variance d-dimensional",
+          "arXiv:1902.00876",
+          "arXiv:1904.12262",
+          "arXiv:1602.08593"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md and SLOGAN.txt, METADATA.json, AUDIT.json, VERIFICATION.md at inventory commit",
+        "Resultary query corner clipped hypercube lattice periodization overlapping translates three levels Fourier energy variance d-dimensional",
+        "Lev–Liu arXiv:1902.00876 PDF introductory theorems and §4",
+        "Lev–Matolcsi arXiv:1904.12262 scope record",
+        "Diaz–Le–Robins arXiv:1602.08593 bibliographic/abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spectral-polytope equidecomposability theorem is conditional on spectrality; this corner-truncated family has no asserted spectrum and the desired exact variance is not a corollary.",
+          "Known planar d=2 formula does not imply d>=3 formula or factorial bound."
+        ],
+        "reasoning": "No identified prior theorem yields the exact three-level law across all d>=3 by direct specialization; mathematical reduction and distinct necessary inputs were checked. Priority remains bounded.",
+        "searches": [
+          "arXiv:1902.00876 Theorem 1.1,1.2,4.1",
+          "corner clipped hypercube lattice periodization overlapping translates three levels Fourier energy variance d-dimensional"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Planar clipped-square exact double-overlap onset at a=1/2; translating this to the higher-dimensional binary-loss count requires new hypercube-graph geometry."
+        ],
+        "reasoning": "The equivalent statement is the distribution of the number of removed binary vertices in unit-cube fiber, or its variance under torus Parseval. Searched prior overlap/fourier-energy language, not titles alone; planar support is a strict special case, not an all-d result.",
+        "searches": [
+          "corner clipped hypercube lattice periodization overlapping translates three levels Fourier energy variance d-dimensional",
+          "Resultary 2026/11/16/SCOPE-arithmetic-fourier-extinction-and-a-sharp-lattice-overlap-transi--148b8519ca71"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Octahedral and four-dimensional cross-polytope multicover tables concern different bodies and fixed multiplicity fractions, not uniformly corner-truncated boxes with continuous depth a."
+        ],
+        "reasoning": "An equal number of multiplicity levels does not mean equivalent geometry, probabilities, or a-variable energy.",
+        "searches": [
+          "corner clipped hypercube lattice periodization overlapping translates three levels Fourier energy variance d-dimensional",
+          "Resultary 2026/11/2/SCOPE-octahedral-lattice-fourier-support-and-exact-three-level-coverin--a7565c44edcb"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after separate formulation/implication comparisons, published-result search, and bounded primary-literature inspection; not a certification of absolute historical priority. No identified prior theorem yields the exact three-level law across all d>=3 by direct specialization; mathematical reduction and distinct necessary inputs were checked. Priority remains bounded.",
+      "residual_risks": [
+        "Older multicover combinatorics or Diaz–Le–Robins all-polytope formula may contain an equivalent family computation not inspected in full; a search miss is not proof of first priority.",
+        "Source status includes unverified private-provenance metadata and the assigned tree SHA was not independently recomputed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT DIRECT COVERAGE in inspected primary portions",
+          "evidence": "Theorems characterize equidecomposability/flag functionals for spectral polytopes and asymptotic Fourier behavior, not the exact P_{d,a} torus multicover variance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.00876",
+          "material_read": "Introduction and definitions pp.1-3, Theorems 1.1/1.2, Section 4 Theorem 4.1 at p.10, with PDF page screenshots",
+          "method": "Primary full PDF accessible via web; theorem text and screens",
+          "title": "Spectrality of polytopes and equidecomposability by translations",
+          "trigger": "Strong general polytopal Fourier/spectrality comparison"
+        },
+        {
+          "assessment": "COVERS planar specialization ONLY",
+          "evidence": "Its sharp onset is also a=1/2, but dimension-general p2=2^d h^d/(d-1)! is not stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-arithmetic-fourier-extinction-and-a-sharp-lattice-overlap-transi--148b8519ca71",
+          "material_read": "Resultary abstract of published exact d=2 finding",
+          "method": "Resultary semantic search",
+          "title": "Arithmetic Fourier extinction and a sharp lattice-overlap transition for clipped squares",
+          "trigger": "Same clipping parameter but planar case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An all-dimensional overlap obstruction remains exactly two despite exponentially many cube representatives. It gives a complete, nontrivial lattice covering multiplicity law and sharp nonanalytic Fourier-energy order, a motivated invariant for a canonical corner-truncated body; the planar d=2 result does not imply these general-dimensional facts. Finite mesh cases were not treated as a novelty or value certificate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only integer lattice, equal corner cuts, 0<a<1 and d>=3; no coefficientwise Fourier zeros/spectrality; 20,000 sample checks are neither exhaustive nor all-real-parameter proofs.",
+    "Older multicover combinatorics or Diaz–Le–Robins all-polytope formula may contain an equivalent family computation not inspected in full; a search miss is not proof of first priority.",
+    "Source status includes unverified private-provenance metadata and the assigned tree SHA was not independently recomputed."
+  ],
+  "schema_version": 1
+}
