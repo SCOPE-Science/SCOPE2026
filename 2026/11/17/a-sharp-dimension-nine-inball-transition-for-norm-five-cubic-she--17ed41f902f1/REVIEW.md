@@ -1,15 +1,21 @@
-# Review of the norm-five cubic shell inball theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The integer squared-norm-five equation has exactly two signed-coordinate patterns. Both polar support inequalities are written explicitly, and the ordered-coordinate substitution turns the polar into a two-row linear system. A vertex-support classification gives every possible squared norm, including both mixed cases, and the inequalities separate the dimensions five through eight from dimensions at least nine. The proof establishes true facets, both extreme-ball centers, and all equality cases. The standalone exact rational checker completed 2916 assertions in the stated dimensions; it does not stand in for the all-dimensional reasoning.
+## correctness
 
-## Originality — PASS (best-knowledge, historical priority provisional)
-The closest primary text, Corradetti's *Integral Shell Polytopes of Composition Algebras* (arXiv:2605.09458v1), gives the exact 2016-point shell and its two orbit counts but not the Euclidean inradius or tangent-facet classification. Searches for the fifth integer shell, its signed-permutation aliases, the polar maximization, and dimension-nine contact switch identified no result implying the theorem. A nearby general result about type-\(B\) generalized permutohedron roundness and a separate signed cube–crosspolytope polar do not compute this two-orbit shell. Some older results may be unindexed; priority is not certified.
+PASS
 
-## Value — PASS
-The theorem gives the metric geometry of a previously enumerated natural lattice-shell polytope, including an exact sharp inradius, every contacting facet and a genuine support-dimension phase change. The result is distinct from a routine recount of orbit elements because the closest supporting planes require solving a constrained polar norm maximization and verifying that each equality plane is a facet.
+Every norm-five lattice vector has exactly one of two signed patterns (2,1,0...) or (1,1,1,1,1,0...), each an exposed vertex by equal norm and strict Cauchy–Schwarz. The signed-permutation support function is max{2s1+s2, s1+...+s5}. Polar sorted chamber in z_j=s_j-s_(j+1)>=0 has two positive linear constraints (2,3,3,...), (1,2,3,4,5,5,...); every vertex has at most two nonzero z, so convex squared norm max is at an enumerated vertex. Singles give 1/4,2/9,1/3,1/4,j/25; mixed (1,4)=7/25,(2,4)=5/18,(1,j>=5)=(j+8)/49,(2,j>=5)=(j+16)/81. The overall max is max{1/3,d/25,(d+8)/49,(d+16)/81}, switching uniquely from 1/3 through d=8 to d/25 at d>=9; thus r_d=sqrt3 then 5/sqrt(d). Sign-orbit unique maximizers give exact 8 C(d,3) or 2^d contact normals. Both representative support faces have rank d-1 (six 2/1 vectors plus complementary two ±1 coords, or all 5-ones vectors/hypersimplex). Contact normals span so incenter unique 0; antipodal shell gives unique center0 and R=sqrt5.
 
-## Scope and limits
-The claim is in the standard Euclidean cubic metric, quadratic shell index five, and dimensions at least five. It does not classify other facets or higher shells. The eight-dimensional normalized Okubo setting differs by a global metric scale. Finite computer checks provide corroboration, not a general proof. Historical-priority comparisons are best knowledge, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior Corradetti paper on integral shell polytopes supplies orbit and norm-five shell counts, including the 2016-point dimension-eight object. These are explicitly credited. The novelty is full standard-Euclidean inradius of the entire d>=5 family, contact facet enumeration and a sharp d=9 transition, not the shell vector count. Resultary search found exact self-record and different root/edge/star polytope inballs; no stronger same-shell support-function classification located. Priority remains best of knowledge; no inference that similarity of title/certain shell index establishes novelty.
+
+## value
+
+PASS
+
+The fifth quadratic shell of a canonical lattice is a natural signed-permutation polytope, and the complete all-dimensional inball-contact classification reveals a genuine change of facet-orbit geometry at d=9. Exact radius/center/facet-contact data are natural intrinsic polytope invariants not mechanically supplied by orbit-count tables or basic Cauchy–Schwarz.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
