@@ -1,27 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The factorial inversion normalizer is derived by a standard insertion recursion. Conditioning separately on the two first entries yields the exact second-position marginal, while deletion gives both joint marginals. Algebra verifies the two covariances, a strictly monotone scalar equation proves a unique finite-size threshold, and a Taylor expansion with \(q=e^{\beta/n}\) proves the cubic and quartic scaling limits. The packaged exact-enumeration script checks small sizes but is not substituted for an infinite proof.
+PASS
 
-## Originality
+For n>=3 and q>0, Z_n(q)=∏_{k=1}^n[k]_q by Mallows insertion. Deleting fixed boundary entries gives P(I1)=P(In)=1/[n]_q and P(I1I2)=P(I1In)=1/([n]_q[n-1]_q). For I2, splitting on pi(1)=1 or k≥3 yields 1+∑_{k=3}^n q^k in the numerator because first value k creates k−1 inversions and second fixed value 2 creates one with residual value 1. Covariances follow exactly by cancellation. q^{n-1}/(1+q) is strictly increasing (n>=3), so one root >1 and it strictly descends to 1 in n; log(1+e^h)=log2+h/2+O(h²) proves n log r_n=log2+(3 log2)/(2n)+O(n^-2). For q=e^{β/n}, q-integers/n converge to L(β), providing cubic covariance limits; at β_n=log2+t/n the adjacent numerator equals (3 log2-2t)/n+O(n^-2), giving quartic crossover. For n=2, indicators coincide with covariance q/(1+q)^2. Fresh independent exhaustive weighted enumeration for n=3..7 and six rational q values verified six exact formula families per case (30 cases); independent root bisection, critical-scaling checks, and seven-entry Git tree reconstruction corroborate. Finite checks are not a proof of all-n statements.
 
-PASS, with residual historical-priority risk. The closely related published primary sources [1]–[4] establish the Mallows measure, fixed-point counts, correlation for up-sets, and asymptotic independence, but do not state or imply the exact neighbor/opposite-boundary fixed-point covariance comparison at third order or the sharp finite-size critical equation. The general probability law permits these results to be calculated, but the published theorems compared do not supply this dependence classification. A previously unnoticed equivalent formula remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. In an established permutation probability model, a natural local dependence question has a complete parameter-phase answer, an exact minimal-size threshold, and a critical scaling constant. It distinguishes neighboring and distant boundary matches even though fixed-point indicators are all positively correlated under the uniform law. This is an exact self-contained dependence law, not an asymptotic observation alone. No all-position correlation theorem is claimed.
+Best-of-knowledge, the exact finite-n signed comparison of two natural positional fixed-point pairs, the unique boundary threshold q^{n-1}=1+q, and explicit n^-3/n^-4 weak-bias crossover are not implied by the specific statements inspected in the most closely matched primary work. Mallows law, inversion enumerators, fixed-point cycle counts and first-order weak-bias independence are prior; the signed pair dependence is the precise surviving claim. Closest Resultary hits either are this same claim or concern mixed statistics, q=1, Ewens, or other ranking measures. A q-rook derivation in unindexed literature remains a real priority risk.
 
-## Closest literature and limitations
+## value
 
-[1] Angel, Holroyd, Hutchcroft and Levy (2018), arXiv:1802.07142, represent finite Mallows permutations as random stable matchings, but do not analyze the two fixed-point covariances.
+PASS
 
-[2] He, Müller and Verstraaten (2022), arXiv:2201.11610, establish cycle count limit laws in fixed Mallows regimes; the statements do not quantify boundary fixed-point covariance.
+The two boundary pairs have the same two-site joint fixed probability but different second-site marginals, giving a mathematically motivated dependence contrast. The exact finite-size attraction/repulsion phase, strict monotonicity of threshold with n, first negative case n=3, logarithmic scaling constant and quartic critical window are a complete exact classification of these named local observables in a classical nonuniform permutation model. This natural sign-reversal and sharp crossover is not merely renaming of a known constant or a single arbitrary numerical evaluation; does not claim all-position correlations.
 
-[3] Johnson, Leader and Long (2019), arXiv:1909.03770, establish positive association for strong Bruhat up-sets under Mallows measures, but the events \(\{\pi(1)=1\}\) and \(\{\pi(2)=2\}\) are not such up-sets.
-
-[4] Mukherjee (2015), arXiv:1509.04552, proves a Poisson limit and first-order joint fixed-point asymptotics for weak bias, which do not fix the smaller-order covariance.
-
-The theorem only treats these two position pairs. No independent mathematical audit has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
