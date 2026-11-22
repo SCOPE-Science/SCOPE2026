@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Contact saturation yields Ae_t=r(e_{t-1}+e_{t+1}); connectedness makes firing multiplicity equal for every vertex; integrality restricts temporal Fourier orders to 1,2,3,4,6; when 3∤|V| the period 12 case has three firings per vertex and zero primitive 12th Fourier coefficient, forcing four-periodicity. Every four-wave corresponds bijectively to one parity orientation and one signed adjacency-nullvector. Kneser odd-graph integrality is proved by a subset-incidence invariant filtration and the Lucas congruence explicitly. Exact finite checker output reproduces KG(7,3), Q4, K4,4, K5 and Lucas instances. No finite experiment is used as proof of an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "An accessible preceding integral-spectrum result permits least periods dividing twelve without the graph-order restriction.",
+        "Gravner–Lyu–Sivakoff (2016), PDF p.2, explicitly uses activation if there exists one excited neighbor; Doba (2018), p.102–103, gives the same one-neighbor finite-graph rule."
+      ],
+      "reasoning": "The earlier spectral theorem is broader in allowed graph order but strictly weaker in period and attractor conclusions for 3∤|V|. The two primary graph-wide convergence theorems apply to a different threshold; they cannot imply extinction under a half-degree requirement by comparing thresholds without a new dynamical argument.",
+      "searches": [
+        "integral regular graph non divisible by three excitation threshold half degree universal extinction 4 cycle",
+        "half-degree cyclic wave graph eigenvalue zero equal neighbors 4-cycle",
+        "https://arxiv.org/pdf/1610.07320",
+        "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:patt-sol/9304001",
+      "arxiv:1610.07320",
+      "doi:10.25088/ComplexSystems.27.2.101",
+      "doi:10.1007/s00224-023-10127-x",
+      "https://mathworld.wolfram.com/KneserGraph.html",
+      "prior accessible integral-spectrum critical-contact period-divisibility statement",
+      "prior half-degree three-periodic rigidity statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previous integral spectral period bound implies p|12, while the half-degree three-cycle result treats only p=3.",
+        "Kneser odd graphs have +r in their adjacency spectra, so the prior sufficient criterion requiring exclusion of ±r and 0 does not apply.",
+        "A new primitive-twelfth Fourier cancellation and the Lucas no-carry step rule out the remaining resonance on the odd-graph family."
+      ],
+      "reasoning": "The new conclusion does not follow from the previous bound by simple deletion of impossible spectral values: +r remains a genuine eigenvalue. Additional uniform-firing divisibility and root-of-unity support arguments are essential. The exact sign-nullvector count is an independent new structural correspondence.",
+      "searches": [
+        "integral regular graph non divisible by three excitation threshold half degree universal extinction 4 cycle",
+        "Greenberg Hastings model critical threshold half degree graph four periodic orbit balanced neighbor eigenvalue zero",
+        "Greenberg Hastings four phase balanced proper coloring bipartite zero adjacency eigenfunction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Balanced sign functions with Af=0 are locally balanced perfect two-colorings, and phase parity creates a proper four-color cycle quotient.",
+        "The 2023 perfect-colorings article defines equitable local neighbor counts but does not identify the Greenberg–Hastings four-wave dynamical correspondence or the order-three extinction theorem."
+      ],
+      "reasoning": "The static local balance condition is deliberately accounted for; novelty is claimed for its precise temporal bijection coupled to the exclusion of periods divisible by three on integral graphs, not for the definition of a perfect coloring.",
+      "searches": [
+        "Greenberg Hastings critical half-degree hypercube all recurrent four cycles zero eigenvector Boolean",
+        "Greenberg Hastings four phase balanced proper coloring bipartite zero adjacency eigenfunction",
+        "vertex count not multiple of three GH periodic excitation period four balanced kernel",
+        "https://link.springer.com/article/10.1007/s00224-023-10127-x"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical Kneser spectrum formula gives degree m and eigenvalues (-1)^j(m-j) on O_m; known graph tables do not supply the claimed GH threshold-extinction classification.",
+        "Exact KG(7,3) characteristic polynomial was independently checked in verify.py."
+      ],
+      "reasoning": "Classical graph invariant tables cannot classify recurrent orbits of this threshold map; the new claim addresses all 3^35 initial states for KG(7,3), and infinitely many larger odd graphs, via a proof rather than a known state table.",
+      "searches": [
+        "odd graph O4 Kneser KG(7,3) threshold two Greenberg Hastings extinction",
+        "Kneser odd graphs half degree threshold excitable wave absence integral spectrum",
+        "https://mathworld.wolfram.com/KneserGraph.html",
+        "https://en.wikipedia.org/wiki/Kneser_graph"
+      ]
+    },
+    "rationale": "Claim-level comparisons found no covering result. The prior integral-spectrum critical-contact bound permits 3-, 6- and 12-periods, while the new result removes every three-divisible period at graph orders coprime to three and determines exact four-cycle populations through binary zero eigenvectors. The odd Kneser family has an allowed nonzero critical resonance and therefore is not implied by the earlier nonresonance extinction test. Primary finite-graph studies below use threshold one, not threshold equal to half degree; classical perfect-coloring theory does not establish the temporal obstruction.",
+    "residual_risks": [
+      "Unindexed specialist literature may contain an equivalent graph-order period-divisibility refinement or a four-wave balanced-coloring correspondence.",
+      "The earliest arXiv threshold-scaling source was read at abstract level only, though its finite-graph exact theorem relevance is low.",
+      "Historical-priority confirmation and independent expert review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad threshold model on spatial lattices; abstract supplies no general integral-graph arithmetic period classification",
+        "evidence": [
+          "arXiv abstract dated 1993-04-02 describes generalized thresholds, lattice waves and scaling, not finite integral-graph order-three obstruction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9304001",
+        "material_read": "Original arXiv abstract and dated bibliographic record, not full paper",
+        "method": "Read original arXiv abstract; compared its two-dimensional threshold-range scope",
+        "title": "Threshold-Range Scaling of Excitable Cellular Automata",
+        "trigger": "Historical threshold contact models and earliest dated source"
+      },
+      {
+        "assessment": "Defines activation upon existence of one excited neighbor; no same-parameter half-degree theorem",
+        "evidence": [
+          "PDF page 2 formula (1) uses exists u in N(v) rather than count at least r; theorem 3 concerns this rule"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+        "material_read": "PDF first four pages including explicit definition of GHM and theorem 3; references section inspected",
+        "method": "Read searchable full-text sections; inspected screenshot of PDF page 2 and checked threshold occurrences",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Highly relevant general finite-graph GHM asymptotics"
+      },
+      {
+        "assessment": "Deterministic rule activates at one excited neighbor and proves an excitation-rate criterion for that rule only",
+        "evidence": [
+          "PDF page 103 definition 1 and page 119 concluding remarks, no half-degree contact threshold"
+        ],
+        "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+        "material_read": "PDF pages 101–105, section 6 and concluding remarks (pp.117–119); full-document text searches",
+        "method": "Inspected PDF page 102 screenshot and text defining local rule; read conclusion and methods",
+        "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+        "trigger": "Plausible title about arbitrary finite graph recurrent behavior"
+      },
+      {
+        "assessment": "Explains static equitable colorings but not periodic GH orbits or the cardinality obstruction",
+        "evidence": [
+          "Intro identifies perfect colorings as equitable partitions and analyzes periodicity of color patterns in grids"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00224-023-10127-x",
+        "material_read": "Publisher full-text abstract, introduction and definitions of perfect graph colorings",
+        "method": "Read accessible HTML full-text introductory theorem framing",
+        "title": "On Forced Periodicity of Perfect Colorings",
+        "trigger": "Potential static local-equitability equivalence"
+      },
+      {
+        "assessment": "Provides established graph parameters; does not concern GH threshold dynamics",
+        "evidence": [
+          "KG(2m-1,m-1) is m-regular; Kneser connected for N>2k; explicit characteristic polynomial in verification"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/KneserGraph.html",
+        "material_read": "Graph definition and connectedness/spectrum reference overview",
+        "method": "Read reference overview and cross-checked the spectrum formula against exact KG(7,3) computation",
+        "title": "Kneser graph",
+        "trigger": "Classical graph properties required for the infinite family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb46e2ab-56cd-47c1-b31d-bb4c3429dda2",
+  "value": {
+    "rationale": "A graph-order arithmetic selection rule eliminates nontrivial waves on connected, nonbipartite integral graphs even where their spectra contain the threshold resonance; the infinite triangle-free odd-Kneser family is a motivated high-girth application outside the earlier nonresonance extinction criterion. The same theorem yields an exact recurrent-orbit count via signed adjacency-nullvectors on bipartite graphs, with explicit balanced-biclique counts.",
+    "status": "PASS"
+  }
+}
