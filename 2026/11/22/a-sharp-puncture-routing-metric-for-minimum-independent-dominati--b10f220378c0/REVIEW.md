@@ -1,0 +1,21 @@
+# Mathematical review
+
+## Correctness — PASS
+The proof independently establishes the optimum cardinality and a bijection from all optimal independent dominating sets to nonempty independent subsets of a labelled rim cycle. An adjacent replacement necessarily toggles exactly one spoke. For each ordered pair it constructs a Hamming-length route unless all cross-pairs are adjacent, when any Hamming route must pass through the prohibited empty state. A parity argument forces two extra moves and explicit auxiliary-vertex routes attain the lower bound. The cycle's absence of a four-cycle limits obstructions to two explicit types; counting them gives precisely \(2n\) unordered exceptional pairs. Independent-path decompositions give the eccentricities, with explicit small-order checks for the radius, diameter and antipodes. The Fibonacci enumerators follow from standard independent-set counts, not a finite extrapolation. A standalone original-graph exhaustive verifier checks direct optimum sets and token slides through \(n=8\), while all-pairs shortest distances are independently checked through \(n=13\). Risk: these tests alone would not prove the all-size statement; the written constructive proof supplies the missing universal argument.
+
+## Originality — PASS, subject to historical-priority risk
+Brewster–Mynhardt–Teshima (arXiv:2303.06299 and arXiv:2303.08190) introduce and analyze minimum independent-domination reconfiguration and the path/cycle cases; the present statement is not a novel definition of an \(i\)-graph and does not claim their general construction tools. Munarini–Perelli Cippo–Zagaglia Salvi (2001) establish the unpunctured Lucas cube. Castro–Mollard (2012) give eccentricities for that *full* cube, and Azarija–Klavžar–Lee–Rho (2015) prove connectivity for full Fibonacci/Lucas cube families. An induced single-node deletion need not inherit Hamming isometry or full-cube eccentricities: the explicit \(2n\) detours, complete new distance formula, special small cases and helm-optimum realization require additional arguments. Closest published-index comparisons of cubical reconfiguration and independent domination did not reveal the puncture-distance claim. The full text of an inaccessible 2024 Horadam/Lucas generalization and older fault-tolerant-network sources could hide equivalent specialized cases; this is a residual priority risk, not evidence of uniqueness.
+
+## Value — PASS
+This determines exactly how much losing the all-zero processor/state disrupts shortest relocation routes in a canonical Lucas-cube interconnection network, including precisely which and how many origin–destination pairs suffer the penalty. The helm family independently realizes that faulted network as a natural optimal-solution move graph, and the full route metric yields sharp radius, diameter and antipode enumerations for every network order. The precise numerical detour \(+2\) and exceptional count \(2n\) are natural reliability invariants, not arbitrary finite slices. They can be used as exact tests for fault-aware routing and optimal-dominating-set reconfiguration.
+
+## Source coverage and limits
+- Brewster, Mynhardt and Teshima, *Reconfiguration of Minimum Independent Dominating Sets in Graphs*, arXiv:2303.06299 (first public 2023-03-11); inspected introduction and construction results.
+- Brewster, Mynhardt and Teshima, *The i-Graphs of Paths and Cycles*, arXiv:2303.08190 (2023); inspected its main objectives and cycle results.
+- Munarini, Perelli Cippo and Zagaglia Salvi, *On the Lucas Cubes*, *Fibonacci Quarterly* 39 (2001); examined the definition and graph-distance material.
+- Castro and Mollard, *The eccentricity sequences of Fibonacci and Lucas cubes*, *Discrete Mathematics* 312 (2012); inspected the available long-form text, including Proposition 5.1, which concerns full-cube Hamming distances and Section 5's full-cube eccentricities.
+- Azarija, Klavžar, Lee and Rho, *Connectivity of Fibonacci cubes, Lucas cubes and generalized cubes*, *DMTCS* 17 (2015); checked the paper's definition and stated full-cube connectivity theorem.
+
+No independent audit or claim of publication is implied. All program checks have finite explicit limits. An inaccessible but plausible generalization is acknowledged rather than treated as disproved.
+
+Self-review: passed. Independent audit: not yet performed.
