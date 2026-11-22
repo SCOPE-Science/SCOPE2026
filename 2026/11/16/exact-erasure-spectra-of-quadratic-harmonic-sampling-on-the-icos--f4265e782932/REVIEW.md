@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The nine-dimensional probability-normalized harmonic space and fixed \(1/\sqrt{12}\) measurement normalization are explicit. The icosahedral degree-four moment identities give a Parseval matrix, the addition formula gives the exact row kernel, and deleting rows reduces the singular spectrum to at most three kernel eigenvalues. Signed-triangle and antipodal blocks establish the full classification; the six-axis Seidel trace proves the 80/80 triple counts without reliance on a finite search. The standalone standard-library checker reconstructed the full evaluation matrix and passed 1,317 supplemental assertions. No finite check was used to infer a universal premise.
+## correctness
 
-## Originality — PASS with residual historical risk
-The closest foundational work addresses spherical-design frames, probabilistic recovery of spherical-harmonic coefficients, and conditioning of interpolatory designs; the examined statements do not provide this exact icosahedral all-erasure classification. Published results on quadratic harmonic sampling at cuboctahedral vertices and other polyhedral configurations are structurally related but do not imply the icosahedral antipodal obstruction, the two balanced triple spectra, or the count 233. Searches for synonymous formulations and exact constants did not identify coverage. Specialized earlier frame-erasure results remain a historical-priority uncertainty, not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-There is a natural maximal-erasure boundary: a nine-dimensional harmonic band is sampled at twelve geometrically distinguished design points. Despite perfect initial tightness, erasing two antipodal observations causes a blind mode, while many maximal three-point erasures retain full recovery. The exact spectrum quantifies stability for *every* recoverable mask, and the signed Seidel geometry gives a nontrivial complete \(233\)-of-\(4096\) erasure classification, rather than an arbitrary numerical instance.
+For the 12 regular icosahedron vertices and normalized 9-dimensional spherical harmonics up to degree 2, exact fourth moments give U*U=I_9. The row projection kernel is (1+3t+5P_2(t))/12, giving diagonal 3/4, antipodal 1/4, and all other off-diagonal ±1/(4 sqrt5). After erasing E the retained Gram matrix is I_9−U_E*U_E, whose nonunit eigenvalues are one minus those of the |E|×|E| kernel. Explicit 1-, 2- and 3-point matrix diagonalizations give the claimed spectra; an antipodal pair forces eigenvalue one in the erased kernel. For any |E|>=4 there are <=8 retained observations, so rank 9 is impossible. Counting antipodal pairs gives 1,12,60,160 successful masks. Six vertex axes give an equiangular tight frame with Seidel spectrum ±sqrt5 threefold, hence trace(S^3)=0 and exactly 10 positive and 10 negative axis triples, or 80 each among 160 signed triples. The minimum good squared singular value is 1/4−1/(2 sqrt5), attained at 80 positive triples. Independently built the 12×9 numerical frame and directly checked the full small-erasure kernel/eigenvalue census (299 masks), all 233 good masks and the 80/80 split; the exact 5-design and Seidel arguments prove this exhaustively.
 
-## Scope and caveats
-Only the regular icosahedron and harmonics through degree two are covered; higher bands, site perturbations, and optimized reweighting are not. The priority comparison is best-effort and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS under bounded literature comparison: spherical designs, random harmonic recovery and conditioning are prior frameworks, but inspected sources do not imply the exact icosahedral all-mask rank/spectrum/80-witness classification. A related published cuboctahedral quadratic-harmonic erasure classification concerns a different design and has different underlying Gram kernel, not a theorem dominating this icosahedral instance.
+
+## value
+
+PASS
+
+Deterministic erasure resilience and exact worst-case stability of a natural tight icosahedral harmonic sampler is a meaningful complete finite classification: all 4096 masks are decided by a simple antipodal obstruction, the positive singular spectra are explicit, and sharp worst-case masks are classified. It is not just an arbitrary table or routine single instance; the symmetry and frame structure explain the boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
