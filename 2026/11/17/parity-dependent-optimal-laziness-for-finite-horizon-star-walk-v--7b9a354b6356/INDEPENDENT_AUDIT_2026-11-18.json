@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:08:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/parity-dependent-optimal-laziness-for-finite-horizon-star-walk-v--7b9a354b6356/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/parity-dependent-optimal-laziness-for-finite-horizon-star-walk-v--7b9a354b6356/check.py"
+      ],
+      "rationale": "On the quotient of vertex functions by constants, leaf-to-hub gradient g in R^k maps as B_alpha g=[alpha I-(1-alpha)Q]g with Q=11^T/k. Orthogonal idempotents give B^m=a(I-Q)+bQ, a=alpha^m, b=(2alpha-1)^m. Its induced edge-TV norm equals the common l1 column sum [|(k-1)a+b|+(k-1)|b-a|]/k, algebraically equal to max(|b|,[2(k-1)a-(k-2)b]/k), and leaf-indicator gradients attain it. On alpha>=1/2 the active branch strictly increases. For even m the contracting |1-2alpha|^m branch crosses at 1/3 and then the other strictly increases; at 1/3 B^m=3^{-m}I exactly. For odd m, the cusp alpha0=1/[2+(k-1)^(1/m)] competes with the F derivative, whose positive/negative sign produces unique cusp at k=2,3 and unique interior stationary optimum at k>=4 for m>=3. Direct rational independent iterations corroborated 320 parameter cases with k=2,3,4,6,m=1..5 and alpha=j/15.",
+      "residual_risks": [
+        "The numerical optimization grid in source cannot itself prove uniqueness; the analytical derivative sign proof does. Conditions require fixed alpha across all m steps and unweighted edge J."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier complete-bipartite formula gives only a single lazy averaging step, with p,q>=2; star is its boundary p=1 but horizon m>1 is absent."
+        ],
+        "reasoning": "A one-step operator-norm bound, even when sharp, does not determine sharp norms of its powers or joint multi-step minimizing alpha: induced norms can be strictly submultiplicative.",
+        "searches": [
+          "star graph edge total variation lazy random walk optimal laziness finite horizon power odd even",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5/RESULT.md",
+          "https://arxiv.org/abs/1502.07770"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5/RESULT.md",
+        "https://arxiv.org/abs/1502.07770",
+        "https://doi.org/10.1137/S0036144503423264"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior edge-TV result at m=1 is max(1-2alpha,1-2(1-alpha)/k) on K_{1,k} by extension, while the current m=2 optimum is alpha=1/3 independent of k."
+        ],
+        "reasoning": "For e.g. k=4 m=2, prior one-step optimizer alpha=1/5 is not the two-step optimizer 1/3, proving no immediate entailment. Regularization and stationary spectral mixing optimize distinct objectives.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5/RESULT.md",
+          "https://arxiv.org/abs/1502.07770",
+          "https://doi.org/10.1137/S0036144503423264"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This objective is the induced l1 norm of the mth power of alpha I-(1-alpha)11^T/k on edge gradients, not total variation distance between probability laws or total-variation regularizer minimization."
+        ],
+        "reasoning": "Rewriting on gradient coordinates reveals exact equivalence to a matrix l1 power optimization; checked that earlier graph-TV sources optimize energy denoising rather than this matrix power.",
+        "searches": [
+          "star graph edge total variation lazy random walk optimal laziness finite horizon power odd even",
+          "lazy star graph edge total variation all horizons odd even optimal holding 1/3",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5/RESULT.md",
+          "https://arxiv.org/abs/1502.07770"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact star one-step optimum alpha=1/(k+1) can be inferred as a boundary case; earlier tables do not record the universal even m optimum 1/3 or the k=4 odd-horizon interior transition."
+        ],
+        "reasoning": "The novel exact finite-horizon extremal family is not a recomputation of a known m=1 table; matched m=1 is explicitly credited.",
+        "searches": [
+          "star graph edge total variation lazy random walk optimal laziness finite horizon power odd even",
+          "lazy star graph edge total variation all horizons odd even optimal holding 1/3",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5/RESULT.md"
+        ]
+      },
+      "rationale": "The earlier exact K_p,q edge-TV theorem is one step and for p,q>=2; its formula extends to the isolated star m=1 but not to the all-horizon parity and k=4 cusp-to-interior threshold. Tree-TV regularization and fastest spectral mixing address different functionals. The multi-step global optimization appears new to the inspected primary and published material.",
+      "residual_risks": [
+        "A specialized earlier finite-horizon edge-BV star calculation might be unindexed; prior one-step result partly covers the paper; no novelty claimed for the rank-one projector algebra itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": [
+            "The m=1 edge-TV special case follows by extension, not any m>=2 optimizer"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5/RESULT.md",
+          "material_read": "Full RESULT.md proof, exact one-step norm and scope",
+          "method": "GitHub published source full text",
+          "title": "Sharp edge-variation contraction of lazy walks on complete bipartite graphs",
+          "trigger": "Nearest exact operator norm theorem"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Minimizes variation-regularized energy, does not study Markov averaging powers or optimal holding"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.07770",
+          "material_read": "Abstract, introduction and mathematical problem/algorithm formulation in accessible full-text preprint",
+          "method": "Lawful open-access paper text",
+          "title": "Total Variation on a Tree",
+          "trigger": "Same graph-TV edge seminorm on trees"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": [
+            "Spectral asymptotic rate differs from edge-gradient l1 finite-horizon norm"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "Paper abstract and description of spectral mixing objective; full source not claimed read",
+          "method": "Publisher abstract / contextual reference",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Potential stronger optimization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/parity-dependent-optimal-laziness-for-finite-horizon-star-walk-v--7b9a354b6356/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5/RESULT.md"
+      ],
+      "rationale": "The precise laziness parameter is mathematically important for finite-time smoothing of edge oscillations. A uniform optimizer 1/3 for all even horizons, parity-dependent sharp odd optimum, and structurally explained k=4 cusp/interior transition resolve a nontrivial natural extremal problem for every star size and horizon, beyond one-step textbook spectral decompositions.",
+      "residual_risks": [
+        "Only homogeneous laziness over a star and fixed horizon, not optimal nonuniform time-dependent filters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The numerical optimization grid in source cannot itself prove uniqueness; the analytical derivative sign proof does. Conditions require fixed alpha across all m steps and unweighted edge J.",
+    "A specialized earlier finite-horizon edge-BV star calculation might be unindexed; prior one-step result partly covers the paper; no novelty claimed for the rank-one projector algebra itself.",
+    "Only homogeneous laziness over a star and fixed horizon, not optimal nonuniform time-dependent filters."
+  ],
+  "schema_version": 1
+}

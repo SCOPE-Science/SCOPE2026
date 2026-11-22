@@ -1,19 +1,21 @@
-# Self-review of finite-horizon star-walk variation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The gradient-space matrix is exactly \(lpha(I-Q)+(2lpha-1)Q\), with \(Q\) a rank-one projection. Its powers and induced column sums prove the formula for all dimensions and horizons, including boundary and sign cases. Splitting the optimization at the branch intersection and differentiating its convex active branch proves the unique parity-dependent parameter in each case. The actual standalone checker ran without error: 4,368 exact direct-iteration/column comparisons, 2,050 signed-input inequalities, 3,150 exact even-step scalar identities, and 300,300 numerical odd-optimum comparisons. Finite experiments are not the infinite proof.
+PASS
 
-## Originality — PASS (bounded primary comparison)
+On the quotient of vertex functions by constants, leaf-to-hub gradient g in R^k maps as B_alpha g=[alpha I-(1-alpha)Q]g with Q=11^T/k. Orthogonal idempotents give B^m=a(I-Q)+bQ, a=alpha^m, b=(2alpha-1)^m. Its induced edge-TV norm equals the common l1 column sum [|(k-1)a+b|+(k-1)|b-a|]/k, algebraically equal to max(|b|,[2(k-1)a-(k-2)b]/k), and leaf-indicator gradients attain it. On alpha>=1/2 the active branch strictly increases. For even m the contracting |1-2alpha|^m branch crosses at 1/3 and then the other strictly increases; at 1/3 B^m=3^{-m}I exactly. For odd m, the cusp alpha0=1/[2+(k-1)^(1/m)] competes with the F derivative, whose positive/negative sign produces unique cusp at k=2,3 and unique interior stationary optimum at k>=4 for m>=3. Direct rational independent iterations corroborated 320 parameter cases with k=2,3,4,6,m=1..5 and alpha=j/15.
 
-The closest posted published-finding corpus one-step biclique theorem, dated 2026-11-02, has the same type of graph-edge variation and a one-step optimal holding parameter, but assumes both bipartition sizes at least two; an algebraic extension captures the star one-step value, which is not asserted as a new isolated theorem. A posted finite-horizon directed-triangle result concerns distributional total-variation distance, not variation of real signals; a weighted-tree heat result concerns continuous time rather than powers with an optimized hold probability. The full source text of Kolmogorov–Pock–Rolinek (2015) treats edge-variation denoising, while Sandryhaila–Moura (2013) use another definition of graph variation, and Boyd–Diaconis–Xiao (2003) optimize spectral mixing for a different transition class. None of the inspected claims implies the complete odd/even horizon optimization on stars. Residual risk: an earlier unindexed rank-one computation could coincide with the result.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem determines a natural complete family of fixed-horizon nonlinear-norm optimization problems in closed form, identifies the exact four-leaf onset of an interior odd-step optimum, and gives an unexpectedly dimension-independent exact scalar contraction at every even step. The combined results are structural stability-design information beyond a routine one-step matrix norm and beyond asymptotic spectral tuning.
+The earlier exact K_p,q edge-TV theorem is one step and for p,q>=2; its formula extends to the isolated star m=1 but not to the all-horizon parity and k=4 cusp-to-interior threshold. Tree-TV regularization and fastest spectral mixing address different functionals. The multi-step global optimization appears new to the inspected primary and published material.
 
-## Limits
+## value
 
-The theorem concerns finite unweighted stars, real signals, homogeneous time-independent holding probability, and unweighted edge-sum total variation. It makes no claim of optimality among arbitrary Markov matrices, variable schedules or other variation norms. Self-review is not an independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise laziness parameter is mathematically important for finite-time smoothing of edge oscillations. A uniform optimizer 1/3 for all even horizons, parity-dependent sharp odd optimum, and structurally explained k=4 cusp/interior transition resolve a nontrivial natural extremal problem for every star size and horizon, beyond one-step textbook spectral decompositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
