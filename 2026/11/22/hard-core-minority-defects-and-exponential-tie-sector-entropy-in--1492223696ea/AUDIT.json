@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For all admissible n,r, the proof applies exact neighbor counts, rules out C sites at deleted-cycle distances one and two, forces opposite high colors across C and (including L=r+1 via cyclic parity) forces high-color alternation. Both directions are proved. Cyclic spacing compositions yield the exact count, a three-state transfer proves the parity-filtered total, and the cubic characteristic polynomial yields the exponential error bound. Complete direct enumeration for 5<=n<=16 and independent exact transfer checks for 5<=n<=90 matched.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mossel–Neeman–Tamuz, arXiv:1207.0893, section 6.2 analyzes plurality on expanders after perturbing edge weights to avoid tied maximizers, rather than counting deterministic fixed states under incumbent retention.",
+        "Becchetti et al., arXiv:1310.2858, defines a randomized three-neighbor-sample update on a clique; its fixed-point claims are not an all-neighbor deterministic classification.",
+        "The closest published result Parity and long transients in majority dynamics on cycle complements is for two opinions and includes no three-opinion stationary state census."
+      ],
+      "reasoning": "The prior general plurality consensus theorems and binary cycle-complement classification do not imply the exact equilibrium set for a positive third color under an unusually tie-preserving rule. In particular, a result assuming no ties cannot imply persistence of an incumbent that does not maximize any neighborhood vote count.",
+      "searches": [
+        "published-finding corpus: Synchronous binary majority on complements of cycle graphs, exact fixed points and two-cycle dynamics",
+        "published-finding corpus: Graph K_n minus Hamilton cycle three color plurality static states fixed points count",
+        "Web: three color plurality majority graph automata tie retaining inertia Nash equilibria graph 2013",
+        "Mossel–Neeman–Tamuz 2012 full text: section 6.2 on q-opinion plurality and tie avoidance",
+        "Becchetti et al. 2013/2015 full text: abstract and introduction, sampled-neighbor consensus"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1207.0893v1",
+      "arxiv:1310.2858v1",
+      "published-finding corpus:2026/11/8/SCOPE-parity-and-long-transients-in-majority-dynamics-on-cycle-complem--c1a31cd30a7a",
+      "https://arxiv.org/abs/1207.0893",
+      "https://arxiv.org/abs/1310.2858"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior binary cycle-complement paper uses open-neighbor strict majority and incumbent retention, but has only two possible symbols; its even and odd exact claims have no third minority.",
+        "Earlier three-opinion plurality work on matching-deleted cliques and wheels has different missing-edge geometry; neither a reduction from nor an implication to distance-three minority site spacing follows.",
+        "The 2012 and 2013 plurality source statements concern information aggregation or stochastic sampled updates, not tied-leader deterministic equilibria or their entropy."
+      ],
+      "reasoning": "The proof maps fixed states with counts (L,L,r), 1<=r<L, to cyclic hard-core placements with distance >=3 and an alternating high-color background. None of the matched prior claims fixes a positive third-color population on K_n minus C_n. General discussions of plurality do not dominate this exact fixed-sector theorem.",
+      "searches": [
+        "published-finding corpus: Parity and long transients in majority dynamics on cycle complements",
+        "published-finding corpus: Three-state plurality matching-deleted clique exact fixed states",
+        "published-finding corpus: Three-opinion plurality on wheels and cyclic ladders",
+        "Web: Majority Dynamics and Aggregation of Information in Social Networks, 2012",
+        "Web: Simple Dynamics for Plurality Consensus, 2013"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved claim combined three labelled opinions, a strict minority of population r, two tied leaders and gap-three placement on complement-of-cycle graphs.",
+        "The closest published cycle-complement result concerns strictly binary majority: its fixed-state words have a distinct two-color histogram and it contains no surviving third-color defect.",
+        "The classical hard-core spacing polynomial supplies a combinatorial coefficient once the opinion-sector equivalence is proved; it does not itself assert the plurality update stability characterization."
+      ],
+      "reasoning": "Relabeling opinions or taking binary restrictions cannot recover the positive minority class. The graph is the complement of a cycle, not the cycle, wheel, or matching-deleted clique. The coincidence with standard distance-two independent-set counting is an explicitly proved dynamical reduction, not a pre-existing statement about this updating rule.",
+      "searches": [
+        "published-finding corpus: Inertial three-opinion plurality stationary equilibria on complement cycles, two tied leaders, defect spacing 3, plastic-like growth",
+        "published-finding corpus: Three-color tied-majority equilibrium states on dense graphs, hard core color defects, transfer polynomial",
+        "Web: \"cycle complement\" \"plurality\" \"three\" fixed points",
+        "Web: \"tie retaining\" plurality \"hard core\" fixed points graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved exact table or closed form enumerated the strict tied-leader histogram sector for this graph family.",
+        "Existing exact binary counts 2n+2 on odd cycle complements are outside the claimed population sector.",
+        "The displayed matrix is the standard distance-three spacing transfer only after a new local-dynamics classification; the independent-set polynomial by itself is not a table of plurality fixed states."
+      ],
+      "reasoning": "A table of hard-core independent sets is not a table of plurality equilibria unless the correspondence has been proved; neither searched literature nor prior results state that correspondence. Failed retrieval is not a proof of unique historical priority.",
+      "searches": [
+        "published-finding corpus: Three-color plurality fixed points on complements of cycles with tie retaining rule",
+        "published-finding corpus: ternary inertial plurality equilibria dense circulant graph complement of Hamilton cycle",
+        "Web: \"K_n\" \"C_n\" plurality equilibria three opinions",
+        "Web: colored stationary configurations plurality update complement cycles"
+      ]
+    },
+    "rationale": "Fresh claim-to-claim comparisons found no statement or stronger result implying the distance-three strict third-minority equilibrium classification on cycle-complement graphs. The closest same-graph exact publication is binary, while general plurality sources either avoid ties or use randomized samples. This is best-knowledge originality, not a universal historical proof.",
+    "residual_risks": [
+      "Unindexed older exact calculations of three-opinion plurality or hard-core reductions on cycle-complement graphs could exist.",
+      "The public binary result is fully inspected, but not every original source connected to the broader literature has been inspected in full; no independent historical priority certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "Section 6.2 says ties are avoided by rationally independent edge perturbations; no exact three-opinion cycle-complement equilibrium counts occur in those inspected results.",
+        "identifier_or_url": "https://www.tamuz.caltech.edu/papers/1207.0893.pdf",
+        "material_read": "Introduction and model, section 2.1, and section 6.2 including definitions and tie-handling discussion",
+        "method": "Read searchable full PDF text and visually inspected the displayed model page",
+        "title": "Majority Dynamics and Aggregation of Information in Social Networks",
+        "trigger": "General plurality dynamics with more than two alternatives and the closest archived motivating model"
+      },
+      {
+        "assessment": "DIFFERENT_UPDATE_MODEL",
+        "evidence": "The model samples three neighbors randomly and breaks three-way ties uniformly on a complete graph, rather than taking deterministic full-neighbor counts with incumbent ties.",
+        "identifier_or_url": "https://arxiv.org/pdf/1310.2858",
+        "material_read": "Full-text abstract, introduction and protocol definition, including randomized three-neighbor sampling description",
+        "method": "Read retrieved PDF text and visually inspected title and abstract page",
+        "title": "Simple Dynamics for Plurality Consensus",
+        "trigger": "Early multi-opinion plurality consensus research and possibility of stronger general-graph coverage"
+      },
+      {
+        "assessment": "SAME_GRAPH_BINARY_ONLY_NOT_COVERING",
+        "evidence": "Proves 2n+2 fixed binary states for odd n and a linear even transient witness; it expressly assumes binary configurations and makes no positive third-color or tied-leader assertion.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-parity-and-long-transients-in-majority-dynamics-on-cycle-complem--c1a31cd30a7a",
+        "material_read": "Complete RESULT.md including theorem statements, odd and even proofs, reference comparison and limitations",
+        "method": "Retrieved public repository RESULT.md and compared object, alphabet, tie convention and implications",
+        "title": "Parity and long transients in majority dynamics on cycle complements",
+        "trigger": "Exactly the same complement-of-cycle graph and an exact prior fixed-state classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "14922236-96ea-49d6-aa56-11ce6d46b708",
+  "value": {
+    "rationale": "The object is a canonical dense vertex-transitive graph with precisely one deleted Hamilton cycle, and the equilibrium sector is a natural tie-of-the-two-global-pluralities regime. The result proves structural emergence of hard-core distance-three minority sites, their complete all-size count for every feasible minority population, and strictly positive entropy with an explicit algebraic growth rate. This is not a restatement of binary majority or a small finite table.",
+    "status": "PASS"
+  }
+}
