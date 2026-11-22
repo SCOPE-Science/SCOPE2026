@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete finite subgroup lattice is reconstructed directly from multiplication of all even permutations of five letters. Its actual inclusion chains give the face vector \((57,131,15)\). Every triangle has a unique \((2,4)\) free edge and the remaining graph is explicitly checked connected, which proves its integral homotopy type without extrapolation. The rational homology character is an exact signed Lefschetz alternating sum for all \(120\) automorphisms, and each Specht multiplicity is an exact integer inner product. The automorphism quotient has seven vertex, eight edge and one triangle orbit; the unique triangle/free-edge orbit collapses, leaving a connected seven-edge, seven-vertex graph. Replaying `verify.py` reconstructs all these quantities from definitions.
+## correctness
 
-## Originality — PASS with explicit residual risk
-The motivation is Dupont García (2026, arXiv:2610.10296), whose full accessible text contains a general subgroup-poset reduction but whose explicitly calculated equivariant homology is for finite \(p\)-groups. The established \(A_5\) subgroup Möbius number \(-60\) and possibly the nonequivariant homotopy type from Shareshian (2001) are not claimed original. Ramras (2002, arXiv:math/0208176) computes the distinct *coset* complex. The closest indexed published representation examples concern unrelated \(S_5\)-symmetric complexes, not the conjugation \(S_5\)-module of the proper \(A_5\) subgroup order complex or its orbit circle. The 2001 Shareshian full text could not be examined, so an implicit equivalent decomposition remains a live risk rather than a certified negative comparison.
+PASS
 
-## Mathematical value — PASS
-The proper subgroup poset of the smallest nonabelian simple group is an explicit, motivated non-\(p\)-group case of recent Frattini-complex research. Its complete automorphism character distinguishes the outer transposition class (trace \(6\)) from all other nonidentity symmetries (trace \(0\)), splitting an otherwise known rank into six rational Specht constituents and revealing one invariant cycle. The quotient-circle theorem supplies a geometric application of this symmetry and is stronger than the known Euler or Möbius count alone. The classification is narrow but natural and fully exhaustive.
+Independently enumerated all 60 even permutations, closure-generated all 59 A5 subgroups including endpoints, verified the proper orders 2:15,3:10,4:5,5:6,6:10,10:6,12:5, and all 57 vertices,131 inclusion edges,15 triangles. Every C2<V4 edge is a free face of exactly one C2<V4<A4 triangle, leaving a connected 57-vertex,116-edge graph; b1=60. Across all 120 S5 conjugations the exact fixed-face Lefschetz traces are 60 on identity, 6 on transpositions, 0 otherwise. These yield the listed 60-dimensional Specht multiplicities and a one-dimensional invariant. Orbit counts under both inner A5 and full S5 are (7,8,1); the one triangular orbit has a free (2,4)-edge orbit, and the connected residual graph has b1=1, giving ordinary S1 quotient. Exhaustive finite verification pertains exactly to A5, no extrapolation to other groups.
 
-## Limits and literature proximity
-The proof is finite and group-specific; it does not establish general \(A_n\) statements, integral \(S_5\)-lattice classification, or statements about the quotient of the non-generating core. Accessible primary full text was examined for Dupont García (Sections 3–5) and Ramras (Section 4.2); the Shareshian journal article was located but full-text access failed. This incomplete comparison is specifically disclosed rather than asserted to be definitive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PARTIAL PRIOR COVERAGE explicitly credited: a separate 2026-11-17 published paper already establishes the INNER-conjugation A5 subgroup quotient ≃ S1; its cell orbit counts (7,8,1) coincide with S5 counts, so the outer S5 orbit-circle assertion follows. The surviving independent contribution is the full class-by-class 60-dimensional S5 homology character and explicit Specht decomposition, not stated in the prior orbit result or known nonequivariant Möbius value. Best-of-knowledge PASS solely on this substantial equivariant representation remainder; no new credit assigned to the covered quotient-circle component.
+
+## value
+
+PASS
+
+The complete rational outer-automorphism character of the A5 proper-subgroup complex is a natural finite-group topological representation, distinguishing full S5 and inner A5 symmetries. Its six nonzero Specht multiplicities and transposition trace provide nontrivial equivariant information beyond a known wedge count, Möbius scalar or quotient-circle topology. The already-covered orbit-circle is not credited toward value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
