@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:12:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/rank-sensitive-critical-decay-in-a-two-node-nonnormal-matrix-log--a16252a67aa4/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/rank-sensitive-critical-decay-in-a-two-node-nonnormal-matrix-log--a16252a67aa4/checker.py"
+      ],
+      "rationale": "PASS: For 0<c<3/2 the largest singular value of B_c=(sqrt(c²+4)+c)/2<2, so H↦B_c H(I-H)B_c* maps 0<=H<I into itself and preserves rank. For full-rank Q=H^-1, exact inverse identity Q_(n+1)=S*(Q_n+(I-H_n)^-1)S with S=B^-1 yields Q_n>=G_n=sum_{k=1}^n S^{*k}S^k. Direct summation G11=n,G12=-cn(n+1)/2,G22=n+c²n(n+1)(2n+1)/6 and det G=n²[12+c²(n²-1)]/12 imply ||H_n||=O(1/n). The inverse remainder is O(1/(n+1)), its summed (11),(12),(22) corrections are O(log n),O(n log n),O(n² log n), negligible against n,n²,n³. Therefore Q leading block [[n,-cn²/2],[-cn²/2,c²n³/3]] has det c²n^4/12, giving H scaled 4,6,12, determinant and eigenvalue asymptotics. For rank-one transverse w_2≠0, u_(n+1)-u_n=||B^n w||²/(1-rho_n), and ||B^n w||²∼c²|w2|² n²; summation gives rho=O(1/n), u∼c²|w2|² n³/3 and scaled entries 3,3,3. The eigenline obeys scalar logistic x↦x(1-x), giving limit 1; rank zero is fixed. H0=epsilon I transient trace formula is exact. Independently reproduced Gramian determinant and asymptotic inverse amplitudes (4,6,12) symbolically. No larger Jordan blocks or c=0 claim.",
+      "residual_risks": [
+        "Only 2×2, 0<c<3/2, all Hermitian 0<=H0<I; H0=I and boundary norm 2 excluded.",
+        "Exact low-step checker and 20000-step decimal asymptotic probes are supportive only; proof by inverse Grammian and quotient is asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pawela–Życzkowski introduce the full arbitrary-N map and graph-coupled examples; Appendix A treats a two-node triangular B with chaotic diagonal factors corresponding to effective parameters 10/3 and 4.",
+          "No published general neutral-Jordan B with diagonal entries exactly one and 4/3/1 amplitudes identified."
+        ],
+        "reasoning": "A more general definition of the map is not a broader asymptotic theorem. Existing results at chaotic spectral radii do not cover the critical unipotent parameter in the present statement.",
+        "searches": [
+          "https://arxiv.org/abs/2303.06176",
+          "neutral Jordan matrix logistic decay asymptotics full rank singular rank one c coupling",
+          "matrix logistic map Jordan neutral rank-dependent 4 3 1 extinction nonnormal"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2303.06176",
+        "https://doi.org/10.1080/03081088708817768"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pawela–Życzkowski's Appendix A triangular B has diagonal sqrt(2sqrt(10/3)), and invariant measures with A eigenvalues 10/3,4, not B diagonal 1.",
+          "Full-rank inverse Grammian grows anisotropically (n,n²,n³), while rank-one transverse scalar denominator grows as n³; not a direct scalar logistic rate."
+        ],
+        "reasoning": "Known chaotic invariant density and general matrix Riccati existence/monotonicity are about different parameters or equations; neither implies the exact neutral critical convergence and rank-dependent three amplitudes.",
+        "searches": [
+          "https://arxiv.org/abs/2303.06176",
+          "matrix logistic map Jordan neutral rank-dependent 4 3 1 extinction nonnormal",
+          "https://doi.org/10.1080/03081088708817768"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At B=[[1,c],[0,1]], map H↦B H(I-H) B* is the matrix logistic map at neutral unipotent coupling; inverse Q obeys a non-autonomous discrete Riccati/controllability-Gramian accumulation."
+        ],
+        "reasoning": "Compared logistic-network, nonlinear matrix Riccati inverse and neutral Jordan linear cocycle aliases. Standard Riccati monotonicity alone does not give nonlinear inverse remainders and three rank-specific coefficients.",
+        "searches": [
+          "matrix logistic map Jordan neutral rank-dependent 4 3 1 extinction nonnormal",
+          "https://arxiv.org/abs/2303.06176",
+          "matrix logistic map nonnormal upper triangular Jordan block Riccati inverse Gramian critical decay rank initial",
+          "https://doi.org/10.1080/03081088708817768"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source computes exact invariant rank-class dependent limits and determinant/eigenvalue scales rather than an existing tabulated stationary distribution."
+        ],
+        "reasoning": "No exact prior table of critical Jordan amplitude triples found; available numerical full-map phase plots do not determine them.",
+        "searches": [
+          "matrix logistic map Jordan neutral rank-dependent 4 3 1 extinction nonnormal",
+          "critical two node matrix logistic amplitudes 4 6 12 determinant eigenvalues 3 1 rank"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Pawela–Życzkowski introduce the nonlinear matrix logistic iteration, and in their Appendix A analyze a two-node upper-triangular coupling at a distinctly chaotic diagonal value (>1). Their prior study of invariant spectral densities and transfer of chaos does not state the nilpotent Jordan neutral eigenvalue-one extinction theorem or rank-conditioned amplitudes. The inverse-Gramian step is familiar linear-control mathematics, but its nonlinear state-dependent remainder and rank-one scalar quotient give new fixed-parameter critical asymptotics. No stronger Resultary or literature coverage was found.",
+      "residual_risks": [
+        "Earlier matrix logistic threshold cases might exist outside the indexed original-map paper; the general Riccati monograph literature was not exhaustively searched.",
+        "The result is strictly two-by-two, fixed c>0 and H0<I; no uniform c→0 limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_MAP_DIFFERENT_REGIME",
+          "evidence": [
+            "Appendix A coupling has effective eigenvalues 10/3 and 4, and discusses chaotic invariant measures; no critical B_c with eigenvalue 1 and 4/3/1 extinction asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.06176",
+          "material_read": "Full arXiv article inline extracted text, main model equations, graph coupling section and Appendix A's two-node triangular example",
+          "method": "arXiv full page",
+          "title": "Matrix logistic map: fractal spectral distributions and transfer of chaos",
+          "trigger": "Original definition of exactly H↦B H(I-H) B* and potential N=2 domination"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY_NOT_ADJUDICATED",
+          "evidence": [
+            "Autonomous discrete algebraic Riccati equation is not itself a statement about this nonlinear logistic rank-class asymptotic; uninspected possible techniques remain risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081088708817768",
+          "material_read": "Bibliographic title/metadata only, no substantive full-text comparison",
+          "method": "literature bibliographic lookup",
+          "title": "An existence and monotonicity theorem for the discrete algebraic matrix Riccati equation",
+          "trigger": "Possible functional-equation equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/rank-sensitive-critical-decay-in-a-two-node-nonnormal-matrix-log--a16252a67aa4/RESULT.md",
+        "https://arxiv.org/abs/2303.06176",
+        "https://doi.org/10.1080/03081088708817768"
+      ],
+      "rationale": "PASS: Global extinction at a neutral nonnormal Jordan coupling has a natural dynamical question distinct from the chaotic phase studied earlier. The exact 4/3/1 amplitudes and n^-1 vs n^-3 eigenvalue separation reveal how initial rank changes universal critical decay; the transient amplification example clarifies that one-step monotonicity is not required. These precise asymptotics are structurally informative for matrix population recurrences, not merely a scalar logistic substitution.",
+      "residual_risks": [
+        "Only 2×2, 0<c<3/2, all Hermitian 0<=H0<I; H0=I and boundary norm 2 excluded.",
+        "Exact low-step checker and 20000-step decimal asymptotic probes are supportive only; proof by inverse Grammian and quotient is asymptotic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 2×2, 0<c<3/2, all Hermitian 0<=H0<I; H0=I and boundary norm 2 excluded.",
+    "Exact low-step checker and 20000-step decimal asymptotic probes are supportive only; proof by inverse Grammian and quotient is asymptotic."
+  ],
+  "schema_version": 1
+}
