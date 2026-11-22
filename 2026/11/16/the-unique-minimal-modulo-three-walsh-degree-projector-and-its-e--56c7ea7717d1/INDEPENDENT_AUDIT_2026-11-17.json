@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T10:47:25Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 81fc7fbb9ca32fcd7a75f2e5452978fa76c7a2a9",
+        "check.py blob acd6d85dab5fd1973f3537728115c8b5b808b458",
+        "Independent FWHT n=3..9, numerators e.g. n=3: (8,12,12), n=6: (160,210,210), n=9: (2996,4032,4032)"
+      ],
+      "rationale": "The projection kernel is the Walsh transform of the residue-class frequency indicator, with its normalized L1 norm exactly the minimal projection norm by translation averaging. The cube-root filter gives all kernel values at Hamming weights 0..n, and even/odd binomial sums A_n,B_n yield the two-level formulas and strictly positive gap for n>=3. Independent integer FWHT checked n=3..9 and all three residues; roots-of-unity algebra proves unbounded n.",
+      "reasoning": "The projection kernel is the Walsh transform of the residue-class frequency indicator, with its normalized L1 norm exactly the minimal projection norm by translation averaging. The cube-root filter gives all kernel values at Hamming weights 0..n, and even/odd binomial sums A_n,B_n yield the two-level formulas and strictly positive gap for n>=3. Independent integer FWHT checked n=3..9 and all three residues; roots-of-unity algebra proves unbounded n.",
+      "residual_risks": [
+        "Finite integer checks supplement rather than prove the infinite n classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic arbitrary-family formula, fixed-degree and bounded-degree estimates; sampling results analyze a different restricted domain"
+        ],
+        "reasoning": "General formulas permit the computation in principle but do not directly state the final closed two-level arithmetic law without a nontrivial character/absolute-value evaluation.",
+        "searches": [
+          "Defant et al 2024 section 3 arbitrary Walsh subset families",
+          "Resultary quadratic Walsh sampling modulo 3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2302.00233",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626",
+        "Resultary two modulo-three queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem supplies norm as a finite Walsh character absolute-sum; current root-of-unity filter evaluates the sum and proves optimizer uniquely"
+        ],
+        "reasoning": "This is a substantive specialization but depends explicitly on the general theorem for projection minimality; there is no claim that the underlying formula is novel.",
+        "searches": [
+          "Defant Theorem 3.1 source PDF pages 9-10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.1 gives E|sum χ_S| for every Walsh frequency family; specialization S={|S|=r mod3} equals the claimed projection norm"
+        ],
+        "reasoning": "The minimal projection/translation-averaging identity is already general prior work, but the precise residue-specific evaluation and comparison are not explicitly given there.",
+        "searches": [
+          "Defant et al arXiv:2302.00233 theorem 3.1",
+          "Resultary: Walsh Fourier projection Hamming weight congruent mod 3 exact Lebesgue constant"
+        ]
+      },
+      "evidence": [
+        "https://arxiv.org/pdf/2302.00233 Theorem 3.1 and Section 3, pages 9-11",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626 related source summary",
+        "Resultary search for degree modulo three Walsh endpoint projection norm"
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Related quadratic modulo-three sampling theorem establishes Gram spectrum/injectivity, not minimum uniform projection constant for full Hamming mod3 frequency support"
+        ],
+        "reasoning": "No exact older table with these three norms was found in the bounded search; historical priority remains provisional.",
+        "searches": [
+          "Resultary: modulo-three Walsh projection norm binomial exact residue minimizer",
+          "Resultary: Walsh Fourier projection Hamming weight congruent mod 3 exact Lebesgue constant"
+        ]
+      },
+      "rationale": "Defant et al. (2024) Theorem 3.1 explicitly gives minimal projection norm for ANY Walsh family as the expectation of an absolute character sum, and thus subsumes the general variational/kernel identity. Its inspected integral-formula section develops generic support families and single-layer bounds, not the all-n modulo-three residue-class closed evaluation or optimizer/gap. Related published quadratic sampling ON a weight-residue domain is a different operator from full-spectrum modular projection. The additional exact absolute-value binomial evaluation and residue hierarchy survive this bounded comparison.",
+      "reasoning": "Defant et al. (2024) Theorem 3.1 explicitly gives minimal projection norm for ANY Walsh family as the expectation of an absolute character sum, and thus subsumes the general variational/kernel identity. Its inspected integral-formula section develops generic support families and single-layer bounds, not the all-n modulo-three residue-class closed evaluation or optimizer/gap. Related published quadratic sampling ON a weight-residue domain is a different operator from full-spectrum modular projection. The additional exact absolute-value binomial evaluation and residue hierarchy survive this bounded comparison.",
+      "residual_risks": [
+        "General theorem is already enough to express all three constants as an absolute kernel sum.",
+        "Unindexed Krawtchouk/root-of-unity evaluation of the specific residue classes could cover the special computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides arbitrary-family minimum projection norm; neither modulo-three evaluation nor rank-vs-norm comparison in inspected sections",
+          "evidence": [
+            "Theorem 3.1 PDF page 9 and section 3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00233",
+          "material_read": "Full theorem 3.1 and surrounding integral-formula section, single-layer discussion",
+          "method": "Lawful arXiv PDF, extracted theorem and screenshot page 9",
+          "title": "Asymptotic Insights for Projection, Gordon–Lewis and Sidon Constants in Boolean Cube Function Spaces",
+          "trigger": "Most directly dominating general projection norm theorem"
+        },
+        {
+          "assessment": "Different quadratic restriction Gram spectrum, not full Fourier projection norm",
+          "evidence": [
+            "Reported injectivity threshold n=8 and six-sector sampler"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626",
+          "material_read": "Resultary published theorem title and mathematical summary",
+          "method": "Search result only, not asserted full-document exclusion",
+          "title": "Quadratic Walsh sampling on Hamming-weight classes modulo three",
+          "trigger": "Same congruence partition vocabulary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "n-dependent exact equal-rank-versus-norm gap",
+        "Defant et al. motivate projection constants for Boolean function spaces"
+      ],
+      "rationale": "The three natural congruence classes partition the cube Fourier spectrum into nearly equal-dimensional subspaces while giving sharply unequal optimal endpoint projection norms. The exact growing disparity and unique minimizing class quantify a meaningful stability phenomenon, not an arbitrary checksum or routine enumeration.",
+      "reasoning": "The three natural congruence classes partition the cube Fourier spectrum into nearly equal-dimensional subspaces while giving sharply unequal optimal endpoint projection norms. The exact growing disparity and unique minimizing class quantify a meaningful stability phenomenon, not an arbitrary checksum or routine enumeration.",
+      "residual_risks": [
+        "Restricted to three residue classes of Hamming degree, not arbitrary modulus or unions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2302.00233",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626",
+    "Resultary two modulo-three queries"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to three residue classes of Hamming degree, not arbitrary modulus or unions."
+  ],
+  "residual_risks": [
+    "General theorem is already enough to express all three constants as an absolute kernel sum.",
+    "Unindexed Krawtchouk/root-of-unity evaluation of the specific residue classes could cover the special computation.",
+    "Finite integer checks supplement rather than prove the infinite n classification.",
+    "A root-of-unity calculation applied to a classical formula may have appeared elsewhere without being indexed; conceptual gap over prior general theorem is modest.",
+    "Restricted to three residue classes of Hamming degree, not arbitrary modulus or unions."
+  ],
+  "schema_version": 1
+}
