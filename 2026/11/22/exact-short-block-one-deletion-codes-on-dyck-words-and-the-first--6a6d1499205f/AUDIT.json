@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Complete finite source-output enumeration in two independent representations validates every rational primal/dual inequality and every explicit deletion-disjoint code. Exact primal-dual equality proves all fractional objectives; their floors match the exhibited integer code sizes for every semilength 1..6. This is a finite proof only, with exact Fraction arithmetic and no reliance on optimizer logs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni–Kiyavash 2012 treats all-alphabet and run-length-limited source bounds, not the Dyck source.",
+        "Cullina–Kulkarni–Kiyavash 2012 establishes optimum colorings of constant-weight graphs; coloring number is not an induced-subgraph independence number.",
+        "The 2026 balanced-source result computes larger maxima over all words of a given weight, but the Dyck subset has a different feasible universe and a later fractional-gap threshold."
+      ],
+      "reasoning": "A bound or coloring on a superclass need not determine maxima or fractional objectives in a strict Dyck subset. Direct source inspection finds no theorem that implies these six finite results; the related balanced case cannot be specialized by only substituting Catalan counts.",
+      "searches": [
+        "Dyck ballot words single deletion correcting code exact semilength five six 9 24 fractional shadow packing gap",
+        "Catalan word one-deletion optimum code n equals 9 24 LP relaxation",
+        "ar5iv arxiv:1211.3128 entire sections I-V; full text searches Dyck, Catalan",
+        "ar5iv arxiv:1211.4056 section on constant-weight graphs; full text searches Dyck, Catalan"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1211.3128 (HTML full text, constrained-source bounds)",
+      "arxiv:1211.4056 (HTML full text, constant-weight coloring)",
+      "published Dyck two-read deletion graph, complete RESULT.md (2026-11-08)",
+      "published balanced single-deletion code sizes, complete RESULT.md (2026-11-02)",
+      "OEIS A381586 (unrelated numeric match)",
+      "OEIS A125654 (unrelated sequence snippet)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published Dyck two-read graph: adjacent when precisely two common one-deletion reads; explicitly does not compute code cardinality.",
+        "Published balanced-layer exact census: unrestricted balanced capacities Catalan numbers and first LP gap at semilength four.",
+        "2012 sources provide hypergraph LP and coloring constructions, not this finite exact induced-Dyck evaluation."
+      ],
+      "reasoning": "The asserted values 1,1,2,4,9,24 and exact fractional optima 1,1,2,4,29/3,3269/131 are not corollaries of the stronger unrestricted balanced capacity: the restricted code values require new witnesses and dual constraints. The nearby two-read result uses a weaker adjacency condition and therefore cannot certify single-output disjointness.",
+      "searches": [
+        "Dyck restricted one deletion confusability graph independent set",
+        "Dyck ballot words single deletion correcting code exact semilength five six 9 24 fractional shadow packing gap",
+        "GitHub published 2026 Dyck-restricted two-read deletion graph RESULT.md",
+        "GitHub published 2026 balanced single-deletion code sizes RESULT.md",
+        "arxiv:1211.3128, arxiv:1211.4056 full-text mathematical sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact code size is the maximum disjoint deletion-shadow packing / independence number of the graph joining Dyck words with at least one common output.",
+        "The 2026 Dyck-restricted two-read graph publication defines edges only for two distinct common outputs, explicitly excluding single-deletion capacity claims."
+      ],
+      "reasoning": "The apparently nearby two-read ambiguity graph has a different edge threshold and a strictly different independent-set question. The 2012 deletion-hypergraph method is an equivalent formulation but does not supply the six evaluated Dyck optima.",
+      "searches": [
+        "Dyck ballot words single deletion correcting code exact semilength five six 9 24 fractional shadow packing gap",
+        "Dyck restricted one deletion confusability graph independent set",
+        "Dyck deletion correcting single error optimal code capacities",
+        "\"Dyck\" \"deletion\" \"9\" \"24\" coding"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A381586 has the same numeric prefix but counts unrelated graph degree sequences, not coding optima.",
+        "OEIS A125654 appears as an unrelated integer prefix in A143775; neither establishes the Dyck code problem.",
+        "The indexed publication search found balanced, two-read, and deletion-covering values, not this exact Dyck-source capacity or fractional values."
+      ],
+      "reasoning": "Matching an initial numeric string is not a claim-level match. No inspected table links the sequence to single-deletion codes on Dyck inputs, and no matching rational LP table was identified. This absence is not proof of global novelty.",
+      "searches": [
+        "site:oeis.org \"1,1,2,4,9,24\" deletion codes",
+        "site:oeis.org \"1, 1, 2, 4, 9, 24\" Dyck",
+        "\"Catalan\" \"one deletion\" \"packing\" \"semilength\"",
+        "Dyck word single deletion shadow exact overlap"
+      ]
+    },
+    "rationale": "Claim-level comparisons with 2012 deletion-LP and constant-weight-coloring literature and two close published finite-source results found no stronger theorem implying this induced Dyck-language capacity sequence and its fractional spectrum. The two-read threshold and unrestricted balanced domain are different. Priority remains qualified by unindexed computations.",
+    "residual_risks": [
+      "Unindexed or unpublished exact Dyck deletion-code tables might predate this computation.",
+      "Historical literature under different terminology (ballot-path error correction or Catalan source deletion packing) may not have been discovered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_THE_EVALUATED_DYCK_PARAMETERS",
+        "evidence": [
+          "ar5iv 1211.3128: constrained sources demonstrated on run-length-limited words; no Dyck/Catalan source evaluation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+        "material_read": "HTML full-text sections I, III and V, with constrained-source applications and searches for Dyck/Catalan",
+        "method": "ar5iv HTML full-text reading and section-specific search",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Constrained-source hypergraph LP framework and possible stronger uniform bounds"
+      },
+      {
+        "assessment": "COVERING_GENERAL_COLORING_BUT_NOT_RESTRICTED_INDEPENDENCE",
+        "evidence": [
+          "Constant-weight coloring results do not determine the induced Dyck independence numbers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.4056",
+        "material_read": "HTML full-text abstract, introduction, constant-weight argument and searches for Dyck/Catalan",
+        "method": "ar5iv HTML full-text reading and term searches",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Could optimum constant-weight coloring imply the desired code sizes?"
+      },
+      {
+        "assessment": "TWO_COMMON_OUTPUTS_NOT_THE_ONE_OUTPUT_CORRECTION_GRAPH",
+        "evidence": [
+          "Its defining edge threshold is two shared distinct descendants; it explicitly does not establish optimal code sizes"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f/RESULT.md",
+        "material_read": "Complete RESULT.md including theorem, proof, scope, limitations and bibliography",
+        "method": "Read complete publicly accessible RESULT.md",
+        "title": "Dyck-restricted two-read deletion graph: a vertex-marked bijection and sharp degree",
+        "trigger": "Same Dyck words and deletion-output comparisons"
+      },
+      {
+        "assessment": "BROADER_SOURCE_VALUES_DO_NOT_IMPLY_DYCK_RESTRICTED_MAXIMA",
+        "evidence": [
+          "Balanced-source optima are Catalan values through semilength six, whereas Dyck capacities are smaller; first full-balanced fractional gap is at semilength four"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-balanced-single-deletion-code-sizes-through-length-twelve--c1dc18cb3082/RESULT.md",
+        "material_read": "Complete RESULT.md including exact capacities, LP proof and limitations",
+        "method": "Read complete publicly accessible RESULT.md",
+        "title": "Exact balanced single-deletion code sizes through length twelve and the first fractional-packing gap",
+        "trigger": "May cover the restricted Dyck independent-set and fractional claims"
+      },
+      {
+        "assessment": "NUMERIC_COINCIDENCE_ONLY",
+        "evidence": [
+          "Counts unlabeled simple graphs with consecutive degree sequences, not deletion-correcting Dyck codes"
+        ],
+        "identifier_or_url": "https://oeis.org/A381586",
+        "material_read": "Sequence definition, initial values, examples and references",
+        "method": "Web text",
+        "title": "OEIS A381586",
+        "trigger": "Exact initial integer prefix matching"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6a6d1499-205f-44af-8be3-31d81de21815",
+  "value": {
+    "rationale": "Determines the exact capacity for all Dyck-language codewords through twelve transmitted bits and the first semilength where the canonical deletion-shadow fractional LP ceases to be integral. These are motivated constrained-source design and relaxation benchmarks; the location of the first gap differs from the balanced-word superclass and is not a merely arbitrary enumeration.",
+    "status": "PASS"
+  }
+}
