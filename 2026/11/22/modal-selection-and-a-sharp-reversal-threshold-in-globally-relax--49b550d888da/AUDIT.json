@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Exact RK4 identities for q,g were checked by independent symbolic expansion; D>0 on 0<t<12; weighted nonzero relaxation gamma is positive and uniquely determined. The modal energy map implies exact total conservation and the strict Lyapunov identity. The growing bounded winning-energy subsequence proves gamma_n tends to the minimum g; weighted mean then forces all losers to zero. A quadratic with one sign change in the interval proves a unique two-frequency crossing. The exact-rational and direct-RK4 verification script reports 127 passing finite checks; finite tests are corroboration, not proof. Hypotheses exclude zero-step and large-step parameter regimes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Doehring–Ranocha–Torrilhon arXiv:2507.04991v1 and full OA journal text §2.4–3: general global relaxation, multirate conservation and stability",
+        "Ketcheson arXiv:1905.09847v1 §4.1: same RRK4 Fourier test problem but not complete infinite-step selection",
+        "Ranocha et al. 2020 eq (2.4): general entropy residual, no analytical modal selection there"
+      ],
+      "reasoning": "General conservation and error/stability results apply to the update but do not imply the new asymptotic outcome or its sharp threshold. The original 2019 same-method example is the closest broader setting; its modal evidence is numerical finite-time, with qualitative amplification/damping, not the exact all-data infinite-time theorem.",
+      "searches": [
+        "classical RK4 relaxation two oscillator distinct frequencies gamma rational sharp modal energy selective damping",
+        "harmonic oscillator relaxation Runge Kutta classifies all frequency modes energy drift minimum gamma",
+        "relaxation Runge Kutta global energy modal decay spurious energy equipartition Fourier modes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.09847v1 full text §§2,4.1",
+      "arXiv:2507.04991v1 metadata and 2026 lawful open-access journal full text §2.4–3",
+      "Ranocha et al. doi:10.1137/19M1263480 author PDF §2",
+      "published-finding corpus published 2026/10/18/SCOPE-a-unique-symplectic-timestep-and-sharp-modal-energy-reversal-in--3016d962c708 complete RESULT.md",
+      "arXiv:2401.14508 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ketcheson §4.1 states each frequency is multiplied by its own R_gamma(i omega h) with data-dependent gamma, and some modes grow while others shrink",
+        "Projected RK4 result has exactly E2/E1 ratio multiplier Q2/Q1, yielding radial crossover 168/85 for (1,2)",
+        "New RRK4 energy map E_j+=E_j[1+q_j gamma (gamma-g_j)] has gamma as an energy-q weighted mean, yielding different threshold (71-sqrt(2641))/10; at squared base step 197/100, opposite modal winners"
+      ],
+      "reasoning": "Finite-time qualitative amplification in the 2019 source is compatible with but does not determine global attraction to minimizing g modes. Radial projection (2026) and incremental RRK share conservation of total norm, but their per-mode recursions differ, and the exact opposite-winner benchmark disproves implication between the two sharp crossover claims.",
+      "searches": [
+        "classical RK4 relaxation two oscillator distinct frequencies gamma rational sharp modal energy selective damping",
+        "global relaxation Runge Kutta energy preserving linear skew system arbitrary independent Fourier modes winner takes all concentration to unique minimal individual relaxation parameter gamma and Lyapunov",
+        "harmonic oscillator relaxation Runge Kutta classifies all frequency modes energy drift minimum gamma",
+        "full RESULT.md of 2026/10/18/SCOPE-a-unique-symplectic-timestep-and-sharp-modal-energy-reversal-in--3016d962c708",
+        "full Ketcheson arXiv:1905.09847v1 §§2,4.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ketcheson arXiv:1905.09847v1 §4.1, pages 13–14: Fourier-mode RRK(4,4) one-step modulation and observed finite-time amplitude changes",
+        "Ranocha et al. doi:10.1137/19M1263480 §2 eqs. (2.2)–(2.6): equivalent quadratic-entropy relaxation along RK increment",
+        "published-finding corpus 2026/10/18/SCOPE-a-unique-symplectic-timestep-and-sharp-modal-energy-reversal-in--3016d962c708: one-invariant quasi-orthogonal projection of the RK4 endpoint, not along its increment"
+      ],
+      "reasoning": "Term variants global quadratic invariant relaxation, spectral Fourier modes, energy normalization and projection were searched. Relaxation along an increment equals the original RRK map, unlike radial projection of a predictor. The finite-time RRK mode behavior is known; no identified source proves the weighted Lyapunov law or sharp infinite-time selector.",
+      "searches": [
+        "relaxation Runge Kutta quadratic entropy global relaxation two uncoupled harmonic oscillators individual modal energies monotonically transfer and extinction",
+        "global relaxation Runge Kutta energy preserving linear skew system arbitrary independent Fourier modes winner takes all concentration to unique minimal individual relaxation parameter gamma and Lyapunov",
+        "relaxation RK4 multi oscillators global scalar energy redistribution convergence mode selection",
+        "relaxation Runge Kutta harmonic oscillator mode energy redistribution slow fast frequencies convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published indexed claim 2026/10/18/SCOPE-a-unique-symplectic-timestep-and-sharp-modal-energy-reversal-in--3016d962c708 treats radial RK4 endpoint projection and gives squared step 168/85 for frequencies (1,2)",
+        "Related published 2026/10/25/SCOPE-finite-step-loss-of-an-energy-conserving-runge-kutta-correction--2b21777e5740 treats fixed-step relaxation-free two-stage correction",
+        "Related published 2026/10/26/SCOPE-sharp-third-order-loss-under-two-invariant-quasi-orthogonal-rung--8aca49edd71e treats RK3 two-invariant quasi-orthogonal projection"
+      ],
+      "reasoning": "Actual database searches with parameters, aliases, synonyms, and close statements were compared. No exact entry/tabulation of the RRK4 increment-relaxation quadratic threshold or global weighted selector was identified. Search failure is not treated as absolute proof of priority.",
+      "searches": [
+        "relaxation Runge Kutta quadratic entropy global relaxation two uncoupled harmonic oscillators individual modal energies monotonically transfer and extinction",
+        "classical RK4 relaxation two oscillator distinct frequencies gamma rational sharp modal energy selective damping",
+        "global relaxation Runge Kutta energy preserving linear skew system arbitrary independent Fourier modes winner takes all concentration to unique minimal individual relaxation parameter gamma and Lyapunov",
+        "relaxation RK4 multi oscillators global scalar energy redistribution convergence mode selection",
+        "harmonic oscillator relaxation Runge Kutta classifies all frequency modes energy drift minimum gamma",
+        "energy preserving relaxation Runge Kutta mode decoupling nonphysical energy exchange frequencies",
+        "published-finding corpus published records, top 25–30 results per query"
+      ]
+    },
+    "rationale": "The 2019 foundational paper already contains the exact type of relaxation and observes modal amplification/damping; this is not presented as a new phenomenon. The new finite-dimensional, all-time Lyapunov-selection theorem and exact classical-RK4 two-frequency crossover were compared by implication against that original full text (esp. §4.1), full texts of 2020 and 2025 relaxation papers, and the 2026 published radial-projection classification. The earlier numerical examples and general energy conservation do not determine the asymptotic winning modes; the radial-projection result concerns a different map and gives a demonstrably opposite winner at the same stable RK4 step. No exact prior statement covering these new claims found in actual searches. Historical priority is qualified and not independently certified.",
+    "residual_risks": [
+      "The original 2019 paper already observes the same RRK4 modal amplification/damping; only its sharpened exact all-time law and crossover are claimed as newly distinguished.",
+      "Additional equivalent results in unindexed or differently termed earlier papers cannot be ruled out.",
+      "One relevant relaxation-free paper was checked at abstract level only, not used for decisive novelty exclusion.",
+      "No independent literature-priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact relaxation method and qualitative finite-time Fourier energy transfers ARE known; no general infinite-step mode-selection classification or two-frequency sharp threshold appears in the inspected material",
+        "evidence": "Eq (9) is a global increment rescaling; §4.1 states some Fourier modes diminish and others grow, with gamma depending on data and finite-time plots",
+        "identifier_or_url": "https://arxiv.org/pdf/1905.09847",
+        "material_read": "§§1–2 and §4.1 including equations (9)–(12) and spectral Figure 3 discussion on pp. 13–14",
+        "method": "Opened lawful arXiv original PDF; read relevant text and inspected page images 4 and 14",
+        "title": "Relaxation Runge–Kutta Methods: Conservation and Stability for Inner-Product Norms",
+        "trigger": "The exact foundational RRK4 method and modal behavior could dominate the candidate"
+      },
+      {
+        "assessment": "Defines and analyzes relaxation as update scaling; does not supply the classical RK4 global modal selector or its frequency threshold; its optimized paired schemes have different tableaux",
+        "evidence": "Eq (20) defines U_{n+1}=U_n+gamma*h*sum b_i K_i; (26) defines entropy condition; §3 discusses paired multirate generalization",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s42967-026-00587-6",
+        "material_read": "Full open-access text §2.4 equations (20)–(29), §3 scheme construction and §3.2 experiments, abstract and source bibliography",
+        "method": "Read HTML open-access article and verified arXiv v1 date 2025-07-07",
+        "title": "Paired Explicit Relaxation Runge–Kutta Methods: Entropy-Conservative and Entropy-Stable High-Order Optimized Multirate Time Integration",
+        "trigger": "Recent 2025 primary source for global relaxation of quadrature/ODE integrators"
+      },
+      {
+        "assessment": "Establishes general scalar nonlinear entropy correction, not sharp modal spectral selection",
+        "evidence": "The entropy correction r(gamma)=0 and direction d=sum b_i f_i are defined, with scalar equation",
+        "identifier_or_url": "https://math.umd.edu/~tadmor/references/files/Ranocha%20et%20al%20RRK%20and%20ES%20SISC2020.pdf",
+        "material_read": "Full-text §2 p. A615 eqs. (2.2)–(2.6) and adjacent explanation of scalar root",
+        "method": "Read original lawful institutional author PDF, inspected p. A615 image",
+        "title": "Relaxation Runge–Kutta Methods: Fully Discrete Explicit Entropy-Stable Schemes for the Compressible Euler and Navier–Stokes Equations",
+        "trigger": "Possible stronger general entropy-conservative theorem"
+      },
+      {
+        "assessment": "The paper uses quasi-orthogonal stage-spanning projection and thus radial endpoint normalization rather than RRK increment relaxation. Its threshold and modal-energy ratio differ demonstrably; it does not imply the new theorem",
+        "evidence": "Its energy ratio is (Q2/Q1)^n and threshold h²=168/85 for ω1=1 ω2=2; new RRK threshold (71−sqrt(2641))/10, with opposite selection at 197/100",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-a-unique-symplectic-timestep-and-sharp-modal-energy-reversal-in--3016d962c708/RESULT.md",
+        "material_read": "Entire RESULT.md, including exact method, proof, radial energy ratio, switch formula, limitations and literature",
+        "method": "Retrieved complete published primary result through public repository content",
+        "title": "A unique symplectic timestep and sharp modal-energy reversal in projected RK4",
+        "trigger": "Closest published sharp RK4 two-oscillator energy-transfer theorem"
+      },
+      {
+        "assessment": "Not used to exclude hidden full-text overlap; a different fixed-step relaxation-free method",
+        "evidence": "The abstract contrasts RF-RK with R-RK and focuses on constant timestep conservation",
+        "identifier_or_url": "https://arxiv.org/abs/2401.14508",
+        "material_read": "arXiv original abstract and its description of relaxation-free versus RRK methods",
+        "method": "Opened arXiv metadata/abstract; no full body inspection",
+        "title": "Energy Conservative Relaxation-Free Runge-Kutta Schemes",
+        "trigger": "Possible stronger energy-conserving RK correction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "49b550d8-88da-469f-aaf4-9b524d850716",
+  "value": {
+    "rationale": "Total-norm preservation is widely used as a numerical safeguard for conservative time integration. The new exact multi-mode selection and crossover distinguish false modal dynamics hidden by that safeguard and, at the same stable RK4 base step, show opposite long-time predictions from two standard norm corrections. This makes a mathematically motivated qualitative diagnostic rather than a routine computational constant; it is not a performance, general multirate, or nonlinear accuracy claim.",
+    "status": "PASS"
+  }
+}
