@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks
 
-The embedded `verify.py` needs only the Python standard library and can be run with `python verify.py`. Its finite exhaustive loops enumerate all subsets of the \(d\)-cube vertex set for \(d=2,3,4\), comparing exact rational probabilities for attaining full Euclidean diameter at retention probabilities \(1/4\) and \(1/2\) with the antipodal-pair independence identity. It separately checks the number of near-antipodal edges and the number of unordered pairs of edges meeting at one vertex. It tests the finite-degree approximation to the asymptotic Poisson mean and simulates independently sampled critical-pair events with a fixed seed.
+# Independent mathematical audit
 
-Observed completion marker: `BERNOULLI_CUBE_METRIC_CHECKS_PASSED`. Checks do not establish the asymptotic Poisson law or the all-dimensional uniqueness of the enclosing ball. Those statements rely on the explicit proof and its probabilistic bounds. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Reconstructed all quantifiers and normalizations from the assigned RESULT.md at Git tree 76766434e63989b655a7be189536cb79859e0cf6: integer d>=2, independent Bernoulli selection of canonical {0,1}^d vertices; R is Euclidean minimum enclosing-ball radius, Δ Euclidean diameter, empty sample R=Δ=0. For p_d=d^s 2^{-d}, fixed s>2, the center m=(1/2,...,1/2) belongs to the hull with probability 1-o(1); for p_d=c 2^{-d/2}d^{-j/2}, fixed c>0 and integer j>=0, likewise. The sign-pattern count <=2(2^d)^d and antipodal halfspace symmetry yield P(m not in K)<=2 exp(d^2 log 2 - 2^{d-1}p_d) at both scales. On center capture, any convex coefficients representing m give max_{v in K}||v-z||^2 >= d/4+||z-m||^2; the cube center ball has exactly radius sqrt(d)/2 and is uniquely optimal. For polynomial sample, E[# retained pairs]<=d^{2s}/2, so Hoeffding and union bound exclude pair Hamming distance > (1/2+epsilon)d; conditional on >=2 retained points, selecting a uniform pair of distinct retained points gives a uniform distinct cube pair with Hamming distance/d->1/2. This establishes Δ^2/d->1/2 and Δ/(2R)->1/sqrt(2). For the near-antipodal law set T_{d,j}=sum_{h=0}^j binom(d,h), N=2^d. The graph of edges of Hamming length >=d-j has NT/2 edges and degree T; E W_{d,j} = (c^2/2)T_{d,j}/d^j -> λ=c^2/(2j!). In each fixed factorial moment, disjoint k-edge collections contribute λ^k; overlapping union types on t vertices and r components satisfy t>2r, and after multiplying N^r T^{t-r} by p^t contribute O(N^{r-t/2}d^{j(t/2-r)})=o(1). Hence W_{d,j} is asymptotically Poisson(λ); the closer j-1 count has mean o(1), and the j+1 count has diverging mean with variance bounded by mean+N T_{j+1}^2 p^3, which is o(mean^2), proving two-point H=d-Δ^2 law. At j=0 distinct antipodal edges are disjoint, giving exactly 1-(1-p^2)^{2^{d-1}} in all d. Independently recomputed finite exact rational antipodal laws d=2,3,4, the graph-contact parameters, a d=3 center-containing sample without antipodal pair, and bounded critical-scale simulations (see independent_math_checks.json). The finite tests are not used as evidence for unrestricted limits; correctness rests on the complete analytic inequalities and factorial-moment argument. No substantive gap identified.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the combined two-regime exact geometric/diameter law, NOT for center capture, Poisson approximation machinery, or Hamming concentration in isolation. IMPORTANT new primary-source correction: Füredi 1986 Theorem 1.2 and Corollary 1.3 already prove the sharper 2d+O(sqrt(d)) threshold for containment of the cube center by uniform fixed-size random vertex samples. Conditional on binomial sample size, this covers the center-capture premise at both submitted much denser scales; earlier originality framing of center saturation must be corrected. Neither that paper nor the inspected 1992 Dyer–Füredi–McDiarmid random-cube volume theorem treats Euclidean diameters or the fixed-Hamming-deficit two-point Poisson staircase. The published random-code threshold-rate theorem covers broad existential distance thresholds but only with rate epsilon buffers, not the polynomial critical window or exact two-point probabilities, and says nothing about circumball equality. Resultary searches for geometric and coding-theoretic aliases retrieved the present record itself plus different-ensemble/different-invariant theorems; inspected their actual RESULT.md statements to reject false implications. Standard random-graph rare-edge Poisson theorems could cover the W_{d,j} sublemma but not the full mixed geometric claim. Search absence is not a priority certificate; residual older random-code extremal-distance literature and unindexed results remain genuine risks.
+
+## value
+
+PASS
+
+The object is the fundamental random 0/1-polytope ensemble and the invariants are standard Euclidean minimum enclosing radius and diameter. Their strong separation at a sample of polynomial size is geometrically informative even though center capture itself is classical; the full sharp family of fixed-j Poisson two-point diameter transitions supplies a natural threshold classification rather than an arbitrary finite slice. Exact c²/(2j!) critical masses are not determined by Füredi center threshold or volume results and can be used as precise benchmarks for high-dimensional random code extreme-pair geometry. Value is in the combined distribution and geometric interpretation, not in standard elementary inequalities or the independent finite verifier alone; s>2 is only sufficient and fixed-j asymptotics are explicitly limited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

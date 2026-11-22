@@ -1,0 +1,234 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T21:50:53.700806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed all quantifiers and normalizations from the assigned RESULT.md at Git tree 76766434e63989b655a7be189536cb79859e0cf6: integer d>=2, independent Bernoulli selection of canonical {0,1}^d vertices; R is Euclidean minimum enclosing-ball radius, Δ Euclidean diameter, empty sample R=Δ=0. For p_d=d^s 2^{-d}, fixed s>2, the center m=(1/2,...,1/2) belongs to the hull with probability 1-o(1); for p_d=c 2^{-d/2}d^{-j/2}, fixed c>0 and integer j>=0, likewise. The sign-pattern count <=2(2^d)^d and antipodal halfspace symmetry yield P(m not in K)<=2 exp(d^2 log 2 - 2^{d-1}p_d) at both scales. On center capture, any convex coefficients representing m give max_{v in K}||v-z||^2 >= d/4+||z-m||^2; the cube center ball has exactly radius sqrt(d)/2 and is uniquely optimal. For polynomial sample, E[# retained pairs]<=d^{2s}/2, so Hoeffding and union bound exclude pair Hamming distance > (1/2+epsilon)d; conditional on >=2 retained points, selecting a uniform pair of distinct retained points gives a uniform distinct cube pair with Hamming distance/d->1/2. This establishes Δ^2/d->1/2 and Δ/(2R)->1/sqrt(2). For the near-antipodal law set T_{d,j}=sum_{h=0}^j binom(d,h), N=2^d. The graph of edges of Hamming length >=d-j has NT/2 edges and degree T; E W_{d,j} = (c^2/2)T_{d,j}/d^j -> λ=c^2/(2j!). In each fixed factorial moment, disjoint k-edge collections contribute λ^k; overlapping union types on t vertices and r components satisfy t>2r, and after multiplying N^r T^{t-r} by p^t contribute O(N^{r-t/2}d^{j(t/2-r)})=o(1). Hence W_{d,j} is asymptotically Poisson(λ); the closer j-1 count has mean o(1), and the j+1 count has diverging mean with variance bounded by mean+N T_{j+1}^2 p^3, which is o(mean^2), proving two-point H=d-Δ^2 law. At j=0 distinct antipodal edges are disjoint, giving exactly 1-(1-p^2)^{2^{d-1}} in all d. Independently recomputed finite exact rational antipodal laws d=2,3,4, the graph-contact parameters, a d=3 center-containing sample without antipodal pair, and bounded critical-scale simulations (see independent_math_checks.json). The finite tests are not used as evidence for unrestricted limits; correctness rests on the complete analytic inequalities and factorial-moment argument. No substantive gap identified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Füredi (1986), Theorem 1.2/Corollary 1.3: center containment for a uniformly chosen n-set has sharp threshold n≈2d and Gaussian transition at n=2d+c sqrt(2d). This is strictly stronger than the submitted sufficient n=d^s (s>2) or exponentially large n as regards center containment.",
+          "Dyer–Füredi–McDiarmid (1992), §§1–2 Theorems 1.1–1.2: thresholds for expected volume of convex hulls of random cube vertices or cube interior points, not metric radius or pairwise Hamming extreme deficit.",
+          "Guruswami et al. (2021/2024), Theorem 1.2 and §§1–3: coarse rate thresholds for symmetric code properties; no sharp subexponential prefactor or two-point diameter law.",
+          "Resultary Bernoulli-thinned cross-polytope 2026/11/2 theorem is a random ±e_i hull with O(d) vertices, exact face/volume law; does not dominate a 2^d-vertex random cube metric statement.",
+          "Resultary isocanted cube 2026/10/11 has deterministic Euclidean circumradius and inradius; Resultary 2026/11/17 tangent-cone near-diameter theorem samples uniform continuum points at fixed dimension, not growing-d Bernoulli corners."
+        ],
+        "reasoning": "Unlike previous audit reports, do not credit the original assertion of novelty to the cube center capture; that is covered by Füredi and a short Euclidean center argument. The closest broader-looking statements only cover center capture, volume, fixed-rate thresholds, or different models. Their stated hypotheses and conclusions do not imply the fixed-j critical diameter masses plus radius/diameter separation together. No misclassification of stronger component results as novel.",
+        "searches": [
+          "Resultary: random Bernoulli thinned hypercube vertices Euclidean minimum enclosing ball radius diameter Poisson near antipodal Hamming staircase",
+          "Resultary: convex hull random cube corners contains center circumball diameter separation",
+          "Web: Furedi 1986 random polytopes d dimensional cube origin center convex hull 2d",
+          "https://www.renyi.hu/~furedi/PUBS3/furedi_054_random_in_d_cube.pdf",
+          "https://www.renyi.hu/~furedi/PUBS3/furedi_123_dyer_mcdiarmid_volumes-by-random-points-in-the-hypercube.pdf",
+          "https://arxiv.org/html/2009.04553v2",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-joint-face-volume-law-and-annealed-typical-gap-for-bernoul--b09ff7e0dbde/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-isocanted-cubes-have-exact-vertex-shells-and-a-chebyshev-center--12c715aa8342/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-two-term-near-diameter-tails-and-universal-endpoint-laws-for-con--ecc322b05388/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-diameter-law-and-exponential-endpoint-fluctuations-for-ran--72b090c504e9/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://www.renyi.hu/~furedi/PUBS3/furedi_054_random_in_d_cube.pdf",
+        "https://www.renyi.hu/~furedi/PUBS3/furedi_123_dyer_mcdiarmid_volumes-by-random-points-in-the-hypercube.pdf",
+        "https://d-nb.info/983177910/34",
+        "https://arxiv.org/html/2009.04553v2",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-joint-face-volume-law-and-annealed-typical-gap-for-bernoul--b09ff7e0dbde/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-isocanted-cubes-have-exact-vertex-shells-and-a-chebyshev-center--12c715aa8342/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-two-term-near-diameter-tails-and-universal-endpoint-laws-for-con--ecc322b05388/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-diameter-law-and-exponential-endpoint-fluctuations-for-ran--72b090c504e9/RESULT.md",
+        "https://arxiv.org/abs/2006.07000",
+        "https://arxiv.org/abs/1911.05917"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Füredi 1986 center-capture theorem => submitted event m in K with high probability, via binomial concentration/monotonicity; hence center-radius component is implied, not original.",
+          "Elementary Hilbert-space variance identity m in K => radius sqrt(d)/2, uniqueness; also not an independent originality claim.",
+          "Guruswami et al. 2009.04553 positive-rate threshold statements do not give P(H=j) or P(H=j+1) in p_d=c2^{-d/2}d^{-j/2}.",
+          "Newman 2006.07000 and Reitzner–Schütt–Werner 1911.05917 have nonidentical random base/sampling models and face/volume-type observables; the latter samples continuously on boundaries.",
+          "Resultary 2026/10/11 random cross-polytope central hyperplane diameter theorem concerns Haar normals; same word diameter but not same sampling ensemble."
+        ],
+        "reasoning": "By explicit implication, Füredi subsumes one theorem premise and standard Poisson theory potentially subsumes the edge-count step. Nevertheless these neither state nor mechanically substitute into each other to give the combined exact Poisson two-point Hamming-deficit staircase and Euclidean radius-vs-diameter separation of the same Bernoulli cube-hull ensemble; a proof connecting the ingredients is needed. Distinguish this narrow surviving original joint claim from already known components and retain historical-priority caveats.",
+        "searches": [
+          "Resultary: random Bernoulli thinned hypercube vertices Euclidean minimum enclosing ball radius diameter Poisson near antipodal Hamming staircase",
+          "Resultary: random binary code maximum Hamming pair distance near antipodal Poisson asymptotic critical pair threshold",
+          "Resultary: convex hull random cube corners contains center circumball diameter separation",
+          "https://www.renyi.hu/~furedi/PUBS3/furedi_054_random_in_d_cube.pdf",
+          "https://www.renyi.hu/~furedi/PUBS3/furedi_123_dyer_mcdiarmid_volumes-by-random-points-in-the-hypercube.pdf",
+          "https://arxiv.org/html/2009.04553v2",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-joint-face-volume-law-and-annealed-typical-gap-for-bernoul--b09ff7e0dbde/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-isocanted-cubes-have-exact-vertex-shells-and-a-chebyshev-center--12c715aa8342/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-two-term-near-diameter-tails-and-universal-endpoint-laws-for-con--ecc322b05388/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-diameter-law-and-exponential-endpoint-fluctuations-for-ran--72b090c504e9/RESULT.md",
+          "https://arxiv.org/abs/2006.07000",
+          "https://arxiv.org/abs/1911.05917"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For vertices of {0,1}^d, squared Euclidean distance equals Hamming distance; complementing each binary word sends maximum pairwise Hamming distance to minimum distance in a paired/negated code, so code-distance aliases matter.",
+          "Guruswami–Mosheiff–Resch–Silas–Wootters, arXiv:2009.04553v2, Introduction §§1.1–1.2 and characterization theorem: random codes are Bernoulli subsets of alphabet strings; their main result classifies threshold R* with fixed positive rate slack for symmetric existential properties, not exact fixed-j polynomial-window two-point probabilities."
+        ],
+        "reasoning": "Searched sampled binary codes, random-code distance extremes, random 0/1 polytope circumradius and rare near-antipodal pairs as explicit aliases. Generic threshold at exponential rate 1/2 may encompass a coarse appearance transition but does not imply the d^{-j/2} prefactor, Poisson factor 1/(2j!), or exact joint enclosing ball. No stronger identical joint conclusion was established in the inspected sources.",
+        "searches": [
+          "Resultary: random Bernoulli thinned hypercube vertices Euclidean minimum enclosing ball radius diameter Poisson near antipodal Hamming staircase",
+          "Resultary: random binary code maximum Hamming pair distance near antipodal Poisson asymptotic critical pair threshold",
+          "Web: random code random binary words minimum Hamming distance Poisson limit number of close pairs critical threshold d-j",
+          "Web: random codes minimum distance Poisson approximation Hamming Bernoulli subset cube threshold pairs",
+          "Web: random code random binary words minimum Hamming distance Poisson limit",
+          "https://arxiv.org/html/2009.04553v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The j=0 exact finite antipodal formula is the elementary product over 2^{d-1} disjoint antipodal pairs, and is not presented as novel on its own.",
+          "The j>=1 infinite staircase is an asymptotic two-atom limit with λ_j=c^2/(2j!) for every fixed j, not a recomputation of a finite cube diameter table; independent d=2..4 enumeration checks only j=0.",
+          "Gillmann 2007 thesis sections and contents distinguish typical 0/1-polytope face/facet results and graph-theoretic diameter bounds from Euclidean metric diameter."
+        ],
+        "reasoning": "No matching catalog/table of all fixed-j limiting Euclidean diameter deficits was found among the targeted random 0/1 polytope and random code sources. The finding is a natural dimension-parametric distribution, not a table of small d; absence from searches is not itself proof of priority.",
+        "searches": [
+          "Resultary: random Bernoulli thinned hypercube vertices Euclidean minimum enclosing ball radius diameter Poisson near antipodal Hamming staircase",
+          "Resultary: random binary code maximum Hamming pair distance near antipodal Poisson asymptotic critical pair threshold",
+          "Web: random code random binary words minimum Hamming distance Poisson limit number of close pairs critical threshold d-j",
+          "Web: random codes minimum distance Poisson approximation Hamming Bernoulli subset cube threshold pairs",
+          "https://www.renyi.hu/~furedi/PUBS3/furedi_123_dyer_mcdiarmid_volumes-by-random-points-in-the-hypercube.pdf",
+          "https://d-nb.info/983177910/34"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the combined two-regime exact geometric/diameter law, NOT for center capture, Poisson approximation machinery, or Hamming concentration in isolation. IMPORTANT new primary-source correction: Füredi 1986 Theorem 1.2 and Corollary 1.3 already prove the sharper 2d+O(sqrt(d)) threshold for containment of the cube center by uniform fixed-size random vertex samples. Conditional on binomial sample size, this covers the center-capture premise at both submitted much denser scales; earlier originality framing of center saturation must be corrected. Neither that paper nor the inspected 1992 Dyer–Füredi–McDiarmid random-cube volume theorem treats Euclidean diameters or the fixed-Hamming-deficit two-point Poisson staircase. The published random-code threshold-rate theorem covers broad existential distance thresholds but only with rate epsilon buffers, not the polynomial critical window or exact two-point probabilities, and says nothing about circumball equality. Resultary searches for geometric and coding-theoretic aliases retrieved the present record itself plus different-ensemble/different-invariant theorems; inspected their actual RESULT.md statements to reject false implications. Standard random-graph rare-edge Poisson theorems could cover the W_{d,j} sublemma but not the full mixed geometric claim. Search absence is not a priority certificate; residual older random-code extremal-distance literature and unindexed results remain genuine risks.",
+      "residual_risks": [
+        "Füredi 1986 proves a much stronger cube-center containment threshold; center capture and the induced elementary sphere equality must not be advertised as original standalone facts.",
+        "General dependency-graph Poisson theorems and random-binary-code minimum-distance results may imply the extremal-edge staircase alone; broad historical literature cannot be exhaustively excluded.",
+        "Some relevant primary sources were read only at abstract/model level; their complete text was not independently scrutinized here. No negative whole-document priority claim is based on unread text.",
+        "The research package cites an antecedent first_public_date 2019-11-14 (another paper) as though it were this finding’s first publication; corrected priority provenance is necessary before publication.",
+        "Original manuscript incorrectly says full Füredi 1986 and Dyer–Füredi–McDiarmid 1992 texts were inaccessible. Both open author copies have now been inspected; that scientific description must be corrected on any future published package."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PARTIAL_COVERAGE_CENTER_CAPTURE",
+          "evidence": "Fixed-cardinality sample of 2d+c sqrt(2d) cube vertices has limiting center-containment Φ(c), with threshold 2d; the submitted center-containment property at much larger sample size follows, but no diameter or Poisson staircase theorem is given.",
+          "identifier_or_url": "https://www.renyi.hu/~furedi/PUBS3/furedi_054_random_in_d_cube.pdf",
+          "material_read": "All five pages: abstract, Theorem 1.2 and Corollary 1.3, proof via hyperplane arrangements and random ±1 matrix nonsingularity, final remarks and references",
+          "method": "Author-hosted lawful open-access original PDF, page images and extracted text",
+          "title": "Random Polytopes in the d-Dimensional Cube",
+          "trigger": "Exact earlier same-object title and claimed previously inaccessible full text"
+        },
+        {
+          "assessment": "SAME_SAMPLING_OBJECT_DIFFERENT_INVARIANT",
+          "evidence": "The article obtains sample-count thresholds for expected Euclidean volume of random convex hulls, not minimum enclosing radius or maximum Hamming-pair distance distribution.",
+          "identifier_or_url": "https://www.renyi.hu/~furedi/PUBS3/furedi_123_dyer_mcdiarmid_volumes-by-random-points-in-the-hypercube.pdf",
+          "material_read": "Original 16-page PDF: abstract, stated Theorems 1.1–1.2, key volume argument and central lemmas, final material and references; not a line-by-line assertion over every page",
+          "method": "Author-hosted lawful original PDF, page images and extracted text",
+          "title": "Volumes Spanned by Random Points in the Hypercube",
+          "trigger": "1992 classical primary paper with identical corner-sampling object"
+        },
+        {
+          "assessment": "COARSE_RATE_THRESHOLDS_NO_SHARP_FIXED_LAYER_LAW",
+          "evidence": "Theorem 1.2 describes threshold rate with ±epsilon slack for symmetric code properties; does not state c 2^{-d/2}d^{-j/2} window or the exact Poisson mass c²/(2j!).",
+          "identifier_or_url": "https://arxiv.org/html/2009.04553v2",
+          "material_read": "Original full-text HTML: introduction and §§1.1–1.3, main characterization statements, positive-rate thresholds and zero-rate caveat; focused section search, not a line-by-line read of all appendices",
+          "method": "Lawful arXiv HTML full-text reading",
+          "title": "Threshold rates for properties of random codes",
+          "trigger": "Exact Bernoulli random-code ensemble and pairwise distance threshold; potential stronger coding formulation"
+        },
+        {
+          "assessment": "DISTINGUISH_GRAPH_DIAMETER_FROM_EUCLIDEAN_METRIC",
+          "evidence": "Graph-theoretic diameter bound and typical face data; cites Füredi 1986 for center threshold, not a joint Euclidean metric radius and fixed-deficit Poisson law.",
+          "identifier_or_url": "https://d-nb.info/983177910/34",
+          "material_read": "Table of contents, introduction/typical-polytopes summary, Theorem 1.11 graph-diameter material and random cube-vertex literature references",
+          "method": "Open dissertation PDF with page-image inspection",
+          "title": "0/1-Polytopes: Typical and Extremal Properties",
+          "trigger": "Thesis survey plausibly cataloging random cube vertices and diameters"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_POLYTOPE_AND_INVARIANTS",
+          "evidence": "Thins ±e_i, with only 2d initial vertices, for face-vector and volume; no cube-vertex Hamming diameter theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-joint-face-volume-law-and-annealed-typical-gap-for-bernoul--b09ff7e0dbde/RESULT.md",
+          "material_read": "RESULT.md finding, definitions and coordinate-pair classification proof, exact finite and asymptotic formulas; inspected relevant opening sections",
+          "method": "Primary published GitHub RESULT.md via read-only connector",
+          "title": "Exact joint face–volume law and annealed–typical gap for Bernoulli-thinned cross-polytopes",
+          "trigger": "High-similarity Resultary finding with Bernoulli thinning and antipodal geometry"
+        },
+        {
+          "assessment": "DETERMINISTIC_MODIFIED_CUBE_NOT_RANDOM_CORNER_HULL",
+          "evidence": "A deterministic isocanted cube has radius ℓ√d/2 and inball threshold; does not address sampled cube vertices or a random diameter law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-isocanted-cubes-have-exact-vertex-shells-and-a-chebyshev-center--12c715aa8342/RESULT.md",
+          "material_read": "RESULT.md finding, displayed Euclidean shell/circumradius/inradius formulas and the associated deterministic alcoved-inequality derivation",
+          "method": "Primary published GitHub RESULT.md via read-only connector",
+          "title": "Isocanted cubes have exact vertex shells and a Chebyshev-center phase transition",
+          "trigger": "Resultary cube and unique circumradius theorem plausible stronger metric result"
+        },
+        {
+          "assessment": "DIFFERENT_LIMIT_AND_SAMPLING_DISTRIBUTION",
+          "evidence": "Independent points uniform in the interior of a FIXED d-dimensional P, ε→0; not Bernoulli corner retention with d→∞.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-two-term-near-diameter-tails-and-universal-endpoint-laws-for-con--ecc322b05388/RESULT.md",
+          "material_read": "Main theorem, exact fixed-polytope tangent-cone setup and proof of leading asymptotics",
+          "method": "Primary published GitHub RESULT.md via read-only connector",
+          "title": "Two-term near-diameter tails and universal endpoint laws for convex polytopes",
+          "trigger": "Higher-general theorem on diameter tails in arbitrary polytopes"
+        },
+        {
+          "assessment": "DIFFERENT_POLYTOPE_AND_RANDOM_MECHANISM",
+          "evidence": "Haar-random hyperplane section of l1 cross-polytope, not a thinned cube; no logical implication.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-diameter-law-and-exponential-endpoint-fluctuations-for-ran--72b090c504e9/RESULT.md",
+          "material_read": "RESULT.md finding, Euclidean diameter definitions, exact law and main endpoint-limit proof structure",
+          "method": "Primary published GitHub RESULT.md via read-only connector",
+          "title": "Exact diameter law and exponential endpoint fluctuations for random cross-polytope hyperplane sections",
+          "trigger": "High-similarity random polytope diameter result"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_BASE_POLYTOPE",
+          "evidence": "Random circumscribed base polytope is then vertex thinned; main results concern facet geometry and approximation, not fixed cube near-antipodal pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.07000",
+          "material_read": "Model and claims in accessible article abstracts and original package discussion; not a fresh assertion of complete independent rereading",
+          "method": "Article abstract / original reference comparison",
+          "title": "Doubly random polytopes",
+          "trigger": "Prior sampled-vertex polytope model cited by manuscript"
+        },
+        {
+          "assessment": "CONTINUOUS_BOUNDARY_SAMPLING_NOT_CORNERS",
+          "evidence": "Samples from continuous boundary measure of a fixed simple polytope; expected face and volume geometry, not Bernoulli retained vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Publisher open-access abstract and theorem/model summary as available in this run; no new claim of full-text rereading",
+          "method": "Publisher OA metadata and model-level comparison",
+          "title": "The Convex Hull of Random Points on the Boundary of a Simple Polytope",
+          "trigger": "Broad boundary-sampled polytope theorem in submitted references"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is the fundamental random 0/1-polytope ensemble and the invariants are standard Euclidean minimum enclosing radius and diameter. Their strong separation at a sample of polynomial size is geometrically informative even though center capture itself is classical; the full sharp family of fixed-j Poisson two-point diameter transitions supplies a natural threshold classification rather than an arbitrary finite slice. Exact c²/(2j!) critical masses are not determined by Füredi center threshold or volume results and can be used as precise benchmarks for high-dimensional random code extreme-pair geometry. Value is in the combined distribution and geometric interpretation, not in standard elementary inequalities or the independent finite verifier alone; s>2 is only sufficient and fixed-j asymptotics are explicitly limited.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.renyi.hu/~furedi/PUBS3/furedi_054_random_in_d_cube.pdf",
+    "https://www.renyi.hu/~furedi/PUBS3/furedi_123_dyer_mcdiarmid_volumes-by-random-points-in-the-hypercube.pdf",
+    "https://d-nb.info/983177910/34",
+    "https://arxiv.org/html/2009.04553v2",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-joint-face-volume-law-and-annealed-typical-gap-for-bernoul--b09ff7e0dbde/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-isocanted-cubes-have-exact-vertex-shells-and-a-chebyshev-center--12c715aa8342/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-two-term-near-diameter-tails-and-universal-endpoint-laws-for-con--ecc322b05388/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-diameter-law-and-exponential-endpoint-fluctuations-for-ran--72b090c504e9/RESULT.md",
+    "https://arxiv.org/abs/2006.07000",
+    "https://arxiv.org/abs/1911.05917"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "s>2 is a sufficient (not sharp) polynomial sample exponent; Füredi proves sharply center capture already by size just beyond 2d.",
+    "Critical c>0 and integer j>=0 are fixed while d grows; no claim for j=j(d).",
+    "Finite checks and Monte Carlo do not prove asymptotic results; the argument needs full factorial-moment and center-separation proof.",
+    "Best-of-knowledge literature comparisons cannot guarantee the novel joint claim’s absolute historical priority.",
+    "Science review complete but publication import not_ready due to privacy and provenance corrections."
+  ],
+  "residual_risks": [
+    "Füredi 1986 proves a much stronger cube-center containment threshold; center capture and the induced elementary sphere equality must not be advertised as original standalone facts.",
+    "General dependency-graph Poisson theorems and random-binary-code minimum-distance results may imply the extremal-edge staircase alone; broad historical literature cannot be exhaustively excluded.",
+    "Some relevant primary sources were read only at abstract/model level; their complete text was not independently scrutinized here. No negative whole-document priority claim is based on unread text.",
+    "The research package cites an antecedent first_public_date 2019-11-14 (another paper) as though it were this finding’s first publication; corrected priority provenance is necessary before publication.",
+    "Original manuscript incorrectly says full Füredi 1986 and Dyer–Füredi–McDiarmid 1992 texts were inaccessible. Both open author copies have now been inspected; that scientific description must be corrected on any future published package."
+  ],
+  "schema_version": 1
+}
