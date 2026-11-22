@@ -1,0 +1,23 @@
+# Scientific review: exact directional-mobility invasion classification
+
+## Correctness
+
+**PASS.** The claim concerns only the stated four-dimensional, disease-free linear infection system. Its next-generation square reduces to a positive two-by-two matrix, with exact symbolic trace and determinant. The host migration inverse is a convex interpolation between the identity and the stationary rank-one projection. Because the characteristic equation is affine in interpolation weight, a positive simple Perron root can have a zero derivative only if it is constant over the full interval; the endpoints therefore give a strict monotonicity trichotomy. The characteristic equation at unit Perron root is linear in migration strength and gives the finite crossing, with no extraneous branch. The example is established using exact rational identities. The checker reproduced the identities and rational witness in 1,080 separate rational cases; this is corroboration, not a proof for every parameter.
+
+## Originality
+
+**PASS, subject to historical-priority limitations.** Dey–Kar–Tridane (2026) supplies the direction of nonidentical vector and host dispersal, but the available abstract discusses an operator, threshold dynamics and numerical effects; the inaccessible full article is an explicit uncertainty, not proof of noncoverage. Gao–van den Driessche–Cosner (2019) fully analyzes movement with **epidemiologically identical patches**, which is stronger than equality of *isolated reproduction-number products* and does not imply the present reciprocal-transmission directional-bias rule; its manuscript, main theorems and examples were inspected. Gao–Dong (2019) proves a reduction principle for one diffusing infected class and a diagonal new-infection operator; neither assumption holds here after the vector resolvent is taken. Gao–Lou (2025) treats immobile vectors. Ruktanonchai–Smith–De Leenheer (2016) already show that when both hosts and vectors travel, a network may remain supercritical despite all local reproduction numbers being subcritical; that qualitative effect is excluded from the originality claim. Their full Lagrangian-model source–sink analysis does not state the present Eulerian host migration rate trichotomy. Cosner et al. (2009) and Gao–Yuan (2024) develop different general movement formulations without this exact all-rate classification in their inspected material. Existing results establish that travel and heterogeneity matter; that general phenomenon is not claimed new.
+
+The published-result searches found nearby statements about hybrid host commuting and vector migration, asymmetric host prevalence, two-patch commuter epidemic thresholds and time-varying vector–host contact, but no result with the same two-class Eulerian resolvent, reciprocal transmission contrasts, monotonicity sign threshold and unique exact crossing. Similar words or matching patch count are not relied on for novelty. An older unindexed two-state matrix specialization or content in the unavailable initiating paper may still imply the theorem.
+
+## Value
+
+**PASS.** Equal isolated reproduction numbers usually hide whether mixing will help or hinder invasion. The theorem identifies a concrete two-way transmission asymmetry and a sharp stationary migration-bias boundary that changes the **direction** of the invasion response, while proving coupled mobility can produce supercritical invasion even when both one-class-mobility limits remain subcritical. The explicit all-parameter criterion and rational exact crossing are natural benchmarks for spatial vector–host simulation and counterexamples to extrapolating one-class diffusion reduction principles to a two-class moving infection system.
+
+## Limitations and relevant literature
+
+The theorem is about linear invasion only, with special reciprocal coefficients, identical host and vector loss rates, two patches and fixed coefficients. The full initiating paper and the full text of some older possibly relevant material could not be compared; an independent priority determination would require that comparison. The finite checker is not an infinite proof.
+
+References: Dey, Kar & Tridane (2026), DOI:10.1016/j.mbs.2026.109856; Gao, van den Driessche & Cosner (2019), DOI:10.1007/s00285-019-01428-2; Gao & Dong (2019), arXiv:1907.12229; Gao & Lou (2025), DOI:10.1007/s00285-025-02254-5; Cosner et al. (2009), DOI:10.1016/j.jtbi.2009.02.016; Gao & Yuan (2024), DOI:10.1007/s00285-024-02109-5; Ruktanonchai, Smith & De Leenheer (2016), DOI:10.1016/j.mbs.2016.06.012.
+
+Self-review: passed. Independent audit: not yet performed.
