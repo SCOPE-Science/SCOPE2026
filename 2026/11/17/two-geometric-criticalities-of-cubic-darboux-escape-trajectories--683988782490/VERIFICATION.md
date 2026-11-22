@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact orbit graph is derived by differentiating the signed cross-ratio and integrating the scalar height equation. The separate area variable gives an Euler hypergeometric integral whose convergence exponent proves the finite-area classification. The critical affine expansion, logarithmic correction, and both coefficient–height crossover functions follow from uniform asymptotic estimates in the written proof.
+## correctness
 
-Run `python check.py` with the dependencies in `requirements.txt`. The successful local check printed `DARBOUX_TWO_GEOMETRIC_THRESHOLDS_CHECK_OK`. It symbolically verifies the reduced differential identity, compares hypergeometric and independent quadrature formulas, checks both exact critical-section identities, and numerically compares crossover profiles to exact formulas at large finite heights.
+PASS
 
-These reproducible finite tests are supplemental; they are not proof of any infinite quantifier, priority, independent validation, or stability under perturbation. Direct related articles from 2017 and 2023 remain full-text access limitations in originality comparison.
+Directly differentiated X(y)=y(1+q)/(1-q) with q'=(-2y/(1+py²))q and confirmed the exact cubic ODE using SymPy. The exact area substitution has near-zero kernel v^{-p}, giving p=1 threshold; transverse exponent 1-2/p gives p=2. The stated uniform windows follow a bounded-error integration near p=1 and exponent continuity near p=2.
+
+## originality
+
+PASS
+
+The cubic first integral and phase portraits are prior art, and the prior escape clock studies a<-b near x=-y. Current p=1 area and p=2 affine thresholds for a>-b are distinct Euclidean observables, though uninspected older Volokitin full papers remain priority risks.
+
+## value
+
+PASS
+
+Two distinct natural geometric escape observables (absolute line-offset and finite strip area) have exact, sharply different critical exponents and uniform scaling windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

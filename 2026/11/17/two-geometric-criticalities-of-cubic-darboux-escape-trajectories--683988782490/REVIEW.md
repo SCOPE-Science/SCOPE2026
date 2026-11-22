@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain fixes a strictly positive cubic coefficient, positive initial height, and the entire side of the invariant line \(a>-b\), omitting the diagonal itself. The scalar height is strictly increasing and its finite blow-up time follows from a one-dimensional exact solution. Direct differentiation of \((x/y-1)/(x/y+1)\) gives the exact graph for every orbit in the domain. The denominator cannot vanish because the initial signed cross-ratio is less than one. The transverse-gap estimate is uniform on compact coefficient intervals. The signed area follows by a nonsingular section change of variables, with its only integrability threshold at \(p=1\); expansion of the critical \(p=2\) graph gives its second-order term. Finally, uniform integrable-error bounds near \(p=1\), and uniform regular variation near \(p=2\), prove both joint parameter–height crossovers. The standalone symbolic and numerical checker passes, but the analytic proof—not finite testing—supports the universal claims.
+## correctness
 
-## Originality — PASS within evidence, with limitations
-The full accessible 2023 source for this same cubic system already gives its phase portraits, invariant lines, and Darboux first integral; it is the essential starting result and is not claimed as original here. The closest publicly indexed 2026 result gives the physical escape clock and parameter–distance crossover on the *opposite* side of the invariant line. Neither inspected primary statement supplies an orbit-to-diagonal Euclidean strip-area classification, a parallel-affine-offset resonance at \(p=2\), or uniform parameter–height crossover limits at both \(p=1\) and \(p=2\). The original first integral implicitly determines curves, so the contribution is the separate *quantitative asymptotic classification and exact geometric integral*, not a new integrability theorem. The 2017 and 2023 related Darboux articles were identified, but their complete texts could not be inspected; unindexed equivalents may exist. No absolute priority or independence is asserted.
+PASS
 
-## Value — PASS
-Two natural geometric metrics reveal different critical parameters invisible to topological equivalence: the total area between an escaping orbit and the invariant diagonal can be infinite even when the transverse distance converges to zero. At the second threshold each escaping orbit retains a finite, initial-state-dependent affine offset and a universal-order logarithmic correction to accumulated strip area. The joint crossover laws quantify how these distinctions appear when the coefficient approaches a threshold on the same scale as the observation height. This is a complete sharp classification for the natural full positive-parameter escape sector, not an arbitrary finite parameter sample or a renaming of the known Darboux invariant. Stability under perturbations is not claimed.
+Directly differentiated X(y)=y(1+q)/(1-q) with q'=(-2y/(1+py²))q and confirmed the exact cubic ODE using SymPy. The exact area substitution has near-zero kernel v^{-p}, giving p=1 threshold; transverse exponent 1-2/p gives p=2. The stated uniform windows follow a bounded-error integration near p=1 and exponent continuity near p=2.
 
-## Closest literature and residual risk
-E. P. Volokitin (2023), arXiv:2306.10706v1, full accessible mathematical treatment of the same cubic field, provides the key first integral. *A logarithmic-to-Hölder separatrix escape transition in a cubic Darboux flow* (published 2026), full RESULT.md examined, quantifies the opposite escaping sector. The general star-node classification by Alarcón, Castro and Labouriau (arXiv:2106.07516) does not address these metric invariants. The directly related Volokitin–Cheresiz 2017 and 2023 records were found, but their full-text comparison remains outstanding; this is a genuine residual originality risk. A numerical checker cannot settle mathematical originality or replace expert review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cubic first integral and phase portraits are prior art, and the prior escape clock studies a<-b near x=-y. Current p=1 area and p=2 affine thresholds for a>-b are distinct Euclidean observables, though uninspected older Volokitin full papers remain priority risks.
+
+## value
+
+PASS
+
+Two distinct natural geometric escape observables (absolute line-offset and finite strip area) have exact, sharply different critical exponents and uniform scaling windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
