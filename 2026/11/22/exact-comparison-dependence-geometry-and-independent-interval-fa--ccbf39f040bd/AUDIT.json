@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact IID-priority model: pair indicator equals the event that the minimum priority of its rank interval is at an endpoint. Disjoint and strict-nested joint probabilities are 4/(uv); shared-endpoint, touching, and interleaving cases give respectively (s+2)/(s*l), (1+2/u+2/v)/(u+v-1), and (2/t)(1/u+1/v). Subtracting 4/(uv) yields each stated sign and boundary. For mutual independence, removal of a minimal interval reveals its argmin identity is independent of its minimum value and all external priorities, and the other indicators depend on the removed interval only through its minimum. Induct. Conversely every forbidden nontrivial pair has nonzero covariance. The finite checker passed 935 exact-rational assertions including 11 strict-laminar triple events at sizes <=8; these are supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Iliopoulos–Penman, arXiv:1006.4063, Theorem 2.1 is about variance of total comparison count.",
+        "Alonso et al., arXiv:math/0312437, study inversions in the output when comparisons may err.",
+        "Public research record “Quantitative asymptotic independence of Quicksort cost and inversion fluctuations” concerns total cost versus inversion count."
+      ],
+      "reasoning": "The scalar sum variance contains only one aggregate of all pairwise covariances, not their individual signs or the all-order independence of strict-laminar subcollections. The unreliable-comparisons model has a different outcome observable, and the previously published global cost/inversion result likewise does not imply this claim.",
+      "searches": [
+        "quicksort indicator pair comparison covariance intervals nesting disjoint crossing",
+        "Randomized Quicksort laminar intervals comparisons mutual independence exact product Bernoulli",
+        "quicksort covariance comparisons nested overlap"
+      ]
+    },
+    "checked_sources": [
+      "Alonso et al. (2003), arXiv:math/0312437 (full text relevant parts)",
+      "Iliopoulos and Penman (2010), arXiv:1006.4063 (full text relevant parts)",
+      "University of Michigan EECS376 randomized-Quicksort notes (relevant section)",
+      "Published mathematical summaries on global Quicksort cost versus inversion statistics and on comparison shattering, examined for implication but not full-text priority certified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classic marginal is 2 divided by the closed rank-interval length.",
+        "Iliopoulos–Penman derive the established variance of the total count using total-cost recurrences.",
+        "The present claim gives negative pairwise covariance for interleaving intervals and a product joint law for any strictly laminar family."
+      ],
+      "reasoning": "Knowing all single marginals or the aggregate variance does not determine any fixed off-diagonal entry; even all pairwise zero covariances would not generally imply higher-order mutual independence. The new proof supplies this missing implication directly by conditioning on the minimum value of an inclusion-minimal interval.",
+      "searches": [
+        "\"randomized quicksort\" \"two comparisons\" \"independent\"",
+        "quicksort comparison covariance four-key interval overlap",
+        "randomized quicksort independently compared pairs nested intervals laminar independence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Standard individual comparison event is equivalently an endpoint-minimum event on a rank interval (University of Michigan lecture notes).",
+        "Searches under random binary-search trees, pivot priorities, and nested key intervals found no equivalent simultaneous covariance-and-independent-family theorem."
+      ],
+      "reasoning": "The endpoint-minimum representation is the correct bridge to treaps/Cartesian trees. It gives each marginal but does not on its own state or imply the complete mutual-independence characterization without an additional joint sigma-field argument; related terminology has been searched, not exhaustively ruled out.",
+      "searches": [
+        "randomized quicksort comparison indicators negative correlation interleaving intervals",
+        "random binary search tree comparison indicators independent nested",
+        "quicksort comparisons pair pair covariance dependence random permutation keys i j k l"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A standard teaching reference tabulates only the single-comparison probability, not an all-pairs joint probability table.",
+        "Exact finite data produced here from all pivot priority orders for sizes 2 through 8 agree with the closed formulas; those data do not alone prove historical originality."
+      ],
+      "reasoning": "No directly matching exact pairwise covariance table or complete independent-subfamily classification was found among examined public mathematics and algorithm references. Lack of such a hit is not a proof of uniqueness.",
+      "searches": [
+        "\"quicksort\" \"covariance\" \"indicators\" comparison pair",
+        "\"quicksort\" \"joint probability\" \"compared\" two pairs",
+        "quicksort independently compared pairs nested intervals laminar independence"
+      ]
+    },
+    "rationale": "The standard single-pair Quicksort probability and the aggregate total-comparison variance were explicitly excluded from novelty. Originality is assessed only for the full interval-resolved signed covariance law and the necessity-and-sufficiency all-order independence classification. Full-text theorem/proof sections in the closest directly relevant probability preprints address global variance or erroneous comparison outputs, not these laws. Independent historical priority remains open.",
+    "residual_risks": [
+      "An equivalent all-order independence statement may exist in the older treap, random search-tree, or Cartesian-tree literature under distinct terminology.",
+      "Historical priority cannot be certified merely from indexed search results and inspected relevant sections.",
+      "The presentation uses a standard minimum-priority representation; novelty concerns the complete dependence classification rather than that representation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.1 concerns the scalar total comparison variance, derived from a scalar cost generating-function recurrence; it does not state the comparison-indicator covariance kernel or an all-order laminar independence classification.",
+        "evidence": [
+          "arXiv:1006.4063v1, page 2 introduction and Theorem 2.1 on printed page 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1006.4063",
+        "material_read": "20-page accessible PDF: first-page contents, introduction, theorem 2.1, proof section pages 2–4 and full-document text searches for indicator and joint.",
+        "method": "Direct preprint PDF text inspection and page-image verification.",
+        "title": "Variance of the number of Comparisons of Randomized Quicksort",
+        "trigger": "Same random-pivot algorithm and exact total-comparison second moment."
+      },
+      {
+        "assessment": "Analyzes inversion statistics in the output when comparison errors occur; its main statements do not resolve the error-free comparison-indicator covariance field.",
+        "evidence": [
+          "arXiv:math/0312437v1, abstract and introduction on printed page 1, Section 2 results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0312437",
+        "material_read": "28-page accessible PDF: first-page introduction, sections 1–2 main results and theorem statements, full-document text searches for covariance and independent comparisons.",
+        "method": "Direct preprint PDF text inspection and first-page image verification.",
+        "title": "Quicksort with unreliable comparisons: a probabilistic analysis",
+        "trigger": "Related Quicksort probabilistic dependence with altered edge-comparison outcomes."
+      },
+      {
+        "assessment": "Supplies established \\(2/(b-a+1)\\) marginal; does not state the four-case covariance law or independent-family converse.",
+        "evidence": [
+          "Probability section for randomized Quicksort, pairwise comparison event and its proof."
+        ],
+        "identifier_or_url": "https://eecs376.github.io/notes/randomness.html",
+        "material_read": "Web lecture-note section deriving the indicator \\(I_{a,b}\\) and its marginal probability.",
+        "method": "Full relevant HTML section examined.",
+        "title": "Randomized Quicksort",
+        "trigger": "Direct pedagogical baseline for the min-endpoint comparison event."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ccbf39f0-40bd-4d1e-a6d7-612898f7007d",
+  "value": {
+    "rationale": "The full comparison-event dependence structure of a fundamental randomized sorting algorithm is a natural question beyond total expected cost. The all-size signed covariance kernel identifies which interactions repel, attract, or vanish. The necessary-and-sufficient characterization proves exact joint independence for arbitrary-size strict-laminar families, enabling rigorous product probabilities and weighted-count computations unavailable from the classical marginal or total-variance facts. This is a structural probability theorem, not an arbitrary finite sample or minor numeric improvement.",
+    "status": "PASS"
+  }
+}
