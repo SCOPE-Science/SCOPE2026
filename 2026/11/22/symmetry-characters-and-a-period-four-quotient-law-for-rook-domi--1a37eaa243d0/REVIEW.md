@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness
+The face definition is precise, and the complement-neighborhood rectangles give an equivariant good cover. The support map has contractible lower fibers; hence the ordinary nerve-to-product homology isomorphism commutes with row, column and transpose actions. The integral Künneth representation of the product of simplex boundaries gives the three lines. Their degree reversal and orientation twist yield the displayed integral characters, with the transpose scalar combining the parity of its permutation of board cells and the Koszul factor flip. Rational transfer yields the full-group and arbitrary-subgroup quotient consequences. Direct and orbit-based signed Lefschetz computations agree for the tested sizes, and full finite-group character averages give the predicted quotient reduced Euler characteristics. Risk: verification is finite and does not replace the general topological argument; no integral torsion statement is made about the quotients.
+
+## Originality
+The 2023 Matsushita--Wakatsuki full preprint gives the general Alexander-dual identity, not this full automorphism representation. Mertens' 2024 full preprint counts dominating sets, not induced homology actions. A public 2026 study exactly covers the nonequivariant rook-dominance homotopy type, and that result is expressly not re-claimed. The new comparison is at the level of homology modules and quotient invariants: an ordinary three-sphere wedge does not determine the actions, and neither stated prior result provides the period-four full-automorphism quotient law. Classic graph-Hom product results were also checked as potential stronger coverage; their sphere-product statements do not explicitly provide the sign-twisted rook dominance character or transpose behavior. Risk: the equivariant calculation is derived from classical machinery and an equivalent unindexed corollary may exist.
+
+## Value
+The independent permutation symmetries and extra square-board transpose are intrinsic to these graph families. Determining their exact integral characters distinguishes all subgroup quotient rational Betti patterns without quotient-by-quotient enumeration. The unexpected dependence on board-size parity modulo four shows that identical nonequivariant three-sphere descriptions conceal qualitatively different orbit-space homology. This is a natural topological invariant, not a cosmetic recomputation of face numbers or Betti ranks.
+
+Self-review: passed. Independent audit: not yet performed.
