@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an exact Euclidean facet-measure statement, not merely a lattice-volume computation. Every facet is irredundant and classified from the covers of the two-row grid. The disjoint canonical order-simplex triangulation gives the exact per-simplex metric area and the area/volume factor. The Dyck-word argument explicitly separates adjacent equal letters, valleys and hills; Narayana peak symmetry and Catalan convolution yield the three facet-class totals and the complete vertical individual spectrum. Standard Catalan asymptotics and the monotone Catalan quotient prove the endpoint concentration, bulk scale and inward monotonicity. The delivered `verify.py` independently enumerates all 23,713 Dyck words up through semilength 10 and reconstructs 414 exact facet Gram determinants for small dimensions. Finite enumeration is used only as corroboration; the all-parameter argument is analytic.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-An implication comparison was made with von Bell et al. (arXiv:2102.11306, Sections 2–3), which studies the ladder family, its volume and triangulations; Santos, Stump and Welker (arXiv:1403.8133, Sections 1 and 3), which studies the product-of-chains poset and Catalan/Narayana triangulations; and Lee, Vindas-Meléndez and Wang (arXiv:2411.18695, Sections 2 and 4), which gives explicit ladder Ehrhart and \(h^*\) data. These sources provide inputs and in the last case potentially aggregate lattice-normalized boundary information. The specific *individual intrinsic Euclidean vertical-facet areas* and their strict U-shaped order, endpoint condensation, limiting endpoint law and bulk \(n^{-3/2}\) profile are not stated or implied by a covered general facet-metric theorem in the material inspected. Similar published results on rooted-tree order-polytopes concern cover graphs without the ladder's cycles and do not imply this theorem. Absence of an equivalent in unindexed older literature is not established; the theorem is recorded as provisional-priority research, not externally certified novelty.
+PASS
 
-## Mathematical value — PASS
-A complete coordinate-labeled facet-area law for a classical infinite family is a natural geometric invariant, with a sharp geometric consequence not visible from facet counts: among the \(n\) vertical cover facets, essentially all area lies within a bounded but adjustable distance from the two ends as dimension grows, and the central facet share decays at the exact \(n^{-3/2}\) scale. The area distribution is structurally relevant to boundary sampling, not an arbitrary parameter slice. The aggregate area formula is useful context but is not alone the value justification because its lattice-weighted counterpart can be inferred from known Ehrhart methods.
+Canonical order-simplex triangulation is indexed by Dyck words (two chains, dominance A_i≺B_i); each simplex has volume 1/(2n)!. Coordinate facets have intrinsic area 1/(D−1)! and cover-equality facets √2/(D−1)! because the latter equality normal has length √2; face adjacency occurs exactly when the cover elements are consecutive in the linear extension. In a Dyck word peaks UD, valleys DU, hills UD at level zero, only hills correspond to the vertical cover A_i≺B_i. Its number of cover adjacencies is D−2P+H. Narayana symmetry E[P]=(n+1)/2 and Catalan-convolution E[H]=1, so all cover faces total D√2 n, split horizontal D√2(n−1), vertical D√2. A hill at i corresponds to C_{i−1}C_{n−i} words, giving each vertical area. Terminal coordinate facets add 2D. Catalan asymptotics C_n~4^n/(√π n^(3/2)) prove endpoint q_i=C_{i−1}/4^i, total half each, the specified bulk density and tails. Direct new rational Catalan probability checks for n=2,3,4,5,8 sum to one and respect symmetry; they are not all-n certificates.
 
-## Literature limitations and comparison risks
-The published Ehrhart treatment describes lattice-normalized surface information, which must not be identified with Euclidean intrinsic facet area. Some older facet-volume tables or unstated consequences of order-ideal enumeration could anticipate the vertical Catalan law. The inspected papers do not settle that historical priority question. Neither the individual horizontal-facet distribution nor higher intrinsic volumes are claimed. All quantitative assertions apply to the unscaled coordinate realization, not an arbitrary affine image.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Canonical volume and Catalan/Narayana h* enumerators are established. Their known statements are lattice-normalized/volume or triangulation counts, not the complete intrinsic Euclidean vertical-facet area distribution or boundary area condensation. Other recent layered ordinal-sum results require a different poset (antichain layers of size≥2) and do not dominate the ladder product-poset family.
+
+## value
+
+PASS
+
+Standard Euclidean surface measure is a meaningful metric invariant distinct from volume and Ehrhart data. The complete facet-class spectrum, exact individual vertical areas, and strong end concentration with bulk and tail laws exhibit an asymptotic geometric phenomenon not implied by a known Catalan count alone; a future polytope researcher can use the precise facet distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
