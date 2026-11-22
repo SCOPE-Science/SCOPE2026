@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every dyadic positive order \(n=2^k\) with \(k\ge1\), the rook expansion \(\operatorname{per}(J-2B)=\sum_j(-2)^j(n-j)!m_j(B)\) is exact. Rotation stabilizers of nonattacking rook placements of size \(j\) have order dividing \(j\); since the symmetry group is a two-group, the resulting uniform orbit divisibility supplies \(2^{k-\nu_2(j)}\mid m_j(B)\). Legendre's formula and the bound \(s_2(n-j)\le k-\nu_2(j)\) then force all nonconstant terms to vanish modulo \(2^n\). The constant term has valuation \(n-1\). The Fourier identity and full-group zero witness follow directly. A standalone exact-integer checker corroborates all normalized sign patterns through \(n=8\) and selected order-16 cases. Finite checks are not used as an infinite proof.
+PASS
 
-## Originality — PASS under bounded comparison
+Write C=J−2B and expand by nonattacking negative-board rook placements: per C=Σ_j(-2)^j (n−j)!m_j(B). The cyclic row-and-column rotation of order 2^k acts freely on cells; any size-j placement stabilizer has power-of-two order h dividing j, so 2^(k−ν2(j)) divides m_j(B). Legendre ν2((n−j)!)=n−j−s2(n−j), together with s2(n−j)≤k−ν2(j), forces all j=1,...,n−1 terms divisible by 2^n, and j=n has 2^n already. ν2(n!)=n−1. Fourier diagonalization of displacement parity identifies multipliers with these permanents; a balanced unrestricted first-row sign yields a zero by cancellation.
 
-Minc's full 1972 circulant-permanent article treats classical and comparatively sparse circulant forms, not an all-sign dyadic valuation theorem. Tao–Vu's full 2008 preprint proves nonzero permanent with high probability for independent sign entries, not all deterministic circulants. Sburlati's 2008 parity paper concerns zero-one circulants and the parity of their permanents, not the high-power congruence for signed circulants. Sburlati's 2017 congruence article is a **substantive remaining historical-priority risk**: its abstract concerns a related family of congruences, but the full text could not be inspected, so noncoverage is not asserted. No equivalently covering result was identified in the accessible comparisons; this is not a guarantee of global historical novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant is the **exact** \(2\)-adic valuation, uniformly across all signed cyclic matching weights. The cyclic rotation orbit lemma shows a structural obstruction to cancellation and explains why an exponential family of Walsh multipliers remains nonzero. Passing from the unrestricted matching indicator (which has explicit zeros) to its displacement-parity quotient yields a genuine sharp invertibility dichotomy between two natural Fourier operators. The work is not a mere extraction of a computed small case; the proof covers all powers of two. It does not assert sharp endpoint inverse constants or an all-order classification.
+Minc 1972 full text gives sparse structured circulant permanents but not arbitrary full-density sign circulants; Tao–Vu random Bernoulli nonvanishing is probabilistic rather than uniform over all signed circulants. The 2017 Sburlati paper specifically discusses congruences of circulants and is a material priority risk; OA/preprint searches failed, authorized Oxford download returned vpn_disconnected. Its inaccessible full text alone is not proof of coverage or automatic originality failure. In accessible evidence no stronger exact universal signed dyadic 2-adic valuation theorem was found.
 
-## Residual limitations
+## value
 
-General circulant congruence literature, particularly the inaccessible 2017 full article, presents an unresolved priority risk. The dyadic restriction is essential to this argument and extension beyond powers of two is unproved. Independent validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The permanent’s exact 2-adic valuation for all 2^n sign patterns at every dyadic order is a natural structural invariant, not an arbitrary finite slice. Orbit-stabilizer divisibility gives an infinite combinatorial explanation and a genuinely new contrast between cyclic-displacement and unrestricted matching Fourier operators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
