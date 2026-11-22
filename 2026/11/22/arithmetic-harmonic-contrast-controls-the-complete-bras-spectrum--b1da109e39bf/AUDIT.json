@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Local P1 mass matrices and the original multiplicity scaling give exact SPD block formulas. Two explicit independent eigenvectors have eigenvalue one; a (k-2)-dimensional subspace has eigenvalue 4/3 for unequal arms; trace and continuity determine the remaining eigenvalue mu=4ST/(3k^2). Jacobi diagonal similarity yields eigenvalues 1/2,1 repeated,3/2. Cauchy–Schwarz and an attainable Kantorovich bound prove the universal exact crossover. A standard-library checker independently reassembled 53 exact-rational star instances and three boundary/exemplar instances, verifying both characteristic polynomials, plus exact eigenvector identities. Diagnostics support but do not substitute for the uniform algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krzysik et al. Theorem 1 yields a general projector characterization and a lower spectral bound; the accessed portions do not supply the all-star eigenvalue list.",
+        "The 2026-09-15 seminar advertises sharp tensor-product spectral theory and an extension to strongly nonuniform and nonconforming meshes, without a star-specific equation in the publicly read abstract."
+      ],
+      "reasoning": "A general formula for the norm of a projector under mass weighting does not by itself compute that norm and all eigenvalue multiplicities for the variable-arm star; the proof explicitly completes the specialization. Later slides may have deeper special-case coverage and remain an unresolved historical-priority risk, not evidence of an already covering exact statement.",
+      "searches": [
+        "site:academ.us/article/2607.12138/ \"sharp\" \"theorem\" \"projector\"",
+        "site:academ.us/article/2607.12138/ \"Schwarz\" \"graded\" \"nonuniform\"",
+        "https://mfem.org/seminar/"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.12138: BRAS definition/projector Theorem 1 indexed excerpts",
+      "FEM@LLNL BRAS seminar 2026-09-15 abstract",
+      "Classical Kantorovich inequality",
+      "MetricGraph finite-element assembly documentation",
+      "Earlier alternating-periodic P1 mass comparison (opaque claim ID 073ddd6b-1292-4710-b921-699b24756903)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The alternating-periodic claim gives a BRAS-versus-Jacobi threshold for degree-two cycles with two alternating cell sizes; it cannot imply arbitrary star degrees and lengths.",
+        "The primary paper proves operator bounds and gives the BRAS construction; the new exact eigenvectors and trace reduction are additional steps.",
+        "Kantorovich controls the numerical ratio envelope once the new BRAS spectral product is known; it does not imply the preconditioner spectrum."
+      ],
+      "reasoning": "The new claim specifies a complete k+1-dimensional spectrum, including multiplicities, and then sharp all-star contrast bounds. Prior cyclic results only concern a different matrix family and the general projector theorem supplies no closed eigenvalue evaluation. Each alleged domination therefore requires a missing nontrivial derivation, supplied here.",
+      "searches": [
+        "BRAS additive Schwarz mass preconditioner cycle period mesh infinite ratio optimized averaging",
+        "Broken-space additive Schwarz BRAS mass inverse star graph mesh arbitrary element lengths exact condition number product sum lengths reciprocal 4/3 mesh ratio",
+        "Krzysik Southworth Wimmer broken-space additive Schwarz BRAS mass inverse multiplicity inverse D^{-1} formula 2026 pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary BRAS definition equals D^-1 P^T M_br^-1 P D^-1 and its projector theorem expresses a general operator norm, but its indexed material does not evaluate the star eigenspaces.",
+        "An earlier alternating-periodic mass example uses a degree-two cyclic graph and only two alternating edge lengths.",
+        "The exact scalar Kantorovich envelope alone does not determine eigenvalues of the BRAS mass product."
+      ],
+      "reasoning": "Replacing the metric-star degree-k hub by degree-two periodic nodes changes the matrix multiplicities, topology and spectrum. The universal projector identity is a representation of the spectral problem, not the closed star evaluation. Searches for equivalent arithmetic–harmonic formulas did not identify an exact match; negative search results alone are not proof of priority.",
+      "searches": [
+        "exact spectrum multiplicity averaged BRAS consistent mass star graph has eigenvalues 1 twice 4/3 repeated and arithmetic harmonic mean product",
+        "\"BRAS\" \"arithmetic\" \"harmonic\" mass condition",
+        "arxiv:2607.12138 §§2.2–2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary study reports measured condition numbers for conventional 2D/3D element meshes, not a parametric table of graph-star eigenvalues.",
+        "Search results include unrelated metric-star projector norms and preconditioner comparisons, but no exact table for the claimed spectrum."
+      ],
+      "reasoning": "The result is an identity for every positive real arm-length vector and every star degree, not recomputation of an isolated tabulated sample. Searches do not rule out unknown tables in inaccessible appendices.",
+      "searches": [
+        "\"mass matrix\" \"star graph\" \"additive Schwarz\" preconditioner eigenvalues",
+        "\"4/3\" \"BRAS\" \"mass\" star",
+        "mass inverse star network branching P1 spectrum 4 sum lengths sum reciprocal lengths divided 3 degree squared"
+      ]
+    },
+    "rationale": "The original method and general projector bound belong to Krzysik–Southworth–Wimmer (arXiv:2607.12138, 2026-07-13). The newly evaluated complete spectrum on stars of any degree and arbitrary positive arm lengths, and its sharp universal Jacobi comparison, are not equivalent to the generic projector-norm reformulation, the classical Kantorovich bound, or the previously documented alternating cycle. Actual direct primary sections, published-source searches, exact-formula queries and relevant comparison records produced no identified covering statement. This is a qualified best-knowledge originality assessment; inaccessible full texts and seminar slides remain specific risks.",
+    "residual_risks": [
+      "Complete primary arXiv text/appendices were unavailable for direct full-document inspection; indexed sections alone cannot establish complete absence of a star formula.",
+      "Slides or recording of a 2026-09-15 talk on strongly nonuniform-mesh BRAS may contain overlapping specialized statements.",
+      "Unindexed earlier metric-graph Schwarz-preconditioning papers might contain an equivalent exact spectrum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the preconditioner used and general spectral inequalities; no evaluated arbitrary-star spectrum was identified in material read, but no whole-document not-covering assertion is made",
+        "evidence": [
+          "arXiv:2607.12138, Eq. (3) and Eq. (4): multiplicity-averaged BRAS inverse",
+          "Theorem 1: lambda_max expressed as norm of broken-space projector",
+          "Table 1: measured mass-system conditioning for 2D/3D H1 spaces"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.12138",
+        "material_read": "Public indexed primary-text extracts of §§2.1–2.3, multiplicity definition, local inverse formula, projector Theorem 1, selected condition-number results; not the full paper or appendices",
+        "method": "Public search-index full-text extracts; direct arXiv and text mirror access attempts were unsuccessful",
+        "title": "Broken-space Additive Schwarz Mass Inverse Approximations and (Block) Preconditioning",
+        "trigger": "Exact method construction and strongest source likely to subsume the star eigenvalues"
+      },
+      {
+        "assessment": "Mentions sharp spectral theory on tensor-product complexes and strongly nonuniform mesh extensions. It does not resolve the arbitrary metric-star formula in available text; uninspected slides are a residual risk.",
+        "evidence": [
+          "FEM@LLNL seminar 2026-09-15 abstract: strong nonuniform and adaptive mesh extension"
+        ],
+        "identifier_or_url": "https://mfem.org/seminar/",
+        "material_read": "2026-09-15 seminar abstract and description; slides and talk not accessible/read",
+        "method": "Public seminar listing and indexed description",
+        "title": "BRoken-Space Additive Schwarz (BRAS) for Mass Matrix Preconditioning",
+        "trigger": "Later primary-source talk likely to contain stronger spectral analysis or nonuniform-mesh cases"
+      },
+      {
+        "assessment": "Covers the final scalar maximum/minimum ratio inequality; does not address the BRAS operator or star eigenspaces",
+        "evidence": [
+          "Classical scalar bound for (mean lengths)(mean reciprocal lengths)"
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Kantorovich_inequality",
+        "material_read": "Scalar inequalities for positive numbers with bounded min and max",
+        "method": "Public reference page",
+        "title": "Kantorovich inequality",
+        "trigger": "Check whether the sharp contrast ratio bound is already a classical special case"
+      },
+      {
+        "assessment": "Supports relevance of the finite-element model but contains no claimed BRAS spectrum",
+        "evidence": [
+          "compute_fem documents C_ij = <phi_i,phi_j> on metric graphs"
+        ],
+        "identifier_or_url": "https://davidbolin.github.io/MetricGraph/reference/metric_graph.html",
+        "material_read": "compute_fem API definition of the mass matrix as basis inner products on a metric graph",
+        "method": "Public documentation",
+        "title": "MetricGraph finite-element assembly documentation",
+        "trigger": "Independently establish metric-graph finite-element mass assembly as a natural model"
+      },
+      {
+        "assessment": "Periodic degree-two graph, alternating arm lengths and a distinct crossover; no arbitrary-degree star formula or sharp global star contrast criterion",
+        "evidence": [
+          "Earlier claim restricts to n=4m cyclic edge lengths alternating a,b and reports a threshold 1+4/sqrt(3)"
+        ],
+        "identifier_or_url": "073ddd6b-1292-4710-b921-699b24756903",
+        "material_read": "Only the recoverable one-row mathematical claim and opaque identifier",
+        "method": "Existing claim-text overlap comparison without inspecting or reauditing prior proof",
+        "title": "Earlier alternating-periodic P1 mass-mesh comparison",
+        "trigger": "Closest recoverable prior claim concerning BRAS versus Jacobi"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b1da109e-39bf-4387-8473-4db1fa6b3004",
+  "value": {
+    "rationale": "The full arbitrary-degree, arbitrary-arm star spectral classification is a natural complete structural invariant for an important algebraic local-inverse preconditioner. Its computed arithmetic–harmonic statistic gives a sharp universal mesh-grading safeguard against a fixed Jacobi condition number, with a concrete four-branch counterexample past the threshold. This is relevant to deciding when multiplicity averaging can be ineffective on graded network meshes, beyond existing periodic two-length analyses; it is not a mere table entry or unmotivated parameter slice.",
+    "status": "PASS"
+  }
+}
