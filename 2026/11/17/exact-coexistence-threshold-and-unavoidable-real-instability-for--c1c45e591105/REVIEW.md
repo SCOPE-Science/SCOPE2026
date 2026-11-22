@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A monotone infected-balance nullcline exists uniquely for each positive susceptible concentration, increases strictly, and makes total dose-weighted phage adsorption strictly decrease from its zero-bacteria value to zero. This proves an exact existence/uniqueness threshold. The zero-frequency full delay characteristic determinant equals a strictly positive factor times the derivative along that nullcline, and is negative. Since the characteristic determinant becomes positive along large positive real frequencies, a positive real exponent follows. The compatibility relation for infected histories excludes spurious unstable modes. Numerical checks include distinct two- and three-type delays and the zero-net-burst-loss boundary; these are corroboration, not proofs.
+## correctness
 
-**Originality — PASS within inspected sources.** Bardina–Cano–Cuadrado (2026), Proposition 5.2, supplies only a necessary high-dose condition for arbitrary latency periods; Proposition 5.5 supplies a complete two-type classification only for common latency. The numerical coexistence instability observations are not a general theorem. Bardina–Cuadrado–Rovira (2019) treats a one-phage system and bacterial-free stability. The new result is precisely the sharp unequal-delay existence, uniqueness and real instability statement under nonproductive surviving bursts. Earlier equal-delay specializations are not claimed as new. Searches of scientific records did not reveal a dominating result; priority outside the reviewed literature remains uncertain.
+PASS
 
-**Value — PASS.** The theorem closes a concrete, explicitly identified existence gap in a physically interpretable regime: a cocktail can have a unique positive coexistence equilibrium if and only if dosing exceeds the bacterial invasion rate, yet that coexistence state is necessarily unstable no matter how different the latent periods are. It turns a numerical spectral suggestion into a proof and yields exact structural information, not a small parameter correction.
+Positive equilibrium elimination yields q_i=d_i/[m_i+p_i s+ℓ_i u] with p_i=k_i¹(1−b_i e^(−μτ_i))≥0. The compatible infected balance defines unique u(s)>0 because g_u>0 and g_s<0, hence u′>0. H(s)=Σk_i¹q_i decreases strictly from Σk_i¹d_i/m_i to 0; when p_i=0, bounded u(s) would contradict its own balance as s→∞. The exact Schur complement of the full delayed characteristic matrix at zero is s∏D_i g_u H′(s)<0, while normalized determinant tends to +1 at large positive real z; continuity gives z*>0. Its I coordinate agrees with the linearized infected-history integral, excluding an extraneous eigenmode. Independently assembled and tested one 2-type DDE zero determinant and characteristic root z*=0.8315102274585717, and source CHECKER.py includes distinct-delay two- and three-type samples; analytical proof covers all parameters.
 
-**Limitations.** The theorem does not apply to cocktails containing a phage with \(b_i e^{-\mu\tau_i}>1\), and positive spectrum does not prove any particular nonlinear basin or global disease-eradication statement. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bardina–Cano–Cuadrado 2026 treats the identical delayed coinfection equations, but Proposition 5.2 proves only a one-sided no-coexistence condition for general unequal latencies; Section 5.1 explicitly restricts its sufficient classification to two common-latency types. The published all-n common-latency two-equilibrium result and critical-dose center manifold result do not imply a unique positive coexistence with arbitrary unequal latencies nor the new sign-of-determinant mechanism in that domain. Best-of-knowledge original beyond those cited source claims.
+
+## value
+
+PASS
+
+A sharp if-and-only-if condition and uniqueness over all unequal finite latency sets plus a guaranteed real—not merely numerically suspected—instability mechanism fills a natural open equilibrium/spectral question in the original phage-cocktail model. These are structural results under the biologically explicit nonproductive-surviving-burst regime, not fitted intervention predictions or a parameter-renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

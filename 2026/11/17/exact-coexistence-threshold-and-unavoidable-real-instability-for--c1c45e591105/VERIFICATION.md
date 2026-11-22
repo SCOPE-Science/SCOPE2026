@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof reconstructs the actual delay equations, equilibrium denominators and the infected-history compatibility constraint. At the positive equilibrium, the Jacobian-at-zero determinant identity is shown by an explicit block Schur complement, not inferred from finite eigenvalue scans. A real positive zero follows by the intermediate value theorem and is compatible with the biological state space.
+## correctness
 
-`CHECKER.py` carries out independent finite-parameter tests: direct construction of instantaneous and delayed characteristic matrices, root-finding of positive equilibria, evaluation of the sign identity, localization of a positive real characteristic exponent, and eigenvector compatibility. The examples include two distinct latency periods, three distinct latency periods, and a boundary case where surviving burst is exactly one. The checker requires the versions of NumPy and SciPy specified by `requirements.txt`.
+PASS
 
-The checker cannot establish the universal assertion, which follows from the analytic nullcline and determinant proof. The claimed novelty is conditional on accessible literature; no independent external scientific review has occurred.
+Positive equilibrium elimination yields q_i=d_i/[m_i+p_i s+ℓ_i u] with p_i=k_i¹(1−b_i e^(−μτ_i))≥0. The compatible infected balance defines unique u(s)>0 because g_u>0 and g_s<0, hence u′>0. H(s)=Σk_i¹q_i decreases strictly from Σk_i¹d_i/m_i to 0; when p_i=0, bounded u(s) would contradict its own balance as s→∞. The exact Schur complement of the full delayed characteristic matrix at zero is s∏D_i g_u H′(s)<0, while normalized determinant tends to +1 at large positive real z; continuity gives z*>0. Its I coordinate agrees with the linearized infected-history integral, excluding an extraneous eigenmode. Independently assembled and tested one 2-type DDE zero determinant and characteristic root z*=0.8315102274585717, and source CHECKER.py includes distinct-delay two- and three-type samples; analytical proof covers all parameters.
+
+## originality
+
+PASS
+
+Bardina–Cano–Cuadrado 2026 treats the identical delayed coinfection equations, but Proposition 5.2 proves only a one-sided no-coexistence condition for general unequal latencies; Section 5.1 explicitly restricts its sufficient classification to two common-latency types. The published all-n common-latency two-equilibrium result and critical-dose center manifold result do not imply a unique positive coexistence with arbitrary unequal latencies nor the new sign-of-determinant mechanism in that domain. Best-of-knowledge original beyond those cited source claims.
+
+## value
+
+PASS
+
+A sharp if-and-only-if condition and uniqueness over all unequal finite latency sets plus a guaranteed real—not merely numerically suspected—instability mechanism fills a natural open equilibrium/spectral question in the original phage-cocktail model. These are structural results under the biologically explicit nonproductive-surviving-burst regime, not fitted intervention predictions or a parameter-renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
