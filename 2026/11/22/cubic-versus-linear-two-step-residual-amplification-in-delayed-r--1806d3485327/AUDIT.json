@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For A=diag(sqrt(K),1), the exact residual update is (I-alpha B)r with B=diag(K,1). Substituting the published initial RSHK step and the two subsequent DR/RD rules gives exact D_K and R_K rational functions. The changes y=Kt and z=K^3 t give uniform maxima 27/256 and 1/4 via explicit tail bounds and unique one-variable critical points. The actual standalone path verification/check_two_step.py completed VERIFY_OK 4430 (4,424 exact-rational assertions, six floating-point near-maximizer tests), corroborating rather than replacing the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/11/8/SCOPE-a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606: repeated Cauchy steps have a sharp universal gradient-safety condition-number frontier",
+        "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53: BB interval objective monotonicity frontier with amplification bound",
+        "arxiv:2607.21579: accessible article introduction gives delayed BB1 spectral recurrence"
+      ],
+      "reasoning": "The repeated-long-step part shares a mechanism with Cauchy-cycle work. However a single repeated-Cauchy bound does not provide the RD short-step law, its different scale or the ratio of two sharp worst-initialization gains. Objective-gap/gradient safety bounds are also different observables from the physical residual after two source-prescribed steps. Full coverage of a related record was not accessible, retained as a risk.",
+      "searches": [
+        "BB1 BB2 two-step worst-case gradient norms steepest descent initialized sharp asymptotic kappa power",
+        "residual-based surrogate hyperplane Kaczmarz Barzilai Borwein two step transient amplification initial residual norms",
+        "sharp all-spectrum gradient safety frontier cyclic steepest descent"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.02743v1",
+      "arxiv:2608.07839",
+      "arxiv:2607.21579",
+      "2026/11/8/SCOPE-a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606",
+      "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+      "2026/11/8/SCOPE-alternating-long-short-spectral-steps-eliminate-the-balanced-two--0e04302e58f6",
+      "https://arxiv.cnoctave.top/pdf/2611.02743",
+      "https://arxiv.org/abs/2611.02743",
+      "https://doi.org/10.1137/21M1390785"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2611.02743v1: DR step is alpha_0 and RD is (1+K^2 t)/(1+K^3 t) in the two-mode specialization",
+        "2026/11/8/SCOPE-a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606: same repeated-step phenomenon can cover part of the DR analysis",
+        "2026/11/8/SCOPE-alternating-long-short-spectral-steps-eliminate-the-balanced-two--0e04302e58f6: mixed long/short BB spectral iteration, not the two formulas for these source residual steps"
+      ],
+      "reasoning": "The source formulas trivially permit componentwise expressions, but neither the sharp optimization over initial mode energy nor the two different uniform K-asymptotics follows merely from alpha_RD<=alpha_DR; both require separate endpoint and scaling analyses. A single broad Cauchy result might subsume the DR component, so originality is specifically the coupled sharp comparison including RD.",
+      "searches": [
+        "two-point residual step size Xin Xu RSHK RD DR Kaczmarz precise worst case spike",
+        "BB1 BB2 two-step worst-case gradient norms steepest descent initialized sharp asymptotic kappa power",
+        "BB1 BB2 short long exact first two iterations worstcase",
+        "\"Two-point residual step size gradient methods for linear systems\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2611.02743v1: source equations (8),(14),(16),(17) define rules but not worst-startup extremal laws",
+        "arxiv:2608.07839: abstract specifies asymptotic root factors for BB trajectories",
+        "2026/11/8/SCOPE-alternating-long-short-spectral-steps-eliminate-the-balanced-two--0e04302e58f6: alternating long/short rules with long-run double-exponential convergence"
+      ],
+      "reasoning": "Checked delayed BB1/BB2, RSHK, Rayleigh-quotient and long/short equivalent descriptions; closest sources address rule definitions, asymptotic rates or mixed iteration but not the shared-initialization two-update worst-case comparison.",
+      "searches": [
+        "two-point residual step size Xin Xu RSHK RD DR Kaczmarz precise worst case spike",
+        "BB1 BB2 two-step worst-case gradient norms steepest descent initialized sharp asymptotic kappa power",
+        "\"Two-point residual step size gradient methods for linear systems\"",
+        "\"The Sharp Worst-Case Asymptotic Rate of the Barzilai--Borwein Method\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2611.02743v1: numerical Table 1 lists iteration counts and Figure 1 illustrates transient spikes but no optimized two-update constants",
+        "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53: published summary addresses a one-step objective-bound constant (K-1)^2"
+      ],
+      "reasoning": "No exact database or table of the pair of optimized two-step gains and their K-scaling was located. Source numerical graphs/iteration-count tables do not compute the supremum over all nonzero two-mode initial residuals; search absence alone is not a priority proof.",
+      "searches": [
+        "delayed residual step DR sharp initial two-step amplification 27/256 cubic and short-step RD quarter linear",
+        "two-point residual step RSHK cubic linear two step amplifications",
+        "two-point residual step size Xin Xu RSHK RD DR Kaczmarz precise worst case spike"
+      ]
+    },
+    "rationale": "The joint sharp worst-initialization two-update amplification comparison (cubic vs linear in the condition number of the normal matrix, and distinct maximizing residual-energy scales) was not identified in the accessible direct source or the referenced mathematical-record and general BB searches. DR alone overlaps known repeated-Cauchy mechanisms, and priority remains qualified; the assessment concerns the combined DR/RD law and scales, not the source-defined updates.",
+    "residual_risks": [
+      "The full published cyclic-Cauchy safety-frontier record was inaccessible; it may contain additional relevant finite-time formulas.",
+      "Two related contemporary BB preprints could not be examined fully; indexed material does not establish exhaustive priority.",
+      "The long-step half is mathematically close to classical repeated Cauchy iterations; independent historical comparison should examine whether the paired RD/DR separation was derived elsewhere."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines DR/RD and shows numerical spikes, but no maxima of both two-update residual norms over starts or their sharp K-power separation found",
+        "evidence": [
+          "equations (8), (14), (16), (17), (18)-(27), Table 1 and Figure 1 in arxiv:2611.02743v1"
+        ],
+        "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2611.02743",
+        "material_read": "Public full PDF textual pages 1-8 and relevant definitions, two-mode argument, numerical experiment setup/figures",
+        "method": "Read extracted full-text sections and checked PDF page image",
+        "title": "Two-point residual step size gradient methods for linear systems",
+        "trigger": "Direct origin of both rules and their common startup; possible already quantified spikes"
+      },
+      {
+        "assessment": "Asymptotic trajectory convergence factors, not identified as two-step residual worst-case laws; full-text priority risk retained",
+        "evidence": [
+          "arxiv:2608.07839 abstract identifies root factors and matched initialization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.07839",
+        "material_read": "Public abstract and metadata; accessible full text unavailable",
+        "method": "Article discovery and abstract comparison",
+        "title": "The Sharp Worst-Case Asymptotic Rate of the Barzilai--Borwein Method in R^d and Hilbert Spaces",
+        "trigger": "Possible sharper general BB bound subsuming result"
+      },
+      {
+        "assessment": "Contains general spectral recurrence and long-run BB dynamical mechanism, but available material does not specify the sharp paired two-update law",
+        "evidence": [
+          "public article text equation (12) and adjacent discussion of nonmonotone gradient components"
+        ],
+        "identifier_or_url": "https://academ.us/article/2607.21579/",
+        "material_read": "Indexed detailed introduction and spectral recurrence; subsequent full-page retrieval gave 403",
+        "method": "Public indexed article text and attempted page retrieval",
+        "title": "Barzilai–Borwein Fails Superlinear Convergence on an Open Set of Quadratics for Every Dimension n at least 4",
+        "trigger": "Nonmonotone transient BB1 gradient behavior"
+      },
+      {
+        "assessment": "A general repeated-step gradient-safety frontier may subsume a DR monotonicity subcase; it does not state an RD comparison in accessible record; priority risk retained",
+        "evidence": [
+          "published record summary gives thresholds for all m repeated steps"
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606",
+        "material_read": "Published record title and detailed abstract only; full record unavailable",
+        "method": "Semantic mathematical-record search and attempted public repository retrieval",
+        "title": "Sharp all-spectrum gradient safety frontier for cyclic steepest descent",
+        "trigger": "Potentially stronger repeated-Cauchy coverage for the DR half"
+      },
+      {
+        "assessment": "One-step objective-gap amplification, not a shared warm-start two-step physical-residual comparison",
+        "evidence": [
+          "published record summary with (K-1)^2 objective-gap bound"
+        ],
+        "identifier_or_url": "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+        "material_read": "Published record title and detailed abstract only",
+        "method": "Semantic mathematical-record search",
+        "title": "Sharp objective-monotonicity frontier for Barzilai–Borwein interval steps",
+        "trigger": "Potential coverage by interval-rule worst-case bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1806d348-5327-4149-8043-f28f881884e5",
+  "value": {
+    "rationale": "The source documents pronounced residual spikes at high condition number, but lacks a worst-case quantitative early-iteration comparison. The two laws give sharply distinct K^{3/2} versus K^{1/2} normalized residual risks on the identical minimal consistent system and quantify the precise initial spectral mixtures causing them. This is a motivated robustness benchmark rather than a routine reparametrization; no global convergence or floating-point certification is claimed.",
+    "status": "PASS"
+  }
+}
