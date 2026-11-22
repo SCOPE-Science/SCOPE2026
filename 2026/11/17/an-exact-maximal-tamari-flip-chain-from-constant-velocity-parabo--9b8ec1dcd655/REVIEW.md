@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The translated sites lie on the graph of the square function. The monic quartic circle restriction proves the if-and-only-if four-sum cocircularity condition. Its alternating signs show that the cocircular circle is empty exactly for two index-adjacent pairs; every other quartet is disqualified by an interior site. The signed fourth-point circle test proves the flip direction. The local-to-global Euclidean Delaunay criterion proves the two endpoint fans, while the explicit pair count and known Tamari maximal-length result prove the remaining conclusions. An independently implemented exact-fraction empty-circumcircle checker covers every triple for configurations with four to eight sites and confirms each change. Genericity and instant-of-degeneracy qualifications are explicit.
+PASS
 
-## Originality — PASS (conditional on inspected literature)
+PASS. For n≥4 and strictly increasing a_i with pairwise distinct four-element subset sums, points Q_i(t)=(a_i,a_i²+2t a_i) are a common translate by (−t,−t²) of points (a_i+t,(a_i+t)²) on a strictly convex parabola, so all are convex-hull vertices. A circle equation restricted to (u,u²) is a monic quartic with absent u³ term. Four such points become cocircular exactly at t=−(Σa_i)/4. At a quartet's critical time the restriction is Π(u−u_r), negative precisely between first/second and third/fourth ordered abscissas. Thus the empty disk criterion requires four indices of the form {i,i+1,j,j+1} with i+1<j; any other quartet has an intervening fifth site strictly inside. The eligible event is a single empty convex-quadrilateral flip; testing the fourth point against the circle through the first three determines orientation (i+1,j+1)→(i,j) with increasing t. Distinct four-sums isolate all events. Sum_{i=1}^{n−3}(n−i−2)=binom(n−2,2), from the right fan at t→−∞ to left fan at t→+∞. Every flip is the same Tamari cover orientation and the known maximal chain length equals this count. Independently used exact integer circle-polynomial signs for generic 5^i parameters on n=4,...,8, checked only the adjacent-pair quartets are empty, obtaining 1,3,6,10,15 events. Inspected frozen check_kinetic.py exact-rational implementation; this bounded check is corroboration, not the all-n proof. Zero-time cocircularities make triangulations nonunique at the instant but neighboring intervals are well-defined.
 
-The novel assessed statement is the **complete explicit kinetic construction and event schedule**, not the separate well-known ingredients. The classical parabola realization of convex polygons, Delaunay circle test, and Tamari flip orientation are established in Musin and Rambau–Reiner. Fishel–Nelson establishes the lattice's maximum chain length. Rubin establishes general kinetic-change bounds and acknowledges lower-bound constructions; a quadratic number of flips without the special explicit construction is not novel. The surveyed texts and relevant available mathematical finding records did not state the specific constant-velocity parabola realization, isolated active four-sum events, and its full maximal Tamari path. These are statement-level comparisons; unsuccessful searches do not prove absolute historical priority. Specialized older constructions are a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The statement constructs a completely explicit, strictly convex, constant-velocity family with a quadratic number of genuinely changing Euclidean Delaunay edges, provides every exact event time and pair of diagonals, and explains its structure by a canonical maximal chain of polygon triangulations. This supplies a concrete extremal test instance with an exact event sequence and a bridge between Euclidean empty-circle dynamics and classical associahedral combinatorics, not a small parameter tweak or mere rephrasing of the Tamari maximum-length theorem.
+PASS best-of-knowledge for the explicit constant-vertical-velocity Euclidean Delaunay trajectory that produces every event at a four-parameter sum time and realizes a maximum Tamari chain. The parabola realization of Tamari order, standard Delaunay empty-circle tests, and maximal chain length are all known and explicitly excluded from any novelty claim. The inspected kinetic Delaunay literature treats general moving points/complexity bounds, and the Tamari survey identifies the orientation but not the particular complete Delaunay event schedule. A historical equivalent parabolic sweep remains an important priority risk.
 
-## Closest literature and scientific limits
+## value
 
-- Rambau–Reiner (2011): parabola and oriented Tamari flips, but not a Euclidean kinetic Delaunay schedule.
-- Fishel–Nelson (2014), read via Nelson (2016): maximum chain length, but no constant-velocity Delaunay realization.
-- Rubin (2013): general kinetic Delaunay theory and already known quadratic lower-order phenomena, but no inspected explicit four-sum family.
-- Musin (2003): standard Delaunay characterization, not the moving-point realization.
-- Non-generic simultaneous quartet events and arbitrary linear motions remain outside the theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The meaningful problem is a kinetic realization of a longest Tamari flip chain by physical Euclidean Delaunay triangulations of sites with constant velocities. A fully explicit all-n construction and isolated event schedule exhibit how metric empty-circle tests implement abstract oriented covers; this is more informative than re-stating a known maximum length. The exact time formula makes the construction replayable and demonstrates a natural quadratic flip sequence under elementary motion. The novelty/value lie in the trajectory, not a generic Delaunay method or bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
