@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T09:41:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 9a8900a06a2651b481e2d4d11f860aa712280fe7",
+        "Pinned verify.py Git blob d0bbc62dc4d0635b96d4094c5d2b3acd9310be6f",
+        "https://sites.math.duke.edu/~rtd/reprints/paper128.pdf",
+        "https://www.mat.uniroma3.it/users/caputo/research/aap_paper.pdf"
+      ],
+      "rationale": "For any constant-preserving linear average on n sites, the step decomposition h=h_1*1+sum Delta_k h*H^(k) gives the exact adjacent-variation operator seminorm as the maximum variation of step responses; each lower-bound witness is a step. For uniform nonempty intervals, the explicitly counted difference kernel is nonnegative and endpoints of step image differ by 1-n/[n(n+1)/2]=(n-1)/(n+1), proving the all-n exact contraction. For uniform sampled length then uniform placement, rational sum over n(n+1)/2 reversals with weights 1/[n(n-l+1)] was independently reconstructed as an n-by-n Markov matrix for each 2<=n<=14; every step cut was tested using exact Fraction arithmetic. The maxima match 0,1/2,5/8,41/60,271/360,113/140,2813/3360,824/945,5689/6300,3254/3465,322507/332640,355991/360360,5105521/5045040; only n=14 exceeds 1, and exact witnesses include cuts k=5 and 9. The continuum step at t=1/3 has a downward excursion of log(2/sqrt(3)), hence total variation at least 1+log(4/3); bounded-expectation Riemann sums along 0,t+,2/3,1 transfer it to liminf finite sharp coefficients. Independent 2000/5000-mesh quadrature corroborated limit 1.287682072. Nothing asserts an exact all-n length-uniform norm or an exact asymptotic limit.",
+      "residual_risks": [
+        "The continuum integral formula and Riemann convergence were reviewed analytically, not certified by a computer algebra system.",
+        "The exact first onset is certified only by exhaustive finite dimensions 2..14, combined with an all-n statement only for uniform intervals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cancrini--Caputo--Martinelli prove inverse spectral-gap/relaxation-time bounds O(n vee n^3/L^3) for circular L-reversal chains.",
+          "The paper samples connected cyclic subsets of length <=L, not a length-uniform first choice on an open path."
+        ],
+        "reasoning": "Spectral-gap or convergence-to-equilibrium estimates do not specialize to the sharp one-step scalar BV operator norm or to the exact n=14 cutoff.",
+        "searches": [
+          "random interval reversal one step averaged operator bounded variation contraction uniform interval versus uniform length first n=14",
+          "https://www.mat.uniroma3.it/users/caputo/research/aap_paper.pdf"
+        ]
+      },
+      "checked_sources": [
+        "random interval reversal one step averaged operator bounded variation contraction uniform interval versus uniform length first n=14",
+        "https://sites.math.duke.edu/~rtd/reprints/paper128.pdf",
+        "https://www.mat.uniroma3.it/users/caputo/research/aap_paper.pdf",
+        "arXiv:math/0412449",
+        "arXiv:0802.0339"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Durrett, Shuffling Chromosomes, abstract and model introduction, treats n-reversal permutation-chain mixing.",
+          "Cancrini--Caputo--Martinelli, abstract and Section 1, treat relaxation time on a cycle."
+        ],
+        "reasoning": "Neither stated mixing bound yields the sign of sum |(P H^k)_{i+1}-(P H^k)_i| at finite n, nor length-law reversal; distinct objects/parameters prevent direct implication.",
+        "searches": [
+          "random interval reversal one step averaged operator bounded variation contraction uniform interval versus uniform length first n=14",
+          "https://sites.math.duke.edu/~rtd/reprints/paper128.pdf",
+          "https://www.mat.uniroma3.it/users/caputo/research/aap_paper.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sample space here is one reversal of fixed n-vectors, acting by an expectation matrix; TV is sum |h_{i+1}-h_i|, not total-variation distance of probability laws.",
+          "Durrett concerns reversal chains on permutation states and the number of operations to scramble gene order."
+        ],
+        "reasoning": "Terminological overlap in total variation and reversal chains does not identify the mathematical norm. Single-jump basis makes the exact BV norm a max over n-1 cut responses, not a permutation-mixing statistic.",
+        "searches": [
+          "random interval reversal one step averaged operator bounded variation contraction uniform interval versus uniform length first n=14",
+          "https://sites.math.duke.edu/~rtd/reprints/paper128.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited length-uniform values were independently recomputed by exact rational transition matrices for all 2<=n<=14; none of the searched Resultary hits reported this particular coefficient table."
+        ],
+        "reasoning": "A finite table without an all-n uniform-interval identity or asymptotic witness would not alone cover the full claim; the exact n=14 value is specifically compared, not assumed novel because of numerical size.",
+        "searches": [
+          "random interval reversal one step averaged operator bounded variation contraction uniform interval versus uniform length first n=14",
+          "https://sites.math.duke.edu/~rtd/reprints/paper128.pdf",
+          "https://www.mat.uniroma3.it/users/caputo/research/aap_paper.pdf"
+        ]
+      },
+      "rationale": "The known permutation-reversal chains address distributional mixing/spectral gap, whereas the audited observable is a single averaged reversal acting on scalar path signals and its adjacent-difference variation seminorm. The uniform law comparison, rational first amplification cutoff, and nonvanishing large-n witness are not theorems in the inspected primary material. An exact operator formula could be hidden in earlier specialized random-reversal/BV literature and remains a priority risk.",
+      "residual_risks": [
+        "Relevant older one-step sensitivity calculations under rearrangement, permutation matrices, or stochastic total-variation terminology could have escaped the searches.",
+        "Only relevant sections, not every page of Durrett and Cancrini et al, were read; no whole-document negative coverage claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different observable; no conclusion from uninspected pages.",
+          "evidence": "The abstract asks number of reversals to scramble genes and analyzes convergence of shuffling processes, not a single scalar BV path seminorm.",
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper128.pdf",
+          "material_read": "Author-hosted 26-page paper: abstract, Introduction and reversal-chain definitions, and stated mixing questions; relevant model compared, remainder not asserted fully read.",
+          "method": "Open-access author PDF parsed and first page visually checked.",
+          "title": "Shuffling Chromosomes",
+          "trigger": "Foundational reversal Markov model for chromosomes, same operations."
+        },
+        {
+          "assessment": "Different cyclic permutation-state spectral-gap problem; full-document absence not claimed.",
+          "evidence": "Explicit bound tau(n,L)=O(n vee n^3/L^3) concerns permutation relaxation on n-cycle with lengths <=L; not the open-path scalar one-step operator.",
+          "identifier_or_url": "https://www.mat.uniroma3.it/users/caputo/research/aap_paper.pdf",
+          "material_read": "Primary author-hosted paper abstract and Section 1 model/relaxation statement.",
+          "method": "Open-access author PDF parsed; attempted visual screenshot timed out, so material reading is restricted to text.",
+          "title": "Relaxation time of L-reversal chains and other chromosome shuffles",
+          "trigger": "High relevance: reversal-length sampling and sharp estimates for reversal dynamics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://sites.math.duke.edu/~rtd/reprints/paper128.pdf",
+        "https://www.mat.uniroma3.it/users/caputo/research/aap_paper.pdf"
+      ],
+      "rationale": "The change in sampling order, equal interval versus equal length, has a mathematically sharp and counterintuitive effect on the strongest path-BV contraction/amplification guarantee. The exact first dimension 14, nontrivial rational extremizer and explicit asymptotic witness make this a motivated stability boundary, not an arbitrary finite slice. The step-reduction technique yields a reusable exact optimization method.",
+      "residual_risks": [
+        "No exact large-n limiting norm, weighted path, cyclic version or multi-step stability theory proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical first-priority literature on one-step BV reversal averages remains non-exhaustive.",
+    "Only one expected reversal on a nonperiodic unweighted line; no exact all-n length-uniform formula."
+  ],
+  "schema_version": 1
+}

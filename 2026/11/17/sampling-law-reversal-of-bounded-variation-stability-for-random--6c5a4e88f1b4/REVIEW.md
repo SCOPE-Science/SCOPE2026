@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion is a single two-sampling-law comparison, comprising the exact sharp uniform-interval coefficient, the exact first length-uniform amplification cutoff and a nontrivial large-size lower bound. Constant preservation makes the adjacent-variation seminorm quotient valid. Step decomposition proves that the maximum over single-jump responses is the unrestricted induced norm. The uniform-interval edge-count identity is explicitly nonnegative and its endpoint sum yields the claimed sharp constant in every dimension. For the alternate sampling law, exact rational enumeration across every cut for dimensions 2–14 gives all stated coefficients and the fourteenth-site extremizer; a separately built matrix agrees with the direct interval-action calculation. The continuum crossing integrals produce the stated logarithmic expression, and bounded-integrand Riemann-sum convergence supplies the asymptotic implication. Computation verifies finite certificates, not the unrestricted analytic statements.
+## correctness
 
-## Originality — PASS, with priority risk
-Durrett's chromosome-reversal results address permutation-distribution mixing and conservation of adjacent labels. Cancrini–Caputo–Martinelli bound a cycle-reversal chain's spectral gap, and Morris establishes entropy/mixing estimates for cyclic reversal shuffles. Neither identified theorem controls the sharp adjacent-seminorm of the one-coordinate averaging operator on a nonperiodic path, nor entails the exact change at fourteen observations. Searches for reverse-index stochastic monotonicity, induced path variation and length-uniform reversal kernels revealed no equivalent or stronger covering result. A possibly unindexed direct one-tag analysis or a different equivalent stochastic-order statement remains possible. The 2003 source's public day is unavailable, so the first verified exact-day archival source is the preprint dated 2004-12-22.
+PASS
 
-## Mathematical value — PASS
-The choice between two canonical uniform sampling conventions for the same involutive segment operation changes qualitative stability: every uniform-interval average contracts, but length-first sampling first amplifies at fourteen positions and admits a dimension-independent asymptotic gap above one. This distinguishes the regularity of expected signals from permutation-chain mixing, and shows that different interval sampling designs cannot be treated as interchangeable in bounded-variation stability. The finite cutoff is a natural first-instability invariant, not an arbitrarily chosen dimension.
+For any constant-preserving linear average on n sites, the step decomposition h=h_1*1+sum Delta_k h*H^(k) gives the exact adjacent-variation operator seminorm as the maximum variation of step responses; each lower-bound witness is a step. For uniform nonempty intervals, the explicitly counted difference kernel is nonnegative and endpoints of step image differ by 1-n/[n(n+1)/2]=(n-1)/(n+1), proving the all-n exact contraction. For uniform sampled length then uniform placement, rational sum over n(n+1)/2 reversals with weights 1/[n(n-l+1)] was independently reconstructed as an n-by-n Markov matrix for each 2<=n<=14; every step cut was tested using exact Fraction arithmetic. The maxima match 0,1/2,5/8,41/60,271/360,113/140,2813/3360,824/945,5689/6300,3254/3465,322507/332640,355991/360360,5105521/5045040; only n=14 exceeds 1, and exact witnesses include cuts k=5 and 9. The continuum step at t=1/3 has a downward excursion of log(2/sqrt(3)), hence total variation at least 1+log(4/3); bounded-expectation Riemann sums along 0,t+,2/3,1 transfer it to liminf finite sharp coefficients. Independent 2000/5000-mesh quadrature corroborated limit 1.287682072. Nothing asserts an exact all-n length-uniform norm or an exact asymptotic limit.
 
-## Limitations and independent review
-Only a single averaged reversal on a real unweighted path is treated. No exact large-dimensional length-uniform constant or sharp coefficient beyond the first cutoff is claimed. Historical coverage remains qualified by possible unindexed equivalent formulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known permutation-reversal chains address distributional mixing/spectral gap, whereas the audited observable is a single averaged reversal acting on scalar path signals and its adjacent-difference variation seminorm. The uniform law comparison, rational first amplification cutoff, and nonvanishing large-n witness are not theorems in the inspected primary material. An exact operator formula could be hidden in earlier specialized random-reversal/BV literature and remains a priority risk.
+
+## value
+
+PASS
+
+The change in sampling order, equal interval versus equal length, has a mathematically sharp and counterintuitive effect on the strongest path-BV contraction/amplification guarantee. The exact first dimension 14, nontrivial rational extremizer and explicit asymptotic witness make this a motivated stability boundary, not an arbitrary finite slice. The step-reduction technique yields a reusable exact optimization method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
