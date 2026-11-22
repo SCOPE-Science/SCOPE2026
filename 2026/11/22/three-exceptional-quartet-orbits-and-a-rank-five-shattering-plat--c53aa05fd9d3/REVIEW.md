@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The field representation is irreducible, all graphs use nonzero squares with every center allowed, and the trace criterion exactly tests all binary restrictions. Two separately implemented exhaustive algorithms give the same coefficients through the largest possible query size \(6\); normalized enumeration of \(24,040,016\) six-supports yields zero, and \(2^7>81\) excludes larger supports. A third implementation exhausts the complete four-support orbit partition and nonextendability classes. The finite search and its mathematically exhaustive bounds are integral to the proof, not extrapolations from samples.
+
+**Originality — PASS, with historical-priority risk.** McDonald–Sahay–Wyman's full 2022 text gives general asymptotic shattering results and numerical experiments in **prime** fields, not the exact strict-open-neighborhood polynomial over \(\mathbb F_{81}\). The 2024 graph VC-dimension paper treats closed-neighborhood algorithms rather than this finite coefficient/orbit census. Closest known separate results concern Paley-25 static supports or online quadratic-residue translates, neither of which logically determines order-81 static orbit classes. Inaccessible or unindexed equivalent finite-field computations remain possible.
+
+**Value — PASS.** The order-81 graph is the first Paley graph over an odd-characteristic quartic extension field, making it a natural test of prime-field numerical generalizations. Exact classification shows that every three-support is shattered, only three semilinear orbits obstruct shattering at size four, yet **no** six-support is shattered; furthermore the complex is nonpure with two orbits of maximal four-faces. This provides mathematically interpretable exceptional configurations and a complete natural finite invariant, not an arbitrary subset of a larger table.
+
+**Scope and limitations.** The result is finite and its proof contains verified exhaustive computation; nothing about other field orders, generalized Paley graphs, or an independent external audit follows. The results use ordinary strict open neighborhoods, not fuzzy-zero or closed neighborhoods.
+
+Self-review: passed. Independent audit: not yet performed.

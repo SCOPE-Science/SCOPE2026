@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The quartic defining \\(\\mathbb F_{81}\\) has neither a root nor an irreducible quadratic factor over F_3; each of the 81 centers has exactly 40 distinct nonloop square-adjacencies. At every query the candidate-center mask splits the center set into precisely the two possible traces. Both independently implemented finite enumerations exhaust all 24,040,016 zero-containing six-subsets and find no shattered six-subset, while 587,400 zero-containing five-subsets are shattered. The translation double count \\(k f_k=81 h_k\\) gives the exact polynomial. No larger support can be shattered since \\(2^7>81\\). An independent standard-library Python program exhaustively partitions all 82,160 zero-containing four-supports into G-orbits and tests the two nonextendable shattered orbits; the nonpurity conclusion is therefore exact in this finite domain. Limits: no infinite family inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2022 finite-field paper Theorems 1.4 and 1.6: asymptotic lower bounds on shattering and testing dimension, with numerical experiments only for prime q.",
+        "2024 graph-VC paper abstract/introduction: generic algorithm for closed-neighborhood VC dimension, with no Paley treatment located in complete searchable PDF.",
+        "Related online-dimension result gives general logarithmic bounds, not an order-81 static support polynomial."
+      ],
+      "reasoning": "Generic VC bounds, a procedure for computing VC dimension, and an adaptive learning dimension do not imply exact face counts, bad-quartet orbit types, or nonpurity. Quantitative differences in treatment of zero/closed neighborhoods are explicitly preserved.",
+      "searches": [
+        "https://arxiv.org/abs/2210.03789",
+        "https://arxiv.org/abs/2405.07588",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-near-information-theoretic-online-shattering-of-quadratic-residu--e4d8e40a4b13"
+      ]
+    },
+    "checked_sources": [
+      "2022-10-07 McDonald, Sahay, Wyman, arXiv:2210.03789 (full web-readable text; prime-only numerical section)",
+      "2024 Coudert, Csikós, Ducoffe, Viennot, arXiv:2405.07588 and LIPIcs.SEA.2024.8 (PDF first page plus full-document Paley search)",
+      "Published Paley-25 face-polynomial result (indexed summary; full text inaccessible)",
+      "Published quadratic-residue translates online-dimension result (indexed summary; full text inaccessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "McDonald–Sahay–Wyman gives general asymptotic VC behavior, a different numerical scope and a modified convention regarding zero, without all order-81 support traces.",
+        "Coudert et al. algorithms address closed neighborhoods; even an exact VC dimension alone never uniquely fixes a full face polynomial.",
+        "The order-25 result counts supports in F_25 and the online result bounds Littlestone dimension, so neither determines order-81 orbit counts."
+      ],
+      "reasoning": "The new claim is strictly more specific than published asymptotic bounds but is not a formal corollary: no stated theorem provides exact order-81 coefficients or the three-plus-two semilinear orbit structure. It is not a restatement of an online or closed-neighborhood result.",
+      "searches": [
+        "https://arxiv.org/abs/2210.03789",
+        "https://doi.org/10.4230/LIPIcs.SEA.2024.8",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-exact-paley-25-shattering-polynomial-and-its-exceptional-tri--d709a1a3fcdd",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-near-information-theoretic-online-shattering-of-quadratic-residu--e4d8e40a4b13"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McDonald–Sahay–Wyman 2022, Section 1 defines quadratic-residue translates as a graph neighborhood concept; Section 4 restricts numerical experiments to prime fields.",
+        "Strict open neighborhoods at order 81 are translates of nonzero squares; the order-81 all-support polynomial and G-orbit refinements are not in the inspected full primary text."
+      ],
+      "reasoning": "The language of translates of nonzero quadratic residues, Paley open neighborhoods, and one-variable adjacency-formula types describes the same concept class here. Search across these aliases found the general theory but no exact order-81 enumeration. A failed search is not a uniqueness proof.",
+      "searches": [
+        "\"Paley graph\" \"81\" \"VC dimension\" shattering",
+        "finite field F81 Paley graph shattered subsets neighborhoods",
+        "Paley graph P81 open neighborhoods shattering orbit classification",
+        "quadratic residues F81 VC dimension maximum supports shattered six"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantically returned exact polynomial pertains to Paley order 25, not order 81.",
+        "2022 primary source says its complete VC experiment considered prime q from 5 through 300 (Section 4.2), excluding 81.",
+        "A finite-field order-81 exact coefficient or facet-orbit table did not arise from the actual searches."
+      ],
+      "reasoning": "A prior table for another field order is neither equivalent to nor does it numerically determine the order-81 polynomial. Nevertheless an undiscovered index or independent exhaustive data could contain the same numbers.",
+      "searches": [
+        "Paley graph 81 neighborhood shattering polynomial VC dimension six",
+        "Paley graph q=49 exact VC dimension Paley neighborhoods",
+        "\"Paley graph\" \"81\" \"VC dimension\" shattering"
+      ]
+    },
+    "rationale": "The assessed one-field claim includes all exact face coefficients, complete three-orbit nonshattering classification in rank four, and two semilinear orbits of maximal four-faces at \\(q=81\\). The closest inspected foundational full text restricts experiments to prime fields and establishes general asymptotic bounds rather than this finite extension-field census. The graph computation paper concerns closed neighborhoods. Related published order-25 and online-dimension summaries do not logically imply these coefficients; unindexed equivalents remain a residual priority risk.",
+    "residual_risks": [
+      "Inaccessible full versions of certain related field-order and online-dimension papers may contain comparison-relevant ancillary calculations.",
+      "An independently known but unindexed finite-field order-81 table or alternative orbit terminology cannot be excluded by searches.",
+      "This exact finite result relies on reproducible computation and has no independently performed audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact claim: Section 4 numerical work explicitly restricts q to primes; general bounds do not determine the five orbit classes or coefficients.",
+        "evidence": [
+          "First-public preprint date 2022-10-07 on arXiv.",
+          "Section 4 says prime fields; Section 4.2 uses q prime, while q=81 is non-prime.",
+          "Sections 1 and 4 treat zero conventions that require care under strict open-neighborhood counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.03789",
+        "material_read": "Open-access web-rendered article with full-text access; introduction, all theorem statements, proof overview and detailed Sections 4.1–4.4 on numerical methods and results",
+        "method": "Read the paper text and compared its explicit prime-field numerical restriction, zero convention and the stated general bounds to the order-81 strict-open-neighborhood census",
+        "title": "The VC-dimension of quadratic residues in finite fields",
+        "trigger": "Same finite-field quadratic-residue translate concept and plausible exact numerical work"
+      },
+      {
+        "assessment": "DIFFERENT object/algorithmic scope; concerns closed neighborhoods and does not report an indexed Paley-81 open-neighborhood enumeration; not a claim of full theorem-by-theorem noncoverage.",
+        "evidence": [
+          "Abstract defines a closed-neighborhood graph VC-dimension problem.",
+          "Full document text search returned no mention of Paley."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SEA.2024.8",
+        "material_read": "First page of full PDF visually, abstract and introduction; full-text search across the PDF for Paley",
+        "method": "Publisher full PDF screenshot and text-query inspection",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Potentially general algorithmic coverage and existing computed neighborhood tables"
+      },
+      {
+        "assessment": "DIFFERENT field order (25 instead of 81); full-source noncoverage not asserted, and the comparison remains limited by unavailable full text.",
+        "evidence": [
+          "Summary identifies exact counts only over 25 vertices, with exceptional triples and four-faces."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-exact-paley-25-shattering-polynomial-and-its-exceptional-tri--d709a1a3fcdd",
+        "material_read": "Published title and scientific abstract/summary; full result text could not be accessed",
+        "method": "Semantic result search and attempted full result retrieval",
+        "title": "The exact Paley-25 shattering polynomial and its exceptional triples",
+        "trigger": "Closest indexed exact Paley neighborhood face polynomial and orbit classification"
+      },
+      {
+        "assessment": "Summary concerns all-q Littlestone bounds, not a static order-81 polynomial or orbit classification; limited full-text access is disclosed.",
+        "evidence": [
+          "Summary states general Ldim bounds between floor(log2 q)-3 and floor(log2 q)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-near-information-theoretic-online-shattering-of-quadratic-residu--e4d8e40a4b13",
+        "material_read": "Published title and scientific abstract/summary; full result text could not be accessed",
+        "method": "Semantic result search and attempted full result retrieval",
+        "title": "Near-information-theoretic online shattering of quadratic-residue translates",
+        "trigger": "Same translates, alternative online-learning shattering invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c53aa05f-d9d3-4b7e-8514-8295a41af7ce",
+  "value": {
+    "rationale": "The graph is the first natural odd-characteristic quartic-extension Paley example; its order is 81, just above a power-of-two VC threshold. The exact five-level polynomial and three exceptional bad-quartet orbits show sharply how near-universal four-query shattering nevertheless fails to extend to six queries. The two further orbits of maximal four-faces establish a nonpure shattering complex and explicitly identify obstruction geometry. These are intrinsically informative structural invariants of the whole canonical graph, not a tiny arbitrary slice or mere recoding of the order-25 calculation.",
+    "status": "PASS"
+  }
+}
