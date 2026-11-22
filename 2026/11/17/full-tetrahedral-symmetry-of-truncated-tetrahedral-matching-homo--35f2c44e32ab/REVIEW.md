@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph is specified without ambiguity; its full automorphism group is the label-permuting symmetric group, because its four internal triangles are the only triangles and its reversal edges determine their cross-identifications. The standalone verifier enumerates the 1010 matching faces, gives mod-two augmented boundary ranks \(1,17,100,232,136,8\), and proves rational homology is \(\mathbb Q^{22}\) in degree three using the Euler characteristic and the rank comparison with characteristic zero. Direct signed simplicial traces and the independent orbit-polynomial formula agree on all twenty-four automorphisms. The resulting character is \((22,0,2,-2,-2)\) and its exact inner products give the claimed Specht decomposition. Rational finite-group invariants prove the quotient statements. The finite certificate does not establish a separate integral torsion or equivariant homotopy classification.
+## correctness
 
-## Originality
-PASS relative to the inspected evidence. Engström (arXiv:math/0512420v1) gives claw-free independence-complex connectivity bounds and Barmak (arXiv:1007.0418v1) develops star-cluster methods and discusses matching complexes. Bate–Everitt–Ford–Ramos (arXiv:2312.13750v3) covers complete hypergraph matching-complex representations and representation stability, not this particular graph. The exact-graph published *Edge-orbit matching-complex homotopy of the truncated tetrahedron* gives the twenty-two-sphere wedge and two edge-deletion/link orbit pairs, but contains no full tetrahedral homology character. Two pre-existing calculations on the same graph concern the *vertex independence* and second-independence complexes, each with twelve ground vertices, whereas the present matching complex has eighteen. No result inspected implies the new representation or the quotient distinction. Database searches do not establish global priority; unindexed treatments remain a risk.
+PASS
 
-## Mathematical value
-PASS. Complete finite symmetry characters are natural invariants for highly symmetric graph complexes. This one resolves the Specht-module structure of twenty-two rational homology dimensions of a classical polyhedral graph and distinguishes the cohomology of rotational and full-symmetry quotient spaces. This is stronger than a generic modular Betti computation or an arbitrary slice, though it does not extend to an infinite family.
+The graph is twelve ordered pairs (a,b), with four disjoint 3-cliques and six reverse-pair edges; triangle partition forces Aut(T)=S4. Ordinary matching complexes have all 1010 faces including empty, f=(18,117,332,390,144,8). Source verifies augmented F2 boundary ranks (1,17,100,232,136,8) and reduced F2 Betti dim22 only in degree3; rational dimensions are at most mod2 and Euler=-22 forces all rational H~ into H3. Signed simplex Lefschetz traces yield character (22,0,2,-2,-2) on S4 classes; inner products with the five ordinary rational irreducible characters give multiplicities 0,1,3,2,3 respectively. Invariants are 0 for full S4, 1 for A4; barycentric subdivision/averaging gives rational cohomology rings. A fresh independent pure-Python graph/matching enumeration produced the 1010 face total and verified all 24 S4 signed Lefschetz traces, exactly the stated class values. This finite exhaustive check applies to this finite graph, not to an unproved graph family.
 
-## Limits
-No integral quotient torsion or equivariant homotopy type is established; only rational homology and ordinary quotient cohomology are claimed. Published priority is conditional on the inspected evidence; independent external mathematical validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier Oct11 Resultary full integral homotopy computation establishes the same nonequivariant ∨22S³ and deletion/link sphere counts; it has NO full S4 action or quotient character calculation. Other searched results concern the two-matching and two-independence complexes (different faces/invariants), or complete-hypergraph matching complexes. The exact 22-dimensional S4 character, Specht multiplicities and A4 quotient surviving sign class remain a distinct finite natural equivariant classification not implied by the known nonequivariant wedge type.
+
+## value
+
+PASS
+
+Natural and nontrivial complete finite classification: the truncated tetrahedron is a canonical symmetric graph, and the known 22-sphere wedge leaves its tetrahedral action entirely open. Exact signed 5-class homology representation and different S4 versus A4 rational quotient homology answer a natural invariant question, with a concise reusable fixed-orbit enumeration method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

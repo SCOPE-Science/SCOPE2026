@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library only. The generated `output.txt` was recorded from executing that exact source. No external downloads or dependencies are necessary.
+## correctness
 
-The verifier enumerates all 1010 matchings of the graph, including the empty matching, and independently reproduces their face counts by a vertex-deletion matching-polynomial recurrence, computes the exact \(\mathbb F_2\) augmented boundary ranks \((1,17,100,232,136,8)\), derives rational Betti constraints and proves the full character on all twenty-four group elements in two different ways: signed Lefschetz traces of the actual simplicial chain action and alternating counts of compatible orbits of matching edges. It also checks the five conjugacy-class sizes and traces, irreducible multiplicities, and fixed dimensions for \(S_4\), \(A_4\), the normal Klein-four group and a vertex-stabilizing \(S_3\).
+PASS
 
-The verifier output must end in `TRUNCATED_TETRAHEDRON_MATCHING_CHARACTER_PASS`. Its exact output is bundled as `output.txt`. The rank-over-characteristic-zero argument in `RESULT.md` uses the proven inequality between rational and mod-two Betti dimensions plus the Euler characteristic; there is no inference that modular ranks alone prove integral torsion-freeness. Finite-group rational averaging is applied after barycentric subdivision for ordinary quotient cohomology.
+The graph is twelve ordered pairs (a,b), with four disjoint 3-cliques and six reverse-pair edges; triangle partition forces Aut(T)=S4. Ordinary matching complexes have all 1010 faces including empty, f=(18,117,332,390,144,8). Source verifies augmented F2 boundary ranks (1,17,100,232,136,8) and reduced F2 Betti dim22 only in degree3; rational dimensions are at most mod2 and Euler=-22 forces all rational H~ into H3. Signed simplex Lefschetz traces yield character (22,0,2,-2,-2) on S4 classes; inner products with the five ordinary rational irreducible characters give multiplicities 0,1,3,2,3 respectively. Invariants are 0 for full S4, 1 for A4; barycentric subdivision/averaging gives rational cohomology rings. A fresh independent pure-Python graph/matching enumeration produced the 1010 face total and verified all 24 S4 signed Lefschetz traces, exactly the stated class values. This finite exhaustive check applies to this finite graph, not to an unproved graph family.
 
-No independent audit was performed; the calculations do not prove publication priority or the integral homotopy type of any quotient.
+## originality
+
+PASS
+
+The earlier Oct11 Resultary full integral homotopy computation establishes the same nonequivariant ∨22S³ and deletion/link sphere counts; it has NO full S4 action or quotient character calculation. Other searched results concern the two-matching and two-independence complexes (different faces/invariants), or complete-hypergraph matching complexes. The exact 22-dimensional S4 character, Specht multiplicities and A4 quotient surviving sign class remain a distinct finite natural equivariant classification not implied by the known nonequivariant wedge type.
+
+## value
+
+PASS
+
+Natural and nontrivial complete finite classification: the truncated tetrahedron is a canonical symmetric graph, and the known 22-sphere wedge leaves its tetrahedral action entirely open. Exact signed 5-class homology representation and different S4 versus A4 rational quotient homology answer a natural invariant question, with a concise reusable fixed-orbit enumeration method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
