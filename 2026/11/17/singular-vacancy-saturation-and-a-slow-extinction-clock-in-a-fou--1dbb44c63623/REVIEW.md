@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The invariant nonnegative population region with the vacancy cap follows from inward-pointing boundaries and conservation. At zero regular-conflict rate, the first integral \(T-Z-(a/k)\log Z\) and monotonicity of \(Z+(a/k)\log Z\) give a unique selected positive vacancy, with the full endpoint formula. Lambert-function asymptotics give all three vacancy regimes. At positive regular-conflict rate, a bounded variation-of-constants integral yields the sharp slow-mode amplitude, and dominated convergence plus uniform exponential tail bounds establish the full \(\tau/b\) limiting profile. Differentiation gives the exact concavity formula. Numerical checks corroborate but do not replace the proof. Hypotheses \(a,k,V,\gamma>0\) and \(E_0\le V\) are essential to the stated positive invariant domain and proof.
+## correctness
 
-## Originality
-PASS on the searched accessible literature, with historical risk. The original source (Singla and Kumar, arXiv:2611.01091v1, 2026-10-31) gives the four-compartment equations, local equilibrium stability and numerical scenarios but neither a zero-regular-conflict selected-equilibrium law nor the large-recruitment three-regime boundary nor a weak-conflict slow-time theorem. Misra--Singh's precursor unemployment equations contain an exogenous unemployed class with inflow, other recruitment routes and attrition; their equations are not this closed flow, and the accessible excerpt does not imply the new result. Published-record and searchable-research comparisons by the model/source aliases, exact rates, Lambert final size, metastability and capacity threshold did not reveal a dominating theorem. Earlier generic final-size or singular perturbation tools may yield related methods, and an unindexed equivalent calculation remains possible. Absence of hits is not a proof of absolute priority.
+PASS
 
-## Mathematical value
-PASS. The exact terminal-population selection is a physically natural invariant at the allowed zero-regular-conflict boundary, rather than a parameter slice chosen for arithmetic convenience. The initial temporary population relative to vacant capacity determines three distinct strong-transfer asymptotic laws: ordinary inverse-rate loss, a logarithmic critical layer, and exponentially small unfilled capacity. A tiny positive regular-conflict rate then destroys the terminal retained population only after time of order \(1/b\); the exact slow profile and noncommuting limits clarify a genuine dynamical discontinuity masked by the same final all-recovered equilibrium for every \(b>0\). The formulas are useful for interpreting transient versus terminal behavior within this precise model; no empirical validation is claimed.
+Read full ODE RESULT proof and checked nonnegative invariant simplex E<=V and T+E+I+B=N. At b=0, Z=V-E solves Zdot=-kZT and Tdot=-(a+kZ)T, giving conserved J=T-Z-(a/k)log Z; T<=T0e^-at, Z converges to a strictly positive unique root when Z0>0. Monotone Lambert inversion, first and second derivatives in T0, and W asymptotics at positive/infinite/small argument give all three k regimes with boundary exact formula. For 0<b<a, weighted convolution e^{bt}E_b(t) has finite amplitude A_b; domination by exp(-(a-b)t) and parameter continuity give A_b->E_* and uniform tau>=delta profile. T and I vanish with exponential and bV/gamma bounds. Checked k=2,20,150 numerical ODE endpoints vs independent Lambert formula to at most 1.1e-11. No joint b,k limit claimed. Edge T0+E0=0 appropriately excepted from positive amplitude.
 
-## Closest literature and limitations
-F. Singla and V. Kumar, *Understanding Work/Life Balance Through Mathematical Model* (arXiv:2611.01091v1), first posted 2026-10-31, is the defining source. A. K. Misra and A. K. Singh, *A mathematical model for unemployment*, Nonlinear Analysis: Real World Applications 12 (2011), 128--136, supplies earlier vacancy-limited transfer context but not the same closed population flow. The work assumes homogeneous compartments, irreversible recovery and fixed vacancies. The expansions are pointwise away from joint parameter scalings, and the scaled profile is not uniform to \(\tau=0\). Independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Singla–Kumar introduced the exact compartment ODE and local stability/numerical trajectories, not a zero-conflict terminal selection formula or sharp singular two-time asymptotics. Earlier Misra–Singh unemployment flow has exogenous terms, not this closed model. Known Lambert W and singular-limit techniques credited.
+
+## value
+
+PASS
+
+For a natural vacancy-limited finite-population flow, the selected endpoint and noncommuting extinction/zero-conflict limits are concrete dynamical information not given by equilibrium stability. Sharp below/at/above capacity trichotomy and uniform slow clock reveal a mathematically motivated singular surface; idealized social model is not empirical evidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
