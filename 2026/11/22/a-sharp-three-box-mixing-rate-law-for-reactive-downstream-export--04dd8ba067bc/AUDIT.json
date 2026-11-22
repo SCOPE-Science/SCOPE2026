@@ -1,0 +1,172 @@
+{
+  "correctness": {
+    "rationale": "A positive-column-diagonally-dominant M-matrix gives the unique stable steady state. Cofactor inversion yields three exact rational exported fractions. The middle derivative is a quadratic whose three coefficient sign thresholds are strictly ordered by comparing upstream and downstream removal rates. Opposite leading/constant signs give precisely one positive root; outside the interval every nonzero coefficient has a common sign. Upstream and downstream derivative coefficients are strictly signed, and two-box gradients have fixed sign. A standard-library rational linear-system checker passed 25,248 exact-arithmetic assertions; no finite testing is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alexander et al. (2002), DOI 10.1029/2001WR000878: first-order nutrient losses and river-basin transport, not a tunable common exchange parameter in three equal-volume boxes.",
+        "Gresch et al. (2009), DOI 10.1021/es801651j: published model construction and calibration of reactive compartments; available material emphasizes CFD approximation rather than a global source-location phase diagram."
+      ],
+      "reasoning": "Broader real-world compartment models encompass the chosen physical equations as idealizations, but model inclusion alone does not supply the sharp derivative signs and complete optimizer classification. The inspected results do not imply this quantified claim.",
+      "searches": [
+        "lake nutrient retention Vollenweider first-order mass-balance seasonally varying discharge and phosphorus loading phase annual average concentration crossover retention and residence time",
+        "effluent output concentration nonmonotonic backmixing rate reaction three compartment reactors internal source",
+        "three lake boxes pollutant removal nonmonotonic with dispersion coefficient effluent mixing mixing"
+      ]
+    },
+    "checked_sources": [
+      "https://www.vliz.be/imisdocs/publications/ocrd/140774.pdf",
+      "https://doi.org/10.1029/2001WR000878",
+      "https://doi.org/10.1007/s11270-007-9502-1",
+      "https://doi.org/10.1021/es801651j",
+      "https://doi.org/10.1061/(ASCE)0733-9372(1984)110:1(42)",
+      "2026/11/2/SCOPE-a-sharp-exchange-rate-optimum-for-an-unequal-loss-two-box-tracer--89b160aaa5b3",
+      "2026/10/25/SCOPE-a-two-index-ordering-law-for-serial-saturating-nutrient-removal--15d05df5ff61"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published mathematical finding 2026/11/2/SCOPE-a-sharp-exchange-rate-optimum-for-an-unequal-loss-two-box-tracer--89b160aaa5b3 concerns a finite-time peak at an initially empty compartment, not a continuously forced stationary fraction or the first-three-box sharp boundary.",
+        "Published mathematical finding 2026/10/25/SCOPE-a-two-index-ordering-law-for-serial-saturating-nutrient-removal--15d05df5ff61 concerns composing saturating reaction steps without symmetric exchange; it is not an algebraic consequence of the 3-by-3 stationary matrix.",
+        "Soetaert and Herman 1995 use a conservative salinity model, where all first-order reactive sinks vanish, outside the strict positive-loss domain here."
+      ],
+      "reasoning": "A fixed-time transient two-box optimum cannot be substituted for a steady-state three-box export response. Nonlinear series-map optimal order is not the same invariant or parameter regime. The published water-quality models supply governing context, not an identified dominating theorem.",
+      "searches": [
+        "two-box tracer exchange transient fixed time unequal loss concentration optimum",
+        "serial saturating nutrient removal reaches order indices",
+        "three compartment reactive steady export symmetric backmix source middle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Soetaert and Herman (1995), DOI 10.1007/BF00008582: the inspected equations express directed plus symmetric exchange, but conservative chlorinity has no positive reactive sinks.",
+        "Håkanson and Bryhn (2007), DOI 10.1007/s11270-007-9502-1: a four-compartment lake-phosphorus model includes exchange, but the inspected model and appendix do not give the stated steady three-cell fraction derivative or thresholds."
+      ],
+      "reasoning": "The proposed theorem is equivalent to an explicit classification of the sign of the derivative of an absorbing transport probability for a three-state directed chain with homogeneous symmetric adjacent exchange and distinct positive killing rates. None of the inspected full-text sections states this equivalent problem or its three source-location consequences.",
+      "searches": [
+        "three box advective diffusive environmental pollutant compartment model middle box injection downstream export mixing rate nonmonotonic sharp optimum",
+        "three stirred tank lake chain symmetric exchange mixed flow first order removal export fraction interior maximum in exchange rate",
+        "steady compartmental advection diffusion reaction three reactor series upstream return diffusion middle source output exit optimized mixing rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public mathematical record queries returned a finite-time two-compartment tracer optimum (2026/11/2/SCOPE-a-sharp-exchange-rate-optimum-for-an-unequal-loss-two-box-tracer--89b160aaa5b3) and a nonlinear serial-removal ordering theorem (2026/10/25/SCOPE-a-two-index-ordering-law-for-serial-saturating-nutrient-removal--15d05df5ff61), not the present analytical steady export table."
+      ],
+      "reasoning": "Targeted search of published mathematical records found no supplied threshold table for this model. This negative result is not considered a uniqueness proof; only the positive differences in the listed scientific statements support the best-knowledge assessment.",
+      "searches": [
+        "mixing",
+        "compartment",
+        "effluent",
+        "lake",
+        "three-box",
+        "backmix",
+        "downstream",
+        "dispersion",
+        "nutrient",
+        "exchange rate",
+        "first-order removal",
+        "three compartment lake chain symmetric exchange steady pollutant export exactly one optimum",
+        "middle compartment source longitudinal dispersion optimal effluent concentration first order degradation"
+      ]
+    },
+    "rationale": "The checked primary sources establish multi-compartment advective–dispersive transport and reactive water-quality models but do not identify an equivalent threshold classification. The closest published mathematical claims concern finite-time two-box exchange and saturating serial ordering, which have no direct implication for the forced steady three-box export fraction. Best-knowledge PASS is provisional due to incomplete access to some plausible historical primary papers.",
+    "residual_risks": [
+      "The complete 1984 Shanahan–Harleman article could not be inspected; older box-model literature may have an equivalent optimizer theorem.",
+      "The complete 2009 Gresch et al. paper was not accessible; some indexed substantive sections were inspected.",
+      "The full text of two closest public mathematical record entries was unavailable; their detailed summaries distinguish the mathematical statements, but do not exclude all possible corollaries.",
+      "Publication priority is not independently established; broad general compartment-system theory might imply the result even without matching terms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the advective–dispersive compartment framework for a conservative tracer, not a reactive middle-source export extremum.",
+        "evidence": [
+          "Article equations in transport-method section; abstract explicitly says conservative dissolved chlorinity; conclusions concern calibrated dispersion and residence times."
+        ],
+        "identifier_or_url": "https://www.vliz.be/imisdocs/publications/ocrd/140774.pdf",
+        "material_read": "Full freely accessible PDF retrieved; title, abstract, methods/equations, residence-time section and conclusions reviewed, including page-image inspection of the first page.",
+        "method": "Lawful OA manuscript, text and selected page image",
+        "title": "Estimating estuarine residence times in the Westerschelde (The Netherlands) using a box model with fixed dispersion coefficients",
+        "trigger": "Exact adjacent-box advection and dispersion mechanism"
+      },
+      {
+        "assessment": "Quantifies nutrient sources and removal over a watershed; does not report the common-interfacial-dispersion stationary three-box phase diagram.",
+        "evidence": [
+          "First published 2002-12-04; article discusses lakes and reservoirs, first-order removal and attenuation from watershed sources."
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2001WR000878",
+        "material_read": "Freely accessible full HTML article; abstract, introduction and first-order lake and river attenuation modeling passages reviewed.",
+        "method": "Publisher-hosted full-text HTML",
+        "title": "Estimating the sources and transport of nutrients in the Waikato River Basin, New Zealand",
+        "trigger": "Early fully dated motivating reactive transport source"
+      },
+      {
+        "assessment": "More detailed phosphorus compartments, but not the common-exchange variable or complete derived three-box stationary export classification.",
+        "evidence": [
+          "Appendix subsection Outflow, Mixing and Stratification and abstract; article originally published 2007-09-28."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11270-007-9502-1",
+        "material_read": "Open full HTML article; model structure and appendix sections on outflow and mixing examined.",
+        "method": "Publisher OA HTML, sections and model equations",
+        "title": "A Dynamic Mass-balance Model for Phosphorus in Lakes with a Focus on Criteria for Applicability and Boundary Conditions",
+        "trigger": "Multicompartment reactive phosphorus equations, exchange and outflow"
+      },
+      {
+        "assessment": "Addresses CFD reduction and reactor approximations; no decisive full-document negative coverage claimed.",
+        "evidence": [
+          "Published online 2009-02-25, model reduction, recirculation and back-mixing described in available passages."
+        ],
+        "identifier_or_url": "https://doi.org/10.1021/es801651j",
+        "material_read": "Online article overview and several model construction, backmixing and application passages available; entire publisher paper not fully read.",
+        "method": "Publisher indexed sections and abstract",
+        "title": "Compartmental Models for Continuous Flow Reactors Derived from CFD Simulations",
+        "trigger": "Flow-reactor backmixing with reactive loss"
+      },
+      {
+        "assessment": "Likely relevant background on intrinsic numerical dispersion, but no direct claim of reactive three-box source-location phase diagram in accessible material; remaining historical risk noted.",
+        "evidence": [
+          "1984 paper compares continuum and multiple-box dispersion models."
+        ],
+        "identifier_or_url": "https://doi.org/10.1061/(ASCE)0733-9372(1984)110:1(42)",
+        "material_read": "Abstract and bibliographic description only; full text inaccessible from attempted source.",
+        "method": "Publisher indexed abstract",
+        "title": "Transport in Lake Water Quality Modeling",
+        "trigger": "Historical priority for multi-box dispersion in lakes"
+      },
+      {
+        "assessment": "Finite-time two-compartment concentration problem; not directly covering the steady three-compartment exported fraction.",
+        "evidence": [
+          "Record explicitly specifies fixed positive time and initially empty compartment."
+        ],
+        "identifier_or_url": "2026/11/2/SCOPE-a-sharp-exchange-rate-optimum-for-an-unequal-loss-two-box-tracer--89b160aaa5b3",
+        "material_read": "Public title and detailed scientific summary indexed; repository full material not accessible in this execution.",
+        "method": "Published scientific record semantic search",
+        "title": "A sharp exchange-rate optimum for an unequal-loss two-box tracer",
+        "trigger": "Closest publicly indexed exchange-rate optimum"
+      },
+      {
+        "assessment": "Nonlinear sequential maps without backmixing; no stated coverage of present theorem.",
+        "evidence": [
+          "Record explicitly specifies saturable finite-step removal units and orderings."
+        ],
+        "identifier_or_url": "2026/10/25/SCOPE-a-two-index-ordering-law-for-serial-saturating-nutrient-removal--15d05df5ff61",
+        "material_read": "Public title and detailed scientific summary indexed; repository full material not accessible in this execution.",
+        "method": "Published scientific record semantic search",
+        "title": "A two-index ordering law for serial saturating nutrient-removal reaches",
+        "trigger": "Related serial reactive water-quality optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "04dd8ba0-67bc-49ae-85e5-3ae8f7e90e61",
+  "value": {
+    "rationale": "A natural directed three-compartment water balance is the smallest chain where the steady export fraction can have an interior dispersive optimum. The source-specific and rate-specific global classification decides whether exchange is always helpful/harmful for downstream pollution or creates a unique best/worst mixing rate. A rational example has an exactly verified 9.09% increase at its worst rate, while another simple integer example has a 40.9% increase, so the threshold is not merely a tiny numerical perturbation. Useful as a sharp benchmark for reactive transport and screening assumptions about monotonic impact of dispersion; no field-scale forecast is claimed.",
+    "status": "PASS"
+  }
+}
