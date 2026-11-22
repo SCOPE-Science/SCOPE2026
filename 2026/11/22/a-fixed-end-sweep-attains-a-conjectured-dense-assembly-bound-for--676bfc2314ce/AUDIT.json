@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Each prefix-reduced-column subset exactly spans the persistent chain space, since deleting early boundary rows preserves independence of distinct remaining low pivots. For each fixed terminal t, cumulative Gram–Schmidt vectors span the nested spaces in s, and their boundary outer products yield the exact persistent up-Laplacian. Summing \\(O(m k_t^2+(nm+n^2)k_t)\\) over ≤m t-rows gives \\(O(m^4+nm^3+n^2m^2)\\), including the reduced-column construction. Exact rational checker tests 969 grid events and every filtration pair in 120 seeded face-closed examples; finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mémoli–Wan–Wang Appendix E supplies iterative all-pairs Schur complement computation with a different complexity parametrization.",
+        "PETLS is an independent persistent-Laplacian calculation implementation.",
+        "Kirchner–Vittorietti Section 6 compares the conjectured cost to Schur updates, without claiming an established proof."
+      ],
+      "reasoning": "Prior all-pairs methods cover the task of producing persistent Laplacians, but do not as inspected imply the new reduced-column fixed-end amortized operation count. The result makes no global complexity-optimality or first-all-pairs assertion. Other methods may be faster.",
+      "searches": [
+        "Mémoli Wan Wang Persistent Laplacians Properties Algorithms and Implications Appendix E Theorem E.1 iterative all pairs complexity",
+        "arxiv:2012.02808 Appendix E algorithm",
+        "arxiv:2508.11560 PETLS"
+      ]
+    },
+    "checked_sources": [
+      "Kirchner and Vittorietti, arXiv:2611.09610v1, Sections 4.1, 4.2, 6",
+      "Mémoli, Wan and Wang, arXiv:2012.02808, Appendix E",
+      "Jones and Wei, arXiv:2508.11560, partial accessible material"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing 2026 work gives an algorithm permitting reuse from some earlier partial-order predecessor and conjectures, rather than proves, the global bound.",
+        "The new explicit fixed-end order visits at most m end levels; for each, its cumulative k_t linearly independent columns require O(m k_t^2) Gram–Schmidt work and O((nm+n²)k_t) rank-one boundary work.",
+        "Earlier Schur complement method computes Laplacians through a different matrix identity."
+      ],
+      "reasoning": "The stated fixed-end sweep is consistent with earlier reuse ingredients but adds an explicit valid scheduling restriction and the global summation proof, rather than follows from the unproved blanket complexity assertion. It is not a strict improvement over all existing algorithms.",
+      "searches": [
+        "arxiv:2611.09610v1 Sections 4.1, 4.2 and 6",
+        "arxiv:2012.02808 Appendix E",
+        "persistent Laplacian filtration incremental orthonormal basis fixed end t sweep s complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kirchner–Vittorietti Section 4.1 already obtains reduced-column bases indexed by (s_j,t_j); Section 4.2 already discusses incremental Gram–Schmidt basis reuse.",
+        "Section 6 explicitly conjectures the O(m^4+nm^3+n^2m^2) global cost, but gives no amortized proof.",
+        "The fixed-end schedule ensures a chain of nested spaces, enabling each eligible column to be inserted once per t row."
+      ],
+      "reasoning": "Existing equivalence of persistent chain bases and reduced columns is used as a premise, not claimed new. The distinct final statement is an amortized all-relevant-matrix construction bound for a specific monotone fixed-end evaluation order; no proof for arbitrary preexisting scheduling is inferred.",
+      "searches": [
+        "\"persistent Laplacian\" \"sweep\" \"orthonormal\" complexity",
+        "\"new persistent chain spaces\" \"complexity\" 2026 prove conjecture",
+        "Fixed-end row sweep of persistent chain Laplacians with rank-one updates and amortized Gram-Schmidt",
+        "arxiv:2611.09610v1 Sections 4.1–4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed hits concerned unrelated Laplacian spectra, filtrations of named graphs, and Gauss–Seidel or Gram matrix systems, not the same two-parameter reduced-column sweep complexity.",
+        "No exact stored numeric table is involved in this all-filtration asymptotic bound."
+      ],
+      "reasoning": "Search did not find a covering indexed claim, but an index absence does not prove originality; the primary-paper statement/implication comparison is decisive for the best-knowledge distinction.",
+      "searches": [
+        "Computing all relevant persistent up Laplacians in O(m^4+n m^3+n^2 m^2) field operations",
+        "Orthogonalization algorithm for persistence-paired columns exact assembly bound",
+        "New persistent chain spaces relevant persistent Laplacians filtration exact spectrum path graphs eigenvalues"
+      ]
+    },
+    "rationale": "The 2026 motivating paper supplies the reduction and incremental ideas but labels the global same-order complexity conjectural. A concrete fixed-end schedule plus a fully proved instance-sensitive global summation is not stated in the inspected primary results. The earlier Schur all-pairs algorithm is acknowledged as neither subsumed nor dominated, and unindexed equivalence remains a priority risk.",
+    "residual_risks": [
+      "The fixed-end sweep may be implicit or explicitly proved in unindexed discussions or software documentation; indexed search absence does not prove uniqueness.",
+      "The original authors might obtain the bound under some evaluation order without specifying a row sweep; this work does not claim their arbitrary schedule is covered.",
+      "The earlier Schur method has a different complexity bound that can dominate this one in some regimes.",
+      "Only partial PETLS material was accessible, so a decisive whole-document exclusion is not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides basis, rank-one updates and conjectured overall order; no shown proof of the specified amortized fixed-end row bound; very close and priority uncertainty remains",
+        "evidence": [
+          "Section 4.1: R=BV and (s_j,t_j) reduced-column characterization.",
+          "Section 4.2: Gram–Schmidt reuse and rank-one updates.",
+          "Section 6: explicitly conjectures O(m^4+nm^3+n²m²)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.09610v1",
+        "material_read": "Abstract; Sections 2.2, 3, 4.1, 4.2, 5, 6, especially the reduction basis, Algorithm 2 and the concluding complexity conjecture",
+        "method": "Full open-access HTML text inspected at the cited sections, with theorem and complexity statement compared",
+        "title": "New persistent chain spaces: identifying and computing the relevant persistent Laplacians of a filtration",
+        "trigger": "Same mathematical objects, algorithm and exact conjectured asymptotic expression"
+      },
+      {
+        "assessment": "Provides a distinct earlier all-pairs computational method, potentially faster in some regimes; does not claim reduction-column amortization of the kind studied here",
+        "evidence": [
+          "Appendix E iterates Schur complement updates across filtration indices.",
+          "The current claim does not assert overall dominance or a new general all-pairs algorithm."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.02808",
+        "material_read": "Open-access preprint discussion of the Schur-complement identity and Appendix E iterative all-pairs algorithm (theorem E.1), plus accessible journal abstract",
+        "method": "Primary preprint text comparison of Appendix E computation and the current construction",
+        "title": "Persistent Laplacians: Properties, Algorithms and Implications",
+        "trigger": "Earlier all-pairs persistent Laplacian matrix algorithm, potential stronger coverage"
+      },
+      {
+        "assessment": "Existing implementation that may be more efficient, but no identical complexity result confirmed; this is residual priority uncertainty",
+        "evidence": [
+          "Describes computation of persistent Laplacians, not the demonstrated fixed-end reduction-column sum bound in the inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.11560",
+        "material_read": "Accessible preprint abstract and algorithm descriptions in partial HTML view",
+        "method": "Partial accessible HTML/source comparison only; not claimed to have exhaustively inspected full text",
+        "title": "PETLS: PErsistent Topological Laplacian Software",
+        "trigger": "Software and alternative computation coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "676bfc23-14ce-4b8c-8041-8cf1a7526844",
+  "value": {
+    "rationale": "An explicitly identified open computational complexity issue is addressed with a constructive exact bound for all finite simplicial filtrations, including multi-simplex levels and all q. The event-prefix instance-sensitive complexity is relevant to full-filtration assembly and resource planning, not a narrow arbitrary example. It does not claim a new generic persistence theorem or universal fastest algorithm.",
+    "status": "PASS"
+  }
+}
