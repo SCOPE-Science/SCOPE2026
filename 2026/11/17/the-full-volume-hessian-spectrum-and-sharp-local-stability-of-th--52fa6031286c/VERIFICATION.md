@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The ordinary analytic derivation is in RESULT.md. Independently reproduce the finite consistency checks with `python verify.py` from the same folder. The script requires only the Python standard library and reconstructs the signed volume from Hodge-paired area bivectors. Its 2,993 passing checks include 300 random tangent configurations, three small deformation scales for each, exact sum-of-squares comparisons, rigid rotations, angular Fourier modes, and a numerical 27-by-27 Hessian diagonalisation. Its maximum observed discrepancy from the analytically predicted quadratic eigenvalues was below \(8.1\times 10^{-9}\), in a finite-difference discretisation.
+## correctness
 
-An additional, independently implemented SciPy convex-hull test compared the actual four-dimensional convex-hull volume to the second-order analytic formula for 20 tangent directions at three deformation scales and found cubic-order residuals. This additional test is not a dependency of `verify.py`. Its numerical outcome does not certify the infinite-dimensional quantifiers or substitute for proof.
+PASS
 
-The nonstandard algebraic point is the mixed-bivector coupling: after decomposing the transverse movements into first Fourier harmonics and residuals, its quadratic form is exactly a squared matrix sum, not an indefinite remainder. The six-dimensional nullspace is geometrically identified with simultaneous orthogonal rotations; all remaining spectral levels are positive. The local stability modulus is sharp only in the limit of vanishing orbit distance. An independent mathematical audit has not occurred.
+On the full 27-dimensional product-sphere tangent space, use the 20 strict square-edge × pentagon-edge facets and the signed bivector formula 24V=<A_square,*A_pentagon>. The exact spherical chart supplies the quadratic deficit (b/24)[5Σ||X_i||²+4Σ||Y_j||²+4Σ(u_i·Y_j)(v_j·X_i)+(5/2)Σ(Δα)²+2Σ(Δβ)²]. Tight-frame decomposition X_i=Ku_i+R_i and Y_j=Lv_j+S_j converts the mixed block to ten||K+L^T||_F² and decouples residuals. Square and pentagon cycle-Laplacian Fourier eigenvalues yield coefficient levels 0×6, b(5−√5)/24×2, b/6×6, 5b/24×6, b(5+√5)/24×2, 3b/8×4, 5b/12×1 (27 total). All six null modes are rigid rotations. The compact O(4)-orbit slice and O(||z||³) Taylor error give sharp local Δ/d² lower limit μ=b(5−√5)/24, attained by pentagon first harmonic. The inspected verify.py and independently computed finite-difference Hessian corroborate, but do not replace, analytic signed pairing and tight-frame diagonalisation.
+
+## originality
+
+PASS
+
+Best-of-knowledge original: the global square–pentagon volume maximum and Hodge volume identity are prior, but the full transverse 27-dimensional spectrum and sharp coefficient μ are not in the inspected same-model primary text; different nine-vertex 3D and seven-vertex results do not imply the spectrum. Unknown historical second-variation calculations remain a genuine risk.
+
+## value
+
+PASS
+
+Quantitative local rigidity of the already isolated global 4-polytope maximizer is a natural missing invariant: identifies every null mode, proves nondegeneracy modulo rotations, gives exact loss constant and physical lowest-energy deformation. This is more than restating global uniqueness or computing an unmotivated small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
