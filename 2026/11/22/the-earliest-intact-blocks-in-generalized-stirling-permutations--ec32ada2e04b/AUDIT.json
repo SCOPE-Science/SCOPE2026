@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Uniform insertion histories provide the exact all-subset survival product, verified by exhaustive rational enumeration. Gamma-ratio asymptotics give p_{n,i}=(i/n)^alpha(1+o(1)) and uniquely determine b_n=n^(alpha/(1+alpha)). The exact product yields uniform fixed-order factorization away from the origin, while Bernoulli inequality gives a globally summable subset bound and a small-origin control. Hence every compact-support Laplace functional converges to exp(-integral (1-exp(-f))x^alpha dx), establishing the full PPP and ordered-label Weibull/Gamma limits. 288 exact/numerical checker assertions passed; no infinite theorem relies on tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson, Kuba and Panholzer, Generalized Stirling permutations, families of increasing trees and urn models, arXiv:0805.4084 (2008)",
+        "Kuba and Panholzer, Analysis of Statistics for Generalized Stirling Permutations, author manuscript (2010)",
+        "The oldest leaves of random recursive trees form a Poisson point process, publicly available research record (2026)",
+        "Age-resolved covariance kernel for intact blocks in random Stirling permutations, publicly available research record (2026)"
+      ],
+      "reasoning": "Janson-Kuba-Panholzer gives the insertion model; Kuba-Panholzer gives block-size counts and fixed-label distances; the closest age-resolved result gives a macroscopic covariance kernel only. The recursive-tree oldest-leaf theorem uses another growth law and sqrt(n), not a broader theorem covering inner-gap survival in r-Stirling words.",
+      "searches": [
+        "Stirling permutations oldest intact birth block minimum label distribution",
+        "random Stirling permutations oldest intact birth block minimum label distribution",
+        "r-Stirling permutation oldest intact blocks Poisson limit label n one third"
+      ]
+    },
+    "checked_sources": [
+      "Janson, Kuba and Panholzer, Generalized Stirling permutations, families of increasing trees and urn models, arXiv:0805.4084 (2008)",
+      "Kuba and Panholzer, Analysis of Statistics for Generalized Stirling Permutations, author manuscript (2010)",
+      "Haglund and Visontai, Stable multivariate Eulerian polynomials and generalized Stirling permutations (2012)",
+      "Age-resolved covariance kernel for intact blocks in random Stirling permutations, publicly available research record (2026)",
+      "The oldest leaves of random recursive trees form a Poisson point process, publicly available research record (2026)",
+      "arXiv:1402.3358, Remmel and Wilson, Block patterns in Stirling permutations (abstract-level comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Age-resolved covariance kernel for intact blocks in random Stirling permutations, publicly available research record (2026)",
+        "The oldest leaves of random recursive trees form a Poisson point process, publicly available research record (2026)",
+        "Janson, Kuba and Panholzer, Generalized Stirling permutations, families of increasing trees and urn models, arXiv:0805.4084 (2008)",
+        "Haglund and Visontai, Stable multivariate Eulerian polynomials and generalized Stirling permutations (2012)"
+      ],
+      "reasoning": "An explicit joint inclusion formula makes the new result derivable in principle, but finite distributions and macroscopic second moments alone do not assert an infinite-dimensional rare-event limit. The argument must control the origin, all factorial orders and the deterministic scale. A different recursive-tree Poisson result cannot be substituted because the one-label survival exponent changes from one to (r-1)/r.",
+      "searches": [
+        "Poisson rare intact runs oldest labels in Stirling permutations birth label point processes",
+        "random recursive tree earliest leaves Poisson process birth labels",
+        "Stirling permutations smallest plateau label first adjacent equal pair extreme Poisson Weibull scale n one third"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haglund and Visontai, Stable multivariate Eulerian polynomials and generalized Stirling permutations (2012)",
+        "Age-resolved covariance kernel for intact blocks in random Stirling permutations, publicly available research record (2026)"
+      ],
+      "reasoning": "For r=2 intactness equals a value-indexed plateau; for general r it equals simultaneous occurrence of all r-1 same-label plateaux. The multivariate polynomial and the earlier complete survival law can reconstruct finite probabilities but neither explicitly states the shrinking-window Poisson limit. An equivalence would require the new scale selection and asymptotic factorization.",
+      "searches": [
+        "Stirling permutation smallest plateau label first adjacent equal pair extreme Poisson Weibull scale n one third",
+        "minimum label with all repeated copies consecutive in random Stirling permutations extreme value Poisson process",
+        "first surviving contiguous label in uniform r-Stirling permutation Weibull limit n^((r-1)/(2r-1)) inhomogeneous Poisson point process of intact blocks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kuba and Panholzer, Analysis of Statistics for Generalized Stirling Permutations, author manuscript (2010)",
+        "Haglund and Visontai, Stable multivariate Eulerian polynomials and generalized Stirling permutations (2012)",
+        "Age-resolved covariance kernel for intact blocks in random Stirling permutations, publicly available research record (2026)"
+      ],
+      "reasoning": "Finite all-label statistics are covered by a prior multivariate polynomial and exact subset inclusion formula, so novelty is not claimed for a finite table or formula. The exact asymptotic PPP/Weibull limit is the claim; it is not a finite table lookup.",
+      "searches": [
+        "plateau labels point process low age uniform Stirling permutations Poisson intensity sqrt x",
+        "label indexed plateau / all consecutive occurrence process r-Stirling Poisson smallest index"
+      ]
+    },
+    "rationale": "Primary and full prior-text comparisons show the r-Stirling growth model, value-indexed plateau generating functions, all-subset survival formula, and macroscopic covariance kernels are already present and are not claimed new. The new theorem identifies the distinct rare early-age window n^((r-1)/(2r-1)), proves joint Poisson convergence for all fixed r>=2 and extracts Weibull and Gamma extremes. No checked exact statement contains that point-process limit; this conclusion is qualified by the potential for an earlier unlocated abstract rare-event specialization.",
+    "residual_risks": [
+      "The complete earlier finite joint survival law is substantial prior coverage; future priority work may identify an equivalent rare-window point-process corollary, so this is not certified historically unique.",
+      "Remmel-Wilson block-pattern paper and some older increasing-tree limit literature were not fully inspected; these could contain more relevant specializations.",
+      "No independent mathematical review has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the insertion process and aggregate block/plateau structure, but not earliest intact birth-label rare-point process or its exponent",
+        "evidence": [
+          "Section 2, equation (1), unique insertion into r(k-1)+1 gaps",
+          "Abstract and Sections on aggregate ascents/plateaux and large blocks"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0805.4084",
+        "material_read": "Abstract, introduction, Section 2 insertion enumeration, theorem and discussion on largest enclosing blocks, references",
+        "method": "Full-text PDF inspection with rendered page cross-check",
+        "title": "Generalized Stirling permutations, families of increasing trees and urn models",
+        "trigger": "Original uniform r-Stirling insertion model and increasing-tree correspondence"
+      },
+      {
+        "assessment": "Specified-block-size count and individual-gap distribution results do not provide a growing rare-age window point process; one-label gap information is closely related",
+        "evidence": [
+          "Introduction describes global counts X_{n,l} and distances Delta_{n;j,p}",
+          "Section 5.4 gives multivariate count-by-size factorial moments, not a process indexed by smallest intact label"
+        ],
+        "identifier_or_url": "https://www.dmg.tuwien.ac.at/kuba/preprintStirblock.pdf",
+        "material_read": "Abstract, introduction, Sections on the block-size joint distributions and individual repeated-label distances, related-tree interpretations",
+        "method": "Full-text parsed PDF with rendered-page inspection and section-level comparison",
+        "title": "Analysis of Statistics for Generalized Stirling Permutations",
+        "trigger": "Explicit analyses of blocks of specified sizes and distances between repeated copies"
+      },
+      {
+        "assessment": "Value-indexed multivariate polynomials already encode finite plateau combinations, but no rare-label Poisson process, scale or Weibull extremal limit is stated",
+        "evidence": [
+          "Equation (16) and Theorem 3.3 show stable multivariate plateau polynomial for r=2",
+          "Equation (19) and Theorem 3.4 extend to general r"
+        ],
+        "identifier_or_url": "https://sites.math.washington.edu/~billey/classes/561.fall.2021/past.articles/haglund.vis.2012.pdf",
+        "material_read": "Abstract, Sections 1-3, especially equations (16) and (19), Theorems 3.3-3.4, conclusion",
+        "method": "Parsed PDF and rendered-page inspection",
+        "title": "Stable multivariate Eulerian polynomials and generalized Stirling permutations",
+        "trigger": "Label-indexed plateau refinements and strong negative-dependence machinery"
+      },
+      {
+        "assessment": "Exact joint survival formula is identical to this proof input and is explicitly credited as covered. The earlier claim instead gives macroscopic birth-prefix covariance scaling and does not state or imply without a separate argument the growing rare-label Poisson limit",
+        "evidence": [
+          "Exact subset survival product with c_k(S)",
+          "K_r(s,t) covariance limit for W_n(t)/n on macroscopic t; no point-process or first-intact-label limit"
+        ],
+        "identifier_or_url": "2026-11-08 publicly available mathematical research record, identified by its exact title",
+        "material_read": "Complete Finding, Assumptions, Proof, Relationship to prior work, Limitations and References text of public RESULT.md",
+        "method": "Read complete publicly available mathematical result and compare implications",
+        "title": "Age-resolved covariance kernel for intact blocks in random Stirling permutations",
+        "trigger": "Same intact-block indicators and an explicit joint inclusion formula"
+      },
+      {
+        "assessment": "Its model is uniform single-parent recursive trees and its intensity is x dx with sqrt(n) scale. Here the event is preservation of all internal gaps in r-copy blocks, yielding multiplicity-dependent exponent and n^((r-1)/(2r-1)) scale. This is not an equivalent special case.",
+        "evidence": [
+          "Recursive-tree joint leaf identity product_{j}(i_j-j)/(n-j)",
+          "Recursive-tree Rayleigh minimum with n^{1/2} scale"
+        ],
+        "identifier_or_url": "2026-10-18 publicly available mathematical research record, identified by its exact title",
+        "material_read": "Complete Finding, Assumptions, Proof and Relationship to prior work of public RESULT.md",
+        "method": "Read mathematical proof and compare model/coupling and intensity",
+        "title": "The oldest leaves of random recursive trees form a Poisson point process",
+        "trigger": "Poisson process for the earliest surviving labels in a related recursive model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ec32ada2-e04b-440f-9562-bb3b32d81071",
+  "value": {
+    "rationale": "Earliest surviving intact birth-label is a canonical extreme statistic of the r-Stirling insertion process and of value-indexed plateaux, not an arbitrary slice. The theorem identifies a sharp multiplicity-dependent sublinear scale and the full limiting hierarchy, genuinely different from global plateau counts, macroscopic covariance data, and ordinary recursive-tree leaf ages. This exact all-r asymptotic description has independent mathematical interest as a rare-event boundary, without depending on a downstream theorem.",
+    "status": "PASS"
+  }
+}
