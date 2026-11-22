@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For every a>=2, coprime 1<=d<a, and q>=1, the minimal representative in residue r modulo a is tau_r b, so membership is equivalent to j>=q tau_r+floor(d tau_r/a). An exact interval condition on j characterizes each maximal missing block. Strict monotonicity in tau proves every summand has either identically zero or exactly affine-in-q count, with nonnegative coefficients and top-run coefficient q. All edge cases are covered and an independent coin-reachability enumerator matched 3765 complete histograms; computation is not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moree, arXiv:1308.3972, Theorem 12: total number of blocks, with Lemma 4 fixing the largest possible block length.",
+        "Singh and Ram, arXiv:2406.09848, Theorems 3.4 and 4.8: complete isolated-gap (length-one) classification.",
+        "Published research record, 2026/11/2/584c998005ae: full gap-run frequencies when a=dt+1 and b=a+d only."
+      ],
+      "reasoning": "The older exact total-block count and isolated-gap theorem are lower-dimensional summaries of the desired full length distribution. The published special-family result restricts generators to a=dt+1, b=a+d and does not cover arbitrary coprime a,d and all q>=1; Moree gives full fixed-pair polynomial support but not the quantified affine spectral theorem. The proposed parametric rigidity is therefore not directly asserted by inspected broader literature.",
+      "searches": [
+        "all two-generator numerical semigroups gap-run length polynomial affine quotient b/a coprime a b fixed residue b mod a",
+        "exact full gap-block run length histogram for every two generator numerical semigroup semigroup gap deserts multiplicity affine in quotient q second generator qa+d modular inverse",
+        "\"two generated\" \"gap blocks\" \"length\" numerical semigroup"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.13052v1",
+      "doi:10.3390/sym15071328",
+      "arxiv:2406.09848v1",
+      "arxiv:1308.3972v2",
+      "https://gap-packages.github.io/numericalsgps/doc/chap3_mj.html",
+      "published result ID 2026/11/2/584c998005ae"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moree 2013/2014 provides the entire coefficient support of the binary inclusion-exclusion polynomial, so a fixed-pair histogram is in principle recoverable; his explicitly stated block results are longest length a-1 and total count rho sigma-1.",
+        "Singh-Ram 2024 gives the length-one count, not simultaneous affine laws for all lengths.",
+        "The 2026 restricted family is a specialization with q=1 and a=dt+1."
+      ],
+      "reasoning": "The new assertion is the uniform coefficient-level identity H_l(a,qa+d)=q A_l(a,d)+B_l(a,d), including q-invariant support and exactly q longest runs, for every coprime a,d. It requires the monotonicity observation on all Apéry thresholds. The older fixed-instance support formula entails individual histograms algorithmically, but its stated results do not separately imply the affine dependence without an additional global argument; this is a genuine but bounded priority distinction.",
+      "searches": [
+        "P. Moree Numerical semigroups cyclotomic polynomials Bernoulli numbers Theorem 12 gap blocks longest distribution",
+        "\"exact run-length frequencies for binary semigroups\" a dt+1 b a+d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "P. Moree, arXiv:1308.3972, §§2,6,7, especially Theorem 11 connecting binary inclusion-exclusion coefficients with gap-run endpoints and Theorem 12 giving their total count.",
+        "NumericalSgps Deserts documentation describes computing the full gap-run list of a given numerical semigroup."
+      ],
+      "reasoning": "A known coefficient-position formula and direct computational operations determine every fixed semigroup gap run. They do not directly present or isolate the uniform linear dependence, q-independent support, and all-length slope/intercept spectrum when b=qa+d. This is the precise strengthened structural claim; equivalence as a nontrivial manipulation remains a residual risk.",
+      "searches": [
+        "\"gap lengths\" \"numerical semigroup\" \"two generators\" distribution",
+        "\"deserts\" \"numerical semigroup\" length distribution",
+        "\"maximal runs\" \"gaps\" \"numerical semigroup\" two",
+        "binary inclusion-exclusion cyclotomic polynomial gap block run length distribution slopes modular inverse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "NumericalSgps Deserts function enumerates missing intervals for a chosen input but supplies no all-parameter affine coefficient theorem.",
+        "No matching exact all-a,d,q coefficient table occurred among inspected scientific search results."
+      ],
+      "reasoning": "A software routine yielding any finite instance is not an explicit universally quantified affine law; an undiscovered symbolic formula or table may nonetheless exist.",
+      "searches": [
+        "\"gap runs\" \"two-generated numerical semigroup\" complete length distribution",
+        "\"Deserts\" numerical semigroup run length generators formula",
+        "\"gap interval length spectrum\" numerical semigroup two generators"
+      ]
+    },
+    "rationale": "The primary 2022/2023 motivating paper treats p-Frobenius numbers for arithmetic-progression triples (primary MSC 11D07). Moree determines the total number and longest run of each two-generator semigroup and all binary polynomial coefficients; Singh–Ram determines isolated gaps. A special-family result at a=dt+1,q=1 is subsumed by the new claimed domain. Searches did not locate the complete all-length affine-in-q theorem, although the fixed-pair membership data in Moree may permit a different derivation; that possibility is explicitly recorded as a residual risk.",
+    "residual_risks": [
+      "The full text of the closest published special-family result was inaccessible; the comparison uses its detailed indexed mathematical summary.",
+      "Moree gives all binary inclusion-exclusion coefficient positions, and the affine rigidity might have appeared as an unstated or subsequently published algebraic consequence.",
+      "A specialized literature result or table using the synonymous term deserts may not have been indexed by the performed searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies p-Frobenius and p-Apéry data for a three-term arithmetic progression, not all maximal gap-run length counts for a two-generator semigroup.",
+        "evidence": [
+          "https://arxiv.org/abs/2206.13052",
+          "https://doi.org/10.3390/sym15071328"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.13052v3",
+        "material_read": "Full HTML text including introductory setting, main theorem and concluding discussion; arXiv record verified v1 public date 2022-06-27; publisher page verified first-listed MSC 11D07",
+        "method": "Read original arXiv/publisher HTML and compared theorem objects and quantified parameters",
+        "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+        "trigger": "Earliest eligible primary-MSC11D07 number-theoretic Apéry/coin-problem motivation"
+      },
+      {
+        "assessment": "Theorem 12 gives total gap-run count; Lemma 4 gives maximal possible length; full coefficient positions can reconstruct fixed instances but no uniform affine-in-quotient run-length spectrum was stated in inspected material.",
+        "evidence": [
+          "https://pure.mpg.de/pubman/item/item_3120557_3/component/file_3120558/Moree_Numerical%2Bsemigroups_oa_2014.pdf"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1308.3972",
+        "material_read": "Extracted article text including coefficient-position Lemma 1, gap-block Lemma 4, Theorems 11 and 12 and concluding LLL comparison",
+        "method": "Read lawful full-text PDF extraction, checked explicit supports, extremal lengths and total-block count",
+        "title": "Numerical semigroups, cyclotomic polynomials and Bernoulli numbers",
+        "trigger": "Known binary inclusion-exclusion polynomial support potentially dominates a gap-spectrum claim"
+      },
+      {
+        "assessment": "Length-one frequency is known in alternate form; it does not assert or cover the entire universal affine spectral family for all lengths.",
+        "evidence": [
+          "https://arxiv.org/abs/2406.09848"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.09848v1",
+        "material_read": "Full HTML, sections 2–4, Theorems 3.4 and 4.8, references",
+        "method": "Read full arXiv HTML and compared isolated gaps with l=1 specialization",
+        "title": "On Isolated Gaps of Numerical Semigroups of embedding dimension two",
+        "trigger": "Exact length-one gap-run results may cover one coefficient"
+      },
+      {
+        "assessment": "Summary restricts to a=dt+1,b=a+d, so does not assert general all-a,d,q theorem. Inaccessible full text limits certainty.",
+        "evidence": [
+          "Published mathematical research result ID 2026/11/2/584c998005ae"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae",
+        "material_read": "Indexed title and detailed theorem summary only; full text unavailable",
+        "method": "Compared supported family and count formulas with arbitrary a,d,q and tested specialization algebraically",
+        "title": "Exact run-length frequencies for binary semigroups with a=dt+1 and b=a+d",
+        "trigger": "Closest indexed statement on full gap-run distribution"
+      },
+      {
+        "assessment": "Can list each finite semigroup gap-run multiset but no parametric rigidity theorem.",
+        "evidence": [
+          "https://gap-packages.github.io/numericalsgps/doc/chap3_mj.html"
+        ],
+        "identifier_or_url": "https://gap-packages.github.io/numericalsgps/doc/chap3_mj.html",
+        "material_read": "Documented Deserts operation and example",
+        "method": "Read public package documentation",
+        "title": "NumericalSgps Deserts documentation",
+        "trigger": "Check for full exact table or a generic preexisting enumeration algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "16981d78-27be-4b65-855c-fe440e62effd",
+  "value": {
+    "rationale": "Maximal missing intervals (deserts) are a natural named numerical-semigroup invariant. The theorem gives the full exact length-resolved histogram for all two-generator semigroups, showing unexpected linearity and support stability across any fixed residue class b mod a, including the exact multiplicity of the longest run. Earlier literature focuses on total counts, maximal length and isolated gaps, leaving the joint full parameter-dependent structure mathematically motivated.",
+    "status": "PASS"
+  }
+}
