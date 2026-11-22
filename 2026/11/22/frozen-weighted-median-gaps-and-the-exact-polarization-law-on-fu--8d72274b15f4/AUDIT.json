@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For identical positive rows, every agent projects onto one common median interval. Its endpoint agents remain fixed and all other agents approach them from the same side, proving interval invariance. The scalar update solves exactly and supplies the limit gap. Under iid continuous opinions, the rank ordering is uniform and each balanced subset determines a disjoint cut event of probability 1/binom(n,|S|). Uniform order-statistic gaps are Beta(1,n) independently of ranking; the exact survival and mean follow. Reduction to integer PARTITION and the converse NP membership use the same equality certificate. Reproduction program verify_rankone.py passed 3267 exact interval/orbit cases and 1089 exact probability/permutation cases; computations are not used to prove the all-size theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 9 and Theorem 11 of arXiv:2610.16406 prove global convergence and the general universal-consensus criterion, respectively.",
+        "Sections 3.2–3.3 of arXiv:2212.08808 prove general asynchronous cohesion properties and NP-hardness of an almost-sure dissensus test on specially built directed graphs.",
+        "arXiv:2404.16318 gives convergence and cohesive-set criteria for a different continuous-time equation."
+      ],
+      "reasoning": "The existence of rank-one dissensus when a balanced subset exists, the avoidance by one averaging agent, and generic hardness concepts are already contained in or directly follow earlier results; none is claimed as a standalone discovery. Prior general convergence criteria do not dominate the new initial-state exact orbit and iid Beta-mixture distribution.",
+      "searches": [
+        "equilibria consensus discrete-time mixed weighted averaging weighted median Cheng Mei 2610.16406",
+        "weighted median opinion dynamics consensus NP-hard computational complexity partition weight 1/2 exact tie complete network",
+        "https://arxiv.org/abs/2610.16406",
+        "https://arxiv.org/abs/2212.08808",
+        "https://arxiv.org/html/2404.16318v3"
+      ]
+    },
+    "checked_sources": [
+      "Cheng and Mei (2026), arXiv:2610.16406v1, https://arxiv.org/abs/2610.16406",
+      "Mei, Hendrickx, Chen, Bullo, Dörfler (2024), arXiv:2212.08808, https://arxiv.org/abs/2212.08808",
+      "Han, Hendrickx, Chen, Mei (2024/25), arXiv:2404.16318v3, https://arxiv.org/html/2404.16318v3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-median-conservation-and-exact-relaxation-on-bipartite-opinio--2cba793af93d",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-consensus-selection-and-a-discontinuous-weight-threshold-o--690019ac93b9",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-consensus-reliability-from-directional-runs-in-mixed-media--2e44dd8b777b",
+      "Uniform-order-statistic Dirichlet spacings (classical)",
+      "Garey and Johnson, Computers and Intractability, 1979 (PARTITION NP-completeness)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cheng–Mei Theorem 11 implies a balanced subset is necessary and sufficient for possible dissensus on positive common-row all-median networks, and implies one averaging agent suffices for universal consensus.",
+        "The 2024 asynchronous paper establishes a distinct NP-hardness question via a directed-graph satisfiability construction.",
+        "The publicly indexed two-median record concerns two cross-listening groups in continuous time, while star and ring records concern distinct influence structures."
+      ],
+      "reasoning": "The precise contribution remaining after subtracting implication of prior structural theorems is that every agent has a frozen target computed from its initial median interval, yielding the exact full trajectory and a label-permutation-weighted mixture with conditional Beta(1,n) gap. The NP-complete rank-one arithmetic observation and one-averaging-node result are contextual consequences; general NP-hardness and structural consensus alone are not the originality basis.",
+      "searches": [
+        "fixed global weighted median interval exact discrete-time synchronous opinion dynamics rank-one all agents freeze order-statistic gap",
+        "equilibria consensus discrete-time mixed weighted averaging weighted median Cheng Mei 2610.16406",
+        "https://arxiv.org/abs/2610.16406",
+        "https://arxiv.org/abs/2212.08808",
+        "https://arxiv.org/html/2404.16318v3",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-median-conservation-and-exact-relaxation-on-bipartite-opinio--2cba793af93d",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-consensus-selection-and-a-discontinuous-weight-threshold-o--690019ac93b9",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-consensus-reliability-from-directional-runs-in-mixed-media--2e44dd8b777b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cheng–Mei arXiv:2610.16406 Section 3.4 gives disjoint cohesive sets and Section 2.1 defines weighted-median interval; it does not state frozen common-row median intervals or random limit-gap law.",
+        "Han et al. arXiv:2404.16318 Sections 2–3 address closest-median continuous-time dynamics and general cohesion, but not the discrete-time coordinate orbit and iid spacing mixture.",
+        "Mei et al. arXiv:2212.08808 Sections 2–3 analyze a random asynchronous rule with neighbor-valued medians, not the synchronous damped projection rule."
+      ],
+      "reasoning": "Common-row dynamics directly specializes the 2026 median definition, but a general convergence or equilibrium-existence criterion does not determine the limiting gap, the exact heterogeneous-rate orbit, or the distribution of its random nonzero diameter. The continuous-time counterpart suggests a close analogy; it neither states nor logically supplies the discrete-time formula and probability law without a separate invariant-interval argument.",
+      "searches": [
+        "fixed global weighted median interval exact discrete-time synchronous opinion dynamics rank-one all agents freeze order-statistic gap",
+        "weighted median consensus with identical influence rows random iid uniform opinions polarization probability balanced subset sum and beta spacing",
+        "rank one weighted median social network balanced partition no consensus parity",
+        "https://arxiv.org/abs/2610.16406",
+        "https://arxiv.org/abs/2212.08808",
+        "https://arxiv.org/html/2404.16318v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The identified nearby public findings analyze bipartite two-median conservation, median stars and opinion rings, rather than rank-one synchronous median-gap distributions.",
+        "The current claim concerns a symbolic family of real-valued initial states and an exact probability law, not a finite database lookup or a numerical table entry."
+      ],
+      "reasoning": "No exact table or database enumerates the entire proposed weight-dependent polarization probability or frozen gap distribution. Exhaustive tiny-order enumeration is used solely as a computation check, not as evidence of infinite novelty.",
+      "searches": [
+        "weighted median consensus with identical influence rows random iid uniform opinions polarization probability balanced subset sum and beta spacing",
+        "NP complete partition weighted-median consensus one common positive row rank-one all agents",
+        "weighted median common row consensus exact half weight partition complexity generic weights median"
+      ]
+    },
+    "rationale": "The surviving model-specific theorem is the frozen common-row median interval, full heterogeneous-rate discrete-time orbit and exact initial-distribution-weighted polarization gap law. Closest published general convergence and consensus theorems, and older asynchronous hardness and continuous-time median work, do not explicitly establish these precise quantified statements. Existing consensus-possibility and one-WA consequences are credited as already implied. Residual uncertainty about historic rank-one special cases remains.",
+    "residual_risks": [
+      "A highly specialized prior common-row solution may not be indexed by the searched terms or indexed public finding database.",
+      "The continuous-time closest-median literature admits an analogous fixed-interval reasoning; overlap is conceptually close although the explicit discrete-time random-limit law was not found.",
+      "General consensus-possibility and single averaging-agent results are prior implications and cannot themselves constitute the new contribution.",
+      "No claim of independent historical-priority verification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convergence and cohesive-set results cover some structural consequences but do not state exact time trajectories, rank-one median-gap persistence or probability law.",
+        "evidence": [
+          "arXiv:2610.16406, Section 2.1 equation (4); Section 2.2 equation (6); Section 3.4 Theorem 11; Sections 4–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.16406",
+        "material_read": "HTML full text sections 1–3: equations (1)–(6), tie selection, Theorems 2, 9, 11 and proofs; Sections 4–5 and supplement descriptions examined for a rank-one special case.",
+        "method": "Accessible arXiv HTML and targeted full-document term searches for rank, complexity, complete graph, and median interval.",
+        "title": "Equilibria and consensus in discrete-time opinion dynamics with mixed weighted-averaging and weighted-median mechanisms",
+        "trigger": "Same exact synchronous median projection model, candidate direct coverage"
+      },
+      {
+        "assessment": "Asynchronous single-update finite-state median rule; generic NP-hardness is credited. No coverage found for discrete-time synchronous rank-one gap-mixture law.",
+        "evidence": [
+          "arXiv:2212.08808, Sections 2 and 3.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.08808",
+        "material_read": "Accessible arXiv full-text HTML: Introduction, model/median definition and convergence theory, Section 3.3 NP-hardness via monotone NAE3SAT, with comparison of update rules.",
+        "method": "ArXiv accessible full text and targeted searches for complexity, exact orbits and common influence.",
+        "title": "Convergence, Consensus and Dissensus in the Weighted-Median Opinion Dynamics",
+        "trigger": "Most relevant earlier weighted-median NP-hardness and cohesive-set work"
+      },
+      {
+        "assessment": "A continuous-time analogue with general convergence, but no stated common-row discrete-time exact orbit or iid gap law in inspected material.",
+        "evidence": [
+          "arXiv:2404.16318v3, Sections 2.2 and 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.16318v3",
+        "material_read": "Accessible arXiv HTML: Sections 1–3 including model equation (1), median selection, cohesion, and general convergence; searches for identical rows, rank-one and partitions.",
+        "method": "arXiv experimental HTML v3 with targeted full-document searches.",
+        "title": "Modeling, Analysis, and Control of Continuous-Time Weighted-Median Opinion Dynamics",
+        "trigger": "Near-equivalent closest-point median selection with inertia"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8d72274b-15f4-48d8-a8cf-0fc38d209844",
+  "value": {
+    "rationale": "Rank-one positive influence is the natural globally shared-attention model of social opinion formation. The exact trajectories and the distribution of the ultimate disagreement diameter resolve an observable model outcome the general convergence theorem leaves unspecified; they quantify influence-weight imbalance, show an exact parity transition for uniform attention, and reveal arithmetic complexity even on a fully connected support graph. The Beta mixture supplies the entire distribution rather than a small numerical refinement. The auxiliary effect of one averaging agent provides direct comparative interpretation, while remaining credited to existing theory.",
+    "status": "PASS"
+  }
+}
