@@ -1,11 +1,21 @@
-# Review of the simultaneous diagonal entropy-profile theorem
+# Independent mathematical audit
 
-**Correctness (C): PASS.** A fixed Bowen radius corresponds to a prefix length with a bounded additive offset. Prefix-count upper and sparse-block lower estimates prove each asymptotic rate. Taking one more logarithm forces the next scale to one whenever a preceding scale is positive. The three explicit control families realize intermediate and endpoint profiles; finite tests are supplementary only.
+## correctness
 
-**Originality (O): PASS within inspected evidence.** Huang–Li's 2026 paper establishes lowerability for each fixed scale, not a simultaneous infinite-profile classification, while also exhibiting endpoint obstacles in more general spaces. The new endpoint construction gives a non-invariant compact subset with one accumulation point and prescribed preceding zero scale. Abstract-level comparison with Xie–Chen–Zhou leaves a limited historical-priority risk; older general topological-entropy results are not logically sufficient to imply the entire new spectrum.
+PASS
 
-**Value (V): PASS.** A complete infinite-dimensional compatibility and realization theorem for all diagonal entropy scales is structurally informative and directly motivated by the one-scale construction problem. It covers the boundary case where the first positive scale equals one and includes every higher scale automatically.
+At fixed Bowen radius, balls are determined by length n+O(1) prefixes. Binary upper bound r_n <=2^(n+C) forces D_p<=1; one extra logarithm implies D_p>0 => D_{p+1}=1. The sparse finite-support layer construction has one accumulation point and prefix count between 2^(k(n_j)-k(n_(j-1))) along fast-growing cutoffs and 1+n*2^k(n) for all n. The given f(n) functions have 0/1 increments after flooring and f>>log n; their iterated-log ratios yield all desired p>=2 intermediate and endpoint first-positive profiles. All-zero profile has n+1 prefixes. No finite sampling substitutes for the asymptotic sandwich.
 
-Limitations: The converse holds on the one-sided binary full shift and for upper-capacity diagonal entropy, not shift-invariant subsets or Bowen entropy. No independent mathematical review or definitive priority certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The simultaneous infinite-sequence staircase and exact one-accumulation compact-subset realization, including a=1 endpoints, are not supplied by the fixed-index hereditary lowerability theorem. Best-knowledge priority only; general entropy scales definitions and abstracts do not prove exact binary compact-subset realization.
+
+## value
+
+PASS
+
+Classifies the entire infinite compatible scale profile, a natural dynamical complexity invariant, with all endpoints for unusually small countable compacta. Joint compatibility and sharp simultaneous realization are nonroutine, and could serve as a benchmark for entropy-scale methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
