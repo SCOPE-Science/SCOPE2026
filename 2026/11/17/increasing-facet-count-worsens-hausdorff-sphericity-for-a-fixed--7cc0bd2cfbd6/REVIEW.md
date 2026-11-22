@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise nodes, normal orientation, every triangle area, and the Steiner-centered representative are reconstructed explicitly. The displayed halfspaces all have common offset \(b_n/\sqrt3\), which proves the inscribed ball; their zero-sum spanning normals prove global optimality and center uniqueness. The poles prove the enclosing sphere and its uniqueness for \(n\ge4\). The exact support-function representation of Hausdorff distance, the strict inequality \(b_n>3-\sqrt3\), and the monotone function \(x\cot x\) establish the distance and strict monotonicity for all integers in the claim. The two-pyramid volume formula is exact. The verifier independently rebuilt hulls and moment data in finite dimensions, passing 16,023 assertions. The proof, rather than its finite tests, handles every \(n\ge4\). No infinite-performance or independent-computation claim is made.
+PASS
 
-## Originality — PASS, with residual historical priority risk
+For n≥4, symmetric 2n normals at latitudes ±1/√3 are exactly spherical 3-designs (all monomials through degree 3 by Fourier cancellation and odd-z symmetry). The equatorial regular n-gon with radius a_n and two poles ±b_n, where a_n²=4π/(√3 n sin(2π/n)) and b_n=√2a_n cos(π/n), has 2n triangular facets of area 2π/n with precisely those outward unit normals. Surface-area uniqueness and symmetry fix the centered Minkowski polytope. All facet offsets are b_n/√3 and the pole circumradius is b_n for n≥4. Therefore d_H(P_n,B_3)=max(b_n−1,1−b_n/√3)=b_n−1, with b_n²=(4/√3)(π/n cot(π/n)), strictly increasing since x cot x decreases; volume 4πb_n/(3√3) grows. The limit is 2/3^(1/4)−1. Rebuilt convex hulls n=4..80: 2n triangular facets; largest unit-normal error <3.1e−15, offset discrepancy <4.5e−16, surface discrepancy <2.7e−14. Infinite strict monotonicity derives from calculus, not the finite hull sweep.
 
-Two components are specifically prior: Bajnok's aligned latitude-ring spherical \(3\)-design construction (Construction 3.3) and An's unique equal-area Minkowski polytope construction plus its asymptotic estimate as spherical design **strength** grows. Neither cited publication establishes the exact regular-bipyramid inradius, circumsphere, fixed-strength Hausdorff distance sequence and the opposed Hausdorff/volume monotonicities. The closest found mathematical records on six-node spherical \(2\)-design polyhedron volume and planar normal-weighted Minkowski polygons concern different configurations. Named searches included exact metric/volume formulas, bipyramid aliases, design-cardinality and design-strength equivalences; no source implying the complete claim was found. This is a bounded-priority assessment, not certification that no precedent exists; an unindexed calculation under another name remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural fixed-strength boundary case for recently studied geometric sphericity of equal-area Minkowski realizations of spherical designs. It establishes the unexpected strict worsening of Hausdorff sphericity despite increasing equal-area facet count and increasing volume, supplies exact limiting nonround shape, and clarifies why node count cannot replace design strength in geometric estimates. The object and limit are mathematically motivated rather than an arbitrary isolated numerical slice. The claim is a focused exact classification, not a general optimality theorem among all spherical designs.
+Bajnok already constructs the two-latitude spherical 3-designs and these known nodes are fully credited. Congpei An analyzes equal-area Minkowski polytopes and asymptotic sphericity as design strength increases; that does not imply any cardinality monotonicity at fixed design strength or this bipyramid metric/volume formula. Neither Bajnok construction alone nor broad t→∞ estimates settle a Hausdorff-distance counterexample in fixed-strength n. Full An paper unavailable, so precise historical comparison limited.
 
-## Reproducibility and limitations
+## value
 
-The standalone `verify.py` requires NumPy and SciPy. It independently checks the convex hull and all degree-three design moments through dimension-index parameter \(n=40\), plus monotonicity through \(n=300\). The mathematical proof covers all integers \(n\ge4\). The construction of the design is old; only the specified metric/volume and monotonicity classification is proposed as new. The external literature assessment remains provisional and no independent scientific audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The tension between increasing quadrature node count and increasing spherical-design strength is a natural geometric pitfall. The exact equal-area Minkowski realization gives a concrete counterexample to cardinality-as-sphericity heuristics, simultaneously quantifying opposing volume and Hausdorff trends in a classical fixed-strength family. It is an exact all-n geometry statement rather than unmotivated small numerical gains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
