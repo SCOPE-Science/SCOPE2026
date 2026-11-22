@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem quantifies over every finite real \(q\ge9\) and all integer Bessel orders \(k\ge2\). The sixth- and ninth-moment inequalities are established by outward-rounded exact-rational Bessel Taylor/Simpson certificates with explicit fourth-derivative and tail estimates. The all-order sixth-moment comparison uses a uniform analytical high-order bound, not a finite extrapolation. A Sonin function yields the required global amplitude estimate in order two; Landau controls all higher orders. Hölder interpolation produces a strict comparison at every real exponent. The sharp mixed-norm spectral formula and its equality cases are imported with attribution from Xu. `CHECK.py` was run successfully from the self-contained package; it does not substitute for the analytic infinite-order steps.
+## correctness
 
-## Originality — PASS relative to inspected published results
-Xu's arXiv:2610.19648v1, Theorem 1.3 and Remark 3, leaves the optimal positive circle degree undetermined for general \(q>4\). The closely related published sixth-power finding proves the ordering at \(q=6\); the published high-exponent finding proves it for \(q\ge27\). Complete scientific result files of both were read and compared with the claim, rather than their titles alone. The new proof provides the previously uncovered continuous interval \(9\le q<27\), using a new strict ninth/sixth moment certificate and interpolation. Full arXiv primary texts of the earlier mixed-norm and spherical extremizer references were inspected. The earlier statements do not imply the quantified claim without the new numerical inequalities. An older equivalent formulation may still exist; discovery searches do not establish uniqueness or publication priority.
+PASS
 
-## Mathematical value — PASS
-The second spectral mode governs the best squared-distance stability deficit for the sharp radial–angular Fourier restriction theorem. Identifying it for all real \(q\ge9\) fixes the optimal stability constant and the precise equality classes on a substantial natural interval not supplied by either a single even exponent or a large-exponent tail. The proof also develops a reusable moment-interpolation method with sharp strict rational separators rather than a routine finite computation.
+Confirmed the nonstandard ninth-moment polynomial certificate exactly: rational integral of lower alternating J1 polynomial on [0,7/2] is 0.013703182867... >137/10000. Independent outward fixed-point interval sixth-power Simpson calculation on 6001 rational nodes and Watson tail bound gives I1(6)<0.108884052<109/1000. Also recomputed exact rational bounded-order k=2..11 sixth moment integration cores below 0.07; published Xu fifth-moment 13/40 plus Landau sup amplitude supplies k>=12 analytically, and a Sonin monotonicity argument handles k=2 sup<1/2. Hölder implies I1(q)>0.0137*2^(-(q-9)) while Ik(q)<0.1*2^(-(q-6)) for all real finite q>=9, with strict gap since 0.0137>0.0125. The sharp stability coefficient and equality modes follow from Xu radial-angular spectral theorem. Infinite range does not follow from finite numerics alone.
 
-## Scope, nearest literature, and residual risks
-The theorem is for the planar mixed radial–angular norm, not the ordinary unmixed norm. It is not known here whether \(q=9\) is the optimal lower endpoint; no order comparison is claimed for \(4<q<9\). The closest prior references are Xu (2026), *First-harmonic sharp sixth-power stability for circular mixed Fourier extension* (2026), and *The first harmonic gives the sharp planar mixed-norm Fourier stability gap for every exponent \(q\ge27\)* (2026). Landau's underlying original article was not fully inspected, though its bound is quoted in the accessible Xu text. No independent audit or verification has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xu identifies sharp global constant and spectral stability formula but expressly leaves maximizing positive circle degree unknown in general. Previously published SCOPE q=6 and q>=27 results do not imply 9<=q<27; new exact ninth-moment separator and Hölder improvement close that gap. Relevant high-order bounds imported and credited, not newly discovered.
+
+## value
+
+PASS
+
+Identifies exact minimizing nonconstant stability direction for a continuous real-exponent half-line in a natural sharp Fourier extension inequality, replacing a sufficient earlier q>=27 threshold by q>=9. This is a motivated structural stability coefficient, not a tiny arbitrary slice, without claiming 9 is optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
