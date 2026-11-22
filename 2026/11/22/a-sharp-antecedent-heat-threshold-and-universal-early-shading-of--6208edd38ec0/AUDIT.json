@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Deriving the unique temperature solution on three subintervals and integrating its square gives the exact derivative rho(1-b)P(q)/q², with q=e^{-s}. For nonnegative initial loads P(C)>0. If m≥1 it is positive everywhere; if m<1 strict concavity gives precisely one possible sign change in the admissible q interval, with P(1) determined by m-mcrit. This establishes global uniqueness and the sharp boundary. At q=sqrt(C), P>0 proves the optimizer precedes the midpoint. The larger cubic root has negative derivative, so parameter derivatives have their claimed signs. The implicit function theorem after rescaling q=sqrt(C)z gives the stated O(exp(-(H-d)/2)) asymptotic. Symbolic identity check gave zero discrepancy and embedded standard-library checker gave 51,592 additional finite numerical assertions. Those tests are not used as proofs of infinitary statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Savalle-Gloire et al. first online 2024-06-30 compare transient tomato shading experimentally without a scalar quadratic-integral optimizer theorem.",
+        "Weselek et al. 2021 report agrivoltaic crop yield/microclimate, while the present result derives a global analytical one-window starting-time threshold.",
+        "Earlier accessible ledger: ad193070-95ee-40e0-bad5-0e0769bcba29 concerns constant canopy and horizon-dependent linear exposure; e217d522-ff2a-4910-bbb6-62a97972ff21 concerns two-cell steady-state cooling."
+      ],
+      "reasoning": "Neither a static canopy choice nor a free greenhouse heating policy mathematically dominates the constrained binary-shade placement under quadratic state loss. The relevant empirical articles do not contain a stated analytic classification. A general textbook pulse-control lemma could dominate but was not located.",
+      "searches": [
+        "published-finding corpus: agrivoltaic dynamic shade allocation optimal heat protection photosynthesis canopy light saturated crop carbon yield exact switching threshold",
+        "published-finding corpus: optimal single cooling pulse start time finite horizon first order thermal ODE constant heat input quadratic exposure universal phase advance",
+        "published-finding corpus: agrivoltaic shading thermal memory minimizing integrated temperature squared under fixed duration",
+        "published-finding corpus: greenhouse movable PV panels heat loading threshold first order thermal response",
+        "https://doi.org/10.1080/14620316.2024.2371593",
+        "https://doi.org/10.1007/s13593-021-00714-y"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1080/14620316.2024.2371593",
+      "https://doi.org/10.3390/en16073012",
+      "https://doi.org/10.1007/s13593-021-00714-y",
+      "https://doi.org/10.17660/ActaHortic.1989.245.69",
+      "https://d197for5662m48.cloudfront.net/documents/publicationstatus/272107/preprint_pdf/bfd0144bfcb277e9437b0981a58aee20.pdf",
+      "published-finding corpus record 2026/11/1/SCOPE-optimal-heat-sampling-intervals-on-normalized-paths-a-bandwidth--4d44b2ae0221"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 primary experiment uses particular morning/afternoon/split shading, reporting developmental effects rather than optimizing a squared thermal trajectory over every start and initial condition.",
+        "The 2023 Energies study quantifies greenhouse photothermal microclimate for panel configurations; it neither assumes this ODE nor proves a monotonic shade-timing switch.",
+        "Bailey–Seginer 1989 accessible abstract indicates greenhouse heating energy and temperature integral constraints; the available abstract cannot establish full-paper noncoverage."
+      ],
+      "reasoning": "The asserted result requires a precise implicit cubic, global uniqueness under the constrained schedule, a sharp boundary at initial load, and an asymptotic earlier-than-midpoint advance. None is a logical corollary of the identified experimental comparisons; overlap with general older control theory remains materially possible and is disclosed.",
+      "searches": [
+        "published-finding corpus: agrivoltaic dynamic shade allocation optimal heat protection photosynthesis canopy light saturated crop carbon yield exact switching threshold",
+        "published-finding corpus: optimal single cooling pulse start time finite horizon first order thermal ODE constant heat input quadratic exposure universal phase advance",
+        "published-finding corpus: agrivoltaic one-shade-block thermal-memory optimal timing temperature exposure",
+        "https://doi.org/10.1080/14620316.2024.2371593",
+        "https://doi.org/10.3390/en16073012",
+        "https://doi.org/10.17660/ActaHortic.1989.245.69"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The classified objective is a fixed-duration single on/off input, linear scalar relaxation, and the L2-squared state integrated over a finite horizon. Bailey–Seginer 1989 studies greenhouse heating control but its available abstract describes energy-cost optimization subject to integrated temperature bounds.",
+        "published-finding corpus nearest mathematical heat optimization: 2026/11/1/SCOPE-optimal-heat-sampling-intervals-on-normalized-paths-a-bandwidth--4d44b2ae0221 concerns D-optimal sampling on graph heat paths, not control timing."
+      ],
+      "reasoning": "Convolution kernels or bang-bang optimal control could reexpress this problem; the searched sources did not state the same single-window admissible controls, initial-load threshold and universal early offset. General linear-quadratic control with unconstrained input cannot directly imply the fixed duty and one-block cubic classification. No absolute novelty proof follows.",
+      "searches": [
+        "published-finding corpus: one fixed shading interval optimal start thermal inertia first order exponential temperature cumulative squared heat damage single sun day",
+        "published-finding corpus: optimal single cooling pulse start time finite horizon first order thermal ODE constant heat input quadratic exposure universal phase advance",
+        "published-finding corpus: agrivoltaic shading thermal memory minimizing integrated temperature squared under fixed duration",
+        "published-finding corpus: agrivoltaic one-shade-block thermal-memory optimal timing temperature exposure",
+        "published-finding corpus: quadratic thermal exposure minimize single fixed-length shading interval under linear cooling",
+        "https://doi.org/10.17660/ActaHortic.1989.245.69"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned heat graph time-sampling and thermal-state optimization records, but none reported the cubic or the specific finite-horizon shade threshold.",
+        "Inspected primary articles report crop measurements, not a table of exact one-window scalar-ODE optimal starts across the parameter domain."
+      ],
+      "reasoning": "The candidate is a parametric all-real analytic theorem, not a finite enumerated entry; no exact published table encoding its threshold was identified. This does not establish uniqueness outside inspected records.",
+      "searches": [
+        "published-finding corpus: one fixed shading interval optimal start thermal inertia first order exponential temperature cumulative squared heat damage single sun day",
+        "published-finding corpus: agrivoltaic one-shade-block thermal-memory optimal timing temperature exposure",
+        "published-finding corpus: quadratic thermal exposure minimize single fixed-length shading interval under linear cooling",
+        "published-finding corpus search most relevant ID: 2026/11/1/SCOPE-optimal-heat-sampling-intervals-on-normalized-paths-a-bandwidth--4d44b2ae0221"
+      ]
+    },
+    "rationale": "The inspected 2024 agrivoltaic transient-shading study supplies empirical motivation, not a complete globally unique optimal pulse-time classification under squared scalar thermal exposure. Open agrivoltaics studies test crop microclimate and yield rather than this exact parameter theorem. published-finding corpus semantic searches returned differing graph heat sampling and thermal-control problems; closest accessible ledger claims address canopy intensity or distinct steady-state allocations. The older general heating-control paper was available at abstract level only and could contain a broader reduction, so broad historical priority is provisional. The exact assumed admissible set, cost and initial-load threshold were not covered by inspected statements.",
+    "residual_risks": [
+      "A general older optimal-control theorem for one fixed-duration bang-bang pulse under quadratic state cost could subsume this theorem; the bounded search has not ruled it out.",
+      "The older 1989 greenhouse heating paper full text was inaccessible; abstract only cannot prove noncoverage.",
+      "Agrivoltaic physical assumptions are idealized and the mathematical cost is not observed crop yield."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact scalar one-window mathematical theorem on inspected material",
+        "evidence": "Published online 30 June 2024; experiments 2021–22 compare transient shade and report reduced temperature, tomato morphology, fruit dry mass, no fixed-duration all-start quadratic ODE optimizer or initial load threshold.",
+        "identifier_or_url": "https://doi.org/10.1080/14620316.2024.2371593",
+        "material_read": "Publisher landing page, abstract and dating; author-shared complete study introduction, methods, results, discussion and conclusions",
+        "method": "Read publisher record and lawful author-shared full text; compared protocol and conclusions with theorem assumptions",
+        "title": "Transient shading in agrivoltaic greenhouses: its impact on growth, architecture, and dry matter accumulation and partition in tomato plants",
+        "trigger": "Direct motivating study of movable photovoltaic shade timing"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected article",
+        "evidence": "Quantifies sunlight/temperature effects of PV layouts, not one movable shade window under L2 state exposure.",
+        "identifier_or_url": "https://doi.org/10.3390/en16073012",
+        "material_read": "Open-access HTML article including methods, measured microclimate and discussion",
+        "method": "Read online full primary article; compared fixed arrays and atmospheric measurements to moving shade policy",
+        "title": "Characterization of Agrivoltaic Crop Environment Conditions Using Opaque and Thin-Film Semi-Transparent Modules",
+        "trigger": "Alternative agrivoltaic thermal and solar exposure measurements"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected article",
+        "evidence": "Field comparison of crop outcomes under agrivoltaics, no all-parameter optimal start time for a thermal relaxation ODE.",
+        "identifier_or_url": "https://doi.org/10.1007/s13593-021-00714-y",
+        "material_read": "Open full article HTML, introduction, design, results and conclusions",
+        "method": "Read primary open article; compared measured yield and microclimate to mathematical objective",
+        "title": "Agrivoltaic system impacts on microclimate and yield of different crops within an organic crop rotation in a temperate climate",
+        "trigger": "Potential broader effects of agrivoltaic shade on crops and temperatures"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; no decisive covering statement in accessible abstract",
+        "evidence": "Control greenhouse heating using temperature exposure and cost constraints, but fixed one-interval quadratic thermal pulse comparison not visible. Broader historical coverage remains a risk.",
+        "identifier_or_url": "https://doi.org/10.17660/ActaHortic.1989.245.69",
+        "material_read": "Abstract only; no full article acquired",
+        "method": "Compared accessible abstract of energy objective and constraints, explicitly withheld whole-paper noncoverage inference",
+        "title": "Optimum Control of Greenhouse Heating",
+        "trigger": "Older optimum-control approach could imply a more general version of pulse-placement theorem"
+      },
+      {
+        "assessment": "NOT_DEFINITIVE from accessible portions; irradiance/power objective differs",
+        "evidence": "Shading/panel tilt optimization with mixed-integer scheduling and irradiation metrics; no accessed statement of this scalar thermal quadratic integrated-loss theorem.",
+        "identifier_or_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/272107/preprint_pdf/bfd0144bfcb277e9437b0981a58aee20.pdf",
+        "material_read": "Accessible preprint abstract and model/algorithm excerpts; PDF page-image access unavailable",
+        "method": "Compared text excerpts on PV angle control and crop-light/power objective, did not assert full-document exclusion",
+        "title": "Controlling PV Panels Tilt Orientation for Optimal Crop Shading and Power Generation in Agrivoltaics",
+        "trigger": "Possible broader agrivoltaic dynamic shade optimization formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6208edd3-8ec0-4154-9f00-147ff5c03e5d",
+  "value": {
+    "rationale": "Timed shading with a fixed duration and depth is experimentally meaningful because the total solar reduction is fixed. The exact initial thermal-state threshold separates immediate treatment from a unique interior placement, and stronger treatment versus larger antecedent heat act in opposing monotone directions. The strict early placement and long-day leading shift independent of shade strength offer an analytic baseline for thermal-inertia sensitivity studies rather than a routine point computation. No empirical agronomic benefit or calibrated crop-yield optimum is asserted.",
+    "status": "PASS"
+  }
+}
