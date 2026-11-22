@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T13:03:31.645061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥2 and 1≤w≤n, H_n(x) is the unweighted mean-centered Euclidean seminorm and M_{n,w} is cyclic contiguous forward-window max. On a strict-selector chamber, the map copies input coordinates with multiplicities c_j≤w and its unique global maximum has c_p=w. For 2w≤n, output-centered energy ≤Σ c_j(h_j−mean h)^2≤wH_n(h)^2. For 2w>n, writing R=max h−min h and using convexity of centered copying energy on the coordinate box reduces the worst case to binary endpoints; since one multiplicity is w>n/2, binary copied count t lies in [0,n−w]∪[w,n], hence output H²≤w(n−w)R²/n. Input H²≥R²/2 by the two extreme coordinates. Thus L²≤2w(n−w)/n. A two-site peak baseline p=0,q=w for short windows and q=n−w for long windows has disjoint winning patterns; perturb ε(e_p−e_q) to attain equality in both branches. For w=n output is constant and L=0, for w=1 identity L=1. Continuity over finitely many affine chamber transitions upgrades a branch bound to arbitrary pairs, even with ties. Independent exact two-peak calculations at n=5,7,9,12 corroborate squared factors and equality; not proof for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-stability-of-cyclic-running-maximum-filters--de0f8eaa224c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2/RESULT.md",
+          "https://doi.org/10.1016/j.cviu.2012.08.016"
+        ],
+        "reasoning": "Gini theorem gives coefficient w(n−w)/(n−1), not sqrt(w) or sqrt(2w(n−w)/n). Finite-path TV theorem uses truncated windows and adjacent-edge weights, not cyclic windows or H_n. General dilation lattice identities do not specify exact H_n Lipschitz norm.",
+        "searches": [
+          "sliding cyclic maximum centered L2 Hilbert seminorm sharp Lipschitz half window",
+          "morphological cyclic maximum filter mean-zero Euclidean Lipschitz norm range variance"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-stability-of-cyclic-running-maximum-filters--de0f8eaa224c/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2/RESULT.md",
+        "https://arxiv.org/abs/1404.7748",
+        "https://doi.org/10.1016/j.cviu.2012.08.016",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-half-window-transition-in-centered-hilbert-stability-of-cyclic--b37bd5f97938/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-stability-of-cyclic-running-maximum-filters--de0f8eaa224c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2/RESULT.md",
+          "https://arxiv.org/abs/1404.7748"
+        ],
+        "reasoning": "Finite-dimensional equivalence between pairwise Gini, TV and Euclidean norms only bounds operator moduli by dimension-dependent factors, not their exact sharp values/thresholds. The present proof exploits selector occupancy and convex binary-endpoint optimization, information not supplied by the compared invariants.",
+        "searches": [
+          "sliding cyclic maximum centered L2 Hilbert seminorm sharp Lipschitz half window",
+          "morphological cyclic maximum filter mean-zero Euclidean Lipschitz norm range variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-stability-of-cyclic-running-maximum-filters--de0f8eaa224c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2/RESULT.md",
+          "https://arxiv.org/abs/1404.7748"
+        ],
+        "reasoning": "Searched morphological dilation/sliding maxima, nonlinear Lipschitz perturbation, quotient ℓ2 modulo constants, centered variance and half-window transition. Gini and TV variations are not equivalent as exact seminorms to mean-centered Euclidean energy.",
+        "searches": [
+          "sliding cyclic maximum centered L2 Hilbert seminorm sharp Lipschitz half window",
+          "morphological cyclic maximum filter mean-zero Euclidean Lipschitz norm range variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact examples at (5,2),(5,3),(7,4),(9,6),(12,6),(12,10)",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-stability-of-cyclic-running-maximum-filters--de0f8eaa224c/RESULT.md"
+        ],
+        "reasoning": "No checked table tabulates the attained two-input centered Euclidean coefficients for all (n,w). Existing published Gini coefficients are numerically and structurally different, e.g. n=5,w=2: Gini=3/2 but centered-Hilbert=sqrt2.",
+        "searches": [
+          "sliding cyclic maximum centered L2 Hilbert seminorm sharp Lipschitz half window",
+          "morphological cyclic maximum filter mean-zero Euclidean Lipschitz norm range variance"
+        ]
+      },
+      "rationale": "Same operator was studied in published Gini pairwise-variation and truncated-path weighted total-variation theorems. These use mathematically different seminorms and produce different coefficients, so neither exact result dominates the centered Hilbert theorem. The 2013 graph morphology paper is plausible background but accessible abstract concerns lattice adjunctions and image filtering, not a verified equivalent sharp coefficient; authorized full access was unavailable and is a disclosed risk.",
+      "residual_risks": [
+        "Full original 2013 morphology paper inaccessible: authorized institutional route returned vpn_disconnected after arXiv/OA searches, leaving a genuine historical-priority uncertainty.",
+        "No result is claimed for irregular windows, general incidence graphs, weighted centered seminorms or compositions.",
+        "Finite exact rational checks support but do not replace the all-size convex-selector argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SEMINORM",
+          "evidence": "Gini coefficient w(n−w)/(n−1) is exact for complete-graph pairwise ℓ1 variation, not centered ℓ2; neither norm constant implies the other exactly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-stability-of-cyclic-running-maximum-filters--de0f8eaa224c/RESULT.md",
+          "material_read": "Complete published RESULT.md, theorem, occupancy/coarea proof and coefficient comparison",
+          "method": "GitHub primary research full text",
+          "title": "Sharp Gini stability of cyclic running maximum filters",
+          "trigger": "Identical cyclic operator with potentially stronger stability result"
+        },
+        {
+          "assessment": "DIFFERENT_BOUNDARY_AND_NORM",
+          "evidence": "Uses truncated noncyclic path windows and weighted edge TV; does not imply cyclic centered Hilbert coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2/RESULT.md",
+          "material_read": "Complete published RESULT.md statement/proof and assumptions",
+          "method": "GitHub primary research full text",
+          "title": "Finite-window morphology: sharp two-input variation and a boundary-weight transition",
+          "trigger": "Two-input sharp result for min/max sliding filters"
+        },
+        {
+          "assessment": "BACKGROUND_NO_DEMONSTRATED_SHARP_NORM",
+          "evidence": "Survey establishes operator context; no exact centered-Hilbert two-input formula verified there.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.7748",
+          "material_read": "Available open arXiv text/survey, graph adjunction and operator setup, not theorem-by-theorem all references",
+          "method": "Public arXiv and author-hosted readable text",
+          "title": "A graph-based mathematical morphology reader (Najman and Cousty)",
+          "trigger": "Published survey of graph dilations and order-statistic operators"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "The accessible abstract concerns graph adjunctions, openings/closings and denoising, not a confirmed sharp L2 centered modulus; cannot assert full document does not cover it.",
+          "identifier_or_url": "https://doi.org/10.1016/j.cviu.2012.08.016",
+          "material_read": "Bibliographic abstract and scope only; full publisher text inaccessible",
+          "method": "OA/arXiv discovery unsuccessful; authorized institutional access returned vpn_disconnected",
+          "title": "Morphological filtering on graphs (Cousty, Najman, Dias and Serra, 2013)",
+          "trigger": "Plausible primary full article involving grayscale graph dilation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies genuine two-input instability of the canonical cyclic maximum filter in Euclidean mean-zero geometry with an attained change of behavior exactly at half-window. The sharp coefficient matters for noise/perturbation propagation under nonlinear filters and differs from already studied total-variation and Gini measures; this is a motivated exact nontrivial norm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full original 2013 morphology paper inaccessible: authorized institutional route returned vpn_disconnected after arXiv/OA searches, leaving a genuine historical-priority uncertainty.",
+    "No result is claimed for irregular windows, general incidence graphs, weighted centered seminorms or compositions.",
+    "Finite exact rational checks support but do not replace the all-size convex-selector argument."
+  ],
+  "schema_version": 1
+}

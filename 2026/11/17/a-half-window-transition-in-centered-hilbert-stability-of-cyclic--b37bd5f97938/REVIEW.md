@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof separates the short-window selector-multiplicity bound from a long-window weighted-variance inequality. Every input-site selection multiplicity is at most the window width; a unique global maximum is selected exactly that many times. For short windows, the weighted least-squares expression is bounded termwise by the width. For long windows, a mass greater than one-half reduces the binary-vertex variance maximum to a two-mass bound, then input centered variance dominates half the squared range. Explicit two-peak inputs and two-site perturbations attain both constants. Finite exact-rational tests support, but do not establish, the all-dimensional proof.
+## correctness
 
-**Originality — PASS (with residual bibliographic risk).** The closest accessible primary survey explains morphology as lattice dilation and neighborhoods rather than the sharp centered-Hilbert two-input Lipschitz coefficient. The 2013 graph-morphology paper's abstract and bibliographic record were inspected, but its primary full text was not accessible. Published finite-window path-total-variation, cyclic median, and graph-ball maximal-averaging results concern different operators or different norms and do not imply this claim from the inspected statements. No equivalence was located in the mathematical record searches. Absence of a retrieved equivalent is not proof of historical uniqueness.
+PASS
 
-**Mathematical value — PASS.** The natural max-pooling/dilation operator has a complete all-window stability law in its centered Euclidean quotient geometry. The sharp half-cycle transition is caused by a change from two independent maximizers to dominance by a single mass greater than one-half; the proof identifies this structural mechanism and complete nonexpansivity boundary. This is not merely a single numerical instance or an arbitrary window slice.
+For n≥2 and 1≤w≤n, H_n(x) is the unweighted mean-centered Euclidean seminorm and M_{n,w} is cyclic contiguous forward-window max. On a strict-selector chamber, the map copies input coordinates with multiplicities c_j≤w and its unique global maximum has c_p=w. For 2w≤n, output-centered energy ≤Σ c_j(h_j−mean h)^2≤wH_n(h)^2. For 2w>n, writing R=max h−min h and using convexity of centered copying energy on the coordinate box reduces the worst case to binary endpoints; since one multiplicity is w>n/2, binary copied count t lies in [0,n−w]∪[w,n], hence output H²≤w(n−w)R²/n. Input H²≥R²/2 by the two extreme coordinates. Thus L²≤2w(n−w)/n. A two-site peak baseline p=0,q=w for short windows and q=n−w for long windows has disjoint winning patterns; perturb ε(e_p−e_q) to attain equality in both branches. For w=n output is constant and L=0, for w=1 identity L=1. Continuity over finitely many affine chamber transitions upgrades a branch bound to arbitrary pairs, even with ties. Independent exact two-peak calculations at n=5,7,9,12 corroborate squared factors and equality; not proof for all n.
 
-The nearest primary references and the unresolved inaccessible-source risk are detailed in `RESULT.md` and `AUDIT.json`. The result is confined to finite real cyclic signals and uniform windows.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same operator was studied in published Gini pairwise-variation and truncated-path weighted total-variation theorems. These use mathematically different seminorms and produce different coefficients, so neither exact result dominates the centered Hilbert theorem. The 2013 graph morphology paper is plausible background but accessible abstract concerns lattice adjunctions and image filtering, not a verified equivalent sharp coefficient; authorized full access was unavailable and is a disclosed risk.
+
+## value
+
+PASS
+
+Quantifies genuine two-input instability of the canonical cyclic maximum filter in Euclidean mean-zero geometry with an attained change of behavior exactly at half-window. The sharp coefficient matters for noise/perturbation propagation under nonlinear filters and differs from already studied total-variation and Gini measures; this is a motivated exact nontrivial norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
