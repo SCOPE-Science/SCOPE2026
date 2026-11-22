@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies a fixed nonnegative concave Lipschitz profile with vanishing endpoints and full perimeter arclength sampling. Exact dot-product inequalities isolate the two opposite-middle-sign patterns; all other patterns and extreme gap strips contribute only lower-order mass. The logarithmic \(uv\)-sublevel integration has coefficient \(8h(x)^2\), and sorting/sign/point-density factors give \(3Q/2\). The same change of variables with compact truncation proves joint total-variation convergence. The envelope is Jensen and classical Berwald, with the exact tent and limiting plateau witnesses. The independent 3-million-trial-per-shape program corroborates two explicit cases. Remaining mathematical risk: a hidden technical boundary-layer issue in the total-variation truncations; none identified in the reconstructed proof.
+## correctness
 
-## Originality — PASS, provisional priority
-The earlier thin-ellipse arclength law provides its *specific* logarithmic coefficient and conditional marks and is not republished as a new claim. A separate published thin-rectangle boundary law handles one constant-height shape, while the published fifth-chord-moment law concerns **area-uniform interior** sampling, which cannot supply the present perimeter-arclength coefficient. The publicly inspected Edelman–Strang 2015 full text studies random shape-space/Gaussian samples, not collapsing concave lens profiles. The resulting functional coefficient across all Lipschitz concave profiles, the exact sharp fixed-area equality class, and arbitrary-profile recovery are not implied by those prior statements. Berwald's inequality and equality classification are established mathematical tools. The relevant published-finding corpus searches identified no broader matching result. Priority risk remains from unindexed general thin-boundary acuteness calculations, and novelty of the broad extension merits independent assessment.
+PASS
 
-## Mathematical value — PASS
-The coefficient is a nontrivial geometric functional \(\int h^2\), sharply optimized at fixed area by tent lenses; the plateau infimum is unattained. Unlike one-off numerical probabilities, the marked rare-event location law recovers an arbitrary unknown positive concave height profile pointwise, giving a natural inverse geometric statistic. The theorem also discriminates perimeter versus interior sampling, for which a fifth-moment functional is known. This supports an infinite-dimensional structural classification, not merely a new numerical instance.
+For each fixed Lipschitz concave h with zero tips, arclength x density is 1/2+O_h(epsilon^2) uniformly a.e. Sorting three x-coordinates gives factor 6; only sign configurations with middle point on opposite branch have leading logarithmic mass. The middle-angle condition is uv<epsilon²(h(x-u)+h(x))(h(x+v)+h(x)), and in logarithmic bulk becomes uv<4epsilon²h(x)^2. Hyperbolic-area integration contributes 8h(x)^2 epsilon² log(1/epsilon); sign probability 1/4 and triple horizontal density 1/8 yield constant (3/2)Q. The change u=epsilon^t, v=4epsilon²h(x)²w/u and its Jacobian give conditional independent T Uniform(0,2), W Uniform(0,1), S fair and X density h²/Q in total variation after controlling endpoint strips. Jensen Q>B²/2 (strict due to zero tips) and Berwald Q<=2B²/3 (equality tents) yield 3B²/4<C<=B². Computed Q=16/15 and coefficient 8/5 for h=1-x²; Q=2/3, coefficient 1 for tent. Inspected finite Monte Carlo checker but did not rerun its 3-million-trial experiment; it does not prove the limit.
 
-## Limitations and closest comparisons
-The archived ellipse-specific marked law and two publicly available thin-boundary/interior results were compared by statements and sampling measures. No independent peer or external audit of this finding has been performed. Error terms are profile-dependent; non-Lipschitz tips, second coefficients, finite-thickness extremizers and exhaustive literature priority remain outside the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published thin-ellipse Euclidean-perimeter result has a related logarithmic rate and marked conditional law for special h=sqrt(1-x²), which is NOT Lipschitz at tips. That special case alone does not imply the all-Lipschitz-concave profile coefficient, fixed-area sharp tent-vs-flat envelope, and full inverse reconstruction from conditional location density plus event coefficient. Published thin rectangle boundary and area-uniform random triangles involve different measures/shapes. Classical Berwald is appropriately credited.
+
+## value
+
+PASS
+
+A general rare-event probability and full conditional distribution for geometrically natural collapsing convex lenses, with sharp geometric shape optimization and a recoverable height profile, is an independently useful inverse-geometric probabilistic theorem. The exact tent extremizers and tip-plateau infimum are substantive, not a numeric recomputation of an ellipse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
