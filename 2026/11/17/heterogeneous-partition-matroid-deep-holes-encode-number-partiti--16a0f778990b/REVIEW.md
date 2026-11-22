@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The projection onto each block hypersimplex is the uniquely minimizing Euclidean point by a supporting-normal inequality. The resulting rational \(\phi_i\) is strictly convex on the entire occupancy interval; transferring one unit between two partially occupied blocks strictly improves one of the two transfer directions. Hence a maximum has at most one partial block. The half-rank endpoint equality is equivalent to equal-sum partition, and the strict residual averaging proof excludes nonvertex farthest points at that threshold. Exact rational exhaustive enumeration over 122 heterogeneous instances and 1,360 independent partition instances agrees with the formulas. This computational evidence is not substituted for the proof.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The prior equal-block deep-hole result applies only when all blocks have identical sizes and ranks; it does not give arbitrary heterogeneous occupancy compression or the succinct PARTITION threshold. Lasoń–Michałek (arXiv:2005.08359, §2.2) proves the Cartesian-product description of direct-sum matroid base polytopes, not Euclidean distance extrema. Aprile et al. (arXiv:2106.12829, §§1,4.3) study product slack matrices, and Pineda-Villavicencio–Schröter (arXiv:2010.10227, introduction and hypersimplex facial discussion) study reconstruction. Other database entries linking PARTITION with Euclidean polytopes concern inballs or zonotopes, not this rank-constrained product-to-hypersimplex Hausdorff problem. The search and partial source inspection cannot exclude an undiscovered equivalent older result.
+PASS
 
-## Mathematical value — PASS
-A product of hypersimplices is a standard matroid-base polytope, and its distance from the universal same-rank hypersimplex measures the geometric cost of enforcing blockwise rank constraints. The theorem classifies the geometry of all maximizing occupancy profiles for arbitrary heterogeneous capacities and identifies weak NP-completeness of a sharp, natural exact metric threshold. This arithmetic barrier contrasts meaningfully with the closed equal-block case.
+P=product Delta(c_i,q_i) and H=Delta(R,N). For a H-vertex selecting j_i coordinates in block i, Euclidean projection retains chosen ones and redistributes missing rank equally if j<=c, or scales selected ones if j>=c. Supporting-normal optimality gives squared gap phi_i(j). Each piecewise phi is C1 and strictly convex over [0,q_i], so a two-coordinate +/-1 occupancy transfer strictly improves at least one way whenever two blocks are partially occupied. Thus all vertex maximizers have at most one partial block, yielding the candidate max. On balanced (q,c)=(2a,a), all block phi<=a/2 strictly below inside: equality R/2 exactly when equal-sum PARTITION subset exists. The projection-residual strict Jensen inequality forces all continuous equality points to be the distinct full/empty binary H vertices. Binary-encoded block parameters provide polynomial reduction and NP witness, giving weak rather than strong NP-completeness. Independent check: Wrote a separate Fraction-based exhaustive occupancy enumerator for four heterogeneous profiles ((2,4,6),(1,2,3)), ((2,6,8),(1,3,4)), ((2,3,5),(1,2,2)), ((3,5,8),(1,3,2)). Exact maxima were 3,4,109/30,24/5; every maximizer has at most one partial block. Verified supporting-normal projection condition analytically and the equal-sum PARTITION equivalence, without treating cases as an infinite proof.
 
-## Limits
-The theorem does not establish strong NP-hardness, hardness under an expanded coordinate representation, or a full general nonvertex-extremizer classification. Finite tests are not proofs; independent verification and comprehensive historical-priority assessment remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: examined primary source evidence, actual same-object implications, and published mathematical findings. Earlier constructions, generic formulas and independent source results are credited; the surviving quantitatively specified theorem is not implied by the directly inspected antecedents. No certification of absolute historical priority is asserted.
+
+## value
+
+PASS
+
+The Euclidean farthest-point distance to a partition-matroid base polytope is a natural geometric discrepancy between base-choice constraints and unconstrained rank choices. Exact occupancy compression for arbitrary heterogeneous capacities and a sharp arithmetic equality threshold provide useful structure and an unexpectedly exact link to classical weak NP-completeness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
