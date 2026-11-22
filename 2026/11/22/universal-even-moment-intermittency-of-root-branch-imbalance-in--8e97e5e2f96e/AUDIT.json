@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The explicit jump generator yields a positive triangular moment hierarchy with exponents lambda_r=r+2^r-1. The independent Poisson root clock permits exact conditioning on the last reset, and two Yule families conditional on pre-reset total size give the pairing coefficient. Uniform bounds for nonpairing partitions, the strict exponent gap lambda_r>max(2r-1,lambda_{r-1}), and dominated convergence prove the all-fixed-order beta ratio. The exact rational checker verifies finite generator coefficients and six independently extracted leading ratios (284 assertions).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Björnberg and Mailler arXiv:2501.18466 complete Sections 1,2,3,4 (model, size, degrees, height, embedding)",
+        "Weak convergence of root-doubling tree size through a logarithmic-time jump process (published mathematical record 2026-11-08), summary describes total normalized size",
+        "A weak limit for the root-doubling recursive tree via a contracting jump chain (2026-10-18), summary describes normalized size"
+      ],
+      "reasoning": "Whole-tree mass limit statements do not control the moment ratio of two reset-equal daughter subtrees, particularly their high moments; the model source supplies the process but not the branch moment theorem.",
+      "searches": [
+        "\"Björnberg\" \"Mailler\" root branches moments",
+        "root duplication branching tree exact imbalance Var(A-B) poisson resetting Yule process",
+        "random doubling tree root subtrees branch sizes asymptotic perfect correlation exp decay covariance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2501.18466",
+      "arxiv:1706.05487",
+      "published record: 2026/11/8 exact-poisson-tilted-leaf-imbalance",
+      "published record: 2026/11/8 weak-convergence-root-doubling-tree-size",
+      "published record: 2026/10/18 weak-limit-root-doubling-tree"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Björnberg-Mailler Proposition 1.1 establishes discrete-step total mass moments",
+        "The paper Section 4.3 supplies a continuous-time embedding and Yule process",
+        "Related prior leaf-imbalance finding reports moments of I_t=2L_t-N_t and Poisson doubling count, not whole branch difference"
+      ],
+      "reasoning": "Total-size moments supply only the denominator; the numerator involves dependence between two branches under global reset. A newly derived last-reset mixture and pair-partition estimate are needed. The closest leaf-imbalance variable is neither equal nor known to imply the branch mass difference.",
+      "searches": [
+        "\"root-doubling\" \"branch imbalance\" moment tree",
+        "root doubling tree branch balance differences moment ratio total progeny moment beta factorial",
+        "\"random recursive tree\" doubling root two branches covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2501.18466 Sections 1 and 4.3 define root cloning and Yule embedding",
+        "Related published title: Exact Poisson-tilted leaf imbalance in a random tree with root doublings (2026-11-08), a leaf statistic"
+      ],
+      "reasoning": "A difference of the sizes of the two whole root subtrees is not the leaf-count imbalance. Neither accessible result states the even moment ratio. Independent Yule growth conditional on last reset is required for the beta coefficient.",
+      "searches": [
+        "root-doubling recursive tree size difference two root branches identical copies covariance variance continuous time Yule",
+        "branch imbalance even moments intermittency root-doubling random recursive tree Yule two correlated copies universal beta function ratio",
+        "\"doubling events\" \"imbalance\" two branches"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching formula was identified in targeted title, textual, and published-record searches",
+        "Direct symbolic generator verification yields coefficients 1, 1, 3/7, 1/13, 5/899, 495/3235501 for orders 1 through 6"
+      ],
+      "reasoning": "The calculated sequence is not simply a reindexed known degree/size table in the inspected source. Search absence does not certify uniqueness.",
+      "searches": [
+        "\"2^r-r\" \"beta\" Yule tree moments",
+        "\"Poisson\" \"Yule\" \"difference\" \"moments\" reset",
+        "branch imbalance even moments intermittency root-doubling random recursive tree Yule two correlated copies universal beta function ratio"
+      ]
+    },
+    "rationale": "The complete accessible foundational manuscript covers total-size moment asymptotics and the Yule embedding, but not the antisymmetric moment hierarchy for two root-daughter sizes. Accessible related mathematical records address leaf imbalance or total-size limits rather than the stated all-order beta ratio; their summaries and semantic relations have been compared, with limits disclosed.",
+    "residual_risks": [
+      "No independent historical-priority certification. A general branching-with-global-reset theorem may imply the ratio without use of these exact words.",
+      "Full text of two relevant published mathematical records could not be inspected; their accessible summaries show distinct observables but do not exclude hidden general corollaries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines needed model and embedding; does not state all-order antisymmetric daughter-subtree moments",
+        "evidence": [
+          "Model transitions lines 47-60",
+          "Total-size moment theorem lines 63-86",
+          "Poisson root clock and Yule mechanism lines 737-744"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2501.18466",
+        "material_read": "Full accessible HTML sections: Introduction/model (lines 38-118), total mass and doubling times (122-305), degree distribution (306-455), sampled heights (through 729), continuous-time Yule embedding (730-775), remaining result and references",
+        "method": "Section-level and text searches; reconstructed generator independently",
+        "title": "A random recursive tree model with doubling events",
+        "trigger": "Same stochastic model and direct possibility of prior result"
+      },
+      {
+        "assessment": "Accessible claim concerns global count of leaves, not root-daughter population size moments; residual full-text uncertainty",
+        "evidence": [
+          "Summary says I_t=2L_t-N_t and covariance with reset count"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-poisson-tilted-leaf-imbalance-in-a-random-tree-with-root-d--4e2a44bfd188",
+        "material_read": "Published search summary only; full public text could not be fetched",
+        "method": "Semantic statement/observable comparison",
+        "title": "Exact Poisson-tilted leaf imbalance in a random tree with root doublings",
+        "trigger": "Same model and word imbalance"
+      },
+      {
+        "assessment": "Does not by itself imply the antisymmetric-moment constants; unresolved if hidden corollary exists",
+        "evidence": [
+          "Summary identifies the limit law of B_n/n, not subbranch split"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-weak-convergence-of-root-doubling-tree-size-through-a-logarithmi--db5e2cb678fc",
+        "material_read": "Published search summary only",
+        "method": "Comparison of total mass law versus branch difference statistic",
+        "title": "Weak convergence of root-doubling tree size through a logarithmic-time jump process",
+        "trigger": "Stronger potential control of total mass"
+      },
+      {
+        "assessment": "Conventional recursive trees, no global root copying",
+        "evidence": [
+          "Abstract characterizes representation as split trees and common-ancestor sums"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.05487",
+        "material_read": "Accessible abstract",
+        "method": "Compared object and stated theorem",
+        "title": "Random recursive trees and preferential attachment trees are random split trees",
+        "trigger": "General recursive-tree representation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e97e5e2-f96e-456f-bd85-9e9675ecff7a",
+  "value": {
+    "rationale": "The all-order moment exponent and model-specific universal beta factor quantify how a root copy reset suppresses or enhances fluctuations of two natural coupled daughter populations. The third and higher moments differ qualitatively from the first two and exhibit intermittent high-moment growth, furnishing a structural invariant not supplied by total size or degree profile alone.",
+    "status": "PASS"
+  }
+}
