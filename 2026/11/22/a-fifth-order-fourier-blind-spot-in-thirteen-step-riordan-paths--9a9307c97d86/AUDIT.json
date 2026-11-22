@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact counts of all Riordan step strings by two distinct algorithms (path enumeration with Walsh transform and signed height-state recurrence), every frequency at n=2..13; 13-step 176 zeros with minimum support five, full weight histogram, least surviving magnitude two. Exact inverse Walsh projection-kernel histogram has l1 mass 35360/8192. Averaging all projections over translations proves this kernel realizes the unrestricted endpoint optimum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Deng–Yang (2006), §§2–4, classical unsigned Riordan path enumeration and transformations.",
+        "Motzkin-path results concern the larger ensemble allowing ground-level horizontals and a distinct frequency-sensitive counting kernel."
+      ],
+      "reasoning": "A spectrum on all Motzkin paths is not stronger coverage of the restricted Riordan path count, because the removed paths contribute nontrivial signed values at each frequency. Existing univariate Riordan counts likewise do not imply the positionwise Fourier projector or its norm.",
+      "searches": [
+        "\"Motzkin paths\" \"Walsh\" \"horizontal step\"",
+        "\"Riordan paths\" \"Fourier\" \"horizontal\"",
+        "Riordan paths and derangements 2006 horizontal level enumeration"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0602298",
+      "https://oeis.org/A005043",
+      "https://link.springer.com/article/10.1007/s11785-021-01146-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The arXiv primary source states the Riordan path definitions, unsigned binomial relations, and bijections, not arbitrary per-position signs or projection optimality.",
+        "The mathematical proof computes all frequency values through an independent recurrence and derives the endpoint optimum by translation averaging."
+      ],
+      "reasoning": "Known bijections and size recurrences do not explicitly or through immediate specialization furnish the complete Fourier zero count and endpoint constant. The included newly computed census and norm require additional signed positional enumeration; no dominating result was identified in the inspected primary material.",
+      "searches": [
+        "Chen Deng Yang Riordan Paths and Derangements pdf 2006 section 2 signed position weights",
+        "Riordan paths no ground horizontals Walsh character spectral rank",
+        "Motzkin level step generating function Riordan paths Walsh Fourier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Deng–Yang (2006), §2 definition and §3 derangement bijection; OEIS A005043 signed-independent unsigned sequence.",
+        "Cameron–Sullivan (2021), abstract on level-step marked Motzkin paths; different weighted global mark statistic."
+      ],
+      "reasoning": "A univariate horizontal-count generating function fixes W at the zero frequency and at a uniform all-positions sign, not the 8192 frequency-dependent signed sums. Marked-level-step polynomials and derangement enumerations do not give a characterwise length-13 spectrum. No equivalent formulation was found in material read; search alone does not prove uniqueness.",
+      "searches": [
+        "\"Riordan paths\" \"Walsh\" \"Fourier\" horizontal",
+        "\"Riordan paths\" \"level steps\" sign enumerator positions",
+        "Riordan path horizontal-step profile binary Fourier rank signed paths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005043 gives the size R_13=11298 and a 2003-11-09 path interpretation, but not the signed position-frequency table or projection kernel.",
+        "A fully exhaustive independent integer certificate for all 8192 frequencies is embedded as verify.py."
+      ],
+      "reasoning": "The known one-dimensional Riordan number table accounts for the zero character only. It does not tabulate 176 vanishing frequencies, their support weights, or 1105/256, and no exact replacement table was located.",
+      "searches": [
+        "Riordan numbers OEIS A005043 11298 13",
+        "\"Riordan paths\" \"Walsh\" 13 176",
+        "\"Riordan paths\" \"projection norm\" Fourier"
+      ]
+    },
+    "rationale": "Primary Riordan literature and historical enumeration table give unsigned counts and bijections, not position-sensitive signed Walsh spectra or optimal range-projection norms. The unrestricted Motzkin ensemble cannot imply the restricted Riordan subfamily without a new signed subtraction analysis. Public text and bounded semantic overlap searches found no equivalent with the same claim. Unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "An unindexed prior signed-position enumeration of Riordan paths could contain an equivalent length-thirteen result.",
+      "The weighted operator paper was consulted by excerpt, not full material; it might have additional non-obvious refinements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes definitions, bijections, and unsigned formulas; no arbitrary signed horizontal-position character census or exact Fourier projection norm in the examined text",
+        "evidence": [
+          "arXiv math/0602298v1 first posted 2006-02-14; §§1–2 define paths and unsigned r_n; §3 supplies derangement correspondence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0602298",
+        "material_read": "Primary arXiv full HTML/text, including sections 1–4, and selected original PDF pages showing definitions, recurrences, and later results",
+        "method": "Direct examination of primary arXiv text and PDF; checked sections, statement, and occurrence of Fourier-related terms",
+        "title": "Riordan Paths and Derangements",
+        "trigger": "Closest original paper defining exactly the Riordan excursions and their ordinary enumerator"
+      },
+      {
+        "assessment": "Lists R_13=11298 and the 2003-11-09 path interpretation, but the inspected portion does not contain the claimed positionwise Walsh cancellation/projection table",
+        "evidence": [
+          "Riordan number sequence begins 1,0,1,1,3,6,15,36,91,232,603,1585,4213,11298."
+        ],
+        "identifier_or_url": "https://oeis.org/A005043",
+        "material_read": "Sequence initial terms and dated interpretation as Motzkin paths without level-zero horizontal steps",
+        "method": "Reviewed public OEIS entry and dated comments",
+        "title": "A005043: Riordan numbers",
+        "trigger": "Exact historical count, earliest explicitly dated public Riordan-path interpretation, and possible tabulated competing invariants"
+      },
+      {
+        "assessment": "The examined proposition uses a uniform horizontal count variable, not a separate sign at every step position; remainder not exhaustively inspected",
+        "evidence": [
+          "The displayed generating function weights each horizontal occurrence by the same parameter."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11785-021-01146-y",
+        "material_read": "Online §2.3 definition and §3.2 weighted horizontal-count recurrence, not entire paper",
+        "method": "Read public text excerpt and compared total-step weighting with arbitrary positionwise character signs",
+        "title": "Distributions for Nonsymmetric Monotone and Weakly Monotone Position Operators",
+        "trigger": "Later weighted Riordan-path generating functions might implicitly cover signed horizontal positions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9a9307c9-7d86-499f-8fcf-37ccced1b647",
+  "value": {
+    "rationale": "Identifies first length in a canonical named path class where all one- through four-coordinate horizontal parities fail to detect Fourier nonidentifiability, while 22 five-coordinate characters do. Exact rank/nullity and globally optimal endpoint projection constant quantify reconstruction loss and amplification; the finite first-boundary finding is intrinsically motivated, with explicit limits beyond n13.",
+    "status": "PASS"
+  }
+}
