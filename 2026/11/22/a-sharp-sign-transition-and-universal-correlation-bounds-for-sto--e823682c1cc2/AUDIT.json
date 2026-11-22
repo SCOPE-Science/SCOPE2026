@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "On two-sided independent innovation sequences the stationary affine series converges in L2 because E[(1-F)^2]=1-d<1. The expectation and second moment recurrences give E[X]=a/mu, E[X^2]=a^2(2-mu+mu*c)/(mu*d). Conditioning on the independent next removal gives covariance one step ahead; iteration of the conditional affine expectation multiplies it by (1-mu)^(k-1) at every k>=1. Direct factorizations prove the two Pearson-correlation envelopes and equality conditions. The exact rational checker from the submitted package passes 31,192 counted exact-rational checks; seeded finite simulations support three Beta examples but are not universal proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Adams (2006) DOI 10.1029/2005WR004540 has general probabilistic pollutant buildup and wash-off transforms, but the inspected analysis specifies marginal distributions and means rather than temporal second-order joint behavior.",
+        "Al Ali et al. (2016) DOI 10.3390/w8080312 includes residual pollutant mass between storms and empirical performance of buildup/wash-off formulas; no event-output all-lag covariance classification is stated in inspected text.",
+        "Daly–Bach–Deletic (2014) DOI 10.1016/j.advwatres.2014.09.003 is a plausible general stochastic wash-off treatment, accessible by abstract only."
+      ],
+      "reasoning": "Broader conceptual models of stormwater pollutant carryover do not logically imply a sharp distribution-free correlation envelope without a joint output calculation; the abstracts alone cannot rule out a stronger prior result, so that paper is retained as a residual coverage risk.",
+      "searches": [
+        "random coefficient reservoir model release process autocovariance rainfall runoff event loads",
+        "stormwater wash-off covariance threshold removal fraction variance interevent dry-period coefficient variation",
+        "random storm event pollutant wash-off carryover autocorrelation concentration negative serial correlations"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1029/2005WR004540",
+      "https://doi.org/10.1029/2010WR009217",
+      "https://doi.org/10.1016/j.advwatres.2014.09.003",
+      "https://doi.org/10.3390/w8080312"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2006 Chen–Adams paper works with derived pollutant-load distributions, event means and annual totals; the 2010 Botter paper studies continuous streamflow autocorrelation; the 2016 Al Ali–Bonhomme–Chebbo paper calibrates pollutant buildup and residual wash-off. None of their inspected results gives the exported-event covariance sign threshold or two sharp bounds.",
+        "Daly–Bach–Deletic (2014) abstract indicates stochastic event wash-off concentrations but its full statement cannot be compared.",
+        "A published three-stage stormwater result analyzes which deterministic stage order maximizes temporal export under continuing supply, with no random event-to-event output sequence."
+      ],
+      "reasoning": "Neither the 2006 marginal-load distributions, 2010 continuous-flow correlation, 2016 calibration comparisons, nor deterministic stage-order optimization implies the all-lag fractional-release covariance theorem on the inspected statements. Classical affine-moment identities support the proof and their existence creates generic-method priority risk, but a specific prior stronger released-load result was not found. The inaccessible 2014 full text remains a materially relevant uncertainty.",
+      "searches": [
+        "event indexed stormwater wash-off random fraction removal stationary exported load autocovariance sign changes positive negative all lags",
+        "stochastic affine recursion random coefficient storage process correlated rewards output pulses autocovariance signs",
+        "stormwater wash-off covariance threshold removal fraction variance interevent dry-period coefficient variation",
+        "event indexed stormwater wash-off random fraction removal stationary exported load autocovariance sign changes positive negative all lags"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen and Adams (2006) https://doi.org/10.1029/2005WR004540 develops pollutant-load distributions and expected concentrations; no multi-event covariance signs appear in the inspected sections.",
+        "Botter (2010) https://doi.org/10.1029/2010WR009217 gives time-autocorrelation of streamflow rather than event-indexed residual pollutant release."
+      ],
+      "reasoning": "The recurrence can be translated into an affine reservoir equation or a random-coefficient AR(1), but the dependent output Y_n=F_n X_n is not the reservoir state. Stock covariance remains nonnegative while the sign of output covariance depends on removal variance. A stock-autocovariance result alone does not imply this signed event-export theorem.",
+      "searches": [
+        "event indexed stormwater wash-off random fraction removal stationary exported load autocovariance sign changes positive negative all lags",
+        "stochastic affine recursion random coefficient storage process correlated rewards output pulses autocovariance signs",
+        "stochastic reservoir inflow outflow correlation random release fraction serial covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published scientific result located describes deterministic three-stage stormwater exposure ordering under continued input, a different fixed-stage optimization statement.",
+        "A separate published result concerns saturation runoff in a periodically driven finite-capacity store, not stationary random pollutant exports."
+      ],
+      "reasoning": "The claim is a family-level analytic correlation law, not a finite table entry. Search comparisons did not identify an exact database row or stronger tabulation that directly determines the sign threshold and the universal sharp endpoints; absence of a match is not independently conclusive.",
+      "searches": [
+        "stormwater wash-off covariance threshold removal fraction variance interevent dry-period coefficient variation",
+        "gamma beta storm wash-off random fraction output load lag-one covariance zero independent"
+      ]
+    },
+    "rationale": "The combination of a sign-indefinite event-export autocovariance, universal moment threshold, all-lag sign persistence, and sharp Pearson envelopes for the stated iid fractional-washoff recurrence was not identified in inspected hydrological primary texts or overlapping published scientific statements. Generic random-coefficient recurrences are established mathematics and not claimed new. A plausible 2014 wash-off paper was accessible only by abstract, leaving an explicit historical-coverage risk.",
+    "residual_risks": [
+      "Full statements in Daly, Bach and Deletic (2014), DOI 10.1016/j.advwatres.2014.09.003, were not accessible; a possible stronger result cannot be excluded.",
+      "Classical affine-recursion/reward-process theory may yield the covariance by a known general identity, despite no covering statement found in inspected sources.",
+      "Searches and inspected scientific material do not establish historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering inspected event-export serial covariance claim",
+        "evidence": [
+          "First published June 23, 2006",
+          "Section 2.3 defines event pollutant wash-off as a function of rainfall volume and accumulated mass; section 3.2 derives single-event distribution and expected load."
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2005WR004540",
+        "material_read": "Available full HTML sections 2 and 3, introduction and conclusions; distribution and annual-load formulas",
+        "method": "Read scientific text on publisher page",
+        "title": "A framework for urban storm water modeling and control analysis with analytical models",
+        "trigger": "Direct prior for analytical pollutant buildup and event wash-off"
+      },
+      {
+        "assessment": "Different observables and dynamics; cannot imply event-indexed random fractional pollutant release without additional transformation",
+        "evidence": [
+          "Published December 9, 2010",
+          "Streamflow autorelationship is in physical time with stochastic recession, rather than in indexed pollutant event exports."
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2010WR009217",
+        "material_read": "Accessible full primary article sections concerning streamflow recession-rate variability and autocorrelation",
+        "method": "Read available full publication text",
+        "title": "Stochastic recession rates and the probabilistic structure of stream flows",
+        "trigger": "Potential general temporal covariance law for hydrological output"
+      },
+      {
+        "assessment": "Prior structure supports model relevance but no equivalent threshold or two sharp covariance bounds found",
+        "evidence": [
+          "Published July 23, 2016",
+          "Event-to-event residual mass appears explicitly in buildup equation, with wash-off modeled and calibrated against field observations."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/w8080312",
+        "material_read": "Available full primary article, especially event buildup and wash-off equations and model comparison",
+        "method": "Read full published HTML article",
+        "title": "Evaluation of the Performance and the Predictive Capacity of Build-Up and Wash-Off Models on Different Temporal Scales",
+        "trigger": "Direct model of retained residual pollutant mass between rainfall events"
+      },
+      {
+        "assessment": "Unresolved full-text implication comparison; retained as priority risk, not claimed NOT_COVERING",
+        "evidence": [
+          "Publication 2014, DOI 10.1016/j.advwatres.2014.09.003",
+          "Abstract treats within-event wash-off variability; complete statements could not be checked."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.advwatres.2014.09.003",
+        "material_read": "Publisher/indexed abstract only; complete paper unavailable through searched open sources or accessible institutional connection",
+        "method": "Inspected available abstract and searched for lawful full-text versions",
+        "title": "Stormwater pollutant runoff: A stochastic approach",
+        "trigger": "Plausible broader stochastic wash-off result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e823682c-1cc2-48af-9f58-1ab389510188",
+  "value": {
+    "rationale": "Observed pollutant export and stored contaminant mass are observables of different risk relevance; a physically natural stationary system can have positively persistent stock and negatively dependent event exports. The formula gives the exact boundary in removal variance versus buildup variability for all positive lags and determines distribution-free extremal autocorrelations; at deterministic accumulation the negative extremum is independent of the distribution of removal fractions. This supplies a motivated structural diagnostic for interpreting temporally sampled pollutant-load series. It does not claim site validation or practical optimization without calibrated dependent rainfall/removal processes.",
+    "status": "PASS"
+  }
+}
