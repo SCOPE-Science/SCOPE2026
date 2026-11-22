@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Stationary resolvent is explicitly evaluated and symbolically rederived. The scalar frequency derivative has a unique positive zero, coupling derivative is strictly positive throughout stable domain, and exact boundary substitution gives the claimed sharp supremum; equal-temperature and edge cases are separated. SymPy checker corroborates identities and finite sample cases, without being used as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Henkel 2021 describes underdamped quantum oscillators and their non-equilibrium cross-correlation spectra, not the present stable overdamped symmetric-trap sharp maximum.",
+        "General linear Langevin resolvents contain the raw spectral matrix; their generality alone does not establish this globally sharp optimization and thermal-only envelope."
+      ],
+      "reasoning": "General formulas allow a derivation only after choosing a different imaginary-spectrum statistic and proving global frequency and coupling extremality. No identified source states or implies the target optimized bound as an explicit stronger theorem.",
+      "searches": [
+        "Published record search: maximal imaginary spectral coherence frequency coupled two thermal Langevin baths",
+        "Web: overdamped two bath coupled oscillators imaginary cross spectrum normalized coherence optimal frequency bound",
+        "Full-text inspection: Henkel 2021 two-oscillator non-equilibrium cross spectra"
+      ]
+    },
+    "checked_sources": [
+      "Cerasoli et al., Phys. Rev. E 106, 014137 (2022), https://www.smri.it/Publications/Phys_Rev_E_Gyrator_Spectra.pdf, Sec. III Eq. (17) and Appendix C",
+      "Cerasoli et al. arXiv first public v1 https://arxiv.org/abs/2201.04903 (2022-01-13)",
+      "Henkel (2021) https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202100089"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cerasoli 2022 directly computes a Pearson coefficient for random auto-spectral power estimators and low-frequency scaling; its full body and appendix omit a maximization of the imaginary complex cross-spectrum.",
+        "The present proof explicitly derives and optimizes a normalized imaginary cross-spectrum, giving a bath-only envelope strictly less than one."
+      ],
+      "reasoning": "The published Pearson coefficient squares both real and imaginary cross-components and does not by itself determine or optimize the time-antisymmetric component. The exact optimizer and nonattained envelope require new comparison and monotonicity; not a mere relabeling of the published Pearson result.",
+      "searches": [
+        "Cerasoli 2022 Sec. III, Eqs. (16)–(20), Appendix C, full author PDF",
+        "Henkel 2021 Sec. correlation spectra (HTML/full OA)",
+        "Published record search: Brownian gyrator spectral cross-phase thermometry single frequency identifies bath temperature ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cerasoli et al. Section III studies Pearson correlation of two real-valued auto-spectral powers, not spectral phase; its Eq. (17) includes both real and imaginary Fourier correlations through magnitude.",
+        "The present ratio isolates the imaginary part, and is zero for equal temperatures even when magnitude correlation is nonzero."
+      ],
+      "reasoning": "The physical random variables and constraints differ: standard squared coherence is not the imaginary-only coherence. No equivalent full optimality statement was identified.",
+      "searches": [
+        "Published record search: imaginary coherency bound temperature contrast Brownian gyrator harmonic two-dimensional Ornstein Uhlenbeck maximum",
+        "Web: Brownian gyrator imaginary coherency bound frequency thermal ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant hits concern sampled turn precision, sampled-time irreversibility, damping offset, fractional-bath circulations, and other spectra.",
+        "No exact table of the present bath-contrast maximum or fixed-coupling frequency was surfaced."
+      ],
+      "reasoning": "This is a continuous all-parameter spectral optimization rather than a tabulated finite value; indexed findings compared by claims do not give the sharp formula.",
+      "searches": [
+        "Published record search: sharp temperature contrast only upper bound on imaginary normalized cross spectral coherence Brownian gyrator (sqrt hot minus sqrt cold)^2 divided by sum bath temperatures",
+        "Published record search: antisymmetric cross-spectral amplitude coherence gyrator maximum temperature ratio"
+      ]
+    },
+    "rationale": "The full primary Brownian-gyrator spectral paper was inspected: it derives Pearson correlations of auto-spectral powers, whereas this theorem optimizes the imaginary component of the complex coordinate cross-spectrum and identifies a nontrivial sharp temperature-only stability-edge supremum. Relevant mathematical research database matches optimize other observables and do not imply this claim. This is qualified by residual implicit-coverage risk.",
+    "residual_risks": [
+      "An alternative unpublished or unindexed source, or general response-theory literature, may already derive the same optimized imaginary-component envelope.",
+      "Published general spectral kernels contain ingredients from which this result might be inferred with additional algebra; priority requires independent literature review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper studies power-spectral-density distributions/Pearson coefficients and their low-frequency behavior, not the optimized imaginary complex cross-spectrum or the thermal ceiling.",
+        "evidence": [
+          "Section III.C Eq. (17) Pearson correlation; pages 6–7; Appendix C derives bivariate auto-spectral statistics.",
+          "Paper explicitly says it focuses on random power spectral densities of individual component trajectories."
+        ],
+        "identifier_or_url": "https://www.smri.it/Publications/Phys_Rev_E_Gyrator_Spectra.pdf",
+        "material_read": "Full 20-page author PDF: Sections II–V (main PSD first moments, Pearson Eq. 17, low-frequency asymptotics) and Appendix C mathematical derivations",
+        "method": "Primary full-text equations and prose read, PDF pages inspected including page with Eq. (17); full-text searches for imaginary, cross-spectrum, coherence",
+        "title": "Spectral fingerprints of nonequilibrium dynamics: The case of a Brownian gyrator",
+        "trigger": "Same physical system and spectral diagnostics in the main literature paper"
+      },
+      {
+        "assessment": "Inertial quantum harmonic oscillator spectral correlations but no thermal-only sharp global bound for the overdamped frequency-normalized imaginary coherence.",
+        "evidence": [
+          "Eq. (39) provides a general two-oscillator cross-spectrum involving inertial susceptibility and bath spectra."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202100089",
+        "material_read": "Open-access HTML, abstract, cross-correlation spectrum equations (36)–(40), conclusions of model applicability",
+        "method": "Read equations and surrounding discussion in lawful full HTML",
+        "title": "Heat Transfer and Entanglement–Non-Equilibrium Correlation Spectra of Two Quantum Oscillators",
+        "trigger": "Broad two-bath off-diagonal frequency spectra could potentially dominate the cross-spectrum claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "60377c0f-65fa-4c38-bcce-fd9a83a608ef",
+  "value": {
+    "rationale": "This normalized imaginary cross-spectrum vanishes exactly at equilibrium despite nonzero conventional complex-coherence magnitude, so it is a time-arrow-sensitive observable. The unique intrinsic optimal frequency and the strictly unattainable temperature-contrast-only maximal amplitude give quantitative, physically motivated bounds and a design benchmark for the entire stable two-bath harmonic family. It is not merely arbitrary parameter substitution or a known table; finite-sample experimental design remains unproved.",
+    "status": "PASS"
+  }
+}
