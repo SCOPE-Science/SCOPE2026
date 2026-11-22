@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "An independent one-row sampled correction at the scalar full optimum has two possible exact target directions. The independent with-replacement validation sample produces a fair-sign average; direct sampled objective expansion gives the exact equivalence between both source Armijo checks and a threshold in that average. Binomial counting proves the finite formula, CLT/Hoeffding prove the sharp joint window, and dyadic envelope plus the second moment prove the positive reciprocal-sample-size expected ascent bounds. Reconstructed 168 finite parameter combinations covering 12,192 exact-rational sample outcomes using standalone checker.py; finite spot checks are not substituted for infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Paquette–Scheinberg 2018 provides conditional oracle-accuracy hypotheses and asymptotic iteration complexity; its treatment of erroneous accepted steps is general but does not calibrate the specific single-validation-batch dyadic grid.",
+        "Jin–Scheinberg–Xie 2024 treats high-probability complexity bounds under assumed inexact-oracle conditions; available abstract does not settle the specific exact-law comparison."
+      ],
+      "reasoning": "Existing concentration and sufficient-decrease bounds can be applied for upper estimates once a directional margin is present, but they do not give the sharp equivalence and nonzero critical profile at a true stationary point without a margin. Residual priority risk remains for unexamined specialist treatments.",
+      "searches": [
+        "stochastic line search backtracking depth batch size sqrt confidence stationary point false acceptance",
+        "validation batch size must scale as four to backtracking depth for independent Armijo false acceptance",
+        "Paquette Scheinberg stochastic line search inaccurate estimates uphill objective"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.12667v1, fully inspected relevant algorithm/theory/experiments",
+      "arXiv:1807.07994v1, primary full-text sampled-line-search theory",
+      "doi:10.1137/22M1512764, abstract/bibliographic material only",
+      "Published related mathematical records on stochastic screening and deterministic Armijo frontiers, compared for statement implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Di 2026, Algorithm 3.1 and (3.8) provide the exact fixed dyadic candidate grid; (4.22) defines the tested Armijo inequalities, whereas (4.21) explicitly imposes margin corrections not used in experiments.",
+        "Paquette–Scheinberg 2018, §2 recognizes false upward moves; the work gives general accuracy requirements, not an unconditional exact two-point acceptance distribution."
+      ],
+      "reasoning": "The primary method is prior work. Its deterministic algebra together with ordinary binomial/CLT tools can imply the present theorem upon additional specialization and analysis, but the primary article does not state this calibration frontier. The assessed claim is the sharp quantitative relationship, not discovery of false acceptance itself. Implicit prior derivability remains a risk because the ingredients are elementary.",
+      "searches": [
+        "Stochastic Multilevel Sampling for Inverse Problems via Coarse-Space Identifiability",
+        "A Stochastic Line Search Method with Convergence Rate Analysis",
+        "High Probability Complexity Bounds for Adaptive Step Search Based on Stochastic Oracles",
+        "deep line search accepts ascent with probability one half at stationary point finite validation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Paquette and Scheinberg (arXiv:1807.07994v1) explicitly discuss uphill acceptance under stochastic Armijo estimates, but focus on probabilistic oracle accuracy and iteration complexity.",
+        "Di (arXiv:2611.12667v1), eq. (4.22) uses the non-margin-corrected sampled Armijo test; Proposition 4.8 adds different confidence-margin premises."
+      ],
+      "reasoning": "The generic possibility of uphill acceptance is already known. The final claim instead gives an exact, all-finite-sample Bernoulli formula, a sharp joint validation-size/dyadic-depth Gaussian window, a critical validation budget proportional to four to the depth, and a nonvanishing reciprocal-size expected-cost band. Neither inspected cited formulation states or directly dominates this quantitative law.",
+      "searches": [
+        "stochastic Armijo false accepted ascent critical logarithmic backtracking depth sqrt batch size",
+        "independent sampled line search cannot guarantee descent near stationarity even arbitrarily large finite batch",
+        "binomial false acceptance probability at stationary point stochastic Armijo two residual targets independent heldout"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related indexed records include an exact binomial relative-utility phase diagram, a deterministic Armijo gradient-norm frontier, and an independently validated hypergradient stability frontier; they concern different processes.",
+        "Previously published mathematical findings were compared for validation-batch, Armijo, backtracking, and stationarity aliases; no matching mathematical statement was located."
+      ],
+      "reasoning": "No exact tabulation of the present binomial acceptance law or its asymptotic dyadic-depth cost frontier was identified. Failure of a search alone is not treated as a proof of priority.",
+      "searches": [
+        "one half false acceptance at exact least squares minimizer independent validation batch Armijo dyadic backtracking critical s over four to J",
+        "validation batch size must scale as four to backtracking depth for independent Armijo false acceptance",
+        "line search stationary objective ascent acceptance binomial tail confidence radius critical 1/sqrt batch"
+      ]
+    },
+    "rationale": "Source Algorithm 3.1 and uncorrected validation test are credited. Older stochastic line-search work already recognizes false uphill acceptance. The assessed new claim is the exact two-row binomial distribution, critical four-to-depth validation budget and positive-cost frontier; direct implication comparisons with relevant full text and accessible mathematical records found no stated covering theorem. This is provisional originality under explicit residual risks.",
+    "residual_risks": [
+      "Unexamined older specialist literature may imply an identical sharp dyadic-validation calibration through a general theorem.",
+      "The ingredients use elementary Bernoulli concentration; the quantitative claim is context-specific, not a new general concentration inequality.",
+      "The 2024 stochastic step-search full text was not accessible and only abstract-level coverage was assessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "METHOD PRIOR: contains one-sweep sampled Armijo construction and distinct margin-based sufficiency; no exact two-row critical validation-depth probability identified.",
+        "evidence": [
+          "arXiv:2611.12667v1, pp. 5–10, Algorithm 3.1; equation (4.22) and Proposition 4.8; original posting Nov 9 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.12667",
+        "material_read": "Full PDF introduction and algorithm sections 1–4, including equations (3.3), (3.7)–(3.9), Algorithm 3.1, Lemma 4.1, Theorem 4.2, Proposition 4.8 and equation (4.22), plus numerical sections 5.1–5.3.",
+        "method": "Full-text PDF inspection, including pages 5 and 10 as page images.",
+        "title": "Stochastic Multilevel Sampling for Inverse Problems via Coarse-Space Identifiability",
+        "trigger": "Exact algorithm whose independent validation step is analyzed"
+      },
+      {
+        "assessment": "GENERAL MECHANISM PRIOR: false accepted uphill steps are recognized, but the sharp independent fixed-batch dyadic-grid binomial law was not located in the inspected theory.",
+        "evidence": [
+          "arXiv:1807.07994v1, pages 1, 4–6 and main convergence analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1807.07994",
+        "material_read": "PDF introduction, stochastic line-search design and accuracy conditions in §§1–2 (including page 4), and the main expected-decrease analysis in §4.",
+        "method": "Full-text PDF text and page image inspection.",
+        "title": "A Stochastic Line Search Method with Convergence Rate Analysis",
+        "trigger": "Potential generic broader coverage of stochastic Armijo false acceptance"
+      },
+      {
+        "assessment": "COMPARISON LIMITED: related high-probability complexity framework, not documented exact binomial dyadic-window coverage; full-paper unavailability leaves residual priority risk.",
+        "evidence": [
+          "Jin–Scheinberg–Xie (2024), SIAM J. Optim. 34, 2411–2439"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1512764",
+        "material_read": "Public abstract, bibliographic information and statement of probabilistic oracle conditions; full technical paper not inspected.",
+        "method": "Publisher abstract and metadata inspection, followed by an unsuccessful arXiv PDF access attempt.",
+        "title": "High Probability Complexity Bounds for Adaptive Step Search Based on Stochastic Oracles",
+        "trigger": "Potential high-probability dominating theorem for stochastic line search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a16d48da-5cb2-4a89-bf6d-9dd2a03007fa",
+  "value": {
+    "rationale": "The precise sample-to-backtracking-depth ratio, with an all-sample exact law, is a natural design question for independent-batch validation of finite grids. It reveals a sharp false-acceptance versus validation-budget tradeoff that is not expressed by a mere isolated counterexample, and it distinguishes probability from expected magnitude: near-half chance of ascent persists while expected rise remains order one per batch size. The result concerns the uncorrected rule specifically and motivates explicit confidence margins, not a general performance guarantee.",
+    "status": "PASS"
+  }
+}
