@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Unique two-cut encoding; monotone-strip Manhattan geodesics; exhaustive case-split upper bound; explicit two sharp feasible lower-bound witness families; counts by degrees. Independent BFS on all n=3..30 confirms 5,572,560 pair distances. The proof establishes all integers and frozen boundary; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Akitaya et al. 2019 treat single-switch connected partitions on biconnected graphs and O(kn) diameter, not this exact minimum-size constrained k=2 cycle metric in the relevant result sections.",
+        "Akitaya et al. 2020 merge-and-repartition recombination move is different from a one-vertex switch.",
+        "published-finding corpus 2026/11/8 circular bounded-gap theorem already yields transportation-optimality in the nonrigid region."
+      ],
+      "reasoning": "General connectivity or all-pairs transport-distance statements do not *by their stated conclusions* supply the maximization at fixed smaller-district size d, the precise eccentricity or the frozen threshold. The proof and extremal witnesses are independently supplied. Full inaccessible prior content remains a residual risk.",
+      "searches": [
+        "balanced connected bipartition one-vertex moves cycle eccentricity diameter min block size",
+        "circular bounded-gap token system graph diameter at minimum gap",
+        "arXiv:1902.10765 Theorem 5 connectivity and Theorem 8 cycle bound",
+        "arXiv:2011.07378 balanced connected partition recombination"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1902.10765v1",
+      "arXiv:2011.07378v1",
+      "arXiv:0910.4774",
+      "arXiv:2403.20148v1",
+      "2026/11/8/SCOPE-circular-bounded-gap-token-systems-have-transport-optimal-slidin--edbf2b8cafb9",
+      "2026/11/2/SCOPE-gap-slack-isometry-and-exact-token-sliding-distances-for-mutuall--f7b2fcae2dd0",
+      "2026/11/2/SCOPE-every-minimum-maximal-matching-of-a-cycle-of-order-3k-1-has-ecce--9e512596be10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The generic bounded-gap result subsumes the geodesic no-detour sublemma; the new claim does not count this as new.",
+        "General token-graph diameter inequalities do not force radius floor(n/2) or exact E(n,s,d).",
+        "Own previous finding 46606467-e152-4343-bc4f-5ec1928331c6 concerns clockwise-only token advances and is not equivalent to bidirectional connected-district switches."
+      ],
+      "reasoning": "The exact eccentricity profile follows from a nontrivial maximization over constrained cut configurations with two sharp extremal witnesses; it is not a literal corollary of the general connectivity/transport statements as reviewed. Residual unindexed exact metric work is possible.",
+      "searches": [
+        "circular bounded-gap token system graph diameter at minimum gap",
+        "balanced connected bipartition one-vertex moves cycle eccentricity diameter min block size",
+        "arXiv:0910.4774 token graph diameter bounds",
+        "arXiv:1902.10765 switch reconfiguration of connected partitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Connected partition into two induced paths on a cycle is equivalent to selecting two boundary edges separated by at least s; directed clockwise exclusion dynamics is not the same undirected switch graph.",
+        "Closest published-finding corpus bounded-gap particle paper reports transport-optimality, rather than all-sizes eccentricity-by-district-size."
+      ],
+      "reasoning": "Exact mathematical identification of 2-cut district states with a two-particle hard-core exclusion graph permits checking these aliases. Retrieved indexed summaries did not state the sharp E(n,s,d) extremal optimization. Earlier general shortest-path optimality is acknowledged as prior, not independently novel.",
+      "searches": [
+        "Connected bipartitions of cycles under moving one boundary vertex, exact reconfiguration diameter",
+        "Connected bipartitions of unicyclic graphs reconfiguration distance",
+        "radius and diameter of configurations of two hard-core particles on a cycle with separation at least s",
+        "two particle distance exclusion hard rods circle exact eccentricity max(floor(n/2), n-s-d)",
+        "Two-token graph of a cycle under a hard-core minimum separation, sharp radius and diameter max(floor(n/2), n-2s), eccentricity by gap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved published-finding corpus exact E(n,s,d) table or equivalent formula among the most relevant result IDs.",
+        "The 2024 two-token cycle paper computes eigenvalues/eigenspaces, and the examined material does not state these size-constrained eccentricities."
+      ],
+      "reasoning": "A negative ranked search is not uniqueness proof. Exhaustive finite checking demonstrates correctness for 224 parameter cases but does not itself establish originality.",
+      "searches": [
+        "Exact eccentricity formula for two connected unnamed districts on labelled cycle with each district at least s vertices, graph radius floor(n/2), diameter max(floor(n/2), n-2s), sliding one boundary site",
+        "Two-token graph of a cycle under a hard-core minimum separation, sharp radius and diameter max(floor(n/2), n-2s), eccentricity by gap",
+        "Balanced cyclic redistricting single vertex reassignment shortest path distances and connectivity threshold",
+        "arXiv:2403.20148 two-token cycle graph spectral results"
+      ]
+    },
+    "rationale": "Specific exact fixed-district-size eccentricity optimization and sharp radius/diameter is not stated in accessed primary result passages or closest indexed published-finding corpus summaries. All-pairs transport optimality is already established by a stronger published result and not claimed new. An unindexed or unavailable full-text equivalent remains a genuine priority risk.",
+    "residual_risks": [
+      "A prior indexed general bounded-gap theorem may contain unexamined extremal corollaries; its repository full text was inaccessible.",
+      "Unindexed hard-core, two-particle or redistricting literature may contain equivalent exact eccentricities.",
+      "Novelty search is not proof of historical first publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General connectivity and bounds do not present the minimum-size-constrained two-unlabelled-district eccentricity profile in material examined",
+        "evidence": [
+          "arXiv:1902.10765 v1 dated 2019-02-27; proof uses the finer fixed-two-district balance restriction absent from theorem statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1902.10765",
+        "material_read": "Abstract, introduction, general switch results including Theorem 5 and cycle bounds around Theorem 8; representative page image",
+        "method": "Opened and searched legally accessible arXiv full PDF; read relevant result sections and screenshot",
+        "title": "Reconfiguration of Connected Graph Partitions",
+        "trigger": "Directly same single-vertex switch on connected districts; strongest primary overlap"
+      },
+      {
+        "assessment": "Their recombination can merge and repartition districts in one operation, unlike this single-vertex transfer",
+        "evidence": [
+          "arXiv:2011.07378v1 posted 2020-11-14; comparison of switch to recombination on page two"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2011.07378",
+        "material_read": "Abstract, introduction, precise definitions and main results through page three; first page image",
+        "method": "Opened legally accessible PDF, inspected parsed body and screenshot",
+        "title": "Reconfiguration of Connected Graph Partitions via Recombination",
+        "trigger": "Same district balance with different move operator"
+      },
+      {
+        "assessment": "Defines general token graphs and provides bounds, not this constrained-cycle eccentricity formula in inspected material",
+        "evidence": [
+          "arXiv:0910.4774, token graphs; general inequalities apply more broadly"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0910.4774",
+        "material_read": "Definition, theorems and relevant bounds; sample page image",
+        "method": "Opened accessible arXiv full PDF and examined pertinent sections",
+        "title": "Token Graphs",
+        "trigger": "Base two-token cycle configuration model and diameter bounds"
+      },
+      {
+        "assessment": "Spectral focus, no exact constrained eccentricity found in examined material",
+        "evidence": [
+          "arXiv:2403.20148v1, 2024-03-29"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.20148",
+        "material_read": "Available manuscript introduction, graph definition and spectral theorems",
+        "method": "Read legally available full-text material and searched for diameter terminology",
+        "title": "General method to find the spectrum and eigenspaces of the k-token graph of a cycle",
+        "trigger": "Direct cycle token-graph primary paper"
+      },
+      {
+        "assessment": "Transport optimality is prior. Summary did not state fixed-size-conditioned eccentricity and radius/diameter; remaining full-text priority uncertainty explicitly retained",
+        "evidence": [
+          "Indexed ID 2026/11/8/SCOPE-circular-bounded-gap-token-systems-have-transport-optimal-slidin--edbf2b8cafb9"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-circular-bounded-gap-token-systems-have-transport-optimal-slidin--edbf2b8cafb9",
+        "material_read": "published-finding corpus indexed title and scientific summary; full linked repository source not accessible during this run",
+        "method": "published-finding corpus semantic search, query aliases, reviewed result statement; link access attempted",
+        "title": "Circular bounded-gap token systems have transport-optimal sliding paths",
+        "trigger": "Closest indexed stronger all-pairs geodesic theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3b6e0a6b-a544-4cca-8d79-e8dd1d865a55",
+  "value": {
+    "rationale": "The minimum-size constraint is a natural district-balance requirement; the all-size sharp eccentricity states precisely how imbalance changes worst-case one-vertex rerouting cost, identifies the sharp frozen boundary and provides explicit constructive farthest cases. Structural, not mere numerical table.",
+    "status": "PASS"
+  }
+}
