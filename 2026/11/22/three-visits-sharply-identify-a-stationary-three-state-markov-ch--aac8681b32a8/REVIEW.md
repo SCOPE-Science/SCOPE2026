@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness (PASS).** The exact count-law identities reconstruct the stationary masses, transition loops, undirected pair flows and pairwise products. Stationarity forces the antisymmetric flows to have the same cyclic orientation, leaving precisely two reversal-related matrices, even on irreducible boundaries where some entries vanish. The explicit positive family gives an exact two-visit collision with different principal minors. A standalone standard-library rational checker independently tests the enumerated formulas and both candidates in 1,368 exact assertions. The universal result follows from algebra, not enumeration.
+
+**Originality (PASS against examined evidence).** Pemmasani's 2026 paper, Section 5, explicitly raises finite-visit determination of principal minors by a stationary discrete-chain count law; it does not give the three-state sharp finite answer. Its main occupation theorem concerns continuous time. The closest accessible published research summaries concern binary surveys with a latent detection model or two-state spatial windows, and do not imply the three-state result, even under relabelling or reversing time. Targeted comparisons found no published equivalent theorem. Priority remains uncertain because indexed search is not exhaustive and some nearby published full texts could not be retrieved.
+
+**Value (PASS).** This settles a naturally isolated low-dimensional instance of an explicitly posed inverse problem, at the first state-space size supporting nonreversible stationary circulation, with a sharp sample-length threshold and constructive inversion. The exact boundary distinguishes identifiability of stationary marginals, pair flows and principal minors rather than merely giving a numerical example.
+
+**Closest sources and limits.** Pemmasani, arXiv:2611.14587v1 (2026-11-10), Section 5; Chestnut–Lladser, arXiv:1003.2649 (2010); and related published two-state count-only survey studies. The conclusion is restricted to exactly three labelled states, a stationary initial law and the complete population count distribution. It does not solve the higher-dimensional question or guarantee statistical robustness. Unindexed broader results remain a residual priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
