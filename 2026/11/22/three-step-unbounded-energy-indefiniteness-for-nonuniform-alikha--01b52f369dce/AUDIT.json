@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Direct reconstruction of the Alikhanov interpolants gives W22=A/epsilon+o(1/epsilon), W32=B/epsilon+o(1/epsilon), and W33=O(1), with A=alpha/((1-alpha)(2-alpha))>0 and B>0 by kernel pairing. The fixed increments q=-B/(2A),1 yield epsilon*Gamma(1-alpha)*energy -> -B^2/(4A). The standard-library exact-panel checker provides an explicit negative rational-mesh integer-increment example at alpha=1/2; separately implemented exact formulas verify three fractional-order samples numerically. Finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Quan-Wu 2022 Theorem 3.1 requires a lower ratio bound, e.g. all adjacent ratios at least 0.475329.",
+        "Liao-Zhu-Sun 2023 assumes ratios at least r_star(alpha) in (0.3865,0.4037).",
+        "The test mesh has ratio epsilon and reciprocal ratio 1/epsilon, so it violates those hypotheses as epsilon vanishes."
+      ],
+      "reasoning": "These established theorems protect a restricted set of meshes and cannot imply energy positivity or negativity on the excluded vanishing-middle-step family. No inspected broader claim covers the explicit inverse-length negative asymptotic.",
+      "searches": [
+        "published-finding corpus: Alikhanov L2 1 sigma scheme fractional derivative nonuniform ratio sharp positive definiteness small mesh",
+        "published-finding corpus: nonuniform Caputo L1 complement kernel exact monotonicity optimal mesh grading",
+        "published-finding corpus: fractional time step convolution positivity two or three step meshes",
+        "web: Quan Wu 2022 nonuniform L2-1sigma 0.475329 proof bilinear form"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1909.10216v1",
+      "arxiv:2208.01384v1",
+      "arxiv:2311.13216v1",
+      "published-finding corpus public result-index semantic queries on Alikhanov energy, bilinear indefiniteness, collapsing middle cells",
+      "Available own published-claim ledger (generation 114, 114 finding claims)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Quan and Wu arXiv:2208.01384, equations (1)-(4), (9) and Theorem 3.1 explicitly define the increment-energy form and prove its nonnegativity under positive step-ratio conditions; their theorem does not assert converse or unrestricted positivity.",
+        "Liao, Zhu and Sun arXiv:2311.13216 describe discrete-gradient energy dissipation under order-dependent positive step-ratio restrictions.",
+        "The new fixed-increment limit is -B_alpha^2/(4 A_alpha), negative for every order 0<alpha<1."
+      ],
+      "reasoning": "Prior sufficient positive-semidefiniteness theorems cannot yield a counterexample by logical contrapositive: failure of their hypotheses says nothing about sign. The 2019 maximum-principle result is also not a theorem about the unrestricted scalar increment-energy form. The explicit asymptotic negative leading term supplies the new information.",
+      "searches": [
+        "arxiv:2208.01384, Sections 1-3 and equation (9)",
+        "arxiv:1909.10216, Sections 1-2 and its scheme introduction",
+        "arxiv:2311.13216, Sections 1-3 and discrete-gradient structure",
+        "web: \"L2-1σ\" \"counterexample\" bilinear nonuniform positive definite",
+        "web: \"Alikhanov\" \"indefinite\" \"time\" \"mesh\"",
+        "web: \"nonuniform L2-1\" \"negative\" \"bilinear form\" mesh example",
+        "web: Alikhanov energy nonuniform \"three time steps\" indefinite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full expression for the exact coefficient matrix of the same bilinear form is published in arXiv:2208.01384, Section 3, equation (9); this is a shared definition, not a negative counterexample.",
+        "The present theorem establishes negative quadratic energy on (1,epsilon,1) with an exact inverse-epsilon limit."
+      ],
+      "reasoning": "Alternative descriptions as failure of discrete coercivity, indefinite symmetric part of the Alikhanov temporal convolution matrix, and a three-time-increment negative energy have been compared. A sufficient coercivity theorem is not an equivalent statement or a contradiction.",
+      "searches": [
+        "published-finding corpus: Alikhanov L2-1 sigma nonuniform scheme energy bilinear indefinite three time steps isolated tiny interval counterexample",
+        "published-finding corpus: L2-1 sigma discrete fractional bilinear form negative on meshes with arbitrarily short middle step",
+        "published-finding corpus: sharp three step counterexample coercivity variable-step Alikhanov fractional derivative",
+        "web: \"L2-1σ\" \"counterexample\" bilinear nonuniform positive definite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried research-result index returned no exact Alikhanov-three-step energy obstruction; nearby indexed titles concern unrelated fractional BDF weights, general finite-element positivity and mesh stability.",
+        "The own accessible claim ledger through generation 114 has no claim containing Alikhanov, L2-1 or Caputo; a mesh-ratio term only concerned Floater-Hormann interpolation."
+      ],
+      "reasoning": "No exact claim or precomputed table of this three-step energy family was found in the checked resources. This is a bounded search result, not a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: Alikhanov L2-1 sigma nonuniform scheme energy bilinear indefinite three time steps isolated tiny interval counterexample",
+        "published-finding corpus: L2-1 sigma discrete fractional bilinear form negative on meshes with arbitrarily short middle step",
+        "published-finding corpus: sharp three step counterexample coercivity variable-step Alikhanov fractional derivative",
+        "web: \"L2-1σ\" \"counterexample\" bilinear nonuniform positive definite",
+        "web: \"Alikhanov\" \"indefinite\" \"time\" \"mesh\"",
+        "web: \"nonuniform L2-1\" \"negative\" \"bilinear form\" mesh example",
+        "web: Alikhanov energy nonuniform \"three time steps\" indefinite"
+      ]
+    },
+    "rationale": "Material comparison of the defining Alikhanov energy form with the published sufficient positivity theorems found no negative three-step all-order blow-up statement. The new theorem rules out fully unrestricted-mesh positivity, which is neither asserted nor logically settled by published sufficient inequalities. Historical priority remains qualified.",
+    "residual_risks": [
+      "Previously published specialist numerical counterexamples may not be discoverable by the checked titles, aliases or indexes.",
+      "The 2023 technical proof appendices were not exhaustively reviewed line by line; an unlocated related special example is possible.",
+      "The theorem deliberately does not identify the sharp universal ratio constant or certify historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different target (maximum principle and error), mesh restrictions; did not identify the three-increment energy counterexample",
+        "evidence": [
+          "Initial preprint submission 2019-09-23",
+          "Section 2 uses bounded consecutive-step reduction; the article states a maximum-principle result under mesh hypotheses."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.10216",
+        "material_read": "Introduction, mesh assumptions in Section 2 and the paper’s stated maximum-principle result",
+        "method": "Accessible full-text HTML, targeted sections and equations",
+        "title": "A second-order and nonuniform time-stepping maximum-principle preserving scheme for time-fractional Allen-Cahn equations",
+        "trigger": "Original adaptive nonuniform Alikhanov setting and ratio hypotheses"
+      },
+      {
+        "assessment": "No direct coverage of negative unrestricted-mesh three-step form or inverse-length blow-up; positive result assumes lower adjacent-step bound",
+        "evidence": [
+          "Source initially publicly submitted 2022-08-02",
+          "Equation (9) writes the same lower triangular operator matrix and Theorem 3.1 guarantees energy nonnegativity under ratio restrictions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.01384",
+        "material_read": "Introduction and Sections 2-3, especially definitions (1),(2),(4), matrix (9), Theorem 3.1 and its restrictions",
+        "method": "Accessible primary full-text HTML, direct equation/claim comparison",
+        "title": "Global-in-time H1-stability of L2-1sigma method on general nonuniform meshes for subdiffusion equation",
+        "trigger": "Identical bilinear form, published coefficient matrix, potential direct coverage"
+      },
+      {
+        "assessment": "Positivity analysis restricted to admissible ratio meshes; no matching all-order negative asymptotic found in read material",
+        "evidence": [
+          "Initial preprint submission 2023-11-22",
+          "Abstract explicitly requires ratios above r_star(alpha), between approximately 0.3865 and 0.4037."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.13216",
+        "material_read": "Introduction and Sections 2-3 discussion of discrete gradient, positive ratio r_star(alpha), and statements of energy dissipation; selected proof comparisons",
+        "method": "Accessible primary full-text HTML, targeted definitions and results",
+        "title": "Asymptotically compatible energy and dissipation law of the nonuniform L2-1sigma scheme for time fractional Allen-Cahn model",
+        "trigger": "More recent, potentially stronger energy theorem for the same discretization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "01b52f36-9dce-44b5-b306-ddb2bf282e6f",
+  "value": {
+    "rationale": "Nonuniform Alikhanov energy coercivity underlies published stability theory for adaptive fractional subdiffusion. This all-order three-increment collapse exhibits a specific unavoidable obstruction to unrestricted-mesh positivity and a quantified inverse-middle-step blow-up. It distinguishes a substantive sign failure from mere nonapplicability of sufficient conditions and guides mesh-ratio safeguards. It does not assert numerical-solution instability or sharpen a published positive ratio threshold.",
+    "status": "PASS"
+  }
+}
