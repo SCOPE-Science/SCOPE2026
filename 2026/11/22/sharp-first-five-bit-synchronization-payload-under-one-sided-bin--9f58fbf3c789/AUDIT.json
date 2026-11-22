@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Every code equals a clique in the finite compatibility graph of 11-avoiding unbordered words. The explicitly supplied greedy-colored exact branch-and-bound checks all cliques or removes branches only under valid clique-size upper bounds. Every possible word and pair of overlaps is generated, and string-slicing edges are independently rechecked by integer masks. Replay of the complete package proves capacities 30 at length 15 and 42 at length 16, checks every smaller size, and checks a 42-word codebook; n16 visits 308053 nodes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stanovnik et al. 2024 Sections 2 and 6 give unrestricted maximum-code algorithms and tables.",
+        "Stanovnik et al. 2025 Section 4 gives general construction of run-limited codes and explicitly permits letter-dependent limits; it does not evaluate the requested asymmetric finite values."
+      ],
+      "reasoning": "The unrestricted family contains the restricted family, but an unrestricted optimum only yields a generally loose upper bound. A characterization or complete enumeration method for arbitrary constraints is not the numerical assertion 30 and 42 without evaluating it. The 2025 construction is the closest possible implicit coverage and is retained as a material residual priority risk.",
+      "searches": [
+        "Web: In search of maximum non-overlapping codes Stanovnik Moskon Mraz 2024",
+        "Web: On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "Published research-index query: sharp cross-bifix-free capacity of the golden mean shift 16 symbol"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.0236",
+      "arxiv:1303.1026",
+      "doi:10.1007/s10623-023-01344-z",
+      "doi:10.1007/s40314-024-03055-0",
+      "https://arxiv.org/pdf/1209.0236",
+      "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+      "https://link.springer.com/article/10.1007/s10623-023-01344-z"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee et al. 2012 provides a restricted marker subfamily after intersection with the source; its maximum at length16 is 24, strictly below 42.",
+        "Stanovnik et al. 2025 provides families of all maximal run-limited codes, without evaluated particular optimum for this asymmetric language."
+      ],
+      "reasoning": "A lower construction with size 24 cannot imply an exact optimum of 42. General existence and exhaustive generation theorems require further nontrivial finite optimization to establish sharp 30 and 42, which is supplied here. No stronger previously evaluated result was found that entails the exact first payload cutoff.",
+      "searches": [
+        "Chee et al. arXiv:1209.0236 Sections 2–3 and Corollary 3.1",
+        "Stanovnik et al. 2025 Section 4 Construction 5",
+        "Published research-index query: non-overlapping codes in golden mean shift avoid 11 maximal size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The coding question is equivalently a maximum clique in the graph of unbordered golden-mean words; indexed nearby results address deletion packing, symmetric run limits, or different fixed-weight codes rather than this exact compatibility graph.",
+        "Indexed exact-run-two balanced-code result: this concerns balanced binary words with cyclic runs of length at most two, a distinct source condition."
+      ],
+      "reasoning": "Avoiding only 11 allows arbitrary zero runs and does not impose balance. Complementing bits gives the equivalent avoidance of 00, not a new independent result. Neither the symmetric run-two language nor deletion-correcting Fibonacci-word languages are equivalent.",
+      "searches": [
+        "Published research-index query: maximum nonoverlapping cross-bifix-free codes binary Fibonacci words avoiding 11 run-length-limited constrained codes",
+        "Published research-index query: cross bifix free codes no consecutive ones Fibonacci 1,1,1,1,2,2,3,5,7,9 length 12",
+        "Web: \"no consecutive ones\" \"cross-bifix-free\" maximum size",
+        "Web: \"non-overlapping\" \"avoiding 11\" codes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Unrestricted binary code tables in Stanovnik et al. 2024 do not impose the forbidden-factor condition.",
+        "The indexed scientific results include restricted balanced run-two counts and nonoverlap+single-deletion counts but not the stated one-sided source capacities."
+      ],
+      "reasoning": "No inspected source table or indexed result gives the entire constrained 1–16 sequence, the 16-bit first 32-message threshold, or the associated length-16 codebook. This is evidence of no identified exact table, not proof that none exists.",
+      "searches": [
+        "Web: \"no consecutive ones\" \"cross-bifix-free\" maximum size",
+        "Web: \"Fibonacci\" \"non-overlapping codes\" constrained",
+        "Published research-index query: exact maximum non-overlapping code binary words avoiding adjacent ones length 16 42 30 20 14"
+      ]
+    },
+    "rationale": "Evaluated exact capacities for a one-sided forbidden factor differ from unrestricted and symmetrically run-limited code problems. Published general generation/optimization frameworks do not provide the stated numeric table, 16-bit payload threshold or 42-vs-24 comparison as an immediate table entry or proved numerical consequence. Actual source, equivalent-formulation and indexed-record comparisons were made. Historical priority remains qualified by unindexed work and specialization of general algorithms.",
+    "residual_risks": [
+      "The 2025 generic characterization can be specialized to asymmetric letter-dependent run restrictions, so the capacity may have been computed elsewhere without appearing in inspected tables.",
+      "The Blackburn full text was not inspected; only its abstract was used as contextual evidence.",
+      "Search of indexed literature and indexed scientific sources cannot establish global historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves generic cross-bifix-free constructions, their unrestricted cardinalities and unrestricted small cases; does not impose the asymmetric internal ban on 11 or report the stated constrained capacity table.",
+        "evidence": [
+          "Definition 2.3, Section 3 and Corollary 3.1; the marker construction begins with a fixed zero block and ends with a nonzero symbol."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.0236",
+        "material_read": "Introduction, definitions, construction and cardinality recurrence, including pages 1–3 of the public preprint.",
+        "method": "Full-text textual extraction with visual inspection of the construction and recurrence on page 3.",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Exact classical binary marker constructions and small unrestricted maxima are the closest template comparison."
+      },
+      {
+        "assessment": "Determines unrestricted binary optima through length 30 and general non-overlap structure, but no per-codeword ban on 11; the unrestricted maxima and algorithms are broader in codeword universe, not sharp upper bounds for the constrained subset.",
+        "evidence": [
+          "Section 6 computes S(q,n) over the full q-ary language, with no forbidden-factor condition; Definition 2 states the same overlap rule."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+        "material_read": "Open-access HTML Sections 1, 2 and 6, including the unrestricted tables, stated scope and references.",
+        "method": "Primary full HTML text and theorem/table-scope comparison.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Potential exact table of code capacities at the same binary lengths."
+      },
+      {
+        "assessment": "Section 4 gives generic restrictions on maximal runs and remarks that distinct letters can have different run limits; it does not evaluate the no-11-only capacities 30 and 42. Its general generation principle motivates but is not a table or closed numerical implication for this evaluated finite instance.",
+        "evidence": [
+          "Section 4 remarks that different limits on distinct letters are a straightforward generalization, while reported computations focus on balanced or symmetric run-limited settings."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40314-024-03055-0",
+        "material_read": "Open-access HTML Sections 1, 4, 5, and conclusions; inspected Construction 5 and accompanying scope and tables.",
+        "method": "Primary full HTML inspection of run-limit construction, exact-problem statements, and tables.",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Directly relevant possible dominating general run-limit theorem."
+      },
+      {
+        "assessment": "The abstract treats unrestricted alphabet codes and exact very short cases; no evidence of the particular asymmetric finite table, but full-text priority cannot be excluded solely from this abstract.",
+        "evidence": [
+          "The accessible abstract reports unrestricted bounds and exact lengths three or smaller."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+        "material_read": "Public abstract and arXiv metadata, not the full paper.",
+        "method": "Abstract comparison only; used as general context, not for a claim of whole-document exclusion.",
+        "title": "Non-overlapping codes",
+        "trigger": "General unrestricted upper-bound and exact small-n framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9f58fbf3-c789-4d0a-92ce-1b8efed96714",
+  "value": {
+    "rationale": "Five payload bits require at least 32 non-overlapping words, yielding the natural exact minimum blocklength 16 under an asymmetric internal source restriction. The 42-word optimum gives a real extra bit compared with the best 24-word fixed-zero-marker subfamily, not a tiny arbitrary numeric gain. The complete all-shorter capacity table and explicit optimal witnesses provide a reproducible finite design benchmark. A general asymptotic theorem is not claimed.",
+    "status": "PASS"
+  }
+}
