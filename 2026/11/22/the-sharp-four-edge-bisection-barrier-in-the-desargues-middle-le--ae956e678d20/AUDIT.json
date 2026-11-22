@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For a 10-vertex balanced S in the cubic 20-vertex graph, c(S)=30-2e(S). Exact enumeration of all 1024 selected 2-set families shows maximal internal count 12 solely at coordinate cuts, giving five unordered optima. Two independent implementations, one directly from 2/3-subset inclusion and another from GP(10,3), enumerate 184756 balanced 10-subsets and every possible 1-in-1-out swap at c<=6,8,10, and independently reproduce the full coefficient spectrum, 10 isolated optima at 6, at 8 ten 31-state components each with one optimum plus 60 isolates, and at 10 one 5650-state component containing all optima plus 12 isolates. All program checks passed from local verified code paths. No infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mütze and Su, arxiv:1503.09175, Theorem 10 establishes Hamiltonicity of all bipartite Kneser graphs; its result is about spanning cycles, not boundary sizes.",
+        "The 2014 middle-levels theorem arxiv:1404.4442 establishes Hamilton cycles in all middle levels and does not give a bisection polynomial."
+      ],
+      "reasoning": "A spanning Hamilton cycle or a general algorithmic bisection bound cannot determine this graph-specific optimal-bisection multiplicity or the threshold for connecting optimum partitions via width-bounded exchanges. No stronger accessible all-order isoperimetric theorem with relevant equality or mobility classification was identified.",
+      "searches": [
+        "edge isoperimetric problem middle two layers Boolean lattice balanced cuts Desargues graph",
+        "minimum bisection desargues graph five subsets coordinate partition",
+        "bisection width generalized Petersen graphs P(n,3) n=10",
+        "bisection width generalized Petersen graph GP(10,3) Desargues"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1404.4442",
+      "https://arxiv.org/abs/1503.09175",
+      "https://mathworld.wolfram.com/DesarguesGraph.html",
+      "published-finding corpus: 2026/10/26/SCOPE-first-excitation-connectivity-and-petersen-bridges-among-dodecah--89534ad75100",
+      "published-finding corpus: 2026/11/2/SCOPE-perfect-matching-cuts-of-p-n-3-two-nonspoke-resonance-periods--71466def2f69",
+      "published-finding corpus: 2026/11/2/SCOPE-hexagon-isolation-and-octagon-bridges-in-desargues-perfect-match--f46dd29846e2",
+      "Accessible own current and immediately preceding UTC week ledgers for recoverable claim deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus 2026/10/26/SCOPE-first-excitation-connectivity-and-petersen-bridges-among-dodecah--89534ad75100 describes a different 20-vertex graph and an excess-two dodecahedron barrier.",
+        "published-finding corpus 2026/11/2/SCOPE-perfect-matching-cuts-of-p-n-3-two-nonspoke-resonance-periods--71466def2f69 classifies perfect-matching cuts of GP(n,3), not 10-10 cuts.",
+        "published-finding corpus 2026/11/2/SCOPE-hexagon-isolation-and-octagon-bridges-in-desargues-perfect-match--f46dd29846e2 studies perfect-matching flips in Desargues rather than balanced vertex partitions."
+      ],
+      "reasoning": "A perfect-matching cut meets every graph vertex across exactly one crossing edge, so on twenty cubic vertices it has ten crossing edges. The five minimum bisections here have only six crossing edges, and the reconfiguration objects are balanced vertex sets rather than perfect matchings. Results for a nonisomorphic dodecahedron or Hamilton cycles do not logically subsume this classification.",
+      "searches": [
+        "minimum bisection width Desargues graph exact balanced cut enumeration reconfiguration",
+        "bisection width generalized Petersen graph GP(10,3) Desargues",
+        "Desargues graph middle levels five coordinate cuts balanced bisection energy barrier under swaps"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Desargues graph is GP(10,3) and the bipartite Kneser graph H(5,2), MathWorld Desargues Graph (https://mathworld.wolfram.com/DesarguesGraph.html).",
+        "Mütze 2014 arxiv:1404.4442 defines the middle layers by adjacent 2/3-subsets of a 5-ground-set."
+      ],
+      "reasoning": "The searches were deliberately repeated under Desargues, middle-levels, generalized Petersen, bipartite Kneser and balanced-cut names. The exact graph equivalence is used to compare claims rather than misidentify equivalent presentations; retrieved same-graph work did not state the bisection spectrum or low-energy swap components.",
+      "searches": [
+        "minimum bisection width Desargues graph exact balanced cut enumeration reconfiguration",
+        "bisection width generalized Petersen graph GP(10,3) Desargues",
+        "Desargues graph middle levels five coordinate cuts balanced bisection energy barrier under swaps",
+        "Desargues GP(10,3) 20 vertex minimum bisection cut size six low energy 8 10",
+        "bisection polynomial bipartite Kneser graph H(5,2)",
+        "Desargues graph bisection width balanced cut edges",
+        "middle levels graph minimum bisection cut size 5 layers hypercube"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "General graph descriptions at https://mathworld.wolfram.com/DesarguesGraph.html give structural invariants and graph isomorphisms, not the exact balanced-cut polynomial or swap components.",
+        "The published-finding corpus search most nearly matched the dodecahedron bisection finding 2026/10/26/SCOPE-first-excitation-connectivity-and-petersen-bridges-among-dodecah--89534ad75100; graph is not Desargues."
+      ],
+      "reasoning": "A public table might eventually contain the minimum cut width six, but a bare scalar would not imply the five-coordinate-optima classification, all balanced-cut coefficients, or the sharp four-edge mobility threshold. No matching table was found in checked sources; an unindexed table remains an explicit residual risk.",
+      "searches": [
+        "Desargues GP(10,3) 20 vertex minimum bisection cut size six low energy 8 10",
+        "Desargues graph bisection 6 cut polynomial distribution",
+        "minimum bisection width Desargues graph exact balanced cut enumeration reconfiguration"
+      ]
+    },
+    "rationale": "The exact finite Desargues bisection polynomial and its four-edge optimal-reconfiguration barrier were not implied by any of the accessible specific published statements or retrieved mathematical result records. Priority remains provisional because source coverage is not exhaustive.",
+    "residual_risks": [
+      "Unindexed or unavailable historical graph bisection tables may contain part of the finite census.",
+      "The published general graph literature was not searched exhaustively; independent human priority review has not been done.",
+      "The component classification is exhaustive finite computation, not an abstract symbolic derivation independent of code."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the specific bisection/cut-exchange claim",
+        "evidence": "Theorems prove existence and multiplicity of Hamilton cycles in middle-layer graphs; no cut-width, minimum bisection, coefficient or bounded-swap results in inspected statements.",
+        "identifier_or_url": "https://arxiv.org/abs/1404.4442",
+        "material_read": "Full text HTML introduction, statements of Theorems 1 and 2, definitions and Sections 1.1–1.2; searched for bisection and isoperimetric",
+        "method": "Read accessible arXiv HTML and compare theorem conclusions",
+        "title": "Proof of the middle levels conjecture",
+        "trigger": "Same middle-layer graph H(5,2); plausible structural theorem"
+      },
+      {
+        "assessment": "NOT_COVERING for bisection and local mobility",
+        "evidence": "Theorem 10 proves Hamiltonicity for bipartite Kneser graphs; the result concerns cycles, not edge-isoperimetric spectra or balanced-swap connectivity.",
+        "identifier_or_url": "https://arxiv.org/abs/1503.09175",
+        "material_read": "ArXiv full-text HTML introduction, known-results Section 1, graph definitions, Theorems 8–11 and Section 2 results",
+        "method": "Read accessible original paper HTML and check its statement types",
+        "title": "Bipartite Kneser graphs are Hamiltonian",
+        "trigger": "Graph H(5,2) belongs to the studied family; possible stronger all-parameter theorem"
+      },
+      {
+        "assessment": "Graph representation is supported; target cut claim not listed",
+        "evidence": "Reference explicitly identifies GP(10,3), bipartite Kneser H(5,2), twenty vertices and thirty edges.",
+        "identifier_or_url": "https://mathworld.wolfram.com/DesarguesGraph.html",
+        "material_read": "Graph description and listed isomorphisms",
+        "method": "Read reference article webpage",
+        "title": "Desargues Graph",
+        "trigger": "Primary graph alias and model equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ae956e67-8d20-4104-91f0-1f8a9249be69",
+  "value": {
+    "rationale": "The Desargues graph is a natural highly symmetric middle-level hypercube and bipartite Kneser testbed. The complete balanced-cut size distribution and especially a sharp minimum width six versus connected-exchange width ten capture how locally stable near-optimal partitions are disconnected. They are mathematically motivated network-cut invariants and a full finite energy-landscape classification, not a routine restatement of the minimum number.",
+    "status": "PASS"
+  }
+}
