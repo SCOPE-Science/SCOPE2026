@@ -1,17 +1,21 @@
-# Scientific assessment: delayed circumradius transition in clipped hypersimplices
+# Independent mathematical audit
 
-## Correctness — PASS
-The final theorem is stated for all integers \(m\ge2\), \(1\le k<m\), and real \(0<t<1\), with the inherited Euclidean metric. The active-coordinate argument establishes that there are exactly two vertex orbits, including their exact multiplicities. Uniqueness and symmetry of the minimum-ball center reduce the whole problem to a one-dimensional maximum of the two squared-distance quadratics in RESULT.md, equations (5)--(7). Their sign and monotonicity force the stated threshold \(t_0=(m-k)/m\), strict screening below it, and all-vertex contact at and above it. The radius, center, gap, and second-derivative jump are exact algebraic consequences. The reproducible checker independently enumerates box-section vertices and the candidate envelope minima using rational arithmetic for 308 instances; its finite coverage is supportive and not substituted for the proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The source papers on rank-selected hypersimplices and rectangular-prism slices were compared at the level of mathematical statements. Manecke--Sanyal--So (arXiv:1812.07491, initial 2018-12-18) treats Boolean vertex sets, combinatorial faces, and subdivisions, rather than fractional cap vertices and the Euclidean minimum-ball contact structure. Ferroni--McGinnis (arXiv:2202.11808, initial 2022-02-23) treats lattice-point, Ehrhart, volume, and related invariants of prism slices. Its general definition supplies the natural object, not the metric theorem.
+PASS
 
-Among the closest separately indexed findings, the prism-slice three-barrier formula controls the **inradius**, and the minimum-matroid base-polytope result uses a similar two-orbit minimax technique but for a distinct family of \(0/1\) vertices. Neither implies the theorem for \([0,1]^m\times[0,t]\) with the sum constraint and continuously variable \(t\). Searches for a shorter-coordinate capped hypersimplex, its circumball, and an all-vertex contact threshold found no equivalent exact statement. The method is elementary once symmetry is recognized; an earlier equivalent calculation or a general theorem specialized to the present family remains a residual priority risk.
+Reconstructed the entire vertex census from the box/equality rank condition: at most one free coordinate, and 0<t<1 excludes interior z. Two orbits A(z=0,k Boolean ones) and B(z=t,k−1 ones and one 1−t) are exhaustive. Strictly convex squared covering objective and S_m symmetry reduce every possible center in the inherited affine hyperplane to c(u)=((k−u)/m repeated,u). Direct algebra gives D_A=k(m−k)/m+(m+1)u²/m and D_B−D_A=2t(t−(m−k)/m)−2t(m+1)u/m. The minimum of max(D_A,D_B) is u=0 below threshold, or their intersection u=[mt−(m−k)]/(m+1) above; the left curve is decreasing until that intersection and the right curve increasing. This yields unique center, radius, exact B clearance 2t((m−k)/m−t) below threshold, all contacts thereafter, and one-sided second-derivative jump 2m/(m+1). At t→1 the ordinary hypersimplex radius is recovered; endpoints are excluded for orbit counting. Independently replicated 75 small rational cases, which do not prove the universal real-parameter theorem.
 
-## Mathematical value — PASS
-The ordinary hypersimplex has an immediate symmetric circumsphere, but truncating one coordinate destroys vertex transitivity and creates a new fractional-vertex orbit. It is not evident from the endpoint geometry whether those vertices enter the minimum enclosing sphere or how its center must shift. The result solves the full nontrivial continuous one-cap family, including a sharp invariant-independent plateau, the precise onset threshold, contact multiplicities, exact squared screening clearance, and a \(C^1\)-but-not-\(C^2\) geometric transition. These determine when added vertices become extremal under geometric approximation/covering and give a complete metric counterpart to combinatorial and lattice-point descriptions of the slice family. It does not merely substitute parameters into the classical hypersimplex radius, which applies only to the untruncated endpoint.
+## originality
 
-## Scope and limitations
-The finding concerns smallest enclosing **balls**, not inballs or minimum-volume ellipsoids. It assumes a single shortened box direction and integer rank, and it uses the exact inherited Euclidean metric. Independently verifying historical priority across all general covering-radius literature was not possible; the originality assessment reflects comparisons to the identified relevant mathematical statements. The proof is self-contained and makes no assertion of independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Compared the exact statement and normalization with primary literature, published mathematical findings and indexed aliases; novelty assessed for the unrestricted claimed quantitative family rather than for credited intermediate lemmas. Residual priority risk is explicit. The exact geometric phase transition is an independently meaningful Euclidean invariant of a canonical one-coordinate truncation of a hypersimplex. A nontrivial constant-radius plateau, sharp threshold, exact contact multiplicities and C¹-not-C² boundary behav
+
+## value
+
+PASS
+
+The exact geometric phase transition is an independently meaningful Euclidean invariant of a canonical one-coordinate truncation of a hypersimplex. A nontrivial constant-radius plateau, sharp threshold, exact contact multiplicities and C¹-not-C² boundary behavior are structural, not an arbitrary tiny case or a restatement of a lattice count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

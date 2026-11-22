@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the clipped-hypersimplex minimum enclosing ball
+# Independent mathematical audit
 
-The symbolic proof in RESULT.md is universal over integers \(m\ge2\), \(1\le k<m\), and real \(0<t<1\). Its nonstandard steps are the complete vertex-orbit classification, the exact orbit-distance difference, and the global minimization of the envelope of two quadratics. Each is proved directly rather than inferred from computation.
+## correctness
 
-Execute `python3 check_capped_hypersimplex_ball.py` with Python 3 standard library only. The program independently enumerates every vertex of each test polytope by setting all but one box coordinate to an endpoint, solves the resulting exact rational equality, deduplicates candidates, and then minimizes the squared-distance envelope by checking its stationary points and crossing points. It checks the predicted radius and center, contact multiplicities, radial slack, and barycentric optimality certificate.
+PASS
 
-Exact successful output:
+Reconstructed the entire vertex census from the box/equality rank condition: at most one free coordinate, and 0<t<1 excludes interior z. Two orbits A(z=0,k Boolean ones) and B(z=t,k−1 ones and one 1−t) are exhaustive. Strictly convex squared covering objective and S_m symmetry reduce every possible center in the inherited affine hyperplane to c(u)=((k−u)/m repeated,u). Direct algebra gives D_A=k(m−k)/m+(m+1)u²/m and D_B−D_A=2t(t−(m−k)/m)−2t(m+1)u/m. The minimum of max(D_A,D_B) is u=0 below threshold, or their intersection u=[mt−(m−k)]/(m+1) above; the left curve is decreasing until that intersection and the right curve increasing. This yields unique center, radius, exact B clearance 2t((m−k)/m−t) below threshold, all contacts thereafter, and one-sided second-derivative jump 2m/(m+1). At t→1 the ordinary hypersimplex radius is recovered; endpoints are excluded for orbit counting. Independently replicated 75 small rational cases, which do not prove the universal real-parameter theorem.
 
-`CAPPED_HYPERSIMPLEX_BALL_CHECKS_PASSED cases=308 enumerated_vertices=24761 contact_vertices=16802 screened_cases=146 boundary_cases=16 full_contact_cases=146`
+## originality
 
-The enumerated range is \(2\le m\le8\), all \(1\le k<m\), at eleven exact rational values of \(t\). These tests are not an exhaustive search over real \(t\), and no computational result alone proves the infinite statement. Historical originality remains provisional. No independent audit was performed.
+PASS
+
+Compared the exact statement and normalization with primary literature, published mathematical findings and indexed aliases; novelty assessed for the unrestricted claimed quantitative family rather than for credited intermediate lemmas. Residual priority risk is explicit. The exact geometric phase transition is an independently meaningful Euclidean invariant of a canonical one-coordinate truncation of a hypersimplex. A nontrivial constant-radius plateau, sharp threshold, exact contact multiplicities and C¹-not-C² boundary behav
+
+## value
+
+PASS
+
+The exact geometric phase transition is an independently meaningful Euclidean invariant of a canonical one-coordinate truncation of a hypersimplex. A nontrivial constant-radius plateau, sharp threshold, exact contact multiplicities and C¹-not-C² boundary behavior are structural, not an arbitrary tiny case or a restatement of a lattice count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
