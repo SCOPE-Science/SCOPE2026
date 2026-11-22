@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "For every deterministic x in [0,1], the exact Gaussian sign orthant identity gives captured Bayes variance as a two-fold arcsine kernel integral. Log-time differentiation yields dV(e^{-r})/dr=e^{-2r}(C-G(r))/pi with C=pi(2log2-1)/4 and strictly increasing unbounded G(r)=H(2r)-2H(r), proving unique global optimality including endpoints; the closed risk formula and numerical constants are checked by a standalone reproducible verifier and independent convergent series with tail bound. The proof does not rely on finite scans.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Altmeyer 2017 and Altmeyer–Le Guével 2021: occupation estimation from high-frequency regular grids.",
+        "Cui–Chronopoulou 2023: optimal sparse sampling under entire-path reconstruction loss."
+      ],
+      "reasoning": "General occupation estimation and general sparse sampling do not automatically imply the exact free one-site optimum: their grid constraints or optimized functionals differ. An accessible broader theorem containing this exact subproblem was not identified, but unknown historical coverage remains a risk.",
+      "searches": [
+        "arxiv:1706.03418",
+        "arxiv:2001.02517",
+        "arxiv:2108.11632",
+        "arxiv:2304.07661",
+        "Brownian motion occupation time single observation Bayes risk sampling time"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1706.03418",
+      "https://arxiv.org/abs/2001.02517",
+      "https://arxiv.org/abs/2108.11632",
+      "https://arxiv.org/abs/2304.07661",
+      "2026/10/12/SCOPE-positive-sojourn-count-has-a-universal-terminal-correlation--2038cfde1faf",
+      "2026/11/8/SCOPE-sharp-phase-diagram-and-optimal-power-grading-for-randomized-fra--b23d9aac4ad2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Even knowing the general Gaussian conditional occupation expectation on any fixed grid is not a proof that its single sample has a unique minimizing free time; the strict derivative sign analysis supplies this additional step.",
+        "A terminal linear correlation cannot determine the full nonlinear conditional explained variance.",
+        "Optimal reconstruction of an entire Brownian state path has a different loss and midpoint choice."
+      ],
+      "reasoning": "The claim is a global extremal theorem for a particular nonlinear path functional. The identified earlier claims either cover shared input identities, fixed-grid estimators, linear correlations, or fundamentally different sampling losses. No direct or stronger implication was identified. Historical publication priority remains qualified.",
+      "searches": [
+        "arxiv:1706.03418",
+        "arxiv:2001.02517",
+        "arxiv:2108.11632",
+        "arxiv:2304.07661",
+        "2026/10/12/SCOPE-positive-sojourn-count-has-a-universal-terminal-correlation--2038cfde1faf",
+        "2026/11/8/SCOPE-sharp-phase-diagram-and-optimal-power-grading-for-randomized-fra--b23d9aac4ad2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gaussian sign probability representation of occupation posterior; arXiv:2001.02517 studies conditional occupation estimation on regular grids.",
+        "Published Brownian positive-sojourn/endpoint covariance claim 2026/10/12/SCOPE-positive-sojourn-count-has-a-universal-terminal-correlation--2038cfde1faf."
+      ],
+      "reasoning": "The quantity optimized is Var(E[Q|B_x]) for the entire real observation; projecting only onto a linear function of B_x, measuring just its sign, or estimating Q by an indicator Riemann sum is not equivalent. No inspected regular-grid conditional-estimation theorem optimizes x in [0,1].",
+      "searches": [
+        "Optimal sampling time single Brownian motion observation conditional mean estimator positive occupation time fraction above zero arcsine law",
+        "Brownian sign occupation time point observation Bayesian risk arcsin correlation time",
+        "Brownian motion sign occupation duration best point sensor optimal deterministic time",
+        "Brownian occupation time one point observations L2 optimal estimator pointwise",
+        "arxiv:2001.02517"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-one-time Brownian positive-occupation Bayes-risk optimizer was found in the accessible published summaries; closest result IDs listed in source_inspections.",
+        "Original four full-text articles focus on different designs or asymptotic regimes."
+      ],
+      "reasoning": "The optimizer and exact risk are not merely an entry in an inspected table. This search is not claimed to prove absence in unindexed work.",
+      "searches": [
+        "Brownian motion occupation fraction above zero estimated from a single noiseless state observation, unique optimal observation time 0.5895851109 maximizes Bayes explained variance",
+        "one-point Brownian sign occupation quadrature arcsin Gaussian sign covariance exponential log time transform, optimal placement",
+        "Brownian positive sojourn duration observation B_t conditional expectation minimax mean square best t"
+      ]
+    },
+    "rationale": "Inspected primary full texts on occupation estimation use prescribed dense regular grids or different state-reconstruction losses. Accessible published related claims concern terminal linear covariance or randomized sign-quadrature, neither covering the free one-state Bayesian nonlinear occupation-design theorem. An earlier equivalent result in unindexed literature remains a residual risk.",
+    "residual_risks": [
+      "An unindexed earlier single-observation Bayesian occupation design theorem may contain an equivalent extremum; publication priority is not independently certified.",
+      "Published summary-only claims were compared only to their advertised claims, not inferred absent from uninspected full documents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the one-snapshot optimal-placement characterization.",
+        "evidence": [
+          "Regular-grid high-frequency occupation integration and rate estimates, not free one-snapshot Bayesian design."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.03418",
+        "material_read": "Accessible full arXiv HTML introduction, main results, Sections 3.1–3.3 and appendix",
+        "method": "Compared source assumptions (regular increasing-frequency grid) and error-rate theorems with free placement of a single real state measurement.",
+        "title": "Approximation of occupation time functionals",
+        "trigger": "Same Brownian occupation target, potential stronger estimator theorem"
+      },
+      {
+        "assessment": "Gives conditional means and asymptotic grid estimation, but not the unique globally optimal single site.",
+        "evidence": [
+          "Endpoint/grid-size-one conditional estimator is covered by general conditioning, but optimizing interior site is a separate statement."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.02517",
+        "material_read": "Accessible full arXiv HTML introduction, Sections 3.1–3.2, and Appendix B",
+        "method": "Compared optimal conditional-mean estimator on regular grids with global optimization of a free time x.",
+        "title": "Optimal estimation of some random quantities of a Lévy process",
+        "trigger": "Optimal conditional-mean occupation approximation might imply a one-point risk theorem"
+      },
+      {
+        "assessment": "Different asymptotic observation regime; not a covering one-point design theorem.",
+        "evidence": [
+          "Occupation-error rates from dense regular grids, not uniqueness of a one-shot optimizer."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.11632",
+        "material_read": "Accessible full arXiv HTML introduction, Sections 1–3 and main proof material",
+        "method": "Checked fixed regular-grid high-frequency lower-error scaling versus one freely chosen point observation.",
+        "title": "Optimal L2-approximation of occupation and local times for symmetric stable processes",
+        "trigger": "Strong general L2 occupation approximation might dominate the claim"
+      },
+      {
+        "assessment": "For Brownian path state reconstruction, a different loss functional selects the midpoint; cannot imply off-midpoint occupation design.",
+        "evidence": [
+          "Pathwise state integrated L2 error is not the nonlinear occupation functional Bayes error."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.07661",
+        "material_read": "Accessible full arXiv HTML and Section 3 including one-observation specialization",
+        "method": "Contrasted optimization of mean-squared entire path reconstruction with nonlinear positive occupation duration.",
+        "title": "Optimal Sampling for Estimation of Fractional Brownian Motion",
+        "trigger": "Potential covering optimal sparse Gaussian process sampling design"
+      },
+      {
+        "assessment": "No implication of the global one-snapshot Bayes optimum from a terminal linear covariance.",
+        "evidence": [
+          "Source summarizes exact Cov(occupation count, terminal displacement) and a Brownian correlation, not Var(E[Q|B_x]) for free x."
+        ],
+        "identifier_or_url": "2026/10/12/SCOPE-positive-sojourn-count-has-a-universal-terminal-correlation--2038cfde1faf",
+        "material_read": "Published title and claim summary",
+        "method": "Compared linear covariance with terminal height against nonlinear conditional-mean captured variance as observation site varies.",
+        "title": "Positive-sojourn count has a universal terminal correlation",
+        "trigger": "Closest published claim on Brownian positive sojourn and endpoint sensing"
+      },
+      {
+        "assessment": "Not covering; distinct information and asymptotic many-cell regime.",
+        "evidence": [
+          "Source reports power-grading law and multi-cell error regimes for randomized indicator quadrature, not one-shot nonlinear Bayesian sensing."
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-sharp-phase-diagram-and-optimal-power-grading-for-randomized-fra--b23d9aac4ad2",
+        "material_read": "Published title and claim summary",
+        "method": "Compared independent randomized time samples of the sign integrand on a mesh against one full-state observation and Gaussian conditional reconstruction.",
+        "title": "Sharp phase diagram and optimal power grading for randomized fractional Brownian occupation quadrature",
+        "trigger": "Published design optimization for sign-occupation integration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "be798e67-582e-4908-9d13-2c672bdbf13c",
+  "value": {
+    "rationale": "Positive-sojourn time is a canonical nonlinear path-integral target; the exact unique one-reading design improves captured variance from 61.37 percent at terminal sensing to 79.57 percent, and selects a time neither the endpoint nor the pathwise reconstruction midpoint. The exact global optimization and risk formula resolve a motivated sparse numerical-integration information problem, not a routine numerical-table calculation.",
+    "status": "PASS"
+  }
+}
