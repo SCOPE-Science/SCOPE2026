@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For U before V the three full prefix-width formulas are (a+b), (t-a+b+1), and (2t-a-b). A hub exchange in width t necessarily exposes a center cut of width at least t+1. Five local normalization classes have explicitly checked cut changes, giving a feasible O(t^2) route to the common canonical ordering within either hub orientation for every k>=t. The class word A^h B^h U V A^(t-h) B^(t-h), h=floor(t/2), has width t+1 in both hub orders, producing an actual interorientation swap. Recurrence F_t counts exactly the t-budget symbolic prefixes with the stated widths, multiplied by (t!)^2 assignments of labels. Direct-edge enumeration independently confirms full feasible graphs, connectivity, counts and canonical paths for t=1,2,3 (up to 13536 states), with deterministic random testing through t=14. These checks do not replace the all-t proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "MFCS 2021 Theorem 3: any two cutwidth-≤k orders reconfigure within width 2k (full text, introductory theorem and proof).",
+        "JGAA 2023 Theorem 1: corresponding global factor-two result (full journal text, pp. 409-431)."
+      ],
+      "reasoning": "The general upper bound k->2k only guarantees connection at width 2t for endpoints of width t and says nothing about rejection of hub swaps at width t. It is insufficient to infer the sharp first connected width t+1 for every t. The expanded full article contains no double-star/caterpillar specialized classification in its inspected text.",
+      "searches": [
+        "Arrighi Fernau Oliveira Wolf width-constrained order reconfiguration adjacent swaps factor two",
+        "Order Reconfiguration Under Width Constraints arxiv Arrighi 2021",
+        "exact cutwidth reconfiguration threshold for star graph and two-centre double-star graph",
+        "DOI 10.4230/LIPIcs.MFCS.2021.8 Theorem 3",
+        "DOI 10.7155/jgaa.00628 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol202-mfcs2021/LIPIcs.MFCS.2021.8/LIPIcs.MFCS.2021.8.pdf",
+      "https://jgaa.info/index.php/jgaa/article/download/paper628/2324/2131",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2021.8",
+      "https://www.jgaa.info/index.php/jgaa/article/view/paper628",
+      "published-finding corpus semantic-index query hits for double star, two-centre caterpillar and width-constrained adjacent swaps",
+      "Accessible one-hub star prior claim 9f12c29d-9ece-454d-87b9-c377886901b3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MFCS 2021 general bound: width 2k, not t+1; full primary PDF.",
+        "JGAA 2023 expanded proof: factor-two sufficient condition and polynomial route, no stated exact double-star threshold.",
+        "Prior one-hub star case gives a single-hub free-order characterization, whereas the new invariant is the relative order of two hubs.",
+        "published-finding corpus 2026/11/2/SCOPE-median-swap-graphs-for-binary-words-with-bounded-monochromatic-r--b743472fbcd0 concerns run-constrained fixed-weight binary words."
+      ],
+      "reasoning": "The new result has a strict obstruction (two components at budget t) and a construction at t+1. Neither assertion follows from connectivity at 2t: an upper bound is silent about smaller budgets, and a single hub has no orientation invariant. The binary run-restriction result has distinct states and moves.",
+      "searches": [
+        "Arrighi Fernau Oliveira Wolf width-constrained order reconfiguration adjacent swaps factor two",
+        "graph layout cutwidth reconfiguration double-star swaps reachability interval order",
+        "DOI 10.4230/LIPIcs.MFCS.2021.8",
+        "DOI 10.7155/jgaa.00628"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol202-mfcs2021/LIPIcs.MFCS.2021.8/LIPIcs.MFCS.2021.8.pdf",
+        "https://jgaa.info/index.php/jgaa/article/download/paper628/2324/2131",
+        "published-finding corpus closest 2026/11/2/SCOPE-caterpillars-uniquely-maximize-group-separable-outer-diversity-w--139f1aca7369 (outer-diversity, not cutwidth reconfiguration)"
+      ],
+      "reasoning": "Two-center/broom/caterpillar and hub-order variants were used for equivalence search. The inspected candidate texts treat general width slack, not the exact two-hub exchange threshold. The closest semantic-index hits address different invariants and cannot imply hub-order reachability.",
+      "searches": [
+        "balanced double-star graph S_{t,t} cutwidth at most t exactly two permutation adjacent-swap components center order t+1 connectivity threshold",
+        "double-broom caterpillar two hubs constrained linear layout cutwidth reconfiguration sorted leaf words ballot path",
+        "double star cutwidth-constrained linear arrangement adjacent swaps reconfiguration threshold connected two components balanced double star",
+        "\"double star\" \"cutwidth\" reconfiguration adjacent swaps",
+        "\"cutwidth\" \"reconfiguration\" \"double-star\" connected components"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus nearest ID 2026/10/26/SCOPE-minimum-edge-cover-exchanges-on-nearly-balanced-bicliques-are-pe--5836f71169f0 (edge-cover exchanges on bicliques).",
+        "Accessible previous one-hub star claim 9f12c29d-9ece-454d-87b9-c377886901b3 (different star graph).",
+        "Exact finite DP gives M_t=1,4,34,160,950,4424 for t=1,...,6; independent exhaustive counts t<=3."
+      ],
+      "reasoning": "Neither the nearest semantic result nor the accessible star claim contains this two-hub width-constrained state space or the two-orientation recurrence. A numerical coincidence alone would not establish novelty; the full structural claim was compared.",
+      "searches": [
+        "balanced double-star graph S_{t,t} cutwidth at most t exactly two permutation adjacent-swap components center order t+1 connectivity threshold",
+        "exact cutwidth reconfiguration threshold for star graph and two-centre double-star graph",
+        "balanced double-star cutwidth t adjacency swap disconnected hub order threshold t+1",
+        "cutwidth bounded double-star connected components sequence 1 4 34 160 950",
+        "star width-constrained permutation adjacent transposition components"
+      ]
+    },
+    "rationale": "The 2021 full text and 2023 full expanded paper provide an O(n^2)-move reconfiguration in width at most 2k for arbitrary endpoints of width k, but do not establish exact tight-budget two-component separation and first connected budget t+1 on balanced double stars. A separate existing one-hub star result concerns a different tree and hub-position obstruction and does not imply a two-hub orientation invariant. Searches of mathematical literature and semantic prior findings did not identify a statement that subsumes this classification; residual unindexed-equivalence risk is explicitly recorded.",
+    "residual_risks": [
+      "Terminology for tree width-limited layout reconfiguration is heterogeneous; an old or non-indexed equivalent may exist.",
+      "The semantic-index search is approximate and cannot establish exhaustive originality.",
+      "The theorem does not cover unequal numbers of leaves, weighted edges, or shortest-move metrics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_NOT_COVERING_EXACT_CLAIM",
+        "evidence": "Original 2021 Theorem 3 states reconfiguration within cutwidth 2k; no two-hub component-count or sharp k=t+1 result appears in inspected theorem.",
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol202-mfcs2021/LIPIcs.MFCS.2021.8/LIPIcs.MFCS.2021.8.pdf",
+        "material_read": "Fifteen-page open-access conference paper, introduction, stated Theorem 3 and its width-doubling argument, references, searched specialized tree terminology",
+        "method": "Opened and read primary PDF text; inspected page images; checked theorem statement and bound",
+        "title": "Order Reconfiguration Under Width Constraints (MFCS 2021)",
+        "trigger": "Guiding broad cutwidth order-reconfiguration theorem and possible stronger implication"
+      },
+      {
+        "assessment": "GENERAL_FACTOR_TWO_ONLY",
+        "evidence": "Journal Theorem 1 proves width 2k reconfiguration for arbitrary graph orders of width k; no double-star result found in full text searches and relevant statements.",
+        "identifier_or_url": "https://jgaa.info/index.php/jgaa/article/download/paper628/2324/2131",
+        "material_read": "Entire 23-page published article via available text: introduction and main result, cutwidth definitions, proof section and references; searched star, caterpillar and illustrative examples",
+        "method": "Opened full publisher open-access PDF, page-0 image and targeted term search plus examination of relevant sections",
+        "title": "Order Reconfiguration under Width Constraints (JGAA 2023)",
+        "trigger": "Expanded same-authors full text may contain a stronger special-family theorem"
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_NOT_SUBSUMING",
+        "evidence": "Prior theorem classifies K_{1,r}; two-hub orientation change is undefined for K_{1,r}.",
+        "identifier_or_url": "9f12c29d-9ece-454d-87b9-c377886901b3",
+        "material_read": "Recovered original theorem statement from accessible private prior ledger, no reanalysis of its proofs or status",
+        "method": "Statement/implication comparison only",
+        "title": "Single-hub star cutwidth reconfiguration (accessible prior claim)",
+        "trigger": "Same constrained swapping model and natural one-hub graph family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9e5fb40b-ac29-438e-93fe-bb4b2f3f3acb",
+  "value": {
+    "rationale": "The motivating general factor-two resource guarantee leaves open the minimal extra capacity for actual reachability in sparse network layouts. Here the obstruction caused by two adjacent high-degree hubs is exactly identified: at the tight threshold there are two huge orientation components with exact finite-state counts, while precisely one additional crossing edge of capacity permits an explicit transition, for every branching parameter t. The constructive O(t^2) route makes the threshold algorithmically meaningful and extends structural understanding beyond the related single-hub case.",
+    "status": "PASS"
+  }
+}
