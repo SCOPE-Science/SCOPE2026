@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exact Huber/soft-threshold branch differentiation yields an inactive nonnegative bound and a negative-active quadratic D_r(p) with exact maximum (1-r+r^2)/3. The maximizing p0 lies strictly inside the appropriate active branch, establishing necessity, and curvature is nonnegative elsewhere. Gamma>4 is separately obstructed at the origin. C1 patching gives convexity; the gradient-mapping identity and coercivity give the unique minimizer for gamma<4. The weighted separable identity follows by direct scalar rescaling. Symbolic identities, rational example and deterministic numerical tests execute successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4.6 in arXiv:2609.10732 gives sufficient mu-convexity estimates using L, H, D, G; with a logistic scalar on the unbounded line the global lower curvature mu is zero and the H(D+G) penalty is nonzero. It does not yield the exact strictly positive l1-dependent global boundary.",
+        "The completed-square active-branch maximizer is a strict negative-curvature witness beyond the new cutoff, not supplied by norm-level sufficient bounds."
+      ],
+      "reasoning": "A broader generic sufficient-convexity theorem does not imply an exact necessary-and-sufficient threshold or a strict regularization-restoration interval; the source assumptions and lower bounds were compared directly.",
+      "searches": [
+        "Published index search: logistic sigmoid forward backward envelope f(x)-gamma gradient squared Hessian nonconvex convexity threshold",
+        "Published index search: online scaled operator splitting logistic smooth envelope convex threshold nonquadratic",
+        "Zhang–Gao–Udell arXiv:2609.10732 Theorem 4.6 and Appendix B"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.10732 (full-text sections 2, 4.1, Appendix B)",
+      "https://optimization-online.org/wp-content/uploads/2014/02/4254.pdf (relevant full-text sections and page image)",
+      "https://doi.org/10.1137/19M1254155 (abstract only)",
+      "Published mathematical-record suffixes 59ab02ce35b0, 7fbc9df4762d (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing unregularized scalar result: exact frontier gamma=3/(1-q+q^2), recovered only as lambda decreases to zero.",
+        "New positive-penalty example q=1/10, lambda=1/10, gamma=7/2 yields a globally convex envelope while the unregularized envelope at gamma=7/2 is nonconvex.",
+        "The new scalar negative-curvature witness p0=(1+q+lambda)/3 is proved inside its own soft-threshold active region; this is not an immediate special case of the unregularized assertion."
+      ],
+      "reasoning": "Neither source generality, algorithmic convergence, nor the unregularized parameter limit covers the new positive-penalty convexity restoration theorem. The source may share methods but does not logically imply the exact cutoff as a stated result.",
+      "searches": [
+        "Zhang–Gao–Udell arXiv:2609.10732 sections 2 and 4.1, appendix B",
+        "Patrinos–Stella–Bemporad 2014 open full text: forward-backward envelope and sparse logistic application",
+        "Published index search: sharp scalar l1 logistic forward-backward-envelope curvature restoration",
+        "Previously documented unregularized soft-label scalar logistic envelope convexity boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The searched indexed logistic spectral-shrinkage proximal bifurcation result analyzes an implicit spectral penalty, not the Moreau envelope of a soft-label logistic loss plus an l1 term.",
+        "The searched 2014 forward-backward truncated Newton full text develops the envelope formulation and a logistic example; its analyzed statements do not give a parameterized global l1 logistic convexity threshold."
+      ],
+      "reasoning": "Soft-threshold and Huber/Moreau are equivalent ways to write the present envelope; all were checked against primary and index results. A general FBE equivalence is a definition, not an implication of the sharp all-parameter cutoff.",
+      "searches": [
+        "Published index search: l1 regularized logistic forward backward envelope exact global convexity cutoff gamma 3/(3/4+(abs(q-1/2)-lambda)_+^2)",
+        "Published index search: sharp global convexity l1 penalized scalar logistic forward backward envelope exact step threshold soft label 3/(3/4+(|q-1/2|-lambda)_+^2) curvature restoration optimizer shrinkage",
+        "Web: forward backward envelope l1 logistic exact convexity step size threshold regularization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed records returned scalar adaptive FBS quadratic transitions, logistic spectral proximal bifurcation and unrelated l1 thresholding but no table of the (q,lambda,gamma) FBE convexity region.",
+        "The existing unregularized q-dependent result corresponds only to lambda=0 and cannot yield the new positive-lambda active-set cutoff by a direct assertion about zero penalty."
+      ],
+      "reasoning": "An exact parametric frontier is not identified in the searched sources/tables. Search incompleteness is a residual risk, not a mathematical proof of uniqueness.",
+      "searches": [
+        "Published index search: soft labels sparsity restores forward backward envelope convexity exact parameter phase",
+        "Published index search: l1 soft-threshold logistic forward backward envelope convexity restored by regularization for gamma less than four",
+        "Web: convexity of forward backward envelope for logistic loss l1 soft thresholding"
+      ]
+    },
+    "rationale": "The first-public 2026 source treats sufficient envelope convexity for general logistic plus l1 losses, not the exact penalty-dependent necessary-and-sufficient threshold. The 2014 primary source gives the FBE and sparse logistic use but not this sharp classification. The existing unregularized scalar boundary is a limiting, already covered subcase; the positive-penalty restorative frontier and shrinkage identity are not logically implied. Multiple actual indexed records and web aliases were compared; unmatched search strings alone are not novelty proof.",
+    "residual_risks": [
+      "Historical priority cannot be certified solely by indexed search or source subsection inspection; equivalent older scalar FBE examples may be unindexed.",
+      "Publisher full text of Bonettini–Prato–Rebegoldi was not inspected; this abstract-only source is not used as proof of whole-document noncoverage.",
+      "The result concerns scalar and independent-coordinate logistic objectives, not arbitrary correlated design matrices or preconditioners."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General sufficient smoothness and weak-convexity bounds; no exact global scalar penalty-dependent necessity/classification in inspected relevant material",
+        "evidence": [
+          "Theorem 4.6 imposes gamma <=1/L and uses H(D+G) regularity terms, not the positive-penalty active-branch maximization.",
+          "Example 4.4 explicitly lists l1-regularized logistic regression as within scope."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.10732",
+        "material_read": "Full-text introduction, envelope definition, §§4.1 and 4.1.1 including Theorem 4.6, Appendix B proof around lines 762–813",
+        "method": "Accessible HTML full-text section and appendix inspection",
+        "title": "Operator Splitting Methods with Online Scaling",
+        "trigger": "The motivating 2026 full text claims envelope convexity sufficient bounds and l1 logistic application"
+      },
+      {
+        "assessment": "Provides general FBE technique and application; inspected relevant derivations are not an exact global 3-parameter logistic convexity diagram",
+        "evidence": [
+          "Convex-composite FBE and gradient-mapping relation are established as existing knowledge.",
+          "The positive-lambda sharp threshold is not obtained from its fixed-Hessian/quadratic treatment."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2014/02/4254.pdf",
+        "material_read": "Relevant envelope definitions, soft-threshold example and sparse logistic discussion in accessible full text",
+        "method": "Lawful open-access PDF text, with relevant page image inspection",
+        "title": "Forward-backward truncated Newton methods for convex composite optimization",
+        "trigger": "Primary earlier FBE identity and l1 logistic optimization example cited by the source"
+      },
+      {
+        "assessment": "No whole-document noncoverage inference; general convergence and KL arguments, possible residual historical risk",
+        "evidence": [
+          "Abstract concerns inexact algorithms, KL convergence and a nonsmooth composite term; no explicit scalar logistic l1 frontier in accessible abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/19M1254155",
+        "material_read": "Abstract and indexing/MSC only; full paper not examined",
+        "method": "Publisher abstract and bibliographic entry",
+        "title": "Convergence of Inexact Forward--Backward Algorithms Using the Forward--Backward Envelope",
+        "trigger": "Relevant known general nonconvex envelope convergence analysis"
+      },
+      {
+        "assessment": "Scalar quadratic online learning step dynamics differ from the present nonquadratic logistic envelope geometry; not a proof of absence in full record",
+        "evidence": [
+          "Its summary describes exp(-Theta(k^2)) optimization rates and a preconditioner cycle on a scalar quadratic."
+        ],
+        "identifier_or_url": "published mathematical-record identifier suffix 59ab02ce35b0",
+        "material_read": "Published mathematical-record title and summary only",
+        "method": "Semantic published mathematical-record index search",
+        "title": "A sharp online-learning phase transition for scalar OS-FBS",
+        "trigger": "Closest indexed operator-splitting phase transition result"
+      },
+      {
+        "assessment": "Different spectral shrinkage penalty and proximal bifurcation question; no implication to the present FBE threshold from summary",
+        "evidence": [
+          "Indexed summary describes a beta-threshold for a logistic-induced spectral penalty proximal map, not scalar Bernoulli l1 FBE curvature."
+        ],
+        "identifier_or_url": "published mathematical-record identifier suffix 7fbc9df4762d",
+        "material_read": "Published mathematical-record title and summary only",
+        "method": "Semantic published mathematical-record index search",
+        "title": "Sharp proximal bifurcation and cusp laws for logistic spectral shrinkage",
+        "trigger": "Closest similarly named logistic/proximal sharp threshold"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d4ff6c72-01eb-41bc-883f-12f13839621b",
+  "value": {
+    "rationale": "The l1-regularized logistic model is a standard sparse composite problem directly named in the motivating 2026 operator-splitting paper. Its smooth FBE geometry determines when convex-envelope methods may be analyzed as convex smooth optimization. The exact three-parameter frontier proves a non-obvious convexity-restoration phenomenon and couples it quantitatively to soft-thresholded optimizer displacement; unlike mere numerical correctness, this resolves a motivated sharp curvature question with a robust open parameter window.",
+    "status": "PASS"
+  }
+}
