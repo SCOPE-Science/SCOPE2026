@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier \(+1\) property follows from the correctly normalized Hermite-Laguerre basis and has been independently checked by direct Fourier transformation of all monomials of the optimizer. The origin constraint reduces the relevant projective space to one real parameter, plus one degree-four boundary ray; negative leading coefficients have infinite negative-set length. The cubic's discriminant establishes the three-root and one-root regimes; an explicit strictly positive quartic controls the sign of the root-position second derivatives and proves concavity of the nonpositive length before root collision. Strict comparison of the two endpoint lengths selects the unique optimum. The symbolic checker confirms the critical identities and sample root configurations, but the infinite parameter proof is algebraic, not empirical.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Exact Laguerre identities reduce all nontrivial normalized candidates to e^-pi*x²*z*q_r(z)/48 with q_r=2z³-28z²+(105+24r)z-105-72r, and the degree-4 boundary to z(z-3). At r0=-35/24, q_r0=2z(z²-14z+35); its separated negative annulus gives the stated exact length 1.1747723539032928. Independently checked discriminant disc_z(q_r)=-12(9216r³-15168r²+16128r-7105), its unique real positive cutoff rho≈0.710211, and the implicit-root curvature identity AFTER imposing q_r(s)=0: (sqrt(s))''=-36(s-3)^3H(s)/(s^(3/2)P(s)^3), H=6s^4-65s^3+261s²-441s+315 and P=2s³-23s²+84s-105. Earlier off-root symbolic comparison is not valid because this identity holds only along the root curve; substituting q=0 gives exact equality. H positivity follows from the stated exact Bernstein coefficients on [0,2],[2,3] and H(3+u)=6u⁴+7u³+18u+72. Strict root-branch concavity and comparison at endpoints exclude hidden lower lengths; other parameter regimes and degree-4 ray are covered. The polynomial proof is global, independent of finite tests.
 
-The 2026 definite-set uncertainty question concerns the measure of the nonpositive set and supplies a broad lower bound, not a three-mode exact minimizer. The 2016 Hermite-root work, the earlier sign-uncertainty estimates, and the low-degree-polynomial study focus on the last sign-change radius, a different objective; their results do not imply this exact cutoff value or optimizer. Relevant indexed comparisons concerned other Hermite functionals and unrelated Fourier negativity. An older equivalent sign-volume computation may exist under different terminology; the originality judgment is relative to the searchable and materially inspected evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact minimum addresses the first natural finite cutoff with two projective degrees of freedom before imposing the origin condition in a recently posed uncertainty invariant. Its radical constant, strict optimizer rigidity, and nontrivial detached negative region provide a concrete benchmark for higher Hermite cutoffs and numerical approximation of the unrestricted infimum. The structural parameter theorem is not merely an evaluation of a pre-selected Gaussian polynomial.
+The primary Edwin definite-set problem defines minimization over all Fourier eigenfunctions and derives general bounds; it does not supply this exact degree-eight three-mode extremizer. The low-degree sign-uncertainty work of Cohn–Dong–Gonçalves concerns sign-radius constraints rather than negative-set length; planar fourth-band result is two-dimensional area, not this 1D length. The finite natural three-mode benchmark remains original on the inspected evidence.
 
-## Scope and limitations
+## value
 
-The conclusion is confined to the specified three-mode Fourier eigenspace in one spatial dimension. No global infinite-dimensional extremizer is certified. Independent analysis and wider priority checking would be valuable before publication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nontrivial three-mode Fourier +1 definite-set benchmark gives a sharp attainable length and a unique explicit optimizer for a newly active natural extremization problem; it is mathematically meaningful despite the narrower mode restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
