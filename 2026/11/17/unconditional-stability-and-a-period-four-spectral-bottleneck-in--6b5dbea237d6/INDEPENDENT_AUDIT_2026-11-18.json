@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T19:59:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positive fixed-point equation (r+2b)t²+(v−2a)t−u=0 has one positive root by negative constant and positive leading coefficient. Set D=v+(2b+r)t=u/t+2a, α=(a−bt)/D, ω=rt/D. Algebra gives −1/2<α<1/2 and 0<ω<1. Jacobian is companion [[α,−ω,α],[1,0,0],[0,1,0]], P(λ)=λ³−αλ²+ωλ−α. The four exact strict cubic Jury conditions reduce to |α|<1, 1−2α+ω>0, 1+2α+ω>0, 1−ω>0. All hold without monotonicity restrictions. For a period-two alternating sequence A,B the subtraction factor (A−B)[v+2a+r(A+B)]=0 rules out distinct positive values. For ε=r^(−1/2), t=√u ε+(a−v/2)ε²+O(ε³), α=aε/√u+O(ε²), ω=1−v ε/√u+O(ε²). The simple limiting polynomial λ(λ²+1) and implicit perturbation give λ±=±i(1−v ε/(2√u))+O(ε²) and λ0=a ε/√u+O(ε²), hence the asserted spectral radius and coefficient independence. Two independent choices of u,v,a,b with r=4,10^4,10^6 gave strict ρ<1; scaled gaps converge toward v/(2√u) (0.50037 vs 0.5 in the first case at 10^6; 0.4571 vs 0.4472 in the second). Finite samples are diagnostic only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.7 globally attracts under mixed monotonicity for a bounded subset; a stronger dynamical property but on a restricted parameter region",
+          "Classical Jury–Schur stability test handles a broad polynomial family"
+        ],
+        "reasoning": "Broader global attractor theorems do not cover all arbitrary positive u,v,a,b,r in the assignment, in particular unconstrained feedback sign and strong r. Polynomial criterion is standard but its uniform application and quantitative singular spectrum need the derived structural inequalities.",
+        "searches": [
+          "Resultary semantic search: delayed rational recurrence symmetric outer lag unconditional Schur sink 2-cycle",
+          "Resultary semantic search: positive rational recurrence delayed equal outer lag period four spectral bottleneck sink Jury Schur",
+          "arxiv:2402.14127, Theorem 4.7 and Example 4.3(v)",
+          "Camouzis–Ladas Dynamics of Third-Order Rational Difference Equations (book bibliographic source)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2402.14127",
+        "https://www.routledge.com/Dynamics-of-Third-Order-Rational-Difference-Equations-with-Open-Problems-and-Conjectures/Camouzis-Ladas/p/book/9781584889392"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original 2024 work gives an identical recurrence example and global attractivity under sufficient hypotheses",
+          "All-positive parameters here force |α|<1/2 and 0<ω<1, and as r→∞ α→0,ω→1 with a specific first correction"
+        ],
+        "reasoning": "The universal local sink and positive two-cycle rigidity are directly proved across parameter ranges not obtained from the prior sufficient condition. The 1/√r coefficient is not a consequence of the example alone and requires the singular root calculation. No nonlinear 4-cycle existence is asserted.",
+        "searches": [
+          "Resultary semantic search: delayed rational recurrence symmetric outer lag unconditional Schur sink 2-cycle",
+          "Resultary semantic search: positive rational recurrence delayed equal outer lag period four spectral bottleneck sink Jury Schur",
+          "arxiv:2402.14127 Example 4.3(v), Theorem 4.7",
+          "Source RESULT.md Routh–Hurwitz, characteristic asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 example specifies u=v=1,a=3,b=2,r=4, the same recurrence normal form",
+          "Its Theorem 4.7 is an extended-state mixed-monotonicity sufficient condition for global attractivity"
+        ],
+        "reasoning": "The normalized example is not new and the broad rational-map family has prior treatment. The assigned universal local derivative result and singular large-r gap concern parameter quantifiers and an asymptotic direction beyond the original fixed example; a sufficient global theorem only implies local sink where its own hypotheses hold.",
+        "searches": [
+          "Resultary semantic search: delayed rational recurrence symmetric outer lag unconditional Schur sink 2-cycle",
+          "Resultary semantic search: positive rational recurrence delayed equal outer lag period four spectral bottleneck sink Jury Schur",
+          "AlSharawi–Cánovas–Kallel, arxiv:2402.14127v1 Example 4.3(v)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite r=4 normalized example from 2024 paper is a covered entry",
+          "No inspected exact table of spectral gap √r(1−ρ) as r→∞ for arbitrary fixed (u,v,a,b)"
+        ],
+        "reasoning": "Finite-parameter spectral tables cannot imply the sharp asymptotic independence of a,b; absence of a table alone is not a novelty proof.",
+        "searches": [
+          "Resultary semantic search: delayed rational recurrence symmetric outer lag unconditional Schur sink 2-cycle",
+          "Resultary semantic search: positive rational recurrence delayed equal outer lag period four spectral bottleneck sink Jury Schur",
+          "Source check.py finite rational-parameter Schur examples",
+          "Resultary delayed rational recurrence period four spectral bottleneck"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for all-positive-parameter local Schur stability together with universal period-two absence and sharp r→∞ period-four spectral gap, while fully crediting earlier equal-outer-lag rational recurrence and its sufficient global-attractor regimes.",
+      "residual_risks": [
+        "A prior analysis of recurrence dynamics under a different normalization may derive the same all-positive cubic stability region or r→∞ spectral gap.",
+        "Full mathematical text of older Camouzis–Ladas book was not inspected, so no assertion of its noncoverage is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model precedent, global sufficient conditions; does not assert the all-positive r→∞ local spectral-gap coefficient in the inspected theorem",
+          "evidence": [
+            "Example 4.3(v): (1+3(x+z))/(1+2(x+z)+4y)",
+            "Theorem 4.7 limited sufficient global conditions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.14127",
+          "material_read": "Full accessible 2024 arXiv PDF, Example 4.3(v) and Theorem 4.7 and their stated parameter conditions, PDF page rendering",
+          "method": "Read the example and theorem in primary text; compared equations and logical quantifiers",
+          "title": "Attractors in k-dimensional discrete systems of mixed monotonicity",
+          "trigger": "Original rational map, possible stronger global attractor theorem"
+        },
+        {
+          "assessment": "Not used to assert whole-book absence; equivalent rational recurrences remain a recorded priority risk",
+          "evidence": [
+            "Camouzis–Ladas 2008 monograph"
+          ],
+          "identifier_or_url": "https://www.routledge.com/Dynamics-of-Third-Order-Rational-Difference-Equations-with-Open-Problems-and-Conjectures/Camouzis-Ladas/p/book/9781584889392",
+          "material_read": "Book title and bibliographic description only; no full text available in this audit",
+          "method": "Bibliographic-level context only",
+          "title": "Dynamics of Third-Order Rational Difference Equations with Open Problems and Conjectures",
+          "trigger": "General older literature that may classify a broader recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact all-parameter local sink/no-two-cycle rigidity combined with a sharp singular relaxation law identifies a nontrivial spectral bottleneck: no finite-parameter local destabilization occurs, yet strong delayed inhibition drives damping to zero and nearly four-step oscillation. This distinction matters for analysis of delayed rational recurrences, without suggesting a nonlinear period-four attractor.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2402.14127",
+    "https://www.routledge.com/Dynamics-of-Third-Order-Rational-Difference-Equations-with-Open-Problems-and-Conjectures/Camouzis-Ladas/p/book/9781584889392"
+  ],
+  "disposition": "passed",
+  "final_claim": "Every strictly positive u,v,a,b,r in the three-dimensional delayed rational map T_r((x,y,z))=((u+a(x+z))/(v+b(x+z)+ry),x,y) has one positive hyperbolic attracting fixed point and no strictly positive primitive two-cycle. For fixed u,v,a,b as r→∞ the spectral gap obeys √r(1−ρ(DT_r))→v/(2√u), with limiting conjugate arguments ±π/2, a linear period-four bottleneck, not nonlinear periodic orbit existence.",
+  "limitations": [
+    "No global convergence claim for every positive parameter, no nonlinear period-four orbit, and no global transient bound.",
+    "Asymptotic holds with u,v,a,b fixed, not jointly scaling with r."
+  ],
+  "residual_risks": [
+    "A prior analysis of recurrence dynamics under a different normalization may derive the same all-positive cubic stability region or r→∞ spectral gap.",
+    "Full mathematical text of older Camouzis–Ladas book was not inspected, so no assertion of its noncoverage is made."
+  ],
+  "schema_version": 1
+}
