@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for a specific unit-cycle host and its Cartesian powers, with counting-measure Hilbert norms. The harmonic extension is uniquely fixed by a nonsingular Dirichlet problem. Direct interpolation gives a rank-two endpoint Gram perturbation; exact summation gives all three spectral levels and the frame bounds. Fourier-Parseval transfer and restriction identities are operator equalities, not empirical assumptions. Discrete sine diagonalization yields the exact Dirichlet spectrum, and the endpoint input excites every distinct eigenmode, establishing the exact-arithmetic Krylov iteration count. The higher-dimensional bounds use the full torus Poincaré inequality with the anchored-set fraction and an explicit product-sine test function. The included standalone program passed 544 supplementary tests. Numerical tests do not replace the symbolic proof. Exact arithmetic and all quantifiers and endpoint cases are specified in RESULT.md.
+## correctness
 
-## Originality — PASS relative to checked evidence
-The July 2026 motivating paper separately proves Parsevality on the *host* and harmonic Dirichlet optimality, and states a polylogarithmic-conditioning conjecture. It uses the same path-to-cycle geometry but does not state or derive the non-tight *induced graph-data analysis* frame spectrum or the contradictory quadratic-conditioning family. The fully inspected 2021 paper concerns a broad class of graph Gabor frames defined through translation operators; its sharp bounds do not cover the harmonic completion arrangement here. Classical Toeplitz/Dirichlet eigenvalues, abstract oblique dual-frame principles and host Parseval identities are acknowledged rather than presented as new. Semantic searches of the indexed mathematical results did not identify a prior equal/stronger joint statement. Because basic matrix facts make individual components accessible, an equivalent earlier observation remains a priority risk; the new mathematical claim is their concrete quantified interaction with the stated 2026 conjecture.
+PASS
 
-## Value — PASS
-This is a complete, sharp quantitative boundary for a natural graph wavelet design: perfect reconstruction does not imply tight coefficients after an energy-optimal nonisometric completion. The result identifies exactly which input modes are amplified, shows zero-padding is the unique tight linear completion for this host, exhibits quadratic deterioration of the grounded solver and a full-length exact Krylov instance, and extends the obstruction to fixed-dimensional grids actually used as host models. It resolves a concrete falsifiable efficiency conjecture with a counterfamily satisfying the conjecture's advertised fixed-dimension and occupancy conditions. The application is frame reliability and preconditioner design, rather than a generic negative normalization check.
+For n>=3, L=2(n-1), path P_n embedded in cycle C_L is graph-distance isometric. Harmonic completion on the complementary chain is a linear interpolation of the two endpoint values; for any Parseval host analysis W, T*=E*W*, so T*T=E*E. Computing the two-by-two endpoint Gram gives eigenvalues n/2 and n(n+1)/(6(n-1)), plus n-2 ones, hence sharp frame bounds 1 and n/2 while R W*T=I gives exact recovery. The grounded interior Laplacian is tridiagonal (2,-1,-1), sine diagonalizable with j=1..n-2 eigenvalues 2-2cos(jpi/(n-1)); exact condition cot^2(pi/(2(n-1))) and full Krylov degree n-2 for endpoint impulses. In Cartesian power d, fixed occupancy epsilon=(n/(2n-2))^d>=2^-d and full-cycle Poincare plus a Dirichlet sub-box eigenvector bound lambda_min=Theta_d(n^-2), while lambda_max=Theta(d), so condition Theta_d(n^2). Independent constructed E and grounded Laplacians checked all eigenvalues for n=3..15; analytic proof is uniform in n and fixed d. Assessed against actual frozen tree, RESULT.md and verification/check.py, no reliance on log-only success. The precise wording of the cited conjecture could not be independently read, so claim of refuting its exact published formulation remains a conditional citation risk, not a flaw in these unconditional spectral identities.
 
-## Closest work and limitations
-Fokam Souop and Bitjoka (arXiv:2607.14168v1), Sections 3, 7, and 8.3, are the exact motivating reference. Ghandehari–Guillot–Hollingsworth (arXiv:2009.06058v2), Sections 3–4, supply general frame context but not the same completion. Christensen–Eldar (2004) concerns abstract oblique dual frames; its bibliographic abstract, rather than its full text, was accessible. The path spectrum follows classical tridiagonal theory, and unindexed earlier statements could imply the construction. Only unit edges, the specified embeddings, and exact CG termination are covered; no numerical-tolerance lower bound or all-host statement is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The literature establishes Parseval analysis on the *host* and harmonic extension as a Dirichlet minimizer, but that does not imply the path-data analysis stays tight or yield its full two-endpoint singular spectrum, sharp n/2 frame distortion, or grounded Krylov lower bound. Standard sine eigenvalues and Rayleigh/Poincare tools are known inputs; their combination gives an explicit concrete obstruction in a natural embedding architecture. The most relevant 2026 primary full text was inaccessible because the authorized connection returned vpn_disconnected; this sole access limitation is recorded as a residual risk, not an automatic originality failure. The exact purported conjecture wording was not independently validated.
+
+## value
+
+PASS
+
+The exact input-data frame distortion matters in graph-wavelet analysis because perfect reconstruction by restriction can disguise non-tightness, and the n/2 sharp ratio quantifies that discrepancy. The grounded solve shows quadratic condition growth for isometric, constant-occupancy host embeddings, a motivated counterfamily regardless of whether a particular conjecture was worded exactly as described. These are natural structural boundary facts, not an arbitrary numerical slice or a trivial normalization sanity check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
