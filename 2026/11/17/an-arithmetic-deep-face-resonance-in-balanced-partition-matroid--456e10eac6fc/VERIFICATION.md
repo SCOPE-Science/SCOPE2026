@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact statement and proof are in `RESULT.md`. Run `python3 check_partition.py` from this directory with Python 3 (standard library only). It exhaustively evaluates the 75 stated parameter triples and their 209445 feasible integer occupancy profiles, checks exact rational optima and profiles, and independently implements Euclidean capped-simplex projection by bisection for selected small cases. It checks one strictly nonvertex deepest point in the arithmetic resonance case.
+# Independent mathematical audit
 
-The count of 660714883218 vertex configurations is a sum of exact binomial multiplicities, not an iteration over that many vertices. A finite range does not establish the theorem for all parameters; the argument uses strict convexity and the equality case of the Euclidean variance identity. Source novelty comparisons were based on identified scientific contents and cannot certify priority across inaccessible literature.
+## correctness
+
+PASS
+
+For r≥3, q≥2, 1≤c<q, the orthogonal product projection of a binary block is exact and has cost F(k). F is strictly convex, so at every maximizing hypersimplex vertex all but at most one block are full or empty, uniquely determining the occupancy multiset from rc=aq+s. To classify continuous maximizers, the squared-distance variance inequality forces convex-combination constituent vertices to have equal maximal residuals; nonzero partial-block residuals distinguish vertices unless s=c, when the partial block has exactly zero residual. The resulting disjoint Δ(c,q) coordinate faces and isolated-vertex alternatives, with exact multiplicities, follow. Independent exact rational enumeration checked 37,986 occupancy profiles and arithmetic resonances for bounded parameters; it is not the all-parameter proof.
+
+## originality
+
+PASS
+
+PASS for the complete continuous farthest-face locus and sharp divisibility resonance, not the generic projection/compression formula. A published heterogeneous partition-matroid theorem already supplies an even broader block-occupancy optimization and exact Hausdorff-radius formula; it does not imply the positive-dimensional farthest-point equality classification for balanced equal-quota blocks without a residual-collision argument.
+
+## value
+
+PASS
+
+The arithmetic switch from isolated deepest vertices to entire positive-dimensional hypersimplex faces is a natural, nontrivial Euclidean-geometric invariant of uniform-block partition matroid polytopes. Full equality loci are independently useful in extremal approximation, beyond a known generic distance maximization or a single small-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

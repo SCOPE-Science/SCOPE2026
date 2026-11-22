@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For binary block occupancy \(k\), Euclidean projection onto the quota hypersimplex has squared error \(F(k)\) as stated in `RESULT.md`. The two analytic pieces join with zero first derivative at the quota and both have positive second derivative. Therefore fixed-total occupancy maximizers are precisely the packed profiles prescribed by Euclidean division. The strict variance inequality for projection residuals forces a nonvertex deepest point to be a mixture of maximizing vertices with the same residual; the residual is insensitive to the selected coordinates of the sole partial block precisely when its occupancy equals its quota. The full formulas and contact-face classification follow. The embedded standard-library checker independently verifies 75 parameter triples and many projection witnesses, but these computations do not establish the infinite theorem.
+PASS
 
-## Originality — PASS, with residual priority risk
+For r≥3, q≥2, 1≤c<q, the orthogonal product projection of a binary block is exact and has cost F(k). F is strictly convex, so at every maximizing hypersimplex vertex all but at most one block are full or empty, uniquely determining the occupancy multiset from rc=aq+s. To classify continuous maximizers, the squared-distance variance inequality forces convex-combination constituent vertices to have equal maximal residuals; nonzero partial-block residuals distinguish vertices unless s=c, when the partial block has exactly zero residual. The resulting disjoint Δ(c,q) coordinate faces and isolated-vertex alternatives, with exact multiplicities, follow. Independent exact rational enumeration checked 37,986 occupancy profiles and arithmetic resonances for bounded parameters; it is not the all-parameter proof.
 
-The closest primary source is Schröter (2017, arXiv:1707.02814), which *defines precisely* partition-matroid products of hypersimplices (Example 16) and locates them as common cells of hypersimplex subdivisions (Proposition 22). The exact Euclidean Hausdorff separation from the ambient hypersimplex is not one of its results. Lasoń–Michałek (2020, arXiv:2005.08359) supplies a direct-sum product rule and classifies Gorenstein/smooth matroids, not Euclidean projections. Torres (2024, arXiv:2407.13125) addresses general Hausdorff distance and best zonotope approximation; its generic vertex reduction is credited, but the present family has different geometry and an explicit arithmetic equality locus. Related published indexed hypersimplex facial-distance work measures another separation. Neither the matched rank-two graphical edge-polytope classification nor the generic results implies arbitrary higher-rank equal-quota partitions. All searches and implication comparisons are recorded in `AUDIT.json`. Historical-priority certainty is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a canonical partition-matroid base polytope embedded in the uniform-matroid hypersimplex. The invariant measures maximal Euclidean loss when balanced quota constraints are imposed, a basic natural geometric comparison in a family already central to matroid subdivision theory. In addition to the universal exact radius, the theorem determines **every** maximizing point and reveals an arithmetic transition: isolated worst-case binary vertices become full positive-dimensional coordinate faces exactly when \(q\mid(r-1)c\). The phenomenon persists for infinitely many independent ranks, capacities and block counts. Its equality classification is mathematically informative beyond numerical evaluation of the distance.
+PASS for the complete continuous farthest-face locus and sharp divisibility resonance, not the generic projection/compression formula. A published heterogeneous partition-matroid theorem already supplies an even broader block-occupancy optimization and exact Hausdorff-radius formula; it does not imply the positive-dimensional farthest-point equality classification for balanced equal-quota blocks without a residual-collision argument.
 
-The statement applies only to balanced blocks and the standard coordinate Euclidean metric. Priorities may change with examination of additional historical sources; no external review or independent validation has been performed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The arithmetic switch from isolated deepest vertices to entire positive-dimensional hypersimplex faces is a natural, nontrivial Euclidean-geometric invariant of uniform-block partition matroid polytopes. Full equality loci are independently useful in extremal approximation, beyond a known generic distance maximization or a single small-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
