@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact affine breakpoint interpolation proves the complete classification and equality boundary. Direct substitution proves the rational example and monotone mean-map basins. The nonnegative stopped-square supermartingale controls exit probability and gives almost-sure limit c on nonexit; ordinary SGD has an eventual squared-error supermartingale contracting to zero. Python exact rational verification returned VERIFY_OK 3497, supplementary to the infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nekrasova et al. (2026), arXiv:2610.28107, Appendix H.4–H.5, Proposition H.6: additive single biased fixed point, and two-atom signed multiplicative noise with outward clipped drift/divergence.",
+        "Faw et al. (2023), arXiv:2302.06570, two-point oracle as explicitly reproduced in arXiv:2610.28107 Appendix H.5",
+        "Koloskova et al. (2023), arXiv:2305.01588v2, Sections 3.1, C.5: additive Bernoulli gradient offset yields a nonoptimal fixed point without a multi-attractor inward-field classification."
+      ],
+      "reasoning": "The cited broadly formulated clipping guarantees and counterexamples do not specialize to the regime where both the derivative at the true minimizer and saturated far-field sign are positive and two additional attracting zeros remain. The 2026 two-point construction has a negative far-field sign, unlike this classification.",
+      "searches": [
+        "Clipped stochastic gradient descent unbiased multiplicative two-point noise strongly convex quadratic spurious fixed points mean clipped gradient sign reversal diverges despite positive expectation",
+        "Clipped SGD with affine heavy tailed noise multiple false stationary points on strongly convex scalar quadratic due to sample-dependent negative slopes",
+        "stochastic approximation clipped gradients multiplicative random negative curvature repelling inner roots attracting outer roots"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.28107 (full HTML, including Appendix H.4–H.5)",
+      "https://arxiv.org/html/2305.01588v2 (full HTML, Section 3.1 and Appendix C.5)",
+      "https://proceedings.mlr.press/v195/faw23a/faw23a.pdf (primary PMLR full PDF, Proposition 13 and Lemma 35 inspected directly)",
+      "published-finding corpus published-record semantic searches listed in four comparison checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nekrasova et al. (2026), arXiv:2610.28107, Appendix H.4–H.5, Proposition H.6: additive single biased fixed point, and two-atom signed multiplicative noise with outward clipped drift/divergence.",
+        "Koloskova et al. (2023), arXiv:2305.01588v2, Sections 3.1, C.5: additive Bernoulli gradient offset yields a nonoptimal fixed point without a multi-attractor inward-field classification.",
+        "published-finding corpus closest: 2026/11/8/SCOPE-sharp-mean-square-frontier-and-finite-hit-divergence-for-stochas--3b7d076b14fa"
+      ],
+      "reasoning": "The new conclusion jointly asserts a minimal three-support requirement under positive near/far-field signs, a full five-zero topology, and an actual diminishing-step wrong-limit event. Previously known existence of clipping bias, of a shifted additive attracting point, or of a two-atom escaping process does not logically imply these conclusions.",
+      "searches": [
+        "Clipped stochastic gradient descent unbiased multiplicative two-point noise strongly convex quadratic spurious fixed points mean clipped gradient sign reversal diverges despite positive expectation",
+        "clipped SGD bistable mean field sharp minimal support three values positive sign saturation and exact Robbins Monro convergence to nonoptimal stationary point",
+        "stochastic approximation clipped gradients multiplicative random negative curvature repelling inner roots attracting outer roots"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nekrasova et al. (2026), arXiv:2610.28107, Appendix H.4–H.5, Proposition H.6: additive single biased fixed point, and two-atom signed multiplicative noise with outward clipped drift/divergence.",
+        "Koloskova et al. (2023), arXiv:2305.01588v2, Sections 3.1, C.5: additive Bernoulli gradient offset yields a nonoptimal fixed point without a multi-attractor inward-field classification.",
+        "published-finding corpus closest: 2026/11/2/SCOPE-a-sharp-skewness-window-and-a-mixing-penalty-in-two-atom-clipped--b944eb52abb2"
+      ],
+      "reasoning": "Alternate phrases mean clipped stochastic-gradient field, phase portrait of random signed-curvature clipping, false stationary points, and bistability. Additive shifted roots and fixed-step stationary chain laws cannot imply the three-atom multiplicative inward-field threshold or the stopped-drift wrong-limit probability.",
+      "searches": [
+        "clipped gradient multiplicative noise scalar positive mean curvature stochastic component negative curvature stationary drift multiple equilibria",
+        "mean field of clipped SGD nonmonotone despite strongly convex expectation stationary points multiple zeros three-point noise",
+        "three-atom stochastic gradient clipping unbiased multiplicative noise expected gradient positive global strongly convex quadratic three stable equilibria root 0 and outer false minima",
+        "clipped SGD bistable mean field sharp minimal support three values positive sign saturation and exact Robbins Monro convergence to nonoptimal stationary point"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record results: 2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee",
+        "Published mathematical-record results: 2026/10/18/SCOPE-balanced-sign-cells-trap-sign-random-reshuffling-under-every-dec--3787d399dabe",
+        "Koloskova et al. (2023) Sections 3.1 and C.5 contain only additive Bernoulli fixed-point formulas, not a table classifying three multiplicative slopes"
+      ],
+      "reasoning": "No exact root-count entry or existing parameter table with the threshold p2>p1+p3*a3/a2 was located in actual searches. Negative search alone is not a novelty proof; the inspected cited results have different objects and implications.",
+      "searches": [
+        "mean field of clipped SGD nonmonotone despite strongly convex expectation stationary points multiple zeros three-point noise",
+        "three-atom stochastic gradient clipping unbiased multiplicative noise expected gradient positive global strongly convex quadratic three stable equilibria root 0 and outer false minima",
+        "gradient clipping multiplicative noise spurious equilibria strongly convex quadratic finite sum negative curvature nonconvex 2026"
+      ]
+    },
+    "rationale": "The full eligible primary source and closest open 2023 full text discuss one biased additive root and a two-point outward-escaping multiplicative oracle, not the sharp three-atom balanced-inward classification and positive-probability convergence to one of two false attractors. Ten published-finding corpus searches returned related but non-implicating records. This conclusion is best-knowledge, with acknowledged unindexed/history risks.",
+    "residual_risks": [
+      "Unindexed or concurrently posted results may have an equivalent three-atom sign/bistability classification.",
+      "Inspection of Faw et al. (2023) focused on the relevant two-point Proposition 13, Lemma 35 and surrounding negative-results discussion; unrelated parts were not exhaustively reread.",
+      "The novelty judgment is based on accessible science and mathematically compared implications, not a global uniqueness certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains an additive shifted single root and a two-atom multiplicative outward-drift construction; not the balanced three-atom multi-attractor result.",
+        "evidence": "First public Oct 20, 2026. Appendix H.5 Proposition H.6 has A/L=-2 with probability .9 and 28 with .1, giving far-field sign -0.8; its conclusion is nonconvergence/divergence.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.28107",
+        "material_read": "Full web-rendered arXiv text, especially Introduction, Sections 3 and 5, Appendix H.4–H.5 (Lemma H.5, Proposition H.6 and proof).",
+        "method": "Full-text HTML section/appendix reading and comparison of oracle distribution, clipped mean-field signs, limiting behavior and strong-noise hypotheses.",
+        "title": "Weak-L^alpha Noise, Strong Guarantees: Gradient Clipping under Affine Heavy Tails",
+        "trigger": "Primary eligible 2026 study of fixed-cap clipped SGD under multiplicative noise, including a counterexample."
+      },
+      {
+        "assessment": "The construction has additive noise g(x)=x+a Bernoulli(p), one shifted stationary root, not multiple positive/negative roots while 0 remains attracting.",
+        "evidence": "Section 3.1 Theorems 3.1–3.2 and Appendix C.5 (equations (40)–(43)).",
+        "identifier_or_url": "https://arxiv.org/html/2305.01588v2",
+        "material_read": "Full HTML text Sections 3.1 and 3.2 plus Appendix C.5, including gradient oracle and proof equations.",
+        "method": "Read the exact Bernoulli noise fixed-point construction and compare roots/curvature support with multiplicative case.",
+        "title": "Revisiting Gradient Clipping: Stochastic bias and tight convergence guarantees",
+        "trigger": "Foundational clipping-bias lower bounds potentially covering spurious equilibria."
+      },
+      {
+        "assessment": "The inspected original Proposition 13 and Lemma 35 use a two-point oracle with majority wrong-sign gradients and show nonconvergence/divergence; no balanced-inward three-atom phase classification in those relevant sections.",
+        "evidence": "Faw et al., PMLR 195 (2023) PDF, printed pages 59 and 61, Proposition 13 and Lemma 35; Nekrasova et al. Appendix H.5 reproduces its two-point noise construction.",
+        "identifier_or_url": "https://arxiv.org/abs/2302.06570",
+        "material_read": "Original open-access PMLR full PDF, Proposition 13 (printed page 59), negative-results discussion, and Lemma 35 (printed page 61), including visual inspection of the primary PDF pages.",
+        "method": "Read the original PMLR PDF, inspect source page images and equations, compare the two-point negative-sign-majority oracle and its divergence statement with the balanced-inward three-atom model.",
+        "title": "Beyond Uniform Smoothness: A Stopped Analysis of Adaptive SGD",
+        "trigger": "Earlier parent of the two-point multiplicative clipping failure example."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9cd1f92c-87f5-48cf-9fc4-e5316992e808",
+  "value": {
+    "rationale": "A mathematically natural sign-balanced multiplicative stochastic oracle can have multiple false attracting equilibria only after exactly three distinct sampled curvature atoms, with an explicit sharp sign and probability threshold. The actual Robbins–Monro clipped process has a rigorously positive chance of converging to a wrong attractor whereas its unclipped counterpart converges to the true strongly convex optimum; this isolates clipping-specific failure inside a bounded, globally inward mean-field regime.",
+    "status": "PASS"
+  }
+}
