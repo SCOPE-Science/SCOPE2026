@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For any positive finite-mean wash-off rate law with mean greater than runoff decay and positive slow-rate mass, H(t)=E exp((gamma-K)t) is strictly convex for t>0, starts at 1 with negative derivative, diverges, and has a unique minimizer. Identity 1-F(v)=(1-v)H(t) gives a global supporting chord with equality only at v* and v=1, while F′ decreases strictly from mu/gamma to c* on [0,v*]. The resulting exact concave envelope proves unique global optimizers in four exhaustive regimes, including both equality endpoints; H(t)=1 has one later root, proving unique flush crossover. Derivatives, expectation exchange, boundary v=1 and infinite-second-moment cases are handled. Exact two-rate witness checked symbolically. Replayed standalone checker produced PASS: 111355 deterministic assertions, supplementary to proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guo and Urbonas, 2000 open report underlying 2002 article, §§Introduction–Runoff capture curve: normalized event-frequency non-exceedance versus basin size, not the within-event pollutant-mass function.",
+        "Millar 1999 paper abstract: exponential pollutant wash-off versus runoff volume and parameter estimation; text mentions no storage-cost argmax, but full text was unavailable."
+      ],
+      "reasoning": "A general concave-envelope theorem implies how one optimizes any already-known F, but it does not itself supply the unique minimum, explicit thresholds and strict equality classification for this mixture family; method is not claimed new. The Guo–Urbonas event-frequency problem has different random variables and objective, so neither proposition implies the other. Millar is an unresolved related model source but its stated estimation focus is distinct.",
+      "searches": [
+        "one first-flush last-flush crossing under mixed exponential wash-off and exponential runoff and optimal size budget threshold",
+        "hyperexponential pollutograph fixed cost sharp tank sizing partial versus full capture, unique tangent on cumulative mass curve",
+        "optimal decision under concave-convex mass volume first flush curve phase transition full capture to partial",
+        "first flush tank optimum cost discontinuous capture treatment fraction heterogeneous wash off exact",
+        "https://mhfd.org/wp-content/uploads/2019/12/RunoffCaptureCRV-GuoBen.pdf",
+        "https://doi.org/10.1061/(ASCE)0733-9372(1999)125:10(989)"
+      ]
+    },
+    "checked_sources": [
+      "Balistrocchi et al. (2009), https://doi.org/10.1029/2009WR007822, full-text primary article",
+      "Kang (2005), https://www.seas.ucla.edu/stenstro/d/d39.pdf, source-model section and summary",
+      "Guo and Urbonas (2002), https://doi.org/10.1061/(ASCE)0733-9496(2002)128:3(208), journal abstract and full open 2000 precursor report",
+      "Millar (1999), https://doi.org/10.1061/(ASCE)0733-9372(1999)125:10(989), publisher abstract only",
+      "Fu et al. (2009), https://doi.org/10.1061/(ASCE)EE.1943-7870.0000161, publisher abstract only",
+      "Published published-finding corpus: 2026/11/1/SCOPE-sharp-three-stage-stormwater-exposure-ordering-with-continued-po--056749ef0302",
+      "Published published-finding corpus: 2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3",
+      "Published published-finding corpus: 2026/11/2/SCOPE-exact-cyclic-gap-law-for-saturation-excess-runoff-from-two-perio--e537d5c1eb7c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Balistrocchi 2009 establishes pollution efficiency with power-law event pollutograph and Weibull storm variability; the present F is not a power law when wash-off rates straddle gamma.",
+        "Kang 2005 provides different erosion equations for two sources, with rate linked to flow; no arbitrary-rate global optimizer in material read.",
+        "Fu et al. 2009 abstract studies integrated storage siting/control against receiving-water quality, a different multievent optimization; complete text inaccessible."
+      ],
+      "reasoning": "The earlier propositions do not contain the assumptions needed to infer the exact tangency H(t*) and unique four regimes, while the new theorem does not subsume their more realistic hydraulics or multi-event efficiency. Potential previously established general nonconvex tangency principles are background, not claimed new; unexplored specific special cases remain residual risk.",
+      "searches": [
+        "stormwater two-phase pollutant wash off exponential mixture rates and exponential runoff fraction cost c optimal storage capacity discontinuous jump from all to partial at exact tangent threshold",
+        "stormwater first-flush capture fraction exact discontinuous full-to-partial optimal storage capacity under mixed exponential pollutant erosion and exponential runoff; concave envelope",
+        "https://doi.org/10.1029/2009WR007822",
+        "https://www.seas.ucla.edu/stenstro/d/d39.pdf",
+        "https://mhfd.org/wp-content/uploads/2019/12/RunoffCaptureCRV-GuoBen.pdf",
+        "https://doi.org/10.1061/(ASCE)EE.1943-7870.0000161"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Balistrocchi et al. 2009, §2.2: typical power-law M(V), quality-efficiency indices, stochastic storm sizes; no arbitrary-rate exponential stock mixture with linear-cost four-regime exact optimizer.",
+        "Kang 2005, §3.1.5: separate short/long source erosions depending on local flow velocity rather than fixed homogeneous time-rate classes."
+      ],
+      "reasoning": "The mathematical equivalent would require F(v)=1-E[(1-v)^(K/gamma)] and the sharp tangent c*=min_t E[exp((gamma-K)t)] for a cost c, including the two-maximizer point; the inspected sources do not provide that conjunction. No claim that lack of keyword matches proves novelty.",
+      "searches": [
+        "stormwater two-phase pollutant wash off exponential mixture rates and exponential runoff fraction cost c optimal storage capacity discontinuous jump from all to partial at exact tangent threshold",
+        "first flush last flush switch mass volume curve moment gamma heterogeneous exponential pollutant decay cost capture threshold concave envelope",
+        "stormwater first-flush capture fraction exact discontinuous full-to-partial optimal storage capacity under mixed exponential pollutant erosion and exponential runoff; concave envelope",
+        "universal one crossing first flush cumulative pollutant versus runoff volume exponential mixture wash-off rates double extremum",
+        "\"first flush\" \"concave envelope\" storage pollutant optimization",
+        "https://doi.org/10.1029/2009WR007822",
+        "https://www.seas.ucla.edu/stenstro/d/d39.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed record 2026/11/1/SCOPE-sharp-three-stage-stormwater-exposure-ordering-with-continued-po--056749ef0302 concerns ordering of three wash-off stages with continuous supply.",
+        "Closest indexed record 2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3 concerns storm pulse order in periodic tank, not mass-value capacity optimization.",
+        "Published quality-efficiency curves in Balistrocchi et al. (2009) are fitted first-flush power-law and stochastic-event efficiencies, not a table of the exact mixture cost threshold."
+      ],
+      "reasoning": "Neither indexed exact-result records nor inspected numerical tables encode a mass-weighted mixed-time wash-off minimizer or critical double optimum; identical numerical thresholds alone would not be conclusive, so compared defining objects and claim implications.",
+      "searches": [
+        "stormwater two-phase pollutant wash off exponential mixture rates and exponential runoff fraction cost c optimal storage capacity discontinuous jump from all to partial at exact tangent threshold",
+        "first flush last flush switch mass volume curve moment gamma heterogeneous exponential pollutant decay cost capture threshold concave envelope",
+        "one first-flush last-flush crossing under mixed exponential wash-off and exponential runoff and optimal size budget threshold",
+        "published-finding corpus: stormwater mixture exact capture threshold nearest ranked records",
+        "https://doi.org/10.1061/(ASCE)0733-9496(2002)128:3(208)",
+        "https://doi.org/10.1029/2009WR007822"
+      ]
+    },
+    "rationale": "Scoped best-knowledge priority assessment: the recovered full primary article Balistrocchi et al. (2009) uses an event-frequency/Weibull and power-law typical mass-volume construction, while this theorem assumes exponential time-decay runoff, arbitrarily heterogeneous fixed exponential pollutant stocks, and maximizes single-event captured pollutant mass minus cost. Kang (2005) directly motivates two-phase pollutant sources but its inspected erosion model depends on hydraulic mechanics and does not state the universal full/partial/zero capacity threshold. The openly accessible Guo–Urbonas (2000 precursor to 2002 paper) derives rainfall-event depth distribution and basin overflow frequencies rather than within-event pollutant kinetics. published-finding corpus nearest stormwater result has a three-stage stage-ordering threshold, not a storage-capacity optimizer. The complete exact joint classification, not general convex-envelope techniques, is the claim; Millar (1999) and older optimization papers are priority risks due to inaccessible full text.",
+    "residual_risks": [
+      "The full text of Millar (1999) and Fu et al. (2009) could not be inspected; abstract-only comparisons do not rule out related special cases.",
+      "Classical concave envelope, exponential mixture and optimal stopping/cost tradeoff literature might include this equivalence under different terminology; priority is necessarily provisional without independent historical review.",
+      "Some papers on multi-peak M(V) first/last-flush phenomena concern hydrodynamically richer models and should not be assumed covered by this restricted theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING this exact model or linear-cost mixed-washoff global optimizer. Uses fitted power-law M(V), Weibull distributed rainfall events and storage efficiency indices.",
+        "evidence": "Publisher HTML sections 2.2 and 5; source https://doi.org/10.1029/2009WR007822, 2009-12-29 first published.",
+        "identifier_or_url": "https://doi.org/10.1029/2009WR007822",
+        "material_read": "Full accessible article, especially Introduction, section 2.2 pollutant-load probability distribution, modeled M(V) curves, results and concluding remarks.",
+        "method": "Publisher full-text HTML with examination of hypotheses, equations described in prose, results and conclusions.",
+        "title": "An analytical probabilistic model of the quality efficiency of a sewer tank",
+        "trigger": "Closest full public primary work combining first-flush M(V), wastewater tank capture and mass efficiency."
+      },
+      {
+        "assessment": "NOT_COVERING exact universal rate-distribution/linear-cost law in the read material; the study uses flow-dependent erosion and numerical transport, not constant independent first-order stock depletion in time.",
+        "evidence": "Section 3.1.5: early and long-term pollutant source and separate erosion rates; nearby equations 3.16–3.18.",
+        "identifier_or_url": "https://www.seas.ucla.edu/stenstro/d/d39.pdf",
+        "material_read": "PDF-extracted text §3.1.5 and pp. 35-38, including Fig. 3.2 caption, source-specific erosion equations and discussion of two-phase washoff; related results/summary passages.",
+        "method": "Accessible full PDF text queried and read at source https://www.seas.ucla.edu/stenstro/d/d39.pdf.",
+        "title": "Modeling First Flush and Particle Destabilization: Implications for Design and Operation of Stormwater BMPs",
+        "trigger": "Plausible full primary two-source wash-off model and mixed kinetics."
+      },
+      {
+        "assessment": "NOT_COVERING; it characterizes frequency distribution of rainfall event sizes and overflow risk across events rather than cumulative pollutant mass within one event.",
+        "evidence": "Report introduction and equations 1–5, distinction between event exceedance and within-event mass capture.",
+        "identifier_or_url": "https://mhfd.org/wp-content/uploads/2019/12/RunoffCaptureCRV-GuoBen.pdf",
+        "material_read": "Open report introduction, abstract, probability distribution and runoff capture curve derivation, first five printed pages; journal abstract checked separately.",
+        "method": "Public precursor PDF text extracted as https://mhfd.org/wp-content/uploads/2019/12/RunoffCaptureCRV-GuoBen.pdf; journal abstract https://doi.org/10.1061/(ASCE)0733-9496(2002)128:3(208).",
+        "title": "Synthetic Runoff Capture and Delivery Curves for Storm Water Quality Control Designs (open precursor of 2002 journal work)",
+        "trigger": "Direct paper on storage size and runoff capture curves; plausible broader optimization."
+      },
+      {
+        "assessment": "UNRESOLVED priority risk for specific variants, although published abstract is about recovering exponential wash-off parameters from measurements, not a storage optimization phase diagram.",
+        "evidence": "The 1999-10-01 public publisher abstract states exponential wash-off versus runoff volume and parameter estimation.",
+        "identifier_or_url": "https://doi.org/10.1061/(ASCE)0733-9372(1999)125:10(989)",
+        "material_read": "Publisher article abstract and bibliography only. Full paper not obtained from accessible public full-text sources.",
+        "method": "Official publisher index/abstract https://doi.org/10.1061/(ASCE)0733-9372(1999)125:10(989) and follow-up open-access searches; public full-text retrieval checked.",
+        "title": "Analytical Determination of Pollutant Wash-Off Parameters",
+        "trigger": "Identical pollutant wash-off family candidate, potentially could provide exponential precursor."
+      },
+      {
+        "assessment": "UNRESOLVED for broader special cases; abstract describes spatial tank distribution and integrated water quality, not a homogeneous mixed-washoff one-event envelope.",
+        "evidence": "Fu, Khu and Butler (2009) abstract on integrated sewer system siting and controls.",
+        "identifier_or_url": "https://doi.org/10.1061/(ASCE)EE.1943-7870.0000161",
+        "material_read": "Official publisher abstract only; full text not obtained.",
+        "method": "Publisher metadata and abstract https://doi.org/10.1061/(ASCE)EE.1943-7870.0000161.",
+        "title": "Optimal Distribution and Control of Storage Tank to Mitigate the Impact of New Developments on Receiving Water Quality",
+        "trigger": "Possible more general engineering optimization of storage capacity and costs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1bcc3101-9246-4d33-aade-cc1bee2d6f45",
+  "value": {
+    "rationale": "A mass-weighted mixture of fast and slower pollutant stocks gives a motivated departure from standard single power-law within-event mass-volume curves. The theorem gives one exact cost threshold at which a global tank-size optimum jumps discontinuously from the entire storm to a finite first volume with a tied optimum at the boundary, a unique smooth partial branch and exact zero-capture cutoff. This is a natural complete classification across an arbitrary rate law, not an arbitrary special parameter or raw numerical fact; the explicit two-class instance permits checking design heuristics. The same assumptions reveal exactly one first/last flush crossover. Its value is as an analytical stress-test benchmark; no empirical implementation or broad hydrodynamic validity is asserted.",
+    "status": "PASS"
+  }
+}
