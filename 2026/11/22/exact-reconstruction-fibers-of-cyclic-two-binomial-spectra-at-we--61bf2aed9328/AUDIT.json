@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "All admissible lengths and zero-gap boundaries are covered. A direct shift change (increase by the number of zeros after a leading one, decrease by three after a leading zero) yields \\((X^3-1)P=(X^n-1)Q\\). Cancellation recovers the unordered root triple; the root-to-gap matrix has determinant 9. The one remaining inverse is \\((2m/3-c,2m/3-b,2m/3-a)\\), integral iff \\(3\\mid n\\) and nonnegative iff \\(\\max\\{a,b,c\\}\\le2h\\). A Burnside count of admissible cyclic triples \\((h^2+h+1)\\) and fixed orbits \\((2h+1)\\) proves exactly \\(\\binom h2\\) two-source fibers and the overall spectrum count. The independent finite literal verifier passed 276 necklaces up to length eighteen, and an exact gap census passed 31,780 cyclic triples up to length eighty-four. No finite computation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rigo–Salimov (2013), PDF §§1–6, establishes the definitions, complexity properties for Sturmian and Thue–Morse factors, not the stated cross-necklace spectrum inverse.",
+        "Lejeune–Rigo–Rosenfeld (2020) §2 and summary of §§3–5 develop linear-word binomial equivalence and language/group structure, not complete cyclic rotation spectra.",
+        "Sharp cyclic fingerprint bounds published result gives \\(n/\\gcd(n,k)\\le\\rho(w)\\le n-\\gcd(n,k)+1\\) and extremizers but no equal-spectrum source-fiber formula."
+      ],
+      "reasoning": "General binomial equivalence, a within-necklace count of distinct signatures, and congruence-cycle lemmas furnish ingredients but do not dominate or immediately entail the explicit cross-necklace partner involution and n-mod-three fiber census. An unknown earlier specialized theorem remains a residual possibility.",
+      "searches": [
+        "Binary necklaces under cyclic inversion enumerator, circular multiset of inversion statistics, reconstruction fibers of size at most two, three ones",
+        "2019 circular binomial equivalence conjugates cyclic words reconstruction",
+        "Lejeune Rigo Rosenfeld 2020 on binomial equivalence classes finite words cyclic rotations",
+        "cyclic 2 binomial equivalence necklaces inversion multiset rotations reconstruct"
+      ]
+    },
+    "checked_sources": [
+      "Rigo–Salimov, Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words, author preprint publicly available 2013-05-27, https://orbi.uliege.be/handle/2268/149313",
+      "Brunetti–Del Lungo–Del Ristoro, A cycle lemma for permutation inversions (2002), DOI 10.1016/S0012-365X(02)00254-6; full text at https://www.academia.edu/17603912/A_cycle_lemma_for_permutation_inversions",
+      "Lejeune–Rigo–Rosenfeld, On the binomial equivalence classes of finite words, arXiv:2001.11732; author postprint https://orbi.uliege.be/bitstream/2268/249124/1/LejeuneRigoRosenfeld-ijacVersion2.pdf",
+      "Published finding, Sharp cyclic 2-binomial fingerprint bounds at fixed binary weight, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-cyclic-2-binomial-fingerprint-bounds-at-fixed-binary-weigh--4ff94afd6c61",
+      "Published finding, All binary three-deck collisions at weight three, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-all-binary-three-deck-collisions-at-weight-three--f95f52cd118b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brunetti cyclic lemma supplies exact change of inversion count under a shift and counts residues modulo n, but does not reconstruct zero-gap order from the full integer-valued multiset.",
+        "Published fixed-content cyclic 2-binomial fingerprint bound counts distinct values rho(w), whereas the new claim counts inverse fibers of P_w(X), including the multiplicities of every value.",
+        "Rigo–Salimov (2013) defines 2-binomial equivalence and computes complexity over infinite-word factor classes, not three-one necklaces; the three-deck collision result concerns another, higher-order observation."
+      ],
+      "reasoning": "The new polynomial identity compresses the entire cyclic spectrum to the unordered 3-root values, and the inverse 3-by-3 linear transformation yields exactly one possible nonconjugate mate. Published increments or single-word equivalence do not themselves supply the determinant-nine inverse, admissible reflected-complement involution or Burnside doubleton count.",
+      "searches": [
+        "For binary necklaces with exactly three ones, the multiset of 01 subsequence counts across all rotations determines the necklace except when length divisible by three, with exactly binomial(n/3-1,2) pairs of ambiguous necklaces",
+        "Binary necklaces under cyclic inversion enumerator, circular multiset of inversion statistics, reconstruction fibers of size at most two, three ones",
+        "cyclic rotations multiset inversion numbers of a binary word reconstruction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brunetti et al. (2002), full-text §§2–3, use exact shift increments to derive modular inversion equidistribution; no cross-word full-spectrum inverse classification appears in the inspected text.",
+        "Lejeune, Rigo and Rosenfeld (2020), §2, identify binary 2-binomial equivalence with equality of Parikh matrices, which compresses a single fixed-weight word to its scattered 01-count, not a necklace-to-multiset reconstruction mapping.",
+        "Published sharp fixed-weight cyclic fingerprint-bounds finding, RESULT.md, defines rho(w) as the cardinality of distinct 2-binomial signatures on one orbit rather than the full multiplicity-valued observation of all sources."
+      ],
+      "reasoning": "Equivalent terms include inversion enumeration of conjugates, multiset of Parikh-matrix upper-right entries across cyclic shifts, cyclic 2-binomial fingerprint multiset and weight-three necklace tomography. Equal within-source rho does not imply equal full multisets or determine how many different sources share one full spectrum. No exact equivalent was found in actual queries.",
+      "searches": [
+        "Multiset of binary 2-binomial subsequence occurrence counts across all cyclic rotations: necklace reconstruction or collisions with exactly three ones",
+        "Cyclic inversion spectrum of rotations of binary strings fixed composition three ones, necklace reconstruction ambiguity",
+        "cyclic rotations multiset inversion numbers of a binary word reconstruction",
+        "cyclic 2 binomial equivalence necklaces inversion multiset rotations reconstruct",
+        "\"cyclic inversion spectrum\" \"binary necklace\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Brunetti et al., Tables 1–5, show sample cyclic inversion numbers and modular distributions, not a catalog of pairs of weight-three necklace sources sharing their entire exact spectrum.",
+        "Published all binary three-deck collisions at weight three provides a generating function for linear length-three-deck doubletons; its invariant and counting sequence differ from the present one.",
+        "Direct verifier through length eighty-four corroborates the derived counts but is not external database evidence."
+      ],
+      "reasoning": "Searched the exact inverse-count formula and numerical/alias terminology against indexed results and the relevant explicit tables. No covering published tabulation was identified. This negative retrieval result is not treated as a formal uniqueness certificate.",
+      "searches": [
+        "\"inversion spectrum\" \"three ones\" \"necklaces\"",
+        "\"cyclic inversion spectrum\" \"binary necklace\"",
+        "\"inversion number\" \"cyclic shifts\" \"multiset\" reconstruct",
+        "Multiset of binary 2-binomial subsequence occurrence counts across all cyclic rotations: necklace reconstruction or collisions with exactly three ones"
+      ]
+    },
+    "rationale": "The novelty-bearing statement is the inverse-fiber classification of a multiset of complete 2-binomial signatures over all rotations of a three-one binary necklace, including its exact divisibility-by-three doubleton count and reflection-complement partner map. The closest published source supplies bounds on within-orbit distinct fingerprints; Brunetti gives only congruence properties for cyclic inversion statistics, and Rigo/Lejeune concern ordinary binomial equivalence classes. These do not state or imply the cross-necklace inverse-fiber census. The assessment is best-knowledge, not proof of absolute historical priority.",
+    "residual_risks": [
+      "An earlier unindexed cyclic inversion-spectrum classification may exist under a different name; retrieval is not a proof of priority.",
+      "The 2002 inversion-cycle literature is a close mathematical predecessor; novelty is limited to the cross-necklace full-multiset inverse and exact weight-three census, not the elementary cyclic increment.",
+      "The accessible 2020 paper was inspected through its core binary Section 2 and its stated section outline, not independently checked for every possible unstated derived corollary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the cyclic increment and modular equidistribution that underlie the present method; does not state a cross-necklace equality classification for entire exact inversion multisets",
+        "evidence": "DOI 10.1016/S0012-365X(02)00254-6; paper sections 2 and 3 and Tables 1–5",
+        "identifier_or_url": "https://www.academia.edu/17603912/A_cycle_lemma_for_permutation_inversions",
+        "material_read": "Full-text HTML rendering of 13-page article: introduction, §§2–4, sample tables and conclusions",
+        "method": "Read published HTML full-text display including the shift-increment cycle lemma, its modulo-n and modulo-content consequences, and enumerative applications",
+        "title": "A cycle lemma for permutation inversions",
+        "trigger": "Same exact inversion statistic on cyclic shifts of binary multiset permutations"
+      },
+      {
+        "assessment": "Concerns 2-binomial equivalence and factor complexity for infinite words rather than cross-necklace multisets of all rotation observations",
+        "evidence": "ORBi initial public availability 2013-05-27; Definition 1, Section 3 factor complexity and Sections 4–5 infinite-word results",
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/149313/1/binomial_final_short.pdf",
+        "material_read": "Full 12-page PDF parsed text: definitions, Sections 2–6, and visual page-two confirmation",
+        "method": "Inspected PDF extract and visible screenshot, examined statement-level Sections 1–6 and searched rotation/conjugacy terms",
+        "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+        "trigger": "Foundational 2013 binomial-equivalence definition and 01-subsequence statistics"
+      },
+      {
+        "assessment": "Classifies ordinary linear-word equivalence and provides general algorithms; no inspected theorem reconstructs distinct necklaces from the full rotation-spectrum multiset",
+        "evidence": "Section 2, Theorem 2.1 and Remark 2.2; arXiv:2001.11732",
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/249124/1/LejeuneRigoRosenfeld-ijacVersion2.pdf",
+        "material_read": "PDF abstract, introduction, full Section 2 on the binary alphabet, section outline and displayed results, screenshot of Section 2 page",
+        "method": "Inspected PDF extracted theorem statements and screenshot for the Parikh-matrix equivalence",
+        "title": "On the binomial equivalence classes of finite words",
+        "trigger": "Potential stronger description of binary 2-binomial equivalence classes"
+      },
+      {
+        "assessment": "Proves bounds for number of distinct scalar observations within a fixed orbit, not inverse fibers of the multiset of scalar observations across different necklaces",
+        "evidence": "RESULT.md, Finding, Proof §§1–4, Limitations",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-cyclic-2-binomial-fingerprint-bounds-at-fixed-binary-weigh--4ff94afd6c61",
+        "material_read": "Full public RESULT.md, including theorem, proof, relationship to prior work and limitations",
+        "method": "Fetched and compared the entire published RESULT.md theorem and proof",
+        "title": "Sharp cyclic 2-binomial fingerprint bounds at fixed binary weight",
+        "trigger": "Closest exact same rotational 2-binomial observation at fixed binary composition"
+      },
+      {
+        "assessment": "Studies unrotated complete length-three scattered decks for linear words, so its two-preimage result does not imply the multiset-of-rotations length-two reconstruction classification",
+        "evidence": "RESULT.md, Finding and Proof and displayed doubleton generating function",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-all-binary-three-deck-collisions-at-weight-three--f95f52cd118b",
+        "material_read": "Finding, definitions, principal algebraic collision classification and generating-function proof of public RESULT.md",
+        "method": "Fetched and compared theorem and collision-involution proof",
+        "title": "All binary three-deck collisions at weight three",
+        "trigger": "Other exact weight-three scattered-subsequence collision classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "61bf2aed-9328-402d-a010-d77cdee5a27f",
+  "value": {
+    "rationale": "The full inverse-multiplicity spectrum answers a natural question about reconstruction from a cyclic multiset of scattered-subsequence observations, at the smallest nontrivial sparse weight beyond two markers. It gives an explicit source-mate map, a divisibility-by-three phase transition in identifiability, the first ambiguous length nine, and an all-length exact capacity \\((n/3)^2\\) when the length is divisible by three. This is more than computing a marginal or finite slice; the structural involution is the reason for the entire count. Higher weights, noise and partial measurements are explicitly excluded.",
+    "status": "PASS"
+  }
+}
