@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs known valid triples; four orbit sizes and degrees are derived symbolically. Every source-target shortest path through five moves is verified via BFS for n=8..12, one source in each four complete S_n orbits; a proved twelve-ground-label support lifting covers all n>12. The independent bitset checker replays exact layers and matching deficit, with direct observation/propagation on all size<=3 sets n=8..10. Distinct scripts passed with embedded exact outputs. The lower-bound matching argument is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bjorkman et al. (2022) Sections 1,4,5 introduce power-domination token addition/removal and jumping and define token sliding, but their specific-family results do not treat \\(\\operatorname{KG}(n,2)\\) optimum sliding.",
+        "Bartier et al. (2022) treat token sliding for independent-set configurations in girth-at-least-five graphs, not PDS triples in Kneser disjointness graphs.",
+        "Fischer (2022) Theorem 2.3 uses all token placements of a diameter-two graph, not the subgraph induced by its minimum power-dominating configurations."
+      ],
+      "reasoning": "General reconfiguration formalisms do not yield the complete induced-state metric. The rank-two Kneser minimum-set theorem supplies exactly the domain; it does not supply the slide graph diameter, degree census, or target matching obstruction.",
+      "searches": [
+        "arxiv:2201.01798v1",
+        "arxiv:2205.01009v1",
+        "arxiv:2212.14634v1",
+        "published-finding corpus semantic: Kneser KG(n,2) power dominating set every three edges except three-star token sliding diameter"
+      ]
+    },
+    "checked_sources": [
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-power-domination-polynomial-and-minimal-set-dichotomy-of-two-sub--6e981f3b14e6",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-minimum-isolating-sets-and-three-step-reconfiguration-in-operato--f2da2f07c4da",
+      "https://arxiv.org/html/2201.01798v1",
+      "https://www.researchgate.net/publication/366789756_On_the_connectivity_and_diameter_of_Token_graphs_from_a_vertex_induced_sub-graph_perspective",
+      "https://link.springer.com/article/10.1007/s00453-023-01181-5",
+      "https://arxiv.org/abs/2308.15603"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing only that every nonstar triple is feasible determines the vertex set but not edge-connectivity, diameter or eccentricities without additional analysis.",
+        "Fischer full token-graph diameter bound can use intermediate three-stars forbidden here; therefore no shortest-path preservation follows.",
+        "The isolating-set result uses a distinct feasible family and moves not necessarily along edges of the original Kneser graph."
+      ],
+      "reasoning": "The actual new claims (sharp diameter five, radius four, all-distance-five matching characterization, and degree/eccentricity orbit census) require the explicit constrained slide adjacency plus the universal twelve-label finite certificate. They are neither special cases of cited all-state graph distances nor corollaries of the published feasibility polynomial.",
+      "searches": [
+        "arxiv:2201.01798v1",
+        "arxiv:2212.14634v1",
+        "published-finding corpus semantic: power domination KG(n,2) polynomial and minimal-set dichotomy",
+        "published-finding corpus semantic: minimum isolating sets and three-step reconfiguration KG(n,2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A full \\(3\\)-token graph permits all three-subsets, whereas the optimal power-domination graph deletes all three-stars. Fischer (2022), Theorem 2.3, analyzes the full token graph rather than induced geodesics avoiding deleted states.",
+        "The previously published Kneser isolating-set reconfiguration certificate forbids three-edge paths and permits any one-token jump, not these optimal sensor triples and adjacent slides."
+      ],
+      "reasoning": "The source family and all-state token graph are closely related but not equivalent: deleting forbidden three-star configurations can alter shortest paths and eccentricity, and the explicit matching-deficit criterion has no implication from full-graph diameter alone. The isolating-set path certificate concerns a different forbidden orbit and different move rule.",
+      "searches": [
+        "minimum power dominating triple token sliding graph of Kneser KG(n,2) exact diameter five when n>=8, graph of 3-subsets of edges of complete graph forbidding stars, induced generalized Johnson graph",
+        "three token graph Kneser graph diameter reconfiguration powers domination",
+        "arxiv:2212.14634v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public 2026 power-domination record contains the full all-set counting polynomial and minimal triple types but no local token-slide table.",
+        "The public Kneser isolating-set record computes a diameter-three unrestricted exchange network with forbidden \\(P_4\\) states; it is a different table.",
+        "Own accessible current-week JSONL historical claims were searched for Kneser power domination and restricted token sliding; no identical claim was recovered."
+      ],
+      "reasoning": "The exact prior table of successful power-dominating triples is reused rather than counted as novel. No inspected exact table determines the same induced slide graph or its extremal pairs. Absence of indexed hits is only bounded evidence; unindexed historical tables remain possible.",
+      "searches": [
+        "Power domination of Kneser graphs KG(n,2) complement of triangular graph classification minimum triples three-edge stars",
+        "minimum power dominating triple token sliding graph of Kneser KG(n,2) exact diameter five when n>=8, graph of 3-subsets of edges of complete graph forbidding stars, induced generalized Johnson graph",
+        "minimum power dominating triple token sliding graph of Kneser KG(n,2) exact diameter five when n>=8",
+        "2026/10/26/SCOPE-power-domination-polynomial-and-minimal-set-dichotomy-of-two-sub--6e981f3b14e6",
+        "2026/11/8/SCOPE-minimum-isolating-sets-and-three-step-reconfiguration-in-operato--f2da2f07c4da"
+      ]
+    },
+    "rationale": "Full closest Kneser power-domination classification is reused and explicitly not claimed original; complete checks of related published-finding corpus isolating-set sliding, Fischer unrestricted token-graph geometry, Bjorkman power-domination TJ, Bartier independent-set TS and Cornet-Torres static Kneser domination do not imply the new constrained five-slide extremality/diameter, radius and orbit census. Residual unindexed historical equivalence risk acknowledged.",
+    "residual_risks": [
+      "An unindexed or otherwise unnamed identical constrained token-slide result may exist.",
+      "A source about direct Kneser token-slide distances not indexed in the searches could cover the matching characterization.",
+      "The Cornet–Torres static Kneser paper was compared at abstract level only; no whole-document exclusion asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS previously known three-pair nonstar feasibility; NOT_COVERING restricted slide diameter, radius, matching-deficit extremals and orbit degrees",
+        "evidence": [
+          "Its Theorem gives all power-domination polynomials and minimal sets for \\(\\operatorname{KG}(n,2)\\), with the nonstar-triple characterization, but no adjacency-slide shortest paths."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-power-domination-polynomial-and-minimal-set-dichotomy-of-two-sub--6e981f3b14e6",
+        "material_read": "Complete RESULT.md, Finding, Assumptions and scope, five proof steps, Verification, Relationship to prior work, Limitations and References",
+        "method": "GitHub connector full UTF-8 file read",
+        "title": "Power-domination polynomial and minimal-set dichotomy of two-subset Kneser graphs",
+        "trigger": "Exact family and minimum configuration classification"
+      },
+      {
+        "assessment": "NOT_COVERING: forbids three-edge paths rather than stars and allows unrestricted jumps, with three-step bound; method related",
+        "evidence": [
+          "The isolating-set theorem explicitly characterizes minimum isolated sets as all triples except \\(P_4\\) and uses unrestricted one-token exchange."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-minimum-isolating-sets-and-three-step-reconfiguration-in-operato--f2da2f07c4da",
+        "material_read": "Complete RESULT.md including proof, universal twelve-endpoint certificate, verification and references",
+        "method": "GitHub connector full UTF-8 read",
+        "title": "Minimum isolating sets and three-step reconfiguration in KG(n,2)",
+        "trigger": "Same Kneser family and finite-support reconfiguration method"
+      },
+      {
+        "assessment": "NOT_COVERING the exact optimum token-slide metric on rank-two Kneser graphs",
+        "evidence": [
+          "The 2022 abstract and Sections 4–5 address TAR/TJ; Introduction defines TS but no Kneser specific theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.01798v1",
+        "material_read": "Available full HTML introduction, formal process, general sections on token jumping, concrete families and references",
+        "method": "arXiv full-text HTML page, section and term comparison",
+        "title": "Power domination reconfiguration",
+        "trigger": "Foundational primary source on power-domination reconfiguration"
+      },
+      {
+        "assessment": "NOT_COVERING constraint-induced geodesics; analyzes all token placements rather than the induced subgraph of optimal power-dominating sets",
+        "evidence": [
+          "Theorem 2.3 is stated for the full \\(k\\)-token graph of an underlying diameter-two graph; it has no condition maintaining power domination at intermediate states."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/366789756_On_the_connectivity_and_diameter_of_Token_graphs_from_a_vertex_induced_sub-graph_perspective",
+        "material_read": "Full openly viewable preprint text, introductory definition and Theorems 2.2–2.3 on full token graphs; sections with graph diameter arguments",
+        "method": "Open preprint full-text HTML read",
+        "title": "On the connectivity and diameter of Token graphs from a vertex induced sub-graph perspective",
+        "trigger": "Potentially dominating token-graph diameter theorem on original disjointness graphs"
+      },
+      {
+        "assessment": "NOT_COVERING: its configurations are independent sets of a high-girth graph, not minimum power domination on Kneser graphs",
+        "evidence": [
+          "Formal problem requires every state to be independent and input graph girth at least five for main parameterized classification."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-023-01181-5",
+        "material_read": "Open-access full HTML abstract, Reconfiguration framework, core lemmas and theorem statements, final bibliographic metadata",
+        "method": "Open-access publisher full text read",
+        "title": "Token Sliding on Graphs of Girth Five",
+        "trigger": "Potentially broad algorithmic token sliding coverage"
+      },
+      {
+        "assessment": "DIFFERENT_STATIC_PARAMETER; residual risk for uninspected full document is disclosed",
+        "evidence": [
+          "The title and available abstract concern static \\(k\\)-tuple domination; no observed reconfiguration statement."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.15603",
+        "material_read": "Accessible abstract, theorem descriptions and cited treatment in existing Kneser power-domination research; full-text direct comparison not established",
+        "method": "Abstract and source-reference comparison; qualified rather than assumed whole-text exclusion",
+        "title": "k-tuple domination on Kneser graphs",
+        "trigger": "Same ground Kneser graph, possible static domination coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f27159e6-fd24-4388-90de-a0df5f3aa8e0",
+  "value": {
+    "rationale": "An unbounded canonical symmetric graph family gets exact monitoring-preserving local reconfiguration diameter, radius, all extreme-distance pairs by a natural bipartite matching obstruction, and four structural degree/eccentricity types. These quantities are mathematically motivated by physical adjacency limits and not supplied by the already-known feasible-set enumeration.",
+    "status": "PASS"
+  }
+}
