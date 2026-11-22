@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed 24-vertex model, coordinate normalization, and all-vertex reduction are explicit. The absolute volume determinant is affine-and-absolute separately in each corner and hence maximized at solid vertices. The standalone exact-ring certificate computes every one of 10,626 unordered quadruples without floating approximations, giving maximum determinant \(32+20\sqrt2\) at precisely 48 quadruples and 23 exact levels. A separate anchored 1,771-quadruple symmetry check confirms all multiplicities. Sixteen base/apex-face pairs are verified to have constant **signed** maximal determinant, establishing two-dimensional equality families rather than isolated coincidental corner values. The 18-square/eight-triangle pyramid decomposition checks the polyhedron volume independently.
+PASS
 
-## Originality — PASS, historical priority provisional
+Any tetra inside the convex hull has its absolute volume maximized at polytope vertices by successively maximizing a convex absolute-affine determinant in each chosen corner; thus 24 choose 4=10,626 vertex quadruples are exhaustive for the maximum. Inspected actual CHECK.py exact Z[sqrt2] pair arithmetic, SPECTRUM.csv and source RESULT.md; independently enumerated all 10,626 determinant values with a separate quadratic-integer determinant implementation: exactly 23 absolute levels, maximum 32+20sqrt2 with multiplicity 48. For every signed (±1,±1,±1) face normal, a triangle with support L+2 has two maximizing base triples whose three signed determinants agree, hence any apex in the face by affine interpolation is optimal; independent reconstruction yields 16 face/base families and their coverage of all 48 vertex-maximal tetrahedra. Orthogonal face pyramid areas give polytope volume (96+80sqrt2)/3 and exact occupancy (1+5sqrt2)/56. Explicitly does NOT claim classification of every nonvertex maximizer.
 
-Steininger–Yurkevich (arXiv:2112.13754) specifies the same 24-vertex coordinates but studies a different containment/projection optimization problem. The full text of the closest published 48-vertex cubic signed-permutahedron tetrahedral theorem and the cube–octahedron intersection tetrahedral theorem was compared at the object and implication levels: neither identifies or contains the 24-vertex rhombicuboctahedron. The full snub-cube tetrahedral theorem concerns a different 24-vertex polytope; it does not transfer via Euclidean congruence or affine equivalence. The exact 23-level table and the 16 apex-face families are not supplied by the standard 26-facet facts. Direct phrase, coordinate, volume, and published-finding corpus searches uncovered no equivalent stated result, but absence from indexing is not proof of novelty. See the structured comparison and access risks in `AUDIT.json`.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The maximum fraction of volume retained by a tetrahedron is a canonical, scale-free three-dimensional optimization invariant. Here the exact algebraic fraction and full 48-way vertex equality structure are not consequences of the known volume or face counts. Sixteen continuous two-dimensional families show the extremizers are geometrically non-rigid, providing a meaningful contrast with other Archimedean solids. This is a complete sharp finite invariant and a constructive equality phenomenon, not a random parameter slice or a routine restatement of standard volume formulas.
+Best-knowledge PASS. The inspected Steininger–Yurkevich 2021/2022 Rupert-problem primary preprint lists the rhombicuboctahedron coordinate model but asks about projection containment, not the largest inscribed tetrahedron, multiplicity spectrum or movable-apex extremizers. Searched similar Archimedean solids and different rhombic solids: 48-vertex truncated cuboctahedron, 24-vertex snub cube and 32-vertex rhombic triacontahedron are distinct. No exact same 24-vertex determinant spectrum/maximizer publication found, but uncatalogued finite-tetrahedron databases remain a priority risk.
 
-## Limits and closest literature
+## value
 
-This is an exact result for one natural classical solid, not a universal statement or an exhaustive classification of nonvertex equality cases. The most relevant exact tetrahedral work treats the 48-vertex truncated cuboctahedron, the snub cube, and a cube–octahedron intersection family. The circumscribing-tetrahedron presentation concerns the reversed inclusion direction, and its original PDF URL was unavailable during this review; only indexed text could be checked. A previously unindexed calculation remains a possible priority conflict. The certificate is mathematical evidence but not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Maximum inscribed simplex volume is a natural affine-geometric invariant; exact 48 vertex optimizers and full 23-level spectrum plus continuous maximal families display meaningful rigidity/flexibility structure in a standard Archimedean solid. A self-contained exact finite classification is valuable despite not covering all nonvertex equality cases or generalizing all polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
