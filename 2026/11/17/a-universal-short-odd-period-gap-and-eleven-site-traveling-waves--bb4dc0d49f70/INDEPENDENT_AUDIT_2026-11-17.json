@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:02:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The final statement is for synchronous Rule 54 on indexed cyclic rings n>=3, not quotient rings. Temporal columns a,b,c satisfy b_(j+1)=b_j XOR(a_j OR c_j). The exact (a,b)->(b,c) transition constructs a finite graph of 2^(2t) vertices, and rooted spatial closed walks of length n correspond bijectively to Fix(F_n^t). Independently compiled and executed a fresh table-driven C++ graph generator and zero-in/out peeling for t=1,3,5,7,9,11, enumerating all 4,194,304 vertices at t=11 and all 4,192,256 edges. Reproduced edge totals 2,56,992,16256,261632,4192256 and residual permutation-core cycle lengths (1),(1),(1),(1),(1),(1,11,11). No directed closed walk can lie outside the peeled core, and surviving in/out degree exactly one means the core is a disjoint cycle union. Thus counts 1 for the five lower odd iterates, and 1+22*1_(11|n) for iterate eleven. Since 11 is prime, the 22 nonzero eleven-site states give two primitive temporal orbits of length 11; the two given binary words translate by shifts +4 and -4, related by reflection. All-n theorem follows from complete finite temporal-column graph exhaustion, NOT from checking only rings through n=11. The theorem makes no statement about odd t>=13.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "One-step image enumeration describes range F_n; temporal-four orbit census treats different time exponent. Neither determines the eleven-step recurrent column core."
+        ],
+        "reasoning": "Image sizes and even-period statistics do not dominate the exact t=1,3,5,7,9,11 universal formulas.",
+        "searches": [
+          "Rule 54 elementary cellular automaton exact periodic points odd temporal periods 3 5 7 9 11 ring traveling waves de Bruijn",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-periodic-lifting-and-exact-one-step-image-enumeration-for-rule-5--3615c2fb7c1d",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-temporal-four-orbit-census-and-spectral-growth-for-element--1bbd8beacd01"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md at 2a034c24cb932e90c01ae5066b611ba5fab97aca",
+        "Frozen src/temporal_column_core.cpp, src/independent_scc.cpp and certificate logs",
+        "Independent compiled temporal-column enumerator output through t=11",
+        "https://www.academia.edu/26090267/On_the_Representation_of_Gliders_in_Rule_54_by_De_Bruijn_and_Cycle_Diagrams",
+        "https://arxiv.org/html/1410.3096v1",
+        "https://doi.org/10.1142/S0129183112500520",
+        "Resultary semantic queries on Rule 54 periodic points, including temporal-4/6 and one-step image records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Core permutation lengths (1,11,11) at t=11 and unique loop at smaller odd t force exact n-dependent closed-walk counts; known temporal-six-cycle rigidity is logically orthogonal."
+        ],
+        "reasoning": "Past finite glider sightings or other temporal-height spectra cannot imply this count without exhaustive recurrent graph analysis; the source includes the needed complete classification.",
+        "searches": [
+          "Rule 54 elementary cellular automaton exact periodic points odd temporal periods 3 5 7 9 11 ring traveling waves de Bruijn",
+          "https://arxiv.org/html/1410.3096v1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-spatial-rigidity-of-primitive-temporal-six-cycles-in-elementary--56553aecef74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2008/2014 Martinez–Adamatzky–McIntosh describe de Bruijn cycles/glider periods including a known 11-site example, while the audited statement counts fixed points for every n."
+        ],
+        "reasoning": "Known glider/wave terminology is equivalent to finite witnesses only; classifying the recurrent core of six temporal de Bruijn graphs yields stronger universal ring-size quantifiers.",
+        "searches": [
+          "Rule 54 elementary cellular automaton exact periodic points odd temporal periods 3 5 7 9 11 ring traveling waves de Bruijn",
+          "https://arxiv.org/html/1410.3096v1",
+          "https://www.academia.edu/26090267/On_the_Representation_of_Gliders_in_Rule_54_by_De_Bruijn_and_Cycle_Diagrams"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The historic glider tables include eleven-site traveling wave examples and a nine-site 27-clock, explicitly acknowledged; no inspected table provided the all-n eleven-return count or excluded every short odd temporal period."
+        ],
+        "reasoning": "Tables of example gliders are not exhaustive transfer-core certificates; this finding neither reclaims the old n=11 witness nor mistakes a missed search for a novelty proof.",
+        "searches": [
+          "Rule 54 elementary cellular automaton exact periodic points odd temporal periods 3 5 7 9 11 ring traveling waves de Bruijn",
+          "https://www.academia.edu/26090267/On_the_Representation_of_Gliders_in_Rule_54_by_De_Bruijn_and_Cycle_Diagrams",
+          "https://arxiv.org/html/1410.3096v1"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the 2008 Rule 54 glider paper and its 2014 expansion already report eleven-site waves and other temporal clocks. This finding expressly does not claim their discovery. Its all-ring exact eleven-return fixed-point count and exclusion of nonzero temporal periods 1,3,5,7,9 require full recurrent temporal-column graphs; direct wave examples and shorter-period de Bruijn diagrams do not mathematically imply these exact classifications. Search also surfaced other published Rule 54 image, 4-cycle, 6-cycle calculations, not this specific entire odd sector. A 2012 same-rule dynamics article was inaccessible in full and remains a priority risk.",
+      "residual_risks": [
+        "Guan 2012 same-rule dynamics full text inaccessible: an equivalent ring-uniform odd-cycle statement cannot be excluded.",
+        "The exhaustive certificate is finite over temporal heights t<=11; it does not exclude odd periods t>=13, classify basins, or establish any other temporal-height census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers old 11-site example; no demonstrated all-n short-odd return count",
+          "evidence": "Discusses Rule 54 glider encodings and periods, including known 11-site wave rather than a universal six-height recurrent-core census.",
+          "identifier_or_url": "https://www.academia.edu/26090267/On_the_Representation_of_Gliders_in_Rule_54_by_De_Bruijn_and_Cycle_Diagrams",
+          "material_read": "Accessible full article text: introduction, de Bruijn/cycle analysis, example cycle and glider tables",
+          "method": "read searchable primary-paper text",
+          "title": "On the representation of gliders in Rule 54 by de Bruijn and cycle diagrams",
+          "trigger": "Same elementary rule and 11-site glider example"
+        },
+        {
+          "assessment": "Provides extended structures and examples but no identified all-ring 11-return formula",
+          "evidence": "Its pattern and glider catalogue is not quantified as all binary indexed rings fixed by iterate 11.",
+          "identifier_or_url": "https://arxiv.org/html/1410.3096v1",
+          "material_read": "Accessible extended full-text HTML: glider organization, cycle diagram tables and stated scope",
+          "method": "read full source HTML and relevant cycle/glider sections",
+          "title": "Complete Characterization of Structure of Rule 54",
+          "trigger": "Same rule, broad characterization, potential dominating statement"
+        },
+        {
+          "assessment": "Priority unresolved; do not infer whole-document noncoverage",
+          "evidence": "Same-rule dynamics is sufficiently close to retain a specific literature risk.",
+          "identifier_or_url": "https://doi.org/10.1142/S0129183112500520",
+          "material_read": "Publication metadata/abstract only; full scientific argument not accessible",
+          "method": "abstract-only review",
+          "title": "Complex Dynamics of the Elementary Cellular Automaton Rule 54",
+          "trigger": "Potential same-rule global dynamics source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: An exact all-circumference return-count formula, the sharp first nonzero odd temporal period and global short-odd exclusion constitute a natural complete classification of the first odd sector of a named elementary cellular automaton. The 2008 finite witness alone is known and not independently valuable, but global structural exhaustion extends significantly beyond one example. The resulting dynamic zeta and orbit facts can be reused for periodic-space-time analysis; no claim about longer periods or attraction basins is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Rings n>=3, indexed; no equivalence classes under spatial rotation quotient.",
+    "No claim on odd temporal periods at least thirteen or all attractors."
+  ],
+  "schema_version": 1
+}
