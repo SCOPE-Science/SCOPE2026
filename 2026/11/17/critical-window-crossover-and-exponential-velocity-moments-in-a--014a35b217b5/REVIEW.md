@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For each fixed positive coefficient pair the exact algebraic first integral yields the speed-square graph, a regular closed oval and the original-time quadrature. The turning-gap density has an integrable limit with a controlled moving endpoint; finite-order moments are then split at the Cauchy threshold. For fixed orders above one, a distinct endpoint Laplace calculation produces the exponential prefactor. In the new window, log speed divided by squared amplitude converges pointwise, and an explicit integrable majorant uniformly over compact crossover parameters justifies the order-varying limit. The finite checker independently reconstructs graph identities and physical-time integrals, but is not used in place of the proof. No boundary-parameter or unfixed-order generalization is asserted.
+## correctness
 
-## Originality
-**PASS within inspected evidence, with residual priority risk.** Appis and Llibre's complete open-access 2024 paper supplies the exact global-center locus but not higher velocity-moment asymptotics. An earlier mathematical result for precisely this polynomial family already proves the high-amplitude period and total-variation turning-gap/arcsine law, and thus covers the easy weak Cauchy corollary; those conclusions are **explicitly excluded from the claimed novelty**. The new fixed-supercritical exponential moment prefactors and the compact-uniform \(q=1+\lambda/A^2\) crossover concern unbounded observables and are not implications of the older bounded-law statement: the rare, exponentially large central-crossing speeds matter. A previously published Cauchy occupation result in the distinct zero-restoring family and a logarithmic-layer result for a distinct cubic center were compared by their full statements and proofs; neither gives these coefficients. Broad differently normalized integrable-oscillator literature might contain an equivalent statement, so absolute historical priority is not certified.
+PASS
 
-## Mathematical value
-**PASS.** The Cauchy cutoff at the first absolute moment is a natural loss-of-uniform-integrability boundary. Determining the sharp entire supercritical moment spectrum and its \(A^{-2}\)-width transition answers a concrete dynamical-statistics question not settled by a turning-layer weak or total-variation limit. The result quantifies the impact of extremely fast, extremely brief center-crossing excursions and reconciles polynomial first-moment growth with exponential growth of every fixed higher moment. The explicit continuous crossover and its parameter dependence can be used as quantitative benchmarks for observables near a singular moment threshold; no downstream theorem is needed for the self-contained value.
+The exact invariant yields squared speed Y_A(s)=int_0^s[1+alpha(A²-s+u)]e^{beta u}du, s=A²-x²; it is positive for 0<s<=A², proving smooth simple ovals and minimal physical period. The original-time quadrant density is proportional 1/(sqrt(1-s/A²)v_A(s)), v_A=sqrt(Y_A)/A; hence T_A=2D_A/A² and M_q=I_q/D_A with I_q=int v_A^(q-1)/sqrt(1-s/A²) ds. Endpoint bounds show D_A->pi/sqrt(alpha beta). For fixed q<1 dominated convergence gives gamma^q/sec reciprocal cos(πq/2); q=1 has I_1=2A² exactly; q>1 setting u=A²-s and dominated Laplace integral yields gamma^q A sqrt(2beta/[pi(q-1)])exp[beta(q-1)A²/2]. For q=1+lambda/A², s=A²t and A^-2 log v_A(A²t)->beta t/2, with common integrable t^-1/4(1-t)^-1/2 domination for lambda in compacts, yields 2sqrt(alpha beta)/pi times F_beta(lambda)=int_0^1exp(beta lambda(1-u²)/2)du. Algebraic prefactors and period normalization checked against exact formulas; verify.py finite quadratures only corroborate. No claim at alpha=0 or q varying faster than A^-2.
 
-## Closest literature and limits
-The nearest scientific antecedent is the existing exact period/turning-gap result for the identical family, which is fully credited as stronger on its own subject. The originating classification is Appis--Llibre (2024), Theorem 4(d). The distinct cubic Cauchy and beta-layer papers are not equivalent under coefficient matching. The proof requires fixed \(\alpha,\beta>0\), fixed \(q\) or compact \(\lambda\), and original physical time. Extreme fixed-order moments are derived analytically; finite numerical quadrature is corroborative only. Earlier unindexed statements or corollaries remain an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: full same-equation published uniform period/turning-layer theorem covers physical period and TV of the finite turning-gap variable, but its TV law controls bounded observables and cannot imply exponential growth of |y/A|^q (unbounded with A), or the moving-order crossover. Published Cauchy velocity finding for xdot=v, vdot=-x(1-alpha v+beta v²) has a different speed feedback and fixed rather than normalized large speed, hence does not cover. Appis–Llibre classify global centers but lack physical-time moments. These distinctions are mathematical statements not title matching.
+
+## value
+
+PASS
+
+High-order moments of a time-sampled velocity distinguish rare exponentially fast trajectory passages invisible to weak or TV turning-layer convergence. Sharp phase transition at order one and its finite A^-2 interpolation is an interpretable nontrivial asymptotic with useful normalization and independent oscillator/statistical relevance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

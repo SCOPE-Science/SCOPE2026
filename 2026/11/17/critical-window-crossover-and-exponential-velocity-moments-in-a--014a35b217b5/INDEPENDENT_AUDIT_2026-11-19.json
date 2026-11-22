@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T21:44:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact invariant yields squared speed Y_A(s)=int_0^s[1+alpha(A²-s+u)]e^{beta u}du, s=A²-x²; it is positive for 0<s<=A², proving smooth simple ovals and minimal physical period. The original-time quadrant density is proportional 1/(sqrt(1-s/A²)v_A(s)), v_A=sqrt(Y_A)/A; hence T_A=2D_A/A² and M_q=I_q/D_A with I_q=int v_A^(q-1)/sqrt(1-s/A²) ds. Endpoint bounds show D_A->pi/sqrt(alpha beta). For fixed q<1 dominated convergence gives gamma^q/sec reciprocal cos(πq/2); q=1 has I_1=2A² exactly; q>1 setting u=A²-s and dominated Laplace integral yields gamma^q A sqrt(2beta/[pi(q-1)])exp[beta(q-1)A²/2]. For q=1+lambda/A², s=A²t and A^-2 log v_A(A²t)->beta t/2, with common integrable t^-1/4(1-t)^-1/2 domination for lambda in compacts, yields 2sqrt(alpha beta)/pi times F_beta(lambda)=int_0^1exp(beta lambda(1-u²)/2)du. Algebraic prefactors and period normalization checked against exact formulas; verify.py finite quadratures only corroborate. No claim at alpha=0 or q varying faster than A^-2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-system prior covers all alpha>=0 for period and gap, stronger parameter range than candidate, but only a different set of observables.",
+          "Appis–Llibre prove center classifications, no moments."
+        ],
+        "reasoning": "Stronger parameter range in an independent period theorem does not dominate a rare-event velocity-moment theorem. Uniform TV of s alone fails to control unbounded v_A^q as A increases.",
+        "searches": [
+          "Resultary uniform period crossover all k>=0",
+          "Resultary Cauchy velocity occupation law with sharp TV coefficient",
+          "Appis Llibre 2024 classification"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "Resultary full uniform period/turning-layer finding",
+        "Resultary full different cubic Cauchy velocity finding",
+        "Appis–Llibre 2024 DOI:10.1007/s00010-024-01051-7 full OA article"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Turning-gap TV density p_beta(s) and T_A~2pi/(A²sqrt(alpha beta)) are earlier results.",
+          "For q>1 M_q is dominated by s=A²-O(1), whose probability vanishes exponentially and is not controlled by fixed-s TV.",
+          "Uniform q_A=1+lambda/A² demands macroscopic s/A² speed exponent."
+        ],
+        "reasoning": "The earlier results supply only some premises, not the displayed M_q coefficients or moving-order crossover; direct endpoint Laplace and compact-parameter dominated convergence are nontrivial new steps.",
+        "searches": [
+          "Resultary full uniform period crossover and arcsine turning layers proof eqs.(8)–(15)",
+          "Resultary full Cauchy velocity occupation law 2026/11/17",
+          "Appis Llibre 2024 Theorem 4(d)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same exact vector field occurs in 2026/11/17 uniform-period theorem with k=alpha,h=beta; it gives D_A/period and turning-gap TV but not high-velocity moment or q-window.",
+          "A separate Cauchy velocity result has vdot=-x(1-alpha v+beta v²), not the same x-dependent restoring field."
+        ],
+        "reasoning": "Same-system occupancy and a different velocity-feedback cubic center were compared by equations. Weak Cauchy law cannot give moments above its threshold; singular A^-2 order requires new rare high-speed analysis.",
+        "searches": [
+          "Resultary: cubic polynomial global center physical time exponential velocity moment critical crossover order one moments",
+          "Resultary: uniform period crossover and arcsine turning layers",
+          "Appis Llibre 2024 Theorem 4(d)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously published tables enumerate center coefficient regimes and period/turning-gap profiles.",
+          "No inspected exact all-q exponential coefficient and integral lambda transition table for this same oscillator."
+        ],
+        "reasoning": "These are asymptotic integrals rather than a finite table; prior normalization is known but the high-moment and q-window expressions are not given in the checked full texts.",
+        "searches": [
+          "Resultary: order one moment threshold cubic global center",
+          "Resultary: exponential velocity moment crossover cubic oscillator",
+          "Appis Llibre 2024"
+        ]
+      },
+      "rationale": "PASS: full same-equation published uniform period/turning-layer theorem covers physical period and TV of the finite turning-gap variable, but its TV law controls bounded observables and cannot imply exponential growth of |y/A|^q (unbounded with A), or the moving-order crossover. Published Cauchy velocity finding for xdot=v, vdot=-x(1-alpha v+beta v²) has a different speed feedback and fixed rather than normalized large speed, hence does not cover. Appis–Llibre classify global centers but lack physical-time moments. These distinctions are mathematical statements not title matching.",
+      "residual_risks": [
+        "Unindexed same-vector-field rare-velocity moment paper could exist; same-day relative priorities are not certified.",
+        "Earlier period and turning-gap/Cauchy weak results are explicitly not new; novelty restricted to unbounded moment and A^-2 order window."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_BACKGROUND: same-system period/TV but not q-dependent velocity moments",
+          "evidence": "Original-time period and density h/[pi sqrt(exp(hs)-1)] for s=A²-x²; observables bounded/turning gap only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-uniform-period-crossover-and-arcsine-turning-layers-in-cubic-glo--2728f0f48663",
+          "material_read": "Full published RESULT.md including formulas (1)–(15), period, TV proof and limits",
+          "method": "GitHub raw full published mathematical text",
+          "title": "Uniform period crossover and arcsine turning layers in cubic global centers",
+          "trigger": "Same exact oscillator with parameters k=alpha,h=beta"
+        },
+        {
+          "assessment": "NOT_COVERING velocity moment asymptotic",
+          "evidence": "Case a4=-alpha,a6=-beta<0 classifies a global center, not statistical speed moments.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-024-01051-7",
+          "material_read": "Full freely accessible journal HTML with Theorem 4(d), coefficient case and proof",
+          "method": "Lawful OA journal full text",
+          "title": "Global centers of a family of cubic systems",
+          "trigger": "Original qualitative existence/classification theorem"
+        },
+        {
+          "assessment": "DISTINCT_FLOW, not a reduction established",
+          "evidence": "Flow vdot=-x(1-alpha v+beta v²) lacks current -alpha x³ term; it studies unnormalized velocity V_A.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-cauchy-velocity-occupation-law-with-a-sharp-total-variation-co--81c2b9e7d2b2",
+          "material_read": "Entire published RESULT.md with equations, proof and limitations",
+          "method": "GitHub raw full scientific text",
+          "title": "A Cauchy velocity occupation law with a sharp total-variation coefficient in a cubic global center",
+          "trigger": "Similar Cauchy word and velocity observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "High-order moments of a time-sampled velocity distinguish rare exponentially fast trajectory passages invisible to weak or TV turning-layer convergence. Sharp phase transition at order one and its finite A^-2 interpolation is an interpretable nontrivial asymptotic with useful normalization and independent oscillator/statistical relevance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify.py",
+    "Resultary full uniform period/turning-layer finding",
+    "Resultary full different cubic Cauchy velocity finding",
+    "Appis–Llibre 2024 DOI:10.1007/s00010-024-01051-7 full OA article"
+  ],
+  "disposition": "passed",
+  "final_claim": "For xdot=y, ydot=-x(1+alpha x²+beta y²) with fixed alpha,beta>0 and orbit amplitude A, M_q(A) has a Cauchy-moment limit q<1, exact A² growth at q=1, exponential growth for fixed q>1 and the locally uniform q=1+lambda/A² integral crossover stated in frozen RESULT.md.",
+  "limitations": [
+    "Unindexed same-vector-field rare-velocity moment paper could exist; same-day relative priorities are not certified.",
+    "Earlier period and turning-gap/Cauchy weak results are explicitly not new; novelty restricted to unbounded moment and A^-2 order window."
+  ],
+  "residual_risks": [
+    "Unindexed same-vector-field rare-velocity moment paper could exist; same-day relative priorities are not certified.",
+    "Earlier period and turning-gap/Cauchy weak results are explicitly not new; novelty restricted to unbounded moment and A^-2 order window."
+  ],
+  "schema_version": 1
+}
