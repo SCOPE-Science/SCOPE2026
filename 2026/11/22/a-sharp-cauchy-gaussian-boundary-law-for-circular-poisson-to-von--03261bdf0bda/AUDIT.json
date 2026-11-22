@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Finite-radius aligned-center minimizer exists: positive Bessel Fourier coefficients make the center unique and the Bessel norm grows at large concentration. Under delta=1-r, uniform L2 convergence of rescaled kernels gives exact F(c). Positive Laplace representation makes the stationarity h(x) strictly decreasing from 1 to 0, so F has one strict global minimum. Small and large scaled concentrations are excluded uniformly by norm and cross-term estimates. Every actual minimizer therefore has delta^2*kappa to c*, and normalized minimum error to F*. Moment matching solves a strictly monotone Bessel-ratio equation and chooses the wrong scale. Standard-library checker replays finite diagnostics; infinite claims are supported by proof, not by tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ameijeiras-Alonso (2024) §§3,5 deals with sample-size AMISE kernel smoothing and obtains different bandwidth scalings, not deterministic direct density fitting.",
+        "Hundrieser–Klatt–Munk (2021) abstract addresses circle optimal-transport statistics, not squared density error."
+      ],
+      "reasoning": "The closest broad frameworks operate with Wasserstein or sample-based bandwidth risks, not the fixed-target density L2 projection. General Fourier expansions of the two kernel families alone do not imply the unique erfcx optimum or sharp comparison with moment matching.",
+      "searches": [
+        "von Mises circular kernel approximation of Poisson wrapped Cauchy in L2 high concentration, unique Gamma convergence optimizer",
+        "optimal squared L2 distance wrapped Cauchy von Mises distribution kappa concentration error asymptotic",
+        "minimum integrated squared error fit von Mises to wrapped Cauchy kernel"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2105.13199 (relevant full-text sections)",
+      "https://doi.org/10.1007/s11222-024-10384-x (relevant full-text sections)",
+      "https://arxiv.org/abs/2103.15426 (abstract only)",
+      "https://doi.org/10.1007/s41884-026-00214-6 (relevant accessible sections)",
+      "Indexed mathematical-record searches for exact constants, aliases, broad implication, and equivalent scale fitting",
+      "Prior mathematical claims assessed for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously recorded heat-to-Poisson theorem concerns fixed Gaussian heat target and variable Poisson family; its boundary optimizer is c=1.077742... in a distinct variable and normalization.",
+        "A previously recorded directional-KL mixture theorem uses asymmetric KL on equiangular Poisson mixtures; its objective is not squared L2 and its approximation family is Poisson.",
+        "A published finding, *Optimal positive circular convolution kernels and the killed-Cauchy spectral limit*, treats positive trigonometric convolution operators and Lipschitz worst-case error, not von Mises calibration."
+      ],
+      "reasoning": "Swapping fixed Gaussian and fitted Cauchy to fixed Cauchy and fitted Gaussian introduces a scale-dependent prefactor into squared L2 loss. Thus minimizing one is not a corollary of minimizing the other; neither determines the present scale 0.5177197 or the factor-14.17 moment-matching penalty. A restricted parametric best fit is not implied by unrelated circular interpolation or kernel-estimation theorems.",
+      "searches": [
+        "heat-to-Poisson L2, Poisson equal-mixture compression, directional KL projection",
+        "heat-to-Poisson calibration versus Cauchy-to-Gaussian reciprocal fit",
+        "optimal positive circular convolution kernels and the killed-Cauchy spectral limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No result found stating the specified mean-one Poisson-to-von-Mises L2 optimization or constant; top retrieved indexed mathematical findings concern Cauchy-mixture quadrature, positive circular convolution, and Gaussian-sketch errors.",
+        "Lewis 2021 §§1,4 compares related circular laws in Wasserstein rather than squared density L2."
+      ],
+      "reasoning": "Uniform circular Poisson and wrapped Cauchy are the same mean-one kernel up to Haar normalization; a concentrated von-Mises kernel rescales to a Gaussian. Searches included both these aliases and the corresponding real-line Cauchy-to-Gaussian best-fit problem. The identified comparisons do not assert the same minimization.",
+      "searches": [
+        "optimal L2 approximation of circular Poisson wrapped Cauchy density by von Mises distribution high concentration Gaussian Cauchy universal constant",
+        "least-squares fit of Cauchy density by Gaussian scale, unique minimizing width, complementary error function",
+        "L2 projection Cauchy distribution Gaussian density optimal scale least squares erfc",
+        "von Mises wrapped Cauchy L2 distance optimal concentration asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed table or mathematical record was recovered containing the constant 0.517719742233 or 0.0705689390522 for this specified approximation.",
+        "Numerical constants are independently reproducible as the unique root of a Laplace-monotone special-function equation in RESULT.md."
+      ],
+      "reasoning": "A failed match is not proof of novelty, but these exact constant, alias, and profile searches found no dominating table. Related Cauchy/Gaussian mentions concerned unrelated stochastic estimators.",
+      "searches": [
+        "Gaussian least-squares approximation to Lorentzian Cauchy line density, optimal variance erfcx unique parameter 0.517719742",
+        "sharp Gaussian Cauchy scale fit complementary error function universal 0.070568939",
+        "Gaussian approximation Cauchy density integrated squared difference minimization variance"
+      ]
+    },
+    "rationale": "The exact high-concentration L2 scale law for deterministic Poisson-to-von-Mises fitting, including the unique erfcx optimizer and factor-14.17 failure of first-moment matching, is not implied by the inspected Stein/Wasserstein, circular KDE bandwidth, transport, or heat-to-Poisson results. Searched both indexed mathematical records and public primary literature by equivalent formulations; novelty remains best-knowledge, not historical certification.",
+    "residual_risks": [
+      "Other historical Gaussian-to-Cauchy L2 fitting studies may be unindexed or inaccessible; search failure is not proof of priority.",
+      "The 2026 Wasserstein projection paper was not inspected in every appendix; the retrieved objective is different, but historical completeness is not certified.",
+      "An earlier heat-to-Poisson problem uses the same two limiting profile shapes with a nonconstant scale prefactor; the direction of optimization is substantively different but adjacent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact L2 projection or the erfcx asymptotic; different Wasserstein comparison objective",
+        "evidence": [
+          "Lewis (2021) §1.2 and Examples 4.6–4.8 analyze Stein/Wasserstein comparisons; the final discussion emphasizes convergence bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.13199",
+        "material_read": "HTML full-text introduction §§1,4 and examples 4.6–4.8 and discussion (§5), including formulas for distributions and Wasserstein bounds",
+        "method": "Read arXiv full HTML at publication page, relevant sections and final discussion",
+        "title": "Stein's Method for Probability Distributions on S^1",
+        "trigger": "First-public motivating 2021 source comparing circular von-Mises, wrapped-normal, and wrapped-Cauchy densities"
+      },
+      {
+        "assessment": "NOT_COVERING direct fitting of a fixed Poisson density by one von-Mises density",
+        "evidence": [
+          "Ameijeiras-Alonso (2024), §2 Eq. (1) defines sample-based kernel density estimation; §3 minimizes AMISE, and §§5.1–5.2 compare standard circular kernel choices."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11222-024-10384-x",
+        "material_read": "Accessible full-text HTML §1–3 and §5.1–5.3, including circular KDE estimator and AMISE formulas",
+        "method": "Read published open-access article section text and displayed kernel formulas",
+        "title": "A reliable data-based smoothing parameter selection method for circular kernel estimation",
+        "trigger": "2024 study of circular von-Mises and wrapped-Cauchy kernels and optimal bandwidths"
+      },
+      {
+        "assessment": "Abstract indicates optimal-transport statistics, not the stated density L2 fit; limited inspection leaves residual risk",
+        "evidence": [
+          "Hundrieser–Klatt–Munk (2021) abstract states circular OT CLT and empirical transport inference."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.15426",
+        "material_read": "Abstract and bibliographic record only; no claim to full-paper exclusion",
+        "method": "Read publicly indexed abstract",
+        "title": "The Statistics of Circular Optimal Transport",
+        "trigger": "Related 2021 circular comparison framework with von-Mises and wrapped-Cauchy examples"
+      },
+      {
+        "assessment": "The objective is Wasserstein distance and statistical projection, not direct density squared L2; priority risk remains bounded by the missing full comparison",
+        "evidence": [
+          "The accessible study defines Wasserstein projection estimators and compares von-Mises and wrapped-Cauchy fits under model misspecification."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s41884-026-00214-6",
+        "material_read": "Accessible article excerpts §§3.2 and 3.5 concerning Wasserstein parametric projection and model misspecification; not a full-paper exclusion",
+        "method": "Read retrieved publisher sections",
+        "title": "Wasserstein projection estimators for circular distributions",
+        "trigger": "Potentially stronger framework directly considering parametric projections in both circular families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "03261bdf-0bda-43cc-93b6-5eaa1f844c45",
+  "value": {
+    "rationale": "For the natural task of replacing a Poisson circular smoother by one von-Mises smoother, the exact sharp concentrated-limit fitting scale differs by an entire power of 1-r from canonical moment matching. A universal, uniquely characterized Cauchy–Gaussian constant gives the exact 14.17054-fold asymptotic squared-error penalty for moment matching. This supplies a motivated parameter-calibration boundary useful when substituting circular smoothing families, rather than a routine numerical slice.",
+    "status": "PASS"
+  }
+}
